@@ -25,7 +25,6 @@ FORWARD ME_0C1AC065B2F7
  : ValueType WL 'ME_4FFC30A800DF' '4683F37902CF.pas.ms.script' // TvcmFormDescriptor
  ;
  CONST "AutoInc" false
- CONST "UseNewGen" 'undefined'
  CONST "forced type" 'none'
  CONST "is define" false
  CONST extprop:pas:Value '(rFormID : (rName : ''enPostingsList''; rID : 0); rFactory : nil)'
@@ -47,13 +46,11 @@ ref; // ME_E8BE4F981A7C fm_enPostingsList
    Seq: ( ME_E8BE4F981A7C // fm_enPostingsList
  )
  ; // Attributes
- CONST "UseNewGen" 'undefined'
  CONST "spell names" false
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
 
 ref; // ME_0C1AC065B2F7 PostingsListIDs
 
@@ -72,13 +69,12 @@ ref; // ME_0C1AC065B2F7 PostingsListIDs
    Seq: ( ME_0C1AC065B2F7 // PostingsListIDs
  )
  ; // Constants
- CONST "UseNewGen" 'undefined'
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
  CONST extprop:pas:TypeName 'PostingsListFormDef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_4BD98AA402AC PostingsList
 
@@ -95,7 +91,6 @@ FORWARD ME_90CA7495E0C6
  CONST Abstraction at_final
  : Parent ME_90CA7495E0C6 // Tkw_Form_PostingsList_ID
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_DEC05511C4EF Ini_Reg
 
@@ -107,7 +102,6 @@ ref; // ME_DEC05511C4EF Ini_Reg
  : Implementor ME_90CA7495E0C6 // Tkw_Form_PostingsList_ID
  ;
  CONST OpKind opkind_Overridden
- CONST "UseNewGen" 'undefined'
 ref; // ME_4DB0614603C8_ME_90CA7495E0C6 GetWordNameForRegister
 
 : ME_4DDFD2EA0116_ME_90CA7495E0C6
@@ -118,7 +112,6 @@ ref; // ME_4DB0614603C8_ME_90CA7495E0C6 GetWordNameForRegister
  : Implementor ME_90CA7495E0C6 // Tkw_Form_PostingsList_ID
  ;
  CONST OpKind opkind_Overridden
- CONST "UseNewGen" 'undefined'
 ref; // ME_4DDFD2EA0116_ME_90CA7495E0C6 GetString
 
 : ME_90CA7495E0C6
@@ -147,7 +140,6 @@ ref; // ME_4DDFD2EA0116_ME_90CA7495E0C6 GetString
  )
  ; // Overridden
  CONST "NameForScript" 'форма::PostingsList'
- CONST "UseNewGen" 'undefined'
  CONST "ifndef" 'NoScripts'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
@@ -157,7 +149,8 @@ ref; // ME_4DDFD2EA0116_ME_90CA7495E0C6 GetString
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName '_Form_PostingsList_ID'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_90CA7495E0C6 Tkw_Form_PostingsList_ID
 
@@ -180,16 +173,8 @@ ref; // ME_90CA7495E0C6 Tkw_Form_PostingsList_ID
  WL 'ME_4F3E3F5F0160' '4F3E3F5F0160.pas.ms.script' // PrimitiveWords
  )
  ; // Depends
- CONST "UseNewGen" 'undefined'
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- Seq: (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PostingOrder_FormDefinitions_Controls.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
@@ -197,7 +182,6 @@ ref; // ME_90CA7495E0C6 Tkw_Form_PostingsList_ID
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4BD98A8C0110.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
  CONST extprop:pas:UnitName 'PostingOrder_FormDefinitions_Controls'
 
 ref; // ME_4BD98A8C0110 FormDefinitions

@@ -76,7 +76,7 @@ type
     const anAdapterFilters: InsAdapterFilters); override;
    function MakeContextFilterParams: Il3ContextFilterParams; override;
   public
-   constructor Create; reintroduce;
+   constructor Create; reintroduce; { can raise EPromptTreeNotFound }
    class function Make: Il3SimpleTree;
     {* Создаёт дерево подсказок }
  end;//TnsBaseSearchPromptTreeBase
@@ -263,7 +263,7 @@ begin
 //#UC END# *4A60B23E00C3_52B1DD5901CE_impl*
 end;//TnsBaseSearchPromptRoot.COMQueryInterface
 
-constructor TnsBaseSearchPromptTreeBase.Create;
+constructor TnsBaseSearchPromptTreeBase.Create; { can raise EPromptTreeNotFound }
 //#UC START# *4906D20B0185_4906D1790319_var*
 var
  l_Node : INodeBase;

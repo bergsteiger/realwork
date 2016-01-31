@@ -82,6 +82,7 @@ uses
  , ListUserTypes_lftSimilarDocumentsSynchroView_UserType
  , ListUserTypes_lftCorrespondentsSynchroForm_UserType
  , ListUserTypes_lftRToPart_UserType
+ , bsInterfaces
  , l3ProtoObject
 ;
 
@@ -160,28 +161,61 @@ type
     aCount: Cardinal); virtual;
  end;//TnsViewSameDocumentsEvent
 
+ TPrimListFormStateOption = (
+  lfoContextFilterState
+  , lfoTopItemIndex
+  , lfoTreeStructState
+  , lfoInner
+ );//TPrimListFormStateOption
+
+ TPrimListFormStateOptions = set of TPrimListFormStateOption;
+
  IPrimListFormState = interface(IvcmBase)
   ['{05608760-BE05-4CBD-B87E-A50CB768DCA8}']
   function pm_GetInnerState: IvcmBase;
   function pm_GetContextFilterState: IUnknown;
+  function pm_GetTreeStructState: InsTreeStructState;
+  function pm_GetTopItemIndex: Integer;
+  function pm_GetOptions: TPrimListFormStateOptions;
   property InnerState: IvcmBase
    read pm_GetInnerState;
   property ContextFilterState: IUnknown
    read pm_GetContextFilterState;
+  property TreeStructState: InsTreeStructState
+   read pm_GetTreeStructState;
+  property TopItemIndex: Integer
+   read pm_GetTopItemIndex;
+  property Options: TPrimListFormStateOptions
+   read pm_GetOptions;
  end;//IPrimListFormState
 
- TPrimListFormState = class(Tl3ProtoObject, IPrimListFormState)
+ _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
+ {$Include afwApplicationDataUpdate.imp.pas}
+ TPrimListFormState = class(_afwApplicationDataUpdate_, IPrimListFormState)
   private
    f_InnerState: IvcmBase;
    f_ContextFilterState: IUnknown;
+   f_TreeStructState: InsTreeStructState;
+   f_TopItemIndex: Integer;
+   f_Options: TPrimListFormStateOptions;
   protected
    function pm_GetInnerState: IvcmBase;
    function pm_GetContextFilterState: IUnknown;
+   function pm_GetTreeStructState: InsTreeStructState;
+   function pm_GetTopItemIndex: Integer;
+   function pm_GetOptions: TPrimListFormStateOptions;
+   procedure FinishDataUpdate; override;
   public
    constructor Create(const aInnerState: IvcmBase;
-    const aContextFilterState: IUnknown); reintroduce;
+    const aContextFilterState: IUnknown;
+    const aTreeStructState: InsTreeStructState;
+    aTopItemIndex: Integer;
+    aOptions: TPrimListFormStateOptions); reintroduce;
    class function Make(const aInnerState: IvcmBase;
-    const aContextFilterState: IUnknown): IPrimListFormState; reintroduce;
+    const aContextFilterState: IUnknown;
+    const aTreeStructState: InsTreeStructState;
+    aTopItemIndex: Integer;
+    aOptions: TPrimListFormStateOptions): IPrimListFormState; reintroduce;
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; override;
     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
@@ -804,8 +838,13 @@ begin
 //#UC END# *4B0CF288004C_4B0CF2510084_impl*
 end;//TnsViewSameDocumentsEvent.Log
 
+{$Include afwApplicationDataUpdate.imp.pas}
+
 constructor TPrimListFormState.Create(const aInnerState: IvcmBase;
- const aContextFilterState: IUnknown);
+ const aContextFilterState: IUnknown;
+ const aTreeStructState: InsTreeStructState;
+ aTopItemIndex: Integer;
+ aOptions: TPrimListFormStateOptions);
 //#UC START# *5677BAD7012E_5677B9280204_var*
 //#UC END# *5677BAD7012E_5677B9280204_var*
 begin
@@ -820,11 +859,14 @@ begin
 end;//TPrimListFormState.Create
 
 class function TPrimListFormState.Make(const aInnerState: IvcmBase;
- const aContextFilterState: IUnknown): IPrimListFormState;
+ const aContextFilterState: IUnknown;
+ const aTreeStructState: InsTreeStructState;
+ aTopItemIndex: Integer;
+ aOptions: TPrimListFormStateOptions): IPrimListFormState;
 var
  l_Inst : TPrimListFormState;
 begin
- l_Inst := Create(aInnerState, aContextFilterState);
+ l_Inst := Create(aInnerState, aContextFilterState, aTreeStructState, aTopItemIndex, aOptions);
  try
   Result := l_Inst;
  finally
@@ -850,6 +892,33 @@ begin
 //#UC END# *5677BA5B0133_5677B9280204get_impl*
 end;//TPrimListFormState.pm_GetContextFilterState
 
+function TPrimListFormState.pm_GetTreeStructState: InsTreeStructState;
+//#UC START# *56A8ADEE0129_5677B9280204get_var*
+//#UC END# *56A8ADEE0129_5677B9280204get_var*
+begin
+//#UC START# *56A8ADEE0129_5677B9280204get_impl*
+ Result := f_TreeStructState; 
+//#UC END# *56A8ADEE0129_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetTreeStructState
+
+function TPrimListFormState.pm_GetTopItemIndex: Integer;
+//#UC START# *56A9C9980259_5677B9280204get_var*
+//#UC END# *56A9C9980259_5677B9280204get_var*
+begin
+//#UC START# *56A9C9980259_5677B9280204get_impl*
+ Result := f_TopItemIndex;
+//#UC END# *56A9C9980259_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetTopItemIndex
+
+function TPrimListFormState.pm_GetOptions: TPrimListFormStateOptions;
+//#UC START# *56A9DE4C03A0_5677B9280204get_var*
+//#UC END# *56A9DE4C03A0_5677B9280204get_var*
+begin
+//#UC START# *56A9DE4C03A0_5677B9280204get_impl*
+ Result := f_Options;
+//#UC END# *56A9DE4C03A0_5677B9280204get_impl*
+end;//TPrimListFormState.pm_GetOptions
+
 function TPrimListFormState.QueryInterface(const IID: TGUID;
  out Obj): HResult;
  {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
@@ -860,6 +929,16 @@ begin
  Result := inherited QueryInterface(IID, Obj);
 //#UC END# *47A0AD3A01F7_5677B9280204_impl*
 end;//TPrimListFormState.QueryInterface
+
+procedure TPrimListFormState.FinishDataUpdate;
+//#UC START# *47EA4E9002C6_5677B9280204_var*
+//#UC END# *47EA4E9002C6_5677B9280204_var*
+begin
+//#UC START# *47EA4E9002C6_5677B9280204_impl*
+ f_Options := [];
+ f_TreeStructState := nil;
+//#UC END# *47EA4E9002C6_5677B9280204_impl*
+end;//TPrimListFormState.FinishDataUpdate
 
 {$Include ListUserTypes.imp.pas}
 

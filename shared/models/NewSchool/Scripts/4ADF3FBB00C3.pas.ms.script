@@ -18,7 +18,6 @@ FORWARD ME_499032AE00A0
  ;
  : Target WL 'ME_47BECCE501B5' '47BECCB801BE.pas.ms.script' // Prime
  ;
- CONST "UseNewGen" 'undefined'
  CONST "pm" true
 
 ref; // ME_499032D40064 Data
@@ -39,12 +38,12 @@ ref; // ME_499032D40064 Data
    Seq: ( ME_499032D40064 // Data
  )
  ; // Attributes
- CONST "UseNewGen" 'undefined'
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
+ CONST extprop:rc:SelfName 'PrimeNode'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_499032AE00A0 InsPrimeNode
 
@@ -65,18 +64,10 @@ ref; // ME_499032AE00A0 InsPrimeNode
    Seq: ( WL 'ME_47BECCB801BE' '47BECCB801BE.pas.ms.script' // Prime
  )
  ; // Depends
- CONST "UseNewGen" 'undefined'
  CONST "author" 'Ëþëèí À.Â.'
  CONST "is namespace" true
  CONST "no hands" true
  CONST "started" '21.10.2009 21:07'
- : Generators
- Seq: (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimeDomainInterfaces.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
@@ -84,6 +75,5 @@ ref; // ME_499032AE00A0 InsPrimeNode
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4ADF3FBB00C3.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\View'
 
 ref; // ME_4ADF3FBB00C3 PrimeDomainInterfaces

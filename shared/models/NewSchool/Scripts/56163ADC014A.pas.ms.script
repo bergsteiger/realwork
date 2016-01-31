@@ -20,7 +20,6 @@ FORWARD ME_56163BDB00E3
  ;
  : Target WL 'ME_496B51A10197' '4A9F98B901A5.pas.ms.script' // InsSearchWindow
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_56163BF202A4 ItemType
 
@@ -46,7 +45,6 @@ ref; // ME_56163BF202A4 ItemType
    Seq: ( ME_56163BF202A4 // ItemType
  )
  ; // Attributes
- CONST "UseNewGen" 'undefined'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -55,7 +53,8 @@ ref; // ME_56163BF202A4 ItemType
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:rc:SelfName 'SearchWindowList'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_56163BDB00E3 TnsSearchWindowList
 
@@ -70,7 +69,6 @@ ref; // ME_56163BDB00E3 TnsSearchWindowList
  ;
  : Target ME_56163BDB00E3 // TnsSearchWindowList
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_56163C03002F f_List
 
@@ -83,7 +81,6 @@ FORWARD ME_56163C39024C
  : Stereotype st_in ;
  : Target WL 'ME_496B51A10197' '4A9F98B901A5.pas.ms.script' // InsSearchWindow
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_56163C510368 aListener
 
@@ -99,7 +96,6 @@ ref; // ME_56163C510368 aListener
    Seq: ( ME_56163C510368 // aListener
  )
  ; // Parameters
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_56163C480195 DoIt
 
@@ -117,7 +113,6 @@ ref; // ME_56163C480195 DoIt
    Seq: ( ME_56163C480195 // DoIt
  )
  ; // Operations
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_56163C39024C Subscribe
 
@@ -131,7 +126,6 @@ FORWARD ME_56163C5903DB
  : Stereotype st_in ;
  : Target WL 'ME_496B51A10197' '4A9F98B901A5.pas.ms.script' // InsSearchWindow
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_D7A99370F057 aListener
 
@@ -148,7 +142,6 @@ ref; // ME_D7A99370F057 aListener
    Seq: ( ME_D7A99370F057 // aListener
  )
  ; // Parameters
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_F27693D1C4F8 DoIt
 
@@ -170,7 +163,6 @@ ref; // ME_F27693D1C4F8 DoIt
    Seq: ( ME_F27693D1C4F8 // DoIt
  )
  ; // Operations
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_56163C5903DB Unsubscribe
 
@@ -186,7 +178,6 @@ FORWARD ME_56163C8A0267
  CONST Abstraction at_final
  : Parent ME_56163C8A0267 // CheckFindEnabled
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_33EF1F1F0FC4 DoIt
 
@@ -204,7 +195,6 @@ ref; // ME_33EF1F1F0FC4 DoIt
    Seq: ( ME_33EF1F1F0FC4 // DoIt
  )
  ; // Operations
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_56163C8A0267 CheckFindEnabled
 
@@ -221,7 +211,6 @@ ref; // ME_56163C8A0267 CheckFindEnabled
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
- CONST "UseNewGen" 'undefined'
  CONST extprop:pas:Value false
 
 ref; // ME_DAE3DE5065C4 Exists
@@ -234,7 +223,6 @@ ref; // ME_DAE3DE5065C4 Exists
  : Implementor ME_56163B0902D7 // TnsSearchWindowManager
  ;
  CONST OpKind opkind_Overridden
- CONST "UseNewGen" 'undefined'
 ref; // ME_479731C50290_ME_56163B0902D7 Cleanup
 
 : ME_56163B0902D7
@@ -270,23 +258,18 @@ ref; // ME_479731C50290_ME_56163B0902D7 Cleanup
    Seq: ( ME_56163BDB00E3 // TnsSearchWindowList
  )
  ; // Children
- CONST "UseNewGen" 'undefined'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsSearchWindowManager.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
+ CONST extprop:rc:SelfName 'SearchWindowManager'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'nsSearchWindowManager'
 
 ref; // ME_56163B0902D7 TnsSearchWindowManager
@@ -310,19 +293,11 @@ ref; // ME_56163B0902D7 TnsSearchWindowManager
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
- CONST "UseNewGen" 'undefined'
- : Generators
- Seq: (
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Search'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\56163ADC014A.pas.ms.script'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\56163ADC014A.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Search'
 
 ref; // ME_56163ADC014A BaseSearchUtils

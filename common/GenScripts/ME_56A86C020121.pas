@@ -66,7 +66,9 @@ constructor TcaDataProviderFactory.Create(aHTFactory: ThtDataProviderFactory;
 //#UC END# *56AB24FB0037_56A86C020121_var*
 begin
 //#UC START# *56AB24FB0037_56A86C020121_impl*
- !!! Needs to be implemented !!!
+ inherited Create;
+ aHTFactory.SetRefTo(f_HTFactory);
+ aPGFactory.SetRefTo(f_PGFactory);
 //#UC END# *56AB24FB0037_56A86C020121_impl*
 end;//TcaDataProviderFactory.Create
 
@@ -84,6 +86,9 @@ function TcaDataProviderFactory.MakeFromConfig: TdaDataProviderParams;
 //#UC END# *54FEB57302B0_56A86C020121_var*
 begin
 //#UC START# *54FEB57302B0_56A86C020121_impl*
+// Result := TcaDataProviderParams.Create;
+// LoadCommonParams(Result);
+
  Result := nil;
  Assert(False);
 //!! !!! Needs to be implemented !!!
@@ -184,7 +189,9 @@ procedure TcaDataProviderFactory.Cleanup;
 //#UC END# *479731C50290_56A86C020121_var*
 begin
 //#UC START# *479731C50290_56A86C020121_impl*
- !!! Needs to be implemented !!!
+ FreeAndNil(f_HTFactory);
+ FreeAndNil(f_PGFactory);
+ inherited;
 //#UC END# *479731C50290_56A86C020121_impl*
 end;//TcaDataProviderFactory.Cleanup
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)

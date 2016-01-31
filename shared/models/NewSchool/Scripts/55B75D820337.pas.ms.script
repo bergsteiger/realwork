@@ -6,6 +6,8 @@ FORWARD ME_55B75D820337
 
 FORWARD ME_55B75D980276
 
+FORWARD ME_55B75DC003BF
+
 FORWARD ME_66D69322DA0D
 
 : ME_BEA3EEE5146A
@@ -143,12 +145,15 @@ ref; // ME_559687E6025A_ME_66D69322DA0D GetAllParamsCount
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
  CONST extprop:pas:TypeName 'TkwLoggingStartListening'
  CONST extprop:rc:SelfName 'LoggingStartListening'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B75DC003BF // logging_StartListening
+ ;
 
 ref; // ME_66D69322DA0D logging_StartListening
+
+FORWARD ME_55B75DD7013D
 
 FORWARD ME_961A18770456
 
@@ -287,12 +292,15 @@ ref; // ME_559687E6025A_ME_961A18770456 GetAllParamsCount
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
  CONST extprop:pas:TypeName 'TkwLoggingFinishListening'
  CONST extprop:rc:SelfName 'LoggingFinishListening'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B75DD7013D // logging_FinishListening
+ ;
 
 ref; // ME_961A18770456 logging_FinishListening
+
+FORWARD ME_55B75E0E039F
 
 FORWARD ME_4FDD3D4A4771
 
@@ -473,10 +481,11 @@ ref; // ME_5617F4D00243_ME_4FDD3D4A4771 ParamsTypes
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
  CONST extprop:pas:TypeName 'TkwLoggingGetLogRecords'
  CONST extprop:rc:SelfName 'LoggingGetLogRecords'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_55B75E0E039F // logging_GetLogRecords
+ ;
 
 ref; // ME_4FDD3D4A4771 logging_GetLogRecords
 
@@ -489,6 +498,8 @@ ref; // ME_4FDD3D4A4771 logging_GetLogRecords
  CONST Abstraction at_final
  : Parent ME_55B75D980276 // LoggingWordsPack
  ;
+ : Speller ME_66D69322DA0D // logging_StartListening
+ ;
 
 ref; // ME_55B75DC003BF logging_StartListening
 
@@ -500,6 +511,8 @@ ref; // ME_55B75DC003BF logging_StartListening
  CONST Visibility PublicAccess
  CONST Abstraction at_final
  : Parent ME_55B75D980276 // LoggingWordsPack
+ ;
+ : Speller ME_961A18770456 // logging_FinishListening
  ;
 
 ref; // ME_55B75DD7013D logging_FinishListening
@@ -514,6 +527,8 @@ ref; // ME_55B75DD7013D logging_FinishListening
  : Parent ME_55B75D980276 // LoggingWordsPack
  ;
  : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+ : Speller ME_4FDD3D4A4771 // logging_GetLogRecords
  ;
 
 ref; // ME_55B75E0E039F logging_GetLogRecords
@@ -633,17 +648,11 @@ ref; // ME_AEDD7F920897
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWordsPack.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
 
 ref; // ME_55B75D980276 LoggingWordsPack
 
@@ -672,18 +681,11 @@ ref; // ME_55B75D980276 LoggingWordsPack
  )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- Seq: (
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Logging'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\55B75D820337.pas.ms.script'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\55B75D820337.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\Logging'
 
 ref; // ME_55B75D820337 LoggingWords

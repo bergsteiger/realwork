@@ -13,6 +13,7 @@ uses
  l3IntfUses
  , AdminInterfaces
  , l3Interfaces
+ , AdminDomainInterfaces
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -34,9 +35,9 @@ type
    f_NeedForbid: Boolean;
   protected
    function pm_GetPhone: Il3CString;
-   procedure pm_SetPhone(const aValue: Il3CString);
+   procedure pm_SetPhone(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
    function pm_GetEmail: Il3CString;
-   procedure pm_SetEmail(const aValue: Il3CString);
+   procedure pm_SetEmail(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
    function Get_NeedForbid: Boolean;
    procedure Set_NeedForbid(aValue: Boolean);
    procedure InitFields; override;
@@ -71,7 +72,7 @@ begin
 //#UC END# *491D96B9006E_491D9D81001Dget_impl*
 end;//TdsForbidAutoregistration.pm_GetPhone
 
-procedure TdsForbidAutoregistration.pm_SetPhone(const aValue: Il3CString);
+procedure TdsForbidAutoregistration.pm_SetPhone(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
 //#UC START# *491D96B9006E_491D9D81001Dset_var*
 //#UC END# *491D96B9006E_491D9D81001Dset_var*
 begin
@@ -91,7 +92,7 @@ begin
 //#UC END# *491D96D0039F_491D9D81001Dget_impl*
 end;//TdsForbidAutoregistration.pm_GetEmail
 
-procedure TdsForbidAutoregistration.pm_SetEmail(const aValue: Il3CString);
+procedure TdsForbidAutoregistration.pm_SetEmail(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
 //#UC START# *491D96D0039F_491D9D81001Dset_var*
 //#UC END# *491D96D0039F_491D9D81001Dset_var*
 begin

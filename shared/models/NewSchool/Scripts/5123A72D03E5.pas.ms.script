@@ -22,12 +22,12 @@ FORWARD ME_5123A74700E2
    Seq: ( ME_5123A74700E2 // AdminTest
  )
  ; // Inherits
- CONST "UseNewGen" 'undefined'
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST extprop:rc:SelfName 'ApplicationRef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_7368BD68B67A TvcmApplicationRef
 
@@ -41,7 +41,6 @@ FORWARD ME_5123A75E00D5
  ;
  : Target ME_5123A75E00D5 // toKAdmin
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_5123A769004F 
 
@@ -53,7 +52,6 @@ ref; // ME_5123A769004F
  : Implementor ME_5123A74700E2 // AdminTest
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
  CONST "is static" true
 ref; // ME_4F79BCC902C5_ME_5123A74700E2 CalcBatchMode
 
@@ -87,23 +85,18 @@ ref; // ME_4F79BCC902C5_ME_5123A74700E2 CalcBatchMode
    Seq: ( ME_5123A769004F // 
  )
  ; // Dependencies
- CONST "UseNewGen" 'undefined'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminTestRes.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST extprop:pas:TypeName 'TAdminTestRes'
+ CONST extprop:rc:SelfName 'AdminTestRes'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'AdminTestRes'
 
 ref; // ME_5123A74700E2 AdminTest
@@ -116,7 +109,6 @@ ref; // ME_5123A74700E2 AdminTest
  : Implementor ME_5123A75E00D5 // toKAdmin
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7AB0B6016E_ME_5123A75E00D5 CommandLineKey
 
 : ME_4B7C0B43005B_ME_5123A75E00D5
@@ -127,7 +119,6 @@ ref; // ME_4B7AB0B6016E_ME_5123A75E00D5 CommandLineKey
  : Implementor ME_5123A75E00D5 // toKAdmin
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7C0B43005B_ME_5123A75E00D5 TimesPage
 
 : ME_4B7C0B670215_ME_5123A75E00D5
@@ -138,7 +129,6 @@ ref; // ME_4B7C0B43005B_ME_5123A75E00D5 TimesPage
  : Implementor ME_5123A75E00D5 // toKAdmin
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7C0B670215_ME_5123A75E00D5 ResultsPage
 
 : ME_5123A75E00D5
@@ -161,24 +151,19 @@ ref; // ME_4B7C0B670215_ME_5123A75E00D5 ResultsPage
  ME_4B7C0B670215_ME_5123A75E00D5 // ResultsPage
  )
  ; // Implemented
- CONST "UseNewGen" 'undefined'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "needs script keywords documentation" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\toKAdmin.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST extprop:pas:TypeName 'TtoKAdmin'
+ CONST extprop:rc:SelfName 'toKAdmin'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5123A75E00D5 toKAdmin
 
@@ -214,19 +199,11 @@ ref; // ME_5123A75E00D5 toKAdmin
  )
  ; // Depends
  CONST "CONFIG_UC" false
- CONST "UseNewGen" 'undefined'
  CONST "console" false
  CONST "is insider test" false
  CONST "need UC in project" false
  CONST "no scripts" 'undefined'
  CONST "old format" false
- : Generators
- Seq: (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminAppTest.dpr'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
@@ -234,7 +211,6 @@ ref; // ME_5123A75E00D5 toKAdmin
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\5123A72D03E5.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST extprop:pas:UnitName 'AdminAppTest'
 
 ref; // ME_5123A72D03E5 Admin

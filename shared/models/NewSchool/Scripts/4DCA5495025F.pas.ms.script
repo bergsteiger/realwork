@@ -6,6 +6,8 @@ FORWARD ME_4DCA5495025F
 
 FORWARD ME_4DCA54B9020D
 
+FORWARD ME_556C08A80212
+
 FORWARD ME_3223F9BFFE72
 
 : ME_491D5EBF8FB2
@@ -195,12 +197,15 @@ ref; // ME_5617F4D00243_ME_3223F9BFFE72 ParamsTypes
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:pas:TypeName 'TkwBrowse'
  CONST extprop:rc:SelfName 'Browse'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_556C08A80212 // browse
+ ;
 
 ref; // ME_3223F9BFFE72 browse
+
+FORWARD ME_556C08EF0058
 
 FORWARD ME_5888E53B751F
 
@@ -381,10 +386,11 @@ ref; // ME_5617F4D00243_ME_5888E53B751F ParamsTypes
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:pas:TypeName 'TkwF1_WasBeep'
  CONST extprop:rc:SelfName 'F1_WasBeep'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_556C08EF0058 // f1__WasBeep
+ ;
 
 ref; // ME_5888E53B751F f1__WasBeep
 
@@ -411,6 +417,8 @@ ref; // ME_556C08B702C3 aStr
    Seq: ( ME_556C08B702C3 // aStr
  )
  ; // Parameters
+ : Speller ME_3223F9BFFE72 // browse
+ ;
 
 ref; // ME_556C08A80212 browse
 
@@ -424,6 +432,8 @@ ref; // ME_556C08A80212 browse
  : Parent ME_4DCA54B9020D // F1ShellWordsPack
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Speller ME_5888E53B751F // f1__WasBeep
  ;
 
 ref; // ME_556C08EF0058 f1__WasBeep
@@ -769,17 +779,11 @@ ref; // ME_DE0F050686F3
  CONST "no hands" true
  CONST "no_pop" 'undefined'
  CONST "started" '11.05.2011 13:20'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\F1ShellWordsPack.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
 
 ref; // ME_4DCA54B9020D F1ShellWordsPack
 
@@ -933,17 +937,11 @@ ref; // ME_4EB25DE00396_ME_4DCA5A94013D DoForm
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '11.05.2011 13:45'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwExTextFormWord.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'ExTextFormWord'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwExTextFormWord'
@@ -1044,17 +1042,11 @@ ref; // ME_4DB0614603C8_ME_4DECF7F4001F GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.06.2011 19:53'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwF1ImportConsultation.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'F1ImportConsultation'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwF1ImportConsultation'
@@ -1143,17 +1135,11 @@ ref; // ME_4DB0614603C8_ME_4E68C9020275 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '08.09.2011 17:54'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwConfigRestore.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'ConfigRestore'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwConfigRestore'
@@ -1266,17 +1252,11 @@ ref; // ME_4DB0614603C8_ME_4E68D33202D5 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '08.09.2011 18:38'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwStyleTableRestore.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'StyleTableRestore'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwStyleTableRestore'
@@ -1409,17 +1389,11 @@ ref; // ME_4EB25DE00396_ME_4EB25E1501E1 DoForm
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.11.2011 13:26'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffFormWord.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'DiffFormWord'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwDiffFormWord'
@@ -1450,7 +1424,6 @@ FORWARD ME_4EB2632A02DD
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'DiffFormHack'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -1569,17 +1542,11 @@ ref; // ME_4EB25F0701B5_ME_4EB2632A02DD DoDiffForm
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.11.2011 13:47'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorWord.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'DiffIteratorWord'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwDiffIteratorWord'
@@ -1653,17 +1620,11 @@ ref; // ME_4DB0614603C8_ME_4EB25F5F0340 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.11.2011 13:31'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorNext.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'DiffIteratorNext'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwDiffIteratorNext'
@@ -1737,17 +1698,11 @@ ref; // ME_4DB0614603C8_ME_4EB25F2501B3 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.11.2011 13:30'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorHasNext.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'DiffIteratorHasNext'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwDiffIteratorHasNext'
@@ -1821,17 +1776,11 @@ ref; // ME_4DB0614603C8_ME_4EB263890066 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.11.2011 13:49'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorHasPrev.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'DiffIteratorHasPrev'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwDiffIteratorHasPrev'
@@ -1905,17 +1854,11 @@ ref; // ME_4DB0614603C8_ME_4EB263BB0204 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '03.11.2011 13:50'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDiffIteratorPrev.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'DiffIteratorPrev'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwDiffIteratorPrev'
@@ -1990,17 +1933,11 @@ ref; // ME_4DB0614603C8_ME_4F183D860083 GetWordNameForRegister
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '19.01.2012 19^58'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwTextFormSetNeedShowIntranetWarning.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'TextFormSetNeedShowIntranetWarning'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwTextFormSetNeedShowIntranetWarning'
@@ -2029,7 +1966,6 @@ ref; // ME_4F183D860083 TkwTextFormSetNeedShowIntranetWarning
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'ExTextFormHack'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -2122,17 +2058,11 @@ ref; // ME_4DB0614603C8_ME_4F1942440116 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.01.2012 14:31'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwTextFormGetDocumentID.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'TextFormGetDocumentID'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwTextFormGetDocumentID'
@@ -2222,17 +2152,11 @@ ref; // ME_4DB0614603C8_ME_4F27EAF200E5 GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '31.01.2012 17:23'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwOpenSituationCard.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'OpenSituationCard'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwOpenSituationCard'
@@ -2322,17 +2246,11 @@ ref; // ME_4DB0614603C8_ME_4F27EB56012C GetWordNameForRegister
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '31.01.2012 17:24'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwOpenOldSituationCard.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'OpenOldSituationCard'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwOpenOldSituationCard'
@@ -2448,17 +2366,11 @@ ref; // ME_4EB25DE00396_ME_4F69AE35012F DoForm
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwQueryCardFormWord.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'QueryCardFormWord'
  CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'kwQueryCardFormWord'
@@ -2534,17 +2446,11 @@ ref; // ME_4DB0614603C8_ME_4F69AF3E01C0 GetWordNameForRegister
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwQueryCardSetCanSaveState.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:pas:TypeName 'TkwQueryCardSetCanSaveState'
  CONST extprop:rc:SelfName 'QueryCardSetCanSaveState'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2574,7 +2480,6 @@ ref; // ME_4F69AF3E01C0 QueryCard_SetCanSaveState
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:rc:SelfName 'ExTextFormHack'
  CONST extprop:rc:isAcceptableForScripts true
 
@@ -2648,17 +2553,11 @@ ref; // ME_4DB0614603C8_ME_500E876A0208 GetWordNameForRegister
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwDocumentLikeState.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:pas:TypeName 'TkwDocumentLikeState'
  CONST extprop:rc:SelfName 'DocumentLikeState'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2769,17 +2668,11 @@ ref; // ME_4DB0614603C8_ME_51AEF36002D1 GetWordNameForRegister
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwGetEncryptedComplectId.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:pas:TypeName 'TkwGetEncryptedComplectId'
  CONST extprop:rc:SelfName 'GetEncryptedComplectId'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2867,17 +2760,11 @@ ref; // ME_4DB0614603C8_ME_54294F2701D0 GetWordNameForRegister
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwOpenPrimeForm.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST extprop:pas:TypeName 'TkwOpenPrimeForm'
  CONST extprop:rc:SelfName 'OpenPrimeForm'
  CONST extprop:rc:isAcceptableForScripts true
@@ -2958,18 +2845,11 @@ ref; // ME_54294F2701D0 OpenPrimeForm
  )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- Seq: (
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\4DCA5495025F.pas.ms.script'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\4DCA5495025F.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words'
 
 ref; // ME_4DCA5495025F F1 Shell Words

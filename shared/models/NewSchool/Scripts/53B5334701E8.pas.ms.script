@@ -66,11 +66,12 @@ ref; // ME_55B7A3AF0359_ME_1FDB698BC58C ResName
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST extprop:rc:SelfName 'InterfacedNodeWordsPackResNameGetter'
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_1FDB698BC58C TInterfacedNodeWordsPackResNameGetter
+
+FORWARD ME_FC607A3EC90D
 
 FORWARD ME_81D0AC689E19
 
@@ -274,12 +275,15 @@ ref; // ME_5617F4D00243_ME_81D0AC689E19 ParamsTypes
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST extprop:pas:TypeName 'TkwFilterNodeAutoApplied'
  CONST extprop:rc:SelfName 'FilterNodeAutoApplied'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_FC607A3EC90D // AutoApplied
+ ;
 
 ref; // ME_81D0AC689E19 FilterNode_AutoApplied
+
+FORWARD ME_0B8C389F0B1C
 
 FORWARD ME_3EAB6B490CA4
 
@@ -483,12 +487,15 @@ ref; // ME_5617F4D00243_ME_3EAB6B490CA4 ParamsTypes
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST extprop:pas:TypeName 'TkwFilterNodeIsUsed'
  CONST extprop:rc:SelfName 'FilterNodeIsUsed'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_0B8C389F0B1C // IsUsed
+ ;
 
 ref; // ME_3EAB6B490CA4 FilterNode_IsUsed
+
+FORWARD ME_B12C875B9E52
 
 FORWARD ME_2F875C7C1CA3
 
@@ -692,12 +699,15 @@ ref; // ME_5617F4D00243_ME_2F875C7C1CA3 ParamsTypes
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST extprop:pas:TypeName 'TkwFilterNodeIsDeleted'
  CONST extprop:rc:SelfName 'FilterNodeIsDeleted'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_B12C875B9E52 // IsDeleted
+ ;
 
 ref; // ME_2F875C7C1CA3 FilterNode_IsDeleted
+
+FORWARD ME_CA5586C3178F
 
 FORWARD ME_008D699CFE74
 
@@ -901,10 +911,11 @@ ref; // ME_5617F4D00243_ME_008D699CFE74 ParamsTypes
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST extprop:pas:TypeName 'TkwFilterNodeIsChangeable'
  CONST extprop:rc:SelfName 'FilterNodeIsChangeable'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_CA5586C3178F // IsChangeable
+ ;
 
 ref; // ME_008D699CFE74 FilterNode_IsChangeable
 
@@ -987,6 +998,8 @@ ref; // ME_54F9DEE200D2 IsChangeable
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ : Speller ME_81D0AC689E19 // FilterNode_AutoApplied
+ ;
 
 ref; // ME_FC607A3EC90D AutoApplied
 
@@ -1005,6 +1018,8 @@ ref; // ME_FC607A3EC90D AutoApplied
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_3EAB6B490CA4 // FilterNode_IsUsed
+ ;
 
 ref; // ME_0B8C389F0B1C IsUsed
 
@@ -1023,6 +1038,8 @@ ref; // ME_0B8C389F0B1C IsUsed
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_2F875C7C1CA3 // FilterNode_IsDeleted
+ ;
 
 ref; // ME_B12C875B9E52 IsDeleted
 
@@ -1041,6 +1058,8 @@ ref; // ME_B12C875B9E52 IsDeleted
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" 'undefined'
+ : Speller ME_008D699CFE74 // FilterNode_IsChangeable
+ ;
 
 ref; // ME_CA5586C3178F IsChangeable
 
@@ -1261,19 +1280,11 @@ ref; // ME_4FD9E3F900B3_ME_53B533CE01B6 ID
  CONST "no class name" 'undefined'
  CONST "no hands" false
  CONST "no_pop" true
- : Generators
- Seq: (
- gen_intf.pas
- gen_rc.script.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\InterfacedNodeWordsPack.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1_Words\InterfacedNodeWordsPack.rc.script'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
 
 ref; // ME_53B533CE01B6 InterfacedNodeWordsPack
 
@@ -1304,18 +1315,11 @@ ref; // ME_53B533CE01B6 InterfacedNodeWordsPack
  )
  ; // Depends
  CONST "ifndef" 'NoScripts'
- : Generators
- Seq: (
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\53B5334701E8.pas.ms.script'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\53B5334701E8.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\F1_Words'
 
 ref; // ME_53B5334701E8 InterfacedNodeWords

@@ -22,12 +22,12 @@ FORWARD ME_5123800A0080
    Seq: ( ME_5123800A0080 // PrimeTest
  )
  ; // Inherits
- CONST "UseNewGen" 'undefined'
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ CONST extprop:rc:SelfName 'ApplicationRef'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_D6D853A9B048 TvcmApplicationRef
 
@@ -41,7 +41,6 @@ FORWARD ME_5123804E003E
  ;
  : Target ME_5123804E003E // toKPrime
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_51238055022E 
 
@@ -55,7 +54,6 @@ FORWARD ME_512388060314
  ;
  : Target ME_512388060314 // toKTPrime
  ;
- CONST "UseNewGen" 'undefined'
 
 ref; // ME_512388110096 
 
@@ -67,7 +65,6 @@ ref; // ME_512388110096
  : Implementor ME_5123800A0080 // PrimeTest
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
  CONST "is static" true
 ref; // ME_4F79BCC902C5_ME_5123800A0080 CalcBatchMode
 
@@ -102,23 +99,18 @@ ref; // ME_4F79BCC902C5_ME_5123800A0080 CalcBatchMode
  ME_512388110096 // 
  )
  ; // Dependencies
- CONST "UseNewGen" 'undefined'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimeTestRes.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST extprop:pas:TypeName 'TPrimeTestRes'
+ CONST extprop:rc:SelfName 'PrimeTestRes'
+ CONST extprop:rc:isAcceptableForScripts true
  CONST extprop:pas:UnitName 'PrimeTestRes'
 
 ref; // ME_5123800A0080 PrimeTest
@@ -131,7 +123,6 @@ ref; // ME_5123800A0080 PrimeTest
  : Implementor ME_5123804E003E // toKPrime
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7AB0B6016E_ME_5123804E003E CommandLineKey
 
 : ME_4B7C0B43005B_ME_5123804E003E
@@ -142,7 +133,6 @@ ref; // ME_4B7AB0B6016E_ME_5123804E003E CommandLineKey
  : Implementor ME_5123804E003E // toKPrime
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7C0B43005B_ME_5123804E003E TimesPage
 
 : ME_4B7C0B670215_ME_5123804E003E
@@ -153,7 +143,6 @@ ref; // ME_4B7C0B43005B_ME_5123804E003E TimesPage
  : Implementor ME_5123804E003E // toKPrime
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7C0B670215_ME_5123804E003E ResultsPage
 
 : ME_5123804E003E
@@ -176,24 +165,19 @@ ref; // ME_4B7C0B670215_ME_5123804E003E ResultsPage
  ME_4B7C0B670215_ME_5123804E003E // ResultsPage
  )
  ; // Implemented
- CONST "UseNewGen" 'undefined'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "needs script keywords documentation" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\toKPrime.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST extprop:pas:TypeName 'TtoKPrime'
+ CONST extprop:rc:SelfName 'toKPrime'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_5123804E003E toKPrime
 
@@ -205,7 +189,6 @@ ref; // ME_5123804E003E toKPrime
  : Implementor ME_512388060314 // toKTPrime
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7AB0B6016E_ME_512388060314 CommandLineKey
 
 : ME_4B7C0B43005B_ME_512388060314
@@ -216,7 +199,6 @@ ref; // ME_4B7AB0B6016E_ME_512388060314 CommandLineKey
  : Implementor ME_512388060314 // toKTPrime
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7C0B43005B_ME_512388060314 TimesPage
 
 : ME_4B7C0B670215_ME_512388060314
@@ -227,7 +209,6 @@ ref; // ME_4B7C0B43005B_ME_512388060314 TimesPage
  : Implementor ME_512388060314 // toKTPrime
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
 ref; // ME_4B7C0B670215_ME_512388060314 ResultsPage
 
 : ME_512388060314
@@ -250,24 +231,19 @@ ref; // ME_4B7C0B670215_ME_512388060314 ResultsPage
  ME_4B7C0B670215_ME_512388060314 // ResultsPage
  )
  ; // Implemented
- CONST "UseNewGen" 'undefined'
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "needs script keywords documentation" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- : Generators
- Seq: (
- gen_intf.pas
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\toKTPrime.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST extprop:pas:TypeName 'TtoKTPrime'
+ CONST extprop:rc:SelfName 'toKTPrime'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_512388060314 toKTPrime
 
@@ -304,19 +280,11 @@ ref; // ME_512388060314 toKTPrime
  )
  ; // Depends
  CONST "CONFIG_UC" false
- CONST "UseNewGen" 'undefined'
  CONST "console" false
  CONST "is insider test" false
  CONST "need UC in project" false
  CONST "no scripts" 'undefined'
  CONST "old format" false
- : Generators
- Seq: (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimeAppTest.dpr'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
@@ -324,7 +292,6 @@ ref; // ME_512388060314 toKTPrime
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\51237FE1009D.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
  CONST extprop:pas:UnitName 'PrimeAppTest'
 
 ref; // ME_51237FE1009D Prime

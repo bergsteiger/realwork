@@ -30,9 +30,9 @@ type
   {* Запрет авторегистрации }
   ['{3AD6F7F6-8949-4E2D-AB8D-390FC970D5A9}']
   function pm_GetPhone: Il3CString;
-  procedure pm_SetPhone(const aValue: Il3CString);
+  procedure pm_SetPhone(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
   function pm_GetEmail: Il3CString;
-  procedure pm_SetEmail(const aValue: Il3CString);
+  procedure pm_SetEmail(const aValue: Il3CString); { can raise EdsMaxLengthExceed }
   function Get_NeedForbid: Boolean;
   procedure Set_NeedForbid(aValue: Boolean);
   property Phone: Il3CString
@@ -345,8 +345,8 @@ type
   procedure SetConsultingPayment(const anList: IadminUserNodeList;
    IsAllowed: Boolean);
    {* Изменить возможность консалтинга для выделенных на дереве пользователей }
-  procedure LogoutUser(const aNode: Il3SimpleNode);
-  procedure LogoutUsers(const anList: IadminUserNodeList);
+  procedure LogoutUser(const aNode: Il3SimpleNode); { can raise ETryLogoutCurrentUser }
+  procedure LogoutUsers(const anList: IadminUserNodeList); { can raise ETryLogoutCurrentUser }
    {* Отключить выделенных на дереве пользователей, вернуть список нод которые не удалось отключить }
   procedure SetIsPrivileged(const aNode: Il3SimpleNode;
    IsPrivileged: Boolean);

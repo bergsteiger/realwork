@@ -76,8 +76,8 @@ type
    procedure SetConsultingPayment(const anList: IadminUserNodeList;
     IsAllowed: Boolean);
     {* Изменить возможность консалтинга для выделенных на дереве пользователей }
-   procedure LogoutUser(const aNode: Il3SimpleNode);
-   procedure LogoutUsers(const anList: IadminUserNodeList);
+   procedure LogoutUser(const aNode: Il3SimpleNode); { can raise ETryLogoutCurrentUser }
+   procedure LogoutUsers(const anList: IadminUserNodeList); { can raise ETryLogoutCurrentUser }
     {* Отключить выделенных на дереве пользователей, вернуть список нод которые не удалось отключить }
    procedure SetIsPrivileged(const aNode: Il3SimpleNode;
     IsPrivileged: Boolean);
@@ -457,7 +457,7 @@ begin
 //#UC END# *4931226101A3_493126130280_impl*
 end;//TsdsAdmin.SetConsultingPayment
 
-procedure TsdsAdmin.LogoutUser(const aNode: Il3SimpleNode);
+procedure TsdsAdmin.LogoutUser(const aNode: Il3SimpleNode); { can raise ETryLogoutCurrentUser }
 //#UC START# *493122770111_493126130280_var*
 var
  l_UserManager: IUserManager;
@@ -482,7 +482,7 @@ begin
 //#UC END# *493122770111_493126130280_impl*
 end;//TsdsAdmin.LogoutUser
 
-procedure TsdsAdmin.LogoutUsers(const anList: IadminUserNodeList);
+procedure TsdsAdmin.LogoutUsers(const anList: IadminUserNodeList); { can raise ETryLogoutCurrentUser }
  {* Отключить выделенных на дереве пользователей, вернуть список нод которые не удалось отключить }
 //#UC START# *4931229500C5_493126130280_var*
 var

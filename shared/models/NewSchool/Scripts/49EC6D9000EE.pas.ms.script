@@ -20,7 +20,6 @@ FORWARD ME_49EC6E080148
  ;
  : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
  ;
- CONST "UseNewGen" 'undefined'
  CONST "pm" false
 
 ref; // ME_49EDE45A02EB URL
@@ -41,12 +40,12 @@ ref; // ME_49EDE45A02EB URL
    Seq: ( ME_49EDE45A02EB // URL
  )
  ; // Attributes
- CONST "UseNewGen" 'undefined'
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InternetAgent'
+ CONST extprop:rc:SelfName 'dsInternetAgent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49EC6E080148 IdsInternetAgent
 
@@ -60,7 +59,6 @@ FORWARD ME_4A37A70E01DE
  : Implementor ME_4A37A70E01DE // MainViewArea
  ;
  CONST OpKind opkind_Implemented
- CONST "UseNewGen" 'undefined'
  CONST "pm" false
 ref; // ME_49EDE45A02EB_ME_4A37A70E01DE URL
 
@@ -83,7 +81,6 @@ ref; // ME_49EDE45A02EB_ME_4A37A70E01DE URL
  )
  ; // Implemented
  CONST "Need Has" 'undefined'
- CONST "UseNewGen" 'undefined'
  CONST "is reference" 'undefined'
  CONST "pm" true
  CONST "required" 'undefined'
@@ -91,7 +88,6 @@ ref; // ME_49EDE45A02EB_ME_4A37A70E01DE URL
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InternetAgent'
 
 ref; // ME_4A37A70E01DE MainViewArea
 
@@ -115,12 +111,12 @@ ref; // ME_4A37A70E01DE MainViewArea
    Seq: ( ME_49EC6E080148 // IdsInternetAgent
  )
  ; // Children
- CONST "UseNewGen" 'undefined'
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InternetAgent'
+ CONST extprop:rc:SelfName 'sdsInternetAgent'
+ CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_49EC6E2B0118 IsdsInternetAgent
 
@@ -142,16 +138,8 @@ ref; // ME_49EC6E2B0118 IsdsInternetAgent
    Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  )
  ; // Depends
- CONST "UseNewGen" 'undefined'
  CONST "is namespace" true
  CONST "no hands" false
- : Generators
- Seq: (
- gen_intf.pas
- gen_pas.script
- gen_pas.script.runner
- )
- ; // Generators
  CONST dfm:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InternetAgent\InternetAgentInterfaces.pas'
  CONST intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\InternetAgent'
@@ -159,6 +147,5 @@ ref; // ME_49EC6E2B0118 IsdsInternetAgent
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\49EC6D9000EE.pas.ms.script.runner'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
- CONST rc.script.pas:PathOnly '\garant6x\implementation\Garant\InternetAgent'
 
 ref; // ME_49EC6D9000EE InternetAgentInterfaces
