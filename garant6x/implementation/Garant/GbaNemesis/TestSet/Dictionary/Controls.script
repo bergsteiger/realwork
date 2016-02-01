@@ -46,3 +46,25 @@ PROCEDURE "Сравнить с эталоном, зажата ли кнопка на форме " STRING IN aButton OB
 PROCEDURE "Сравнить с эталоном активность контрола " OBJECT IN Ctrl
  [ 'Активность контрола: ' Ctrl pop:Control:Enabled ToPrintable ] strings:Cat .
 ;
+
+ARRAY FUNCTION "Экранные координаты контрола" STRING IN aCtrl
+ INTEGER VAR X
+ INTEGER VAR Y
+ OBJECT VAR CurrentControl
+ "Найти контрол {(aCtrl)} на форме {("Текущая активная вкладка")}" =: CurrentControl
+ "Померить ширину {(CurrentControl)}" >>> X
+ "Померить высоту {(CurrentControl)}" >>> Y
+ "Привести координаты {( @ X @ Y )} для контрола {(CurrentControl)} к экранным" 
+ [ 
+  X
+  Y
+ ]
+ >>> Result 
+; 
+
+PROCEDURE "Сравнить с эталоном экранные координаты контрола " STRING IN aCtrl
+ ARRAY VAR aMass
+ "Экранные координаты контрола {(aCtrl)}" =: aMass
+ 'Координата X (правая сторона): ' 0 aMass [i] ToPrintable Cat .
+ 'Координата Y (нижняя сторона): ' 1 aMass [i] ToPrintable Cat .
+;

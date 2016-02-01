@@ -1,3 +1,13 @@
+//#UC START# *4728A3180093_56AB66AA01C0_impl*
+ Result := f_TabOffset;
+//#UC END# *4728A3180093_56AB66AA01C0_impl*
+//#UC START# *4728A3180093_56AB66AA01C0_var*
+//#UC END# *4728A3180093_56AB66AA01C0_var*
+//#UC START# *4728A4830294_56AB66AA01C0_impl*
+ Result := f_TabStops;
+//#UC END# *4728A4830294_56AB66AA01C0_impl*
+//#UC START# *4728A4830294_56AB66AA01C0_var*
+//#UC END# *4728A4830294_56AB66AA01C0_var*
 //#UC START# *4728BE6A0392_4A4CB79A02C6get_impl*
  if Printing then
   Result := f_PageNumber
@@ -22,6 +32,12 @@
 //#UC END# *479731C50290_4A4CB79A02C6_impl*
 //#UC START# *479731C50290_4A4CB79A02C6_var*
 //#UC END# *479731C50290_4A4CB79A02C6_var*
+//#UC START# *479731C50290_56AB66AA01C0_impl*
+ f_TabStops := nil;
+ inherited;
+//#UC END# *479731C50290_56AB66AA01C0_impl*
+//#UC START# *479731C50290_56AB66AA01C0_var*
+//#UC END# *479731C50290_56AB66AA01C0_var*
 //#UC START# *47A042E100E2_4A4CB79A02C6_impl*
  inherited;
  f_Margins := l3Rect(0, 0, 0, def_inchPaperBottom);
@@ -30,6 +46,101 @@
 //#UC END# *47A042E100E2_4A4CB79A02C6_impl*
 //#UC START# *47A042E100E2_4A4CB79A02C6_var*
 //#UC END# *47A042E100E2_4A4CB79A02C6_var*
+//#UC START# *47DFCAAF0249_4A4CB79A02C6_impl*
+ Windows.ExtTextOut(DC, R.Left, R.Top, eto_Opaque, @R, nil, 0, nil);
+//#UC END# *47DFCAAF0249_4A4CB79A02C6_impl*
+//#UC START# *47DFCAAF0249_4A4CB79A02C6_var*
+//#UC END# *47DFCAAF0249_4A4CB79A02C6_var*
+//#UC START# *47DFCAEE0007_4A4CB79A02C6_impl*
+ if Invert then
+ begin
+  Inc(f_Fore);
+  try
+   FillRect(R);
+  finally
+   Dec(f_Fore);
+  end;//try..
+ end//Invert
+ else
+  FillRect(R);
+//#UC END# *47DFCAEE0007_4A4CB79A02C6_impl*
+//#UC START# *47DFCAEE0007_4A4CB79A02C6_var*
+//#UC END# *47DFCAEE0007_4A4CB79A02C6_var*
+//#UC START# *487CFE91037C_4A4CB79A02C6_impl*
+ Inc(f_CheckingColors);
+ try
+  if (f_CheckingColors = 1) then
+  begin
+   if Printing then
+   begin
+    l_BC := BackColor;
+    if Invert then
+    begin
+     VCLFont.Color := TextColor;
+     Brush.Color := l_BC;
+    end//Invert
+    else
+    begin
+     VCLFont.Color := clWhite;
+     Brush.Color := clWhite;
+    end;//Invert
+   end//Printing
+   else
+   begin
+    l_BC := BackColor;
+    if Invert then
+    begin
+     if NotFocused then
+     begin
+      l_Fore := TextColor;
+      l_Back := clBtnFace
+     end//NotFocused
+     else
+     begin
+      l_Fore := InvertColor(TextColor);
+      l_Back := clHighlight;
+     end;//NotFocused
+     if (f_Fore > 0) then
+      l_Back := InvertColor(l_BC)
+     else
+      if f_DarkFore > 0 then
+       l_Back := clHighlightText;
+     //{$IfDef Nemesis}
+     CheckColorsYIQ(l_Fore, l_Back);
+     //{$Else Nemesis}
+     //evGraph.CheckColors(l_Fore, l_Back);
+     //{$EndIf Nemesis}
+    end//Invert
+    else
+    begin
+     l_Fore := TextColor;
+     l_Back := l_BC;
+    end;//Invert
+    VCLFont.Color := l_Fore;
+    Brush.Color := l_Back;
+   end;//Printing
+  end;//f_CheckingColors = 1
+ finally
+  Dec(f_CheckingColors);
+ end;//try..finally
+//#UC END# *487CFE91037C_4A4CB79A02C6_impl*
+//#UC START# *487CFE91037C_4A4CB79A02C6_var*
+var
+ l_Back: TColor;
+ l_Fore: TColor;
+ l_BC: TColor;
+//#UC END# *487CFE91037C_4A4CB79A02C6_var*
+//#UC START# *487D000802A4_4A4CB79A02C6get_impl*
+ //Result := Self;
+ Supports(Self, Il3Font, Result);
+//#UC END# *487D000802A4_4A4CB79A02C6get_impl*
+//#UC START# *487D000802A4_4A4CB79A02C6get_var*
+//#UC END# *487D000802A4_4A4CB79A02C6get_var*
+//#UC START# *487D0BDA03C6_4A4CB79A02C6get_impl*
+ Result := VCLFont.Color;
+//#UC END# *487D0BDA03C6_4A4CB79A02C6get_impl*
+//#UC START# *487D0BDA03C6_4A4CB79A02C6get_var*
+//#UC END# *487D0BDA03C6_4A4CB79A02C6get_var*
 //#UC START# *4A4CBCD002EA_4A4CB79A02C6_impl*
  if Printing AND (f_Printer <> nil) AND not f_Printer.HasPrinter then
   Result := DP2LP(PointX(DeviceCaps(PHYSICALWIDTH))).X
@@ -237,6 +348,12 @@ var
 var
  l_R : Il3Region;
 //#UC END# *4E27061B0140_4A4CB79A02C6set_var*
+//#UC START# *4E2706890370_4A4CB79A02C6get_impl*
+ CheckDrawing;
+ Result := HDC(f_DC);
+//#UC END# *4E2706890370_4A4CB79A02C6get_impl*
+//#UC START# *4E2706890370_4A4CB79A02C6get_var*
+//#UC END# *4E2706890370_4A4CB79A02C6get_var*
 //#UC START# *4E57A9F10230_4A4CB79A02C6get_impl*
  Result := f_LineSpacing;
 //#UC END# *4E57A9F10230_4A4CB79A02C6get_impl*
@@ -273,3 +390,233 @@ var
 //#UC END# *4F2AC2020377_4A4CB79A02C6get_impl*
 //#UC START# *4F2AC2020377_4A4CB79A02C6get_var*
 //#UC END# *4F2AC2020377_4A4CB79A02C6get_var*
+//#UC START# *4FAE533E035C_4A4CB79A02C6_impl*
+ Result := 0;
+//#UC END# *4FAE533E035C_4A4CB79A02C6_impl*
+//#UC START# *4FAE533E035C_4A4CB79A02C6_var*
+//#UC END# *4FAE533E035C_4A4CB79A02C6_var*
+//#UC START# *56AB67BC0111_56AB66AA01C0_impl*
+ inherited Create;
+ f_TabOffset := aTabOffset;
+ if (aTabStops = nil) then
+  f_TabStops := nil
+ else
+  f_TabStops := aTabStops.Clone;
+//#UC END# *56AB67BC0111_56AB66AA01C0_impl*
+//#UC START# *56AB67BC0111_56AB66AA01C0_var*
+//#UC END# *56AB67BC0111_56AB66AA01C0_var*
+//#UC START# *56ACD2F50038_4A4CB79A02C6get_impl*
+ Result := f_BackColor;
+//#UC END# *56ACD2F50038_4A4CB79A02C6get_impl*
+//#UC START# *56ACD2F50038_4A4CB79A02C6get_var*
+//#UC END# *56ACD2F50038_4A4CB79A02C6get_var*
+//#UC START# *56ACD2F50038_4A4CB79A02C6set_impl*
+ if (f_BackColor <> aValue) and (aValue <> clDefault) then
+ begin
+  f_BackColor := aValue;
+  if DrawEnabled and Drawing then
+   CheckColors;
+ end;//f_BackColor <> Value
+//#UC END# *56ACD2F50038_4A4CB79A02C6set_impl*
+//#UC START# *56ACD2F50038_4A4CB79A02C6set_var*
+//#UC END# *56ACD2F50038_4A4CB79A02C6set_var*
+//#UC START# *56ACD37202DE_4A4CB79A02C6get_impl*
+ Result := DoGetDrawEnabled;
+//#UC END# *56ACD37202DE_4A4CB79A02C6get_impl*
+//#UC START# *56ACD37202DE_4A4CB79A02C6get_var*
+//#UC END# *56ACD37202DE_4A4CB79A02C6get_var*
+//#UC START# *56ACD37202DE_4A4CB79A02C6set_impl*
+ if aValue then
+  Flags := Flags + [ev_dfDrawRegion]
+ else
+  Flags := Flags - [ev_dfDrawRegion];
+//#UC END# *56ACD37202DE_4A4CB79A02C6set_impl*
+//#UC START# *56ACD37202DE_4A4CB79A02C6set_var*
+//#UC END# *56ACD37202DE_4A4CB79A02C6set_var*
+//#UC START# *56ACD3C302A5_4A4CB79A02C6get_impl*
+ Result := (f_Drawing > 0);
+//#UC END# *56ACD3C302A5_4A4CB79A02C6get_impl*
+//#UC START# *56ACD3C302A5_4A4CB79A02C6get_var*
+//#UC END# *56ACD3C302A5_4A4CB79A02C6get_var*
+//#UC START# *56ACD3DD0360_4A4CB79A02C6_impl*
+ Inc(f_Drawing);
+ Result := f_Drawing;
+//#UC END# *56ACD3DD0360_4A4CB79A02C6_impl*
+//#UC START# *56ACD3DD0360_4A4CB79A02C6_var*
+//#UC END# *56ACD3DD0360_4A4CB79A02C6_var*
+//#UC START# *56ACD3F700FB_4A4CB79A02C6_impl*
+ Dec(f_Drawing);
+ Result := f_Drawing;
+//#UC END# *56ACD3F700FB_4A4CB79A02C6_impl*
+//#UC START# *56ACD3F700FB_4A4CB79A02C6_var*
+//#UC END# *56ACD3F700FB_4A4CB79A02C6_var*
+//#UC START# *56ACDB3A0069_4A4CB79A02C6get_impl*
+ Result := (f_Invert > 0);
+//#UC END# *56ACDB3A0069_4A4CB79A02C6get_impl*
+//#UC START# *56ACDB3A0069_4A4CB79A02C6get_var*
+//#UC END# *56ACDB3A0069_4A4CB79A02C6get_var*
+//#UC START# *56ACDB8F020C_4A4CB79A02C6_impl*
+ Inc(f_Invert);
+ if DrawEnabled and Drawing then 
+  CheckColors;
+//#UC END# *56ACDB8F020C_4A4CB79A02C6_impl*
+//#UC START# *56ACDB8F020C_4A4CB79A02C6_var*
+//#UC END# *56ACDB8F020C_4A4CB79A02C6_var*
+//#UC START# *56ACDB9903C9_4A4CB79A02C6_impl*
+ Dec(f_Invert);
+ if DrawEnabled and Drawing then 
+  CheckColors;
+//#UC END# *56ACDB9903C9_4A4CB79A02C6_impl*
+//#UC START# *56ACDB9903C9_4A4CB79A02C6_var*
+//#UC END# *56ACDB9903C9_4A4CB79A02C6_var*
+//#UC START# *56AD09460121_4A4CB79A02C6get_impl*
+ Result := f_TextColor;
+//#UC END# *56AD09460121_4A4CB79A02C6get_impl*
+//#UC START# *56AD09460121_4A4CB79A02C6get_var*
+//#UC END# *56AD09460121_4A4CB79A02C6get_var*
+//#UC START# *56AD09460121_4A4CB79A02C6set_impl*
+ if (f_TextColor = aValue) then
+ begin
+  if DrawEnabled and Drawing then
+   CheckColors;
+ end//f_TextColor = Value
+ else
+ if (aValue <> clDefault) then
+ begin
+  f_TextColor := aValue;
+  if DrawEnabled and Drawing then
+   CheckColors;
+ end;//f_TextColor <> Value
+//#UC END# *56AD09460121_4A4CB79A02C6set_impl*
+//#UC START# *56AD09460121_4A4CB79A02C6set_var*
+//#UC END# *56AD09460121_4A4CB79A02C6set_var*
+//#UC START# *56AF1B540191_4A4CB79A02C6_impl*
+ Inc(f_DarkFore);
+//#UC END# *56AF1B540191_4A4CB79A02C6_impl*
+//#UC START# *56AF1B540191_4A4CB79A02C6_var*
+//#UC END# *56AF1B540191_4A4CB79A02C6_var*
+//#UC START# *56AF1B6900DF_4A4CB79A02C6_impl*
+ Dec(f_DarkFore);
+//#UC END# *56AF1B6900DF_4A4CB79A02C6_impl*
+//#UC START# *56AF1B6900DF_4A4CB79A02C6_var*
+//#UC END# *56AF1B6900DF_4A4CB79A02C6_var*
+//#UC START# *56AF1E2902D2_4A4CB79A02C6_impl*
+ Result := not IsVirtual and DrawEnabled and CheckDrawing;
+//#UC END# *56AF1E2902D2_4A4CB79A02C6_impl*
+//#UC START# *56AF1E2902D2_4A4CB79A02C6_var*
+//#UC END# *56AF1E2902D2_4A4CB79A02C6_var*
+//#UC START# *56AF1E650037_4A4CB79A02C6_impl*
+ Result := False;
+//#UC END# *56AF1E650037_4A4CB79A02C6_impl*
+//#UC START# *56AF1E650037_4A4CB79A02C6_var*
+//#UC END# *56AF1E650037_4A4CB79A02C6_var*
+//#UC START# *56AF1E9702A0_4A4CB79A02C6_impl*
+ Inc(f_CheckingDrawing);
+ try
+  l_OldDC := f_DC;
+  Result := Drawing OR (f_DCFlag in [ev_dcfLinked, ev_dcfCreated]) OR Printing;
+  if Result AND (f_CheckingDrawing <= 1) then
+  begin
+   Lock;
+   try
+    l_Owner := Owner;
+    CN := Canvas;
+    Case f_DCFlag of
+     ev_dcfCanvas:
+      if (CN Is TMetaFileCanvas) then
+      begin
+       f_DC := CN.Handle;
+      end//CN Is TMetaFileCanvas
+      else
+      if (f_Printer <> nil) AND not f_Printer.Printing then
+      begin
+       f_DC := f_Printer.DC;
+       SelectObject(f_DC, VCLFont.Handle);
+       {-iaiiaeyai o?eoo i?eioaeoaeuii}
+      end//f_Printer <> nil..
+      else
+      if (l_Owner Is TMetaFile) AND (f_DC = 0) then
+      begin
+       CN := TMetaFileCanvas.Create(TMetaFile(l_Owner), 0);
+       SetCanvas(CN, false);
+       f_DC := CN.Handle;
+      end//l_Owner Is TMetaFile
+      else
+       f_DC := CN.Handle;
+     ev_dcfGot:
+     begin
+      if (f_DC = 0) then
+       f_DC := GetAlienDC;
+      CN.Handle := f_DC;
+      f_DC := CN.Handle;
+      {-iaiiaeyai o?eoo, ia?i, eenou etc}
+     end;//ev_dcfGot
+     ev_dcfCreated,
+     ev_dcfLinked:
+     begin
+      if (CN <> nil) and (f_DC <> 0) then
+       CN.Handle := f_DC;
+      if (CN <> nil) then
+       f_DC := CN.Handle;
+      {-iaiiaeyai o?eoo, ia?i, eenou etc}
+     end;//ev_dcfCreated..}
+    end;//Case f_DCFlag
+    if (l_OldDC <> f_DC) then
+    begin
+     UpdatePixelsPerInch;
+     {-iaiiaeyai ?ac?aoaiea}
+     VCLFont.PixelsPerInch := PixelsPerInchY; {-aunoaaeyai ?ac?aoaiea o?eooo}
+    end;//l_OldDC <> f_DC
+    if (Zoom <> 100) then
+    begin
+     SetMapMode(f_DC, MM_ISOTROPIC);
+     SetWindowExtEx(f_DC, 100, 100, nil);
+     SetViewPortExtEx(f_DC, Abs(Zoom), Abs(Zoom), nil);
+    end;//Zoom <> 100
+   finally
+    Unlock;
+   end;//try..finally
+  end;//Result
+ finally
+  Dec(f_CheckingDrawing);
+ end;//try..finally
+//#UC END# *56AF1E9702A0_4A4CB79A02C6_impl*
+//#UC START# *56AF1E9702A0_4A4CB79A02C6_var*
+var
+ CN: TCanvas;
+ l_OldDC: hDC;
+ l_Owner: TObject;
+//#UC END# *56AF1E9702A0_4A4CB79A02C6_var*
+//#UC START# *56AF20160331_4A4CB79A02C6get_impl*
+ Result := f_DCFlag;
+//#UC END# *56AF20160331_4A4CB79A02C6get_impl*
+//#UC START# *56AF20160331_4A4CB79A02C6get_var*
+//#UC END# *56AF20160331_4A4CB79A02C6get_var*
+//#UC START# *56AF2372026A_4A4CB79A02C6_impl*
+
+//#UC END# *56AF2372026A_4A4CB79A02C6_impl*
+//#UC START# *56AF2372026A_4A4CB79A02C6_var*
+//#UC END# *56AF2372026A_4A4CB79A02C6_var*
+//#UC START# *56AF237B031E_4A4CB79A02C6_impl*
+
+//#UC END# *56AF237B031E_4A4CB79A02C6_impl*
+//#UC START# *56AF237B031E_4A4CB79A02C6_var*
+//#UC END# *56AF237B031E_4A4CB79A02C6_var*
+//#UC START# *56AF3CC4020E_4A4CB79A02C6_impl*
+ f_Owner := anOwner;
+ if (anOwner is Graphics.TBitmap) then
+  Canvas := Graphics.TBitmap(anOwner).Canvas;
+ Create;
+//#UC END# *56AF3CC4020E_4A4CB79A02C6_impl*
+//#UC START# *56AF3CC4020E_4A4CB79A02C6_var*
+//#UC END# *56AF3CC4020E_4A4CB79A02C6_var*
+//#UC START# *56AF4E2C005D_4A4CB79A02C6get_impl*
+ Result := f_Zoom;
+//#UC END# *56AF4E2C005D_4A4CB79A02C6get_impl*
+//#UC START# *56AF4E2C005D_4A4CB79A02C6get_var*
+//#UC END# *56AF4E2C005D_4A4CB79A02C6get_var*
+//#UC START# *56AF4E2C005D_4A4CB79A02C6set_impl*
+ f_Zoom := aValue;
+//#UC END# *56AF4E2C005D_4A4CB79A02C6set_impl*
+//#UC START# *56AF4E2C005D_4A4CB79A02C6set_var*
+//#UC END# *56AF4E2C005D_4A4CB79A02C6set_var*

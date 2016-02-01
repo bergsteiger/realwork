@@ -51,7 +51,6 @@ ref; // ME_56A5E531022C rDate
  ME_56A5E531022C // rDate
  )
  ; // Attributes
- CONST dfm:PathOnly '\common\components\rtl\Garant\ar'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -154,7 +153,6 @@ ref; // ME_47B99D4503A2_ME_56A5E3010270 CompareExistingItems
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\ar'
  CONST intf.pas:Path 'common\components\rtl\Garant\ar\arBelaDateNumList.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -164,6 +162,237 @@ ref; // ME_47B99D4503A2_ME_56A5E3010270 CompareExistingItems
  CONST extprop:pas:UnitName 'arBelaDateNumList'
 
 ref; // ME_56A5E3010270 TarBelaDateNumList
+
+FORWARD ME_56AF378901B9
+
+FORWARD ME_56AF38200030
+
+: ME_56AF387603BA
+ CONST UID '56AF387603BA'
+ CONST Name 'rPubSource'
+ CONST Class class_Attribute
+ %SUMMARY 'IST Ц источник публикации правового акта (код значение) (м);' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AF38200030 // TarBelaPubInfo
+ ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_56AF387603BA rPubSource
+
+: ME_56AF38F702EE
+ CONST UID '56AF38F702EE'
+ CONST Name 'rDate'
+ CONST Class class_Attribute
+ %SUMMARY 'IDAT Ц дата издани€ источника публикации (M);' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AF38200030 // TarBelaPubInfo
+ ;
+ : Target WL 'ME_4E8EDFCA01C0' '47D0290B016D.pas.ms.script' // TStDate
+ ;
+
+ref; // ME_56AF38F702EE rDate
+
+: ME_56AF3A2900D4
+ CONST UID '56AF3A2900D4'
+ CONST Name 'rYear'
+ CONST Class class_Attribute
+ %SUMMARY 'YEAR Ц год публикации (M);' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AF38200030 // TarBelaPubInfo
+ ;
+ : Target WL 'ME_476F71A701AB' '4AB0C3C60310.pas.ms.script' // Word
+ ;
+
+ref; // ME_56AF3A2900D4 rYear
+
+: ME_56AF3A4601D6
+ CONST UID '56AF3A4601D6'
+ CONST Name 'rNum'
+ CONST Class class_Attribute
+ %SUMMARY 'NUMB Ц номер источника публикации (M);' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AF38200030 // TarBelaPubInfo
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AF3A4601D6 rNum
+
+: ME_56AF3A6C0358
+ CONST UID '56AF3A6C0358'
+ CONST Name 'rArticle'
+ CONST Class class_Attribute
+ %SUMMARY 'IN Ц номер статьи (M). ѕри отсутствии информации о номере статьи за идентификатором пол€ через пробел ставитс€ символ Ђ-ї (минус);' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AF38200030 // TarBelaPubInfo
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AF3A6C0358 rArticle
+
+: ME_56AF38200030
+ CONST UID '56AF38200030'
+ CONST Name 'TarBelaPubInfo'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56AF378901B9 // TarBelaPubList
+ ;
+ : Attributes
+   Seq: ( ME_56AF387603BA // rPubSource
+ ME_56AF38F702EE // rDate
+ ME_56AF3A2900D4 // rYear
+ ME_56AF3A4601D6 // rNum
+ ME_56AF3A6C0358 // rArticle
+ )
+ ; // Attributes
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56AF38200030 TarBelaPubInfo
+
+: ME_56AF54CC00BD
+ CONST UID '56AF54CC00BD'
+ CONST Name 'ParBelaPubInfo'
+ CONST Class class_Class
+ : Stereotype st_Typedef ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56AF378901B9 // TarBelaPubList
+ ;
+ : Inherits
+   Seq: ( ME_56AF38200030 // TarBelaPubInfo
+ )
+ ; // Inherits
+ CONST "isPointer" true
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56AF54CC00BD ParBelaPubInfo
+
+: ME_56AF38390076
+ CONST UID '56AF38390076'
+ CONST Name 'ItemType'
+ CONST Class class_Attribute
+ : Stereotype st_impurity_value::Attribute ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_56AF378901B9 // TarBelaPubList
+ ;
+ : Target ME_56AF38200030 // TarBelaPubInfo
+ ;
+
+ref; // ME_56AF38390076 ItemType
+
+: ME_56AF3B0902FD
+ CONST UID '56AF3B0902FD'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56AF378901B9 // TarBelaPubList
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_56AF3B0902FD 
+
+: ME_47B07CF403D0_ME_56AF378901B9
+ CONST UID '47B07CF403D0'
+ CONST Name 'IsSameItems'
+ : Original WL 'ME_47B07CF403D0' '47913B47006E.pas.ms.script' // IsSameItems
+ ;
+ : Implementor ME_56AF378901B9 // TarBelaPubList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifndef" 'l3Items_IsAtomic'
+ref; // ME_47B07CF403D0_ME_56AF378901B9 IsSameItems
+
+: ME_47B2C42A0163_ME_56AF378901B9
+ CONST UID '47B2C42A0163'
+ CONST Name 'AssignItem'
+ : Original WL 'ME_47B2C42A0163' '47913B47006E.pas.ms.script' // AssignItem
+ ;
+ : Implementor ME_56AF378901B9 // TarBelaPubList
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "ifdef" 'l3Items_NeedsAssignItem'
+ CONST "ifndef" 'l3Items_NoSort'
+ref; // ME_47B2C42A0163_ME_56AF378901B9 AssignItem
+
+: ME_47B99D4503A2_ME_56AF378901B9
+ CONST UID '47B99D4503A2'
+ CONST Name 'CompareExistingItems'
+ : Original WL 'ME_47B99D4503A2' '47BB24D30205.pas.ms.script' // CompareExistingItems
+ ;
+ : Implementor ME_56AF378901B9 // TarBelaPubList
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_47B99D4503A2_ME_56AF378901B9 CompareExistingItems
+
+: ME_56AF378901B9
+ CONST UID '56AF378901B9'
+ CONST Name 'TarBelaPubList'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A5E0300333 // Belarus
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.pas.ms.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.pas.ms.script' // l3RecordListPrim
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_56AF38390076 // ItemType
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_47B07CF403D0_ME_56AF378901B9 // IsSameItems
+ ME_47B2C42A0163_ME_56AF378901B9 // AssignItem
+ ME_47B99D4503A2_ME_56AF378901B9 // CompareExistingItems
+ )
+ ; // Implemented
+ : Children
+   Seq: ( ME_56AF38200030 // TarBelaPubInfo
+ ME_56AF54CC00BD // ParBelaPubInfo
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_56AF3B0902FD // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ar\arBelaPubList.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'arBelaPubList'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'arBelaPubList'
+
+ref; // ME_56AF378901B9 TarBelaPubList
 
 : ME_56A5E0300333
  CONST UID '56A5E0300333'
@@ -177,16 +406,17 @@ ref; // ME_56A5E3010270 TarBelaDateNumList
  ;
  : Children
    Seq: ( ME_56A5E3010270 // TarBelaDateNumList
+ ME_56AF378901B9 // TarBelaPubList
  )
  ; // Children
  : Depends
    Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.pas.ms.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_47D0290B016D' '47D0290B016D.pas.ms.script' // l3Utils
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.pas.ms.script' // Sys
  WL 'ME_54B90AC6014B' '54B90AC6014B.pas.ms.script' // StringUtils
  )
  ; // Depends
- CONST dfm:PathOnly '\common\components\rtl\Garant\ar'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\ar'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\56A5E0300333.pas.ms.script'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'

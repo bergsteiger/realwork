@@ -219,28 +219,6 @@ p NeedsHackRef:b=true ? Нужно ли генерировать ссылку на класс данной формы для D
 	[{%P#f_IsVCMApplication()!=true&%PS!=VCMForms}/Forms]
 //#UC END# *4948C3290020for4947E2F10338*
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Генератор файлов форм (.dfm)
-+ dfm
-R  
-//#UC START# *49F5795900ECfor4947E2F10338*
-O [{%Sa=final}[{%S{finished}!=true|%S{finished dfm}!=true}NOT_FINISHED_]%S%f_pas_UnitName().dfm]
-C %S%f_pas_UnitPath()
-	[{"%SO"!=""}\
-	object %f_cut_prefix(%S%f_pas_TypeName(),T): %S%f_pas_TypeName()
-	  Left = 204
-	  Top = 118
-	  Width = 320
-	  Height = 240\
-
-	%S%f_pas_BeforeDFMControls()\
-
-	%f_clear_list(FORM_CONTROLS)\
-	%S%f_ToDFM()
-	end\
-	]
-//#UC END# *49F5795900ECfor4947E2F10338*
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -86,7 +86,6 @@ ref; // ME_47B99D4503A2_ME_4E26F5230116 CompareExistingItems
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '20.07.2011 19:33'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3RectList.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -153,7 +152,6 @@ ref; // ME_478E405801C3 l3_oprEndDoc
  ME_478E405801C3 // l3_oprEndDoc
  )
  ; // Attributes
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -254,7 +252,6 @@ ref; // ME_4A4CBF5D03B8 ev_dfPrinted
  ME_4A4CBF5D03B8 // ev_dfPrinted
  )
  ; // Attributes
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -276,7 +273,6 @@ ref; // ME_4A4CBF3A03C4 Tl3DrawFlag
    Seq: ( ME_4A4CBF3A03C4 // Tl3DrawFlag
  )
  ; // Inherits
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -351,7 +347,6 @@ ref; // ME_4A4CBFED01B9 ev_dcfLinked
  ME_4A4CBFED01B9 // ev_dcfLinked
  )
  ; // Attributes
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -510,12 +505,242 @@ ref; // ME_4A4CD57E0136 rIsAssigned
  ME_4A4CD57E0136 // rIsAssigned
  )
  ; // Attributes
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
 
 ref; // ME_4A4CD51000ED Tl3DeviceCaps
+
+FORWARD ME_56AB66AA01C0
+
+: ME_56AB67560043
+ CONST UID '56AB67560043'
+ CONST Name 'f_TabOffset'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56AB66AA01C0 // Tl3TabInfo
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB67560043 f_TabOffset
+
+: ME_56AB679202A3
+ CONST UID '56AB679202A3'
+ CONST Name 'f_TabStops'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56AB66AA01C0 // Tl3TabInfo
+ ;
+ : Target WL 'ME_4728A3D2034D' '4677FBA70343.pas.ms.script' // Il3TabStops
+ ;
+
+ref; // ME_56AB679202A3 f_TabStops
+
+FORWARD ME_56AB67BC0111
+
+: ME_56AB67CB0080
+ CONST UID '56AB67CB0080'
+ CONST Name 'aTabOffset'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB67CB0080 aTabOffset
+
+: ME_56AB67CB009E
+ CONST UID '56AB67CB009E'
+ CONST Name 'aTabStops'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728A3D2034D' '4677FBA70343.pas.ms.script' // Il3TabStops
+ ;
+
+ref; // ME_56AB67CB009E aTabStops
+
+: ME_56AB67C30233
+ CONST UID '56AB67C30233'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB67BC0111 // Create
+ ;
+ : Parameters
+   Seq: ( ME_56AB67CB0080 // aTabOffset
+ ME_56AB67CB009E // aTabStops
+ )
+ ; // Parameters
+
+ref; // ME_56AB67C30233 DoIt
+
+: ME_56AB67BC0111
+ CONST UID '56AB67BC0111'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB66AA01C0 // Tl3TabInfo
+ ;
+ : Operations
+   Seq: ( ME_56AB67C30233 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB67BC0111 Create
+
+FORWARD ME_56AB67DE00EB
+
+: ME_C2FD7B2A8647
+ CONST UID 'C2FD7B2A8647'
+ CONST Name 'aTabOffset'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_C2FD7B2A8647 aTabOffset
+
+: ME_1ECD2450DF01
+ CONST UID '1ECD2450DF01'
+ CONST Name 'aTabStops'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728A3D2034D' '4677FBA70343.pas.ms.script' // Il3TabStops
+ ;
+
+ref; // ME_1ECD2450DF01 aTabStops
+
+: ME_F6C1324F8726
+ CONST UID 'F6C1324F8726'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики Tl3TabInfo.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB67DE00EB // Make
+ ;
+ : Parameters
+   Seq: ( ME_C2FD7B2A8647 // aTabOffset
+ ME_1ECD2450DF01 // aTabStops
+ )
+ ; // Parameters
+
+ref; // ME_F6C1324F8726 DoIt
+
+: ME_56AB67DE00EB
+ CONST UID '56AB67DE00EB'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB66AA01C0 // Tl3TabInfo
+ ;
+ : Inherits
+   Seq: ( ME_56AB67BC0111 // Create
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_F6C1324F8726 // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_56AB67DE00EB Make
+
+: ME_4728A3180093_ME_56AB66AA01C0
+ CONST UID '4728A3180093'
+ CONST Name 'TabOffset'
+ : Original WL 'ME_4728A3180093' '4677FBA70343.pas.ms.script' // TabOffset
+ ;
+ : Implementor ME_56AB66AA01C0 // Tl3TabInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4728A3180093_ME_56AB66AA01C0 TabOffset
+
+: ME_4728A4830294_ME_56AB66AA01C0
+ CONST UID '4728A4830294'
+ CONST Name 'TabStops'
+ : Original WL 'ME_4728A4830294' '4677FBA70343.pas.ms.script' // TabStops
+ ;
+ : Implementor ME_56AB66AA01C0 // Tl3TabInfo
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_4728A4830294_ME_56AB66AA01C0 TabStops
+
+: ME_479731C50290_ME_56AB66AA01C0
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_56AB66AA01C0 // Tl3TabInfo
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_56AB66AA01C0 Cleanup
+
+: ME_56AB66AA01C0
+ CONST UID '56AB66AA01C0'
+ CONST Name 'Tl3TabInfo'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.pas.ms.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_4728A305004F' '4677FBA70343.pas.ms.script' // Il3TabInfo
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_56AB67560043 // f_TabOffset
+ ME_56AB679202A3 // f_TabStops
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56AB67BC0111 // Create
+ ME_56AB67DE00EB // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_4728A3180093_ME_56AB66AA01C0 // TabOffset
+ ME_4728A4830294_ME_56AB66AA01C0 // TabStops
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_56AB66AA01C0 // Cleanup
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'TabInfo'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56AB66AA01C0 Tl3TabInfo
 
 : ME_4E5BD2E40301
  CONST UID '4E5BD2E40301'
@@ -813,13 +1038,12 @@ ref; // ME_4E26F8A7034D ClipRect
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
+ CONST Abstraction at_final
  CONST LinkType lt_agr
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Target WL 'ME_46A46A35004F' '4AB0C3F60375.pas.ms.script' // hDC
  ;
- CONST "needs field" false
  CONST "pm" true
 
 ref; // ME_4E2706890370 DC
@@ -896,6 +1120,329 @@ ref; // ME_4E6894DA028E f_LineSpacingStack
  ;
 
 ref; // ME_4F2AC2C90385 f_InitialDCOffsetStored
+
+: ME_56ACD23D00C9
+ CONST UID '56ACD23D00C9'
+ CONST Name 'f_Drawing'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56ACD23D00C9 f_Drawing
+
+: ME_56ACD2F50038
+ CONST UID '56ACD2F50038'
+ CONST Name 'BackColor'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_56ACD2F50038 BackColor
+
+: ME_56ACD37202DE
+ CONST UID '56ACD37202DE'
+ CONST Name 'DrawEnabled'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56ACD37202DE DrawEnabled
+
+: ME_56ACD3C302A5
+ CONST UID '56ACD3C302A5'
+ CONST Name 'Drawing'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56ACD3C302A5 Drawing
+
+: ME_56ACD44E030C
+ CONST UID '56ACD44E030C'
+ CONST Name 'f_CheckingColors'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56ACD44E030C f_CheckingColors
+
+: ME_56ACDB300091
+ CONST UID '56ACDB300091'
+ CONST Name 'f_Invert'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56ACDB300091 f_Invert
+
+: ME_56ACDB3A0069
+ CONST UID '56ACDB3A0069'
+ CONST Name 'Invert'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56ACDB3A0069 Invert
+
+: ME_56AD08DA011D
+ CONST UID '56AD08DA011D'
+ CONST Name 'VCLFont'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_47E120930217' '55C4AEC801CA.pas.ms.script' // TFont
+ ;
+ CONST "pm" true
+
+ref; // ME_56AD08DA011D VCLFont
+
+: ME_56AD09460121
+ CONST UID '56AD09460121'
+ CONST Name 'TextColor'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+ CONST "pm" true
+
+ref; // ME_56AD09460121 TextColor
+
+: ME_56AD0ACC0034
+ CONST UID '56AD0ACC0034'
+ CONST Name 'Brush'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_56AD0AC101CC' '55C4AEC801CA.pas.ms.script' // TBrush
+ ;
+ CONST "pm" true
+
+ref; // ME_56AD0ACC0034 Brush
+
+: ME_56AD0CF002D9
+ CONST UID '56AD0CF002D9'
+ CONST Name 'f_TextColor'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_56AD0CF002D9 f_TextColor
+
+: ME_56AD0D2D008A
+ CONST UID '56AD0D2D008A'
+ CONST Name 'NotFocused'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_56AD0D2D008A NotFocused
+
+: ME_56AF158D0321
+ CONST UID '56AF158D0321'
+ CONST Name 'f_Fore'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AF158D0321 f_Fore
+
+: ME_56AF1B35024F
+ CONST UID '56AF1B35024F'
+ CONST Name 'f_DarkFore'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AF1B35024F f_DarkFore
+
+: ME_56AF1ED103E1
+ CONST UID '56AF1ED103E1'
+ CONST Name 'f_CheckingDrawing'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AF1ED103E1 f_CheckingDrawing
+
+: ME_56AF1F580071
+ CONST UID '56AF1F580071'
+ CONST Name 'f_DC'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A46A35004F' '4AB0C3F60375.pas.ms.script' // hDC
+ ;
+
+ref; // ME_56AF1F580071 f_DC
+
+: ME_56AF1FBE0352
+ CONST UID '56AF1FBE0352'
+ CONST Name 'f_DCFlag'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target ME_4A4CBFCF02D5 // TevDCFlag
+ ;
+
+ref; // ME_56AF1FBE0352 f_DCFlag
+
+: ME_56AF20160331
+ CONST UID '56AF20160331'
+ CONST Name 'DCFlag'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target ME_4A4CBFCF02D5 // TevDCFlag
+ ;
+ CONST "pm" true
+
+ref; // ME_56AF20160331 DCFlag
+
+: ME_56AF20BB0209
+ CONST UID '56AF20BB0209'
+ CONST Name 'Canvas'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
+ ;
+ CONST "pm" true
+
+ref; // ME_56AF20BB0209 Canvas
+
+: ME_56AF48DE00A1
+ CONST UID '56AF48DE00A1'
+ CONST Name 'Owner'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+
+ref; // ME_56AF48DE00A1 Owner
+
+: ME_56AF4E2C005D
+ CONST UID '56AF4E2C005D'
+ CONST Name 'Zoom'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_56AF4E2C005D Zoom
 
 : ME_B6469CD3B8C3
  CONST UID 'B6469CD3B8C3'
@@ -979,6 +1526,73 @@ ref; // ME_CBF4812359EF f_PixelsPerInchX
 
 ref; // ME_22423B4D9BE0 f_PixelsPerInchY
 
+: ME_9A834AC46EA9
+ CONST UID '9A834AC46EA9'
+ CONST Name 'f_BackColor'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства BackColor' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+ CONST extprop:clearViaProperty 'BackColor'
+
+ref; // ME_9A834AC46EA9 f_BackColor
+
+: ME_6C9D65687E54
+ CONST UID '6C9D65687E54'
+ CONST Name 'f_NotFocused'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства NotFocused' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:clearViaProperty 'NotFocused'
+
+ref; // ME_6C9D65687E54 f_NotFocused
+
+: ME_2B30B7FF0C57
+ CONST UID '2B30B7FF0C57'
+ CONST Name 'f_Owner'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Owner' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_2B30B7FF0C57 f_Owner
+
+: ME_32981A0BEEF5
+ CONST UID '32981A0BEEF5'
+ CONST Name 'f_Zoom'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Zoom' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:clearViaProperty 'Zoom'
+
+ref; // ME_32981A0BEEF5 f_Zoom
+
 FORWARD ME_4A4CBD130121
 
 : ME_4A4CBD21006C
@@ -993,17 +1607,6 @@ FORWARD ME_4A4CBD130121
  ;
 
 ref; // ME_4A4CBD21006C CalcPrintableArea
-
-: ME_4A4CBD5F0342
- CONST UID '4A4CBD5F0342'
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_4A4CBD130121 // CalcPrintableArea
- ;
- : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
- ;
-
-ref; // ME_4A4CBD5F0342 
 
 : ME_4A4CC6E60233
  CONST UID '4A4CC6E60233'
@@ -1031,8 +1634,7 @@ ref; // ME_4A4CC6E60233
  )
  ; // Operations
  : Dependencies
-   Seq: ( ME_4A4CBD5F0342 // 
- ME_4A4CC6E60233 // 
+   Seq: ( ME_4A4CC6E60233 // 
  )
  ; // Dependencies
 
@@ -1209,6 +1811,505 @@ ref; // ME_4E9852460097 DoIt
 
 ref; // ME_4E98521202B5 GetGlobalClipRectWithZoom
 
+FORWARD ME_56ACD3DD0360
+
+: ME_56ACD3EA02B3
+ CONST UID '56ACD3EA02B3'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56ACD3DD0360 // BeginDrawing
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56ACD3EA02B3 DoIt
+
+: ME_56ACD3DD0360
+ CONST UID '56ACD3DD0360'
+ CONST Name 'BeginDrawing'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56ACD3EA02B3 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56ACD3DD0360 BeginDrawing
+
+FORWARD ME_56ACD3F700FB
+
+: ME_729139BC98D1
+ CONST UID '729139BC98D1'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56ACD3F700FB // EndDrawing
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_729139BC98D1 DoIt
+
+: ME_56ACD3F700FB
+ CONST UID '56ACD3F700FB'
+ CONST Name 'EndDrawing'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Inherits
+   Seq: ( ME_56ACD3DD0360 // BeginDrawing
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_729139BC98D1 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56ACD3F700FB EndDrawing
+
+FORWARD ME_56ACDB8F020C
+
+: ME_F09120E81C60
+ CONST UID 'F09120E81C60'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода BeginInvert' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56ACDB8F020C // BeginInvert
+ ;
+
+ref; // ME_F09120E81C60 DoIt
+
+: ME_56ACDB8F020C
+ CONST UID '56ACDB8F020C'
+ CONST Name 'BeginInvert'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_F09120E81C60 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56ACDB8F020C BeginInvert
+
+FORWARD ME_56ACDB9903C9
+
+: ME_AC84144B68D0
+ CONST UID 'AC84144B68D0'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода EndInvert' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56ACDB9903C9 // EndInvert
+ ;
+
+ref; // ME_AC84144B68D0 DoIt
+
+: ME_56ACDB9903C9
+ CONST UID '56ACDB9903C9'
+ CONST Name 'EndInvert'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_AC84144B68D0 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56ACDB9903C9 EndInvert
+
+FORWARD ME_56AF1B540191
+
+: ME_EE5FF5F308D8
+ CONST UID 'EE5FF5F308D8'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода BeginDarkColor' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF1B540191 // BeginDarkColor
+ ;
+
+ref; // ME_EE5FF5F308D8 DoIt
+
+: ME_56AF1B540191
+ CONST UID '56AF1B540191'
+ CONST Name 'BeginDarkColor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_EE5FF5F308D8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF1B540191 BeginDarkColor
+
+FORWARD ME_56AF1B6900DF
+
+: ME_F8A63B0B3645
+ CONST UID 'F8A63B0B3645'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода EndDarkColor' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF1B6900DF // EndDarkColor
+ ;
+
+ref; // ME_F8A63B0B3645 DoIt
+
+: ME_56AF1B6900DF
+ CONST UID '56AF1B6900DF'
+ CONST Name 'EndDarkColor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_F8A63B0B3645 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF1B6900DF EndDarkColor
+
+FORWARD ME_56AF1D990070
+
+: ME_56AF1DB100D9
+ CONST UID '56AF1DB100D9'
+ CONST Name 'R'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728976B0154' '472745450206.pas.ms.script' // Tl3SRect
+ ;
+
+ref; // ME_56AF1DB100D9 R
+
+: ME_56AF1DAE0269
+ CONST UID '56AF1DAE0269'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF1D990070 // FillRect$1
+ ;
+ : Parameters
+   Seq: ( ME_56AF1DB100D9 // R
+ )
+ ; // Parameters
+
+ref; // ME_56AF1DAE0269 DoIt
+
+: ME_56AF1D990070
+ CONST UID '56AF1D990070'
+ CONST Name 'FillRect'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56AF1DAE0269 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF1D990070 FillRect$1
+
+FORWARD ME_56AF1DDC024A
+
+: ME_56AF1DEC00CA
+ CONST UID '56AF1DEC00CA'
+ CONST Name 'R'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728974E009E' '472745450206.pas.ms.script' // Tl3Rect
+ ;
+
+ref; // ME_56AF1DEC00CA R
+
+: ME_56AF1DE7020A
+ CONST UID '56AF1DE7020A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF1DDC024A // FillRect$2
+ ;
+ : Parameters
+   Seq: ( ME_56AF1DEC00CA // R
+ )
+ ; // Parameters
+
+ref; // ME_56AF1DE7020A DoIt
+
+: ME_56AF1DDC024A
+ CONST UID '56AF1DDC024A'
+ CONST Name 'FillRect'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56AF1DE7020A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF1DDC024A FillRect$2
+
+FORWARD ME_56AF1E2902D2
+
+: ME_56AF1E36005D
+ CONST UID '56AF1E36005D'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF1E2902D2 // DrawingIsValid
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56AF1E36005D DoIt
+
+: ME_56AF1E2902D2
+ CONST UID '56AF1E2902D2'
+ CONST Name 'DrawingIsValid'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56AF1E36005D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF1E2902D2 DrawingIsValid
+
+FORWARD ME_56AF1E650037
+
+: ME_E5A9DF4AA630
+ CONST UID 'E5A9DF4AA630'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF1E650037 // IsVirtual
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_E5A9DF4AA630 DoIt
+
+: ME_56AF1E650037
+ CONST UID '56AF1E650037'
+ CONST Name 'IsVirtual'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Inherits
+   Seq: ( ME_56AF1E2902D2 // DrawingIsValid
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_E5A9DF4AA630 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF1E650037 IsVirtual
+
+FORWARD ME_56AF1E9702A0
+
+: ME_AD8C40A29B72
+ CONST UID 'AD8C40A29B72'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF1E9702A0 // CheckDrawing
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_AD8C40A29B72 DoIt
+
+: ME_56AF1E9702A0
+ CONST UID '56AF1E9702A0'
+ CONST Name 'CheckDrawing'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Inherits
+   Seq: ( ME_56AF1E2902D2 // DrawingIsValid
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_AD8C40A29B72 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF1E9702A0 CheckDrawing
+
+FORWARD ME_56AF2372026A
+
+: ME_CA6897BABBF8
+ CONST UID 'CA6897BABBF8'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Lock' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF2372026A // Lock
+ ;
+
+ref; // ME_CA6897BABBF8 DoIt
+
+: ME_56AF2372026A
+ CONST UID '56AF2372026A'
+ CONST Name 'Lock'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_CA6897BABBF8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF2372026A Lock
+
+FORWARD ME_56AF237B031E
+
+: ME_8A66DF39C15A
+ CONST UID '8A66DF39C15A'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Unlock' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF237B031E // Unlock
+ ;
+
+ref; // ME_8A66DF39C15A DoIt
+
+: ME_56AF237B031E
+ CONST UID '56AF237B031E'
+ CONST Name 'Unlock'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_8A66DF39C15A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF237B031E Unlock
+
+FORWARD ME_56AF3CC4020E
+
+: ME_56AF3CDD014B
+ CONST UID '56AF3CDD014B'
+ CONST Name 'anOwner'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_56AF3CDD014B anOwner
+
+: ME_56AF3CDA0380
+ CONST UID '56AF3CDA0380'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AF3CC4020E // CreateOwned
+ ;
+ : Parameters
+   Seq: ( ME_56AF3CDD014B // anOwner
+ )
+ ; // Parameters
+
+ref; // ME_56AF3CDA0380 DoIt
+
+: ME_56AF3CC4020E
+ CONST UID '56AF3CC4020E'
+ CONST Name 'CreateOwned'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56AF3CDA0380 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AF3CC4020E CreateOwned
+
 : ME_4A4CBCD002EA
  CONST UID '4A4CBCD002EA'
  CONST Name 'DoGetPageSetupWidth'
@@ -1326,6 +2427,105 @@ ref; // ME_4A4CE6BE005A AssignDeviceCaps
 
 ref; // ME_4D1B61130223 DoGetPaperWidth
 
+: ME_47DFCAF40284
+ CONST UID '47DFCAF40284'
+ CONST Name 'R'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728976B0154' '472745450206.pas.ms.script' // Tl3SRect
+ ;
+
+ref; // ME_47DFCAF40284 R
+
+: ME_47DFCAEE0007
+ CONST UID '47DFCAEE0007'
+ CONST Name 'DoFillForeRect'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Parameters
+   Seq: ( ME_47DFCAF40284 // R
+ )
+ ; // Parameters
+
+ref; // ME_47DFCAEE0007 DoFillForeRect
+
+: ME_56AF21B60199
+ CONST UID '56AF21B60199'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
+ ;
+
+ref; // ME_56AF21B60199 aValue
+
+: ME_56AF21B601B7
+ CONST UID '56AF21B601B7'
+ CONST Name 'anAlien'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56AF21B601B7 anAlien
+
+: ME_478E40F20207
+ CONST UID '478E40F20207'
+ CONST Name 'SetCanvas'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Parameters
+   Seq: ( ME_56AF21B60199 // aValue
+ ME_56AF21B601B7 // anAlien
+ )
+ ; // Parameters
+
+ref; // ME_478E40F20207 SetCanvas
+
+: ME_4FAE533E035C
+ CONST UID '4FAE533E035C'
+ CONST Name 'GetAlienDC'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A46A35004F' '4AB0C3F60375.pas.ms.script' // hDC
+ ;
+
+ref; // ME_4FAE533E035C GetAlienDC
+
+: ME_47DFCAB602CF
+ CONST UID '47DFCAB602CF'
+ CONST Name 'R'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476A77CF00F8' '46A5E026007E.pas.ms.script' // TRect
+ ;
+
+ref; // ME_47DFCAB602CF R
+
+: ME_47DFCAAF0249
+ CONST UID '47DFCAAF0249'
+ CONST Name 'FillRectPrim'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Parameters
+   Seq: ( ME_47DFCAB602CF // R
+ )
+ ; // Parameters
+
+ref; // ME_47DFCAAF0249 FillRectPrim
+
 : ME_4A4CCC11013D
  CONST UID '4A4CCC11013D'
  CONST Class class_Dependency
@@ -1381,6 +2581,19 @@ ref; // ME_4A4CE548009F
 
 ref; // ME_4E26F5B9014F 
 
+FORWARD ME_56AB78880104
+
+: ME_56AB78A30366
+ CONST UID '56AB78A30366'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target ME_56AB78880104 // l3CanvasUtils
+ ;
+
+ref; // ME_56AB78A30366 
+
 : ME_4728BE6A0392_ME_4A4CB79A02C6
  CONST UID '4728BE6A0392'
  CONST Name 'PageNumber'
@@ -1402,6 +2615,38 @@ ref; // ME_4728BE6A0392_ME_4A4CB79A02C6 PageNumber
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4728BE830080_ME_4A4CB79A02C6 PageWidthNumber
+
+: ME_487CFE91037C_ME_4A4CB79A02C6
+ CONST UID '487CFE91037C'
+ CONST Name 'CheckColors'
+ : Original WL 'ME_487CFE91037C' '467C0CAA02AB.pas.ms.script' // CheckColors
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_487CFE91037C_ME_4A4CB79A02C6 CheckColors
+
+: ME_487D000802A4_ME_4A4CB79A02C6
+ CONST UID '487D000802A4'
+ CONST Name 'Font'
+ : Original WL 'ME_487D000802A4' '467C0CAA02AB.pas.ms.script' // Font
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_487D000802A4_ME_4A4CB79A02C6 Font
+
+: ME_487D0BDA03C6_ME_4A4CB79A02C6
+ CONST UID '487D0BDA03C6'
+ CONST Name 'FontColor'
+ : Original WL 'ME_487D0BDA03C6' '467C0CAA02AB.pas.ms.script' // FontColor
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_487D0BDA03C6_ME_4A4CB79A02C6 FontColor
 
 : ME_4A4CD82A0310_ME_4A4CB79A02C6
  CONST UID '4A4CD82A0310'
@@ -1610,6 +2855,7 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ; // Inherits
  : Implements
    Seq: ( WL 'ME_4728BEE10130' '4677FBA70343.pas.ms.script' // Il3PageSetup
+ WL 'ME_487CFBCE0003' '467C0CAA02AB.pas.ms.script' // Il3EffectiveColors
  WL 'ME_4A4CE05603CC' '467C0CAA02AB.pas.ms.script' // Ml3UnitsConverter
  WL 'ME_4CB32CA1019D' '467C0CAA02AB.pas.ms.script' // Ml3PageInfo
  WL 'ME_4CB3352001F4' '467C0CAA02AB.pas.ms.script' // Ml3PageNumberInfo
@@ -1643,11 +2889,36 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4E57AA4C0255 // f_LineSpacing
  ME_4E6894DA028E // f_LineSpacingStack
  ME_4F2AC2C90385 // f_InitialDCOffsetStored
+ ME_56ACD23D00C9 // f_Drawing
+ ME_56ACD2F50038 // BackColor
+ ME_56ACD37202DE // DrawEnabled
+ ME_56ACD3C302A5 // Drawing
+ ME_56ACD44E030C // f_CheckingColors
+ ME_56ACDB300091 // f_Invert
+ ME_56ACDB3A0069 // Invert
+ ME_56AD08DA011D // VCLFont
+ ME_56AD09460121 // TextColor
+ ME_56AD0ACC0034 // Brush
+ ME_56AD0CF002D9 // f_TextColor
+ ME_56AD0D2D008A // NotFocused
+ ME_56AF158D0321 // f_Fore
+ ME_56AF1B35024F // f_DarkFore
+ ME_56AF1ED103E1 // f_CheckingDrawing
+ ME_56AF1F580071 // f_DC
+ ME_56AF1FBE0352 // f_DCFlag
+ ME_56AF20160331 // DCFlag
+ ME_56AF20BB0209 // Canvas
+ ME_56AF48DE00A1 // Owner
+ ME_56AF4E2C005D // Zoom
  ME_B6469CD3B8C3 // f_Flags
  ME_C11F8EC36A6D // f_OnDrawSub
  ME_BA5D4E0AF1E8 // f_CanDrawSubs
  ME_CBF4812359EF // f_PixelsPerInchX
  ME_22423B4D9BE0 // f_PixelsPerInchY
+ ME_9A834AC46EA9 // f_BackColor
+ ME_6C9D65687E54 // f_NotFocused
+ ME_2B30B7FF0C57 // f_Owner
+ ME_32981A0BEEF5 // f_Zoom
  )
  ; // Attributes
  : Operations
@@ -1656,6 +2927,20 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4A4CCE400004 // UpdatePixelsPerInch
  ME_4CB32D4C030E // GetIsPagesCounter
  ME_4E98521202B5 // GetGlobalClipRectWithZoom
+ ME_56ACD3DD0360 // BeginDrawing
+ ME_56ACD3F700FB // EndDrawing
+ ME_56ACDB8F020C // BeginInvert
+ ME_56ACDB9903C9 // EndInvert
+ ME_56AF1B540191 // BeginDarkColor
+ ME_56AF1B6900DF // EndDarkColor
+ ME_56AF1D990070 // FillRect$1
+ ME_56AF1DDC024A // FillRect$2
+ ME_56AF1E2902D2 // DrawingIsValid
+ ME_56AF1E650037 // IsVirtual
+ ME_56AF1E9702A0 // CheckDrawing
+ ME_56AF2372026A // Lock
+ ME_56AF237B031E // Unlock
+ ME_56AF3CC4020E // CreateOwned
  ME_4A4CBCD002EA // DoGetPageSetupWidth
  ME_4A4CBCDD0244 // DoGetPageSetupHeight
  ME_4A4CC195011E // DoGetDrawEnabled
@@ -1664,11 +2949,18 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4A4CCF9202D9 // AsIl3Canvas
  ME_4A4CE6BE005A // AssignDeviceCaps
  ME_4D1B61130223 // DoGetPaperWidth
+ ME_47DFCAEE0007 // DoFillForeRect
+ ME_478E40F20207 // SetCanvas
+ ME_4FAE533E035C // GetAlienDC
+ ME_47DFCAAF0249 // FillRectPrim
  )
  ; // Operations
  : Implemented
    Seq: ( ME_4728BE6A0392_ME_4A4CB79A02C6 // PageNumber
  ME_4728BE830080_ME_4A4CB79A02C6 // PageWidthNumber
+ ME_487CFE91037C_ME_4A4CB79A02C6 // CheckColors
+ ME_487D000802A4_ME_4A4CB79A02C6 // Font
+ ME_487D0BDA03C6_ME_4A4CB79A02C6 // FontColor
  ME_4A4CD82A0310_ME_4A4CB79A02C6 // Width
  ME_4A4CD82E025B_ME_4A4CB79A02C6 // Height
  ME_4A4CD8320146_ME_4A4CB79A02C6 // PaperWidth
@@ -1698,6 +2990,7 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4A4CBF6F03E7 // TevDrawFlags
  ME_4A4CBFCF02D5 // TevDCFlag
  ME_4A4CD51000ED // Tl3DeviceCaps
+ ME_56AB66AA01C0 // Tl3TabInfo
  )
  ; // Children
  : Dependencies
@@ -1706,6 +2999,7 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4A4CE533028D // 
  ME_4A4CE548009F // 
  ME_4E26F5B9014F // 
+ ME_56AB78A30366 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -1714,7 +3008,6 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.06.2009 17:35'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CanvasPrim.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -1817,7 +3110,6 @@ ref; // ME_88066E5D0414_ME_556EE661021E IC
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -1923,7 +3215,6 @@ ref; // ME_4799FAF80346
  CONST "author" 'Люлин А.В.'
  CONST "no hands" true
  CONST "started" '26.05.2005 16:12'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ScreenIC.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -2227,7 +3518,6 @@ ref; // ME_4728C7DC01EA_ME_47D02E5F022F BigSize
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '28.07.2005 15:50'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ImageList.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -2308,42 +3598,6 @@ ref; // ME_478E406D004B NeedOpenRealPage
  ;
 
 ref; // ME_478E40D30089 IsPreview
-
-: ME_478E41040151
- CONST UID '478E41040151'
- CONST Name 'Value'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A46A030333' '556F09AA036E.pas.ms.script' // TCanvas
- ;
-
-ref; // ME_478E41040151 Value
-
-: ME_478E41040193
- CONST UID '478E41040193'
- CONST Name 'Alien'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_478E41040193 Alien
-
-: ME_478E40F20207
- CONST UID '478E40F20207'
- CONST Name 'SetCanvas'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_473C3D830066 // Tl3Canvas
- ;
- : Parameters
-   Seq: ( ME_478E41040151 // Value
- ME_478E41040193 // Alien
- )
- ; // Parameters
-
-ref; // ME_478E40F20207 SetCanvas
 
 : ME_4797837E0112
  CONST UID '4797837E0112'
@@ -2430,56 +3684,6 @@ ref; // ME_47DFC90A0366 DoStartObject
 
 ref; // ME_47DFCA030114 DoSetPageTop
 
-: ME_47DFCAB602CF
- CONST UID '47DFCAB602CF'
- CONST Name 'R'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_476A77CF00F8' '46A5E026007E.pas.ms.script' // TRect
- ;
-
-ref; // ME_47DFCAB602CF R
-
-: ME_47DFCAAF0249
- CONST UID '47DFCAAF0249'
- CONST Name 'FillRectPrim'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_473C3D830066 // Tl3Canvas
- ;
- : Parameters
-   Seq: ( ME_47DFCAB602CF // R
- )
- ; // Parameters
-
-ref; // ME_47DFCAAF0249 FillRectPrim
-
-: ME_47DFCAF40284
- CONST UID '47DFCAF40284'
- CONST Name 'R'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_4728976B0154' '472745450206.pas.ms.script' // Tl3SRect
- ;
-
-ref; // ME_47DFCAF40284 R
-
-: ME_47DFCAEE0007
- CONST UID '47DFCAEE0007'
- CONST Name 'DoFillForeRect'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_473C3D830066 // Tl3Canvas
- ;
- : Parameters
-   Seq: ( ME_47DFCAF40284 // R
- )
- ; // Parameters
-
-ref; // ME_47DFCAEE0007 DoFillForeRect
-
 : ME_4FAE47320103
  CONST UID '4FAE47320103'
  CONST Name 'Invalidate'
@@ -2539,19 +3743,6 @@ ref; // ME_4FAE53320258 aDC
  ; // Parameters
 
 ref; // ME_4FAE532B0348 FreeAlienDC
-
-: ME_4FAE533E035C
- CONST UID '4FAE533E035C'
- CONST Name 'GetAlienDC'
- CONST Class class_Operation
- CONST Visibility ProtectedAccess
- CONST Abstraction at_regular
- : Parent ME_473C3D830066 // Tl3Canvas
- ;
- : Target WL 'ME_46A46A35004F' '4AB0C3F60375.pas.ms.script' // hDC
- ;
-
-ref; // ME_4FAE533E035C GetAlienDC
 
 : ME_54B4DE11020C
  CONST UID '54B4DE11020C'
@@ -3878,6 +5069,16 @@ ref; // ME_476FA1140319_ME_473C3D830066 GetClientRect
  CONST OpKind opkind_Implemented
 ref; // ME_4776171C037B_ME_473C3D830066 AdjustMarginsByPrintableArea
 
+: ME_478E40F20207_ME_473C3D830066
+ CONST UID '478E40F20207'
+ CONST Name 'SetCanvas'
+ : Original ME_478E40F20207 // SetCanvas
+ ;
+ : Implementor ME_473C3D830066 // Tl3Canvas
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_478E40F20207_ME_473C3D830066 SetCanvas
+
 : ME_483D1BCA0045_ME_473C3D830066
  CONST UID '483D1BCA0045'
  CONST Name 'PasswordChar'
@@ -4051,18 +5252,6 @@ ref; // ME_4E26F88701E8_ME_473C3D830066 GlobalClipRect
  CONST "pm" true
 ref; // ME_4E26F8A7034D_ME_473C3D830066 ClipRect
 
-: ME_4E2706890370_ME_473C3D830066
- CONST UID '4E2706890370'
- CONST Name 'DC'
- : Original ME_4E2706890370 // DC
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "needs field" false
- CONST "pm" true
-ref; // ME_4E2706890370_ME_473C3D830066 DC
-
 : ME_4E27082D0051_ME_473C3D830066
  CONST UID '4E27082D0051'
  CONST Name 'SWindowOrg'
@@ -4148,6 +5337,59 @@ ref; // ME_55CC51AD0273_ME_473C3D830066 BeginDarkColor
  CONST OpKind opkind_Implemented
 ref; // ME_55CC51CE0059_ME_473C3D830066 EndDarkColor
 
+: ME_56AD08DA011D_ME_473C3D830066
+ CONST UID '56AD08DA011D'
+ CONST Name 'VCLFont'
+ : Original ME_56AD08DA011D // VCLFont
+ ;
+ : Implementor ME_473C3D830066 // Tl3Canvas
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_56AD08DA011D_ME_473C3D830066 VCLFont
+
+: ME_56AD0ACC0034_ME_473C3D830066
+ CONST UID '56AD0ACC0034'
+ CONST Name 'Brush'
+ : Original ME_56AD0ACC0034 // Brush
+ ;
+ : Implementor ME_473C3D830066 // Tl3Canvas
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_56AD0ACC0034_ME_473C3D830066 Brush
+
+: ME_56AF1D990070_ME_473C3D830066
+ CONST UID '56AF1D990070'
+ CONST Name 'FillRect'
+ : Original ME_56AF1D990070 // FillRect$1
+ ;
+ : Implementor ME_473C3D830066 // Tl3Canvas
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56AF1D990070_ME_473C3D830066 FillRect$1
+
+: ME_56AF1DDC024A_ME_473C3D830066
+ CONST UID '56AF1DDC024A'
+ CONST Name 'FillRect'
+ : Original ME_56AF1DDC024A // FillRect$2
+ ;
+ : Implementor ME_473C3D830066 // Tl3Canvas
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56AF1DDC024A_ME_473C3D830066 FillRect$2
+
+: ME_56AF20BB0209_ME_473C3D830066
+ CONST UID '56AF20BB0209'
+ CONST Name 'Canvas'
+ : Original ME_56AF20BB0209 // Canvas
+ ;
+ : Implementor ME_473C3D830066 // Tl3Canvas
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ref; // ME_56AF20BB0209_ME_473C3D830066 Canvas
+
 : ME_4E98521202B5_ME_473C3D830066
  CONST UID '4E98521202B5'
  CONST Name 'GetGlobalClipRectWithZoom'
@@ -4186,20 +5428,16 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  : Operations
    Seq: ( ME_478E406D004B // NeedOpenRealPage
  ME_478E40D30089 // IsPreview
- ME_478E40F20207 // SetCanvas
  ME_4797837E0112 // DoEndPaint
  ME_47DFB3CE02C5 // GetCaret
  ME_47DFBDDA03CC // DoGetDrawEnabled
  ME_47DFBEC80085 // DoStartPage
  ME_47DFC90A0366 // DoStartObject
  ME_47DFCA030114 // DoSetPageTop
- ME_47DFCAAF0249 // FillRectPrim
- ME_47DFCAEE0007 // DoFillForeRect
  ME_4FAE47320103 // Invalidate
  ME_4FAE4C740135 // DoGetClientRect
  ME_4FAE530D02C3 // FireDCSetToNull
  ME_4FAE532B0348 // FreeAlienDC
- ME_4FAE533E035C // GetAlienDC
  ME_54B4DDF502DD // DoStartDrawAAC
  ME_54B4DE1700CA // DoEndDrawAAC
  )
@@ -4326,6 +5564,7 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_475E5BED0118_ME_473C3D830066 // FM
  ME_476FA1140319_ME_473C3D830066 // GetClientRect
  ME_4776171C037B_ME_473C3D830066 // AdjustMarginsByPrintableArea
+ ME_478E40F20207_ME_473C3D830066 // SetCanvas
  ME_483D1BCA0045_ME_473C3D830066 // PasswordChar
  ME_487CFBE202B1_ME_473C3D830066 // EffectiveColors
  ME_4897E01001E7_ME_473C3D830066 // Printing
@@ -4342,7 +5581,6 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_4E26F863020C_ME_473C3D830066 // WindowOrg
  ME_4E26F88701E8_ME_473C3D830066 // GlobalClipRect
  ME_4E26F8A7034D_ME_473C3D830066 // ClipRect
- ME_4E2706890370_ME_473C3D830066 // DC
  ME_4E27082D0051_ME_473C3D830066 // SWindowOrg
  ME_4ED5066F036B_ME_473C3D830066 // Invert
  ME_5077CF6501AE_ME_473C3D830066 // FrameLines
@@ -4351,6 +5589,11 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_54B4D9020149_ME_473C3D830066 // EndDrawAAC
  ME_55CC51AD0273_ME_473C3D830066 // BeginDarkColor
  ME_55CC51CE0059_ME_473C3D830066 // EndDarkColor
+ ME_56AD08DA011D_ME_473C3D830066 // VCLFont
+ ME_56AD0ACC0034_ME_473C3D830066 // Brush
+ ME_56AF1D990070_ME_473C3D830066 // FillRect$1
+ ME_56AF1DDC024A_ME_473C3D830066 // FillRect$2
+ ME_56AF20BB0209_ME_473C3D830066 // Canvas
  )
  ; // Implemented
  : Overridden
@@ -4366,7 +5609,6 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -4394,7 +5636,6 @@ ref; // ME_473C3D830066 Tl3Canvas
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -4402,6 +5643,17 @@ ref; // ME_473C3D830066 Tl3Canvas
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_473C4E71009E Tl3OldMFCanvas
+
+: ME_56AB78990258
+ CONST UID '56AB78990258'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_478E3C97021E // l3Canvas
+ ;
+ : Target ME_56AB78880104 // l3CanvasUtils
+ ;
+
+ref; // ME_56AB78990258 
 
 : ME_478E3C97021E
  CONST UID '478E3C97021E'
@@ -4419,11 +5671,14 @@ ref; // ME_473C4E71009E Tl3OldMFCanvas
  ME_473C4E71009E // Tl3OldMFCanvas
  )
  ; // Children
+ : Dependencies
+   Seq: ( ME_56AB78990258 // 
+ )
+ ; // Dependencies
  CONST "author" 'Люлин А.В.'
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '15.12.1996'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Canvas.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -4472,7 +5727,6 @@ ref; // ME_4BE3C7B00113 FImage
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -4499,7 +5753,6 @@ ref; // ME_4BE3C7930262 THackMetafile
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -4606,7 +5859,6 @@ ref; // ME_54BE0BE60150 FInch
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -4874,7 +6126,6 @@ ref; // ME_47A6FEE600FC_ME_47DFD79200BD IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '22.10.2004 19:10'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Metafile.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -4902,7 +6153,6 @@ ref; // ME_47DFD79200BD Tl3Metafile
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '28.07.2005 20:34'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3SmartCanvas.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -4935,7 +6185,6 @@ ref; // ME_4804AD9B033B Tl3SmartCanvas
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '11.10.1999 14:27'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3LogFont.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -5078,7 +6327,6 @@ ref; // ME_4FAE4C740135_ME_48C68AC60396 DoGetClientRect
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '26.05.2005 17:41'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3ControlCanvas.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -5109,7 +6357,6 @@ FORWARD ME_48C68AA40296
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -5250,7 +6497,6 @@ ref; // ME_4FAE533E035C_ME_48C68AA40296 GetAlienDC
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '26.05.2005 17:40'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3WinControlCanvas.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -5369,7 +6615,6 @@ ref; // ME_48CA56FC0278 ChangeLine
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.05.2010 19:23'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -5476,7 +6721,6 @@ ref; // ME_4BE2E84C0134 EQ
  )
  ; // Operations
  CONST "not treat as record for XE4" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -5496,7 +6740,6 @@ FORWARD ME_48CA557F02FF
  CONST Abstraction at_final
  : Parent ME_48CA557F02FF // Tl3LineParts
  ;
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -5591,7 +6834,6 @@ ref; // ME_47A6FEE600FC_ME_48CA557F02FF IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '06.05.2010 18:14'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -5661,7 +6903,6 @@ ref; // ME_49BE5E0803A9 cAlingByBoundary
  )
  ; // Attributes
  CONST "spell names" false
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -6028,7 +7269,6 @@ ref; // ME_479731C50290_ME_48CA54A000F7 Cleanup
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -6062,7 +7302,6 @@ ref; // ME_48CA54A000F7 Tl3FrameLine
  CONST "author" 'Инишев Д.А.'
  CONST "no hands" true
  CONST "started" '02.10.06 16:27'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLine.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -6154,7 +7393,6 @@ ref; // ME_47A6FEE600FC_ME_48CA61B900B2 IsCacheable
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLineList.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -6720,7 +7958,6 @@ ref; // ME_479731C50290_ME_48CA5CB001A3 Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.10.06 16:27'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CoordinateMap.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -7320,7 +8557,6 @@ ref; // ME_479731C50290_ME_48CA64150378 Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.10.06 16:27'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameObject.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -7416,7 +8652,6 @@ ref; // ME_47A6FEE600FC_ME_48CA6C24020B IsCacheable
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.10.06 16:27'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameObjectList.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -7877,7 +9112,6 @@ ref; // ME_47A042E100E2_ME_48CA6E8201B8 InitFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '02.10.06 16:27'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLines.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8020,7 +9254,6 @@ ref; // ME_476F71670396_ME_48DD2129027C InchHeight
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8047,7 +9280,6 @@ ref; // ME_48DD2129027C Tl3PrimGraphicContainer
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8074,7 +9306,6 @@ ref; // ME_48DD21170351 Tl3SizeableGraphicContainerPrim
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8120,7 +9351,6 @@ ref; // ME_4DD3CD2C0032
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8150,7 +9380,6 @@ ref; // ME_48DD2178012F Tl3GraphicContainer
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '22.10.2007 15:11'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3GraphicContainer.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8200,7 +9429,6 @@ ref; // ME_4DD3D0B40355
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '26.07.2004 16:07 '
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3IEBitmapContainer.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8233,7 +9461,6 @@ ref; // ME_48E6486F0123 Tl3IEBitmapContainer
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '21.11.2005 08:38'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3VirtualCanvas.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8256,7 +9483,6 @@ FORWARD ME_53147FD702AC
  CONST Abstraction at_final
  : Parent ME_53147FD702AC // Tl3FontManagerPrimPrim
  ;
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8274,7 +9500,6 @@ ref; // ME_53148388028F l3Items_NoSort
  CONST Abstraction at_final
  : Parent ME_53147FD702AC // Tl3FontManagerPrimPrim
  ;
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8379,7 +9604,6 @@ ref; // ME_47B99D4503A2_ME_53147FD702AC CompareExistingItems
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FontManagerPrimPrim.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8409,7 +9633,6 @@ ref; // ME_53147FD702AC Tl3FontManagerPrimPrim
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3BitmapContainer.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8441,7 +9664,6 @@ ref; // ME_4CBD730A0323 Tl3BitmapContainer
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
  CONST "started" '2004/11/03 10:39:36'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Region.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8547,7 +9769,6 @@ ref; // ME_4FA3D5A500A9 GetPrecision
  ME_4FA3D5A500A9 // GetPrecision
  )
  ; // Operations
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -8947,7 +10168,6 @@ ref; // ME_5000565C019C_ME_4D00B058024F ClearFields
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FrameLinesSpy.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9016,7 +10236,6 @@ ref; // ME_4DD3CE6A00B7 Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '18.05.2011 17:43'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3GraphicContainerStack.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9085,7 +10304,6 @@ ref; // ME_4DD3D0BB03BD Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '18.05.2011 17:57'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3IEBitmapContainerStack.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9114,7 +10332,6 @@ ref; // ME_4DD3D054004A Tl3IEBitmapContainerStack
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9198,7 +10415,6 @@ ref; // ME_479731C50290_ME_47D15062022A Cleanup
  CONST "no hands" true
  CONST "register in scripts" 'undefined'
  CONST "started" '15.12.2006 14:01'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3Bitmap.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9228,7 +10444,6 @@ ref; // ME_47D15062022A Tl3Bitmap
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3GraphicControlCanvas.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9289,7 +10504,6 @@ ref; // ME_4FAE57980326 Create
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FormCanvas.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9320,7 +10534,6 @@ FORWARD ME_4FAE801F00D4
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9396,7 +10609,6 @@ ref; // ME_4FAE803503C7 Create
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CustomControlCanvas.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9426,7 +10638,6 @@ ref; // ME_4FAE801F00D4 Tl3CustomControlCanvas
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FormattedLines.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9449,7 +10660,6 @@ ref; // ME_50C61D8502E4 Tl3FormattedLines
  ;
  CONST "finished" false
  CONST "no hands" false
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FontTools.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9512,7 +10722,6 @@ ref; // ME_5304D6C5002B_ME_5314807A0393 ItemToWStr
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FontManagerPrim.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9569,7 +10778,6 @@ ref; // ME_7D16761A0A99 Exists
  CONST "register in scripts" 'undefined'
  CONST "singleton" true
  CONST "started" '27.02.2010 13:16'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3FontManagerEx.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9601,7 +10809,6 @@ FORWARD ME_484CE8BC01CC
  CONST "needs script" 'undefined'
  CONST "no hands" false
  CONST "register in scripts" 'undefined'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9624,7 +10831,6 @@ ref; // ME_4B88F0E700A0 Tl3FontManager
    Seq: ( ME_484CE8FF0292 // Tl3LogFont
  )
  ; // Inherits
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9653,7 +10859,6 @@ ref; // ME_5314729A02D2 Tl3LogFont
  CONST "finished" false
  CONST "no hands" false
  CONST "started" '11.10.1999 14:27'
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FontManager.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9768,7 +10973,6 @@ ref; // ME_55262A1701B4 CheckSum
  )
  ; // Attributes
  CONST "packed" true
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9790,7 +10994,6 @@ ref; // ME_5526178702ED Tl3MetafileHeader
  )
  ; // Inherits
  CONST "isPointer" true
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9831,7 +11034,6 @@ ref; // ME_552631FA02BF c_WMFKey
  )
  ; // Attributes
  CONST "spell names" false
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
  CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9972,7 +11174,6 @@ ref; // ME_552625FB01B7
  )
  ; // Dependencies
  CONST "no hands" false
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3MetafileHeader.pas'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
@@ -9980,6 +11181,984 @@ ref; // ME_552625FB01B7
  CONST extprop:rc:SelfName 'MetafileHeader'
 
 ref; // ME_552616EE02DF l3MetafileHeader
+
+FORWARD ME_56AB7AC803C9
+
+: ME_56AB7B0E0300
+ CONST UID '56AB7B0E0300'
+ CONST Name 'R'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7AC803C9 // TRGB
+ ;
+ : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ;
+
+ref; // ME_56AB7B0E0300 R
+
+: ME_56AB7B17027B
+ CONST UID '56AB7B17027B'
+ CONST Name 'G'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7AC803C9 // TRGB
+ ;
+ : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ;
+
+ref; // ME_56AB7B17027B G
+
+: ME_56AB7B2202FD
+ CONST UID '56AB7B2202FD'
+ CONST Name 'B'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7AC803C9 // TRGB
+ ;
+ : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ;
+
+ref; // ME_56AB7B2202FD B
+
+: ME_56AB7AC803C9
+ CONST UID '56AB7AC803C9'
+ CONST Name 'TRGB'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Attributes
+   Seq: ( ME_56AB7B0E0300 // R
+ ME_56AB7B17027B // G
+ ME_56AB7B2202FD // B
+ )
+ ; // Attributes
+ CONST "packed" true
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56AB7AC803C9 TRGB
+
+FORWARD ME_56AB7BE80267
+
+: ME_56AB7C06007C
+ CONST UID '56AB7C06007C'
+ CONST Name 'H'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7BE80267 // THSV
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB7C06007C H
+
+: ME_56AB7C100317
+ CONST UID '56AB7C100317'
+ CONST Name 'S'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7BE80267 // THSV
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB7C100317 S
+
+: ME_56AB7C1902DC
+ CONST UID '56AB7C1902DC'
+ CONST Name 'V'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7BE80267 // THSV
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB7C1902DC V
+
+: ME_56AB7BE80267
+ CONST UID '56AB7BE80267'
+ CONST Name 'THSV'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Attributes
+   Seq: ( ME_56AB7C06007C // H
+ ME_56AB7C100317 // S
+ ME_56AB7C1902DC // V
+ )
+ ; // Attributes
+ CONST "packed" true
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56AB7BE80267 THSV
+
+FORWARD ME_56AB7C2D03D6
+
+: ME_56AB7C3E032C
+ CONST UID '56AB7C3E032C'
+ CONST Name 'Y'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7C2D03D6 // TYIQ
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB7C3E032C Y
+
+: ME_56AB7C4903DF
+ CONST UID '56AB7C4903DF'
+ CONST Name 'I'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7C2D03D6 // TYIQ
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB7C4903DF I
+
+: ME_56AB7C4F024F
+ CONST UID '56AB7C4F024F'
+ CONST Name 'Q'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56AB7C2D03D6 // TYIQ
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB7C4F024F Q
+
+: ME_56AB7C2D03D6
+ CONST UID '56AB7C2D03D6'
+ CONST Name 'TYIQ'
+ CONST Class class_Class
+ : Stereotype st_Struct ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Attributes
+   Seq: ( ME_56AB7C3E032C // Y
+ ME_56AB7C4903DF // I
+ ME_56AB7C4F024F // Q
+ )
+ ; // Attributes
+ CONST "packed" true
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56AB7C2D03D6 TYIQ
+
+: ME_56ACD80E006B
+ CONST UID '56ACD80E006B'
+ CONST Name 'UseHSV'
+ CONST Class class_Class
+ : Stereotype st_Define ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+
+ref; // ME_56ACD80E006B UseHSV
+
+FORWARD ME_56AB78E40273
+
+: ME_56AB78F3006A
+ CONST UID '56AB78F3006A'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB78F3006A aValue
+
+: ME_56AB78F30088
+ CONST UID '56AB78F30088'
+ CONST Name 'aLineSpacing'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB78F30088 aLineSpacing
+
+: ME_56AB78EF027C
+ CONST UID '56AB78EF027C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78E40273 // ApplyLineSpacing
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_56AB78F3006A // aValue
+ ME_56AB78F30088 // aLineSpacing
+ )
+ ; // Parameters
+
+ref; // ME_56AB78EF027C DoIt
+
+: ME_56AB78E40273
+ CONST UID '56AB78E40273'
+ CONST Name 'ApplyLineSpacing'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB78EF027C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB78E40273 ApplyLineSpacing
+
+FORWARD ME_56AB792702C4
+
+: ME_56AB793B0373
+ CONST UID '56AB793B0373'
+ CONST Name 'aDC'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A46A35004F' '4AB0C3F60375.pas.ms.script' // hDC
+ ;
+
+ref; // ME_56AB793B0373 aDC
+
+: ME_56AB793B0391
+ CONST UID '56AB793B0391'
+ CONST Name 'aStr'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780D0003AF' '4677FBA70343.pas.ms.script' // Tl3WString
+ ;
+
+ref; // ME_56AB793B0391 aStr
+
+: ME_56AB793B03AF
+ CONST UID '56AB793B03AF'
+ CONST Name 'theExtent'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_50477FCE0307' '4728A7020026.pas.ms.script' // TSize
+ ;
+
+ref; // ME_56AB793B03AF theExtent
+
+: ME_56AB793B03CD
+ CONST UID '56AB793B03CD'
+ CONST Name 'aLineSpacing'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB793B03CD aLineSpacing
+
+: ME_56AB79330094
+ CONST UID '56AB79330094'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB792702C4 // SystemTextExtent
+ ;
+ : Parameters
+   Seq: ( ME_56AB793B0373 // aDC
+ ME_56AB793B0391 // aStr
+ ME_56AB793B03AF // theExtent
+ ME_56AB793B03CD // aLineSpacing
+ )
+ ; // Parameters
+
+ref; // ME_56AB79330094 DoIt
+
+: ME_56AB792702C4
+ CONST UID '56AB792702C4'
+ CONST Name 'SystemTextExtent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB79330094 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB792702C4 SystemTextExtent
+
+FORWARD ME_56AB7A760174
+
+: ME_56AB7A81011F
+ CONST UID '56AB7A81011F'
+ CONST Name 'aFore'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_56AB7A81011F aFore
+
+: ME_56AB7A81013D
+ CONST UID '56AB7A81013D'
+ CONST Name 'aBack'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_56AB7A81013D aBack
+
+: ME_56AB7A7D0255
+ CONST UID '56AB7A7D0255'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB7A760174 // CheckColors
+ ;
+ : Parameters
+   Seq: ( ME_56AB7A81011F // aFore
+ ME_56AB7A81013D // aBack
+ )
+ ; // Parameters
+
+ref; // ME_56AB7A7D0255 DoIt
+
+: ME_56AB7A760174
+ CONST UID '56AB7A760174'
+ CONST Name 'CheckColors'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB7A7D0255 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB7A760174 CheckColors
+
+FORWARD ME_56AB7B600252
+
+: ME_D7DDE6DD170E
+ CONST UID 'D7DDE6DD170E'
+ CONST Name 'aFore'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_D7DDE6DD170E aFore
+
+: ME_2EB464EA0363
+ CONST UID '2EB464EA0363'
+ CONST Name 'aBack'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_2EB464EA0363 aBack
+
+: ME_7B11617C0E33
+ CONST UID '7B11617C0E33'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB7B600252 // CheckColorsHSV
+ ;
+ : Parameters
+   Seq: ( ME_D7DDE6DD170E // aFore
+ ME_2EB464EA0363 // aBack
+ )
+ ; // Parameters
+
+ref; // ME_7B11617C0E33 DoIt
+
+: ME_56AB7B600252
+ CONST UID '56AB7B600252'
+ CONST Name 'CheckColorsHSV'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Inherits
+   Seq: ( ME_56AB7A760174 // CheckColors
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_7B11617C0E33 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB7B600252 CheckColorsHSV
+
+FORWARD ME_56AB7B7C0391
+
+: ME_56AB7B8B0088
+ CONST UID '56AB7B8B0088'
+ CONST Name 'aFC'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_56AB7B8B0088 aFC
+
+: ME_56AB7B8B00A6
+ CONST UID '56AB7B8B00A6'
+ CONST Name 'aBC'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_56AB7B8B00A6 aBC
+
+: ME_56AB7B8B00C4
+ CONST UID '56AB7B8B00C4'
+ CONST Name 'aDeltaY'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ;
+ CONST Value 100
+ : ValueType WL 'ME_476130E5023C' '4AB0C3C60310.pas.ms.script' // Byte
+ ;
+ CONST extprop:pas:Value 100
+
+ref; // ME_56AB7B8B00C4 aDeltaY
+
+: ME_56AB7B8601F7
+ CONST UID '56AB7B8601F7'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB7B7C0391 // CheckColorsYIQ
+ ;
+ : Parameters
+   Seq: ( ME_56AB7B8B0088 // aFC
+ ME_56AB7B8B00A6 // aBC
+ ME_56AB7B8B00C4 // aDeltaY
+ )
+ ; // Parameters
+
+ref; // ME_56AB7B8601F7 DoIt
+
+: ME_56AB7B7C0391
+ CONST UID '56AB7B7C0391'
+ CONST Name 'CheckColorsYIQ'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB7B8601F7 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB7B7C0391 CheckColorsYIQ
+
+FORWARD ME_56AB7BAE011A
+
+: ME_56AB7BB90160
+ CONST UID '56AB7BB90160'
+ CONST Name 'px'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_56AB7AC803C9 // TRGB
+ ;
+
+ref; // ME_56AB7BB90160 px
+
+: ME_56AB7BBD0264
+ CONST UID '56AB7BBD0264'
+ CONST Name 'HSV'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56AB7BE80267 // THSV
+ ;
+
+ref; // ME_56AB7BBD0264 HSV
+
+: ME_56AB7BB60264
+ CONST UID '56AB7BB60264'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB7BAE011A // HSV2RGB
+ ;
+ : Parameters
+   Seq: ( ME_56AB7BB90160 // px
+ ME_56AB7BBD0264 // HSV
+ )
+ ; // Parameters
+
+ref; // ME_56AB7BB60264 DoIt
+
+: ME_56AB7BAE011A
+ CONST UID '56AB7BAE011A'
+ CONST Name 'HSV2RGB'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB7BB60264 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB7BAE011A HSV2RGB
+
+FORWARD ME_56AB7CBA02F1
+
+: ME_56AB7CC90013
+ CONST UID '56AB7CC90013'
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB7CC90013 aCount
+
+: ME_56AB7CC90031
+ CONST UID '56AB7CC90031'
+ CONST Name 'aFontSize'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56AB7CC90031 aFontSize
+
+: ME_56AB7CC60239
+ CONST UID '56AB7CC60239'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB7CBA02F1 // l3CharsToInch
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_56AB7CC90013 // aCount
+ ME_56AB7CC90031 // aFontSize
+ )
+ ; // Parameters
+
+ref; // ME_56AB7CC60239 DoIt
+
+: ME_56AB7CBA02F1
+ CONST UID '56AB7CBA02F1'
+ CONST Name 'l3CharsToInch'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB7CC60239 // DoIt
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'CharsToInch'
+
+ref; // ME_56AB7CBA02F1 l3CharsToInch
+
+FORWARD ME_56AB7CED004F
+
+: ME_56AB7CF90052
+ CONST UID '56AB7CF90052'
+ CONST Name 'RGB'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56AB7AC803C9 // TRGB
+ ;
+
+ref; // ME_56AB7CF90052 RGB
+
+: ME_56AB7CF90070
+ CONST UID '56AB7CF90070'
+ CONST Name 'HSV'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_56AB7BE80267 // THSV
+ ;
+
+ref; // ME_56AB7CF90070 HSV
+
+: ME_56AB7CF50123
+ CONST UID '56AB7CF50123'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB7CED004F // RGB2HSV
+ ;
+ : Parameters
+   Seq: ( ME_56AB7CF90052 // RGB
+ ME_56AB7CF90070 // HSV
+ )
+ ; // Parameters
+
+ref; // ME_56AB7CF50123 DoIt
+
+: ME_56AB7CED004F
+ CONST UID '56AB7CED004F'
+ CONST Name 'RGB2HSV'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB7CF50123 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB7CED004F RGB2HSV
+
+FORWARD ME_56AB7D0F0094
+
+: ME_56AB7D1901E1
+ CONST UID '56AB7D1901E1'
+ CONST Name 'RGB'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56AB7AC803C9 // TRGB
+ ;
+
+ref; // ME_56AB7D1901E1 RGB
+
+: ME_56AB7D190227
+ CONST UID '56AB7D190227'
+ CONST Name 'YIQ'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_56AB7C2D03D6 // TYIQ
+ ;
+
+ref; // ME_56AB7D190227 YIQ
+
+: ME_56AB7D170033
+ CONST UID '56AB7D170033'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB7D0F0094 // RGB2YIQ
+ ;
+ : Parameters
+   Seq: ( ME_56AB7D1901E1 // RGB
+ ME_56AB7D190227 // YIQ
+ )
+ ; // Parameters
+
+ref; // ME_56AB7D170033 DoIt
+
+: ME_56AB7D0F0094
+ CONST UID '56AB7D0F0094'
+ CONST Name 'RGB2YIQ'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB7D170033 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB7D0F0094 RGB2YIQ
+
+FORWARD ME_56AB7D3500FB
+
+: ME_56AB7D440184
+ CONST UID '56AB7D440184'
+ CONST Name 'RGB'
+ CONST Class class_Parameter
+ : Stereotype st_out ;
+ : Target ME_56AB7AC803C9 // TRGB
+ ;
+
+ref; // ME_56AB7D440184 RGB
+
+: ME_56AB7D4401CA
+ CONST UID '56AB7D4401CA'
+ CONST Name 'YIQ'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_56AB7C2D03D6 // TYIQ
+ ;
+
+ref; // ME_56AB7D4401CA YIQ
+
+: ME_56AB7D41022E
+ CONST UID '56AB7D41022E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB7D3500FB // YIQ2RGB
+ ;
+ : Parameters
+   Seq: ( ME_56AB7D440184 // RGB
+ ME_56AB7D4401CA // YIQ
+ )
+ ; // Parameters
+
+ref; // ME_56AB7D41022E DoIt
+
+: ME_56AB7D3500FB
+ CONST UID '56AB7D3500FB'
+ CONST Name 'YIQ2RGB'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AB7D41022E // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AB7D3500FB YIQ2RGB
+
+FORWARD ME_56AD0DB1015A
+
+: ME_56AD0DBA036A
+ CONST UID '56AD0DBA036A'
+ CONST Name 'aColor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+
+ref; // ME_56AD0DBA036A aColor
+
+: ME_56AD0DB8011C
+ CONST UID '56AD0DB8011C'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56AD0DB1015A // InvertColor
+ ;
+ : Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.pas.ms.script' // TColor
+ ;
+ : Parameters
+   Seq: ( ME_56AD0DBA036A // aColor
+ )
+ ; // Parameters
+
+ref; // ME_56AD0DB8011C DoIt
+
+: ME_56AD0DB1015A
+ CONST UID '56AD0DB1015A'
+ CONST Name 'InvertColor'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Operations
+   Seq: ( ME_56AD0DB8011C // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56AD0DB1015A InvertColor
+
+: ME_56ABB29900D7
+ CONST UID '56ABB29900D7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Target WL 'ME_47E0C36201C7' '537B83AD01F0.pas.ms.script' // l3Math
+ ;
+
+ref; // ME_56ABB29900D7 
+
+: ME_56ABB29C016B
+ CONST UID '56ABB29C016B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Target WL 'ME_48A41FF10094' '4AB0C3F60375.pas.ms.script' // Windows
+ ;
+
+ref; // ME_56ABB29C016B 
+
+: ME_56ABB40E01F0
+ CONST UID '56ABB40E01F0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Target WL 'ME_47A066980016' '537B83AD01F0.pas.ms.script' // l3MinMax
+ ;
+
+ref; // ME_56ABB40E01F0 
+
+: ME_56ABB42F00B4
+ CONST UID '56ABB42F00B4'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_56ABB42F00B4 
+
+: ME_56ABB48C0229
+ CONST UID '56ABB48C0229'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Target ME_4799F84900DD // l3ScreenIC
+ ;
+
+ref; // ME_56ABB48C0229 
+
+: ME_56ABB6170124
+ CONST UID '56ABB6170124'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56AB78880104 // l3CanvasUtils
+ ;
+ : Target WL 'ME_47878E0E0191' '54B90AC6014B.pas.ms.script' // l3String
+ ;
+
+ref; // ME_56ABB6170124 
+
+: ME_56AB78880104
+ CONST UID '56AB78880104'
+ CONST Name 'l3CanvasUtils'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_473C3BEE0334 // l3Canvas
+ ;
+ : Operations
+   Seq: ( ME_56AB78E40273 // ApplyLineSpacing
+ ME_56AB792702C4 // SystemTextExtent
+ ME_56AB7A760174 // CheckColors
+ ME_56AB7B600252 // CheckColorsHSV
+ ME_56AB7B7C0391 // CheckColorsYIQ
+ ME_56AB7BAE011A // HSV2RGB
+ ME_56AB7CBA02F1 // l3CharsToInch
+ ME_56AB7CED004F // RGB2HSV
+ ME_56AB7D0F0094 // RGB2YIQ
+ ME_56AB7D3500FB // YIQ2RGB
+ ME_56AD0DB1015A // InvertColor
+ )
+ ; // Operations
+ : Children
+   Seq: ( ME_56AB7AC803C9 // TRGB
+ ME_56AB7BE80267 // THSV
+ ME_56AB7C2D03D6 // TYIQ
+ ME_56ACD80E006B // UseHSV
+ )
+ ; // Children
+ : Dependencies
+   Seq: ( ME_56ABB29900D7 // 
+ ME_56ABB29C016B // 
+ ME_56ABB40E01F0 // 
+ ME_56ABB42F00B4 // 
+ ME_56ABB48C0229 // 
+ ME_56ABB6170124 // 
+ )
+ ; // Dependencies
+ CONST "need UC" true
+ CONST "no hands" false
+ CONST intf.pas:Path 'common\components\rtl\Garant\L3\l3CanvasUtils.pas'
+ CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
+ CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST pas.script.runner:PathOnly '\shared\models\NewSchool\Scripts'
+ CONST extprop:rc:SelfName 'CanvasUtils'
+
+ref; // ME_56AB78880104 l3CanvasUtils
 
 : ME_473C3BEE0334
  CONST UID '473C3BEE0334'
@@ -10027,6 +12206,7 @@ ref; // ME_552616EE02DF l3MetafileHeader
  ME_4B88F0F00211 // Tl3FontManagerEx
  ME_484CE8BC01CC // l3FontManager
  ME_552616EE02DF // l3MetafileHeader
+ ME_56AB78880104 // l3CanvasUtils
  )
  ; // Children
  : Depends
@@ -10053,7 +12233,6 @@ ref; // ME_552616EE02DF l3MetafileHeader
  WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.pas.ms.script' // Consts
  )
  ; // Depends
- CONST dfm:PathOnly '\common\components\rtl\Garant\L3'
  CONST intf.pas:PathOnly '\common\components\rtl\Garant\L3'
  CONST pas.script:Path 'shared\models\NewSchool\Scripts\473C3BEE0334.pas.ms.script'
  CONST pas.script:PathOnly '\shared\models\NewSchool\Scripts'
