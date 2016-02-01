@@ -1,1 +1,14 @@
-F1LikeFormWithBS
+object F1LikeFormWithBSForm: TF1LikeFormWithBSForm
+  Left = 204
+  Top = 118
+  Width = 320
+  Height = 240
+  Caption = '‘орма с текстовым редактором с базовым поиском.'
+  Color = $00F9F8FA
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Entities: TvcmEntities
+    Left = 24
+    Top = 24
+  end
+end
