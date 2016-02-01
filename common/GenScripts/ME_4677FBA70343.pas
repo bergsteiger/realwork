@@ -460,7 +460,7 @@ type
  Tl3Orientation1 = ev_orHorizontal .. ev_orVertical;
   {* Ориентация объекта. }
 
- Tl3Inch = Integer;
+ Tl3Inch = l3Core.Tl3Inch;
   {* Дюйм. }
 
  Tl3_PointXY = packed record

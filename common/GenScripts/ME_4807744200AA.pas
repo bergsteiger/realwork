@@ -101,6 +101,7 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
   {* байт }
 
  Word = unsigned short;
+  {* YEAR – год публикации (M); }
 
  AnsiString = AnsiString;
   {* Стандартный строковый тип Delphi. }

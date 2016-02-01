@@ -43,49 +43,11 @@
 //#UC END# *51D27C3302EC_51D278280093_var*
 //#UC START# *51D27DFA0308_51D278280093_impl*
  lp_CheckUnicode; // http://mdp.garant.ru/pages/viewpage.action?pageId=601456720
- if lp_CheckBREVE then Exit;
  if not f_TextBuffer.Empty then
   FlushTextBuffer(aState, True);
  f_UnicodeBuffer.Write(aText, SizeOf(aText));
 //#UC END# *51D27DFA0308_51D278280093_impl*
 //#UC START# *51D27DFA0308_51D278280093_var*
-
- function lp_CheckBREVE: Boolean;
- const
-  cnBREVE = 774;
-  cnRusBigI = 1048;
-  cnRusSmallI = 1080;
-  csRusSmallI = 'и';
-  csRusBigI = 'И';
-  csSetRusI = [csRusSmallI, csRusBigI];
- var
-  l_Char: AnsiChar;
-  l_Text: Word;
- begin
-  Result := False;
-  if aText = cnBREVE then
-  begin
-   l_Char := f_TextBuffer.Last;
-   if (l_Char in csSetRusI) then
-   begin
-    f_TextBuffer.Ch[f_TextBuffer.Len - 1] := Char(Ord(l_Char) + 1);
-    Result := True;
-   end // if (l_Char in csSetRusI) then
-   else
-    if f_UnicodeBuffer.Size > 0 then // Поищем в Unicode...
-    begin
-     f_UnicodeBuffer.Seek(-SizeOf(aText), soCurrent);
-     f_UnicodeBuffer.Read(l_Text, SizeOf(l_Text));
-     if (l_Text = cnRusSmallI) or (l_Text = cnRusBigI) then
-     begin
-      Inc(l_Text);
-      f_UnicodeBuffer.Seek(-SizeOf(l_Text), soCurrent);
-      f_UnicodeBuffer.Write(l_Text, SizeOf(l_Text));
-      Result := True;
-     end; // if (l_Text = cnRusSmallI) or (l_Text = cnRusBigI) then
-    end; // if f_UnicodeBuffer.Size > 0 then
-  end; // if aText = cnBREVE then
- end;
 
  procedure lp_CheckUnicode;
  const
@@ -151,7 +113,7 @@
   propCell, propNestedCell:
    begin
     if not Try2CloseNestedTable(aState.PAP.itap) then
-     Try2AddTable(aState.PAP.itap); // наследуем оформление от предыдущей строки
+     Try2AddTable(1); // наследуем оформление от предыдущей строки
     if aState.PAP.ListItem <> propUndefined then
     begin
      JoinPAPWithLastParaPAP(aState.PAP, True);
@@ -305,7 +267,7 @@ var
  if l_Para <> nil then
  begin
   Try2ApplyParaProperty(aState, l_Para, not l_NewPara);
-  l_CHP := TddCharacterProperty(l_Para.CHP.Diff(aState.CHP, True));
+  l_CHP := TddCharacterProperty(l_Para.CHP.Diff(aState.CHP));
   try
    l_LastSegment := l_Para.LastStyledSegment;
    if not LiteVersion then
@@ -371,7 +333,6 @@ var
   // http://mdp.garant.ru/pages/viewpage.action?pageId=607284891
   Result := UpperCase(aState.CHP.FontName) = csIgrnoreFontName;
  end;
-
 
 var
  l_CHP        : TddCharacterProperty;
@@ -618,7 +579,8 @@ var
              Border.FrameWidth[TddBorderParts(i)] := 10;
              Border.FrameType[TddBorderParts(i)] := btSingleThick;
             end;
-         end;    
+         end;
+
        end;
      ipropDefault: Clear;
      ipropLs: ListItem := aValue;
@@ -897,20 +859,6 @@ var
 //#UC START# *51E8D8250134_51D278280093_var*
 
  procedure lp_AddTextPara(const aPara: TddTextParagraph);
-
-  procedure lp_Try2AddSegmentWithURL;
-  var
-   l_Start       : Integer;
-   l_AddHyperlink: Boolean;
-  begin
-   l_AddHyperlink := (aPara.SegmentCount = 1) and aPara.Segments[0].IsHyperlink and not aPara.Segments[0].URL.Empty;
-   if l_AddHyperlink then
-    l_Start := LastParagraph.Text.Len;
-   LastParagraph.AddText(aPara.Text);
-   if l_AddHyperlink then
-    LastParagraph.AddHyperlinkWithURL(l_Start, aPara.Segments[0].URL.AsString);
-  end;
-
  var
   l_NewPara : TddTextParagraph;
  begin
@@ -930,7 +878,7 @@ var
     else
     begin
      LastParagraph.AddSegment(aPara.CHP, nil, False);
-     lp_Try2AddSegmentWithURL;
+     LastParagraph.AddText(aPara.Text);
      if aPara.Closed then
       LastParagraph.Closed := True;
     end;
@@ -968,7 +916,7 @@ var
 //#UC START# *51E8D84900D6_51D278280093_var*
 //#UC END# *51E8D84900D6_51D278280093_var*
 //#UC START# *51E8D8870140_51D278280093_impl*
- if (aCHP <> nil) AND (aCHP.FontCharSet <> High(aCHP.FontCharSet)) and (aText.Len > 0) then
+ if (aCHP <> nil) AND (aCHP.FontCharSet <> High(aCHP.FontCharSet)) then
  begin
   l_CodePage := CP_RussianWin;
   for i := Low(CharsetTable) to High(CharsetTable) do
@@ -1027,13 +975,12 @@ type
   end;
   
 const
-  cnCharsetLast = 11;
+  cnCharsetLast = 10;
   CharsetTable: array [1..cnCharsetLast] of TCharsetEntry =
    (
     (CodePage: CP_WesternWin; Charset: ANSI_CHARSET),
     (CodePage: CP_EastEurope; Charset: EASTEUROPE_CHARSET),
     (CodePage: CP_RussianWin; Charset: RUSSIAN_CHARSET),
-    (CodePage: CP_OEM; Charset: OEM_CHARSET),
     (CodePage: CP_Greek; Charset: GREEK_CHARSET),
     (CodePage: CP_Turkish; Charset: TURKISH_CHARSET),
     (CodePage: CP_Hebrew; Charset: HEBREW_CHARSET),
@@ -1236,7 +1183,7 @@ var
  l_Count : Integer;
 //#UC END# *5236EAA9015B_51D278280093_var*
 //#UC START# *534F9B57003E_51D278280093_impl*
- f_CustomRTFReader.BeforeClosePara(aDocAtom as TddDocumentAtom, aNewStyle);
+ f_CustomRTFReader.BeforeClosePara(aDocAtom as TddDocumentAtom);
 //#UC END# *534F9B57003E_51D278280093_impl*
 //#UC START# *534F9B57003E_51D278280093_var*
 //#UC END# *534F9B57003E_51D278280093_var*
@@ -1255,7 +1202,7 @@ var
  l_Break := TddBreak.Create(Self);
  try
   l_Break.BreakType := TddBreakType(aSymbol);
-  if (l_Table <> nil) and not l_Table.Closed then
+  if (l_Table <> nil) and (not l_Table.Closed and (l_Table.Level = 1)) then
   begin
    if (f_Paragraphs.Count > 1) then
     l_Index := f_Paragraphs.Count - 2

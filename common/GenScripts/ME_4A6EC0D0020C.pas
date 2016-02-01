@@ -74,7 +74,6 @@ type
    function MakePrefixedCaption(const aPrefixStr: Il3CString;
     aShort: Boolean = True): Il3CString;
   protected
-   function pm_GetBackgroundPanel: TvtProportionalPanel;
    procedure FillList(const aList: InscStatusBarItemDefsList); override;
     {* Заполняет список операций. Для перекрытия в потомках }
    {$If NOT Defined(NoVCM)}
@@ -108,7 +107,7 @@ type
     {* Обзор изменений документа }
   public
    property BackgroundPanel: TvtProportionalPanel
-    read pm_GetBackgroundPanel;
+    read f_BackgroundPanel;
  end;//TPrimEditionsContainerForm
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -150,15 +149,6 @@ type _Instance_R_ = TPrimEditionsContainerForm;
 {$Include StatusBarItems.imp.pas}
 
 {$Include EditionsListCaller.imp.pas}
-
-function TPrimEditionsContainerForm.pm_GetBackgroundPanel: TvtProportionalPanel;
-//#UC START# *4A7ADAEA035D_4A6EC0D0020Cget_var*
-//#UC END# *4A7ADAEA035D_4A6EC0D0020Cget_var*
-begin
-//#UC START# *4A7ADAEA035D_4A6EC0D0020Cget_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A7ADAEA035D_4A6EC0D0020Cget_impl*
-end;//TPrimEditionsContainerForm.pm_GetBackgroundPanel
 
 procedure TPrimEditionsContainerForm.UpdateCaptionFromDS;
  {* Обновляет заголовок формы }

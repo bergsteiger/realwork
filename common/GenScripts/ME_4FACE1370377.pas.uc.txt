@@ -294,17 +294,32 @@ var
   if not LiteVersion then
    TAP.Border.Write2Generator(Generator);
   l_PrevWidth := 0;
-  i := 0;
-  while i <= l_Count do
+  l_SkipNext := False;
+  for i := 0 to l_Count do
   begin
+   if l_SkipNext then
+   begin
+    l_SkipNext := False;
+    Continue;
+   end; // if l_SkipNext then
    l_Cell := Cells[i];
-   l_Width := lp_CalcCellWidth(l_Cell, i);
+   if (i > 0) then
+    l_Delta := CellWidth[Pred(i)]
+   else
+   begin
+    l_Delta := TAP.Left - TAP.trwWidthB;
+    if l_Delta > l_Cell.Props.CellOffset then
+     l_Delta := 0;
+   end;
+   if (l_Cell.Props.CellOffset < 0) and (l_Cell.Props.CellWidth > 0) then
+    l_Width := l_Cell.Props.CellWidth
+   else
+    l_Width := l_Cell.Props.CellOffset - l_Delta;
    if (l_Width < l3AlingDelta) or ((l_Width + l_PrevWidth) < 0) then
    //                               ^ - http://mdp.garant.ru/pages/viewpage.action?pageId=607532072
     if l_Cell.IsCellEmpty then
     begin
      Inc(l_PrevWidth, l_Width);
-     lp_DeleteCell(i);
      Continue;
     end // if l_Cell.IsCellEmpty then
     else
@@ -313,20 +328,18 @@ var
       Inc(l_Width, CellWidth[i + 1]);
       if l_Width < 0 then
        l_Width := ddGetMinimalCellWidth;
-      lp_DeleteCell(i + 1);
+      l_SkipNext := True;
      end // if (i < l_Count) and CellWidth[i + 1].IsCellEmtpy then
      else
       l_Width := ddGetMinimalCellWidth;
    Inc(l_Width, l_PrevWidth);
    l_PrevWidth := 0;
-   Assert(l_Width >= l3AlingDelta, Format('ќчень узка€ €чейка є %d в таблице: %d', [i, l_Width])); // ѕускай лучше здесь валитс€, чем при отрисовке...
+   Assert(l_Width >= l3AlingDelta); // ѕускай лучше здесь валитс€, чем при отрисовке...
    l_OldWidth := l_Cell.Props.CellOffset;
    l_Cell.Props.CellOffset := l_Width;
-   lp_CheckHead(l_Cell, i);
    try
     lp_ChecktrwWidthB;
     l_Cell.Write2Generator(Generator, aNeedProcessRow, LiteVersion);
-    Inc(i);
    finally
     l_Cell.Props.CellOffset := l_OldWidth;
    end;
@@ -354,56 +367,12 @@ var
    end; // for i := 0 to l_Cell.Count - 1 do
  end;
 
- function lp_CalcCellWidth(const aCell: TddTableCell; aIndex: Integer): Integer;
- var
-  l_Delta: Integer;
- begin
-  Result := 0;
-  if (aIndex > 0) then
-   l_Delta := CellWidth[aIndex - 1]
-  else
-  begin
-   l_Delta := TAP.Left - TAP.trwWidthB;
-   if l_Delta > aCell.Props.CellOffset then
-    l_Delta := 0;
-  end;
-  if (aCell.Props.CellOffset < 0) and (aCell.Props.CellWidth > 0) then
-   Result := aCell.Props.CellWidth
-  else
-   Result := aCell.Props.CellOffset - l_Delta;
- end;
-
 var
- l_Count: Integer;
-
- procedure lp_DeleteCell(anIndex: Integer);
- begin
-  DeleteCell(anIndex);
-  Dec(l_Count);
- end;
-
- procedure lp_CheckHead(const aCell: TddTableCell; anIndex: Integer);
- var
-  l_Width   : Integer;
-  l_LastCell: TddTableCell;
- begin
-  if (l_Count = 1) and (anIndex = 0) and (aCell.Props.VMergeFirst or aCell.Props.VMerged) then
-  begin
-   l_LastCell := f_CellList[anIndex + 1];
-   l_Width := lp_CalcCellWidth(l_LastCell, anIndex + 1);
-   if (l_Width < ddGetMinimalCellWidth) and l_LastCell.IsCellEmpty then
-   begin
-    lp_DeleteCell(anIndex + 1);
-    aCell.Props.CellOffset := aCell.Props.CellOffset + l_Width;
-    aCell.Props.VMergeFirst := False;
-    aCell.Props.VMerged := False;
-   end; // if (l_Width < ddGetMinimalCellWidth) and l_LastCell.IsCellEmpty then
-  end; // if (i = l_Count - 1) then
- end;
-
-var
+ l_Delta    : Integer;
+ l_Count    : Integer;
  l_Width    : Integer;
  l_OldWidth : Integer;
+ l_SkipNext : Boolean;
  l_PrevWidth: Integer;
 //#UC END# *518A504F00F5_4FACE1370377_var*
 //#UC START# *5190964701FB_4FACE1370377get_impl*

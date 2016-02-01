@@ -68,7 +68,7 @@ type
  Tl3Position = type Integer;
   {* Позиция. }
 
- Tl3Inch = type Integer;
+ Tl3Inch = Integer;
   {* Дюйм. }
 
  Tl3Color = TColor;
