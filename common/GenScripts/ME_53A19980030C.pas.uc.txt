@@ -27,16 +27,15 @@
  Lock;
  try
   l_Found := False;
-  l_Now := Now;
   for l_IDX := Items.Count - 1 downto 0 do
-   if (Items[l_IDX].IsUnimportant(l_Now, MaxDayAge)) then
+   if (Items[l_IDX].IsUnimportant) then
     l_Found := True;
   if not l_Found then
    Exit;
   Changing;
   try
    for l_IDX := Items.Count - 1 downto 0 do
-    if (Items[l_IDX].IsUnimportant(l_Now, MaxDayAge)) then
+    if (Items[l_IDX].IsUnimportant) then
      Items.Delete(l_IDX);
   finally
    Changed;
@@ -49,5 +48,4 @@
 var
  l_IDX: Integer;
  l_Found: Boolean;
- l_Now: TDateTime;
 //#UC END# *55F283340044_53A19980030C_var*
