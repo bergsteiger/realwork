@@ -723,7 +723,7 @@ ref; // ME_54BE0AF000A6 HENHMETAFILE
  : Stereotype st_SimpleClass ;
  CONST Kind kind_NormalClass
  CONST Visibility PublicAccess
- CONST Abstraction at_regular
+ CONST Abstraction at_final
  : Parent ME_47D15712022D // Graphics
  ;
  CONST "needs InstanceR" 'undefined'
@@ -734,6 +734,25 @@ ref; // ME_54BE0AF000A6 HENHMETAFILE
  CONST extprop:rc:isAcceptableForScripts true
 
 ref; // ME_56AD0AC101CC TBrush
+
+: ME_56B09CC90000
+ CONST UID '56B09CC90000'
+ CONST Name 'TPen'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_47D15712022D // Graphics
+ ;
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST extprop:rc:SelfName 'Pen'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56B09CC90000 TPen
 
 FORWARD ME_50F928A102E2
 
@@ -805,6 +824,7 @@ ref; // ME_50F928A102E2 ColorToRGB
  ME_54B780970326 // TMetafileHeader
  ME_54BE0AF000A6 // HENHMETAFILE
  ME_56AD0AC101CC // TBrush
+ ME_56B09CC90000 // TPen
  )
  ; // Children
  : Constants

@@ -1213,7 +1213,7 @@ ref; // ME_56ACDB3A0069 Invert
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility ProtectedAccess
- CONST Abstraction at_abstract
+ CONST Abstraction at_final
  CONST LinkType lt_agr
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
@@ -1245,7 +1245,7 @@ ref; // ME_56AD09460121 TextColor
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
- CONST Abstraction at_abstract
+ CONST Abstraction at_final
  CONST LinkType lt_agr
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
@@ -1379,12 +1379,13 @@ ref; // ME_56AF20160331 DCFlag
  CONST Class class_Attribute
  : Stereotype st_property::Attribute ;
  CONST Visibility PublicAccess
- CONST Abstraction at_abstract
+ CONST Abstraction at_final
  CONST LinkType lt_agr
  : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
  ;
  : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
  ;
+ CONST "needs field" true
  CONST "pm" true
 
 ref; // ME_56AF20BB0209 Canvas
@@ -1422,6 +1423,200 @@ ref; // ME_56AF48DE00A1 Owner
  CONST "pm" true
 
 ref; // ME_56AF4E2C005D Zoom
+
+: ME_56B09CE001DA
+ CONST UID '56B09CE001DA'
+ CONST Name 'Pen'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_56B09CC90000' '55C4AEC801CA.pas.ms.script' // TPen
+ ;
+ CONST "pm" true
+
+ref; // ME_56B09CE001DA Pen
+
+: ME_56B09EF400CB
+ CONST UID '56B09EF400CB'
+ CONST Name 'ShowCursor'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56B09EF400CB ShowCursor
+
+: ME_56B09F1B0198
+ CONST UID '56B09F1B0198'
+ CONST Name 'Printed'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56B09F1B0198 Printed
+
+: ME_56B0AD390227
+ CONST UID '56B0AD390227'
+ CONST Name 'f_OldBrushChange'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_56B0AD390227 f_OldBrushChange
+
+: ME_56B0AD7D005A
+ CONST UID '56B0AD7D005A'
+ CONST Name 'f_OldFontChange'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+
+ref; // ME_56B0AD7D005A f_OldFontChange
+
+: ME_56B0AD9D02F4
+ CONST UID '56B0AD9D02F4'
+ CONST Name 'OnDrawSpecialChange'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST "pm" true
+ CONST "reads field" true
+ CONST "writes field" true
+
+ref; // ME_56B0AD9D02F4 OnDrawSpecialChange
+
+: ME_56B0ADCF0192
+ CONST UID '56B0ADCF0192'
+ CONST Name 'DrawSpecial'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "pm" true
+
+ref; // ME_56B0ADCF0192 DrawSpecial
+
+: ME_56B0B20A00AD
+ CONST UID '56B0B20A00AD'
+ CONST Name 'f_AlienCanvas'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56B0B20A00AD f_AlienCanvas
+
+: ME_56B0C9A103A1
+ CONST UID '56B0C9A103A1'
+ CONST Name 'f_TextMetricsValid'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56B0C9A103A1 f_TextMetricsValid
+
+: ME_56B0C9AF0341
+ CONST UID '56B0C9AF0341'
+ CONST Name 'f_SuffixedFont'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56B0C9AF0341 f_SuffixedFont
+
+: ME_56B0C9C00331
+ CONST UID '56B0C9C00331'
+ CONST Name 'f_AverageCharHeight'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56B0C9C00331 f_AverageCharHeight
+
+: ME_56B0C9D1032F
+ CONST UID '56B0C9D1032F'
+ CONST Name 'f_AverageCharWidth'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56B0C9D1032F f_AverageCharWidth
+
+: ME_56B0C9DE025E
+ CONST UID '56B0C9DE025E'
+ CONST Name 'f_pxAverageCharWidth'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56B0C9DE025E f_pxAverageCharWidth
 
 : ME_B6469CD3B8C3
  CONST UID 'B6469CD3B8C3'
@@ -1539,6 +1734,23 @@ ref; // ME_9A834AC46EA9 f_BackColor
 
 ref; // ME_6C9D65687E54 f_NotFocused
 
+: ME_53570BF432F9
+ CONST UID '53570BF432F9'
+ CONST Name 'f_Canvas'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства Canvas' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
+ ;
+ CONST extprop:clearViaProperty 'Canvas'
+
+ref; // ME_53570BF432F9 f_Canvas
+
 : ME_2B30B7FF0C57
  CONST UID '2B30B7FF0C57'
  CONST Name 'f_Owner'
@@ -1571,6 +1783,23 @@ ref; // ME_2B30B7FF0C57 f_Owner
  CONST extprop:clearViaProperty 'Zoom'
 
 ref; // ME_32981A0BEEF5 f_Zoom
+
+: ME_025CCAE9255F
+ CONST UID '025CCAE9255F'
+ CONST Name 'f_OnDrawSpecialChange'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства OnDrawSpecialChange' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ ;
+ CONST extprop:clearViaProperty 'OnDrawSpecialChange'
+
+ref; // ME_025CCAE9255F f_OnDrawSpecialChange
 
 FORWARD ME_4A4CBD130121
 
@@ -2289,6 +2518,379 @@ ref; // ME_56AF3CDA0380 DoIt
 
 ref; // ME_56AF3CC4020E CreateOwned
 
+FORWARD ME_56B08EB80255
+
+: ME_56B08EC301B5
+ CONST UID '56B08EC301B5'
+ CONST Name 'aPrinter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A4657201E7' '556F09AA036E.pas.ms.script' // Il3Printer
+ ;
+
+ref; // ME_56B08EC301B5 aPrinter
+
+: ME_56B08EC000DE
+ CONST UID '56B08EC000DE'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56B08EB80255 // CreateForPrinting
+ ;
+ : Parameters
+   Seq: ( ME_56B08EC301B5 // aPrinter
+ )
+ ; // Parameters
+
+ref; // ME_56B08EC000DE DoIt
+
+: ME_56B08EB80255
+ CONST UID '56B08EB80255'
+ CONST Name 'CreateForPrinting'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56B08EC000DE // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B08EB80255 CreateForPrinting
+
+FORWARD ME_56B0AE550267
+
+: ME_56B0AE790229
+ CONST UID '56B0AE790229'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
+ ;
+
+ref; // ME_56B0AE790229 aValue
+
+: ME_56B0AE79023D
+ CONST UID '56B0AE79023D'
+ CONST Name 'anAlien'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56B0AE79023D anAlien
+
+: ME_56B0AE7302FB
+ CONST UID '56B0AE7302FB'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56B0AE550267 // SetCanvas
+ ;
+ : Parameters
+   Seq: ( ME_56B0AE790229 // aValue
+ ME_56B0AE79023D // anAlien
+ )
+ ; // Parameters
+
+ref; // ME_56B0AE7302FB DoIt
+
+: ME_56B0AE550267
+ CONST UID '56B0AE550267'
+ CONST Name 'SetCanvas'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56B0AE7302FB // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B0AE550267 SetCanvas
+
+FORWARD ME_56B0AED5005B
+
+: ME_0A6FD335014D
+ CONST UID '0A6FD335014D'
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_0A6FD335014D Sender
+
+: ME_D5E282246B7D
+ CONST UID 'D5E282246B7D'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56B0AED5005B // BrushChanged
+ ;
+ : Parameters
+   Seq: ( ME_0A6FD335014D // Sender
+ )
+ ; // Parameters
+
+ref; // ME_D5E282246B7D DoIt
+
+: ME_56B0AED5005B
+ CONST UID '56B0AED5005B'
+ CONST Name 'BrushChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_D5E282246B7D // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B0AED5005B BrushChanged
+
+FORWARD ME_56B0AEF1020C
+
+: ME_6AEC0C149873
+ CONST UID '6AEC0C149873'
+ CONST Name 'Sender'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
+ ;
+
+ref; // ME_6AEC0C149873 Sender
+
+: ME_582E58AA50C0
+ CONST UID '582E58AA50C0'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56B0AEF1020C // FontChanged
+ ;
+ : Parameters
+   Seq: ( ME_6AEC0C149873 // Sender
+ )
+ ; // Parameters
+
+ref; // ME_582E58AA50C0 DoIt
+
+: ME_56B0AEF1020C
+ CONST UID '56B0AEF1020C'
+ CONST Name 'FontChanged'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.pas.ms.script' // TNotifyEvent
+ )
+ ; // Inherits
+ : Operations
+   Seq: ( ME_582E58AA50C0 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B0AEF1020C FontChanged
+
+FORWARD ME_56B0B2430282
+
+: ME_7944429E248A
+ CONST UID '7944429E248A'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода FreeDC' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56B0B2430282 // FreeDC
+ ;
+
+ref; // ME_7944429E248A DoIt
+
+: ME_56B0B2430282
+ CONST UID '56B0B2430282'
+ CONST Name 'FreeDC'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_7944429E248A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B0B2430282 FreeDC
+
+FORWARD ME_56B0B2610026
+
+: ME_56B0B26A00EE
+ CONST UID '56B0B26A00EE'
+ CONST Name 'aDC'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A46A35004F' '4AB0C3F60375.pas.ms.script' // hDC
+ ;
+
+ref; // ME_56B0B26A00EE aDC
+
+: ME_56B0B2680070
+ CONST UID '56B0B2680070'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56B0B2610026 // FreeAlienDC
+ ;
+ : Parameters
+   Seq: ( ME_56B0B26A00EE // aDC
+ )
+ ; // Parameters
+
+ref; // ME_56B0B2680070 DoIt
+
+: ME_56B0B2610026
+ CONST UID '56B0B2610026'
+ CONST Name 'FreeAlienDC'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56B0B2680070 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B0B2610026 FreeAlienDC
+
+FORWARD ME_56B0B54F03CC
+
+: ME_C90279041FC4
+ CONST UID 'C90279041FC4'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода FireDCSetToNull' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56B0B54F03CC // FireDCSetToNull
+ ;
+
+ref; // ME_C90279041FC4 DoIt
+
+: ME_56B0B54F03CC
+ CONST UID '56B0B54F03CC'
+ CONST Name 'FireDCSetToNull'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_C90279041FC4 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B0B54F03CC FireDCSetToNull
+
+FORWARD ME_56B0B9790320
+
+: ME_56B0B9800089
+ CONST UID '56B0B9800089'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56B0B9790320 // IsPreview
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56B0B9800089 DoIt
+
+: ME_56B0B9790320
+ CONST UID '56B0B9790320'
+ CONST Name 'IsPreview'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_56B0B9800089 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B0B9790320 IsPreview
+
+FORWARD ME_56B0BB0501B9
+
+: ME_6F9C17AD4C6A
+ CONST UID '6F9C17AD4C6A'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура метода Invalidate' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56B0BB0501B9 // Invalidate
+ ;
+
+ref; // ME_6F9C17AD4C6A DoIt
+
+: ME_56B0BB0501B9
+ CONST UID '56B0BB0501B9'
+ CONST Name 'Invalidate'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Operations
+   Seq: ( ME_6F9C17AD4C6A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B0BB0501B9 Invalidate
+
 : ME_4A4CBCD002EA
  CONST UID '4A4CBCD002EA'
  CONST Name 'DoGetPageSetupWidth'
@@ -2431,42 +3033,6 @@ ref; // ME_47DFCAF40284 R
 
 ref; // ME_47DFCAEE0007 DoFillForeRect
 
-: ME_56AF21B60199
- CONST UID '56AF21B60199'
- CONST Name 'aValue'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_515581580039' '55C4AEC801CA.pas.ms.script' // TCanvas
- ;
-
-ref; // ME_56AF21B60199 aValue
-
-: ME_56AF21B601B7
- CONST UID '56AF21B601B7'
- CONST Name 'anAlien'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_56AF21B601B7 anAlien
-
-: ME_478E40F20207
- CONST UID '478E40F20207'
- CONST Name 'SetCanvas'
- CONST Class class_Operation
- CONST Visibility PublicAccess
- CONST Abstraction at_abstract
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Parameters
-   Seq: ( ME_56AF21B60199 // aValue
- ME_56AF21B601B7 // anAlien
- )
- ; // Parameters
-
-ref; // ME_478E40F20207 SetCanvas
-
 : ME_4FAE533E035C
  CONST UID '4FAE533E035C'
  CONST Name 'GetAlienDC'
@@ -2572,6 +3138,28 @@ FORWARD ME_56AB78880104
  ;
 
 ref; // ME_56AB78A30366 
+
+: ME_56B0C72D0250
+ CONST UID '56B0C72D0250'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_483C378301CB' '4AB0997B00A2.pas.ms.script' // StrUtils
+ ;
+
+ref; // ME_56B0C72D0250 
+
+: ME_56B0C77B0397
+ CONST UID '56B0C77B0397'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_49082AE80393' '476BE98C01B8.pas.ms.script' // Code Pages
+ ;
+
+ref; // ME_56B0C77B0397 
 
 : ME_4728BE6A0392_ME_4A4CB79A02C6
  CONST UID '4728BE6A0392'
@@ -2889,6 +3477,19 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_56AF20BB0209 // Canvas
  ME_56AF48DE00A1 // Owner
  ME_56AF4E2C005D // Zoom
+ ME_56B09CE001DA // Pen
+ ME_56B09EF400CB // ShowCursor
+ ME_56B09F1B0198 // Printed
+ ME_56B0AD390227 // f_OldBrushChange
+ ME_56B0AD7D005A // f_OldFontChange
+ ME_56B0AD9D02F4 // OnDrawSpecialChange
+ ME_56B0ADCF0192 // DrawSpecial
+ ME_56B0B20A00AD // f_AlienCanvas
+ ME_56B0C9A103A1 // f_TextMetricsValid
+ ME_56B0C9AF0341 // f_SuffixedFont
+ ME_56B0C9C00331 // f_AverageCharHeight
+ ME_56B0C9D1032F // f_AverageCharWidth
+ ME_56B0C9DE025E // f_pxAverageCharWidth
  ME_B6469CD3B8C3 // f_Flags
  ME_C11F8EC36A6D // f_OnDrawSub
  ME_BA5D4E0AF1E8 // f_CanDrawSubs
@@ -2896,8 +3497,10 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_22423B4D9BE0 // f_PixelsPerInchY
  ME_9A834AC46EA9 // f_BackColor
  ME_6C9D65687E54 // f_NotFocused
+ ME_53570BF432F9 // f_Canvas
  ME_2B30B7FF0C57 // f_Owner
  ME_32981A0BEEF5 // f_Zoom
+ ME_025CCAE9255F // f_OnDrawSpecialChange
  )
  ; // Attributes
  : Operations
@@ -2920,6 +3523,15 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_56AF2372026A // Lock
  ME_56AF237B031E // Unlock
  ME_56AF3CC4020E // CreateOwned
+ ME_56B08EB80255 // CreateForPrinting
+ ME_56B0AE550267 // SetCanvas
+ ME_56B0AED5005B // BrushChanged
+ ME_56B0AEF1020C // FontChanged
+ ME_56B0B2430282 // FreeDC
+ ME_56B0B2610026 // FreeAlienDC
+ ME_56B0B54F03CC // FireDCSetToNull
+ ME_56B0B9790320 // IsPreview
+ ME_56B0BB0501B9 // Invalidate
  ME_4A4CBCD002EA // DoGetPageSetupWidth
  ME_4A4CBCDD0244 // DoGetPageSetupHeight
  ME_4A4CC195011E // DoGetDrawEnabled
@@ -2929,7 +3541,6 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4A4CE6BE005A // AssignDeviceCaps
  ME_4D1B61130223 // DoGetPaperWidth
  ME_47DFCAEE0007 // DoFillForeRect
- ME_478E40F20207 // SetCanvas
  ME_4FAE533E035C // GetAlienDC
  ME_47DFCAAF0249 // FillRectPrim
  )
@@ -2979,6 +3590,8 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_4A4CE548009F // 
  ME_4E26F5B9014F // 
  ME_56AB78A30366 // 
+ ME_56B0C72D0250 // 
+ ME_56B0C77B0397 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -5036,16 +5649,6 @@ ref; // ME_476FA1140319_ME_473C3D830066 GetClientRect
  CONST OpKind opkind_Implemented
 ref; // ME_4776171C037B_ME_473C3D830066 AdjustMarginsByPrintableArea
 
-: ME_478E40F20207_ME_473C3D830066
- CONST UID '478E40F20207'
- CONST Name 'SetCanvas'
- : Original ME_478E40F20207 // SetCanvas
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_478E40F20207_ME_473C3D830066 SetCanvas
-
 : ME_483D1BCA0045_ME_473C3D830066
  CONST UID '483D1BCA0045'
  CONST Name 'PasswordChar'
@@ -5304,28 +5907,6 @@ ref; // ME_55CC51AD0273_ME_473C3D830066 BeginDarkColor
  CONST OpKind opkind_Implemented
 ref; // ME_55CC51CE0059_ME_473C3D830066 EndDarkColor
 
-: ME_56AD08DA011D_ME_473C3D830066
- CONST UID '56AD08DA011D'
- CONST Name 'VCLFont'
- : Original ME_56AD08DA011D // VCLFont
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_56AD08DA011D_ME_473C3D830066 VCLFont
-
-: ME_56AD0ACC0034_ME_473C3D830066
- CONST UID '56AD0ACC0034'
- CONST Name 'Brush'
- : Original ME_56AD0ACC0034 // Brush
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_56AD0ACC0034_ME_473C3D830066 Brush
-
 : ME_56AF1D990070_ME_473C3D830066
  CONST UID '56AF1D990070'
  CONST Name 'FillRect'
@@ -5345,17 +5926,6 @@ ref; // ME_56AF1D990070_ME_473C3D830066 FillRect$1
  ;
  CONST OpKind opkind_Implemented
 ref; // ME_56AF1DDC024A_ME_473C3D830066 FillRect$2
-
-: ME_56AF20BB0209_ME_473C3D830066
- CONST UID '56AF20BB0209'
- CONST Name 'Canvas'
- : Original ME_56AF20BB0209 // Canvas
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" true
-ref; // ME_56AF20BB0209_ME_473C3D830066 Canvas
 
 : ME_4E98521202B5_ME_473C3D830066
  CONST UID '4E98521202B5'
@@ -5531,7 +6101,6 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_475E5BED0118_ME_473C3D830066 // FM
  ME_476FA1140319_ME_473C3D830066 // GetClientRect
  ME_4776171C037B_ME_473C3D830066 // AdjustMarginsByPrintableArea
- ME_478E40F20207_ME_473C3D830066 // SetCanvas
  ME_483D1BCA0045_ME_473C3D830066 // PasswordChar
  ME_487CFBE202B1_ME_473C3D830066 // EffectiveColors
  ME_4897E01001E7_ME_473C3D830066 // Printing
@@ -5556,11 +6125,8 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_54B4D9020149_ME_473C3D830066 // EndDrawAAC
  ME_55CC51AD0273_ME_473C3D830066 // BeginDarkColor
  ME_55CC51CE0059_ME_473C3D830066 // EndDarkColor
- ME_56AD08DA011D_ME_473C3D830066 // VCLFont
- ME_56AD0ACC0034_ME_473C3D830066 // Brush
  ME_56AF1D990070_ME_473C3D830066 // FillRect$1
  ME_56AF1DDC024A_ME_473C3D830066 // FillRect$2
- ME_56AF20BB0209_ME_473C3D830066 // Canvas
  )
  ; // Implemented
  : Overridden
@@ -11997,6 +12563,7 @@ ref; // ME_56AB78880104 l3CanvasUtils
  WL 'ME_46A5E026007E' '46A5E026007E.pas.ms.script' // l3Core
  WL 'ME_472745450206' '472745450206.pas.ms.script' // l3Units
  WL 'ME_4728A7020026' '4728A7020026.pas.ms.script' // Types
+ WL 'ME_476BE98C01B8' '476BE98C01B8.pas.ms.script' // l3Chars
  WL 'ME_47913B47006E' '47913B47006E.pas.ms.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.pas.ms.script' // Implementation
  WL 'ME_4799EC9300AF' '4799EC9300AF.pas.ms.script' // l3Defaults
