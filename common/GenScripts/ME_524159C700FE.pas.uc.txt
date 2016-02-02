@@ -4,7 +4,6 @@
  f_ParamCount := 0;
  l3Free(f_ParamsList);
  l3Free(f_ParamsString);
- f_WasQuoter := False;
  inherited;
 //#UC END# *479731C50290_524159C700FE_impl*
 //#UC START# *479731C50290_524159C700FE_var*
@@ -38,35 +37,18 @@
 //#UC START# *52415AC40279_524159C700FE_impl*
  if aChar in csIgnoreChars then
  begin
-  if (aChar in cc_Quotes) then
-    if f_WasQuoter then
-    begin
-     f_WasQuoter := False;
-     if (f_ParserAction  = dd_ppaAddNewValue) then
-      f_Start := f_ParamsString.Len;
-     TryAddValue(False, aHRefSeacher);
-    end // if f_WasQuoter then
-    else
-    begin
-     f_WasQuoter := True;
-     if f_Start = -1 then
-      f_Start := f_ParamsString.Len;
-    end; // if (f_ParserAction  = dd_ppaAddNewValue) then
   AlnalyseValue(aHRefSeacher);
   f_ParserAction := dd_ppaAddNewValue;
  end // if aChar in csIgnoreChars then
  else
  begin
-  if GetPrevParamType = dd_paridHREF then
-   f_ParserAction := dd_ppaExtendString
-  else 
-   if aChar in [cc_Equal, cc_SemiColon] then
-    TryAddValue(aChar = cc_Equal, aHRefSeacher)
+  if aChar in [cc_Equal, cc_SemiColon] then
+   TryAddValue(aChar = cc_Equal, aHRefSeacher)
+  else
+   if aChar = cc_PercentSign then
+    TryAddPercent
    else
-    if aChar = cc_PercentSign then
-     TryAddPercent
-    else
-     f_ParserAction := dd_ppaExtendString;
+    f_ParserAction := dd_ppaExtendString;
   f_ParamsString.Append(aChar);
  end; // if not (aChar in csIgnoreChars) then
 //#UC END# *52415AC40279_524159C700FE_impl*
@@ -81,7 +63,6 @@ const
  f_ParamCount := 0;
  f_ParamsList := TddParamsList.Create; 
  f_ParamsString := Tl3String.Create;
- f_WasQuoter := False;
 //#UC END# *52415BC2014B_524159C700FE_impl*
 //#UC START# *52415BC2014B_524159C700FE_var*
 //#UC END# *52415BC2014B_524159C700FE_var*
@@ -198,7 +179,7 @@ var
   begin
    Result := f_ParamsList[i].rKeyValue;
    Exit;
-  end; // if f_ParamsList[i].rType = dd_parKey then
+  end;
 //#UC END# *5242C6280096_524159C700FE_impl*
 //#UC START# *5242C6280096_524159C700FE_var*
 var
@@ -208,26 +189,18 @@ var
 //#UC START# *5242CC830209_524159C700FE_impl*
  if f_Start = -1 then Exit;
  if aKeyValue then
- begin
-  AddKeyValue(GetKeyID);
-  f_WasQuoter := False;
- end // if aKeyValue then
+  AddKeyValue(GetKeyID)
  else
  begin
   l_ParamType := GetPrevParamType;
   if l_ParamType = dd_paridUnknown then Exit;
   case l_ParamType of
    dd_paridHREF: AddStringValue(aHRefSeacher);
-   dd_paridNAME: AddStringValue(aHRefSeacher);
    dd_paridALIGN: AddAlignValue;
    dd_paridVALIGN: AddVAlignValue;
    dd_paridCOLSPAN: AddIntValue(aHRefSeacher);
    dd_paridROWSPAN: AddIntValue(aHRefSeacher);
-   dd_paridSTYLE,
-   dd_paridBorderBottom,
-   dd_paridBorderTop,
-   dd_paridBorderLeft,
-   dd_paridBorderRight: AddStringValue(aHRefSeacher);
+   dd_paridSTYLE: AddStringValue(aHRefSeacher);
    dd_paridWIDTH: AddWidthValue;
    dd_paridCLASS: AddStringValue(aHRefSeacher);
    dd_paridCHARSET: AddStringValue(aHRefSeacher);
@@ -253,10 +226,6 @@ var
    dd_paridCHARSET: AnalyseCharSet;
    dd_paridHREF: AnalyseHREF(aHRefSeacher);
    dd_paridSTYLE: AnalyseStyle;
-   dd_paridBorderBottom: AnalyseBorder;
-   dd_paridBorderTop: AnalyseBorder;
-   dd_paridBorderLeft: AnalyseBorder;
-   dd_paridBorderRight: AnalyseBorder;
    dd_paridCLASS: AddStringValue(aHRefSeacher);
   end;
  end; // if not IsNil
@@ -299,9 +268,6 @@ var
    l_Param.rVAlign := i;
    Break;
   end; // if l3Compare(carHTMLVAign[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
- if l_Param.rVAlign = cellTop then
-  if l3Compare(carHTMLAign[justC], l_FindStr, l3_siCaseUnsensitive) = 0 then 
-   l_Param.rVAlign := cellCenter;
  f_ParamsList.Add(l_Param);
  f_Start := -1;
  f_ParserAction := dd_ppaAddNewValue;
@@ -351,14 +317,7 @@ var
   // Исключаем ссылки на служебные топики с www-ссылками
   if CheckServiceDocID(l_NewParam.rDocID) then
    l_NewParam.rDocID := 0;
- end // if aHRefSeacher.SearchInString(l_HREFStr.S, 0, l_HREFStr.SLen, l_REPosition) and
- else
-  if (l_Param.rStart > -1) and (l_Param.rStart <> l_Param.rFinish) then
-  begin
-   l_NewParam.rType := dd_parHREFURL;
-   l_NewParam.rStartURL := l_Param.rStart;
-   l_NewParam.rFinishURL := l_Param.rFinish;
-  end; // if (l_Param.rStart > -1) and (l_Param.rStart <> l_Param.rFinish) then
+ end;
  f_ParamsList.DeleteLast;
  f_ParamsList.Add(l_NewParam);
 //#UC END# *524564CF0269_524159C700FE_impl*
@@ -375,69 +334,27 @@ var
  l_AlignStr := l3PCharLenPart(f_ParamsString.St, l_Param.rStart, l_Param.rFinish, f_ParamsString.CodePage);
  if l3Compare(csHTMLTextAlign, l_AlignStr, l3_siCaseUnsensitive) = 0 then
  begin
-  lp_ClearLastParam;
+  f_ParamsList.DeleteLast; // Удаляем строковое значение...
+  f_ParamsList.DeleteLast; // Удаляем ключевое слово стиля...
+  Dec(f_ParamCount);
   AddKeyValue(dd_paridALIGN);
  end; // if l3Compare(carHTMLParamStrArray[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
  l_AlignStr.SLen := l_AlignStr.SLen - 1;
  if l3Compare(carHTMLParamStrArray[dd_paridWIDTH], l_AlignStr, l3_siCaseUnsensitive) = 0 then
  begin
-  lp_ClearLastParam;
-  AddKeyValue(dd_paridWIDTH);
- end // if l3Compare(carHTMLParamStrArray[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
- else
-  if l3Starts(carHTMLParamStrArray[dd_paridWIDTH], l_AlignStr, True) then
-  begin
-   lp_ClearLastParam;
-   AddKeyValue(dd_paridWIDTH);
-   f_Start := l_Param.rStart + carHTMLParamStrArray[dd_paridWIDTH].SLen + 1; // Разделитель...
-   if f_ParamsString.Last = cc_SemiColon then
-    f_ParamsString.Delete(f_ParamsString.Len - 1, 1);
-   TryAddValue(false, nil);
-   AddKeyValue(dd_paridSTYLE);
-  end // if l3Starts(carHTMLParamStrArray[dd_paridWIDTH], l_AlignStr, True) then
-  else
-  if l3Starts(carHTMLParamStrArray[dd_paridBorderBottom], l_AlignStr, True) then
-  begin
-   lp_ClearLastParam;
-   AddKeyValue(dd_paridBorderBottom);
-  end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_csBorderBottom]) <> l3NotFound then
-  else
-  if l3Starts(carHTMLParamStrArray[dd_paridBorderTop], l_AlignStr, True) then
-  begin
-   lp_ClearLastParam;
-   AddKeyValue(dd_paridBorderTop);
-  end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_csBorderBottom]) <> l3NotFound then
-  else
-  if l3Starts(carHTMLParamStrArray[dd_paridBorderLeft], l_AlignStr, True) then
-  begin
-   lp_ClearLastParam;
-   AddKeyValue(dd_paridBorderLeft);
-  end // if l3Pos(l_ParamName, carCSSParamStrArray[dd_paridBorderLeft]) <> l3NotFound then
-  else
-  if l3Starts(carHTMLParamStrArray[dd_paridBorderRight], l_AlignStr, True) then
-  begin
-   lp_ClearLastParam;
-   AddKeyValue(dd_paridBorderRight);
-  end; // if l3Pos(l_ParamName, carCSSParamStrArray[dd_paridBorderRight]) <> l3NotFound then
-//#UC END# *525BAB8C0005_524159C700FE_impl*
-//#UC START# *525BAB8C0005_524159C700FE_var*
-
- procedure lp_ClearLastParam;
- begin
   f_ParamsList.DeleteLast; // Удаляем строковое значение...
   f_ParamsList.DeleteLast; // Удаляем ключевое слово стиля...
   Dec(f_ParamCount);
- end;
-
+  AddKeyValue(dd_paridWIDTH);
+ end; // if l3Compare(carHTMLParamStrArray[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
+//#UC END# *525BAB8C0005_524159C700FE_impl*
+//#UC START# *525BAB8C0005_524159C700FE_var*
 var
  l_Param    : TddHTMLParam;
  l_AlignStr : Tl3PCharLen;
 //#UC END# *525BAB8C0005_524159C700FE_var*
 //#UC START# *525CD0F20229_524159C700FE_impl*
- if aParam.rType = dd_parHREFURL then
-  Result := l3PCharLenPart(f_ParamsString.St, aParam.rStartURL, aParam.rFinishURL, f_ParamsString.CodePage)
- else
-  Result := l3PCharLenPart(f_ParamsString.St, aParam.rStart, aParam.rFinish, f_ParamsString.CodePage);
+ Result := l3PCharLenPart(f_ParamsString.St, aParam.rStart, aParam.rFinish, f_ParamsString.CodePage);
 //#UC END# *525CD0F20229_524159C700FE_impl*
 //#UC START# *525CD0F20229_524159C700FE_var*
 //#UC END# *525CD0F20229_524159C700FE_var*
@@ -454,7 +371,7 @@ var
   begin
    l_Param.rAlign := i;
    Break;
-  end; // if l3Compare(carHTMLAign[i], l_FindStr, l3_siCaseUnsensitive) = 0 then
+  end;
  f_ParamsList.Add(l_Param);
  f_Start := -1;
  f_ParserAction := dd_ppaAddNewValue;
@@ -486,7 +403,9 @@ var
  if not CanAddNewValue then Exit;
  l_ValType := css_vtNone;
  l_TimeStr := l3PCharLenPart(f_ParamsString.St, f_Start, f_ParamsString.Len, f_ParamsString.CodePage);
- lp_CheckLen;
+ l_SepPos := ev_lpCharIndex(cc_HardSpace, l_TimeStr);
+ if l_SepPos > 0 then
+  l_TimeStr.SLen := l_SepPos;
  l_ValType := lp_CheckValueType;
  l_SepPos := ev_lpCharIndex(cc_Dot, l_TimeStr);
  if l_SepPos > 0 then
@@ -536,22 +455,6 @@ var
     Result := i;
     Break;
    end;
- end;
-
- procedure lp_CheckLen;
- var
-  l_SepPos  : Integer;
-  l_SpacePos: Integer;
- begin
-  l_SpacePos := ev_lpCharIndex(cc_HardSpace, l_TimeStr);
-  l_SepPos := ev_lpCharIndex(cc_SemiColon, l_TimeStr);
-  if (l_SpacePos > 0) then
-   if l_SepPos > 0 then
-    l_SepPos := Min(l_SepPos, l_SpacePos)
-   else
-    l_SepPos := l_SpacePos;
-  if l_SepPos > 0 then
-   l_TimeStr.SLen := l_SepPos;
  end;
 
 var

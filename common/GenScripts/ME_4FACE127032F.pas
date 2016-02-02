@@ -75,6 +75,7 @@ uses
  , ddTypes
  , k2Tags
  , evdTypes
+ , ddBase
 ;
 
 function TddTableCell.pm_GetHi: Integer;
