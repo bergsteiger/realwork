@@ -1,5 +1,10 @@
 //#UC START# *55C1F54A0327_55C1F539010F_impl*
- TtfwCOMaker.Make(ParamStr(1));
+ try
+  TtfwCOMaker.Make(ParamStr(1));
+ except
+  on E: Exception do
+   WriteLn(E.Message);
+ end;//try..except
 //#UC END# *55C1F54A0327_55C1F539010F_impl*
 //#UC START# *55C1F54A0327_55C1F539010F_var*
 //#UC END# *55C1F54A0327_55C1F539010F_var*
