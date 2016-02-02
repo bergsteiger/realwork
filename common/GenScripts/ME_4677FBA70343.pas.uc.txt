@@ -3,7 +3,7 @@
 //#UC START# *46A480790259impl*
 // start object Tl3_Point
 
-procedure Tl3_Point.Init(aX, aY: Tl3Inch);
+procedure Tl3_Point.Init(aX, aY: Integer);
   {-инициализирует точку}
 begin
  P.X := aX;
@@ -167,7 +167,7 @@ begin
  BottomRight := Tl3_Point(R.BottomRight).Add(Pt);
 end;
 
-procedure Tl3_Rect.Inflate(X, Y: Tl3Inch);
+procedure Tl3_Rect.Inflate(X, Y: Integer);
   {overload;}
   {-увеличивает размеры пр€моугольника на (X, Y)}
 begin
@@ -184,7 +184,7 @@ begin
  BottomRight := Tl3_Point(R.BottomRight).Add(Pt);
 end;
 
-procedure Tl3_Rect.Offset(aX, aY: Tl3Inch);
+procedure Tl3_Rect.Offset(aX, aY: Integer);
   {-сдвинуть пр€моугольник на (X, Y)}
 begin
  Inc(R.Top, aY);
