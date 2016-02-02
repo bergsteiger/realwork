@@ -70,7 +70,12 @@ function IsSameItems(const A: _ItemType_;
 //#UC END# *47B07CF403D0_56AF378901B9_var*
 begin
 //#UC START# *47B07CF403D0_56AF378901B9_impl*
- !!! Needs to be implemented !!!
+ Result :=
+   l3Same(A.rPubSource, B.rPubSource) and
+   (A.rDate = B.rDate) and
+   (A.rYear = B.rYear) and
+   (A.rNum  = B.rNum) and
+   (A.rArticle = B.rArticle);
 //#UC END# *47B07CF403D0_56AF378901B9_impl*
 end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)
@@ -82,7 +87,7 @@ procedure AssignItem(const aTo: _ItemType_;
 //#UC END# *47B2C42A0163_56AF378901B9_var*
 begin
 //#UC START# *47B2C42A0163_56AF378901B9_impl*
- !!! Needs to be implemented !!!
+ Assert(False);
 //#UC END# *47B2C42A0163_56AF378901B9_impl*
 end;//AssignItem
 {$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
@@ -93,7 +98,13 @@ function CompareExistingItems(const CI: CompareItemsRec): Integer;
 //#UC END# *47B99D4503A2_56AF378901B9_var*
 begin
 //#UC START# *47B99D4503A2_56AF378901B9_impl*
- !!! Needs to be implemented !!!
+ Result := CI.rA.rDate - CI.rB.rDate;
+ if Result = 0 then
+  Result := l3Compare(CI.rA.rPubSource.AsWStr, CI.rB.rPubSource.AsWStr);
+ if Result = 0 then
+  Result := CI.rA.rNum - CI.rB.rNum;
+ if Result = 0 then
+  Result := CI.rA.rArticle - CI.rB.rArticle;
 //#UC END# *47B99D4503A2_56AF378901B9_impl*
 end;//CompareExistingItems
 
