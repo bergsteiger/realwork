@@ -111,8 +111,11 @@ type
 
  HENHMETAFILE = THandle;
 
- TBrush = class
+ TBrush = {final} class
  end;//TBrush
+
+ TPen = {final} class
+ end;//TPen
 
 procedure ColorToRGB;
 

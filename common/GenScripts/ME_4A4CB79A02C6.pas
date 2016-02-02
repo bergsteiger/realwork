@@ -18,6 +18,7 @@ uses
  , Windows
  , l3LongintList
  , Graphics
+ , Classes
  , l3Defaults
  , l3Core
  , l3CacheableBase
@@ -89,6 +90,9 @@ type
    f_Fore: Integer;
    f_DarkFore: Integer;
    f_CheckingDrawing: Integer;
+   f_OldBrushChange: TNotifyEvent;
+   f_OldFontChange: TNotifyEvent;
+   f_AlienCanvas: Boolean;
    f_Flags: TevDrawFlags;
     {* Поле для свойства Flags }
    f_OnDrawSub: TevDrawSubEvent;
@@ -103,10 +107,14 @@ type
     {* Поле для свойства BackColor }
    f_NotFocused: Boolean;
     {* Поле для свойства NotFocused }
+   f_Canvas: TCanvas;
+    {* Поле для свойства Canvas }
    f_Owner: TObject;
     {* Поле для свойства Owner }
    f_Zoom: Integer;
     {* Поле для свойства Zoom }
+   f_OnDrawSpecialChange: TNotifyEvent;
+    {* Поле для свойства OnDrawSpecialChange }
   protected
    f_Printer: Il3Printer;
    f_DeviceCaps: Tl3DeviceCaps;
@@ -121,6 +129,11 @@ type
    f_TextColor: TColor;
    f_DC: hDC;
    f_DCFlag: TevDCFlag;
+   f_TextMetricsValid: Boolean;
+   f_SuffixedFont: Boolean;
+   f_AverageCharHeight: Integer;
+   f_AverageCharWidth: Integer;
+   f_pxAverageCharWidth: Integer;
   protected
    function pm_GetPrinting: Boolean;
    procedure pm_SetPrinting(aValue: Boolean);
@@ -141,17 +154,25 @@ type
    procedure pm_SetDrawEnabled(aValue: Boolean);
    function pm_GetDrawing: Boolean;
    function pm_GetInvert: Boolean;
-   function pm_GetVCLFont: TFont; virtual; abstract;
-   procedure pm_SetVCLFont(aValue: TFont); virtual; abstract;
+   function pm_GetVCLFont: TFont;
+   procedure pm_SetVCLFont(aValue: TFont);
    function pm_GetTextColor: TColor;
    procedure pm_SetTextColor(aValue: TColor);
-   function pm_GetBrush: TBrush; virtual; abstract;
-   procedure pm_SetBrush(aValue: TBrush); virtual; abstract;
+   function pm_GetBrush: TBrush;
+   procedure pm_SetBrush(aValue: TBrush);
    function pm_GetDCFlag: TevDCFlag;
-   function pm_GetCanvas: TCanvas; virtual; abstract;
-   procedure pm_SetCanvas(aValue: TCanvas); virtual; abstract;
+   function pm_GetCanvas: TCanvas;
+   procedure pm_SetCanvas(aValue: TCanvas);
    function pm_GetZoom: Integer;
    procedure pm_SetZoom(aValue: Integer);
+   function pm_GetPen: TPen;
+   procedure pm_SetPen(aValue: TPen);
+   function pm_GetShowCursor: Boolean;
+   procedure pm_SetShowCursor(aValue: Boolean);
+   function pm_GetPrinted: Boolean;
+   procedure pm_SetPrinted(aValue: Boolean);
+   function pm_GetDrawSpecial: Boolean;
+   procedure pm_SetDrawSpecial(aValue: Boolean);
    function CalcPrintableArea: Tl3_Rect;
    procedure DrawSub(aSubTarget: TObject;
     const R: Tl3Rect;
@@ -169,6 +190,13 @@ type
    function DrawingIsValid: Boolean;
    function IsVirtual: Boolean; virtual;
    function CheckDrawing: Boolean;
+   procedure BrushChanged(Sender: TObject);
+   procedure FontChanged(Sender: TObject);
+   procedure FreeDC;
+   procedure FreeAlienDC(aDC: hDC); virtual;
+   procedure FireDCSetToNull; virtual;
+   function IsPreview: Boolean; virtual;
+   procedure Invalidate; virtual;
    function DoGetPageSetupWidth: Tl3Inch; virtual;
    function DoGetPageSetupHeight: Tl3Inch; virtual;
    function DoGetDrawEnabled: Boolean; virtual;
@@ -208,8 +236,9 @@ type
    procedure Lock;
    procedure Unlock;
    constructor CreateOwned(anOwner: TObject); reintroduce;
+   constructor CreateForPrinting(const aPrinter: Il3Printer); reintroduce;
    procedure SetCanvas(aValue: TCanvas;
-    anAlien: Boolean); virtual; abstract;
+    anAlien: Boolean); virtual;
    function DP2LP(const aP: Tl3_SPoint): Tl3Point;
     {* Преобразует точку в пикселях в точку в дюймах }
    function PushClipRect: Tl3Rect;
@@ -278,6 +307,21 @@ type
    property Zoom: Integer
     read pm_GetZoom
     write pm_SetZoom;
+   property Pen: TPen
+    read pm_GetPen
+    write pm_SetPen;
+   property ShowCursor: Boolean
+    read pm_GetShowCursor
+    write pm_SetShowCursor;
+   property Printed: Boolean
+    read pm_GetPrinted
+    write pm_SetPrinted;
+   property OnDrawSpecialChange: TNotifyEvent
+    read f_OnDrawSpecialChange
+    write f_OnDrawSpecialChange;
+   property DrawSpecial: Boolean
+    read pm_GetDrawSpecial
+    write pm_SetDrawSpecial;
  end;//Tl3CanvasPrim
 
 {$If Defined(nsTest)}
@@ -293,6 +337,8 @@ uses
  , l3Const
  , SysUtils
  , l3CanvasUtils
+ , StrUtils
+ , l3Chars
 ;
 
 constructor Tl3TabInfo.Create(aTabOffset: Integer;
@@ -486,6 +532,24 @@ begin
 //#UC END# *56ACDB3A0069_4A4CB79A02C6get_impl*
 end;//Tl3CanvasPrim.pm_GetInvert
 
+function Tl3CanvasPrim.pm_GetVCLFont: TFont;
+//#UC START# *56AD08DA011D_4A4CB79A02C6get_var*
+//#UC END# *56AD08DA011D_4A4CB79A02C6get_var*
+begin
+//#UC START# *56AD08DA011D_4A4CB79A02C6get_impl*
+ Result := Canvas.Font;
+//#UC END# *56AD08DA011D_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetVCLFont
+
+procedure Tl3CanvasPrim.pm_SetVCLFont(aValue: TFont);
+//#UC START# *56AD08DA011D_4A4CB79A02C6set_var*
+//#UC END# *56AD08DA011D_4A4CB79A02C6set_var*
+begin
+//#UC START# *56AD08DA011D_4A4CB79A02C6set_impl*
+ Canvas.Font := aValue;
+//#UC END# *56AD08DA011D_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetVCLFont
+
 function Tl3CanvasPrim.pm_GetTextColor: TColor;
 //#UC START# *56AD09460121_4A4CB79A02C6get_var*
 //#UC END# *56AD09460121_4A4CB79A02C6get_var*
@@ -515,6 +579,24 @@ begin
 //#UC END# *56AD09460121_4A4CB79A02C6set_impl*
 end;//Tl3CanvasPrim.pm_SetTextColor
 
+function Tl3CanvasPrim.pm_GetBrush: TBrush;
+//#UC START# *56AD0ACC0034_4A4CB79A02C6get_var*
+//#UC END# *56AD0ACC0034_4A4CB79A02C6get_var*
+begin
+//#UC START# *56AD0ACC0034_4A4CB79A02C6get_impl*
+ Result := Canvas.Brush;
+//#UC END# *56AD0ACC0034_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetBrush
+
+procedure Tl3CanvasPrim.pm_SetBrush(aValue: TBrush);
+//#UC START# *56AD0ACC0034_4A4CB79A02C6set_var*
+//#UC END# *56AD0ACC0034_4A4CB79A02C6set_var*
+begin
+//#UC START# *56AD0ACC0034_4A4CB79A02C6set_impl*
+ Canvas.Brush := aValue;
+//#UC END# *56AD0ACC0034_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetBrush
+
 function Tl3CanvasPrim.pm_GetDCFlag: TevDCFlag;
 //#UC START# *56AF20160331_4A4CB79A02C6get_var*
 //#UC END# *56AF20160331_4A4CB79A02C6get_var*
@@ -523,6 +605,43 @@ begin
  Result := f_DCFlag;
 //#UC END# *56AF20160331_4A4CB79A02C6get_impl*
 end;//Tl3CanvasPrim.pm_GetDCFlag
+
+function Tl3CanvasPrim.pm_GetCanvas: TCanvas;
+//#UC START# *56AF20BB0209_4A4CB79A02C6get_var*
+//#UC END# *56AF20BB0209_4A4CB79A02C6get_var*
+begin
+//#UC START# *56AF20BB0209_4A4CB79A02C6get_impl*
+ if (f_Canvas = nil) then
+ begin
+  if (f_Printer <> nil) and not IsPreview then
+   Canvas := f_Printer.Canvas
+  else
+   SetCanvas(TCanvas.Create, False);
+ end;//f_Canvas = nil
+ Result := f_Canvas;
+ if (f_Printer <> nil) and f_Printer.Printing and (Result <> f_Printer.Canvas) then
+ begin
+  if (Result <> nil) then
+   try
+    Result.Handle;
+   except
+    on EInvalidOperation do
+     Result := f_Printer.Canvas;
+     // так хитро, чтобы починить http://mdp.garant.ru/pages/viewpage.action?pageId=112722934, но не сломать http://mdp.garant.ru/pages/viewpage.action?pageId=109085576
+     // видимо по уму надо использовать полиморфизм в TafwCanvasEx
+   end;//try..except
+ end;//f_Printer <> nil..
+//#UC END# *56AF20BB0209_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetCanvas
+
+procedure Tl3CanvasPrim.pm_SetCanvas(aValue: TCanvas);
+//#UC START# *56AF20BB0209_4A4CB79A02C6set_var*
+//#UC END# *56AF20BB0209_4A4CB79A02C6set_var*
+begin
+//#UC START# *56AF20BB0209_4A4CB79A02C6set_impl*
+ SetCanvas(aValue, True);
+//#UC END# *56AF20BB0209_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetCanvas
 
 function Tl3CanvasPrim.pm_GetZoom: Integer;
 //#UC START# *56AF4E2C005D_4A4CB79A02C6get_var*
@@ -541,6 +660,102 @@ begin
  f_Zoom := aValue;
 //#UC END# *56AF4E2C005D_4A4CB79A02C6set_impl*
 end;//Tl3CanvasPrim.pm_SetZoom
+
+function Tl3CanvasPrim.pm_GetPen: TPen;
+//#UC START# *56B09CE001DA_4A4CB79A02C6get_var*
+//#UC END# *56B09CE001DA_4A4CB79A02C6get_var*
+begin
+//#UC START# *56B09CE001DA_4A4CB79A02C6get_impl*
+ Result := Canvas.Pen;
+//#UC END# *56B09CE001DA_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetPen
+
+procedure Tl3CanvasPrim.pm_SetPen(aValue: TPen);
+//#UC START# *56B09CE001DA_4A4CB79A02C6set_var*
+//#UC END# *56B09CE001DA_4A4CB79A02C6set_var*
+begin
+//#UC START# *56B09CE001DA_4A4CB79A02C6set_impl*
+ Canvas.Pen := aValue;
+//#UC END# *56B09CE001DA_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetPen
+
+function Tl3CanvasPrim.pm_GetShowCursor: Boolean;
+//#UC START# *56B09EF400CB_4A4CB79A02C6get_var*
+//#UC END# *56B09EF400CB_4A4CB79A02C6get_var*
+begin
+//#UC START# *56B09EF400CB_4A4CB79A02C6get_impl*
+ Result := (ev_dfDrawCursor in Flags);
+//#UC END# *56B09EF400CB_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetShowCursor
+
+procedure Tl3CanvasPrim.pm_SetShowCursor(aValue: Boolean);
+//#UC START# *56B09EF400CB_4A4CB79A02C6set_var*
+//#UC END# *56B09EF400CB_4A4CB79A02C6set_var*
+begin
+//#UC START# *56B09EF400CB_4A4CB79A02C6set_impl*
+ if aValue then
+  Flags := Flags + [ev_dfDrawCursor]
+ else
+  Flags := Flags - [ev_dfDrawCursor];
+//#UC END# *56B09EF400CB_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetShowCursor
+
+function Tl3CanvasPrim.pm_GetPrinted: Boolean;
+//#UC START# *56B09F1B0198_4A4CB79A02C6get_var*
+//#UC END# *56B09F1B0198_4A4CB79A02C6get_var*
+begin
+//#UC START# *56B09F1B0198_4A4CB79A02C6get_impl*
+ Result := not Printing or (ev_dfPrinted in Flags);
+//#UC END# *56B09F1B0198_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetPrinted
+
+procedure Tl3CanvasPrim.pm_SetPrinted(aValue: Boolean);
+//#UC START# *56B09F1B0198_4A4CB79A02C6set_var*
+//#UC END# *56B09F1B0198_4A4CB79A02C6set_var*
+begin
+//#UC START# *56B09F1B0198_4A4CB79A02C6set_impl*
+ if aValue then
+  Flags := Flags + [ev_dfPrinted]
+ else
+  Flags := Flags - [ev_dfPrinted];
+//#UC END# *56B09F1B0198_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetPrinted
+
+function Tl3CanvasPrim.pm_GetDrawSpecial: Boolean;
+//#UC START# *56B0ADCF0192_4A4CB79A02C6get_var*
+//#UC END# *56B0ADCF0192_4A4CB79A02C6get_var*
+begin
+//#UC START# *56B0ADCF0192_4A4CB79A02C6get_impl*
+ Result := (ev_dfDrawSpecial in Flags);
+ Assert(not Result or not Printing, 'http://mdp.garant.ru/pages/viewpage.action?pageId=174295160&focusedCommentId=266409368#comment-266409368');
+//#UC END# *56B0ADCF0192_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.pm_GetDrawSpecial
+
+procedure Tl3CanvasPrim.pm_SetDrawSpecial(aValue: Boolean);
+//#UC START# *56B0ADCF0192_4A4CB79A02C6set_var*
+var
+ l_WindowFlags: Il3CaretOwner;
+//#UC END# *56B0ADCF0192_4A4CB79A02C6set_var*
+begin
+//#UC START# *56B0ADCF0192_4A4CB79A02C6set_impl*
+ if (DrawSpecial <> aValue) then
+ begin
+  if aValue and not Printing then
+   Flags := Flags + [ev_dfDrawSpecial]
+  else
+   Flags := Flags - [ev_dfDrawSpecial];
+  if Assigned(f_OnDrawSpecialChange) then
+   f_OnDrawSpecialChange(Self);
+  if Supports(Owner, Il3CaretOwner, l_WindowFlags) then
+  try
+   l_WindowFlags.RedrawCaret;
+  finally
+   l_WindowFlags := nil;
+  end;//try..finally
+  Invalidate;
+ end;//DrawSpecial <> Value
+//#UC END# *56B0ADCF0192_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.pm_SetDrawSpecial
 
 function Tl3CanvasPrim.CalcPrintableArea: Tl3_Rect;
 //#UC START# *4A4CBD130121_4A4CB79A02C6_var*
@@ -698,31 +913,31 @@ begin
  Inc(f_CheckingDrawing);
  try
   l_OldDC := f_DC;
-  Result := Drawing OR (f_DCFlag in [ev_dcfLinked, ev_dcfCreated]) OR Printing;
-  if Result AND (f_CheckingDrawing <= 1) then
+  Result := Drawing or (f_DCFlag in [ev_dcfLinked, ev_dcfCreated]) or Printing;
+  if Result and (f_CheckingDrawing <= 1) then
   begin
    Lock;
    try
     l_Owner := Owner;
     CN := Canvas;
-    Case f_DCFlag of
+    case f_DCFlag of
      ev_dcfCanvas:
       if (CN Is TMetaFileCanvas) then
       begin
        f_DC := CN.Handle;
       end//CN Is TMetaFileCanvas
       else
-      if (f_Printer <> nil) AND not f_Printer.Printing then
+      if (f_Printer <> nil) and not f_Printer.Printing then
       begin
        f_DC := f_Printer.DC;
        SelectObject(f_DC, VCLFont.Handle);
-       {-iaiiaeyai o?eoo i?eioaeoaeuii}
+       {-обновляем шрифт принудительно}
       end//f_Printer <> nil..
       else
-      if (l_Owner Is TMetaFile) AND (f_DC = 0) then
+      if (l_Owner Is TMetaFile) and (f_DC = 0) then
       begin
        CN := TMetaFileCanvas.Create(TMetaFile(l_Owner), 0);
-       SetCanvas(CN, false);
+       SetCanvas(CN, False);
        f_DC := CN.Handle;
       end//l_Owner Is TMetaFile
       else
@@ -733,7 +948,7 @@ begin
        f_DC := GetAlienDC;
       CN.Handle := f_DC;
       f_DC := CN.Handle;
-      {-iaiiaeyai o?eoo, ia?i, eenou etc}
+      {-обновляем шрифт, перо, кисть etc}
      end;//ev_dcfGot
      ev_dcfCreated,
      ev_dcfLinked:
@@ -742,14 +957,14 @@ begin
        CN.Handle := f_DC;
       if (CN <> nil) then
        f_DC := CN.Handle;
-      {-iaiiaeyai o?eoo, ia?i, eenou etc}
+      {-обновляем шрифт, перо, кисть etc}
      end;//ev_dcfCreated..}
-    end;//Case f_DCFlag
+    end;//case f_DCFlag
     if (l_OldDC <> f_DC) then
     begin
      UpdatePixelsPerInch;
-     {-iaiiaeyai ?ac?aoaiea}
-     VCLFont.PixelsPerInch := PixelsPerInchY; {-aunoaaeyai ?ac?aoaiea o?eooo}
+     {-обновляем разрешение}
+     VCLFont.PixelsPerInch := PixelsPerInchY; {-выставляем разрешение шрифту}
     end;//l_OldDC <> f_DC
     if (Zoom <> 100) then
     begin
@@ -796,6 +1011,206 @@ begin
  Create;
 //#UC END# *56AF3CC4020E_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.CreateOwned
+
+constructor Tl3CanvasPrim.CreateForPrinting(const aPrinter: Il3Printer);
+//#UC START# *56B08EB80255_4A4CB79A02C6_var*
+//#UC END# *56B08EB80255_4A4CB79A02C6_var*
+begin
+//#UC START# *56B08EB80255_4A4CB79A02C6_impl*
+ if (aPrinter <> nil) then
+  f_Printer := aPrinter.Clone
+ else
+  f_Printer := nil;
+ Printing := (f_Printer <> nil);
+ Create;
+//#UC END# *56B08EB80255_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.CreateForPrinting
+
+procedure Tl3CanvasPrim.SetCanvas(aValue: TCanvas;
+ anAlien: Boolean);
+//#UC START# *56B0AE550267_4A4CB79A02C6_var*
+var
+ l_E: TNotifyEvent;
+ l_M: TMethod absolute l_E;
+//#UC END# *56B0AE550267_4A4CB79A02C6_var*
+begin
+//#UC START# *56B0AE550267_4A4CB79A02C6_impl*
+ if (f_Canvas <> aValue) then
+ begin
+  if (f_Canvas <> nil) and f_AlienCanvas then
+  begin
+   if (f_Canvas.Font <> nil) then
+    f_Canvas.Font.OnChange := f_OldFontChange;
+   if (f_Canvas.Brush <> nil) then
+    f_Canvas.Brush.OnChange := f_OldBrushChange;
+  end;//f_Canvas <> nil
+  if anAlien then
+   FreeDC
+  else
+  if (f_DCFlag = ev_dcfCanvas) then
+  begin
+   f_DC := 0;
+   FireDCSetToNull;
+  end;//f_DCFlag = ev_dcfCanvas
+  if not f_AlienCanvas then
+   FreeAndNil(f_Canvas);
+  f_Canvas := aValue;
+  f_AlienCanvas := anAlien;
+  if (f_Canvas = nil) then
+  begin
+   f_OldBrushChange := nil;
+   f_OldFontChange := nil;
+  end//f_Canvas = nil
+  else
+  begin
+   if Assigned(f_Canvas.Font.OnChange) then
+   begin
+    l_E := f_Canvas.Font.OnChange;
+    Assert(l_M.Data <> Self);
+   end;//Assigned(f_Canvas.Font.OnChange)
+   f_OldBrushChange := f_Canvas.Brush.OnChange;
+   f_OldFontChange := f_Canvas.Font.OnChange;
+   f_Canvas.Brush.OnChange := BrushChanged;
+   f_Canvas.Font.OnChange := FontChanged;
+  end;//f_Canvas = nil
+ end//f_Canvas <> Value
+ else
+ if (f_AlienCanvas <> anAlien) then
+  f_AlienCanvas := anAlien;
+//#UC END# *56B0AE550267_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.SetCanvas
+
+procedure Tl3CanvasPrim.BrushChanged(Sender: TObject);
+//#UC START# *56B0AED5005B_4A4CB79A02C6_var*
+//#UC END# *56B0AED5005B_4A4CB79A02C6_var*
+begin
+//#UC START# *56B0AED5005B_4A4CB79A02C6_impl*
+ if Assigned(f_OldBrushChange) then
+  f_OldBrushChange(Sender);
+ if (f_CheckingColors <= 0) then
+  BackColor := Brush.Color;
+//#UC END# *56B0AED5005B_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.BrushChanged
+
+procedure Tl3CanvasPrim.FontChanged(Sender: TObject);
+//#UC START# *56B0AEF1020C_4A4CB79A02C6_var*
+var
+ l_E: TNotifyEvent;
+ l_M: TMethod absolute l_E;
+//#UC END# *56B0AEF1020C_4A4CB79A02C6_var*
+begin
+//#UC START# *56B0AEF1020C_4A4CB79A02C6_impl*
+ if Assigned(f_OldFontChange) then
+ begin
+  l_E := f_OldFontChange;
+  Assert(l_M.Data <> Self);
+  l_E(Sender);
+ end;//Assigned(f_OldFontChange) 
+ f_TextMetricsValid := False;
+ f_AverageCharHeight := 0;
+ f_AverageCharWidth := 0;
+ f_pxAverageCharWidth := 0;
+ if (Win32Platform = VER_PLATFORM_WIN32_WINDOWS) then
+  f_SuffixedFont := ANSIEndsText(fs_Cyr, VCLFont.Name)
+ else
+ if (Win32Platform = VER_PLATFORM_WIN32_NT) then
+ begin
+  if (Win32MajorVersion = 5) then
+  begin
+   if (Win32MinorVersion = 0) then
+    f_SuffixedFont := False
+   else
+    f_SuffixedFont := True;
+  end//Win32MajorVersion = 5
+  else
+  if (Win32MajorVersion > 5) then
+   f_SuffixedFont := True
+  else
+   f_SuffixedFont := ANSIEndsText(fs_Cyr, VCLFont.Name);
+ end//Win32Platform = VER_PLATFORM_WIN32_NT
+ else
+ begin
+  Assert(False);
+  f_SuffixedFont := ANSIEndsText(fs_Cyr, VCLFont.Name);
+ end;//Win32Platform = VER_PLATFORM_WIN32_NT
+ if (f_CheckingColors <= 0) then
+ begin
+  Inc(f_CheckingColors);
+  try
+   TextColor := VCLFont.Color;
+  finally
+   Dec(f_CheckingColors);
+  end;//try..finally
+ end;//
+ CheckDrawing;
+//#UC END# *56B0AEF1020C_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.FontChanged
+
+procedure Tl3CanvasPrim.FreeDC;
+//#UC START# *56B0B2430282_4A4CB79A02C6_var*
+//#UC END# *56B0B2430282_4A4CB79A02C6_var*
+begin
+//#UC START# *56B0B2430282_4A4CB79A02C6_impl*
+ if (f_DC <> 0) then
+ begin
+  case f_DCFlag of
+   ev_dcfCanvas: 
+    if (Owner is TMetaFile) then
+     Canvas := nil;
+   ev_dcfGot: 
+   begin
+    if (f_Canvas <> nil) then
+     f_Canvas.Handle := 0;
+    FreeAlienDC(f_DC); 
+   end;//ev_dcfGot
+   ev_dcfCreated:
+   begin
+    if (f_Canvas <> nil) then
+     f_Canvas.Handle := 0;
+    DeleteDC(f_DC);
+    f_DCFlag := ev_dcfCanvas;
+   end;//ev_dcfCreated
+   else
+    f_DCFlag := ev_dcfCanvas;
+  end;//case f_DCFlag
+  f_DC := 0;
+ end;//f_DC <> 0
+//#UC END# *56B0B2430282_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.FreeDC
+
+procedure Tl3CanvasPrim.FreeAlienDC(aDC: hDC);
+//#UC START# *56B0B2610026_4A4CB79A02C6_var*
+//#UC END# *56B0B2610026_4A4CB79A02C6_var*
+begin
+//#UC START# *56B0B2610026_4A4CB79A02C6_impl*
+//#UC END# *56B0B2610026_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.FreeAlienDC
+
+procedure Tl3CanvasPrim.FireDCSetToNull;
+//#UC START# *56B0B54F03CC_4A4CB79A02C6_var*
+//#UC END# *56B0B54F03CC_4A4CB79A02C6_var*
+begin
+//#UC START# *56B0B54F03CC_4A4CB79A02C6_impl*
+//#UC END# *56B0B54F03CC_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.FireDCSetToNull
+
+function Tl3CanvasPrim.IsPreview: Boolean;
+//#UC START# *56B0B9790320_4A4CB79A02C6_var*
+//#UC END# *56B0B9790320_4A4CB79A02C6_var*
+begin
+//#UC START# *56B0B9790320_4A4CB79A02C6_impl*
+ Result := False;
+//#UC END# *56B0B9790320_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.IsPreview
+
+procedure Tl3CanvasPrim.Invalidate;
+//#UC START# *56B0BB0501B9_4A4CB79A02C6_var*
+//#UC END# *56B0BB0501B9_4A4CB79A02C6_var*
+begin
+//#UC START# *56B0BB0501B9_4A4CB79A02C6_impl*
+ 
+//#UC END# *56B0BB0501B9_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.Invalidate
 
 function Tl3CanvasPrim.DoGetPageSetupWidth: Tl3Inch;
 //#UC START# *4A4CBCD002EA_4A4CB79A02C6_var*

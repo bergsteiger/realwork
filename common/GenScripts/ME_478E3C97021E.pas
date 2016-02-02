@@ -18,7 +18,6 @@ uses
  , l3Core
  , l3Types
  , l3PrinterInterfaces
- , Graphics
 ;
 
 type
@@ -283,20 +282,12 @@ type
    procedure EndDrawAAC(const R: Tl3Rect);
    procedure BeginDarkColor;
    procedure EndDarkColor;
-   function pm_GetVCLFont: TFont; override;
-   procedure pm_SetVCLFont(aValue: TFont); override;
-   function pm_GetBrush: TBrush; override;
-   procedure pm_SetBrush(aValue: TBrush); override;
-   function pm_GetCanvas: TCanvas; override;
-   procedure pm_SetCanvas(aValue: TCanvas); override;
    function GetGlobalClipRectWithZoom: Tl3Rect; override;
   public
    function DoGetClientRect: Tl3Rect; virtual;
    procedure BeginInvert;
    procedure EndInvert;
    function IsVirtual: Boolean;
-   procedure SetCanvas(aValue: TCanvas;
-    anAlien: Boolean); override;
    function DeviceCaps(anIndex: Integer): Integer; overload;
     {* возвращает свойства устройства рисования. }
    procedure FillRect(const R: Tl3SRect); override;
@@ -1809,16 +1800,6 @@ begin
 //#UC END# *4776171C037B_473C3D830066_impl*
 end;//Tl3Canvas.AdjustMarginsByPrintableArea
 
-procedure Tl3Canvas.SetCanvas(aValue: TCanvas;
- anAlien: Boolean);
-//#UC START# *478E40F20207_473C3D830066_var*
-//#UC END# *478E40F20207_473C3D830066_var*
-begin
-//#UC START# *478E40F20207_473C3D830066_impl*
- assert(false, 'Tl3Canvas.SetCanvas not implemented');
-//#UC END# *478E40F20207_473C3D830066_impl*
-end;//Tl3Canvas.SetCanvas
-
 function Tl3Canvas.Get_PasswordChar: AnsiChar;
 //#UC START# *483D1BCA0045_473C3D830066get_var*
 //#UC END# *483D1BCA0045_473C3D830066get_var*
@@ -2092,42 +2073,6 @@ begin
 //#UC END# *55CC51CE0059_473C3D830066_impl*
 end;//Tl3Canvas.EndDarkColor
 
-function Tl3Canvas.pm_GetVCLFont: TFont;
-//#UC START# *56AD08DA011D_473C3D830066get_var*
-//#UC END# *56AD08DA011D_473C3D830066get_var*
-begin
-//#UC START# *56AD08DA011D_473C3D830066get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *56AD08DA011D_473C3D830066get_impl*
-end;//Tl3Canvas.pm_GetVCLFont
-
-procedure Tl3Canvas.pm_SetVCLFont(aValue: TFont);
-//#UC START# *56AD08DA011D_473C3D830066set_var*
-//#UC END# *56AD08DA011D_473C3D830066set_var*
-begin
-//#UC START# *56AD08DA011D_473C3D830066set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *56AD08DA011D_473C3D830066set_impl*
-end;//Tl3Canvas.pm_SetVCLFont
-
-function Tl3Canvas.pm_GetBrush: TBrush;
-//#UC START# *56AD0ACC0034_473C3D830066get_var*
-//#UC END# *56AD0ACC0034_473C3D830066get_var*
-begin
-//#UC START# *56AD0ACC0034_473C3D830066get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *56AD0ACC0034_473C3D830066get_impl*
-end;//Tl3Canvas.pm_GetBrush
-
-procedure Tl3Canvas.pm_SetBrush(aValue: TBrush);
-//#UC START# *56AD0ACC0034_473C3D830066set_var*
-//#UC END# *56AD0ACC0034_473C3D830066set_var*
-begin
-//#UC START# *56AD0ACC0034_473C3D830066set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *56AD0ACC0034_473C3D830066set_impl*
-end;//Tl3Canvas.pm_SetBrush
-
 procedure Tl3Canvas.FillRect(const R: Tl3SRect);
 //#UC START# *56AF1D990070_473C3D830066_var*
 //#UC END# *56AF1D990070_473C3D830066_var*
@@ -2145,24 +2090,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *56AF1DDC024A_473C3D830066_impl*
 end;//Tl3Canvas.FillRect
-
-function Tl3Canvas.pm_GetCanvas: TCanvas;
-//#UC START# *56AF20BB0209_473C3D830066get_var*
-//#UC END# *56AF20BB0209_473C3D830066get_var*
-begin
-//#UC START# *56AF20BB0209_473C3D830066get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *56AF20BB0209_473C3D830066get_impl*
-end;//Tl3Canvas.pm_GetCanvas
-
-procedure Tl3Canvas.pm_SetCanvas(aValue: TCanvas);
-//#UC START# *56AF20BB0209_473C3D830066set_var*
-//#UC END# *56AF20BB0209_473C3D830066set_var*
-begin
-//#UC START# *56AF20BB0209_473C3D830066set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *56AF20BB0209_473C3D830066set_impl*
-end;//Tl3Canvas.pm_SetCanvas
 
 function Tl3Canvas.GetGlobalClipRectWithZoom: Tl3Rect;
 //#UC START# *4E98521202B5_473C3D830066_var*
