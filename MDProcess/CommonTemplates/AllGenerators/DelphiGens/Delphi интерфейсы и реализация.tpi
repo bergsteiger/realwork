@@ -2343,13 +2343,17 @@ f _NeedFinalize
 	 CONST %{GEN_ID}N:Path '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%SL),/,\\)'
 	]\
 	]\
+
 	[{"%f_with_gen_id(%{GEN_ID}N,%Sd)"!=""}\
 	[{%SC=Class|%SC=Category}\
 	[{%S#f_IsMethod()!=true}\
+	[{%S#f_IsProject()=true|"%f_with_gen_id(%{GEN_ID}N,%Pd)"!="%f_with_gen_id(%{GEN_ID}N,%Sd)"}\
 	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\)'
 	]\
 	]\
 	]\
+	]\
+
 	]\
 	>\
 	]\

@@ -197,6 +197,8 @@ var
 
   function AddSubLayer(aSubLayer: Tl3Variant; Index: Integer): Boolean; far;
   var
+   i        : Integer;
+   l_Count  : Integer;
    l_Handle : Integer;
   begin//AddSubLayer
    Result := True;
@@ -204,8 +206,11 @@ var
    begin
     l_Handle := IntA[k2_tiHandle];
     if l_AddSubs OR (l_Handle <> Ord(ev_sbtSub)) then
-     while (ChildrenCount > 0) do
+    begin
+     l_Count := ChildrenCount - 1;
+     for i := 0 to l_Count do
       l_SubList.SubEx[Child[0].IntA[k2_tiHandle], l_Handle].SetTo(aTo);
+    end;
    end;//with aSubLayer
   end;//AddSubLayer
 
