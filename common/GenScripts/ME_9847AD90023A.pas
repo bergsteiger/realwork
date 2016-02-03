@@ -28,7 +28,7 @@ const
  str_ShowChangesInfo_Expanded: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo_Expanded'; rValue : 'В развернутом виде');
   {* В развернутом виде }
  {* Карта преобразования локализованных строк ShowChangesInfoValues }
- ShowChangesInfoValuesMap: array [ ] = ( );
+ ShowChangesInfoValuesMap: array [] of Pl3StringIDEx = ( );
  {* Локализуемые строки ShowChangesInfoName }
  str_ShowChangesInfo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo'; rValue : 'Показывать историю изменений в документе');
   {* Показывать историю изменений в документе }

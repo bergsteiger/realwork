@@ -12,8 +12,8 @@ uses
 ;
 
 const
- cSCAttrTypeName: array [ ] = ( );
- cSCSubTypeName: array [ ] = ( );
+ cSCAttrTypeName: array [] of AnsiString = ( );
+ cSCSubTypeName: array [] of AnsiString = ( );
 
 type
  TevSCAttrType = (
