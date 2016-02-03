@@ -1,3 +1,15 @@
+//#UC START# *479731C50290_54F9AF6B00DD_impl*
+ FreeAndNil(f_AliasesList);
+ inherited;
+//#UC END# *479731C50290_54F9AF6B00DD_impl*
+//#UC START# *479731C50290_54F9AF6B00DD_var*
+//#UC END# *479731C50290_54F9AF6B00DD_var*
+//#UC START# *47A042E100E2_54F9AF6B00DD_impl*
+ inherited;
+ f_AliasesList := TStringList.Create;
+//#UC END# *47A042E100E2_54F9AF6B00DD_impl*
+//#UC START# *47A042E100E2_54F9AF6B00DD_var*
+//#UC END# *47A042E100E2_54F9AF6B00DD_var*
 //#UC START# *55114DCA0351_54F9AF6B00DD_impl*
  Result.TblPath := TablePath;
  Result.HomePath := HomeDirPath;
@@ -8,6 +20,13 @@
 //#UC END# *55114DCA0351_54F9AF6B00DD_impl*
 //#UC START# *55114DCA0351_54F9AF6B00DD_var*
 //#UC END# *55114DCA0351_54F9AF6B00DD_var*
+//#UC START# *55194F830311_54F9AF6B00DD_impl*
+ f_AliasesList.Clear;
+ if DocStoragePath <> '' then
+  f_AliasesList.Add(Format('FamilyPath=%s', [DocStoragePath]));
+//#UC END# *55194F830311_54F9AF6B00DD_impl*
+//#UC START# *55194F830311_54F9AF6B00DD_var*
+//#UC END# *55194F830311_54F9AF6B00DD_var*
 //#UC START# *55195AE803E0_54F9AF6B00DD_impl*
  inherited;
  TablePath := ConcatDirName(aPath, 'main');
@@ -21,6 +40,7 @@
  inherited;
  if aParams is ThtDataProviderParams then
  begin
+  AliasesList.Assign(ThtDataProviderParams(aParams).AliasesList);
   StationName := ThtDataProviderParams(aParams).StationName;
   TablePath := ThtDataProviderParams(aParams).TablePath;
   TmpDirPath := ThtDataProviderParams(aParams).TmpDirPath;

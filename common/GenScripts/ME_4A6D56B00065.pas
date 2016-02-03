@@ -321,6 +321,8 @@ function TnsParaCoord_C: TnsParaCoord;
 //#UC START# *4A79BB650298_4A79BB0800E4_var*
 //#UC END# *4A79BB650298_4A79BB0800E4_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4A79BB650298_4A79BB0800E4_impl*
  if (aPara = nil) then
   Result.rParaID := 0
@@ -337,6 +339,8 @@ function TnsDocumentForReturnInfo_C: TnsDocumentForReturnInfo;
 //#UC START# *4B6074C60325_4B60748400F9_var*
 //#UC END# *4B6074C60325_4B60748400F9_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B6074C60325_4B60748400F9_impl*
  Result.rDoc := aDoc;
  Result.rPara := aPara;

@@ -42,8 +42,6 @@ begin
 //#UC END# *47B9BAFD01F4_4A6EAB540196_impl*
 end;//CompareItemWithData
 
-type _Instance_R_ = _AbstactChatWindowList_;
-
 {$Include l3Searcher.imp.pas}
 
 function _AbstactChatWindowList_.FindChatWindow(const anUserID: _FindDataType_): _ItemType_;

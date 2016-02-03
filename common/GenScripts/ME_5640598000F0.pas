@@ -31,7 +31,7 @@ type
    class function Make(const aLeft: IdaCondition;
     anOperation: TdaLogicOperation;
     const aRight: IdaCondition): IdaCondition; reintroduce;
-   procedure IterateX; virtual;
+   procedure Iterate(anAction: daConditionIterator_Iterate_Action); override;
  end;//TdaLogicCondition
 
 implementation
@@ -69,14 +69,14 @@ begin
  end;//try..finally
 end;//TdaLogicCondition.Make
 
-procedure TdaLogicCondition.IterateX;
+procedure TdaLogicCondition.Iterate(anAction: daConditionIterator_Iterate_Action);
 //#UC START# *5641CAC802C3_5640598000F0_var*
 //#UC END# *5641CAC802C3_5640598000F0_var*
 begin
 //#UC START# *5641CAC802C3_5640598000F0_impl*
  !!! Needs to be implemented !!!
 //#UC END# *5641CAC802C3_5640598000F0_impl*
-end;//TdaLogicCondition.IterateX
+end;//TdaLogicCondition.Iterate
 
 function TdaLogicCondition.DoBuildSQL(const aHelper: IdaParamListHelper): AnsiString;
 //#UC START# *56408E7F01A1_5640598000F0_var*

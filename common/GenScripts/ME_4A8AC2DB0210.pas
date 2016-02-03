@@ -33,8 +33,6 @@ _HyperlinkProcessorWithOwnLocalLink_ = _HyperlinkProcessor_;
 {$Define HyperlinkProcessorWithOwnLocalLink_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _HyperlinkProcessorWithOwnLocalLink_;
-
 {$Include HyperlinkProcessor.imp.pas}
 
 function _HyperlinkProcessorWithOwnLocalLink_.DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean;

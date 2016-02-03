@@ -28,8 +28,6 @@ _CommonForTextAndFlashOperations_ = _CommonForTextAndFlash_;
 {$Define CommonForTextAndFlashOperations_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _CommonForTextAndFlashOperations_;
-
 {$Include CommonForTextAndFlash.imp.pas}
 
 procedure _CommonForTextAndFlashOperations_.MakeHyperlinkToDocument;

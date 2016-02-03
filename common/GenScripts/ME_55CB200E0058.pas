@@ -51,7 +51,7 @@ type
     aFake: Boolean = False;
     aIsTree: Boolean = False); reintroduce;
    procedure AddField(const aField: IdaFieldDescription);
-   procedure IterateFieldsF;
+   procedure IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
   public
    property Kind: TdaTables
     read f_Kind;
@@ -158,7 +158,7 @@ begin
 //#UC END# *55379DA40290_55360B420250get_impl*
 end;//TdaTableDescription.Get_Field
 
-procedure TdaTableDescription.IterateFieldsF;
+procedure TdaTableDescription.IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
 //#UC START# *55C860390259_55360B420250_var*
 
 var

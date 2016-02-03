@@ -54,8 +54,6 @@ _StatusBarDocumentItems_ = _StatusBarItems_;
 {$Define StatusBarDocumentItems_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _StatusBarDocumentItems_;
-
 {$Include StatusBarItems.imp.pas}
 
 procedure _StatusBarDocumentItems_.OpenDocumentInListOpExecute(aNext: Boolean);

@@ -22,7 +22,7 @@ type
 
  (*
  ddClientMessageIterator = interface
-  procedure ForEachF;
+  procedure ForEachF(anAction: ddClientMessageIterator_ForEachF_Action);
  end;//ddClientMessageIterator
  *)
 
@@ -40,7 +40,7 @@ type
   public
    procedure Add(anItem: TddClientMessage);
    procedure Clear;
-   procedure ForEachF;
+   procedure ForEachF(anAction: ddClientMessageIterator_ForEachF_Action);
   protected
    property Items: TddClientMessageSortableListPrim
     read f_Items;
@@ -107,7 +107,7 @@ begin
 //#UC END# *53A2FA2003C6_53A2EA3D0044_impl*
 end;//TddClientMessageSortableList.Clear
 
-procedure TddClientMessageSortableList.ForEachF;
+procedure TddClientMessageSortableList.ForEachF(anAction: ddClientMessageIterator_ForEachF_Action);
 //#UC START# *53A2FAD90339_53A2EA3D0044_var*
 
 type

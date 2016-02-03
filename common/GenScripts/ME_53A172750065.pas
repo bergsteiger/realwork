@@ -22,7 +22,7 @@ type
 
  (*
  csProcessTaskWorkuper = interface
-  procedure WorkupF;
+  procedure WorkupF(anAction: csProcessTaskWorkuper_WorkupF_Action);
  end;//csProcessTaskWorkuper
  *)
 
@@ -38,7 +38,7 @@ type
   public
    function Pop: TddProcessTask;
    function Push(aTask: TddProcessTask): Integer;
-   procedure WorkupF;
+   procedure WorkupF(anAction: csProcessTaskWorkuper_WorkupF_Action);
  end;//TddServerTaskList
 
 function L2_csProcessTaskWorkuper_WorkupF_Action(anAction: pointer): csProcessTaskWorkuper_WorkupF_Action;
@@ -92,7 +92,7 @@ begin
 //#UC END# *53A1659B0334_52FA5F460142_impl*
 end;//TddServerTaskList.Push
 
-procedure TddServerTaskList.WorkupF;
+procedure TddServerTaskList.WorkupF(anAction: csProcessTaskWorkuper_WorkupF_Action);
 //#UC START# *53A172F8025D_52FA5F460142_var*
 var
  l_Task: TddProcessTask;

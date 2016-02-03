@@ -62,6 +62,7 @@ function TpgJournalCacheRec_C(aOperation: TdaJournalOperation;
 //#UC START# *564ACD9A000D_564ACBEE0302_var*
 //#UC END# *564ACD9A000D_564ACBEE0302_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *564ACD9A000D_564ACBEE0302_impl*
  Result.rOperation := aOperation;
  Result.rFamilyID :=aFamilyID;

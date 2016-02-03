@@ -61,8 +61,6 @@ _dsEditionDiff_ = _ucpHAFMacroReplacerFactory_;
 {$Define dsEditionDiff_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsEditionDiff_;
-
 {$Include dsEdition.imp.pas}
 
 {$Include UnderControlBehaviour.imp.pas}

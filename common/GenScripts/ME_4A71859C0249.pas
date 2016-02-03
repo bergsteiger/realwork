@@ -37,8 +37,6 @@ _dsEdition_ = _VScroll_;
 {$Define dsEdition_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsEdition_;
-
 {$Include vcmFormDataSource.imp.pas}
 
 {$Include VScroll.imp.pas}

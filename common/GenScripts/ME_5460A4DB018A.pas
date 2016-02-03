@@ -100,6 +100,8 @@ function TncsExecuteContext_C(aMessage: TncsMessage;
 //#UC START# *5464B3AA0087_5464B37E01ED_var*
 //#UC END# *5464B3AA0087_5464B37E01ED_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5464B3AA0087_5464B37E01ED_impl*
  Result.rMessage := aMessage;
  Result.rTransporter := aTransporter;

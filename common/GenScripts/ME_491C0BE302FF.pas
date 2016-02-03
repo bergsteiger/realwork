@@ -170,6 +170,8 @@ function TnsListInfo_C(const aList: IDynList;
 //#UC START# *4BA7913300CB_4BA7907A03C2_var*
 //#UC END# *4BA7913300CB_4BA7907A03C2_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4BA7913300CB_4BA7907A03C2_impl*
  Result.rList := aList;
  Result.rListNode := aListNode;
@@ -183,6 +185,8 @@ function TnsListInfo_E: TnsListInfo;
 //#UC START# *4BA7923F0214_4BA7907A03C2_var*
 //#UC END# *4BA7923F0214_4BA7907A03C2_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4BA7923F0214_4BA7907A03C2_impl*
 //#UC END# *4BA7923F0214_4BA7907A03C2_impl*
 end;//TnsListInfo_E

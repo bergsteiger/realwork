@@ -30,8 +30,6 @@ _BaseSearchPresentationFor296635421_ = _BaseSearchPresentation_;
 {$Define BaseSearchPresentationFor296635421_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _BaseSearchPresentationFor296635421_;
-
 {$Include BaseSearchPresentation.imp.pas}
 
 {$If NOT Defined(NoVCM)}

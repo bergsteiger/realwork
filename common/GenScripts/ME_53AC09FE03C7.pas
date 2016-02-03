@@ -63,6 +63,7 @@ function TddRunContext_C(aProgressor: TddProgressObject): TddRunContext;
 //#UC START# *53CCC5AA01BD_53CCC56502C7_var*
 //#UC END# *53CCC5AA01BD_53CCC56502C7_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *53CCC5AA01BD_53CCC56502C7_impl*
  Result.rProgressor := aProgressor;
 //#UC END# *53CCC5AA01BD_53CCC56502C7_impl*

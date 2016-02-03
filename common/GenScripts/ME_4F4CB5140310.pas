@@ -57,6 +57,8 @@ function Tm3EndingReplaceItem_C(const anEndingFind: AnsiString;
 //#UC START# *4F4CB697008D_4F4CB52A039F_var*
 //#UC END# *4F4CB697008D_4F4CB52A039F_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4F4CB697008D_4F4CB52A039F_impl*
  Result.rEndingFind := anEndingFind;
  Result.rEndingReplace := anEndingReplace;

@@ -303,8 +303,6 @@ begin
 //#UC END# *479731C50290_49539A5102F1_impl*
 end;//TnsTextFormHistory.Cleanup
 
-type _Instance_R_ = _PrimText_;
-
 {$Include BaseDocumentForDocumentModule.imp.pas}
 
 {$Include afwSettingChanged.imp.pas}

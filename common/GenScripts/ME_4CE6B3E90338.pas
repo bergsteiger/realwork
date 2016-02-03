@@ -121,6 +121,8 @@ function TnsFindIteratorDef_C(const aDoc: InevObjectPrim;
 //#UC START# *4CE6BD260353_4CE6BCB900E2_var*
 //#UC END# *4CE6BD260353_4CE6BCB900E2_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4CE6BD260353_4CE6BCB900E2_impl*
  Result.rDoc := aDoc;
  Result.rIt := anIt;

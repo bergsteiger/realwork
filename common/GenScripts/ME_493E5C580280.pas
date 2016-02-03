@@ -130,8 +130,6 @@ _sdsDocument_ = _nsOpenContents_;
 {$Define sdsDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _sdsDocument_;
-
 {$Include sdsDocInfo.imp.pas}
 
 {$Include nsOpenContents.imp.pas}

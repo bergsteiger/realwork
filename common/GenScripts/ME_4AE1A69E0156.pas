@@ -93,8 +93,6 @@ _BaseTextOperations_ = _Text_;
 {$Define BaseTextOperations_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _BaseTextOperations_;
-
 {$Include Text.imp.pas}
 
 function _BaseTextOperations_.DocumentExport(anExportKind: TnsExportKind;

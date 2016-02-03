@@ -88,8 +88,6 @@ _CommonForTextAndFlash_ = _HyperlinkToDocumentProducer_;
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 {$Include CommonForTextAndFlashAndMedicFirmList.imp.pas}
 
-type _Instance_R_ = _CommonForTextAndFlash_;
-
 {$Include StatusBarDocumentItems.imp.pas}
 
 {$Include UnderControlResetter.imp.pas}

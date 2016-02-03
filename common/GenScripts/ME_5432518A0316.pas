@@ -100,7 +100,7 @@ type
 
  (*
  daTableDescriptionIterator = interface
-  procedure IterateFieldsF;
+  procedure IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
  end;//daTableDescriptionIterator
  *)
 
@@ -117,7 +117,7 @@ type
   function Get_IsTree: Boolean;
   function Get_Field(const FIeldName: AnsiString): IdaFieldDescription;
   function FieldByIndex(anIndex: Integer): IdaFieldDescription;
-  procedure IterateFieldsF;
+  procedure IterateFieldsF(anAction: daTableDescriptionIterator_IterateFieldsF_Action);
   property Description: AnsiString
    read Get_Description;
   property IsDublicate: Boolean
@@ -359,14 +359,16 @@ type
 
  (*
  daConditionIterator = interface
-  procedure Iterate;
+  procedure Iterate(anAction: daConditionIterator_Iterate_Action);
+  procedure IterateF(anAction: daConditionIterator_Iterate_Action);
  end;//daConditionIterator
  *)
 
  IdaCondition = interface
   ['{EC607AF4-F1DA-4322-8BD3-6932EE2BB0EE}']
   function BuildSQLValue(const aHelper: IdaParamListHelper): AnsiString;
-  procedure Iterate;
+  procedure Iterate(anAction: daConditionIterator_Iterate_Action);
+  procedure IterateF(anAction: daConditionIterator_Iterate_Action);
  end;//IdaCondition
 
  IdaQuery = interface

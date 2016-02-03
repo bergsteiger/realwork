@@ -55,6 +55,8 @@ function TnsFoundBlockInfo_C: TnsFoundBlockInfo;
 //#UC START# *4B61AC4403B2_4B61ABFB015F_var*
 //#UC END# *4B61AC4403B2_4B61ABFB015F_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B61AC4403B2_4B61ABFB015F_impl*
  Result.rBlockID := aBlockID;
  Result.rPoint := aPoint;
@@ -65,6 +67,8 @@ function TnsFoundBlockInfo_C: TnsFoundBlockInfo;
 //#UC START# *4B61AE6A01A4_4B61ABFB015F_var*
 //#UC END# *4B61AE6A01A4_4B61ABFB015F_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B61AE6A01A4_4B61ABFB015F_impl*
  Result := TnsFoundBlockInfo_C(aBlockID, nil);
 //#UC END# *4B61AE6A01A4_4B61ABFB015F_impl*

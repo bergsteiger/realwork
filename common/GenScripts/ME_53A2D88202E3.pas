@@ -22,7 +22,7 @@ type
 
  (*
  csMessageRecepientIterator = interface
-  procedure ForEachF;
+  procedure ForEachF(anAction: csMessageRecepientIterator_ForEachF_Action);
  end;//csMessageRecepientIterator
  *)
 
@@ -40,7 +40,7 @@ type
   public
    function Add(anItem: TcsMessageRecepient): TcsMessageRecepient;
    procedure Clear;
-   procedure ForEachF;
+   procedure ForEachF(anAction: csMessageRecepientIterator_ForEachF_Action);
   protected
    property Items: TcsMessageRecepientListPrim
     read f_Items;
@@ -107,7 +107,7 @@ begin
 //#UC END# *53A2DDCF036D_53A2D3BC030A_impl*
 end;//TcsMessageRecepientList.Clear
 
-procedure TcsMessageRecepientList.ForEachF;
+procedure TcsMessageRecepientList.ForEachF(anAction: csMessageRecepientIterator_ForEachF_Action);
 //#UC START# *53A2DDAB0054_53A2D3BC030A_var*
 
 type
