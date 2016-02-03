@@ -680,6 +680,8 @@ function TnevControlInfo_C(const aPara: InevObjectPrim;
 //#UC START# *4E25BFB80333_4E25BB410189_var*
 //#UC END# *4E25BFB80333_4E25BB410189_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4E25BFB80333_4E25BB410189_impl*
  Result.rControl := aPara;
  Result.rFormatInfo := aFormatInfo;

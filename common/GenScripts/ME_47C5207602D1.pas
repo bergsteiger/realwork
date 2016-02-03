@@ -332,7 +332,11 @@ type
  InevRangePrim = interface(InevLocation)
   {* Выделенная часть объекта. Для удобства переноса на модель }
   ['{8336B718-F0A5-4D74-9CFE-DF549D39EE7E}']
-  procedure Iterate;
+  function Iterate(anAction: InevRangePrim_Iterate_Action;
+   aStart: Integer = l3MinIndex): Integer;
+   {* Итератор по вложенным выделенным объектам }
+  function IterateF(anAction: InevRangePrim_Iterate_Action;
+   aStart: Integer = l3MinIndex): Integer;
    {* Итератор по вложенным выделенным объектам }
  end;//InevRangePrim
 
@@ -1848,7 +1852,14 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   ['{6A444D87-A786-41D4-BEA7-E27EE58D3294}']
   function pm_GetParaCount: TnevParaIndex;
   function pm_GetPara(anIndex: TnevParaIndex): InevPara;
-  procedure IteratePara;
+  function IteratePara(anAction: InevParaList_IteratePara_Action;
+   aLo: TnevParaIndex = nev_piFirst;
+   aHi: TnevParaIndex = nev_piLast;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateParaF(anAction: InevParaList_IteratePara_Action;
+   aLo: TnevParaIndex = nev_piFirst;
+   aHi: TnevParaIndex = nev_piLast;
+   aLoadedOnly: Boolean = False): Integer;
   function GetParas(aFrom: TnevParaIndex = nev_piFirst;
    aTo: TnevParaIndex = nev_piLast): InevParas;
    {* возвращает список параграфов. }
@@ -1935,7 +1946,13 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   function pm_GetBlock(anID: Integer): IevDocumentPart;
   function pm_GetBlockEx(anID: Integer;
    aLayerID: Integer): IevDocumentPart;
-  procedure Iterate;
+  function Iterate(anAction: InevSubList_Iterate_Action;
+   const aBlock: IUnknown = nil;
+   const aMessage: Il3CString = nil): Integer;
+   {* Перебирает список меток }
+  function IterateF(anAction: InevSubList_Iterate_Action;
+   const aBlock: IUnknown = nil;
+   const aMessage: Il3CString = nil): Integer;
    {* Перебирает список меток }
   property Sub[anID: Integer]: IevSub
    read pm_GetSub;
@@ -2466,6 +2483,7 @@ function TevPair_C: TevPair;
 //#UC START# *49E60C23017A_47C68B3B022A_var*
 //#UC END# *49E60C23017A_47C68B3B022A_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *49E60C23017A_47C68B3B022A_impl*
  Result.rStart := aStart;
  Result.rFinish := aFinish;
@@ -2495,6 +2513,7 @@ function TevContentsRec_C: TevContentsRec;
 //#UC START# *4A25320D0116_47C6BCC6034E_var*
 //#UC END# *4A25320D0116_47C6BCC6034E_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4A25320D0116_47C6BCC6034E_impl*
  Result.rLevel6 := aLevel6;
  Result.rCompareContentsLevel := aCompareContentsLevel;

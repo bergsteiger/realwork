@@ -25,8 +25,6 @@ _vcmFormDataSourcePrim_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
 {$Define vcmFormDataSourcePrim_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-type _Instance_R_ = _vcmFormDataSourcePrim_;
-
 {$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 

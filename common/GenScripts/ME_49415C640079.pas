@@ -28,8 +28,6 @@ _vcmFormSetDataSourceWithoutData_ = _vcmFormSetDataSource_;
 {$Define vcmFormSetDataSourceWithoutData_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-type _Instance_R_ = _vcmFormSetDataSourceWithoutData_;
-
 {$Include vcmFormSetDataSource.imp.pas}
 
 function _vcmFormSetDataSourceWithoutData_.MakeData: _SetDataType_;

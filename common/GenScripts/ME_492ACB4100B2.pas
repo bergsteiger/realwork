@@ -28,8 +28,6 @@ _vcmFormDataSource_ = _vcmFormDataSourceWithData_;
 {$Define vcmFormDataSource_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-type _Instance_R_ = _vcmFormDataSource_;
-
 {$Include vcmFormDataSourcePrim.imp.pas}
 
 {$Include vcmFormDataSourceWithData.imp.pas}

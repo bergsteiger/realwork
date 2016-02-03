@@ -15,6 +15,7 @@ uses
  , afwTypes
  , l3InternalInterfaces
  , l3CanvasPrim
+ , Graphics
 ;
 
 type
@@ -39,6 +40,8 @@ type
     const aPagesArray: TafwPrintPagesArray = nil); reintroduce;
    class function Make(const aPrinter: IafwPrinter;
     const aPagesArray: TafwPrintPagesArray = nil): Il3Canvas; reintroduce;
+   procedure SetCanvas(aValue: TCanvas;
+    anAlien: Boolean); override;
  end;//TafwCanvasEx
 
 implementation
@@ -169,5 +172,17 @@ begin
  Finalize(f_PagesArray);
  inherited;
 end;//TafwCanvasEx.ClearFields
+
+procedure TafwCanvasEx.SetCanvas(aValue: TCanvas;
+ anAlien: Boolean);
+//#UC START# *56B0AE550267_47414C8700D5_var*
+//#UC END# *56B0AE550267_47414C8700D5_var*
+begin
+//#UC START# *56B0AE550267_47414C8700D5_impl*
+ if (f_DCFlag = ev_dcfLinked) then
+  SetDC(0, ev_dcfCanvas);
+ inherited;
+//#UC END# *56B0AE550267_47414C8700D5_impl*
+end;//TafwCanvasEx.SetCanvas
 
 end.

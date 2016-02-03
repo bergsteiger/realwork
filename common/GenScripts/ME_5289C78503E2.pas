@@ -91,6 +91,8 @@ function TvcmFormSetFormItemDescr_C(const aFormID: TvcmFormID;
 //#UC START# *528B525300DE_5289C7D4012A_var*
 //#UC END# *528B525300DE_5289C7D4012A_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *528B525300DE_5289C7D4012A_impl*
  Result.rFormID := aFormID;
  Result.rZoneType := aZoneType;
@@ -104,6 +106,8 @@ function TvcmFormSetFormItem_C(const aKey: TvcmFormSetFormItemDescr;
 //#UC START# *528B51C0030E_5289CA7803D8_var*
 //#UC END# *528B51C0030E_5289CA7803D8_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *528B51C0030E_5289CA7803D8_impl*
  Result.rKey := aKey;
  Result.rNeedMake := aNeedMake;

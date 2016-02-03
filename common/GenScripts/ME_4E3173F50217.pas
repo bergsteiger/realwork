@@ -56,6 +56,7 @@ function TevDefaultStyleFontSize_C(aStyleID: Integer;
 //#UC START# *4E317595024E_4E3175000369_var*
 //#UC END# *4E317595024E_4E3175000369_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4E317595024E_4E3175000369_impl*
  Result.rStyleID := aStyleID;
  Result.rFontSize := aFontSize;

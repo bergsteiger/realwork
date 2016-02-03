@@ -517,7 +517,13 @@ type
   function pm_GetTextParagraph: IedTextParagraph;
   function pm_GetPart(aPart: TedRangePart): IedRange;
   function pm_GetDocument: IevDocument;
-  procedure IterateLeafParagraphs;
+  procedure IterateLeafParagraphs(anAction: IedRange_IterateLeafParagraphs_Action;
+   const aProgress: Il3Progress = nil {* Индикатор прогресса };
+   anOpCode: Integer = 1 {* Идентификатор операции });
+   {* перебирает все листьевые параграфы }
+  procedure IterateLeafParagraphsF(anAction: IedRange_IterateLeafParagraphs_Action;
+   const aProgress: Il3Progress = nil {* Индикатор прогресса };
+   anOpCode: Integer = 1 {* Идентификатор операции });
    {* перебирает все листьевые параграфы }
   function ContainsOneLeaf: Boolean;
    {* проверяет содержит ли диапазон только один листьевой параграф }

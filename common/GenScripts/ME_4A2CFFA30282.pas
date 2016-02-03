@@ -99,6 +99,8 @@ function TevdBlockInfo_C: TevdBlockInfo;
 //#UC START# *4A2D14530087_4A2D046A01BE_var*
 //#UC END# *4A2D14530087_4A2D046A01BE_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4A2D14530087_4A2D046A01BE_impl*
  Result.rName := aName;
 //#UC END# *4A2D14530087_4A2D046A01BE_impl*
@@ -109,6 +111,8 @@ function TevdBlockInfo_E: TevdBlockInfo;
 //#UC START# *4A2D263C02BE_4A2D046A01BE_var*
 //#UC END# *4A2D263C02BE_4A2D046A01BE_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4A2D263C02BE_4A2D046A01BE_impl*
 //#UC END# *4A2D263C02BE_4A2D046A01BE_impl*
 end;//TevdBlockInfo_E
@@ -117,6 +121,8 @@ function TevdBlockInfo_T: TevdBlockInfo;
 //#UC START# *4A2FE6E60214_4A2D046A01BE_var*
 //#UC END# *4A2FE6E60214_4A2D046A01BE_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4A2FE6E60214_4A2D046A01BE_impl*
  Result.rBlockType := aType;
 //#UC END# *4A2FE6E60214_4A2D046A01BE_impl*

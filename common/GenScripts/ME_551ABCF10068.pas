@@ -76,7 +76,8 @@ type
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoVCL)}
-   procedure IterateF;
+   procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+    aComponent: TComponent);
    {$IfEnd} // NOT Defined(NoVCL)
    class function Instance: TvgIterateComponentsImpl;
     {* Метод получения экземпляра синглетона TvgIterateComponentsImpl }
@@ -288,7 +289,8 @@ begin
 end;//TvgIterateComponentsImpl.Exists
 
 {$If NOT Defined(NoVCL)}
-procedure TvgIterateComponentsImpl.IterateF;
+procedure TvgIterateComponentsImpl.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+ aComponent: TComponent);
 //#UC START# *3410F441967F_551C4D2300E5_var*
 var
  Hack : Pointer absolute anAction;

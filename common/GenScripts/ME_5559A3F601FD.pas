@@ -38,8 +38,11 @@ type
 
  (*
  TvcmFormSetContainerMapIterator = interface
-  procedure ForEachF;
-  procedure ForOneF;
+  procedure ForEachF(anAction: TvcmFormSetContainerMapIterator_ForEachF_Action;
+   const aContainer: IvcmContainer);
+  procedure ForOneF(anAction: TvcmFormSetContainerMapIterator_ForOneF_Action;
+   const aContainer: IvcmContainer;
+   anIndex: Integer);
  end;//TvcmFormSetContainerMapIterator
  *)
 
@@ -51,8 +54,11 @@ type
  {$Include l3RecordWithEQList.imp.pas}
  TvcmFormSetContainerMap = class(_l3RecordWithEQList_)
   public
-   procedure ForEachF;
-   procedure ForOneF;
+   procedure ForEachF(anAction: TvcmFormSetContainerMapIterator_ForEachF_Action;
+    const aContainer: IvcmContainer);
+   procedure ForOneF(anAction: TvcmFormSetContainerMapIterator_ForOneF_Action;
+    const aContainer: IvcmContainer;
+    anIndex: Integer);
  end;//TvcmFormSetContainerMap
 
  TvcmFormSetContainerRegistry = class(Tl3ProtoObject)
@@ -106,6 +112,7 @@ function TvcmFormSetContainerMapItem_C: TvcmFormSetContainerMapItem;
 //#UC START# *5559A5520116_5559A50B0336_var*
 //#UC END# *5559A5520116_5559A50B0336_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5559A5520116_5559A50B0336_impl*
  Result.rContainer := Pointer(aContainer);
  Result.rFormSet := Pointer(aFormSet);
@@ -167,7 +174,8 @@ type _Instance_R_ = TvcmFormSetContainerMap;
 
 {$Include l3RecordWithEQList.imp.pas}
 
-procedure TvcmFormSetContainerMap.ForEachF;
+procedure TvcmFormSetContainerMap.ForEachF(anAction: TvcmFormSetContainerMapIterator_ForEachF_Action;
+ const aContainer: IvcmContainer);
 //#UC START# *55E04C9E0301_5559A56501B4_var*
 
  function lp_DoForEach(aData: PvcmFormSetContainerMapItem; anIndex: Integer): Boolean;
@@ -191,7 +199,9 @@ begin
 //#UC END# *55E04C9E0301_5559A56501B4_impl*
 end;//TvcmFormSetContainerMap.ForEachF
 
-procedure TvcmFormSetContainerMap.ForOneF;
+procedure TvcmFormSetContainerMap.ForOneF(anAction: TvcmFormSetContainerMapIterator_ForOneF_Action;
+ const aContainer: IvcmContainer;
+ anIndex: Integer);
 //#UC START# *55E04CAE01EA_5559A56501B4_var*
 //#UC END# *55E04CAE01EA_5559A56501B4_var*
 begin

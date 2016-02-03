@@ -18,8 +18,6 @@
 
 {$Define nevTextParaTool_imp_impl}
 
-type _Instance_R_ = _nevTextParaTool_;
-
 {$Include nevParaXTool.imp.pas}
 
 {$EndIf nevTextParaTool_imp_impl}

@@ -771,7 +771,8 @@ type
 
  IevReqIterator = interface
   ['{EF763092-54E8-4271-8146-192454C64DFC}']
-  procedure DoReq;
+  function DoReq(anAction: IevReqIterator_DoReq_Action): Integer;
+  function DoReqF(anAction: IevReqIterator_DoReq_Action): Integer;
  end;//IevReqIterator
 
 function L2_IevReqIterator_DoReq_Action(anAction: pointer): IevReqIterator_DoReq_Action;

@@ -60,6 +60,7 @@ function TvcmCommandInfo_C: TvcmCommandInfo;
 //#UC START# *4A8D71180299_4A8D70780075_var*
 //#UC END# *4A8D71180299_4A8D70780075_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4A8D71180299_4A8D70780075_impl*
  Result.rItemID := aItemID;
  Result.rIsModule := aIsModule;

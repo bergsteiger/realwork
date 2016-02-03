@@ -64,6 +64,8 @@ function TexprTokenInfo_C(aChar: Integer;
 //#UC START# *4BB34BE200EB_4BB34A130179_var*
 //#UC END# *4BB34BE200EB_4BB34A130179_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4BB34BE200EB_4BB34A130179_impl*
  Result.rChar := aChar;
  Result.rPos := aPos;

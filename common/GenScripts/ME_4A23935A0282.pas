@@ -79,6 +79,7 @@ function TevAddress_C: TevAddress;
 //#UC START# *49E604FE0347_48F4940C01C0_var*
 //#UC END# *49E604FE0347_48F4940C01C0_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *49E604FE0347_48F4940C01C0_impl*
  Result.{$IfDef XE4}rTafwAddress.{$EndIf}DocID := aDocID;
  Result.{$IfDef XE4}rTafwAddress.{$EndIf}SubID := aSubID;

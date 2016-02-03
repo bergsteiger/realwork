@@ -28,8 +28,6 @@ _vcmTinyUseCaseController_ = _vcmFormSetDataSourceWithoutData_;
 {$Define vcmTinyUseCaseController_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-type _Instance_R_ = _vcmTinyUseCaseController_;
-
 {$Include vcmFormSetDataSourceWithoutData.imp.pas}
 
 constructor _vcmTinyUseCaseController_.Create;

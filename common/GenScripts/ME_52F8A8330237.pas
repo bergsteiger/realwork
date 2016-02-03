@@ -32,8 +32,6 @@ _vcmFormSetDataSourceWithFlexFormSetType_ = _vcmFormSetDataSource_;
 {$Define vcmFormSetDataSourceWithFlexFormSetType_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-type _Instance_R_ = _vcmFormSetDataSourceWithFlexFormSetType_;
-
 {$Include vcmFormSetDataSource.imp.pas}
 
 function _vcmFormSetDataSourceWithFlexFormSetType_.pm_GetUCFormSet: _FormSetType_;

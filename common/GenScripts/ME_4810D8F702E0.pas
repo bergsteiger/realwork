@@ -64,6 +64,8 @@ function TnevRootFormatInfoKey_C: TnevRootFormatInfoKey;
 //#UC START# *4815D47402E8_4815D4350242_var*
 //#UC END# *4815D47402E8_4815D4350242_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4815D47402E8_4815D4350242_impl*
  Result.rLimitWidth := aView.LimitWidth;
  Result.rView := aView;

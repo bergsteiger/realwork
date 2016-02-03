@@ -88,6 +88,8 @@ function TevTreeStorableData_C: TevTreeStorableData;
 //#UC START# *48FC65A403CF_48FC655F025C_var*
 //#UC END# *48FC65A403CF_48FC655F025C_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *48FC65A403CF_48FC655F025C_impl*
  Result.rTree := aTree;
  Result.rLevelTag := aLevelTag;
