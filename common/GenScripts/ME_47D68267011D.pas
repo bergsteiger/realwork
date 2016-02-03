@@ -45,6 +45,7 @@ function TvtFormHandlerID_C(anObject: TObject): TvtFormHandlerID;
 //#UC START# *4B7039C60392_47D67F4A01EA_var*
 //#UC END# *4B7039C60392_47D67F4A01EA_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B7039C60392_47D67F4A01EA_impl*
  Result.rObject := anObject;
 //#UC END# *4B7039C60392_47D67F4A01EA_impl*

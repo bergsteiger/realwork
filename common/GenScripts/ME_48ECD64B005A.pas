@@ -25,7 +25,8 @@ type
     aFlags: TevdStoreFlags); override;
     {* сохраняет выделение в G }
   public
-   procedure IterateX; virtual;
+   function Iterate(anAction: InevRangePrim_Iterate_Action;
+    aStart: Integer = l3MinIndex): Integer; override;
    class function Make(aTagWrap: Tl3Variant;
     aBlocks: TnevRangeList): InevRange; reintroduce;
     {* список блоков выделения, д. б отсортирован по порядку следования параграфов, и по положению блока внутри параграфа }
@@ -38,14 +39,15 @@ uses
  , l3Base
 ;
 
-procedure TevLeafParaMultiSelectionBlock.IterateX;
+function TevLeafParaMultiSelectionBlock.Iterate(anAction: InevRangePrim_Iterate_Action;
+ aStart: Integer = l3MinIndex): Integer;
 //#UC START# *4BAA60370285_48ECD64B005A_var*
 //#UC END# *4BAA60370285_48ECD64B005A_var*
 begin
 //#UC START# *4BAA60370285_48ECD64B005A_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4BAA60370285_48ECD64B005A_impl*
-end;//TevLeafParaMultiSelectionBlock.IterateX
+end;//TevLeafParaMultiSelectionBlock.Iterate
 
 class function TevLeafParaMultiSelectionBlock.Make(aTagWrap: Tl3Variant;
  aBlocks: TnevRangeList): InevRange;

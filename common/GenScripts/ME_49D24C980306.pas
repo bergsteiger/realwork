@@ -28,8 +28,6 @@ _nevPrimPoint_ = _nevParentPointFactoryExVOID_;
 {$Define nevPrimPoint_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-type _Instance_R_ = _nevPrimPoint_;
-
 {$Include nevBasePoint.imp.pas}
 
 {$Include nevParentPointFactoryExVOID.imp.pas}

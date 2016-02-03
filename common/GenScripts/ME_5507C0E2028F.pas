@@ -100,6 +100,8 @@ function TChromeLikeTabHintParams_C: TChromeLikeTabHintParams;
 //#UC START# *5522508F018E_5522506003AD_var*
 //#UC END# *5522508F018E_5522506003AD_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5522508F018E_5522506003AD_impl*
  with Result do
  begin

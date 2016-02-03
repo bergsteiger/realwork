@@ -61,6 +61,7 @@ function TvcmContainerLockCountItem_C: TvcmContainerLockCountItem;
 //#UC START# *55824F260248_55824ED3027A_var*
 //#UC END# *55824F260248_55824ED3027A_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *55824F260248_55824ED3027A_impl*
  Result.rContainer := aContainer;
 //#UC END# *55824F260248_55824ED3027A_impl*

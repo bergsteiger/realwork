@@ -147,8 +147,6 @@ _evCursor_ = _nevDiff_;
 {$Define evCursor_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-type _Instance_R_ = _evCursor_;
-
 {$Include nevParentPointFactory.imp.pas}
 
 {$Include nevParentPointFactoryEx.imp.pas}

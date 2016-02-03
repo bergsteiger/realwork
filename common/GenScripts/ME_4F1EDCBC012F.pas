@@ -61,6 +61,8 @@ function TvcmFormGUIDFromMainFormRec_C(aMainForm: TvcmMainForm;
 //#UC START# *4F1EDD7B0180_4F1EDD2901A2_var*
 //#UC END# *4F1EDD7B0180_4F1EDD2901A2_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4F1EDD7B0180_4F1EDD2901A2_impl*
  Result.rMainForm := aMainForm;
  Result.rGUID := aGUID;
@@ -73,6 +75,8 @@ var
  l_GUID : TGUID;
 //#UC END# *4F1EDDA3036D_4F1EDD2901A2_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4F1EDDA3036D_4F1EDD2901A2_impl*
  SysUtils.CreateGUID(l_GUID);
  Result := TvcmFormGUIDFromMainFormRec_C(aMainForm, l_GUID);

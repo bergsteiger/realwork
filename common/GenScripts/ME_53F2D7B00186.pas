@@ -64,6 +64,7 @@ function TChromeLikeTabSetParams_C(aTabImages: TCustomImageList;
 //#UC START# *5518DC3B0065_551552FA002B_var*
 //#UC END# *5518DC3B0065_551552FA002B_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5518DC3B0065_551552FA002B_impl*
  with Result do
  begin

@@ -32,8 +32,6 @@ _nevAnchor_ = _nevDiff_;
 {$Define nevAnchor_imp_impl}
 
 {$If Defined(k2ForEditor)}
-type _Instance_R_ = _nevAnchor_;
-
 {$Include nevBasePoint.imp.pas}
 
 {$Include nevParentPointFactoryEx.imp.pas}

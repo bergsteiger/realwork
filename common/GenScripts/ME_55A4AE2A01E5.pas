@@ -37,6 +37,7 @@ type
    f_Caption: IvcmCString;
    f_Items: TvcmFormSetFormHistoryItemList;
    f_ContainedFormHistoryState: IvcmHistoryState;
+   f_ContainerData: IvcmBase;
   private
    procedure LoadFormsState;
   protected
@@ -299,6 +300,8 @@ function TvcmHistoryFormCacheItem_C: TvcmHistoryFormCacheItem;
 //#UC START# *55C8648A0397_55C86432033A_var*
 //#UC END# *55C8648A0397_55C86432033A_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *55C8648A0397_55C86432033A_impl*
  Result.rGUID := aGUID;
  Result.rForm := aForm;

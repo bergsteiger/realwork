@@ -204,7 +204,6 @@ type
     const aTabHistoryState: IvcmHistoryState);
    function GetFormTabIcon(aForm: TvcmEntityForm;
     out theIconIndex: Integer): Boolean;
-   procedure CloseTabbedForm;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
    function GetTabIcon(const aTab: Il3FormTab): Integer;
@@ -369,6 +368,7 @@ function TvcmContainedFormDescr_C: TvcmContainedFormDescr;
 //#UC START# *537AEA8C02EF_537AEA3B02A5_var*
 //#UC END# *537AEA8C02EF_537AEA3B02A5_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *537AEA8C02EF_537AEA3B02A5_impl*
  Result.rForm := aForm;
  Result.rContainer := aContainer;
@@ -379,6 +379,7 @@ function TvcmContainedFormDescr_C: TvcmContainedFormDescr;
 //#UC START# *53D62F3F03C1_537AEA3B02A5_var*
 //#UC END# *53D62F3F03C1_537AEA3B02A5_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *53D62F3F03C1_537AEA3B02A5_impl*
  Result := TvcmContainedFormDescr_C(aForm, aContainer);
  Result.rImageIndex := aImageIndex;
@@ -2024,15 +2025,6 @@ begin
  end;
 //#UC END# *5602A5390084_537AEC5E03DD_impl*
 end;//TvcmTabbedContainerFormDispatcher.GetFormTabIcon
-
-procedure TvcmTabbedContainerFormDispatcher.CloseTabbedForm;
-//#UC START# *569E16AE02AD_537AEC5E03DD_var*
-//#UC END# *569E16AE02AD_537AEC5E03DD_var*
-begin
-//#UC START# *569E16AE02AD_537AEC5E03DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *569E16AE02AD_537AEC5E03DD_impl*
-end;//TvcmTabbedContainerFormDispatcher.CloseTabbedForm
 
 class function TvcmTabbedContainerFormDispatcher.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

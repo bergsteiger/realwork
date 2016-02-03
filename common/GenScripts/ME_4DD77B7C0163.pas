@@ -168,8 +168,6 @@ _nevTableRowBaseLineCommon_ = _nevPrimPoint_;
 {$Define nevTableRowBaseLineCommon_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-type _Instance_R_ = _nevTableRowBaseLineCommon_;
-
 {$Include nevPrimPoint.imp.pas}
 
 procedure _nevTableRowBaseLineCommon_.InitHeadCells(const aView: InevView);

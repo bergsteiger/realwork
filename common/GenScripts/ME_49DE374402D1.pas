@@ -66,8 +66,6 @@ _nevBasePoint_ = _nevViewBounds_;
 {$Define nevBasePoint_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-type _Instance_R_ = _nevBasePoint_;
-
 {$Include nevParaTool.imp.pas}
 
 {$Include nevParentPointFactory.imp.pas}
