@@ -93,6 +93,7 @@ function TtfwTypeInfo_C(aTypeInfo: PTypeInfo): TtfwTypeInfo;
 //#UC START# *55BF15F300FE_55BF154E022D_var*
 //#UC END# *55BF15F300FE_55BF154E022D_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *55BF15F300FE_55BF154E022D_impl*
  {$IfNDef seTypeCheck}
  if (aTypeInfo <> nil) then
@@ -113,6 +114,7 @@ function TtfwTypeInfo_C(aType: TtfwValueType): TtfwTypeInfo;
 //#UC START# *55BF29550294_55BF154E022D_var*
 //#UC END# *55BF29550294_55BF154E022D_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *55BF29550294_55BF154E022D_impl*
  Case aType of
   tfw_vtVoid:
@@ -151,6 +153,7 @@ function TtfwTypeInfo_C(aClass: TClass): TtfwTypeInfo;
 //#UC START# *55C4A74F01B0_55BF154E022D_var*
 //#UC END# *55C4A74F01B0_55BF154E022D_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *55C4A74F01B0_55BF154E022D_impl*
  Result.rTypeInfo := nil;
  Result.rClass := aClass;
@@ -161,6 +164,7 @@ function TtfwTypeInfo_E: TtfwTypeInfo;
 //#UC START# *55C4A777013F_55BF154E022D_var*
 //#UC END# *55C4A777013F_55BF154E022D_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *55C4A777013F_55BF154E022D_impl*
  Result.rTypeInfo := nil;
  Result.rClass := nil;

@@ -102,6 +102,7 @@ function TtfwWordInfoRec_E: TtfwWordInfoRec;
 //#UC START# *52C1617803A0_52C15D690329_var*
 //#UC END# *52C1617803A0_52C15D690329_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *52C1617803A0_52C15D690329_impl*
  Result := TtfwWordInfoRec_C(nil, [], tfw_atNone, tfw_ltNone);
 //#UC END# *52C1617803A0_52C15D690329_impl*
@@ -114,6 +115,7 @@ function TtfwWordInfoRec_C(aTypes: TtfwValueTypes;
 //#UC START# *55B265FD0005_52C15D690329_var*
 //#UC END# *55B265FD0005_52C15D690329_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *55B265FD0005_52C15D690329_impl*
  Result.rModifiers := aModifiers;
  Result.rAccessType := anAccess;

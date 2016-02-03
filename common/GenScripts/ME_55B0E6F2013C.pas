@@ -43,8 +43,6 @@ begin
 end;//AssignItem
 {$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
-type _Instance_R_ = _tfwDictionaryListPrim_;
-
 {$Include l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 

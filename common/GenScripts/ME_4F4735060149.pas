@@ -128,6 +128,8 @@ function TtfwParserToken_C(const aString: Il3CString;
 //#UC START# *5576DCA60121_5576DC260338_var*
 //#UC END# *5576DCA60121_5576DC260338_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5576DCA60121_5576DC260338_impl*
  Result.rString := aString;
  Result.rTokenType := aType;
@@ -138,6 +140,8 @@ function TtfwParserToken_C(aValue: Integer): TtfwParserToken;
 //#UC START# *5576DCCE0203_5576DC260338_var*
 //#UC END# *5576DCCE0203_5576DC260338_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5576DCCE0203_5576DC260338_impl*
  Result.rString := TtfwCStringFactory.C(IntToStr(aValue));
  Result.rInteger := aValue;
@@ -149,6 +153,8 @@ function TtfwParserToken_E: TtfwParserToken;
 //#UC START# *5576F2CD0101_5576DC260338_var*
 //#UC END# *5576F2CD0101_5576DC260338_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5576F2CD0101_5576DC260338_impl*
  Result.rTokenType := l3_ttBOF;
 //#UC END# *5576F2CD0101_5576DC260338_impl*

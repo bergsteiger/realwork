@@ -36,8 +36,6 @@ begin
 //#UC END# *47B99D4503A2_55A63D8C00F0_impl*
 end;//CompareExistingItems
 
-type _Instance_R_ = _tfwDictionaryList_;
-
 {$Include tfwDictionaryListPrim.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 

@@ -21,14 +21,16 @@ type
  (*
  Ml3IterateComponentParents = interface
   {* Контракт сервиса Tl3IterateComponentParents }
-  procedure IterateF;
+  procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+   aComponent: TComponent);
  end;//Ml3IterateComponentParents
  *)
 
  Il3IterateComponentParents = interface
   {* Интерфейс сервиса Tl3IterateComponentParents }
   ['{5A7F04AD-BABF-4265-8160-3A5BDA277D22}']
-  procedure IterateF;
+  procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+   aComponent: TComponent);
  end;//Il3IterateComponentParents
 
  Tl3IterateComponentParents = {final} class(Tl3ProtoObject)
@@ -39,10 +41,10 @@ type
    procedure pm_SetAlien(const aValue: Il3IterateComponentParents);
    procedure ClearFields; override;
   public
-   procedure Iterate; virtual; abstract;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   procedure IterateF;
+   procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+    aComponent: TComponent);
    class function Instance: Tl3IterateComponentParents;
     {* Метод получения экземпляра синглетона Tl3IterateComponentParents }
   public
@@ -92,7 +94,8 @@ begin
  Result := g_Tl3IterateComponentParents <> nil;
 end;//Tl3IterateComponentParents.Exists
 
-procedure Tl3IterateComponentParents.IterateF;
+procedure Tl3IterateComponentParents.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+ aComponent: TComponent);
 //#UC START# *3410F441967F_551AA9BD01EE_var*
 var
  Hack : Pointer absolute anAction;

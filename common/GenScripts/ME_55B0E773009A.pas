@@ -35,8 +35,6 @@ begin
 //#UC END# *47B99D4503A2_55B0E773009A_impl*
 end;//CompareExistingItems
 
-type _Instance_R_ = _tfwSortedDictionaryList_;
-
 {$Include tfwDictionaryListPrim.imp.pas}
 
 procedure _tfwSortedDictionaryList_.InitFields;

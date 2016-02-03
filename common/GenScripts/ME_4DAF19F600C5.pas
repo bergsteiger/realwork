@@ -1007,6 +1007,8 @@ function TtfwSourcePoint_E: TtfwSourcePoint;
 //#UC START# *55647E560346_55647DF70372_var*
 //#UC END# *55647E560346_55647DF70372_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *55647E560346_55647DF70372_impl*
  Result.rName := nil;
  Result.rFileName := nil;
@@ -1049,6 +1051,8 @@ function TtfwStackValue_C(const aValue: ItfwFile): TtfwStackValue;
 //#UC START# *4F4E5D6C038D_55C0AEF80328_var*
 //#UC END# *4F4E5D6C038D_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4F4E5D6C038D_55C0AEF80328_impl*
  Result.rType := tfw_vtFile;
  ItfwFile(Result.rString) := aValue;
@@ -1059,6 +1063,8 @@ function TtfwStackValue_C(const aValue: ItfwValueList): TtfwStackValue;
 //#UC START# *4DCC17860019_55C0AEF80328_var*
 //#UC END# *4DCC17860019_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4DCC17860019_55C0AEF80328_impl*
  Result.rType := tfw_vtList;
  ItfwValueList(Result.rString) := aValue;
@@ -1069,6 +1075,8 @@ function TtfwStackValue_C(aValue: Integer): TtfwStackValue;
 //#UC START# *4DB00AAB02FA_55C0AEF80328_var*
 //#UC END# *4DB00AAB02FA_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4DB00AAB02FA_55C0AEF80328_impl*
  Result.rType := tfw_vtInt;
  Result.rInteger := aValue;
@@ -1079,6 +1087,8 @@ function TtfwStackValue_C(aValue: Boolean): TtfwStackValue;
 //#UC START# *4DB01368005C_55C0AEF80328_var*
 //#UC END# *4DB01368005C_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4DB01368005C_55C0AEF80328_impl*
  Result.rType := tfw_vtBool;
  if aValue then
@@ -1092,6 +1102,8 @@ function TtfwStackValue_C(aValue: TObject): TtfwStackValue;
 //#UC START# *4DBAF9410061_55C0AEF80328_var*
 //#UC END# *4DBAF9410061_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4DBAF9410061_55C0AEF80328_impl*
  Result.rType := tfw_vtObj;
  Result.rInteger := Integer(aValue);
@@ -1102,6 +1114,8 @@ function TtfwStackValue_C(const aValue: Il3CString): TtfwStackValue;
 //#UC START# *4DB04AC6039F_55C0AEF80328_var*
 //#UC END# *4DB04AC6039F_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4DB04AC6039F_55C0AEF80328_impl*
  Result.rType := tfw_vtStr;
  Result.rString := aValue;
@@ -1112,6 +1126,8 @@ function TtfwStackValue_C(const anIntf: IUnknown): TtfwStackValue;
 //#UC START# *4EB275570202_55C0AEF80328_var*
 //#UC END# *4EB275570202_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4EB275570202_55C0AEF80328_impl*
  Result.rType := tfw_vtIntf;
  IUnknown(Result.rString) := anIntf;
@@ -1122,6 +1138,8 @@ function TtfwStackValue_C(aClass: TClass): TtfwStackValue;
 //#UC START# *50852D1B015E_55C0AEF80328_var*
 //#UC END# *50852D1B015E_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *50852D1B015E_55C0AEF80328_impl*
  Result.rType := tfw_vtClass;
  Result.rInteger := Integer(aClass);
@@ -1132,6 +1150,8 @@ function TtfwStackValue_C(aValue: AnsiChar): TtfwStackValue;
 //#UC START# *4F4FDCD4016D_55C0AEF80328_var*
 //#UC END# *4F4FDCD4016D_55C0AEF80328_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4F4FDCD4016D_55C0AEF80328_impl*
  Result.rType := tfw_vtChar;
  Result.rInteger := Ord(aValue);
