@@ -281,6 +281,8 @@ function TTimeInfo_C(aDate: TDateTime;
 //#UC START# *4B6C40530304_4B2F565002FD_var*
 //#UC END# *4B6C40530304_4B2F565002FD_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B6C40530304_4B2F565002FD_impl*
  Result.rDate := aDate;
  Result.rID.rName := Trim(aName);
@@ -296,6 +298,8 @@ function TTimeInfo_C: TTimeInfo;
 //#UC START# *4B2F582A0382_4B2F565002FD_var*
 //#UC END# *4B2F582A0382_4B2F565002FD_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B2F582A0382_4B2F565002FD_impl*
  Result := TTimeInfo_C(Date, aName, aTime);
 //#UC END# *4B2F582A0382_4B2F565002FD_impl*
@@ -305,6 +309,8 @@ function TTimeInfo_C: TTimeInfo;
 //#UC START# *4B588AFA0000_4B2F565002FD_var*
 //#UC END# *4B588AFA0000_4B2F565002FD_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B588AFA0000_4B2F565002FD_impl*
  Result := TTimeInfo_C(aDate, aName, aTime, '');
 //#UC END# *4B588AFA0000_4B2F565002FD_impl*
@@ -314,6 +320,8 @@ function TTimeInfo_C: TTimeInfo;
 //#UC START# *4B58926401DE_4B2F565002FD_var*
 //#UC END# *4B58926401DE_4B2F565002FD_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B58926401DE_4B2F565002FD_impl*
  Result := TTimeInfo_C(Date, aName, aTime, aSubName);
 //#UC END# *4B58926401DE_4B2F565002FD_impl*

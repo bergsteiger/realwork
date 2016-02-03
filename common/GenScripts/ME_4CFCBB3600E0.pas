@@ -251,6 +251,8 @@ function TvgRadioButtonItem_C(const aClass: InsBaseSearchClass): TvgRadioButtonI
 //#UC START# *4DE6712F01AA_4DE66EAE0351_var*
 //#UC END# *4DE6712F01AA_4DE66EAE0351_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4DE6712F01AA_4DE66EAE0351_impl*
  Result.rClass := aClass;
 //#UC END# *4DE6712F01AA_4DE66EAE0351_impl*
@@ -261,6 +263,8 @@ function TvgRadioButtonItem_C(aButton: TvgRadioButton;
 //#UC START# *4DE6734A00D5_4DE66EAE0351_var*
 //#UC END# *4DE6734A00D5_4DE66EAE0351_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4DE6734A00D5_4DE66EAE0351_impl*
  Result.rButton := aButton;
  Result.rClass := aClass;

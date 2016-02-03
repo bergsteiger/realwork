@@ -38,6 +38,7 @@ function TseModalWorker_C(aWord: TtfwWord;
 //#UC START# *4FC755E000C9_4FC7557C0082_var*
 //#UC END# *4FC755E000C9_4FC7557C0082_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4FC755E000C9_4FC7557C0082_impl*
  Result.rWord := aWord;
  Result.rContext := @aContext;
