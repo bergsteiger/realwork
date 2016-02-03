@@ -112,3 +112,16 @@ PROCEDURE "Установить исходное состояние Реестра Объектов"
 	"Свернуть все узлы дерева"
 	"Спрятать РЕЕСТР ОБЪЕКТОВ" 
 ;
+
+PROCEDURE "Вызвать из главного меню" STRING IN aItem
+	aItem push:MainForm pop:form:FindMenuItem menuitem:Click
+	"Обработать сообщения"
+;
+
+PROCEDURE "Вызвать из меню дочернего окна" STRING IN aItem
+	OBJECT VAR l_Object
+	push:MainForm pop:form:ActiveMDIChild >>> l_Object
+	l_Object pop:object:IsNil ! ?ASSURE 'Нет активного дочернего окна!'
+	aItem push:MainForm pop:form:ActiveMDIChild pop:form:FindMenuItem menuitem:Click
+	"Обработать сообщения"
+;

@@ -772,43 +772,6 @@ f _NeedMakeControls
 //#UC END# *494B856502ECfor4B5DA84A00DD*
 
 // перекрытие базового стереотипа VCMCustomForm::Class
-%f _pas_BeforeDFMControls
-//#UC START# *4B5DDD5A02ACfor4B5DA84A00DD*
-	%S%[inherited]\
-	\n\
-	  Caption = '%SD'
-//	  Color = clBtnFace\
-	  Color = $00F9F8FA\
-	[{"%S{ZoneType}"!="%S{!ZoneType}"}
-	  ZoneType = vcm_zt%S{ZoneType}]\
-//	[{%S%f_HasUserTypeRec()!=true}
-//	  UserTypes = \<
-//	    item
-//	      Name = 'ut%f_N(%S)'
-//	      Caption = '%SD'
-//	    end\>]\
-	\n\
-	  PixelsPerInch = 96
-	  TextHeight = 13\
-
-	[\n  Zones = \<<%G#f_pas_DefineZones()>\>]
-
-	  object Entities: TvcmEntities\n\
-//	    Entities = \<
-//	      item
-//	        Name = 'enFake'
-//	        Operations = \<
-//	          item
-//	            Name = 'opFake'
-//	          end\>
-//	      end\
-//	\>\n\
-	    Left = 24
-	    Top = 24
-	  end
-//#UC END# *4B5DDD5A02ACfor4B5DA84A00DD*
-
-// перекрытие базового стереотипа VCMCustomForm::Class
 %f _pas_OutEntities
 //#UC START# *4B5DE28502D6for4B5DA84A00DD*
 	%S%[inherited]\

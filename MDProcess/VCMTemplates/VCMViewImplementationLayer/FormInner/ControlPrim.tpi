@@ -109,23 +109,6 @@ p need Caption:tribool=undefined ?
 	<%C#f_PutToMakeControls()>
 //#UC END# *4B5DC20802E2for4B5DC1D50227*
 
-// Выводит представление контрола в DFM
-%f _ToDFM
-//#UC START# *4B5DC20D00F0for4B5DC1D50227*
-	[{%S%f_NeedPutToDFM()=true}\
-	[{%f_exists_in_list(FORM_CONTROLS,"%S%f_pas_AttrName()")=false}\
-	%f_add_to_list(FORM_CONTROLS,"%S%f_pas_AttrName()")\
-	\n# object %S%f_pas_AttrName(): %S%f_pas_ResultTypeName()\
-	[{"%SD"!=""&%S{need Caption}!=false}\n#  Caption = '%SD']\
-	<%C#f_ToDFM()>\
-	[{%S%f_IsOverride()=true}\
-	<{}{}{r}%g<%C#f_ToDFM()>>\
-	]
-	# end\
-	]\
-	]
-//#UC END# *4B5DC20D00F0for4B5DC1D50227*
-
 // Выводит определение полей
 %f _ToFields
 //#UC START# *4B5DC210037Dfor4B5DC1D50227*

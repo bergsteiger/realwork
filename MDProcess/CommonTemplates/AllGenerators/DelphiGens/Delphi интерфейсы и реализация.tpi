@@ -2337,7 +2337,7 @@ f _NeedFinalize
 	[\
 	<{}{%f_is_empty(ALL_GENERATORS_ID)=false}{W}\
 	%f_pop_first_to_var(ALL_GENERATORS_ID,GEN_ID)\
-	[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell}\
+	[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell&"%{GEN_ID}N"!="pas.script"&"%{GEN_ID}N"!="pas.script.runner"}\
 	[{%f_has_non_empty_gen(S,%{GEN_ID}N)=true}\
 	[{"%f_with_gen_id(%{GEN_ID}N,%SL)"!=""}\
 	 CONST %{GEN_ID}N:Path '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%SL),/,\\)'
@@ -2440,6 +2440,12 @@ f _NeedFinalize
 	[{"%S%{SpelledFor}U"!=""}\
 	[\
 	 : SpelledFor %S%{SpelledFor}#f_pas_script_Reference() ;
+	]\
+	]\
+
+	[{"%S%{Action}U"!=""}\
+	[\
+	 : Action %S%{Action}#f_pas_script_Reference() ;
 	]\
 	]\
 
@@ -2809,6 +2815,10 @@ f _IsConstants
 
 	[{"%S%{SpelledFor}U"!=""}\
 	%S%{SpelledFor}#f_pas_script_GenerateIncludeOrForward()\
+	]\
+
+	[{"%S%{Action}U"!=""}\
+	%S%{Action}#f_pas_script_GenerateIncludeOrForward()\
 	]\
 
 	[{%S#f_pas_script_CanImplementMethods()=true}\

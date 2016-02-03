@@ -1,3 +1,237 @@
+//#UC START# *46A610780340_4A4CB79A02C6get_impl*
+ Result := TextColor;
+//#UC END# *46A610780340_4A4CB79A02C6get_impl*
+//#UC START# *46A610780340_4A4CB79A02C6get_var*
+//#UC END# *46A610780340_4A4CB79A02C6get_var*
+//#UC START# *46A610780340_4A4CB79A02C6set_impl*
+ TextColor := aValue;
+//#UC END# *46A610780340_4A4CB79A02C6set_impl*
+//#UC START# *46A610780340_4A4CB79A02C6set_var*
+//#UC END# *46A610780340_4A4CB79A02C6set_var*
+//#UC START# *46A6108E017F_4A4CB79A02C6get_impl*
+ Result := BackColor;
+//#UC END# *46A6108E017F_4A4CB79A02C6get_impl*
+//#UC START# *46A6108E017F_4A4CB79A02C6get_var*
+//#UC END# *46A6108E017F_4A4CB79A02C6get_var*
+//#UC START# *46A6108E017F_4A4CB79A02C6set_impl*
+ BackColor := aValue;
+//#UC END# *46A6108E017F_4A4CB79A02C6set_impl*
+//#UC START# *46A6108E017F_4A4CB79A02C6set_var*
+//#UC END# *46A6108E017F_4A4CB79A02C6set_var*
+//#UC START# *46A610AF012C_4A4CB79A02C6get_impl*
+ Result := VCLFont.Name;
+//#UC END# *46A610AF012C_4A4CB79A02C6get_impl*
+//#UC START# *46A610AF012C_4A4CB79A02C6get_var*
+//#UC END# *46A610AF012C_4A4CB79A02C6get_var*
+//#UC START# *46A610AF012C_4A4CB79A02C6set_impl*
+ if (f_Font <> nil) and (aValue <> l3GlyphFontName) then
+  f_Font := nil; 
+ l_LogFont := l3FontManager.Fonts.DRByName[aValue];
+ VCLFont.Name := aValue;
+ if (l_LogFont = nil) then
+  VCLFont.CharSet := CS_Effective
+ else
+  VCLFont.CharSet := l_LogFont.LogFont.elfLogFont.lfCharSet;
+//#UC END# *46A610AF012C_4A4CB79A02C6set_impl*
+//#UC START# *46A610AF012C_4A4CB79A02C6set_var*
+var
+ l_LogFont: Tl3LogFont;
+//#UC END# *46A610AF012C_4A4CB79A02C6set_var*
+//#UC START# *46A610E10084_4A4CB79A02C6get_impl*
+ Result := VCLFont.Pitch;
+//#UC END# *46A610E10084_4A4CB79A02C6get_impl*
+//#UC START# *46A610E10084_4A4CB79A02C6get_var*
+//#UC END# *46A610E10084_4A4CB79A02C6get_var*
+//#UC START# *46A610E10084_4A4CB79A02C6set_impl*
+ VCLFont.Pitch := aValue;
+//#UC END# *46A610E10084_4A4CB79A02C6set_impl*
+//#UC START# *46A610E10084_4A4CB79A02C6set_var*
+//#UC END# *46A610E10084_4A4CB79A02C6set_var*
+//#UC START# *46A6111000F9_4A4CB79A02C6get_impl*
+ Result := VCLFont.Size;
+//#UC END# *46A6111000F9_4A4CB79A02C6get_impl*
+//#UC START# *46A6111000F9_4A4CB79A02C6get_var*
+//#UC END# *46A6111000F9_4A4CB79A02C6get_var*
+//#UC START# *46A6111000F9_4A4CB79A02C6set_impl*
+ VCLFont.Size := aValue;
+//#UC END# *46A6111000F9_4A4CB79A02C6set_impl*
+//#UC START# *46A6111000F9_4A4CB79A02C6set_var*
+//#UC END# *46A6111000F9_4A4CB79A02C6set_var*
+//#UC START# *46A61136020C_4A4CB79A02C6get_impl*
+ if (f_Font <> nil) then
+  Result := f_Font.Index
+ else
+  Result := f_FontIndex;
+//#UC END# *46A61136020C_4A4CB79A02C6get_impl*
+//#UC START# *46A61136020C_4A4CB79A02C6get_var*
+//#UC END# *46A61136020C_4A4CB79A02C6get_var*
+//#UC START# *46A61136020C_4A4CB79A02C6set_impl*
+ f_FontIndex := aValue;
+//#UC END# *46A61136020C_4A4CB79A02C6set_impl*
+//#UC START# *46A61136020C_4A4CB79A02C6set_var*
+//#UC END# *46A61136020C_4A4CB79A02C6set_var*
+//#UC START# *46A6127B0282_4A4CB79A02C6get_impl*
+ Result := VCLFont.Style;
+//#UC END# *46A6127B0282_4A4CB79A02C6get_impl*
+//#UC START# *46A6127B0282_4A4CB79A02C6get_var*
+//#UC END# *46A6127B0282_4A4CB79A02C6get_var*
+//#UC START# *46A6127B0282_4A4CB79A02C6set_impl*
+ VCLFont.Style := aValue;
+//#UC END# *46A6127B0282_4A4CB79A02C6set_impl*
+//#UC START# *46A6127B0282_4A4CB79A02C6set_var*
+//#UC END# *46A6127B0282_4A4CB79A02C6set_var*
+//#UC START# *46A6129101E3_4A4CB79A02C6get_impl*
+ Result := fsBold in VCLFont.Style;
+//#UC END# *46A6129101E3_4A4CB79A02C6get_impl*
+//#UC START# *46A6129101E3_4A4CB79A02C6get_var*
+//#UC END# *46A6129101E3_4A4CB79A02C6get_var*
+//#UC START# *46A6129101E3_4A4CB79A02C6set_impl*
+ if aValue then
+  VCLFont.Style := VCLFont.Style + [fsBold]
+ else
+  VCLFont.Style := VCLFont.Style - [fsBold];
+//#UC END# *46A6129101E3_4A4CB79A02C6set_impl*
+//#UC START# *46A6129101E3_4A4CB79A02C6set_var*
+//#UC END# *46A6129101E3_4A4CB79A02C6set_var*
+//#UC START# *46A612AF0038_4A4CB79A02C6get_impl*
+ Result := fsItalic in VCLFont.Style;
+//#UC END# *46A612AF0038_4A4CB79A02C6get_impl*
+//#UC START# *46A612AF0038_4A4CB79A02C6get_var*
+//#UC END# *46A612AF0038_4A4CB79A02C6get_var*
+//#UC START# *46A612AF0038_4A4CB79A02C6set_impl*
+ if aValue then
+  VCLFont.Style := VCLFont.Style + [fsItalic]
+ else
+  VCLFont.Style := VCLFont.Style - [fsItalic];
+//#UC END# *46A612AF0038_4A4CB79A02C6set_impl*
+//#UC START# *46A612AF0038_4A4CB79A02C6set_var*
+//#UC END# *46A612AF0038_4A4CB79A02C6set_var*
+//#UC START# *46A612C302D6_4A4CB79A02C6get_impl*
+ Result := fsUnderline in VCLFont.Style;
+//#UC END# *46A612C302D6_4A4CB79A02C6get_impl*
+//#UC START# *46A612C302D6_4A4CB79A02C6get_var*
+//#UC END# *46A612C302D6_4A4CB79A02C6get_var*
+//#UC START# *46A612C302D6_4A4CB79A02C6set_impl*
+ if aValue then
+  VCLFont.Style := VCLFont.Style + [fsUnderline]
+ else
+  VCLFont.Style := VCLFont.Style - [fsUnderline];
+//#UC END# *46A612C302D6_4A4CB79A02C6set_impl*
+//#UC START# *46A612C302D6_4A4CB79A02C6set_var*
+//#UC END# *46A612C302D6_4A4CB79A02C6set_var*
+//#UC START# *46A612DC01F5_4A4CB79A02C6get_impl*
+ Result := fsStrikeout in VCLFont.Style;
+//#UC END# *46A612DC01F5_4A4CB79A02C6get_impl*
+//#UC START# *46A612DC01F5_4A4CB79A02C6get_var*
+//#UC END# *46A612DC01F5_4A4CB79A02C6get_var*
+//#UC START# *46A612DC01F5_4A4CB79A02C6set_impl*
+ if aValue then
+  VCLFont.Style := VCLFont.Style + [fsStrikeout]
+ else
+  VCLFont.Style := VCLFont.Style - [fsStrikeout];
+//#UC END# *46A612DC01F5_4A4CB79A02C6set_impl*
+//#UC START# *46A612DC01F5_4A4CB79A02C6set_var*
+//#UC END# *46A612DC01F5_4A4CB79A02C6set_var*
+//#UC START# *46A6154A01EE_4A4CB79A02C6_impl*
+ Result := true;
+ l_Font := VCLFont;
+ f_Font := nil;
+ if (l_Font <> nil) and (Font <> nil) then
+ begin
+  l_ForeColor := TextColor;
+  l_FontColor := l_Font.Color;
+  f_TextColor := Font.Color;
+  l_Font.Assign(Font);
+  {$IfNDef Nemesis}
+   f_TextMetricsValid := false;
+  {$Else}
+   //Assert(not f_TextMetricsValid);
+  {$EndIf Nemesis}
+  // ^ - http://mdp.garant.ru/pages/viewpage.action?pageId=185830296&focusedCommentId=199591219#comment-199591219
+  if (l_Font.Color = clDefault) then
+  begin
+   Inc(f_CheckingColors);
+   try
+    l_Font.Color := l_FontColor;
+    TextColor := l_ForeColor;
+   finally
+    Dec(f_CheckingColors);
+   end;//try..finally
+  end;//l_Font.Color = clDefault
+  Inc(f_CheckingColors);
+  try
+   l_LogFont := l3FontManager.Fonts.DRByName[l_Font.Name];
+   if (l_LogFont = nil) then
+    l_Font.CharSet := CS_Effective
+   else
+    l_Font.CharSet := l_LogFont.LogFont.elfLogFont.lfCharSet;
+  finally
+   Dec(f_CheckingColors);
+  end;//try..finally
+  if l3IsDefaultCharset(l_Font.Charset) then
+   if (l_Font.Charset <> CS_Effective) then
+   begin
+    Inc(f_CheckingColors);
+    try
+     l_Font.Charset := CS_Effective;
+    finally
+     Dec(f_CheckingColors);
+    end;//try..finally
+   end;//l_Font.Charset <> CS_Effective
+ end;//l_Font <> nil
+//#UC END# *46A6154A01EE_4A4CB79A02C6_impl*
+//#UC START# *46A6154A01EE_4A4CB79A02C6_var*
+var
+ l_ForeColor: TColor;
+ l_FontColor: TColor;
+ l_LogFont: Tl3LogFont;
+ l_Font: TFont;
+//#UC END# *46A6154A01EE_4A4CB79A02C6_var*
+//#UC START# *46A6156000CD_4A4CB79A02C6_impl*
+ Lock;
+ try
+  aFont.Lock;
+  try
+   l_Font := VCLFont;
+   if aFont.AssignFont(l_Font) then
+   begin
+    aFont.BackColor := BackColor;
+    aFont.Index := Get_Index;
+   end else
+   with l_Font do
+   begin
+    aFont.Name := Name;
+    aFont.Size := Size;
+    aFont.Style := Style;
+    aFont.Pitch := Pitch;
+    aFont.ForeColor := Color;
+    aFont.BackColor := BackColor;
+    aFont.Index := Get_Index;
+   end;//with l_Font
+  finally
+   aFont.Unlock;
+  end;//try..finally
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *46A6156000CD_4A4CB79A02C6_impl*
+//#UC START# *46A6156000CD_4A4CB79A02C6_var*
+var
+ l_Font: TFont;
+//#UC END# *46A6156000CD_4A4CB79A02C6_var*
+//#UC START# *46A6157B0361_4A4CB79A02C6_impl*
+//#UC END# *46A6157B0361_4A4CB79A02C6_impl*
+//#UC START# *46A6157B0361_4A4CB79A02C6_var*
+//#UC END# *46A6157B0361_4A4CB79A02C6_var*
+//#UC START# *46A6158C0275_4A4CB79A02C6_impl*
+//#UC END# *46A6158C0275_4A4CB79A02C6_impl*
+//#UC START# *46A6158C0275_4A4CB79A02C6_var*
+//#UC END# *46A6158C0275_4A4CB79A02C6_var*
+//#UC START# *46A615A10333_4A4CB79A02C6_impl*
+ Result := VCLFont.Handle;
+//#UC END# *46A615A10333_4A4CB79A02C6_impl*
+//#UC START# *46A615A10333_4A4CB79A02C6_var*
+//#UC END# *46A615A10333_4A4CB79A02C6_var*
 //#UC START# *4728A3180093_56AB66AA01C0_impl*
  Result := f_TabOffset;
 //#UC END# *4728A3180093_56AB66AA01C0_impl*
@@ -24,6 +258,19 @@
 //#UC END# *4728BE830080_4A4CB79A02C6get_impl*
 //#UC START# *4728BE830080_4A4CB79A02C6get_var*
 //#UC END# *4728BE830080_4A4CB79A02C6get_var*
+//#UC START# *475E5BAD0198_4A4CB79A02C6_impl*
+ Result := (f_Font <> nil) and f_Font.IsAtomic;
+//#UC END# *475E5BAD0198_4A4CB79A02C6_impl*
+//#UC START# *475E5BAD0198_4A4CB79A02C6_var*
+//#UC END# *475E5BAD0198_4A4CB79A02C6_var*
+//#UC START# *475E5BED0118_4A4CB79A02C6_impl*
+ if (f_Font = nil) then
+  Result := nil
+ else
+  Result := f_Font.FM;
+//#UC END# *475E5BED0118_4A4CB79A02C6_impl*
+//#UC START# *475E5BED0118_4A4CB79A02C6_var*
+//#UC END# *475E5BED0118_4A4CB79A02C6_var*
 //#UC START# *479731C50290_4A4CB79A02C6_impl*
  f_Printer := nil;
  FreeAndNil(f_ClipRects);
@@ -41,7 +288,7 @@
 //#UC START# *47A042E100E2_4A4CB79A02C6_impl*
  inherited;
  f_Margins := l3Rect(0, 0, 0, def_inchPaperBottom);
- f_DeviceCaps.rIsAssigned := false;
+ f_DeviceCaps.rIsAssigned := False;
  f_LineSpacing := def_LineSpacing;
 //#UC END# *47A042E100E2_4A4CB79A02C6_impl*
 //#UC START# *47A042E100E2_4A4CB79A02C6_var*
@@ -142,7 +389,7 @@ var
 //#UC START# *487D0BDA03C6_4A4CB79A02C6get_var*
 //#UC END# *487D0BDA03C6_4A4CB79A02C6get_var*
 //#UC START# *4A4CBCD002EA_4A4CB79A02C6_impl*
- if Printing AND (f_Printer <> nil) AND not f_Printer.HasPrinter then
+ if Printing and (f_Printer <> nil) and not f_Printer.HasPrinter then
   Result := DP2LP(PointX(DeviceCaps(PHYSICALWIDTH))).X
  else
   Result := DP2LP(PointX(DeviceCaps(HORZRES))).X;
@@ -150,7 +397,7 @@ var
 //#UC START# *4A4CBCD002EA_4A4CB79A02C6_var*
 //#UC END# *4A4CBCD002EA_4A4CB79A02C6_var*
 //#UC START# *4A4CBCDD0244_4A4CB79A02C6_impl*
- if Printing AND (f_Printer <> nil) AND not f_Printer.HasPrinter then
+ if Printing and (f_Printer <> nil) and not f_Printer.HasPrinter then
   Result := DP2LP(PointY(DeviceCaps(PHYSICALHEIGHT))).Y
  else
   Result := DP2LP(PointY(DeviceCaps(VERTRES))).Y;
@@ -160,12 +407,10 @@ var
 //#UC START# *4A4CBD130121_4A4CB79A02C6_impl*
  if Printing then
  begin
-  l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX),
-                          DeviceCaps(PHYSICALOFFSETY)));
+  l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX), DeviceCaps(PHYSICALOFFSETY)));
   l_Ofs.X := Max(l_Ofs.X, f_Margins.Left);
   l_Ofs.Y := Max(l_Ofs.Y, f_Margins.Top);
-  l_OfsB := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES),
-                                  DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
+  l_OfsB := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES), DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
   l_OfsB.X := Max(l_OfsB.X, f_Margins.Right);
   Result := l3Rect(l_Ofs, l_OfsB);
  end//Printing
@@ -174,8 +419,8 @@ var
 //#UC END# *4A4CBD130121_4A4CB79A02C6_impl*
 //#UC START# *4A4CBD130121_4A4CB79A02C6_var*
 var
- l_Ofs  : Tl3Point;
- l_OfsB : Tl3Point;
+ l_Ofs: Tl3Point;
+ l_OfsB: Tl3Point;
 //#UC END# *4A4CBD130121_4A4CB79A02C6_var*
 //#UC START# *4A4CBF0003DF_4A4CB79A02C6get_impl*
  Result := GetPrinting;
@@ -195,7 +440,7 @@ var
 //#UC START# *4A4CBF0003DF_4A4CB79A02C6set_var*
 //#UC END# *4A4CBF0003DF_4A4CB79A02C6set_var*
 //#UC START# *4A4CC10D01A1_4A4CB79A02C6get_impl*
- Result := DoGetDrawEnabled AND Assigned(f_OnDrawSub);
+ Result := DoGetDrawEnabled and Assigned(f_OnDrawSub);
 //#UC END# *4A4CC10D01A1_4A4CB79A02C6get_impl*
 //#UC START# *4A4CC10D01A1_4A4CB79A02C6get_var*
 //#UC END# *4A4CC10D01A1_4A4CB79A02C6get_var*
@@ -263,18 +508,16 @@ var
 //#UC START# *4A4CD8350157_4A4CB79A02C6get_var*
 //#UC END# *4A4CD8350157_4A4CB79A02C6get_var*
 //#UC START# *4A4CD83F0022_4A4CB79A02C6get_impl*
- l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX),
-                         DeviceCaps(PHYSICALOFFSETY)));
+ l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALOFFSETX), DeviceCaps(PHYSICALOFFSETY)));
  Result := f_Margins;
  Result.Left := Max(l_Ofs.X, Result.Left);
  Result.Top := Max(l_Ofs.Y, Result.Top);
- l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES),
-                         DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
+ l_Ofs := DP2LP(l3SPoint(DeviceCaps(PHYSICALWIDTH) - DeviceCaps(HORZRES), DeviceCaps(PHYSICALHEIGHT) - DeviceCaps(VERTRES))).Sub(l_Ofs);
  Result.Right := Max(l_Ofs.X, Result.Right);
 //#UC END# *4A4CD83F0022_4A4CB79A02C6get_impl*
 //#UC START# *4A4CD83F0022_4A4CB79A02C6get_var*
 var
- l_Ofs : Tl3Point;
+ l_Ofs: Tl3Point;
 //#UC END# *4A4CD83F0022_4A4CB79A02C6get_var*
 //#UC START# *4A4CD83F0022_4A4CB79A02C6set_impl*
  f_Margins := aValue;
@@ -299,7 +542,7 @@ var
 //#UC START# *4CB32CEA01FE_4A4CB79A02C6get_var*
 //#UC END# *4CB32CEA01FE_4A4CB79A02C6get_var*
 //#UC START# *4CB32D4C030E_4A4CB79A02C6_impl*
- Result := false;
+ Result := False;
 //#UC END# *4CB32D4C030E_4A4CB79A02C6_impl*
 //#UC START# *4CB32D4C030E_4A4CB79A02C6_var*
 //#UC END# *4CB32D4C030E_4A4CB79A02C6_var*
@@ -342,11 +585,11 @@ var
  l_R := aValue.Clone;
  l_R.Offset(SWindowOrg.Neg);
  SelectClipRgn(DC, l_R.Rgn);
- f_ClipRectInited := false;
+ f_ClipRectInited := False;
 //#UC END# *4E27061B0140_4A4CB79A02C6set_impl*
 //#UC START# *4E27061B0140_4A4CB79A02C6set_var*
 var
- l_R : Il3Region;
+ l_R: Il3Region;
 //#UC END# *4E27061B0140_4A4CB79A02C6set_var*
 //#UC START# *4E2706890370_4A4CB79A02C6get_impl*
  CheckDrawing;
@@ -360,7 +603,7 @@ var
 //#UC START# *4E57A9F10230_4A4CB79A02C6get_var*
 //#UC END# *4E57A9F10230_4A4CB79A02C6get_var*
 //#UC START# *4E57A9F10230_4A4CB79A02C6set_impl*
- if (aValue <= 0) OR (aValue >= Pred(High(Integer))) then
+ if (aValue <= 0) or (aValue >= Pred(High(Integer))) then
   Exit; 
  f_LineSpacing := aValue;
 //#UC END# *4E57A9F10230_4A4CB79A02C6set_impl*

@@ -44,23 +44,6 @@ p MergeBottomTollbarWithContainer:b=false ?
 	][{"%S{MergeBottomTollbarWithContainer}"!="%S{!MergeBottomTollbarWithContainer}"}%f_up_prefix(%S) *MergeBottomTollbarWithContainer* = *%S{MergeBottomTollbarWithContainer}*
 	]
 
-// Определяет зоны
-%f _pas_DefineZones
-//#UC START# *4A79821E02AAfor4A797F2E017E*
-	[{%G%f_NeedPutToDFM()=true}\
-	\n# item
-	#   Control = %GN
-	#   ZoneType = vcm_zt%S{ZoneType}
-	[{%S{CanClose}!=undefined}\
-	[{%S{CanClose}=true}{\
-	#   CanClose = vcm_ccDisable
-	}\
-	#   CanClose = vcm_ccEnable
-	]\
-	]\
-	# end\
-	]
-//#UC END# *4A79821E02AAfor4A797F2E017E*
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

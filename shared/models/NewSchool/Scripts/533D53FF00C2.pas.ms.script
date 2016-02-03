@@ -8794,38 +8794,6 @@ ref; // ME_5602A54602B8 DoIt
 
 ref; // ME_5602A5390084 GetFormTabIcon
 
-FORWARD ME_569E16AE02AD
-
-: ME_93ACBC405958
- CONST UID '93ACBC405958'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода CloseTabbedForm' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_569E16AE02AD // CloseTabbedForm
- ;
-
-ref; // ME_93ACBC405958 DoIt
-
-: ME_569E16AE02AD
- CONST UID '569E16AE02AD'
- CONST Name 'CloseTabbedForm'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_537AEC5E03DD // TvcmTabbedContainerFormDispatcher
- ;
- : Operations
-   Seq: ( ME_93ACBC405958 // DoIt
- )
- ; // Operations
-
-ref; // ME_569E16AE02AD CloseTabbedForm
-
 : ME_4A3669C744E4
  CONST UID '4A3669C744E4'
  CONST Name 'bind'
@@ -9631,7 +9599,6 @@ ref; // ME_53B24F1D034F_ME_537AEC5E03DD DoProcessKeyData
  ME_558BCEA90163 // SaveTabHistory
  ME_55B881940117 // GetTabHistory
  ME_5602A5390084 // GetFormTabIcon
- ME_569E16AE02AD // CloseTabbedForm
  ME_4A3669C744E4 // bind
  ME_1ACE43D137B8 // Exists
  )
@@ -12539,6 +12506,20 @@ ref; // ME_55A4BA4F00BD f_Items
 
 ref; // ME_55DD84CF0023 f_ContainedFormHistoryState
 
+: ME_56AF18C70051
+ CONST UID '56AF18C70051'
+ CONST Name 'f_ContainerData'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55A4AE43002D // TvcmBaseFormSetHistoryItem
+ ;
+ : Target WL 'ME_4683CEAD00CF' '467BAB7F021E.pas.ms.script' // IvcmBase
+ ;
+
+ref; // ME_56AF18C70051 f_ContainerData
+
 FORWARD ME_55A4BB09012B
 
 : ME_55A4BB63029F
@@ -12957,6 +12938,7 @@ ref; // ME_479731C50290_ME_55A4AE43002D Cleanup
    Seq: ( ME_55A4AE9F032B // f_Caption
  ME_55A4BA4F00BD // f_Items
  ME_55DD84CF0023 // f_ContainedFormHistoryState
+ ME_56AF18C70051 // f_ContainerData
  )
  ; // Attributes
  : Operations
@@ -16297,8 +16279,6 @@ ref; // ME_55A4AE2A01E5 vcmFormSetHistory
  CONST "ifndef" 'NoVGScene, NoVCM, NoTabs'
  CONST "path prefix" '/implementation/Visual/ChromeLike'
  CONST intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike'
- CONST pas.script:Path 'shared\models\NewSchool\Scripts\533D53FF00C2.pas.ms.script'
- CONST pas.script.runner:Path 'shared\models\NewSchool\Scripts\533D53FF00C2.pas.ms.script.runner'
  CONST extprop:pas:UnitName 'Visual$ChromeLike'
 
 ref; // ME_533D53FF00C2 Visual$ChromeLike

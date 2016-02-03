@@ -275,7 +275,7 @@ var
 
 //#UC END# *4BC45843011E_4815B8510359_var*
 //#UC START# *4E7094780214_4815B8510359_impl*
- RecalcImpl;
+ RecalcImpl(aView);
  Self.wMap(nil);
 //#UC END# *4E7094780214_4815B8510359_impl*
 //#UC START# *4E7094780214_4815B8510359_var*
@@ -287,7 +287,8 @@ var
 //#UC END# *4E7095FC023D_4815B8510359_var*
 //#UC START# *4E709676009E_4815B8510359_impl*
  l_FixedWidth := Obj.AsObject.BoolA[k2_tiFixedWidth];
- if AllowTotalRecalc OR
+ if aView.NeedTotalRecalc OR
+    AllowTotalRecalc OR
     InPara(k2_typTable) then
  begin
   l_Space := Self.Get_Spacing;
