@@ -63,8 +63,6 @@ _sdsBaseDocument_ = _vcmFormSetDataSource_;
 {$Define sdsBaseDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _sdsBaseDocument_;
-
 {$Include vcmFormSetDataSource.imp.pas}
 
 function _sdsBaseDocument_.DocumentData: IdeDocInfo;

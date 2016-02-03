@@ -65,8 +65,6 @@ _dsDocument_ = _dsBaseSearchSupportQuery_;
 {$Define dsDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsDocument_;
-
 {$Include dsBaseDocumentPrim.imp.pas}
 
 {$Include dsDocumentFromList.imp.pas}

@@ -40,8 +40,6 @@ _dBaseDocumentWithAttributes_ = _dBaseDocument_;
 {$Define dBaseDocumentWithAttributes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dBaseDocumentWithAttributes_;
-
 {$Include dBaseDocument.imp.pas}
 
 procedure _dBaseDocumentWithAttributes_.DoResetBooleans;

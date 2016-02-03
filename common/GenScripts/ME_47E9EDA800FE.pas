@@ -283,8 +283,6 @@ const
  cExportFlag = DynamicTreeUnit.FM_FIRST_USER_FLAG;
   {* флаг, которым помечаются узлы для экспорта }
 
-type _Instance_R_ = _dsList_;
-
 {$Include dsSimpleTree.imp.pas}
 
 {$Include dsBaseSearchSupportQuery.imp.pas}

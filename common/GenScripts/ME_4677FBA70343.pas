@@ -1536,6 +1536,8 @@ function Tl3_Point_C: Tl3_Point;
 //#UC START# *47E0FA3E03CA_46A480790259_var*
 //#UC END# *47E0FA3E03CA_46A480790259_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *47E0FA3E03CA_46A480790259_impl*
  Result.X := aX;
  Result.Y := aY;
@@ -1547,6 +1549,8 @@ function Tl3_SPoint_C(anX: Integer;
 //#UC START# *537B842903A3_46A4988D03E1_var*
 //#UC END# *537B842903A3_46A4988D03E1_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *537B842903A3_46A4988D03E1_impl*
  Result.X := anX;
  Result.Y := anY;

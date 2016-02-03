@@ -20,14 +20,16 @@ type
  (*
  MIterateableService = interface
   {* Контракт сервиса TIterateableService }
-  procedure IterateF;
+  procedure IterateF(anAction: MIterateableService_IterateF_Action;
+   anOwner: TComponent);
  end;//MIterateableService
  *)
 
  IIterateableService = interface
   {* Интерфейс сервиса TIterateableService }
   ['{9584416D-CD11-42E9-A82D-87DFA5441AA3}']
-  procedure IterateF;
+  procedure IterateF(anAction: MIterateableService_IterateF_Action;
+   anOwner: TComponent);
  end;//IIterateableService
 
  TIterateableService = {final} class(Tl3ProtoObject)
@@ -38,10 +40,10 @@ type
    procedure pm_SetAlien(const aValue: IIterateableService);
    procedure ClearFields; override;
   public
-   procedure Iterate; virtual; abstract;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   procedure IterateF;
+   procedure IterateF(anAction: MIterateableService_IterateF_Action;
+    anOwner: TComponent);
    class function Instance: TIterateableService;
     {* Метод получения экземпляра синглетона TIterateableService }
   public
@@ -88,7 +90,8 @@ begin
  Result := g_TIterateableService <> nil;
 end;//TIterateableService.Exists
 
-procedure TIterateableService.IterateF;
+procedure TIterateableService.IterateF(anAction: MIterateableService_IterateF_Action;
+ anOwner: TComponent);
 //#UC START# *A44911B9A95D_5519611903CF_var*
 var
  Hack : Pointer absolute anAction;

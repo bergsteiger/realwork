@@ -38,8 +38,6 @@ _dBaseDrugDocument_ = _dBaseDocumentWithAttributes_;
 {$Define dBaseDrugDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dBaseDrugDocument_;
-
 {$Include dBaseDocumentWithAttributes.imp.pas}
 
 function _dBaseDrugDocument_.pm_GetdsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;

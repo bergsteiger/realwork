@@ -28,8 +28,6 @@ begin
 //#UC END# *47B94A5C006E_4B223ADC02BF_impl*
 end;//FreeItem
 
-type _Instance_R_ = _l3RecordListPrim_;
-
 {$Include l3RecordListPrimPrim.imp.pas}
 
 {$EndIf l3RecordListPrim_imp_impl}

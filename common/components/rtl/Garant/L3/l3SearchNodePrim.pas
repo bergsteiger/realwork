@@ -1,62 +1,49 @@
 unit l3SearchNodePrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3SearchNodePrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Containers::Tl3SearchNodePrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3SearchNodePrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+;
 
 type
  Tl3SearchNodePrim = class(Tl3ProtoObject)
- private
- // private fields
-   f_Data : IUnknown;
-    {* Поле для свойства Data}
-   f_Text : Il3CString;
-    {* Поле для свойства Text}
- protected
- // overridden protected methods
+  private
+   f_Data: IUnknown;
+    {* Поле для свойства Data }
+   f_Text: Il3CString;
+    {* Поле для свойства Text }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aText: Il3CString;
-     const aData: IUnknown); reintroduce;
- public
- // public properties
+    const aData: IUnknown); reintroduce;
+  public
    property Data: IUnknown
-     read f_Data
-     write f_Data;
+    read f_Data
+    write f_Data;
    property Text: Il3CString
-     read f_Text
-     write f_Text;
+    read f_Text
+    write f_Text;
  end;//Tl3SearchNodePrim
 
 implementation
 
-// start class Tl3SearchNodePrim
+uses
+ l3ImplUses
+;
 
 constructor Tl3SearchNodePrim.Create(const aText: Il3CString;
-  const aData: IUnknown);
+ const aData: IUnknown);
 //#UC START# *4E5CEE3601A1_4E5CDE950027_var*
 //#UC END# *4E5CEE3601A1_4E5CDE950027_var*
 begin
@@ -68,6 +55,7 @@ begin
 end;//Tl3SearchNodePrim.Create
 
 procedure Tl3SearchNodePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E5CDE950027_var*
 //#UC END# *479731C50290_4E5CDE950027_var*
 begin
@@ -79,7 +67,6 @@ begin
 end;//Tl3SearchNodePrim.Cleanup
 
 procedure Tl3SearchNodePrim.ClearFields;
- {-}
 begin
  Data := nil;
  Text := nil;

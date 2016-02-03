@@ -153,8 +153,6 @@ _dsDocumentList_ = _dsList_;
 {$Define dsDocumentList_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsDocumentList_;
-
 {$Include dsList.imp.pas}
 
 procedure _dsDocumentList_.GetSortParams;

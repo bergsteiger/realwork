@@ -25,8 +25,6 @@
 
 {$Define l3StandardTypedList_imp_impl}
 
-type _Instance_R_ = _l3StandardTypedList_;
-
 {$Include l3FourByteItemList.imp.pas}
 
 {$If NOT Defined(l3Items_NoSort)}

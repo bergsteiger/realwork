@@ -108,8 +108,6 @@ begin
 //#UC END# *47B99D4503A2_49142D7000F3_impl*
 end;//CompareExistingItems
 
-type _Instance_R_ = _l3EnumList_;
-
 {$Include l3StandardMemTypedList.imp.pas}
 
 {$EndIf l3EnumList_imp_impl}

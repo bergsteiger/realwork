@@ -36,8 +36,6 @@
 
 {$Define dsSituation_imp_impl}
 
-type _Instance_R_ = _dsSituation_;
-
 {$Include dsTagSimpleTree.imp.pas}
 
 {$Include CurrentChangedListener.imp.pas}

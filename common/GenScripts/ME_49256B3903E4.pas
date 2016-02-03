@@ -47,8 +47,6 @@ _dsBaseContents_ = _nsContextFilter_;
 {$Define dsBaseContents_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsBaseContents_;
-
 {$Include dsSimpleTree.imp.pas}
 
 {$Include nsContextFilter.imp.pas}

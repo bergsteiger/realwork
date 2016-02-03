@@ -42,8 +42,6 @@ begin
 //#UC END# *47B94A5C006E_47B99E920196_impl*
 end;//FreeItem
 
-type _Instance_R_ = _l3UncomparabeObjectRefList_;
-
 {$Include l3ObjectRefListPrim.imp.pas}
 
 {$EndIf l3UncomparabeObjectRefList_imp_impl}

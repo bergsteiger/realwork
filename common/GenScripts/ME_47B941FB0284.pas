@@ -29,8 +29,6 @@ begin
 //#UC END# *47B94A5C006E_47B941FB0284_impl*
 end;//FreeItem
 
-type _Instance_R_ = _l3PtrListPrim_;
-
 {$Include l3StandardTypedList.imp.pas}
 
 {$EndIf l3PtrListPrim_imp_impl}

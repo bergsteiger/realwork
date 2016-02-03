@@ -1,47 +1,35 @@
 unit l3LongintListReverseSorter;
+ {* Пример списка, который сортирует исходный список в обратном порядке }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3LongintListReverseSorter.pas"
-// Начат: 08.06.2011 22:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Containers::Tl3LongintListReverseSorter
-//
-// Пример списка, который сортирует исходный список в обратном порядке
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3LongintListReverseSorter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3CustomLongintListView,
-  l3PureMixIns
-  ;
+ l3IntfUses
+ , l3CustomLongintListView
+ , l3PureMixIns
+;
 
 type
  Tl3LongintListReverseSorter = class(Tl3CustomLongintListView)
   {* Пример списка, который сортирует исходный список в обратном порядке }
- protected
- // realized methods
+  protected
    function CompareData(const anItem1: _ItemType_;
-     const anItem2: _ItemType_): Integer; override;
+    const anItem2: _ItemType_): Integer; override;
  end;//Tl3LongintListReverseSorter
 
 implementation
 
-// start class Tl3LongintListReverseSorter
+uses
+ l3ImplUses
+;
 
 function Tl3LongintListReverseSorter.CompareData(const anItem1: _ItemType_;
-  const anItem2: _ItemType_): Integer;
+ const anItem2: _ItemType_): Integer;
 //#UC START# *4DEFB2D90167_4DEFC02E01CF_var*
 //#UC END# *4DEFB2D90167_4DEFC02E01CF_var*
 begin

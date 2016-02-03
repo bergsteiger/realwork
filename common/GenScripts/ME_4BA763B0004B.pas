@@ -56,6 +56,8 @@ function TbsDocPos_C(aType: TDocumentPositionType;
 //#UC START# *4BA782140193_491B329F0330_var*
 //#UC END# *4BA782140193_491B329F0330_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4BA782140193_491B329F0330_impl*
  Result.rRefType := aType;
  Result.rPos := aPos;
@@ -73,6 +75,8 @@ function TbsDocPos_E: TbsDocPos;
 //#UC START# *4BA7822703B2_491B329F0330_var*
 //#UC END# *4BA7822703B2_491B329F0330_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4BA7822703B2_491B329F0330_impl*
  Result := TbsDocPos_C(dptNone, 0);
 //#UC END# *4BA7822703B2_491B329F0330_impl*
@@ -83,6 +87,8 @@ function TbsDocPos_S(aPos: Longword): TbsDocPos;
 //#UC START# *4BA7823901C7_491B329F0330_var*
 //#UC END# *4BA7823901C7_491B329F0330_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4BA7823901C7_491B329F0330_impl*
  Result := TbsDocPos_C(dptSub, aPos);
 //#UC END# *4BA7823901C7_491B329F0330_impl*
@@ -92,6 +98,8 @@ function TbsDocPos_P(const aPos: IeePara): TbsDocPos;
 //#UC START# *4BA789E200FF_491B329F0330_var*
 //#UC END# *4BA789E200FF_491B329F0330_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4BA789E200FF_491B329F0330_impl*
  if (aPos <> nil) then
  begin
@@ -108,6 +116,8 @@ function TbsDocPos_PID(aPos: Longword): TbsDocPos;
 //#UC START# *4C064CB90097_491B329F0330_var*
 //#UC END# *4C064CB90097_491B329F0330_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4C064CB90097_491B329F0330_impl*
  Result := TbsDocPos_C(dptPara, aPos);
 //#UC END# *4C064CB90097_491B329F0330_impl*

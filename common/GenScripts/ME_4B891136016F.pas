@@ -30,8 +30,6 @@ begin
 //#UC END# *47B9BAFD01F4_4B891136016F_impl*
 end;//CompareItemWithData
 
-type _Instance_R_ = _l3DelphiStringSearcherPrim_;
-
 {$Include l3Searcher.imp.pas}
 
 {$EndIf l3DelphiStringSearcherPrim_imp_impl}

@@ -119,6 +119,8 @@ function TnsLongProcessData_C: TnsLongProcessData;
 //#UC START# *4B17B6FA024F_498C7D4301A5_var*
 //#UC END# *4B17B6FA024F_498C7D4301A5_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B17B6FA024F_498C7D4301A5_impl*
  Result.rMessage := aMessage;
  Result.rMessageType := aMessageType;

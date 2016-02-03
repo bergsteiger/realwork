@@ -99,8 +99,8 @@ type
 
  (*
  Mm3StorageIterators = interface
-  procedure IterateIndexedF;
-  procedure IterateAllF;
+  procedure IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
+  procedure IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
  end;//Mm3StorageIterators
  *)
 
@@ -174,8 +174,8 @@ type
    out theStatStg: IEnumStatStg): HResult;
   function Stat(out theStatStg: TStatStg;
    aStatFlag: Integer): HResult;
-  procedure IterateIndexedF;
-  procedure IterateAllF;
+  procedure IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
+  procedure IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
  end;//Im3IndexedStorage
 
  Im3StorageHolder = interface
@@ -212,6 +212,7 @@ function Tm3StoreInfo_C(aPosition: Int64;
 //#UC START# *5451F543029B_47208CA50237_var*
 //#UC END# *5451F543029B_47208CA50237_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5451F543029B_47208CA50237_impl*
  Assert((aType = m3_stNone) OR (aType = m3_stStream) OR (aType = m3_stStorage));
  Assert(aPosition >= -1);
@@ -225,6 +226,8 @@ function Tm3StorageElementInfo_C(const anInfo: Tm3StoreInfo;
 //#UC START# *5451F57B0181_5451F4E50226_var*
 //#UC END# *5451F57B0181_5451F4E50226_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5451F57B0181_5451F4E50226_impl*
  Result.rInfo := anInfo;
  Result.rName := aName;
@@ -247,6 +250,8 @@ function Tm3Store_C(const aStream: IStream): Tm3Store;
 //#UC START# *5452154901F5_545210E8021B_var*
 //#UC END# *5452154901F5_545210E8021B_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5452154901F5_545210E8021B_impl*
  Result.rStream := aStream;
  if (aStream = nil) then
@@ -260,6 +265,8 @@ function Tm3Store_C(const aStorage: Im3IndexedStorage): Tm3Store;
 //#UC START# *5452156A0229_545210E8021B_var*
 //#UC END# *5452156A0229_545210E8021B_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5452156A0229_545210E8021B_impl*
  Result.rStorage := aStorage;
  if (aStorage = nil) then
@@ -273,6 +280,8 @@ function Tm3Store_E: Tm3Store;
 //#UC START# *545221CD0019_545210E8021B_var*
 //#UC END# *545221CD0019_545210E8021B_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *545221CD0019_545210E8021B_impl*
  Result.rResult := E_NoInterface;
 //#UC END# *545221CD0019_545210E8021B_impl*
@@ -282,6 +291,8 @@ function Tm3Store_E(aResult: hResult): Tm3Store;
 //#UC START# *545227580181_545210E8021B_var*
 //#UC END# *545227580181_545210E8021B_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *545227580181_545210E8021B_impl*
  Result.rResult := aResult;
 //#UC END# *545227580181_545210E8021B_impl*

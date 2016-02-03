@@ -208,8 +208,6 @@ begin
 //#UC END# *47BEDF2A02EA_47B433E500BC_impl*
 end;//GetItemSlot
 
-type _Instance_R_ = _l3UntypedList_;
-
 {$Include l3Items.imp.pas}
 
 procedure _l3UntypedList_.Clear;

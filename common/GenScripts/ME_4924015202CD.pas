@@ -33,8 +33,6 @@
 
 {$Define dsTagSimpleTree_imp_impl}
 
-type _Instance_R_ = _dsTagSimpleTree_;
-
 {$Include dsSimpleTree.imp.pas}
 
 procedure _dsTagSimpleTree_.UpdateOperations;

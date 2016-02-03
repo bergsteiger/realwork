@@ -55,6 +55,7 @@ function Tm3WideString_C(const aValue: WideString): Tm3WideString;
 //#UC START# *545B853F0209_545B84B70269_var*
 //#UC END# *545B853F0209_545B84B70269_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *545B853F0209_545B84B70269_impl*
  Result := Tm3WideString_C(PWideChar(aValue), Length(aValue));
 //#UC END# *545B853F0209_545B84B70269_impl*
@@ -65,6 +66,7 @@ function Tm3WideString_C(aValue: PWideChar;
 //#UC START# *545B855D01A3_545B84B70269_var*
 //#UC END# *545B855D01A3_545B84B70269_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *545B855D01A3_545B84B70269_impl*
  Result.rValue := aValue;
  Result.rLength := aLength;

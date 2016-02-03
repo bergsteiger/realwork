@@ -43,8 +43,6 @@ _sdsBaseDrugDocument_ = _sdsBaseDocumentWithAttributes_;
 {$Define sdsBaseDrugDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _sdsBaseDrugDocument_;
-
 {$Include sdsBaseDocumentWithAttributes.imp.pas}
 
 procedure _sdsBaseDrugDocument_.DoOpenDrugInternationalNameSynonims;

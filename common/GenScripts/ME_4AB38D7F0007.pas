@@ -35,6 +35,7 @@ function Tm4DictItemAddr_C: Tm4DictItemAddr;
 //#UC START# *4ABA24E701F2_4ABA246700B4_var*
 //#UC END# *4ABA24E701F2_4ABA246700B4_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4ABA24E701F2_4ABA246700B4_impl*
  Result.rID := anID;
  Result.rDictionaryID := aDictionaryID;

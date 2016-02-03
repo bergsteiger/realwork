@@ -18,8 +18,6 @@
 
 {$Define l3StandardMemTypedList_imp_impl}
 
-type _Instance_R_ = _l3StandardMemTypedList_;
-
 {$Include l3TypedList.imp.pas}
 
 {$EndIf l3StandardMemTypedList_imp_impl}

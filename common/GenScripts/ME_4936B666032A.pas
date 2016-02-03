@@ -59,8 +59,6 @@ _sdsCommonDiction_ = _sdsBaseDocumentWithAttributes_;
 {$Define sdsCommonDiction_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _sdsCommonDiction_;
-
 {$Include sdsBaseDocumentWithAttributes.imp.pas}
 
 procedure _sdsCommonDiction_.BeforeAssignDocument(const aDoc: IdeDocInfo);

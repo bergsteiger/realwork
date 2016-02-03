@@ -88,8 +88,6 @@ begin
 //#UC END# *47B94A5C006E_47B992F60244_impl*
 end;//FreeItem
 
-type _Instance_R_ = _l3UnrefcountedList_;
-
 {$Include l3StandardTypedList.imp.pas}
 
 //#UC START# *47B992F60244impl*

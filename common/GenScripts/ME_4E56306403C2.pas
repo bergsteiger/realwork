@@ -55,6 +55,8 @@ function TevSearcherAndReplacerPair_C(const aSearcher: IevSearcher;
 //#UC START# *4E56313900E0_4E5630E20149_var*
 //#UC END# *4E56313900E0_4E5630E20149_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4E56313900E0_4E5630E20149_impl*
  Result.rSearcher := aSearcher;
  Result.rReplacer := aReplacer;

@@ -109,8 +109,6 @@ _dsBaseDocumentPrim_ = _UnderControlBehaviour_;
 {$Define dsBaseDocumentPrim_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsBaseDocumentPrim_;
-
 {$Include vcmFormDataSource.imp.pas}
 
 {$Include UnderControlBehaviour.imp.pas}

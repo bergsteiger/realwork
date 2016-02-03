@@ -23,8 +23,9 @@ type
 
  (*
  IntegerIterator = interface
-  procedure ForEachF;
-  procedure ForOneF;
+  procedure ForEachF(anAction: IntegerIterator_ForEachF_Action);
+  procedure ForOneF(anAction: IntegerIterator_ForOneF_Action;
+   anIndex: Integer);
  end;//IntegerIterator
  *)
 
@@ -43,8 +44,9 @@ type
    procedure Add(anItem: Integer);
    procedure Remove(anItem: Integer);
    procedure Clear;
-   procedure ForEachF;
-   procedure ForOneF;
+   procedure ForEachF(anAction: IntegerIterator_ForEachF_Action);
+   procedure ForOneF(anAction: IntegerIterator_ForOneF_Action;
+    anIndex: Integer);
   protected
    property Items: Tl3ProtoIntegerList
     read f_Items;
@@ -128,7 +130,7 @@ begin
 //#UC END# *53A84920013D_53A2C7AA03BF_impl*
 end;//Tl3MultiThreadIntegerList.Clear
 
-procedure Tl3MultiThreadIntegerList.ForEachF;
+procedure Tl3MultiThreadIntegerList.ForEachF(anAction: IntegerIterator_ForEachF_Action);
 //#UC START# *53A2C89B0302_53A2C7AA03BF_var*
 
  function DoIt(aData : PInteger; anIndex : Integer) : Boolean;
@@ -154,7 +156,8 @@ begin
 //#UC END# *53A2C89B0302_53A2C7AA03BF_impl*
 end;//Tl3MultiThreadIntegerList.ForEachF
 
-procedure Tl3MultiThreadIntegerList.ForOneF;
+procedure Tl3MultiThreadIntegerList.ForOneF(anAction: IntegerIterator_ForOneF_Action;
+ anIndex: Integer);
 //#UC START# *53A84EAD0005_53A2C7AA03BF_var*
 var
  Hack : Pointer absolute anAction;

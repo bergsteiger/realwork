@@ -19,8 +19,6 @@
 
 {$Define l3AtomicListPrim_imp_impl}
 
-type _Instance_R_ = _l3AtomicListPrim_;
-
 {$Include l3UnrefcountedList.imp.pas}
 
 {$EndIf l3AtomicListPrim_imp_impl}

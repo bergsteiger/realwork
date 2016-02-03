@@ -50,6 +50,8 @@ function TnsContextFilterData_C: TnsContextFilterData;
 //#UC START# *4B1663ED0181_4B16636E01DF_var*
 //#UC END# *4B1663ED0181_4B16636E01DF_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4B1663ED0181_4B16636E01DF_impl*
  Result.rHandle := aHandle;
  Result.rContext := aContext;

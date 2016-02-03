@@ -31,8 +31,6 @@ begin
 //#UC END# *47B9BAFD01F4_4B8919220120_impl*
 end;//CompareItemWithData
 
-type _Instance_R_ = _l3ObjectByHandleSearcher_;
-
 {$Include l3Searcher.imp.pas}
 
 {$EndIf l3ObjectByHandleSearcher_imp_impl}

@@ -27,8 +27,6 @@ begin
 //#UC END# *5304D6C5002B_53036F2101D3_impl*
 end;//ItemToWStr
 
-type _Instance_R_ = _l3Dictionary_;
-
 {$Include l3DictionaryPrim.imp.pas}
 
 {$EndIf l3Dictionary_imp_impl}

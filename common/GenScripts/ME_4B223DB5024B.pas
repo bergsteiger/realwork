@@ -30,8 +30,6 @@ begin
 end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-type _Instance_R_ = _l3RecordWithEQList_;
-
 {$Include l3RecordListPrim.imp.pas}
 
 {$EndIf l3RecordWithEQList_imp_impl}

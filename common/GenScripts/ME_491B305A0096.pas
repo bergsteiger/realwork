@@ -789,6 +789,7 @@ function TnsContentsListIndex_C(aListType: TnsContentsListType;
 //#UC START# *4D41890002DF_4D4188BD030B_var*
 //#UC END# *4D41890002DF_4D4188BD030B_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4D41890002DF_4D4188BD030B_impl*
  Result.rListType := aListType;
  Result.rIndex := anIndex;

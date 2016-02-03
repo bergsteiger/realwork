@@ -62,8 +62,6 @@ begin
 //#UC END# *47B99D4503A2_47B57B7800A7_impl*
 end;//CompareExistingItems
 
-type _Instance_R_ = _l3ObjectPtrList_;
-
 {$Include l3PtrList.imp.pas}
 
 {$EndIf l3ObjectPtrList_imp_impl}

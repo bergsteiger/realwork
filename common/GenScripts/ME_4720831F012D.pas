@@ -288,6 +288,7 @@ function Tm3DBDocumentInfo_C: Tm3DBDocumentInfo;
 //#UC START# *49C28081033C_4725D0080104_var*
 //#UC END# *49C28081033C_4725D0080104_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *49C28081033C_4725D0080104_impl*
  Result.rIndexID := aIndexID;
 //#UC END# *49C28081033C_4725D0080104_impl*
@@ -298,6 +299,7 @@ function Tm3DBStreamIndex_C: Tm3DBStreamIndex;
 //#UC START# *49BFC737039A_4725D1E4005E_var*
 //#UC END# *49BFC737039A_4725D1E4005E_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *49BFC737039A_4725D1E4005E_impl*
  Result.rID := anID;
  Result.rPart := aPart;
@@ -309,6 +311,7 @@ function Tm3DBStreamIndexEx_C: Tm3DBStreamIndexEx;
 //#UC START# *49BFD0280183_49BFCF61009F_var*
 //#UC END# *49BFD0280183_49BFCF61009F_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *49BFD0280183_49BFCF61009F_impl*
  Result{$IfDef XE4}.rTm3DBStreamIndex{$EndIf}.rID := anID.rID;
  Result{$IfDef XE4}.rTm3DBStreamIndex{$EndIf}.rPart := anID.rPart;
@@ -322,6 +325,7 @@ function Tm3DBStreamIndexEx_CV: Tm3DBStreamIndexEx;
 //#UC START# *49BFDB980033_49BFCF61009F_var*
 //#UC END# *49BFDB980033_49BFCF61009F_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *49BFDB980033_49BFCF61009F_impl*
  Result := Tm3DBStreamIndexEx_C(anID, aPart);
  Result.rVersion := aVersion;

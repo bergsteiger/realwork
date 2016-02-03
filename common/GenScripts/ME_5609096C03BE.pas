@@ -25,8 +25,6 @@ type
 
 {$Define l3Map_imp_impl}
 
-type _Instance_R_ = _l3Map_;
-
 {$Include l3MapPrim.imp.pas}
 
 //#UC START# *5609096C03BEimpl*

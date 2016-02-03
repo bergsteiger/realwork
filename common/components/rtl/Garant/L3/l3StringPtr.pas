@@ -1,61 +1,44 @@
 unit l3StringPtr;
+ {* Строка, не владеющая своими данными }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3StringPtr.pas"
-// Начат: 24.09.2009 15:43
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::Containers::Tl3StringPtr
-//
-// Строка, не владеющая своими данными
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StringPtr.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Variant,
-  l3Types
-  ;
+ l3IntfUses
+ , l3Variant
+ , l3Interfaces
+ , l3Types
+;
 
 type
  Tl3StringPtr = class(Tl3PrimString)
   {* Строка, не владеющая своими данными }
- private
- // private fields
-   f_Str : Tl3WString;
- protected
- // overridden protected methods
+  private
+   f_Str: Tl3WString;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
- public
- // public methods
+  public
    constructor Create(const aStr: Tl3WString); reintroduce;
  end;//Tl3StringPtr
 
 implementation
 
 uses
-  l3String
-  ;
-
-// start class Tl3StringPtr
+ l3ImplUses
+ , l3String
+;
 
 constructor Tl3StringPtr.Create(const aStr: Tl3WString);
 //#UC START# *4ABB5C98013B_4ABB5B2603B1_var*
@@ -68,6 +51,7 @@ begin
 end;//Tl3StringPtr.Create
 
 procedure Tl3StringPtr.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ABB5B2603B1_var*
 //#UC END# *479731C50290_4ABB5B2603B1_var*
 begin
@@ -77,8 +61,9 @@ begin
 //#UC END# *479731C50290_4ABB5B2603B1_impl*
 end;//Tl3StringPtr.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3StringPtr.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4ABB5B2603B1_var*
 //#UC END# *47A6FEE600FC_4ABB5B2603B1_var*
 begin
@@ -86,7 +71,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4ABB5B2603B1_impl*
 end;//Tl3StringPtr.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function Tl3StringPtr.GetAsPCharLen: Tl3WString;
 //#UC START# *47A869BB02DE_4ABB5B2603B1_var*

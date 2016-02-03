@@ -25,8 +25,6 @@ begin
 //#UC END# *5304D6C5002B_5304D68D03B2_impl*
 end;//ItemToWStr
 
-type _Instance_R_ = _l3DelphiStringSearcher_;
-
 {$Include l3DelphiStringSearcherPrim.imp.pas}
 
 {$EndIf l3DelphiStringSearcher_imp_impl}

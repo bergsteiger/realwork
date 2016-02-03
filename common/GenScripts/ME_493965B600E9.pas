@@ -32,8 +32,6 @@ _dMedicFirmDocument_ = _dBaseDocumentWithAttributes_;
 {$Define dMedicFirmDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dMedicFirmDocument_;
-
 {$Include dBaseDocumentWithAttributes.imp.pas}
 
 function _dMedicFirmDocument_.pm_GetdsDrugListRef: IvcmFormDataSourceRef;

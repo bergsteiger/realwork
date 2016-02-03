@@ -132,6 +132,8 @@ function Tl3Message_C(const aString: Tl3StringIDEx;
 //#UC START# *4E0A09990038_4E08A63701DB_var*
 //#UC END# *4E0A09990038_4E08A63701DB_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4E0A09990038_4E08A63701DB_impl*
  Result := Tl3Message_C(aString.AsCStr, aString.rKey, aType);
 //#UC END# *4E0A09990038_4E08A63701DB_impl*
@@ -145,6 +147,8 @@ function Tl3Message_C(const aString: Il3CString;
 //#UC START# *4E0A10B2022E_4E08A63701DB_var*
 //#UC END# *4E0A10B2022E_4E08A63701DB_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4E0A10B2022E_4E08A63701DB_impl*
  Result.rData.rDlgType := aType;
  if (Result.rData.rDlgType = mtConfirmation) then
@@ -167,6 +171,8 @@ function Tl3Message_C(const aString: Il3CString;
 //#UC START# *4E0A1B0E03A6_4E08A63701DB_var*
 //#UC END# *4E0A1B0E03A6_4E08A63701DB_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4E0A1B0E03A6_4E08A63701DB_impl*
  Result := Tl3Message_C(aString, aKey, aType);
  Result.rData.rButtons := aButtons;
@@ -181,6 +187,8 @@ function Tl3Message_C(const aString: Tl3StringIDEx;
 //#UC START# *4E0A1C590137_4E08A63701DB_var*
 //#UC END# *4E0A1C590137_4E08A63701DB_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4E0A1C590137_4E08A63701DB_impl*
  Result := Tl3Message_C(aString, aType);
  Result.rData.rButtons := aButtons;
@@ -192,6 +200,8 @@ function Tl3Message_C(const anID: Tl3MessageID): Tl3Message;
 //#UC START# *4E08A68B0019_4E0B04C801EC_var*
 //#UC END# *4E08A68B0019_4E0B04C801EC_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4E08A68B0019_4E0B04C801EC_impl*
  Result.rData := anID.rData;
  Result.rName := anID.rKey;

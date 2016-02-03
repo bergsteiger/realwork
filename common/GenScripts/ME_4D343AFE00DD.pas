@@ -60,6 +60,7 @@ function TnscTasksPanelGroupDesc_C(aCaption: Pl3StringIDEx;
 //#UC START# *4D34323402E0_4D34320903B4_var*
 //#UC END# *4D34323402E0_4D34320903B4_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4D34323402E0_4D34320903B4_impl*
  Result.rCaption := aCaption;
  Result.rControl := aControl;

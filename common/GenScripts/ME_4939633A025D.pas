@@ -42,8 +42,6 @@ _sdsMedicFirmDocument_ = _sdsBaseDocumentWithAttributes_;
 {$Define sdsMedicFirmDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _sdsMedicFirmDocument_;
-
 {$Include sdsBaseDocumentWithAttributes.imp.pas}
 
 function _sdsMedicFirmDocument_.NeedMakeDrugList: Boolean;

@@ -77,6 +77,8 @@ function Tl3GUID_C: Tl3GUID;
 //#UC START# *4942795A0282_478CF8F202C7_var*
 //#UC END# *4942795A0282_478CF8F202C7_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4942795A0282_478CF8F202C7_impl*
  Result.IID := anIID;
 //#UC END# *4942795A0282_478CF8F202C7_impl*
@@ -86,6 +88,7 @@ function Tl3HResult_C: Tl3HResult;
 //#UC START# *49427EEF0016_49427DEE015B_var*
 //#UC END# *49427EEF0016_49427DEE015B_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *49427EEF0016_49427DEE015B_impl*
  Result.f_Res := aRes;
 //#UC END# *49427EEF0016_49427DEE015B_impl*

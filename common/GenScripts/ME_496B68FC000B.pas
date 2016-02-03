@@ -39,8 +39,6 @@ _SearcheableText_ = _BaseSearchPresentation_;
 {$Define SearcheableText_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _SearcheableText_;
-
 {$Include PrimText.imp.pas}
 
 {$Include BaseSearchPresentation.imp.pas}

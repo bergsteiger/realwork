@@ -52,8 +52,6 @@ begin
 //#UC END# *47B99D4503A2_542179C40347_impl*
 end;//CompareExistingItems
 
-type _Instance_R_ = _m3AutoAllocList_;
-
 {$Include l3UncomparabeObjectRefList.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}

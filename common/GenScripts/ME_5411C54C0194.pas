@@ -129,6 +129,8 @@ function Tm3LockedRegion_C(aForRead: Boolean;
 //#UC START# *5450E3910297_5450E35203B6_var*
 //#UC END# *5450E3910297_5450E35203B6_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *5450E3910297_5450E35203B6_impl*
  Result.rForRead := aForRead;
  Result.rRegion := aRegion;

@@ -28,8 +28,6 @@ begin
 //#UC END# *47B935AF0066_4A6FFCC00354_impl*
 end;//FillItem
 
-type _Instance_R_ = _l3InterfacePtrListPrim_;
-
 {$Include l3PtrListPrim.imp.pas}
 
 {$EndIf l3InterfacePtrListPrim_imp_impl}

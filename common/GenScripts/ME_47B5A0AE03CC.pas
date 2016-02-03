@@ -29,8 +29,6 @@ begin
 end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-type _Instance_R_ = _l3ObjectRefListPrim_;
-
 {$Include l3RefList.imp.pas}
 
 {$EndIf l3ObjectRefListPrim_imp_impl}

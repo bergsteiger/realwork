@@ -46,8 +46,6 @@ begin
 //#UC END# *47B94A5C006E_47B9AF6E0228_impl*
 end;//FreeItem
 
-type _Instance_R_ = _l3InterfaceRefListPrim_;
-
 {$Include l3RefList.imp.pas}
 
 {$EndIf l3InterfaceRefListPrim_imp_impl}

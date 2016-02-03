@@ -48,8 +48,6 @@ begin
 //#UC END# *47B5C4080270_47B5C2EA02CB_impl*
 end;//DoExchange
 
-type _Instance_R_ = _l3FourByteItemList_;
-
 {$Include l3TypedList.imp.pas}
 
 {$EndIf l3FourByteItemList_imp_impl}

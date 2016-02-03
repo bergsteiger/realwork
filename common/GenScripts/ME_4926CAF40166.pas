@@ -25,8 +25,6 @@ _dsBaseDocument_ = _dsBaseDocumentPrim_;
 {$Define dsBaseDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsBaseDocument_;
-
 {$Include dsBaseDocumentPrim.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

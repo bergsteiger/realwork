@@ -43,8 +43,6 @@ _dBaseDocument_ = _vcmData_;
 {$Define dBaseDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dBaseDocument_;
-
 {$Include vcmData.imp.pas}
 
 function _dBaseDocument_.pm_GetdsDocumentRef: IvcmFormDataSourceRef;

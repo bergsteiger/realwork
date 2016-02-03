@@ -122,8 +122,6 @@ _dDocInfo_ = _dBaseDocumentWithAttributes_;
 {$Define dDocInfo_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dDocInfo_;
-
 {$Include dBaseDocumentWithAttributes.imp.pas}
 
 function _dDocInfo_.pm_GetdsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;

@@ -127,8 +127,8 @@ type
     out theManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; override;
    class function OpenFromManager(anAccess: Tm3StoreAccess;
     aManager: Tm3RootStreamManagerPrim): Im3IndexedStorage; override;
-   procedure IterateIndexedF;
-   procedure IterateAllF;
+   procedure IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
+   procedure IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
  end;//Tm3CustomNewStorage
 
 implementation
@@ -1100,7 +1100,7 @@ begin
 //#UC END# *5452222303C7_5451095F00E9_impl*
 end;//Tm3CustomNewStorage.CopyFrom
 
-procedure Tm3CustomNewStorage.IterateIndexedF;
+procedure Tm3CustomNewStorage.IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
 //#UC START# *545255C003CB_5451095F00E9_var*
 
  function IterateStream(const aStream : IStream;
@@ -1192,7 +1192,7 @@ begin
 //#UC END# *545255C003CB_5451095F00E9_impl*
 end;//Tm3CustomNewStorage.IterateIndexedF
 
-procedure Tm3CustomNewStorage.IterateAllF;
+procedure Tm3CustomNewStorage.IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
 //#UC START# *54525E3A02BF_5451095F00E9_var*
 
 var

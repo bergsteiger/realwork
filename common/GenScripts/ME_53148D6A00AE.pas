@@ -36,8 +36,6 @@ type
 
 {$Define l3DictionaryPrimPrim_imp_impl}
 
-type _Instance_R_ = _l3DictionaryPrimPrim_;
-
 {$Include l3DelphiStringSearcherPrim.imp.pas}
 
 procedure _l3DictionaryPrimPrim_.pm_SetDefault(const aValue: _StringType_);

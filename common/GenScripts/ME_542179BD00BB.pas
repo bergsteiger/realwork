@@ -19,8 +19,6 @@
 
 {$Define m3PersistentList_imp_impl}
 
-type _Instance_R_ = _m3PersistentList_;
-
 {$Include m3ListWithFind.imp.pas}
 
 procedure _m3PersistentList_.LoadFromStream(const aStream: IStream;

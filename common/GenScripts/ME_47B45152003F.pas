@@ -154,8 +154,6 @@ begin
 //#UC END# *47B9BAFD01F4_47B45152003F_impl*
 end;//CompareItemWithData
 
-type _Instance_R_ = _l3Items_;
-
 {$Include l3Sortable.imp.pas}
 
 {$Include l3Searcher.imp.pas}

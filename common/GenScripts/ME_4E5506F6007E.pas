@@ -44,8 +44,6 @@ begin
 //#UC END# *47B935AF0066_4E5506F6007E_impl*
 end;//FillItem
 
-type _Instance_R_ = _l3RecordListPrimPrim_;
-
 {$Include l3StandardMemTypedList.imp.pas}
 
 {$EndIf l3RecordListPrimPrim_imp_impl}

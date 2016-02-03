@@ -1,37 +1,27 @@
 {$IfNDef l3OtherTypedListView_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3OtherTypedListView.imp.pas"
-// Начат: 08.06.2011 22:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Containers::l3OtherTypedListView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3OtherTypedListView.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3OtherTypedListView_imp}
- {$Include ..\L3\l3OtherListView.imp.pas}
- _l3OtherTypedListView_ = {mixin} class(_l3OtherListView_)
- protected
- // property methods
+
+ {$Include l3OtherListView.imp.pas}
+ _l3OtherTypedListView_ = class(_l3OtherListView_)
+  protected
    function pm_GetItems(anIndex: Integer): _ItemType_;
- public
- // public properties
+  public
    property Items[anIndex: Integer]: _ItemType_
-     read pm_GetItems;
-     default;
+    read pm_GetItems;
+    default;
  end;//_l3OtherTypedListView_
 
 {$Else l3OtherTypedListView_imp}
 
-{$Include ..\L3\l3OtherListView.imp.pas}
+{$IfNDef l3OtherTypedListView_imp_impl}
 
-// start class _l3OtherTypedListView_
+{$Define l3OtherTypedListView_imp_impl}
+
+{$Include l3OtherListView.imp.pas}
 
 function _l3OtherTypedListView_.pm_GetItems(anIndex: Integer): _ItemType_;
 //#UC START# *4DEFC3FF0116_4DEFC3B90061get_var*
@@ -46,4 +36,7 @@ begin
 //#UC END# *4DEFC3FF0116_4DEFC3B90061get_impl*
 end;//_l3OtherTypedListView_.pm_GetItems
 
+{$EndIf l3OtherTypedListView_imp_impl}
+
 {$EndIf l3OtherTypedListView_imp}
+

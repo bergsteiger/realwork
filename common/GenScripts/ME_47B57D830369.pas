@@ -61,8 +61,6 @@ begin
 //#UC END# *47B99D4503A2_47B57D830369_impl*
 end;//CompareExistingItems
 
-type _Instance_R_ = _l3InterfaceRefList_;
-
 {$Include l3InterfaceRefListPrim.imp.pas}
 
 {$EndIf l3InterfaceRefList_imp_impl}

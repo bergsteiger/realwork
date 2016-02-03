@@ -32,6 +32,8 @@ function TnsGetGenOutputStruct_Create(const aStream: IStream): TnsGetGenOutputSt
 //#UC START# *512CD7E60330_512CD73E01E6_var*
 //#UC END# *512CD7E60330_512CD73E01E6_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *512CD7E60330_512CD73E01E6_impl*
  Result.rStream := aStream;
 //#UC END# *512CD7E60330_512CD73E01E6_impl*
@@ -41,6 +43,8 @@ function TnsGetGenOutputStruct_Create(const aName: Il3CString): TnsGetGenOutputS
 //#UC START# *512CD80201BC_512CD73E01E6_var*
 //#UC END# *512CD80201BC_512CD73E01E6_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *512CD80201BC_512CD73E01E6_impl*
  Result.rName := aName;
 //#UC END# *512CD80201BC_512CD73E01E6_impl*

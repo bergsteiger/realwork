@@ -97,8 +97,6 @@ const
  ns_UpdateTime = 100;
   {* время с момента обновления текущего после которого можно снова обновлять связанное представление }
 
-type _Instance_R_ = _dsSimpleTree_;
-
 {$Include vcmFormDataSource.imp.pas}
 
 function _dsSimpleTree_.pm_GetUpdateCurrentTimer: TTimer;

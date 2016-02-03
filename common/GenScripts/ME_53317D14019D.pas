@@ -287,8 +287,18 @@ type
   function Get_ChildrenCount: Integer;
   function pm_GetChild(anIndex: Integer): Tl3Variant;
   procedure Set_ChildrenCapacity(aValue: Integer);
-  procedure IterateChildrenF;
-  procedure IterateChildrenBack;
+  function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aLoadedOnly: Boolean = False): Integer;
   function AddChild(aChild: Tl3Variant;
    const aContext: Il3OpPack = nil): Integer;
    {* добавить ребенка. }
@@ -550,7 +560,11 @@ type
   procedure pm_SetAttrW(anIndex: Integer;
    const aContext: Il3OpPack;
    aValue: Tl3Variant);
-  procedure IterateProperties;
+  procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
+   anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+   {* перебирает все существующие свойства }
+  procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
+   anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
    {* перебирает все существующие свойства }
   property AttrW[anIndex: Integer; const aContext: Il3OpPack]: Tl3Variant
    write pm_SetAttrW;
@@ -737,9 +751,23 @@ type
    procedure DoLoad;
    procedure ForceStore;
    function MarkModified: Boolean;
-   procedure IterateChildrenF;
-   procedure IterateChildrenBack;
-   procedure IterateProperties;
+   function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
+    aLo: Tl3Index = l3Interfaces.l3MinIndex;
+    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+    aLoadedOnly: Boolean = False): Integer;
+   function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
+    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+    aLo: Tl3Index = l3Interfaces.l3MinIndex;
+    aLoadedOnly: Boolean = False): Integer;
+   function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
+    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+    aLo: Tl3Index = l3Interfaces.l3MinIndex;
+    aLoadedOnly: Boolean = False): Integer;
+   procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
+    anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+    {* перебирает все существующие свойства }
+   procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
+    anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
     {* перебирает все существующие свойства }
    function rLong(anIndex: Integer;
     aDefault: Integer): Integer;
@@ -964,8 +992,18 @@ type
    const aContext: Il3OpPack;
    aValue: Tl3Variant);
   function IsOrd: Boolean;
-  procedure IterateChildrenF;
-  procedure IterateChildrenBack;
+  function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
+   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aLoadedOnly: Boolean = False): Integer;
   function AddChild(aChild: Tl3Variant;
    const aContext: Il3OpPack = nil): Integer;
    {* добавить ребенка. }
@@ -1024,7 +1062,11 @@ type
    {* возвращает интерфейс Ќ≈ѕќ—–≈ƒ—“¬≈ЌЌќ поддерживаемый реализацией инструмента. }
   function Box: Tl3Variant;
    {* ссылка на тег - дл€ сохранени€. }
-  procedure IterateProperties;
+  procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
+   anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+   {* перебирает все существующие свойства }
+  procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
+   anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
    {* перебирает все существующие свойства }
   property ChildrenCount: Integer
    read Get_ChildrenCount;
@@ -2296,7 +2338,10 @@ begin
 //#UC END# *4A6475C4026D_532031160122set_impl*
 end;//Tl3Variant.Set_Owner
 
-procedure Tl3Variant.IterateChildrenF;
+function Tl3Variant.IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
+ aLo: Tl3Index = l3Interfaces.l3MinIndex;
+ aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+ aLoadedOnly: Boolean = False): Integer;
 //#UC START# *4BB21F9D022F_532031160122_var*
 //#UC END# *4BB21F9D022F_532031160122_var*
 begin
@@ -2305,7 +2350,10 @@ begin
 //#UC END# *4BB21F9D022F_532031160122_impl*
 end;//Tl3Variant.IterateChildrenF
 
-procedure Tl3Variant.IterateChildrenBack;
+function Tl3Variant.IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
+ aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+ aLo: Tl3Index = l3Interfaces.l3MinIndex;
+ aLoadedOnly: Boolean = False): Integer;
 //#UC START# *4BBF49EB0260_532031160122_var*
 //#UC END# *4BBF49EB0260_532031160122_var*
 begin
@@ -2314,7 +2362,22 @@ begin
 //#UC END# *4BBF49EB0260_532031160122_impl*
 end;//Tl3Variant.IterateChildrenBack
 
-procedure Tl3Variant.IterateProperties;
+function Tl3Variant.IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
+ aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+ aLo: Tl3Index = l3Interfaces.l3MinIndex;
+ aLoadedOnly: Boolean = False): Integer;
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  Result := IterateChildrenBack(anAction, aHi, aLo, aLoadedOnly);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//Tl3Variant.IterateChildrenBackF
+
+procedure Tl3Variant.IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
+ anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
  {* перебирает все существующие свойства }
 //#UC START# *4BC31A730293_532031160122_var*
 //#UC END# *4BC31A730293_532031160122_var*
@@ -2323,6 +2386,19 @@ begin
  DoIterateProperties(anAction, anAll);
 //#UC END# *4BC31A730293_532031160122_impl*
 end;//Tl3Variant.IterateProperties
+
+procedure Tl3Variant.IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
+ anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+ {* перебирает все существующие свойства }
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  IterateProperties(anAction, anAll);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//Tl3Variant.IteratePropertiesF
 
 function Tl3Variant.rLong(anIndex: Integer;
  aDefault: Integer): Integer;

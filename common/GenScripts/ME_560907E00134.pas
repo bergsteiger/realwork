@@ -50,6 +50,8 @@ function Tl3KeyValuePair_C(const aKey: _KeyType_;
 //#UC START# *560909B400E6_5609089D0006_var*
 //#UC END# *560909B400E6_5609089D0006_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *560909B400E6_5609089D0006_impl*
  Result.rKey := aKey;
  Result.rValue := aValue;
@@ -60,6 +62,8 @@ function Tl3KeyValuePair_ForFind(const aKey: _KeyType_): Tl3KeyValuePair;
 //#UC START# *560909D5014E_5609089D0006_var*
 //#UC END# *560909D5014E_5609089D0006_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *560909D5014E_5609089D0006_impl*
  Result.rKey := aKey;
 //#UC END# *560909D5014E_5609089D0006_impl*
@@ -106,8 +110,6 @@ begin
  Result := CompareKeys(CI.rA^.rKey, CI.rB^.rKey);
 //#UC END# *47B99D4503A2_560907E00134_impl*
 end;//CompareExistingItems
-
-type _Instance_R_ = _l3MapPrim_;
 
 {$Include l3RecordListPrim.imp.pas}
 

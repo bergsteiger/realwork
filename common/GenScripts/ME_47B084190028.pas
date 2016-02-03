@@ -58,8 +58,6 @@ begin
 //#UC END# *47B48A510176_47B084190028_impl*
 end;//MoveItems
 
-type _Instance_R_ = _l3TypedList_;
-
 {$Include l3TypedListPrim.imp.pas}
 
 function _l3TypedList_.pm_GetItems(anIndex: Integer): _ItemType_;

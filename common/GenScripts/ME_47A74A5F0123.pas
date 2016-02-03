@@ -142,8 +142,6 @@ begin
 //#UC END# *47BEDF2A02EA_47A74A5F0123_impl*
 end;//GetItemSlot
 
-type _Instance_R_ = _l3TypedListPrim_;
-
 {$Include l3Items.imp.pas}
 
 function _l3TypedListPrim_.pm_GetLast: _ItemType_;

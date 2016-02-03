@@ -17,8 +17,6 @@
 
 {$Define l3RefList_imp_impl}
 
-type _Instance_R_ = _l3RefList_;
-
 {$Include l3StandardTypedList.imp.pas}
 
 {$EndIf l3RefList_imp_impl}

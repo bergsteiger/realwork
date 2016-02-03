@@ -40,8 +40,6 @@ _sdsBaseDocumentWithAttributes_ = _sdsBaseDocument_;
 {$Define sdsBaseDocumentWithAttributes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _sdsBaseDocumentWithAttributes_;
-
 {$Include sdsBaseDocument.imp.pas}
 
 procedure _sdsBaseDocumentWithAttributes_.DoOpenAttributes;

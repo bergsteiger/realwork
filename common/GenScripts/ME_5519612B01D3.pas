@@ -19,7 +19,8 @@ type
   public
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   procedure IterateF;
+   procedure IterateF(anAction: MIterateableService_IterateF_Action;
+    anOwner: TComponent);
    class function Instance: TIterateableServiceImpl;
     {* Метод получения экземпляра синглетона TIterateableServiceImpl }
  end;//TIterateableServiceImpl
@@ -50,7 +51,8 @@ begin
  Result := g_TIterateableServiceImpl <> nil;
 end;//TIterateableServiceImpl.Exists
 
-procedure TIterateableServiceImpl.IterateF;
+procedure TIterateableServiceImpl.IterateF(anAction: MIterateableService_IterateF_Action;
+ anOwner: TComponent);
 //#UC START# *A44911B9A95D_551961470035_var*
 var
  Hack : Pointer absolute anAction;

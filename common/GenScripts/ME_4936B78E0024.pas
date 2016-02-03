@@ -39,8 +39,6 @@ _dCommonDiction_ = _dBaseDocumentWithAttributes_;
 {$Define dCommonDiction_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dCommonDiction_;
-
 {$Include dBaseDocumentWithAttributes.imp.pas}
 
 class function _dCommonDiction_.Make: IdCommonDiction;

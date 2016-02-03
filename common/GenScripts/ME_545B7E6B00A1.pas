@@ -24,8 +24,6 @@ type
 
 {$Define m3ListWithFind_imp_impl}
 
-type _Instance_R_ = _m3ListWithFind_;
-
 {$Include m3AutoAllocList.imp.pas}
 
 function _m3ListWithFind_.FindItemByKey(const aKey: _KeyType_;

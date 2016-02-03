@@ -51,8 +51,6 @@ type
   {* еръ }
  end;//THackIndex
 
-type _Instance_R_ = _l3DictionaryPrim_;
-
 {$Include l3DictionaryPrimPrim.imp.pas}
 
 function _l3DictionaryPrim_.pm_GetDRByID(anID: Integer): _StringType_;

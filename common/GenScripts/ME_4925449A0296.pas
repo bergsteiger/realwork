@@ -57,8 +57,6 @@ _dsCommonDiction_ = _dsSimpleTree_;
 {$Define dsCommonDiction_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsCommonDiction_;
-
 {$Include dsSimpleTree.imp.pas}
 
 procedure _dsCommonDiction_.DictionNotify(const aNotifier: IbsCommonDictionListener);

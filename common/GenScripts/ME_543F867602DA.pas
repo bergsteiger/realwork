@@ -34,6 +34,7 @@ function Tm3FileRegion_C(aPosition: Int64;
 //#UC START# *543F86F900D9_543F8693032B_var*
 //#UC END# *543F86F900D9_543F8693032B_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *543F86F900D9_543F8693032B_impl*
  Assert(aPosition >= 0);
  Assert(aSize > 0);

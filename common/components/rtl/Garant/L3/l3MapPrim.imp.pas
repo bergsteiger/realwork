@@ -1,66 +1,84 @@
 {$IfNDef l3MapPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3MapPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Containers::l3MapPrim
-//
-// Словарь (ключ-значение)
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3MapPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3MapPrim_imp}
- Tl3KeyValuePair = {$IfDef XE4}record{$Else}object{$EndIf}
+
+type
+ // _KeyType_
+
+ // _ValueType_
+
+ Tl3KeyValuePair = object
   {* Пара ключ-значение }
- public
-   rKey : _KeyType_;
-   rValue : _ValueType_;
+  public
+   rKey: _KeyType_;
+   rValue: _ValueType_;
  end;//Tl3KeyValuePair
 
  PValueType = ^_ValueType_;
 
  _ItemType_ = Tl3KeyValuePair;
  _l3RecordListPrim_Parent_ = _l3MapPrim_Parent_;
- {$Include ..\L3\l3RecordListPrim.imp.pas}
- _l3MapPrim_ = {abstract mixin} class(_l3RecordListPrim_)
+ {$Include l3RecordListPrim.imp.pas}
+ _l3MapPrim_ = {abstract} class(_l3RecordListPrim_)
   {* Словарь (ключ-значение) }
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    function Has(const aKey: _KeyType_): Boolean;
    procedure Add(const aKey: _KeyType_;
-     const aValue: _ValueType_);
+    const aValue: _ValueType_);
    function ValueByKey(const aKey: _KeyType_): _ValueType_;
    function ValueSlotByKey(const aKey: _KeyType_): PValueType;
    function IndexByKey(const aKey: _KeyType_): Integer;
  end;//_l3MapPrim_
 
 function Tl3KeyValuePair_C(const aKey: _KeyType_;
-     const aValue: _ValueType_): Tl3KeyValuePair;
+ const aValue: _ValueType_): Tl3KeyValuePair;
 function Tl3KeyValuePair_ForFind(const aKey: _KeyType_): Tl3KeyValuePair;
 
 {$Else l3MapPrim_imp}
 
-// start class _l3MapPrim_
+{$IfNDef l3MapPrim_imp_impl}
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$Define l3MapPrim_imp_impl}
+
+function Tl3KeyValuePair_C(const aKey: _KeyType_;
+ const aValue: _ValueType_): Tl3KeyValuePair;
+//#UC START# *560909B400E6_5609089D0006_var*
+//#UC END# *560909B400E6_5609089D0006_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *560909B400E6_5609089D0006_impl*
+ Result.rKey := aKey;
+ Result.rValue := aValue;
+//#UC END# *560909B400E6_5609089D0006_impl*
+end;//Tl3KeyValuePair_C
+
+function Tl3KeyValuePair_ForFind(const aKey: _KeyType_): Tl3KeyValuePair;
+//#UC START# *560909D5014E_5609089D0006_var*
+//#UC END# *560909D5014E_5609089D0006_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *560909D5014E_5609089D0006_impl*
+ Result.rKey := aKey;
+//#UC END# *560909D5014E_5609089D0006_impl*
+end;//Tl3KeyValuePair_ForFind
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_560907E00134_var*
 //#UC END# *47B07CF403D0_560907E00134_var*
 begin
@@ -69,11 +87,11 @@ begin
  Assert(false);
 //#UC END# *47B07CF403D0_560907E00134_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_560907E00134_var*
 //#UC END# *47B2C42A0163_560907E00134_var*
 begin
@@ -81,9 +99,10 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47B2C42A0163_560907E00134_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_560907E00134_var*
 //#UC END# *47B99D4503A2_560907E00134_var*
 begin
@@ -92,10 +111,7 @@ begin
 //#UC END# *47B99D4503A2_560907E00134_impl*
 end;//CompareExistingItems
 
-
-{$Include ..\L3\l3RecordListPrim.imp.pas}
-
-// start class _l3MapPrim_
+{$Include l3RecordListPrim.imp.pas}
 
 function _l3MapPrim_.Has(const aKey: _KeyType_): Boolean;
 //#UC START# *560909F101B3_560907E00134_var*
@@ -109,7 +125,7 @@ begin
 end;//_l3MapPrim_.Has
 
 procedure _l3MapPrim_.Add(const aKey: _KeyType_;
-  const aValue: _ValueType_);
+ const aValue: _ValueType_);
 //#UC START# *56090A1801B9_560907E00134_var*
 //#UC END# *56090A1801B9_560907E00134_var*
 begin
@@ -156,31 +172,6 @@ begin
 //#UC END# *56092E020346_560907E00134_impl*
 end;//_l3MapPrim_.IndexByKey
 
-function Tl3KeyValuePair_C(const aKey: _KeyType_;
-        const aValue: _ValueType_): Tl3KeyValuePair;
-//#UC START# *560909B400E6_5609089D0006_var*
-//#UC END# *560909B400E6_5609089D0006_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *560909B400E6_5609089D0006_impl*
- Result.rKey := aKey;
- Result.rValue := aValue;
-//#UC END# *560909B400E6_5609089D0006_impl*
-end;//Tl3KeyValuePair.C
-
-
-function Tl3KeyValuePair_ForFind(const aKey: _KeyType_): Tl3KeyValuePair;
-//#UC START# *560909D5014E_5609089D0006_var*
-//#UC END# *560909D5014E_5609089D0006_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *560909D5014E_5609089D0006_impl*
- Result.rKey := aKey;
-//#UC END# *560909D5014E_5609089D0006_impl*
-end;//Tl3KeyValuePair.ForFind
-
-// start class _l3MapPrim_
-
 procedure _l3MapPrim_.InitFields;
 //#UC START# *47A042E100E2_560907E00134_var*
 //#UC END# *47A042E100E2_560907E00134_var*
@@ -192,4 +183,7 @@ begin
 //#UC END# *47A042E100E2_560907E00134_impl*
 end;//_l3MapPrim_.InitFields
 
+{$EndIf l3MapPrim_imp_impl}
+
 {$EndIf l3MapPrim_imp}
+

@@ -35,8 +35,6 @@ begin
 //#UC END# *47B99D4503A2_5423BE6002AA_impl*
 end;//CompareExistingItems
 
-type _Instance_R_ = _l3RevertedAtomicList_;
-
 {$Include l3AtomicListPrim.imp.pas}
 
 {$EndIf l3RevertedAtomicList_imp_impl}

@@ -27,8 +27,6 @@ _dsBaseDrugDocument_ = _dsBaseDocumentPrim_;
 {$Define dsBaseDrugDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _dsBaseDrugDocument_;
-
 {$Include dsBaseDocumentPrim.imp.pas}
 
 function _dsBaseDrugDocument_.GetTimeMachineOff: Boolean;

@@ -63,8 +63,6 @@ begin
 //#UC END# *47B94A5C006E_534515CD039A_impl*
 end;//FreeItem
 
-type _Instance_R_ = _l3VariantListPrim_;
-
 {$Include l3RefList.imp.pas}
 
 {$EndIf l3VariantListPrim_imp_impl}

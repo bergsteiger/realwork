@@ -1,62 +1,67 @@
 {$IfNDef l3OtherListView_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3OtherListView.imp.pas"
-// Начат: 08.06.2011 21:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Containers::l3OtherListView
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3OtherListView_imp}
+
+type
+ // _ListType_
+
  PItemType = ^_ItemType_;
 
- _l3OtherListView_ = {mixin} class(Tl3CustomOtherListView)
- private
- // private fields
-   f_List : _ListType_;
- protected
- // property methods
+ _l3OtherListView_ = class(Tl3CustomOtherListView)
+  private
+   f_List: _ListType_;
+  protected
    function pm_GetCount: Integer;
-   {$If not defined(l3ViewListIsTag)}
+   {$If NOT Defined(l3ViewListIsTag)}
    function pm_GetItemSlot(anIndex: Integer): PItemType;
-   {$IfEnd} //not l3ViewListIsTag
- protected
- // realized methods
-   function CompareItems(anIndex1: Integer;
-     anIndex2: Integer): Integer; override;
-   function OtherListCount: Integer; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+   {$IfEnd} // NOT Defined(l3ViewListIsTag)
    function CompareData(const anItem1: _ItemType_;
-     const anItem2: _ItemType_): Integer; virtual; abstract;
- public
- // public methods
+    const anItem2: _ItemType_): Integer; virtual; abstract;
+   function CompareItems(anIndex1: Integer;
+    anIndex2: Integer): Integer; override;
+   function OtherListCount: Integer; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aList: _ListType_); reintroduce;
    function Add(const anItem: _ItemType_): Integer;
- public
- // public properties
+  public
    property Count: Integer
-     read pm_GetCount;
-   {$If not defined(l3ViewListIsTag)}
+    read pm_GetCount;
+   {$If NOT Defined(l3ViewListIsTag)}
    property ItemSlot[anIndex: Integer]: PItemType
-     read pm_GetItemSlot;
-   {$IfEnd} //not l3ViewListIsTag
+    read pm_GetItemSlot;
+   {$IfEnd} // NOT Defined(l3ViewListIsTag)
  end;//_l3OtherListView_
 
 {$Else l3OtherListView_imp}
 
-// start class _l3OtherListView_
+{$IfNDef l3OtherListView_imp_impl}
+
+{$Define l3OtherListView_imp_impl}
+
+function _l3OtherListView_.pm_GetCount: Integer;
+//#UC START# *4DEFBD670196_4DEFB2450043get_var*
+//#UC END# *4DEFBD670196_4DEFB2450043get_var*
+begin
+//#UC START# *4DEFBD670196_4DEFB2450043get_impl*
+ Result := f_Sorter.Count;
+//#UC END# *4DEFBD670196_4DEFB2450043get_impl*
+end;//_l3OtherListView_.pm_GetCount
+
+{$If NOT Defined(l3ViewListIsTag)}
+function _l3OtherListView_.pm_GetItemSlot(anIndex: Integer): PItemType;
+//#UC START# *4DEFC1D101A9_4DEFB2450043get_var*
+//#UC END# *4DEFC1D101A9_4DEFB2450043get_var*
+begin
+//#UC START# *4DEFC1D101A9_4DEFB2450043get_impl*
+ Result := Pointer(f_List.ItemSlot(f_Sorter[anIndex]));
+//#UC END# *4DEFC1D101A9_4DEFB2450043get_impl*
+end;//_l3OtherListView_.pm_GetItemSlot
+{$IfEnd} // NOT Defined(l3ViewListIsTag)
 
 constructor _l3OtherListView_.Create(const aList: _ListType_);
 //#UC START# *4DEFB2B600B5_4DEFB2450043_var*
@@ -86,28 +91,8 @@ begin
 //#UC END# *4DEFD51502B7_4DEFB2450043_impl*
 end;//_l3OtherListView_.Add
 
-function _l3OtherListView_.pm_GetCount: Integer;
-//#UC START# *4DEFBD670196_4DEFB2450043get_var*
-//#UC END# *4DEFBD670196_4DEFB2450043get_var*
-begin
-//#UC START# *4DEFBD670196_4DEFB2450043get_impl*
- Result := f_Sorter.Count;
-//#UC END# *4DEFBD670196_4DEFB2450043get_impl*
-end;//_l3OtherListView_.pm_GetCount
-
-{$If not defined(l3ViewListIsTag)}
-function _l3OtherListView_.pm_GetItemSlot(anIndex: Integer): PItemType;
-//#UC START# *4DEFC1D101A9_4DEFB2450043get_var*
-//#UC END# *4DEFC1D101A9_4DEFB2450043get_var*
-begin
-//#UC START# *4DEFC1D101A9_4DEFB2450043get_impl*
- Result := Pointer(f_List.ItemSlot(f_Sorter[anIndex]));
-//#UC END# *4DEFC1D101A9_4DEFB2450043get_impl*
-end;//_l3OtherListView_.pm_GetItemSlot
-{$IfEnd} //not l3ViewListIsTag
-
 function _l3OtherListView_.CompareItems(anIndex1: Integer;
-  anIndex2: Integer): Integer;
+ anIndex2: Integer): Integer;
 //#UC START# *4DEFAFF80100_4DEFB2450043_var*
 //#UC END# *4DEFAFF80100_4DEFB2450043_var*
 begin
@@ -134,6 +119,7 @@ begin
 end;//_l3OtherListView_.OtherListCount
 
 procedure _l3OtherListView_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DEFB2450043_var*
 //#UC END# *479731C50290_4DEFB2450043_var*
 begin
@@ -143,4 +129,7 @@ begin
 //#UC END# *479731C50290_4DEFB2450043_impl*
 end;//_l3OtherListView_.Cleanup
 
+{$EndIf l3OtherListView_imp_impl}
+
 {$EndIf l3OtherListView_imp}
+

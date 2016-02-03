@@ -29,8 +29,6 @@ begin
 //#UC END# *47B935AF0066_47B5782902DA_impl*
 end;//FillItem
 
-type _Instance_R_ = _l3PtrList_;
-
 {$Include l3PtrListPrim.imp.pas}
 
 {$EndIf l3PtrList_imp_impl}

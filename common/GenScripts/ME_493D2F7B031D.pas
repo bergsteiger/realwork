@@ -133,8 +133,6 @@ _sdsDocInfo_ = _nsUserSettingsListener_;
 {$Define sdsDocInfo_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-type _Instance_R_ = _sdsDocInfo_;
-
 {$Include sdsBaseDocumentWithAttributes.imp.pas}
 
 {$Include afwApplicationDataUpdate.imp.pas}
