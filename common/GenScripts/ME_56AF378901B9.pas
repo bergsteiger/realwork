@@ -28,9 +28,9 @@ type
    {* IDAT Ц дата издани€ источника публикации (M); }
   rYear: Word;
    {* YEAR Ц год публикации (M); }
-  rNum: Integer;
+  rNum: Il3CString;
    {* NUMB Ц номер источника публикации (M); }
-  rArticle: Integer;
+  rArticle: Il3CString;
    {* IN Ц номер статьи (M). ѕри отсутствии информации о номере статьи за идентификатором пол€ через пробел ставитс€ символ Ђ-ї (минус); }
  end;//TarBelaPubInfo
 
@@ -74,8 +74,8 @@ begin
    l3Same(A.rPubSource, B.rPubSource) and
    (A.rDate = B.rDate) and
    (A.rYear = B.rYear) and
-   (A.rNum  = B.rNum) and
-   (A.rArticle = B.rArticle);
+   l3Same(A.rNum, B.rNum) and
+   l3Same(A.rArticle, B.rArticle);
 //#UC END# *47B07CF403D0_56AF378901B9_impl*
 end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)
@@ -102,9 +102,9 @@ begin
  if Result = 0 then
   Result := l3Compare(CI.rA.rPubSource.AsWStr, CI.rB.rPubSource.AsWStr);
  if Result = 0 then
-  Result := CI.rA.rNum - CI.rB.rNum;
+  Result := l3Compare(CI.rA.rNum.AsWStr, CI.rB.rNum.AsWStr);
  if Result = 0 then
-  Result := CI.rA.rArticle - CI.rB.rArticle;
+  Result := l3Compare(CI.rA.rArticle.AsWStr, CI.rB.rArticle.AsWStr);
 //#UC END# *47B99D4503A2_56AF378901B9_impl*
 end;//CompareExistingItems
 
