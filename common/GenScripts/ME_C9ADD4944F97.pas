@@ -37,13 +37,7 @@ const
  str_PrintAndExportFontSize_pef16: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef16'; rValue : '16');
   {* 16 }
  {* Карта преобразования локализованных строк PrintAndExportFontSizeValues }
- pef8: Pl3StringIDEx = str_PrintAndExportFontSize_pef8;
- pef9: Pl3StringIDEx = str_PrintAndExportFontSize_pef9;
- pef10: Pl3StringIDEx = str_PrintAndExportFontSize_pef10;
- pef11: Pl3StringIDEx = str_PrintAndExportFontSize_pef11;
- pef12: Pl3StringIDEx = str_PrintAndExportFontSize_pef12;
- pef14: Pl3StringIDEx = str_PrintAndExportFontSize_pef14;
- pef16: Pl3StringIDEx = str_PrintAndExportFontSize_pef16;
+ PrintAndExportFontSizeValuesMap: array [ ] = ( );
  {* Локализуемые строки PrintAndExportFontSizeName }
  str_PrintAndExportFontSize: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize'; rValue : 'Использовать для экспорта и печати следующий размер шрифта');
   {* Использовать для экспорта и печати следующий размер шрифта }
