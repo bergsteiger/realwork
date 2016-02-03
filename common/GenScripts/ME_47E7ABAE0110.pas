@@ -13,6 +13,7 @@ uses
 ;
 
 const
+ MenuKeyCaps array [ ] = ( );
 
 type
  TMenuItem = class(TComponent)
