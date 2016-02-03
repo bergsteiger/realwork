@@ -12,12 +12,8 @@ uses
 ;
 
 const
- sca_Class = 'класс';
- sca_Type = 'тип';
- sca_Link = 'ссылка';
- sca_Keyword = 'ключевое слово';
- sct_Block = 'блок';
- sct_Label = 'метка';
+ cSCAttrTypeName: array [ ] = ( );
+ cSCSubTypeName: array [ ] = ( );
 
 type
  TevSCAttrType = (
