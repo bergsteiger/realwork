@@ -936,6 +936,7 @@ function TafwPagesInfo_E: TafwPagesInfo;
 //#UC START# *4CC6AD9E0250_4CC6A3D403D7_var*
 //#UC END# *4CC6AD9E0250_4CC6A3D403D7_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4CC6AD9E0250_4CC6A3D403D7_impl*
  Result.rPagesCount := -1;
  Result.rOverallPagesCount := -1;
@@ -946,6 +947,7 @@ function TafwPagesInfo_H: TafwPagesInfo;
 //#UC START# *4CC6B48F01FD_4CC6A3D403D7_var*
 //#UC END# *4CC6B48F01FD_4CC6A3D403D7_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4CC6B48F01FD_4CC6A3D403D7_impl*
  Result.rPagesCount := High(Result.rPagesCount);
  Result.rOverallPagesCount := High(Result.rOverallPagesCount);
@@ -956,6 +958,7 @@ function TafwPagesInfo_Z: TafwPagesInfo;
 //#UC START# *4CC6B8FE0293_4CC6A3D403D7_var*
 //#UC END# *4CC6B8FE0293_4CC6A3D403D7_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4CC6B8FE0293_4CC6A3D403D7_impl*
  Result.rPagesCount := 0;
  Result.rOverallPagesCount := 0;

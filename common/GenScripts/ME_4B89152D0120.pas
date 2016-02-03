@@ -30,8 +30,6 @@ begin
 //#UC END# *47B9BAFD01F4_4B89152D0120_impl*
 end;//CompareItemWithData
 
-type _Instance_R_ = _k2TagByIntegerSearcher_;
-
 {$Include l3Searcher.imp.pas}
 
 {$EndIf k2TagByIntegerSearcher_imp_impl}

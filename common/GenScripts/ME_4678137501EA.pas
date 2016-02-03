@@ -139,7 +139,8 @@ type
 
  (*
  Mk2InterfaceFactory = interface
-  procedure IterateCursors;
+  procedure IterateCursors(anAction: Mk2InterfaceFactory_IterateCursors_Action);
+  procedure IterateCursorsF(anAction: Mk2InterfaceFactory_IterateCursors_Action);
  end;//Mk2InterfaceFactory
  *)
 

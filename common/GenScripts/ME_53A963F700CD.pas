@@ -75,6 +75,8 @@ var
  l_Name : AnsiString;
 //#UC END# *53A9654E0056_53A9648F013C_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *53A9654E0056_53A9648F013C_impl*
  l_Name := GetEnumName(TypeInfo(Tk2TagID), Ord(aTagID));
  l_Name := Copy(l_Name, 7, Length(l_Name)-6);
@@ -88,6 +90,8 @@ function Tk2Attribute_C(aTagID: Tk2TagID;
 //#UC START# *53A96C5502B0_53A9648F013C_var*
 //#UC END# *53A96C5502B0_53A9648F013C_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *53A96C5502B0_53A9648F013C_impl*
  Result.rID := Ord(aTagID);
  Result.rName := anAlias;
@@ -99,6 +103,8 @@ function Tk2Attribute_ForFind(const aName: AnsiString): Tk2Attribute;
 //#UC START# *53A988CC00D2_53A9648F013C_var*
 //#UC END# *53A988CC00D2_53A9648F013C_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *53A988CC00D2_53A9648F013C_impl*
  Result.rID := -1;
  Result.rName := aName;
@@ -110,6 +116,8 @@ function Tk2Attribute_New(anID: Integer;
 //#UC START# *53A99219013B_53A9648F013C_var*
 //#UC END# *53A99219013B_53A9648F013C_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *53A99219013B_53A9648F013C_impl*
  Result.rID := anID;
  REsult.rName := aName;

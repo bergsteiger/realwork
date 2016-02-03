@@ -55,8 +55,6 @@ begin
 //#UC END# *47B99D4503A2_4A5F28820363_impl*
 end;//CompareExistingItems
 
-type _Instance_R_ = _k2SimpleTagListPrim_;
-
 {$Include l3VariantListPrim.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}

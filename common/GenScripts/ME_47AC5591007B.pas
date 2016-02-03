@@ -17,8 +17,6 @@
 
 {$Define k2Tag_imp_impl}
 
-type _Instance_R_ = _k2Tag_;
-
 {$Include k2TagPrim.imp.pas}
 
 {$EndIf k2Tag_imp_impl}

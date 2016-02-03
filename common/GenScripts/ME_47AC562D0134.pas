@@ -58,8 +58,6 @@ type
 
 {$Define k2HashTag_imp_impl}
 
-type _Instance_R_ = _k2HashTag_;
-
 {$Include k2Tag.imp.pas}
 
 class function _k2HashTag_.Make(aTagType: Tk2Type): Il3TagRef;

@@ -320,6 +320,8 @@ function TQueryNodeValue_make: TQueryNodeValue;
 //#UC START# *46151C4A0238_45EEE65400FB_var*
 //#UC END# *46151C4A0238_45EEE65400FB_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *46151C4A0238_45EEE65400FB_impl*
  !!! Needs to be implemented !!!
 //#UC END# *46151C4A0238_45EEE65400FB_impl*
@@ -330,6 +332,8 @@ function TQueryNodeValue_make: TQueryNodeValue;
 //#UC START# *473064CF02EE_45EEE65400FB_var*
 //#UC END# *473064CF02EE_45EEE65400FB_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *473064CF02EE_45EEE65400FB_impl*
  !!! Needs to be implemented !!!
 //#UC END# *473064CF02EE_45EEE65400FB_impl*
@@ -339,6 +343,8 @@ function TContextValue_make: TContextValue;
 //#UC START# *461A637E0017_45EEE4310209_var*
 //#UC END# *461A637E0017_45EEE4310209_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *461A637E0017_45EEE4310209_impl*
  !!! Needs to be implemented !!!
 //#UC END# *461A637E0017_45EEE4310209_impl*
@@ -349,6 +355,8 @@ function TContextValue_make: TContextValue;
 //#UC START# *4730657502FD_45EEE4310209_var*
 //#UC END# *4730657502FD_45EEE4310209_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4730657502FD_45EEE4310209_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4730657502FD_45EEE4310209_impl*
@@ -359,6 +367,8 @@ function TDateValue_make: TDateValue;
 //#UC START# *47306DD6030D_45EEE5C6012B_var*
 //#UC END# *47306DD6030D_45EEE5C6012B_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *47306DD6030D_45EEE5C6012B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47306DD6030D_45EEE5C6012B_impl*

@@ -68,6 +68,8 @@ function TafwKeyValue_C(const aKey: Il3CString;
 //#UC START# *4F6C7D1F0329_4F6C7CEB035A_var*
 //#UC END# *4F6C7D1F0329_4F6C7CEB035A_var*
 begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4F6C7D1F0329_4F6C7CEB035A_impl*
  Result.rKey := aKey;
  Result.rValue := aValue;

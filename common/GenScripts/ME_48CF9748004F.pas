@@ -117,8 +117,6 @@ type
  Tl3HackVariant = {final} class(Tl3Variant)
  end;//Tl3HackVariant
 
-type _Instance_R_ = _k2TagBox_;
-
 {$Include k2Int64Holder.imp.pas}
 
 {$Include k2DoQT.imp.pas}

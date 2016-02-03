@@ -46,7 +46,11 @@ type
 
  Ik2TagList = interface(Ik2TagListPrim)
   ['{7AC54659-1B8C-4ADA-800F-F62CB90E5A64}']
-  procedure ForEach;
+  function ForEach(anAction: Ik2TagList_ForEach_Action): Integer;
+   {* Перебирает элементы списка.
+
+<!> Временно. Надо будет перенести на Ml3List. }
+  function ForEachF(anAction: Ik2TagList_ForEach_Action): Integer;
    {* Перебирает элементы списка.
 
 <!> Временно. Надо будет перенести на Ml3List. }

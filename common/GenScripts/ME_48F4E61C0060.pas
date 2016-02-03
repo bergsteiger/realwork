@@ -86,6 +86,7 @@ function TevdAddress_E: TevdAddress;
 //#UC START# *4CDD3B0E02A6_48F4941A0249_var*
 //#UC END# *4CDD3B0E02A6_48F4941A0249_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *4CDD3B0E02A6_48F4941A0249_impl*
  Result.TypeID := ev_NullAddressType;
 //#UC END# *4CDD3B0E02A6_48F4941A0249_impl*

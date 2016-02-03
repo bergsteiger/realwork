@@ -145,8 +145,6 @@
 
 {$Define k2TagPrim_imp_impl}
 
-type _Instance_R_ = _k2TagPrim_;
-
 {$Include k2Int64Holder.imp.pas}
 
 {$Include k2DoQT.imp.pas}

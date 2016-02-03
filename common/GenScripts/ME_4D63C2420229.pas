@@ -55,7 +55,8 @@ type
     const aProcessor: Ik2Processor): Boolean;
    procedure Iterate(Tag: Tl3Variant;
     Action: Tl3IteratorAction);
-   procedure IterateCursors;
+   procedure IterateCursors(anAction: Mk2InterfaceFactory_IterateCursors_Action);
+   procedure IterateCursorsF(anAction: Mk2InterfaceFactory_IterateCursors_Action);
   public
    property Interfaces: Tk2InterfaceCache
     read f_Interfaces;
@@ -177,7 +178,7 @@ begin
 //#UC END# *47678ABF00C1_4D63C2420229_impl*
 end;//Tk2InterfaceFactory.Iterate
 
-procedure Tk2InterfaceFactory.IterateCursors;
+procedure Tk2InterfaceFactory.IterateCursors(anAction: Mk2InterfaceFactory_IterateCursors_Action);
 //#UC START# *4BCC45AA02CE_4D63C2420229_var*
 //#UC END# *4BCC45AA02CE_4D63C2420229_var*
 begin
@@ -185,6 +186,17 @@ begin
  f_Interfaces.IterateInterfaces(ev_iidCursor, anAction);
 //#UC END# *4BCC45AA02CE_4D63C2420229_impl*
 end;//Tk2InterfaceFactory.IterateCursors
+
+procedure Tk2InterfaceFactory.IterateCursorsF(anAction: Mk2InterfaceFactory_IterateCursors_Action);
+var
+ Hack : Pointer absolute anAction;
+begin
+ try
+  IterateCursors(anAction);
+ finally
+  l3FreeLocalStub(Hack);
+ end;//try..finally
+end;//Tk2InterfaceFactory.IterateCursorsF
 
 procedure Tk2InterfaceFactory.Cleanup;
  {* Функция очистки полей объекта. }

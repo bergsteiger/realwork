@@ -501,6 +501,7 @@ function TDate_make: TDate;
 //#UC START# *462C9BE5030D_456EA6F00109_var*
 //#UC END# *462C9BE5030D_456EA6F00109_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *462C9BE5030D_456EA6F00109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *462C9BE5030D_456EA6F00109_impl*
@@ -511,6 +512,7 @@ function TDate_make: TDate;
 //#UC START# *462C9BF10128_456EA6F00109_var*
 //#UC END# *462C9BF10128_456EA6F00109_var*
 begin
+ System.FillChar(Result, SizeOf(Result), 0);
 //#UC START# *462C9BF10128_456EA6F00109_impl*
  !!! Needs to be implemented !!!
 //#UC END# *462C9BF10128_456EA6F00109_impl*
