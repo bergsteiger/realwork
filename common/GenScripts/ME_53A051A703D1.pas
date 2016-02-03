@@ -32,9 +32,11 @@ type
 
  (*
  alcuTasksIterator = interface
-  procedure ForEachF;
-  procedure ForOneF;
-  procedure ForOneByIDF;
+  procedure ForEachF(anAction: alcuTasksIterator_ForEachF_Action);
+  procedure ForOneF(anAction: alcuTasksIterator_ForOneF_Action;
+   anIndex: Integer);
+  function ForOneByIDF(anAction: alcuTasksIterator_ForOneByIDF_Action;
+   const aTaskID: AnsiString): Boolean;
  end;//alcuTasksIterator
  *)
 
@@ -54,9 +56,11 @@ type
    procedure InitFields; override;
   public
    procedure Clear;
-   procedure ForEachF;
-   procedure ForOneF;
-   procedure ForOneByIDF;
+   procedure ForEachF(anAction: alcuTasksIterator_ForEachF_Action);
+   procedure ForOneF(anAction: alcuTasksIterator_ForOneF_Action;
+    anIndex: Integer);
+   function ForOneByIDF(anAction: alcuTasksIterator_ForOneByIDF_Action;
+    const aTaskID: AnsiString): Boolean;
   protected
    property Items: TalcuTaskListPrim
     read f_Items;
@@ -147,7 +151,7 @@ begin
 //#UC END# *53A196850107_53A038090050_impl*
 end;//TalcuTaskListBase.NeedSort
 
-procedure TalcuTaskListBase.ForEachF;
+procedure TalcuTaskListBase.ForEachF(anAction: alcuTasksIterator_ForEachF_Action);
 //#UC START# *53A04652024A_53A038090050_var*
 
  function DoIt(aData : PObject; anIndex : Integer) : Boolean;
@@ -173,7 +177,8 @@ begin
 //#UC END# *53A04652024A_53A038090050_impl*
 end;//TalcuTaskListBase.ForEachF
 
-procedure TalcuTaskListBase.ForOneF;
+procedure TalcuTaskListBase.ForOneF(anAction: alcuTasksIterator_ForOneF_Action;
+ anIndex: Integer);
 //#UC START# *53A199A802C9_53A038090050_var*
 var
  Hack : Pointer absolute anAction;
@@ -194,7 +199,8 @@ begin
 //#UC END# *53A199A802C9_53A038090050_impl*
 end;//TalcuTaskListBase.ForOneF
 
-procedure TalcuTaskListBase.ForOneByIDF;
+function TalcuTaskListBase.ForOneByIDF(anAction: alcuTasksIterator_ForOneByIDF_Action;
+ const aTaskID: AnsiString): Boolean;
 //#UC START# *546B5A73038A_53A038090050_var*
 
 var
