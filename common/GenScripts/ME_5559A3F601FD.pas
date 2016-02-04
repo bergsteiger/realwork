@@ -86,10 +86,11 @@ type
     read f_Map;
  end;//TvcmFormSetContainerRegistry
 
-function TvcmFormSetContainerMapItem_C: TvcmFormSetContainerMapItem;
-function L2_TvcmFormSetContainerMapIterator_ForEachF_Action(anAction: pointer): TvcmFormSetContainerMapIterator_ForEachF_Action;
+function TvcmFormSetContainerMapItem_C(const aFormSet: IvcmFormSet;
+ const aContainer: IvcmContainer): TvcmFormSetContainerMapItem;
+function L2TvcmFormSetContainerMapIteratorForEachFAction(anAction: pointer): TvcmFormSetContainerMapIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для TvcmFormSetContainerMapIterator.ForEachF }
-function L2_TvcmFormSetContainerMapIterator_ForOneF_Action(anAction: pointer): TvcmFormSetContainerMapIterator_ForOneF_Action;
+function L2TvcmFormSetContainerMapIteratorForOneFAction(anAction: pointer): TvcmFormSetContainerMapIterator_ForOneF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для TvcmFormSetContainerMapIterator.ForOneF }
 {$IfEnd} // NOT Defined(NoVCM)
 
@@ -108,7 +109,8 @@ uses
 var g_TvcmFormSetContainerRegistry: TvcmFormSetContainerRegistry = nil;
  {* Экземпляр синглетона TvcmFormSetContainerRegistry }
 
-function TvcmFormSetContainerMapItem_C: TvcmFormSetContainerMapItem;
+function TvcmFormSetContainerMapItem_C(const aFormSet: IvcmFormSet;
+ const aContainer: IvcmContainer): TvcmFormSetContainerMapItem;
 //#UC START# *5559A5520116_5559A50B0336_var*
 //#UC END# *5559A5520116_5559A50B0336_var*
 begin
@@ -119,17 +121,17 @@ begin
 //#UC END# *5559A5520116_5559A50B0336_impl*
 end;//TvcmFormSetContainerMapItem_C
 
-function L2_TvcmFormSetContainerMapIterator_ForEachF_Action(anAction: pointer): TvcmFormSetContainerMapIterator_ForEachF_Action;
+function L2TvcmFormSetContainerMapIteratorForEachFAction(anAction: pointer): TvcmFormSetContainerMapIterator_ForEachF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для TvcmFormSetContainerMapIterator.ForEachF }
 asm
  jmp l3LocalStub
-end;//L2_TvcmFormSetContainerMapIterator_ForEachF_Action
+end;//L2TvcmFormSetContainerMapIteratorForEachFAction
 
-function L2_TvcmFormSetContainerMapIterator_ForOneF_Action(anAction: pointer): TvcmFormSetContainerMapIterator_ForOneF_Action;
+function L2TvcmFormSetContainerMapIteratorForOneFAction(anAction: pointer): TvcmFormSetContainerMapIterator_ForOneF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для TvcmFormSetContainerMapIterator.ForOneF }
 asm
  jmp l3LocalStub
-end;//L2_TvcmFormSetContainerMapIterator_ForOneF_Action
+end;//L2TvcmFormSetContainerMapIteratorForOneFAction
 
 procedure TvcmFormSetContainerRegistryFree;
  {* Метод освобождения экземпляра синглетона TvcmFormSetContainerRegistry }

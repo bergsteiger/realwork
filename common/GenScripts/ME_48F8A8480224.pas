@@ -13,6 +13,7 @@ uses
  , nevBase
  , evdInterfaces
  , nevTools
+ , k2Const
 ;
 
 type
@@ -67,7 +68,9 @@ type
     write f_LevelIndent;
  end;//TevTreeStorable
 
-function TevTreeStorableData_C: TevTreeStorableData;
+function TevTreeStorableData_C(const aTree: InevSimpleTree;
+ aLevelTag: Integer = k2_tiVoid;
+ aFlag: Word = 0): TevTreeStorableData;
 
 implementation
 
@@ -84,7 +87,9 @@ uses
  , Document_Const
 ;
 
-function TevTreeStorableData_C: TevTreeStorableData;
+function TevTreeStorableData_C(const aTree: InevSimpleTree;
+ aLevelTag: Integer = k2_tiVoid;
+ aFlag: Word = 0): TevTreeStorableData;
 //#UC START# *48FC65A403CF_48FC655F025C_var*
 //#UC END# *48FC65A403CF_48FC655F025C_var*
 begin

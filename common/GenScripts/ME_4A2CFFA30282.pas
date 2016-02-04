@@ -63,10 +63,10 @@ type
     {* Выводит имена блоков, в которые вложен данный параграф }
  end;//TevdBlockNameAdder
 
-function TevdBlockInfo_C: TevdBlockInfo;
+function TevdBlockInfo_C(const aName: Il3CString): TevdBlockInfo;
 function TevdBlockInfo_E: TevdBlockInfo;
  {* Создаёт пустую структуру }
-function TevdBlockInfo_T: TevdBlockInfo;
+function TevdBlockInfo_T(aType: Tk2Type): TevdBlockInfo;
 
 implementation
 
@@ -95,7 +95,7 @@ uses
  , RTLConsts
 ;
 
-function TevdBlockInfo_C: TevdBlockInfo;
+function TevdBlockInfo_C(const aName: Il3CString): TevdBlockInfo;
 //#UC START# *4A2D14530087_4A2D046A01BE_var*
 //#UC END# *4A2D14530087_4A2D046A01BE_var*
 begin
@@ -117,7 +117,7 @@ begin
 //#UC END# *4A2D263C02BE_4A2D046A01BE_impl*
 end;//TevdBlockInfo_E
 
-function TevdBlockInfo_T: TevdBlockInfo;
+function TevdBlockInfo_T(aType: Tk2Type): TevdBlockInfo;
 //#UC START# *4A2FE6E60214_4A2D046A01BE_var*
 //#UC END# *4A2FE6E60214_4A2D046A01BE_var*
 begin

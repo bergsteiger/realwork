@@ -622,7 +622,7 @@ type
   , ed_bcEqual
  );//TedBoundaryCorrespondence
 
-function L2_IedRange_IterateLeafParagraphs_Action(anAction: pointer): IedRange_IterateLeafParagraphs_Action;
+function L2IedRangeIterateLeafParagraphsAction(anAction: pointer): IedRange_IterateLeafParagraphs_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IedRange.IterateLeafParagraphs }
 
 implementation
@@ -632,10 +632,10 @@ uses
  , l3Base
 ;
 
-function L2_IedRange_IterateLeafParagraphs_Action(anAction: pointer): IedRange_IterateLeafParagraphs_Action;
+function L2IedRangeIterateLeafParagraphsAction(anAction: pointer): IedRange_IterateLeafParagraphs_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IedRange.IterateLeafParagraphs }
 asm
  jmp l3LocalStub
-end;//L2_IedRange_IterateLeafParagraphs_Action
+end;//L2IedRangeIterateLeafParagraphsAction
 
 end.

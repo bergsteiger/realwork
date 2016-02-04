@@ -2462,14 +2462,16 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   ['{D7540AD6-9B63-4FB1-9389-E001FDED056B}']
  end;//InevPrintView
 
-function TevPair_C: TevPair;
-function L2_InevRangePrim_Iterate_Action(anAction: pointer): InevRangePrim_Iterate_Action;
+function TevPair_C(aStart: Integer;
+ aFinish: Integer): TevPair;
+function L2InevRangePrimIterateAction(anAction: pointer): InevRangePrim_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevRangePrim.Iterate }
-function L2_InevParaList_IteratePara_Action(anAction: pointer): InevParaList_IteratePara_Action;
+function L2InevParaListIterateParaAction(anAction: pointer): InevParaList_IteratePara_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevParaList.IteratePara }
-function L2_InevSubList_Iterate_Action(anAction: pointer): InevSubList_Iterate_Action;
+function L2InevSubListIterateAction(anAction: pointer): InevSubList_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevSubList.Iterate }
-function TevContentsRec_C: TevContentsRec;
+function TevContentsRec_C(aLevel6: Integer = MaxInt-1;
+ aCompareContentsLevel: Integer = 0): TevContentsRec;
  {* создает evContentsRec }
 
 implementation
@@ -2479,7 +2481,8 @@ uses
  , l3Base
 ;
 
-function TevPair_C: TevPair;
+function TevPair_C(aStart: Integer;
+ aFinish: Integer): TevPair;
 //#UC START# *49E60C23017A_47C68B3B022A_var*
 //#UC END# *49E60C23017A_47C68B3B022A_var*
 begin
@@ -2490,25 +2493,26 @@ begin
 //#UC END# *49E60C23017A_47C68B3B022A_impl*
 end;//TevPair_C
 
-function L2_InevRangePrim_Iterate_Action(anAction: pointer): InevRangePrim_Iterate_Action;
+function L2InevRangePrimIterateAction(anAction: pointer): InevRangePrim_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevRangePrim.Iterate }
 asm
  jmp l3LocalStub
-end;//L2_InevRangePrim_Iterate_Action
+end;//L2InevRangePrimIterateAction
 
-function L2_InevParaList_IteratePara_Action(anAction: pointer): InevParaList_IteratePara_Action;
+function L2InevParaListIterateParaAction(anAction: pointer): InevParaList_IteratePara_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevParaList.IteratePara }
 asm
  jmp l3LocalStub
-end;//L2_InevParaList_IteratePara_Action
+end;//L2InevParaListIterateParaAction
 
-function L2_InevSubList_Iterate_Action(anAction: pointer): InevSubList_Iterate_Action;
+function L2InevSubListIterateAction(anAction: pointer): InevSubList_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevSubList.Iterate }
 asm
  jmp l3LocalStub
-end;//L2_InevSubList_Iterate_Action
+end;//L2InevSubListIterateAction
 
-function TevContentsRec_C: TevContentsRec;
+function TevContentsRec_C(aLevel6: Integer = MaxInt-1;
+ aCompareContentsLevel: Integer = 0): TevContentsRec;
  {* создает evContentsRec }
 //#UC START# *4A25320D0116_47C6BCC6034E_var*
 //#UC END# *4A25320D0116_47C6BCC6034E_var*

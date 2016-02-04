@@ -49,7 +49,7 @@ type
     const aChild: InevPara); override;
  end;//TnevFormatPool
 
-function TnevRootFormatInfoKey_C: TnevRootFormatInfoKey;
+function TnevRootFormatInfoKey_C(const aView: InevViewMetrics): TnevRootFormatInfoKey;
 
 implementation
 
@@ -60,7 +60,7 @@ uses
  , nevPrintingRootFormatInfo
 ;
 
-function TnevRootFormatInfoKey_C: TnevRootFormatInfoKey;
+function TnevRootFormatInfoKey_C(const aView: InevViewMetrics): TnevRootFormatInfoKey;
 //#UC START# *4815D47402E8_4815D4350242_var*
 //#UC END# *4815D47402E8_4815D4350242_var*
 begin

@@ -42,7 +42,9 @@ type
   {* Список информации о командах }
  end;//TvcmCommandIDsListPrim
 
-function TvcmCommandInfo_C: TvcmCommandInfo;
+function TvcmCommandInfo_C(aItemID: Integer;
+ aIsModule: Boolean;
+ aOperationID: Integer): TvcmCommandInfo;
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation
@@ -56,7 +58,9 @@ uses
  , SysUtils
 ;
 
-function TvcmCommandInfo_C: TvcmCommandInfo;
+function TvcmCommandInfo_C(aItemID: Integer;
+ aIsModule: Boolean;
+ aOperationID: Integer): TvcmCommandInfo;
 //#UC START# *4A8D71180299_4A8D70780075_var*
 //#UC END# *4A8D71180299_4A8D70780075_var*
 begin
