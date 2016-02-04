@@ -3545,6 +3545,75 @@ ref; // ME_4DAED6F60146_ME_56B1B04203D9 GetModelElementGUID
 
 ref; // ME_56B1B04203D9 K616410378
 
+FORWARD ME_56B2E5D40251
+
+: ME_FC6702F48BA8
+ CONST UID 'FC6702F48BA8'
+ CONST IsSummoned true
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56B2E5D40251 // K617064868
+ ;
+ : Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.pas.ms.script' // TestFrameWork
+ ;
+
+ref; // ME_FC6702F48BA8 
+
+: ME_4C937013031D_ME_56B2E5D40251
+ CONST UID '4C937013031D'
+ CONST Name 'GetFolder'
+ : Original WL 'ME_4C937013031D' '4B2A0D6A0077.pas.ms.script' // GetFolder
+ ;
+ : Implementor ME_56B2E5D40251 // K617064868
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4C937013031D_ME_56B2E5D40251 GetFolder
+
+: ME_4DAED6F60146_ME_56B2E5D40251
+ CONST UID '4DAED6F60146'
+ CONST Name 'GetModelElementGUID'
+ : Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.pas.ms.script' // GetModelElementGUID
+ ;
+ : Implementor ME_56B2E5D40251 // K617064868
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_4DAED6F60146_ME_56B2E5D40251 GetModelElementGUID
+
+: ME_56B2E5D40251
+ CONST UID '56B2E5D40251'
+ CONST Name 'K617064868'
+ CONST Class class_Class
+ : Stereotype st_TestCase ;
+ CONST Kind kind_NormalClass
+ %SUMMARY '{RequestLink:617064868}' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56124E2F02D2 // 7.12
+ ;
+ : Inherits
+   Seq: ( WL 'ME_4C971C2203DD' '4BACDED003CE.pas.ms.script' // RTFtoEVDWriterTest
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_4C937013031D_ME_56B2E5D40251 // GetFolder
+ ME_4DAED6F60146_ME_56B2E5D40251 // GetModelElementGUID
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_FC6702F48BA8 // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\Daily\K617064868.pas'
+ CONST extprop:pas:TypeName 'TK617064868'
+ CONST extprop:rc:SelfName 'K617064868'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56B2E5D40251 K617064868
+
 : ME_56124E2F02D2
  CONST UID '56124E2F02D2'
  CONST Name '7.12'
@@ -3606,6 +3675,7 @@ ref; // ME_56B1B04203D9 K616410378
  ME_56B07CC60296 // K615931453
  ME_56B1AE9A00C6 // K617055896
  ME_56B1B04203D9 // K616410378
+ ME_56B2E5D40251 // K617064868
  )
  ; // Children
  : Depends

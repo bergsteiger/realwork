@@ -9111,6 +9111,16 @@ ref; // ME_4815D45300AC rLimitWidth
 
 ref; // ME_48218499038F rView
 
+: ME_4820775502D4
+ CONST UID '4820775502D4'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_467821CA019F' '4678209200A6.pas.ms.script' // InevViewMetrics
+ ;
+
+ref; // ME_4820775502D4 aView
+
 : ME_4815D47402E8
  CONST UID '4815D47402E8'
  CONST Name 'C'
@@ -9120,6 +9130,10 @@ ref; // ME_48218499038F rView
  CONST Abstraction at_regular
  : Parent ME_4815D4350242 // TnevRootFormatInfoKey
  ;
+ : Parameters
+   Seq: ( ME_4820775502D4 // aView
+ )
+ ; // Parameters
 
 ref; // ME_4815D47402E8 C
 

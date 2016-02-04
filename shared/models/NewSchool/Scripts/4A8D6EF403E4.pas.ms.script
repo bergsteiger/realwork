@@ -53,6 +53,36 @@ ref; // ME_4A8D70D20080 rItemID
 
 ref; // ME_4A8D70F600F7 rOperationID
 
+: ME_4A8D711E01B6
+ CONST UID '4A8D711E01B6'
+ CONST Name 'aItemID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A8D711E01B6 aItemID
+
+: ME_4A8D711E01D5
+ CONST UID '4A8D711E01D5'
+ CONST Name 'aIsModule'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A8D711E01D5 aIsModule
+
+: ME_4A8D711E01F4
+ CONST UID '4A8D711E01F4'
+ CONST Name 'aOperationID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4A8D711E01F4 aOperationID
+
 : ME_4A8D71180299
  CONST UID '4A8D71180299'
  CONST Name 'C'
@@ -62,6 +92,12 @@ ref; // ME_4A8D70F600F7 rOperationID
  CONST Abstraction at_final
  : Parent ME_4A8D70780075 // TvcmCommandInfo
  ;
+ : Parameters
+   Seq: ( ME_4A8D711E01B6 // aItemID
+ ME_4A8D711E01D5 // aIsModule
+ ME_4A8D711E01F4 // aOperationID
+ )
+ ; // Parameters
 
 ref; // ME_4A8D71180299 C
 

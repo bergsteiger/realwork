@@ -536,6 +536,26 @@ ref; // ME_47C68B5B03E1 Dec
 
 ref; // ME_47C68B6603AB Len
 
+: ME_49E60C310071
+ CONST UID '49E60C310071'
+ CONST Name 'aStart'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49E60C310071 aStart
+
+: ME_49E60C3100B9
+ CONST UID '49E60C3100B9'
+ CONST Name 'aFinish'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49E60C3100B9 aFinish
+
 : ME_49E60C23017A
  CONST UID '49E60C23017A'
  CONST Name 'C'
@@ -545,6 +565,11 @@ ref; // ME_47C68B6603AB Len
  CONST Abstraction at_final
  : Parent ME_47C68B3B022A // TevPair
  ;
+ : Parameters
+   Seq: ( ME_49E60C310071 // aStart
+ ME_49E60C3100B9 // aFinish
+ )
+ ; // Parameters
 
 ref; // ME_49E60C23017A C
 
@@ -29480,6 +29505,34 @@ ref; // ME_47C6BCCF020F rLevel6
 
 ref; // ME_4F28F6E7009E rCompareContentsLevel
 
+: ME_4A2532410115
+ CONST UID '4A2532410115'
+ CONST Name 'aLevel6'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 'MaxInt-1'
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value 'MaxInt-1'
+
+ref; // ME_4A2532410115 aLevel6
+
+: ME_4F28F72E012B
+ CONST UID '4F28F72E012B'
+ CONST Name 'aCompareContentsLevel'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_4F28F72E012B aCompareContentsLevel
+
 : ME_4A25320D0116
  CONST UID '4A25320D0116'
  CONST Name 'C'
@@ -29490,6 +29543,11 @@ ref; // ME_4F28F6E7009E rCompareContentsLevel
  CONST Abstraction at_final
  : Parent ME_47C6BCC6034E // TevContentsRec
  ;
+ : Parameters
+   Seq: ( ME_4A2532410115 // aLevel6
+ ME_4F28F72E012B // aCompareContentsLevel
+ )
+ ; // Parameters
 
 ref; // ME_4A25320D0116 C
 

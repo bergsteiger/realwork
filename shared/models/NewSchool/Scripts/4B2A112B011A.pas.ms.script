@@ -2323,6 +2323,26 @@ ref; // ME_4B6C40530304 C
 
 ref; // ME_4B2F57280040 Compare
 
+: ME_4B2F5831021B
+ CONST UID '4B2F5831021B'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4B2F5831021B aName
+
+: ME_4B2F5831024C
+ CONST UID '4B2F5831024C'
+ CONST Name 'aTime'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4B2F5831024C aTime
+
 : ME_4B2F582A0382
  CONST UID '4B2F582A0382'
  CONST Name 'C'
@@ -2332,6 +2352,11 @@ ref; // ME_4B2F57280040 Compare
  CONST Abstraction at_final
  : Parent ME_4B2F565002FD // TTimeInfo
  ;
+ : Parameters
+   Seq: ( ME_4B2F5831021B // aName
+ ME_4B2F5831024C // aTime
+ )
+ ; // Parameters
 
 ref; // ME_4B2F582A0382 C
 
@@ -2348,6 +2373,36 @@ ref; // ME_4B2F582A0382 C
 
 ref; // ME_4B2FAB480293 EQ
 
+: ME_4B588AFD00D7
+ CONST UID '4B588AFD00D7'
+ CONST Name 'aDate'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47272C8B0128' '4AB0C3C60310.pas.ms.script' // TDateTime
+ ;
+
+ref; // ME_4B588AFD00D7 aDate
+
+: ME_4B588AFD0112
+ CONST UID '4B588AFD0112'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4B588AFD0112 aName
+
+: ME_4B588AFD014F
+ CONST UID '4B588AFD014F'
+ CONST Name 'aTime'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4B588AFD014F aTime
+
 : ME_4B588AFA0000
  CONST UID '4B588AFA0000'
  CONST Name 'C'
@@ -2357,8 +2412,44 @@ ref; // ME_4B2FAB480293 EQ
  CONST Abstraction at_final
  : Parent ME_4B2F565002FD // TTimeInfo
  ;
+ : Parameters
+   Seq: ( ME_4B588AFD00D7 // aDate
+ ME_4B588AFD0112 // aName
+ ME_4B588AFD014F // aTime
+ )
+ ; // Parameters
 
 ref; // ME_4B588AFA0000 C
+
+: ME_4B58926B0289
+ CONST UID '4B58926B0289'
+ CONST Name 'aName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4B58926B0289 aName
+
+: ME_4B58926B02CE
+ CONST UID '4B58926B02CE'
+ CONST Name 'aTime'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A618AF0053' '4AB0C3C60310.pas.ms.script' // Cardinal
+ ;
+
+ref; // ME_4B58926B02CE aTime
+
+: ME_4B58926B0314
+ CONST UID '4B58926B0314'
+ CONST Name 'aSubName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_4B58926B0314 aSubName
 
 : ME_4B58926401DE
  CONST UID '4B58926401DE'
@@ -2369,6 +2460,12 @@ ref; // ME_4B588AFA0000 C
  CONST Abstraction at_final
  : Parent ME_4B2F565002FD // TTimeInfo
  ;
+ : Parameters
+   Seq: ( ME_4B58926B0289 // aName
+ ME_4B58926B02CE // aTime
+ ME_4B58926B0314 // aSubName
+ )
+ ; // Parameters
 
 ref; // ME_4B58926401DE C
 

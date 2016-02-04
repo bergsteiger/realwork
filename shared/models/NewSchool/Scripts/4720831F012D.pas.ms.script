@@ -300,6 +300,16 @@ ref; // ME_55153C6D024E rDocType
 
 ref; // ME_55153C8102C0 rExtDocID
 
+: ME_49C280910114
+ CONST UID '49C280910114'
+ CONST Name 'aIndexID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49C280910114 aIndexID
+
 : ME_49C28081033C
  CONST UID '49C28081033C'
  CONST Name 'C'
@@ -309,6 +319,10 @@ ref; // ME_55153C8102C0 rExtDocID
  CONST Abstraction at_regular
  : Parent ME_4725D0080104 // Tm3DBDocumentInfo
  ;
+ : Parameters
+   Seq: ( ME_49C280910114 // aIndexID
+ )
+ ; // Parameters
 
 ref; // ME_49C28081033C C
 
@@ -386,6 +400,44 @@ ref; // ME_4725D21101A3 rPart
 
 ref; // ME_486B7E780339 rIdx
 
+: ME_49BFC7860089
+ CONST UID '49BFC7860089'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_49BFC7860089 anID
+
+: ME_49BFC78600BE
+ CONST UID '49BFC78600BE'
+ CONST Name 'aPart'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_472083770011 // Tm3DocPartSelector
+ ;
+ CONST Value 'm3_dsMain'
+ : ValueType ME_472083770011 // Tm3DocPartSelector
+ ;
+ CONST extprop:pas:Value 'm3_dsMain'
+
+ref; // ME_49BFC78600BE aPart
+
+: ME_49BFC78600F1
+ CONST UID '49BFC78600F1'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST Value 0
+ : ValueType WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+ CONST extprop:pas:Value 0
+
+ref; // ME_49BFC78600F1 anIndex
+
 : ME_49BFC737039A
  CONST UID '49BFC737039A'
  CONST Name 'C'
@@ -396,6 +448,12 @@ ref; // ME_486B7E780339 rIdx
  CONST Abstraction at_regular
  : Parent ME_4725D1E4005E // Tm3DBStreamIndex
  ;
+ : Parameters
+   Seq: ( ME_49BFC7860089 // anID
+ ME_49BFC78600BE // aPart
+ ME_49BFC78600F1 // anIndex
+ )
+ ; // Parameters
 
 ref; // ME_49BFC737039A C
 
@@ -2385,6 +2443,26 @@ ref; // ME_49BFCFA702DD rDBPart
 
 ref; // ME_49BFDB620156 rVersion
 
+: ME_49BFD03701FD
+ CONST UID '49BFD03701FD'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4725D1E4005E // Tm3DBStreamIndex
+ ;
+
+ref; // ME_49BFD03701FD anID
+
+: ME_49BFD037021A
+ CONST UID '49BFD037021A'
+ CONST Name 'aPart'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49BFCF880286 // Tm3DBPart
+ ;
+
+ref; // ME_49BFD037021A aPart
+
 : ME_49BFD0280183
  CONST UID '49BFD0280183'
  CONST Name 'C'
@@ -2394,8 +2472,43 @@ ref; // ME_49BFDB620156 rVersion
  CONST Abstraction at_final
  : Parent ME_49BFCF61009F // Tm3DBStreamIndexEx
  ;
+ : Parameters
+   Seq: ( ME_49BFD03701FD // anID
+ ME_49BFD037021A // aPart
+ )
+ ; // Parameters
 
 ref; // ME_49BFD0280183 C
+
+: ME_49BFDBA7014A
+ CONST UID '49BFDBA7014A'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4725D1E4005E // Tm3DBStreamIndex
+ ;
+
+ref; // ME_49BFDBA7014A anID
+
+: ME_49BFDBA70180
+ CONST UID '49BFDBA70180'
+ CONST Name 'aPart'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49BFCF880286 // Tm3DBPart
+ ;
+
+ref; // ME_49BFDBA70180 aPart
+
+: ME_49BFDBA701B5
+ CONST UID '49BFDBA701B5'
+ CONST Name 'aVersion'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_49BFDBA701B5 aVersion
 
 : ME_49BFDB980033
  CONST UID '49BFDB980033'
@@ -2406,6 +2519,12 @@ ref; // ME_49BFD0280183 C
  CONST Abstraction at_final
  : Parent ME_49BFCF61009F // Tm3DBStreamIndexEx
  ;
+ : Parameters
+   Seq: ( ME_49BFDBA7014A // anID
+ ME_49BFDBA70180 // aPart
+ ME_49BFDBA701B5 // aVersion
+ )
+ ; // Parameters
 
 ref; // ME_49BFDB980033 CV
 

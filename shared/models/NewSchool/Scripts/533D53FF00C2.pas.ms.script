@@ -5429,6 +5429,26 @@ ref; // ME_53D6286E0087 rImageIndex
 
 ref; // ME_53D6287A01D4 rNeedUpdateImageIndex
 
+: ME_537AEAB00026
+ CONST UID '537AEAB00026'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_537AEAB00026 aForm
+
+: ME_537AEAB0003D
+ CONST UID '537AEAB0003D'
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_534F69E702D9 // TvcmTabbedContainerForm
+ ;
+
+ref; // ME_537AEAB0003D aContainer
+
 : ME_537AEA8C02EF
  CONST UID '537AEA8C02EF'
  CONST Name 'C'
@@ -5438,6 +5458,11 @@ ref; // ME_53D6287A01D4 rNeedUpdateImageIndex
  CONST Abstraction at_final
  : Parent ME_537AEA3B02A5 // TvcmContainedFormDescr
  ;
+ : Parameters
+   Seq: ( ME_537AEAB00026 // aForm
+ ME_537AEAB0003D // aContainer
+ )
+ ; // Parameters
 
 ref; // ME_537AEA8C02EF C
 
@@ -5467,6 +5492,46 @@ ref; // ME_537AEB05030D EQ
 
 ref; // ME_537AEB28016D Compare
 
+: ME_53D62F630192
+ CONST UID '53D62F630192'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525B34022A' '4AADF9450143.pas.ms.script' // TvcmEntityForm
+ ;
+
+ref; // ME_53D62F630192 aForm
+
+: ME_53D62F6301B2
+ CONST UID '53D62F6301B2'
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_534F69E702D9 // TvcmTabbedContainerForm
+ ;
+
+ref; // ME_53D62F6301B2 aContainer
+
+: ME_53D62F6301D3
+ CONST UID '53D62F6301D3'
+ CONST Name 'aImageIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_53D62F6301D3 aImageIndex
+
+: ME_53D62F6301F5
+ CONST UID '53D62F6301F5'
+ CONST Name 'aNeedUpdateImageIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_53D62F6301F5 aNeedUpdateImageIndex
+
 : ME_53D62F3F03C1
  CONST UID '53D62F3F03C1'
  CONST Name 'C'
@@ -5476,6 +5541,13 @@ ref; // ME_537AEB28016D Compare
  CONST Abstraction at_final
  : Parent ME_537AEA3B02A5 // TvcmContainedFormDescr
  ;
+ : Parameters
+   Seq: ( ME_53D62F630192 // aForm
+ ME_53D62F6301B2 // aContainer
+ ME_53D62F6301D3 // aImageIndex
+ ME_53D62F6301F5 // aNeedUpdateImageIndex
+ )
+ ; // Parameters
 
 ref; // ME_53D62F3F03C1 C
 
@@ -11526,6 +11598,16 @@ ref; // ME_55824F0400ED rLockCount
 
 ref; // ME_55824F0F01C2 EQ
 
+: ME_55824F300399
+ CONST UID '55824F300399'
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_534F69E702D9 // TvcmTabbedContainerForm
+ ;
+
+ref; // ME_55824F300399 aContainer
+
 : ME_55824F260248
  CONST UID '55824F260248'
  CONST Name 'C'
@@ -11535,6 +11617,10 @@ ref; // ME_55824F0F01C2 EQ
  CONST Abstraction at_final
  : Parent ME_55824ED3027A // TvcmContainerLockCountItem
  ;
+ : Parameters
+   Seq: ( ME_55824F300399 // aContainer
+ )
+ ; // Parameters
 
 ref; // ME_55824F260248 C
 
@@ -13307,6 +13393,26 @@ ref; // ME_55C864710046 rGUID
 
 ref; // ME_55C86479026B EQ
 
+: ME_55C8835B01D5
+ CONST UID '55C8835B01D5'
+ CONST Name 'aForm'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4914746C019E' '4683F37902CF.pas.ms.script' // IvcmEntityForm
+ ;
+
+ref; // ME_55C8835B01D5 aForm
+
+: ME_55C8835B0204
+ CONST UID '55C8835B0204'
+ CONST Name 'aGUID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
+ ;
+
+ref; // ME_55C8835B0204 aGUID
+
 : ME_55C8648A0397
  CONST UID '55C8648A0397'
  CONST Name 'C'
@@ -13316,6 +13422,11 @@ ref; // ME_55C86479026B EQ
  CONST Abstraction at_final
  : Parent ME_55C86432033A // TvcmHistoryFormCacheItem
  ;
+ : Parameters
+   Seq: ( ME_55C8835B01D5 // aForm
+ ME_55C8835B0204 // aGUID
+ )
+ ; // Parameters
 
 ref; // ME_55C8648A0397 C
 

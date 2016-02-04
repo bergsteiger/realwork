@@ -4221,6 +4221,36 @@ ref; // ME_55225075010C rHintText
 
 ref; // ME_552250810260 rRect
 
+: ME_5522509E002F
+ CONST UID '5522509E002F'
+ CONST Name 'aNeedShowHint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_5522509E002F aNeedShowHint
+
+: ME_5522509E005D
+ CONST UID '5522509E005D'
+ CONST Name 'aHintText'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498849D803A8' '4AB0C3C60310.pas.ms.script' // WideString
+ ;
+
+ref; // ME_5522509E005D aHintText
+
+: ME_5522509E00AB
+ CONST UID '5522509E00AB'
+ CONST Name 'aRect'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4728A7190065' '4728A7020026.pas.ms.script' // TRect
+ ;
+
+ref; // ME_5522509E00AB aRect
+
 : ME_5522508F018E
  CONST UID '5522508F018E'
  CONST Name 'C'
@@ -4230,6 +4260,12 @@ ref; // ME_552250810260 rRect
  CONST Abstraction at_regular
  : Parent ME_5522506003AD // TChromeLikeTabHintParams
  ;
+ : Parameters
+   Seq: ( ME_5522509E002F // aNeedShowHint
+ ME_5522509E005D // aHintText
+ ME_5522509E00AB // aRect
+ )
+ ; // Parameters
 
 ref; // ME_5522508F018E C
 

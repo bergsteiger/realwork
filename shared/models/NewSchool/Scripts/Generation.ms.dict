@@ -33,13 +33,13 @@ CONST cPathSep '\'
 FILE CompileTime-VAR g_OutFile nil
 %REMARK 'Текущий файл'
 
-INTEGER CompileTime-VAR g_Indent 0
+STRING CompileTime-VAR g_Indent ''
 %REMARK 'Текущий отступ'
 
 CONST cIndentChar ' '
 
 STRING FUNCTION IndentStr
- g_Indent cIndentChar char:Dupe >>> Result
+ g_Indent >>> Result
 ; // IndentStr
 
 OBJECT STRING INTEGER ARRAY BOOLEAN TYPE OUTABLE
@@ -128,7 +128,7 @@ PROCEDURE Indented:
   ^ IN aLambda
   
  TF g_Indent (
-  INC g_Indent
+  g_Indent cIndentChar Cat >>> g_Indent
   aLambda DO
  ) 
 ; // Indented:
@@ -262,7 +262,7 @@ elem_proc GenerateWordToFileWith:
  ^ IN aLambda
  
  TF g_Indent (
-  0 >>> g_Indent
+  '' >>> g_Indent
   STRING VAR l_FileName 
   [ Self pop:Word:Name .? Ext ] strings:Cat >>> l_FileName
  
@@ -2671,6 +2671,15 @@ STRING elem_func ParamPrefix
  >>> Result
 ; // ParamPrefix
 
+STRING FUNCTION .ToBorland
+  STRING IN aValue
+ '' >>> Result
+ aValue '_' string:Split:for> ( 
+   IN aSubstr
+  Result aSubstr Cat >>> Result
+ )
+; // .ToBorland
+
 STRING elem_func MethodName
  Cached:
  (
@@ -2691,6 +2700,8 @@ STRING elem_func MethodName
      ( [ Self .Parent .MainAncestor .TypeName '_' Self .Name ] strings:Cat )
     else
      ( [ Self .Parent .TypeName '_' Self .Name ] strings:Cat )
+   ( Self .UPisTrue 'extprop:isGlobal' )
+    ( Self .Name .ToBorland )
    DEFAULT
     ( Self .Name )
   ; // RULES 
@@ -3979,9 +3990,32 @@ elem_proc OutRange
     l_First >>> l_Second
    end // ( l_Second IsNil )
    
-   l_First .ExtValueOrName
+   VAR l_ElementPrefix
+   if ( Self .GetUP "elements prefix" '<none>' == ) then
+   begin
+    '' >>> l_ElementPrefix
+   end
+   else
+   begin 
+    Self .MainAncestor .GetUP 'extprop:pas:ElementPrefix' >>> l_ElementPrefix
+   end
+   
+   : .ValueWithPrefix
+     IN aValue
+    if ( aValue IsString ! ) then
+     aValue
+    else 
+    if ( l_ElementPrefix aValue StartsStr ) then 
+     aValue
+    else
+    begin
+     l_ElementPrefix aValue
+    end 
+   ; // .ValueWithPrefix
+   
+   l_First .ExtValueOrName .ValueWithPrefix
    ' .. '
-   l_Second .ExtValueOrName
+   l_Second .ExtValueOrName .ValueWithPrefix
    ';' 
  ] .Out
  Self .OutDocumentation
@@ -4253,7 +4287,7 @@ elem_proc OutConstants
      Self .MainImplements >>> l_MainImplements
      if ( l_MainImplements IsNil ) then
      begin
-     '0 .. ' Self .Attributes .CountIt
+     '0 .. ' Self .Attributes .CountIt 1 -
      end // ( l_MainImplements IsNil )
      else
      begin

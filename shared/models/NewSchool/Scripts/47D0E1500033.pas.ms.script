@@ -4903,6 +4903,26 @@ ref; // ME_5559A530015A rFormSet
 
 ref; // ME_5559A53B02B4 EQ
 
+: ME_555AE67B030C
+ CONST UID '555AE67B030C'
+ CONST Name 'aFormSet'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_491AF0FF01B6' '4683F37902CF.pas.ms.script' // IvcmFormSet
+ ;
+
+ref; // ME_555AE67B030C aFormSet
+
+: ME_555AE67B0325
+ CONST UID '555AE67B0325'
+ CONST Name 'aContainer'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49525C400141' '4683F37902CF.pas.ms.script' // IvcmContainer
+ ;
+
+ref; // ME_555AE67B0325 aContainer
+
 : ME_5559A5520116
  CONST UID '5559A5520116'
  CONST Name 'C'
@@ -4912,6 +4932,11 @@ ref; // ME_5559A53B02B4 EQ
  CONST Abstraction at_final
  : Parent ME_5559A50B0336 // TvcmFormSetContainerMapItem
  ;
+ : Parameters
+   Seq: ( ME_555AE67B030C // aFormSet
+ ME_555AE67B0325 // aContainer
+ )
+ ; // Parameters
 
 ref; // ME_5559A5520116 C
 

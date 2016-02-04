@@ -734,6 +734,26 @@ ref; // ME_4ABA24A103E6 rID
 
 ref; // ME_4ABA24AC017E rDictionaryID
 
+: ME_4ABA25080130
+ CONST UID '4ABA25080130'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4AB38D9A0062 // Tm4DictItemID
+ ;
+
+ref; // ME_4ABA25080130 anID
+
+: ME_4ABA2508017C
+ CONST UID '4ABA2508017C'
+ CONST Name 'aDictionaryID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4ABA2508017C aDictionaryID
+
 : ME_4ABA24E701F2
  CONST UID '4ABA24E701F2'
  CONST Name 'C'
@@ -743,6 +763,11 @@ ref; // ME_4ABA24AC017E rDictionaryID
  CONST Abstraction at_regular
  : Parent ME_4ABA246700B4 // Tm4DictItemAddr
  ;
+ : Parameters
+   Seq: ( ME_4ABA25080130 // anID
+ ME_4ABA2508017C // aDictionaryID
+ )
+ ; // Parameters
 
 ref; // ME_4ABA24E701F2 C
 

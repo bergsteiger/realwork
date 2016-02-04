@@ -1618,6 +1618,34 @@ ref; // ME_56B0C9D1032F f_AverageCharWidth
 
 ref; // ME_56B0C9DE025E f_pxAverageCharWidth
 
+: ME_56B1F84D0180
+ CONST UID '56B1F84D0180'
+ CONST Name 'f_FontIndex'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46851BB502D6' '4677FBA70343.pas.ms.script' // Tl3FontIndex
+ ;
+
+ref; // ME_56B1F84D0180 f_FontIndex
+
+: ME_56B1F8D503B9
+ CONST UID '56B1F8D503B9'
+ CONST Name 'f_Font'
+ CONST Class class_Attribute
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
+ ;
+
+ref; // ME_56B1F8D503B9 f_Font
+
 : ME_B6469CD3B8C3
  CONST UID 'B6469CD3B8C3'
  CONST Name 'f_Flags'
@@ -2410,70 +2438,6 @@ ref; // ME_AD8C40A29B72 DoIt
 
 ref; // ME_56AF1E9702A0 CheckDrawing
 
-FORWARD ME_56AF2372026A
-
-: ME_CA6897BABBF8
- CONST UID 'CA6897BABBF8'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Lock' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56AF2372026A // Lock
- ;
-
-ref; // ME_CA6897BABBF8 DoIt
-
-: ME_56AF2372026A
- CONST UID '56AF2372026A'
- CONST Name 'Lock'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Operations
-   Seq: ( ME_CA6897BABBF8 // DoIt
- )
- ; // Operations
-
-ref; // ME_56AF2372026A Lock
-
-FORWARD ME_56AF237B031E
-
-: ME_8A66DF39C15A
- CONST UID '8A66DF39C15A'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Unlock' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56AF237B031E // Unlock
- ;
-
-ref; // ME_8A66DF39C15A DoIt
-
-: ME_56AF237B031E
- CONST UID '56AF237B031E'
- CONST Name 'Unlock'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
- ;
- : Operations
-   Seq: ( ME_8A66DF39C15A // DoIt
- )
- ; // Operations
-
-ref; // ME_56AF237B031E Unlock
-
 FORWARD ME_56AF3CC4020E
 
 : ME_56AF3CDD014B
@@ -3161,6 +3125,227 @@ ref; // ME_56B0C72D0250
 
 ref; // ME_56B0C77B0397 
 
+FORWARD ME_484CE8FF0292
+
+: ME_56B1F589035A
+ CONST UID '56B1F589035A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target ME_484CE8FF0292 // Tl3LogFont
+ ;
+
+ref; // ME_56B1F589035A 
+
+: ME_56B1F66A008D
+ CONST UID '56B1F66A008D'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target WL 'ME_56B1F6580292' '4678193C009C.pas.ms.script' // Font Names
+ ;
+
+ref; // ME_56B1F66A008D 
+
+FORWARD ME_484CE8BC01CC
+
+: ME_56B1F69C020C
+ CONST UID '56B1F69C020C'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target ME_484CE8BC01CC // l3FontManager
+ ;
+
+ref; // ME_56B1F69C020C 
+
+FORWARD ME_5158537A0290
+
+: ME_56B1F70E01D3
+ CONST UID '56B1F70E01D3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ : Target ME_5158537A0290 // l3FontTools
+ ;
+
+ref; // ME_56B1F70E01D3 
+
+: ME_46A610780340_ME_4A4CB79A02C6
+ CONST UID '46A610780340'
+ CONST Name 'ForeColor'
+ : Original WL 'ME_46A610780340' '4677FBA70343.pas.ms.script' // ForeColor
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A610780340_ME_4A4CB79A02C6 ForeColor
+
+: ME_46A6108E017F_ME_4A4CB79A02C6
+ CONST UID '46A6108E017F'
+ CONST Name 'BackColor'
+ : Original WL 'ME_46A6108E017F' '4677FBA70343.pas.ms.script' // BackColor
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A6108E017F_ME_4A4CB79A02C6 BackColor
+
+: ME_46A610AF012C_ME_4A4CB79A02C6
+ CONST UID '46A610AF012C'
+ CONST Name 'Name'
+ : Original WL 'ME_46A610AF012C' '4677FBA70343.pas.ms.script' // Name
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A610AF012C_ME_4A4CB79A02C6 Name
+
+: ME_46A610E10084_ME_4A4CB79A02C6
+ CONST UID '46A610E10084'
+ CONST Name 'Pitch'
+ : Original WL 'ME_46A610E10084' '4677FBA70343.pas.ms.script' // Pitch
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A610E10084_ME_4A4CB79A02C6 Pitch
+
+: ME_46A6111000F9_ME_4A4CB79A02C6
+ CONST UID '46A6111000F9'
+ CONST Name 'Size'
+ : Original WL 'ME_46A6111000F9' '4677FBA70343.pas.ms.script' // Size
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A6111000F9_ME_4A4CB79A02C6 Size
+
+: ME_46A61136020C_ME_4A4CB79A02C6
+ CONST UID '46A61136020C'
+ CONST Name 'Index'
+ : Original WL 'ME_46A61136020C' '4677FBA70343.pas.ms.script' // Index
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A61136020C_ME_4A4CB79A02C6 Index
+
+: ME_46A6127B0282_ME_4A4CB79A02C6
+ CONST UID '46A6127B0282'
+ CONST Name 'Style'
+ : Original WL 'ME_46A6127B0282' '4677FBA70343.pas.ms.script' // Style
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A6127B0282_ME_4A4CB79A02C6 Style
+
+: ME_46A6129101E3_ME_4A4CB79A02C6
+ CONST UID '46A6129101E3'
+ CONST Name 'Bold'
+ : Original WL 'ME_46A6129101E3' '4677FBA70343.pas.ms.script' // Bold
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A6129101E3_ME_4A4CB79A02C6 Bold
+
+: ME_46A612AF0038_ME_4A4CB79A02C6
+ CONST UID '46A612AF0038'
+ CONST Name 'Italic'
+ : Original WL 'ME_46A612AF0038' '4677FBA70343.pas.ms.script' // Italic
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A612AF0038_ME_4A4CB79A02C6 Italic
+
+: ME_46A612C302D6_ME_4A4CB79A02C6
+ CONST UID '46A612C302D6'
+ CONST Name 'Underline'
+ : Original WL 'ME_46A612C302D6' '4677FBA70343.pas.ms.script' // Underline
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A612C302D6_ME_4A4CB79A02C6 Underline
+
+: ME_46A612DC01F5_ME_4A4CB79A02C6
+ CONST UID '46A612DC01F5'
+ CONST Name 'Strikeout'
+ : Original WL 'ME_46A612DC01F5' '4677FBA70343.pas.ms.script' // Strikeout
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_46A612DC01F5_ME_4A4CB79A02C6 Strikeout
+
+: ME_46A6154A01EE_ME_4A4CB79A02C6
+ CONST UID '46A6154A01EE'
+ CONST Name 'AssignFont'
+ : Original WL 'ME_46A6154A01EE' '4677FBA70343.pas.ms.script' // AssignFont
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A6154A01EE_ME_4A4CB79A02C6 AssignFont
+
+: ME_46A6156000CD_ME_4A4CB79A02C6
+ CONST UID '46A6156000CD'
+ CONST Name 'Assign2Font'
+ : Original WL 'ME_46A6156000CD' '4677FBA70343.pas.ms.script' // Assign2Font
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A6156000CD_ME_4A4CB79A02C6 Assign2Font
+
+: ME_46A6157B0361_ME_4A4CB79A02C6
+ CONST UID '46A6157B0361'
+ CONST Name 'Lock'
+ : Original WL 'ME_46A6157B0361' '4677FBA70343.pas.ms.script' // Lock
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A6157B0361_ME_4A4CB79A02C6 Lock
+
+: ME_46A6158C0275_ME_4A4CB79A02C6
+ CONST UID '46A6158C0275'
+ CONST Name 'Unlock'
+ : Original WL 'ME_46A6158C0275' '4677FBA70343.pas.ms.script' // Unlock
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A6158C0275_ME_4A4CB79A02C6 Unlock
+
+: ME_46A615A10333_ME_4A4CB79A02C6
+ CONST UID '46A615A10333'
+ CONST Name 'HF'
+ : Original WL 'ME_46A615A10333' '4677FBA70343.pas.ms.script' // HF
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_46A615A10333_ME_4A4CB79A02C6 HF
+
 : ME_4728BE6A0392_ME_4A4CB79A02C6
  CONST UID '4728BE6A0392'
  CONST Name 'PageNumber'
@@ -3182,6 +3367,26 @@ ref; // ME_4728BE6A0392_ME_4A4CB79A02C6 PageNumber
  CONST OpKind opkind_Implemented
  CONST "pm" true
 ref; // ME_4728BE830080_ME_4A4CB79A02C6 PageWidthNumber
+
+: ME_475E5BAD0198_ME_4A4CB79A02C6
+ CONST UID '475E5BAD0198'
+ CONST Name 'IsAtomic'
+ : Original WL 'ME_475E5BAD0198' '4677FBA70343.pas.ms.script' // IsAtomic
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_475E5BAD0198_ME_4A4CB79A02C6 IsAtomic
+
+: ME_475E5BED0118_ME_4A4CB79A02C6
+ CONST UID '475E5BED0118'
+ CONST Name 'FM'
+ : Original WL 'ME_475E5BED0118' '4677FBA70343.pas.ms.script' // FM
+ ;
+ : Implementor ME_4A4CB79A02C6 // Tl3CanvasPrim
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_475E5BED0118_ME_4A4CB79A02C6 FM
 
 : ME_487CFE91037C_ME_4A4CB79A02C6
  CONST UID '487CFE91037C'
@@ -3421,7 +3626,8 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  )
  ; // Inherits
  : Implements
-   Seq: ( WL 'ME_4728BEE10130' '4677FBA70343.pas.ms.script' // Il3PageSetup
+   Seq: ( WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
+ WL 'ME_4728BEE10130' '4677FBA70343.pas.ms.script' // Il3PageSetup
  WL 'ME_487CFBCE0003' '467C0CAA02AB.pas.ms.script' // Il3EffectiveColors
  WL 'ME_4A4CE05603CC' '467C0CAA02AB.pas.ms.script' // Ml3UnitsConverter
  WL 'ME_4CB32CA1019D' '467C0CAA02AB.pas.ms.script' // Ml3PageInfo
@@ -3490,6 +3696,8 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_56B0C9C00331 // f_AverageCharHeight
  ME_56B0C9D1032F // f_AverageCharWidth
  ME_56B0C9DE025E // f_pxAverageCharWidth
+ ME_56B1F84D0180 // f_FontIndex
+ ME_56B1F8D503B9 // f_Font
  ME_B6469CD3B8C3 // f_Flags
  ME_C11F8EC36A6D // f_OnDrawSub
  ME_BA5D4E0AF1E8 // f_CanDrawSubs
@@ -3520,8 +3728,6 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_56AF1E2902D2 // DrawingIsValid
  ME_56AF1E650037 // IsVirtual
  ME_56AF1E9702A0 // CheckDrawing
- ME_56AF2372026A // Lock
- ME_56AF237B031E // Unlock
  ME_56AF3CC4020E // CreateOwned
  ME_56B08EB80255 // CreateForPrinting
  ME_56B0AE550267 // SetCanvas
@@ -3546,8 +3752,26 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_4728BE6A0392_ME_4A4CB79A02C6 // PageNumber
+   Seq: ( ME_46A610780340_ME_4A4CB79A02C6 // ForeColor
+ ME_46A6108E017F_ME_4A4CB79A02C6 // BackColor
+ ME_46A610AF012C_ME_4A4CB79A02C6 // Name
+ ME_46A610E10084_ME_4A4CB79A02C6 // Pitch
+ ME_46A6111000F9_ME_4A4CB79A02C6 // Size
+ ME_46A61136020C_ME_4A4CB79A02C6 // Index
+ ME_46A6127B0282_ME_4A4CB79A02C6 // Style
+ ME_46A6129101E3_ME_4A4CB79A02C6 // Bold
+ ME_46A612AF0038_ME_4A4CB79A02C6 // Italic
+ ME_46A612C302D6_ME_4A4CB79A02C6 // Underline
+ ME_46A612DC01F5_ME_4A4CB79A02C6 // Strikeout
+ ME_46A6154A01EE_ME_4A4CB79A02C6 // AssignFont
+ ME_46A6156000CD_ME_4A4CB79A02C6 // Assign2Font
+ ME_46A6157B0361_ME_4A4CB79A02C6 // Lock
+ ME_46A6158C0275_ME_4A4CB79A02C6 // Unlock
+ ME_46A615A10333_ME_4A4CB79A02C6 // HF
+ ME_4728BE6A0392_ME_4A4CB79A02C6 // PageNumber
  ME_4728BE830080_ME_4A4CB79A02C6 // PageWidthNumber
+ ME_475E5BAD0198_ME_4A4CB79A02C6 // IsAtomic
+ ME_475E5BED0118_ME_4A4CB79A02C6 // FM
  ME_487CFE91037C_ME_4A4CB79A02C6 // CheckColors
  ME_487D000802A4_ME_4A4CB79A02C6 // Font
  ME_487D0BDA03C6_ME_4A4CB79A02C6 // FontColor
@@ -3592,6 +3816,10 @@ ref; // ME_47A042E100E2_ME_4A4CB79A02C6 InitFields
  ME_56AB78A30366 // 
  ME_56B0C72D0250 // 
  ME_56B0C77B0397 // 
+ ME_56B1F589035A // 
+ ME_56B1F66A008D // 
+ ME_56B1F69C020C // 
+ ME_56B1F70E01D3 // 
  )
  ; // Dependencies
  CONST "author" 'Люлин А.В.'
@@ -4507,177 +4735,6 @@ ref; // ME_46A60F63035F_ME_473C3D830066 Pitch
  CONST OpKind opkind_Implemented
  CONST "pm" false
 ref; // ME_46A60F89031E_ME_473C3D830066 Index
-
-: ME_46A610780340_ME_473C3D830066
- CONST UID '46A610780340'
- CONST Name 'ForeColor'
- : Original WL 'ME_46A610780340' '4677FBA70343.pas.ms.script' // ForeColor
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A610780340_ME_473C3D830066 ForeColor
-
-: ME_46A6108E017F_ME_473C3D830066
- CONST UID '46A6108E017F'
- CONST Name 'BackColor'
- : Original WL 'ME_46A6108E017F' '4677FBA70343.pas.ms.script' // BackColor
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A6108E017F_ME_473C3D830066 BackColor
-
-: ME_46A610AF012C_ME_473C3D830066
- CONST UID '46A610AF012C'
- CONST Name 'Name'
- : Original WL 'ME_46A610AF012C' '4677FBA70343.pas.ms.script' // Name
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A610AF012C_ME_473C3D830066 Name
-
-: ME_46A610E10084_ME_473C3D830066
- CONST UID '46A610E10084'
- CONST Name 'Pitch'
- : Original WL 'ME_46A610E10084' '4677FBA70343.pas.ms.script' // Pitch
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A610E10084_ME_473C3D830066 Pitch
-
-: ME_46A6111000F9_ME_473C3D830066
- CONST UID '46A6111000F9'
- CONST Name 'Size'
- : Original WL 'ME_46A6111000F9' '4677FBA70343.pas.ms.script' // Size
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A6111000F9_ME_473C3D830066 Size
-
-: ME_46A61136020C_ME_473C3D830066
- CONST UID '46A61136020C'
- CONST Name 'Index'
- : Original WL 'ME_46A61136020C' '4677FBA70343.pas.ms.script' // Index
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A61136020C_ME_473C3D830066 Index
-
-: ME_46A6127B0282_ME_473C3D830066
- CONST UID '46A6127B0282'
- CONST Name 'Style'
- : Original WL 'ME_46A6127B0282' '4677FBA70343.pas.ms.script' // Style
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A6127B0282_ME_473C3D830066 Style
-
-: ME_46A6129101E3_ME_473C3D830066
- CONST UID '46A6129101E3'
- CONST Name 'Bold'
- : Original WL 'ME_46A6129101E3' '4677FBA70343.pas.ms.script' // Bold
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A6129101E3_ME_473C3D830066 Bold
-
-: ME_46A612AF0038_ME_473C3D830066
- CONST UID '46A612AF0038'
- CONST Name 'Italic'
- : Original WL 'ME_46A612AF0038' '4677FBA70343.pas.ms.script' // Italic
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A612AF0038_ME_473C3D830066 Italic
-
-: ME_46A612C302D6_ME_473C3D830066
- CONST UID '46A612C302D6'
- CONST Name 'Underline'
- : Original WL 'ME_46A612C302D6' '4677FBA70343.pas.ms.script' // Underline
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A612C302D6_ME_473C3D830066 Underline
-
-: ME_46A612DC01F5_ME_473C3D830066
- CONST UID '46A612DC01F5'
- CONST Name 'Strikeout'
- : Original WL 'ME_46A612DC01F5' '4677FBA70343.pas.ms.script' // Strikeout
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
- CONST "pm" false
-ref; // ME_46A612DC01F5_ME_473C3D830066 Strikeout
-
-: ME_46A6154A01EE_ME_473C3D830066
- CONST UID '46A6154A01EE'
- CONST Name 'AssignFont'
- : Original WL 'ME_46A6154A01EE' '4677FBA70343.pas.ms.script' // AssignFont
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A6154A01EE_ME_473C3D830066 AssignFont
-
-: ME_46A6156000CD_ME_473C3D830066
- CONST UID '46A6156000CD'
- CONST Name 'Assign2Font'
- : Original WL 'ME_46A6156000CD' '4677FBA70343.pas.ms.script' // Assign2Font
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A6156000CD_ME_473C3D830066 Assign2Font
-
-: ME_46A6157B0361_ME_473C3D830066
- CONST UID '46A6157B0361'
- CONST Name 'Lock'
- : Original WL 'ME_46A6157B0361' '4677FBA70343.pas.ms.script' // Lock
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A6157B0361_ME_473C3D830066 Lock
-
-: ME_46A6158C0275_ME_473C3D830066
- CONST UID '46A6158C0275'
- CONST Name 'Unlock'
- : Original WL 'ME_46A6158C0275' '4677FBA70343.pas.ms.script' // Unlock
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A6158C0275_ME_473C3D830066 Unlock
-
-: ME_46A615A10333_ME_473C3D830066
- CONST UID '46A615A10333'
- CONST Name 'HF'
- : Original WL 'ME_46A615A10333' '4677FBA70343.pas.ms.script' // HF
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_46A615A10333_ME_473C3D830066 HF
 
 : ME_4727432E0121_ME_473C3D830066
  CONST UID '4727432E0121'
@@ -5609,26 +5666,6 @@ ref; // ME_4728C0BB013B_ME_473C3D830066 NotFocused
  CONST "pm" true
 ref; // ME_4728C0C90182_ME_473C3D830066 RegionBottomRight
 
-: ME_475E5BAD0198_ME_473C3D830066
- CONST UID '475E5BAD0198'
- CONST Name 'IsAtomic'
- : Original WL 'ME_475E5BAD0198' '4677FBA70343.pas.ms.script' // IsAtomic
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_475E5BAD0198_ME_473C3D830066 IsAtomic
-
-: ME_475E5BED0118_ME_473C3D830066
- CONST UID '475E5BED0118'
- CONST Name 'FM'
- : Original WL 'ME_475E5BED0118' '4677FBA70343.pas.ms.script' // FM
- ;
- : Implementor ME_473C3D830066 // Tl3Canvas
- ;
- CONST OpKind opkind_Implemented
-ref; // ME_475E5BED0118_ME_473C3D830066 FM
-
 : ME_476FA1140319_ME_473C3D830066
  CONST UID '476FA1140319'
  CONST Name 'GetClientRect'
@@ -5953,8 +5990,7 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  )
  ; // Inherits
  : Implements
-   Seq: ( WL 'ME_46A614A202CA' '4677FBA70343.pas.ms.script' // Il3Font
- WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
+   Seq: ( WL 'ME_47274316023E' '467C0CAA02AB.pas.ms.script' // Il3InfoCanvas
  WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
  )
  ; // Implements
@@ -5990,22 +6026,6 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_46A60EF300C9_ME_473C3D830066 // BackColor
  ME_46A60F63035F_ME_473C3D830066 // Pitch
  ME_46A60F89031E_ME_473C3D830066 // Index
- ME_46A610780340_ME_473C3D830066 // ForeColor
- ME_46A6108E017F_ME_473C3D830066 // BackColor
- ME_46A610AF012C_ME_473C3D830066 // Name
- ME_46A610E10084_ME_473C3D830066 // Pitch
- ME_46A6111000F9_ME_473C3D830066 // Size
- ME_46A61136020C_ME_473C3D830066 // Index
- ME_46A6127B0282_ME_473C3D830066 // Style
- ME_46A6129101E3_ME_473C3D830066 // Bold
- ME_46A612AF0038_ME_473C3D830066 // Italic
- ME_46A612C302D6_ME_473C3D830066 // Underline
- ME_46A612DC01F5_ME_473C3D830066 // Strikeout
- ME_46A6154A01EE_ME_473C3D830066 // AssignFont
- ME_46A6156000CD_ME_473C3D830066 // Assign2Font
- ME_46A6157B0361_ME_473C3D830066 // Lock
- ME_46A6158C0275_ME_473C3D830066 // Unlock
- ME_46A615A10333_ME_473C3D830066 // HF
  ME_4727432E0121_ME_473C3D830066 // pxAverageCharWidth
  ME_472743420382_ME_473C3D830066 // AverageCharWidth
  ME_472744E803E3_ME_473C3D830066 // TextExtent
@@ -6097,8 +6117,6 @@ ref; // ME_4E98521202B5_ME_473C3D830066 GetGlobalClipRectWithZoom
  ME_4728C0890017_ME_473C3D830066 // SectionExtent
  ME_4728C0BB013B_ME_473C3D830066 // NotFocused
  ME_4728C0C90182_ME_473C3D830066 // RegionBottomRight
- ME_475E5BAD0198_ME_473C3D830066 // IsAtomic
- ME_475E5BED0118_ME_473C3D830066 // FM
  ME_476FA1140319_ME_473C3D830066 // GetClientRect
  ME_4776171C037B_ME_473C3D830066 // AdjustMarginsByPrintableArea
  ME_483D1BCA0045_ME_473C3D830066 // PasswordChar
@@ -11170,8 +11188,6 @@ ref; // ME_7D16761A0A99 Exists
  CONST extprop:pas:UnitName 'l3FontManagerEx'
 
 ref; // ME_4B88F0F00211 Tl3FontManagerEx
-
-FORWARD ME_484CE8BC01CC
 
 : ME_4B88F0E700A0
  CONST UID '4B88F0E700A0'
