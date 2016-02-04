@@ -25,11 +25,6 @@ const
   {* 'Средние' }
  str_vcmgs32x32: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vcmgs32x32'; rValue : 'Большие');
   {* 'Большие' }
- {* Карта преобразования локализованных строк vcmIconSize }
- Automatic: Pl3StringIDEx = str_vcmgsAutomatic;
- 16x16: Pl3StringIDEx = str_vcmgs16x16;
- 24x24: Pl3StringIDEx = str_vcmgs24x24;
- 32x32: Pl3StringIDEx = str_vcmgs32x32;
 
 type
  TvcmGlyphSize = (
@@ -47,6 +42,10 @@ type
    class function DisplayNameToValue(const aDisplayName: Il3CString): TvcmGlyphSize;
     {* Преобразование строкового значения к порядковому }
  end;//vcmIconSizeMapHelper
+
+const
+ {* Карта преобразования локализованных строк vcmIconSize }
+ vcmIconSizeMap: array [TvcmGlyphSize] of Pl3StringIDEx = (@str_vcmgsAutomatic, @str_vcmgs16x16, @str_vcmgs24x24, @str_vcmgs32x32);
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation
