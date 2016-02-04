@@ -26,25 +26,28 @@ const
  str_nsc_wpAtBeginString: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_wpAtBeginString'; rValue : 'С начала строки');
   {* 'С начала строки' }
  {* Карта преобразования локализованных строк WordPositionNames }
- AnyPathWord: Pl3StringIDEx = str_nsc_wpAnyPathWord;
- AtBeginWord: Pl3StringIDEx = str_nsc_wpAtBeginWord;
- AtBeginString: Pl3StringIDEx = str_nsc_wpAtBeginString;
+ WordPositionNamesMap: array [Tl3WordPosition] of Pl3StringIDEx = (@str_nsc_wpAnyPathWord
+ , @str_nsc_wpAtBeginWord
+ , @str_nsc_wpAtBeginString
+ );
  {* Локализуемые строки TreeLevelDistNames }
  str_nsc_tldAllLevels: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_tldAllLevels'; rValue : 'Во всех уровнях');
   {* 'Во всех уровнях' }
  str_nsc_tldOneLevel: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_tldOneLevel'; rValue : 'В пределах одного уровня');
   {* 'В пределах одного уровня' }
  {* Карта преобразования локализованных строк TreeLevelDistNames }
- AllLevels: Pl3StringIDEx = str_nsc_tldAllLevels;
- OneLevel: Pl3StringIDEx = str_nsc_tldOneLevel;
+ TreeLevelDistNamesMap: array [Tl3TreeLevelDist] of Pl3StringIDEx = (@str_nsc_tldAllLevels
+ , @str_nsc_tldOneLevel
+ );
  {* Локализуемые строки WordOrderNames }
  str_nsc_woAnyOrder: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_woAnyOrder'; rValue : 'В любом порядке');
   {* 'В любом порядке' }
  str_nsc_woAsWrote: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_woAsWrote'; rValue : 'С учетом порядка');
   {* 'С учетом порядка' }
  {* Карта преобразования локализованных строк WordOrderNames }
- AnyOrder: Pl3StringIDEx = str_nsc_woAnyOrder;
- AsWrote: Pl3StringIDEx = str_nsc_woAsWrote;
+ WordOrderNamesMap: array [Tl3WordOrder] of Pl3StringIDEx = (@str_nsc_woAnyOrder
+ , @str_nsc_woAsWrote
+ );
  {* Локализуемые строки ContextParamsMessages }
  str_nsc_cpmTreeLevelDistHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'nsc_cpmTreeLevelDistHint'; rValue : 'Находятся ли искомые слова на разных уровнях иерархического дерева или в пределах одного уровня');
   {* 'Находятся ли искомые слова на разных уровнях иерархического дерева или в пределах одного уровня' }

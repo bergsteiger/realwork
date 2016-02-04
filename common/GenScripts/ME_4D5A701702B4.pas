@@ -23,8 +23,9 @@ const
  str_svcExpanded: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'svcExpanded'; rValue : 'В развернутом виде');
   {* 'В развернутом виде' }
  {* Карта преобразования локализованных строк ShowVersionComments }
- Collapsed: Pl3StringIDEx = str_svcCollapsed;
- Expanded: Pl3StringIDEx = str_svcExpanded;
+ ShowVersionCommentsMap: array [Boolean] of Pl3StringIDEx = (@str_svcCollapsed
+ , @str_svcExpanded
+ );
  {* Локализуемые строки Local }
  str_pi_Document_ShowVersionsComment: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pi_Document_ShowVersionsComment'; rValue : 'Показывать информацию об изменениях в тексте документа');
   {* 'Показывать информацию об изменениях в тексте документа' }
@@ -40,8 +41,9 @@ const
  str_vclbText: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vclbText'; rValue : 'Текст редакции');
   {* 'Текст редакции' }
  {* Карта преобразования локализованных строк VersionCommentsLinkBegaviour }
- Comparison: Pl3StringIDEx = str_vclbComparison;
- Text: Pl3StringIDEx = str_vclbText;
+ VersionCommentsLinkBegaviourMap: array [Boolean] of Pl3StringIDEx = (@str_vclbComparison
+ , @str_vclbText
+ );
 
 type
  ShowVersionCommentsMapHelper = {final} class

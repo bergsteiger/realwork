@@ -39,14 +39,6 @@ const
   {* 14 }
  str_PrintAndExportFontSize_pef16: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'PrintAndExportFontSize_pef16'; rValue : '16');
   {* 16 }
- {* Карта преобразования локализованных строк PrintAndExportFontSizeValues }
- pef8: Pl3StringIDEx = str_PrintAndExportFontSize_pef8;
- pef9: Pl3StringIDEx = str_PrintAndExportFontSize_pef9;
- pef10: Pl3StringIDEx = str_PrintAndExportFontSize_pef10;
- pef11: Pl3StringIDEx = str_PrintAndExportFontSize_pef11;
- pef12: Pl3StringIDEx = str_PrintAndExportFontSize_pef12;
- pef14: Pl3StringIDEx = str_PrintAndExportFontSize_pef14;
- pef16: Pl3StringIDEx = str_PrintAndExportFontSize_pef16;
 
 type
  PrintAndExportFontSizeEnum = (
@@ -101,6 +93,17 @@ type
    class function Instance: TPrintAndExportFontSizeValuesMapImpl;
     {* Метод получения экземпляра синглетона TPrintAndExportFontSizeValuesMapImpl }
  end;//TPrintAndExportFontSizeValuesMapImpl
+
+const
+ {* Карта преобразования локализованных строк PrintAndExportFontSizeValues }
+ PrintAndExportFontSizeValuesMap: array [PrintAndExportFontSizeEnum] of Pl3StringIDEx = (@str_PrintAndExportFontSize_pef8
+ , @str_PrintAndExportFontSize_pef9
+ , @str_PrintAndExportFontSize_pef10
+ , @str_PrintAndExportFontSize_pef11
+ , @str_PrintAndExportFontSize_pef12
+ , @str_PrintAndExportFontSize_pef14
+ , @str_PrintAndExportFontSize_pef16
+ );
 
 implementation
 

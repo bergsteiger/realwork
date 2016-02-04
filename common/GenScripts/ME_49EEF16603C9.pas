@@ -15,12 +15,10 @@ uses
 
 const
  {* URL адреса, открываемые во встроенном браузере }
- GarantMainURL = 'www.garant.ru';
-  {* "Новости онлайн" }
- BooksAndImagesURL = 'mirror2.garant.ru';
-  {* Книги и образа официальных публикаций }
- ForumURL = 'forum.garant.ru';
-  {* Форум }
+ InternalBrowserURLArr: array [0 .. 3] of AnsiString = ('www.garant.ru'
+ , 'mirror2.garant.ru'
+ , 'forum.garant.ru'
+ );
 
 function IsGarantURL(const anURL: WideString): Boolean;
  {* Определяет, что адрес в домене Гаранта }

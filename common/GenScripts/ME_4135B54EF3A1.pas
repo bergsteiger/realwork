@@ -34,11 +34,6 @@ const
   {* Раздел для юристов }
  str_ChangeableMainMenuType_ST_BUDGET_ORGS: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ChangeableMainMenuType_ST_BUDGET_ORGS'; rValue : 'Бюджетные организаций');
   {* Бюджетные организаций }
- {* Карта преобразования локализованных строк ChangeableMainMenuTypeValues }
- ST_FINANCE: Pl3StringIDEx = str_ChangeableMainMenuType_ST_FINANCE;
- ST_HR: Pl3StringIDEx = str_ChangeableMainMenuType_ST_HR;
- ST_LEGAL: Pl3StringIDEx = str_ChangeableMainMenuType_ST_LEGAL;
- ST_BUDGET_ORGS: Pl3StringIDEx = str_ChangeableMainMenuType_ST_BUDGET_ORGS;
 
 type
  ChangeableMainMenuTypeEnum = (
@@ -87,6 +82,14 @@ type
    class function Instance: TChangeableMainMenuTypeValuesMapImpl;
     {* Метод получения экземпляра синглетона TChangeableMainMenuTypeValuesMapImpl }
  end;//TChangeableMainMenuTypeValuesMapImpl
+
+const
+ {* Карта преобразования локализованных строк ChangeableMainMenuTypeValues }
+ ChangeableMainMenuTypeValuesMap: array [ChangeableMainMenuTypeEnum] of Pl3StringIDEx = (@str_ChangeableMainMenuType_ST_FINANCE
+ , @str_ChangeableMainMenuType_ST_HR
+ , @str_ChangeableMainMenuType_ST_LEGAL
+ , @str_ChangeableMainMenuType_ST_BUDGET_ORGS
+ );
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
