@@ -37,20 +37,7 @@ const
  cCustomButtonName = 'Custom';
  cCheckName = 'Check';
  cChoicesName = 'Choices';
- Yes = mbYes;
- All = mbAll;
- YesToAll = mbYesToAll;
- No = mbNo;
- NoToAll = mbNoToAll;
- Ok = mbOk;
- Cancal = mbCancel;
- Abort = mbAbort;
- Retry = mbRetry;
- Ignore = mbIgnore;
- Help = mbHelp;
- {$If Defined(XE)}
- Close = mbClose;
- {$IfEnd} // Defined(XE)
+ cMsgDlgBtnOrder: array [TMsgDlgBtn] of TMsgDlgBtn = (mbYes, mbAll, mbYesToAll, mbNo, mbNoToAll, mbOk, mbCancel, mbAbort, mbRetry, mbIgnore, mbHelp, mbClose);
 
 type
  TvtEffectiveDialogButton = class(TvtVGButton)

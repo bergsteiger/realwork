@@ -45,7 +45,11 @@ type
 
 const
  {*  арта преобразовани€ локализованных строк vcmIconSize }
- vcmIconSizeMap: array [TvcmGlyphSize] of Pl3StringIDEx = (@str_vcmgsAutomatic, @str_vcmgs16x16, @str_vcmgs24x24, @str_vcmgs32x32);
+ vcmIconSizeMap: array [TvcmGlyphSize] of Pl3StringIDEx = (@str_vcmgsAutomatic
+ , @str_vcmgs16x16
+ , @str_vcmgs24x24
+ , @str_vcmgs32x32
+ );
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation

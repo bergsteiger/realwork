@@ -96,7 +96,14 @@ type
 
 const
  {*  арта преобразовани€ локализованных строк PrintAndExportFontSizeValues }
- PrintAndExportFontSizeValuesMap: array [PrintAndExportFontSizeEnum] of Pl3StringIDEx = (@str_PrintAndExportFontSize_pef8, @str_PrintAndExportFontSize_pef9, @str_PrintAndExportFontSize_pef10, @str_PrintAndExportFontSize_pef11, @str_PrintAndExportFontSize_pef12, @str_PrintAndExportFontSize_pef14, @str_PrintAndExportFontSize_pef16);
+ PrintAndExportFontSizeValuesMap: array [PrintAndExportFontSizeEnum] of Pl3StringIDEx = (@str_PrintAndExportFontSize_pef8
+ , @str_PrintAndExportFontSize_pef9
+ , @str_PrintAndExportFontSize_pef10
+ , @str_PrintAndExportFontSize_pef11
+ , @str_PrintAndExportFontSize_pef12
+ , @str_PrintAndExportFontSize_pef14
+ , @str_PrintAndExportFontSize_pef16
+ );
 
 implementation
 
