@@ -1,119 +1,80 @@
 unit l3ExecuteInMainThread;
+ {* Перед использованием нужно вызывать init в главном потоке. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ExecuteInMainThread.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::MultiThread::Tl3ExecuteInMainThread
-//
-// Перед использованием нужно вызывать init в главном потоке.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ExecuteInMainThread.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  Messages,
-  Classes,
-  SyncObjs,
-  Windows,
-  l3ProtoObject,
-  l3AsyncTask,
-  l3AsynkTaskList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3AsynkTaskList
+ , Windows
+ , l3AsyncTask
+ , Messages
+ , SyncObjs
+;
 
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include ..\L3\l3CriticalSectionHolder.imp.pas}
+ {$Include l3CriticalSectionHolder.imp.pas}
  Tl3ExecuteInMainThread = class(_l3CriticalSectionHolder_)
   {* Перед использованием нужно вызывать init в главном потоке. }
- private
- // private fields
-   f_Data : Tl3AsynkTaskList;
-   f_Wnd : HWND;
-   f_MsgID : THandle;
- private
- // private methods
+  private
+   f_Data: Tl3AsynkTaskList;
+   f_Wnd: HWND;
+   f_MsgID: THandle;
+  private
    procedure WndProc(var Message: TMessage);
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    procedure Init;
-     {* Сигнатура метода Init }
    procedure AsyncExec(aTask: Tl3AsyncTask);
    procedure SyncExec(aTask: Tl3AsyncTask);
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3ExecuteInMainThread;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3ExecuteInMainThread }
  end;//Tl3ExecuteInMainThread
 
 implementation
 
 uses
-  l3Base {a},
-  SysUtils,
-  l3Utils
-  ;
-
-
-// start class Tl3ExecuteInMainThread
-
-var g_Tl3ExecuteInMainThread : Tl3ExecuteInMainThread = nil;
-
-procedure Tl3ExecuteInMainThreadFree;
-begin
- l3Free(g_Tl3ExecuteInMainThread);
-end;
-
-class function Tl3ExecuteInMainThread.Instance: Tl3ExecuteInMainThread;
-begin
- if (g_Tl3ExecuteInMainThread = nil) then
- begin
-  l3System.AddExitProc(Tl3ExecuteInMainThreadFree);
-  g_Tl3ExecuteInMainThread := Create;
- end;
- Result := g_Tl3ExecuteInMainThread;
-end;
-
-
-{$Include ..\L3\l3CriticalSectionHolder.imp.pas}
+ l3ImplUses
+ , SysUtils
+ , Classes
+ , l3Utils
+ , l3Base
+;
 
 type
-  Tl3SynTask = {final} class(Tl3AsyncTask)
+ Tl3SynTask = {final} class(Tl3AsyncTask)
   private
-  // private fields
-   f_Task : Tl3AsyncTask;
-   f_Event : TEvent;
+   f_Task: Tl3AsyncTask;
+   f_Event: TEvent;
   protected
-  // realized methods
-   procedure Exec; override;
-     {* Сигнатура метода Exec }
-  protected
-  // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
   public
-  // public methods
    constructor Create(aTask: Tl3AsyncTask); reintroduce;
    procedure WaitForExec;
-  end;//Tl3SynTask
+   procedure Exec; override;
+ end;//Tl3SynTask
 
-// start class Tl3SynTask
+var g_Tl3ExecuteInMainThread: Tl3ExecuteInMainThread = nil;
+ {* Экземпляр синглетона Tl3ExecuteInMainThread }
+
+procedure Tl3ExecuteInMainThreadFree;
+ {* Метод освобождения экземпляра синглетона Tl3ExecuteInMainThread }
+begin
+ l3Free(g_Tl3ExecuteInMainThread);
+end;//Tl3ExecuteInMainThreadFree
 
 constructor Tl3SynTask.Create(aTask: Tl3AsyncTask);
 //#UC START# *549BDAC601E8_549BDA9C0160_var*
@@ -146,6 +107,7 @@ begin
 end;//Tl3SynTask.Exec
 
 procedure Tl3SynTask.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_549BDA9C0160_var*
 //#UC END# *479731C50290_549BDA9C0160_var*
 begin
@@ -155,6 +117,8 @@ begin
  inherited;
 //#UC END# *479731C50290_549BDA9C0160_impl*
 end;//Tl3SynTask.Cleanup
+
+{$Include l3CriticalSectionHolder.imp.pas}
 
 procedure Tl3ExecuteInMainThread.WndProc(var Message: TMessage);
 //#UC START# *549BD08302D8_549BC58B0346_var*
@@ -256,12 +220,24 @@ begin
 end;//Tl3ExecuteInMainThread.SyncExec
 
 class function Tl3ExecuteInMainThread.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3ExecuteInMainThread <> nil;
 end;//Tl3ExecuteInMainThread.Exists
 
+class function Tl3ExecuteInMainThread.Instance: Tl3ExecuteInMainThread;
+ {* Метод получения экземпляра синглетона Tl3ExecuteInMainThread }
+begin
+ if (g_Tl3ExecuteInMainThread = nil) then
+ begin
+  l3System.AddExitProc(Tl3ExecuteInMainThreadFree);
+  g_Tl3ExecuteInMainThread := Create;
+ end;
+ Result := g_Tl3ExecuteInMainThread;
+end;//Tl3ExecuteInMainThread.Instance
+
 procedure Tl3ExecuteInMainThread.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_549BC58B0346_var*
 //#UC END# *479731C50290_549BC58B0346_var*
 begin

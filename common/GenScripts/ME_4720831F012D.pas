@@ -272,11 +272,16 @@ type
   aMaxID: Integer;
   aTime: TDateTime) of object;
 
-function Tm3DBDocumentInfo_C: Tm3DBDocumentInfo;
-function Tm3DBStreamIndex_C: Tm3DBStreamIndex;
+function Tm3DBDocumentInfo_C(aIndexID: Integer): Tm3DBDocumentInfo;
+function Tm3DBStreamIndex_C(anID: Integer;
+ aPart: Tm3DocPartSelector = m3_dsMain;
+ anIndex: Integer = 0): Tm3DBStreamIndex;
  {* Создаёт идентификатор }
-function Tm3DBStreamIndexEx_C: Tm3DBStreamIndexEx;
-function Tm3DBStreamIndexEx_CV: Tm3DBStreamIndexEx;
+function Tm3DBStreamIndexEx_C(const anID: Tm3DBStreamIndex;
+ aPart: Tm3DBPart): Tm3DBStreamIndexEx;
+function Tm3DBStreamIndexEx_CV(const anID: Tm3DBStreamIndex;
+ aPart: Tm3DBPart;
+ aVersion: Integer): Tm3DBStreamIndexEx;
 
 implementation
 
@@ -284,7 +289,7 @@ uses
  l3ImplUses
 ;
 
-function Tm3DBDocumentInfo_C: Tm3DBDocumentInfo;
+function Tm3DBDocumentInfo_C(aIndexID: Integer): Tm3DBDocumentInfo;
 //#UC START# *49C28081033C_4725D0080104_var*
 //#UC END# *49C28081033C_4725D0080104_var*
 begin
@@ -294,7 +299,9 @@ begin
 //#UC END# *49C28081033C_4725D0080104_impl*
 end;//Tm3DBDocumentInfo_C
 
-function Tm3DBStreamIndex_C: Tm3DBStreamIndex;
+function Tm3DBStreamIndex_C(anID: Integer;
+ aPart: Tm3DocPartSelector = m3_dsMain;
+ anIndex: Integer = 0): Tm3DBStreamIndex;
  {* Создаёт идентификатор }
 //#UC START# *49BFC737039A_4725D1E4005E_var*
 //#UC END# *49BFC737039A_4725D1E4005E_var*
@@ -307,7 +314,8 @@ begin
 //#UC END# *49BFC737039A_4725D1E4005E_impl*
 end;//Tm3DBStreamIndex_C
 
-function Tm3DBStreamIndexEx_C: Tm3DBStreamIndexEx;
+function Tm3DBStreamIndexEx_C(const anID: Tm3DBStreamIndex;
+ aPart: Tm3DBPart): Tm3DBStreamIndexEx;
 //#UC START# *49BFD0280183_49BFCF61009F_var*
 //#UC END# *49BFD0280183_49BFCF61009F_var*
 begin
@@ -321,7 +329,9 @@ begin
 //#UC END# *49BFD0280183_49BFCF61009F_impl*
 end;//Tm3DBStreamIndexEx_C
 
-function Tm3DBStreamIndexEx_CV: Tm3DBStreamIndexEx;
+function Tm3DBStreamIndexEx_CV(const anID: Tm3DBStreamIndex;
+ aPart: Tm3DBPart;
+ aVersion: Integer): Tm3DBStreamIndexEx;
 //#UC START# *49BFDB980033_49BFCF61009F_var*
 //#UC END# *49BFDB980033_49BFCF61009F_var*
 begin

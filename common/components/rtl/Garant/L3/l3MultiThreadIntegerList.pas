@@ -1,102 +1,83 @@
 unit l3MultiThreadIntegerList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3MultiThreadIntegerList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::MultiThread::l3MultiThreadIntegerList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3MultiThreadIntegerList.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  l3ProtoIntegerList,
-  SyncObjs
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3ProtoIntegerList
+ , SyncObjs
+;
 
 type
-  IntegerIterator_ForEachF_Action = function (anItem: Integer): Boolean;
-   {* Тип подитеративной функции для IntegerIterator.ForEachF }
+ IntegerIterator_ForEachF_Action = function(anItem: Integer): Boolean;
+  {* Тип подитеративной функции для IntegerIterator.ForEachF }
 
-  IntegerIterator_ForOneF_Action = function (anItem: Integer): Boolean;
-   {* Тип подитеративной функции для IntegerIterator.ForOneF }
+ IntegerIterator_ForOneF_Action = function(anItem: Integer): Boolean;
+  {* Тип подитеративной функции для IntegerIterator.ForOneF }
 
-(*
- IntegerIterator = PureMixIn
-   {iterator} procedure ForEachF(anAction: IntegerIterator_ForEachF_Action);
-   {iterator} procedure ForOneF(anAction: IntegerIterator_ForOneF_Action;
-    anIndex: Integer);
+ (*
+ IntegerIterator = interface
+  procedure ForEachF(anAction: IntegerIterator_ForEachF_Action);
+  procedure ForOneF(anAction: IntegerIterator_ForOneF_Action;
+   anIndex: Integer);
  end;//IntegerIterator
-*)
+ *)
 
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include ..\L3\l3CriticalSectionHolder.imp.pas}
+ {$Include l3CriticalSectionHolder.imp.pas}
  Tl3MultiThreadIntegerList = class(_l3CriticalSectionHolder_)
- private
- // private fields
-   f_Items : Tl3ProtoIntegerList;
-    {* Поле для свойства Items}
- public
- // realized methods
-   {iterator} procedure ForEachF(anAction: IntegerIterator_ForEachF_Action);
-   {iterator} procedure ForOneF(anAction: IntegerIterator_ForOneF_Action;
-    anIndex: Integer);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure InitFields; override;
- protected
- // protected methods
+  private
+   f_Items: Tl3ProtoIntegerList;
+    {* Поле для свойства Items }
+  protected
    function NeedSort: Boolean; virtual;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure InitFields; override;
+  public
    procedure Add(anItem: Integer);
    procedure Remove(anItem: Integer);
    procedure Clear;
- protected
- // protected properties
+   procedure ForEachF(anAction: IntegerIterator_ForEachF_Action);
+   procedure ForOneF(anAction: IntegerIterator_ForOneF_Action;
+    anIndex: Integer);
+  protected
    property Items: Tl3ProtoIntegerList
-     read f_Items;
+    read f_Items;
  end;//Tl3MultiThreadIntegerList
+
 function L2IntegerIteratorForEachFAction(anAction: pointer): IntegerIterator_ForEachF_Action;
-   {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForEachF }
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForEachF }
 function L2IntegerIteratorForOneFAction(anAction: pointer): IntegerIterator_ForOneF_Action;
-   {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForOneF }
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForOneF }
 
 implementation
 
 uses
-  l3Base,
-  SysUtils
-  ;
-
-// start class IntegerIterator
+ l3ImplUses
+ , l3Base
+ , SysUtils
+;
 
 function L2IntegerIteratorForEachFAction(anAction: pointer): IntegerIterator_ForEachF_Action;
- {-}
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForEachF }
 asm
  jmp l3LocalStub
 end;//L2IntegerIteratorForEachFAction
 
 function L2IntegerIteratorForOneFAction(anAction: pointer): IntegerIterator_ForOneF_Action;
- {-}
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для IntegerIterator.ForOneF }
 asm
  jmp l3LocalStub
 end;//L2IntegerIteratorForOneFAction
-{$Include ..\L3\l3CriticalSectionHolder.imp.pas}
 
-// start class Tl3MultiThreadIntegerList
+{$Include l3CriticalSectionHolder.imp.pas}
 
 procedure Tl3MultiThreadIntegerList.Add(anItem: Integer);
 //#UC START# *53A2C8C10024_53A2C7AA03BF_var*
@@ -149,7 +130,7 @@ begin
 //#UC END# *53A84920013D_53A2C7AA03BF_impl*
 end;//Tl3MultiThreadIntegerList.Clear
 
-{iterator} procedure Tl3MultiThreadIntegerList.ForEachF(anAction: IntegerIterator_ForEachF_Action);
+procedure Tl3MultiThreadIntegerList.ForEachF(anAction: IntegerIterator_ForEachF_Action);
 //#UC START# *53A2C89B0302_53A2C7AA03BF_var*
 
  function DoIt(aData : PInteger; anIndex : Integer) : Boolean;
@@ -175,8 +156,8 @@ begin
 //#UC END# *53A2C89B0302_53A2C7AA03BF_impl*
 end;//Tl3MultiThreadIntegerList.ForEachF
 
-{iterator} procedure Tl3MultiThreadIntegerList.ForOneF(anAction: IntegerIterator_ForOneF_Action;
-  anIndex: Integer);
+procedure Tl3MultiThreadIntegerList.ForOneF(anAction: IntegerIterator_ForOneF_Action;
+ anIndex: Integer);
 //#UC START# *53A84EAD0005_53A2C7AA03BF_var*
 var
  Hack : Pointer absolute anAction;
@@ -198,6 +179,7 @@ begin
 end;//Tl3MultiThreadIntegerList.ForOneF
 
 procedure Tl3MultiThreadIntegerList.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53A2C7AA03BF_var*
 //#UC END# *479731C50290_53A2C7AA03BF_var*
 begin

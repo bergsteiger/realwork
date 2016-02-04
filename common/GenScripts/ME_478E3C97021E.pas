@@ -11,8 +11,8 @@ interface
 uses
  l3IntfUses
  , l3CanvasPrim
- , l3Interfaces
  , l3InternalInterfaces
+ , l3Interfaces
  , l3Units
  , Windows
  , l3Core
@@ -21,7 +21,7 @@ uses
 ;
 
 type
- Tl3Canvas = class(Tl3CanvasPrim, Il3Font, Il3InfoCanvas, Il3Canvas)
+ Tl3Canvas = class(Tl3CanvasPrim, Il3InfoCanvas, Il3Canvas)
   {* Объект реализующий свой уровень абстракции над TCanvas и Device Context (hDC) }
   private
    f_AbortChecker: Il3AbortChecker;
@@ -51,33 +51,6 @@ type
    function Get_BackColor: Tl3Color;
    function Get_Pitch: TFontPitch;
    function Get_Index: Tl3FontIndex;
-   function Get_ForeColor: Tl3Color;
-   procedure Set_ForeColor(aValue: Tl3Color);
-   function Get_BackColor: Tl3Color;
-   procedure Set_BackColor(aValue: Tl3Color);
-   function Get_Name: TFontName;
-   procedure Set_Name(const aValue: TFontName);
-   function Get_Pitch: TFontPitch;
-   procedure Set_Pitch(aValue: TFontPitch);
-   function Get_Size: Integer;
-   procedure Set_Size(aValue: Integer);
-   function Get_Index: Tl3FontIndex;
-   procedure Set_Index(aValue: Tl3FontIndex);
-   function Get_Style: TFontStyles;
-   procedure Set_Style(aValue: TFontStyles);
-   function Get_Bold: Boolean;
-   procedure Set_Bold(aValue: Boolean);
-   function Get_Italic: Boolean;
-   procedure Set_Italic(aValue: Boolean);
-   function Get_Underline: Boolean;
-   procedure Set_Underline(aValue: Boolean);
-   function Get_Strikeout: Boolean;
-   procedure Set_Strikeout(aValue: Boolean);
-   function AssignFont(Font: TFont): Boolean;
-   procedure Assign2Font(const aFont: Il3Font);
-   procedure Lock; overload;
-   procedure Unlock; overload;
-   function HF: hFont;
    function pxAverageCharWidth: Integer;
     {* средняя ширина символов контекста в пикселях. }
    function AverageCharWidth: Integer;
@@ -101,9 +74,9 @@ type
     {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
    function DR2LR(const R: Tl3SRect): Tl3Rect;
     {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
-   procedure Lock; overload;
+   procedure Lock;
     {* начать работу с канвой. }
-   procedure Unlock; overload;
+   procedure Unlock;
     {* закончить работу с канвой. }
    function GetKerning(const aSt: Tl3WString;
     Kerning: PLong): Tl3Point;
@@ -244,10 +217,6 @@ type
    procedure pm_SetSectionExtent(const aValue: Tl3Point);
    procedure pm_SetNotFocused(aValue: Boolean);
    function pm_GetRegionBottomRight: Tl3Point;
-   function IsAtomic: Boolean;
-    {* Строка для нанного шрифта представляет собой единый объект? }
-   function FM: Il3FontMetrics;
-    {* Метрики шрифта. }
    function GetClientRect: Tl3Rect;
    function AdjustMarginsByPrintableArea(const aMargins: Tl3_Rect): Tl3_Rect;
     {* Откорректировать поля с учетом непечатаемой области }
@@ -524,249 +493,6 @@ begin
  assert(false, 'Tl3Canvas.Get_Index not implemented');
 //#UC END# *46A60F89031E_473C3D830066get_impl*
 end;//Tl3Canvas.Get_Index
-
-function Tl3Canvas.Get_ForeColor: Tl3Color;
-//#UC START# *46A610780340_473C3D830066get_var*
-//#UC END# *46A610780340_473C3D830066get_var*
-begin
-//#UC START# *46A610780340_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_ForeColor not implemented');
-//#UC END# *46A610780340_473C3D830066get_impl*
-end;//Tl3Canvas.Get_ForeColor
-
-procedure Tl3Canvas.Set_ForeColor(aValue: Tl3Color);
-//#UC START# *46A610780340_473C3D830066set_var*
-//#UC END# *46A610780340_473C3D830066set_var*
-begin
-//#UC START# *46A610780340_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_ForeColor not implemented');
-//#UC END# *46A610780340_473C3D830066set_impl*
-end;//Tl3Canvas.Set_ForeColor
-
-function Tl3Canvas.Get_BackColor: Tl3Color;
-//#UC START# *46A6108E017F_473C3D830066get_var*
-//#UC END# *46A6108E017F_473C3D830066get_var*
-begin
-//#UC START# *46A6108E017F_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_BackColor not implemented');
-//#UC END# *46A6108E017F_473C3D830066get_impl*
-end;//Tl3Canvas.Get_BackColor
-
-procedure Tl3Canvas.Set_BackColor(aValue: Tl3Color);
-//#UC START# *46A6108E017F_473C3D830066set_var*
-//#UC END# *46A6108E017F_473C3D830066set_var*
-begin
-//#UC START# *46A6108E017F_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_BackColor not implemented');
-//#UC END# *46A6108E017F_473C3D830066set_impl*
-end;//Tl3Canvas.Set_BackColor
-
-function Tl3Canvas.Get_Name: TFontName;
-//#UC START# *46A610AF012C_473C3D830066get_var*
-//#UC END# *46A610AF012C_473C3D830066get_var*
-begin
-//#UC START# *46A610AF012C_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Name not implemented');
-//#UC END# *46A610AF012C_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Name
-
-procedure Tl3Canvas.Set_Name(const aValue: TFontName);
-//#UC START# *46A610AF012C_473C3D830066set_var*
-//#UC END# *46A610AF012C_473C3D830066set_var*
-begin
-//#UC START# *46A610AF012C_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Name not implemented');
-//#UC END# *46A610AF012C_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Name
-
-function Tl3Canvas.Get_Pitch: TFontPitch;
-//#UC START# *46A610E10084_473C3D830066get_var*
-//#UC END# *46A610E10084_473C3D830066get_var*
-begin
-//#UC START# *46A610E10084_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Pitch not implemented');
-//#UC END# *46A610E10084_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Pitch
-
-procedure Tl3Canvas.Set_Pitch(aValue: TFontPitch);
-//#UC START# *46A610E10084_473C3D830066set_var*
-//#UC END# *46A610E10084_473C3D830066set_var*
-begin
-//#UC START# *46A610E10084_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Pitch not implemented');
-//#UC END# *46A610E10084_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Pitch
-
-function Tl3Canvas.Get_Size: Integer;
-//#UC START# *46A6111000F9_473C3D830066get_var*
-//#UC END# *46A6111000F9_473C3D830066get_var*
-begin
-//#UC START# *46A6111000F9_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Size not implemented');
-//#UC END# *46A6111000F9_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Size
-
-procedure Tl3Canvas.Set_Size(aValue: Integer);
-//#UC START# *46A6111000F9_473C3D830066set_var*
-//#UC END# *46A6111000F9_473C3D830066set_var*
-begin
-//#UC START# *46A6111000F9_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Size not implemented');
-//#UC END# *46A6111000F9_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Size
-
-function Tl3Canvas.Get_Index: Tl3FontIndex;
-//#UC START# *46A61136020C_473C3D830066get_var*
-//#UC END# *46A61136020C_473C3D830066get_var*
-begin
-//#UC START# *46A61136020C_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Index not implemented');
-//#UC END# *46A61136020C_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Index
-
-procedure Tl3Canvas.Set_Index(aValue: Tl3FontIndex);
-//#UC START# *46A61136020C_473C3D830066set_var*
-//#UC END# *46A61136020C_473C3D830066set_var*
-begin
-//#UC START# *46A61136020C_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Index not implemented');
-//#UC END# *46A61136020C_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Index
-
-function Tl3Canvas.Get_Style: TFontStyles;
-//#UC START# *46A6127B0282_473C3D830066get_var*
-//#UC END# *46A6127B0282_473C3D830066get_var*
-begin
-//#UC START# *46A6127B0282_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Style not implemented');
-//#UC END# *46A6127B0282_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Style
-
-procedure Tl3Canvas.Set_Style(aValue: TFontStyles);
-//#UC START# *46A6127B0282_473C3D830066set_var*
-//#UC END# *46A6127B0282_473C3D830066set_var*
-begin
-//#UC START# *46A6127B0282_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Style not implemented');
-//#UC END# *46A6127B0282_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Style
-
-function Tl3Canvas.Get_Bold: Boolean;
-//#UC START# *46A6129101E3_473C3D830066get_var*
-//#UC END# *46A6129101E3_473C3D830066get_var*
-begin
-//#UC START# *46A6129101E3_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Bold not implemented');
-//#UC END# *46A6129101E3_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Bold
-
-procedure Tl3Canvas.Set_Bold(aValue: Boolean);
-//#UC START# *46A6129101E3_473C3D830066set_var*
-//#UC END# *46A6129101E3_473C3D830066set_var*
-begin
-//#UC START# *46A6129101E3_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Bold not implemented');
-//#UC END# *46A6129101E3_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Bold
-
-function Tl3Canvas.Get_Italic: Boolean;
-//#UC START# *46A612AF0038_473C3D830066get_var*
-//#UC END# *46A612AF0038_473C3D830066get_var*
-begin
-//#UC START# *46A612AF0038_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Italic not implemented');
-//#UC END# *46A612AF0038_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Italic
-
-procedure Tl3Canvas.Set_Italic(aValue: Boolean);
-//#UC START# *46A612AF0038_473C3D830066set_var*
-//#UC END# *46A612AF0038_473C3D830066set_var*
-begin
-//#UC START# *46A612AF0038_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Italic not implemented');
-//#UC END# *46A612AF0038_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Italic
-
-function Tl3Canvas.Get_Underline: Boolean;
-//#UC START# *46A612C302D6_473C3D830066get_var*
-//#UC END# *46A612C302D6_473C3D830066get_var*
-begin
-//#UC START# *46A612C302D6_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Underline not implemented');
-//#UC END# *46A612C302D6_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Underline
-
-procedure Tl3Canvas.Set_Underline(aValue: Boolean);
-//#UC START# *46A612C302D6_473C3D830066set_var*
-//#UC END# *46A612C302D6_473C3D830066set_var*
-begin
-//#UC START# *46A612C302D6_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Underline not implemented');
-//#UC END# *46A612C302D6_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Underline
-
-function Tl3Canvas.Get_Strikeout: Boolean;
-//#UC START# *46A612DC01F5_473C3D830066get_var*
-//#UC END# *46A612DC01F5_473C3D830066get_var*
-begin
-//#UC START# *46A612DC01F5_473C3D830066get_impl*
- assert(false, 'Tl3Canvas.Get_Strikeout not implemented');
-//#UC END# *46A612DC01F5_473C3D830066get_impl*
-end;//Tl3Canvas.Get_Strikeout
-
-procedure Tl3Canvas.Set_Strikeout(aValue: Boolean);
-//#UC START# *46A612DC01F5_473C3D830066set_var*
-//#UC END# *46A612DC01F5_473C3D830066set_var*
-begin
-//#UC START# *46A612DC01F5_473C3D830066set_impl*
- assert(false, 'Tl3Canvas.Set_Strikeout not implemented');
-//#UC END# *46A612DC01F5_473C3D830066set_impl*
-end;//Tl3Canvas.Set_Strikeout
-
-function Tl3Canvas.AssignFont(Font: TFont): Boolean;
-//#UC START# *46A6154A01EE_473C3D830066_var*
-//#UC END# *46A6154A01EE_473C3D830066_var*
-begin
-//#UC START# *46A6154A01EE_473C3D830066_impl*
- assert(false, 'Tl3Canvas.AssignFont not implemented');
-//#UC END# *46A6154A01EE_473C3D830066_impl*
-end;//Tl3Canvas.AssignFont
-
-procedure Tl3Canvas.Assign2Font(const aFont: Il3Font);
-//#UC START# *46A6156000CD_473C3D830066_var*
-//#UC END# *46A6156000CD_473C3D830066_var*
-begin
-//#UC START# *46A6156000CD_473C3D830066_impl*
- assert(false, 'Tl3Canvas.Assign2Font not implemented');
-//#UC END# *46A6156000CD_473C3D830066_impl*
-end;//Tl3Canvas.Assign2Font
-
-procedure Tl3Canvas.Lock;
-//#UC START# *46A6157B0361_473C3D830066_var*
-//#UC END# *46A6157B0361_473C3D830066_var*
-begin
-//#UC START# *46A6157B0361_473C3D830066_impl*
- assert(false, 'Tl3Canvas.Lock not implemented');
-//#UC END# *46A6157B0361_473C3D830066_impl*
-end;//Tl3Canvas.Lock
-
-procedure Tl3Canvas.Unlock;
-//#UC START# *46A6158C0275_473C3D830066_var*
-//#UC END# *46A6158C0275_473C3D830066_var*
-begin
-//#UC START# *46A6158C0275_473C3D830066_impl*
- assert(false, 'Tl3Canvas.Unlock not implemented');
-//#UC END# *46A6158C0275_473C3D830066_impl*
-end;//Tl3Canvas.Unlock
-
-function Tl3Canvas.HF: hFont;
-//#UC START# *46A615A10333_473C3D830066_var*
-//#UC END# *46A615A10333_473C3D830066_var*
-begin
-//#UC START# *46A615A10333_473C3D830066_impl*
- assert(false, 'Tl3Canvas.HF not implemented');
-//#UC END# *46A615A10333_473C3D830066_impl*
-end;//Tl3Canvas.HF
 
 function Tl3Canvas.pxAverageCharWidth: Integer;
  {* средняя ширина символов контекста в пикселях. }
@@ -1760,26 +1486,6 @@ begin
  assert(false, 'Tl3Canvas.pm_GetRegionBottomRight not implemented');
 //#UC END# *4728C0C90182_473C3D830066get_impl*
 end;//Tl3Canvas.pm_GetRegionBottomRight
-
-function Tl3Canvas.IsAtomic: Boolean;
- {* Строка для нанного шрифта представляет собой единый объект? }
-//#UC START# *475E5BAD0198_473C3D830066_var*
-//#UC END# *475E5BAD0198_473C3D830066_var*
-begin
-//#UC START# *475E5BAD0198_473C3D830066_impl*
- assert(false, 'Tl3Canvas.IsAtomic not implemented');
-//#UC END# *475E5BAD0198_473C3D830066_impl*
-end;//Tl3Canvas.IsAtomic
-
-function Tl3Canvas.FM: Il3FontMetrics;
- {* Метрики шрифта. }
-//#UC START# *475E5BED0118_473C3D830066_var*
-//#UC END# *475E5BED0118_473C3D830066_var*
-begin
-//#UC START# *475E5BED0118_473C3D830066_impl*
- assert(false, 'Tl3Canvas.FM not implemented');
-//#UC END# *475E5BED0118_473C3D830066_impl*
-end;//Tl3Canvas.FM
 
 function Tl3Canvas.GetClientRect: Tl3Rect;
 //#UC START# *476FA1140319_473C3D830066_var*

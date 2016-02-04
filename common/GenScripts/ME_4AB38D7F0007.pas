@@ -23,7 +23,8 @@ type
   rDictionaryID: Integer;
  end;//Tm4DictItemAddr
 
-function Tm4DictItemAddr_C: Tm4DictItemAddr;
+function Tm4DictItemAddr_C(anID: Tm4DictItemID;
+ aDictionaryID: Integer): Tm4DictItemAddr;
 
 implementation
 
@@ -31,7 +32,8 @@ uses
  l3ImplUses
 ;
 
-function Tm4DictItemAddr_C: Tm4DictItemAddr;
+function Tm4DictItemAddr_C(anID: Tm4DictItemID;
+ aDictionaryID: Integer): Tm4DictItemAddr;
 //#UC START# *4ABA24E701F2_4ABA246700B4_var*
 //#UC END# *4ABA24E701F2_4ABA246700B4_var*
 begin

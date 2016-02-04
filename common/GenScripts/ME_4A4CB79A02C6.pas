@@ -79,7 +79,7 @@ type
     const aTabStops: Il3TabStops): Il3TabInfo; reintroduce;
  end;//Tl3TabInfo
 
- Tl3CanvasPrim = class(Tl3ProtoObject, Il3PageSetup, Il3EffectiveColors)
+ Tl3CanvasPrim = class(Tl3ProtoObject, Il3Font, Il3PageSetup, Il3EffectiveColors)
   private
    f_Margins: Tl3_Rect;
    f_ClipRects: Tl3RectList;
@@ -93,6 +93,7 @@ type
    f_OldBrushChange: TNotifyEvent;
    f_OldFontChange: TNotifyEvent;
    f_AlienCanvas: Boolean;
+   f_FontIndex: Tl3FontIndex;
    f_Flags: TevDrawFlags;
     {* Поле для свойства Flags }
    f_OnDrawSub: TevDrawSubEvent;
@@ -134,6 +135,7 @@ type
    f_AverageCharHeight: Integer;
    f_AverageCharWidth: Integer;
    f_pxAverageCharWidth: Integer;
+   f_Font: Il3Font;
   protected
    function pm_GetPrinting: Boolean;
    procedure pm_SetPrinting(aValue: Boolean);
@@ -209,8 +211,39 @@ type
    procedure DoFillForeRect(const R: Tl3SRect); virtual;
    function GetAlienDC: hDC; virtual;
    procedure FillRectPrim(const R: TRect); virtual;
+   function Get_ForeColor: Tl3Color;
+   procedure Set_ForeColor(aValue: Tl3Color);
+   function Get_BackColor: Tl3Color;
+   procedure Set_BackColor(aValue: Tl3Color);
+   function Get_Name: TFontName;
+   procedure Set_Name(const aValue: TFontName);
+   function Get_Pitch: TFontPitch;
+   procedure Set_Pitch(aValue: TFontPitch);
+   function Get_Size: Integer;
+   procedure Set_Size(aValue: Integer);
+   function Get_Index: Tl3FontIndex;
+   procedure Set_Index(aValue: Tl3FontIndex);
+   function Get_Style: TFontStyles;
+   procedure Set_Style(aValue: TFontStyles);
+   function Get_Bold: Boolean;
+   procedure Set_Bold(aValue: Boolean);
+   function Get_Italic: Boolean;
+   procedure Set_Italic(aValue: Boolean);
+   function Get_Underline: Boolean;
+   procedure Set_Underline(aValue: Boolean);
+   function Get_Strikeout: Boolean;
+   procedure Set_Strikeout(aValue: Boolean);
+   function AssignFont(Font: TFont): Boolean;
+   procedure Assign2Font(const aFont: Il3Font);
+   procedure Lock;
+   procedure Unlock;
+   function HF: hFont;
    function pm_GetPageNumber: Integer;
    function pm_GetPageWidthNumber: Integer;
+   function IsAtomic: Boolean;
+    {* Строка для нанного шрифта представляет собой единый объект? }
+   function FM: Il3FontMetrics;
+    {* Метрики шрифта. }
    procedure CheckColors;
    function Get_Font: Il3Font;
    function Get_FontColor: Tl3Color;
@@ -233,8 +266,6 @@ type
   public
    procedure FillRect(const R: Tl3SRect); overload; virtual; abstract;
    procedure FillRect(const R: Tl3Rect); overload; virtual; abstract;
-   procedure Lock;
-   procedure Unlock;
    constructor CreateOwned(anOwner: TObject); reintroduce;
    constructor CreateForPrinting(const aPrinter: Il3Printer); reintroduce;
    procedure SetCanvas(aValue: TCanvas;
@@ -339,6 +370,10 @@ uses
  , l3CanvasUtils
  , StrUtils
  , l3Chars
+ , l3LogFont
+ , l3Types
+ , l3FontManager
+ , l3FontTools
 ;
 
 constructor Tl3TabInfo.Create(aTabOffset: Integer;
@@ -982,24 +1017,6 @@ begin
 //#UC END# *56AF1E9702A0_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.CheckDrawing
 
-procedure Tl3CanvasPrim.Lock;
-//#UC START# *56AF2372026A_4A4CB79A02C6_var*
-//#UC END# *56AF2372026A_4A4CB79A02C6_var*
-begin
-//#UC START# *56AF2372026A_4A4CB79A02C6_impl*
-
-//#UC END# *56AF2372026A_4A4CB79A02C6_impl*
-end;//Tl3CanvasPrim.Lock
-
-procedure Tl3CanvasPrim.Unlock;
-//#UC START# *56AF237B031E_4A4CB79A02C6_var*
-//#UC END# *56AF237B031E_4A4CB79A02C6_var*
-begin
-//#UC START# *56AF237B031E_4A4CB79A02C6_impl*
-
-//#UC END# *56AF237B031E_4A4CB79A02C6_impl*
-end;//Tl3CanvasPrim.Unlock
-
 constructor Tl3CanvasPrim.CreateOwned(anOwner: TObject);
 //#UC START# *56AF3CC4020E_4A4CB79A02C6_var*
 //#UC END# *56AF3CC4020E_4A4CB79A02C6_var*
@@ -1300,6 +1317,348 @@ begin
 //#UC END# *47DFCAAF0249_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.FillRectPrim
 
+function Tl3CanvasPrim.Get_ForeColor: Tl3Color;
+//#UC START# *46A610780340_4A4CB79A02C6get_var*
+//#UC END# *46A610780340_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A610780340_4A4CB79A02C6get_impl*
+ Result := TextColor;
+//#UC END# *46A610780340_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_ForeColor
+
+procedure Tl3CanvasPrim.Set_ForeColor(aValue: Tl3Color);
+//#UC START# *46A610780340_4A4CB79A02C6set_var*
+//#UC END# *46A610780340_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A610780340_4A4CB79A02C6set_impl*
+ TextColor := aValue;
+//#UC END# *46A610780340_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_ForeColor
+
+function Tl3CanvasPrim.Get_BackColor: Tl3Color;
+//#UC START# *46A6108E017F_4A4CB79A02C6get_var*
+//#UC END# *46A6108E017F_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A6108E017F_4A4CB79A02C6get_impl*
+ Result := BackColor;
+//#UC END# *46A6108E017F_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_BackColor
+
+procedure Tl3CanvasPrim.Set_BackColor(aValue: Tl3Color);
+//#UC START# *46A6108E017F_4A4CB79A02C6set_var*
+//#UC END# *46A6108E017F_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A6108E017F_4A4CB79A02C6set_impl*
+ BackColor := aValue;
+//#UC END# *46A6108E017F_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_BackColor
+
+function Tl3CanvasPrim.Get_Name: TFontName;
+//#UC START# *46A610AF012C_4A4CB79A02C6get_var*
+//#UC END# *46A610AF012C_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A610AF012C_4A4CB79A02C6get_impl*
+ Result := VCLFont.Name;
+//#UC END# *46A610AF012C_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Name
+
+procedure Tl3CanvasPrim.Set_Name(const aValue: TFontName);
+//#UC START# *46A610AF012C_4A4CB79A02C6set_var*
+var
+ l_LogFont: Tl3LogFont;
+//#UC END# *46A610AF012C_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A610AF012C_4A4CB79A02C6set_impl*
+ if (f_Font <> nil) and (aValue <> l3GlyphFontName) then
+  f_Font := nil; 
+ l_LogFont := l3FontManager.Fonts.DRByName[aValue];
+ VCLFont.Name := aValue;
+ if (l_LogFont = nil) then
+  VCLFont.CharSet := CS_Effective
+ else
+  VCLFont.CharSet := l_LogFont.LogFont.elfLogFont.lfCharSet;
+//#UC END# *46A610AF012C_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Name
+
+function Tl3CanvasPrim.Get_Pitch: TFontPitch;
+//#UC START# *46A610E10084_4A4CB79A02C6get_var*
+//#UC END# *46A610E10084_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A610E10084_4A4CB79A02C6get_impl*
+ Result := VCLFont.Pitch;
+//#UC END# *46A610E10084_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Pitch
+
+procedure Tl3CanvasPrim.Set_Pitch(aValue: TFontPitch);
+//#UC START# *46A610E10084_4A4CB79A02C6set_var*
+//#UC END# *46A610E10084_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A610E10084_4A4CB79A02C6set_impl*
+ VCLFont.Pitch := aValue;
+//#UC END# *46A610E10084_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Pitch
+
+function Tl3CanvasPrim.Get_Size: Integer;
+//#UC START# *46A6111000F9_4A4CB79A02C6get_var*
+//#UC END# *46A6111000F9_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A6111000F9_4A4CB79A02C6get_impl*
+ Result := VCLFont.Size;
+//#UC END# *46A6111000F9_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Size
+
+procedure Tl3CanvasPrim.Set_Size(aValue: Integer);
+//#UC START# *46A6111000F9_4A4CB79A02C6set_var*
+//#UC END# *46A6111000F9_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A6111000F9_4A4CB79A02C6set_impl*
+ VCLFont.Size := aValue;
+//#UC END# *46A6111000F9_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Size
+
+function Tl3CanvasPrim.Get_Index: Tl3FontIndex;
+//#UC START# *46A61136020C_4A4CB79A02C6get_var*
+//#UC END# *46A61136020C_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A61136020C_4A4CB79A02C6get_impl*
+ if (f_Font <> nil) then
+  Result := f_Font.Index
+ else
+  Result := f_FontIndex;
+//#UC END# *46A61136020C_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Index
+
+procedure Tl3CanvasPrim.Set_Index(aValue: Tl3FontIndex);
+//#UC START# *46A61136020C_4A4CB79A02C6set_var*
+//#UC END# *46A61136020C_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A61136020C_4A4CB79A02C6set_impl*
+ f_FontIndex := aValue;
+//#UC END# *46A61136020C_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Index
+
+function Tl3CanvasPrim.Get_Style: TFontStyles;
+//#UC START# *46A6127B0282_4A4CB79A02C6get_var*
+//#UC END# *46A6127B0282_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A6127B0282_4A4CB79A02C6get_impl*
+ Result := VCLFont.Style;
+//#UC END# *46A6127B0282_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Style
+
+procedure Tl3CanvasPrim.Set_Style(aValue: TFontStyles);
+//#UC START# *46A6127B0282_4A4CB79A02C6set_var*
+//#UC END# *46A6127B0282_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A6127B0282_4A4CB79A02C6set_impl*
+ VCLFont.Style := aValue;
+//#UC END# *46A6127B0282_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Style
+
+function Tl3CanvasPrim.Get_Bold: Boolean;
+//#UC START# *46A6129101E3_4A4CB79A02C6get_var*
+//#UC END# *46A6129101E3_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A6129101E3_4A4CB79A02C6get_impl*
+ Result := fsBold in VCLFont.Style;
+//#UC END# *46A6129101E3_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Bold
+
+procedure Tl3CanvasPrim.Set_Bold(aValue: Boolean);
+//#UC START# *46A6129101E3_4A4CB79A02C6set_var*
+//#UC END# *46A6129101E3_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A6129101E3_4A4CB79A02C6set_impl*
+ if aValue then
+  VCLFont.Style := VCLFont.Style + [fsBold]
+ else
+  VCLFont.Style := VCLFont.Style - [fsBold];
+//#UC END# *46A6129101E3_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Bold
+
+function Tl3CanvasPrim.Get_Italic: Boolean;
+//#UC START# *46A612AF0038_4A4CB79A02C6get_var*
+//#UC END# *46A612AF0038_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A612AF0038_4A4CB79A02C6get_impl*
+ Result := fsItalic in VCLFont.Style;
+//#UC END# *46A612AF0038_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Italic
+
+procedure Tl3CanvasPrim.Set_Italic(aValue: Boolean);
+//#UC START# *46A612AF0038_4A4CB79A02C6set_var*
+//#UC END# *46A612AF0038_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A612AF0038_4A4CB79A02C6set_impl*
+ if aValue then
+  VCLFont.Style := VCLFont.Style + [fsItalic]
+ else
+  VCLFont.Style := VCLFont.Style - [fsItalic];
+//#UC END# *46A612AF0038_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Italic
+
+function Tl3CanvasPrim.Get_Underline: Boolean;
+//#UC START# *46A612C302D6_4A4CB79A02C6get_var*
+//#UC END# *46A612C302D6_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A612C302D6_4A4CB79A02C6get_impl*
+ Result := fsUnderline in VCLFont.Style;
+//#UC END# *46A612C302D6_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Underline
+
+procedure Tl3CanvasPrim.Set_Underline(aValue: Boolean);
+//#UC START# *46A612C302D6_4A4CB79A02C6set_var*
+//#UC END# *46A612C302D6_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A612C302D6_4A4CB79A02C6set_impl*
+ if aValue then
+  VCLFont.Style := VCLFont.Style + [fsUnderline]
+ else
+  VCLFont.Style := VCLFont.Style - [fsUnderline];
+//#UC END# *46A612C302D6_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Underline
+
+function Tl3CanvasPrim.Get_Strikeout: Boolean;
+//#UC START# *46A612DC01F5_4A4CB79A02C6get_var*
+//#UC END# *46A612DC01F5_4A4CB79A02C6get_var*
+begin
+//#UC START# *46A612DC01F5_4A4CB79A02C6get_impl*
+ Result := fsStrikeout in VCLFont.Style;
+//#UC END# *46A612DC01F5_4A4CB79A02C6get_impl*
+end;//Tl3CanvasPrim.Get_Strikeout
+
+procedure Tl3CanvasPrim.Set_Strikeout(aValue: Boolean);
+//#UC START# *46A612DC01F5_4A4CB79A02C6set_var*
+//#UC END# *46A612DC01F5_4A4CB79A02C6set_var*
+begin
+//#UC START# *46A612DC01F5_4A4CB79A02C6set_impl*
+ if aValue then
+  VCLFont.Style := VCLFont.Style + [fsStrikeout]
+ else
+  VCLFont.Style := VCLFont.Style - [fsStrikeout];
+//#UC END# *46A612DC01F5_4A4CB79A02C6set_impl*
+end;//Tl3CanvasPrim.Set_Strikeout
+
+function Tl3CanvasPrim.AssignFont(Font: TFont): Boolean;
+//#UC START# *46A6154A01EE_4A4CB79A02C6_var*
+var
+ l_ForeColor: TColor;
+ l_FontColor: TColor;
+ l_LogFont: Tl3LogFont;
+ l_Font: TFont;
+//#UC END# *46A6154A01EE_4A4CB79A02C6_var*
+begin
+//#UC START# *46A6154A01EE_4A4CB79A02C6_impl*
+ Result := true;
+ l_Font := VCLFont;
+ f_Font := nil;
+ if (l_Font <> nil) and (Font <> nil) then
+ begin
+  l_ForeColor := TextColor;
+  l_FontColor := l_Font.Color;
+  f_TextColor := Font.Color;
+  l_Font.Assign(Font);
+  {$IfNDef Nemesis}
+   f_TextMetricsValid := false;
+  {$Else}
+   //Assert(not f_TextMetricsValid);
+  {$EndIf Nemesis}
+  // ^ - http://mdp.garant.ru/pages/viewpage.action?pageId=185830296&focusedCommentId=199591219#comment-199591219
+  if (l_Font.Color = clDefault) then
+  begin
+   Inc(f_CheckingColors);
+   try
+    l_Font.Color := l_FontColor;
+    TextColor := l_ForeColor;
+   finally
+    Dec(f_CheckingColors);
+   end;//try..finally
+  end;//l_Font.Color = clDefault
+  Inc(f_CheckingColors);
+  try
+   l_LogFont := l3FontManager.Fonts.DRByName[l_Font.Name];
+   if (l_LogFont = nil) then
+    l_Font.CharSet := CS_Effective
+   else
+    l_Font.CharSet := l_LogFont.LogFont.elfLogFont.lfCharSet;
+  finally
+   Dec(f_CheckingColors);
+  end;//try..finally
+  if l3IsDefaultCharset(l_Font.Charset) then
+   if (l_Font.Charset <> CS_Effective) then
+   begin
+    Inc(f_CheckingColors);
+    try
+     l_Font.Charset := CS_Effective;
+    finally
+     Dec(f_CheckingColors);
+    end;//try..finally
+   end;//l_Font.Charset <> CS_Effective
+ end;//l_Font <> nil
+//#UC END# *46A6154A01EE_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.AssignFont
+
+procedure Tl3CanvasPrim.Assign2Font(const aFont: Il3Font);
+//#UC START# *46A6156000CD_4A4CB79A02C6_var*
+var
+ l_Font: TFont;
+//#UC END# *46A6156000CD_4A4CB79A02C6_var*
+begin
+//#UC START# *46A6156000CD_4A4CB79A02C6_impl*
+ Lock;
+ try
+  aFont.Lock;
+  try
+   l_Font := VCLFont;
+   if aFont.AssignFont(l_Font) then
+   begin
+    aFont.BackColor := BackColor;
+    aFont.Index := Get_Index;
+   end else
+   with l_Font do
+   begin
+    aFont.Name := Name;
+    aFont.Size := Size;
+    aFont.Style := Style;
+    aFont.Pitch := Pitch;
+    aFont.ForeColor := Color;
+    aFont.BackColor := BackColor;
+    aFont.Index := Get_Index;
+   end;//with l_Font
+  finally
+   aFont.Unlock;
+  end;//try..finally
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *46A6156000CD_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.Assign2Font
+
+procedure Tl3CanvasPrim.Lock;
+//#UC START# *46A6157B0361_4A4CB79A02C6_var*
+//#UC END# *46A6157B0361_4A4CB79A02C6_var*
+begin
+//#UC START# *46A6157B0361_4A4CB79A02C6_impl*
+//#UC END# *46A6157B0361_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.Lock
+
+procedure Tl3CanvasPrim.Unlock;
+//#UC START# *46A6158C0275_4A4CB79A02C6_var*
+//#UC END# *46A6158C0275_4A4CB79A02C6_var*
+begin
+//#UC START# *46A6158C0275_4A4CB79A02C6_impl*
+//#UC END# *46A6158C0275_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.Unlock
+
+function Tl3CanvasPrim.HF: hFont;
+//#UC START# *46A615A10333_4A4CB79A02C6_var*
+//#UC END# *46A615A10333_4A4CB79A02C6_var*
+begin
+//#UC START# *46A615A10333_4A4CB79A02C6_impl*
+ Result := VCLFont.Handle;
+//#UC END# *46A615A10333_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.HF
+
 function Tl3CanvasPrim.pm_GetPageNumber: Integer;
 //#UC START# *4728BE6A0392_4A4CB79A02C6get_var*
 //#UC END# *4728BE6A0392_4A4CB79A02C6get_var*
@@ -1323,6 +1682,29 @@ begin
   Result := 0;
 //#UC END# *4728BE830080_4A4CB79A02C6get_impl*
 end;//Tl3CanvasPrim.pm_GetPageWidthNumber
+
+function Tl3CanvasPrim.IsAtomic: Boolean;
+ {* Строка для нанного шрифта представляет собой единый объект? }
+//#UC START# *475E5BAD0198_4A4CB79A02C6_var*
+//#UC END# *475E5BAD0198_4A4CB79A02C6_var*
+begin
+//#UC START# *475E5BAD0198_4A4CB79A02C6_impl*
+ Result := (f_Font <> nil) and f_Font.IsAtomic;
+//#UC END# *475E5BAD0198_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.IsAtomic
+
+function Tl3CanvasPrim.FM: Il3FontMetrics;
+ {* Метрики шрифта. }
+//#UC START# *475E5BED0118_4A4CB79A02C6_var*
+//#UC END# *475E5BED0118_4A4CB79A02C6_var*
+begin
+//#UC START# *475E5BED0118_4A4CB79A02C6_impl*
+ if (f_Font = nil) then
+  Result := nil
+ else
+  Result := f_Font.FM;
+//#UC END# *475E5BED0118_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.FM
 
 procedure Tl3CanvasPrim.CheckColors;
 //#UC START# *487CFE91037C_4A4CB79A02C6_var*

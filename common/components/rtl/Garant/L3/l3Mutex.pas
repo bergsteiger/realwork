@@ -1,39 +1,26 @@
 unit l3Mutex;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Mutex.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::MultiThread::Tl3Mutex
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Mutex.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  Windows,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , Windows
+;
 
 type
  Tl3Mutex = class(Tl3ProtoObject)
- private
- // private fields
-   f_Handle : THandle;
- protected
- // overridden protected methods
+  private
+   f_Handle: THandle;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure Enter;
    procedure Leave;
    constructor Create(const aName: AnsiString;
@@ -42,7 +29,9 @@ type
 
 implementation
 
-// start class Tl3Mutex
+uses
+ l3ImplUses
+;
 
 procedure Tl3Mutex.Enter;
 //#UC START# *540EDC2E03AF_540EDC10016F_var*
@@ -63,7 +52,7 @@ begin
 end;//Tl3Mutex.Leave
 
 constructor Tl3Mutex.Create(const aName: AnsiString;
-  InitialLocked: Boolean = False);
+ InitialLocked: Boolean = False);
 //#UC START# *540EDC5F015E_540EDC10016F_var*
 //#UC END# *540EDC5F015E_540EDC10016F_var*
 begin
@@ -74,6 +63,7 @@ begin
 end;//Tl3Mutex.Create
 
 procedure Tl3Mutex.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_540EDC10016F_var*
 //#UC END# *479731C50290_540EDC10016F_var*
 begin
