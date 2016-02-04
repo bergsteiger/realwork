@@ -54,6 +54,7 @@ const
   {* закончилось изменение. }
  ntResortChild = 17;
   {* ƒочерние элементы изменили взаимное расположение. }
+ l3GlyphFontName = '__Glyph__';
 
 type
  Tl3ItemFlag = (

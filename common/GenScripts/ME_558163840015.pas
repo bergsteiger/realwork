@@ -43,7 +43,7 @@ type
    procedure UnlockContainer(aContainer: TvcmTabbedContainerForm);
  end;//TvcmContainersLockCountList
 
-function TvcmContainerLockCountItem_C: TvcmContainerLockCountItem;
+function TvcmContainerLockCountItem_C(aContainer: TvcmTabbedContainerForm): TvcmContainerLockCountItem;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
@@ -57,7 +57,7 @@ uses
  , SysUtils
 ;
 
-function TvcmContainerLockCountItem_C: TvcmContainerLockCountItem;
+function TvcmContainerLockCountItem_C(aContainer: TvcmTabbedContainerForm): TvcmContainerLockCountItem;
 //#UC START# *55824F260248_55824ED3027A_var*
 //#UC END# *55824F260248_55824ED3027A_var*
 begin

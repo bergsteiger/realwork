@@ -77,7 +77,9 @@ type
     write f_Images;
  end;//TChromeLikeTabSetControlPrim
 
-function TChromeLikeTabHintParams_C: TChromeLikeTabHintParams;
+function TChromeLikeTabHintParams_C(aNeedShowHint: Boolean;
+ const aHintText: WideString;
+ const aRect: TRect): TChromeLikeTabHintParams;
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
@@ -96,7 +98,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-function TChromeLikeTabHintParams_C: TChromeLikeTabHintParams;
+function TChromeLikeTabHintParams_C(aNeedShowHint: Boolean;
+ const aHintText: WideString;
+ const aRect: TRect): TChromeLikeTabHintParams;
 //#UC START# *5522508F018E_5522506003AD_var*
 //#UC END# *5522508F018E_5522506003AD_var*
 begin

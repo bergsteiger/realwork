@@ -283,8 +283,12 @@ type
 
  PvcmContainedFormDescr = ^TvcmContainedFormDescr;
 
-function TvcmContainedFormDescr_C: TvcmContainedFormDescr; overload;
-function TvcmContainedFormDescr_C: TvcmContainedFormDescr; overload;
+function TvcmContainedFormDescr_C(aForm: TvcmEntityForm;
+ aContainer: TvcmTabbedContainerForm): TvcmContainedFormDescr; overload;
+function TvcmContainedFormDescr_C(aForm: TvcmEntityForm;
+ aContainer: TvcmTabbedContainerForm;
+ aImageIndex: Integer;
+ aNeedUpdateImageIndex: Boolean): TvcmContainedFormDescr; overload;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
@@ -364,7 +368,8 @@ const
  cTabNumberKeys = [Ord('0')..Ord('9')];
  cTabNumpadKeys = [VK_NUMPAD0..VK_NUMPAD9];
 
-function TvcmContainedFormDescr_C: TvcmContainedFormDescr;
+function TvcmContainedFormDescr_C(aForm: TvcmEntityForm;
+ aContainer: TvcmTabbedContainerForm): TvcmContainedFormDescr;
 //#UC START# *537AEA8C02EF_537AEA3B02A5_var*
 //#UC END# *537AEA8C02EF_537AEA3B02A5_var*
 begin
@@ -375,7 +380,10 @@ begin
 //#UC END# *537AEA8C02EF_537AEA3B02A5_impl*
 end;//TvcmContainedFormDescr_C
 
-function TvcmContainedFormDescr_C: TvcmContainedFormDescr;
+function TvcmContainedFormDescr_C(aForm: TvcmEntityForm;
+ aContainer: TvcmTabbedContainerForm;
+ aImageIndex: Integer;
+ aNeedUpdateImageIndex: Boolean): TvcmContainedFormDescr;
 //#UC START# *53D62F3F03C1_537AEA3B02A5_var*
 //#UC END# *53D62F3F03C1_537AEA3B02A5_var*
 begin

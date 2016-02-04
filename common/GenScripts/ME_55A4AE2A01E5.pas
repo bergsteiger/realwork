@@ -270,7 +270,8 @@ type
    class function Make(const aSteps: IvcmFormSetHistoryStepItems): IvcmFormSetHistoryStep; reintroduce;
  end;//TvcmFormSetHistoryStep
 
-function TvcmHistoryFormCacheItem_C: TvcmHistoryFormCacheItem;
+function TvcmHistoryFormCacheItem_C(const aForm: IvcmEntityForm;
+ const aGUID: TGUID): TvcmHistoryFormCacheItem;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
@@ -296,7 +297,8 @@ uses
  , RTLConsts
 ;
 
-function TvcmHistoryFormCacheItem_C: TvcmHistoryFormCacheItem;
+function TvcmHistoryFormCacheItem_C(const aForm: IvcmEntityForm;
+ const aGUID: TGUID): TvcmHistoryFormCacheItem;
 //#UC START# *55C8648A0397_55C86432033A_var*
 //#UC END# *55C8648A0397_55C86432033A_var*
 begin
