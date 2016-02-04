@@ -11,6 +11,10 @@ uses
  l3IntfUses
 ;
 
+const
+ cSCAttrTypeName: array [TevSCAttrType] of AnsiString = ( );
+ cSCSubTypeName: array [TevSCSubType] of AnsiString = ( );
+
 type
  TevSCAttrType = (
   sca_Class
@@ -57,10 +61,6 @@ type
   property Attr[aIdx: Integer]: IevSCAttrElement
    read Get_Attr;
  end;//IevSCSub
-
-const
- cSCAttrTypeName: array [TevSCAttrType] of AnsiString = ( );
- cSCSubTypeName: array [TevSCSubType] of AnsiString = ( );
 
 implementation
 

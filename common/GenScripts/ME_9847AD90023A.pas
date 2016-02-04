@@ -27,6 +27,8 @@ const
   {* В свернутом виде }
  str_ShowChangesInfo_Expanded: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo_Expanded'; rValue : 'В развернутом виде');
   {* В развернутом виде }
+ {* Карта преобразования локализованных строк ShowChangesInfoValues }
+ ShowChangesInfoValuesMap: array [Boolean] of Pl3StringIDEx = ( );
  {* Локализуемые строки ShowChangesInfoName }
  str_ShowChangesInfo: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ShowChangesInfo'; rValue : 'Показывать историю изменений в документе');
   {* Показывать историю изменений в документе }
@@ -66,10 +68,6 @@ type
    class function Instance: TShowChangesInfoValuesMapImpl;
     {* Метод получения экземпляра синглетона TShowChangesInfoValuesMapImpl }
  end;//TShowChangesInfoValuesMapImpl
-
-const
- {* Карта преобразования локализованных строк ShowChangesInfoValues }
- ShowChangesInfoValuesMap: array [Boolean] of Pl3StringIDEx = ( );
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
