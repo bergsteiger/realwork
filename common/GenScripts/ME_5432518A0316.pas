@@ -540,9 +540,9 @@ type
    read Get_TextBase;
  end;//IdaDataProvider
 
-function L2_daTableDescriptionIterator_IterateFieldsF_Action(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
+function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }
-function L2_daConditionIterator_Iterate_Action(anAction: pointer): daConditionIterator_Iterate_Action;
+function L2daConditionIteratorIterateAction(anAction: pointer): daConditionIterator_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daConditionIterator.Iterate }
 
 implementation
@@ -552,16 +552,16 @@ uses
  , l3Base
 ;
 
-function L2_daTableDescriptionIterator_IterateFieldsF_Action(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
+function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }
 asm
  jmp l3LocalStub
-end;//L2_daTableDescriptionIterator_IterateFieldsF_Action
+end;//L2daTableDescriptionIteratorIterateFieldsFAction
 
-function L2_daConditionIterator_Iterate_Action(anAction: pointer): daConditionIterator_Iterate_Action;
+function L2daConditionIteratorIterateAction(anAction: pointer): daConditionIterator_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daConditionIterator.Iterate }
 asm
  jmp l3LocalStub
-end;//L2_daConditionIterator_Iterate_Action
+end;//L2daConditionIteratorIterateAction
 
 end.

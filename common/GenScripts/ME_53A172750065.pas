@@ -41,7 +41,7 @@ type
    procedure WorkupF(anAction: csProcessTaskWorkuper_WorkupF_Action);
  end;//TddServerTaskList
 
-function L2_csProcessTaskWorkuper_WorkupF_Action(anAction: pointer): csProcessTaskWorkuper_WorkupF_Action;
+function L2csProcessTaskWorkuperWorkupFAction(anAction: pointer): csProcessTaskWorkuper_WorkupF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для csProcessTaskWorkuper.WorkupF }
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -54,11 +54,11 @@ uses
  , SysUtils
 ;
 
-function L2_csProcessTaskWorkuper_WorkupF_Action(anAction: pointer): csProcessTaskWorkuper_WorkupF_Action;
+function L2csProcessTaskWorkuperWorkupFAction(anAction: pointer): csProcessTaskWorkuper_WorkupF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для csProcessTaskWorkuper.WorkupF }
 asm
  jmp l3LocalStub
-end;//L2_csProcessTaskWorkuper_WorkupF_Action
+end;//L2csProcessTaskWorkuperWorkupFAction
 
 {$Include l3CriticalSectionHolder.imp.pas}
 

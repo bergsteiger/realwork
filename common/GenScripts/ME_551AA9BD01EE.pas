@@ -53,7 +53,7 @@ type
     {* Внешняя реализация сервиса Il3IterateComponentParents }
  end;//Tl3IterateComponentParents
 
-function L2_Ml3IterateComponentParents_IterateF_Action(anAction: pointer): Ml3IterateComponentParents_IterateF_Action;
+function L2Ml3IterateComponentParentsIterateFAction(anAction: pointer): Ml3IterateComponentParents_IterateF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF }
 {$IfEnd} // NOT Defined(NoVCL)
 
@@ -70,11 +70,11 @@ uses
 var g_Tl3IterateComponentParents: Tl3IterateComponentParents = nil;
  {* Экземпляр синглетона Tl3IterateComponentParents }
 
-function L2_Ml3IterateComponentParents_IterateF_Action(anAction: pointer): Ml3IterateComponentParents_IterateF_Action;
+function L2Ml3IterateComponentParentsIterateFAction(anAction: pointer): Ml3IterateComponentParents_IterateF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF }
 asm
  jmp l3LocalStub
-end;//L2_Ml3IterateComponentParents_IterateF_Action
+end;//L2Ml3IterateComponentParentsIterateFAction
 
 procedure Tl3IterateComponentParentsFree;
  {* Метод освобождения экземпляра синглетона Tl3IterateComponentParents }

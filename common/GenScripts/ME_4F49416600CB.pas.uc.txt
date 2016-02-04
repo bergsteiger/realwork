@@ -52,7 +52,7 @@ var
   for l_Index := 0 to Pred(aDictionary.Count) do
   begin
    l_W := TtfwKeyWord(aDictionary.Items[l_Index]).Word;
-   if l_W.IsVarLike AND not l_W.IsGlobalVar then
+   if l_W.IsVarLike then
    begin
     if (l_SV = nil) then
      l_SV := TtfwStoredValues.Make;
