@@ -165,9 +165,14 @@ function TTimeInfo_C(aDate: TDateTime;
  const aName: AnsiString;
  aTime: Cardinal;
  const aSubName: AnsiString): TTimeInfo; overload;
-function TTimeInfo_C: TTimeInfo; overload;
-function TTimeInfo_C: TTimeInfo; overload;
-function TTimeInfo_C: TTimeInfo; overload;
+function TTimeInfo_C(const aName: AnsiString;
+ aTime: Cardinal): TTimeInfo; overload;
+function TTimeInfo_C(aDate: TDateTime;
+ const aName: AnsiString;
+ aTime: Cardinal): TTimeInfo; overload;
+function TTimeInfo_C(const aName: AnsiString;
+ aTime: Cardinal;
+ const aSubName: AnsiString): TTimeInfo; overload;
 procedure RunRegisteredTests;
 function NeedKTestRunner(const aPlaces: array of RTestResultsPlace): Boolean;
 function IsWritingToK: Boolean;
@@ -294,7 +299,8 @@ begin
 //#UC END# *4B6C40530304_4B2F565002FD_impl*
 end;//TTimeInfo_C
 
-function TTimeInfo_C: TTimeInfo;
+function TTimeInfo_C(const aName: AnsiString;
+ aTime: Cardinal): TTimeInfo;
 //#UC START# *4B2F582A0382_4B2F565002FD_var*
 //#UC END# *4B2F582A0382_4B2F565002FD_var*
 begin
@@ -305,7 +311,9 @@ begin
 //#UC END# *4B2F582A0382_4B2F565002FD_impl*
 end;//TTimeInfo_C
 
-function TTimeInfo_C: TTimeInfo;
+function TTimeInfo_C(aDate: TDateTime;
+ const aName: AnsiString;
+ aTime: Cardinal): TTimeInfo;
 //#UC START# *4B588AFA0000_4B2F565002FD_var*
 //#UC END# *4B588AFA0000_4B2F565002FD_var*
 begin
@@ -316,7 +324,9 @@ begin
 //#UC END# *4B588AFA0000_4B2F565002FD_impl*
 end;//TTimeInfo_C
 
-function TTimeInfo_C: TTimeInfo;
+function TTimeInfo_C(const aName: AnsiString;
+ aTime: Cardinal;
+ const aSubName: AnsiString): TTimeInfo;
 //#UC START# *4B58926401DE_4B2F565002FD_var*
 //#UC END# *4B58926401DE_4B2F565002FD_var*
 begin
