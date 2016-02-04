@@ -15,7 +15,11 @@ uses
 ;
 
 const
- sBtnGlyphs: array [0 .. 4] of PAnsiChar = ('VTPREV2', 'VTPREV1', 'VTNEXT1', 'VTNEXT2');
+ sBtnGlyphs: array [0 .. 4] of PAnsiChar = ('VTPREV2'
+ , 'VTPREV1'
+ , 'VTNEXT1'
+ , 'VTNEXT2'
+ );
  {* Локализуемые строки TvtDateEditHints }
  str_vtStrPrevYear: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'vtStrPrevYear'; rValue : 'Предыдущий год');
   {* 'Предыдущий год' }

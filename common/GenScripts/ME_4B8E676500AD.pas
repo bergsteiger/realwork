@@ -37,7 +37,19 @@ const
  cCustomButtonName = 'Custom';
  cCheckName = 'Check';
  cChoicesName = 'Choices';
- cMsgDlgBtnOrder: array [TMsgDlgBtn] of TMsgDlgBtn = (mbYes, mbAll, mbYesToAll, mbNo, mbNoToAll, mbOk, mbCancel, mbAbort, mbRetry, mbIgnore, mbHelp, mbClose);
+ cMsgDlgBtnOrder: array [TMsgDlgBtn] of TMsgDlgBtn = (mbYes
+ , mbAll
+ , mbYesToAll
+ , mbNo
+ , mbNoToAll
+ , mbOk
+ , mbCancel
+ , mbAbort
+ , mbRetry
+ , mbIgnore
+ , mbHelp
+ , mbClose
+ );
 
 type
  TvtEffectiveDialogButton = class(TvtVGButton)
