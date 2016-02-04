@@ -14,12 +14,6 @@ uses
 ;
 
 const
- eptPartNum = (S: '%NUMBER%'; SLen: 8; SCodePage: 0);
- eptAccGroup = (S: '%MAIN%'; SLen: 6; SCodePage: 0);
- eptExportDate = (S: '%DATE%'; SLen: 6; SCodePage: 0);
- edpDocument = 'document';
- edpReference = 'related';
- edpAnnotation = 'annotation';
  cFilerOpenErrorMsg = 'CRITICAL ERROR: Ошибка (%s) открытия файла %s';
 
 type
@@ -75,6 +69,10 @@ type
   property Topics[aIdx: Integer]: Integer
    read Get_Topics;
  end;//IddAnnoKindSortItem
+
+const
+ cExportFileMaskPatterns: array [TddExportFileMaskPatternType] of Tl3WString = ((S: '%NUMBER%'; SLen: 8; SCodePage: 0), (S: '%MAIN%'; SLen: 6; SCodePage: 0), (S: '%DATE%'; SLen: 6; SCodePage: 0));
+ cDefaultFileMask: array [TddExportDocPart] of AnsiString = ('document', 'related', 'annotation');
 
 implementation
 
