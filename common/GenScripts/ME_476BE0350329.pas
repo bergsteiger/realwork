@@ -176,7 +176,7 @@ const
  ev_saAACLeftHyperlink = -83;
  ev_saDocumentInList = -84;
  {* »мена дл€ Standard }
- StandardNames: array [0 .. 85] of PAnsiChar = ('Empty'
+ StandardNames: array [0 .. 84] of PAnsiChar = ('Empty'
  , 'TxtNormalANSI'
  , 'TxtNormalOEM'
  , 'TxtHeader1'
@@ -264,12 +264,12 @@ const
  );
 
 type
- TevStandardStyle = EnclosureHeader .. TxtNormalANSI;
+ TevStandardStyle = ev_saEnclosureHeader .. ev_saTxtNormalANSI;
   {* “ип, определ€ющий диапазон стандартных стилей. }
 
  TevStandardStylesNSRC = -High(TevStandardStyle) .. -Low(TevStandardStyle);
 
- TevStandardCachedStyle = NewsConfigHyperlink .. TxtNormalANSI;
+ TevStandardCachedStyle = ev_saNewsConfigHyperlink .. ev_saTxtNormalANSI;
 
  TevStandardStylesP = -High(TevStandardCachedStyle) .. -Low(TevStandardCachedStyle);
 

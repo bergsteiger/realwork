@@ -226,7 +226,7 @@ type
   , Diff
  );//TevSegmentHandle
 
- TevNormalSegLayerHandleP = View .. Mistakes;
+ TevNormalSegLayerHandleP = ev_slView .. ev_slMistakes;
 
  TevBlockViewKind = (
   ev_bvkNone

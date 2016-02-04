@@ -1228,7 +1228,7 @@ type
  TvcmZoneTypes = set of TvcmZoneType;
   {* Набор типов доны докинга }
 
- TvcmEffectiveZoneType = Main .. Reminder;
+ TvcmEffectiveZoneType = vcm_ztMain .. vcm_ztReminder;
   {* реальная зона докинга }
 
  TvcmEffectiveZoneTypes = set of TvcmEffectiveZoneType;

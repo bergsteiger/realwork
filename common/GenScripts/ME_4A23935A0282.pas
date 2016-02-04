@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , evdInterfaces
+ , evdTypes
  , afwInterfaces
 ;
 
@@ -67,7 +68,10 @@ type
    read pm_GetAddress;
  end;//IevAddressMoniker
 
-function TevAddress_C: TevAddress;
+function TevAddress_C(aDocID: Integer;
+ aSubID: Integer;
+ aTypeID: Integer = ev_defAddressType;
+ aRevisionID: Integer = 0): TevAddress;
 
 implementation
 
@@ -75,7 +79,10 @@ uses
  l3ImplUses
 ;
 
-function TevAddress_C: TevAddress;
+function TevAddress_C(aDocID: Integer;
+ aSubID: Integer;
+ aTypeID: Integer = ev_defAddressType;
+ aRevisionID: Integer = 0): TevAddress;
 //#UC START# *49E604FE0347_48F4940C01C0_var*
 //#UC END# *49E604FE0347_48F4940C01C0_var*
 begin

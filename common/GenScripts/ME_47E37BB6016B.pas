@@ -56,7 +56,7 @@ type
 <!> Временно. Надо будет перенести на Ml3List. }
  end;//Ik2TagList
 
-function L2_Ik2TagList_ForEach_Action(anAction: pointer): Ik2TagList_ForEach_Action;
+function L2Ik2TagListForEachAction(anAction: pointer): Ik2TagList_ForEach_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ik2TagList.ForEach }
 
 implementation
@@ -66,10 +66,10 @@ uses
  , l3Base
 ;
 
-function L2_Ik2TagList_ForEach_Action(anAction: pointer): Ik2TagList_ForEach_Action;
+function L2Ik2TagListForEachAction(anAction: pointer): Ik2TagList_ForEach_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ik2TagList.ForEach }
 asm
  jmp l3LocalStub
-end;//L2_Ik2TagList_ForEach_Action
+end;//L2Ik2TagListForEachAction
 
 end.
