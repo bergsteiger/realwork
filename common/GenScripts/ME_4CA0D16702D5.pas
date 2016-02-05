@@ -21,8 +21,8 @@ type
 
  TInterceptor = class(TLocalORBObject)
   protected
-   procedure __destroy; virtual; abstract;
-   function __get__name: ANSIString; virtual; abstract;
+   procedure _destroy; virtual; abstract;
+   function _get__name: ANSIString; virtual; abstract;
  end;//TInterceptor
 
  TClientRequestInterceptor = class(TInterceptor)

@@ -18,8 +18,8 @@ uses
 type
  TGarClientSecurity = class(TClientRequestInterceptor)
   protected
-   procedure __destroy; override;
-   function __get__name: ANSIString; override;
+   procedure _destroy; override;
+   function _get__name: ANSIString; override;
    procedure send__request(const ri: IClientRequestInfo); override;
    procedure send__poll(const ri: IClientRequestInfo); override;
    procedure receive__reply(const ri: IClientRequestInfo); override;
@@ -50,22 +50,22 @@ begin
 //#UC END# *4CA0D4D6026F_4CA0D4C90266_impl*
 end;//TGarClientSecurity.Create
 
-procedure TGarClientSecurity.__destroy;
+procedure TGarClientSecurity._destroy;
 //#UC START# *4CA0D39501A8_4CA0D4C90266_var*
 //#UC END# *4CA0D39501A8_4CA0D4C90266_var*
 begin
 //#UC START# *4CA0D39501A8_4CA0D4C90266_impl*
 //#UC END# *4CA0D39501A8_4CA0D4C90266_impl*
-end;//TGarClientSecurity.__destroy
+end;//TGarClientSecurity._destroy
 
-function TGarClientSecurity.__get__name: ANSIString;
+function TGarClientSecurity._get__name: ANSIString;
 //#UC START# *4CA0D3AD017C_4CA0D4C90266_var*
 //#UC END# *4CA0D3AD017C_4CA0D4C90266_var*
 begin
 //#UC START# *4CA0D3AD017C_4CA0D4C90266_impl*
  Result := 'ClientSecurity';
 //#UC END# *4CA0D3AD017C_4CA0D4C90266_impl*
-end;//TGarClientSecurity.__get__name
+end;//TGarClientSecurity._get__name
 
 procedure TGarClientSecurity.send__request(const ri: IClientRequestInfo);
 //#UC START# *4CA0D42302FC_4CA0D4C90266_var*

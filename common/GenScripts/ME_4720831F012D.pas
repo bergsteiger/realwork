@@ -80,7 +80,7 @@ type
  );//Tm3DBCopyMode
 
  (*
- Mm3DB = interface(Im3Base)
+ Mm3DB = interface
   procedure DeleteVersion;
    {* Удаляет хранилище версий }
   function CompareVersionWithBackup: Boolean;
