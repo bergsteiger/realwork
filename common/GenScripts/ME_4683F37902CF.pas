@@ -107,7 +107,7 @@ type
  IvcmBase = vcmExternalInterfaces.IvcmBase;
 
  (*
- MvcmEntityFormState = interface(IvcmBase)
+ MvcmEntityFormState = interface
   function Get_VCMClosing: Boolean;
   function IsBaloon: Boolean;
   property VCMClosing: Boolean
@@ -116,7 +116,7 @@ type
  *)
 
  (*
- MvcmLayout = interface(IvcmBase)
+ MvcmLayout = interface
   function Get_VCLWinControl: TWinControl;
   function IsAcceptable(aDataUpdate: Boolean): Boolean;
    {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
@@ -548,7 +548,7 @@ type
  end;//IvcmAggregate
 
  (*
- vcmEntitiesContainer = interface(IvcmBase)
+ vcmEntitiesContainer = interface
   function Get_Entity(anIndex: Integer): IvcmEntity;
   function Get_EntitiesCount: Integer;
   property Entity[anIndex: Integer]: IvcmEntity

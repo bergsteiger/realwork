@@ -36,8 +36,9 @@ type
   {* Ќайденные блоки дл€ позиционировани€ }
  end;//TnsFoundBlocksList
 
-function TnsFoundBlockInfo_C: TnsFoundBlockInfo; overload;
-function TnsFoundBlockInfo_C: TnsFoundBlockInfo; overload;
+function TnsFoundBlockInfo_C(aBlockID: Integer;
+ const aPoint: InevBasePoint): TnsFoundBlockInfo; overload;
+function TnsFoundBlockInfo_C(aBlockID: Integer): TnsFoundBlockInfo; overload;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -51,7 +52,8 @@ uses
  , SysUtils
 ;
 
-function TnsFoundBlockInfo_C: TnsFoundBlockInfo;
+function TnsFoundBlockInfo_C(aBlockID: Integer;
+ const aPoint: InevBasePoint): TnsFoundBlockInfo;
 //#UC START# *4B61AC4403B2_4B61ABFB015F_var*
 //#UC END# *4B61AC4403B2_4B61ABFB015F_var*
 begin
@@ -63,7 +65,7 @@ begin
 //#UC END# *4B61AC4403B2_4B61ABFB015F_impl*
 end;//TnsFoundBlockInfo_C
 
-function TnsFoundBlockInfo_C: TnsFoundBlockInfo;
+function TnsFoundBlockInfo_C(aBlockID: Integer): TnsFoundBlockInfo;
 //#UC START# *4B61AE6A01A4_4B61ABFB015F_var*
 //#UC END# *4B61AE6A01A4_4B61ABFB015F_var*
 begin

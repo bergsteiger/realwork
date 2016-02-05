@@ -375,7 +375,7 @@ type
  );//TafwSettingsState
 
  (*
- afwSettingsPrim = interface(IafwBase)
+ afwSettingsPrim = interface
   function LoadInteger(const aSettingId: TafwSettingId;
    aDefault: Integer = 0;
    aRestoreDefault: Boolean = False): Integer;
@@ -826,7 +826,7 @@ type
  end;//IafwSettingsSource
 
  (*
- MafwSettingsNotify = interface(IafwBase)
+ MafwSettingsNotify = interface
   procedure AddListener(const aListener: IafwSettingListener); overload;
   procedure AddListener(const aListener: IafwSettingsReplaceListener); overload;
   procedure RemoveListener(const aListener: IafwSettingListener); overload;
@@ -854,7 +854,7 @@ type
 
  {$If NOT Defined(NoVCL)}
  (*
- MafwVisualizater = interface(IafwBase)
+ MafwVisualizater = interface
   function MakeLongProcessVisualizer(const aCaption: IafwCString;
    anAttachWnd: THandle = 0;
    anInitialTimeout: Cardinal = afw_lpwTimeout;

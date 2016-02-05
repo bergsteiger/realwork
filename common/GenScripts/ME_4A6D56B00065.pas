@@ -304,9 +304,13 @@ type
    {* Редакция для сравнения }
  end;//IsdsCompareEditions
 
-function TnsParaCoord_C: TnsParaCoord;
+function TnsParaCoord_C(const aPara: IeePara;
+ const aBlock: IevDocumentPart;
+ aLine: Integer;
+ anEditor: TevCustomEditorWindowModelPart): TnsParaCoord;
  {* Создаёт координату }
-function TnsDocumentForReturnInfo_C: TnsDocumentForReturnInfo;
+function TnsDocumentForReturnInfo_C(const aDoc: IDocument;
+ const aPara: IeeLeafPara): TnsDocumentForReturnInfo;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -316,7 +320,10 @@ uses
  l3ImplUses
 ;
 
-function TnsParaCoord_C: TnsParaCoord;
+function TnsParaCoord_C(const aPara: IeePara;
+ const aBlock: IevDocumentPart;
+ aLine: Integer;
+ anEditor: TevCustomEditorWindowModelPart): TnsParaCoord;
  {* Создаёт координату }
 //#UC START# *4A79BB650298_4A79BB0800E4_var*
 //#UC END# *4A79BB650298_4A79BB0800E4_var*
@@ -335,7 +342,8 @@ begin
 //#UC END# *4A79BB650298_4A79BB0800E4_impl*
 end;//TnsParaCoord_C
 
-function TnsDocumentForReturnInfo_C: TnsDocumentForReturnInfo;
+function TnsDocumentForReturnInfo_C(const aDoc: IDocument;
+ const aPara: IeeLeafPara): TnsDocumentForReturnInfo;
 //#UC START# *4B6074C60325_4B60748400F9_var*
 //#UC END# *4B6074C60325_4B60748400F9_var*
 begin
