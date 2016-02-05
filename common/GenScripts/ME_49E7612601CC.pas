@@ -5,7 +5,6 @@
 
 {$Define nevTinyParaXTool_imp}
 
-type
  // _X_
 
  _nevTinyParaXTool_ = class(Tl3ProtoObject)

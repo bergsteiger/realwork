@@ -54,11 +54,19 @@ uses
 ;
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_); forward;
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
-procedure FreeItem(var aPlace: _ItemType_;
- aList: _l3Items_); forward;
+procedure FreeItem(var aPlace: _ItemType_
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
@@ -75,8 +83,11 @@ end;//AssignItem
 {$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_);
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
  {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_4B8693630365_var*
 //#UC END# *47B935AF0066_4B8693630365_var*
@@ -86,8 +97,11 @@ begin
 //#UC END# *47B935AF0066_4B8693630365_impl*
 end;//FillItem
 
-procedure FreeItem(var aPlace: _ItemType_;
- aList: _l3Items_);
+procedure FreeItem(var aPlace: _ItemType_
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
  {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_4B8693630365_var*
 //#UC END# *47B94A5C006E_4B8693630365_var*

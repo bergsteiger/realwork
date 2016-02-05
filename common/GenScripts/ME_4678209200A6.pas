@@ -81,7 +81,7 @@ type
  TnevInch = type Integer;
   {* дюймы. }
 
- InevMetricsPrim = interface
+ InevMetricsPrim = interface(InevBase)
   {* Метрики отображения. }
   ['{C4B2D092-BFB3-4B0D-8CFE-E0F514C4360A}']
   function pm_GetLimitWidth: TnevInch;
@@ -155,7 +155,7 @@ type
  InevCommandProcessor = Il3CommandProcessor;
   {* Процессор команд. }
 
- IevAnchorIndex = interface
+ IevAnchorIndex = interface(InevBase)
   {* Индекс меток }
   ['{4A9029DA-6827-4AC3-BA09-82E6979A91D4}']
   procedure Delete(Layer: Integer;
@@ -163,7 +163,7 @@ type
    {* удаляет метку из индекса. }
  end;//IevAnchorIndex
 
- IevTable = interface
+ IevTable = interface(InevBase)
   {* Таблица (см. IedTable) }
   ['{2C49178B-853E-4739-ACFB-64154CE2C4E7}']
   procedure InsertRows(NumRows: Integer;
@@ -231,7 +231,7 @@ type
  TnevShapeParts = set of TnevShapePart;
 
  (*
- MnevShape = interface
+ MnevShape = interface(InevBase)
   {* Визуально отображаемый объект }
   function AppliesToMaxWidth: Boolean;
   procedure Invalidate(aParts: TnevShapeParts);
@@ -240,7 +240,7 @@ type
  *)
 
  (*
- MnevObject = interface
+ MnevObject = interface(InevBase)
   {* Объект }
   function pm_GetPID: TnevParaIndex;
   function IsList: Boolean;
@@ -309,7 +309,7 @@ type
  TnevFormatInfoPrim = class;
 
  (*
- MnevDocumentContainerDecorationRules = interface
+ MnevDocumentContainerDecorationRules = interface(InevBase)
   {* Правила оформления декораций в контейнере документа }
   function AllowsThisDecor(aFI: TnevFormatInfoPrim;
    aType: TnevDecorType): Boolean;
@@ -373,7 +373,7 @@ type
  end;//InevViewMetrics
 
  (*
- MnevShapeDeprecated = interface
+ MnevShapeDeprecated = interface(InevBase)
   function ClientToParent(anX: Integer;
    aParentLevel: TnevParaLevel = nev_plTopmost): Integer;
   function ParentToClient(const aPt: TnevPoint;
@@ -382,13 +382,13 @@ type
  *)
 
  (*
- MnevFontCalculator = interface
+ MnevFontCalculator = interface(InevBase)
   function GetObjFont(aCorrectItalic: Boolean): IevResultFont;
  end;//MnevFontCalculator
  *)
 
  (*
- MnevShapeTools = interface
+ MnevShapeTools = interface(InevBase)
   function InPara(aTypeID: Tk2Type): Boolean;
    {* Находится ли объект в родителе указанного типа или сам является таковым }
   function VerticalAlignmentMargin: Integer;
@@ -397,7 +397,7 @@ type
  *)
 
  (*
- MnevShapeDim = interface
+ MnevShapeDim = interface(InevBase)
   function Get_Spacing: TnevRect;
   function Height: Integer;
   function Width: Integer;
@@ -407,7 +407,7 @@ type
  *)
 
  (*
- MnevFormatInfoForMergedTablesMayBe = interface
+ MnevFormatInfoForMergedTablesMayBe = interface(InevBase)
   function Get_DeltaHeight: Integer;
   function CompareWithMax(anIndex: Integer): Integer;
    {* Сравнить точку с индексом anIndex с максимальной }
@@ -421,14 +421,14 @@ type
  *)
 
  (*
- MnevFormatInfoForTextPara = interface
+ MnevFormatInfoForTextPara = interface(InevBase)
   function Lines: InevLines;
   function ViewSegments: Tl3Variant;
  end;//MnevFormatInfoForTextPara
  *)
 
  (*
- MnevObjInfo = interface
+ MnevObjInfo = interface(InevBase)
   function IsHidden(aRecursive: Boolean;
    aNeedCheckCollapsed: Boolean): Boolean;
   function IsHiddenPrim: Boolean;
@@ -436,7 +436,7 @@ type
  *)
 
  (*
- MFormatInfoForSBS = interface
+ MFormatInfoForSBS = interface(InevBase)
   {* Поддержка работы с подписями }
   function CalcClientValue4Column(aColumnID: Integer): Integer;
   procedure ResizeColumn(aColumnID: Integer;
@@ -446,7 +446,7 @@ type
  *)
 
  (*
- MnevFormatInfo = interface
+ MnevFormatInfo = interface(InevBase)
   function Get_MaxLinesCount: Integer;
   function Get_Hidden: Boolean;
   function Get_FirstIndent: Integer;
@@ -488,7 +488,7 @@ type
  *)
 
  (*
- MnevDecor = interface
+ MnevDecor = interface(InevBase)
   function DecorFormatInfo(aType: TnevDecorType): TnevFormatInfoPrim;
   function DecorHeight(aType: TnevDecorType): Integer;
   function DecorObj(aType: TnevDecorType): Tl3Variant;
@@ -555,7 +555,7 @@ type
  TOverlapType = TevMergeStatus;
 
  (*
- MnevShapePrim = interface
+ MnevShapePrim = interface(InevBase)
   function pm_GetOffsetX: Integer;
   function pm_GetIsVertical: Boolean;
   function Get_OverlapType: TOverlapType;
@@ -578,18 +578,18 @@ type
  *)
 
  (*
- MnevStringCache = interface
+ MnevStringCache = interface(InevBase)
   function CheckS(i: Integer): Tl3CustomString;
  end;//MnevStringCache
  *)
 
- InevStringCache = interface
+ InevStringCache = interface(InevBase)
   ['{A8756814-D7E7-4179-B053-867523E79892}']
   function CheckS(i: Integer): Tl3CustomString;
  end;//InevStringCache
 
  (*
- MnevObjectData = interface
+ MnevObjectData = interface(InevBase)
   function pm_GetText: TnevStr;
   function pm_GetTabStops: InevTabStops;
   property Text: TnevStr
@@ -656,7 +656,7 @@ type
  end;//InevObjectHolderPrim
 
  (*
- ConstantsHolder = interface
+ ConstantsHolder = interface(InevBase)
  end;//ConstantsHolder
  *)
 

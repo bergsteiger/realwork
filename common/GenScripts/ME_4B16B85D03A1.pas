@@ -6,7 +6,6 @@
 {$Define vcmData_imp}
 
 {$If NOT Defined(NoVCM)}
-type
  // _IvcmRealData_
 
  _vcmData_ = class(Tl3ProtoObject, IvcmData)

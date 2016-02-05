@@ -26,7 +26,7 @@ uses
 type
  InevBase = nevTools.InevBase;
 
- IevDropControl = interface
+ IevDropControl = interface(InevBase)
   ['{5E113509-2D7B-4E1F-B96E-18C6C4A0ACC1}']
   function Get_Down: Boolean;
   procedure Set_Down(aValue: Boolean);
@@ -55,7 +55,7 @@ type
    read Get_Para;
  end;//IevDropControl
 
- IevDropCombo = interface
+ IevDropCombo = interface(InevBase)
   ['{11B2B5C6-D288-41EF-AEA4-2E7971EADBA5}']
   function Get_IsList: Boolean;
   function GetNode(anIndex: Integer): InevSimpleNode;
@@ -67,7 +67,7 @@ type
    read Get_IsList;
  end;//IevDropCombo
 
- IevDropCalendar = interface
+ IevDropCalendar = interface(InevBase)
   ['{D2B498FA-0D25-4054-906A-9927577F4636}']
   function Get_aDate: TDateTime;
   procedure Set_aDate(aValue: TDateTime);
@@ -81,7 +81,7 @@ type
    {* Дата из контрола. }
  end;//IevDropCalendar
 
- IevDropContainer = interface
+ IevDropContainer = interface(InevBase)
   {* Контейнер для выпадающих контролов. }
   ['{0E8CE655-459D-466F-BAF3-CFF3FFE2631A}']
   function Get_Tree: InevSimpleTree;

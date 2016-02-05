@@ -82,7 +82,7 @@ type
 
  TvcmString = AnsiString;
 
- IvcmState = interface
+ IvcmState = interface(IvcmBase)
   ['{16FBEE65-C63E-4EE1-849C-6C81E4F6B7D4}']
   function SaveState(out theState: IUnknown;
    aStateType: TvcmStateType): Boolean;
@@ -145,9 +145,9 @@ type
  );//TvcmOpKind
 
  TvcmOpSelector = record
-  rKind: TvcmOpKind;
-  rMID: TvcmMOPID;
-  rID: TvcmOPID;
+  Case rKind: TvcmOpKind of
+   vcm_okModule: (rMID: TvcmMOPID);
+   vcm_okEntity: (rID: TvcmOPID);
  end;//TvcmOpSelector
 
  IvcmItems = interface(IvcmStrings)
@@ -182,7 +182,7 @@ type
  );//TvcmOpFlag
 
  //_ItemType_ = IvcmNode;
- IvcmNodes = interface
+ IvcmNodes = interface(IvcmBase)
   {* Ноды для построения меню операции. }
   ['{087BD09D-2EBD-4305-9300-A7872C1B0AE9}']
   function Get_PlainLevel: Integer;
@@ -231,7 +231,7 @@ type
    {* Число элементов. }
  end;//IvcmNodes
 
- IvcmBaseParamsPrim = interface
+ IvcmBaseParamsPrim = interface(IvcmBase)
   ['{3431206A-F8DC-4E11-A486-446A7AF873C2}']
   function Get_Control: TComponent;
   procedure Set_Control(aValue: TComponent);
@@ -262,7 +262,7 @@ type
    {* Признак обработанности списка параметров. }
  end;//IvcmBaseParamsPrim
 
- IvcmOpParams = interface
+ IvcmOpParams = interface(IvcmBase)
   {* Параметры операции. }
   ['{953E889F-A018-40FA-A616-B62B351050F2}']
   function Get_ImageIndex: Integer;
@@ -361,7 +361,7 @@ type
  TvcmControlTestEvent = procedure(const aParams: IvcmTestParamsPrim) of object;
   {* Вызывается в момент проверки доступности операции из главного меню }
 
- IvcmToolbarNotifier = interface
+ IvcmToolbarNotifier = interface(IvcmBase)
   {* интерфейс используется для уведомления компонента зоны vcm_ztNavigator
        о размере toolbar-а с маленькими иконками и компонентами TvcmDateEdit,
        TvcmEdit. }
@@ -369,7 +369,7 @@ type
   procedure SmallToolbarSize(aValue: Integer);
  end;//IvcmToolbarNotifier
 
- IvcmDockType = interface
+ IvcmDockType = interface(IvcmBase)
   {* тип докинга (для ZonesCollectionItem.IsControlPanel) }
   ['{ADB055B7-59E8-4EFA-8CDA-5DD4CBE2B983}']
   function Get_ControlIsPanel: Boolean;
@@ -377,14 +377,14 @@ type
    read Get_ControlIsPanel;
  end;//IvcmDockType
 
- IvcmPopupIgnoresAction = interface
+ IvcmPopupIgnoresAction = interface(IvcmBase)
   ['{572DC1D0-2CC9-479F-9C9D-43756BF38F2E}']
   function pm_GetPopupIgnoresAction: Boolean;
   property PopupIgnoresAction: Boolean
    read pm_GetPopupIgnoresAction;
  end;//IvcmPopupIgnoresAction
 
- IvcmSettingsUser = interface
+ IvcmSettingsUser = interface(IvcmBase)
   ['{B3FE4095-4F87-42BA-AD1C-101BBA3C527A}']
   procedure WriteBackSettings;
  end;//IvcmSettingsUser
@@ -399,7 +399,7 @@ type
   rID: Integer;
  end;//TvcmOperationStateIndex
 
- IvcmAction = interface
+ IvcmAction = interface(IvcmBase)
   ['{ACDFCCF3-A2C1-4666-80FA-1F5A69B496C8}']
   function pm_GetIsDefault: Boolean;
   procedure pm_SetIsDefault(aValue: Boolean);
@@ -451,7 +451,7 @@ type
    {* проверяет изменилось значение строк. }
  end;//IvcmAction
 
- IvcmActionLink = interface
+ IvcmActionLink = interface(IvcmBase)
   ['{BFEEFBEF-3036-4141-B77C-8196E2083F2B}']
   procedure ParamsChanged(const anAction: IvcmAction);
   procedure ParamsChanging(const anAction: IvcmAction);
@@ -465,7 +465,7 @@ type
 
  TvcmSettingId = TafwSettingId;
 
- IvcmFormHandler = interface
+ IvcmFormHandler = interface(IvcmBase)
   {* Обработчик формы. }
   ['{8708F998-5844-4B4B-9980-AE9A4E04729F}']
   function Get_Form: TCustomForm;
@@ -484,7 +484,7 @@ type
    {* Подсказка к обработчику. }
  end;//IvcmFormHandler
 
- IvcmFormHandlersPublisher = interface
+ IvcmFormHandlersPublisher = interface(IvcmBase)
   {* Спецификация объекта, который публикует обработчики формы. }
   ['{674F0DBD-8D5E-4A7B-A9F7-A82CB0885E43}']
   procedure Publish(const aCloseHandler: IvcmFormHandler);
@@ -493,13 +493,13 @@ type
  TvcmControlGetStateEvent = procedure(var State: TvcmOperationStateIndex) of object;
   {* Обработчик события для определения состояния операции }
 
- IvcmCloseFormHandlerWatcher = interface
+ IvcmCloseFormHandlerWatcher = interface(IvcmBase)
   {* Приглядывающий за обработчиком закрытия формы }
   ['{E7A13C9D-18E7-4F69-84DC-D519550692AF}']
   procedure SetWatch(const aHandler: IvcmFormHandler);
  end;//IvcmCloseFormHandlerWatcher
 
- IvcmOperationsPublisher = interface
+ IvcmOperationsPublisher = interface(IvcmBase)
   {* Контрол представляющий операции пользователю. }
   ['{BB2697B6-0966-4857-828B-FA4F4BA78109}']
   procedure PublishEntity(const anEntity: TvcmString;
@@ -514,19 +514,19 @@ type
    {* Опубликовать операцию. aNoPrefix - костыль для [$133891300] }
  end;//IvcmOperationsPublisher
 
- IvcmOperationsProvider = interface
+ IvcmOperationsProvider = interface(IvcmBase)
   {* Контрол с поддержкой операций. }
   ['{BD5A4AF8-9AC8-4411-9AFB-E60098B21373}']
   procedure ProvideOps(const aPublisher: IvcmOperationsPublisher);
    {* предоставить список доступных операций. }
  end;//IvcmOperationsProvider
 
- IvcmDatasourceChangeListener = interface
+ IvcmDatasourceChangeListener = interface(IvcmBase)
   ['{4ED370FF-415E-4620-9B94-2EDA86F89988}']
   procedure DataSourceChanged(aControl: TControl);
  end;//IvcmDatasourceChangeListener
 
- IvcmComponentWithAction = interface
+ IvcmComponentWithAction = interface(IvcmBase)
   ['{8E3276DA-3A8F-4D13-90B9-102C8EA45E28}']
   function Get_EntityName: AnsiString;
   procedure Set_EntityName(const aValue: AnsiString);
@@ -562,7 +562,7 @@ type
    write Set_Visible;
  end;//IvcmComponentWithAction
 
- IvcmComponentContainer = interface
+ IvcmComponentContainer = interface(IvcmBase)
   ['{B8F103A1-FA45-4FDD-B6A4-F623EA089B56}']
   function Get_Count: Integer;
   function Get_OwnedComponent(aIndex: Integer): TComponent;
@@ -573,7 +573,7 @@ type
  end;//IvcmComponentContainer
 
  {$If Defined(Nemesis)}
- IvcmFlashingWindow = interface
+ IvcmFlashingWindow = interface(IvcmBase)
   ['{18DC2344-959D-4854-A58E-84080F09D788}']
   procedure StartFlashing;
   procedure StopFlashing;
@@ -586,7 +586,7 @@ type
    {* Вызывается при измении главной формы }
  end;//IvcmMainFormDependent
 
- IvcmCloneableState = interface
+ IvcmCloneableState = interface(IvcmBase)
   ['{D1968E93-A54D-4375-B9EE-5E8898DE352A}']
   function SaveStateForClone(out theState: IUnknown;
    aStateType: TvcmStateType): Boolean;

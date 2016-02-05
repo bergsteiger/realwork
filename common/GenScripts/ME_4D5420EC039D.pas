@@ -69,9 +69,9 @@ type
  end;//TvgRectPoints
 
  TvgRect = packed record
-  void: Integer;
-  voidLTRB: TvgRectLTRB;
-  voidRectPoints: TvgRectPoints;
+  Case Integer of
+   0: (Left: Single; Top: Single; Right: Single; Bottom: Single);
+   1: (TopLeft: TvgPoint; BottomRight: TvgPoint);
  end;//TvgRect
 
  TvgAnimationType = (
@@ -212,9 +212,9 @@ type
  end;//TvgVectorStruct
 
  TvgVector = packed record
-  void: Integer;
-  V: TvgVectorArray;
-  voidStruct: TvgVectorStruct;
+  Case Integer of
+   0: (V: TvgVectorArray);
+   1: (X: Single; Y: Single; W: Single);
  end;//TvgVector
 
  TvgMatrixStruct = record
@@ -265,10 +265,10 @@ type
 
  {$If Defined(FPC_BIG_ENDIAN)}
  TvgColorRec = packed record
-  void: Integer;
-  Color: TvgColor;
-  voidStructW: TvgColorRecStructW;
-  voidStructB: TvgColorRecStructB;
+  Case Integer of
+   0: (Color: TvgColor);
+   1: (HiWord: Word; LoWord: Word);
+   2: ();
  end;//TvgColorRec
  {$IfEnd} // Defined(FPC_BIG_ENDIAN)
 
@@ -281,9 +281,9 @@ type
  TvgMatrixArray = array [TFromZeroToTwoRange] of TvgVector;
 
  TvgMatrix = packed record
-  void: Integer;
-  M: TvgMatrixArray;
-  voidStruct: TvgMatrixStruct;
+  Case Integer of
+   0: (M: TvgMatrixArray);
+   1: (m11: Single; m12: Single; m13: Single; m21: Single; m22: Single; m23: Single; m31: Single; m32: Single; m33: Single);
  end;//TvgMatrix
 
  PvgColorRec = ^TvgColorRec;

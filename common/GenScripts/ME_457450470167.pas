@@ -395,8 +395,10 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    {* закрывает транзакцию, и если это больше нет "верхних" открытых транзакций - сохраняет все изменения сделанные на ноде (отправляет данные на сервер) }
   function get_node_by_path(const path: INodeIndexPath): INodeBase; { can raise NotFound }
    {* Дублирует с CatalogBase }
-  function find(const filter: IFilterList {* Условие поиска. };
-   const find_from: TNodePosition {* Искать от позиции. }): IFindIterator;
+  function find(const filter: IFilterList
+   {* Условие поиска. };
+   const find_from: TNodePosition
+   {* Искать от позиции. }): IFindIterator;
    {* Поиск в дереве по условию, заданному в фильтре. В случае успеха возвращает итератор первого вхождения, иначе пустой итератор (is_good!=true). }
   function is_relevance_search_supported: Boolean;
   procedure expand_all(expand: Boolean);

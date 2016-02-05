@@ -6,7 +6,6 @@
 {$Define vcmFormSetDataSource_imp}
 
 {$If NOT Defined(NoVCM)}
-type
  // _SetDataType_
 
  // _SetType_
@@ -210,7 +209,7 @@ var
 begin
  l_Inst := Create(aData);
  try
-  Result := l_Inst;
+  Result := _Instance_R_(l_Inst);
  finally
   l_Inst.Free;
  end;//try..finally

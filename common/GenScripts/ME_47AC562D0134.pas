@@ -5,7 +5,6 @@
 
 {$Define k2HashTag_imp}
 
-type
  // _HashType_
 
  //#UC START# *47AC562D0134ci*

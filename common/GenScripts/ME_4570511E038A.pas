@@ -456,13 +456,16 @@ type
   function Get_comments_para_list: ICommentsParaList;
   function Get_external_object_data_list: IExternalObjectDataList;
   function create_bookmark(para: TParaId;
-   is_para: Boolean {* Флаг указывающий на то что в первом параметре указывается параграф, в противном случае саб. }): IBookmark;
+   is_para: Boolean
+   {* Флаг указывающий на то что в первом параметре указывается параграф, в противном случае саб. }): IBookmark;
    {* Создает экземпляр Закладки на заданный идентификатор параграфа. Присваивает ей в качестве названия короткое имя документа. А в качестве full_name имя документа и имя ближайшего (сверху) саба или блока (как в списках). }
   function create_view(var filters: IDocumentState): IDocument;
    {* Возвращает документ - редакцию, заказанную через  filters.
 Если текущая редакция равна заказанной - возвращает NULL }
-  procedure get_correspondents_to_part(const pos_list: IPositionList {* Список позиций. };
-   const category: INodeBase {* Категория фильтрации };
+  procedure get_correspondents_to_part(const pos_list: IPositionList
+   {* Список позиций. };
+   const category: INodeBase
+   {* Категория фильтрации };
    out out_list: ICatalogBase);
    {* Возвращает список корреспондентов к фрагменту документа (список параграфов) для указанной категории (category).
 
@@ -484,8 +487,10 @@ type
    out info: IDocument;
    out warning: IString);
    {* Возвращает информацию об интервале неуверенности документа. Если указанная в параметра date дата не попадает в интревал бросает CanNotFindData }
-  procedure get_respondents_to_part(const pos_list: IPositionList {* Список позиций. };
-   const category: INodeBase {* Категория фильтрации. };
+  procedure get_respondents_to_part(const pos_list: IPositionList
+   {* Список позиций. };
+   const category: INodeBase
+   {* Категория фильтрации. };
    out out_list: ICatalogBase);
    {* Возвращает список респондентов к фрагменту документа (список параграфов) для указанной категории (category).
 

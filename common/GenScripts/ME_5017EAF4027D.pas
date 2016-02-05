@@ -6,7 +6,6 @@
 {$Define vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp}
 
 {$If NOT Defined(NoVCM)}
-type
  // _UseCaseControllerType_
 
  // _FormDataSourceType_
@@ -104,7 +103,7 @@ var
 begin
  l_Inst := Create(aDataSource);
  try
-  Result := l_Inst;
+  Result := _Instance_R_(l_Inst);
  finally
   l_Inst.Free;
  end;//try..finally

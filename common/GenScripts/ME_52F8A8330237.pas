@@ -6,7 +6,6 @@
 {$Define vcmFormSetDataSourceWithFlexFormSetType_imp}
 
 {$If NOT Defined(NoVCM)}
-type
  // _FormSetType_
 
  {$Include vcmFormSetDataSource.imp.pas}

@@ -63,7 +63,8 @@ type
    {* Сбрасывает статус изменений в ноль. }
   function open: IUnknown;
    {* Получить объект на контроле. }
-  function is_same_controllable(const other: IControllable {* Сравниваемый объект на контроле. }): Boolean;
+  function is_same_controllable(const other: IControllable
+   {* Сравниваемый объект на контроле. }): Boolean;
    {* Сравнение объектов на контроле. }
   property controlled: Boolean
    read Get_controlled

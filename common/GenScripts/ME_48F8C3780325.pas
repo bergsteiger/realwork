@@ -5,9 +5,9 @@
 
 {$Define evDataObjectFromStorable_imp}
 
-type
  // _StorableClass_
 
+type
  RStorable = class of _StorableClass_;
 
  _evDataObjectFromStorable_ = class(TevPersistentDataObjectEx)

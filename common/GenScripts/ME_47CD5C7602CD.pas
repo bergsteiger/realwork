@@ -36,7 +36,7 @@ type
   , ev_cbDropDown
  );//TevComboStyle
 
- IevCustomParaTool = interface
+ IevCustomParaTool = interface(InevBase)
   ['{F96CF4AB-61BA-4F63-9E57-93BF7BCA563C}']
   function Get_Para: InevPara;
   property Para: InevPara
@@ -96,7 +96,7 @@ type
    {* Состояние для Flat-кнопки. }
  end;//IevCustomEditorControl
 
- IevControlIterator = interface
+ IevControlIterator = interface(InevBase)
   ['{6328C97E-55E5-41E6-A89C-7ACE388C46F2}']
   function GetNextVisible(OnlyFields: Boolean): IevCustomEditorControl;
    {* Возвращает следующий видимый контрол или nil, если такого нет. }
@@ -128,7 +128,7 @@ type
 
  IevReq = interface;
 
- IevAdapterModel = interface
+ IevAdapterModel = interface(InevBase)
   ['{8486860A-0D26-4E6E-A10B-300423475B2E}']
   {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
   function Get_HistoryList: Il3StringsEx;
@@ -208,7 +208,7 @@ type
    {* Реквизит, которому принадлежит контрол. }
  end;//IevEditorControl
 
- IevModelListener = interface
+ IevModelListener = interface(InevBase)
   ['{0F3D9F13-3BA0-42EC-99A7-6D3FDA705548}']
   procedure EnterPressed;
    {* Обработчик нажатия на "Enter". }
@@ -510,7 +510,7 @@ type
    read Get_QueryCard;
  end;//IevQueryGroup
 
- IevQueryCard = interface
+ IevQueryCard = interface(InevBase)
   ['{50D656F4-8A1C-464A-85D7-CCB4415849B6}']
   function Get_GroupCount: Integer;
   function Get_InsertRowMode: Boolean;
@@ -581,7 +581,7 @@ type
    {* Ссылка на редактор. }
  end;//IevQueryCard
 
- IevDatesReq = interface
+ IevDatesReq = interface(InevBase)
   ['{B2384BD5-8B98-4A3C-89E8-D1AFB090BBC8}']
   function Get_StartDate: TDateTime;
   procedure Set_StartDate(aValue: TDateTime);
@@ -597,7 +597,7 @@ type
    {* Конечная дата интервала. }
  end;//IevDatesReq
 
- IevPhoneReq = interface
+ IevPhoneReq = interface(InevBase)
   ['{B58BF42E-F74B-4F4E-82DC-61A690BC20A1}']
   function Get_Code: Il3CString;
   procedure Set_Code(const aValue: Il3CString);
@@ -618,7 +618,7 @@ type
  end;//IevEditorControlButton
 
  //_ItemType_ = IevEditorControl;
- IevEditorControlList = interface
+ IevEditorControlList = interface(InevBase)
   ['{C5160916-203D-4BF8-AC66-0820F74478C3}']
   function pm_GetEmpty: Boolean;
   function pm_GetFirst: IevEditorControl;
@@ -642,7 +642,7 @@ type
    {* Число элементов. }
  end;//IevEditorControlList
 
- IevComboReq = interface
+ IevComboReq = interface(InevBase)
   ['{40A89677-FACE-4DF8-83EE-4DE875DD7922}']
   function Get_DefStateIndex: Integer;
   procedure Set_DefStateIndex(aValue: Integer);
@@ -742,7 +742,7 @@ type
 У Димы - Get_Text/Set_Text. }
  end;//IevEditorControlLabel
 
- IevQueryCardEditor = interface
+ IevQueryCardEditor = interface(InevBase)
   ['{A119A4B9-2DEB-4649-B89A-1957F9EDB06D}']
   procedure SetCursorToPara(const aPara: InevPara;
    bAtEnd: Boolean;
@@ -756,7 +756,7 @@ type
   procedure SignalDisableUnselectAfterDrop;
  end;//IevQueryCardEditor
 
- IqaReqPrim = interface
+ IqaReqPrim = interface(InevBase)
   ['{5A2A14D2-4E7B-4D71-A1C1-473F9AC99CA2}']
   function Get_Modified: Boolean;
   procedure Set_Modified(aValue: Boolean);
@@ -769,7 +769,7 @@ type
  IevReqIterator_DoReq_Action = function(const anItem: IevReq): Boolean;
   {* Тип подитеративной функции для IevReqIterator.DoReq }
 
- IevReqIterator = interface
+ IevReqIterator = interface(InevBase)
   ['{EF763092-54E8-4271-8146-192454C64DFC}']
   function DoReq(anAction: IevReqIterator_DoReq_Action): Integer;
   function DoReqF(anAction: IevReqIterator_DoReq_Action): Integer;

@@ -6,7 +6,6 @@
 {$Define vcmFormDataSourceWithData_imp}
 
 {$If NOT Defined(NoVCM)}
-type
  // _InitDataType_
 
  _vcmFormDataSourceWithData_ = class(_vcmFormDataSourceWithData_Parent_)
@@ -63,7 +62,7 @@ var
 begin
  l_Inst := Create(aDataSource, aData);
  try
-  Result := l_Inst;
+  Result := _Instance_R_(l_Inst);
  finally
   l_Inst.Free;
  end;//try..finally

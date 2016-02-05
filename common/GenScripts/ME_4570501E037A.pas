@@ -111,7 +111,8 @@ type
   ['{085870DB-A1B6-48E7-ADDD-3C9F3911FEF5}']
   function create_folder: IFolder;
    {* Фабрика узлов, возвращает новый созданный экземпляр BaseEntity типа Folder. }
-  function find_folder_node(id: TFolderId {* Идентификатор узла папки. }): IFoldersNode;
+  function find_folder_node(id: TFolderId
+   {* Идентификатор узла папки. }): IFoldersNode;
    {* Найти узел папки по его идентификатору. Если не найден то CanNotFindData. }
  end;//IFolders
 
@@ -181,7 +182,8 @@ type
  IExternalFoldersChangeNotifier = interface
   {* Интерфейс нотификации изменения структуры папок. }
   ['{9AFA9214-42F7-439F-97DB-EB7827289CE0}']
-  procedure fire(const data: TNotifyData {* Данные нотификации. });
+  procedure fire(const data: TNotifyData
+   {* Данные нотификации. });
    {* Произошло изменение папки. При этом необходимо перечитать только непосредственное содержимое папки, исключая рекурсивную прогрузку дочерних папок. }
  end;//IExternalFoldersChangeNotifier
 

@@ -59,7 +59,7 @@ type
    {* События, которые не надо слушать. }
  end;//Ik2TagListener
 
- Ik2Listener = interface
+ Ik2Listener = interface(Ik2Base)
   {* Объекты, умеющие принимать сообщения о смене состояния тегов }
   ['{400B6933-ACA2-4030-80B6-B609ADC3BC49}']
   procedure Fire(const anEvent: Tk2Event;
@@ -67,12 +67,12 @@ type
    {* сообщение о том, что что-то произошло. }
  end;//Ik2Listener
 
- Ik2TagBoxContainer = interface
+ Ik2TagBoxContainer = interface(Ik2Base)
   ['{2916A1A6-C56E-4B5B-8C46-A3C59800E1F4}']
   procedure SetTag(aTag: Tl3Variant);
  end;//Ik2TagBoxContainer
 
- Ik2GeneratorTarget = interface
+ Ik2GeneratorTarget = interface(Ik2Base)
   {* Интерфейс цели генерации. Используется для управления ее временем жизни. }
   ['{D7833AAF-1A4D-4CD0-A8AD-17461B2A8B6E}']
  end;//Ik2GeneratorTarget
@@ -93,7 +93,7 @@ type
    {* инструмент родительского тега. }
  end;//Ik2TagTool
 
- Ik2RawData = interface
+ Ik2RawData = interface(Ik2Base)
   ['{1BF80DA7-BEBC-48DC-808A-355329C193E6}']
   function pm_GetIsModified: Boolean;
   property IsModified: Boolean
@@ -138,7 +138,7 @@ type
   {* Тип подитеративной функции для Mk2InterfaceFactory.IterateCursors }
 
  (*
- Mk2InterfaceFactory = interface
+ Mk2InterfaceFactory = interface(Ik2Base)
   procedure IterateCursors(anAction: Mk2InterfaceFactory_IterateCursors_Action);
   procedure IterateCursorsF(anAction: Mk2InterfaceFactory_IterateCursors_Action);
  end;//Mk2InterfaceFactory

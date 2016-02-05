@@ -5,7 +5,6 @@
 
 {$Define nevParaXTool_imp}
 
-type
  // _X_
 
  _nevParaXTool_ = class(_nevParaXTool_Parent_)

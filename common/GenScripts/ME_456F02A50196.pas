@@ -145,12 +145,14 @@ type
   function Get_root: INode;
   function Get_filter: TEntityType;
   procedure Set_filter(aValue: TEntityType);
-  function find(const entity: IUnknown {* Искомый элемент. }): INode;
+  function find(const entity: IUnknown
+   {* Искомый элемент. }): INode;
    {* Найти узел по его элементу. }
   function find_context(mask: PAnsiChar;
    const mode: TSearchMode;
    const cur_item: INode;
-   out result: TContextSearchResult {* Результат поиска. При этом возвращается сквозной индекс. }): INode;
+   out result: TContextSearchResult
+   {* Результат поиска. При этом возвращается сквозной индекс. }): INode;
    {* Поиск контекста среди элементов списка. }
   procedure reset_type_filter;
    {* сбрасывает все установленные фильтры по типам }

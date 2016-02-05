@@ -26,7 +26,7 @@ uses
 type
  IvcmBase = vcmInterfaces.IvcmBase;
 
- IvcmCustOpsItem = interface
+ IvcmCustOpsItem = interface(IvcmBase)
   {* Элемент панели задач }
   ['{56FD909E-7A46-4B87-95BD-C4665936F003}']
   function pm_GetPosition: Integer;
@@ -37,7 +37,7 @@ type
    {* позиция группы }
  end;//IvcmCustOpsItem
 
- IvcmCustOpsOperation = interface
+ IvcmCustOpsOperation = interface(IvcmBase)
   {* Операция панели задач }
   ['{8CD16C4E-DF54-42AB-B126-5D70990F2486}']
   function pm_GetAction: TCustomAction;
@@ -45,7 +45,7 @@ type
    read pm_GetAction;
  end;//IvcmCustOpsOperation
 
- IvcmCustOpsRepGroup = interface
+ IvcmCustOpsRepGroup = interface(IvcmBase)
   ['{2C68A810-1BA3-4BD0-B1B6-CE85EF94F232}']
   function pm_GetId: Integer;
   function pm_GetCaption: IvcmCString;
@@ -88,7 +88,7 @@ type
 
  IvcmCustOpsRepOperationsIterator = interface;
 
- IvcmCustOpsRepGroupOperations = interface
+ IvcmCustOpsRepGroupOperations = interface(IvcmBase)
   {* Доступная для выбора группа операций }
   ['{4A9EFCF7-628E-4FD8-A957-5C209C73A51E}']
   function pm_GetOperations: IvcmCustOpsRepOperationsIterator;
@@ -99,14 +99,14 @@ type
    read pm_GetCaption;
  end;//IvcmCustOpsRepGroupOperations
 
- IvcmCustOpsRepOperationsIterator = interface
+ IvcmCustOpsRepOperationsIterator = interface(IvcmBase)
   ['{1D6A46A0-95B8-437F-8841-18A0F178F522}']
   function Next: IvcmCustOpsRepOperation;
  end;//IvcmCustOpsRepOperationsIterator
 
  IvcmCustOpsGroupOperation = interface;
 
- IvcmCustOpsGroupOperationsIterator = interface
+ IvcmCustOpsGroupOperationsIterator = interface(IvcmBase)
   ['{F8641F87-ABC9-41BA-88D9-DBD1BCA6929D}']
   function Next: IvcmCustOpsGroupOperation;
  end;//IvcmCustOpsGroupOperationsIterator
@@ -136,7 +136,7 @@ type
    read Get_Control;
  end;//IvcmCustOpsGroup
 
- IvcmCustOpsRepGroupsIterator = interface
+ IvcmCustOpsRepGroupsIterator = interface(IvcmBase)
   {* Итератор доступных для выбора групп }
   ['{79CE7472-FEC0-41E9-8592-83A7F14085CC}']
   function Next: IvcmCustOpsRepGroup;
@@ -177,18 +177,18 @@ type
    read pm_GetGroup;
  end;//IvcmCustOpsGroupOperation
 
- IvcmCustOpsGroupsIterator = interface
+ IvcmCustOpsGroupsIterator = interface(IvcmBase)
   ['{92CE1BEA-AC70-49CC-A7B3-F4F0624B5C6D}']
   function Next: IvcmCustOpsGroup;
  end;//IvcmCustOpsGroupsIterator
 
- IvcmCustOpsRepGroupsOperationsIterator = interface
+ IvcmCustOpsRepGroupsOperationsIterator = interface(IvcmBase)
   {* Итератор групп доступных операций }
   ['{B1EE3B82-0816-485D-93A5-4D32F7A12697}']
   function Next: IvcmCustOpsRepGroupOperations;
  end;//IvcmCustOpsRepGroupsOperationsIterator
 
- IvcmCustOps = interface
+ IvcmCustOps = interface(IvcmBase)
   {* Панель задач для работы с одной сущностью }
   ['{908DF1BA-5F0A-4BB9-B7C9-3B2BE6B87E93}']
   function pm_GetBaseSettingId: TafwSettingId;
@@ -237,7 +237,7 @@ type
    {* редактируемая формы }
  end;//IvcmCustAvailableToolbarOps
 
- IvcmMainForm = interface
+ IvcmMainForm = interface(IvcmBase)
   {* Основная форма }
   ['{11B54167-2B27-46A7-8D30-0529B1A2CDFF}']
   function pm_GetHistory: IvcmHistory;
@@ -250,7 +250,7 @@ type
    read pm_GetTasksPanel;
  end;//IvcmMainForm
 
- IvcmCustOpsRepository = interface
+ IvcmCustOpsRepository = interface(IvcmBase)
   {* Панель задач для публикации операций нескольких сущностей }
   ['{F2006978-4DCD-4F97-B3A9-5D796E7E214B}']
   procedure AddModule(const aModule: IvcmModuleDef);

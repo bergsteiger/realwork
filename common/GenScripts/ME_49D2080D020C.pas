@@ -88,7 +88,7 @@ type
   , ev_pmCell
  );//TevParaMarkStyle
 
- InevPaintersHolder = interface
+ InevPaintersHolder = interface(InevBaseTool)
   {* Интерфейс для поддержки отложенного рисования. [$89096971]. [$89096991] }
   ['{98A8C324-A25A-412A-8028-FF614D4C7756}']
   procedure RemeberSelPart(const aChildMap: InevMap;
@@ -107,7 +107,7 @@ type
    {* проверить и добавить новое значение }
  );//TnevCheckType
 
- IevTablePainter = interface
+ IevTablePainter = interface(InevBaseTool)
   {* Интерфейс инструмента рисования таблицы. }
   ['{1F693F22-31C3-49CE-BDCE-7E9001DC432C}']
   procedure CheckCell(aPara: Tl3Tag;
@@ -121,7 +121,7 @@ type
   function HasOwnStyle: Boolean;
  end;//IevTablePainter
 
- IevTableRowPainter = interface
+ IevTableRowPainter = interface(InevBaseTool)
   {* Интерфейс инструмента рисования строки. }
   ['{DF548913-37DF-44B8-8C6A-67A83D991141}']
   function CheckChildren(const aFI: TnevFormatInfoPrim;
