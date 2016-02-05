@@ -54,9 +54,6 @@ const
   {* Продвинутый метафайл. }
  CF_HDROP = Windows.CF_HDROP;
   {* Данные drag'n'drop. }
- {* Точки. }
- l3_Point0: Tl3_Point = (P: (X: 0; Y: 0));
-  {* Начало координат. }
  {* Key State Masks for Mouse Messages }
  MK_CONTROL = Windows.MK_CONTROL;
  MK_LButton = Windows.MK_LButton;
@@ -1572,6 +1569,11 @@ type
  Tl3Rect = Tl3_Rect;
 
  Tl3SPoint = Tl3_SPoint;
+
+const
+ {* Точки. }
+ l3_Point0: Tl3_Point = (P: (X: 0; Y: 0));
+  {* Начало координат. }
 
 function Tl3_Point_C(aX: Integer;
  aY: Integer): Tl3_Point;

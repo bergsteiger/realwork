@@ -18,10 +18,6 @@ uses
  , l3Core
 ;
 
-const
- l3PageOrientationInvert: Tl3PageOrientationArray = (l3_poLandscape, l3_poPortrait);
-  {* Константа для инверсии ориентации страницы. }
-
 type
  Il3ObjectWrap = interface(Il3Base)
   {* Обертка вокруг объекта. Шаманство. Надо избавляться. }
@@ -1253,6 +1249,10 @@ type
   const R: Tl3Rect;
   SubType: Tl3Handle;
   aSub: TObject) of object;
+
+const
+ l3PageOrientationInvert: Tl3PageOrientationArray = (l3_poLandscape, l3_poPortrait);
+  {* Константа для инверсии ориентации страницы. }
 
 implementation
 

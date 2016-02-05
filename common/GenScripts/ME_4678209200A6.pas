@@ -33,13 +33,6 @@ uses
 ;
 
 const
- evDefaultPreviewCacheKey: TevPreviewCacheKey = (HiddenStyles : []; CaleeArea : afw_pcaMain);
- nevPt0: TnevPoint = (P : (X: 0; Y: 0));
- nevRect0: TnevRect = (R: (Left: 0; Top: 0; Right: 0; Bottom: 0));
- nevNullFrame: TnevPoint = (P : (X: 0; Y: 0));
- nevDefaultColor = l3Core.clDefault;
- nev_ParaListFakeParaEx: TnevPoint = (P : (X: nevInch; Y: nevInch div 2));
- evViewFlags = [ev_uwfCursor, ev_uwfBlock, ev_uwfRegion, ev_uwfWasScroll];
  imOneLevel = l3TreeInterfaces.imOneLevel;
  otNone = evdTypes.ev_msNone;
  otUpper = evdTypes.ev_msHead;
@@ -663,6 +656,15 @@ type
  TInevFormatInfoRet = TnevFormatInfoPrim;
 
  Tl3Variant = l3Variant.Tl3Variant;
+
+const
+ evDefaultPreviewCacheKey: TevPreviewCacheKey = (HiddenStyles : []; CaleeArea : afw_pcaMain);
+ nevPt0: TnevPoint = (P : (X: 0; Y: 0));
+ nevRect0: TnevRect = (R: (Left: 0; Top: 0; Right: 0; Bottom: 0));
+ nevNullFrame: TnevPoint = (P : (X: 0; Y: 0));
+ nevDefaultColor = l3Core.clDefault;
+ nev_ParaListFakeParaEx: TnevPoint = (P : (X: nevInch; Y: nevInch div 2));
+ evViewFlags = [ev_uwfCursor, ev_uwfBlock, ev_uwfRegion, ev_uwfWasScroll];
 
 function TnevControlInfo_C(const aPara: InevObjectPrim;
  aFormatInfo: TnevFormatInfoPrim;

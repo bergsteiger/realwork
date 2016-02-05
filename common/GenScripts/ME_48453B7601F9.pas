@@ -19,11 +19,11 @@ uses
  , nevBase
 ;
 
-const
- AtEndFromBool: TevBool2FlagsAtEnd = ([], [ev_ipfAtEnd]);
-
 type
  TevBool2FlagsAtEnd = array [Boolean] of TevInsertParaFlags;
+
+const
+ AtEndFromBool: TevBool2FlagsAtEnd = ([], [ev_ipfAtEnd]);
 
 function evMergeParaList(const aView: InevView;
  const aCursor: InevBasePoint;

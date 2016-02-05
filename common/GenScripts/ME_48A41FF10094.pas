@@ -29,7 +29,6 @@ const
  DEFAULT_CHARSET = !;
  RUSSIAN_CHARSET = !;
  HORZRES = !;
- INFINITE: DWORD = $FFFFFFFF;
  VK_ESCAPE = !;
  CF_LOCALE = !;
  {* ShowWindow() Commands }
@@ -160,6 +159,9 @@ type
  PSmallRect = ^TSmallRect;
 
  HCURSOR = ;
+
+const
+ INFINITE: DWORD = $FFFFFFFF;
 
 procedure CreateProcess;
 procedure GetTickCount;
