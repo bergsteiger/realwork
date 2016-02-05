@@ -17,12 +17,19 @@
 {$Define l3RecordListPrimPrim_imp_impl}
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_); forward;
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
 procedure DoExchange(var A: _ItemType_;
- var B: _ItemType_;
- anItems: _l3Items_);
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
  {* Меняет элементы списка местами. Без всяких проверок. }
 //#UC START# *47B5C4080270_4E5506F6007E_var*
 //#UC END# *47B5C4080270_4E5506F6007E_var*
@@ -33,8 +40,11 @@ begin
 end;//DoExchange
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_);
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
  {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_4E5506F6007E_var*
 //#UC END# *47B935AF0066_4E5506F6007E_var*

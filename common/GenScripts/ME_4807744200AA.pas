@@ -122,9 +122,9 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
 
  (*
  MIUnknown = interface
-  function __AddRef: Integer; stdcall;
+  function _AddRef: Integer; stdcall;
    {* Увеличивает счетчик ссылок. }
-  function __Release: Integer; stdcall;
+  function _Release: Integer; stdcall;
    {* Уменьшает счетчик ссылок. }
   function QueryInterface(const IID: TGUID;
    out Obj): HResult; stdcall;
@@ -174,9 +174,9 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
  IUnknown = interface
   {* Реальная реализация интерфейса IUnknown. }
   ['{6FBF146C-F37A-4150-8541-482A3B39C3DE}']
-  function __AddRef: Integer; stdcall;
+  function _AddRef: Integer; stdcall;
    {* Увеличивает счетчик ссылок. }
-  function __Release: Integer; stdcall;
+  function _Release: Integer; stdcall;
    {* Уменьшает счетчик ссылок. }
   function QueryInterface(const IID: TGUID;
    out Obj): HResult; stdcall;

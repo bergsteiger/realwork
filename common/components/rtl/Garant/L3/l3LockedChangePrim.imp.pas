@@ -1,48 +1,32 @@
 {$IfNDef l3LockedChangePrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3LockedChangePrim.imp.pas"
-// Начат: 20.10.2005 09:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3LockedChangePrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3LockedChangePrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3LockedChangePrim_imp}
- _l3LockedChangePrim_ = {mixin} class(_l3LockedChangePrim_Parent_)
- private
- // private fields
-   f_ChangeCount : Integer;
-    {* Поле для свойства ChangeCount}
- protected
- // overridden protected methods
-   procedure DoChanged; override;
-     {* Сигнатура метода DoChanged }
-   procedure DoChanging; override;
-     {* Сигнатура метода DoChanging }
- protected
- // protected methods
+
+ _l3LockedChangePrim_ = class(_l3LockedChangePrim_Parent_)
+  private
+   f_ChangeCount: Integer;
+    {* Поле для свойства ChangeCount }
+  protected
    procedure FireChanging; virtual;
    procedure FireChanged; virtual;
- public
- // public methods
+   procedure DoChanged; override;
+   procedure DoChanging; override;
+  public
    function IsChanging: Boolean; virtual;
- protected
- // protected properties
+  protected
    property ChangeCount: Integer
-     read f_ChangeCount
-     write f_ChangeCount;
+    read f_ChangeCount
+    write f_ChangeCount;
  end;//_l3LockedChangePrim_
 
 {$Else l3LockedChangePrim_imp}
 
-// start class _l3LockedChangePrim_
+{$IfNDef l3LockedChangePrim_imp_impl}
+
+{$Define l3LockedChangePrim_imp_impl}
 
 procedure _l3LockedChangePrim_.FireChanging;
 //#UC START# *48FC9D1F016E_48FC9CD002FE_var*
@@ -95,4 +79,7 @@ begin
 //#UC END# *54D9E09D018D_48FC9CD002FE_impl*
 end;//_l3LockedChangePrim_.DoChanging
 
+{$EndIf l3LockedChangePrim_imp_impl}
+
 {$EndIf l3LockedChangePrim_imp}
+

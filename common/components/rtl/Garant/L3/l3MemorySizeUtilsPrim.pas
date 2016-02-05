@@ -1,39 +1,39 @@
 unit l3MemorySizeUtilsPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Basic Concepts"
-// Модуль: "l3MemorySizeUtilsPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: UtilityPack::Class Shared Delphi Требования к низкоуровневым библиотекам::L3$Basic Concepts::MemoryUtils::l3MemorySizeUtilsPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3MemorySizeUtilsPrim.pas"
+// Стереотип: "UtilityPack"
 
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
- Tl3MemorySizeFunc = function (aPtr: Pointer): Integer;
- {$If not defined(XE)}
-function L3MemorySizeDelphi7(aPtr: Pointer): Integer;
-   {* функция для получения размера куска памяти }
- {$IfEnd} //not XE
- {$If defined(XE)}
-function L3MemorySizeXE(aPtr: Pointer): Integer;
-   {* функция для получения размера куска памяти }
- {$IfEnd} //XE
+ Tl3MemorySizeFunc = function(aPtr: Pointer): Integer;
+  {* прототип функции для получения размера куска памяти }
+
+{$If NOT Defined(XE)}
+function l3MemorySizeDelphi7(aPtr: Pointer): Integer;
+ {* функция для получения размера куска памяти }
+{$IfEnd} // NOT Defined(XE)
+{$If Defined(XE)}
+function l3MemorySizeXE(aPtr: Pointer): Integer;
+ {* функция для получения размера куска памяти }
+{$IfEnd} // Defined(XE)
 
 implementation
 
 uses
-  l3MemorySizeUtils
-  ;
+ l3ImplUses
+ , l3MemorySizeUtils
+;
 
-// unit methods
-
-{$If not defined(XE)}
-function L3MemorySizeDelphi7(aPtr: Pointer): Integer;
+{$If NOT Defined(XE)}
+function l3MemorySizeDelphi7(aPtr: Pointer): Integer;
+ {* функция для получения размера куска памяти }
 //#UC START# *51DAD8DC00B2_51DADE55035E_var*
 const
   cThisUsedFlag = 2;
@@ -56,11 +56,12 @@ begin
   Result := PUsed(PMem(aPtr)-SizeOf(TUsed)).sizeFlags and not cFlags - sizeof(TUsed);
 //  Result := (PLong(Long(aP) - 4)^ AND not cFlags) - 4;
 //#UC END# *51DAD8DC00B2_51DADE55035E_impl*
-end;//L3MemorySizeDelphi7
-{$IfEnd} //not XE
+end;//l3MemorySizeDelphi7
+{$IfEnd} // NOT Defined(XE)
 
-{$If defined(XE)}
-function L3MemorySizeXE(aPtr: Pointer): Integer;
+{$If Defined(XE)}
+function l3MemorySizeXE(aPtr: Pointer): Integer;
+ {* функция для получения размера куска памяти }
 //#UC START# *51DADA9600F9_51DADE55035E_var*
 
 const
@@ -289,7 +290,7 @@ begin
    end;
  end;
 //#UC END# *51DADA9600F9_51DADE55035E_impl*
-end;//L3MemorySizeXE
-{$IfEnd} //XE
+end;//l3MemorySizeXE
+{$IfEnd} // Defined(XE)
 
 end.

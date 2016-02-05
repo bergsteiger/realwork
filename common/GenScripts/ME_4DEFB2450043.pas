@@ -5,9 +5,9 @@
 
 {$Define l3OtherListView_imp}
 
-type
  // _ListType_
 
+type
  PItemType = ^_ItemType_;
 
  _l3OtherListView_ = class(Tl3CustomOtherListView)

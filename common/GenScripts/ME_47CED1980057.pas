@@ -28,7 +28,7 @@ var
 begin
  l_Inst := Create;
  try
-  Result := l_Inst;
+  Result := _Instance_R_(l_Inst);
  finally
   l_Inst.Free;
  end;//try..finally

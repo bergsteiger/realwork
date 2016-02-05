@@ -5,7 +5,6 @@
 
 {$Define l3InterfacedDataObject_imp}
 
-type
  // _DataType_
 
  _l3InterfacedDataObject_ = class(Tl3DataObject)

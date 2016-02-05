@@ -1,36 +1,33 @@
 {$IfNDef UnknownImpl_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Basic Concepts"
-// Модуль: "UnknownImpl.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Требования к низкоуровневым библиотекам::L3$Basic Concepts::Ref Counting::UnknownImpl
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\UnknownImpl.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define UnknownImpl_imp}
+
  _RefCounted_Parent_ = _UnknownImpl_Parent_;
- {$Include ..\L3\RefCounted.imp.pas}
- _UnknownImpl_ = {mixin} class(_RefCounted_)
- public
- // realized methods
+ {$Include RefCounted.imp.pas}
+ _UnknownImpl_ = class(_RefCounted_)
+  public
    function _AddRef: Integer; stdcall;
-     {* Увеличивает счетчик ссылок. }
+    {* Увеличивает счетчик ссылок. }
    function _Release: Integer; stdcall;
-     {* Уменьшает счетчик ссылок. }
+    {* Уменьшает счетчик ссылок. }
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; stdcall;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//_UnknownImpl_
 
 {$Else UnknownImpl_imp}
 
-{$Include ..\L3\RefCounted.imp.pas}
+{$IfNDef UnknownImpl_imp_impl}
 
-// start class _UnknownImpl_
+{$Define UnknownImpl_imp_impl}
+
+{$Include RefCounted.imp.pas}
 
 function _UnknownImpl_._AddRef: Integer;
+ {* Увеличивает счетчик ссылок. }
 //#UC START# *47913C24007F_516D4D0D0237_var*
 //#UC END# *47913C24007F_516D4D0D0237_var*
 begin
@@ -42,6 +39,7 @@ begin
 end;//_UnknownImpl_._AddRef
 
 function _UnknownImpl_._Release: Integer;
+ {* Уменьшает счетчик ссылок. }
 //#UC START# *47913C5301A1_516D4D0D0237_var*
 var
  l_RC : Integer;
@@ -56,7 +54,8 @@ begin
 end;//_UnknownImpl_._Release
 
 function _UnknownImpl_.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
 //#UC START# *47913CBF0265_516D4D0D0237_var*
 //#UC END# *47913CBF0265_516D4D0D0237_var*
 begin
@@ -68,4 +67,7 @@ begin
 //#UC END# *47913CBF0265_516D4D0D0237_impl*
 end;//_UnknownImpl_.QueryInterface
 
+{$EndIf UnknownImpl_imp_impl}
+
 {$EndIf UnknownImpl_imp}
+

@@ -16,11 +16,11 @@ type
  PMem = PANSIChar;
 
 {$If NOT Defined(XE)}
-var l3MemorySize: l3MemorySizeDelphi7;
+var l3MemorySize: Tl3MemorySizeFunc = l3MemorySizeDelphi7;
  {* функция для получения размера куска памяти }
 {$IfEnd} // NOT Defined(XE)
 {$If Defined(XE)}
-var l3MemorySize: l3MemorySizeXE;
+var l3MemorySize: Tl3MemorySizeFunc = l3MemorySizeXE;
  {* функция для получения размера куска памяти }
 {$IfEnd} // Defined(XE)
 

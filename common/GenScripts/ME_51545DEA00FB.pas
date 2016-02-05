@@ -5,9 +5,9 @@
 
 {$Define StackPrim_imp}
 
-type
  // _ItemType_
 
+type
  ItemsHolder = array of _ItemType_;
 
  _StackPrim_ = class(_StackPrim_Parent_)

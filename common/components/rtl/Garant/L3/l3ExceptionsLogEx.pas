@@ -1,42 +1,36 @@
 unit l3ExceptionsLogEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Basic Concepts"
-// Модуль: "l3ExceptionsLogEx.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Требования к низкоуровневым библиотекам::L3$Basic Concepts::Logging::Tl3ExceptionsLogEx
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ExceptionsLogEx.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ExceptionsLog
-  ;
+ l3IntfUses
+ , l3ExceptionsLog
+;
 
 type
  Tl3ExceptionsLogEx = class(Tl3ExceptionsLog)
- protected
- // overridden protected methods
-    {$If defined(_m0USEFORMS1)}
+  protected
+   {$If Defined(_m0USEFORMS1)}
    procedure SetOnException; override;
-     {* Сигнатура метода SetOnException }
-    {$IfEnd} //_m0USEFORMS1
-    {$If defined(_m0USEFORMS1)}
+   {$IfEnd} // Defined(_m0USEFORMS1)
+   {$If Defined(_m0USEFORMS1)}
    procedure ResOnException; override;
-     {* Сигнатура метода ResOnException }
-    {$IfEnd} //_m0USEFORMS1
+   {$IfEnd} // Defined(_m0USEFORMS1)
    function NeedTime: Boolean; override;
  end;//Tl3ExceptionsLogEx
 
 implementation
 
-// start class Tl3ExceptionsLogEx
+uses
+ l3ImplUses
+;
 
-{$If defined(_m0USEFORMS1)}
+{$If Defined(_m0USEFORMS1)}
 procedure Tl3ExceptionsLogEx.SetOnException;
 //#UC START# *540EE287029C_540EE27400BE_var*
 //#UC END# *540EE287029C_540EE27400BE_var*
@@ -45,9 +39,9 @@ begin
  // - ничего не делаем
 //#UC END# *540EE287029C_540EE27400BE_impl*
 end;//Tl3ExceptionsLogEx.SetOnException
-{$IfEnd} //_m0USEFORMS1
+{$IfEnd} // Defined(_m0USEFORMS1)
 
-{$If defined(_m0USEFORMS1)}
+{$If Defined(_m0USEFORMS1)}
 procedure Tl3ExceptionsLogEx.ResOnException;
 //#UC START# *540EE29A0095_540EE27400BE_var*
 //#UC END# *540EE29A0095_540EE27400BE_var*
@@ -56,7 +50,7 @@ begin
  // - ничего не делаем
 //#UC END# *540EE29A0095_540EE27400BE_impl*
 end;//Tl3ExceptionsLogEx.ResOnException
-{$IfEnd} //_m0USEFORMS1
+{$IfEnd} // Defined(_m0USEFORMS1)
 
 function Tl3ExceptionsLogEx.NeedTime: Boolean;
 //#UC START# *5422E8FC025D_540EE27400BE_var*

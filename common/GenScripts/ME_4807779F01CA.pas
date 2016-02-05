@@ -20,7 +20,7 @@ type
    function pm_GetParamByName(const aName: AnsiString): _NamedParameter_;
    function pm_GetParamByIndex(anIndex: Integer): _NamedParameter_;
   public
-   procedure destroy; override;
+   destructor destroy; override;
    procedure Add(const aParam: _NamedParameter_);
    constructor Create; reintroduce;
    procedure AddAlias(const aParamName: AnsiString;
@@ -83,7 +83,7 @@ begin
 //#UC END# *480778200358_4807779F01CAget_impl*
 end;//_atNamedParametersList_.pm_GetParamByIndex
 
-procedure _atNamedParametersList_.destroy;
+destructor _atNamedParametersList_.destroy;
 //#UC START# *48077863002D_4807779F01CA_var*
 //#UC END# *48077863002D_4807779F01CA_var*
 begin

@@ -1,49 +1,43 @@
 unit l3PtrLoc;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Basic Concepts"
-// Модуль: "l3PtrLoc.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: UtilityPack::Class Shared Delphi Требования к низкоуровневым библиотекам::L3$Basic Concepts::MemoryUtils::l3PtrLoc
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3PtrLoc.pas"
+// Стереотип: "UtilityPack"
 
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3MemorySizeUtils
-  ;
+ l3IntfUses
+ , l3MemorySizeUtils
+;
 
 type
- Tl3PtrLoc = {$IfDef XE4}record{$Else}object{$EndIf}
- private
-   f_AsPointer : PMem;
- public
-    function Init(aSize: Integer): Boolean;
-    function GetSize: Integer;
-    procedure SetSize(aSize: Integer);
-    procedure Clear;
-    function Read(anOfs: Integer;
-     aBuf: PMem;
-     aBufSize: Integer): Integer;
-    function Write(anOfs: Integer;
-     aBuf: PMem;
-     aBufSize: Integer): Integer;
+ Tl3PtrLoc = object
+  private
+   f_AsPointer: PMem;
+  public
+   function Init(aSize: Integer): Boolean;
+   function GetSize: Integer;
+   procedure SetSize(aSize: Integer);
+   procedure Clear;
+   function Read(anOfs: Integer;
+    aBuf: PMem;
+    aBufSize: Integer): Integer;
+   function Write(anOfs: Integer;
+    aBuf: PMem;
+    aBufSize: Integer): Integer;
   public
    property AsPointer: PMem
-     read f_AsPointer;
+    read f_AsPointer;
  end;//Tl3PtrLoc
 
 implementation
 
 uses
-  l3MemUtils
-  ;
-
-// start class Tl3PtrLoc
+ l3ImplUses
+ , l3MemUtils
+;
 
 function Tl3PtrLoc.Init(aSize: Integer): Boolean;
 //#UC START# *51DD5D1903C3_51DD567A01B5_var*
@@ -95,8 +89,8 @@ begin
 end;//Tl3PtrLoc.Clear
 
 function Tl3PtrLoc.Read(anOfs: Integer;
-  aBuf: PMem;
-  aBufSize: Integer): Integer;
+ aBuf: PMem;
+ aBufSize: Integer): Integer;
 //#UC START# *51DD5E2203B0_51DD567A01B5_var*
 //#UC END# *51DD5E2203B0_51DD567A01B5_var*
 begin
@@ -112,8 +106,8 @@ begin
 end;//Tl3PtrLoc.Read
 
 function Tl3PtrLoc.Write(anOfs: Integer;
-  aBuf: PMem;
-  aBufSize: Integer): Integer;
+ aBuf: PMem;
+ aBufSize: Integer): Integer;
 //#UC START# *51DD5E5F02E1_51DD567A01B5_var*
 (*var
  OldSize : Integer;

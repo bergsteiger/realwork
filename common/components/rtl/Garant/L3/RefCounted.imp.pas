@@ -1,25 +1,17 @@
 {$IfNDef RefCounted_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Basic Concepts"
-// Модуль: "RefCounted.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Требования к низкоуровневым библиотекам::L3$Basic Concepts::Ref Counting::RefCounted
-//
-// В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\RefCounted.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define RefCounted_imp}
+
  _RefCountedPrim_Parent_ = _RefCounted_Parent_;
- {$Include ..\L3\RefCountedPrim.imp.pas}
- _RefCounted_ = {mixin} class(_RefCountedPrim_)
+ {$Include RefCountedPrim.imp.pas}
+ _RefCounted_ = class(_RefCountedPrim_)
   {* В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую }
- public
- // public methods
-   destructor Destroy;
-     {* Это чтобы не было соблазна перекрывать destroy. }
+  public
+   destructor destroy;
+    {* Это чтобы не было соблазна перекрывать destroy. }
    class function NewInstance: TObject;
    procedure FreeInstance;
    procedure AfterConstruction;
@@ -28,11 +20,14 @@
 
 {$Else RefCounted_imp}
 
-{$Include ..\L3\RefCountedPrim.imp.pas}
+{$IfNDef RefCounted_imp_impl}
 
-// start class _RefCounted_
+{$Define RefCounted_imp_impl}
 
-destructor _RefCounted_.Destroy;
+{$Include RefCountedPrim.imp.pas}
+
+destructor _RefCounted_.destroy;
+ {* Это чтобы не было соблазна перекрывать destroy. }
 //#UC START# *5161409E01B6_51614065019A_var*
 //#UC END# *5161409E01B6_51614065019A_var*
 begin
@@ -40,7 +35,7 @@ begin
  assert(false, 'По идее мы попасть сюда не должны');
  inherited;
 //#UC END# *5161409E01B6_51614065019A_impl*
-end;//_RefCounted_.Destroy
+end;//_RefCounted_.destroy
 
 class function _RefCounted_.NewInstance: TObject;
 //#UC START# *516D4E5A000A_51614065019A_var*
@@ -79,4 +74,7 @@ begin
 //#UC END# *516D4EAD0095_51614065019A_impl*
 end;//_RefCounted_.BeforeDestruction
 
+{$EndIf RefCounted_imp_impl}
+
 {$EndIf RefCounted_imp}
+

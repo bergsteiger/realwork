@@ -5,11 +5,11 @@
 
 {$Define l3MapPrim_imp}
 
-type
  // _KeyType_
 
  // _ValueType_
 
+type
  Tl3KeyValuePair = object
   {* Пара ключ-значение }
   public

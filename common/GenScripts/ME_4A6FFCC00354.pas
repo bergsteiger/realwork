@@ -17,8 +17,11 @@
 {$Define l3InterfacePtrListPrim_imp_impl}
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_);
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
  {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_4A6FFCC00354_var*
 //#UC END# *47B935AF0066_4A6FFCC00354_var*

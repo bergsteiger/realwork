@@ -62,15 +62,27 @@ procedure ReAllocList(NewCapacity: Integer;
 function GetCapacity(aList: _l3Items_): Integer; forward;
 
 procedure DoExchange(var A: _ItemType_;
- var B: _ItemType_;
- anItems: _l3Items_); forward;
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_); forward;
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
-procedure FreeItem(var aPlace: _ItemType_;
- aList: _l3Items_); forward;
+procedure FreeItem(var aPlace: _ItemType_
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
@@ -151,8 +163,11 @@ begin
 end;//GetCapacity
 
 procedure DoExchange(var A: _ItemType_;
- var B: _ItemType_;
- anItems: _l3Items_);
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
  {* Меняет элементы списка местами. Без всяких проверок. }
 //#UC START# *47B5C4080270_47B433E500BC_var*
 //#UC END# *47B5C4080270_47B433E500BC_var*
@@ -163,8 +178,11 @@ begin
 end;//DoExchange
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_);
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
  {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_47B433E500BC_var*
 //#UC END# *47B935AF0066_47B433E500BC_var*
@@ -174,8 +192,11 @@ begin
 //#UC END# *47B935AF0066_47B433E500BC_impl*
 end;//FillItem
 
-procedure FreeItem(var aPlace: _ItemType_;
- aList: _l3Items_);
+procedure FreeItem(var aPlace: _ItemType_
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
  {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_47B433E500BC_var*
 //#UC END# *47B94A5C006E_47B433E500BC_var*

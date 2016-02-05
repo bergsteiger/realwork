@@ -1,50 +1,40 @@
 {$IfNDef RefCountedPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Basic Concepts"
-// Модуль: "RefCountedPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Требования к низкоуровневым библиотекам::L3$Basic Concepts::Ref Counting::RefCountedPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\RefCountedPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define RefCountedPrim_imp}
- _RefCountedPrim_ = {mixin} class(_RefCountedPrim_Parent_)
- private
- // private fields
-   f_RefCount : Integer;
-    {* Поле для свойства RefCount}
- protected
- // overridden protected methods
-   procedure FreeInstance; override;
-   procedure BeforeDestruction; override;
- public
- // overridden public methods
-   destructor Destroy; override;
-   class function NewInstance: TObject; override;
- protected
- // protected methods
+
+ _RefCountedPrim_ = class(_RefCountedPrim_Parent_)
+  private
+   f_RefCount: Integer;
+    {* Поле для свойства RefCount }
+  protected
    procedure Cleanup; virtual;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure BeforeRelease; virtual;
    procedure Release; virtual;
- public
- // public methods
+   procedure FreeInstance; override;
+   procedure BeforeDestruction; override;
+  public
    function Use: Pointer;
-     {* увеличить счетчик ссылок на 1 и вернуть указатель на себя. }
+    {* увеличить счетчик ссылок на 1 и вернуть указатель на себя. }
    function SetRefTo(var F): Boolean;
- public
- // public properties
+   destructor Destroy; override;
+   class function NewInstance: TObject; override;
+  public
    property RefCount: Integer
-     read f_RefCount;
+    read f_RefCount;
  end;//_RefCountedPrim_
 
 {$Else RefCountedPrim_imp}
 
-// start class _RefCountedPrim_
+{$IfNDef RefCountedPrim_imp_impl}
+
+{$Define RefCountedPrim_imp_impl}
 
 procedure _RefCountedPrim_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51612ED700B4_var*
 //#UC END# *479731C50290_51612ED700B4_var*
 begin
@@ -53,6 +43,7 @@ begin
 end;//_RefCountedPrim_.Cleanup
 
 function _RefCountedPrim_.Use: Pointer;
+ {* увеличить счетчик ссылок на 1 и вернуть указатель на себя. }
 //#UC START# *479152500168_51612ED700B4_var*
 //#UC END# *479152500168_51612ED700B4_var*
 begin
@@ -159,4 +150,7 @@ begin
 //#UC END# *51DAEFC6017B_51612ED700B4_impl*
 end;//_RefCountedPrim_.BeforeDestruction
 
+{$EndIf RefCountedPrim_imp_impl}
+
 {$EndIf RefCountedPrim_imp}
+

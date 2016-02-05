@@ -1,135 +1,116 @@
 {$IfNDef l3Items_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Items.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3Items
-//
-// Список
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Items.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3Items_imp}
+
+type
  PFindItemType = ^_ItemType_;
 
  CompareItemsRec = record
   {* Данные для сравнения элементов списка. }
-   rA : PFindItemType;
-   rB : PFindItemType;
-   {$If defined(l3Items_HasCustomSort)}
-   rSortIndex : Tl3SortIndex;
-   {$IfEnd} //l3Items_HasCustomSort
-   {$If defined(l3Items_CompareItemsRec_NeedsRList)}
-   rList : TObject;
-   {$IfEnd} //l3Items_CompareItemsRec_NeedsRList
+  rA: PFindItemType;
+  rB: PFindItemType;
+  {$If Defined(l3Items_HasCustomSort)}
+  rSortIndex: Tl3SortIndex;
+  {$IfEnd} // Defined(l3Items_HasCustomSort)
+  {$If Defined(l3Items_CompareItemsRec_NeedsRList)}
+  rList: TObject;
+  {$IfEnd} // Defined(l3Items_CompareItemsRec_NeedsRList)
  end;//CompareItemsRec
 
-
-{$If defined(l3Items_IsProto) AND not defined(l3Items_HasChanging)}
+ {$If Defined(l3Items_IsProto) AND NOT Defined(l3Items_HasChanging)}
  {$Define l3Items_NoChanging}
-{$IfEnd} //l3Items_IsProto AND not l3Items_HasChanging
+ {$IfEnd} // Defined(l3Items_IsProto) AND NOT Defined(l3Items_HasChanging)
 
-
-{$If defined(l3Items_IsProto)}
+ {$If Defined(l3Items_IsProto)}
  {$Define l3Items_NoOwner}
-{$IfEnd} //l3Items_IsProto
+ {$IfEnd} // Defined(l3Items_IsProto)
 
  _FindDataType_ = _ItemType_;
  _l3Sortable_Parent_ = _l3Items_Parent_;
- {$Include ..\L3\l3Sortable.imp.pas}
+ {$Include l3Sortable.imp.pas}
  _l3Searcher_Parent_ = _l3Sortable_;
- {$Include ..\L3\l3Searcher.imp.pas}
- _l3Items_ = {abstract mixin} class(_l3Searcher_)
+ {$Include l3Searcher.imp.pas}
+ _l3Items_ = {abstract} class(_l3Searcher_)
   {* Список }
- private
- // private fields
-   f_Count : Integer;
-    {* Поле для свойства Count}
- protected
- // property methods
-   function pm_GetCapacity: Integer;
+  private
+   f_Count: Integer;
+    {* Поле для свойства Count }
+  protected
+   f_Data: _DataType_;
+  protected
+   function pm_GetCapacity: Integer; { can raise EListError }
    procedure pm_SetCapacity(aValue: Integer);
    function pm_GetLo: Integer;
-   procedure pm_SetCount(aValue: Integer); virtual; abstract;
- protected
- // realized methods
-   procedure Swap(var I1: _ItemType_;
-    var I2: _ItemType_); override;
-     {* Меняет элементы хранилища местами. Не проверяет валидность индексов. }
- protected
- // protected fields
-   f_Data : _DataType_;
- protected
- // protected methods
+   procedure pm_SetCount(aValue: Integer); virtual; abstract; { can raise EListError }
    procedure DoDelete(Index: Integer); virtual;
-     {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
+    {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
    procedure FillSlot(var aPlace: _ItemType_;
     const anItem: _ItemType_);
-     {* Заполняет место элемента его значением. }
+    {* Заполняет место элемента его значением. }
    procedure DirectInsert(anIndex: Integer;
     const aData: _ItemType_); virtual;
-     {* Непосредственное удаление элемента. Без проверки валидности индекса. }
+    {* Непосредственное удаление элемента. Без проверки валидности индекса. }
    procedure CheckSetItem(anIndex: Integer); virtual;
-     {* Проверяет валидность индекса при вставке. }
+    {* Проверяет валидность индекса при вставке. }
    procedure BeforeAddToCache; override;
    procedure Release; override;
-   procedure CheckIndex(Index: Integer); // can raise EListError
-     {* проверяет валидность индекса и поднимает исключение, если он неправильный. }
+   procedure CheckIndex(Index: Integer); { can raise EListError }
+    {* проверяет валидность индекса и поднимает исключение, если он неправильный. }
    procedure FreeSlot(var aPlace: _ItemType_);
    function ExpandSize(aTargetSize: Integer): Integer; virtual;
    function GetEmpty: Boolean; override;
-   {$If defined(l3Items_NeedsBeforeFreeItem)}
+   {$If Defined(l3Items_NeedsBeforeFreeItem)}
    procedure BeforeFreeItem(var aPlace: _ItemType_); virtual;
-     {* Нотификация потомкам об освобождении элемента списка }
-   {$IfEnd} //l3Items_NeedsBeforeFreeItem
- public
- // public methods
+    {* Нотификация потомкам об освобождении элемента списка }
+   {$IfEnd} // Defined(l3Items_NeedsBeforeFreeItem)
+   procedure Swap(var I1: _ItemType_;
+    var I2: _ItemType_); override;
+    {* Меняет элементы хранилища местами. Не проверяет валидность индексов. }
+  public
    procedure Delete(Index: Integer);
-     {* удалить элемент с индексом Index. }
+    {* удалить элемент с индексом Index. }
    function ItemSlot(anIndex: Integer): PItemType;
    procedure Exchange(I1: Integer;
     I2: Integer);
-     {* Меняет элементы списка местами. Проверяет валидность индекса. }
+    {* Меняет элементы списка местами. Проверяет валидность индекса. }
    function IterateF(I1: Tl3Index;
     I2: Tl3Index;
     Action: Tl3IteratorAction): Integer;
    function IterateAllF(Action: Tl3IteratorAction): Integer;
- public
- // public properties
+  public
    property Capacity: Integer
-     read pm_GetCapacity
-     write pm_SetCapacity;
-     {* мощность списка, может быть больше _Count. }
+    read pm_GetCapacity
+    write pm_SetCapacity;
+    {* мощность списка, может быть больше _Count. }
    property Lo: Integer
-     read pm_GetLo;
+    read pm_GetLo;
    property Count: Integer
-     read f_Count
-     write pm_SetCount;
-     {* Число элементов. }
+    read f_Count
+    write pm_SetCount;
+    {* Число элементов. }
  end;//_l3Items_
 
 {$Else l3Items_imp}
 
-// start class _l3Items_
+{$IfNDef l3Items_imp_impl}
+
+{$Define l3Items_imp_impl}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer; forward;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer; forward;
 
 function DoCompareItems(const A: _ItemType_;
-  const B: _ItemType_;
-  aSortIndex: Tl3SortIndex
-  {$If defined(l3Items_CompareItemsRec_NeedsRList)}
-  ;
-  aList: _l3Sortable_
-  {$IfEnd} //l3Items_CompareItemsRec_NeedsRList
-  ): Integer;
+ const B: _ItemType_;
+ aSortIndex: Tl3SortIndex
+{$If Defined(l3Items_CompareItemsRec_NeedsRList)};
+ aList: _l3Sortable_
+{$IfEnd} // Defined(l3Items_CompareItemsRec_NeedsRList)
+): Integer;
 //#UC START# *47B5B5F1038E_47B45152003F_var*
 var
  l_CI : CompareItemsRec;
@@ -152,9 +133,10 @@ begin
 end;//DoCompareItems
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_47B45152003F_var*
 var
  l_CI : CompareItemsRec;
@@ -174,15 +156,11 @@ begin
 //#UC END# *47B9BAFD01F4_47B45152003F_impl*
 end;//CompareItemWithData
 
+{$Include l3Sortable.imp.pas}
 
-{$Include ..\L3\l3Sortable.imp.pas}
+{$Include l3Searcher.imp.pas}
 
-
-{$Include ..\L3\l3Searcher.imp.pas}
-
-// start class _l3Items_
-
-function _l3Items_.pm_GetCapacity: Integer;
+function _l3Items_.pm_GetCapacity: Integer; { can raise EListError }
 //#UC START# *47B5982200F8_47B45152003Fget_var*
 //#UC END# *47B5982200F8_47B45152003Fget_var*
 begin
@@ -224,6 +202,7 @@ begin
 end;//_l3Items_.pm_GetLo
 
 procedure _l3Items_.Delete(Index: Integer);
+ {* удалить элемент с индексом Index. }
 //#UC START# *47B486CB037A_47B45152003F_var*
 //#UC END# *47B486CB037A_47B45152003F_var*
 begin
@@ -234,6 +213,7 @@ begin
 end;//_l3Items_.Delete
 
 procedure _l3Items_.DoDelete(Index: Integer);
+ {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
 //#UC START# *47B4895F01BE_47B45152003F_var*
 var
  l_P : PItemType;
@@ -268,7 +248,8 @@ begin
 end;//_l3Items_.DoDelete
 
 procedure _l3Items_.FillSlot(var aPlace: _ItemType_;
-  const anItem: _ItemType_);
+ const anItem: _ItemType_);
+ {* Заполняет место элемента его значением. }
 //#UC START# *47B49B1D033E_47B45152003F_var*
 //#UC END# *47B49B1D033E_47B45152003F_var*
 begin
@@ -284,7 +265,8 @@ begin
 end;//_l3Items_.FillSlot
 
 procedure _l3Items_.DirectInsert(anIndex: Integer;
-  const aData: _ItemType_);
+ const aData: _ItemType_);
+ {* Непосредственное удаление элемента. Без проверки валидности индекса. }
 //#UC START# *47B49EC50034_47B45152003F_var*
 var
  l_Cap   : Integer;
@@ -334,6 +316,7 @@ begin
 end;//_l3Items_.DirectInsert
 
 procedure _l3Items_.CheckSetItem(anIndex: Integer);
+ {* Проверяет валидность индекса при вставке. }
 //#UC START# *47B49FF70034_47B45152003F_var*
 //#UC END# *47B49FF70034_47B45152003F_var*
 begin
@@ -369,7 +352,8 @@ begin
 //#UC END# *47B5A5BF00D1_47B45152003F_impl*
 end;//_l3Items_.Release
 
-procedure _l3Items_.CheckIndex(Index: Integer); // can raise EListError
+procedure _l3Items_.CheckIndex(Index: Integer); { can raise EListError }
+ {* проверяет валидность индекса и поднимает исключение, если он неправильный. }
 //#UC START# *47B5B7B6011A_47B45152003F_var*
 
  procedure _Error;
@@ -442,7 +426,8 @@ begin
 end;//_l3Items_.GetEmpty
 
 procedure _l3Items_.Exchange(I1: Integer;
-  I2: Integer);
+ I2: Integer);
+ {* Меняет элементы списка местами. Проверяет валидность индекса. }
 //#UC START# *47BB01F000D3_47B45152003F_var*
 //#UC END# *47BB01F000D3_47B45152003F_var*
 begin
@@ -454,8 +439,8 @@ begin
 end;//_l3Items_.Exchange
 
 function _l3Items_.IterateF(I1: Tl3Index;
-  I2: Tl3Index;
-  Action: Tl3IteratorAction): Integer;
+ I2: Tl3Index;
+ Action: Tl3IteratorAction): Integer;
 //#UC START# *47BEED100067_47B45152003F_var*
 //#UC END# *47BEED100067_47B45152003F_var*
 begin
@@ -481,8 +466,9 @@ begin
 //#UC END# *47BEED3D038B_47B45152003F_impl*
 end;//_l3Items_.IterateAllF
 
-{$If defined(l3Items_NeedsBeforeFreeItem)}
+{$If Defined(l3Items_NeedsBeforeFreeItem)}
 procedure _l3Items_.BeforeFreeItem(var aPlace: _ItemType_);
+ {* Нотификация потомкам об освобождении элемента списка }
 //#UC START# *4B87FCF8038B_47B45152003F_var*
 //#UC END# *4B87FCF8038B_47B45152003F_var*
 begin
@@ -490,10 +476,11 @@ begin
  // - ничего не делаем
 //#UC END# *4B87FCF8038B_47B45152003F_impl*
 end;//_l3Items_.BeforeFreeItem
-{$IfEnd} //l3Items_NeedsBeforeFreeItem
+{$IfEnd} // Defined(l3Items_NeedsBeforeFreeItem)
 
 procedure _l3Items_.Swap(var I1: _ItemType_;
-  var I2: _ItemType_);
+ var I2: _ItemType_);
+ {* Меняет элементы хранилища местами. Не проверяет валидность индексов. }
 //#UC START# *47B5B88203A7_47B45152003F_var*
 //#UC END# *47B5B88203A7_47B45152003F_var*
 begin
@@ -513,4 +500,7 @@ begin
 //#UC END# *47B5B88203A7_47B45152003F_impl*
 end;//_l3Items_.Swap
 
+{$EndIf l3Items_imp_impl}
+
 {$EndIf l3Items_imp}
+

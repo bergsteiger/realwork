@@ -138,7 +138,7 @@ type
   {* Тип подитеративной функции для Mk2InterfaceFactory.IterateCursors }
 
  (*
- Mk2InterfaceFactory = interface(Ik2Base)
+ Mk2InterfaceFactory = interface
   procedure IterateCursors(anAction: Mk2InterfaceFactory_IterateCursors_Action);
   procedure IterateCursorsF(anAction: Mk2InterfaceFactory_IterateCursors_Action);
  end;//Mk2InterfaceFactory

@@ -1,37 +1,39 @@
 unit l3EtalonsWorking;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Basic Concepts"
-// Модуль: "l3EtalonsWorking.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Interfaces::Category Shared Delphi Требования к низкоуровневым библиотекам::L3$Basic Concepts::l3EtalonsWorking
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3EtalonsWorking.pas"
+// Стереотип: "Interfaces"
 
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-(*
- EtalonsWorking = PureMixIn
-   procedure CheckOutputWithInput(const aIn: AnsiString;
-     const aOut: AnsiString;
-     aHeaderBegin: AnsiChar;
-     aEtalonNeedsComputerName: Boolean;
-     aEtalonCanHaveDiff: Boolean;
-     const anExtraFileName: AnsiString;
-     aNeedsCheck: Boolean); overload; 
-   procedure CheckOutputWithInput(const aSt: AnsiString;
-     aHeaderBegin: AnsiChar = #0;
-     const anExtraFileName: AnsiString = '';
-     aNeedsCheck: Boolean = true); overload; 
-   procedure CheckPictureOnly;
-   procedure CheckWithEtalon(const aFileName: AnsiString;
-    aHeaderBegin: AnsiChar);
+uses
+ l3IntfUses
+;
+
+ (*
+ EtalonsWorking = interface
+  procedure CheckOutputWithInput(const aIn: AnsiString;
+   const aOut: AnsiString;
+   aHeaderBegin: AnsiChar;
+   aEtalonNeedsComputerName: Boolean;
+   aEtalonCanHaveDiff: Boolean;
+   const anExtraFileName: AnsiString;
+   aNeedsCheck: Boolean); overload;
+  procedure CheckOutputWithInput(const aSt: AnsiString;
+   aHeaderBegin: AnsiChar = #0;
+   const anExtraFileName: AnsiString = '';
+   aNeedsCheck: Boolean = True); overload;
+  procedure CheckPictureOnly;
+  procedure CheckWithEtalon(const aFileName: AnsiString;
+   aHeaderBegin: AnsiChar);
  end;//EtalonsWorking
-*)
+ *)
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

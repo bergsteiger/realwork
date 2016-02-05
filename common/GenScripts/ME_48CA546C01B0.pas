@@ -58,7 +58,7 @@ type
    rDrawType: Tl3LinePartDrawType;
     {* Тип отрисовки }
   public
-   function EQ: Boolean;
+   function EQ(const Another: Tl3LinePart): Boolean;
  end;//Tl3LinePart
 
  {$Define l3Items_NoSort}
@@ -120,7 +120,7 @@ uses
  , l3UnitsTools
 ;
 
-function Tl3LinePart.EQ: Boolean;
+function Tl3LinePart.EQ(const Another: Tl3LinePart): Boolean;
 //#UC START# *4BE2E84C0134_48CA54C5025F_var*
 //#UC END# *4BE2E84C0134_48CA54C5025F_var*
 begin

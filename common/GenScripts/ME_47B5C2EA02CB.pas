@@ -18,8 +18,11 @@
 {$Define l3FourByteItemList_imp_impl}
 
 procedure DoExchange(var A: _ItemType_;
- var B: _ItemType_;
- anItems: _l3Items_);
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
  {* Меняет элементы списка местами. Без всяких проверок. }
 //#UC START# *47B5C4080270_47B5C2EA02CB_var*
 {$IfDef l3Items_IsAtomic}

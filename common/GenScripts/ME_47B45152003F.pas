@@ -40,10 +40,6 @@ type
     {* Поле для свойства Count }
   protected
    f_Data: _DataType_;
-  private
-   procedure Swap(var I1: _ItemType_;
-    var I2: _ItemType_); override;
-    {* Меняет элементы хранилища местами. Не проверяет валидность индексов. }
   protected
    function pm_GetCapacity: Integer; { can raise EListError }
    procedure pm_SetCapacity(aValue: Integer);
@@ -70,6 +66,9 @@ type
    procedure BeforeFreeItem(var aPlace: _ItemType_); virtual;
     {* Нотификация потомкам об освобождении элемента списка }
    {$IfEnd} // Defined(l3Items_NeedsBeforeFreeItem)
+   procedure Swap(var I1: _ItemType_;
+    var I2: _ItemType_); override;
+    {* Меняет элементы хранилища местами. Не проверяет валидность индексов. }
   public
    procedure Delete(Index: Integer);
     {* удалить элемент с индексом Index. }
@@ -107,8 +106,11 @@ function CompareItemWithData(const anItem: _ItemType_;
 
 function DoCompareItems(const A: _ItemType_;
  const B: _ItemType_;
- aSortIndex: Tl3SortIndex;
- aList: _l3Sortable_): Integer;
+ aSortIndex: Tl3SortIndex
+{$If Defined(l3Items_CompareItemsRec_NeedsRList)};
+ aList: _l3Sortable_
+{$IfEnd} // Defined(l3Items_CompareItemsRec_NeedsRList)
+): Integer;
 //#UC START# *47B5B5F1038E_47B45152003F_var*
 var
  l_CI : CompareItemsRec;

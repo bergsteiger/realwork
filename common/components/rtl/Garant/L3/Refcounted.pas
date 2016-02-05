@@ -1,30 +1,29 @@
 unit Refcounted;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Basic Concepts"
-// Модуль: "Refcounted.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Требования к низкоуровневым библиотекам::L3$Basic Concepts::Ref Counting::TRefcounted
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\Refcounted.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  _RefCounted_Parent_ = TObject;
- {$Include ..\L3\RefCounted.imp.pas}
+ {$Include RefCounted.imp.pas}
  TRefcounted = class(_RefCounted_)
  end;//TRefcounted
 
 implementation
 
 uses
-  Windows
-  ;
+ l3ImplUses
+ , Windows
+;
 
-{$Include ..\L3\RefCounted.imp.pas}
+{$Include RefCounted.imp.pas}
 
 end.

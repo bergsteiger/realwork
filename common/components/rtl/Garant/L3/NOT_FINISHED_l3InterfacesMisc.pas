@@ -1,63 +1,52 @@
 unit NOT_FINISHED_l3InterfacesMisc;
+ {* Вспомогательные функции для работы с интерфейсами. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3InterfacesMisc.pas"
-// Начат: 07.04.2000 12:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3InterfacesMisc
-//
-// Вспомогательные функции для работы с интерфейсами.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3InterfacesMisc.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-procedure L3IEQ;
-   {* Сигнатура метода l3IEQ }
-procedure L3IOK;
-   {* Сигнатура метода l3IOK }
-procedure L3IFail;
-   {* Сигнатура метода l3IFail }
+uses
+ l3IntfUses
+;
+
+procedure l3IEQ;
+procedure l3IOK;
+procedure l3IFail;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-procedure L3IEQ;
+procedure l3IEQ;
 //#UC START# *4ADEE4C90303_47CFE7F00221_var*
 //#UC END# *4ADEE4C90303_47CFE7F00221_var*
 begin
 //#UC START# *4ADEE4C90303_47CFE7F00221_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ADEE4C90303_47CFE7F00221_impl*
-end;//L3IEQ
+end;//l3IEQ
 
-procedure L3IOK;
+procedure l3IOK;
 //#UC START# *4B17E8E10102_47CFE7F00221_var*
 //#UC END# *4B17E8E10102_47CFE7F00221_var*
 begin
 //#UC START# *4B17E8E10102_47CFE7F00221_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4B17E8E10102_47CFE7F00221_impl*
-end;//L3IOK
+end;//l3IOK
 
-procedure L3IFail;
+procedure l3IFail;
 //#UC START# *4B17E8F10299_47CFE7F00221_var*
 //#UC END# *4B17E8F10299_47CFE7F00221_var*
 begin
 //#UC START# *4B17E8F10299_47CFE7F00221_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4B17E8F10299_47CFE7F00221_impl*
-end;//L3IFail
+end;//l3IFail
 
 end.

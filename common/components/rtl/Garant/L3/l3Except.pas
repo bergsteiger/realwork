@@ -1,30 +1,21 @@
 unit l3Except;
+ {* Базовые исключения L3. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Domain"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Except.pas"
-// Начат: 22.04.1998 11:18
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Требования к низкоуровневым библиотекам::L3$Domain::l3Except
-//
-// Базовые исключения L3.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Except.pas"
+// Стереотип: "Interfaces"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  SysUtils
-  ;
+ l3IntfUses
+ , SysUtils
+;
+
+const
+ {* Сообщения об ошибках. }
+ l3_excAbortLoad = 'Прервана загрузка документа.';
 
 type
  El3Exception = class(Exception)
@@ -69,11 +60,6 @@ type
  El3ConvertError = class(El3Exception)
  end;//El3ConvertError
 
-const
-  { Сообщения об ошибках. }
- l3_excAbortLoad = 'Прервана загрузка документа.';
-
-type
  El3BadPictureFormat = class(El3Error)
  end;//El3BadPictureFormat
 
@@ -84,5 +70,9 @@ type
  end;//El3BadDataInPara
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -5,7 +5,6 @@
 
 {$Define m3CustomHeaderStream_imp}
 
-type
  // _HeaderType_
 
  _m3HeaderIDSupplier_Parent_ = Tm3BaseHeaderStream;

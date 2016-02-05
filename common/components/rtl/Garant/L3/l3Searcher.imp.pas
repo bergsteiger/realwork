@@ -1,37 +1,29 @@
 {$IfNDef l3Searcher_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Searcher.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3Searcher
-//
-// Умеет искать элементы по заданному критерию.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3Searcher_imp}
- _l3Searcher_ = {abstract mixin} class(_l3Searcher_Parent_)
+
+ _l3Searcher_ = {abstract} class(_l3Searcher_Parent_)
   {* Умеет искать элементы по заданному критерию. }
- public
- // public methods
+  public
    function FindData(const aFindData: _FindDataType_;
     out theIndex: Integer;
-    aSortIndex: Tl3SortIndex = l3_siNative): Boolean; overload; 
-     {* Ищет в списке указанные данные. Возвращает true если данные найдены, а в theIndex - индекс найденого элемента, если данные не найдены, то theIndex указывает на предполагаемое место вставки. }
+    aSortIndex: Tl3SortIndex = l3_siNative): Boolean; overload;
+    {* Ищет в списке указанные данные. Возвращает true если данные найдены, а в theIndex - индекс найденого элемента, если данные не найдены, то theIndex указывает на предполагаемое место вставки. }
  end;//_l3Searcher_
 
 {$Else l3Searcher_imp}
 
-// start class _l3Searcher_
+{$IfNDef l3Searcher_imp_impl}
+
+{$Define l3Searcher_imp_impl}
 
 function _l3Searcher_.FindData(const aFindData: _FindDataType_;
-  out theIndex: Integer;
-  aSortIndex: Tl3SortIndex = l3_siNative): Boolean;
+ out theIndex: Integer;
+ aSortIndex: Tl3SortIndex = l3_siNative): Boolean;
+ {* Ищет в списке указанные данные. Возвращает true если данные найдены, а в theIndex - индекс найденого элемента, если данные не найдены, то theIndex указывает на предполагаемое место вставки. }
 //#UC START# *47B9CA1001D2_47B47E230134_var*
 var
  L, H, i, C: Longint;
@@ -88,4 +80,7 @@ begin
 //#UC END# *47B9CA1001D2_47B47E230134_impl*
 end;//_l3Searcher_.FindData
 
+{$EndIf l3Searcher_imp_impl}
+
 {$EndIf l3Searcher_imp}
+

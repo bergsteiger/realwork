@@ -1,37 +1,27 @@
 {$IfNDef l3Castable_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Castable.imp.pas"
-// Начат: 30.01.2006 21:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3Castable
-//
-// Класс-примесь с методом QueryInterface
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Castable.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3Castable_imp}
- _l3Castable_ = {mixin} class(_l3Castable_Parent_)
+
+ _l3Castable_ = class(_l3Castable_Parent_)
   {* Класс-примесь с методом QueryInterface }
- public
- // public methods
+  public
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; virtual; stdcall;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//_l3Castable_
 
 {$Else l3Castable_imp}
 
-// start class _l3Castable_
+{$IfNDef l3Castable_imp_impl}
+
+{$Define l3Castable_imp_impl}
 
 function _l3Castable_.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
 //#UC START# *47A0AD3A01F7_47A0ACE90008_var*
 //#UC END# *47A0AD3A01F7_47A0ACE90008_var*
 begin
@@ -43,4 +33,7 @@ begin
 //#UC END# *47A0AD3A01F7_47A0ACE90008_impl*
 end;//_l3Castable_.QueryInterface
 
+{$EndIf l3Castable_imp_impl}
+
 {$EndIf l3Castable_imp}
+

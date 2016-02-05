@@ -6,7 +6,6 @@
 {$Define AtomicListTest_imp}
 
 {$If Defined(nsTest)}
-type
  // _ListType_
 
  {$Include ListTest.imp.pas}

@@ -12,12 +12,6 @@ uses
  l3IntfUses
 ;
 
-const
- ev_iidCursor: Tl3IID = (IID: 0);
-  {* курсор объекта }
- ev_iidBlock: Tl3IID = (IID: 1);
-  {* выделение части объекта }
-
 type
  Tl3_IID = packed object
   public
@@ -26,7 +20,7 @@ type
 
  Tl3IID = packed object(Tl3_IID)
   public
-   function EQ: Boolean;
+   function EQ(const anID: Tl3_IID): Boolean;
  end;//Tl3IID
 
  Tl3_GUID = packed object
@@ -38,11 +32,11 @@ type
  Tl3GUID = packed object(Tl3_GUID)
   {* Объект-обертка вокруг GUID. }
   public
-   function EQ: Boolean; overload;
+   function EQ(const anID: Tl3_GUID): Boolean; overload;
     {* сравнить совпадение GUID'ов. }
-   function EQ: Boolean; overload;
+   function EQ(const anID: TGUID): Boolean; overload;
     {* сравнить совпадение GUID'ов. }
-   function SomeOf: Boolean;
+   function SomeOf(const GUIDs: array of TGUID): Boolean;
     {* идентификатор один из GUIDs? }
  end;//Tl3GUID
 
@@ -64,16 +58,24 @@ type
     {* Собственно результат }
  end;//Tl3HResult
 
-function Tl3GUID_C: Tl3GUID;
-function Tl3HResult_C: Tl3HResult;
+const
+ ev_iidCursor: Tl3IID = (IID: 0);
+  {* курсор объекта }
+ ev_iidBlock: Tl3IID = (IID: 1);
+  {* выделение части объекта }
+
+function Tl3GUID_C(const anIID: TGUID): Tl3GUID;
+function Tl3HResult_C(aRes: hResult): Tl3HResult;
 
 implementation
 
 uses
  l3ImplUses
+ , Windows
+ , SysUtils
 ;
 
-function Tl3GUID_C: Tl3GUID;
+function Tl3GUID_C(const anIID: TGUID): Tl3GUID;
 //#UC START# *4942795A0282_478CF8F202C7_var*
 //#UC END# *4942795A0282_478CF8F202C7_var*
 begin
@@ -84,7 +86,7 @@ begin
 //#UC END# *4942795A0282_478CF8F202C7_impl*
 end;//Tl3GUID_C
 
-function Tl3HResult_C: Tl3HResult;
+function Tl3HResult_C(aRes: hResult): Tl3HResult;
 //#UC START# *49427EEF0016_49427DEE015B_var*
 //#UC END# *49427EEF0016_49427DEE015B_var*
 begin
@@ -94,7 +96,7 @@ begin
 //#UC END# *49427EEF0016_49427DEE015B_impl*
 end;//Tl3HResult_C
 
-function Tl3IID.EQ: Boolean;
+function Tl3IID.EQ(const anID: Tl3_IID): Boolean;
 //#UC START# *478CF8B1002E_478CF8A20368_var*
 //#UC END# *478CF8B1002E_478CF8A20368_var*
 begin
@@ -103,7 +105,7 @@ begin
 //#UC END# *478CF8B1002E_478CF8A20368_impl*
 end;//Tl3IID.EQ
 
-function Tl3GUID.EQ: Boolean;
+function Tl3GUID.EQ(const anID: Tl3_GUID): Boolean;
  {* сравнить совпадение GUID'ов. }
 //#UC START# *478CF90801FE_478CF8F202C7_var*
 //#UC END# *478CF90801FE_478CF8F202C7_var*
@@ -113,7 +115,7 @@ begin
 //#UC END# *478CF90801FE_478CF8F202C7_impl*
 end;//Tl3GUID.EQ
 
-function Tl3GUID.EQ: Boolean;
+function Tl3GUID.EQ(const anID: TGUID): Boolean;
  {* сравнить совпадение GUID'ов. }
 //#UC START# *478CF919003A_478CF8F202C7_var*
 //#UC END# *478CF919003A_478CF8F202C7_var*
@@ -123,7 +125,7 @@ begin
 //#UC END# *478CF919003A_478CF8F202C7_impl*
 end;//Tl3GUID.EQ
 
-function Tl3GUID.SomeOf: Boolean;
+function Tl3GUID.SomeOf(const GUIDs: array of TGUID): Boolean;
  {* идентификатор один из GUIDs? }
 //#UC START# *478CF9A1010D_478CF8F202C7_var*
 var

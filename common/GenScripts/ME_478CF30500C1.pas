@@ -183,7 +183,7 @@ type
    procedure WriteState(Writer: TWriter); virtual;
    procedure SetName(const aValue: TComponentName); virtual;
    function QueryInterface(const IID: TGUID;
-    out Obj): HResult; stdcall; virtual;
+    out Obj): HResult; virtual; stdcall;
    procedure Loaded; virtual;
   public
    constructor Create(AOwner: TComponent); reintroduce; virtual;

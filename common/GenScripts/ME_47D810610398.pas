@@ -12,7 +12,6 @@ uses
  l3IntfUses
 ;
 
-type
  // _ItemType_
 
  (*

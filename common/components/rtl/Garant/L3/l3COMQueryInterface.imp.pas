@@ -1,37 +1,30 @@
 {$IfNDef l3COMQueryInterface_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3COMQueryInterface.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3COMQueryInterface
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3COMQueryInterface_imp}
- _l3COMQueryInterface_ = {mixin} class(_l3COMQueryInterface_Parent_)
- public
- // overridden public methods
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; override;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
- protected
- // protected methods
+
+ _l3COMQueryInterface_ = class(_l3COMQueryInterface_Parent_)
+  protected
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; virtual;
-     {* Реализация запроса интерфейса }
+    {* Реализация запроса интерфейса }
+  public
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//_l3COMQueryInterface_
 
 {$Else l3COMQueryInterface_imp}
 
-// start class _l3COMQueryInterface_
+{$IfNDef l3COMQueryInterface_imp_impl}
+
+{$Define l3COMQueryInterface_imp_impl}
 
 function _l3COMQueryInterface_.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4A60B2220398_var*
 //#UC END# *4A60B23E00C3_4A60B2220398_var*
 begin
@@ -41,7 +34,8 @@ begin
 end;//_l3COMQueryInterface_.COMQueryInterface
 
 function _l3COMQueryInterface_.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
 //#UC START# *47A0AD3A01F7_4A60B2220398_var*
 var
  l_Res : Tl3HResult;
@@ -57,4 +51,7 @@ begin
 //#UC END# *47A0AD3A01F7_4A60B2220398_impl*
 end;//_l3COMQueryInterface_.QueryInterface
 
+{$EndIf l3COMQueryInterface_imp_impl}
+
 {$EndIf l3COMQueryInterface_imp}
+

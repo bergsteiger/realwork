@@ -105,7 +105,7 @@ type
  end;//Il3HAFMacroReplacer
 
  (*
- Ml3UnitsConverter = interface(Il3Base)
+ Ml3UnitsConverter = interface
   {* Методы для конвертации различных единиц измерения }
   function DP2LP(const aP: Tl3_SPoint): Tl3Point;
    {* Преобразует точку в пикселях в точку в дюймах }
@@ -113,7 +113,7 @@ type
  *)
 
  (*
- Ml3OutputDevice = interface(Il3Base)
+ Ml3OutputDevice = interface
   {* Устройство вывода }
   function DeviceCaps(anIndex: Integer): Integer;
    {* возвращает свойства устройства рисования. }
@@ -133,7 +133,7 @@ type
  );//Tl3ImageType
 
  (*
- Ml3PageInfo = interface(Il3Base)
+ Ml3PageInfo = interface
   {* Информация о странице }
   function Get_IsPagesCounter: Boolean;
   property IsPagesCounter: Boolean
@@ -142,7 +142,7 @@ type
  *)
 
  (*
- Ml3PageNumberInfo = interface(Il3Base)
+ Ml3PageNumberInfo = interface
   {* Информация о номерах страницы }
   function pm_GetPageNumber: Integer;
   function pm_GetPageWidthNumber: Integer;
@@ -177,7 +177,7 @@ type
  end;//Il3MouseHandler
 
  (*
- Ml3CanvasInfo = interface(Il3Base)
+ Ml3CanvasInfo = interface
   function IsVirtual: Boolean;
  end;//Ml3CanvasInfo
  *)
@@ -199,7 +199,7 @@ type
  end;//Il3Flush
 
  (*
- Ml3WindowOrg = interface(Il3Base)
+ Ml3WindowOrg = interface
   function Get_InitialDCOffset: Tl3Point;
   function Get_InitialDCOffsetStored: Tl3Point;
   property InitialDCOffset: Tl3Point
@@ -210,7 +210,7 @@ type
  *)
 
  (*
- Ml3CanvasState = interface(Il3Base)
+ Ml3CanvasState = interface
   procedure Set_ClipRegion(const aValue: Il3Region);
   function PushClipRect: Tl3Rect;
   procedure PopClipRect;
@@ -250,7 +250,7 @@ type
  end;//Il3StringList
 
  (*
- Ml3TextProperties = interface(Il3Base)
+ Ml3TextProperties = interface
   function Get_LineSpacing: Integer;
   procedure Set_LineSpacing(aValue: Integer);
   procedure PushLineSpacing;
@@ -337,7 +337,7 @@ type
  end;//Il3Renderer
 
  (*
- Ml3CanvasInvert = interface(Il3Base)
+ Ml3CanvasInvert = interface
   function pm_GetInvert: Boolean;
   procedure BeginInvert;
   procedure EndInvert;
@@ -727,7 +727,7 @@ type
  );//Tl3FrameAnalizeType
 
  (*
- Ml3FrameLines = interface(Il3Base)
+ Ml3FrameLines = interface
   {* Интерфейс выравнивателя линий для объектов с рамками. Линии располагаются в двух массивах (вертикальных и горизонтальных линий) }
   function Get_FinishedFO(aFrameObjID: Integer): Boolean;
   procedure Set_FinishedFO(aFrameObjID: Integer;

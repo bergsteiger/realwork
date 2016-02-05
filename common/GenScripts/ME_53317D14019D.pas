@@ -561,10 +561,12 @@ type
    const aContext: Il3OpPack;
    aValue: Tl3Variant);
   procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
-   anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+   anAll: Boolean
+   {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
    {* перебирает все существующие свойства }
   procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
-   anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+   anAll: Boolean
+   {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
    {* перебирает все существующие свойства }
   property AttrW[anIndex: Integer; const aContext: Il3OpPack]: Tl3Variant
    write pm_SetAttrW;
@@ -764,10 +766,12 @@ type
     aLo: Tl3Index = l3Interfaces.l3MinIndex;
     aLoadedOnly: Boolean = False): Integer;
    procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
-    anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+    anAll: Boolean
+    {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
     {* перебирает все существующие свойства }
    procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
-    anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+    anAll: Boolean
+    {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
     {* перебирает все существующие свойства }
    function rLong(anIndex: Integer;
     aDefault: Integer): Integer;
@@ -1063,10 +1067,12 @@ type
   function Box: Tl3Variant;
    {* ссылка на тег - дл€ сохранени€. }
   procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
-   anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+   anAll: Boolean
+   {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
    {* перебирает все существующие свойства }
   procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
-   anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+   anAll: Boolean
+   {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
    {* перебирает все существующие свойства }
   property ChildrenCount: Integer
    read Get_ChildrenCount;
@@ -2377,7 +2383,8 @@ begin
 end;//Tl3Variant.IterateChildrenBackF
 
 procedure Tl3Variant.IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
- anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+ anAll: Boolean
+ {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
  {* перебирает все существующие свойства }
 //#UC START# *4BC31A730293_532031160122_var*
 //#UC END# *4BC31A730293_532031160122_var*
@@ -2388,7 +2395,8 @@ begin
 end;//Tl3Variant.IterateProperties
 
 procedure Tl3Variant.IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
- anAll: Boolean {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
+ anAll: Boolean
+ {* ѕеребирать все возможные свойства или только –≈јЋ№Ќќ заданные });
  {* перебирает все существующие свойства }
 var
  Hack : Pointer absolute anAction;

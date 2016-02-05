@@ -10,7 +10,7 @@
  _RefCounted_ = class(_RefCountedPrim_)
   {* В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую }
   public
-   procedure destroy;
+   destructor destroy;
     {* Это чтобы не было соблазна перекрывать destroy. }
    class function NewInstance: TObject;
    procedure FreeInstance;
@@ -26,7 +26,7 @@
 
 {$Include RefCountedPrim.imp.pas}
 
-procedure _RefCounted_.destroy;
+destructor _RefCounted_.destroy;
  {* Это чтобы не было соблазна перекрывать destroy. }
 //#UC START# *5161409E01B6_51614065019A_var*
 //#UC END# *5161409E01B6_51614065019A_var*

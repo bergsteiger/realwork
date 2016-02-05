@@ -9,7 +9,7 @@
   {* Класс-примесь с методом QueryInterface }
   public
    function QueryInterface(const IID: TGUID;
-    out Obj): HResult; stdcall; virtual;
+    out Obj): HResult; virtual; stdcall;
     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//_l3Castable_
 

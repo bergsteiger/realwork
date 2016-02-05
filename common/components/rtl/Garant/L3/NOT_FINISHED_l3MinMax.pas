@@ -1,36 +1,29 @@
 unit NOT_FINISHED_l3MinMax;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Domain"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3MinMax.pas"
-// Начат: 01.12.95 16:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Требования к низкоуровневым библиотекам::L3$Domain::l3Math::l3MinMax
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3MinMax.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 function Max(A: Integer;
-  B: Integer): Integer;
+ B: Integer): Integer;
 function Min(A: Integer;
-  B: Integer): Integer;
+ B: Integer): Integer;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 function Max(A: Integer;
-  B: Integer): Integer;
+ B: Integer): Integer;
 //#UC START# *47A066C301D4_47A066980016_var*
 //#UC END# *47A066C301D4_47A066980016_var*
 begin
@@ -40,7 +33,7 @@ begin
 end;//Max
 
 function Min(A: Integer;
-  B: Integer): Integer;
+ B: Integer): Integer;
 //#UC START# *47A066D40062_47A066980016_var*
 //#UC END# *47A066D40062_47A066980016_var*
 begin

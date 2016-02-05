@@ -60,7 +60,7 @@ const
  l3_NotChangeCountView = -3;
 
 type
- Il3Nodes = interface
+ Il3Nodes = interface(Il3Base)
   {* контейнер узлов }
   ['{4A85EA5F-CCB1-4250-A410-635227213794}']
  end;//Il3Nodes
@@ -82,7 +82,7 @@ type
    {* выбранные узлы }
  end;//Tl3TreeData
 
- Il3SimpleNode = interface
+ Il3SimpleNode = interface(Il3Base)
   {* Узел дерева. }
   ['{EA766D65-F343-4EF0-913E-70F7ACEAD59D}']
   function Get_Flags: Integer;
@@ -171,7 +171,7 @@ type
    {* корень дерева. }
  end;//Il3RootSource
 
- Il3HandleNode = interface
+ Il3HandleNode = interface(Il3Base)
   {* Узел дерева с целочисленным идентификатором. }
   ['{C581B66C-0E13-4B43-B8D0-3BCD989E28CA}']
   function Get_Handle: Integer;
@@ -182,7 +182,7 @@ type
    {* идентификатор узла. }
  end;//Il3HandleNode
 
- Il3TreeFilters = interface
+ Il3TreeFilters = interface(Il3Base)
   {* фильтры реально установленные на дереве }
   ['{949D1B99-493A-463D-A028-EFB087BD61D4}']
   function pm_GetContext: Il3CString;
@@ -192,20 +192,20 @@ type
    read pm_GetContext;
  end;//Il3TreeFilters
 
- Il3ContextFilterParamsNotifier = interface
+ Il3ContextFilterParamsNotifier = interface(Il3Base)
   {* нотификатор о том что параметры изменились. }
   ['{7CFF12FA-1670-4D53-A10B-64E0870D7B54}']
   procedure ParamsChanged;
  end;//Il3ContextFilterParamsNotifier
 
- Il3ContextFilterTarget = interface
+ Il3ContextFilterTarget = interface(Il3Base)
   {* проверяет что контекст тот же самый. }
   ['{3A5CC96E-BA9A-44A8-970A-24D6D90B2211}']
   function IsSameContext(const aContext: Il3CString;
    out DiffStart: Cardinal): Boolean;
  end;//Il3ContextFilterTarget
 
- Il3ContextFilterParamsNotifySource = interface
+ Il3ContextFilterParamsNotifySource = interface(Il3Base)
   {* источник нотификации о том что параметры изменились. }
   ['{D5B63786-ACB2-41F7-ABF7-67A7A0A3AD84}']
   procedure Subscribe(const aSubscriber: Il3ContextFilterParamsNotifier);
@@ -337,23 +337,26 @@ type
    {* прошла операция. }
  end;//Il3NodeNotifyRecipient
 
- Il3FilterableTree = interface
+ Il3FilterableTree = interface(Il3Base)
   {* дерево умеющее накладывать фильтры. }
   ['{7AF1524E-84FD-4159-A755-DC621F06355E}']
   function CloneFilters: Il3TreeFilters;
   function MakeFiltered(const aFilters: Il3TreeFilters;
    const aCurrentNode: Il3SimpleNode;
-   out aSyncIndex: Integer {* Нода для синхронизации. Индекс этой ноды в
+   out aSyncIndex: Integer
+   {* Нода для синхронизации. Индекс этой ноды в
                                    фильтрованном вью, будет возвращен в
                                    параметре sync_index. };
-   aAutoOpen: Boolean = True {* Раскрывать узлы с фильтром автоматически.
+   aAutoOpen: Boolean = True
+   {* Раскрывать узлы с фильтром автоматически.
                                    Узлы, часть детей которых отфильтрованно,
                                    будут автоматически раскрываться. };
-   CalcPartialContext: Boolean = False {* пытаться вычислить максимальный контекстный фильтр,
+   CalcPartialContext: Boolean = False
+   {* пытаться вычислить максимальный контекстный фильтр,
                                    который еще вернет данные }): Il3SimpleTree;
  end;//Il3FilterableTree
 
- Il3ContextFilterParams = interface
+ Il3ContextFilterParams = interface(Il3Base)
   {* параметры с которыми будет накладывается контекстный фильтр }
   ['{1E1132A2-C8C3-4E5C-BDF6-4A139CAE0A71}']
   function WordPosition: Tl3WordPosition;
@@ -361,7 +364,7 @@ type
   function TreeLevelDist: Tl3TreeLevelDist;
  end;//Il3ContextFilterParams
 
- Il3ContextFilterNotifier = interface
+ Il3ContextFilterNotifier = interface(Il3Base)
   {* нотификатор об изменении контекстного фильтра }
   ['{EF53023B-C2D6-4224-A775-9A8EF7BE1814}']
   procedure RequestReapply;
@@ -372,20 +375,20 @@ type
    {* Дерево поменялось - нужно проверить валидность фильтра. }
  end;//Il3ContextFilterNotifier
 
- Il3ContextFilterNotifySource = interface
+ Il3ContextFilterNotifySource = interface(Il3Base)
   {* источник нотификации о том что параметры изменились }
   ['{92B574FC-96C1-4508-BC37-684311D65FE9}']
   procedure SubscribeToContextFilter(const aSubscriber: Il3ContextFilterNotifier);
   procedure UnSubscribeFromContextFilter(const aSubscriber: Il3ContextFilterNotifier);
  end;//Il3ContextFilterNotifySource
 
- Il3ContextFilterTargetContainer = interface
+ Il3ContextFilterTargetContainer = interface(Il3Base)
   {* Контайнер для проверяльшика }
   ['{8B89EA3D-277D-4AA6-A26F-462135D512CD}']
   function Unfold: Il3ContextFilterTarget;
  end;//Il3ContextFilterTargetContainer
 
- Il3Wake = interface
+ Il3Wake = interface(Il3Base)
   ['{DDC74AB7-2345-43E4-A26F-6BCC7C0781B1}']
   function Get_IsSleep: Boolean;
   function Wake: Boolean;
@@ -393,7 +396,7 @@ type
    read Get_IsSleep;
  end;//Il3Wake
 
- Il3SimpleTreeSource = interface
+ Il3SimpleTreeSource = interface(Il3Base)
   ['{EA6A9D1A-ED3B-4B60-8F32-93F9558BF579}']
   function Get_Tree: Il3SimpleTree;
   procedure Set_Tree(const aValue: Il3SimpleTree);
@@ -402,14 +405,14 @@ type
    write Set_Tree;
  end;//Il3SimpleTreeSource
 
- Il3CountViewChangeRecipient = interface
+ Il3CountViewChangeRecipient = interface(Il3Base)
   {* Подписчик для получения нотификации об изменении количества видимых элементов. }
   ['{55350BB2-0AF6-4C25-8B69-85E2F918F722}']
   procedure CountViewChanged(aCountView: Integer);
    {* прошла операция. }
  end;//Il3CountViewChangeRecipient
 
- Il3SimpleInternalNode = interface
+ Il3SimpleInternalNode = interface(Il3Base)
   ['{FD586615-B68E-4E35-BDB7-61F0E556D023}']
   procedure Set_Parent(const aValue: Il3SimpleNode);
   property Parent: Il3SimpleNode
@@ -431,7 +434,7 @@ type
    {* перебрать все узлы, удовлетворяющие FlagMask, и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
  end;//Il3ExpandedSimpleTree
 
- Il3ExtItemNode = interface
+ Il3ExtItemNode = interface(Il3Base)
   {* Нода из связанного словаря. А место ли ей в этом модуле? }
   ['{9A362763-3CCF-4E69-9B9D-1B92253D0A85}']
   function Get_Data: Pointer;

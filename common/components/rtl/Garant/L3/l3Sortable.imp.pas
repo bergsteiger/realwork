@@ -1,98 +1,84 @@
 {$IfNDef l3Sortable_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Sortable.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3Sortable
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Sortable.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3Sortable_imp}
+
+type
  PItemType = ^_ItemType_;
 
- _l3Sortable_ = {abstract mixin} class(_l3Sortable_Parent_)
- private
- // private fields
-  {$If not defined(l3Items_NoSort)}
-   f_Duplicates : Tl3Duplicates;
-    {* Поле для свойства Duplicates}
-  {$IfEnd} //not l3Items_NoSort
- private
- // private methods
+ _l3Sortable_ = {abstract} class(_l3Sortable_Parent_)
+  private
+   {$If NOT Defined(l3Items_NoSort)}
+   f_Duplicates: Tl3Duplicates;
+    {* Поле для свойства Duplicates }
+   {$IfEnd} // NOT Defined(l3Items_NoSort)
+  private
    procedure Swap(var I1: _ItemType_;
     var I2: _ItemType_); virtual; abstract;
-     {* Меняет элементы хранилища местами. Не проверяет валидность индексов. }
- protected
- // property methods
+    {* Меняет элементы хранилища местами. Не проверяет валидность индексов. }
+  protected
    function pm_GetSortIndex: Tl3SortIndex;
    procedure pm_SetSortIndex(aValue: Tl3SortIndex);
-   {$If not defined(l3Items_NoSort)}
+   {$If NOT Defined(l3Items_NoSort)}
    function pm_GetSorted: Boolean;
+   {$IfEnd} // NOT Defined(l3Items_NoSort)
+   {$If NOT Defined(l3Items_NoSort)}
    procedure pm_SetSorted(aValue: Boolean);
-   {$IfEnd} //not l3Items_NoSort
-   {$If not defined(l3Items_NoSort)}
-
-   {$IfEnd} //not l3Items_NoSort
+   {$IfEnd} // NOT Defined(l3Items_NoSort)
    function pm_GetHi: Integer;
-   {$If defined(l3Items_NoSort)}
-   procedure pm_SetDuplicates(aValue: Tl3Duplicates); overload; 
-   {$IfEnd} //l3Items_NoSort
- protected
- // protected methods
+   {$If Defined(l3Items_NoSort)}
+   procedure pm_SetDuplicates(aValue: Tl3Duplicates);
+   {$IfEnd} // Defined(l3Items_NoSort)
    function DoGetSortIndex: Tl3SortIndex; virtual;
    procedure DoSetSortIndex(Value: Tl3SortIndex); virtual;
-   {$If not defined(l3Items_NoSort)}
+   {$If NOT Defined(l3Items_NoSort)}
    function DoFindInsertionPlace(const aFindData: _ItemType_;
     out theIndex: Integer): Boolean; virtual;
-     {* Ищет ПОСЛЕДНЕЕ вхождение элемента в список. Если не находит - возвращает место предполагаемой вставки. }
-   {$IfEnd} //not l3Items_NoSort
+    {* Ищет ПОСЛЕДНЕЕ вхождение элемента в список. Если не находит - возвращает место предполагаемой вставки. }
+   {$IfEnd} // NOT Defined(l3Items_NoSort)
    procedure Cleanup; override;
- public
- // public methods
+  public
    procedure Sort; virtual;
-     {* сортирует хранилище. }
+    {* сортирует хранилище. }
    procedure SortInterval(aLo: Integer;
     aHi: Integer);
-     {* Сортирует диапазон элементов. Признак сортированности хранилища - не трогает. }
- protected
- // protected properties
-   {$If defined(l3Items_NoSort)}
+    {* Сортирует диапазон элементов. Признак сортированности хранилища - не трогает. }
+  protected
+   {$If Defined(l3Items_NoSort)}
    property Duplicates: Tl3Duplicates
-     write pm_SetDuplicates;
-   {$IfEnd} //l3Items_NoSort
- public
- // public properties
+    write pm_SetDuplicates;
+   {$IfEnd} // Defined(l3Items_NoSort)
+  public
    property SortIndex: Tl3SortIndex
-     read pm_GetSortIndex
-     write pm_SetSortIndex
-     default l3_siUnsorted;
-     {* индекс сортировки. }
-   {$If not defined(l3Items_NoSort)}
+    read pm_GetSortIndex
+    write pm_SetSortIndex
+    default l3_siUnsorted;
+    {* индекс сортировки. }
+   {$If NOT Defined(l3Items_NoSort)}
    property Sorted: Boolean
-     read pm_GetSorted
-     write pm_SetSorted
-     default false;
-     {* хранилище сортировано? }
-   {$IfEnd} //not l3Items_NoSort
-   {$If not defined(l3Items_NoSort)}
+    read pm_GetSorted
+    write pm_SetSorted
+    default False;
+    {* хранилище сортировано? }
+   {$IfEnd} // NOT Defined(l3Items_NoSort)
+   {$If NOT Defined(l3Items_NoSort)}
    property Duplicates: Tl3Duplicates
-     read f_Duplicates
-     write f_Duplicates
-     default l3Types.l3_dupIgnore;
-     {* Как поступать с дубликатами. }
-   {$IfEnd} //not l3Items_NoSort
+    read f_Duplicates
+    write f_Duplicates
+    default l3Types.l3_dupIgnore;
+    {* Как поступать с дубликатами. }
+   {$IfEnd} // NOT Defined(l3Items_NoSort)
    property Hi: Integer
-     read pm_GetHi;
+    read pm_GetHi;
  end;//_l3Sortable_
 
 {$Else l3Sortable_imp}
 
-// start class _l3Sortable_
+{$IfNDef l3Sortable_imp_impl}
+
+{$Define l3Sortable_imp_impl}
 
 function _l3Sortable_.pm_GetSortIndex: Tl3SortIndex;
 //#UC START# *47B5AF7F03DC_47B3245E0148get_var*
@@ -119,7 +105,7 @@ begin
 //#UC END# *47B5AF7F03DC_47B3245E0148set_impl*
 end;//_l3Sortable_.pm_SetSortIndex
 
-{$If not defined(l3Items_NoSort)}
+{$If NOT Defined(l3Items_NoSort)}
 function _l3Sortable_.pm_GetSorted: Boolean;
 //#UC START# *47B5AFCB0366_47B3245E0148get_var*
 //#UC END# *47B5AFCB0366_47B3245E0148get_var*
@@ -128,9 +114,9 @@ begin
  Result := SortIndex <> l3_siUnsorted;
 //#UC END# *47B5AFCB0366_47B3245E0148get_impl*
 end;//_l3Sortable_.pm_GetSorted
-{$IfEnd} //not l3Items_NoSort
+{$IfEnd} // NOT Defined(l3Items_NoSort)
 
-{$If not defined(l3Items_NoSort)}
+{$If NOT Defined(l3Items_NoSort)}
 procedure _l3Sortable_.pm_SetSorted(aValue: Boolean);
 //#UC START# *47B5AFCB0366_47B3245E0148set_var*
 //#UC END# *47B5AFCB0366_47B3245E0148set_var*
@@ -142,7 +128,7 @@ begin
   SortIndex := l3_siUnsorted;
 //#UC END# *47B5AFCB0366_47B3245E0148set_impl*
 end;//_l3Sortable_.pm_SetSorted
-{$IfEnd} //not l3Items_NoSort
+{$IfEnd} // NOT Defined(l3Items_NoSort)
 
 function _l3Sortable_.pm_GetHi: Integer;
 //#UC START# *47B9802D02E7_47B3245E0148get_var*
@@ -153,7 +139,7 @@ begin
 //#UC END# *47B9802D02E7_47B3245E0148get_impl*
 end;//_l3Sortable_.pm_GetHi
 
-{$If defined(l3Items_NoSort)}
+{$If Defined(l3Items_NoSort)}
 procedure _l3Sortable_.pm_SetDuplicates(aValue: Tl3Duplicates);
 //#UC START# *4A6599C1023B_47B3245E0148set_var*
 //#UC END# *4A6599C1023B_47B3245E0148set_var*
@@ -162,9 +148,10 @@ begin
  Assert(aValue = l3_dupIgnore);
 //#UC END# *4A6599C1023B_47B3245E0148set_impl*
 end;//_l3Sortable_.pm_SetDuplicates
-{$IfEnd} //l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NoSort)
 
 procedure _l3Sortable_.Sort;
+ {* сортирует хранилище. }
 //#UC START# *47B5AE6B0294_47B3245E0148_var*
 //#UC END# *47B5AE6B0294_47B3245E0148_var*
 begin
@@ -174,7 +161,8 @@ begin
 end;//_l3Sortable_.Sort
 
 procedure _l3Sortable_.SortInterval(aLo: Integer;
-  aHi: Integer);
+ aHi: Integer);
+ {* Сортирует диапазон элементов. Признак сортированности хранилища - не трогает. }
 //#UC START# *47B5B0D4000D_47B3245E0148_var*
 
 var
@@ -247,9 +235,10 @@ begin
 //#UC END# *47B9843903DB_47B3245E0148_impl*
 end;//_l3Sortable_.DoSetSortIndex
 
-{$If not defined(l3Items_NoSort)}
+{$If NOT Defined(l3Items_NoSort)}
 function _l3Sortable_.DoFindInsertionPlace(const aFindData: _ItemType_;
-  out theIndex: Integer): Boolean;
+ out theIndex: Integer): Boolean;
+ {* Ищет ПОСЛЕДНЕЕ вхождение элемента в список. Если не находит - возвращает место предполагаемой вставки. }
 //#UC START# *47B98F7E03A7_47B3245E0148_var*
 var
   L, H, i, C: Longint;
@@ -313,7 +302,7 @@ begin
  end;//l_SI = aCompareIndex*)
 //#UC END# *47B98F7E03A7_47B3245E0148_impl*
 end;//_l3Sortable_.DoFindInsertionPlace
-{$IfEnd} //not l3Items_NoSort
+{$IfEnd} // NOT Defined(l3Items_NoSort)
 
 procedure _l3Sortable_.Cleanup;
 //#UC START# *47C51B8E00FA_47B3245E0148_var*
@@ -327,4 +316,7 @@ begin
 //#UC END# *47C51B8E00FA_47B3245E0148_impl*
 end;//_l3Sortable_.Cleanup
 
+{$EndIf l3Sortable_imp_impl}
+
 {$EndIf l3Sortable_imp}
+

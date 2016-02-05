@@ -1,92 +1,100 @@
 unit l3IID;
+ {* Объект-обертка вокруг GUID }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Domain"
-// Автор: Люлин А.В. ©
-// Модуль: "w:/common/components/rtl/Garant/L3/l3IID.pas"
-// Начат: 23.09.1999 14:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Требования к низкоуровневым библиотекам::L3$Domain::l3IID
-//
-// Объект-обертка вокруг GUID
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3IID.pas"
+// Стереотип: "Interfaces"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  Tl3_IID = packed object
- public
-   IID : Integer;
+  public
+   IID: Integer;
  end;//Tl3_IID
 
  Tl3IID = packed object(Tl3_IID)
- public
-    function EQ(const anID: Tl3_IID): Boolean;
+  public
+   function EQ(const anID: Tl3_IID): Boolean;
  end;//Tl3IID
 
  Tl3_GUID = packed object
   {* Объект-обертка вокруг GUID (без методов). }
- public
-   IID : TGUID;
+  public
+   IID: TGUID;
  end;//Tl3_GUID
 
  Tl3GUID = packed object(Tl3_GUID)
   {* Объект-обертка вокруг GUID. }
- public
-    function EQ(const anID: Tl3_GUID): Boolean; overload; 
-     {* сравнить совпадение GUID'ов. }
-    function EQ(const anID: TGUID): Boolean; overload; 
-     {* сравнить совпадение GUID'ов. }
-    function SomeOf(const GUIDs: array of TGUID): Boolean;
-     {* идентификатор один из GUIDs? }
+  public
+   function EQ(const anID: Tl3_GUID): Boolean; overload;
+    {* сравнить совпадение GUID'ов. }
+   function EQ(const anID: TGUID): Boolean; overload;
+    {* сравнить совпадение GUID'ов. }
+   function SomeOf(const GUIDs: array of TGUID): Boolean;
+    {* идентификатор один из GUIDs? }
  end;//Tl3GUID
 
- Tl3HResult = {$IfDef XE4}record{$Else}object{$EndIf}
+ Tl3HResult = object
   {* Результат COM-операции }
- private
-   f_Res : hResult; // Собственно код результата
- public
-    function Ok: Boolean;
-     {* Результат успешен }
-    function Fail: Boolean;
-     {* Результат неуспешен }
-    procedure SetOk;
-     {* Установить в S_Ok }
-    procedure SetNoInterface;
-     {* Установить в E_NoInterface }
-    function Res: hResult;
-     {* Собственно результат }
+  private
+   f_Res: hResult;
+    {* Собственно код результата }
+  public
+   function Ok: Boolean;
+    {* Результат успешен }
+   function Fail: Boolean;
+    {* Результат неуспешен }
+   procedure SetOk;
+    {* Установить в S_Ok }
+   procedure SetNoInterface;
+    {* Установить в E_NoInterface }
+   function Res: hResult;
+    {* Собственно результат }
  end;//Tl3HResult
 
 const
-  { OldGUIDS }
- ev_iidCursor : Tl3IID = (IID: 0);
-  { курсор объекта }
- ev_iidBlock : Tl3IID = (IID: 1);
-  { выделение части объекта }
-
+ ev_iidCursor: Tl3IID = (IID: 0);
+  {* курсор объекта }
+ ev_iidBlock: Tl3IID = (IID: 1);
+  {* выделение части объекта }
 
 function Tl3GUID_C(const anIID: TGUID): Tl3GUID;
-
 function Tl3HResult_C(aRes: hResult): Tl3HResult;
 
 implementation
 
 uses
-  Windows {a},
-  SysUtils {a}
-  ;
+ l3ImplUses
+ , Windows
+ , SysUtils
+;
 
-// start class Tl3IID
+function Tl3GUID_C(const anIID: TGUID): Tl3GUID;
+//#UC START# *4942795A0282_478CF8F202C7_var*
+//#UC END# *4942795A0282_478CF8F202C7_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4942795A0282_478CF8F202C7_impl*
+ Result.IID := anIID;
+//#UC END# *4942795A0282_478CF8F202C7_impl*
+end;//Tl3GUID_C
+
+function Tl3HResult_C(aRes: hResult): Tl3HResult;
+//#UC START# *49427EEF0016_49427DEE015B_var*
+//#UC END# *49427EEF0016_49427DEE015B_var*
+begin
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *49427EEF0016_49427DEE015B_impl*
+ Result.f_Res := aRes;
+//#UC END# *49427EEF0016_49427DEE015B_impl*
+end;//Tl3HResult_C
 
 function Tl3IID.EQ(const anID: Tl3_IID): Boolean;
 //#UC START# *478CF8B1002E_478CF8A20368_var*
@@ -96,9 +104,9 @@ begin
  Result := (IID = anID.IID);
 //#UC END# *478CF8B1002E_478CF8A20368_impl*
 end;//Tl3IID.EQ
-// start class Tl3GUID
 
 function Tl3GUID.EQ(const anID: Tl3_GUID): Boolean;
+ {* сравнить совпадение GUID'ов. }
 //#UC START# *478CF90801FE_478CF8F202C7_var*
 //#UC END# *478CF90801FE_478CF8F202C7_var*
 begin
@@ -108,6 +116,7 @@ begin
 end;//Tl3GUID.EQ
 
 function Tl3GUID.EQ(const anID: TGUID): Boolean;
+ {* сравнить совпадение GUID'ов. }
 //#UC START# *478CF919003A_478CF8F202C7_var*
 //#UC END# *478CF919003A_478CF8F202C7_var*
 begin
@@ -117,6 +126,7 @@ begin
 end;//Tl3GUID.EQ
 
 function Tl3GUID.SomeOf(const GUIDs: array of TGUID): Boolean;
+ {* идентификатор один из GUIDs? }
 //#UC START# *478CF9A1010D_478CF8F202C7_var*
 var
  i : Integer;
@@ -133,19 +143,8 @@ begin
 //#UC END# *478CF9A1010D_478CF8F202C7_impl*
 end;//Tl3GUID.SomeOf
 
-function Tl3GUID_C(const anIID: TGUID): Tl3GUID;
-//#UC START# *4942795A0282_478CF8F202C7_var*
-//#UC END# *4942795A0282_478CF8F202C7_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4942795A0282_478CF8F202C7_impl*
- Result.IID := anIID;
-//#UC END# *4942795A0282_478CF8F202C7_impl*
-end;//Tl3GUID.C
-
-// start class Tl3HResult
-
 function Tl3HResult.Ok: Boolean;
+ {* Результат успешен }
 //#UC START# *49427EB903DB_49427DEE015B_var*
 //#UC END# *49427EB903DB_49427DEE015B_var*
 begin
@@ -155,6 +154,7 @@ begin
 end;//Tl3HResult.Ok
 
 function Tl3HResult.Fail: Boolean;
+ {* Результат неуспешен }
 //#UC START# *49427ED200F2_49427DEE015B_var*
 //#UC END# *49427ED200F2_49427DEE015B_var*
 begin
@@ -163,19 +163,8 @@ begin
 //#UC END# *49427ED200F2_49427DEE015B_impl*
 end;//Tl3HResult.Fail
 
-function Tl3HResult_C(aRes: hResult): Tl3HResult;
-//#UC START# *49427EEF0016_49427DEE015B_var*
-//#UC END# *49427EEF0016_49427DEE015B_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *49427EEF0016_49427DEE015B_impl*
- Result.f_Res := aRes;
-//#UC END# *49427EEF0016_49427DEE015B_impl*
-end;//Tl3HResult.C
-
-// start class Tl3HResult
-
 procedure Tl3HResult.SetOk;
+ {* Установить в S_Ok }
 //#UC START# *49427F5D038D_49427DEE015B_var*
 //#UC END# *49427F5D038D_49427DEE015B_var*
 begin
@@ -185,6 +174,7 @@ begin
 end;//Tl3HResult.SetOk
 
 procedure Tl3HResult.SetNoInterface;
+ {* Установить в E_NoInterface }
 //#UC START# *49427F6D03CB_49427DEE015B_var*
 //#UC END# *49427F6D03CB_49427DEE015B_var*
 begin
@@ -194,6 +184,7 @@ begin
 end;//Tl3HResult.SetNoInterface
 
 function Tl3HResult.Res: hResult;
+ {* Собственно результат }
 //#UC START# *494283D90043_49427DEE015B_var*
 //#UC END# *494283D90043_49427DEE015B_var*
 begin

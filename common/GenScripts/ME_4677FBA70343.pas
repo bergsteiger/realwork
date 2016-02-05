@@ -1261,7 +1261,7 @@ type
  end;//Il3WordsSeq
 
  (*
- Ml3PageSetup = interface(Il3Base)
+ Ml3PageSetup = interface
   {* Информация о странице }
   function Get_Width: Tl3Inch;
   function Get_Height: Tl3Inch;

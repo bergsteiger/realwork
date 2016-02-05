@@ -1,41 +1,27 @@
 {$IfNDef l3Changing_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Changing.imp.pas"
-// Начат: 14.07.2009 21:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3Changing
-//
-// Объект с нотификацией об изменении состояния
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Changing.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3Changing_imp}
- _l3Changing_ = {mixin} class(_l3Changing_Parent_)
+
+ _l3Changing_ = class(_l3Changing_Parent_)
   {* Объект с нотификацией об изменении состояния }
- public
- // realized methods
-   procedure Changing;
-     {* нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках. }
-   procedure Changed;
-     {* нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках. }
- protected
- // protected methods
+  protected
    procedure DoChanged; virtual;
-     {* Сигнатура метода DoChanged }
    procedure DoChanging; virtual;
-     {* Сигнатура метода DoChanging }
+  public
+   procedure Changing;
+    {* нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках. }
+   procedure Changed;
+    {* нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках. }
  end;//_l3Changing_
 
 {$Else l3Changing_imp}
 
-// start class _l3Changing_
+{$IfNDef l3Changing_imp_impl}
+
+{$Define l3Changing_imp_impl}
 
 procedure _l3Changing_.DoChanged;
 //#UC START# *54D9E08D0212_4A5CBFAB03AF_var*
@@ -54,6 +40,7 @@ begin
 end;//_l3Changing_.DoChanging
 
 procedure _l3Changing_.Changing;
+ {* нотификация о начале изменения состояния объекта. Для перекрытия и использования в потомках. }
 //#UC START# *4A5CBFFE0157_4A5CBFAB03AF_var*
 //#UC END# *4A5CBFFE0157_4A5CBFAB03AF_var*
 begin
@@ -63,6 +50,7 @@ begin
 end;//_l3Changing_.Changing
 
 procedure _l3Changing_.Changed;
+ {* нотификация о завершении изменения состояния объекта. Для перекрытия и использования в потомках. }
 //#UC START# *4A5CC00B03D5_4A5CBFAB03AF_var*
 //#UC END# *4A5CC00B03D5_4A5CBFAB03AF_var*
 begin
@@ -71,4 +59,7 @@ begin
 //#UC END# *4A5CC00B03D5_4A5CBFAB03AF_impl*
 end;//_l3Changing_.Changed
 
+{$EndIf l3Changing_imp_impl}
+
 {$EndIf l3Changing_imp}
+

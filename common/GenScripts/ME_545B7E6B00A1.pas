@@ -5,7 +5,6 @@
 
 {$Define m3ListWithFind_imp}
 
-type
  // _KeyType_
 
  {$Include m3AutoAllocList.imp.pas}

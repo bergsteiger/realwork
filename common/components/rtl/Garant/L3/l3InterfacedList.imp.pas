@@ -1,34 +1,26 @@
 {$IfNDef l3InterfacedList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3InterfacedList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::Стандартные примеси::l3InterfacedList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3InterfacedList_imp}
+
  _l3ListAssign_Parent_ = _l3InterfacedList_Parent_;
- {$Include ..\L3\l3ListAssign.imp.pas}
- _l3InterfacedList_ = {mixin} class(_l3ListAssign_, _ListType_)
- protected
- // realized methods
+ {$Include l3ListAssign.imp.pas}
+ _l3InterfacedList_ = class(_l3ListAssign_, _ListType_)
+  protected
    function pm_GetCount: Integer;
- public
- // public methods
+  public
    class function MakeI: _ListType_; reintroduce;
  end;//_l3InterfacedList_
 
 {$Else l3InterfacedList_imp}
 
-{$Include ..\L3\l3ListAssign.imp.pas}
+{$IfNDef l3InterfacedList_imp_impl}
 
-// start class _l3InterfacedList_
+{$Define l3InterfacedList_imp_impl}
+
+{$Include l3ListAssign.imp.pas}
 
 class function _l3InterfacedList_.MakeI: _ListType_;
 var
@@ -40,7 +32,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_l3InterfacedList_.MakeI
 
 function _l3InterfacedList_.pm_GetCount: Integer;
 //#UC START# *4BB08B8902F2_47CED1980057get_var*
@@ -51,4 +43,7 @@ begin
 //#UC END# *4BB08B8902F2_47CED1980057get_impl*
 end;//_l3InterfacedList_.pm_GetCount
 
+{$EndIf l3InterfacedList_imp_impl}
+
 {$EndIf l3InterfacedList_imp}
+

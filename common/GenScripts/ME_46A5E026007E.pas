@@ -51,7 +51,7 @@ type
 
  TFontStyles = Graphics.TFontStyles;
 
- hFont = HFONT;
+ hFont = Windows.HFONT;
 
  TFont = Graphics.TFont;
 

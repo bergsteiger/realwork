@@ -1,73 +1,61 @@
 unit l3MemUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Ѕиблиотека "L3$Basic Concepts"
-// ћодуль: "l3MemUtils.pas"
-// –одные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi “ребовани€ к низкоуровневым библиотекам::L3$Basic Concepts::MemoryUtils::Tl3MemUtils
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ћодуль: "w:\common\components\rtl\Garant\L3\l3MemUtils.pas"
+// —тереотип: "SimpleClass"
 
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  Windows,
-  Refcounted
-  ;
+ l3IntfUses
+ , Refcounted
+ , Windows
+;
 
 type
  Rl3MemUtils = class of Tl3MemUtils;
 
  Tl3MemUtils = class(TRefcounted)
- protected
- // protected methods
+  protected
    class procedure CheckMaxes; virtual;
-     {* —игнатура метода CheckMaxes }
    class procedure StatMemAlloc(aSize: Integer;
-     aL3: Boolean); virtual;
+    aL3: Boolean); virtual;
    class procedure DownBegins;
- public
- // public methods
+  public
    class procedure ReallocLocalMem(var P;
-     NewSize: Cardinal);
-     {* перераспределить кусок локальной пам€ти }
+    NewSize: Cardinal);
+    {* перераспределить кусок локальной пам€ти }
    class procedure FreeLocalMem(var P);
-     {* освободить кусок локальной пам€ти }
+    {* освободить кусок локальной пам€ти }
    class function IsDown: Boolean;
    class procedure GetLocalMem(var P;
-     Size: Cardinal);
+    Size: Cardinal);
    class procedure GetLocalMemZ(var P;
-     Size: Cardinal);
-   class function GlobalSize(aMem: THandle): Cardinal; overload; 
-   class function GlobalSize(aMem: Pointer): Cardinal; overload; 
+    Size: Cardinal);
+   class function GlobalSize(aMem: THandle): Cardinal; overload;
+   class function GlobalSize(aMem: Pointer): Cardinal; overload;
    class function GlobalFreePtr(var Mem: Pointer): THandle;
    class function GlobalAllocPtr(Bytes: Integer): Pointer;
  end;//Tl3MemUtils
 
-var
-   l3MemU : Rl3MemUtils = Tl3MemUtils;
-var
-   f_LocalMemUsed : Integer = 0;
-var
-   f_GlobalMemUsed : Integer = 0;
+var l3MemU: Rl3MemUtils = Tl3MemUtils;
+var f_LocalMemUsed: Integer = 0;
+var f_GlobalMemUsed: Integer = 0;
 
 implementation
 
 uses
-  l3MemorySizeUtils,
-  l3Interlocked
-  ;
+ l3ImplUses
+ , l3MemorySizeUtils
+ , l3Interlocked
+;
 
-var
-   g_IsDown : Boolean = false;
-
-// start class Tl3MemUtils
+var g_IsDown: Boolean = False;
 
 class procedure Tl3MemUtils.ReallocLocalMem(var P;
-  NewSize: Cardinal);
+ NewSize: Cardinal);
+ {* перераспределить кусок локальной пам€ти }
 //#UC START# *51DD561502D9_51DD554C0205_var*
 {$IfDef XE}
  {$Define XECheck}
@@ -138,6 +126,7 @@ begin
 end;//Tl3MemUtils.ReallocLocalMem
 
 class procedure Tl3MemUtils.FreeLocalMem(var P);
+ {* освободить кусок локальной пам€ти }
 //#UC START# *51DD62110253_51DD554C0205_var*
 //#UC END# *51DD62110253_51DD554C0205_var*
 begin
@@ -165,7 +154,7 @@ begin
 end;//Tl3MemUtils.CheckMaxes
 
 class procedure Tl3MemUtils.StatMemAlloc(aSize: Integer;
-  aL3: Boolean);
+ aL3: Boolean);
 //#UC START# *51DD6DCE00DF_51DD554C0205_var*
 //#UC END# *51DD6DCE00DF_51DD554C0205_var*
 begin
@@ -193,7 +182,7 @@ begin
 end;//Tl3MemUtils.DownBegins
 
 class procedure Tl3MemUtils.GetLocalMem(var P;
-  Size: Cardinal);
+ Size: Cardinal);
 //#UC START# *54B6A7D401EA_51DD554C0205_var*
 //#UC END# *54B6A7D401EA_51DD554C0205_var*
 begin
@@ -211,7 +200,7 @@ begin
 end;//Tl3MemUtils.GetLocalMem
 
 class procedure Tl3MemUtils.GetLocalMemZ(var P;
-  Size: Cardinal);
+ Size: Cardinal);
 //#UC START# *54B6A7FE02E7_51DD554C0205_var*
 //#UC END# *54B6A7FE02E7_51DD554C0205_var*
 begin

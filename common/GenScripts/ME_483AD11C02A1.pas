@@ -59,7 +59,8 @@ type
    f_Event: TSimpleEvent;
   protected
    procedure set_current(cur_count: Integer;
-    arg: Integer {* Дополнительный параметр. });
+    arg: Integer
+    {* Дополнительный параметр. });
     {* Изменение состояния длительного процесса.
 В качестве параметра cur_count подается либо число уже обработанных элементов, принимающих участие в длительном процессе, либо число <=100 (при индикации в %). }
    function Get_max_count: Integer;
@@ -169,7 +170,8 @@ begin
 end;//TatProgressIndicator.Make
 
 procedure TatProgressIndicator.set_current(cur_count: Integer;
- arg: Integer {* Дополнительный параметр. });
+ arg: Integer
+ {* Дополнительный параметр. });
  {* Изменение состояния длительного процесса.
 В качестве параметра cur_count подается либо число уже обработанных элементов, принимающих участие в длительном процессе, либо число <=100 (при индикации в %). }
 //#UC START# *45EEE00A025D_483AD19A008E_var*

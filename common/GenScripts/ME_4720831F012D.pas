@@ -80,7 +80,7 @@ type
  );//Tm3DBCopyMode
 
  (*
- Mm3DB = interface
+ Mm3DB = interface(Im3Base)
   procedure DeleteVersion;
    {* Удаляет хранилище версий }
   function CompareVersionWithBackup: Boolean;
@@ -111,7 +111,7 @@ type
 
  Im3DB = interface;
 
- Im3DBObject = interface
+ Im3DBObject = interface(Im3Base)
   {* Объект работающий с хранилищем документов Архивариуса. }
   ['{65B3326A-1D5A-4A83-82A8-F7219E24D20A}']
   function DB: Im3DB;
@@ -125,7 +125,7 @@ type
 
  Im3DBRange = interface;
 
- Im3DB = interface
+ Im3DB = interface(Im3Base)
   {* Хранилище документов Архивариуса. }
   ['{F5ED42F7-F6F8-4BD9-9C9D-224FF5108543}']
   procedure DeleteMain;

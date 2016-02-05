@@ -5,7 +5,6 @@
 
 {$Define l3DictionaryPrim_imp}
 
-type
  // _IDIndexType_
 
  _l3DictionaryPrimPrim_Parent_ = _l3DictionaryPrim_Parent_;

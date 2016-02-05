@@ -38,9 +38,9 @@
   public
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; overload; virtual;
-   function __AddRef: Integer; stdcall;
+   function _AddRef: Integer; stdcall;
     {* Увеличивает счетчик ссылок. }
-   function __Release: Integer; stdcall;
+   function _Release: Integer; stdcall;
     {* Уменьшает счетчик ссылок. }
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; overload; stdcall;
@@ -194,7 +194,7 @@ begin
 //#UC END# *4AF44EC401EE_47913F4E02E0_impl*
 end;//_l3UnknownPrim_.NeedCleanupFields
 
-function _l3UnknownPrim_.__AddRef: Integer;
+function _l3UnknownPrim_._AddRef: Integer;
  {* Увеличивает счетчик ссылок. }
 //#UC START# *47913C24007F_47913F4E02E0_var*
 //#UC END# *47913C24007F_47913F4E02E0_var*
@@ -202,9 +202,9 @@ begin
 //#UC START# *47913C24007F_47913F4E02E0_impl*
  assert(false, 'UnknownPrim.AddRef not implemented');
 //#UC END# *47913C24007F_47913F4E02E0_impl*
-end;//_l3UnknownPrim_.__AddRef
+end;//_l3UnknownPrim_._AddRef
 
-function _l3UnknownPrim_.__Release: Integer;
+function _l3UnknownPrim_._Release: Integer;
  {* Уменьшает счетчик ссылок. }
 //#UC START# *47913C5301A1_47913F4E02E0_var*
 //#UC END# *47913C5301A1_47913F4E02E0_var*
@@ -212,7 +212,7 @@ begin
 //#UC START# *47913C5301A1_47913F4E02E0_impl*
  assert(false, 'UnknownPrim.Release not implemented');
 //#UC END# *47913C5301A1_47913F4E02E0_impl*
-end;//_l3UnknownPrim_.__Release
+end;//_l3UnknownPrim_._Release
 
 function _l3UnknownPrim_.QueryInterface(const IID: TGUID;
  out Obj): HResult;

@@ -18,11 +18,19 @@
 {$Define l3VariantListPrim_imp_impl}
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_); forward;
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
-procedure FreeItem(var aPlace: _ItemType_;
- aList: _l3Items_); forward;
+procedure FreeItem(var aPlace: _ItemType_
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 {$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
@@ -41,8 +49,11 @@ end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
 procedure FillItem(var aPlace: _ItemType_;
- const anItem: _ItemType_;
- anItems: _l3Items_);
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
  {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_534515CD039A_var*
 //#UC END# *47B935AF0066_534515CD039A_var*
@@ -52,8 +63,11 @@ begin
 //#UC END# *47B935AF0066_534515CD039A_impl*
 end;//FillItem
 
-procedure FreeItem(var aPlace: _ItemType_;
- aList: _l3Items_);
+procedure FreeItem(var aPlace: _ItemType_
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
  {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_534515CD039A_var*
 //#UC END# *47B94A5C006E_534515CD039A_var*

@@ -9,9 +9,9 @@
  {$Include RefCounted.imp.pas}
  _UnknownImpl_ = class(_RefCounted_)
   public
-   function __AddRef: Integer; stdcall;
+   function _AddRef: Integer; stdcall;
     {* Увеличивает счетчик ссылок. }
-   function __Release: Integer; stdcall;
+   function _Release: Integer; stdcall;
     {* Уменьшает счетчик ссылок. }
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; stdcall;
@@ -26,7 +26,7 @@
 
 {$Include RefCounted.imp.pas}
 
-function _UnknownImpl_.__AddRef: Integer;
+function _UnknownImpl_._AddRef: Integer;
  {* Увеличивает счетчик ссылок. }
 //#UC START# *47913C24007F_516D4D0D0237_var*
 //#UC END# *47913C24007F_516D4D0D0237_var*
@@ -36,9 +36,9 @@ begin
  Result := RefCount;
  // - тут есть проблемы с многопоточностью
 //#UC END# *47913C24007F_516D4D0D0237_impl*
-end;//_UnknownImpl_.__AddRef
+end;//_UnknownImpl_._AddRef
 
-function _UnknownImpl_.__Release: Integer;
+function _UnknownImpl_._Release: Integer;
  {* Уменьшает счетчик ссылок. }
 //#UC START# *47913C5301A1_516D4D0D0237_var*
 var
@@ -51,7 +51,7 @@ begin
  Result := l_RC;
  // - тут есть проблемы с многопоточностью
 //#UC END# *47913C5301A1_516D4D0D0237_impl*
-end;//_UnknownImpl_.__Release
+end;//_UnknownImpl_._Release
 
 function _UnknownImpl_.QueryInterface(const IID: TGUID;
  out Obj): HResult;

@@ -83,7 +83,7 @@ type
  );//TnevInnerType
 
  (*
- MnevBordersHolder = interface(InevBase)
+ MnevBordersHolder = interface
   function pm_GetBorders: TevPair;
   property Borders: TevPair
    read pm_GetBorders;
@@ -302,7 +302,7 @@ type
  end;//InevText
 
  (*
- MnevObjectPointer = interface(InevBase)
+ MnevObjectPointer = interface
   {* "Указатель" на объект }
   function Get_Obj: PInevObject;
   property Obj: PInevObject
@@ -439,7 +439,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//InevConfirm
 
  (*
- MnevSearchReplace = interface(InevBase)
+ MnevSearchReplace = interface
   function SearchReplace(const aSearcher: IevSearcher;
    const aReplacer: IevReplacer;
    const aConfirm: InevConfirm;
@@ -451,7 +451,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  *)
 
  (*
- MnevSearchCriteria = interface(InevBase)
+ MnevSearchCriteria = interface
   {* Критерий поиска }
   function Search(const aView: InevView;
    const aSearcher: IevSearcher;
@@ -550,7 +550,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//InevRange
 
  (*
- MnevBasePointModify = interface(InevBase)
+ MnevBasePointModify = interface
   procedure AssignPoint(const aView: InevView;
    const aPoint: InevBasePoint);
   procedure DisableListener;
@@ -561,7 +561,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  *)
 
  (*
- MnevAnchorModify = interface(InevBase)
+ MnevAnchorModify = interface
   {* Точка привязки с возможностью модификации }
   procedure Bottom(const aView: InevView);
   function IncLine(const aView: InevView;
@@ -645,7 +645,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  InevMap = interface;
 
  (*
- MnevViewBounds = interface(InevBase)
+ MnevViewBounds = interface
   {* Границы отображаемого объекта }
   function ViewBounds(const aView: InevView;
    const aMap: InevMap): TnevRect;
@@ -678,7 +678,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//IevCursorContext
 
  (*
- MnevPointModify = interface(InevBase)
+ MnevPointModify = interface
   procedure Set_PositionW(aValue: TnevPosition);
   function DoMove(const aView: InevView;
    aCode: Integer;
@@ -750,7 +750,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  {$IfEnd} // Defined(evNeedMarkers)
 
  (*
- MnevPaintOffsetY = interface(InevBase)
+ MnevPaintOffsetY = interface
   function PaintOffsetY(const aView: InevView;
    aMap: TnevFormatInfoPrim): Integer;
  end;//MnevPaintOffsetY
@@ -767,7 +767,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//InevLeafPoint
 
  (*
- MnevParentPointFactory = interface(InevBase)
+ MnevParentPointFactory = interface
   {* Производитель курсоров на родительский объект }
   function pm_GetTopParentPoint: InevBasePoint;
   function PointToParent(const aThisTarget: InevObjectPrim = nil;
@@ -778,14 +778,14 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  *)
 
  (*
- MnevParentPointFactoryEx = interface(InevBase)
+ MnevParentPointFactoryEx = interface
   function PointToParentByLevel(aLevel: Integer = 0): InevBasePoint;
   function PointToTypedParent(aParentType: Tk2Type): InevBasePoint;
  end;//MnevParentPointFactoryEx
  *)
 
  (*
- MnevOuter = interface(InevBase)
+ MnevOuter = interface
   procedure pm_SetOuter(const aValue: InevBasePoint);
   property Outer: InevBasePoint
    write pm_SetOuter;
@@ -793,7 +793,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  *)
 
  (*
- MnevParentPoint = interface(InevBase)
+ MnevParentPoint = interface
   function pm_GetParentPoint: InevBasePoint;
   property ParentPoint: InevBasePoint
    read pm_GetParentPoint;
@@ -801,7 +801,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  *)
 
  (*
- MnevMostInner = interface(InevBase)
+ MnevMostInner = interface
   {* Самая внутренняя точка объекта }
   function pm_GetMostInner: InevBasePoint;
   property MostInner: InevBasePoint
@@ -811,7 +811,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  *)
 
  (*
- MnevDiff = interface(InevBase)
+ MnevDiff = interface
   function Diff(const aView: InevView;
    const aPoint: InevBasePoint;
    aMap: TnevFormatInfoPrim): Integer;
@@ -824,7 +824,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  *)
 
  (*
- MnevCorrectMove = interface(InevBase)
+ MnevCorrectMove = interface
   procedure CorrectMoveRight(const aView: InevView;
    const aPoint: InevBasePoint;
    const anOp: InevOp);
@@ -1113,7 +1113,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//InevMap
 
  (*
- ShapeView = interface(InevBase)
+ ShapeView = interface
   procedure InvalidateShape(const aShape: InevObject;
    aParts: TnevShapeParts);
  end;//ShapeView
@@ -1129,7 +1129,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  InevActiveElement = interface;
 
  (*
- ActiveElementHolder = interface(InevBase)
+ ActiveElementHolder = interface
   {* Объект владеющий активным элементом интерфейса }
   function Get_ActiveElement: InevActiveElement;
   function Get_ForceDrawFocusRect: Boolean;
@@ -1158,7 +1158,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//InevMeasureView
 
  (*
- InevShapesPainted = interface(InevBase)
+ InevShapesPainted = interface
   {* Интерфейс описывающий работу с коллекцией отрисованных параграфов }
   function Root: InevMap;
   function PointByPt(const aView: InevView;
@@ -1483,7 +1483,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  IevSub = interface;
 
  (*
- MnevTextArea = interface(InevBase)
+ MnevTextArea = interface
   {* Область текста }
   function pm_GetLock: Il3Lock;
   function Get_ViewArea: InevViewArea;
@@ -1798,7 +1798,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  );//TevInsertParaFlag
 
  (*
- MnevParaIterator = interface(InevBase)
+ MnevParaIterator = interface
  end;//MnevParaIterator
  *)
 
@@ -1924,7 +1924,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   {* Флаги генерации }
 
  (*
- BasePrimitives = interface(InevBase)
+ BasePrimitives = interface
   {* Базовые типы }
  end;//BasePrimitives
  *)
@@ -2452,7 +2452,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//InevTableCell
 
  (*
- Paragraphs = interface(InevBase)
+ Paragraphs = interface
   {* "Папка" с параграфами }
  end;//Paragraphs
  *)

@@ -5,7 +5,6 @@
 
 {$Define l3DictionaryPrimPrim_imp}
 
-type
  // _StringType_
 
  _l3DelphiStringSearcherPrim_Parent_ = _l3DictionaryPrimPrim_Parent_;

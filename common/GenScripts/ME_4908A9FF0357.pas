@@ -23,7 +23,7 @@ type
  _l3ChangingChangedNotifier_Parent_ = _l3Sortable_;
  {$Include l3ChangingChangedNotifier.imp.pas}
  Tl3ItemsStorage = class(_l3ChangingChangedNotifier_)
-  private
+  protected
    procedure Swap(var I1: _ItemType_;
     var I2: _ItemType_); override;
     {* Меняет элементы хранилища местами. Не проверяет валидность индексов. }
@@ -39,8 +39,11 @@ uses
 
 function DoCompareItems(const A: _ItemType_;
  const B: _ItemType_;
- aSortIndex: Tl3SortIndex;
- aList: _l3Sortable_): Integer;
+ aSortIndex: Tl3SortIndex
+{$If Defined(l3Items_CompareItemsRec_NeedsRList)};
+ aList: _l3Sortable_
+{$IfEnd} // Defined(l3Items_CompareItemsRec_NeedsRList)
+): Integer;
 //#UC START# *47B5B5F1038E_4908A9FF0357_var*
 //#UC END# *47B5B5F1038E_4908A9FF0357_var*
 begin

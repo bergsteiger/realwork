@@ -11,7 +11,6 @@ uses
  l3IntfUses
 ;
 
-type
  // _T_
 
  (*
