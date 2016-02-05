@@ -34,7 +34,8 @@ type
  TnsContextFilterEventDataList = class(_l3RecordWithEQList_)
  end;//TnsContextFilterEventDataList
 
-function TnsContextFilterData_C: TnsContextFilterData;
+function TnsContextFilterData_C(aHandle: Integer;
+ const aContext: Il3CString): TnsContextFilterData;
 
 implementation
 
@@ -46,7 +47,8 @@ uses
  , SysUtils
 ;
 
-function TnsContextFilterData_C: TnsContextFilterData;
+function TnsContextFilterData_C(aHandle: Integer;
+ const aContext: Il3CString): TnsContextFilterData;
 //#UC START# *4B1663ED0181_4B16636E01DF_var*
 //#UC END# *4B1663ED0181_4B16636E01DF_var*
 begin
