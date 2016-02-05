@@ -6,7 +6,6 @@
 {$Define tfwDictionaryListIteratorPrim_imp}
 
 {$If NOT Defined(NoScripts)}
-type
  // _ListType_
 
  _tfwDictionaryListIteratorPrim_ = {abstract} class(_tfwDictionaryListIteratorPrim_Parent_, ItfwValueList)
