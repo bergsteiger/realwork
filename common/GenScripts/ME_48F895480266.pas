@@ -5,9 +5,9 @@
 
 {$Define evTreeData_imp}
 
-type
  // _DataClass_
 
+type
  RDataClass = class of _DataClass_;
 
  {$Include ddTreeDataObject.imp.pas}

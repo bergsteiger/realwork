@@ -45,12 +45,12 @@ type
  );//TddValueKind
 
  TddConfigValue = record
-  Kind: TddValueKind;
-  AsString: ShortString;
-  AsInteger: Integer;
-  AsBoolean: Boolean;
-  AsDateTime: TDateTime;
-  AsObject: TObject;
+  Case Kind: TddValueKind of
+   dd_vkString: (AsString: ShortString);
+   dd_vkInteger: (AsInteger: Integer);
+   dd_vkBoolean: (AsBoolean: Boolean);
+   dd_vkDateTime: (AsDateTime: TDateTime);
+   dd_vkObject: (AsObject: TObject);
  end;//TddConfigValue
 
  TddConfigItemType = (

@@ -438,7 +438,7 @@ type
  //#UC END# *52A1F4A201F9publ*
  end;//TvcmBaseMenuManager
 
-procedure __DoInitConstString(var anID: Tl3StringIDEx);
+procedure _DoInitConstString(var anID: Tl3StringIDEx);
 procedure vcmStartupComplete;
 
 var g_MenuManager: TvcmBaseMenuManager;
@@ -543,7 +543,7 @@ begin
 //#UC END# *52A2012B01A7_4AB24EF502BB_impl*
 end;//ConstStringsToMenuManager
 
-procedure __DoInitConstString(var anID: Tl3StringIDEx);
+procedure _DoInitConstString(var anID: Tl3StringIDEx);
 //#UC START# *52A1F94201E8_4AB24EF502BB_var*
 {$IfNDef DesignTimeLibrary}
 var
@@ -577,7 +577,7 @@ begin
  end;//with g_MenuManager.Strings
  {$EndIf  DesignTimeLibrary}
 //#UC END# *52A1F94201E8_4AB24EF502BB_impl*
-end;//__DoInitConstString
+end;//_DoInitConstString
 
 procedure vcmStartupComplete;
 //#UC START# *52A1F95A0358_4AB24EF502BB_var*
