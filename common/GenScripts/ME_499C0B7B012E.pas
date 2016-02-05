@@ -26,9 +26,6 @@ uses
  , eeInterfacesEx
 ;
 
-const
- eeBT2L3BT: TeeBT2L3BTMap = (sbSelect, sbDeselect, sbInvert);
-
 type
  TeeRootChangedEvent = procedure(aSender: TObject;
   const anOldRoot: IeeNode;
@@ -289,6 +286,9 @@ type
   property OnCurrentIndexChanged;
  //#UC END# *499C0B7B012Epubl*
  end;//TeeTreeViewExport
+
+const
+ eeBT2L3BT: TeeBT2L3BTMap = (sbSelect, sbDeselect, sbInvert);
 
 implementation
 
