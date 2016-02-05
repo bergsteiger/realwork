@@ -21,13 +21,6 @@ uses
  , l3ProtoObject
 ;
 
-const
- PILSize: TaPILSizes = (16, 32, 24);
- cDefaultAvailableSizes = [ps16x16, ps32x32, ps24x24];
- cFullAlpha = 255;
- cDisabledAlpha = 192;
- OldPILSize: TaPILSizes = (18, 34, 26);
-
 type
  TvtImageListCreatorProc = function: TObject;
 
@@ -73,6 +66,13 @@ type
  TaPILSizes = array [TvtPILSize] of Integer;
 
  TBitmap = Graphics.TBitmap;
+
+const
+ PILSize: TaPILSizes = (16, 32, 24);
+ cDefaultAvailableSizes = [ps16x16, ps32x32, ps24x24];
+ cFullAlpha = 255;
+ cDisabledAlpha = 192;
+ OldPILSize: TaPILSizes = (18, 34, 26);
 
 procedure PrepareAlphaBitmap(aSource: TIEBitmap;
  aDest: TBitmap);

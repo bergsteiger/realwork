@@ -11,30 +11,6 @@ uses
  l3IntfUses
 ;
 
-const
- ddEmptyValue: TddConfigValue = (Kind: dd_vkString; AsString: '');
- ddEmptyIntValue: TddConfigValue = (Kind: dd_vkInteger; AsInteger: 0);
- ddEmptyDateValue: TddConfigValue = (Kind: dd_vkDateTime; AsDateTime: 1);
- ddEmptyObjectValue: TddConfigValue = (Kind: dd_vkObject; AsObject: nil);
- c_ConfigItemLeft = 10;
- c_ConfigItemTop = 4;
- ddBooleanNames: ddStringArrayOfBool = ('False', 'True');
- ddPasswordChar: AnsiChar = #149;
- ddRequiredSign: AnsiChar = '*';
- ddRequiredFont: AnsiString = 'Windings2';
- {$If Defined(ddUseVTSpin)}
- ddMaxInt = High(Integer);
- {$IfEnd} // Defined(ddUseVTSpin)
- {$If NOT Defined(ddUseVTSpin)}
- ddMaxInt = High(SmallInt);
- {$IfEnd} // NOT Defined(ddUseVTSpin)
- {$If Defined(ddUseVTSpin)}
- ddMinInt = Succ(Low(Integer));
- {$IfEnd} // Defined(ddUseVTSpin)
- {$If NOT Defined(ddUseVTSpin)}
- ddMinInt = Succ(Low(Smallint));
- {$IfEnd} // NOT Defined(ddUseVTSpin)
-
 type
  TddValueKind = (
   dd_vkString
@@ -70,6 +46,30 @@ type
  );//TddConfigItemType
 
  ddStringArrayOfBool = array [Boolean] of AnsiString;
+
+const
+ ddEmptyValue: TddConfigValue = (Kind: dd_vkString; AsString: '');
+ ddEmptyIntValue: TddConfigValue = (Kind: dd_vkInteger; AsInteger: 0);
+ ddEmptyDateValue: TddConfigValue = (Kind: dd_vkDateTime; AsDateTime: 1);
+ ddEmptyObjectValue: TddConfigValue = (Kind: dd_vkObject; AsObject: nil);
+ c_ConfigItemLeft = 10;
+ c_ConfigItemTop = 4;
+ ddBooleanNames: ddStringArrayOfBool = ('False', 'True');
+ ddPasswordChar: AnsiChar = #149;
+ ddRequiredSign: AnsiChar = '*';
+ ddRequiredFont: AnsiString = 'Windings2';
+ {$If Defined(ddUseVTSpin)}
+ ddMaxInt = High(Integer);
+ {$IfEnd} // Defined(ddUseVTSpin)
+ {$If NOT Defined(ddUseVTSpin)}
+ ddMaxInt = High(SmallInt);
+ {$IfEnd} // NOT Defined(ddUseVTSpin)
+ {$If Defined(ddUseVTSpin)}
+ ddMinInt = Succ(Low(Integer));
+ {$IfEnd} // Defined(ddUseVTSpin)
+ {$If NOT Defined(ddUseVTSpin)}
+ ddMinInt = Succ(Low(Smallint));
+ {$IfEnd} // NOT Defined(ddUseVTSpin)
 
 function EmptyConfigValue: TddConfigValue;
 function IsValueEmpty(const aValue: TddConfigValue): Boolean;
