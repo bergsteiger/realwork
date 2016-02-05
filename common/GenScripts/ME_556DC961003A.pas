@@ -12,15 +12,15 @@ uses
  , ActiveX
 ;
 
-function __CoCreateInstance(const aCLSID: TCLSID;
+function _CoCreateInstance(const aCLSID: TCLSID;
  aUnknown: IUnknown;
  aContext: LongInt;
  const aIID: TIID;
  out aResult): hResult;
-function __CoInitialize(_unused: Pointer): hResult;
-procedure __CoTaskMemFree(APointer: Pointer);
-procedure __CoUninitialize;
-function __StgOpenStorage(aName: PWideChar;
+function _CoInitialize(_unused: Pointer): hResult;
+procedure _CoTaskMemFree(APointer: Pointer);
+procedure _CoUninitialize;
+function _StgOpenStorage(aName: PWideChar;
  aPriority: IStorage;
  aStatStgMode: LongInt;
  aExclude: TSNB;
@@ -39,7 +39,7 @@ uses
  , l3String
 ;
 
-function __CoCreateInstance(const aCLSID: TCLSID;
+function _CoCreateInstance(const aCLSID: TCLSID;
  aUnknown: IUnknown;
  aContext: LongInt;
  const aIID: TIID;
@@ -50,36 +50,36 @@ begin
 //#UC START# *556DC988009C_556DC961003A_impl*
  Result := CoCreateInstance(aCLSID, aUnknown, aContext, aIID, aResult);
 //#UC END# *556DC988009C_556DC961003A_impl*
-end;//__CoCreateInstance
+end;//_CoCreateInstance
 
-function __CoInitialize(_unused: Pointer): hResult;
+function _CoInitialize(_unused: Pointer): hResult;
 //#UC START# *556DCAA400B2_556DC961003A_var*
 //#UC END# *556DCAA400B2_556DC961003A_var*
 begin
 //#UC START# *556DCAA400B2_556DC961003A_impl*
  Result := CoInitialize(_unused);
 //#UC END# *556DCAA400B2_556DC961003A_impl*
-end;//__CoInitialize
+end;//_CoInitialize
 
-procedure __CoTaskMemFree(APointer: Pointer);
+procedure _CoTaskMemFree(APointer: Pointer);
 //#UC START# *556DCAD40373_556DC961003A_var*
 //#UC END# *556DCAD40373_556DC961003A_var*
 begin
 //#UC START# *556DCAD40373_556DC961003A_impl*
  CoTaskMemFree(APointer);
 //#UC END# *556DCAD40373_556DC961003A_impl*
-end;//__CoTaskMemFree
+end;//_CoTaskMemFree
 
-procedure __CoUninitialize;
+procedure _CoUninitialize;
 //#UC START# *556DCAFC03A3_556DC961003A_var*
 //#UC END# *556DCAFC03A3_556DC961003A_var*
 begin
 //#UC START# *556DCAFC03A3_556DC961003A_impl*
  CoUninitialize();
 //#UC END# *556DCAFC03A3_556DC961003A_impl*
-end;//__CoUninitialize
+end;//_CoUninitialize
 
-function __StgOpenStorage(aName: PWideChar;
+function _StgOpenStorage(aName: PWideChar;
  aPriority: IStorage;
  aStatStgMode: LongInt;
  aExclude: TSNB;
@@ -125,6 +125,6 @@ begin
  else
   Result := STG_E_INVALIDPARAMETER;
 //#UC END# *556DCB240338_556DC961003A_impl*
-end;//__StgOpenStorage
+end;//_StgOpenStorage
 
 end.

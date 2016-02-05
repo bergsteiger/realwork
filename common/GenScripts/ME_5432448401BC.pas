@@ -277,9 +277,9 @@ type
  TdaDictionaryTypeSet = set of TdaDictionaryType;
 
  TdaDocEditRecUnion = record
-  void: Byte;
-  Operation: TdaEditOperation;
-  DictType: TdaDictionaryType;
+  Case Byte of
+   1: (Operation: TdaEditOperation);
+   2: (DictType: TdaDictionaryType);
  end;//TdaDocEditRecUnion
 
  TdaDocEditRec = record
