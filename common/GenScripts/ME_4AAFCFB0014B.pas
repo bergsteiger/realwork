@@ -45,7 +45,6 @@ uses
 
 const
  CM_AFTER_INIT = Messages.WM_USER + 201;
- FixedScales: TIntegerArray0_24 = (1, 2, 5, 10, 25, 50, 75, 100, 125, 150 , 200, 250, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000);
 
 type
  TRange0_24 = 0 .. 24;
@@ -172,6 +171,9 @@ type
    property SaveDialog: TnsSaveDialog
     read f_SaveDialog;
  end;//TPrimPictureForm
+
+const
+ FixedScales: TIntegerArray0_24 = (1, 2, 5, 10, 25, 50, 75, 100, 125, 150 , 200, 250, 300, 400, 500, 600, 700, 800, 900, 1000, 1200, 1400, 1600, 1800, 2000);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
