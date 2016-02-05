@@ -24,11 +24,10 @@ type
  TkwClickOnCommentHeader = class(_ClickOnCommentHeader_)
   private
    f_Engine: ItfwScriptEngine;
-  private
-   function CheckCollapsed(aText: TevCustomEditorWindow): Boolean; override;
   protected
    procedure DoWithEditor(const aCtx: TtfwContext;
     const anEditor: TevCustomEditorWindow); override;
+   function CheckCollapsed(aText: TevCustomEditorWindow): Boolean; override;
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
