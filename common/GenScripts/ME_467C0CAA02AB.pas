@@ -23,14 +23,14 @@ const
   {* Константа для инверсии ориентации страницы. }
 
 type
- Il3ObjectWrap = interface
+ Il3ObjectWrap = interface(Il3Base)
   {* Обертка вокруг объекта. Шаманство. Надо избавляться. }
   ['{691F62FE-0591-496A-AE9B-E36CE787B014}']
   function GetObject: TObject;
    {* получить объект из обертки. }
  end;//Il3ObjectWrap
 
- Il3CommandTarget = interface
+ Il3CommandTarget = interface(Il3Base)
   {* Устройство для выполнения команд пользовательского ввода. }
   ['{C86F6C05-5FD3-46A8-B93C-7F941E64306C}']
   function ProcessCommand(Cmd: Tl3OperationCode;
@@ -38,7 +38,7 @@ type
    aCount: Integer): Boolean;
  end;//Il3CommandTarget
 
- Il3Region = interface
+ Il3Region = interface(Il3Base)
   {* Регион. }
   ['{A41D0FB9-7718-474F-8838-0F89E31E497D}']
   function pm_GetRgn: Tl3Rgn;
@@ -82,7 +82,7 @@ type
   , l3_tffRight
  );//Tl3TextFormatFlag
 
- Il3EffectiveColors = interface
+ Il3EffectiveColors = interface(Il3Base)
   ['{2ED99AA8-FE25-4CA4-AA56-D24EDFA91DBB}']
   function Get_FontColor: Tl3Color;
   function Get_Font: Il3Font;
@@ -93,7 +93,7 @@ type
    read Get_Font;
  end;//Il3EffectiveColors
 
- Il3HAFMacroReplacer = interface
+ Il3HAFMacroReplacer = interface(Il3Base)
   ['{D3D0DD5B-1F2F-445D-9C3F-0E0A99F71B97}']
   function Get_Parent: Il3HAFMacroReplacer;
   procedure Set_Parent(const aValue: Il3HAFMacroReplacer);
@@ -105,7 +105,7 @@ type
  end;//Il3HAFMacroReplacer
 
  (*
- Ml3UnitsConverter = interface
+ Ml3UnitsConverter = interface(Il3Base)
   {* Методы для конвертации различных единиц измерения }
   function DP2LP(const aP: Tl3_SPoint): Tl3Point;
    {* Преобразует точку в пикселях в точку в дюймах }
@@ -113,7 +113,7 @@ type
  *)
 
  (*
- Ml3OutputDevice = interface
+ Ml3OutputDevice = interface(Il3Base)
   {* Устройство вывода }
   function DeviceCaps(anIndex: Integer): Integer;
    {* возвращает свойства устройства рисования. }
@@ -133,7 +133,7 @@ type
  );//Tl3ImageType
 
  (*
- Ml3PageInfo = interface
+ Ml3PageInfo = interface(Il3Base)
   {* Информация о странице }
   function Get_IsPagesCounter: Boolean;
   property IsPagesCounter: Boolean
@@ -142,7 +142,7 @@ type
  *)
 
  (*
- Ml3PageNumberInfo = interface
+ Ml3PageNumberInfo = interface(Il3Base)
   {* Информация о номерах страницы }
   function pm_GetPageNumber: Integer;
   function pm_GetPageWidthNumber: Integer;
@@ -165,7 +165,7 @@ type
   , l3_mrHandledAndMoveLoopNeed
  );//Tl3MouseResult
 
- Il3MouseHandler = interface
+ Il3MouseHandler = interface(Il3Base)
   {* Интерфейс для части объекта, обрабатывающей действия мышью. }
   ['{A07E25E8-8BC2-4380-AD10-56797D6E72A9}']
   function DoAction(const aClickContext: IUnknown;
@@ -177,29 +177,29 @@ type
  end;//Il3MouseHandler
 
  (*
- Ml3CanvasInfo = interface
+ Ml3CanvasInfo = interface(Il3Base)
   function IsVirtual: Boolean;
  end;//Ml3CanvasInfo
  *)
 
- Il3KeyDataListener = interface
+ Il3KeyDataListener = interface(Il3Base)
   ['{1F8789EB-2BD7-45B1-9D32-AC7166B3C971}']
   function ProcessKeyData(aKey: Byte;
    aShiftFlags: Byte): Boolean;
  end;//Il3KeyDataListener
 
- Il3CommandPublisherInfo = interface
+ Il3CommandPublisherInfo = interface(Il3Base)
   ['{A76B5904-5A7D-4604-8685-6EEAC802130B}']
   function IsCommandPublished(Cmd: Tl3OperationCode): Boolean;
  end;//Il3CommandPublisherInfo
 
- Il3Flush = interface
+ Il3Flush = interface(Il3Base)
   ['{A8A55A25-815C-43BA-A462-2AFA7DA0D93D}']
   function Flush: Boolean;
  end;//Il3Flush
 
  (*
- Ml3WindowOrg = interface
+ Ml3WindowOrg = interface(Il3Base)
   function Get_InitialDCOffset: Tl3Point;
   function Get_InitialDCOffsetStored: Tl3Point;
   property InitialDCOffset: Tl3Point
@@ -210,7 +210,7 @@ type
  *)
 
  (*
- Ml3CanvasState = interface
+ Ml3CanvasState = interface(Il3Base)
   procedure Set_ClipRegion(const aValue: Il3Region);
   function PushClipRect: Tl3Rect;
   procedure PopClipRect;
@@ -219,7 +219,7 @@ type
  end;//Ml3CanvasState
  *)
 
- Il3ActionControl = interface
+ Il3ActionControl = interface(Il3Base)
   ['{37288C7F-2AAB-4DC0-B676-9C74EDA7EF65}']
   function Get_ActionData(Action: Integer): Integer;
   procedure Set_ActionData(Action: Integer;
@@ -229,7 +229,7 @@ type
    write Set_ActionData;
  end;//Il3ActionControl
 
- Il3Control = interface
+ Il3Control = interface(Il3Base)
   ['{7F25486F-544E-4CD1-B058-C3EA068969F7}']
   function Get_Enabled: Boolean;
   procedure Set_Enabled(aValue: Boolean);
@@ -250,7 +250,7 @@ type
  end;//Il3StringList
 
  (*
- Ml3TextProperties = interface
+ Ml3TextProperties = interface(Il3Base)
   function Get_LineSpacing: Integer;
   procedure Set_LineSpacing(aValue: Integer);
   procedure PushLineSpacing;
@@ -274,14 +274,14 @@ type
    write pm_SetHandle;
  end;//Il3HandledStringList
 
- Il3CharSkipper = interface
+ Il3CharSkipper = interface(Il3Base)
   ['{DB25BBA5-10B9-4F2D-93EC-16351A7DFE81}']
   procedure Init(aString: TObject);
   function GetChar: AnsiChar;
   function Index: Integer;
  end;//Il3CharSkipper
 
- Il3StringFormatter = interface
+ Il3StringFormatter = interface(Il3Base)
   ['{26768C5D-F8B0-44AE-AB15-1D2DFC8A3B63}']
   procedure FixWidth(aString: TObject;
    aDelta: Integer;
@@ -297,7 +297,7 @@ type
   ['{3B86A55A-5E98-40CB-B2B4-212387320131}']
  end;//Il3FontInfo2
 
- Il3ViewStringList = interface
+ Il3ViewStringList = interface(Il3Base)
   ['{96740AF4-AF0E-4024-BC7D-A16A1A028915}']
   function pm_GetCount: Integer;
   function pm_GetViewString(anIndex: Integer): Il3CString;
@@ -309,14 +309,14 @@ type
    default;
  end;//Il3ViewStringList
 
- Il3StorageSource = interface
+ Il3StorageSource = interface(Il3Base)
   ['{5164CBED-D742-4695-98DA-180B7CC128EE}']
   function pm_GetStorage: IStorage;
   property Storage: IStorage
    read pm_GetStorage;
  end;//Il3StorageSource
 
- Il3ActionProcessor = interface
+ Il3ActionProcessor = interface(Il3Base)
   {* Объект обработчик операций. }
   ['{4A710C7C-37ED-4FE1-9D71-DAE3600BA633}']
   function Process(Sender: TObject;
@@ -326,7 +326,7 @@ type
    {* функция обработки операции. }
  end;//Il3ActionProcessor
 
- Il3Renderer = interface
+ Il3Renderer = interface(Il3Base)
   {* Объект, рисующий картинку }
   ['{7AD269DC-BA07-488A-94D6-351661997993}']
   procedure Render(aCanvas: TCanvas;
@@ -337,7 +337,7 @@ type
  end;//Il3Renderer
 
  (*
- Ml3CanvasInvert = interface
+ Ml3CanvasInvert = interface(Il3Base)
   function pm_GetInvert: Boolean;
   procedure BeginInvert;
   procedure EndInvert;
@@ -352,7 +352,7 @@ type
   , l3_fobIgnore
  );//Tl3FrameObjectBehaviour
 
- Il3AbortChecker = interface
+ Il3AbortChecker = interface(Il3Base)
   ['{449D2C36-4C38-4A05-95ED-96C56BD43B81}']
   function IsAborted: Boolean;
  end;//Il3AbortChecker
@@ -365,7 +365,7 @@ type
 
  Il3FrameLines = interface;
 
- Il3InfoCanvas = interface
+ Il3InfoCanvas = interface(Il3Base)
   {* Информационная канва - только для получения метрик }
   ['{B5288390-13E8-4522-8C74-6CE46266FBA2}']
   function pm_GetDC: hDC;
@@ -707,7 +707,7 @@ type
 
  Tl3AskClearClipboardProc = procedure(var aResult: Integer) of object;
 
- Il3HAFPainter = interface
+ Il3HAFPainter = interface(Il3Base)
   ['{5237593E-C8A3-4298-A62C-7AC17464D22C}']
   function Get_MacroReplacer: Il3HAFMacroReplacer;
   function DocumentName: Il3CString;
@@ -727,7 +727,7 @@ type
  );//Tl3FrameAnalizeType
 
  (*
- Ml3FrameLines = interface
+ Ml3FrameLines = interface(Il3Base)
   {* Интерфейс выравнивателя линий для объектов с рамками. Линии располагаются в двух массивах (вертикальных и горизонтальных линий) }
   function Get_FinishedFO(aFrameObjID: Integer): Boolean;
   procedure Set_FinishedFO(aFrameObjID: Integer;
@@ -779,7 +779,7 @@ type
  end;//Ml3FrameLines
  *)
 
- Il3FrameLines = interface
+ Il3FrameLines = interface(Il3Base)
   {* Интерфейс выравнивателя линий для объектов с рамками. Линии располагаются в двух массивах (вертикальных и горизонтальных линий) }
   ['{7A267AFC-D1FE-405D-8753-51C286B632EB}']
   function Get_FinishedFO(aFrameObjID: Integer): Boolean;
@@ -831,7 +831,7 @@ type
    {* Флаг окончания отрисовки объекта. }
  end;//Il3FrameLines
 
- Il3ImageList = interface
+ Il3ImageList = interface(Il3Base)
   {* Список картинок. }
   ['{2E49878A-3EF5-42BF-BE6C-C5F8FB56F554}']
   function pm_GetWidth: Integer;
@@ -876,7 +876,7 @@ type
   rLength: Integer;
  end;//Tl3Range
 
- Il3RangeTool = interface
+ Il3RangeTool = interface(Il3Base)
   ['{6D668689-FA10-4F02-AAC3-F7F6067D951B}']
   function pm_GetRangeCount: Integer;
   function Get_Ranges(Index: Integer): Tl3Range;
@@ -886,7 +886,7 @@ type
    read Get_Ranges;
  end;//Il3RangeTool
 
- Il3Bitmap = interface
+ Il3Bitmap = interface(Il3Base)
   {* Картинка. }
   ['{35C6D55E-4EC5-41B3-9336-6BE9C95F4790}']
   function pm_GetWidth: Integer;
@@ -911,7 +911,7 @@ type
    read pm_GetInchHeight;
  end;//Il3Bitmap
 
- Il3SmartCanvas = interface
+ Il3SmartCanvas = interface(Il3Base)
   {* Канва для рисования примитивов контролов. }
   ['{AF479CB2-7EAE-49C8-BCFE-E05A2805CE38}']
   procedure DrawEdit(const R: Tl3SRect;
@@ -987,7 +987,7 @@ type
    aNeedFrame: Boolean);
  end;//Il3SmartCanvas
 
- Il3NodePainter = interface
+ Il3NodePainter = interface(Il3Base)
   {* Интерфейс для отрисовки ноды. }
   ['{26FC09D4-160F-45A0-BBB2-908CC44A010B}']
   procedure PaintNode(const aCanvas: Il3Canvas;
@@ -1223,7 +1223,7 @@ type
    procedure PopLineSpacing;
  end;//Hl3Canvas
 
- Il3DragImageSource = interface
+ Il3DragImageSource = interface(Il3Base)
   {* Источник картинки, представляющей данные. }
   ['{9EFC3540-323C-4C4B-9DBA-DC76C14DF440}']
   function Image: Il3Bitmap;
@@ -1234,7 +1234,7 @@ type
   ['{8BAB9888-3F5B-4563-A848-997627BF6757}']
  end;//Il3CanvasConstants
 
- Il3CommandProcessor = interface
+ Il3CommandProcessor = interface(Il3Base)
   {* Процессор команд. }
   ['{E5E0F6F4-2947-40E5-9911-9F6266EB3906}']
   function TranslateUsing(const Tables: TOpenStringArray;

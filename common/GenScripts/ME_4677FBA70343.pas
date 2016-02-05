@@ -99,7 +99,7 @@ type
     {* Кодовая страница. }
  end;//Tl3WString
 
- Il3CString = interface
+ Il3CString = interface(Il3Base)
   {* Константная строка }
   ['{D1D21F4B-3909-4E95-B2BF-99D984D6A370}']
   function pm_GetAsWStr: Tl3WString;
@@ -118,25 +118,25 @@ type
  TGUID = System.TGUID;
   {* GUID }
 
- Il3Reader = interface
+ Il3Reader = interface(Il3Base)
   {* Читатель файла. }
   ['{9080D562-DFC8-467B-A62A-ECB0B370792D}']
   procedure execute;
    {* Выполняет процесс чтения файла. }
  end;//Il3Reader
 
- Il3Notify = interface
+ Il3Notify = interface(Il3Base)
   {* Абстрактный подписчик. }
   ['{BD9E942A-5B81-4927-B487-BE9193746EED}']
  end;//Il3Notify
 
- Il3CaretOwner = interface
+ Il3CaretOwner = interface(Il3Base)
   {* Владелец каретки ввода. }
   ['{ED9D7EAB-B87A-4788-8998-5E51002EB93E}']
   procedure RedrawCaret;
  end;//Il3CaretOwner
 
- Il3Lock = interface
+ Il3Lock = interface(Il3Base)
   {* Замок. }
   ['{0E8AB787-7B9A-47A1-8CF2-BC4F3AFD270F}']
   procedure Lock(const aLocker: IUnknown);
@@ -145,7 +145,7 @@ type
    {* открыть. }
  end;//Il3Lock
 
- Il3FrameTextPainter = interface
+ Il3FrameTextPainter = interface(Il3Base)
   {* Рисователь текста рамки. }
   ['{4EDE16E5-96D3-4E4F-9E21-9A89150CD723}']
   procedure DrawFrameText(aTop: Boolean);
@@ -155,7 +155,7 @@ type
  IDataObject = ActiveX.IDataObject;
   {* Объект представляющий данные для буфера обмена или drag-and-drop. }
 
- Il3ChangeNotifier = interface
+ Il3ChangeNotifier = interface(Il3Base)
   {* Извещатель об изменении данных. }
   ['{613526DF-81A1-4548-ADBE-8A97593688DB}']
   procedure Subscribe(const aRecipient: Il3Notify);
@@ -164,7 +164,7 @@ type
    {* "отписка" от извещений. }
  end;//Il3ChangeNotifier
 
- Il3Tool = interface
+ Il3Tool = interface(Il3Base)
   {* Инструмент, привязанный к родителю. }
   ['{E1F4F520-30EC-4BED-BE0B-F41528266A50}']
   procedure OwnerDead;
@@ -192,10 +192,10 @@ type
  TPoint = l3Core.TPoint;
   {* Точка. }
 
- IEnumFormatEtc = IEnumFORMATETC;
+ IEnumFormatEtc = ActiveX.IEnumFORMATETC;
   {* Итератор по данным внутри IDataObject. }
 
- Il3DataObjectInfo = interface
+ Il3DataObjectInfo = interface(Il3Base)
   {* Информация об объекте содержащимся в буфере обмена. }
   ['{F24E118B-0387-4B9A-BAE1-048111FE62F5}']
   function pm_GetIsQuestionNeedBeforeFlush: Boolean;
@@ -260,7 +260,7 @@ type
  LCID = l3Core.LCID;
   {* Идентификатор локали. }
 
- Il3LocaleInfo = interface
+ Il3LocaleInfo = interface(Il3Base)
   {* Информация о локали. }
   ['{A6A938EE-5484-44D0-8ABF-8656D371EC8F}']
   function pm_GetLanguage: AnsiString;
@@ -309,14 +309,14 @@ type
                  aDelta со знаком минус элементы были удалены; }
  end;//Il3ExternalTreeChangedRecipient
 
- Il3MultipartText = interface
+ Il3MultipartText = interface(Il3Base)
   {* Интерфейс для получения текста в виде кусочков (для многоколоночной ноды, в частности). }
   ['{DC345D60-7A9B-41C3-9C67-C1D0D065E6E6}']
   function GetTextPart(aIndex: Integer): Tl3PCharLenPrim;
    {* Возвращает кусок текста по индексу. }
  end;//Il3MultipartText
 
- Il3XMLWriter = interface
+ Il3XMLWriter = interface(Il3Base)
   {* Генератор XML. }
   ['{045E85B3-BF7A-4A23-B51A-40D62463ECD2}']
   procedure PutData(const aString: AnsiString); overload;
@@ -343,14 +343,14 @@ type
    {* заканчивает генерацию. }
  end;//Il3XMLWriter
 
- Il3AString = interface
+ Il3AString = interface(Il3Base)
   {* ANSI-строка. }
   ['{7D1E5ACA-59D7-4F51-BDE9-00D47573380C}']
   function S: PAnsiChar;
    {* Собственно строка. }
  end;//Il3AString
 
- Il3RangeManager = interface
+ Il3RangeManager = interface(Il3Base)
   {* Диапазон страниц. }
   ['{F4BA4E32-1669-425F-91C5-CEF753EA52B0}']
   function Get_Count: Integer;
@@ -382,7 +382,7 @@ type
    {* альбомная. }
  );//Tl3PageOrientation
 
- Il3Strings = interface
+ Il3Strings = interface(Il3Base)
   {* Список строк. }
   ['{441A093F-AEB6-4A99-ADC7-473B3E7967B9}']
   function Get_Items: TStrings;
@@ -478,18 +478,33 @@ type
  end;//Tl3PointSF
 
  Tl3_PointUnion = packed record
-  void: Byte;
-  voidXY: Tl3_PointXY;
-  oPt: Tl3InchOArray;
-  bPt: Tl3InchBArray;
-  voidSF: Tl3PointSF;
-  Border: Tl3InchBArray;
+  Case Byte of
+   0: (X: Tl3Inch; Y: Tl3Inch);
+   1: (oPt: Tl3InchOArray);
+   2: (bPt: Tl3InchBArray);
+   3: (Start: Tl3Inch; Finish: Tl3Inch);
+   4: (Border: Tl3InchBArray);
  end;//Tl3_PointUnion
 
+ //#UC START# *46A480790259ci*
+ //#UC END# *46A480790259ci*
  Tl3_Point = packed object
   {* Базовая точка с координатами в дюймах (мировые координаты). }
   public
    P: Tl3_PointUnion;
+  public
+   property X: Tl3Inch
+    read P.X
+    write P.X;
+   property Y: Tl3Inch
+    read P.Y
+    write P.Y;
+   property Start: Tl3Inch
+    read P.Start
+    write P.Start;
+   property Finish: Tl3Inch
+    read P.Finish
+    write P.Finish;
  //#UC START# *46A480790259publ*
     public
     // public methods
@@ -534,10 +549,28 @@ type
   Bottom: Tl3Inch;
  end;//Tl3_RectLRTB
 
+ //#UC START# *46A4988D03E1ci*
+  Tl3ConvertPointProc = function (const Pt: TPoint): TPoint of object;
+    {* Тип процедур для конвертации точек. }
+
+ //#UC END# *46A4988D03E1ci*
  Tl3_SPoint = packed object
   {* Базовая точка с координатами в пикселях (на экране). }
   public
    P: Tl3_PointUnion;
+  public
+   property X: Tl3Inch
+    read P.X
+    write P.X;
+   property Y: Tl3Inch
+    read P.Y
+    write P.Y;
+   property Start: Tl3Inch
+    read P.Start
+    write P.Start;
+   property Finish: Tl3Inch
+    read P.Finish
+    write P.Finish;
  //#UC START# *46A4988D03E1publ*
     public
     // public methods
@@ -578,16 +611,37 @@ type
  Tl3PointBArray = array [Boolean] of Tl3_Point;
 
  Tl3_RectUnion = packed record
-  void: Byte;
-  voidLRTB: Tl3_RectLRTB;
-  voidTB: Tl3_RectTB;
-  bRt: Tl3PointBArray;
+  Case Byte of
+   0: (Left: Tl3Inch; Top: Tl3Inch; Right: Tl3Inch; Bottom: Tl3Inch);
+   1: (TopLeft: Tl3_Point; BottomRight: Tl3_Point);
+   2: (bRt: Tl3PointBArray);
  end;//Tl3_RectUnion
 
+ //#UC START# *46A498630097ci*
+ //#UC END# *46A498630097ci*
  Tl3_Rect = packed object
   {* Прямоугольник. }
   public
    R: Tl3_RectUnion;
+  public
+   property Left: Tl3Inch
+    read R.Left
+    write R.Left;
+   property Top: Tl3Inch
+    read R.Top
+    write R.Top;
+   property Right: Tl3Inch
+    read R.Right
+    write R.Right;
+   property Bottom: Tl3Inch
+    read R.Bottom
+    write R.Bottom;
+   property TopLeft: Tl3_Point
+    read R.TopLeft
+    write R.TopLeft;
+   property BottomRight: Tl3_Point
+    read R.BottomRight
+    write R.BottomRight;
  //#UC START# *46A498630097publ*
 (*    protected
     // property methods
@@ -634,7 +688,7 @@ type
  //#UC END# *46A498630097publ*
  end;//Tl3_Rect
 
- Il3Meter = interface
+ Il3Meter = interface(Il3Base)
   {* Индикатор прогресса }
   ['{7316F1A5-5B0A-4793-8560-FFD42CACFC0E}']
   procedure ProgressProc(aState: Byte;
@@ -644,12 +698,12 @@ type
   procedure RemoveFreeNotification(AComponent: TComponent);
  end;//Il3Meter
 
- Il3SimpleView = interface
+ Il3SimpleView = interface(Il3Base)
   ['{585E7A21-799B-48F6-8B10-7D8183E33FDC}']
   procedure Update;
  end;//Il3SimpleView
 
- Il3Window = interface
+ Il3Window = interface(Il3Base)
   {* Окно. }
   ['{27655C1A-009A-4E6E-8CC5-CE9643692649}']
   procedure Invalidate;
@@ -659,7 +713,7 @@ type
  IStream = ActiveX.IStream;
   {* Поток. }
 
- Il3TempStream = interface
+ Il3TempStream = interface(Il3Base)
   {* Хранилище временных данных. }
   ['{FC91E498-D4DF-4505-B934-A1FEEA2B9DEA}']
   function MakeForWrite(aNeedCompression: Boolean = True): IStream;
@@ -668,7 +722,7 @@ type
    {* Создает поток для чтения. }
  end;//Il3TempStream
 
- Il3DropTarget = interface
+ Il3DropTarget = interface(Il3Base)
   {* Место куда можно опустить объект. }
   ['{A3826B61-5116-41BE-BA79-CAD580E8C4B4}']
   function GetAcceptableFormats: Tl3ClipboardFormats;
@@ -697,11 +751,11 @@ type
 
  WPARAM = l3Core.WPARAM;
 
- Il3Listener = interface
+ Il3Listener = interface(Il3Base)
   ['{73009AD0-0995-413A-A06F-07032D2AD3B0}']
  end;//Il3Listener
 
- Il3ToolOwner = interface
+ Il3ToolOwner = interface(Il3Base)
   {* Менеджер инструментов. }
   ['{C87DCBEF-76F2-4F61-80FB-5791B8D1DC72}']
   procedure AddTool(const aTool: Il3Tool);
@@ -768,7 +822,7 @@ type
    {* ID по которому идет доступ. }
  end;//Tl3ValueMapID
 
- Il3ValueMap = interface
+ Il3ValueMap = interface(Il3Base)
   {* базоый интерфейс для пар "строка"-нечто. }
   ['{5B5D3EFE-D0A8-4323-BC6B-E1279A72A52D}']
   function pm_GetMapID: Tl3ValueMapID;
@@ -788,7 +842,7 @@ type
   function ValueToDisplayName(const aValue: Il3CString): Il3CString;
  end;//Il3StringValueMap
 
- Il3ValueMapFactory = interface
+ Il3ValueMapFactory = interface(Il3Base)
   {* Фабрика массивов пар ключ-значение. }
   ['{904AEFAB-12FA-47E4-B505-B6BB95C673BA}']
   function MakeMap(const aID: Tl3ValueMapID): Il3ValueMap;
@@ -811,7 +865,7 @@ type
   ['{13A3DAE0-4289-45A2-9542-F4045CE55909}']
  end;//Il3IntegerValueMapFactory
 
- Il3IntegerValueMapManager = interface
+ Il3IntegerValueMapManager = interface(Il3Base)
   {* Контейнер для Il3IntegerValueMap. }
   ['{9DBBA83D-4561-44D8-8663-63EE9125DE24}']
   function pm_GetMap(const aID: Tl3ValueMapID): Il3IntegerValueMap;
@@ -858,7 +912,7 @@ type
  Tl3FramePartArray = array [Tl3FramePartIndex] of Tl3FramePart;
   {* Массив элементов рамки. }
 
- Il3Lines = interface
+ Il3Lines = interface(Il3Base)
   {* Список строк. }
   ['{F96A93D1-3995-4C76-A5E0-35BA43D43D71}']
   function Get_Count: Integer;
@@ -867,13 +921,13 @@ type
    read Get_Count;
  end;//Il3Lines
 
- Il3MultiLines = interface
+ Il3MultiLines = interface(Il3Base)
   ['{0D98A185-3E13-4C2F-BA52-31B2A80EBB01}']
   function IsSingle: Boolean;
   function HasBreakInWord: Boolean;
  end;//Il3MultiLines
 
- Il3List = interface
+ Il3List = interface(Il3Base)
   {* Список. }
   ['{ABBC1BC6-F386-4852-9F70-658316FC8BEC}']
   function pm_GetCount: Integer;
@@ -927,7 +981,7 @@ type
 
  TFontPitch = l3Core.TFontPitch;
 
- Il3FontInfo = interface
+ Il3FontInfo = interface(Il3Base)
   {* Информация о шрифте. }
   ['{22CB828C-4170-4A1A-87DC-01FA0F1A621F}']
   function Get_Size: Integer;
@@ -1048,7 +1102,7 @@ type
 
  TFont = l3Core.TFont;
 
- Il3FontMetrics = interface
+ Il3FontMetrics = interface(Il3Base)
   {* Метрики шрифта. }
   ['{D1251C22-1129-4298-A1D6-85E2084615E0}']
   function Pos2Index(W: Integer;
@@ -1121,12 +1175,11 @@ type
 
  Tl3PtrRec = packed record
   {* Указатель на кусок памяти. }
-  Flag: Tl3MemoryFlag;
-   {* Флаг распределения памяти. }
-  Ptr: PAnsiChar;
-   {* Указатель на данные. }
-  H: THandle;
-   {* Хендл данных. }
+  Case Flag: Tl3MemoryFlag of
+   l3_mfLocal: (Ptr: PAnsiChar);
+    {* Указатель на данные. }
+   l3_mfGlobal: (H: THandle);
+    {* Хендл данных. }
  end;//Tl3PtrRec
 
  Tl3PtrRecLen = packed record
@@ -1147,13 +1200,13 @@ type
 
  Tl3WStrCast = packed record
   {* Переходник между Tl3PtrRec и Tl3WStr. }
-  void: Byte;
-  voidPtr: Tl3PtrRecLen;
-   {* Распределенная строка. }
-  voidStr: Tl3WrappedWString;
+  Case Byte of
+   0: (S: Tl3PtrRec; SLen: Integer; SCodePage: SmallInt);
+    {* Распределенная строка. }
+   1: (Flag: Tl3MemoryFlag; WS: Tl3WString);
  end;//Tl3WStrCast
 
- Il3Console = interface
+ Il3Console = interface(Il3Base)
   {* Консоль. }
   ['{78998D59-D791-4B3B-87A0-F58F71A161CC}']
   procedure Shift(aDelta: Integer);
@@ -1198,7 +1251,7 @@ type
 
  IStorage = ActiveX.IStorage;
 
- Il3WordsSeq = interface
+ Il3WordsSeq = interface(Il3Base)
   {* "Строка". }
   ['{F7F48D9A-CFAE-440C-87E7-258007F6C6CA}']
   function WordStart(Pos: Tl3Position): Tl3Position;
@@ -1208,7 +1261,7 @@ type
  end;//Il3WordsSeq
 
  (*
- Ml3PageSetup = interface
+ Ml3PageSetup = interface(Il3Base)
   {* Информация о странице }
   function Get_Width: Tl3Inch;
   function Get_Height: Tl3Inch;
@@ -1237,7 +1290,7 @@ type
 
  WinBool = l3Core.WinBool;
 
- Il3Caret = interface
+ Il3Caret = interface(Il3Base)
   ['{D409967B-FA4F-4873-A088-68F330BB7487}']
   procedure Set_Extent(const aValue: TPoint);
   function Get_Position: Tl3_SPoint;
@@ -1265,7 +1318,7 @@ type
   procedure Reset;
  end;//Il3ScrollCaret
 
- Il3MemoryPool = interface
+ Il3MemoryPool = interface(Il3Base)
   {* Кусок памяти. }
   ['{E197B378-25F6-4C94-8751-594C1F23CC5E}']
   function pm_GetSize: Integer;
@@ -1284,7 +1337,7 @@ type
    {* Windows Handle куска памяти. }
  end;//Il3HandleMemoryPool
 
- Il3StringValueMapManager = interface
+ Il3StringValueMapManager = interface(Il3Base)
   {* Контейнер для Il3StringValueMap. }
   ['{A3790411-6636-49FD-BB23-F3A51D8E285F}']
   function pm_GetMap(const aID: Tl3ValueMapID): Il3StringValueMap;
@@ -1306,7 +1359,7 @@ type
 
  Large = Int64;
 
- Il3Progress = interface
+ Il3Progress = interface(Il3Base)
   {* Индикатор процесса. }
   ['{2FAC3F70-3190-4531-AD12-59AED4FCC444}']
   procedure Start(Count: Integer;
@@ -1340,7 +1393,7 @@ type
    {* Символ-заполнитель. }
  end;//Tl3TabStop
 
- Il3TabStops = interface
+ Il3TabStops = interface(Il3Base)
   {* Позиции табуляции. }
   ['{9ED8F485-F1D5-487F-BED0-45D88650C9DA}']
   function Clone: Il3TabStops;
@@ -1355,7 +1408,7 @@ type
   procedure Reset;
  end;//Il3TabStops
 
- Il3ProgressSource = interface
+ Il3ProgressSource = interface(Il3Base)
   ['{4EF88DA7-9EC2-421C-87F6-48E25E431D24}']
   function pm_GetProgress: Il3Progress;
   procedure pm_SetProgress(const aValue: Il3Progress);
@@ -1364,7 +1417,7 @@ type
    write pm_SetProgress;
  end;//Il3ProgressSource
 
- Il3DocIDSource = interface
+ Il3DocIDSource = interface(Il3Base)
   ['{14CF52C1-C1AE-4026-9CAE-521101DE75AD}']
   function pm_GetDocID: Integer;
   procedure pm_SetDocID(aValue: Integer);
@@ -1373,7 +1426,7 @@ type
    write pm_SetDocID;
  end;//Il3DocIDSource
 
- Il3TabInfo = interface
+ Il3TabInfo = interface(Il3Base)
   {* Информация о текущем состоянии табуляции. }
   ['{E41104DF-0DB6-4549-97C2-E616448B0B89}']
   function TabOffset: Integer;
@@ -1396,14 +1449,14 @@ type
   , l3_mbRight
  );//Tl3MouseButton
 
- Il3Rollback = interface
+ Il3Rollback = interface(Il3Base)
   {* Объект, умеющий откатывать данные }
   ['{B56D6AC5-3571-4537-AC3A-00D75CAED26F}']
   procedure Rollback;
    {* Откатить данные }
  end;//Il3Rollback
 
- Il3PageSetup = interface
+ Il3PageSetup = interface(Il3Base)
   {* Информация о странице }
   ['{2EA07723-49C9-4B22-BB90-074922621863}']
   function Get_Width: Tl3Inch;
@@ -1437,7 +1490,7 @@ type
 
  Pl3StringID = ^Tl3StringID;
 
- Il3ApplicationL10NStrings = interface
+ Il3ApplicationL10NStrings = interface(Il3Base)
   {* Локализуемые строки приложения }
   ['{717BCF75-F56A-4C93-8B05-DC8F9CAC81B6}']
   procedure Define(const aName: AnsiString;
@@ -1446,7 +1499,7 @@ type
  end;//Il3ApplicationL10NStrings
 
  //_ItemType_ = Integer;
- Il3IntegerList = interface
+ Il3IntegerList = interface(Il3Base)
   {* Список целых чисел }
   ['{0E167E1A-02B0-4F81-89D8-F97F8B3DB38A}']
   function pm_GetEmpty: Boolean;
@@ -1520,7 +1573,8 @@ type
 
  Tl3SPoint = Tl3_SPoint;
 
-function Tl3_Point_C: Tl3_Point;
+function Tl3_Point_C(aX: Integer;
+ aY: Integer): Tl3_Point;
 function Tl3_SPoint_C(anX: Integer;
  anY: Integer): Tl3_SPoint;
 
@@ -1532,7 +1586,8 @@ uses
  , l3MinMax
 ;
 
-function Tl3_Point_C: Tl3_Point;
+function Tl3_Point_C(aX: Integer;
+ aY: Integer): Tl3_Point;
 //#UC START# *47E0FA3E03CA_46A480790259_var*
 //#UC END# *47E0FA3E03CA_46A480790259_var*
 begin

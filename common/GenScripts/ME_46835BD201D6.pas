@@ -88,13 +88,16 @@ ApplyEmptyFilter: Boolean
    function CloneFilters: Il3TreeFilters;
    function MakeFiltered(const aFilters: Il3TreeFilters;
     const aCurrentNode: Il3SimpleNode;
-    out aSyncIndex: Integer {* Нода для синхронизации. Индекс этой ноды в
+    out aSyncIndex: Integer
+    {* Нода для синхронизации. Индекс этой ноды в
                                    фильтрованном вью, будет возвращен в
                                    параметре sync_index. };
-    aAutoOpen: Boolean = True {* Раскрывать узлы с фильтром автоматически.
+    aAutoOpen: Boolean = True
+    {* Раскрывать узлы с фильтром автоматически.
                                    Узлы, часть детей которых отфильтрованно,
                                    будут автоматически раскрываться. };
-    CalcPartialContext: Boolean = False {* пытаться вычислить максимальный контекстный фильтр,
+    CalcPartialContext: Boolean = False
+    {* пытаться вычислить максимальный контекстный фильтр,
                                    который еще вернет данные }): Il3SimpleTree;
    procedure ParamsChanged;
    procedure SubscribeToContextFilter(const aSubscriber: Il3ContextFilterNotifier);
@@ -546,13 +549,16 @@ end;//TnsFilterableTreeStruct.CloneFilters
 
 function TnsFilterableTreeStruct.MakeFiltered(const aFilters: Il3TreeFilters;
  const aCurrentNode: Il3SimpleNode;
- out aSyncIndex: Integer {* Нода для синхронизации. Индекс этой ноды в
+ out aSyncIndex: Integer
+ {* Нода для синхронизации. Индекс этой ноды в
                                    фильтрованном вью, будет возвращен в
                                    параметре sync_index. };
- aAutoOpen: Boolean = True {* Раскрывать узлы с фильтром автоматически.
+ aAutoOpen: Boolean = True
+ {* Раскрывать узлы с фильтром автоматически.
                                    Узлы, часть детей которых отфильтрованно,
                                    будут автоматически раскрываться. };
- CalcPartialContext: Boolean = False {* пытаться вычислить максимальный контекстный фильтр,
+ CalcPartialContext: Boolean = False
+ {* пытаться вычислить максимальный контекстный фильтр,
                                    который еще вернет данные }): Il3SimpleTree;
 //#UC START# *47724BE60202_46835BD201D6_var*
 //#UC END# *47724BE60202_46835BD201D6_var*
