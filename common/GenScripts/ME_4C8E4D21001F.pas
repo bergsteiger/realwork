@@ -200,12 +200,12 @@ type
     {* Поле для свойства RepGroup }
   private
    procedure LoadOps;
-   procedure DoSetPosition(aValue: Integer); override;
   protected
    function pm_GetRepGroup: IvcmCustOpsRepGroup;
    procedure pm_SetRepGroup(const aValue: IvcmCustOpsRepGroup);
    function pm_GetGroup: IvcmCustOpsGroup;
    procedure pm_SetGroup(const aValue: IvcmCustOpsGroup);
+   procedure DoSetPosition(aValue: Integer); override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
@@ -235,8 +235,6 @@ type
     {* Поле для свойства ForAllUseCases }
    f_GroupChanged: Boolean;
     {* Поле для свойства GroupChanged }
-  private
-   procedure DoSetPosition(aValue: Integer); override;
   protected
    function pm_GetGroup: ItpGroup;
    function pm_GetOp: IvcmCustOpsGroupOperation;
@@ -247,6 +245,7 @@ type
    procedure pm_SetForAllUseCases(aValue: Boolean);
    function pm_GetGroupChanged: Boolean;
    procedure pm_SetGroupChanged(aValue: Boolean);
+   procedure DoSetPosition(aValue: Integer); override;
    procedure InitFields; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
    function COMQueryInterface(const IID: Tl3GUID;
