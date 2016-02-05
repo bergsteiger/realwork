@@ -21,9 +21,6 @@ const
  POSITION_TYPE_MASK: Cardinal = 2147483648;
  POSITION_TYPE_SUB_ID: Cardinal = 0;
  POSITION_TYPE_PARA_ID: Cardinal = 2147483648;
- ROOT_CHILD: TChildID = 0;
- ROOT_LAYER: TLayerID = 4294967295;
-  {* 0xFFFFFFFF }
 
 type
  TLinkedObjectType = (
@@ -789,6 +786,11 @@ K555095873 }
   function get_object_type: TLinkedObjectType;
   class function make(server_link): BadFactoryType;
  end;//IObjectFromLink
+
+const
+ ROOT_CHILD: TChildID = 0;
+ ROOT_LAYER: TLayerID = 4294967295;
+  {* 0xFFFFFFFF }
 
 class function make(pid): BadFactoryType;
 class function make(diff_data): BadFactoryType;

@@ -17,26 +17,6 @@ uses
  , FoldersUnit
 ;
 
-const
- {* Статусы консультаций }
- CS_SENT: TConsultationStatus = 1024;
-  {* Отправлена }
- CS_PAYMENT_REQUEST: TConsultationStatus = 1;
-  {* Запрос на оплату }
- CS_ANSWER_RECEIVED: TConsultationStatus = 2;
-  {* Получен ответ }
- CS_READ: TConsultationStatus = 4;
- CS_ESTIMATION_SENT: TConsultationStatus = 8;
-  {* Отправлена оценка }
- CS_DRAFTS: TConsultationStatus = 16;
-  {* Создана, но не отправлена }
- CS_PAYMENT_REFUSAL: TConsultationStatus = 32;
-  {* Оплата отклонена }
- CS_PAYMENT_CONFIRM: TConsultationStatus = 64;
- CS_VALIDATION_FAILED: TConsultationStatus = 128;
- CS_ANSWER_NOT_CONFIRM: TConsultationStatus = 256;
- CS_READ_NOT_CONFIRM: TConsultationStatus = 512;
-
 type
  TEstimationValue = (
   {* Возможные оценки }
@@ -205,6 +185,26 @@ type
   function get_query_template: IStream;
    {* получить шаблон для запроса }
  end;//IConsultingTemplateInfo
+
+const
+ {* Статусы консультаций }
+ CS_SENT: TConsultationStatus = 1024;
+  {* Отправлена }
+ CS_PAYMENT_REQUEST: TConsultationStatus = 1;
+  {* Запрос на оплату }
+ CS_ANSWER_RECEIVED: TConsultationStatus = 2;
+  {* Получен ответ }
+ CS_READ: TConsultationStatus = 4;
+ CS_ESTIMATION_SENT: TConsultationStatus = 8;
+  {* Отправлена оценка }
+ CS_DRAFTS: TConsultationStatus = 16;
+  {* Создана, но не отправлена }
+ CS_PAYMENT_REFUSAL: TConsultationStatus = 32;
+  {* Оплата отклонена }
+ CS_PAYMENT_CONFIRM: TConsultationStatus = 64;
+ CS_VALIDATION_FAILED: TConsultationStatus = 128;
+ CS_ANSWER_NOT_CONFIRM: TConsultationStatus = 256;
+ CS_READ_NOT_CONFIRM: TConsultationStatus = 512;
 
 class function make: BadFactoryType;
  {* фабрика }

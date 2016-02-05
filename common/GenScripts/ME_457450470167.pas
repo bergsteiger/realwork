@@ -15,18 +15,6 @@ uses
 ;
 
 const
- {* Константы для флагов }
- FM_SHARED_NONE: TFlagMask = 0;
- FM_OPEN: TFlagMask = 2;
- FM_SELECTION: TFlagMask = 1;
- FM_FIRST_USER_FLAG: TFlagMask = 4;
- FM_USER_FLAG_MASK: TFlagMask = 65532;
- FM_SHARED_ALL: TFlagMask = 65535;
- IIP_BEFORE_LEFT_CHILD: TIndexInParent = 4294967295;
- VI_ALL_CHILDREN: TVisibleIndex = -1;
-  {* Уведомление об изменении всех узлов. }
- {* константы типов ноды }
- NT_UNKNOWN: TNodeType = 0;
  {* идентификаторы деревьев }
  AT_ANNO_INTEREST: PAnsiChar = AT_ANNO_INTEREST;
  AT_ANNO_KIND: PAnsiChar = AT_ANNO_KIND;
@@ -551,6 +539,20 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    read Get_context
    write Set_context;
  end;//IContextFilter
+
+const
+ {* Константы для флагов }
+ FM_SHARED_NONE: TFlagMask = 0;
+ FM_OPEN: TFlagMask = 2;
+ FM_SELECTION: TFlagMask = 1;
+ FM_FIRST_USER_FLAG: TFlagMask = 4;
+ FM_USER_FLAG_MASK: TFlagMask = 65532;
+ FM_SHARED_ALL: TFlagMask = 65535;
+ IIP_BEFORE_LEFT_CHILD: TIndexInParent = 4294967295;
+ VI_ALL_CHILDREN: TVisibleIndex = -1;
+  {* Уведомление об изменении всех узлов. }
+ {* константы типов ноды }
+ NT_UNKNOWN: TNodeType = 0;
 
 class function make: BadFactoryType;
 class function make(iterator): BadFactoryType;
