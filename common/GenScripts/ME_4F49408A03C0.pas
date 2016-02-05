@@ -55,8 +55,12 @@ uses
 procedure AssignItem(const aTo: _ItemType_;
  const aFrom: _ItemType_); forward;
 {$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
-procedure FreeItem(var aPlace: _ItemType_;
- aList: _l3Items_); forward;
+procedure FreeItem(var aPlace: _ItemType_
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
@@ -86,8 +90,11 @@ begin
 end;//AssignItem
 {$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
-procedure FreeItem(var aPlace: _ItemType_;
- aList: _l3Items_);
+procedure FreeItem(var aPlace: _ItemType_
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
  {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_4F49408A03C0_var*
 //#UC END# *47B94A5C006E_4F49408A03C0_var*
