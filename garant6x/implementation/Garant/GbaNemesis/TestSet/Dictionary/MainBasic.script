@@ -1214,3 +1214,15 @@ PROCEDURE "Очистить журнал работы"
  оп::Журнал_Очистить
  "Закрыть журнал работы"
 ;
+
+USES
+axiom:TefRubricator
+;
+
+PROCEDURE "##Установить фокус в рубрикатор после переключения баз"
+ OBJECT VAR l_Form
+ ANYUSERTYPE форма::Rubricator vcm:FindForm ?ASSURE 'Не найдена форма Rubricator!'
+ >>> l_Form
+ l_Form .TefRubricator.RubricatorList pop:Control:SetFocus ?ASSURE
+  'Не удалось поставить фокус в рубрикатор после переключения баз'
+;

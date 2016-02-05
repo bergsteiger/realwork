@@ -2907,6 +2907,26 @@ ref; // ME_4B61AC250184 rBlockID
 
 ref; // ME_4B61AC3C0116 rPoint
 
+: ME_4B61AC570147
+ CONST UID '4B61AC570147'
+ CONST Name 'aBlockID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B61AC570147 aBlockID
+
+: ME_4B61AC570172
+ CONST UID '4B61AC570172'
+ CONST Name 'aPoint'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B57E0390' '47C5207602D1.pas.ms.script' // InevBasePoint
+ ;
+
+ref; // ME_4B61AC570172 aPoint
+
 : ME_4B61AC4403B2
  CONST UID '4B61AC4403B2'
  CONST Name 'C'
@@ -2916,8 +2936,23 @@ ref; // ME_4B61AC3C0116 rPoint
  CONST Abstraction at_final
  : Parent ME_4B61ABFB015F // TnsFoundBlockInfo
  ;
+ : Parameters
+   Seq: ( ME_4B61AC570147 // aBlockID
+ ME_4B61AC570172 // aPoint
+ )
+ ; // Parameters
 
 ref; // ME_4B61AC4403B2 C
+
+: ME_4B61AE6D00D2
+ CONST UID '4B61AE6D00D2'
+ CONST Name 'aBlockID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B61AE6D00D2 aBlockID
 
 : ME_4B61AE6A01A4
  CONST UID '4B61AE6A01A4'
@@ -2928,6 +2963,10 @@ ref; // ME_4B61AC4403B2 C
  CONST Abstraction at_final
  : Parent ME_4B61ABFB015F // TnsFoundBlockInfo
  ;
+ : Parameters
+   Seq: ( ME_4B61AE6D00D2 // aBlockID
+ )
+ ; // Parameters
 
 ref; // ME_4B61AE6A01A4 C
 

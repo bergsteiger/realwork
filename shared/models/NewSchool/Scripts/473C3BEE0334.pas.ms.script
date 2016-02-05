@@ -7197,6 +7197,16 @@ ref; // ME_48CA54EC02E1 rFinish
 
 ref; // ME_48CA556000D1 rDrawType
 
+: ME_4BE2E85800C4
+ CONST UID '4BE2E85800C4'
+ CONST Name 'Another'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_48CA54C5025F // Tl3LinePart
+ ;
+
+ref; // ME_4BE2E85800C4 Another
+
 : ME_4BE2E84C0134
  CONST UID '4BE2E84C0134'
  CONST Name 'EQ'
@@ -7207,6 +7217,10 @@ ref; // ME_48CA556000D1 rDrawType
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_4BE2E85800C4 // Another
+ )
+ ; // Parameters
 
 ref; // ME_4BE2E84C0134 EQ
 

@@ -37,6 +37,17 @@ TevEditor TYPE Редактор
  'Enter' key
 ;
 
+PROCEDURE "Поиск гиперссылки" STRING IN aFindString
+	 'Ctrl+S' key
+	 TRY
+	  "Набить текст {(aFindString)}"
+	  "Обработать сообщения"
+	  "Контрол по имени {(acTextSearchDlgFindBtn)}" pop:Control:Click  
+	 FINALLY
+	  "Контрол по имени {(acTextSearchDlgCloseBtn)}" pop:Control:Click   
+	 END 
+;
+
 PROCEDURE "Поиск текста" STRING IN aFindString
 	 'Ctrl+F' key
 	 TRY

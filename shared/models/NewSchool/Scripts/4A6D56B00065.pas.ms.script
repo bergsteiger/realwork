@@ -116,6 +116,46 @@ ref; // ME_4B0FD79C01D5 rEditor
 
 ref; // ME_4B616FA5005F rPara
 
+: ME_4B0FD7B601AE
+ CONST UID '4B0FD7B601AE'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_495239F201D9' '4912DD020283.pas.ms.script' // IeePara
+ ;
+
+ref; // ME_4B0FD7B601AE aPara
+
+: ME_4B0FD7B601DA
+ CONST UID '4B0FD7B601DA'
+ CONST Name 'aBlock'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C6B7A6039D' '47C5207602D1.pas.ms.script' // IevDocumentPart
+ ;
+
+ref; // ME_4B0FD7B601DA aBlock
+
+: ME_4B0FD7B60205
+ CONST UID '4B0FD7B60205'
+ CONST Name 'aLine'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B0FD7B60205 aLine
+
+: ME_4B0FD7B60230
+ CONST UID '4B0FD7B60230'
+ CONST Name 'anEditor'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4A26509001EA' '4829D7D50156.pas.ms.script' // TevCustomEditorWindowModelPart
+ ;
+
+ref; // ME_4B0FD7B60230 anEditor
+
 : ME_4A79BB650298
  CONST UID '4A79BB650298'
  CONST Name 'C'
@@ -126,6 +166,13 @@ ref; // ME_4B616FA5005F rPara
  CONST Abstraction at_final
  : Parent ME_4A79BB0800E4 // TnsParaCoord
  ;
+ : Parameters
+   Seq: ( ME_4B0FD7B601AE // aPara
+ ME_4B0FD7B601DA // aBlock
+ ME_4B0FD7B60205 // aLine
+ ME_4B0FD7B60230 // anEditor
+ )
+ ; // Parameters
 
 ref; // ME_4A79BB650298 C
 
@@ -313,6 +360,26 @@ ref; // ME_4B60749D026B rDoc
 
 ref; // ME_4B6074BC00A5 rPara
 
+: ME_4B6074D6005F
+ CONST UID '4B6074D6005F'
+ CONST Name 'aDoc'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_45EEB6520191' '4570511E038A.pas.ms.script' // Document
+ ;
+
+ref; // ME_4B6074D6005F aDoc
+
+: ME_4B6074D60089
+ CONST UID '4B6074D60089'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4A7FC9C9008F' '4912DD020283.pas.ms.script' // IeeLeafPara
+ ;
+
+ref; // ME_4B6074D60089 aPara
+
 : ME_4B6074C60325
  CONST UID '4B6074C60325'
  CONST Name 'C'
@@ -322,6 +389,11 @@ ref; // ME_4B6074BC00A5 rPara
  CONST Abstraction at_final
  : Parent ME_4B60748400F9 // TnsDocumentForReturnInfo
  ;
+ : Parameters
+   Seq: ( ME_4B6074D6005F // aDoc
+ ME_4B6074D60089 // aPara
+ )
+ ; // Parameters
 
 ref; // ME_4B6074C60325 C
 

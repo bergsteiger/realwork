@@ -667,6 +667,26 @@ ref; // ME_4B1663B700EE rHandle
 
 ref; // ME_4B1663DD0063 rContext
 
+: ME_4B16640302C5
+ CONST UID '4B16640302C5'
+ CONST Name 'aHandle'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_4B16640302C5 aHandle
+
+: ME_4B16640302E4
+ CONST UID '4B16640302E4'
+ CONST Name 'aContext'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4B16640302E4 aContext
+
 : ME_4B1663ED0181
  CONST UID '4B1663ED0181'
  CONST Name 'C'
@@ -676,6 +696,11 @@ ref; // ME_4B1663DD0063 rContext
  CONST Abstraction at_final
  : Parent ME_4B16636E01DF // TnsContextFilterData
  ;
+ : Parameters
+   Seq: ( ME_4B16640302C5 // aHandle
+ ME_4B16640302E4 // aContext
+ )
+ ; // Parameters
 
 ref; // ME_4B1663ED0181 C
 

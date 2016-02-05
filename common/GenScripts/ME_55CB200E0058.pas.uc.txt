@@ -28,11 +28,12 @@
 //#UC START# *55360BAB0116_55360B420250_impl*
  inherited Create;
  f_Kind := aKind;
- f_Code := aCode;
  f_Description := aDescription;
  f_IsDublicate := aDublicate;
  f_IsFake := aFake;
- f_Name := aName;
+ f_SQLName := aSQLName;
+ f_Scheme := aScheme;
+ f_IsTree := aIsTree;
 //#UC END# *55360BAB0116_55360B420250_impl*
 //#UC START# *55360BAB0116_55360B420250_var*
 //#UC END# *55360BAB0116_55360B420250_var*
@@ -46,7 +47,6 @@
   Result := f_FieldList[l_Index]
  else
   Result := nil;
-// !!! Needs to be implemented !!!
 //#UC END# *55379DA40290_55360B420250get_impl*
 //#UC START# *55379DA40290_55360B420250get_var*
 var
@@ -58,11 +58,6 @@ var
 //#UC END# *5538EA4402F6_55360B420250_impl*
 //#UC START# *5538EA4402F6_55360B420250_var*
 //#UC END# *5538EA4402F6_55360B420250_var*
-//#UC START# *553A19BC0335_55360B420250get_impl*
- Result := f_Code;
-//#UC END# *553A19BC0335_55360B420250get_impl*
-//#UC START# *553A19BC0335_55360B420250get_var*
-//#UC END# *553A19BC0335_55360B420250get_var*
 //#UC START# *55C860390259_55360B420250_impl*
  l_List := TList.Create;
  try
@@ -99,7 +94,7 @@ var
 //#UC START# *55CB2045030F_55CB200E0058_var*
 //#UC END# *55CB2045030F_55CB200E0058_var*
 //#UC START# *5608EE130006_55360B420250get_impl*
- Result := f_Name;
+ Result := f_SQLName;
 //#UC END# *5608EE130006_55360B420250get_impl*
 //#UC START# *5608EE130006_55360B420250get_var*
 //#UC END# *5608EE130006_55360B420250get_var*

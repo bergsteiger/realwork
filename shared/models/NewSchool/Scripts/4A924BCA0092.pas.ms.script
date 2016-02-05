@@ -3460,6 +3460,36 @@ ref; // ME_498C7D6A02E9 rMessageType
 
 ref; // ME_498C7DA3019A rIconName
 
+: ME_4B17B70E0391
+ CONST UID '4B17B70E0391'
+ CONST Name 'aMessage'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46780DA40383' '4677FBA70343.pas.ms.script' // Il3CString
+ ;
+
+ref; // ME_4B17B70E0391 aMessage
+
+: ME_4B17B70E03C8
+ CONST UID '4B17B70E03C8'
+ CONST Name 'aMessageType'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_498C7D1A035D' '47F2170002B2.pas.ms.script' // TnsLongProcessType
+ ;
+
+ref; // ME_4B17B70E03C8 aMessageType
+
+: ME_4B17B70F001A
+ CONST UID '4B17B70F001A'
+ CONST Name 'anIconName'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4771179900D8' '4AB0C3C60310.pas.ms.script' // PChar
+ ;
+
+ref; // ME_4B17B70F001A anIconName
+
 : ME_4B17B6FA024F
  CONST UID '4B17B6FA024F'
  CONST Name 'C'
@@ -3469,6 +3499,12 @@ ref; // ME_498C7DA3019A rIconName
  CONST Abstraction at_final
  : Parent ME_498C7D4301A5 // TnsLongProcessData
  ;
+ : Parameters
+   Seq: ( ME_4B17B70E0391 // aMessage
+ ME_4B17B70E03C8 // aMessageType
+ ME_4B17B70F001A // anIconName
+ )
+ ; // Parameters
 
 ref; // ME_4B17B6FA024F C
 
@@ -5574,6 +5610,8 @@ ref; // ME_4DDFD2EA0116_ME_D482E48B82F8 GetString
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Form_ShutDown'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_4A8EC8950152 // ShutDown
+ ;
 
 ref; // ME_D482E48B82F8 Tkw_Form_ShutDown
 
@@ -5686,6 +5724,8 @@ ref; // ME_52A086150180_ME_1D2C13E70A44 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Component_ShutdownTimer'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_4AE97A1D0302 // ShutdownTimer
+ ;
 
 ref; // ME_1D2C13E70A44 Tkw_ShutDown_Component_ShutdownTimer
 
@@ -5798,6 +5838,8 @@ ref; // ME_52A086150180_ME_506FB9C4AE9E RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_vtPanel1'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AE390124 // vtPanel1
+ ;
 
 ref; // ME_506FB9C4AE9E Tkw_ShutDown_Control_vtPanel1
 
@@ -5997,6 +6039,8 @@ ref; // ME_52A086150180_ME_4406F66A6769 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_LeftPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AE9102AC // LeftPanel
+ ;
 
 ref; // ME_4406F66A6769 Tkw_ShutDown_Control_LeftPanel
 
@@ -6196,6 +6240,8 @@ ref; // ME_52A086150180_ME_65FA8501C473 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_Image'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AEEF0373 // Image
+ ;
 
 ref; // ME_65FA8501C473 Tkw_ShutDown_Control_Image
 
@@ -6395,6 +6441,8 @@ ref; // ME_52A086150180_ME_74F5B3CD8745 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_CenterPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AEAB0074 // CenterPanel
+ ;
 
 ref; // ME_74F5B3CD8745 Tkw_ShutDown_Control_CenterPanel
 
@@ -6594,6 +6642,8 @@ ref; // ME_52A086150180_ME_FD2D24E3E7B3 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_TopSpacerPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AF090399 // TopSpacerPanel
+ ;
 
 ref; // ME_FD2D24E3E7B3 Tkw_ShutDown_Control_TopSpacerPanel
 
@@ -6793,6 +6843,8 @@ ref; // ME_52A086150180_ME_EEA83BB79FD4 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_WarningText'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AF1C002B // WarningText
+ ;
 
 ref; // ME_EEA83BB79FD4 Tkw_ShutDown_Control_WarningText
 
@@ -6992,6 +7044,8 @@ ref; // ME_52A086150180_ME_1F02004AC237 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_RightSpacerPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AED10104 // RightSpacerPanel
+ ;
 
 ref; // ME_1F02004AC237 Tkw_ShutDown_Control_RightSpacerPanel
 
@@ -7191,6 +7245,8 @@ ref; // ME_52A086150180_ME_32A0050AEA5C RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_pnlBottom'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AE6800E3 // pnlBottom
+ ;
 
 ref; // ME_32A0050AEA5C Tkw_ShutDown_Control_pnlBottom
 
@@ -7390,6 +7446,8 @@ ref; // ME_52A086150180_ME_7300B472659A RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_ShutDown_Control_CloseButton'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_5267AF3D006C // CloseButton
+ ;
 
 ref; // ME_7300B472659A Tkw_ShutDown_Control_CloseButton
 
@@ -10286,6 +10344,8 @@ ref; // ME_4DDFD2EA0116_ME_261C9A9EE165 GetString
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Form_Login'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_4A93D829005C // Login
+ ;
 
 ref; // ME_261C9A9EE165 Tkw_Form_Login
 
@@ -10398,6 +10458,8 @@ ref; // ME_52A086150180_ME_D162EBE5BA6B RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_RegisteredGroupBox'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A342F01D2 // RegisteredGroupBox
+ ;
 
 ref; // ME_D162EBE5BA6B Tkw_Login_Control_RegisteredGroupBox
 
@@ -10597,6 +10659,8 @@ ref; // ME_52A086150180_ME_498E275B1BF9 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_lblLogin'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A3512010C // lblLogin
+ ;
 
 ref; // ME_498E275B1BF9 Tkw_Login_Control_lblLogin
 
@@ -10796,6 +10860,8 @@ ref; // ME_52A086150180_ME_59A6F6A37B4D RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_lblPassword'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A35490372 // lblPassword
+ ;
 
 ref; // ME_59A6F6A37B4D Tkw_Login_Control_lblPassword
 
@@ -10995,6 +11061,8 @@ ref; // ME_52A086150180_ME_1A40AA72C55B RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_EnterPaintBox'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A356F0355 // EnterPaintBox
+ ;
 
 ref; // ME_1A40AA72C55B Tkw_Login_Control_EnterPaintBox
 
@@ -11194,6 +11262,8 @@ ref; // ME_52A086150180_ME_3C63147DE6A9 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_edUserName'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A359A03B9 // edUserName
+ ;
 
 ref; // ME_3C63147DE6A9 Tkw_Login_Control_edUserName
 
@@ -11393,6 +11463,8 @@ ref; // ME_52A086150180_ME_8EEA9E785569 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_edPassword'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A35CF0145 // edPassword
+ ;
 
 ref; // ME_8EEA9E785569 Tkw_Login_Control_edPassword
 
@@ -11592,6 +11664,8 @@ ref; // ME_52A086150180_ME_6384D06DD800 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_lblForgetPassword'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A39E301AA // lblForgetPassword
+ ;
 
 ref; // ME_6384D06DD800 Tkw_Login_Control_lblForgetPassword
 
@@ -11791,6 +11865,8 @@ ref; // ME_52A086150180_ME_3FBF8382C090 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_cbAutoLogin'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A3A260178 // cbAutoLogin
+ ;
 
 ref; // ME_3FBF8382C090 Tkw_Login_Control_cbAutoLogin
 
@@ -11990,6 +12066,8 @@ ref; // ME_52A086150180_ME_57452CA115E9 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_btnOk'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A3A6000CB // btnOk
+ ;
 
 ref; // ME_57452CA115E9 Tkw_Login_Control_btnOk
 
@@ -12189,6 +12267,8 @@ ref; // ME_52A086150180_ME_CEEF938E7CA5 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_NewUserGroupBox'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A34910084 // NewUserGroupBox
+ ;
 
 ref; // ME_CEEF938E7CA5 Tkw_Login_Control_NewUserGroupBox
 
@@ -12388,6 +12468,8 @@ ref; // ME_52A086150180_ME_BF98098EB9AC RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_NewUserLabel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A3EB501B2 // NewUserLabel
+ ;
 
 ref; // ME_BF98098EB9AC Tkw_Login_Control_NewUserLabel
 
@@ -12587,6 +12669,8 @@ ref; // ME_52A086150180_ME_872FA0A52DE9 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_NewUserPaintBox'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A3EF90364 // NewUserPaintBox
+ ;
 
 ref; // ME_872FA0A52DE9 Tkw_Login_Control_NewUserPaintBox
 
@@ -12786,6 +12870,8 @@ ref; // ME_52A086150180_ME_8B1EDAFE04A3 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_lblNewUser'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A3F7A01D7 // lblNewUser
+ ;
 
 ref; // ME_8B1EDAFE04A3 Tkw_Login_Control_lblNewUser
 
@@ -12985,6 +13071,8 @@ ref; // ME_52A086150180_ME_7434B9DF105F RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_HelpPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A34C60176 // HelpPanel
+ ;
 
 ref; // ME_7434B9DF105F Tkw_Login_Control_HelpPanel
 
@@ -13184,6 +13272,8 @@ ref; // ME_52A086150180_ME_2764998FE17B RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_HelpPaintBox'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A3FD502B1 // HelpPaintBox
+ ;
 
 ref; // ME_2764998FE17B Tkw_Login_Control_HelpPaintBox
 
@@ -13383,6 +13473,8 @@ ref; // ME_52A086150180_ME_96D2E440FC0E RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Login_Control_HelpLabel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_520A3FE702D8 // HelpLabel
+ ;
 
 ref; // ME_96D2E440FC0E Tkw_Login_Control_HelpLabel
 
@@ -17872,6 +17964,8 @@ ref; // ME_4DDFD2EA0116_ME_C4A3AD5E3009 GetString
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Form_LongProcess'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_4A93DDCC03E3 // LongProcess
+ ;
 
 ref; // ME_C4A3AD5E3009 Tkw_Form_LongProcess
 
@@ -17984,6 +18078,8 @@ ref; // ME_52A086150180_ME_80415E0A03B6 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_LongProcess_Control_ClientPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_523AC9F602BD // ClientPanel
+ ;
 
 ref; // ME_80415E0A03B6 Tkw_LongProcess_Control_ClientPanel
 
@@ -18183,6 +18279,8 @@ ref; // ME_52A086150180_ME_EE429CEF80B2 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_LongProcess_Control_MessageLabel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_523ACA1603C8 // MessageLabel
+ ;
 
 ref; // ME_EE429CEF80B2 Tkw_LongProcess_Control_MessageLabel
 
@@ -18382,6 +18480,8 @@ ref; // ME_52A086150180_ME_1D52AE8ECAD0 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_LongProcess_Control_BottomPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_523ACA2D0179 // BottomPanel
+ ;
 
 ref; // ME_1D52AE8ECAD0 Tkw_LongProcess_Control_BottomPanel
 
@@ -18581,6 +18681,8 @@ ref; // ME_52A086150180_ME_8A7072EA0EBB RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_LongProcess_Control_ProgressBar'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_523ACA420381 // ProgressBar
+ ;
 
 ref; // ME_8A7072EA0EBB Tkw_LongProcess_Control_ProgressBar
 
@@ -18780,6 +18882,8 @@ ref; // ME_52A086150180_ME_37371C609A4E RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_LongProcess_Control_LeftPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_523ACE4D0133 // LeftPanel
+ ;
 
 ref; // ME_37371C609A4E Tkw_LongProcess_Control_LeftPanel
 
@@ -18979,6 +19083,8 @@ ref; // ME_52A086150180_ME_1A4830627510 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_LongProcess_Control_Image'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_523ACE960302 // Image
+ ;
 
 ref; // ME_1A4830627510 Tkw_LongProcess_Control_Image
 
@@ -19178,6 +19284,8 @@ ref; // ME_52A086150180_ME_6459869CFA95 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_LongProcess_Control_ButtonPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_523AD3BC034C // ButtonPanel
+ ;
 
 ref; // ME_6459869CFA95 Tkw_LongProcess_Control_ButtonPanel
 
@@ -19377,6 +19485,8 @@ ref; // ME_52A086150180_ME_B8087B324800 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_LongProcess_Control_btnExit'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_523AD40602E1 // btnExit
+ ;
 
 ref; // ME_B8087B324800 Tkw_LongProcess_Control_btnExit
 
@@ -22656,6 +22766,8 @@ ref; // ME_52A086150180_ME_6D62B6080174 RegisterInEngine
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_Form_Logo'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_4AA7E32D0252 // Logo
+ ;
 
 ref; // ME_6D62B6080174 Tkw_Form_Logo
 

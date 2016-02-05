@@ -42,6 +42,16 @@ ref; // ME_478CF883039E Tl3_IID
 
 FORWARD ME_478CF8A20368
 
+: ME_478CF8B803D0
+ CONST UID '478CF8B803D0'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_478CF883039E // Tl3_IID
+ ;
+
+ref; // ME_478CF8B803D0 anID
+
 : ME_478CF8B1002E
  CONST UID '478CF8B1002E'
  CONST Name 'EQ'
@@ -52,6 +62,10 @@ FORWARD ME_478CF8A20368
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_478CF8B803D0 // anID
+ )
+ ; // Parameters
 
 ref; // ME_478CF8B1002E EQ
 
@@ -152,6 +166,16 @@ ref; // ME_478CF97C01EB array of TGUID
 
 FORWARD ME_478CF8F202C7
 
+: ME_478CF90F027D
+ CONST UID '478CF90F027D'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_478CF8C200EB // Tl3_GUID
+ ;
+
+ref; // ME_478CF90F027D anID
+
 : ME_478CF90801FE
  CONST UID '478CF90801FE'
  CONST Name 'EQ'
@@ -163,8 +187,22 @@ FORWARD ME_478CF8F202C7
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_478CF90F027D // anID
+ )
+ ; // Parameters
 
 ref; // ME_478CF90801FE EQ
+
+: ME_478CF91D0220
+ CONST UID '478CF91D0220'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
+ ;
+
+ref; // ME_478CF91D0220 anID
 
 : ME_478CF919003A
  CONST UID '478CF919003A'
@@ -177,8 +215,22 @@ ref; // ME_478CF90801FE EQ
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_478CF91D0220 // anID
+ )
+ ; // Parameters
 
 ref; // ME_478CF919003A EQ
+
+: ME_478CF9B7036E
+ CONST UID '478CF9B7036E'
+ CONST Name 'GUIDs'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_478CF97C01EB // array of TGUID
+ ;
+
+ref; // ME_478CF9B7036E GUIDs
 
 : ME_478CF9A1010D
  CONST UID '478CF9A1010D'
@@ -191,8 +243,22 @@ ref; // ME_478CF919003A EQ
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_478CF9B7036E // GUIDs
+ )
+ ; // Parameters
 
 ref; // ME_478CF9A1010D SomeOf
+
+: ME_4942796A013C
+ CONST UID '4942796A013C'
+ CONST Name 'anIID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469F3EEF0024' '4AB0C3C60310.pas.ms.script' // TGUID
+ ;
+
+ref; // ME_4942796A013C anIID
 
 : ME_4942795A0282
  CONST UID '4942795A0282'
@@ -203,6 +269,10 @@ ref; // ME_478CF9A1010D SomeOf
  CONST Abstraction at_final
  : Parent ME_478CF8F202C7 // Tl3GUID
  ;
+ : Parameters
+   Seq: ( ME_4942796A013C // anIID
+ )
+ ; // Parameters
 
 ref; // ME_4942795A0282 C
 
@@ -279,6 +349,16 @@ ref; // ME_49427EB903DB Ok
 
 ref; // ME_49427ED200F2 Fail
 
+: ME_49427F010006
+ CONST UID '49427F010006'
+ CONST Name 'aRes'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_472094E70218' '4AB0C3C60310.pas.ms.script' // hResult
+ ;
+
+ref; // ME_49427F010006 aRes
+
 : ME_49427EEF0016
  CONST UID '49427EEF0016'
  CONST Name 'C'
@@ -288,6 +368,10 @@ ref; // ME_49427ED200F2 Fail
  CONST Abstraction at_final
  : Parent ME_49427DEE015B // Tl3HResult
  ;
+ : Parameters
+   Seq: ( ME_49427F010006 // aRes
+ )
+ ; // Parameters
 
 ref; // ME_49427EEF0016 C
 
@@ -410,7 +494,7 @@ ref; // ME_53CE648603B9 ev_iidBlock
  CONST Class class_Class
  : Stereotype st_Constants ;
  CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
+ CONST Visibility ProtectedAccess
  CONST Abstraction at_regular
  : Parent ME_478CF8070260 // l3IID
  ;
@@ -446,6 +530,7 @@ ref; // ME_53CE6449012F OldGUIDS
    Seq: ( ME_53CE6449012F // OldGUIDS
  )
  ; // Constants
+ CONST "UseNewGen" true
  CONST "author" 'Ëþëèí À.Â. ©'
  CONST "is namespace" true
  CONST "no hands" true
