@@ -95,7 +95,9 @@ type
     read f_ButtonPanel;
  end;//TPrimLongProcessForm
 
-function TnsLongProcessData_C: TnsLongProcessData;
+function TnsLongProcessData_C(const aMessage: Il3CString;
+ aMessageType: TnsLongProcessType;
+ anIconName: PAnsiChar): TnsLongProcessData;
 
 implementation
 
@@ -115,7 +117,9 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-function TnsLongProcessData_C: TnsLongProcessData;
+function TnsLongProcessData_C(const aMessage: Il3CString;
+ aMessageType: TnsLongProcessType;
+ anIconName: PAnsiChar): TnsLongProcessData;
 //#UC START# *4B17B6FA024F_498C7D4301A5_var*
 //#UC END# *4B17B6FA024F_498C7D4301A5_var*
 begin

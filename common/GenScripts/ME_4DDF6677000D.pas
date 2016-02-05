@@ -28,13 +28,12 @@ type
  {$Include ClickOnCommentHeader.imp.pas}
  TClickOnCommentTest = {abstract} class(_ClickOnCommentHeader_)
   {* Тестирование кликанья мышью на заголовке комментария. }
-  private
-   function CheckCollapsed(aText: TevCustomEditorWindow): Boolean; override;
   protected
    {$If NOT Defined(NoVCM)}
    procedure Process(aForm: TPrimTextLoadForm); override;
     {* Собственно процесс обработки текста }
    {$IfEnd} // NOT Defined(NoVCM)
+   function CheckCollapsed(aText: TevCustomEditorWindow): Boolean; override;
    function GetFolder: AnsiString; override;
     {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; override;
