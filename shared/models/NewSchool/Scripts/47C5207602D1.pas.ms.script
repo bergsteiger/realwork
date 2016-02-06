@@ -512,6 +512,16 @@ ref; // ME_47C68B490273 rStart
 
 ref; // ME_47C68B5101B7 rFinish
 
+: ME_47C68B5F03BC
+ CONST UID '47C68B5F03BC'
+ CONST Name 'aCount'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_47C68B5F03BC aCount
+
 : ME_47C68B5B03E1
  CONST UID '47C68B5B03E1'
  CONST Name 'Dec'
@@ -520,6 +530,10 @@ ref; // ME_47C68B5101B7 rFinish
  CONST Abstraction at_final
  : Parent ME_47C68B3B022A // TevPair
  ;
+ : Parameters
+   Seq: ( ME_47C68B5F03BC // aCount
+ )
+ ; // Parameters
 
 ref; // ME_47C68B5B03E1 Dec
 

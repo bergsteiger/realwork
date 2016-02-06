@@ -11,14 +11,7 @@
  InitPrinterPxPerInch(aPPX, aPPY);
  GeneratePDF15File := True;
  UseUniscribe := False;
- if aForEtalon then
- begin
-  EmbeddedTTF := False;
-  GeneratePDF15File := False;
-  CompressionMethod := cmNone;
- end // if aForEtalon then
- else
-  EmbeddedTTF := True;
+ ForEtalon := aForEtalon;
 //#UC END# *54632D530392_54632B090390_impl*
 //#UC START# *54632D530392_54632B090390_var*
 //#UC END# *54632D530392_54632B090390_var*
@@ -41,3 +34,15 @@ var
  l_TextWidth  : Single;
  l_TextHeight : Single;
 //#UC END# *54632E0400DF_54632B090390_var*
+//#UC START# *56B471530132_54632B090390_impl*
+ if aValue then
+ begin
+  EmbeddedTTF := False;
+  GeneratePDF15File := False;
+  CompressionMethod := cmNone;
+ end // if aForEtalon then
+ else
+  EmbeddedTTF := True;
+//#UC END# *56B471530132_54632B090390_impl*
+//#UC START# *56B471530132_54632B090390_var*
+//#UC END# *56B471530132_54632B090390_var*

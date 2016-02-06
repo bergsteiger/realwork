@@ -723,6 +723,36 @@ ref; // ME_4A66D53E01F9 f_Type
 
 ref; // ME_4A66D702006C f_Prop
 
+: ME_4A66CE3F015F
+ CONST UID '4A66CE3F015F'
+ CONST Name 'aProp'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_49A5458C0335 // _PropIn_
+ ;
+
+ref; // ME_4A66CE3F015F aProp
+
+: ME_4A66CE3F0196
+ CONST UID '4A66CE3F0196'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_4A66CE3F0196 aValue
+
+: ME_4A66CE3F01D4
+ CONST UID '4A66CE3F01D4'
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_4A66CE3F01D4 aTag
+
 : ME_4A66CDFD01D5
  CONST UID '4A66CDFD01D5'
  CONST Name 'Init'
@@ -732,6 +762,12 @@ ref; // ME_4A66D702006C f_Prop
  CONST Abstraction at_final
  : Parent ME_4761470401C1 // Tk2Values
  ;
+ : Parameters
+   Seq: ( ME_4A66CE3F015F // aProp
+ ME_4A66CE3F0196 // aValue
+ ME_4A66CE3F01D4 // aTag
+ )
+ ; // Parameters
 
 ref; // ME_4A66CDFD01D5 Init
 
@@ -761,6 +797,16 @@ ref; // ME_4A66CE450382 Free
 
 ref; // ME_4A66CE690051 rTag
 
+: ME_5323295D00E0
+ CONST UID '5323295D00E0'
+ CONST Name 'aRef'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_532031160122' '47913B47006E.pas.ms.script' // Tl3Variant
+ ;
+
+ref; // ME_5323295D00E0 aRef
+
 : ME_4A66D08A002D
  CONST UID '4A66D08A002D'
  CONST Name 'SetRef'
@@ -769,6 +815,10 @@ ref; // ME_4A66CE690051 rTag
  CONST Abstraction at_final
  : Parent ME_4761470401C1 // Tk2Values
  ;
+ : Parameters
+   Seq: ( ME_5323295D00E0 // aRef
+ )
+ ; // Parameters
 
 ref; // ME_4A66D08A002D SetRef
 
@@ -2431,6 +2481,26 @@ ref; // ME_531EF6F0020D DoIt
 
 ref; // ME_531EF6EA02E5 Clear
 
+: ME_531EF6BF0253
+ CONST UID '531EF6BF0253'
+ CONST Name 'ID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
+ ;
+
+ref; // ME_531EF6BF0253 ID
+
+: ME_531EF6BF0281
+ CONST UID '531EF6BF0281'
+ CONST Name 'Item'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ ;
+
+ref; // ME_531EF6BF0281 Item
+
 : ME_531EF6B6000A
  CONST UID '531EF6B6000A'
  CONST Name 'SetItem'
@@ -2441,8 +2511,23 @@ ref; // ME_531EF6EA02E5 Clear
  ;
  : Target WL 'ME_48AC2BDA0309' '4678193C009C.pas.ms.script' // PObject
  ;
+ : Parameters
+   Seq: ( ME_531EF6BF0253 // ID
+ ME_531EF6BF0281 // Item
+ )
+ ; // Parameters
 
 ref; // ME_531EF6B6000A SetItem
+
+: ME_531EF6DE0018
+ CONST UID '531EF6DE0018'
+ CONST Name 'ID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
+ ;
+
+ref; // ME_531EF6DE0018 ID
 
 : ME_531EF6C7030B
  CONST UID '531EF6C7030B'
@@ -2454,8 +2539,22 @@ ref; // ME_531EF6B6000A SetItem
  ;
  : Target WL 'ME_48AC2BDA0309' '4678193C009C.pas.ms.script' // PObject
  ;
+ : Parameters
+   Seq: ( ME_531EF6DE0018 // ID
+ )
+ ; // Parameters
 
 ref; // ME_531EF6C7030B GetItemP
+
+: ME_531EF6D800DE
+ CONST UID '531EF6D800DE'
+ CONST Name 'ID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
+ ;
+
+ref; // ME_531EF6D800DE ID
 
 : ME_531EF6D10264
  CONST UID '531EF6D10264'
@@ -2467,6 +2566,10 @@ ref; // ME_531EF6C7030B GetItemP
  ;
  : Target WL 'ME_47BC391D0259' '47913B47006E.pas.ms.script' // Tl3SimpleObject
  ;
+ : Parameters
+   Seq: ( ME_531EF6D800DE // ID
+ )
+ ; // Parameters
 
 ref; // ME_531EF6D10264 GetItem
 
@@ -2521,6 +2624,16 @@ FORWARD ME_531EF71800F9
 
 FORWARD ME_531EF73702F9
 
+: ME_531EF77500AA
+ CONST UID '531EF77500AA'
+ CONST Name 'ID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
+ ;
+
+ref; // ME_531EF77500AA ID
+
 : ME_531EF76E016B
  CONST UID '531EF76E016B'
  CONST Name 'GetInterface'
@@ -2531,8 +2644,32 @@ FORWARD ME_531EF73702F9
  ;
  : Target ME_47F5DAEB0007 // Tk2ToolPrim
  ;
+ : Parameters
+   Seq: ( ME_531EF77500AA // ID
+ )
+ ; // Parameters
 
 ref; // ME_531EF76E016B GetInterface
+
+: ME_531EF785022A
+ CONST UID '531EF785022A'
+ CONST Name 'ID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
+ ;
+
+ref; // ME_531EF785022A ID
+
+: ME_531EF785025A
+ CONST UID '531EF785025A'
+ CONST Name 'Item'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47F5DAEB0007 // Tk2ToolPrim
+ ;
+
+ref; // ME_531EF785025A Item
 
 : ME_531EF77E0278
  CONST UID '531EF77E0278'
@@ -2542,8 +2679,33 @@ ref; // ME_531EF76E016B GetInterface
  CONST Abstraction at_final
  : Parent ME_531EF73702F9 // Tk2InterfaceCache
  ;
+ : Parameters
+   Seq: ( ME_531EF785022A // ID
+ ME_531EF785025A // Item
+ )
+ ; // Parameters
 
 ref; // ME_531EF77E0278 SetInterface
+
+: ME_531EF79A0311
+ CONST UID '531EF79A0311'
+ CONST Name 'ID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
+ ;
+
+ref; // ME_531EF79A0311 ID
+
+: ME_531EF79A0339
+ CONST UID '531EF79A0339'
+ CONST Name 'Action'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_469FA03900D4' '4678193C009C.pas.ms.script' // Tl3IteratorAction
+ ;
+
+ref; // ME_531EF79A0339 Action
 
 : ME_531EF7920193
  CONST UID '531EF7920193'
@@ -2553,6 +2715,11 @@ ref; // ME_531EF77E0278 SetInterface
  CONST Abstraction at_final
  : Parent ME_531EF73702F9 // Tk2InterfaceCache
  ;
+ : Parameters
+   Seq: ( ME_531EF79A0311 // ID
+ ME_531EF79A0339 // Action
+ )
+ ; // Parameters
 
 ref; // ME_531EF7920193 IterateInterfaces
 

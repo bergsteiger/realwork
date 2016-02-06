@@ -328,6 +328,36 @@ ref; // ME_47FA29CC0055 TnevShapePoints
 
 FORWARD ME_4A4B3579038F
 
+: ME_4A4B359D0096
+ CONST UID '4A4B359D0096'
+ CONST Name 'aView'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_47C5B97302B2' '47C5207602D1.pas.ms.script' // InevView
+ ;
+
+ref; // ME_4A4B359D0096 aView
+
+: ME_4A4B359D00B6
+ CONST UID '4A4B359D00B6'
+ CONST Name 'aCanvas'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4727449A00A2' '467C0CAA02AB.pas.ms.script' // Il3Canvas
+ ;
+
+ref; // ME_4A4B359D00B6 aCanvas
+
+: ME_4A585E1E009F
+ CONST UID '4A585E1E009F'
+ CONST Name 'aNeedBottom'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_4A585E1E009F aNeedBottom
+
 : ME_4A4B359D0072
  CONST UID '4A4B359D0072'
  CONST Name 'Init'
@@ -336,8 +366,24 @@ FORWARD ME_4A4B3579038F
  CONST Abstraction at_final
  : Parent ME_4A4B3579038F // TnevShapeAreaEx
  ;
+ : Parameters
+   Seq: ( ME_4A4B359D0096 // aView
+ ME_4A4B359D00B6 // aCanvas
+ ME_4A585E1E009F // aNeedBottom
+ )
+ ; // Parameters
 
 ref; // ME_4A4B359D0072 Init
+
+: ME_4A4B35A10063
+ CONST UID '4A4B35A10063'
+ CONST Name 'anArea'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_47FA2B4E0022 // TnevShapeArea
+ ;
+
+ref; // ME_4A4B35A10063 anArea
 
 : ME_4A4B35A1004C
  CONST UID '4A4B35A1004C'
@@ -347,6 +393,10 @@ ref; // ME_4A4B359D0072 Init
  CONST Abstraction at_final
  : Parent ME_4A4B3579038F // TnevShapeAreaEx
  ;
+ : Parameters
+   Seq: ( ME_4A4B35A10063 // anArea
+ )
+ ; // Parameters
 
 ref; // ME_4A4B35A1004C Init
 

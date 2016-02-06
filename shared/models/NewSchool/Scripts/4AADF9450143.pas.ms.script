@@ -6531,6 +6531,16 @@ ref; // ME_51EF80540017 FormClass
 
 ref; // ME_51FF72DE01DE IsCustomizationInternal
 
+: ME_51EF90740107
+ CONST UID '51EF90740107'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+
+ref; // ME_51EF90740107 anOther
+
 : ME_51EF904803AE
  CONST UID '51EF904803AE'
  CONST Name 'EQ'
@@ -6541,6 +6551,10 @@ ref; // ME_51FF72DE01DE IsCustomizationInternal
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_51EF90740107 // anOther
+ )
+ ; // Parameters
 
 ref; // ME_51EF904803AE EQ
 

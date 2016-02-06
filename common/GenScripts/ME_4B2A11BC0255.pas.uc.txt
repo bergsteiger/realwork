@@ -608,7 +608,8 @@ var
 
  function l_CalcEtalonFile(const aFileName: string): Boolean;
  begin
-  Inc(l_EtalonFilesCount);
+  if ExtractFileName(aFileName) <> '.gitignore' then  
+   Inc(l_EtalonFilesCount);
   Result := True;
  end;
 

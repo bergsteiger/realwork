@@ -166,6 +166,16 @@ ref; // ME_4CDD38E601A5 TafwAddress
 
 FORWARD ME_48F4940C01C0
 
+: ME_49E6009D0343
+ CONST UID '49E6009D0343'
+ CONST Name 'anAddress'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_48F4941A0249' '48F4E61C0060.pas.ms.script' // Address
+ ;
+
+ref; // ME_49E6009D0343 anAddress
+
 : ME_49E6009D02ED
  CONST UID '49E6009D02ED'
  CONST Name 'EQ'
@@ -177,6 +187,10 @@ FORWARD ME_48F4940C01C0
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_49E6009D0343 // anAddress
+ )
+ ; // Parameters
 
 ref; // ME_49E6009D02ED EQ
 

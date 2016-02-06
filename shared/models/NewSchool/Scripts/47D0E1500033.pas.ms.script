@@ -4890,6 +4890,16 @@ ref; // ME_5559A51A03C1 rContainer
 
 ref; // ME_5559A530015A rFormSet
 
+: ME_5559A54B015D
+ CONST UID '5559A54B015D'
+ CONST Name 'anOther'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_5559A50B0336 // TvcmFormSetContainerMapItem
+ ;
+
+ref; // ME_5559A54B015D anOther
+
 : ME_5559A53B02B4
  CONST UID '5559A53B02B4'
  CONST Name 'EQ'
@@ -4900,6 +4910,10 @@ ref; // ME_5559A530015A rFormSet
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_5559A54B015D // anOther
+ )
+ ; // Parameters
 
 ref; // ME_5559A53B02B4 EQ
 

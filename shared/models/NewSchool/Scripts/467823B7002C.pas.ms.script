@@ -839,6 +839,16 @@ ref; // ME_4CC6B0320014 IsValid
 
 ref; // ME_4CC6B48F01FD H
 
+: ME_4CC6B59C026D
+ CONST UID '4CC6B59C026D'
+ CONST Name 'anAdder'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4CC6A3D403D7 // TafwPagesInfo
+ ;
+
+ref; // ME_4CC6B59C026D anAdder
+
 : ME_4CC6B588002A
  CONST UID '4CC6B588002A'
  CONST Name 'Add'
@@ -849,6 +859,10 @@ ref; // ME_4CC6B48F01FD H
  ;
  : Target ME_4CC6A3D403D7 // TafwPagesInfo
  ;
+ : Parameters
+   Seq: ( ME_4CC6B59C026D // anAdder
+ )
+ ; // Parameters
 
 ref; // ME_4CC6B588002A Add
 

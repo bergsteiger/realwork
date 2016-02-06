@@ -46,7 +46,11 @@
  if IsModalForm then
   ModalResult := mrCancel
  else
+ {$If not defined(Admin) AND not defined(Monitorings)}
+  TvcmHistoryService.Instance.Back(As_IvcmEntityForm);
+ {$Else}
   Dispatcher.History.Back;
+ {$IfEnd} //not Admin AND not Monitorings
 //#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_impl*
 //#UC START# *4A8AD46D0226_4AAF6F4E010Eexec_var*
 //#UC END# *4A8AD46D0226_4AAF6F4E010Eexec_var*

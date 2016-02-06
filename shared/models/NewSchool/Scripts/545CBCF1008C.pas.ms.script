@@ -8,6 +8,84 @@ FORWARD ME_545CBD310006
 
 FORWARD ME_545CBD8C00E0
 
+: ME_56B470F10230
+ CONST UID '56B470F10230'
+ CONST Name 'ForEtalon'
+ CONST Class class_Attribute
+ : Stereotype st_property::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_545CBD8C00E0 // TPdfDocument
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST "needs field" true
+ CONST "pm" true
+
+ref; // ME_56B470F10230 ForEtalon
+
+: ME_678420A41035
+ CONST UID '678420A41035'
+ CONST Name 'f_ForEtalon'
+ CONST IsSummoned true
+ CONST Class class_Attribute
+ %SUMMARY 'Поле для свойства ForEtalon' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_ref
+ : Parent ME_545CBD8C00E0 // TPdfDocument
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:clearViaProperty 'ForEtalon'
+
+ref; // ME_678420A41035 f_ForEtalon
+
+FORWARD ME_56B471530132
+
+: ME_56B47173026D
+ CONST UID '56B47173026D'
+ CONST Name 'aValue'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56B47173026D aValue
+
+: ME_56B4716B0007
+ CONST UID '56B4716B0007'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56B471530132 // DoSet4Etalon
+ ;
+ : Parameters
+   Seq: ( ME_56B47173026D // aValue
+ )
+ ; // Parameters
+
+ref; // ME_56B4716B0007 DoIt
+
+: ME_56B471530132
+ CONST UID '56B471530132'
+ CONST Name 'DoSet4Etalon'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_545CBD8C00E0 // TPdfDocument
+ ;
+ : Operations
+   Seq: ( ME_56B4716B0007 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56B471530132 DoSet4Etalon
+
 FORWARD ME_5549C319004B
 
 : ME_5549C33A0017
@@ -44,6 +122,15 @@ ref; // ME_5549C398001F
  CONST Abstraction at_regular
  : Parent ME_545CBD310006 // SynPDF
  ;
+ : Attributes
+   Seq: ( ME_56B470F10230 // ForEtalon
+ ME_678420A41035 // f_ForEtalon
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56B471530132 // DoSet4Etalon
+ )
+ ; // Operations
  : Dependencies
    Seq: ( ME_5549C33A0017 // 
  ME_5549C398001F // 
@@ -543,6 +630,16 @@ ref; // ME_54632E0400DF RenderNewPage
 
 ref; // ME_54759AF603D4 
 
+: ME_56B471530132_ME_54632B090390
+ CONST UID '56B471530132'
+ CONST Name 'DoSet4Etalon'
+ : Original ME_56B471530132 // DoSet4Etalon
+ ;
+ : Implementor ME_54632B090390 // TGarantPDFDocument
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_56B471530132_ME_54632B090390 DoSet4Etalon
+
 : ME_54632B090390
  CONST UID '54632B090390'
  CONST Name 'TGarantPDFDocument'
@@ -569,6 +666,10 @@ ref; // ME_54759AF603D4
  ME_54632E0400DF // RenderNewPage
  )
  ; // Operations
+ : Overridden
+   Seq: ( ME_56B471530132_ME_54632B090390 // DoSet4Etalon
+ )
+ ; // Overridden
  : Constants
    Seq: ( ME_54634CFB0320 // PDFConsts
  )
