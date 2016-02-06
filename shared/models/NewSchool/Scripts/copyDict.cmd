@@ -1,1 +1,1 @@
-copy M:\NewSchool\Scripts\*.ms.dict H:\Dropbox\mindstream\Examples\Scripts\Real\
+copy /Y M:\NewSchool\Scripts\*.ms.dict H:\Dropbox\mindstream\Examples\Scripts\Real\
