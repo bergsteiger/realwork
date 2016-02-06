@@ -51,9 +51,6 @@ uses
 ;
 
 const
- cBooleanToContentsOpenMode: TnsBooleanToContentsOpenModeConverter = (ns_comNotForce, ns_comForce);
-
-const
  cEmptyWarning = [];
 
 type
@@ -772,6 +769,9 @@ type
   {* Контроллер формы-контейнера, в которую вставляются две половины документа ААК }
   ['{11C6F772-4065-4090-B89E-23C7A3C07A47}']
  end;//IdsAACContainer
+
+const
+ cBooleanToContentsOpenMode: TnsBooleanToContentsOpenModeConverter = (ns_comNotForce, ns_comForce);
 
 function TnsContentsListIndex_C(aListType: TnsContentsListType;
  anIndex: Integer): TnsContentsListIndex;
