@@ -15,13 +15,6 @@ uses
  , m3DBInterfaces
 ;
 
-const
- m3_cExchangeExt = '.sav';
- m3_cMainExt = '.stg';
- m3_cSummary = 'summary';
- m3_cObject = 'object';
- m3_cDocPartName: Tm3DocPartSelector_Names_Array = ('main', 'anno', m3_cSummary, m3_cObject);
-
 type
  Tm3BaseSummary = record
   {* Информация о диапазоне номеров долкументов }
@@ -31,6 +24,13 @@ type
 
  Tm3DocPartSelector_Names_Array = array [Tm3DocPartSelector] of AnsiString;
   {* Массив Tm3DocPartSelector }
+
+const
+ m3_cExchangeExt = '.sav';
+ m3_cMainExt = '.stg';
+ m3_cSummary = 'summary';
+ m3_cObject = 'object';
+ m3_cDocPartName: Tm3DocPartSelector_Names_Array = ('main', 'anno', m3_cSummary, m3_cObject);
 
 function GetBaseSummary(const aBase: Im3IndexedStorage;
  out theSumm: Tm3BaseSummary): Boolean; overload;
