@@ -10,9 +10,6 @@ uses
  , DynamicTreeUnit
 ;
 
-const
- DEFAULT_CONTEXT_FILTER_PARAMS: ContextFilterParams = (ContextPlace: CP_ANY; FindOrder : FO_ANY; SearchArea : SA_ALL_LEVEL);
-
 type
  ContextFilterParams = record
   ContextPlace: TContextPlace;
@@ -61,6 +58,9 @@ type
 
  TatFilterHelper = class
  end;//TatFilterHelper
+
+const
+ DEFAULT_CONTEXT_FILTER_PARAMS: ContextFilterParams = (ContextPlace: CP_ANY; FindOrder : FO_ANY; SearchArea : SA_ALL_LEVEL);
 
 implementation
 
