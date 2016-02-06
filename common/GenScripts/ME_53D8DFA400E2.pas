@@ -27,6 +27,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3OldInterfaceIDs
  , k2ToolPrim
  , nevTools
  , evdInterfaces

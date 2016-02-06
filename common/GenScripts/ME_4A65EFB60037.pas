@@ -42,13 +42,15 @@ type
   public
    rOld: Tl3Variant;
   public
-   procedure Init;
+   procedure Init(const aProp: _PropIn_;
+    aValue: Tl3Variant;
+    aTag: Tl3Variant);
     {* Инициализирует структуру }
    procedure Free;
     {* Освобождает структуру }
    function rTag: Tl3Variant;
     {* Тег, у которого меняется значение }
-   procedure SetRef;
+   procedure SetRef(var aRef: Tl3Variant);
    procedure CheckSort;
     {* Проверяет сортировку значения }
    function rNew: Tl3Variant;
@@ -69,7 +71,9 @@ uses
  , SysUtils
 ;
 
-procedure Tk2Values.Init;
+procedure Tk2Values.Init(const aProp: _PropIn_;
+ aValue: Tl3Variant;
+ aTag: Tl3Variant);
  {* Инициализирует структуру }
 //#UC START# *4A66CDFD01D5_4761470401C1_var*
 //#UC END# *4A66CDFD01D5_4761470401C1_var*
@@ -107,7 +111,7 @@ begin
 //#UC END# *4A66CE690051_4761470401C1_impl*
 end;//Tk2Values.rTag
 
-procedure Tk2Values.SetRef;
+procedure Tk2Values.SetRef(var aRef: Tl3Variant);
 //#UC START# *4A66D08A002D_4761470401C1_var*
 //#UC END# *4A66D08A002D_4761470401C1_var*
 begin

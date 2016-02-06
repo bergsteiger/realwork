@@ -65,7 +65,7 @@ type
    rStart: Integer;
    rFinish: Integer;
   public
-   procedure Dec;
+   procedure Dec(aCount: Integer);
    function Len: Integer;
  end;//TevPair
 
@@ -2524,7 +2524,7 @@ begin
 //#UC END# *4A25320D0116_47C6BCC6034E_impl*
 end;//TevContentsRec_C
 
-procedure TevPair.Dec;
+procedure TevPair.Dec(aCount: Integer);
 //#UC START# *47C68B5B03E1_47C68B3B022A_var*
 //#UC END# *47C68B5B03E1_47C68B3B022A_var*
 begin

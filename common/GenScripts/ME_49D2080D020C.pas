@@ -65,8 +65,10 @@ type
 
  TnevShapeAreaEx = object(TnevShapeArea)
   public
-   procedure Init; overload;
-   procedure Init; overload;
+   procedure Init(const aView: InevView;
+    const aCanvas: Il3Canvas;
+    aNeedBottom: Boolean); overload;
+   procedure Init(const anArea: TnevShapeArea); overload;
    procedure Free;
     {* Освобождает запись }
  end;//TnevShapeAreaEx
@@ -179,7 +181,9 @@ uses
  , l3Base
 ;
 
-procedure TnevShapeAreaEx.Init;
+procedure TnevShapeAreaEx.Init(const aView: InevView;
+ const aCanvas: Il3Canvas;
+ aNeedBottom: Boolean);
 //#UC START# *4A4B359D0072_4A4B3579038F_var*
 //#UC END# *4A4B359D0072_4A4B3579038F_var*
 begin
@@ -192,7 +196,7 @@ begin
 //#UC END# *4A4B359D0072_4A4B3579038F_impl*
 end;//TnevShapeAreaEx.Init
 
-procedure TnevShapeAreaEx.Init;
+procedure TnevShapeAreaEx.Init(const anArea: TnevShapeArea);
 //#UC START# *4A4B35A1004C_4A4B3579038F_var*
 //#UC END# *4A4B35A1004C_4A4B3579038F_var*
 begin
