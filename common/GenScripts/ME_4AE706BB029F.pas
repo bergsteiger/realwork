@@ -36,10 +36,6 @@ uses
  , l3StringIDEx
 ;
 
-const
- FIT_BOOKMARK = FoldersUnit.FIT_BOOKMARK;
- cTypeMap: TTypeMap = (FIT_BOOKMARK, FIT_BOOKMARK, FIT_LIST, FIT_QUERY, {FIT_QUERY, }FIT_PHARM_BOOKMARK, FIT_PHARM_LIST);
-
 type
  TTypeMap = array [TFoldersElementType] of TFoldersItemType;
 
@@ -158,6 +154,10 @@ type
     read f_InfoName;
     {* Название }
  end;//TPrimFoldersElementInfoForm
+
+const
+ FIT_BOOKMARK = FoldersUnit.FIT_BOOKMARK;
+ cTypeMap: TTypeMap = (FIT_BOOKMARK, FIT_BOOKMARK, FIT_LIST, FIT_QUERY, {FIT_QUERY, }FIT_PHARM_BOOKMARK, FIT_PHARM_LIST);
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
