@@ -117,7 +117,7 @@ type
    rOverallPagesCount: Integer;
   public
    function IsValid: Boolean;
-   function Add: TafwPagesInfo;
+   function Add(const anAdder: TafwPagesInfo): TafwPagesInfo;
  end;//TafwPagesInfo
 
  IafwPreviewCanvas = interface(IafwBase)
@@ -974,7 +974,7 @@ begin
 //#UC END# *4CC6B0320014_4CC6A3D403D7_impl*
 end;//TafwPagesInfo.IsValid
 
-function TafwPagesInfo.Add: TafwPagesInfo;
+function TafwPagesInfo.Add(const anAdder: TafwPagesInfo): TafwPagesInfo;
 //#UC START# *4CC6B588002A_4CC6A3D403D7_var*
 //#UC END# *4CC6B588002A_4CC6A3D403D7_var*
 begin
