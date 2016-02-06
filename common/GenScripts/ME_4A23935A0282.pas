@@ -48,7 +48,7 @@ type
 
  TevAddress = object(TafwAddress)
   public
-   function EQ: Boolean;
+   function EQ(const anAddress: TevdAddress): Boolean;
     {* Проверяет адреса на совпадение }
  end;//TevAddress
 
@@ -95,7 +95,7 @@ begin
 //#UC END# *49E604FE0347_48F4940C01C0_impl*
 end;//TevAddress_C
 
-function TevAddress.EQ: Boolean;
+function TevAddress.EQ(const anAddress: TevdAddress): Boolean;
  {* Проверяет адреса на совпадение }
 //#UC START# *49E6009D02ED_48F4940C01C0_var*
 //#UC END# *49E6009D02ED_48F4940C01C0_var*

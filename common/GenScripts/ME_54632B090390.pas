@@ -27,6 +27,7 @@ type
   protected
    procedure InitPrinterPxPerInch(anPPIX: Integer;
     anPPIY: Integer);
+   procedure DoSet4Etalon(aValue: Boolean); override;
   public
    constructor Create(aPPX: Integer;
     aPPY: Integer;
@@ -102,5 +103,21 @@ begin
  Canvas.RenderMetaFile(aMetaFile, f_Scale, l_Right, l_Top);
 //#UC END# *54632E0400DF_54632B090390_impl*
 end;//TGarantPDFDocument.RenderNewPage
+
+procedure TGarantPDFDocument.DoSet4Etalon(aValue: Boolean);
+//#UC START# *56B471530132_54632B090390_var*
+//#UC END# *56B471530132_54632B090390_var*
+begin
+//#UC START# *56B471530132_54632B090390_impl*
+ if aValue then
+ begin
+  EmbeddedTTF := False;
+  GeneratePDF15File := False;
+  CompressionMethod := cmNone;
+ end // if aForEtalon then
+ else
+  EmbeddedTTF := True;
+//#UC END# *56B471530132_54632B090390_impl*
+end;//TGarantPDFDocument.DoSet4Etalon
 
 end.

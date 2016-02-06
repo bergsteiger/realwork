@@ -27,7 +27,7 @@ type
    rContainer: Pointer;
    rFormSet: Pointer;
   public
-   function EQ: Boolean;
+   function EQ(const anOther: TvcmFormSetContainerMapItem): Boolean;
  end;//TvcmFormSetContainerMapItem
 
  TvcmFormSetContainerMapIterator_ForEachF_Action = function(const anItem: IvcmFormSet): Boolean;
@@ -139,7 +139,7 @@ begin
  l3Free(g_TvcmFormSetContainerRegistry);
 end;//TvcmFormSetContainerRegistryFree
 
-function TvcmFormSetContainerMapItem.EQ: Boolean;
+function TvcmFormSetContainerMapItem.EQ(const anOther: TvcmFormSetContainerMapItem): Boolean;
 //#UC START# *5559A53B02B4_5559A50B0336_var*
 //#UC END# *5559A53B02B4_5559A50B0336_var*
 begin

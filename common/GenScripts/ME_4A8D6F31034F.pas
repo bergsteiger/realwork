@@ -31,7 +31,7 @@ type
    rOperationID: Integer;
     {* Идентификатор операции }
   public
-   function EQ: Boolean;
+   function EQ(const aB: TvcmCommandInfo): Boolean;
  end;//TvcmCommandInfo
 
  _ItemType_ = TvcmCommandInfo;
@@ -72,7 +72,7 @@ begin
 //#UC END# *4A8D71180299_4A8D70780075_impl*
 end;//TvcmCommandInfo_C
 
-function TvcmCommandInfo.EQ: Boolean;
+function TvcmCommandInfo.EQ(const aB: TvcmCommandInfo): Boolean;
 //#UC START# *4A8D7588039F_4A8D70780075_var*
 //#UC END# *4A8D7588039F_4A8D70780075_var*
 begin
