@@ -49,8 +49,8 @@ type
    rImageIndex: Integer;
    rNeedUpdateImageIndex: Boolean;
   public
-   function EQ: Boolean;
-   function Compare: Integer;
+   function EQ(const anOther: TvcmContainedFormDescr): Boolean;
+   function Compare(const anOther: TvcmContainedFormDescr): Integer;
  end;//TvcmContainedFormDescr
 
  _ItemType_ = TvcmContainedFormDescr;
@@ -401,7 +401,7 @@ begin
  l3Free(g_TvcmTabbedContainerFormDispatcher);
 end;//TvcmTabbedContainerFormDispatcherFree
 
-function TvcmContainedFormDescr.EQ: Boolean;
+function TvcmContainedFormDescr.EQ(const anOther: TvcmContainedFormDescr): Boolean;
 //#UC START# *537AEB05030D_537AEA3B02A5_var*
 //#UC END# *537AEB05030D_537AEA3B02A5_var*
 begin
@@ -410,7 +410,7 @@ begin
 //#UC END# *537AEB05030D_537AEA3B02A5_impl*
 end;//TvcmContainedFormDescr.EQ
 
-function TvcmContainedFormDescr.Compare: Integer;
+function TvcmContainedFormDescr.Compare(const anOther: TvcmContainedFormDescr): Integer;
 //#UC START# *537AEB28016D_537AEA3B02A5_var*
 //#UC END# *537AEB28016D_537AEA3B02A5_var*
 begin

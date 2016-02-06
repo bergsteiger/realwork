@@ -26,7 +26,7 @@ type
    FormClass: TClass;
    IsCustomizationInternal: Boolean;
   public
-   function EQ: Boolean;
+   function EQ(const anOther: TvcmUserTypeDescr): Boolean;
  end;//TvcmUserTypeDescr
 
  _ItemType_ = TvcmUserTypeDescr;
@@ -49,7 +49,7 @@ uses
  , SysUtils
 ;
 
-function TvcmUserTypeDescr.EQ: Boolean;
+function TvcmUserTypeDescr.EQ(const anOther: TvcmUserTypeDescr): Boolean;
 //#UC START# *51EF904803AE_51EF7F380042_var*
 //#UC END# *51EF904803AE_51EF7F380042_var*
 begin

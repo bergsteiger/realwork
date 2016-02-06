@@ -26,7 +26,7 @@ type
    rContainer: TvcmTabbedContainerForm;
    rLockCount: Integer;
   public
-   function EQ: Boolean;
+   function EQ(const anOther: TvcmContainerLockCountItem): Boolean;
  end;//TvcmContainerLockCountItem
 
  _ItemType_ = TvcmContainerLockCountItem;
@@ -67,7 +67,7 @@ begin
 //#UC END# *55824F260248_55824ED3027A_impl*
 end;//TvcmContainerLockCountItem_C
 
-function TvcmContainerLockCountItem.EQ: Boolean;
+function TvcmContainerLockCountItem.EQ(const anOther: TvcmContainerLockCountItem): Boolean;
 //#UC START# *55824F0F01C2_55824ED3027A_var*
 //#UC END# *55824F0F01C2_55824ED3027A_var*
 begin

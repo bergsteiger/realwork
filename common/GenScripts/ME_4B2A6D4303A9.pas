@@ -55,8 +55,8 @@ type
    rTime: Cardinal;
    rID: TTimeInfoName;
   public
-   function Compare: Integer;
-   function EQ: Boolean;
+   function Compare(const aInfo: TTimeInfo): Integer;
+   function EQ(const aInfo: TTimeInfo): Boolean;
  end;//TTimeInfo
 
  {$Define l3Items_NeedsAssignItem}
@@ -912,7 +912,7 @@ begin
 //#UC END# *4B6C348B023F_4B6BF212005D_impl*
 end;//TTimeInfoName.Compare
 
-function TTimeInfo.Compare: Integer;
+function TTimeInfo.Compare(const aInfo: TTimeInfo): Integer;
 //#UC START# *4B2F57280040_4B2F565002FD_var*
 //#UC END# *4B2F57280040_4B2F565002FD_var*
 begin
@@ -929,7 +929,7 @@ begin
 //#UC END# *4B2F57280040_4B2F565002FD_impl*
 end;//TTimeInfo.Compare
 
-function TTimeInfo.EQ: Boolean;
+function TTimeInfo.EQ(const aInfo: TTimeInfo): Boolean;
 //#UC START# *4B2FAB480293_4B2F565002FD_var*
 //#UC END# *4B2FAB480293_4B2F565002FD_var*
 begin

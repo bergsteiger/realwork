@@ -96,7 +96,7 @@ type
    rForm: IvcmEntityForm;
    rGUID: TGUID;
   public
-   function EQ: Boolean;
+   function EQ(const aAnother: TvcmHistoryFormCacheItem): Boolean;
  end;//TvcmHistoryFormCacheItem
 
  TvcmFormSetFormHistoryItem = class(Tl3ProtoObject, IvcmFormSetFormHistoryItem)
@@ -552,7 +552,7 @@ begin
 //#UC END# *55A4BB09012B_55A4BC100361_impl*
 end;//TvcmFormSetHistoryItem.FillItems
 
-function TvcmHistoryFormCacheItem.EQ: Boolean;
+function TvcmHistoryFormCacheItem.EQ(const aAnother: TvcmHistoryFormCacheItem): Boolean;
 //#UC START# *55C86479026B_55C86432033A_var*
 //#UC END# *55C86479026B_55C86432033A_var*
 begin
