@@ -27,6 +27,10 @@ uses
 ;
 
 type
+ InevBase = nevBase.InevBase;
+
+ PInevObject = ^InevObject;
+
  InevViewControl = interface(InevBase)
   {* Контрол для управления View. }
   ['{C670983A-A20D-4900-B747-EEAD76B7EAB1}']
@@ -44,8 +48,6 @@ type
   procedure Home;
   procedure EndLine;
  end;//InevCaret
-
- InevBase = nevBase.InevBase;
 
  InevScroller = interface(InevViewControl)
   {* Скроллер. }
@@ -2155,8 +2157,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   property Para: InevPara
    read Get_Para;
  end;//InevActiveElement
-
- PInevObject = ^InevObject;
 
  HnevView = object
   {* Обёртка над InevView }

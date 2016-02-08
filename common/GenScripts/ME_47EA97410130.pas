@@ -367,6 +367,330 @@ end;//TevDocumentPreviewPrim.pm_GetPagesInfo
 
 procedure TevDocumentPreviewPrim.DoPrint;
  {* Собственно процесс печати }
+var l_Width: Integer;
+ {* Запоминаемая ширина документа }
+var l_Area: TnevShapeAreaEx;
+var l_Ind: InevProgress;
+var l_Canvas: InevCanvas;
+var l_Printer: Il3Printer;
+var l_View: InevPrintView;
+var l_Text: InevObject;
+
+ procedure DocumentPrint;
+  {* Печать документа }
+ var l_Aborted: Boolean;
+  {* Печать прервана }
+ var l_PaperWidth: Integer;
+  {* Ширина бумаги }
+ var l_Info: TnevShapeInfo;
+  {* Информация для отрисовки }
+ var l_Width2Print: Integer;
+  {* Ширина печатаемой секции }
+ var l_PrintableWidth: Integer;
+  {* Ширина печатаемого куска }
+ var l_Top: Tl3Point;
+  {* Смещение текущего куска }
+ var l_NextPage: InevBasePoint;
+  {* Якорь на следующую страницу }
+ var l_Anchor: InevAnchor;
+  {* Якорь на начало документа }
+ var l_PageHeight: Integer;
+  {* Высота страницы }
+ var l_SomethingPrinted: Boolean;
+  {* Напечатали ли чего за итерацию цикла }
+ var l_BottomPoint: InevBasePoint;
+  {* Самая нижняя точка при печати по ширине. }
+ var l_PrevHeight: Integer;
+  {* Высота вычисленная на предыдущей странице }
+ var l_DisableUnformat: Boolean;
+  {* http://mdp.garant.ru/pages/viewpage.action?pageId=210043454&focusedCommentId=210436611#comment-210436611 }
+ var l_WidthExtent: Tl3Point;
+  {* По ширине }
+ var l_HeightExtent: Tl3Point;
+  {* Расширение страницы }
+
+  function PrintPara(const aPara: InevObject;
+   const aTop: InevBasePoint;
+   aPrevHeight: Integer): TnevShapeInfo;
+   {* Печатает параграф }
+  //#UC START# *49CB7CF103B6__var*
+  //#UC END# *49CB7CF103B6__var*
+  begin
+  //#UC START# *49CB7CF103B6__impl*
+   Result := evDrawPara(anArea, aPara, aTop, aPara.Range, aPrevHeight);
+  //#UC END# *49CB7CF103B6__impl*
+  end;//PrintPara
+
+
+  function DocumentHeight: Integer;
+   {* Высота документа }
+  //#UC START# *49CB8C8B02C7__var*
+  //#UC END# *49CB8C8B02C7__var*
+  begin
+  //#UC START# *49CB8C8B02C7__impl*
+   Result := aDocument.ToList.LeafShapeCount * nev_ParaListFakeParaEx.Y;
+  //#UC END# *49CB8C8B02C7__impl*
+  end;//DocumentHeight
+
+
+  procedure CheckSectionBreak;
+
+   procedure SkipSectionBreak(const anAnchor: InevAnchor);
+   var l_Line: Integer;
+   //#UC START# *49CB8FF602C5__var*
+   //#UC END# *49CB8FF602C5__var*
+   begin
+   //#UC START# *49CB8FF602C5__impl*
+    l_Line := 1;
+    anAnchor.IncLine(anArea.rView.As_InevView, l_Line, False);
+   //#UC END# *49CB8FF602C5__impl*
+   end;//SkipSectionBreak
+
+  //#UC START# *49CB8D7B02A2__var*
+  var
+   l_Para : InevObject; // Текущий параграф
+
+   function lp_IsParaSectionBreak(const anAnchor: InevAnchor): Boolean;
+   begin
+    Result := False;
+    l_Para := anAnchor.MostInner.Obj^;
+    with l_Para do
+     if IsKindOf(k2_typSectionBreak) then
+     begin
+      anArea.rCanvas.SectionExtent := evSectionExtent(l_Para.AsObject);
+      SkipSectionBreak(anAnchor);
+      Result := True;
+     end//IsKindOf(k2_typSectionBreak)
+   end;
+
+   {$IFDEF Nemesis}
+   function lp_CheckDecorPara: Boolean;
+   var
+    l_CheckAnchor: InevAnchor;
+   begin
+    Result := False;
+    if l_Para.IsKindOf(k2_typDecorTextPara) then
+    begin
+     l_CheckAnchor := l_Anchor.Obj.MakeAnchor;
+     l_CheckAnchor.AssignPoint(anArea.rView.As_InevView, l_Anchor);
+     SkipSectionBreak(l_CheckAnchor);
+     if lp_IsParaSectionBreak(l_CheckAnchor) then
+     begin
+      Result := True;
+      l_Anchor.AssignPoint(anArea.rView.As_InevView, l_CheckAnchor);
+     end; // if lp_IsParaSectionBreak(l_CheckAnchor) then
+    end; // if l_Para.IsKindOf(k2_typDecorTextPara) then
+   end;
+   {$ENDIF Nemesis}
+  //#UC END# *49CB8D7B02A2__var*
+  begin
+  //#UC START# *49CB8D7B02A2__impl*
+    if not lp_IsParaSectionBreak(l_Anchor) then
+    {$IFDEF Nemesis}
+     if not lp_CheckDecorPara then
+    {$ENDIF Nemesis}
+      anArea.rCanvas.SectionExtent := l3Point(aDocument.AsObject.IntA[k2_tiWidth],
+                                             anArea.rCanvas.SectionExtent.Y);
+  //#UC END# *49CB8D7B02A2__impl*
+  end;//CheckSectionBreak
+
+ //#UC START# *49CB801A037F__var*
+ var
+  l_PageSetup : IafwPageSetup;
+  l_Margins   : Tl3_Rect;
+  l_MarginsWidth: Integer;
+ //#UC END# *49CB801A037F__var*
+ begin
+ //#UC START# *49CB801A037F__impl*
+  if (aProgress <> nil) then
+   aProgress.ChangeIO(True);
+  try
+   with anArea.rCanvas do
+   begin
+    DrawEnabled := True;
+    if (aProgress <> nil) then
+     aProgress.Start(DocumentHeight, str_nevpmPrinting.AsCStr);
+    try
+     l_Top := l3Point0;
+     l_Anchor := aDocument.MakeAnchor;
+     CheckSectionBreak;
+     l_NextPage := l_Anchor;
+
+     l_PageSetup := f_OriginalText.PageSetup;
+     {$IF not Defined(Archi) and not Defined(EverestLite)}
+     // http://mdp.garant.ru/pages/viewpage.action?pageId=252512973
+     Assert({$IfDef nsTest}
+            OldBehaviourForK235875079 OR
+            {$EndIf nsTest}
+            (l_PageSetup <> nil));
+     {$IfEnd}//{$IF not Defined(Archi) and not Defined(EverestLite)}
+     if (l_PageSetup <> nil) then
+      l_Margins := l_PageSetup.Margins
+     else
+     {$If Defined(nsTest) OR Defined(Archi) or Defined(EverestLite)}
+      with Text.AsObject.Attr[k2_tiParas] do
+       l_Margins := l3Rect(IntA[k2_tiLeftIndent],
+                           IntA[k2_tiSpaceBefore],
+                           IntA[k2_tiRightIndent],
+                           IntA[k2_tiSpaceAfter]);
+     {$Else}//Defined(nsTest) OR Defined(Archi)
+     begin
+      l3FillChar(l_Margins, SizeOf(l_Margins));
+      Assert(false);
+     end;//l_PageSetup <> nil
+     {$IfEnd}//Defined(nsTest) OR Defined(Archi)
+     with PageSetup do
+     begin
+      if (Min(PaperWidth, PaperHeight) -
+         (l_Margins.Top + l_Margins.Bottom)) <
+         (def_inchMinPrintArea - l3Epsilon) then
+       raise EevInvalidPrintMargins.Create(ev_warInvalidMargins);
+      Margins := l_Margins;
+     end;//with PageSetup
+     BackColor := clWhite;
+     try
+      BeginPaint;
+     except
+      on Ek2ConversionError do
+      begin
+       // - Прервали печать - надо корректно это отработать
+       EndPaint;
+       Exit;
+      end;//on Ek2ConversionError
+     end;//try..except
+      try
+       l_Aborted := False;
+       CheckAborted(l_Aborted);
+       if l_Aborted then
+        Exit;
+       l_MarginsWidth := 0; 
+       l_HeightExtent := anArea.rCanvas.SectionExtent;
+       repeat
+        // - Цикл по страницам в высоту
+        with PageSetup do
+        begin
+         // - Берем настройки текущего раздела
+         l_PaperWidth := PaperWidth;
+         l_PrintableWidth := Width;
+         l_MarginsWidth := l_PaperWidth - l_PrintableWidth;
+        end;//with PageSetup
+        l_PageHeight := 0;
+        l_Width2Print := SectionExtent.X;
+        l_Top.X := 0;                                                   
+
+        l_BottomPoint := nil;
+        l_PrevHeight := 0;
+        l_WidthExtent := l3Point(l_HeightExtent.X - l_MarginsWidth, l_HeightExtent.Y);;
+        repeat
+         // - Цикл по страницам в ширину
+         MoveWindowOrg(l3PointX(l_Top.X));
+         l_Info := PrintPara(aDocument, l_NextPage, l_PrevHeight);
+         //  V - http://mdp.garant.ru/pages/viewpage.action?pageId=517787896
+         if anArea.rCanvas.SectionExtent.X <> l_WidthExtent.X then
+          // V- http://mdp.garant.ru/pages/viewpage.action?pageId=330700128
+          l_HeightExtent := anArea.rCanvas.SectionExtent; // - Здесь может быть размер секции от страницы снизу, если был разрыв раздела!
+         if (l_PageHeight = 0) then
+          l_PageHeight := l_Info.rMap.Bounds.Bottom;
+         CheckAborted(l_Aborted);
+         Dec(l_Width2Print, l_PaperWidth);
+         if (l_BottomPoint = nil) or l_BottomPoint.AfterEnd then
+          l_BottomPoint := l_Info.rBottom
+         else
+          begin
+           l_BottomPoint.MergeTo(anArea.rView.As_InevView, l_Info.rBottom);
+           l_BottomPoint := l_Info.rBottom;
+          end;
+         if l_Aborted or (l_Width2Print <= l3Epsilon) then
+          Break
+         else
+         begin
+          Inc(l_Top.P.X, l_PrintableWidth);
+          NewPage(True);
+          // V- http://mdp.garant.ru/pages/viewpage.action?pageId=330700128
+          anArea.rCanvas.SectionExtent := l_WidthExtent; // - Нам нужен размер секции от страницы слева, а не от страницы снизу!
+         end;//l_Aborted..
+         if l_Info.rCalculatedHeight <> 0 then
+          l_PrevHeight := l_Info.rCalculatedHeight;
+        until False;
+        anArea.rCanvas.SectionExtent := l_HeightExtent;
+        {$IFDEF nsTest}
+        if TPrintRowHeightsSpy.Exists then
+         TPrintRowHeightsSpy.Instance.ClearData;
+        {$ENDIF nsTest}
+        Inc(l_Top.P.Y, l_PageHeight);
+        if (aProgress <> nil) then
+         aProgress.Progress(l_Top.Y);
+        if l_Aborted OR Printed then
+         Break
+        else
+        if not NewPage then
+         Break;
+        l_Top.X := 0;
+        // Сдвинулся ли якорь с которого печатать следующую страницу?
+        try
+         l_DisableUnformat := l_BottomPoint.MostInner.AsObject.Owner.IsKindOf(k2_typTable) AND
+                              l_BottomPoint.MostInner.AsObject.Owner.IsSame(l_NextPage.MostInner.AsObject.Owner);
+         l_SomethingPrinted := l_NextPage.Diff(anArea.rView.As_InevView,
+                                               l_Info.rBottom,
+                                               anArea.rView.RootMap.FI){$IfOpt D-} <> {$Else} < {$EndIf} 0;
+         l_NextPage := l_BottomPoint;//l_Info.rBottom;
+         if l_NextPage.AtEnd(anArea.rView.As_InevView) AND
+            l_NextPage.MostInner.AsObject.IsKindOf(k2_typPageBreak) then
+         // - нечего печатать пустую страницу
+          Break;
+         // Если якорь не сдвинулся и из цикла не вышли - зациклились..
+         if not l_SomethingPrinted then
+         begin
+          try
+           {$IfDef nsTest}
+           f_Stopped := true;
+           {$Else  nsTest}
+           {$IfOpt D-}
+           f_Stopped := true;
+           {$EndIf D-}
+           {$EndIf nsTest}
+           Assert(False,'Cycling on printing');
+           raise EevInvalidPrintMargins.Create(ev_warInvalidMargins);
+          except
+           {$IfDef nsTest}
+           raise;
+           {$Else  nsTest}
+           {$IfOpt D+}
+           break;
+           {$Else}
+           raise;
+           {$EndIf}
+           {$EndIf nsTest}
+          end;//try..except
+         end;//not l_SomethingPrinted
+         anArea.rView.ClearShapes;
+         if not l_DisableUnformat then
+          UnformatView(anArea.rView.As_InevView);
+         // - сбрасываем информацию о форматировании, т.к. вместе с новой страницей могла изменится LimitWidth
+        except
+         on EnevMaybeBaseSwitched do
+         // http://mdp.garant.ru/pages/viewpage.action?pageId=258608212
+         begin
+          f_Stopped := true;
+          break;
+         end;//on EnevMaybeBaseSwitched
+        end;//try..except
+       until False;
+     finally
+      EndPaint;
+     end;//try..finally
+    finally
+     if (aProgress <> nil) then
+      aProgress.Finish;
+    end;//try..finally
+   end;//with anArea.rCanvas
+  finally
+   if (aProgress <> nil) then
+    aProgress.ChangeIO(False);
+  end;//try..finally
+ //#UC END# *49CB801A037F__impl*
+ end;//DocumentPrint
+
 //#UC START# *49CB4BD701C9_47EA97410130_var*
 (*var
  l_F : Tl3FileStream;
@@ -459,6 +783,12 @@ end;//TevDocumentPreviewPrim.DoPrint
 
 function TevDocumentPreviewPrim.GetText: InevObject;
  {* Получаем текст документа для просмотра }
+var l_Buffer: Tk2DocumentBuffer;
+ {* Буфер документа }
+var l_Generator: Tk2TagGenerator;
+ {* Генератор документа }
+var l_Pack: InevOp;
+ {* Пачка операций }
 //#UC START# *49CBC3B1026E_47EA97410130_var*
 //#UC END# *49CBC3B1026E_47EA97410130_var*
 begin
@@ -554,6 +884,12 @@ end;//TevDocumentPreviewPrim.GetText
 function TevDocumentPreviewPrim.GetPreviewCanvas(const aPagesInfo: TafwPagesInfo;
  aCounter: Boolean): IafwPreviewCanvas;
  {* Подготавливает виртуальную канву }
+var l_Max: Integer;
+var l_PageHeight: Integer;
+var l_PreviewCanvas: TafwPreviewCanvas;
+ {* Виртуальная канва }
+var l_Text: InevObject;
+ {* Текст }
 //#UC START# *49CBC90C017F_47EA97410130_var*
 //#UC END# *49CBC90C017F_47EA97410130_var*
 begin
@@ -612,6 +948,8 @@ end;//TevDocumentPreviewPrim.GetPreviewCanvas
 
 procedure TevDocumentPreviewPrim.TryClose;
  {* Пытается прервать печать и закрыть окно }
+var l_Wnd: THandle;
+ {* Окно для закрытия }
 //#UC START# *49CBCAB8037B_47EA97410130_var*
 //#UC END# *49CBCAB8037B_47EA97410130_var*
 begin
@@ -646,6 +984,7 @@ begin
 end;//TevDocumentPreviewPrim.AbortPreviewPrepare
 
 function TevDocumentPreviewPrim.CurrentPageForUpdate: Integer;
+var l_Preview: IafwPreviewCanvas;
 //#UC START# *49CCF962005D_47EA97410130_var*
 //#UC END# *49CCF962005D_47EA97410130_var*
 begin
@@ -661,6 +1000,7 @@ begin
 end;//TevDocumentPreviewPrim.CurrentPageForUpdate
 
 function TevDocumentPreviewPrim.GetPreviewForCurrentPage: IafwPreviewCanvas;
+var l_Index: Integer;
 //#UC START# *49CCFAD0019C_47EA97410130_var*
 //#UC END# *49CCFAD0019C_47EA97410130_var*
 begin
@@ -681,6 +1021,7 @@ begin
 end;//TevDocumentPreviewPrim.GetPreviewForCurrentPage
 
 procedure TevDocumentPreviewPrim.NotifyPreviewSubscribers;
+var l_Idx: Integer;
 //#UC START# *49CCFC8403A6_47EA97410130_var*
 //#UC END# *49CCFC8403A6_47EA97410130_var*
 begin

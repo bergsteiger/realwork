@@ -102,6 +102,7 @@ function evTranslateMouseAction(const aView: InevControlView;
  anAction: TevMouseAction;
  const Keys: TevMouseState;
  var Effect: TevMouseEffect): Boolean;
+var l_HotSpotSink: IevHotSpotSink;
 //#UC START# *4A4384E70140_4A269456002A_var*
 //#UC END# *4A4384E70140_4A269456002A_var*
 begin

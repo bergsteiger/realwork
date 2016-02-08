@@ -34,6 +34,9 @@ const
 function CommandID(aItemID: Integer;
  aIsModule: Boolean;
  aOperationID: Integer): Word;
+var l_C: TvcmCommandInfo;
+var l_L: TvcmCommandIDsList;
+var l_Index: Integer;
 //#UC START# *4A8D78F801FC_4A8D789702FA_var*
 //#UC END# *4A8D78F801FC_4A8D789702FA_var*
 begin

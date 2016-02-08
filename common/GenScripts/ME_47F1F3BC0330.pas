@@ -191,6 +191,7 @@ function evInPara(anAtom: Tl3Variant;
  const anExclude: array of Tk2TypePrim;
  out theParent: Tl3Variant): Boolean;
  {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.  theParent - найденный владелец подходящего типа. Можно задавать исключения в наследовании }
+var l_Parent: Tl3Variant;
 //#UC START# *4A829D3500A9_47F1F3BC0330_var*
 //#UC END# *4A829D3500A9_47F1F3BC0330_var*
 begin
@@ -211,6 +212,8 @@ begin
 end;//evInPara
 
 function evIsInReadOnlyPara(const aPara: InevPara): Boolean;
+var l_Container: InevDocumentContainer;
+var l_E: IevF1LikeEditor;
 //#UC START# *4A8C2CE10376_47F1F3BC0330_var*
 //#UC END# *4A8C2CE10376_47F1F3BC0330_var*
 begin
@@ -229,6 +232,8 @@ begin
 end;//evIsInReadOnlyPara
 
 function evDeleteIfReadOnly(const aPara: InevPara): Boolean;
+var l_Container: InevDocumentContainer;
+var l_E: IevF1LikeEditor;
 //#UC START# *4A8C2EBB03A8_47F1F3BC0330_var*
 //#UC END# *4A8C2EBB03A8_47F1F3BC0330_var*
 begin

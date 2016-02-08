@@ -281,10 +281,11 @@ type
  end;//IAttributesHelper
 
 class function make(attribute_tag: TAttributeTag): BadFactoryType;
-function TQueryNodeValue_make: TQueryNodeValue; overload;
+function TQueryNodeValue_make(var node_: INodeBase;
+ operation_: TQueryLogicOperation): TQueryNodeValue; overload;
 function TQueryNodeValue_make: TQueryNodeValue; overload;
  {* конструктор по умолчанию }
-function TContextValue_make: TContextValue; overload;
+function TContextValue_make(var context_: IString): TContextValue; overload;
 function TContextValue_make: TContextValue; overload;
  {* конструктор по умолчанию }
 function TDateValue_make: TDateValue;
@@ -316,7 +317,8 @@ begin
  end;//try..finally
 end;//make
 
-function TQueryNodeValue_make: TQueryNodeValue;
+function TQueryNodeValue_make(var node_: INodeBase;
+ operation_: TQueryLogicOperation): TQueryNodeValue;
 //#UC START# *46151C4A0238_45EEE65400FB_var*
 //#UC END# *46151C4A0238_45EEE65400FB_var*
 begin
@@ -339,7 +341,7 @@ begin
 //#UC END# *473064CF02EE_45EEE65400FB_impl*
 end;//TQueryNodeValue_make
 
-function TContextValue_make: TContextValue;
+function TContextValue_make(var context_: IString): TContextValue;
 //#UC START# *461A637E0017_45EEE4310209_var*
 //#UC END# *461A637E0017_45EEE4310209_var*
 begin

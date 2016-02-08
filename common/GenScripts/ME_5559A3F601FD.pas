@@ -22,6 +22,8 @@ uses
 ;
 
 type
+ PvcmFormSetContainerMapItem = ^TvcmFormSetContainerMapItem;
+
  TvcmFormSetContainerMapItem = object
   public
    rContainer: Pointer;
@@ -45,8 +47,6 @@ type
    anIndex: Integer);
  end;//TvcmFormSetContainerMapIterator
  *)
-
- PvcmFormSetContainerMapItem = ^TvcmFormSetContainerMapItem;
 
  _ItemType_ = TvcmFormSetContainerMapItem;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;

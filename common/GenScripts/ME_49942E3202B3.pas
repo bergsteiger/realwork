@@ -19,6 +19,8 @@ uses
 ;
 
 type
+ PvcmMessageID = ^TvcmMessageID;
+
  TvcmMessageID = record
   rM: Integer;
  end;//TvcmMessageID
@@ -42,8 +44,6 @@ type
   function Ask(const aMsg: Tl3MessageID;
    const aData: array of const): Boolean; overload;
  end;//IvcmUserInteraction
-
- PvcmMessageID = ^TvcmMessageID;
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation

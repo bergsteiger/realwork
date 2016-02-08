@@ -80,6 +80,7 @@ begin
 end;//TevCellsOffsets.AddCellWidth
 
 procedure TevCellsOffsets.CheckOffset(aCheckWidth: Boolean);
+var l_Index: Integer;
 //#UC START# *4A562C6C00A6_49CB6E880188_var*
 //#UC END# *4A562C6C00A6_49CB6E880188_var*
 begin
@@ -94,6 +95,7 @@ begin
 end;//TevCellsOffsets.CheckOffset
 
 function TevCellsOffsets.CheckParam: Boolean;
+var l_Index: Integer;
 //#UC START# *4A562C85014A_49CB6E880188_var*
 //#UC END# *4A562C85014A_49CB6E880188_var*
 begin

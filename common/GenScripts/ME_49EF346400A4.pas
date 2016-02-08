@@ -30,6 +30,7 @@ _afwShortcutsHandler_ = _afwShortcutsHandler_Parent_;
 {$If NOT Defined(DesignTimeLibrary)}
 function _afwShortcutsHandler_.IsHandledShortcut(var Msg: TMessage): Boolean;
  {* Обработчик ShortCut'ов }
+var l_Controller: TOvcController;
 //#UC START# *49EF3805033D_49EF346400A4_var*
 //#UC END# *49EF3805033D_49EF346400A4_var*
 begin

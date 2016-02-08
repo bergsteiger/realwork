@@ -28,6 +28,8 @@ const
  edAllowCellInHeadRow = [ed_HasMergedCell, ed_SimpleCells, ed_SimpleWithoutEmpty];
 
 type
+ PIedFramePart = ^IedFramePart;
+
  IedStyle = interface
   {* Стиль параграфа }
   ['{821B4AA6-AAAB-40F8-8F95-E102524FD18D}']
@@ -131,8 +133,6 @@ type
   , ed_lsEngrave
   , ed_lsUndefined
  );//TedLineStyle
-
- PIedFramePart = ^IedFramePart;
 
  IedFramePart = interface
   {* Часть рамки вокруг объекта }

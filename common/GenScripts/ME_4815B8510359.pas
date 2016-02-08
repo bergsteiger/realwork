@@ -94,6 +94,76 @@ begin
 end;//TnevListFormatInfo.AllowTotalRecalc
 
 procedure TnevListFormatInfo.RecalcImpl;
+var l_sPH: Integer;
+var l_sPW: Integer;
+var l_FixedWidth: Boolean;
+var l_Delta: TnevPoint;
+var l_Space: TnevRect;
+var l_Vert: Boolean;
+
+ procedure RecalcVert;
+
+  function DoIt(const anItem: InevPara;
+   anIndex: Integer): Boolean;
+   {* Подитеративная функция для вызова L2InevParaListIterateParaAction из RecalcVert }
+  //#UC START# *9598BBF73723__var*
+  var
+   PW    : Integer;
+   l_Map : TnevFormatInfo;
+  //#UC END# *9598BBF73723__var*
+  begin
+  //#UC START# *9598BBF73723__impl*
+   Result := true;
+   FormatChild(anItem, l_Map);
+   if not l_FixedWidth then
+   begin
+    PW := l_Map.Width;
+    if (l_sPW < PW) then
+     l_sPW := PW;
+   end;//not l_FixedWidth
+   Inc(l_sPH, l_Map.Height);
+  //#UC END# *9598BBF73723__impl*
+  end;//DoIt
+
+ //#UC START# *4E70A26D0302__var*
+ //#UC END# *4E70A26D0302__var*
+ begin
+  //#UC START# *4E70A26D0302iter*
+  (Obj As InevObject).AsPara.AsList.
+  //#UC END# *4E70A26D0302iter*
+  IterateParaF(L2InevParaListIterateParaAction(@DoIt)
+  //#UC START# *4E70A26D0302iterparam*
+  //#UC END# *4E70A26D0302iterparam*
+  );
+ end;//RecalcVert
+
+
+ procedure RecalcHorz;
+
+  function DoIt(const anItem: InevPara;
+   anIndex: Integer): Boolean;
+   {* Подитеративная функция для вызова L2InevParaListIterateParaAction из RecalcHorz }
+  //#UC START# *998D2E0A65D4__var*
+  //#UC END# *998D2E0A65D4__var*
+  begin
+  //#UC START# *998D2E0A65D4__impl*
+   Result := true;
+   HRecalcChild(anItem, l_sPW, l_sPH);
+  //#UC END# *998D2E0A65D4__impl*
+  end;//DoIt
+
+ //#UC START# *4E70A28A00B3__var*
+ //#UC END# *4E70A28A00B3__var*
+ begin
+  //#UC START# *4E70A28A00B3iter*
+  (Obj As InevObject).AsPara.AsList.
+  //#UC END# *4E70A28A00B3iter*
+  IterateParaF(L2InevParaListIterateParaAction(@DoIt)
+  //#UC START# *4E70A28A00B3iterparam*
+  //#UC END# *4E70A28A00B3iterparam*
+  );
+ end;//RecalcHorz
+
 //#UC START# *4E709676009E_4815B8510359_var*
 //#UC END# *4E709676009E_4815B8510359_var*
 begin

@@ -29,6 +29,11 @@ uses
 ;
 
 type
+ IvcmBase = interface
+  {* Базовый интерфес. Введен для общности. }
+  ['{2F621927-A8BB-4C2D-95FB-5E4A3FF59633}']
+ end;//IvcmBase
+
  TvcmControlID = Integer;
   {* Тип идентификатора управляющего элемента. }
 
@@ -124,11 +129,6 @@ type
   rOpID: TvcmControlID;
    {* Операция. }
  end;//TvcmOPID
-
- IvcmBase = interface
-  {* Базовый интерфес. Введен для общности. }
-  ['{2F621927-A8BB-4C2D-95FB-5E4A3FF59633}']
- end;//IvcmBase
 
  TvcmMOPID = record
   {* Идентификатор операции модуля. }

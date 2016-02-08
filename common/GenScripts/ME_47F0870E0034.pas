@@ -513,6 +513,43 @@ end;//TnevDocumentContainer.pm_SetNext
 
 procedure TnevDocumentContainer.WriteDataExEx;
  {* считать документ из памяти в TextSource }
+var l_FS: Ik2FilerSource2;
+var l_Events: TnevFilerEvents;
+var l_F: Tl3CustomFiler;
+
+ procedure WriteBlock;
+ var l_JoinGenerator: IevJoinGenerator;
+ var l_Gen: InevTagGenerator;
+ //#UC START# *4A2541A601D3__var*
+ //#UC END# *4A2541A601D3__var*
+ begin
+ //#UC START# *4A2541A601D3__impl*
+  l_Gen := GetGenerator(aView, aBlock);
+  try
+   if Supports(l_Gen, IevJoinGenerator, l_JoinGenerator) then
+    try
+     l_JoinGenerator.LoadFlags := aFlags;
+    finally
+     l_JoinGenerator := nil;
+    end;//try..finally
+   aReader.Link(l_Gen);
+   try
+    try
+     aReader.Execute;
+    except
+     on El3AbortLoad do
+      if not TextSource.HandleAbortLoad then
+       raise;
+    end;{try..except}
+   finally
+    aReader.UnLink(l_Gen);
+   end;//try..finally
+  finally
+   l_Gen := nil;
+  end;//try..finally
+ //#UC END# *4A2541A601D3__impl*
+ end;//WriteBlock
+
 //#UC START# *4A25405F0203_47F0870E0034_var*
 //#UC END# *4A25405F0203_47F0870E0034_var*
 begin

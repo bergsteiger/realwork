@@ -49,6 +49,7 @@ type _Instance_R_ = Tl3StringMap;
 
 function Tl3StringMap.ResolveString(const aString: AnsiString): Integer;
  {* Возвращает идентификатор строки }
+var l_Item: Tl3KeyWord;
 //#UC START# *4B8BC0D40179_4B8BC059018C_var*
 //#UC END# *4B8BC0D40179_4B8BC059018C_var*
 begin

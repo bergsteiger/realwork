@@ -198,6 +198,8 @@ begin
 end;//TevControlParaHotSpot.PtToPara
 
 procedure TevControlParaHotSpot.TrySendToGroup(aTag: Tl3Variant);
+var l_Tag: Tl3Tag;
+var l_Group: IevQueryGroup;
 //#UC START# *4A27ADED0094_4A27A7D5019E_var*
 //#UC END# *4A27ADED0094_4A27A7D5019E_var*
 begin

@@ -36,6 +36,7 @@ uses
 
 function TevArchiCollapser.TryDoHyperlink(const aView: InevControlView;
  anEffects: TafwJumpToEffects): Boolean;
+var l_MonikerSink: IevMonikerSink;
 //#UC START# *4A269489009C_5530B9E90041_var*
 //#UC END# *4A269489009C_5530B9E90041_var*
 begin

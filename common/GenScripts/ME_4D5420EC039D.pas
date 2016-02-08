@@ -17,6 +17,20 @@ uses
 ;
 
 type
+ PvgPolygon = ^TvgPolygon;
+
+ PvgColor24Array = ^TvgColor24Array;
+
+ PvgColorArray = ^TvgColorArray;
+
+ PvgColor = ^TvgColor;
+
+ PvgColorRec = ^TvgColorRec;
+
+ PvgColorRecArray = ^TvgColorRecArray;
+
+ PvgRect = ^TvgRect;
+
  TvgPoint = packed record
   X: Single;
   Y: Single;
@@ -197,8 +211,6 @@ type
 
  TvgPolygon = array of TvgPoint;
 
- PvgPolygon = ^TvgPolygon;
-
  TvgColor = Cardinal;
 
  TFromZeroToZeroRange = 0 .. 0;
@@ -220,14 +232,8 @@ type
 
  TvgColor24Array = array [TFromZeroToZeroRange] of TvgColor24;
 
- PvgColor24Array = ^TvgColor24Array;
-
  TvgColorRecStructB = record
  end;//TvgColorRecStructB
-
- PvgColorArray = ^TvgColorArray;
-
- PvgColor = ^TvgColor;
 
  {$If Defined(FPC_BIG_ENDIAN)}
  TvgColorRec = packed record
@@ -252,13 +258,7 @@ type
    1: (m11: Single; m12: Single; m13: Single; m21: Single; m22: Single; m23: Single; m31: Single; m32: Single; m33: Single);
  end;//TvgMatrix
 
- PvgColorRec = ^TvgColorRec;
-
  TvgColorRecArray = array [TFromZeroToZeroRange] of TvgColorRec;
-
- PvgColorRecArray = ^TvgColorRecArray;
-
- PvgRect = ^TvgRect;
 
 const
  cPI: Single = 3.141592654;

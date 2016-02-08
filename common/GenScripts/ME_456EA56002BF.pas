@@ -470,7 +470,9 @@ type
 
 function TDate_make: TDate; overload;
  {* создать нулевую дату }
-function TDate_make: TDate; overload;
+function TDate_make(y: unsigned short;
+ m: unsigned short;
+ d: unsigned short): TDate; overload;
  {* создать заданную дату }
 class function make(result_type: TSearchResultType;
  document_count: size;
@@ -507,7 +509,9 @@ begin
 //#UC END# *462C9BE5030D_456EA6F00109_impl*
 end;//TDate_make
 
-function TDate_make: TDate;
+function TDate_make(y: unsigned short;
+ m: unsigned short;
+ d: unsigned short): TDate;
  {* создать заданную дату }
 //#UC START# *462C9BF10128_456EA6F00109_var*
 //#UC END# *462C9BF10128_456EA6F00109_var*

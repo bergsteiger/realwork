@@ -179,7 +179,7 @@ procedure TafwCanvasEx.SetCanvas(aValue: TCanvas;
 //#UC END# *56B0AE550267_47414C8700D5_var*
 begin
 //#UC START# *56B0AE550267_47414C8700D5_impl*
- if (f_DCFlag = ev_dcfLinked) then
+ if (DCFlag = ev_dcfLinked) then
   SetDC(0, ev_dcfCanvas);
  inherited;
 //#UC END# *56B0AE550267_47414C8700D5_impl*

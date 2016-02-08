@@ -38,6 +38,11 @@ const
  afw_lngEnglish = 'en';
 
 type
+ IafwBase = interface(Il3Base)
+  {* Базовый интерфейс библиотеки AFW. }
+  ['{A9D8280E-5E96-492B-98D9-3657A9067BFE}']
+ end;//IafwBase
+
  TafwRect = Tl3_Rect;
 
  IafwCString = Il3CString;
@@ -105,11 +110,6 @@ type
   ['{A15E1284-62FB-47A0-9B84-07F6949E9745}']
   procedure Assign2Font(aFont: TFont);
  end;//IafwFont
-
- IafwBase = interface(Il3Base)
-  {* Базовый интерфейс библиотеки AFW. }
-  ['{A9D8280E-5E96-492B-98D9-3657A9067BFE}']
- end;//IafwBase
 
  TafwPagesInfo = object
   public

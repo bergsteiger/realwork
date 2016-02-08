@@ -154,6 +154,7 @@ const
 
 function TevSegmentHotSpot.TryDoHyperlink(const aView: InevControlView;
  anEffects: TafwJumpToEffects): Boolean;
+var l_MonikerSink: IevMonikerSink;
 //#UC START# *4A269489009C_4A268E590029_var*
 //#UC END# *4A269489009C_4A268E590029_var*
 begin
@@ -189,6 +190,76 @@ end;//TevSegmentHotSpot.IsHyperlink
 
 procedure TevSegmentHotSpot.GetHyperLink;
  {* Возвращает гиперссылку, от продолжения на данном сегменте }
+var l_Para: InevPara;
+var l_Segment: Tl3Tag;
+
+ procedure IterateLayers;
+  {* Перебирает слои сегментов }
+
+  procedure DoIt;
+   {* Обрабатывает слой сегментов }
+  var l_Handle: Integer;
+
+   procedure IterateSegments;
+    {* Перебирает сегменты внутри слоя }
+
+    function DoIt(anItem: Tl3Variant;
+     anIndex: Integer): Boolean;
+     {* Обрабатывает отдельный сегмент }
+    //#UC START# *4BB226CA0326__var*
+    //#UC END# *4BB226CA0326__var*
+    begin
+    //#UC START# *4BB226CA0326__impl*
+     if anItem.IsValid and anItem.IsKindOf(k2_typHyperLink) then
+     begin
+      l_Segment := anItem;
+      Result := false;
+     end//anItem.IsValid and anItem.IsKindOf(k2_typHyperLink)
+     else
+      Result := true;
+    //#UC END# *4BB226CA0326__impl*
+    end;//DoIt
+
+   //#UC START# *4BB22F6C00B4__var*
+   //#UC END# *4BB22F6C00B4__var*
+   begin
+    //#UC START# *4BB22F6C00B4iter*
+    anItem.
+    //#UC END# *4BB22F6C00B4iter*
+    IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt)
+    //#UC START# *4BB22F6C00B4iterparam*
+    //#UC END# *4BB22F6C00B4iterparam*
+    );
+   end;//IterateSegments
+
+  //#UC START# *4BB22649001E__var*
+  //#UC END# *4BB22649001E__var*
+  begin
+  //#UC START# *4BB22649001E__impl*
+   l_Handle := anItem.IntA[k2_tiHandle];
+   if (l_Handle = Ord(ev_slHyperlinks)) then
+   begin
+    IterateSegments;
+    Result := l_Segment.IsNull;
+   end//l_Handle = ev_slHyperlinks
+   else
+    Result := true;
+  //#UC END# *4BB22649001E__impl*
+  end;//DoIt
+
+ //#UC START# *4BB225E103A4__var*
+ //#UC END# *4BB225E103A4__var*
+ begin
+  //#UC START# *4BB225E103A4iter*
+  with l_Para.AsObject.Attr[k2_tiSegments] do
+   if IsValid then                                 
+  //#UC END# *4BB225E103A4iter*
+  IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt)
+  //#UC START# *4BB225E103A4iterparam*
+  //#UC END# *4BB225E103A4iterparam*
+  );
+ end;//IterateLayers
+
 //#UC START# *4A269526011E_4A268E590029_var*
 //#UC END# *4A269526011E_4A268E590029_var*
 begin
@@ -207,6 +278,7 @@ end;//TevSegmentHotSpot.GetHyperLink
 
 {$If Defined(evChangeSegmentByMouse)}
 function TevSegmentHotSpot.GetPlacement: TevSegmentPlacement;
+var l_CursorPos: Integer;
 //#UC START# *4A26A1E303A6_4A268E590029_var*
 //#UC END# *4A26A1E303A6_4A268E590029_var*
 begin
@@ -233,6 +305,8 @@ end;//TevSegmentHotSpot.GetPlacement
 procedure TevSegmentHotSpot.ChangeBorder(const aTag: InevObject;
  aPosition: Integer;
  const aPack: InevOp);
+var l_Placement: TevSegmentPlacement;
+var l_Segments: Tl3Tag;
 //#UC START# *4A26A2020328_4A268E590029_var*
 //#UC END# *4A26A2020328_4A268E590029_var*
 begin
@@ -256,6 +330,33 @@ end;//TevSegmentHotSpot.ChangeBorder
 
 {$If Defined(evChangeSegmentByMouse)}
 procedure TevSegmentHotSpot.CanChangeBorderPrim;
+var l_Start: Integer;
+var l_Finish: Integer;
+
+ procedure HasSegment;
+
+  function thereIsSegment(S: Tl3Variant;
+   Index: Integer): Boolean;
+  //#UC START# *4A26A3010265__var*
+  //#UC END# *4A26A3010265__var*
+  begin
+  //#UC START# *4A26A3010265__impl*
+   Result := false;
+   HasSegment := true;
+  //#UC END# *4A26A3010265__impl*
+  end;//thereIsSegment
+
+ //#UC START# *4A26A2D40030__var*
+ //#UC END# *4A26A2D40030__var*
+ begin
+ //#UC START# *4A26A2D40030__impl*
+  Result := false;
+  evSegmentsLayer_IterateSegmentsF(aPara.AsObject,
+                                   aSegments.rAtomEx([k2_tiChildren, k2_tiHandle, fl_LayerHandle]),
+                                   aStart, aFinish, L2Mk2ChildrenIterateChildrenFAction(@thereIsSegment));
+ //#UC END# *4A26A2D40030__impl*
+ end;//HasSegment
+
 //#UC START# *4A26A2600221_4A268E590029_var*
 //#UC END# *4A26A2600221_4A268E590029_var*
 begin
@@ -302,6 +403,9 @@ end;//TevSegmentHotSpot.CanChangeBorderPrim
 function TevSegmentHotSpot.CanChangeBorder(const aView: InevControlView;
  const aPt: Tl3Point;
  out aPlacement: TevSegmentPlacement): Boolean;
+var l_Tag: InevObject;
+var l_Map: InevMap;
+var l_Point: InevBasePoint;
 //#UC START# *4A26A32F026B_4A268E590029_var*
 //#UC END# *4A26A32F026B_4A268E590029_var*
 begin

@@ -33,6 +33,8 @@ function EvDrawPara(const anArea: TnevShapeArea;
  const aBlock: InevRange;
  aPrevHeight: Integer): TnevShapeInfo;
  {* Метод рисования параграфа }
+var l_Painter: InevDrawingShape;
+var l_Points: TnevShapePoints;
 //#UC START# *49CCC052009F_481D76A4005D_var*
 //#UC END# *49CCC052009F_481D76A4005D_var*
 begin

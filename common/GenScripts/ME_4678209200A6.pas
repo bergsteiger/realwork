@@ -71,6 +71,8 @@ type
   ['{1532D13B-6E48-4307-933D-22C86383A2E0}']
  end;//InevBase
 
+ PnevControlImageInfo = ^TnevControlImageInfo;
+
  TnevInch = type Integer;
   {* дюймы. }
 
@@ -257,8 +259,6 @@ type
   rHidePicture: Boolean;
    {* Обновляется при каждом получении структуры. }
  end;//TnevControlImageInfo
-
- PnevControlImageInfo = ^TnevControlImageInfo;
 
  TevPreviewCacheKey = record
   HiddenStyles: TevStandardStyles;

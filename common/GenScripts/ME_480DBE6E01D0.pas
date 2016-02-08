@@ -13,12 +13,12 @@ uses
 ;
 
 type
+ PevResultFontEx = ^TevResultFontEx;
+
  TevFontArray = array [Tk2FontParam] of Integer;
 
  TevResultFont = object
  end;//TevResultFont
-
- PevResultFontEx = ^TevResultFontEx;
 
 implementation
 

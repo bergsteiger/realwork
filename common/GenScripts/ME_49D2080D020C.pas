@@ -20,6 +20,9 @@ type
  InevBaseTool = InevBase;
   {* Базовый инструмент }
 
+ PnevShapeArea = ^TnevShapeArea;
+  {* Указатель на область вывода }
+
  TnevShapeArea = object
   {* Область вывода }
   public
@@ -72,9 +75,6 @@ type
    procedure Free;
     {* Освобождает запись }
  end;//TnevShapeAreaEx
-
- PnevShapeArea = ^TnevShapeArea;
-  {* Указатель на область вывода }
 
  InevDrawingShape = interface(InevTool)
   {* Визуально отображаемый объект умеющий себя рисовать. }

@@ -55,6 +55,18 @@ const
  vcm_ztForFocus = vcmBaseTypes.vcm_ztForFocus;
 
 type
+ IvcmBase = vcmExternalInterfaces.IvcmBase;
+
+ PvcmStringID = ^TvcmStringID;
+
+ PIvcmEntityForm = ^IvcmEntityForm;
+
+ PvcmFormSetID = ^TvcmFormSetID;
+
+ PvcmFormDescriptor = ^TvcmFormDescriptor;
+
+ PIvcmFormSet = ^IvcmFormSet;
+
  TvcmObject = (
   {* Объект VCM. }
   vcm_objModule
@@ -75,8 +87,6 @@ type
 
  TvcmProjectFormName = type AnsiString;
   {* Тип для работы со списком форм проекта }
-
- PvcmStringID = ^TvcmStringID;
 
  TvcmOperationCode = Tl3OperationCode;
   {* команда возвращаемая компоненту в результате срабатывания механизма ShortCut-ов }
@@ -103,8 +113,6 @@ type
   {* Вызывается в момент проверки доступности операции из главного меню. }
 
  TvcmStatusStrings = TafwStatusInfo;
-
- IvcmBase = vcmExternalInterfaces.IvcmBase;
 
  (*
  MvcmEntityFormState = interface
@@ -1153,8 +1161,6 @@ type
    {* описатель модуля }
  end;//IvcmModule
 
- PIvcmEntityForm = ^IvcmEntityForm;
-
  TvcmInitProc = procedure(aForm: TWinControl);
 
  TvcmEffectiveUserType = Low(TvcmUserType) .. Pred(High(TvcmUserType));
@@ -1166,8 +1172,6 @@ type
   public
    function EQ(const anOther: TvcmFormSetID): Boolean;
  end;//TvcmFormSetID
-
- PvcmFormSetID = ^TvcmFormSetID;
 
  IvcmFormSetRefreshParams = interface(IvcmFormSetRefreshDataParams)
   {* Параметры обновления сборки }
@@ -1326,8 +1330,6 @@ type
    read pm_GetCount;
  end;//IvcmForms
 
- PvcmFormDescriptor = ^TvcmFormDescriptor;
-
  IvcmFormSetCaptionProvider = interface(IvcmBase)
   ['{437FC8E1-5CEF-4BAD-8AAE-E918ABC67947}']
   function pm_GetFormSetCaption: IvcmCString;
@@ -1459,8 +1461,6 @@ type
   property InBF: Boolean
    read pm_GetInBF;
  end;//IvcmFormSetHistory
-
- PIvcmFormSet = ^IvcmFormSet;
 
  IvcmSelectedTabDependent = Il3SelectedTabDependent;
 {$IfEnd} // NOT Defined(NoVCM)

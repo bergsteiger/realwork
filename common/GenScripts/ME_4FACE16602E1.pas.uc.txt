@@ -53,7 +53,7 @@ var
  {$IFNDEF EverestLite}
  {$IFDEF nsTest}
  else
-  Assert(f_Level > 2, 'Попытка выливать пустую таблицу');
+  Assert(False, 'Попытка выливать пустую таблицу');
  {$ENDIF nsTest}
  {$ENDIF EverestLite}
 //#UC END# *518A504F00F5_4FACE16602E1_impl*
@@ -431,10 +431,7 @@ var
      if l_Row.Cells[CellIndex].Props.IsPercent then
       l_Row.CellWidth[CellIndex] := l3MulDiv(Width, l_Row.CellWidth[CellIndex], 100)
      else // Пикселы
-      if l_Row.CellWidth[CellIndex] = propUndefined then
-       l_Row.CellWidth[CellIndex] := ddDefaultCellWidth
-      else
-       l_Row.CellWidth[CellIndex] := 96 * (l_Row.CellWidth[CellIndex])* 144 div 100;
+      l_Row.CellWidth[CellIndex] := 96 * (l_Row.CellWidth[CellIndex])* 144 div 100;
     end;
     Inc(l_RowWidth, l_Row.CellWidth[CellIndex]);
    end; // for CellIndex
@@ -571,10 +568,9 @@ var
  l_CellIndex : Integer;
 //#UC END# *519C7ACE00A5_4FACE16602E1_var*
 //#UC START# *519C7E26026D_4FACE16602E1_impl*
- l_Row := LastRow;
- l_Row.Closed := True;
  if RowCount < 2 then Exit;
  l_PrevRow := Rows[RowCount - 2]; // Предыдущий ряд
+ l_Row := LastRow;
  if l_Row.CellCountBySpan < l_PrevRow.CellCountBySpan then { TODO : Нужно учитывать объединенные по горизонтали ячейки }
  begin
   l_PrevCellIndex := l_Row.CellCountBySpan;
@@ -609,7 +605,6 @@ var
 //#UC END# *519C7EE102E3_4FACE16602E1_var*
 //#UC START# *519C7F2303A2_4FACE16602E1_impl*
  Result := LastRow;
- l_NeedAdd := False;
  if Result = nil then
  begin
   AddRow(False);
@@ -624,16 +619,13 @@ var
   begin
    Result.CloneCell(l_PrevRow.CellPropBySpan[l_PrevCellIndex]);
    Inc(l_PrevCellIndex, l_PrevRow.CellPropBySpan[l_PrevCellIndex].CellSpan);
-   l_NeedAdd := True;
   end; // while
  end; // f_Table.RowList.Count > 1
- if (Result.LastCell = nil) or Result.LastCell.Closed or l_NeedAdd then
-  Result.AddCellAndPara(True);
- Result.LastCell.Props.Border.IsFramed := False; 
+ Result.AddCellAndPara(True);
+ Result.LastCell.Props.Border.IsFramed := False;
 //#UC END# *519C7F2303A2_4FACE16602E1_impl*
 //#UC START# *519C7F2303A2_4FACE16602E1_var*
 var
- l_NeedAdd: Boolean;
  l_PrevRow: TddTableRow;
  l_PrevCellIndex: Integer;
 //#UC END# *519C7F2303A2_4FACE16602E1_var*
@@ -741,15 +733,9 @@ var
 //#UC START# *5268D575002D_4FACE16602E1_var*
 //#UC END# *5268D575002D_4FACE16602E1_var*
 //#UC START# *5268DBC503E2_4FACE16602E1_impl*
- l_Row := LastRow;
- l_Cell := LastRow.LastCell;
- if l_Cell <> nil then
-  Result := LastRow.LastCell.LastTextPara;
+ Result := LastRow.LastCell.LastTextPara;
 //#UC END# *5268DBC503E2_4FACE16602E1_impl*
 //#UC START# *5268DBC503E2_4FACE16602E1_var*
-var
- l_Row : TddTableRow;
- l_Cell: TddTableCell;
 //#UC END# *5268DBC503E2_4FACE16602E1_var*
 //#UC START# *528C8C2F02D9_4FACE16602E1_impl*
  if aDocAtomObj is TddTablePrim then
@@ -774,23 +760,10 @@ var
 //#UC START# *5385C5770229_4FACE16602E1_impl*
  Result := (f_RowList.Count > 0) and (f_RowList.First.CellCount > 0);
  if Result then
-  if (f_Level >= 1) and (f_RowList.Count = 1) then // Не пишем всякий мусор...
-  begin
-   l_RowWidth := GetFirstRowWidth;
-   if (f_Level = 1) then
-    Result := l_RowWidth >= ddGetMinimalCellWidth
-   else
-    Result := l_RowWidth >= ddGetMinimalCellWidth * 7;
-  end // if (f_Level >= 1) and (f_RowList.Count = 1) and (GetFirstRowWidth < ddGetMinimalCellWidth * 7) then
-  else
-   if (f_Level = 1) and (f_RowList.Count >= 1) and (GetFirstRowWidth < ddGetMinimalCellWidth * 7) and (f_RowList.First.TAP.Left > cnMaxLeftIndent) then
-    Result := False;
+  if (f_Level > 1) and (f_RowList.Count = 1) and (GetFirstRowWidth < ddGetMinimalCellWidth * 7) then // Не пишем всякий мусор...
+   Result := False; 
 //#UC END# *5385C5770229_4FACE16602E1_impl*
 //#UC START# *5385C5770229_4FACE16602E1_var*
-const
- cnMaxLeftIndent = 15000;
-var
- l_RowWidth: Integer;
 //#UC END# *5385C5770229_4FACE16602E1_var*
 //#UC START# *54F711F202AF_4FACE16602E1_impl*
  l_TextPara := LastParagraph;

@@ -32,6 +32,12 @@ function _evDecorHotSpotTester_.GetDecorHotSpot(aType: TnevDecorType;
  const aState: TevCursorState;
  const aMap: InevMap;
  out theSpot: IevHotSpot): Boolean;
+var l_Decor: Tl3Tag;
+var l_T: InevHotSpotTester2;
+var l_O: InevObject;
+var l_Map: InevMap;
+var l_Pt: InevBasePoint;
+var l_P: InevPara;
 //#UC START# *4E6F1DD701FA_4E6F1D860184_var*
 //#UC END# *4E6F1DD701FA_4E6F1D860184_var*
 begin
