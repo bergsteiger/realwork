@@ -139,14 +139,244 @@ end;//TnsConsultationDocumentContainerNew.Make
 
 procedure TnsConsultationDocumentContainerNew.FillTemplateFields;
  {* Заполняет поля шаблона реальными значениями }
+var l_WasSomeHyperlinkHidden: Boolean;
+
+ procedure DoIt;
+  {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из FillTemplateFields }
+
+  procedure FillText(const aText: Tl3WString);
+  //#UC START# *4CF3B096018E__var*
+  //#UC END# *4CF3B096018E__var*
+  begin
+  //#UC START# *4CF3B096018E__impl*
+   anItem.PCharLenA[k2_tiText] := Tl3PCharLen(l3RTrim(aText, [#10, #13]));
+  //#UC END# *4CF3B096018E__impl*
+  end;//FillText
+
+
+  procedure FillTextS(const aText: AnsiString);
+  //#UC START# *4CF3B62D02CE__var*
+  //#UC END# *4CF3B62D02CE__var*
+  begin
+  //#UC START# *4CF3B62D02CE__impl*
+   FillText(l3PCharLen(aText));
+  //#UC END# *4CF3B62D02CE__impl*
+  end;//FillTextS
+
+
+  procedure FillTextL(const aText: IParasList);
+  //#UC START# *4CF3B85B002B__var*
+  var
+   l_S : IString;
+   l_Index : Integer;
+   l_T     : Tl3Variant;
+  //#UC END# *4CF3B85B002B__var*
+  begin
+  //#UC START# *4CF3B85B002B__impl*
+   if (aText <> nil) then
+    if (aText.Count > 0) then
+    begin
+     aText.pm_GetItem(0, l_S);
+     FillText(nsWStr(l_S));
+     for l_Index := 1 to Pred(aText.Count) do
+     begin
+      aText.pm_GetItem(l_Index, l_S);
+      l_T := anItem.CloneTag.AsObject;
+      l_T.StrA[k2_tiName] := '';
+      l_T.PCharLenA[k2_tiText] := Tl3PCharLen(l3RTrim(nsWStr(l_S), [#10, #13]));
+      anItem.Owner.InsertChildTag(anIndex + l_Index, l_T);
+     end;//for l_Index
+    end;//aText.Count > 0
+  //#UC END# *4CF3B85B002B__impl*
+  end;//FillTextL
+
+
+  procedure FillTextEVD(const aText: IParasList);
+  var l_S: Tl3ConstMemoryStream;
+  var l_R: TevdNativeReader;
+  var l_B: Tk2DocumentBuffer;
+  //#UC START# *4DECEBC00327__var*
+  var
+   l_St  : IString;
+   l_Tag : Tl3Variant;
+   l_Ow  : Tl3Variant;
+  //#UC END# *4DECEBC00327__var*
+  begin
+  //#UC START# *4DECEBC00327__impl*
+   if (aText <> nil) then
+    if (aText.Count > 0) then
+    begin
+     Assert(aText.Count = 1);
+     aText.pm_GetItem(0, l_St);
+     if (l_St <> nil) then
+     begin
+      l_R := TevdNativeReader.Create;
+      try
+       //l_R.ForceBinary := true;
+       //l_R.CurrentVersion := evNonPackedVer;
+       l_B := Tk2DocumentBuffer.Create;
+       try
+        l_B.OnFinishAtom := Self.DoFinishAtom;
+        l_R.Generator := l_B;
+        l_S := Tl3ConstMemoryStream.Create(l_St.GetData, l_St.GetLength);
+        try
+         l_R.Filer.Stream := l_S;
+         try
+          l_R.Execute;
+         finally
+          l_R.Filer.Stream := nil;
+         end;//try..finally
+        finally
+         FreeAndNil(l_S);
+        end;//try..finally
+        l_Tag := l_B.Root;
+        if (l_Tag <> nil) then
+        begin
+         if l_Tag.IsKindOf(k2_typDocument) then
+         begin
+          if not l_Tag.HasSubAtom(k2_tiExternalHandle) then
+          begin
+           if (f_DocumentInfo <> nil) AND (f_DocumentInfo.Doc <> nil) then
+            l_Tag.IntA[k2_tiExternalHandle] := f_DocumentInfo.Doc.GetInternalID
+           else
+            l_Tag.IntA[k2_tiExternalHandle] := 0;
+          end;//not l_Tag.HasSubAtom(k2_tiExternalHandle)
+          l_Tag.IntA[k2_tiRightIndent] := 0;
+         end;//l_Tag.IsKindOf(k2_typDocument)
+         l_Ow := anItem. Owner. Owner. Owner;
+         //      Контрол Ячейка Строка Таблица
+         l_Ow.Owner.InsertChildTag(l_Ow.Owner.IndexOfChild(l_Ow.AsObject), l_Tag);
+         l_Ow.Owner.DeleteChild(l_Ow.AsObject);
+         InevProcessor(Processor).NotifyCompleted(l_Ow.Owner, l_Tag);
+        end;//l_Tag <> nil
+       finally
+        FreeAndNil(l_B);
+       end;//try..finally
+      finally
+       FreeAndNil(l_R);
+      end;//try..finally
+     end;//l_St <> nil
+    end;//aText.Count > 0
+  //#UC END# *4DECEBC00327__impl*
+  end;//FillTextEVD
+
+ //#UC START# *4CF3B26A011E__var*
+ const
+  cNames : array [TnsTemplateFieldType] of AnsiString = (
+   'Query',
+   'User',
+   'Date',
+   'Cost',
+   'Answer',
+   'Auther',
+   'DealerInf',
+   'QueryByParas'
+  );//cNames
+ var
+  l_Name  : String;
+  l_S     : IString;
+  l_Date  : AdapterDate;
+  l_L     : IParasList;
+  l_IsEvd : Bytebool;
+ //#UC END# *4CF3B26A011E__var*
+ begin
+ //#UC START# *4CF3B26A011E__impl*
+  Result := true;
+  if anItem.IsKindOf(k2_typParaList) then
+   FillTemplateFields(anItem.AsObject, anInfo)
+  else
+  if anItem.IsKindOf(k2_typLeafPara) then
+  begin
+   if anItem.IsKindOf(k2_typControlPara) then
+   begin
+    if HideHyperlinks(anItem) then
+     l_WasSomeHyperlinkHidden := true
+    else
+     if (TevControlType(anItem.IntA[k2_tiType]) in
+         [ev_ctLabel, ev_ctTextParaLabel]) then
+     begin
+      l_Name := anItem.StrA[k2_tiName];
+      if (l_Name <> '') then
+      begin
+       Case l3StringCase(l_Name, cNames, l3_siCaseUnsensitive) of
+        -1:
+         Assert(false);
+        Ord(ns_ftQuery):
+        begin
+         f_Cons.GetQueryData(l_S);
+         FillText(nsWStr(l_S));
+        end;//ns_ftQuery
+        Ord(ns_ftUser):
+        begin
+         f_Cons.GetUserName(l_S);
+         FillText(nsWStr(l_S));
+        end;//ns_ftUser
+        Ord(ns_ftDate):
+        begin
+         f_Cons.GetReplyDate(l_Date);
+         FillTextS(DateToStr(GblAdapterDateToDateTime(l_Date)));
+        end;//ns_ftDate
+        Ord(ns_ftCost):
+        begin
+         f_Cons.GetExpertInfo(l_L);
+         if (l_L = nil) then
+          l_WasSomeHyperlinkHidden := true
+         else
+          FillTextL(l_L);
+        end;//ns_ftCost
+        Ord(ns_ftAnswer):
+        begin
+         f_Cons.GetAnswerData(l_IsEvd, l_L);
+         if l_IsEvd then
+          FillTextEVD(l_L)
+         else
+          FillTextL(l_L);
+        end;//ns_ftAnswer
+        Ord(ns_ftAuther):
+        begin
+         f_Cons.GetExpertName(l_S);
+         FillText(nsWStr(l_S));
+        end;//ns_ftAuther
+        Ord(ns_ftDealerInf):
+        begin
+         anInfo.GetDealerInfo(l_S);
+         FillText(nsWStr(l_S));
+        end;//ns_ftDealerInf
+        Ord(ns_ftQueryByParas):
+        begin
+         f_Cons.GetQueryByParas(l_L);
+         FillTextL(l_L);
+        end;//ns_ftQueryByParas
+        else
+         Assert(false);
+       end;//Case l3StringCase
+      end;//l_Name <> ''
+     end;//anItem.IntA[k2_tiType] = Ord(ev_ctTextParaLabel
+    end;//anItem.IsKindOf(k2_typControlPara)
+  end;//anItem.IsKindOf(k2_typLeafPara)
+ //#UC END# *4CF3B26A011E__impl*
+ end;//DoIt
+
 //#UC START# *4CF39F58031E_4CF37A0400FB_var*
 var
  l_Obj : InevObject;
 //#UC END# *4CF39F58031E_4CF37A0400FB_var*
 begin
-//#UC START# *4CF39F58031E_4CF37A0400FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CF39F58031E_4CF37A0400FB_impl*
+ //#UC START# *4CF39F58031Eiter*
+ l_WasSomeHyperlinkHidden := false;
+ aTag.
+ //#UC END# *4CF39F58031Eiter*
+ IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@))
+ //#UC START# *4CF39F58031Eafteriter*
+ ;
+ if l_WasSomeHyperlinkHidden then
+  if aTag.IsKindOf(k2_typReqCell) then
+  begin
+   if not aTag.QT(InevObject, l_Obj) then
+    Assert(false);
+   l_Obj.Edit.Delete(false); 
+  end;//aTag.InheritsForm(k2_typReqCell)
+ //#UC END# *4CF39F58031Eafteriter*
 end;//TnsConsultationDocumentContainerNew.FillTemplateFields
 
 function TnsConsultationDocumentContainerNew.HideHyperlinks(aPara: Tl3Tag): Boolean;
