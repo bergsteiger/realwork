@@ -308,6 +308,9 @@ end;//TPrimTreeAttributeSelectForm.pm_GetRootInfo
 
 procedure TPrimTreeAttributeSelectForm.SetFilter(aFilterType: TnsFilterType);
  {* Накладывает фильтр на дерево }
+var l_Filters: InsAttributeTreeFilters;
+var l_Tree: Il3FilterableTree;
+var l_Index: Integer;
 //#UC START# *4ACDE6BF0255_497ECC0E0325_var*
 //#UC END# *4ACDE6BF0255_497ECC0E0325_var*
 begin

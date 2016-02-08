@@ -468,6 +468,7 @@ begin
 end;//TPrimF1CommonModule.MakeProgressIndicator
 
 procedure TPrimF1CommonModule.CloseNavigator(const aContainer: IvcmContainer);
+var l_Form: IvcmEntityForm;
 //#UC START# *4AAFCA2D03D0_4A92C1380380_var*
 //#UC END# *4AAFCA2D03D0_4A92C1380380_var*
 begin
@@ -480,6 +481,7 @@ begin
 end;//TPrimF1CommonModule.CloseNavigator
 
 procedure TPrimF1CommonModule.CloseTasksPanel(const aContainer: IvcmContainer);
+var l_Form: IvcmEntityForm;
 //#UC START# *4AAFCCD00301_4A92C1380380_var*
 //#UC END# *4AAFCCD00301_4A92C1380380_var*
 begin
@@ -493,6 +495,7 @@ end;//TPrimF1CommonModule.CloseTasksPanel
 
 procedure TPrimF1CommonModule.FromPrinterSettings(const aPrinter: Il3Printer);
  {* Считать настройки из принтера }
+var l_PageSetup: InsPageSettingsInfo;
 //#UC START# *4ABB68C603CE_4A92C1380380_var*
 //#UC END# *4ABB68C603CE_4A92C1380380_var*
 begin
@@ -510,6 +513,7 @@ end;//TPrimF1CommonModule.FromPrinterSettings
 
 procedure TPrimF1CommonModule.ToPrinterSettings(const aPrinter: Il3Printer);
  {* Записать настройки в принтер }
+var l_PageSetup: InsPageSettingsInfo;
 //#UC START# *4ABB691803C2_4A92C1380380_var*
 //#UC END# *4ABB691803C2_4A92C1380380_var*
 begin
@@ -573,6 +577,9 @@ begin
 end;//TPrimF1CommonModule.ShowEULA
 
 function TPrimF1CommonModule.GetMenuTypedItem(aType: TNavigatorMenuItemType): INodeBase;
+var l_Root: INodeBase;
+var l_Child: INodeBase;
+var l_Node: INodeBase;
 //#UC START# *4ABB884103D3_4A92C1380380_var*
 //#UC END# *4ABB884103D3_4A92C1380380_var*
 begin
@@ -601,6 +608,9 @@ end;//TPrimF1CommonModule.GetMenuTypedItem
 
 procedure TPrimF1CommonModule.SetParamsForNavigatorElements(const aParams: IvcmTestParamsPrim;
  aType: TNavigatorMenuItemType);
+var l_List: IvcmNodes;
+var l_Node: Il3Node;
+var l_AdapterNode: INodeBase;
 //#UC START# *4ABB8A470126_4A92C1380380_var*
 //#UC END# *4ABB8A470126_4A92C1380380_var*
 begin
@@ -636,6 +646,8 @@ begin
 end;//TPrimF1CommonModule.SetParamsForNavigatorElements
 
 procedure TPrimF1CommonModule.OpenRubricatorOnStart(const aContainer: IvcmContainer);
+var l_Node: INodeBase;
+var l_Child: INodeBase;
 //#UC START# *4ABB8D6B0041_4A92C1380380_var*
 //#UC END# *4ABB8D6B0041_4A92C1380380_var*
 begin
@@ -656,6 +668,8 @@ begin
 end;//TPrimF1CommonModule.OpenRubricatorOnStart
 
 procedure TPrimF1CommonModule.OpenNewDocs(const aContainer: IvcmContainer);
+var l_Node: INodeBase;
+var l_Child: INodeBase;
 //#UC START# *4ABBA74F03DA_4A92C1380380_var*
 //#UC END# *4ABBA74F03DA_4A92C1380380_var*
 begin
@@ -745,6 +759,10 @@ end;//TPrimF1CommonModule.OpenInformation
 procedure TPrimF1CommonModule.GetNavigator(const anAggregate: IvcmAggregate;
  const aContainer: IvcmContainer);
  {* Меню (вкладка) }
+var l_Navigator: IvcmEntityForm;
+var l_RubList: IvcmEntityForm;
+var l_Aggregate: IvcmAggregate;
+var l_Params: IvcmMakeParams;
 //#UC START# *4ABCA68B0155_4A92C1380380_var*
 //#UC END# *4ABCA68B0155_4A92C1380380_var*
 begin
@@ -810,6 +828,7 @@ end;//TPrimF1CommonModule.OpenTasksPanel
 
 procedure TPrimF1CommonModule.AddDocumentToControl(const aDocument: IDocument);
  {* Поставить документ на контроль }
+var l_Controllable: IControllable;
 //#UC START# *4AC1F3770062_4A92C1380380_var*
 //#UC END# *4AC1F3770062_4A92C1380380_var*
 begin
@@ -840,6 +859,7 @@ end;//TPrimF1CommonModule.AddToControl
 
 procedure TPrimF1CommonModule.DeleteDocumentFromControl(const aDocument: IDocument);
  {* Снять документ с контроля }
+var l_Controllable: IControllable;
 //#UC START# *4AC1F3D702D2_4A92C1380380_var*
 //#UC END# *4AC1F3D702D2_4A92C1380380_var*
 begin
@@ -869,6 +889,7 @@ end;//TPrimF1CommonModule.DeleteFromControl
 
 function TPrimF1CommonModule.IsUnderControl(const aDoc: IDocument): Boolean;
  {* Находится ли документ на контроле }
+var l_Controllable: IControllable;
 //#UC START# *4AC1F483035F_4A92C1380380_var*
 //#UC END# *4AC1F483035F_4A92C1380380_var*
 begin
@@ -884,6 +905,7 @@ begin
 end;//TPrimF1CommonModule.IsUnderControl
 
 function TPrimF1CommonModule.IsCurEditionActual(const aState: IDocumentState): Boolean;
+var l_Info: TRedactionInfo;
 //#UC START# *4AC1F6E802E5_4A92C1380380_var*
 //#UC END# *4AC1F6E802E5_4A92C1380380_var*
 begin
@@ -901,6 +923,7 @@ begin
 end;//TPrimF1CommonModule.IsCurEditionActual
 
 function TPrimF1CommonModule.IsCurEditionActual(const aDocument: IDocument): Boolean;
+var l_State: IDocumentState;
 //#UC START# *4AC1F71B0366_4A92C1380380_var*
 //#UC END# *4AC1F71B0366_4A92C1380380_var*
 begin
@@ -919,6 +942,8 @@ begin
 end;//TPrimF1CommonModule.IsCurEditionActual
 
 function TPrimF1CommonModule.GetCurEditionDate(const aDocument: IDocument): AdapterDate;
+var l_State: IDocumentState;
+var l_Info: TRedactionInfo;
 //#UC START# *4AC203EB01AE_4A92C1380380_var*
 //#UC END# *4AC203EB01AE_4A92C1380380_var*
 begin

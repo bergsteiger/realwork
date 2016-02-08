@@ -52,6 +52,7 @@ uses
 procedure TWriterTest.DoWrite(aReader: Tk2CustomFileReader;
  const anExt: AnsiString;
  aHeaderBegin: AnsiChar = #0);
+var l_G: Ik2TagGenerator;
 //#UC START# *4BACDE3B02E9_4BACDDB500CE_var*
 var
  l_Raise : Boolean;
@@ -91,6 +92,7 @@ begin
 end;//TWriterTest.DoWrite
 
 function TWriterTest.CreateEVDWriter: TevdNativeWriter;
+var l_Filer: Tl3CustomFiler;
 //#UC START# *4C07B2F8016F_4BACDDB500CE_var*
 //#UC END# *4C07B2F8016F_4BACDDB500CE_var*
 begin
@@ -112,6 +114,7 @@ begin
 end;//TWriterTest.CreateEVDWriter
 
 procedure TWriterTest.SomeFormatToEVD(aReader: Tk2CustomFileReader);
+var l_Writer: TevdNativeWriter;
 //#UC START# *4C07B63D0078_4BACDDB500CE_var*
 //#UC END# *4C07B63D0078_4BACDDB500CE_var*
 begin

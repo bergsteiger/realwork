@@ -63,6 +63,10 @@ uses
 
 procedure TNSRCWriterTest.SomeFormatToNSRC(aReader: Tk2CustomFileReader;
  aPlus: Boolean);
+var l_Filer: Tl3CustomFiler;
+var l_Painter: TevCustomTextFormatter;
+var l_G: Tk2TagGenerator;
+var l_TestGen: TtstNSRCGenerator;
 //#UC START# *4B59DC7D0325_4B4F68EE006B_var*
 const
  cExt : array [Boolean] of AnsiString = ('.nsr', '.plus.nsr');
@@ -116,6 +120,7 @@ end;//TNSRCWriterTest.SomeFormatToNSRC
 
 procedure TNSRCWriterTest.EVDtoNSRC(const aFileName: AnsiString;
  aPlus: Boolean);
+var l_Reader: TevdNativeReader;
 //#UC START# *4B59E36902DE_4B4F68EE006B_var*
 //#UC END# *4B59E36902DE_4B4F68EE006B_var*
 begin
@@ -131,6 +136,7 @@ end;//TNSRCWriterTest.EVDtoNSRC
 
 procedure TNSRCWriterTest.NSRCtoNSRC(const aFileName: AnsiString;
  aPlus: Boolean);
+var l_Reader: TevdNSRCReader;
 //#UC START# *4B59EBDB038B_4B4F68EE006B_var*
 //#UC END# *4B59EBDB038B_4B4F68EE006B_var*
 begin
@@ -162,6 +168,8 @@ end;//TNSRCWriterTest.CreateNSRCReader
 
 procedure TNSRCWriterTest.NSRCtoMemory(const aFileName: AnsiString);
  {* Читает NSRC в память }
+var l_Reader: TevdNSRCReader;
+var l_Buffer: Tk2DocumentBuffer;
 //#UC START# *4B7D050E002F_4B4F68EE006B_var*
 //#UC END# *4B7D050E002F_4B4F68EE006B_var*
 begin
@@ -187,6 +195,7 @@ begin
 end;//TNSRCWriterTest.NSRCtoMemory
 
 procedure TNSRCWriterTest.NSRCtoEVD(const aFileName: AnsiString);
+var l_Reader: TevdNSRCReader;
 //#UC START# *4BED3FAC0228_4B4F68EE006B_var*
 //#UC END# *4BED3FAC0228_4B4F68EE006B_var*
 begin

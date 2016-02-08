@@ -1133,6 +1133,8 @@ begin
 end;//TPrimListForm.ListOpsWithTrialModeTest
 
 function TPrimListForm.MakePreview(WithTexts: Boolean): IafwComplexDocumentPreview;
+var l_Node: Il3SimpleNode;
+var l_Super: InsSuperComplexDocumentPreview;
 //#UC START# *4C46BDD50220_497DDB2B001B_var*
 //#UC END# *4C46BDD50220_497DDB2B001B_var*
 begin

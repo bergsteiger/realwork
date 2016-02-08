@@ -41,6 +41,7 @@ uses
 ;
 
 procedure TEVDWriterTest.EVDtoEVD(const aFileName: AnsiString);
+var l_Reader: TevdNativeReader;
 //#UC START# *4C07B67A02C1_4C07B5C100E8_var*
 var
  l_DisableParserLog : Boolean;

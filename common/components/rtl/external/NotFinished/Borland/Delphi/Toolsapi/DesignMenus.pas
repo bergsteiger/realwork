@@ -1,22 +1,22 @@
 unit DesignMenus;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Toolsapi"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Toolsapi/DesignMenus.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Toolsapi::Implementation::DesignMenus
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Toolsapi\DesignMenus.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+{$If NOT Defined(XE)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(XE)
 
 implementation
+
+{$If NOT Defined(XE)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(XE)
 
 end.

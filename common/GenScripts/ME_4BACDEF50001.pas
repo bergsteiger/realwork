@@ -43,6 +43,8 @@ uses
 
 procedure TRTFWriterTest.SomeFormatToRTF(aReader: Tk2CustomFileReader;
  NeedCheck: Boolean = True);
+var l_Writer: TevRTFObjectGenerator;
+var l_Filer: Tl3CustomFiler;
 //#UC START# *4BACDF18014F_4BACDEF50001_var*
 //#UC END# *4BACDF18014F_4BACDEF50001_var*
 begin
@@ -69,6 +71,7 @@ end;//TRTFWriterTest.SomeFormatToRTF
 
 procedure TRTFWriterTest.EVDtoRTF(const aFileName: AnsiString;
  NeedCheck: Boolean = True);
+var l_Reader: TevdNativeReader;
 //#UC START# *4BACE0B20173_4BACDEF50001_var*
 //#UC END# *4BACE0B20173_4BACDEF50001_var*
 begin

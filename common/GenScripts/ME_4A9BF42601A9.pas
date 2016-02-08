@@ -703,6 +703,8 @@ end;//Tfs_List.InitForms
 
 function TListModule.TryOpenDocument(const aList: IdeList;
  const aContainer: IvcmContainer): Boolean;
+var l_Info: TbsOpenListInfo;
+var l_DocInfo: IdeDocInfo;
 //#UC START# *4AA4D7EA0094_4A9BF42601A9_var*
 //#UC END# *4AA4D7EA0094_4A9BF42601A9_var*
 begin
@@ -754,6 +756,8 @@ end;//TListModule.MakeListAnalizer
 procedure TListModule.OpenList(const aList: IdeList;
  const aContainer: IvcmContainer);
  {* Открывает список в указанном контейнере }
+var l_Form: IvcmEntityForm;
+var l_Cont: IvcmContainer;
 //#UC START# *4AA4DB5100EF_4A9BF42601A9_var*
 //#UC END# *4AA4DB5100EF_4A9BF42601A9_var*
 begin

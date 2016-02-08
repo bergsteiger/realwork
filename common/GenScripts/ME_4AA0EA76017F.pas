@@ -127,6 +127,10 @@ end;//TLiteSearchModule.MakeSelectedAttributes
 function TLiteSearchModule.OpenTreeSelection(const aTag: Il3CString;
  anAdditionalFilter: TnsFilterType;
  const aFormData: IdsTreeAttributeSelect): Integer;
+var l_Params: IvcmMakeParams;
+var l_Container: IvcmEntityForm;
+var l_Form: IvcmEntityForm;
+var l_FilterType: TnsFilterType;
 //#UC START# *4AAF590401AC_4AA0EA76017F_var*
 //#UC END# *4AAF590401AC_4AA0EA76017F_var*
 begin
