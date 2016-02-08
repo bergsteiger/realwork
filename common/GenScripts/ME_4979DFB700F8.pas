@@ -364,6 +364,21 @@ end;//TnsGetDocumentStructureEvent.Log
 {$Include ContentsUserTypes.imp.pas}
 
 procedure TPrimContentsForm.FindSubByID;
+var l_CurrentNode: Il3SimpleNode;
+var l_Tree: InsContentsTree;
+
+ function IsSubValid(const aNode: Il3SimpleNode): Boolean;
+ var l_Sub: IevSub;
+ //#UC START# *4A9D4CD30114__var*
+ //#UC END# *4A9D4CD30114__var*
+ begin
+ //#UC START# *4A9D4CD30114__impl*
+  Result := Supports(aNode, IevSub, l_Sub) and
+            (l_Sub.LayerID = Ord(ev_sbtSub)) and
+            (l_Sub.ID = anID);
+ //#UC END# *4A9D4CD30114__impl*
+ end;//IsSubValid
+
 //#UC START# *4A9D4CAB00DD_4979DFB700F8_var*
 //#UC END# *4A9D4CAB00DD_4979DFB700F8_var*
 begin
@@ -389,6 +404,7 @@ begin
 end;//TPrimContentsForm.IsMultiSelection
 
 procedure TPrimContentsForm.FillCRList(const aParams: IvcmTestParamsPrim);
+var l_List: IvcmNodes;
 //#UC START# *4C2AEAB600F4_4979DFB700F8_var*
 //#UC END# *4C2AEAB600F4_4979DFB700F8_var*
 begin
@@ -471,6 +487,38 @@ begin
 end;//TPrimContentsForm.IsCurrentBlockOrSub
 
 procedure TPrimContentsForm.IsNodeBlockOrSub;
+var l_Block: IevDocumentPart;
+var l_Sub: IevDocumentPart;
+
+ function lp_IsNodeBlockOrSub(const aNode: IeeNode): Boolean;
+ var l_ChildNode: IeeNode;
+ //#UC START# *4C2AF8A4011C__var*
+ //#UC END# *4C2AF8A4011C__var*
+ begin
+ //#UC START# *4C2AF8A4011C__impl*
+  case ContentItemType(aNode) of
+   cltNone :
+   begin
+    if aNode.HasChild then
+    begin
+     l_ChildNode := aNode.ChildNode;
+     try
+      Result := ContentItemType(l_ChildNode) = cltBlock;
+     finally
+      l_ChildNode := nil;
+     end;//try..finally
+    end//aNode.HasChild
+    else
+     Result := false;
+   end;//cltNone
+   cltBlock:
+    Result := true;
+   else
+    Result := false;
+  end;//case ContentItemType(aNode
+ //#UC END# *4C2AF8A4011C__impl*
+ end;//lp_IsNodeBlockOrSub
+
 //#UC START# *4C2AF7F6023A_4979DFB700F8_var*
 //#UC END# *4C2AF7F6023A_4979DFB700F8_var*
 begin
@@ -962,6 +1010,7 @@ begin
 end;//TPrimContentsForm.ContentsListCurrentChanged
 
 procedure TPrimContentsForm.ContextFilterChange(Sender: TObject);
+var l_CF: IContextFilter;
 //#UC START# *4D3719CB031B_4979DFB700F8_var*
 var
  l_Filtered: Il3SimpleTree;

@@ -14,6 +14,10 @@ uses
 ;
 
 type
+ PPGconn = ^TPGconn;
+
+ PPGresult = ^TPGresult;
+
  TpgConnectStatusType = (
   CONNECTION_OK
   , CONNECTION_BAD
@@ -36,12 +40,8 @@ type
  TPGconn = record
  end;//TPGconn
 
- PPGconn = ^TPGconn;
-
  TPGresult = record
  end;//TPGresult
-
- PPGresult = ^TPGresult;
 
  TpgExecStatusType = (
   PGRES_EMPTY_QUERY

@@ -277,6 +277,7 @@ type _Instance_R_ = TPrimRubricatorForm;
 procedure TPrimRubricatorForm.InternalInitRoot(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;
  const aMenuSectionItemToKeep: ISectionItem);
+var l_Node: INodeBase;
 //#UC START# *4AA781EA039B_4AA68CA10101_var*
 //#UC END# *4AA781EA039B_4AA68CA10101_var*
 begin

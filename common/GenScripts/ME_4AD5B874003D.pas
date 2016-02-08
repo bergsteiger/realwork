@@ -53,6 +53,8 @@ const
  cnfpFloating = cnfpNavigator + 'Floating';
 
 type
+ PnsButtonCaptionArray = ^TnsButtonCaptionArray;
+
  EDuplicateConfName = class(Exception)
   private
    f_ConfName: AnsiString;
@@ -271,8 +273,6 @@ type
  end;//TstgFilterFormPosition
 
  TnsButtonCaptionArray = array [TMsgDlgBtn] of PvcmStringID;
-
- PnsButtonCaptionArray = ^TnsButtonCaptionArray;
 
  _afwSettingChanged_Parent_ = TnsEditSettingsInfo;
  {$Include afwSettingChanged.imp.pas}

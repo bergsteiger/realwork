@@ -60,6 +60,11 @@ procedure TRubricatorModule.OpenRubricator(const aNode: Il3SimpleNode;
  aNeedsSheet: Boolean;
  const anAggregate: IvcmAggregate;
  const aContainer: IvcmContainer);
+var l_Container: IvcmEntityForm;
+var l_Navigator: IvcmEntityForm;
+var l_Aggregate: IvcmAggregate;
+var l_Params: IvcmMakeParams;
+var l_RubrExists: Boolean;
 //#UC START# *4AA691690389_4AA67768038F_var*
 //#UC END# *4AA691690389_4AA67768038F_var*
 begin

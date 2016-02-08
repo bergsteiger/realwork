@@ -104,6 +104,7 @@ uses
 function TCommonPostModule.OpenPostingOrderForm(const anAggregate: IvcmAggregate;
  const aContainer: IvcmContainer;
  const aQuery: IQuery): IvcmEntityForm;
+var l_Container: IvcmEntityForm;
 //#UC START# *4AA9304801B8_4AA919B200AB_var*
 //#UC END# *4AA9304801B8_4AA919B200AB_var*
 begin
@@ -141,6 +142,8 @@ end;//TCommonPostModule.OpenPostingOrderForm
 
 procedure TCommonPostModule.OpenPostingOrder(const aQuery: IQuery;
  const aContainer: IvcmContainer = nil);
+var l_Form: IvcmEntityForm;
+var l_Cont: IvcmContainer;
 //#UC START# *4AA93C87000C_4AA919B200AB_var*
 //#UC END# *4AA93C87000C_4AA919B200AB_var*
 begin
@@ -158,6 +161,9 @@ begin
 end;//TCommonPostModule.OpenPostingOrder
 
 procedure TCommonPostModule.SavePostingList;
+var l_PathName: AnsiString;
+var l_MayExit: Boolean;
+var l_Result: Boolean;
 //#UC START# *4AAF935E01A7_4AA919B200AB_var*
 //#UC END# *4AAF935E01A7_4AA919B200AB_var*
 begin
@@ -253,6 +259,7 @@ end;//TCommonPostModule.OpenPostingOrderList
 
 procedure TCommonPostModule.StartOpen(const aContainer: IvcmContainer;
  aNewTab: Boolean);
+var l_Aggregate: IvcmAggregate;
 //#UC START# *4AAFA52603B7_4AA919B200AB_var*
  function lp_CreateContainer: IvcmContainer;
  var

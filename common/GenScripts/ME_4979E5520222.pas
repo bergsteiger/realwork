@@ -155,6 +155,7 @@ type _Instance_R_ = TPrimWarningForm;
 {$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
 
 procedure TPrimWarningForm.PositionOnRequestedSub(aSubID: TnsWarningSub);
+var l_Sub: IeeSub;
 //#UC START# *4AE9DF9401A6_4979E5520222_var*
 //#UC END# *4AE9DF9401A6_4979E5520222_var*
 begin

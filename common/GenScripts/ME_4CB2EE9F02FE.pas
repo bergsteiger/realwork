@@ -31,6 +31,10 @@ uses
 
 procedure nsGetText(const aDocument: IDocument;
  out theStream: InevObjectHolder);
+var l_Tag: Tl3Tag;
+var l_Obj: InevObject;
+var l_Holder: TnevObjectHolder;
+var l_Provider: IDocumentTextProvider;
 //#UC START# *4D3EC093030F_4CB2EE9F02FE_var*
 //#UC END# *4D3EC093030F_4CB2EE9F02FE_var*
 begin

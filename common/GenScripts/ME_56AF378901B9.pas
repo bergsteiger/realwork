@@ -21,6 +21,8 @@ uses
 ;
 
 type
+ ParBelaPubInfo = ^TarBelaPubInfo;
+
  TarBelaPubInfo = record
   rPubSource: Il3CString;
    {* IST – источник публикации правового акта (код значение) (м); }
@@ -33,8 +35,6 @@ type
   rArticle: Il3CString;
    {* IN – номер статьи (M). При отсутствии информации о номере статьи за идентификатором поля через пробел ставится символ «-» (минус); }
  end;//TarBelaPubInfo
-
- ParBelaPubInfo = ^TarBelaPubInfo;
 
  _ItemType_ = TarBelaPubInfo;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;

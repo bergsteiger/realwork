@@ -102,6 +102,7 @@ function _HyperlinkProcessor_.JumpTo(Sender: TObject;
  anEffects: TafwJumpToEffects;
  const aMoniker: IevMoniker): Boolean;
  {* Обработчик гиперссылки }
+var l_Hyperlink: IevHyperlink;
 //#UC START# *4A8199EE00F2_4A815C200111_var*
 //#UC END# *4A8199EE00F2_4A815C200111_var*
 begin
@@ -142,6 +143,7 @@ procedure _HyperlinkProcessor_.GetHotSpotInfo(Sender: TObject;
  const aKeys: TafwCursorState;
  var theInfo: TafwCursorInfo);
  {* Обработчик события OnGetHotSpotInfo }
+var l_Hyperlink: IevHyperlink;
 //#UC START# *4A82C02701E4_4A815C200111_var*
 //#UC END# *4A82C02701E4_4A815C200111_var*
 begin

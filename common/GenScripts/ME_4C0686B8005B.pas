@@ -266,6 +266,7 @@ end;//_BlockSelector_.ClearBlocksInfo
 
 function _BlockSelector_.GotoSub(const aPara: IeePara): Boolean;
  {* Переход на Sub принадлежащий параграфу }
+var l_SubList: IeeSubList;
 //#UC START# *4C0691370291_4C0686B8005B_var*
 //#UC END# *4C0691370291_4C0686B8005B_var*
 begin

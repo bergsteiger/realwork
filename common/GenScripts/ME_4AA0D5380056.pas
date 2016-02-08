@@ -245,6 +245,7 @@ begin
 end;//TDayTipsModule.OpenTipsPrim
 
 function TDayTipsModule.ShowDayTipsAtStartup: IvcmEntityForm;
+var l_Data: InsStartupTips;
 //#UC START# *4AB9DAAC00AC_4AA0D5380056_var*
 //#UC END# *4AB9DAAC00AC_4AA0D5380056_var*
 begin

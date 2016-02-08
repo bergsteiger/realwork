@@ -42,6 +42,7 @@ end;//_Text_.pm_GetSettings
 
 function _Text_.GetTopParaID: IeePara;
  {* Возвращает верхний нумерованный параграф на видимой странице }
+var l_TopCursor: InevBasePoint;
 //#UC START# *4A854E340357_4A853E260311_var*
 //#UC END# *4A854E340357_4A853E260311_var*
 begin
@@ -59,6 +60,7 @@ end;//_Text_.GetTopParaID
 
 function _Text_.GetParaForPositionning(aSearchDown: Boolean = True): IeeLeafPara;
  {* Возвращает текущий параграф, если он виден или первый видимый на экране }
+var l_Para: IeePara;
 //#UC START# *4A854F880181_4A853E260311_var*
 //#UC END# *4A854F880181_4A853E260311_var*
 begin

@@ -42,6 +42,8 @@ const
  cUndefDocID: TdaDocID = -1;
 
 type
+ PIdaLongProcessSubscriber = ^IdaLongProcessSubscriber;
+
  IdaLongProcessSubscriber = interface
   ['{5450DF32-F7B8-4889-B03B-B1B4E5BA5C40}']
   function DoLongProcessNotify(aState: TdaProcessState): Boolean;
@@ -437,8 +439,6 @@ type
   property Table: IdaFromTable
    read Get_Table;
  end;//IdaTabledQuery
-
- PIdaLongProcessSubscriber = ^IdaLongProcessSubscriber;
 
  IdaTableQueryFactory = interface
   ['{158601ED-CBAB-4A68-975A-8A6590602F42}']

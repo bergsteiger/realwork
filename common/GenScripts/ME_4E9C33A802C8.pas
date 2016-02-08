@@ -36,6 +36,11 @@ procedure _HyperlinkProcessorForDocumentCompare_.DoGetNonHyperlinkInfo(Sender: T
  const aKeys: TafwCursorState;
  var theInfo: TafwCursorInfo);
  {* Возвращает информацию о стиле сравнения }
+var l_Tag: Tl3Tag;
+var l_Point: InevBasePoint;
+var l_Pos: Integer;
+var l_P: Il3CString;
+var l_S: Il3CString;
 //#UC START# *4A8912820378_4E9C33A802C8_var*
 //#UC END# *4A8912820378_4E9C33A802C8_var*
 begin

@@ -607,6 +607,7 @@ begin
 end;//TSearchModule.DefineFilterForm
 
 procedure TSearchModule.ShowList(aType: TnsSearchListType);
+var l_List: IDynList;
 //#UC START# *4AA65AA9011E_4AA641A3036C_var*
 //#UC END# *4AA65AA9011E_4AA641A3036C_var*
 begin
@@ -634,6 +635,7 @@ end;//TSearchModule.ShowList
 
 procedure TSearchModule.OpenLegislationReview(const aQuery: IQuery);
  {* открыть Обзор изменений законодательства }
+var l_Container: IvcmEntityForm;
 //#UC START# *4AB77FFF008F_4AA641A3036C_var*
 //#UC END# *4AB77FFF008F_4AA641A3036C_var*
 begin
@@ -663,6 +665,7 @@ end;//TSearchModule.OpenLegislationReview
 
 procedure TSearchModule.OpenFiltersForm(const aData: IdeFilter);
  {* Открывает форму фильтров }
+var l_MainContainer: IvcmEntityForm;
 //#UC START# *4AB7B8D30345_4AA641A3036C_var*
 //#UC END# *4AB7B8D30345_4AA641A3036C_var*
 begin
@@ -721,6 +724,22 @@ begin
 end;//TSearchModule.MakeNewFilter
 
 class procedure TSearchModule.CreateSearchContainer;
+var l_SearchInList: Boolean;
+var l_List: IdeList;
+
+ function GetCurrentListObject: IdeList;
+ var l_Form: IvcmEntityForm;
+ //#UC START# *4AB7C6AF0140__var*
+ //#UC END# *4AB7C6AF0140__var*
+ begin
+ //#UC START# *4AB7C6AF0140__impl*
+  if CheckContainer(aContainer).HasForm(fm_efList.rFormID, vcm_ztParent, true, @l_Form) then
+   Result := op_List_GetDeList.Call(l_Form)
+  else
+   Result := nil;
+ //#UC END# *4AB7C6AF0140__impl*
+ end;//GetCurrentListObject
+
 //#UC START# *4AB7C62D0091_4AA641A3036C_var*
 //#UC END# *4AB7C62D0091_4AA641A3036C_var*
 begin
@@ -749,6 +768,9 @@ procedure TSearchModule.OpenInpharm(anIndex: Integer;
  const aQuery: IQuery;
  const aList: IDynList;
  const aContainer: IvcmContainer);
+var l_Container: IvcmEntityForm;
+var l_UserType: TvcmUserType;
+var l_ZoneType: TvcmZoneType;
 //#UC START# *4AB7CC92001F_4AA641A3036C_var*
 
  procedure InpharmSearchExecute(const aParams : IvcmMakeParams;
@@ -847,6 +869,11 @@ procedure TSearchModule.OpenPublishSource(anIndex: Integer;
  const aList: IDynList;
  const aPublishSearchTag: Il3CString);
  {* Открывает карточку поиска по источнику опубликования }
+var l_Params: IvcmMakeParams;
+var l_Main: IvcmEntityForm;
+var l_Container: IvcmEntityForm;
+var l_UserType: TvcmUserType;
+var l_ZoneType: TvcmZoneType;
 //#UC START# *4AB87D3603B7_4AA641A3036C_var*
 //#UC END# *4AB87D3603B7_4AA641A3036C_var*
 begin

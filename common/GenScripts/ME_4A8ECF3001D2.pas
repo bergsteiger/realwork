@@ -388,6 +388,7 @@ end;//TPrimMonitoringsModule.OpenAutoreferat
 
 procedure TPrimMonitoringsModule.OpenAutoreferatAfterSearch(const aList: IMonitoringList;
  const aContainer: IvcmContainer);
+var l_Document: IDocument;
 //#UC START# *4AA4C0C500AA_4A8ECF3001D2_var*
 //#UC END# *4AA4C0C500AA_4A8ECF3001D2_var*
 begin

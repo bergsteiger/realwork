@@ -98,6 +98,15 @@ _BaseTextOperations_ = _Text_;
 function _BaseTextOperations_.DocumentExport(anExportKind: TnsExportKind;
  aExportSelection: Boolean;
  const aRange: InevRange = nil): Boolean;
+var l_Ext: AnsiString;
+var l_PathName: Il3CString;
+var l_Stream: Tl3Stream;
+var l_Format: Tl3ClipboardFormat;
+var l_F: TnsFileFormat;
+var l_G: Tk2CustomFileGenerator;
+var l_Visualizer: IafwLongProcessVisualizer;
+var l_Head: Tk2TagGenerator;
+ {* Голова цепочки генераторов }
 //#UC START# *4A1FF17502AC_4AE1A69E0156_var*
 var
  l_H    : Tk2TagGenerator;
@@ -265,6 +274,7 @@ begin
 end;//_BaseTextOperations_.DocumentExport
 
 procedure _BaseTextOperations_.DocumentPrint(aPrintDialog: Boolean = False);
+var l_Preview: IafwComplexDocumentPreview;
 //#UC START# *4AE1B21502BB_4AE1A69E0156_var*
 //#UC END# *4AE1B21502BB_4AE1A69E0156_var*
 begin

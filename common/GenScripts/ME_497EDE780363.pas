@@ -475,6 +475,8 @@ function TPrimDocumentWithFlashForm.DocumentOnJumpTo(Sender: TObject;
  anEffects: TafwJumpToEffects;
  const aMoniker: IevMoniker): Boolean;
  {* Переход по ссылке }
+var l_HL: IevHyperlink;
+var l_Form: IvcmEntityForm;
 //#UC START# *4A23B242004C_497EDE780363_var*
 //#UC END# *4A23B242004C_497EDE780363_var*
 begin

@@ -118,6 +118,8 @@ procedure _CommonForTextAndFlash_.OpenCRListOpTest(const aParams: IvcmTestParams
  aCRType: TlstCRType;
  aTyped: Boolean = True);
  {* Пользовательские СКР. Тестирование }
+var l_List: IvcmNodes;
+var l_Strings: IvcmStrings;
 //#UC START# *4A1FEFB30146_4986C5B30130_var*
 //#UC END# *4A1FEFB30146_4986C5B30130_var*
 begin

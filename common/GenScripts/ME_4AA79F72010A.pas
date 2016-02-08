@@ -198,6 +198,9 @@ const
   {* Заголовок пользовательского типа "Регистрационные данные" }
 
 function TSettingsModule.OpenStyleEditorAsModal(const aData: InsStyleTableSettingsInfo): Integer;
+var l_SettingsData: InsStyleTableSettingsInfo;
+var l_Container: IvcmEntityForm;
+var l_Params: IvcmMakeParams;
 //#UC START# *4ABA122E00AE_4AA79F72010A_var*
 //#UC END# *4ABA122E00AE_4AA79F72010A_var*
 begin

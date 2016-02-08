@@ -14,6 +14,12 @@ uses
 ;
 
 type
+ PdaDocEditRec = ^TdaDocEditRec;
+
+ PdaDictEditRec = ^TdaDictEditRec;
+
+ PLargeInt = ^LargeInt;
+
  TdaUserID = TUserID;
 
  TGetLoginPasswordProc = function(var aLogin: AnsiString;
@@ -291,12 +297,6 @@ type
   DictType: TdaDictionaryType;
   Operation: TdaEditOperation;
  end;//TdaDictEditRec
-
- PdaDocEditRec = ^TdaDocEditRec;
-
- PdaDictEditRec = ^TdaDictEditRec;
-
- PLargeInt = ^LargeInt;
 
  TdaLogicOperation = (
   da_loAnd

@@ -116,6 +116,7 @@ const
   {* Заголовок пользовательского типа "Настройка конфигурации" }
 
 procedure TPrimSettingsForm.StartEdit;
+var l_Settings: InsSettings;
 //#UC START# *4AC63BB001DA_4AC63ADF023F_var*
 //#UC END# *4AC63BB001DA_4AC63ADF023F_var*
 begin

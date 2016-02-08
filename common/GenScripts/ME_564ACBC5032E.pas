@@ -21,6 +21,8 @@ uses
 ;
 
 type
+ PpgJournalCacheRec = ^TpgJournalCacheRec;
+
  TpgJournalCacheRec = object
   public
    rOperation: TdaJournalOperation;
@@ -35,8 +37,6 @@ type
  {$Include l3RecordListPrim.imp.pas}
  TpgJournalCacheList = class(_l3RecordListPrim_)
  end;//TpgJournalCacheList
-
- PpgJournalCacheRec = ^TpgJournalCacheRec;
 
 function TpgJournalCacheRec_C(aOperation: TdaJournalOperation;
  aFamilyID: TdaFamilyID;
