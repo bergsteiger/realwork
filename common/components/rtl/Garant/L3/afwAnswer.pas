@@ -1,44 +1,33 @@
 unit afwAnswer;
+ {* Хак для диалогов для скриптов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/afwAnswer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3$AFW::BatchServices::afwAnswer
-//
-// Хак для диалогов для скриптов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\afwAnswer.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3ProtoObject,
-  l3ProtoIntegerList,
-  l3AFWExceptions,
-  l3BatchService
-  ;
+ l3IntfUses
+ , l3AFWExceptions
+ , l3ProtoObject
+ , l3BatchService
+ , l3ProtoIntegerList
+ , SysUtils
+;
 
 type
- EafwTryEnterModalState = l3AFWExceptions.El3TryEnterModalState;
+ EafwTryEnterModalState = El3TryEnterModalState;
 
  TafwBatchService = {final} class(Tl3ProtoObject, Il3BatchService)
- private
- // private fields
-   f_BatchMode : Integer;
-   f_WasDialog : Integer;
- public
- // realized methods
+  private
+   f_BatchMode: Integer;
+   f_WasDialog: Integer;
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    procedure PushAnswer(aValue: Integer);
    function CheckWasDialog: Boolean;
    procedure SignalWasDialog;
@@ -47,70 +36,55 @@ type
    function IsBatchMode: Boolean;
    function PopAnswer: Integer;
    procedure LeaveBatchMode;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TafwBatchService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TafwBatchService }
  end;//TafwBatchService
 
  TafwAnswers = class(Tl3ProtoIntegerList)
- protected
- // protected methods
+  protected
    class function GetAnswer: Integer;
    class procedure SetAnswer(anAnswer: Integer);
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TafwAnswers;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TafwAnswers }
  end;//TafwAnswers
 
  EkwWaitBracketsBalance = class(Exception)
  end;//EkwWaitBracketsBalance
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a}
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ , l3Base
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-
-// start class TafwBatchService
-
-var g_TafwBatchService : TafwBatchService = nil;
+var g_TafwBatchService: TafwBatchService = nil;
+ {* Экземпляр синглетона TafwBatchService }
+var g_TafwAnswers: TafwAnswers = nil;
+ {* Экземпляр синглетона TafwAnswers }
 
 procedure TafwBatchServiceFree;
+ {* Метод освобождения экземпляра синглетона TafwBatchService }
 begin
  l3Free(g_TafwBatchService);
-end;
+end;//TafwBatchServiceFree
 
-class function TafwBatchService.Instance: TafwBatchService;
+procedure TafwAnswersFree;
+ {* Метод освобождения экземпляра синглетона TafwAnswers }
 begin
- if (g_TafwBatchService = nil) then
- begin
-  l3System.AddExitProc(TafwBatchServiceFree);
-  g_TafwBatchService := Create;
- end;
- Result := g_TafwBatchService;
-end;
-
+ l3Free(g_TafwAnswers);
+end;//TafwAnswersFree
 
 class function TafwBatchService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TafwBatchService <> nil;
 end;//TafwBatchService.Exists
@@ -192,25 +166,16 @@ begin
 //#UC END# *FE46A80B1DA3_5507FE0A0095_impl*
 end;//TafwBatchService.LeaveBatchMode
 
-// start class TafwAnswers
-
-var g_TafwAnswers : TafwAnswers = nil;
-
-procedure TafwAnswersFree;
+class function TafwBatchService.Instance: TafwBatchService;
+ {* Метод получения экземпляра синглетона TafwBatchService }
 begin
- l3Free(g_TafwAnswers);
-end;
-
-class function TafwAnswers.Instance: TafwAnswers;
-begin
- if (g_TafwAnswers = nil) then
+ if (g_TafwBatchService = nil) then
  begin
-  l3System.AddExitProc(TafwAnswersFree);
-  g_TafwAnswers := Create;
+  l3System.AddExitProc(TafwBatchServiceFree);
+  g_TafwBatchService := Create;
  end;
- Result := g_TafwAnswers;
-end;
-
+ Result := g_TafwBatchService;
+end;//TafwBatchService.Instance
 
 class function TafwAnswers.GetAnswer: Integer;
 //#UC START# *4E0321910152_553E013F0125_var*
@@ -247,16 +212,25 @@ begin
 end;//TafwAnswers.SetAnswer
 
 class function TafwAnswers.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TafwAnswers <> nil;
 end;//TafwAnswers.Exists
-{$IfEnd} //not NoScripts
+
+class function TafwAnswers.Instance: TafwAnswers;
+ {* Метод получения экземпляра синглетона TafwAnswers }
+begin
+ if (g_TafwAnswers = nil) then
+ begin
+  l3System.AddExitProc(TafwAnswersFree);
+  g_TafwAnswers := Create;
+ end;
+ Result := g_TafwAnswers;
+end;//TafwAnswers.Instance
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TafwBatchService
  Tl3BatchService.Instance.Alien := TafwBatchService.Instance;
-{$IfEnd} //not NoScripts
+ {* Регистрация TafwBatchService }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,27 +1,21 @@
 unit NOT_FINISHED_JclSysInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "JEDI"
-// Модуль: "w:/common/components/rtl/external/JEDI/source/common/NOT_FINISHED_JclSysInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::JEDI::Common::JclSysInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\JEDI\source\common\NOT_FINISHED_JclSysInfo.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+uses
+ l3IntfUses
+;
+
 procedure CPUID;
-   {* Сигнатура метода CPUID }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure CPUID;
 //#UC START# *4B4DCDA1023B_4B4DCD220000_var*

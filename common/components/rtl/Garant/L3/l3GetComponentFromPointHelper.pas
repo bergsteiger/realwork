@@ -1,135 +1,98 @@
 unit l3GetComponentFromPointHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3GetComponentFromPointHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3GetComponentFromPointHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3GetComponentFromPointHelper.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Types,
-  Classes,
-  Controls,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , Types
+ , Classes
+ , Controls
+;
 
-{$If not defined(NoVCL)}
-(*
- Ml3GetComponentFromPointHelper = PureMixIn
+ (*
+ Ml3GetComponentFromPointHelper = interface
   {* Контракт сервиса Tl3GetComponentFromPointHelper }
-   procedure GetComponent(const aPoint: TPoint;
-    out aComponent: TComponent;
-    out aBindedControl: TControl);
-     {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
+  procedure GetComponent(const aPoint: TPoint;
+   out aComponent: TComponent;
+   out aBindedControl: TControl);
+   {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
  end;//Ml3GetComponentFromPointHelper
-*)
+ *)
 
 type
- Il3GetComponentFromPointHelper = interface(IUnknown)
+ Il3GetComponentFromPointHelper = interface
   {* Интерфейс сервиса Tl3GetComponentFromPointHelper }
-   ['{8A45EBEB-1919-4ED9-AE29-39A44F9B3F6E}']
-  // Ml3GetComponentFromPointHelper
-   procedure GetComponent(const aPoint: TPoint;
-    out aComponent: TComponent;
-    out aBindedControl: TControl);
-     {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
+  ['{8A45EBEB-1919-4ED9-AE29-39A44F9B3F6E}']
+  procedure GetComponent(const aPoint: TPoint;
+   out aComponent: TComponent;
+   out aBindedControl: TControl);
+   {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
  end;//Il3GetComponentFromPointHelper
 
  Tl3GetComponentFromPointHelper = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3GetComponentFromPointHelper;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3GetComponentFromPointHelper;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3GetComponentFromPointHelper);
- public
- // realized methods
-   procedure GetComponent(const aPoint: TPoint;
-     out aComponent: TComponent;
-     out aBindedControl: TControl);
-     {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3GetComponentFromPointHelper
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3GetComponentFromPointHelper }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   procedure GetComponent(const aPoint: TPoint;
+    out aComponent: TComponent;
+    out aBindedControl: TControl);
+    {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
    class function Instance: Tl3GetComponentFromPointHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3GetComponentFromPointHelper }
+  public
+   property Alien: Il3GetComponentFromPointHelper
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3GetComponentFromPointHelper }
  end;//Tl3GetComponentFromPointHelper
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCL)}
-
-
-// start class Tl3GetComponentFromPointHelper
-
-var g_Tl3GetComponentFromPointHelper : Tl3GetComponentFromPointHelper = nil;
+var g_Tl3GetComponentFromPointHelper: Tl3GetComponentFromPointHelper = nil;
+ {* Экземпляр синглетона Tl3GetComponentFromPointHelper }
 
 procedure Tl3GetComponentFromPointHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3GetComponentFromPointHelper }
 begin
  l3Free(g_Tl3GetComponentFromPointHelper);
-end;
-
-class function Tl3GetComponentFromPointHelper.Instance: Tl3GetComponentFromPointHelper;
-begin
- if (g_Tl3GetComponentFromPointHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3GetComponentFromPointHelperFree);
-  g_Tl3GetComponentFromPointHelper := Create;
- end;
- Result := g_Tl3GetComponentFromPointHelper;
-end;
-
+end;//Tl3GetComponentFromPointHelperFree
 
 procedure Tl3GetComponentFromPointHelper.pm_SetAlien(const aValue: Il3GetComponentFromPointHelper);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3GetComponentFromPointHelper.pm_SetAlien
 
 class function Tl3GetComponentFromPointHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3GetComponentFromPointHelper <> nil;
 end;//Tl3GetComponentFromPointHelper.Exists
 
 procedure Tl3GetComponentFromPointHelper.GetComponent(const aPoint: TPoint;
-  out aComponent: TComponent;
-  out aBindedControl: TControl);
+ out aComponent: TComponent;
+ out aBindedControl: TControl);
+ {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
 //#UC START# *77F02E022F3C_551AB8CA014A_var*
 //#UC END# *77F02E022F3C_551AB8CA014A_var*
 begin
@@ -149,15 +112,22 @@ begin
 //#UC END# *77F02E022F3C_551AB8CA014A_impl*
 end;//Tl3GetComponentFromPointHelper.GetComponent
 
-procedure Tl3GetComponentFromPointHelper.ClearFields;
- {-}
+class function Tl3GetComponentFromPointHelper.Instance: Tl3GetComponentFromPointHelper;
+ {* Метод получения экземпляра синглетона Tl3GetComponentFromPointHelper }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3GetComponentFromPointHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3GetComponentFromPointHelperFree);
+  g_Tl3GetComponentFromPointHelper := Create;
+ end;
+ Result := g_Tl3GetComponentFromPointHelper;
+end;//Tl3GetComponentFromPointHelper.Instance
+
+procedure Tl3GetComponentFromPointHelper.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3GetComponentFromPointHelper.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

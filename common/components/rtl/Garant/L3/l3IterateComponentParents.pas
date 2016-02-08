@@ -1,140 +1,101 @@
 unit l3IterateComponentParents;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3IterateComponentParents.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3IterateComponentParents
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3IterateComponentParents.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Classes,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , Classes
+;
 
-{$If not defined(NoVCL)}
 type
-  Ml3IterateComponentParents_IterateF_Action = function (anItem: TComponent): Boolean;
-   {* Тип подитеративной функции для Ml3IterateComponentParents.IterateF }
+ Ml3IterateComponentParents_IterateF_Action = function(anItem: TComponent): Boolean;
+  {* Тип подитеративной функции для Ml3IterateComponentParents.IterateF }
 
-(*
- Ml3IterateComponentParents = PureMixIn
+ (*
+ Ml3IterateComponentParents = interface
   {* Контракт сервиса Tl3IterateComponentParents }
-   {iterator} procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
-    aComponent: TComponent);
+  procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+   aComponent: TComponent);
  end;//Ml3IterateComponentParents
-*)
+ *)
 
- Il3IterateComponentParents = interface(IUnknown)
+ Il3IterateComponentParents = interface
   {* Интерфейс сервиса Tl3IterateComponentParents }
-   ['{5A7F04AD-BABF-4265-8160-3A5BDA277D22}']
-  // Ml3IterateComponentParents
-   {iterator} procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
-    aComponent: TComponent);
+  ['{5A7F04AD-BABF-4265-8160-3A5BDA277D22}']
+  procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+   aComponent: TComponent);
  end;//Il3IterateComponentParents
 
  Tl3IterateComponentParents = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3IterateComponentParents;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3IterateComponentParents;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3IterateComponentParents);
- public
- // realized methods
-   {iterator} procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
-     aComponent: TComponent);
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3IterateComponentParents
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3IterateComponentParents }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+    aComponent: TComponent);
    class function Instance: Tl3IterateComponentParents;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3IterateComponentParents }
+  public
+   property Alien: Il3IterateComponentParents
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3IterateComponentParents }
  end;//Tl3IterateComponentParents
-{$IfEnd} //not NoVCL
- {$If not defined(NoVCL)}
+
 function L2Ml3IterateComponentParentsIterateFAction(anAction: pointer): Ml3IterateComponentParents_IterateF_Action;
-   {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF }
- {$IfEnd} //not NoVCL
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF }
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a},
-  Controls
-  ;
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , Controls
+;
 
-{$If not defined(NoVCL)}
-
-
-// start class Tl3IterateComponentParents
-
-var g_Tl3IterateComponentParents : Tl3IterateComponentParents = nil;
-
-procedure Tl3IterateComponentParentsFree;
-begin
- l3Free(g_Tl3IterateComponentParents);
-end;
-
-class function Tl3IterateComponentParents.Instance: Tl3IterateComponentParents;
-begin
- if (g_Tl3IterateComponentParents = nil) then
- begin
-  l3System.AddExitProc(Tl3IterateComponentParentsFree);
-  g_Tl3IterateComponentParents := Create;
- end;
- Result := g_Tl3IterateComponentParents;
-end;
-
+var g_Tl3IterateComponentParents: Tl3IterateComponentParents = nil;
+ {* Экземпляр синглетона Tl3IterateComponentParents }
 
 function L2Ml3IterateComponentParentsIterateFAction(anAction: pointer): Ml3IterateComponentParents_IterateF_Action;
- {-}
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3IterateComponentParents.IterateF }
 asm
  jmp l3LocalStub
 end;//L2Ml3IterateComponentParentsIterateFAction
 
+procedure Tl3IterateComponentParentsFree;
+ {* Метод освобождения экземпляра синглетона Tl3IterateComponentParents }
+begin
+ l3Free(g_Tl3IterateComponentParents);
+end;//Tl3IterateComponentParentsFree
+
 procedure Tl3IterateComponentParents.pm_SetAlien(const aValue: Il3IterateComponentParents);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3IterateComponentParents.pm_SetAlien
 
 class function Tl3IterateComponentParents.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3IterateComponentParents <> nil;
 end;//Tl3IterateComponentParents.Exists
 
-{iterator} procedure Tl3IterateComponentParents.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
-  aComponent: TComponent);
+procedure Tl3IterateComponentParents.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
+ aComponent: TComponent);
 //#UC START# *3410F441967F_551AA9BD01EE_var*
 var
  Hack : Pointer absolute anAction;
@@ -164,15 +125,22 @@ begin
 //#UC END# *3410F441967F_551AA9BD01EE_impl*
 end;//Tl3IterateComponentParents.IterateF
 
-procedure Tl3IterateComponentParents.ClearFields;
- {-}
+class function Tl3IterateComponentParents.Instance: Tl3IterateComponentParents;
+ {* Метод получения экземпляра синглетона Tl3IterateComponentParents }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3IterateComponentParents = nil) then
+ begin
+  l3System.AddExitProc(Tl3IterateComponentParentsFree);
+  g_Tl3IterateComponentParents := Create;
+ end;
+ Result := g_Tl3IterateComponentParents;
+end;//Tl3IterateComponentParents.Instance
+
+procedure Tl3IterateComponentParents.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3IterateComponentParents.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

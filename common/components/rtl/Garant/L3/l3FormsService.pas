@@ -1,129 +1,91 @@
 unit l3FormsService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FormsService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::AFWServices::Tl3FormsService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FormsService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Classes,
-  Forms,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , Forms
+ , Classes
+;
 
-{$If not defined(NoVCL)}
 type
  TCustomForm = Forms.TCustomForm;
 
-(*
- Ml3FormsService = PureMixIn
+ (*
+ Ml3FormsService = interface
   {* Контракт сервиса Tl3FormsService }
-   function GetParentForm(Component: TPersistent): TCustomForm;
-   function GetAnotherParentForm(Component: TPersistent): TCustomForm;
-   function GetTopParentForm(Component: TPersistent): TCustomForm;
-   function GetMainForm(Component: TPersistent): TCustomForm;
+  function GetParentForm(Component: TPersistent): TCustomForm;
+  function GetAnotherParentForm(Component: TPersistent): TCustomForm;
+  function GetTopParentForm(Component: TPersistent): TCustomForm;
+  function GetMainForm(Component: TPersistent): TCustomForm;
  end;//Ml3FormsService
-*)
+ *)
 
- Il3FormsService = interface(IUnknown)
+ Il3FormsService = interface
   {* Интерфейс сервиса Tl3FormsService }
-   ['{69FEDDF5-3C91-4527-B7FA-B2965BA459E9}']
-  // Ml3FormsService
-   function GetParentForm(Component: TPersistent): TCustomForm;
-   function GetAnotherParentForm(Component: TPersistent): TCustomForm;
-   function GetTopParentForm(Component: TPersistent): TCustomForm;
-   function GetMainForm(Component: TPersistent): TCustomForm;
+  ['{69FEDDF5-3C91-4527-B7FA-B2965BA459E9}']
+  function GetParentForm(Component: TPersistent): TCustomForm;
+  function GetAnotherParentForm(Component: TPersistent): TCustomForm;
+  function GetTopParentForm(Component: TPersistent): TCustomForm;
+  function GetMainForm(Component: TPersistent): TCustomForm;
  end;//Il3FormsService
 
  Tl3FormsService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3FormsService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3FormsService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3FormsService);
- public
- // realized methods
+   procedure ClearFields; override;
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    function GetAnotherParentForm(Component: TPersistent): TCustomForm;
    function GetMainForm(Component: TPersistent): TCustomForm;
    function GetParentForm(Component: TPersistent): TCustomForm;
    function GetTopParentForm(Component: TPersistent): TCustomForm;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3FormsService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3FormsService }
- public
- // singleton factory method
    class function Instance: Tl3FormsService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3FormsService }
+  public
+   property Alien: Il3FormsService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3FormsService }
  end;//Tl3FormsService
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCL)}
-
-
-// start class Tl3FormsService
-
-var g_Tl3FormsService : Tl3FormsService = nil;
+var g_Tl3FormsService: Tl3FormsService = nil;
+ {* Экземпляр синглетона Tl3FormsService }
 
 procedure Tl3FormsServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3FormsService }
 begin
  l3Free(g_Tl3FormsService);
-end;
-
-class function Tl3FormsService.Instance: Tl3FormsService;
-begin
- if (g_Tl3FormsService = nil) then
- begin
-  l3System.AddExitProc(Tl3FormsServiceFree);
-  g_Tl3FormsService := Create;
- end;
- Result := g_Tl3FormsService;
-end;
-
+end;//Tl3FormsServiceFree
 
 procedure Tl3FormsService.pm_SetAlien(const aValue: Il3FormsService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3FormsService.pm_SetAlien
 
 class function Tl3FormsService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3FormsService <> nil;
 end;//Tl3FormsService.Exists
@@ -188,15 +150,22 @@ begin
 //#UC END# *D9663D6CD433_5506D56601D6_impl*
 end;//Tl3FormsService.GetTopParentForm
 
-procedure Tl3FormsService.ClearFields;
- {-}
+class function Tl3FormsService.Instance: Tl3FormsService;
+ {* Метод получения экземпляра синглетона Tl3FormsService }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3FormsService = nil) then
+ begin
+  l3System.AddExitProc(Tl3FormsServiceFree);
+  g_Tl3FormsService := Create;
+ end;
+ Result := g_Tl3FormsService;
+end;//Tl3FormsService.Instance
+
+procedure Tl3FormsService.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3FormsService.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

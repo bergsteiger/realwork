@@ -1,116 +1,83 @@
 unit l3ModalService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ModalService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::BatchServices::Tl3ModalService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ModalService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+;
 
 type
  TseModalExecute = (
-   se_meUsual
- , se_meInLoop
- , se_meAfterLoop
+  se_meUsual
+  , se_meInLoop
+  , se_meAfterLoop
  );//TseModalExecute
 
-(*
- Ml3ModalService = PureMixIn
-   function HasModalWorker: Boolean;
-   function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
+ (*
+ Ml3ModalService = interface
+  function HasModalWorker: Boolean;
+  function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
  end;//Ml3ModalService
-*)
+ *)
 
- Il3ModalService = interface(IUnknown)
+ Il3ModalService = interface
   {* Интерфейс сервиса Tl3ModalService }
-   ['{138EC31E-59DE-4996-A7C2-234E73119E5C}']
-  // Ml3ModalService
-   function HasModalWorker: Boolean;
-   function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
+  ['{138EC31E-59DE-4996-A7C2-234E73119E5C}']
+  function HasModalWorker: Boolean;
+  function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
  end;//Il3ModalService
 
  Tl3ModalService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3ModalService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3ModalService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3ModalService);
- public
- // realized methods
+   procedure ClearFields; override;
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    function HasModalWorker: Boolean;
    function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3ModalService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3ModalService }
- public
- // singleton factory method
    class function Instance: Tl3ModalService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3ModalService }
+  public
+   property Alien: Il3ModalService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3ModalService }
  end;//Tl3ModalService
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3ModalService
-
-var g_Tl3ModalService : Tl3ModalService = nil;
+var g_Tl3ModalService: Tl3ModalService = nil;
+ {* Экземпляр синглетона Tl3ModalService }
 
 procedure Tl3ModalServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3ModalService }
 begin
  l3Free(g_Tl3ModalService);
-end;
-
-class function Tl3ModalService.Instance: Tl3ModalService;
-begin
- if (g_Tl3ModalService = nil) then
- begin
-  l3System.AddExitProc(Tl3ModalServiceFree);
-  g_Tl3ModalService := Create;
- end;
- Result := g_Tl3ModalService;
-end;
-
+end;//Tl3ModalServiceFree
 
 procedure Tl3ModalService.pm_SetAlien(const aValue: Il3ModalService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3ModalService.pm_SetAlien
 
 class function Tl3ModalService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3ModalService <> nil;
 end;//Tl3ModalService.Exists
@@ -139,8 +106,18 @@ begin
 //#UC END# *553F8EA30300_553F71BE03E0_impl*
 end;//Tl3ModalService.ExecuteCurrentModalWorker
 
+class function Tl3ModalService.Instance: Tl3ModalService;
+ {* Метод получения экземпляра синглетона Tl3ModalService }
+begin
+ if (g_Tl3ModalService = nil) then
+ begin
+  l3System.AddExitProc(Tl3ModalServiceFree);
+  g_Tl3ModalService := Create;
+ end;
+ Result := g_Tl3ModalService;
+end;//Tl3ModalService.Instance
+
 procedure Tl3ModalService.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

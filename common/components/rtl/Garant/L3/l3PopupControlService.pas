@@ -1,109 +1,76 @@
 unit l3PopupControlService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3PopupControlService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::PopupControlServices::Tl3PopupControlService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3PopupControlService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  Windows,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , Windows
+;
 
-(*
- Ml3PopupControlService = PureMixIn
+ (*
+ Ml3PopupControlService = interface
   {* Контракт сервиса Tl3PopupControlService }
-   function IsPopupControlWindow(aControlWnd: HWND): Boolean;
+  function IsPopupControlWindow(aControlWnd: HWND): Boolean;
  end;//Ml3PopupControlService
-*)
+ *)
 
 type
- Il3PopupControlService = interface(IUnknown)
+ Il3PopupControlService = interface
   {* Интерфейс сервиса Tl3PopupControlService }
-   ['{C4427BB1-962C-43A9-82FB-9DC18D0EB557}']
-  // Ml3PopupControlService
-   function IsPopupControlWindow(aControlWnd: HWND): Boolean;
+  ['{C4427BB1-962C-43A9-82FB-9DC18D0EB557}']
+  function IsPopupControlWindow(aControlWnd: HWND): Boolean;
  end;//Il3PopupControlService
 
  Tl3PopupControlService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3PopupControlService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3PopupControlService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3PopupControlService);
- public
- // realized methods
-   function IsPopupControlWindow(aControlWnd: HWND): Boolean;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3PopupControlService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3PopupControlService }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function IsPopupControlWindow(aControlWnd: HWND): Boolean;
    class function Instance: Tl3PopupControlService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3PopupControlService }
+  public
+   property Alien: Il3PopupControlService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3PopupControlService }
  end;//Tl3PopupControlService
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3PopupControlService
-
-var g_Tl3PopupControlService : Tl3PopupControlService = nil;
+var g_Tl3PopupControlService: Tl3PopupControlService = nil;
+ {* Экземпляр синглетона Tl3PopupControlService }
 
 procedure Tl3PopupControlServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3PopupControlService }
 begin
  l3Free(g_Tl3PopupControlService);
-end;
-
-class function Tl3PopupControlService.Instance: Tl3PopupControlService;
-begin
- if (g_Tl3PopupControlService = nil) then
- begin
-  l3System.AddExitProc(Tl3PopupControlServiceFree);
-  g_Tl3PopupControlService := Create;
- end;
- Result := g_Tl3PopupControlService;
-end;
-
+end;//Tl3PopupControlServiceFree
 
 procedure Tl3PopupControlService.pm_SetAlien(const aValue: Il3PopupControlService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3PopupControlService.pm_SetAlien
 
 class function Tl3PopupControlService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3PopupControlService <> nil;
 end;//Tl3PopupControlService.Exists
@@ -129,8 +96,18 @@ begin
 //#UC END# *D2E4642CC7BC_55879E12008D_impl*
 end;//Tl3PopupControlService.IsPopupControlWindow
 
+class function Tl3PopupControlService.Instance: Tl3PopupControlService;
+ {* Метод получения экземпляра синглетона Tl3PopupControlService }
+begin
+ if (g_Tl3PopupControlService = nil) then
+ begin
+  l3System.AddExitProc(Tl3PopupControlServiceFree);
+  g_Tl3PopupControlService := Create;
+ end;
+ Result := g_Tl3PopupControlService;
+end;//Tl3PopupControlService.Instance
+
 procedure Tl3PopupControlService.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

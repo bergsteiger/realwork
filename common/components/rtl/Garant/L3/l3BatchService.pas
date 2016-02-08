@@ -1,92 +1,76 @@
 unit l3BatchService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3BatchService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::BatchServices::Tl3BatchService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3BatchService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ProtoObject
-  {$If not defined(NoScripts)}
-  ,
-  l3ScriptService
-  {$IfEnd} //not NoScripts
-  ,
-  l3ModalService
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3ModalService
+ {$If NOT Defined(NoScripts)}
+ , l3ScriptService
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 type
- Tl3BatchScriptService = {final} class(Tl3ProtoObject {$If not defined(NoScripts)}, Il3ScriptService{$IfEnd} //not NoScripts
+ Tl3BatchScriptService = {final} class(Tl3ProtoObject{$If NOT Defined(NoScripts)}
+ , Il3ScriptService
+ {$IfEnd} // NOT Defined(NoScripts)
  )
- public
- // realized methods
-   {$If not defined(NoScripts)}
-   procedure EnterScript;
-   {$IfEnd} //not NoScripts
-   {$If not defined(NoScripts)}
-   procedure LeaveScript;
-   {$IfEnd} //not NoScripts
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   {$If NOT Defined(NoScripts)}
+   procedure EnterScript;
+   {$IfEnd} // NOT Defined(NoScripts)
+   {$If NOT Defined(NoScripts)}
+   procedure LeaveScript;
+   {$IfEnd} // NOT Defined(NoScripts)
    class function Instance: Tl3BatchScriptService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3BatchScriptService }
  end;//Tl3BatchScriptService
 
-(*
- Ml3BatchService = PureMixIn
+ (*
+ Ml3BatchService = interface
   {* Контракт сервиса Tl3BatchService }
-   function IsBatchMode: Boolean;
-   procedure EnterBatchMode;
-   procedure LeaveBatchMode;
-   procedure PushAnswer(aValue: Integer);
-   function PopAnswer: Integer;
-   procedure SignalWasDialog;
-   function CheckWasDialog: Boolean;
-   procedure ClearAnswers;
+  function IsBatchMode: Boolean;
+  procedure EnterBatchMode;
+  procedure LeaveBatchMode;
+  procedure PushAnswer(aValue: Integer);
+  function PopAnswer: Integer;
+  procedure SignalWasDialog;
+  function CheckWasDialog: Boolean;
+  procedure ClearAnswers;
  end;//Ml3BatchService
-*)
+ *)
 
- Il3BatchService = interface(IUnknown)
+ Il3BatchService = interface
   {* Интерфейс сервиса Tl3BatchService }
-   ['{F011DB29-11CB-4024-B2FC-89B3245D418D}']
-  // Ml3BatchService
-   function IsBatchMode: Boolean;
-   procedure EnterBatchMode;
-   procedure LeaveBatchMode;
-   procedure PushAnswer(aValue: Integer);
-   function PopAnswer: Integer;
-   procedure SignalWasDialog;
-   function CheckWasDialog: Boolean;
-   procedure ClearAnswers;
+  ['{F011DB29-11CB-4024-B2FC-89B3245D418D}']
+  function IsBatchMode: Boolean;
+  procedure EnterBatchMode;
+  procedure LeaveBatchMode;
+  procedure PushAnswer(aValue: Integer);
+  function PopAnswer: Integer;
+  procedure SignalWasDialog;
+  function CheckWasDialog: Boolean;
+  procedure ClearAnswers;
  end;//Il3BatchService
 
  Tl3BatchService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3BatchService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3BatchService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3BatchService);
- public
- // realized methods
+   procedure ClearFields; override;
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    procedure PushAnswer(aValue: Integer);
    function CheckWasDialog: Boolean;
    procedure SignalWasDialog;
@@ -97,89 +81,52 @@ type
    function IsBatchMode: Boolean;
    function PopAnswer: Integer;
    procedure LeaveBatchMode;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3BatchService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3BatchService }
- public
- // singleton factory method
    class function Instance: Tl3BatchService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3BatchService }
+  public
+   property Alien: Il3BatchService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3BatchService }
  end;//Tl3BatchService
 
 implementation
 
 uses
-  l3Base {a}
-  {$If not defined(NoScripts)}
-  ,
-  afwAnswer
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3BatchService
-
-var g_Tl3BatchService : Tl3BatchService = nil;
-
-procedure Tl3BatchServiceFree;
-begin
- l3Free(g_Tl3BatchService);
-end;
-
-class function Tl3BatchService.Instance: Tl3BatchService;
-begin
- if (g_Tl3BatchService = nil) then
- begin
-  l3System.AddExitProc(Tl3BatchServiceFree);
-  g_Tl3BatchService := Create;
- end;
- Result := g_Tl3BatchService;
-end;
-
-
-// start class Tl3BatchScriptService
-
-var g_Tl3BatchScriptService : Tl3BatchScriptService = nil;
+var g_Tl3BatchScriptService: Tl3BatchScriptService = nil;
+ {* Экземпляр синглетона Tl3BatchScriptService }
+var g_Tl3BatchService: Tl3BatchService = nil;
+ {* Экземпляр синглетона Tl3BatchService }
 
 procedure Tl3BatchScriptServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3BatchScriptService }
 begin
  l3Free(g_Tl3BatchScriptService);
-end;
+end;//Tl3BatchScriptServiceFree
 
-class function Tl3BatchScriptService.Instance: Tl3BatchScriptService;
+procedure Tl3BatchServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3BatchService }
 begin
- if (g_Tl3BatchScriptService = nil) then
- begin
-  l3System.AddExitProc(Tl3BatchScriptServiceFree);
-  g_Tl3BatchScriptService := Create;
- end;
- Result := g_Tl3BatchScriptService;
-end;
-
+ l3Free(g_Tl3BatchService);
+end;//Tl3BatchServiceFree
 
 class function Tl3BatchScriptService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3BatchScriptService <> nil;
 end;//Tl3BatchScriptService.Exists
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 procedure Tl3BatchScriptService.EnterScript;
 //#UC START# *97F121633B1B_5509AAAC0313_var*
 //#UC END# *97F121633B1B_5509AAAC0313_var*
@@ -188,9 +135,9 @@ begin
  Tl3BatchService.Instance.EnterBatchMode;
 //#UC END# *97F121633B1B_5509AAAC0313_impl*
 end;//Tl3BatchScriptService.EnterScript
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 procedure Tl3BatchScriptService.LeaveScript;
 //#UC START# *BA3808340B4E_5509AAAC0313_var*
 //#UC END# *BA3808340B4E_5509AAAC0313_var*
@@ -199,17 +146,27 @@ begin
  Tl3BatchService.Instance.LeaveBatchMode;
 //#UC END# *BA3808340B4E_5509AAAC0313_impl*
 end;//Tl3BatchScriptService.LeaveScript
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
+
+class function Tl3BatchScriptService.Instance: Tl3BatchScriptService;
+ {* Метод получения экземпляра синглетона Tl3BatchScriptService }
+begin
+ if (g_Tl3BatchScriptService = nil) then
+ begin
+  l3System.AddExitProc(Tl3BatchScriptServiceFree);
+  g_Tl3BatchScriptService := Create;
+ end;
+ Result := g_Tl3BatchScriptService;
+end;//Tl3BatchScriptService.Instance
 
 procedure Tl3BatchService.pm_SetAlien(const aValue: Il3BatchService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3BatchService.pm_SetAlien
 
 class function Tl3BatchService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3BatchService <> nil;
 end;//Tl3BatchService.Exists
@@ -322,18 +279,27 @@ begin
 //#UC END# *FE46A80B1DA3_5507FDD203E1_impl*
 end;//Tl3BatchService.LeaveBatchMode
 
+class function Tl3BatchService.Instance: Tl3BatchService;
+ {* Метод получения экземпляра синглетона Tl3BatchService }
+begin
+ if (g_Tl3BatchService = nil) then
+ begin
+  l3System.AddExitProc(Tl3BatchServiceFree);
+  g_Tl3BatchService := Create;
+ end;
+ Result := g_Tl3BatchService;
+end;//Tl3BatchService.Instance
+
 procedure Tl3BatchService.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;
 end;//Tl3BatchService.ClearFields
 
 initialization
-// Регистрация Tl3BatchScriptService
- {$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
  Tl3ScriptService.Instance.Alien := Tl3BatchScriptService.Instance;
- {$IfEnd} //not NoScripts
-
+{$IfEnd} // NOT Defined(NoScripts)
+ {* Регистрация Tl3BatchScriptService }
 
 end.

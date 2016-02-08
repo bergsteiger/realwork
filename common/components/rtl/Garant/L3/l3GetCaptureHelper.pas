@@ -1,118 +1,80 @@
 unit l3GetCaptureHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3GetCaptureHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3GetCaptureHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3GetCaptureHelper.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Classes,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , Classes
+;
 
-{$If not defined(NoVCL)}
-(*
- Ml3GetCaptureHelper = PureMixIn
+ (*
+ Ml3GetCaptureHelper = interface
   {* Контракт сервиса Tl3GetCaptureHelper }
-   function GetCapture: TComponent;
+  function GetCapture: TComponent;
  end;//Ml3GetCaptureHelper
-*)
+ *)
 
 type
- Il3GetCaptureHelper = interface(IUnknown)
+ Il3GetCaptureHelper = interface
   {* Интерфейс сервиса Tl3GetCaptureHelper }
-   ['{37325DBC-4527-4860-8B30-E4FA121B0FC5}']
-  // Ml3GetCaptureHelper
-   function GetCapture: TComponent;
+  ['{37325DBC-4527-4860-8B30-E4FA121B0FC5}']
+  function GetCapture: TComponent;
  end;//Il3GetCaptureHelper
 
  Tl3GetCaptureHelper = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3GetCaptureHelper;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3GetCaptureHelper;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3GetCaptureHelper);
- public
- // realized methods
-   function GetCapture: TComponent;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3GetCaptureHelper
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3GetCaptureHelper }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function GetCapture: TComponent;
    class function Instance: Tl3GetCaptureHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3GetCaptureHelper }
+  public
+   property Alien: Il3GetCaptureHelper
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3GetCaptureHelper }
  end;//Tl3GetCaptureHelper
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a},
-  Controls
-  ;
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ , Controls
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCL)}
-
-
-// start class Tl3GetCaptureHelper
-
-var g_Tl3GetCaptureHelper : Tl3GetCaptureHelper = nil;
+var g_Tl3GetCaptureHelper: Tl3GetCaptureHelper = nil;
+ {* Экземпляр синглетона Tl3GetCaptureHelper }
 
 procedure Tl3GetCaptureHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3GetCaptureHelper }
 begin
  l3Free(g_Tl3GetCaptureHelper);
-end;
-
-class function Tl3GetCaptureHelper.Instance: Tl3GetCaptureHelper;
-begin
- if (g_Tl3GetCaptureHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3GetCaptureHelperFree);
-  g_Tl3GetCaptureHelper := Create;
- end;
- Result := g_Tl3GetCaptureHelper;
-end;
-
+end;//Tl3GetCaptureHelperFree
 
 procedure Tl3GetCaptureHelper.pm_SetAlien(const aValue: Il3GetCaptureHelper);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3GetCaptureHelper.pm_SetAlien
 
 class function Tl3GetCaptureHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3GetCaptureHelper <> nil;
 end;//Tl3GetCaptureHelper.Exists
@@ -129,15 +91,22 @@ begin
 //#UC END# *FC96CEF34C46_55226C5F035A_impl*
 end;//Tl3GetCaptureHelper.GetCapture
 
-procedure Tl3GetCaptureHelper.ClearFields;
- {-}
+class function Tl3GetCaptureHelper.Instance: Tl3GetCaptureHelper;
+ {* Метод получения экземпляра синглетона Tl3GetCaptureHelper }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3GetCaptureHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3GetCaptureHelperFree);
+  g_Tl3GetCaptureHelper := Create;
+ end;
+ Result := g_Tl3GetCaptureHelper;
+end;//Tl3GetCaptureHelper.Instance
+
+procedure Tl3GetCaptureHelper.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3GetCaptureHelper.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

@@ -1,124 +1,81 @@
 unit l3GetComponentBoundsHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3GetComponentBoundsHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3GetComponentBoundsHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3GetComponentBoundsHelper.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Types,
-  Classes,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , Types
+ , Classes
+;
 
-{$If not defined(NoVCL)}
-(*
- Ml3GetComponentBoundsHelper = PureMixIn
+ (*
+ Ml3GetComponentBoundsHelper = interface
   {* Контракт сервиса Tl3GetComponentBoundsHelper }
-   function GetBounds(aComponent: TComponent): TRect;
+  function GetBounds(aComponent: TComponent): TRect;
  end;//Ml3GetComponentBoundsHelper
-*)
+ *)
 
 type
- Il3GetComponentBoundsHelper = interface(IUnknown)
+ Il3GetComponentBoundsHelper = interface
   {* Интерфейс сервиса Tl3GetComponentBoundsHelper }
-   ['{B081F2FC-089F-4E17-A5BC-DE28732B26EB}']
-  // Ml3GetComponentBoundsHelper
-   function GetBounds(aComponent: TComponent): TRect;
+  ['{B081F2FC-089F-4E17-A5BC-DE28732B26EB}']
+  function GetBounds(aComponent: TComponent): TRect;
  end;//Il3GetComponentBoundsHelper
 
  Tl3GetComponentBoundsHelper = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3GetComponentBoundsHelper;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3GetComponentBoundsHelper;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3GetComponentBoundsHelper);
- public
- // realized methods
-   function GetBounds(aComponent: TComponent): TRect;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3GetComponentBoundsHelper
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3GetComponentBoundsHelper }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function GetBounds(aComponent: TComponent): TRect;
    class function Instance: Tl3GetComponentBoundsHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3GetComponentBoundsHelper }
+  public
+   property Alien: Il3GetComponentBoundsHelper
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3GetComponentBoundsHelper }
  end;//Tl3GetComponentBoundsHelper
-{$IfEnd} //not NoVCL
-
-  {$If not defined(NoVCL)}
-var
-   EmptyRect : TRect = (Left: 0; Top: 0; Right: 0; Bottom: 0);
-  {$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a},
-  Controls
-  ;
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ , Controls
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCL)}
-
-
-// start class Tl3GetComponentBoundsHelper
-
-var g_Tl3GetComponentBoundsHelper : Tl3GetComponentBoundsHelper = nil;
+var g_Tl3GetComponentBoundsHelper: Tl3GetComponentBoundsHelper = nil;
+ {* Экземпляр синглетона Tl3GetComponentBoundsHelper }
 
 procedure Tl3GetComponentBoundsHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3GetComponentBoundsHelper }
 begin
  l3Free(g_Tl3GetComponentBoundsHelper);
-end;
-
-class function Tl3GetComponentBoundsHelper.Instance: Tl3GetComponentBoundsHelper;
-begin
- if (g_Tl3GetComponentBoundsHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3GetComponentBoundsHelperFree);
-  g_Tl3GetComponentBoundsHelper := Create;
- end;
- Result := g_Tl3GetComponentBoundsHelper;
-end;
-
+end;//Tl3GetComponentBoundsHelperFree
 
 procedure Tl3GetComponentBoundsHelper.pm_SetAlien(const aValue: Il3GetComponentBoundsHelper);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3GetComponentBoundsHelper.pm_SetAlien
 
 class function Tl3GetComponentBoundsHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3GetComponentBoundsHelper <> nil;
 end;//Tl3GetComponentBoundsHelper.Exists
@@ -146,15 +103,22 @@ begin
 //#UC END# *BB0BB5CAA29B_5522D7A90252_impl*
 end;//Tl3GetComponentBoundsHelper.GetBounds
 
-procedure Tl3GetComponentBoundsHelper.ClearFields;
- {-}
+class function Tl3GetComponentBoundsHelper.Instance: Tl3GetComponentBoundsHelper;
+ {* Метод получения экземпляра синглетона Tl3GetComponentBoundsHelper }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3GetComponentBoundsHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3GetComponentBoundsHelperFree);
+  g_Tl3GetComponentBoundsHelper := Create;
+ end;
+ Result := g_Tl3GetComponentBoundsHelper;
+end;//Tl3GetComponentBoundsHelper.Instance
+
+procedure Tl3GetComponentBoundsHelper.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3GetComponentBoundsHelper.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

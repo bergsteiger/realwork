@@ -1,108 +1,75 @@
 unit l3KeyboardLayoutService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3KeyboardLayoutService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::AFWServices::Tl3KeyboardLayoutService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3KeyboardLayoutService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+;
 
-(*
- Ml3KeyboardLayoutService = PureMixIn
+ (*
+ Ml3KeyboardLayoutService = interface
   {* Контракт сервиса Tl3KeyboardLayoutService }
-   procedure TryActivateKeyboardLayout;
+  procedure TryActivateKeyboardLayout;
  end;//Ml3KeyboardLayoutService
-*)
+ *)
 
 type
- Il3KeyboardLayoutService = interface(IUnknown)
+ Il3KeyboardLayoutService = interface
   {* Интерфейс сервиса Tl3KeyboardLayoutService }
-   ['{B81FD1FC-A13C-4F60-A0D1-0D1F2E636216}']
-  // Ml3KeyboardLayoutService
-   procedure TryActivateKeyboardLayout;
+  ['{B81FD1FC-A13C-4F60-A0D1-0D1F2E636216}']
+  procedure TryActivateKeyboardLayout;
  end;//Il3KeyboardLayoutService
 
  Tl3KeyboardLayoutService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3KeyboardLayoutService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3KeyboardLayoutService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3KeyboardLayoutService);
- public
- // realized methods
-   procedure TryActivateKeyboardLayout;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3KeyboardLayoutService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3KeyboardLayoutService }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   procedure TryActivateKeyboardLayout;
    class function Instance: Tl3KeyboardLayoutService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3KeyboardLayoutService }
+  public
+   property Alien: Il3KeyboardLayoutService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3KeyboardLayoutService }
  end;//Tl3KeyboardLayoutService
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3KeyboardLayoutService
-
-var g_Tl3KeyboardLayoutService : Tl3KeyboardLayoutService = nil;
+var g_Tl3KeyboardLayoutService: Tl3KeyboardLayoutService = nil;
+ {* Экземпляр синглетона Tl3KeyboardLayoutService }
 
 procedure Tl3KeyboardLayoutServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3KeyboardLayoutService }
 begin
  l3Free(g_Tl3KeyboardLayoutService);
-end;
-
-class function Tl3KeyboardLayoutService.Instance: Tl3KeyboardLayoutService;
-begin
- if (g_Tl3KeyboardLayoutService = nil) then
- begin
-  l3System.AddExitProc(Tl3KeyboardLayoutServiceFree);
-  g_Tl3KeyboardLayoutService := Create;
- end;
- Result := g_Tl3KeyboardLayoutService;
-end;
-
+end;//Tl3KeyboardLayoutServiceFree
 
 procedure Tl3KeyboardLayoutService.pm_SetAlien(const aValue: Il3KeyboardLayoutService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3KeyboardLayoutService.pm_SetAlien
 
 class function Tl3KeyboardLayoutService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3KeyboardLayoutService <> nil;
 end;//Tl3KeyboardLayoutService.Exists
@@ -117,8 +84,18 @@ begin
 //#UC END# *747558CBA739_55099A8303E1_impl*
 end;//Tl3KeyboardLayoutService.TryActivateKeyboardLayout
 
+class function Tl3KeyboardLayoutService.Instance: Tl3KeyboardLayoutService;
+ {* Метод получения экземпляра синглетона Tl3KeyboardLayoutService }
+begin
+ if (g_Tl3KeyboardLayoutService = nil) then
+ begin
+  l3System.AddExitProc(Tl3KeyboardLayoutServiceFree);
+  g_Tl3KeyboardLayoutService := Create;
+ end;
+ Result := g_Tl3KeyboardLayoutService;
+end;//Tl3KeyboardLayoutService.Instance
+
 procedure Tl3KeyboardLayoutService.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

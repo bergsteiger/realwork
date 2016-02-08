@@ -1,136 +1,97 @@
 unit l3FormatObjectInfoHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FormatObjectInfoHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3FormatObjectInfoHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FormatObjectInfoHelper.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3ProtoObject,
-  l3RTTI
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , l3RTTI
+;
 
-{$If not defined(NoVCL)}
-(*
- Ml3FormatObjectInfoHelper = PureMixIn
+ (*
+ Ml3FormatObjectInfoHelper = interface
   {* Контракт сервиса Tl3FormatObjectInfoHelper }
-   function Format(anObject: TObject;
-    aShortInfo: Boolean;
-    anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
+  function Format(anObject: TObject;
+   aShortInfo: Boolean;
+   anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
  end;//Ml3FormatObjectInfoHelper
-*)
+ *)
 
 type
- Il3FormatObjectInfoHelper = interface(IUnknown)
+ Il3FormatObjectInfoHelper = interface
   {* Интерфейс сервиса Tl3FormatObjectInfoHelper }
-   ['{ABD71A64-8BB2-4F31-9E8A-D6E19C4EB16A}']
-  // Ml3FormatObjectInfoHelper
-   function Format(anObject: TObject;
-    aShortInfo: Boolean;
-    anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
+  ['{ABD71A64-8BB2-4F31-9E8A-D6E19C4EB16A}']
+  function Format(anObject: TObject;
+   aShortInfo: Boolean;
+   anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
  end;//Il3FormatObjectInfoHelper
 
  Tl3FormatObjectInfoHelper = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3FormatObjectInfoHelper;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3FormatObjectInfoHelper;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3FormatObjectInfoHelper);
- public
- // realized methods
-   function Format(anObject: TObject;
-     aShortInfo: Boolean;
-     anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3FormatObjectInfoHelper
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3FormatObjectInfoHelper }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function Format(anObject: TObject;
+    aShortInfo: Boolean;
+    anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
    class function Instance: Tl3FormatObjectInfoHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3FormatObjectInfoHelper }
+  public
+   property Alien: Il3FormatObjectInfoHelper
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3FormatObjectInfoHelper }
  end;//Tl3FormatObjectInfoHelper
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a},
-  l3FormatActionInfoHelper,
-  Controls,
-  ActnList,
-  TypInfo,
-  l3HugeMessageDlgWithWikiHelper,
-  SysUtils
-  ;
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ , l3FormatActionInfoHelper
+ , Controls
+ , ActnList
+ , TypInfo
+ , l3HugeMessageDlgWithWikiHelper
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCL)}
-
-
-// start class Tl3FormatObjectInfoHelper
-
-var g_Tl3FormatObjectInfoHelper : Tl3FormatObjectInfoHelper = nil;
+var g_Tl3FormatObjectInfoHelper: Tl3FormatObjectInfoHelper = nil;
+ {* Экземпляр синглетона Tl3FormatObjectInfoHelper }
 
 procedure Tl3FormatObjectInfoHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3FormatObjectInfoHelper }
 begin
  l3Free(g_Tl3FormatObjectInfoHelper);
-end;
-
-class function Tl3FormatObjectInfoHelper.Instance: Tl3FormatObjectInfoHelper;
-begin
- if (g_Tl3FormatObjectInfoHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3FormatObjectInfoHelperFree);
-  g_Tl3FormatObjectInfoHelper := Create;
- end;
- Result := g_Tl3FormatObjectInfoHelper;
-end;
-
+end;//Tl3FormatObjectInfoHelperFree
 
 procedure Tl3FormatObjectInfoHelper.pm_SetAlien(const aValue: Il3FormatObjectInfoHelper);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3FormatObjectInfoHelper.pm_SetAlien
 
 class function Tl3FormatObjectInfoHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3FormatObjectInfoHelper <> nil;
 end;//Tl3FormatObjectInfoHelper.Exists
 
 function Tl3FormatObjectInfoHelper.Format(anObject: TObject;
-  aShortInfo: Boolean;
-  anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
+ aShortInfo: Boolean;
+ anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
 //#UC START# *D4A861440DBF_551BCBFD0240_var*
  procedure lp_AddInfo(var theInfo: AnsiString;
   const aCaption: AnsiString;
@@ -193,15 +154,22 @@ begin
 //#UC END# *D4A861440DBF_551BCBFD0240_impl*
 end;//Tl3FormatObjectInfoHelper.Format
 
-procedure Tl3FormatObjectInfoHelper.ClearFields;
- {-}
+class function Tl3FormatObjectInfoHelper.Instance: Tl3FormatObjectInfoHelper;
+ {* Метод получения экземпляра синглетона Tl3FormatObjectInfoHelper }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3FormatObjectInfoHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3FormatObjectInfoHelperFree);
+  g_Tl3FormatObjectInfoHelper := Create;
+ end;
+ Result := g_Tl3FormatObjectInfoHelper;
+end;//Tl3FormatObjectInfoHelper.Instance
+
+procedure Tl3FormatObjectInfoHelper.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3FormatObjectInfoHelper.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

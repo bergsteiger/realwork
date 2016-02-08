@@ -1,40 +1,26 @@
 unit l3ControlFontService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ControlFontService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3ControlFontService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ControlFontService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Interfaces,
-  Controls,
-  l3ProtoObject,
-  l3CProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+ , Controls
+ , l3CProtoObject
+;
 
-{$If not defined(NoVCL)}
 type
  Tl3ControlFontInfo = class(Tl3CProtoObject, Il3FontInfo)
- private
- // private fields
-   f_Control : TControl;
- protected
- // realized methods
+  private
+   f_Control: TControl;
+  protected
    function Get_Size: Integer;
    function Get_Name: TFontName;
    function Get_Bold: Boolean;
@@ -45,104 +31,69 @@ type
    function Get_BackColor: Tl3Color;
    function Get_Pitch: TFontPitch;
    function Get_Index: Tl3FontIndex;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aControl: TControl); reintroduce;
    class function Make(aControl: TControl): Il3FontInfo; reintroduce;
-     {* Сигнатура фабрики Tl3ControlFontInfo.Make }
  end;//Tl3ControlFontInfo
 
-(*
- Ml3ControlFontService = PureMixIn
+ (*
+ Ml3ControlFontService = interface
   {* Контракт сервиса Tl3ControlFontService }
-   function GetFont(aControl: TControl): Il3FontInfo;
+  function GetFont(aControl: TControl): Il3FontInfo;
  end;//Ml3ControlFontService
-*)
+ *)
 
- Il3ControlFontService = interface(IUnknown)
+ Il3ControlFontService = interface
   {* Интерфейс сервиса Tl3ControlFontService }
-   ['{04DBC214-58B9-46AE-ADC2-A02B5FFF1CE1}']
-  // Ml3ControlFontService
-   function GetFont(aControl: TControl): Il3FontInfo;
+  ['{04DBC214-58B9-46AE-ADC2-A02B5FFF1CE1}']
+  function GetFont(aControl: TControl): Il3FontInfo;
  end;//Il3ControlFontService
 
  Tl3ControlFontService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3ControlFontService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3ControlFontService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3ControlFontService);
- public
- // realized methods
-   function GetFont(aControl: TControl): Il3FontInfo;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3ControlFontService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3ControlFontService }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function GetFont(aControl: TControl): Il3FontInfo;
    class function Instance: Tl3ControlFontService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3ControlFontService }
+  public
+   property Alien: Il3ControlFontService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3ControlFontService }
  end;//Tl3ControlFontService
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a},
-  Graphics
-  {$If not defined(NoScripts)}
-  ,
-  FontWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCL
-
-{$If not defined(NoVCL)}
-
-
-// start class Tl3ControlFontService
-
-var g_Tl3ControlFontService : Tl3ControlFontService = nil;
-
-procedure Tl3ControlFontServiceFree;
-begin
- l3Free(g_Tl3ControlFontService);
-end;
-
-class function Tl3ControlFontService.Instance: Tl3ControlFontService;
-begin
- if (g_Tl3ControlFontService = nil) then
- begin
-  l3System.AddExitProc(Tl3ControlFontServiceFree);
-  g_Tl3ControlFontService := Create;
- end;
- Result := g_Tl3ControlFontService;
-end;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , Graphics
+;
 
 type
-   TControlFriend = {abstract} class(TControl)
-    {* Друг для TControl }
-   end;//TControlFriend
+ TControlFriend = {abstract} class(TControl)
+  {* Друг для TControl }
+ end;//TControlFriend
 
-// start class Tl3ControlFontInfo
+var g_Tl3ControlFontService: Tl3ControlFontService = nil;
+ {* Экземпляр синглетона Tl3ControlFontService }
+
+procedure Tl3ControlFontServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3ControlFontService }
+begin
+ l3Free(g_Tl3ControlFontService);
+end;//Tl3ControlFontServiceFree
 
 constructor Tl3ControlFontInfo.Create(aControl: TControl);
 //#UC START# *556F25D20367_556F25860097_var*
@@ -164,7 +115,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3ControlFontInfo.Make
 
 function Tl3ControlFontInfo.Get_Size: Integer;
 //#UC START# *46A60D7A02E4_556F25860097get_var*
@@ -257,6 +208,7 @@ begin
 end;//Tl3ControlFontInfo.Get_Index
 
 procedure Tl3ControlFontInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_556F25860097_var*
 //#UC END# *479731C50290_556F25860097_var*
 begin
@@ -267,14 +219,13 @@ begin
 end;//Tl3ControlFontInfo.Cleanup
 
 procedure Tl3ControlFontService.pm_SetAlien(const aValue: Il3ControlFontService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3ControlFontService.pm_SetAlien
 
 class function Tl3ControlFontService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3ControlFontService <> nil;
 end;//Tl3ControlFontService.Exists
@@ -292,15 +243,22 @@ begin
 //#UC END# *B31F486B3A13_556F24A80035_impl*
 end;//Tl3ControlFontService.GetFont
 
-procedure Tl3ControlFontService.ClearFields;
- {-}
+class function Tl3ControlFontService.Instance: Tl3ControlFontService;
+ {* Метод получения экземпляра синглетона Tl3ControlFontService }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3ControlFontService = nil) then
+ begin
+  l3System.AddExitProc(Tl3ControlFontServiceFree);
+  g_Tl3ControlFontService := Create;
+ end;
+ Result := g_Tl3ControlFontService;
+end;//Tl3ControlFontService.Instance
+
+procedure Tl3ControlFontService.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3ControlFontService.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

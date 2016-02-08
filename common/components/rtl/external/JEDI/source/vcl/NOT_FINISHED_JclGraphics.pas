@@ -1,27 +1,21 @@
 unit NOT_FINISHED_JclGraphics;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "JEDI"
-// Модуль: "w:/common/components/rtl/external/JEDI/source/vcl/NOT_FINISHED_JclGraphics.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::JEDI::VCL::JclGraphics
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\JEDI\source\vcl\NOT_FINISHED_JclGraphics.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+uses
+ l3IntfUses
+;
+
 procedure ScreenShot;
-   {* Сигнатура метода ScreenShot }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure ScreenShot;
 //#UC START# *5369F9EA011C_5369F9C90151_var*

@@ -1,117 +1,82 @@
 unit l3AutolinkService;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3AutolinkService.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::AutoLink::Tl3AutolinkService
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3AutolinkService.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Variant
+;
 
-(*
- Ml3AutolinkService = PureMixIn
+ (*
+ Ml3AutolinkService = interface
   {* Контракт сервиса Tl3AutolinkService }
-   function GetAutolinkFilter: Ik2TagGenerator;
-   procedure CleanAutolinkFilter;
+  function GetAutolinkFilter: Ik2TagGenerator;
+  procedure CleanAutolinkFilter;
  end;//Ml3AutolinkService
-*)
+ *)
 
 type
- Il3AutolinkService = interface(IUnknown)
+ Il3AutolinkService = interface
   {* Интерфейс сервиса Tl3AutolinkService }
-   ['{6E9C4C64-C96E-4FC1-958E-50CF81CED3E9}']
-  // Ml3AutolinkService
-   function GetAutolinkFilter: Ik2TagGenerator;
-   procedure CleanAutolinkFilter;
+  ['{6E9C4C64-C96E-4FC1-958E-50CF81CED3E9}']
+  function GetAutolinkFilter: Ik2TagGenerator;
+  procedure CleanAutolinkFilter;
  end;//Il3AutolinkService
 
  Tl3AutolinkService = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3AutolinkService;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3AutolinkService;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3AutolinkService);
- public
- // realized methods
+   procedure ClearFields; override;
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    function GetAutolinkFilter: Ik2TagGenerator;
    procedure CleanAutolinkFilter;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3AutolinkService
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3AutolinkService }
- public
- // singleton factory method
    class function Instance: Tl3AutolinkService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3AutolinkService }
+  public
+   property Alien: Il3AutolinkService
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3AutolinkService }
  end;//Tl3AutolinkService
 
 implementation
 
 uses
-  l3Base {a}
-  {$If not defined(NoScripts)}
-  ,
-  AutolinkFilterWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , AutolinkFilterWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3AutolinkService
-
-var g_Tl3AutolinkService : Tl3AutolinkService = nil;
+var g_Tl3AutolinkService: Tl3AutolinkService = nil;
+ {* Экземпляр синглетона Tl3AutolinkService }
 
 procedure Tl3AutolinkServiceFree;
+ {* Метод освобождения экземпляра синглетона Tl3AutolinkService }
 begin
  l3Free(g_Tl3AutolinkService);
-end;
-
-class function Tl3AutolinkService.Instance: Tl3AutolinkService;
-begin
- if (g_Tl3AutolinkService = nil) then
- begin
-  l3System.AddExitProc(Tl3AutolinkServiceFree);
-  g_Tl3AutolinkService := Create;
- end;
- Result := g_Tl3AutolinkService;
-end;
-
+end;//Tl3AutolinkServiceFree
 
 procedure Tl3AutolinkService.pm_SetAlien(const aValue: Il3AutolinkService);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3AutolinkService.pm_SetAlien
 
 class function Tl3AutolinkService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3AutolinkService <> nil;
 end;//Tl3AutolinkService.Exists
@@ -138,8 +103,18 @@ begin
 //#UC END# *A18BB0B1A222_552BF69B039B_impl*
 end;//Tl3AutolinkService.CleanAutolinkFilter
 
+class function Tl3AutolinkService.Instance: Tl3AutolinkService;
+ {* Метод получения экземпляра синглетона Tl3AutolinkService }
+begin
+ if (g_Tl3AutolinkService = nil) then
+ begin
+  l3System.AddExitProc(Tl3AutolinkServiceFree);
+  g_Tl3AutolinkService := Create;
+ end;
+ Result := g_Tl3AutolinkService;
+end;//Tl3AutolinkService.Instance
+
 procedure Tl3AutolinkService.ClearFields;
- {-}
 begin
  Alien := nil;
  inherited;

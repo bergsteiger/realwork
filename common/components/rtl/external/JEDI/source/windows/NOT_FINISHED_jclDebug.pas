@@ -1,33 +1,28 @@
 unit NOT_FINISHED_jclDebug;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "JEDI"
-// Модуль: "w:/common/components/rtl/external/JEDI/source/windows/NOT_FINISHED_jclDebug.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::JEDI::Windows::jclDebug
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\JEDI\source\windows\NOT_FINISHED_jclDebug.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(notDebugStackTrace)}
+{$If NOT Defined(notDebugStackTrace)}
+uses
+ l3IntfUses
+;
+
 type
  TJclStackInfoList = class
  end;//TJclStackInfoList
+
 procedure JclLastExceptStackList;
-   {* Сигнатура метода JclLastExceptStackList }
-{$IfEnd} //not notDebugStackTrace
+{$IfEnd} // NOT Defined(notDebugStackTrace)
 
 implementation
 
-{$If not defined(notDebugStackTrace)}
-// unit methods
+{$If NOT Defined(notDebugStackTrace)}
+uses
+ l3ImplUses
+;
 
 procedure JclLastExceptStackList;
 //#UC START# *4B72BEEB00CA_4B72BED1017B_var*
@@ -37,5 +32,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B72BEEB00CA_4B72BED1017B_impl*
 end;//JclLastExceptStackList
-{$IfEnd} //not notDebugStackTrace
+{$IfEnd} // NOT Defined(notDebugStackTrace)
+
 end.

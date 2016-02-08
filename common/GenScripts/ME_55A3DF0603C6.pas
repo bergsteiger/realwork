@@ -53,7 +53,7 @@ end;//TtfwDictionaryCacheFree
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;
  aSortIndex: Tl3SortIndex;
- aList: _l3Searcher_): Integer; override;
+ aList: _l3Searcher_): Integer;
  {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_55A3DF0603C6_var*
 //#UC END# *47B9BAFD01F4_55A3DF0603C6_var*

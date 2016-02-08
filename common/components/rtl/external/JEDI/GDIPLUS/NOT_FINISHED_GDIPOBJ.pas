@@ -1,20 +1,13 @@
 unit NOT_FINISHED_GDIPOBJ;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "JEDI"
-// Модуль: "w:/common/components/rtl/external/JEDI/GDIPLUS/NOT_FINISHED_GDIPOBJ.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::JEDI::GDIPLUS::GDIPOBJ
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\JEDI\GDIPLUS\NOT_FINISHED_GDIPOBJ.pas"
+// Стереотип: "UtilityPack"
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TGPFont = class
@@ -48,5 +41,9 @@ type
  end;//TGPLinearGradientBrush
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

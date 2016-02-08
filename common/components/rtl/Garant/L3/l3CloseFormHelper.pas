@@ -1,118 +1,80 @@
 unit l3CloseFormHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CloseFormHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3CloseFormHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CloseFormHelper.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Controls,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , Controls
+;
 
-{$If not defined(NoVCL)}
-(*
- Ml3CloseFormHelper = PureMixIn
+ (*
+ Ml3CloseFormHelper = interface
   {* Контракт сервиса Tl3CloseFormHelper }
-   function Close(aControl: TWinControl): Boolean;
+  function Close(aControl: TWinControl): Boolean;
  end;//Ml3CloseFormHelper
-*)
+ *)
 
 type
- Il3CloseFormHelper = interface(IUnknown)
+ Il3CloseFormHelper = interface
   {* Интерфейс сервиса Tl3CloseFormHelper }
-   ['{A031440F-1B01-4D9B-A86B-5F4E065BE1E9}']
-  // Ml3CloseFormHelper
-   function Close(aControl: TWinControl): Boolean;
+  ['{A031440F-1B01-4D9B-A86B-5F4E065BE1E9}']
+  function Close(aControl: TWinControl): Boolean;
  end;//Il3CloseFormHelper
 
  Tl3CloseFormHelper = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3CloseFormHelper;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3CloseFormHelper;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3CloseFormHelper);
- public
- // realized methods
-   function Close(aControl: TWinControl): Boolean;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3CloseFormHelper
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3CloseFormHelper }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function Close(aControl: TWinControl): Boolean;
    class function Instance: Tl3CloseFormHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3CloseFormHelper }
+  public
+   property Alien: Il3CloseFormHelper
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3CloseFormHelper }
  end;//Tl3CloseFormHelper
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a},
-  Forms
-  ;
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ , Forms
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoVCL)}
-
-
-// start class Tl3CloseFormHelper
-
-var g_Tl3CloseFormHelper : Tl3CloseFormHelper = nil;
+var g_Tl3CloseFormHelper: Tl3CloseFormHelper = nil;
+ {* Экземпляр синглетона Tl3CloseFormHelper }
 
 procedure Tl3CloseFormHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3CloseFormHelper }
 begin
  l3Free(g_Tl3CloseFormHelper);
-end;
-
-class function Tl3CloseFormHelper.Instance: Tl3CloseFormHelper;
-begin
- if (g_Tl3CloseFormHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3CloseFormHelperFree);
-  g_Tl3CloseFormHelper := Create;
- end;
- Result := g_Tl3CloseFormHelper;
-end;
-
+end;//Tl3CloseFormHelperFree
 
 procedure Tl3CloseFormHelper.pm_SetAlien(const aValue: Il3CloseFormHelper);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3CloseFormHelper.pm_SetAlien
 
 class function Tl3CloseFormHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3CloseFormHelper <> nil;
 end;//Tl3CloseFormHelper.Exists
@@ -134,15 +96,22 @@ begin
 //#UC END# *A1E64DB467E3_55014D810077_impl*
 end;//Tl3CloseFormHelper.Close
 
-procedure Tl3CloseFormHelper.ClearFields;
- {-}
+class function Tl3CloseFormHelper.Instance: Tl3CloseFormHelper;
+ {* Метод получения экземпляра синглетона Tl3CloseFormHelper }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3CloseFormHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3CloseFormHelperFree);
+  g_Tl3CloseFormHelper := Create;
+ end;
+ Result := g_Tl3CloseFormHelper;
+end;//Tl3CloseFormHelper.Instance
+
+procedure Tl3CloseFormHelper.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3CloseFormHelper.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

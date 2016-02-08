@@ -1,147 +1,107 @@
 unit l3PopupMenuHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3PopupMenuHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3PopupMenuHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3PopupMenuHelper.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Types,
-  Classes,
-  Controls,
-  Menus,
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+ , Menus
+ , Classes
+ , Types
+ , Controls
+;
 
-{$If not defined(NoVCL)}
 type
- Tl3PopupMenuHelperCallback = procedure (aMenu: TMenuItem) of object;
+ Tl3PopupMenuHelperCallback = procedure(aMenu: TMenuItem) of object;
 
-(*
- Ml3PopupMenuHelper = PureMixIn
+ (*
+ Ml3PopupMenuHelper = interface
   {* Контракт сервиса Tl3PopupMenuHelper }
-   function GetPopupMenu(aControl: TComponent;
-    const aPoint: TPoint): TMenuItem;
-   procedure GetPopupMenuForComponentInfo(aControl: TComponent;
-    const aPoint: TPoint;
-    aCallback: Tl3PopupMenuHelperCallback);
+  function GetPopupMenu(aControl: TComponent;
+   const aPoint: TPoint): TMenuItem;
+  procedure GetPopupMenuForComponentInfo(aControl: TComponent;
+   const aPoint: TPoint;
+   aCallback: Tl3PopupMenuHelperCallback);
  end;//Ml3PopupMenuHelper
-*)
+ *)
 
- Il3PopupMenuHelper = interface(IUnknown)
+ Il3PopupMenuHelper = interface
   {* Интерфейс сервиса Tl3PopupMenuHelper }
-   ['{0FC02FC0-1297-4100-A3A7-8D342CAD75B2}']
-  // Ml3PopupMenuHelper
-   function GetPopupMenu(aControl: TComponent;
-    const aPoint: TPoint): TMenuItem;
-   procedure GetPopupMenuForComponentInfo(aControl: TComponent;
-    const aPoint: TPoint;
-    aCallback: Tl3PopupMenuHelperCallback);
+  ['{0FC02FC0-1297-4100-A3A7-8D342CAD75B2}']
+  function GetPopupMenu(aControl: TComponent;
+   const aPoint: TPoint): TMenuItem;
+  procedure GetPopupMenuForComponentInfo(aControl: TComponent;
+   const aPoint: TPoint;
+   aCallback: Tl3PopupMenuHelperCallback);
  end;//Il3PopupMenuHelper
 
  Tl3PopupMenuHelper = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3PopupMenuHelper;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3PopupMenuHelper;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3PopupMenuHelper);
- public
- // realized methods
-   function GetPopupMenu(aControl: TComponent;
-     const aPoint: TPoint): TMenuItem;
-   procedure GetPopupMenuForComponentInfo(aControl: TComponent;
-     const aPoint: TPoint;
-     aCallback: Tl3PopupMenuHelperCallback);
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3PopupMenuHelper
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3PopupMenuHelper }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function GetPopupMenu(aControl: TComponent;
+    const aPoint: TPoint): TMenuItem;
+   procedure GetPopupMenuForComponentInfo(aControl: TComponent;
+    const aPoint: TPoint;
+    aCallback: Tl3PopupMenuHelperCallback);
    class function Instance: Tl3PopupMenuHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3PopupMenuHelper }
+  public
+   property Alien: Il3PopupMenuHelper
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3PopupMenuHelper }
  end;//Tl3PopupMenuHelper
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoVCL
-
-{$If not defined(NoVCL)}
-
-
-// start class Tl3PopupMenuHelper
-
-var g_Tl3PopupMenuHelper : Tl3PopupMenuHelper = nil;
-
-procedure Tl3PopupMenuHelperFree;
-begin
- l3Free(g_Tl3PopupMenuHelper);
-end;
-
-class function Tl3PopupMenuHelper.Instance: Tl3PopupMenuHelper;
-begin
- if (g_Tl3PopupMenuHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3PopupMenuHelperFree);
-  g_Tl3PopupMenuHelper := Create;
- end;
- Result := g_Tl3PopupMenuHelper;
-end;
-
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
 type
-  TControlFriend = {abstract} class(TControl)
-   {* Друг для TControl }
-  end;//TControlFriend
+ TControlFriend = {abstract} class(TControl)
+  {* Друг для TControl }
+ end;//TControlFriend
 
-// start class Tl3PopupMenuHelper
+var g_Tl3PopupMenuHelper: Tl3PopupMenuHelper = nil;
+ {* Экземпляр синглетона Tl3PopupMenuHelper }
+
+procedure Tl3PopupMenuHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3PopupMenuHelper }
+begin
+ l3Free(g_Tl3PopupMenuHelper);
+end;//Tl3PopupMenuHelperFree
 
 procedure Tl3PopupMenuHelper.pm_SetAlien(const aValue: Il3PopupMenuHelper);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3PopupMenuHelper.pm_SetAlien
 
 class function Tl3PopupMenuHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3PopupMenuHelper <> nil;
 end;//Tl3PopupMenuHelper.Exists
 
 function Tl3PopupMenuHelper.GetPopupMenu(aControl: TComponent;
-  const aPoint: TPoint): TMenuItem;
+ const aPoint: TPoint): TMenuItem;
 //#UC START# *1FF8AE53688A_550013770000_var*
 var
  l_M : TMenu;
@@ -167,8 +127,8 @@ begin
 end;//Tl3PopupMenuHelper.GetPopupMenu
 
 procedure Tl3PopupMenuHelper.GetPopupMenuForComponentInfo(aControl: TComponent;
-  const aPoint: TPoint;
-  aCallback: Tl3PopupMenuHelperCallback);
+ const aPoint: TPoint;
+ aCallback: Tl3PopupMenuHelperCallback);
 //#UC START# *E1C719B751DC_550013770000_var*
 //#UC END# *E1C719B751DC_550013770000_var*
 begin
@@ -180,15 +140,22 @@ begin
 //#UC END# *E1C719B751DC_550013770000_impl*
 end;//Tl3PopupMenuHelper.GetPopupMenuForComponentInfo
 
-procedure Tl3PopupMenuHelper.ClearFields;
- {-}
+class function Tl3PopupMenuHelper.Instance: Tl3PopupMenuHelper;
+ {* Метод получения экземпляра синглетона Tl3PopupMenuHelper }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3PopupMenuHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3PopupMenuHelperFree);
+  g_Tl3PopupMenuHelper := Create;
+ end;
+ Result := g_Tl3PopupMenuHelper;
+end;//Tl3PopupMenuHelper.Instance
+
+procedure Tl3PopupMenuHelper.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3PopupMenuHelper.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

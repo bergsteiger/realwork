@@ -1,147 +1,108 @@
 unit l3HugeMessageDlgWithWikiHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$AFW"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3HugeMessageDlgWithWikiHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Service::Class>> Shared Delphi Low Level::L3$AFW::VCLHelpers::Tl3HugeMessageDlgWithWikiHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3HugeMessageDlgWithWikiHelper.pas"
+// Стереотип: "Service"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3ProtoObject
-  ;
-{$IfEnd} //not NoVCL
+ l3IntfUses
+ , l3ProtoObject
+;
 
-{$If not defined(NoVCL)}
 type
- Tl3WikiLinkClicked = procedure (const aLinkData: AnsiString) of object;
+ Tl3WikiLinkClicked = procedure(const aLinkData: AnsiString) of object;
 
-(*
- Ml3HugeMessageDlgWithWikiHelper = PureMixIn
+ (*
+ Ml3HugeMessageDlgWithWikiHelper = interface
   {* Контракт сервиса Tl3HugeMessageDlgWithWikiHelper }
-   procedure Say(const aText: AnsiString;
-    aClickCallback: Tl3WikiLinkClicked);
-   function FormatLink(const aLinkText: AnsiString;
-    const aLinkData: AnsiString): AnsiString;
-   function FormatCloak(const aCaption: AnsiString;
-    const aText: AnsiString): AnsiString;
-   function CanUseWiki: Boolean;
+  procedure Say(const aText: AnsiString;
+   aClickCallback: Tl3WikiLinkClicked);
+  function FormatLink(const aLinkText: AnsiString;
+   const aLinkData: AnsiString): AnsiString;
+  function FormatCloak(const aCaption: AnsiString;
+   const aText: AnsiString): AnsiString;
+  function CanUseWiki: Boolean;
  end;//Ml3HugeMessageDlgWithWikiHelper
-*)
+ *)
 
- Il3HugeMessageDlgWithWikiHelper = interface(IUnknown)
+ Il3HugeMessageDlgWithWikiHelper = interface
   {* Интерфейс сервиса Tl3HugeMessageDlgWithWikiHelper }
-   ['{E19F61CE-9AEF-409B-814C-B75941D1010E}']
-  // Ml3HugeMessageDlgWithWikiHelper
-   procedure Say(const aText: AnsiString;
-    aClickCallback: Tl3WikiLinkClicked);
-   function FormatLink(const aLinkText: AnsiString;
-    const aLinkData: AnsiString): AnsiString;
-   function FormatCloak(const aCaption: AnsiString;
-    const aText: AnsiString): AnsiString;
-   function CanUseWiki: Boolean;
+  ['{E19F61CE-9AEF-409B-814C-B75941D1010E}']
+  procedure Say(const aText: AnsiString;
+   aClickCallback: Tl3WikiLinkClicked);
+  function FormatLink(const aLinkText: AnsiString;
+   const aLinkData: AnsiString): AnsiString;
+  function FormatCloak(const aCaption: AnsiString;
+   const aText: AnsiString): AnsiString;
+  function CanUseWiki: Boolean;
  end;//Il3HugeMessageDlgWithWikiHelper
 
  Tl3HugeMessageDlgWithWikiHelper = {final} class(Tl3ProtoObject)
- private
- // private fields
-   f_Alien : Il3HugeMessageDlgWithWikiHelper;
-    {* Поле для свойства Alien}
- protected
- // property methods
+  private
+   f_Alien: Il3HugeMessageDlgWithWikiHelper;
+    {* Поле для свойства Alien }
+  protected
    procedure pm_SetAlien(const aValue: Il3HugeMessageDlgWithWikiHelper);
- public
- // realized methods
-   procedure Say(const aText: AnsiString;
-     aClickCallback: Tl3WikiLinkClicked);
-   function FormatCloak(const aCaption: AnsiString;
-     const aText: AnsiString): AnsiString;
-   function FormatLink(const aLinkText: AnsiString;
-     const aLinkData: AnsiString): AnsiString;
-   function CanUseWiki: Boolean;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property Alien: Il3HugeMessageDlgWithWikiHelper
-     write pm_SetAlien;
-     {* Внешняя реализация сервиса Il3HugeMessageDlgWithWikiHelper }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   procedure Say(const aText: AnsiString;
+    aClickCallback: Tl3WikiLinkClicked);
+   function FormatCloak(const aCaption: AnsiString;
+    const aText: AnsiString): AnsiString;
+   function FormatLink(const aLinkText: AnsiString;
+    const aLinkData: AnsiString): AnsiString;
+   function CanUseWiki: Boolean;
    class function Instance: Tl3HugeMessageDlgWithWikiHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3HugeMessageDlgWithWikiHelper }
+  public
+   property Alien: Il3HugeMessageDlgWithWikiHelper
+    write pm_SetAlien;
+    {* Внешняя реализация сервиса Il3HugeMessageDlgWithWikiHelper }
  end;//Tl3HugeMessageDlgWithWikiHelper
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  l3Base {a},
-  Forms,
-  Controls,
-  SysUtils,
-  StdCtrls,
-  ExtCtrls
-  ;
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ , Forms
+ , Controls
+ , SysUtils
+ , StdCtrls
+ , ExtCtrls
+ , l3Base
+;
 
-{$If not defined(NoVCL)}
-
-
-// start class Tl3HugeMessageDlgWithWikiHelper
-
-var g_Tl3HugeMessageDlgWithWikiHelper : Tl3HugeMessageDlgWithWikiHelper = nil;
+var g_Tl3HugeMessageDlgWithWikiHelper: Tl3HugeMessageDlgWithWikiHelper = nil;
+ {* Экземпляр синглетона Tl3HugeMessageDlgWithWikiHelper }
 
 procedure Tl3HugeMessageDlgWithWikiHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3HugeMessageDlgWithWikiHelper }
 begin
  l3Free(g_Tl3HugeMessageDlgWithWikiHelper);
-end;
-
-class function Tl3HugeMessageDlgWithWikiHelper.Instance: Tl3HugeMessageDlgWithWikiHelper;
-begin
- if (g_Tl3HugeMessageDlgWithWikiHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3HugeMessageDlgWithWikiHelperFree);
-  g_Tl3HugeMessageDlgWithWikiHelper := Create;
- end;
- Result := g_Tl3HugeMessageDlgWithWikiHelper;
-end;
-
+end;//Tl3HugeMessageDlgWithWikiHelperFree
 
 procedure Tl3HugeMessageDlgWithWikiHelper.pm_SetAlien(const aValue: Il3HugeMessageDlgWithWikiHelper);
- {-}
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3HugeMessageDlgWithWikiHelper.pm_SetAlien
 
 class function Tl3HugeMessageDlgWithWikiHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3HugeMessageDlgWithWikiHelper <> nil;
 end;//Tl3HugeMessageDlgWithWikiHelper.Exists
 
 procedure Tl3HugeMessageDlgWithWikiHelper.Say(const aText: AnsiString;
-  aClickCallback: Tl3WikiLinkClicked);
+ aClickCallback: Tl3WikiLinkClicked);
 //#UC START# *03211FE23BF3_551542E902F5_var*
  procedure SimpleSay(const aInfo: AnsiString);
  var
@@ -206,7 +167,7 @@ begin
 end;//Tl3HugeMessageDlgWithWikiHelper.Say
 
 function Tl3HugeMessageDlgWithWikiHelper.FormatCloak(const aCaption: AnsiString;
-  const aText: AnsiString): AnsiString;
+ const aText: AnsiString): AnsiString;
 //#UC START# *3CDB8D32C712_551542E902F5_var*
 //#UC END# *3CDB8D32C712_551542E902F5_var*
 begin
@@ -219,7 +180,7 @@ begin
 end;//Tl3HugeMessageDlgWithWikiHelper.FormatCloak
 
 function Tl3HugeMessageDlgWithWikiHelper.FormatLink(const aLinkText: AnsiString;
-  const aLinkData: AnsiString): AnsiString;
+ const aLinkData: AnsiString): AnsiString;
 //#UC START# *5AFFFDE1F6AB_551542E902F5_var*
 //#UC END# *5AFFFDE1F6AB_551542E902F5_var*
 begin
@@ -240,15 +201,22 @@ begin
 //#UC END# *CDCC556698E5_551542E902F5_impl*
 end;//Tl3HugeMessageDlgWithWikiHelper.CanUseWiki
 
-procedure Tl3HugeMessageDlgWithWikiHelper.ClearFields;
- {-}
+class function Tl3HugeMessageDlgWithWikiHelper.Instance: Tl3HugeMessageDlgWithWikiHelper;
+ {* Метод получения экземпляра синглетона Tl3HugeMessageDlgWithWikiHelper }
 begin
- {$If not defined(NoVCL)}
+ if (g_Tl3HugeMessageDlgWithWikiHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3HugeMessageDlgWithWikiHelperFree);
+  g_Tl3HugeMessageDlgWithWikiHelper := Create;
+ end;
+ Result := g_Tl3HugeMessageDlgWithWikiHelper;
+end;//Tl3HugeMessageDlgWithWikiHelper.Instance
+
+procedure Tl3HugeMessageDlgWithWikiHelper.ClearFields;
+begin
  Alien := nil;
- {$IfEnd} //not NoVCL
  inherited;
 end;//Tl3HugeMessageDlgWithWikiHelper.ClearFields
-
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.
