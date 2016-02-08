@@ -36,6 +36,8 @@ implementation
 uses
  l3ImplUses
  , l3Except
+ , Windows
+ , Forms
 ;
 
 procedure TkwBynameControlPush.DoControl(aControl: TControl;

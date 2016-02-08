@@ -43,6 +43,11 @@ uses
  l3ImplUses
  , l3MinMax
  , SysUtils
+ , l3Base
+ , l3Core
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 class function Tl3DataObjectEnum.Make(aDataObject: Tl3DataObject): IEnumFormatEtc;

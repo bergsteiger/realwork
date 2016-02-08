@@ -51,6 +51,8 @@ uses
  , k2Base
  , k2NullTagImpl
  , k2Long_Const
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 constructor Tk2VariantImpl.Create(aTag: Tl3Variant);

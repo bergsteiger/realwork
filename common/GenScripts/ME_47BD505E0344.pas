@@ -44,6 +44,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;

@@ -47,6 +47,11 @@ uses
  , SysUtils
  , l3Types
  , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 var g_TnevVScrollerSpy: TnevVScrollerSpy = nil;

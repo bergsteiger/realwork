@@ -35,6 +35,13 @@ implementation
 
 uses
  l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 constructor Tk2ChildrenPath.Create(aTagType: Integer;

@@ -78,6 +78,11 @@ uses
  , StdCtrls
  , ExtCtrls
  , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 var g_Tl3HugeMessageDlgWithWikiHelper: Tl3HugeMessageDlgWithWikiHelper = nil;

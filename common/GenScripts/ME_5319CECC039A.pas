@@ -40,6 +40,8 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 type _Instance_R_ = Tk2SimpleTagList;

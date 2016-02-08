@@ -43,6 +43,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 type _Instance_R_ = Tl3NotifyPtrList;

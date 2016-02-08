@@ -106,6 +106,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3RTTI
  , l3Base
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 type

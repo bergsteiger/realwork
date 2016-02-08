@@ -25,6 +25,8 @@ implementation
 
 uses
  l3ImplUses
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 {$Include l3Changing.imp.pas}

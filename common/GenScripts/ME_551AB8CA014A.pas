@@ -66,6 +66,10 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ , l3Core
+ , Windows
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 var g_Tl3GetComponentFromPointHelper: Tl3GetComponentFromPointHelper = nil;

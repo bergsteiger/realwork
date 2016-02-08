@@ -101,6 +101,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
  , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 var g_Tl3BatchScriptService: Tl3BatchScriptService = nil;

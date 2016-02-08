@@ -40,6 +40,13 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 function TtfwIteratableParent.pm_GetFirst: _ItemType_;

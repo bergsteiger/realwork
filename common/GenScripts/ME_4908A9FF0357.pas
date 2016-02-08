@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , l3Base
  , SysUtils
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 function DoCompareItems(const A: _ItemType_;

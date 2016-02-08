@@ -63,6 +63,8 @@ uses
  , RTLConsts
  , SysUtils
  , l3Stream
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 type _Instance_R_ = Tl3StringListPrim;

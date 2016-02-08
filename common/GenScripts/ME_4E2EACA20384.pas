@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 end.

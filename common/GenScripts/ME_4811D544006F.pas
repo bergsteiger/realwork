@@ -112,6 +112,12 @@ uses
  l3ImplUses
  , SysUtils
  , k2Tags
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 function TnevBaseView.pm_GetShape: InevObject;

@@ -51,6 +51,9 @@ uses
  , Classes
  , l3Utils
  , l3Base
+ , l3Core
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 type

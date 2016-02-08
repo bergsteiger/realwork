@@ -645,6 +645,8 @@ uses
  , m2XLtLib
  {$IfEnd} // Defined(l3Requires_m0)
  , l3FrameLines
+ , l3MemUtils
+ , l3Interlocked
 ;
 
 const

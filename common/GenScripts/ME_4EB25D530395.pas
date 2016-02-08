@@ -33,6 +33,7 @@ uses
  l3ImplUses
  , SysUtils
  , l3FormsService
+ , Windows
 ;
 
 procedure TkwFormFromControlWord.DoControl(aControl: TControl;

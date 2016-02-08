@@ -23,6 +23,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
