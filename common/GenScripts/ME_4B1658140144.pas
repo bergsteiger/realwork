@@ -30,6 +30,9 @@ implementation
 uses
  l3ImplUses
  , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 class procedure TnsDocumentFromListNavigationEvent.Log(aNext: Boolean;

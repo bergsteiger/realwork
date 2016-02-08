@@ -357,6 +357,16 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , nsManagers
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , LoggingUnit
+ , l3InterfacesMisc
+ , nsBaseSearchService
+ , evConstStringData
+ , evdHyperlinkInfo
+ , nsHyperlinkToDocumentProducerConst
 ;
 
 const
