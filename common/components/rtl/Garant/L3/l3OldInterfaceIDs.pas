@@ -9,14 +9,7 @@ interface
 
 uses
  l3IntfUses
- , l3IID
 ;
-
-const
- ev_iidCursor: Tl3IID = (IID: 0);
-  {* курсор объекта }
- ev_iidBlock: Tl3IID = (IID: 1);
-  {* выделение части объекта }
 
 implementation
 

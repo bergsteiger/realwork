@@ -29,6 +29,8 @@ uses
 ;
 
 type
+ PSourceSyncRec = ^TSourceSyncRec;
+
  TmssOperation = (
   ssoAll
   , ssoNew
@@ -49,8 +51,6 @@ type
   rShortName: TShortNameArray;
   rSynonims: TSynonimsArray;
  end;//TSourceSyncRec
-
- PSourceSyncRec = ^TSourceSyncRec;
 
  TalcuDictChangeMDPSynchronizator = class(Tl3ProtoObject{$If NOT Defined(Nemesis)}
  , IDictChangeNotifyRecipient

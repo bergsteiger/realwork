@@ -24,6 +24,8 @@ uses
 ;
 
 type
+ PalcuTaskExecutionCounter = ^TalcuTaskExecutionCounter;
+
  TalcuTaskExecutionCounter = class(Tl3ProtoObject)
   private
    f_Task: TddProcessTask;
@@ -49,8 +51,6 @@ type
  {$Include l3UncomparabeObjectRefList.imp.pas}
  TalcuTaskExecutingList = class(_l3UncomparabeObjectRefList_)
  end;//TalcuTaskExecutingList
-
- PalcuTaskExecutionCounter = ^TalcuTaskExecutionCounter;
 {$IfEnd} // Defined(AppServerSide)
 
 implementation

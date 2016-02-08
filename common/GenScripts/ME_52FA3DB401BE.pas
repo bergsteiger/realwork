@@ -219,6 +219,43 @@ begin
 end;//TalcuTaskList.RemoveTask
 
 procedure TalcuTaskList.Save;
+var l_Writer: TevdNativeWriter;
+
+ procedure DoSave;
+
+  function DoIt(anItem: TddProcessTask): Boolean;
+   {* Подитеративная функция для вызова  из DoSave }
+  //#UC START# *FD19BDB28F10__var*
+  //#UC END# *FD19BDB28F10__var*
+  begin
+  //#UC START# *FD19BDB28F10__impl*
+   Result := true;
+   if (anItem.Status in [cs_tsDone] + cs_tsErrorStatuses) then
+    Exit;
+   if (anItem.Status = cs_tsReadyToDelivery) then
+    if (DaysBetween(anItem.Date, Now) > 10) then
+     Exit;
+(*   SaveTask(anItem);*)
+   l_Writer.StartChild(anItem.TaggedData.TagType{k2_typTask});
+   try
+    anItem.TaskID;
+    //l_Writer.AddStringAtom(k2_attrTaskID, anItem.TaskID);
+    anItem.TaggedData.WriteTag(l_Writer);
+   finally
+    l_Writer.Finish;
+   end;//try..finally
+  //#UC END# *FD19BDB28F10__impl*
+  end;//DoIt
+
+ //#UC START# *53A04A0F017D__var*
+ //#UC END# *53A04A0F017D__var*
+ begin
+  //#UC START# *53A04A0F017Diter*
+  Self.
+  //#UC END# *53A04A0F017Diter*
+  ForEachF((@));
+ end;//DoSave
+
 //#UC START# *53A049ED0084_52FA3DB401BE_var*
 var
  l_FileName : String;
@@ -287,21 +324,57 @@ begin
 end;//TalcuTaskList.TaskFileName
 
 procedure TalcuTaskList.ActiveTaskCount;
+var l_Result: Integer;
+
+ function DoIt(anItem: TddProcessTask): Boolean;
+  {* Подитеративная функция для вызова  из ActiveTaskCount }
+ //#UC START# *53A057D502C1__var*
+ //#UC END# *53A057D502C1__var*
+ begin
+ //#UC START# *53A057D502C1__impl*
+  Result := true;
+  if (anItem.TaskType in EnabledTypes) then
+   if (anItem.Status in ([cs_tsQuery]+cs_tsRunningStatuses)) then
+    Inc(l_Result);
+ //#UC END# *53A057D502C1__impl*
+ end;//DoIt
+
 //#UC START# *53A049770398_52FA3DB401BE_var*
 //#UC END# *53A049770398_52FA3DB401BE_var*
 begin
-//#UC START# *53A049770398_52FA3DB401BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53A049770398_52FA3DB401BE_impl*
+ //#UC START# *53A049770398iter*
+ Result := 0;
+ Self.
+ //#UC END# *53A049770398iter*
+ ForEachF((@));
 end;//TalcuTaskList.ActiveTaskCount
 
 function TalcuTaskList.FindTask(aTaskType: TcsTaskType): TddProcessTask;
+
+ function DoIt(anItem: TddProcessTask): Boolean;
+  {* Подитеративная функция для вызова  из FindTask }
+ //#UC START# *590637D17394__var*
+ //#UC END# *590637D17394__var*
+ begin
+ //#UC START# *590637D17394__impl*
+  if (anItem.TaskType = aTaskType) then
+  begin
+   FindTask := anItem;
+   Result := false;
+  end//anItem.TaskType = aTaskType
+  else
+   Result := true;
+ //#UC END# *590637D17394__impl*
+ end;//DoIt
+
 //#UC START# *53A049B30045_52FA3DB401BE_var*
 //#UC END# *53A049B30045_52FA3DB401BE_var*
 begin
-//#UC START# *53A049B30045_52FA3DB401BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53A049B30045_52FA3DB401BE_impl*
+ //#UC START# *53A049B30045iter*
+ Result := nil;
+ Self.
+ //#UC END# *53A049B30045iter*
+ ForEachF((@));
 end;//TalcuTaskList.FindTask
 
 procedure TalcuTaskList.Sort;

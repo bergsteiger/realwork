@@ -17,6 +17,8 @@ uses
 ;
 
 type
+ PalcuAsyncTaskFinishedNotifier = ^IalcuAsyncTaskFinishedNotifier;
+
  IalcuAsyncSubmitterManager = interface
   {* Коробка для информации нужной ансинхронному выполнению }
   ['{EA167115-DB53-43B6-B272-CF8F715E7D69}']
@@ -40,8 +42,6 @@ type
   ['{3B274A91-A432-4FCA-92B3-FDC1BAA7AEED}']
   procedure TaskFinished(const aTask: TddProcessTask);
  end;//IalcuAsyncTaskFinishedNotifier
-
- PalcuAsyncTaskFinishedNotifier = ^IalcuAsyncTaskFinishedNotifier;
 {$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 implementation

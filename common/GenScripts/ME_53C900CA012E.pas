@@ -22,6 +22,8 @@ uses
 ;
 
 type
+ PalcuSubmitterWorkThread = ^TalcuSubmitterWorkThread;
+
  TalcuWorkThreadContainer = class(Tl3ThreadContainer)
   private
    f_TaskFileName: AnsiString;
@@ -100,8 +102,6 @@ type
     write f_Active;
     {* Можно ли отцеплять утилиту }
  end;//TalcuSubmitterWorkThread
-
- PalcuSubmitterWorkThread = ^TalcuSubmitterWorkThread;
 {$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 implementation
