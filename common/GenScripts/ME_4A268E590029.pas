@@ -191,7 +191,7 @@ end;//TevSegmentHotSpot.IsHyperlink
 procedure TevSegmentHotSpot.GetHyperLink;
  {* Возвращает гиперссылку, от продолжения на данном сегменте }
 var l_Para: InevPara;
-var l_Segment: Tl3Tag;
+var l_Segment: Tl3Tag absolute Result;
 
  procedure IterateLayers;
   {* Перебирает слои сегментов }
