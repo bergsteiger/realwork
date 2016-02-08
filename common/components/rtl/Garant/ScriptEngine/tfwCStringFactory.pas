@@ -1,108 +1,68 @@
 unit tfwCStringFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwCStringFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::CString::TtfwCStringFactory
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCStringFactory.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  tfwCStringList,
-  l3Variant
-  ;
+ l3IntfUses
+ , tfwCStringList
+ , l3Interfaces
+ , l3Variant
+;
 
 type
  TtfwCStringFactory = class(TtfwCStringList)
- private
- // private methods
+  private
    procedure CacheString(var theIndex: Integer;
-     const aString: Il3CString);
- protected
- // overridden protected methods
+    const aString: Il3CString);
+  protected
    procedure InitFields; override;
- public
- // public methods
-   class function C(const aString: AnsiString): Il3CString; overload; 
-   class function C(const aString: Tl3WString): Il3CString; overload; 
-   class function C(aString: Tl3PrimString): Il3CString; overload; 
-   class function C(aChar: AnsiChar): Il3CString; overload; 
-   class function C(const aString: Il3CString): Il3CString; overload; 
-     {* Возвращает кешированную копию строки. Например для обработки после Cat }
+  public
+   class function C(const aString: AnsiString): Il3CString; overload;
+   class function C(const aString: Tl3WString): Il3CString; overload;
+   class function C(aString: Tl3PrimString): Il3CString; overload;
+   class function C(aChar: AnsiChar): Il3CString; overload;
+   class function C(const aString: Il3CString): Il3CString; overload;
    class function Cat(const aA: Il3CString;
-     const aB: Il3CString): Il3CString; overload; 
-   class function Cat(const aStrings: array of Il3CString): Il3CString; overload; 
-   class function ViewOf(const aString: Tl3WString): Il3CString; overload; 
+    const aB: Il3CString): Il3CString; overload;
+   class function Cat(const aStrings: array of Il3CString): Il3CString; overload;
+   class function ViewOf(const aString: Tl3WString): Il3CString; overload;
    class function CatSep(const aA: Il3CString;
-     const aSep: Il3CString;
-     const aB: Il3CString): Il3CString;
+    const aSep: Il3CString;
+    const aB: Il3CString): Il3CString;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwCStringFactory;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwCStringFactory }
  end;//TtfwCStringFactory
 
 implementation
 
 uses
-  l3Base {a},
-  l3String,
-  tfwCStringArraySing,
-  tfwCStringArraySing2,
-  l3Types
-  ;
+ l3ImplUses
+ , l3String
+ , tfwCStringArraySing
+ , tfwCStringArraySing2
+ , l3Types
+ , SysUtils
+ , l3Base
+;
 
+var g_TtfwCStringFactory: TtfwCStringFactory = nil;
+ {* Экземпляр синглетона TtfwCStringFactory }
 
-// start class TtfwCStringFactory
-
-var g_TtfwCStringFactory : TtfwCStringFactory = nil;
+const
+ cLimit = 200;
 
 procedure TtfwCStringFactoryFree;
+ {* Метод освобождения экземпляра синглетона TtfwCStringFactory }
 begin
  l3Free(g_TtfwCStringFactory);
-end;
-
-class function TtfwCStringFactory.Instance: TtfwCStringFactory;
-begin
- if (g_TtfwCStringFactory = nil) then
- begin
-  l3System.AddExitProc(TtfwCStringFactoryFree);
-  g_TtfwCStringFactory := Create;
- end;
- Result := g_TtfwCStringFactory;
-end;
-
-const
-   { Local }
-  cLimit = 200;
-
-// start class TtfwCStringFactory
-
-procedure TtfwCStringFactory.CacheString(var theIndex: Integer;
-  const aString: Il3CString);
-//#UC START# *56011A85035E_4F473F9402D8_var*
-const
- cCountLimit = 5000;
-//#UC END# *56011A85035E_4F473F9402D8_var*
-begin
-//#UC START# *56011A85035E_4F473F9402D8_impl*
- if (Count >= cCountLimit) then
- begin
-  Clear;
-  theIndex := 0;
- end;//Count >= cCountLimit
- DirectInsert(theIndex, aString);
-//#UC END# *56011A85035E_4F473F9402D8_impl*
-end;//TtfwCStringFactory.CacheString
+end;//TtfwCStringFactoryFree
 
 class function TtfwCStringFactory.C(const aString: AnsiString): Il3CString;
 //#UC START# *4F47405B02FD_4F473F9402D8_var*
@@ -260,8 +220,25 @@ begin
 //#UC END# *559F726001FC_4F473F9402D8_impl*
 end;//TtfwCStringFactory.C
 
+procedure TtfwCStringFactory.CacheString(var theIndex: Integer;
+ const aString: Il3CString);
+//#UC START# *56011A85035E_4F473F9402D8_var*
+const
+ cCountLimit = 5000;
+//#UC END# *56011A85035E_4F473F9402D8_var*
+begin
+//#UC START# *56011A85035E_4F473F9402D8_impl*
+ if (Count >= cCountLimit) then
+ begin
+  Clear;
+  theIndex := 0;
+ end;//Count >= cCountLimit
+ DirectInsert(theIndex, aString);
+//#UC END# *56011A85035E_4F473F9402D8_impl*
+end;//TtfwCStringFactory.CacheString
+
 class function TtfwCStringFactory.Cat(const aA: Il3CString;
-  const aB: Il3CString): Il3CString;
+ const aB: Il3CString): Il3CString;
 //#UC START# *56028D1B01AC_4F473F9402D8_var*
 //#UC END# *56028D1B01AC_4F473F9402D8_var*
 begin
@@ -292,8 +269,8 @@ begin
 end;//TtfwCStringFactory.ViewOf
 
 class function TtfwCStringFactory.CatSep(const aA: Il3CString;
-  const aSep: Il3CString;
-  const aB: Il3CString): Il3CString;
+ const aSep: Il3CString;
+ const aB: Il3CString): Il3CString;
 //#UC START# *5602A7F8015D_4F473F9402D8_var*
 //#UC END# *5602A7F8015D_4F473F9402D8_var*
 begin
@@ -309,10 +286,21 @@ begin
 end;//TtfwCStringFactory.CatSep
 
 class function TtfwCStringFactory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TtfwCStringFactory <> nil;
 end;//TtfwCStringFactory.Exists
+
+class function TtfwCStringFactory.Instance: TtfwCStringFactory;
+ {* Метод получения экземпляра синглетона TtfwCStringFactory }
+begin
+ if (g_TtfwCStringFactory = nil) then
+ begin
+  l3System.AddExitProc(TtfwCStringFactoryFree);
+  g_TtfwCStringFactory := Create;
+ end;
+ Result := g_TtfwCStringFactory;
+end;//TtfwCStringFactory.Instance
 
 procedure TtfwCStringFactory.InitFields;
 //#UC START# *47A042E100E2_4F473F9402D8_var*

@@ -17,6 +17,8 @@ uses
 ;
 
 type
+ PIncsMessageExecutorFactory = ^IncsMessageExecutorFactory;
+
  IncsTransporter = interface
   ['{CE5512DA-5FA9-423C-A266-65F24CF2501C}']
   function Get_Connected: Boolean;
@@ -56,8 +58,6 @@ type
   ['{EB847F25-81CC-421B-ADFF-D135A33AC78B}']
   function MakeExecutor(aMessage: TncsMessage): IncsExecutor;
  end;//IncsMessageExecutorFactory
-
- PIncsMessageExecutorFactory = ^IncsMessageExecutorFactory;
 
  IncsClientTransporter = interface(IncsTransporter)
   ['{CD83C556-C3C5-40FA-91B1-6C1CA7CF87D7}']

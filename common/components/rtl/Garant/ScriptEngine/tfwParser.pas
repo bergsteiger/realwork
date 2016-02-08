@@ -1,62 +1,55 @@
 unit tfwParser;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwParser.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::Parser::TtfwParser
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Filer,
-  l3ProtoObject,
-  l3ProtoDataContainer,
-  l3Parser,
-  tfwParserInterfaces,
-  tfwCachedTokens,
-  tfwStreamFactory,
-  l3Memory,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , tfwParserInterfaces
+ , l3Filer
+ , l3Interfaces
+ , l3Parser
+ , tfwCachedTokens
+ , tfwStreamFactory
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
- TtfwParserToken = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rTokenType : Tl3TokenType;
-   rInteger : Integer;
-   rString : Il3CString;
+ TtfwParserToken = object
+  public
+   rTokenType: Tl3TokenType;
+   rInteger: Integer;
+   rString: Il3CString;
  end;//TtfwParserToken
 
  _ItemType_ = TtfwParserToken;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
-{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
+ {$Include l3RecordListPrim.imp.pas}
  TtfwParserTokenList = class(_l3RecordListPrim_)
  end;//TtfwParserTokenList
 
  TtfwDecoratorParser = class(Tl3ProtoObject, ItfwParser, ItfwParserEx)
- private
- // private fields
-   f_Parser : ItfwParser;
-   f_Tokens : TtfwParserTokenList;
-   f_Token : TtfwParserToken;
-   f_Filer : TtfwStreamFactory;
-   f_IndexToPush : Integer;
- private
- // private methods
+  private
+   f_Parser: ItfwParser;
+   f_Tokens: TtfwParserTokenList;
+   f_Token: TtfwParserToken;
+   f_Filer: TtfwStreamFactory;
+   f_IndexToPush: Integer;
+  private
    procedure CheckParser;
- protected
- // realized methods
+  protected
+   procedure PushToken(const aToken: TtfwParserToken);
    procedure NextToken;
    function TokenLongString: Il3CString;
    function TokenInt: Integer;
@@ -66,223 +59,153 @@ type
    procedure PushString(const aString: Il3CString);
    procedure PushSymbol(const aString: Il3CString);
    procedure PushInt(aValue: Integer);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
-   procedure PushToken(const aToken: TtfwParserToken);
- public
- // public methods
+  public
    constructor Create(aFiler: TtfwStreamFactory); reintroduce;
    class function Make(aFiler: TtfwStreamFactory): ItfwParserEx; reintroduce;
-     {* Сигнатура фабрики TtfwDecoratorParser.Make }
  end;//TtfwDecoratorParser
 
-function TtfwParserToken_C(const aString: Il3CString;
-     aType: Tl3TokenType): TtfwParserToken; overload;
-function TtfwParserToken_C(aValue: Integer): TtfwParserToken; overload;
-function TtfwParserToken_E: TtfwParserToken;
-
-type
  TtfwParser = class(Tl3ProtoObject, ItfwParser)
- private
- // private fields
-   f_CompiledCode : Tl3CustomFiler;
-   f_Token : Il3CString;
-   f_SourceLine : Integer;
-   f_TokenInt : Integer;
-   f_MyTokenType : Tl3TokenType;
-   f_CompiledCodeIsActual : Boolean;
-   f_CachedTokens : TtfwCachedTokens;
-   f_CompiledCodeName : AnsiString;
-   f_Parser : Tl3CustomParser;
-   f_FileName : AnsiString;
- protected
- // realized methods
+  private
+   f_CompiledCode: Tl3CustomFiler;
+   f_Token: Il3CString;
+   f_SourceLine: Integer;
+   f_TokenInt: Integer;
+   f_MyTokenType: Tl3TokenType;
+   f_CompiledCodeIsActual: Boolean;
+   f_CachedTokens: TtfwCachedTokens;
+   f_CompiledCodeName: AnsiString;
+   f_Parser: Tl3CustomParser;
+   f_FileName: AnsiString;
+  protected
    procedure NextToken;
    function TokenLongString: Il3CString;
    function TokenInt: Integer;
    function FileName: AnsiString;
    function TokenType: Tl3TokenType;
    function SourceLine: Integer;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(aFiler: TtfwStreamFactory); reintroduce;
    class function MakePrim(aFiler: TtfwStreamFactory): ItfwParser; reintroduce;
-     {* Сигнатура фабрики TtfwParser.MakePrim }
    class function Make(aFiler: TtfwStreamFactory): ItfwParserEx;
  end;//TtfwParser
+
+function TtfwParserToken_C(const aString: Il3CString;
+ aType: Tl3TokenType): TtfwParserToken; overload;
+function TtfwParserToken_C(aValue: Integer): TtfwParserToken; overload;
+function TtfwParserToken_E: TtfwParserToken;
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  ItfwParserWordsPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  ItfwParserExWordsPack
-  {$IfEnd} //not NoScripts
-  ,
-  l3Chars,
-  l3FileUtils,
-  l3DateSt,
-  tfwCStringFactory,
-  l3Variant,
-  l3String,
-  l3_String
-  ;
+ l3ImplUses
+ , l3Chars
+ , SysUtils
+ , l3FileUtils
+ , l3DateSt
+ , tfwCStringFactory
+ , l3Variant
+ , l3String
+ , l3_String
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
-// start class TtfwParser
-
-constructor TtfwParser.Create(aFiler: TtfwStreamFactory);
-//#UC START# *52EF72FE00AB_4F4735060149_var*
-const
- cSig = '%co ';
- cVersion = '1.15';
-var
- l_FileTime : AnsiString;
- l_Filer : Tl3CustomFiler;
-//#UC END# *52EF72FE00AB_4F4735060149_var*
+function TtfwParserToken_C(const aString: Il3CString;
+ aType: Tl3TokenType): TtfwParserToken;
+//#UC START# *5576DCA60121_5576DC260338_var*
+//#UC END# *5576DCA60121_5576DC260338_var*
 begin
-//#UC START# *52EF72FE00AB_4F4735060149_impl*
- inherited Create;
- f_MyTokenType := l3_ttBOF;
- f_CompiledCodeIsActual := false;
- f_FileName := aFiler.FileName;
- if (f_FileName <> '') then
-  if FileExists(f_FileName) then
-  begin
-   f_CompiledCodeName := f_FileName + '.co';
-   l_FileTime := cSig + cVersion + ' ' + l3DateTimeToStr(aFiler.FileDateTime);
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *5576DCA60121_5576DC260338_impl*
+ Result.rString := aString;
+ Result.rTokenType := aType;
+//#UC END# *5576DCA60121_5576DC260338_impl*
+end;//TtfwParserToken_C
 
-   if FileExists(f_CompiledCodeName) then
-   begin
-    f_CompiledCode := Tl3CustomDosFiler.Make(f_CompiledCodeName, l3_fmRead, false, 1000);
-    f_CompiledCode.NeedProcessMessages := false;
-    f_CompiledCode.Indicator.NeedProgressProc := false;
-    f_CompiledCode.Open;
-    if l3Same(f_CompiledCode.ReadLn, l_FileTime) then
-     f_CompiledCodeIsActual := true
-    else
-    begin
-     f_CompiledCode.Close;
-     FreeAndNil(f_CompiledCode);
-    end;//l3Same(f_CompiledCode.ReadLn, l_FileTime)
-   end;//FileExists(f_CompiledCodeName)
-
-   if not f_CompiledCodeIsActual then
-   begin
-    Assert(f_CompiledCode = nil);
-    f_CompiledCode := Tl3CustomDosFiler.Make(f_CompiledCodeName, l3_fmWrite, false, 1000);
-    f_CompiledCode.NeedProcessMessages := false;
-    f_CompiledCode.Indicator.NeedProgressProc := false;
-    f_CompiledCode.Open;
-    f_CompiledCode.WriteLn(l_FileTime);
-   end;//not f_CompiledCodeIsActual
-  end//FileExists(l_FileName)
-  else
-  begin
-   f_CompiledCode := Tl3CustomFiler.Create;
-   f_CompiledCode.NeedProcessMessages := false;
-   f_CompiledCode.Indicator.NeedProgressProc := false;
-   f_CompiledCode.Mode := l3_fmRead;
-   f_CompiledCode.Stream := aFiler.Stream;
-   try
-    f_CompiledCode.Open;
-    if l3Starts(cSig + cVersion, f_CompiledCode.ReadLn) then
-     f_CompiledCodeIsActual := true
-    else
-    begin
-     f_CompiledCode.Close;
-     FreeAndNil(f_CompiledCode);
-    end;//l3Same(f_CompiledCode.ReadLn, l_FileTime)
-   finally
-    aFiler.CloseStream;
-   end;//try..finally
-  end;//FileExists(l_FileName)
-
- if not f_CompiledCodeIsActual then
- begin
-  Assert(f_Parser = nil);
-  f_Parser := Tl3CustomParser.Create;
-  l_Filer := Tl3CustomFiler.Create;
-  try
-   l_Filer.NeedProcessMessages := false;
-   l_Filer.Indicator.NeedProgressProc := false;
-   l_Filer.Stream := aFiler.Stream;
-   l_Filer.NeedProcessMessages := false;
-   l_Filer.Indicator.NeedProgressProc := false;
-   l_Filer.CodePage := CP_ANSI;
-   f_Parser.Filer := l_Filer;
-  finally
-   FreeAndNil(l_Filer);
-  end;//try..finally
- end;//not f_CompiledCodeIsActual
-  
- f_CachedTokens := TtfwCachedTokens.Create;
- Assert(not f_CachedTokens.Sorted);
- Assert(f_CachedTokens.Count = 0); 
-//#UC END# *52EF72FE00AB_4F4735060149_impl*
-end;//TtfwParser.Create
-
-class function TtfwParser.MakePrim(aFiler: TtfwStreamFactory): ItfwParser;
-var
- l_Inst : TtfwParser;
+function TtfwParserToken_C(aValue: Integer): TtfwParserToken;
+//#UC START# *5576DCCE0203_5576DC260338_var*
+//#UC END# *5576DCCE0203_5576DC260338_var*
 begin
- l_Inst := Create(aFiler);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *5576DCCE0203_5576DC260338_impl*
+ Result.rString := TtfwCStringFactory.C(IntToStr(aValue));
+ Result.rInteger := aValue;
+ Result.rTokenType := l3_ttInteger;
+//#UC END# *5576DCCE0203_5576DC260338_impl*
+end;//TtfwParserToken_C
 
-class function TtfwParser.Make(aFiler: TtfwStreamFactory): ItfwParserEx;
-//#UC START# *5576CDB40223_4F4735060149_var*
-//#UC END# *5576CDB40223_4F4735060149_var*
+function TtfwParserToken_E: TtfwParserToken;
+//#UC START# *5576F2CD0101_5576DC260338_var*
+//#UC END# *5576F2CD0101_5576DC260338_var*
 begin
-//#UC START# *5576CDB40223_4F4735060149_impl*
- Result := TtfwDecoratorParser.Make(aFiler);
-//#UC END# *5576CDB40223_4F4735060149_impl*
-end;//TtfwParser.Make
-// start class TtfwDecoratorParser
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *5576F2CD0101_5576DC260338_impl*
+ Result.rTokenType := l3_ttBOF;
+//#UC END# *5576F2CD0101_5576DC260338_impl*
+end;//TtfwParserToken_E
 
-procedure TtfwDecoratorParser.CheckParser;
-//#UC START# *559FD77C034D_5576CD730375_var*
-//#UC END# *559FD77C034D_5576CD730375_var*
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
+
+{$If NOT Defined(l3Items_IsAtomic)}
+function IsSameItems(const A: _ItemType_;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
+//#UC START# *47B07CF403D0_5576DE3A03D7_var*
+//#UC END# *47B07CF403D0_5576DE3A03D7_var*
 begin
-//#UC START# *559FD77C034D_5576CD730375_impl*
- if (f_Parser = nil) then
- begin
-  f_Parser := TtfwParser.MakePrim(f_Filer);
-(*  if (f_KeyWords <> nil) then
-   f_Parser.KeyWords := f_KeyWords;*)
- end;//f_Parser = nil
-//#UC END# *559FD77C034D_5576CD730375_impl*
-end;//TtfwDecoratorParser.CheckParser
+//#UC START# *47B07CF403D0_5576DE3A03D7_impl*
+ Result := false;
+ Assert(false);
+//#UC END# *47B07CF403D0_5576DE3A03D7_impl*
+end;//IsSameItems
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
+procedure AssignItem(const aTo: _ItemType_;
+ const aFrom: _ItemType_);
+//#UC START# *47B2C42A0163_5576DE3A03D7_var*
+//#UC END# *47B2C42A0163_5576DE3A03D7_var*
+begin
+//#UC START# *47B2C42A0163_5576DE3A03D7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47B2C42A0163_5576DE3A03D7_impl*
+end;//AssignItem
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
+
+function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
+//#UC START# *47B99D4503A2_5576DE3A03D7_var*
+//#UC END# *47B99D4503A2_5576DE3A03D7_var*
+begin
+//#UC START# *47B99D4503A2_5576DE3A03D7_impl*
+ Result := -1;
+ Assert(false);
+//#UC END# *47B99D4503A2_5576DE3A03D7_impl*
+end;//CompareExistingItems
+
+type _Instance_R_ = TtfwParserTokenList;
+
+{$Include l3RecordListPrim.imp.pas}
 
 constructor TtfwDecoratorParser.Create(aFiler: TtfwStreamFactory);
 //#UC START# *5576CDF900F7_5576CD730375_var*
@@ -305,7 +228,21 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TtfwDecoratorParser.Make
+
+procedure TtfwDecoratorParser.CheckParser;
+//#UC START# *559FD77C034D_5576CD730375_var*
+//#UC END# *559FD77C034D_5576CD730375_var*
+begin
+//#UC START# *559FD77C034D_5576CD730375_impl*
+ if (f_Parser = nil) then
+ begin
+  f_Parser := TtfwParser.MakePrim(f_Filer);
+(*  if (f_KeyWords <> nil) then
+   f_Parser.KeyWords := f_KeyWords;*)
+ end;//f_Parser = nil
+//#UC END# *559FD77C034D_5576CD730375_impl*
+end;//TtfwDecoratorParser.CheckParser
 
 procedure TtfwDecoratorParser.PushToken(const aToken: TtfwParserToken);
 //#UC START# *560EA6680085_5576CD730375_var*
@@ -326,96 +263,6 @@ begin
  end;//f_IndexToPush < f_Tokens.Count
 //#UC END# *560EA6680085_5576CD730375_impl*
 end;//TtfwDecoratorParser.PushToken
-
-function TtfwParserToken_C(const aString: Il3CString;
-         aType: Tl3TokenType): TtfwParserToken;
-//#UC START# *5576DCA60121_5576DC260338_var*
-//#UC END# *5576DCA60121_5576DC260338_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *5576DCA60121_5576DC260338_impl*
- Result.rString := aString;
- Result.rTokenType := aType;
-//#UC END# *5576DCA60121_5576DC260338_impl*
-end;//TtfwParserToken.C
-
-
-function TtfwParserToken_C(aValue: Integer): TtfwParserToken;
-//#UC START# *5576DCCE0203_5576DC260338_var*
-//#UC END# *5576DCCE0203_5576DC260338_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *5576DCCE0203_5576DC260338_impl*
- Result.rString := TtfwCStringFactory.C(IntToStr(aValue));
- Result.rInteger := aValue;
- Result.rTokenType := l3_ttInteger;
-//#UC END# *5576DCCE0203_5576DC260338_impl*
-end;//TtfwParserToken.C
-
-
-function TtfwParserToken_E: TtfwParserToken;
-//#UC START# *5576F2CD0101_5576DC260338_var*
-//#UC END# *5576F2CD0101_5576DC260338_var*
-begin
- Finalize(Result);
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *5576F2CD0101_5576DC260338_impl*
- Result.rTokenType := l3_ttBOF;
-//#UC END# *5576F2CD0101_5576DC260338_impl*
-end;//TtfwParserToken.E
-
-// start class TtfwParserTokenList
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
-function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
-
-{$If not defined(l3Items_IsAtomic)}
-function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
-//#UC START# *47B07CF403D0_5576DE3A03D7_var*
-//#UC END# *47B07CF403D0_5576DE3A03D7_var*
-begin
-//#UC START# *47B07CF403D0_5576DE3A03D7_impl*
- Result := false;
- Assert(false);
-//#UC END# *47B07CF403D0_5576DE3A03D7_impl*
-end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
-//#UC START# *47B2C42A0163_5576DE3A03D7_var*
-//#UC END# *47B2C42A0163_5576DE3A03D7_var*
-begin
-//#UC START# *47B2C42A0163_5576DE3A03D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47B2C42A0163_5576DE3A03D7_impl*
-end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-function CompareExistingItems(const CI: CompareItemsRec): Integer;
-//#UC START# *47B99D4503A2_5576DE3A03D7_var*
-//#UC END# *47B99D4503A2_5576DE3A03D7_var*
-begin
-//#UC START# *47B99D4503A2_5576DE3A03D7_impl*
- Result := -1;
- Assert(false);
-//#UC END# *47B99D4503A2_5576DE3A03D7_impl*
-end;//CompareExistingItems
-
-type _Instance_R_ = TtfwParserTokenList;
-
-{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
-
-// start class TtfwDecoratorParser
 
 procedure TtfwDecoratorParser.NextToken;
 //#UC START# *52EF733F022F_5576CD730375_var*
@@ -535,6 +382,7 @@ begin
 end;//TtfwDecoratorParser.PushInt
 
 procedure TtfwDecoratorParser.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5576CD730375_var*
 //#UC END# *479731C50290_5576CD730375_var*
 begin
@@ -559,11 +407,122 @@ begin
 end;//TtfwDecoratorParser.InitFields
 
 procedure TtfwDecoratorParser.ClearFields;
- {-}
 begin
  f_Parser := nil;
  inherited;
 end;//TtfwDecoratorParser.ClearFields
+
+constructor TtfwParser.Create(aFiler: TtfwStreamFactory);
+//#UC START# *52EF72FE00AB_4F4735060149_var*
+const
+ cSig = '%co ';
+ cVersion = '1.15';
+var
+ l_FileTime : AnsiString;
+ l_Filer : Tl3CustomFiler;
+//#UC END# *52EF72FE00AB_4F4735060149_var*
+begin
+//#UC START# *52EF72FE00AB_4F4735060149_impl*
+ inherited Create;
+ f_MyTokenType := l3_ttBOF;
+ f_CompiledCodeIsActual := false;
+ f_FileName := aFiler.FileName;
+ if (f_FileName <> '') then
+  if FileExists(f_FileName) then
+  begin
+   f_CompiledCodeName := f_FileName + '.co';
+   l_FileTime := cSig + cVersion + ' ' + l3DateTimeToStr(aFiler.FileDateTime);
+
+   if FileExists(f_CompiledCodeName) then
+   begin
+    f_CompiledCode := Tl3CustomDosFiler.Make(f_CompiledCodeName, l3_fmRead, false, 1000);
+    f_CompiledCode.NeedProcessMessages := false;
+    f_CompiledCode.Indicator.NeedProgressProc := false;
+    f_CompiledCode.Open;
+    if l3Same(f_CompiledCode.ReadLn, l_FileTime) then
+     f_CompiledCodeIsActual := true
+    else
+    begin
+     f_CompiledCode.Close;
+     FreeAndNil(f_CompiledCode);
+    end;//l3Same(f_CompiledCode.ReadLn, l_FileTime)
+   end;//FileExists(f_CompiledCodeName)
+
+   if not f_CompiledCodeIsActual then
+   begin
+    Assert(f_CompiledCode = nil);
+    f_CompiledCode := Tl3CustomDosFiler.Make(f_CompiledCodeName, l3_fmWrite, false, 1000);
+    f_CompiledCode.NeedProcessMessages := false;
+    f_CompiledCode.Indicator.NeedProgressProc := false;
+    f_CompiledCode.Open;
+    f_CompiledCode.WriteLn(l_FileTime);
+   end;//not f_CompiledCodeIsActual
+  end//FileExists(l_FileName)
+  else
+  begin
+   f_CompiledCode := Tl3CustomFiler.Create;
+   f_CompiledCode.NeedProcessMessages := false;
+   f_CompiledCode.Indicator.NeedProgressProc := false;
+   f_CompiledCode.Mode := l3_fmRead;
+   f_CompiledCode.Stream := aFiler.Stream;
+   try
+    f_CompiledCode.Open;
+    if l3Starts(cSig + cVersion, f_CompiledCode.ReadLn) then
+     f_CompiledCodeIsActual := true
+    else
+    begin
+     f_CompiledCode.Close;
+     FreeAndNil(f_CompiledCode);
+    end;//l3Same(f_CompiledCode.ReadLn, l_FileTime)
+   finally
+    aFiler.CloseStream;
+   end;//try..finally
+  end;//FileExists(l_FileName)
+
+ if not f_CompiledCodeIsActual then
+ begin
+  Assert(f_Parser = nil);
+  f_Parser := Tl3CustomParser.Create;
+  l_Filer := Tl3CustomFiler.Create;
+  try
+   l_Filer.NeedProcessMessages := false;
+   l_Filer.Indicator.NeedProgressProc := false;
+   l_Filer.Stream := aFiler.Stream;
+   l_Filer.NeedProcessMessages := false;
+   l_Filer.Indicator.NeedProgressProc := false;
+   l_Filer.CodePage := CP_ANSI;
+   f_Parser.Filer := l_Filer;
+  finally
+   FreeAndNil(l_Filer);
+  end;//try..finally
+ end;//not f_CompiledCodeIsActual
+  
+ f_CachedTokens := TtfwCachedTokens.Create;
+ Assert(not f_CachedTokens.Sorted);
+ Assert(f_CachedTokens.Count = 0); 
+//#UC END# *52EF72FE00AB_4F4735060149_impl*
+end;//TtfwParser.Create
+
+class function TtfwParser.MakePrim(aFiler: TtfwStreamFactory): ItfwParser;
+var
+ l_Inst : TtfwParser;
+begin
+ l_Inst := Create(aFiler);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TtfwParser.MakePrim
+
+class function TtfwParser.Make(aFiler: TtfwStreamFactory): ItfwParserEx;
+//#UC START# *5576CDB40223_4F4735060149_var*
+//#UC END# *5576CDB40223_4F4735060149_var*
+begin
+//#UC START# *5576CDB40223_4F4735060149_impl*
+ Result := TtfwDecoratorParser.Make(aFiler);
+//#UC END# *5576CDB40223_4F4735060149_impl*
+end;//TtfwParser.Make
 
 procedure TtfwParser.NextToken;
 //#UC START# *52EF733F022F_4F4735060149_var*
@@ -755,6 +714,7 @@ begin
 end;//TtfwParser.SourceLine
 
 procedure TtfwParser.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F4735060149_var*
 //#UC END# *479731C50290_4F4735060149_var*
 begin
@@ -805,8 +765,9 @@ begin
 //#UC END# *47A042E100E2_4F4735060149_impl*
 end;//TtfwParser.InitFields
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwParser.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4F4735060149_var*
 //#UC END# *47A6FEE600FC_4F4735060149_var*
 begin
@@ -814,10 +775,9 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4F4735060149_impl*
 end;//TtfwParser.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TtfwParser.ClearFields;
- {-}
 begin
  f_Token := nil;
  inherited;

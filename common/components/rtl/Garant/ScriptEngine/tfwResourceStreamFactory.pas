@@ -1,51 +1,41 @@
 unit tfwResourceStreamFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwResourceStreamFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::Parser::TtfwResourceStreamFactory
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwResourceStreamFactory.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  tfwStreamFactory,
-  l3BaseStream
-  ;
+ l3IntfUses
+ , tfwStreamFactory
+ , l3BaseStream
+;
 
 type
  TtfwResourceStreamFactory = class(TtfwStreamFactory)
- private
- // private fields
-   f_ResName : AnsiString;
- protected
- // realized methods
+  private
+   f_ResName: AnsiString;
+  public
+   constructor Create(const aResName: AnsiString); reintroduce;
    function Stream: Tl3Stream; override;
    function FileDateTime: TDateTime; override;
- public
- // public methods
-   constructor Create(const aResName: AnsiString); reintroduce;
  end;//TtfwResourceStreamFactory
 
 implementation
 
 uses
-  l3Stream,
-  Windows,
-  StrUtils,
-  SysUtils,
-  l3FileUtils,
-  l3String,
-  l3Interfaces,
-  tfwCStringFactory
-  ;
-
-// start class TtfwResourceStreamFactory
+ l3ImplUses
+ , l3Stream
+ , Windows
+ , StrUtils
+ , SysUtils
+ , l3FileUtils
+ , l3String
+ , l3Interfaces
+ , tfwCStringFactory
+;
 
 constructor TtfwResourceStreamFactory.Create(const aResName: AnsiString);
 //#UC START# *55795E000174_55795DB3008C_var*

@@ -1,45 +1,37 @@
 unit tfwFileStreamFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwFileStreamFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::Parser::TtfwFileStreamFactory
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwFileStreamFactory.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  tfwStreamFactory,
-  l3BaseStream
-  ;
+ l3IntfUses
+ , tfwStreamFactory
+ , l3BaseStream
+;
 
 type
  TtfwFileStreamFactory = class(TtfwStreamFactory)
- protected
- // realized methods
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    function Stream: Tl3Stream; override;
    function FileDateTime: TDateTime; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
  end;//TtfwFileStreamFactory
 
 implementation
 
 uses
-  SysUtils,
-  l3Stream,
-  l3Types,
-  l3FileUtils
-  ;
-
-// start class TtfwFileStreamFactory
+ l3ImplUses
+ , SysUtils
+ , l3Stream
+ , l3Types
+ , l3FileUtils
+;
 
 function TtfwFileStreamFactory.Stream: Tl3Stream;
 //#UC START# *52F4E6E90067_52F4E85300D4_var*
@@ -62,6 +54,7 @@ begin
 end;//TtfwFileStreamFactory.FileDateTime
 
 procedure TtfwFileStreamFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52F4E85300D4_var*
 //#UC END# *479731C50290_52F4E85300D4_var*
 begin

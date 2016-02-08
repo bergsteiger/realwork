@@ -1,112 +1,102 @@
 unit tfwScriptingTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwScriptingTypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: InternalInterfaces::Category Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingTypes
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingTypes.pas"
+// Стереотип: "InternalInterfaces"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo,
-  tfwScriptingExceptions,
-  tfwTypeInfo,
-  l3Interfaces,
-  tfwValueTypes
-  ;
-
-type
- TtfwValueTypes = tfwValueTypes.TtfwValueTypes;
+ l3IntfUses
+ , TypInfo
+ , tfwValueTypes
+ , tfwTypeInfo
+ , l3Interfaces
+;
 
 const
-  { TypeInfoExt }
- tfw_tiVoid : TTypeInfo = (Kind : tkUnknown; Name : 'VOID');
- tfw_tiClassRef : TTypeInfo = (Kind : tkUnknown; Name : 'TClass');
- tfw_tiStruct : TTypeInfo = (Kind : tkUnknown; Name : 'Struct');
- tfw_tiString : TTypeInfo = (Kind : tkUnknown; Name : 'STRING');
- tfw_tiWString : TTypeInfo = (Kind : tkUnknown; Name : 'W-STRING');
- tfw_tiNil : TTypeInfo = (Kind : tkUnknown; Name : 'NIL');
- tfw_tiAny : TTypeInfo = (Kind : tkUnknown; Name : 'ANY');
+ tfw_tiVoid: TTypeInfo = (Kind : tkUnknown; Name : 'VOID');
+ tfw_tiClassRef: TTypeInfo = (Kind : tkUnknown; Name : 'TClass');
+ tfw_tiStruct: TTypeInfo = (Kind : tkUnknown; Name : 'Struct');
+ tfw_tiString: TTypeInfo = (Kind : tkUnknown; Name : 'STRING');
+ tfw_tiWString: TTypeInfo = (Kind : tkUnknown; Name : 'W-STRING');
+ tfw_tiNil: TTypeInfo = (Kind : tkUnknown; Name : 'NIL');
+ tfw_tiAny: TTypeInfo = (Kind : tkUnknown; Name : 'ANY');
 
 type
+ PtfwWordInfoRec = ^TtfwWordInfoRec;
+
+ TtfwValueTypes = tfwValueTypes.TtfwValueTypes;
+
  TtfwWordModifier = (
-   tfw_wmVirtual
- , tfw_wmAbstract
- , tfw_wmFinal
- , tfw_wmSummoned
- , tfw_wmOverride
- , tfw_wmRealize
- , tfw_wmRedefinition
- , tfw_wmRedefineable
- , tfw_wmSealed
- , tfw_wmCanBeMerged // Одноимённые слова с одинаковыми стереотипами МОГУТ склеиваться в одно, как например %CHILDREN.
- , tfw_wmRightWordRef
- , tfw_wmLeftWordRef
- , tfw_wmImmediate
- , tfw_wmInline
- , tfw_wmTreatUnknownAsString
- , tfw_wmCaller
+  tfw_wmVirtual
+  , tfw_wmAbstract
+  , tfw_wmFinal
+  , tfw_wmSummoned
+  , tfw_wmOverride
+  , tfw_wmRealize
+  , tfw_wmRedefinition
+  , tfw_wmRedefineable
+  , tfw_wmSealed
+  , tfw_wmRightWordRef
+  , tfw_wmLeftWordRef
+  , tfw_wmImmediate
+  , tfw_wmInline
+  , tfw_wmTreatUnknownAsString
+  , tfw_wmCaller
  );//TtfwWordModifier
 
  TtfwWordModifiers = set of TtfwWordModifier;
 
  TtfwAccessType = (
-   tfw_atNone
- , tfw_atPrivate
- , tfw_atProtected
- , tfw_atPublic
+  tfw_atNone
+  , tfw_atPrivate
+  , tfw_atProtected
+  , tfw_atPublic
  );//TtfwAccessType
 
  TtfwLinkType = (
-   tfw_ltNone
- , tfw_ltAggregation
- , tfw_ltLink
- , tfw_ltReference
+  tfw_ltNone
+  , tfw_ltAggregation
+  , tfw_ltLink
+  , tfw_ltReference
  );//TtfwLinkType
 
- TtfwWordInfoRec = {$IfDef XE4}record{$Else}object{$EndIf}
+ TtfwWordInfoRec = object
   {* Информация о типе }
- public
-   rAccessType : TtfwAccessType;
-   rModifiers : TtfwWordModifiers;
-   rTypeModifiers : TtfwValueTypes;
-   rLinkType : TtfwLinkType;
- public
-    function Empty: Boolean;
-    function Has(aModifier: TtfwWordModifier): Boolean; overload; 
-    function Compare(const anOther: TtfwWordInfoRec): Integer;
-    function Has(aType: TtfwValueType): Boolean; overload; 
-    function Has(anAccess: TtfwAccessType): Boolean; overload; 
-    function TypeName: Il3CString;
-    function Has(aLinkType: TtfwLinkType): Boolean; overload; 
+  public
+   rAccessType: TtfwAccessType;
+   rModifiers: TtfwWordModifiers;
+   rTypeModifiers: TtfwValueTypes;
+   rLinkType: TtfwLinkType;
+  public
+   function Empty: Boolean;
+   function Has(aModifier: TtfwWordModifier): Boolean; overload;
+   function Compare(const anOther: TtfwWordInfoRec): Integer;
+   function Has(aType: TtfwValueType): Boolean; overload;
+   function Has(anAccess: TtfwAccessType): Boolean; overload;
+   function TypeName: Il3CString;
+   function Has(aLinkType: TtfwLinkType): Boolean; overload;
  end;//TtfwWordInfoRec
-
- PtfwWordInfoRec = ^TtfwWordInfoRec;
-
 
 function TtfwWordInfoRec_E: TtfwWordInfoRec;
 function TtfwWordInfoRec_C(aTypes: TtfwValueTypes;
-     aModifiers: TtfwWordModifiers;
-     anAccess: TtfwAccessType;
-     aLinkType: TtfwLinkType): TtfwWordInfoRec;
-{$IfEnd} //not NoScripts
+ aModifiers: TtfwWordModifiers;
+ anAccess: TtfwAccessType;
+ aLinkType: TtfwLinkType): TtfwWordInfoRec;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  l3String,
-  tfwScriptingInterfaces
-  ;
-
+ l3ImplUses
+ , tfwScriptingInterfaces
+ , l3Base
+ , l3String
+;
 
 function TtfwWordInfoRec_E: TtfwWordInfoRec;
 //#UC START# *52C1617803A0_52C15D690329_var*
@@ -116,9 +106,29 @@ begin
 //#UC START# *52C1617803A0_52C15D690329_impl*
  Result := TtfwWordInfoRec_C(nil, [], tfw_atNone, tfw_ltNone);
 //#UC END# *52C1617803A0_52C15D690329_impl*
-end;//TtfwWordInfoRec.E
+end;//TtfwWordInfoRec_E
 
-// start class TtfwWordInfoRec
+function TtfwWordInfoRec_C(aTypes: TtfwValueTypes;
+ aModifiers: TtfwWordModifiers;
+ anAccess: TtfwAccessType;
+ aLinkType: TtfwLinkType): TtfwWordInfoRec;
+//#UC START# *55B265FD0005_52C15D690329_var*
+//#UC END# *55B265FD0005_52C15D690329_var*
+begin
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *55B265FD0005_52C15D690329_impl*
+ Result.rModifiers := aModifiers;
+ Result.rAccessType := anAccess;
+ Result.rLinkType := aLinkType;
+
+ if Result.Has(tfw_wmRightWordRef) OR
+    Result.Has(tfw_wmLeftWordRef) then
+  Result.rTypeModifiers := TtfwValueTypes.Make(TypeInfo(TtfwWord))
+  // - незачем тут ничего складывать
+ else
+  Result.rTypeModifiers := aTypes;
+//#UC END# *55B265FD0005_52C15D690329_impl*
+end;//TtfwWordInfoRec_C
 
 function TtfwWordInfoRec.Empty: Boolean;
 //#UC START# *55716CAC0395_52C15D690329_var*
@@ -183,30 +193,6 @@ begin
 //#UC END# *55B253BE0033_52C15D690329_impl*
 end;//TtfwWordInfoRec.Compare
 
-function TtfwWordInfoRec_C(aTypes: TtfwValueTypes;
-       aModifiers: TtfwWordModifiers;
-       anAccess: TtfwAccessType;
-       aLinkType: TtfwLinkType): TtfwWordInfoRec;
-//#UC START# *55B265FD0005_52C15D690329_var*
-//#UC END# *55B265FD0005_52C15D690329_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *55B265FD0005_52C15D690329_impl*
- Result.rModifiers := aModifiers;
- Result.rAccessType := anAccess;
- Result.rLinkType := aLinkType;
-
- if Result.Has(tfw_wmRightWordRef) OR
-    Result.Has(tfw_wmLeftWordRef) then
-  Result.rTypeModifiers := TtfwValueTypes.Make(TypeInfo(TtfwWord))
-  // - незачем тут ничего складывать
- else
-  Result.rTypeModifiers := aTypes;
-//#UC END# *55B265FD0005_52C15D690329_impl*
-end;//TtfwWordInfoRec.C
-
-// start class TtfwWordInfoRec
-
 function TtfwWordInfoRec.Has(aType: TtfwValueType): Boolean;
 //#UC START# *55B26BCB01BA_52C15D690329_var*
 //#UC END# *55B26BCB01BA_52C15D690329_var*
@@ -242,7 +228,6 @@ begin
  Result := (Self.rLinkType = aLinkType);
 //#UC END# *55C23DA10124_52C15D690329_impl*
 end;//TtfwWordInfoRec.Has
-{$IfEnd} //not NoScripts
-
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

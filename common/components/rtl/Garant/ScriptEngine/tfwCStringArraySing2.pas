@@ -1,51 +1,51 @@
 unit tfwCStringArraySing2;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwCStringArraySing2.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::CString::TtfwCStringArraySing2
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCStringArraySing2.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  tfwCStringArray
-  ;
+ l3IntfUses
+ , tfwCStringArray
+;
 
 type
  TtfwCStringArraySing2 = class(TtfwCStringArray)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwCStringArraySing2;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwCStringArraySing2 }
  end;//TtfwCStringArraySing2
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TtfwCStringArraySing2
-
-var g_TtfwCStringArraySing2 : TtfwCStringArraySing2 = nil;
+var g_TtfwCStringArraySing2: TtfwCStringArraySing2 = nil;
+ {* Экземпляр синглетона TtfwCStringArraySing2 }
 
 procedure TtfwCStringArraySing2Free;
+ {* Метод освобождения экземпляра синглетона TtfwCStringArraySing2 }
 begin
  l3Free(g_TtfwCStringArraySing2);
-end;
+end;//TtfwCStringArraySing2Free
+
+class function TtfwCStringArraySing2.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwCStringArraySing2 <> nil;
+end;//TtfwCStringArraySing2.Exists
 
 class function TtfwCStringArraySing2.Instance: TtfwCStringArraySing2;
+ {* Метод получения экземпляра синглетона TtfwCStringArraySing2 }
 begin
  if (g_TtfwCStringArraySing2 = nil) then
  begin
@@ -53,13 +53,6 @@ begin
   g_TtfwCStringArraySing2 := Create;
  end;
  Result := g_TtfwCStringArraySing2;
-end;
-
-
-class function TtfwCStringArraySing2.Exists: Boolean;
- {-}
-begin
- Result := g_TtfwCStringArraySing2 <> nil;
-end;//TtfwCStringArraySing2.Exists
+end;//TtfwCStringArraySing2.Instance
 
 end.

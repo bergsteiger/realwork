@@ -1,73 +1,49 @@
 unit tfwValueTypesCache;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwValueTypesCache.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::TypeInfoCache::TtfwValueTypesCache
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwValueTypesCache.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwValueTypes,
-  tfwValueTypesList
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwValueTypesList
+ , tfwValueTypes
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwValueTypesCache = class(TtfwValueTypesList)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    function CheckList(aValue: TtfwValueTypes): TtfwValueTypes;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwValueTypesCache;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwValueTypesCache }
  end;//TtfwValueTypesCache
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TtfwValueTypesCache
-
-var g_TtfwValueTypesCache : TtfwValueTypesCache = nil;
+var g_TtfwValueTypesCache: TtfwValueTypesCache = nil;
+ {* Экземпляр синглетона TtfwValueTypesCache }
 
 procedure TtfwValueTypesCacheFree;
+ {* Метод освобождения экземпляра синглетона TtfwValueTypesCache }
 begin
  l3Free(g_TtfwValueTypesCache);
-end;
-
-class function TtfwValueTypesCache.Instance: TtfwValueTypesCache;
-begin
- if (g_TtfwValueTypesCache = nil) then
- begin
-  l3System.AddExitProc(TtfwValueTypesCacheFree);
-  g_TtfwValueTypesCache := Create;
- end;
- Result := g_TtfwValueTypesCache;
-end;
-
+end;//TtfwValueTypesCacheFree
 
 function TtfwValueTypesCache.CheckList(aValue: TtfwValueTypes): TtfwValueTypes;
 //#UC START# *55C0A4040157_55BF37AB038D_var*
@@ -87,10 +63,21 @@ begin
 end;//TtfwValueTypesCache.CheckList
 
 class function TtfwValueTypesCache.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TtfwValueTypesCache <> nil;
 end;//TtfwValueTypesCache.Exists
+
+class function TtfwValueTypesCache.Instance: TtfwValueTypesCache;
+ {* Метод получения экземпляра синглетона TtfwValueTypesCache }
+begin
+ if (g_TtfwValueTypesCache = nil) then
+ begin
+  l3System.AddExitProc(TtfwValueTypesCacheFree);
+  g_TtfwValueTypesCache := Create;
+ end;
+ Result := g_TtfwValueTypesCache;
+end;//TtfwValueTypesCache.Instance
 
 procedure TtfwValueTypesCache.InitFields;
 //#UC START# *47A042E100E2_55BF37AB038D_var*
@@ -101,7 +88,6 @@ begin
  Sorted := true;
 //#UC END# *47A042E100E2_55BF37AB038D_impl*
 end;//TtfwValueTypesCache.InitFields
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

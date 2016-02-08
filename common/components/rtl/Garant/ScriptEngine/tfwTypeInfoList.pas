@@ -1,30 +1,29 @@
 unit tfwTypeInfoList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwTypeInfoList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::TypeInfoCache::TtfwTypeInfoList
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeInfoList.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwTypeInfoListPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwTypeInfoListPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwTypeInfoList = class(TtfwTypeInfoListPrim)
  end;//TtfwTypeInfoList
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
+
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

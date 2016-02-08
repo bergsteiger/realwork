@@ -1,38 +1,35 @@
 unit tfwCachedTokens;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwCachedTokens.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::Parser::TtfwCachedTokens
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  tfwCStringList
-  ;
+ l3IntfUses
+ , tfwCStringList
+;
 
 type
  TtfwCachedTokens = class(TtfwCStringList)
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
  end;//TtfwCachedTokens
 
 implementation
 
-// start class TtfwCachedTokens
+uses
+ l3ImplUses
+;
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwCachedTokens.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_52F1221701EB_var*
 //#UC END# *47A6FEE600FC_52F1221701EB_var*
 begin
@@ -40,6 +37,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_52F1221701EB_impl*
 end;//TtfwCachedTokens.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

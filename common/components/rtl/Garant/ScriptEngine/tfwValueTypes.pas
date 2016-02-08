@@ -1,89 +1,74 @@
 unit tfwValueTypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwValueTypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::TypeInfoCache::TtfwValueTypes
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwValueTypes.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  TypInfo,
-  tfwTypeInfo,
-  tfwTypeInfoList
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwTypeInfoList
+ , l3Interfaces
+ , tfwTypeInfo
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwValueTypesAccepts = (
-   tfw_vtaNo
- , tfw_vtaYes
- , tfw_vtaMaybe
+  tfw_vtaNo
+  , tfw_vtaYes
+  , tfw_vtaMaybe
  );//TtfwValueTypesAccepts
 
  TtfwValueTypes = class(TtfwTypeInfoList)
- private
- // private fields
-   f_CustomName : Il3CString;
- protected
- // overridden protected methods
+  private
+   f_CustomName: Il3CString;
+  protected
    procedure InitFields; override;
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
-   function Has(const aType: TtfwTypeInfo): Boolean; overload; 
+  public
+   function Has(const aType: TtfwTypeInfo): Boolean; overload;
    constructor Create(anOther: TtfwTypeInfoList;
-     const aType: TtfwTypeInfo;
-     const aCustomName: Il3CString); reintroduce;
-   function Add(const aType: TtfwTypeInfo): TtfwValueTypes; overload; 
-   class function Make(const aType: TtfwTypeInfo): TtfwValueTypes; overload; 
+    const aType: TtfwTypeInfo;
+    const aCustomName: Il3CString); reintroduce;
+   function Add(const aType: TtfwTypeInfo): TtfwValueTypes; overload;
+   class function Make(const aType: TtfwTypeInfo): TtfwValueTypes; overload;
    function Name: Il3CString;
    function AcceptsValue(const aValue: TtfwStackValue): Boolean;
-   function Add(anOther: TtfwValueTypes): TtfwValueTypes; overload; 
-   class function Make(aType: PTypeInfo): TtfwValueTypes; overload; 
-   function Has(aType: TtfwValueType): Boolean; overload; 
-   function EQ(anOther: TtfwValueTypes): Boolean; overload; 
+   function Add(anOther: TtfwValueTypes): TtfwValueTypes; overload;
+   class function Make(aType: PTypeInfo): TtfwValueTypes; overload;
+   function Has(aType: TtfwValueType): Boolean; overload;
+   function EQ(anOther: TtfwValueTypes): Boolean; overload;
    function DefaultValue: TtfwStackValue;
-   function EQ(aType: PTypeInfo): Boolean; overload; 
-   function Compare(const anOther: TtfwTypeInfo): Integer; overload; 
+   function EQ(aType: PTypeInfo): Boolean; overload;
+   function Compare(const anOther: TtfwTypeInfo): Integer; overload;
    function MakeCustomName(const aName: Il3CString): TtfwValueTypes;
    function Accepts(anOther: TtfwValueTypes): TtfwValueTypesAccepts;
-   function Compare(anOther: TtfwValueTypes): Integer; overload; 
+   function Compare(anOther: TtfwValueTypes): Integer; overload;
    function AcceptableBy(const aType: TtfwTypeInfo): TtfwValueTypesAccepts;
  end;//TtfwValueTypes
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3String,
-  tfwCStringFactory,
-  tfwValueTypesCache,
-  tfwScriptingInterfaces,
-  tfwScriptingTypes,
-  tfwValueTypesWordsPack
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwValueTypes
+ l3ImplUses
+ , tfwValueTypesCache
+ , tfwScriptingInterfaces
+ , tfwScriptingTypes
+ , tfwValueTypesWordsPack
+ , SysUtils
+ , l3String
+ , tfwCStringFactory
+;
 
 function TtfwValueTypes.Has(const aType: TtfwTypeInfo): Boolean;
 //#UC START# *55BF36E60133_55BF2B000047_var*
@@ -101,8 +86,8 @@ begin
 end;//TtfwValueTypes.Has
 
 constructor TtfwValueTypes.Create(anOther: TtfwTypeInfoList;
-  const aType: TtfwTypeInfo;
-  const aCustomName: Il3CString);
+ const aType: TtfwTypeInfo;
+ const aCustomName: Il3CString);
 //#UC START# *55BF370A0309_55BF2B000047_var*
 var
  l_Index : Integer;
@@ -496,8 +481,9 @@ begin
 //#UC END# *47A042E100E2_55BF2B000047_impl*
 end;//TtfwValueTypes.InitFields
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwValueTypes.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_55BF2B000047_var*
 //#UC END# *47A6FEE600FC_55BF2B000047_var*
 begin
@@ -505,17 +491,13 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_55BF2B000047_impl*
 end;//TtfwValueTypes.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TtfwValueTypes.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_CustomName := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TtfwValueTypes.ClearFields
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

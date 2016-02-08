@@ -1,37 +1,28 @@
 unit tfwStreamFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwStreamFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::Parser::TtfwStreamFactory
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStreamFactory.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  l3BaseStream,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3BaseStream
+;
 
 type
  TtfwStreamFactory = {abstract} class(Tl3ProtoObject)
- private
- // private fields
-   f_FileName : AnsiString;
- protected
- // overridden protected methods
+  private
+   f_FileName: AnsiString;
+  protected
+   f_Stream: Tl3Stream;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_Stream : Tl3Stream;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    function FileName: AnsiString;
    function Stream: Tl3Stream; virtual; abstract;
    constructor Create(const aFileName: AnsiString); reintroduce;
@@ -42,10 +33,9 @@ type
 implementation
 
 uses
-  SysUtils
-  ;
-
-// start class TtfwStreamFactory
+ l3ImplUses
+ , SysUtils
+;
 
 function TtfwStreamFactory.FileName: AnsiString;
 //#UC START# *52F4E6D60067_52F4E6AA02BB_var*
@@ -76,6 +66,7 @@ begin
 end;//TtfwStreamFactory.CloseStream
 
 procedure TtfwStreamFactory.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52F4E6AA02BB_var*
 //#UC END# *479731C50290_52F4E6AA02BB_var*
 begin

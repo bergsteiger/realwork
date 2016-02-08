@@ -1,51 +1,51 @@
 unit tfwCStringArraySing;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwCStringArraySing.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::CString::TtfwCStringArraySing
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCStringArraySing.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  tfwCStringArray
-  ;
+ l3IntfUses
+ , tfwCStringArray
+;
 
 type
  TtfwCStringArraySing = class(TtfwCStringArray)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwCStringArraySing;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwCStringArraySing }
  end;//TtfwCStringArraySing
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TtfwCStringArraySing
-
-var g_TtfwCStringArraySing : TtfwCStringArraySing = nil;
+var g_TtfwCStringArraySing: TtfwCStringArraySing = nil;
+ {* Экземпляр синглетона TtfwCStringArraySing }
 
 procedure TtfwCStringArraySingFree;
+ {* Метод освобождения экземпляра синглетона TtfwCStringArraySing }
 begin
  l3Free(g_TtfwCStringArraySing);
-end;
+end;//TtfwCStringArraySingFree
+
+class function TtfwCStringArraySing.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwCStringArraySing <> nil;
+end;//TtfwCStringArraySing.Exists
 
 class function TtfwCStringArraySing.Instance: TtfwCStringArraySing;
+ {* Метод получения экземпляра синглетона TtfwCStringArraySing }
 begin
  if (g_TtfwCStringArraySing = nil) then
  begin
@@ -53,13 +53,6 @@ begin
   g_TtfwCStringArraySing := Create;
  end;
  Result := g_TtfwCStringArraySing;
-end;
-
-
-class function TtfwCStringArraySing.Exists: Boolean;
- {-}
-begin
- Result := g_TtfwCStringArraySing <> nil;
-end;//TtfwCStringArraySing.Exists
+end;//TtfwCStringArraySing.Instance
 
 end.

@@ -1,36 +1,32 @@
 unit tfwCOMaker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwCOMaker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::Tools::TtfwCOMaker
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCOMaker.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TtfwCOMaker = {final} class
- public
- // public methods
+  public
    class procedure Make(const aFileName: AnsiString);
  end;//TtfwCOMaker
 
 implementation
 
 uses
-  SysUtils,
-  l3Parser,
-  tfwParserInterfaces,
-  tfwParser,
-  tfwFileStreamFactory
-  ;
-
-// start class TtfwCOMaker
+ l3ImplUses
+ , tfwParser
+ , tfwFileStreamFactory
+ , SysUtils
+ , l3Parser
+ , tfwParserInterfaces
+;
 
 class procedure TtfwCOMaker.Make(const aFileName: AnsiString);
 //#UC START# *55C1F5C100CC_55C1F59F001C_var*

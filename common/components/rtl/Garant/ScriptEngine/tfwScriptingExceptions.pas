@@ -1,46 +1,42 @@
 unit tfwScriptingExceptions;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwScriptingExceptions.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: InternalInterfaces::Category Shared Delphi Low Level::ScriptEngine$Core::tfwScriptingExceptions
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingExceptions.pas"
+// Стереотип: "InternalInterfaces"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
+ l3IntfUses
+ , SysUtils
+;
 
 type
  EtfwException = class(Exception)
  end;//EtfwException
 
  EtfwCheckPrim = class(EtfwException)
- public
- // public methods
+  public
    class procedure IsTrue(aCondition: Boolean;
-     const aMessage: AnsiString);
+    const aMessage: AnsiString);
    class procedure Fail(const aMessage: AnsiString);
  end;//EtfwCheckPrim
 
  EtfwCheck = class(EtfwCheckPrim)
  end;//EtfwCheck
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-// start class EtfwCheckPrim
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 class procedure EtfwCheckPrim.IsTrue(aCondition: Boolean;
-  const aMessage: AnsiString);
+ const aMessage: AnsiString);
 //#UC START# *54F8741B021E_54F873F5009A_var*
 //#UC END# *54F8741B021E_54F873F5009A_var*
 begin
@@ -58,6 +54,6 @@ begin
  IsTrue(false, aMessage);
 //#UC END# *550C432A0223_54F873F5009A_impl*
 end;//EtfwCheckPrim.Fail
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

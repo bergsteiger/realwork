@@ -26,6 +26,8 @@ const
  tfw_tiAny: TTypeInfo = (Kind : tkUnknown; Name : 'ANY');
 
 type
+ PtfwWordInfoRec = ^TtfwWordInfoRec;
+
  TtfwValueTypes = tfwValueTypes.TtfwValueTypes;
 
  TtfwWordModifier = (
@@ -78,8 +80,6 @@ type
    function TypeName: Il3CString;
    function Has(aLinkType: TtfwLinkType): Boolean; overload;
  end;//TtfwWordInfoRec
-
- PtfwWordInfoRec = ^TtfwWordInfoRec;
 
 function TtfwWordInfoRec_E: TtfwWordInfoRec;
 function TtfwWordInfoRec_C(aTypes: TtfwValueTypes;

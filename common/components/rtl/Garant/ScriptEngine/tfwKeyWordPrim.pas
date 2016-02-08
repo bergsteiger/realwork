@@ -1,45 +1,37 @@
 unit tfwKeyWordPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Parsing"
-// Модуль: "tfwKeyWordPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Parsing::Parser::TtfwKeyWordPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwKeyWordPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Variant
+ , l3Interfaces
+;
 
 type
  TtfwKeyWordPrim = {abstract} class(Tl3PrimString)
- private
- // private fields
-   f_AsCStr : Il3CString;
-    {* Поле для свойства AsCStr}
- protected
- // overridden protected methods
+  private
+   f_AsCStr: Il3CString;
+    {* Поле для свойства AsCStr }
+  protected
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aKeyword: Il3CString); reintroduce;
- public
- // public properties
+  public
    property AsCStr: Il3CString
-     read f_AsCStr;
+    read f_AsCStr;
  end;//TtfwKeyWordPrim
 
 implementation
 
-// start class TtfwKeyWordPrim
+uses
+ l3ImplUses
+;
 
 constructor TtfwKeyWordPrim.Create(const aKeyword: Il3CString);
 //#UC START# *55A6967900B3_4FFEEC080367_var*
@@ -52,7 +44,6 @@ begin
 end;//TtfwKeyWordPrim.Create
 
 procedure TtfwKeyWordPrim.ClearFields;
- {-}
 begin
  f_AsCStr := nil;
  inherited;

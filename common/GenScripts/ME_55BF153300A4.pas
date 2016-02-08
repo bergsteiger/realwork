@@ -15,6 +15,8 @@ uses
 ;
 
 type
+ PtfwStackValue = ^TtfwStackValue;
+
  TtfwValueType = (
   tfw_vtVoid
   , tfw_vtInt
@@ -66,8 +68,6 @@ type
    function Empty: Boolean;
    function Accepts(const anOther: TtfwTypeInfo): Boolean;
  end;//TtfwTypeInfo
-
- PtfwStackValue = ^TtfwStackValue;
 
 function TtfwTypeInfo_C(aTypeInfo: PTypeInfo): TtfwTypeInfo; overload;
 function TtfwTypeInfo_C(aType: TtfwValueType): TtfwTypeInfo; overload;

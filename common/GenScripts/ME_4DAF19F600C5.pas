@@ -74,6 +74,13 @@ const
  tfw_ltLink = tfwScriptingTypes.tfw_ltLink;
  tfw_ltReference = tfwScriptingTypes.tfw_ltReference;
 
+type
+ PtfwContext = ^TtfwContext;
+
+ PtfwStoredValue = ^TtfwStoredValue;
+
+ PtfwWordCallContext = ^TtfwWordCallContext;
+
  (*
  ScriptCaller = interface
   procedure Check(aCondition: Boolean;
@@ -107,7 +114,6 @@ const
  end;//PrintingCaller
  *)
 
-type
  ItfwScriptCaller = interface
   ['{9A3B1A85-FE74-4761-9100-0FC6F4EE0BD3}']
   function CompileOnly: Boolean;
@@ -752,8 +758,6 @@ type
    read Get_ValuesCount;
  end;//ItfwScriptEngine
 
- PtfwContext = ^TtfwContext;
-
  (*
  MtfwIterator = interface
   procedure ForEach(aLambda: TtfwWordPrim;
@@ -857,14 +861,10 @@ type
   function EOF: Boolean;
  end;//ItfwFile
 
- PtfwStoredValue = ^TtfwStoredValue;
-
  TtfwWordCallContext = record
   rCtx: PtfwContext;
   rWord: TtfwWord;
  end;//TtfwWordCallContext
-
- PtfwWordCallContext = ^TtfwWordCallContext;
 
  TtfwValueType = tfwTypeInfo.TtfwValueType;
 

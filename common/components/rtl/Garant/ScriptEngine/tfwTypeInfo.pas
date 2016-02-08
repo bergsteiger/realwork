@@ -1,99 +1,175 @@
 unit tfwTypeInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwTypeInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: InternalInterfaces::Category Shared Delphi Low Level::ScriptEngine$Core::tfwTypeInfo
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeInfo.pas"
+// Стереотип: "InternalInterfaces"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo,
-  tfwScriptingExceptions,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3Interfaces
+ , TypInfo
+;
 
 type
- TtfwValueType = (
-   tfw_vtVoid
- , tfw_vtInt
- , tfw_vtBool
- , tfw_vtStr
- , tfw_vtObj
- , tfw_vtList
- , tfw_vtIntf // Интерфейс
- , tfw_vtNil
- , tfw_vtFile
- , tfw_vtChar
- , tfw_vtClass // Ссылка на класс
- );//TtfwValueType
-
- TtfwStackValue = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rString : Il3CString;
-   rInteger : Integer;
-   rType : TtfwValueType;
- public
-    function AsBoolean: Boolean;
-    function AsString: Il3CString;
-    function AsObject: TObject; overload; 
-    function AsInt: Integer;
-    function AsIntf(const aGUID: TGUID): IUnknown; overload; 
-    function AsIntf: IUnknown; overload; 
-    procedure CheckTypeIs(aTypeNeeded: TtfwValueType);
-    function AsChar: AnsiChar;
-    function AsPrintable: Il3CString;
-    function AsClass: TClass; overload; 
-    procedure Clear;
-    function AsObject(aClass: TClass;
-     aAllowNil: Boolean): Pointer; overload; 
-    function AsDelphiString: AnsiString;
-    function AsClass(aClass: TClass): Pointer; overload; 
- end;//TtfwStackValue
-
- TtfwTypeInfo = {$IfDef XE4}record{$Else}object{$EndIf}
- private
-   rTypeInfo : PTypeInfo;
-   rClass : TClass;
- public
-    function Compare(const anOther: TtfwTypeInfo): Integer;
-    function Name: Il3CString;
-    function AcceptsValue(const aValue: TtfwStackValue): Boolean;
-    function DefaultValue: TtfwStackValue;
-    function Empty: Boolean;
-    function Accepts(const anOther: TtfwTypeInfo): Boolean;
- end;//TtfwTypeInfo
-
  PtfwStackValue = ^TtfwStackValue;
 
+ TtfwValueType = (
+  tfw_vtVoid
+  , tfw_vtInt
+  , tfw_vtBool
+  , tfw_vtStr
+  , tfw_vtObj
+  , tfw_vtList
+  , tfw_vtIntf
+   {* Интерфейс }
+  , tfw_vtNil
+  , tfw_vtFile
+  , tfw_vtChar
+  , tfw_vtClass
+   {* Ссылка на класс }
+ );//TtfwValueType
+
+ TtfwStackValue = object
+  public
+   rString: Il3CString;
+   rInteger: Integer;
+   rType: TtfwValueType;
+  public
+   function AsBoolean: Boolean;
+   function AsString: Il3CString;
+   function AsObject: TObject; overload;
+   function AsInt: Integer;
+   function AsIntf(const aGUID: TGUID): IUnknown; overload;
+   function AsIntf: IUnknown; overload;
+   procedure CheckTypeIs(aTypeNeeded: TtfwValueType);
+   function AsChar: AnsiChar;
+   function AsPrintable: Il3CString;
+   function AsClass: TClass; overload;
+   procedure Clear;
+   function AsObject(aClass: TClass;
+    aAllowNil: Boolean): Pointer; overload;
+   function AsDelphiString: AnsiString;
+   function AsClass(aClass: TClass): Pointer; overload;
+ end;//TtfwStackValue
+
+ TtfwTypeInfo = object
+  private
+   rTypeInfo: PTypeInfo;
+   rClass: TClass;
+  public
+   function Compare(const anOther: TtfwTypeInfo): Integer;
+   function Name: Il3CString;
+   function AcceptsValue(const aValue: TtfwStackValue): Boolean;
+   function DefaultValue: TtfwStackValue;
+   function Empty: Boolean;
+   function Accepts(const anOther: TtfwTypeInfo): Boolean;
+ end;//TtfwTypeInfo
 
 function TtfwTypeInfo_C(aTypeInfo: PTypeInfo): TtfwTypeInfo; overload;
 function TtfwTypeInfo_C(aType: TtfwValueType): TtfwTypeInfo; overload;
 function TtfwTypeInfo_C(aClass: TClass): TtfwTypeInfo; overload;
 function TtfwTypeInfo_E: TtfwTypeInfo;
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  Classes,
-  TypeInfoPack,
-  VarWorkingPack,
-  l3String,
-  tfwScriptingTypes,
-  tfwScriptingInterfaces
-  ;
+ l3ImplUses
+ , TypeInfoPack
+ , VarWorkingPack
+ , SysUtils
+ , Classes
+ , tfwScriptingTypes
+ , tfwScriptingInterfaces
+ , l3String
+;
 
-// start class TtfwStackValue
+function TtfwTypeInfo_C(aTypeInfo: PTypeInfo): TtfwTypeInfo;
+//#UC START# *55BF15F300FE_55BF154E022D_var*
+//#UC END# *55BF15F300FE_55BF154E022D_var*
+begin
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *55BF15F300FE_55BF154E022D_impl*
+ {$IfNDef seTypeCheck}
+ if (aTypeInfo <> nil) then
+ begin
+  if (aTypeInfo.Kind = tkClass) then
+  begin
+   Result.rTypeInfo := TypeInfo(TObject);
+   Exit;
+  end//aTypeInfo.Kind = tkObject
+ end;//aTypeInfo <> nil
+ {$EndIf  seTypeCheck}
+ Result.rTypeInfo := aTypeInfo;
+ Result.rClass := nil;
+//#UC END# *55BF15F300FE_55BF154E022D_impl*
+end;//TtfwTypeInfo_C
+
+function TtfwTypeInfo_C(aType: TtfwValueType): TtfwTypeInfo;
+//#UC START# *55BF29550294_55BF154E022D_var*
+//#UC END# *55BF29550294_55BF154E022D_var*
+begin
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *55BF29550294_55BF154E022D_impl*
+ Case aType of
+  tfw_vtVoid:
+   Result.rTypeInfo := @tfw_tiVoid;
+  tfw_vtInt:
+   Result.rTypeInfo := TypeInfo(Integer);
+  tfw_vtBool:
+   Result.rTypeInfo := TypeInfo(Boolean);
+  tfw_vtStr:
+   Result.rTypeInfo := TypeInfo(AnsiString);
+  tfw_vtObj:
+   Result.rTypeInfo := TypeInfo(TObject);
+  tfw_vtList:
+   Result.rTypeInfo := TypeInfo(ItfwValueList);
+  tfw_vtIntf:
+   Result.rTypeInfo := TypeInfo(IUnknown);
+  tfw_vtNil:
+   Result.rTypeInfo := @tfw_tiNil;
+  tfw_vtFile:
+   Result.rTypeInfo := TypeInfo(ItfwFile);
+  tfw_vtChar:
+   Result.rTypeInfo := TypeInfo(AnsiChar);
+(*  tfw_vtWStr:
+   Result.rTypeInfo := @tfw_tiWString;*)
+(*  tfw_vtBracket:
+   Result.rTypeInfo := @tfw_tiBracket;*)
+  tfw_vtClass:
+   Result.rTypeInfo := @tfw_tiClassRef;
+  else
+   Assert(false);
+ end;//Case aType
+//#UC END# *55BF29550294_55BF154E022D_impl*
+end;//TtfwTypeInfo_C
+
+function TtfwTypeInfo_C(aClass: TClass): TtfwTypeInfo;
+//#UC START# *55C4A74F01B0_55BF154E022D_var*
+//#UC END# *55C4A74F01B0_55BF154E022D_var*
+begin
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *55C4A74F01B0_55BF154E022D_impl*
+ Result.rTypeInfo := nil;
+ Result.rClass := aClass;
+//#UC END# *55C4A74F01B0_55BF154E022D_impl*
+end;//TtfwTypeInfo_C
+
+function TtfwTypeInfo_E: TtfwTypeInfo;
+//#UC START# *55C4A777013F_55BF154E022D_var*
+//#UC END# *55C4A777013F_55BF154E022D_var*
+begin
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *55C4A777013F_55BF154E022D_impl*
+ Result.rTypeInfo := nil;
+ Result.rClass := nil;
+//#UC END# *55C4A777013F_55BF154E022D_impl*
+end;//TtfwTypeInfo_E
 
 function TtfwStackValue.AsBoolean: Boolean;
 //#UC START# *4DB0137B0192_4DB00A510300_var*
@@ -294,7 +370,7 @@ begin
 end;//TtfwStackValue.Clear
 
 function TtfwStackValue.AsObject(aClass: TClass;
-  aAllowNil: Boolean): Pointer;
+ aAllowNil: Boolean): Pointer;
 //#UC START# *55C8C3D00092_4DB00A510300_var*
 var
  l_O : TObject;
@@ -349,29 +425,6 @@ begin
 //#UC END# *55CB29290229_4DB00A510300_impl*
 end;//TtfwStackValue.AsClass
 
-function TtfwTypeInfo_C(aTypeInfo: PTypeInfo): TtfwTypeInfo;
-//#UC START# *55BF15F300FE_55BF154E022D_var*
-//#UC END# *55BF15F300FE_55BF154E022D_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *55BF15F300FE_55BF154E022D_impl*
- {$IfNDef seTypeCheck}
- if (aTypeInfo <> nil) then
- begin
-  if (aTypeInfo.Kind = tkClass) then
-  begin
-   Result.rTypeInfo := TypeInfo(TObject);
-   Exit;
-  end//aTypeInfo.Kind = tkObject
- end;//aTypeInfo <> nil
- {$EndIf  seTypeCheck}
- Result.rTypeInfo := aTypeInfo;
- Result.rClass := nil;
-//#UC END# *55BF15F300FE_55BF154E022D_impl*
-end;//TtfwTypeInfo.C
-
-// start class TtfwTypeInfo
-
 function TtfwTypeInfo.Compare(const anOther: TtfwTypeInfo): Integer;
 //#UC START# *55BF161202B0_55BF154E022D_var*
 //#UC END# *55BF161202B0_55BF154E022D_var*
@@ -401,47 +454,6 @@ begin
  end;//Self.rTypeInfo <> nil
 //#UC END# *55BF161202B0_55BF154E022D_impl*
 end;//TtfwTypeInfo.Compare
-
-function TtfwTypeInfo_C(aType: TtfwValueType): TtfwTypeInfo;
-//#UC START# *55BF29550294_55BF154E022D_var*
-//#UC END# *55BF29550294_55BF154E022D_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *55BF29550294_55BF154E022D_impl*
- Case aType of
-  tfw_vtVoid:
-   Result.rTypeInfo := @tfw_tiVoid;
-  tfw_vtInt:
-   Result.rTypeInfo := TypeInfo(Integer);
-  tfw_vtBool:
-   Result.rTypeInfo := TypeInfo(Boolean);
-  tfw_vtStr:
-   Result.rTypeInfo := TypeInfo(AnsiString);
-  tfw_vtObj:
-   Result.rTypeInfo := TypeInfo(TObject);
-  tfw_vtList:
-   Result.rTypeInfo := TypeInfo(ItfwValueList);
-  tfw_vtIntf:
-   Result.rTypeInfo := TypeInfo(IUnknown);
-  tfw_vtNil:
-   Result.rTypeInfo := @tfw_tiNil;
-  tfw_vtFile:
-   Result.rTypeInfo := TypeInfo(ItfwFile);
-  tfw_vtChar:
-   Result.rTypeInfo := TypeInfo(AnsiChar);
-(*  tfw_vtWStr:
-   Result.rTypeInfo := @tfw_tiWString;*)
-(*  tfw_vtBracket:
-   Result.rTypeInfo := @tfw_tiBracket;*)
-  tfw_vtClass:
-   Result.rTypeInfo := @tfw_tiClassRef;
-  else
-   Assert(false);
- end;//Case aType
-//#UC END# *55BF29550294_55BF154E022D_impl*
-end;//TtfwTypeInfo.C
-
-// start class TtfwTypeInfo
 
 function TtfwTypeInfo.Name: Il3CString;
 //#UC START# *55BF5E34013D_55BF154E022D_var*
@@ -684,31 +696,6 @@ begin
 //#UC END# *55C1EB170084_55BF154E022D_impl*
 end;//TtfwTypeInfo.Empty
 
-function TtfwTypeInfo_C(aClass: TClass): TtfwTypeInfo;
-//#UC START# *55C4A74F01B0_55BF154E022D_var*
-//#UC END# *55C4A74F01B0_55BF154E022D_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *55C4A74F01B0_55BF154E022D_impl*
- Result.rTypeInfo := nil;
- Result.rClass := aClass;
-//#UC END# *55C4A74F01B0_55BF154E022D_impl*
-end;//TtfwTypeInfo.C
-
-
-function TtfwTypeInfo_E: TtfwTypeInfo;
-//#UC START# *55C4A777013F_55BF154E022D_var*
-//#UC END# *55C4A777013F_55BF154E022D_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *55C4A777013F_55BF154E022D_impl*
- Result.rTypeInfo := nil;
- Result.rClass := nil;
-//#UC END# *55C4A777013F_55BF154E022D_impl*
-end;//TtfwTypeInfo.E
-
-// start class TtfwTypeInfo
-
 function TtfwTypeInfo.Accepts(const anOther: TtfwTypeInfo): Boolean;
 //#UC START# *560D195202AC_55BF154E022D_var*
 var
@@ -759,7 +746,6 @@ begin
  end;//not Result
 //#UC END# *560D195202AC_55BF154E022D_impl*
 end;//TtfwTypeInfo.Accepts
-{$IfEnd} //not NoScripts
-
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.
