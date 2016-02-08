@@ -29,6 +29,7 @@ uses
  , l3InterfacesMisc
  , k2NullTagImpl
  , l3String
+ , l3IID
 ;
 
 function TnevDocumentContainerPrimPrim.DoMarkModified: Boolean;
