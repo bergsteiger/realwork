@@ -459,6 +459,8 @@ end;//TPrimFoldersModule.OpenFrmAct
 function TPrimFoldersModule.EditInfoOpen(aIsNewFolder: Boolean;
  const aNode: IeeNode;
  const aCoords: InsFormCoordinates): Integer;
+var l_Form: IvcmEntityForm;
+var l_Container: IvcmEntityForm;
 //#UC START# *4AC0AB11030C_4A96B68A03B1_var*
 //#UC END# *4AC0AB11030C_4A96B68A03B1_var*
 begin
@@ -504,6 +506,9 @@ function TPrimFoldersModule.OpenFoldersForSelect(const aContainer: IvcmContainer
  const aUserData: IUnknown;
  anOpenType: TFoldersInfoType;
  anOp: TListLogicOperation = LLO_NONE): Integer;
+var l_Params: IvcmMakeParams;
+var l_Container: IvcmEntityForm;
+var l_Folders: ;
 //#UC START# *4AC0B80702DE_4A96B68A03B1_var*
 //#UC END# *4AC0B80702DE_4A96B68A03B1_var*
 begin
@@ -615,6 +620,10 @@ function TPrimFoldersModule.SaveOpen(const aForm: IvcmEntityForm;
  anElementType: TFoldersElementType;
  const anEntity: IEntityBase;
  aSaveAs: Boolean): Integer;
+var l_Folders: ;
+var l_Container: IvcmEntityForm;
+var l_Params: IvcmMakeParams;
+var l_Form: IvcmEntityForm;
 //#UC START# *4AC0CBE300FC_4A96B68A03B1_var*
 //#UC END# *4AC0CBE300FC_4A96B68A03B1_var*
 begin

@@ -24,7 +24,7 @@ type
    rHandle: Integer;
    rContext: Il3CString;
   public
-   function EQ: Boolean;
+   function EQ(const aB: TnsContextFilterData): Boolean;
  end;//TnsContextFilterData
 
  _ItemType_ = TnsContextFilterData;
@@ -60,7 +60,7 @@ begin
 //#UC END# *4B1663ED0181_4B16636E01DF_impl*
 end;//TnsContextFilterData_C
 
-function TnsContextFilterData.EQ: Boolean;
+function TnsContextFilterData.EQ(const aB: TnsContextFilterData): Boolean;
 //#UC START# *4B16641C031A_4B16636E01DF_var*
 //#UC END# *4B16641C031A_4B16636E01DF_var*
 begin

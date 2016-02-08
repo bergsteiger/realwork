@@ -305,6 +305,7 @@ begin
 end;//TCommonSearchModule.MakePreview
 
 function TCommonSearchModule.MakePageSetup(const aData: InsPageSettingsInfo): Integer;
+var l_Form: IvcmEntityForm;
 //#UC START# *4AAF85DA01D1_4AA931390118_var*
 //#UC END# *4AAF85DA01D1_4AA931390118_var*
 begin

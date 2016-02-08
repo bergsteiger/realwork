@@ -411,6 +411,12 @@ end;//TnsOpenDictionaryEvent.Log
 procedure TDictionModule.OpenTermByContext(const aContext: Il3CString;
  aLanguage: TbsLanguage);
  {* Открывает термин по подстроке }
+var l_Child: INodeBase;
+var l_Str: Il3CString;
+var l_Entity: IEntityBase;
+var l_Doc: IDocument;
+var l_DictTree: Il3SimpleTree;
+var l_FilterTree: Il3FilterableTree;
 //#UC START# *4A9CEF360326_4A9CE5F2036F_var*
 var
  l_Map: InsLangToContextMap;
@@ -471,6 +477,7 @@ end;//TDictionModule.OpenDictionary
 
 procedure TDictionModule.OpenDict;
  {* Толковый словарь }
+var l_Form: IvcmEntityForm;
 //#UC START# *4A9D55E901D6_4A9CE5F2036F_var*
 //#UC END# *4A9D55E901D6_4A9CE5F2036F_var*
 begin

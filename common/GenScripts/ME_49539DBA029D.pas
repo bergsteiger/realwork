@@ -1496,6 +1496,7 @@ begin
 end;//TExTextForm.EditBookmark
 
 function TExTextForm.NeedShowIntranetWarning: Boolean;
+var g_GoToIntranetMessage: THandle = 0;
 //#UC START# *4C40039C03CD_49539DBA029D_var*
 //#UC END# *4C40039C03CD_49539DBA029D_var*
 begin
@@ -2028,6 +2029,133 @@ begin
 end;//TExTextForm.LeafParaUnderCursor
 
 procedure TExTextForm.MakePositionList;
+var l_PositionList: IPositionList;
+
+ procedure CollectParas;
+ var l_WasCorrection: Boolean;
+
+  procedure DoIt;
+   {* Подитеративная функция для вызова L2InevRangePrimIterateAction из CollectParas }
+
+   function CorrectPara(const aPara: InevObject): Boolean;
+   //#UC START# *4F981D29027B__var*
+
+    function ParaHasAnySub(const aPara: InevObject): Boolean;
+    begin//ParaHasAnySub
+     Result := false;
+     with aPara.AsObject.rAtomEx([k2_tiSubs, k2_tiChildren, k2_tiHandle, Ord(ev_sbtSub)]) do
+      if IsValid then
+       if (ChildrenCount > 0) then
+        Result := true;
+    end;//ParaHasAnySub
+
+    procedure AddBlockToList(aBlock : Tl3Variant);
+    var
+     l_Pos : DocumentUnit.TPosition;
+    begin//AddBlockToList
+     l3FillChar(l_Pos, SizeOf(l_Pos));
+     l_Pos.rPoint := Cardinal(aBlock.IntA[k2_tiHandle]);
+     l_Pos.rType := PT_SUB;
+     l_PositionList.Add(l_Pos);
+    end;//AddBlockToList
+
+   var
+    l_P : InevPara;
+    l_Block : Tl3Variant;
+   //#UC END# *4F981D29027B__var*
+   begin
+   //#UC START# *4F981D29027B__impl*
+    Result := false;
+    if not l_WasCorrection then
+    begin
+     l_WasCorrection := true;
+     if (aCRType = crtCorrespondents) then
+     begin
+      if ParaHasAnySub(aPara) then
+       // - на параграфе есть хотя бы один Sub - ничего не делаем
+       Exit;
+      if not aPara.AsObject.QT(InevPara, l_P) then
+      begin
+       Assert(false);
+       Exit;
+      end;//not aPara.QT(InevPara, l_P)
+      l_P := l_P.Prev;
+      while (l_P <> nil) AND l_P.AsObject.IsValid do
+      begin
+       if not l_P.AsObject.IsKindOf(k2_typCommentPara) then
+       // - просто пропускаем комментарий пользователя
+       begin
+        if l_P.AsObject.IsKindOf(k2_typParaList) then
+         // - это вложенный блок нашего родителя, туда мы не заходим
+         Exit;
+        if not l_P.IsLegalComment then
+         // - это не комментарий
+         if not l3IsNil(l_P.AsObject.PCharLenA[k2_tiText]) then
+          // - у него не пустой текст
+          Exit;
+        if ParaHasAnySub(l_P) then
+         AddParaToList(l_P);
+        if (l_P.PID = 0) then
+        // - это первый параграф
+         if evInPara(l_P.AsObject, k2_typBlock, l_Block) then
+         // - берём его блок
+          AddBlockToList(l_Block);
+          // - добавляем блок в список
+       end;//not l_P.IsKindOf(k2_typCommentPara)
+       l_P := l_P.Prev;
+      end;//while l_P <> nil..
+     end;//aCRType = crtCorrespondents
+    end;//l_WasCorrection
+   //#UC END# *4F981D29027B__impl*
+   end;//CorrectPara
+
+
+   procedure AddParaToList(const aPara: InevObject);
+   //#UC START# *4F98298400DA__var*
+   var
+    l_Pos : DocumentUnit.TPosition;
+   //#UC END# *4F98298400DA__var*
+   begin
+   //#UC START# *4F98298400DA__impl*
+    l3FillChar(l_Pos, SizeOf(l_Pos));
+    l_Pos.rPoint := Cardinal(aPara.AsObject.IntA[k2_tiHandle]);
+    if (l_Pos.rPoint <> 0) AND (l_Pos.rPoint <> Cardinal(-1)) then
+    begin
+     l_Pos.rType := PT_PARA;
+     l_PositionList.Add(l_Pos);
+    end;//l_Pos.rPoint <> 0
+   //#UC END# *4F98298400DA__impl*
+   end;//AddParaToList
+
+  //#UC START# *4F981D630001__var*
+  var
+   l_P : PInevObject;
+  //#UC END# *4F981D630001__var*
+  begin
+  //#UC START# *4F981D630001__impl*
+   Result := true;
+   l_P := anItem.Obj;
+   if l_P.AsObject.IsKindOf(k2_typParaList) then
+    CollectParas(anItem)
+   else
+   if l_P.AsObject.IsKindOf(k2_typLeafPara) then
+   begin
+    if not CorrectPara(l_P^) then
+     AddParaToList(l_P^);
+   end;//l_P.IsKindOf(k2_typLeafPara)
+  //#UC END# *4F981D630001__impl*
+  end;//DoIt
+
+ //#UC START# *4F980CDF02C7__var*
+ //#UC END# *4F980CDF02C7__var*
+ begin
+  //#UC START# *4F980CDF02C7iter*
+  l_WasCorrection := false;
+  aRange.
+  //#UC END# *4F980CDF02C7iter*
+  IterateF(L2InevRangePrimIterateAction(@));
+ end;//CollectParas
+
 //#UC START# *4F97FB9C0324_49539DBA029D_var*
 var
  l_Block: InevRange;

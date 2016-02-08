@@ -474,6 +474,85 @@ const
   {* Версионный комментарий юристов в SubPanel }
 
 procedure TExTextOptionsForm.SetReminderOpParams;
+
+ procedure RefineBaloonHint;
+
+  procedure MergeText(aRoot: Tl3Tag;
+   var theText: Il3CString);
+
+   function DoIt(anItem: Tl3Variant;
+    anIndex: Integer): Boolean;
+    {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из MergeText }
+   //#UC START# *66C7C35BA1A6__var*
+   //#UC END# *66C7C35BA1A6__var*
+   begin
+   //#UC START# *66C7C35BA1A6__impl*
+    Result := true;
+    if anItem.IsKindOf(k2_typParaList) then
+     MergeText(anItem, theText)
+    else
+    begin
+     if (theText = nil) then
+      theText := l3CStr(anItem.PCharLenA[k2_tiText])
+     else
+     begin
+      theText := l3Cat(theText, #10);
+      theText := l3Cat([theText, l3CStr(anItem.PCharLenA[k2_tiText])]);
+     end;//theText = nil
+    end;//anItem.IsKindOf(k2_typParaList)
+   //#UC END# *66C7C35BA1A6__impl*
+   end;//DoIt
+
+  //#UC START# *4F916E210355__var*
+  //#UC END# *4F916E210355__var*
+  begin
+   //#UC START# *4F916E210355iter*
+   aRoot.
+   //#UC END# *4F916E210355iter*
+   IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@));
+  end;//MergeText
+
+ //#UC START# *4F916DF101C2__var*
+ var
+  l_R : TevCustomWikiReader;
+  l_G : Tk2DocumentBuffer;
+  l_S : Tl3ConstMemoryStream;
+  l_W : Tl3WString;
+ //#UC END# *4F916DF101C2__var*
+ begin
+ //#UC START# *4F916DF101C2__impl*
+  //Result := aHint;
+  Result := nil;
+  l_R := TevCustomWikiReader.Create;
+  try
+   l_G := Tk2DocumentBuffer.Create;
+   try
+    l_R.Generator := l_G;
+    l_W := aHint.AsWStr;
+    l_S := Tl3ConstMemoryStream.Create(l_W.S, l_W.SLen);
+    try
+     l_R.Filer.NeedProcessMessages := false;
+     l_R.Filer.Indicator.NeedProgressProc := false;
+     l_R.Filer.COMStream := l_S;
+     try
+      l_R.Filer.CodePage := l_W.SCodePage;
+      l_R.Execute;
+     finally
+      l_R.Filer.COMStream := nil;
+     end;//try..finally
+    finally
+     FreeAndNil(l_S);
+    end;//try..finally
+    MergeText(l_G.Root, Result);
+   finally
+    FreeAndNil(l_G);
+   end;//try..finally
+  finally
+   FreeAndNil(l_R);
+  end;//try..finally
+ //#UC END# *4F916DF101C2__impl*
+ end;//RefineBaloonHint
+
 //#UC START# *4C7FAE9B01E1_4C7F801D0304_var*
 //#UC END# *4C7FAE9B01E1_4C7F801D0304_var*
 begin

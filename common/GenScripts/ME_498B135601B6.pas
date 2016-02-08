@@ -646,6 +646,17 @@ end;//TnsOpenDocumentByNumber.Log
 
 procedure TDocumentModule.OpenDocument;
  {* Открывает документ }
+
+ procedure CheckAlive;
+ //#UC START# *4AA118F20394__var*
+ //#UC END# *4AA118F20394__var*
+ begin
+ //#UC START# *4AA118F20394__impl*
+  if Assigned(aDocInfo.Doc) and not aDocInfo.Doc.IsAlive then
+   raise ETryOpenMissingDocument.Create('');
+ //#UC END# *4AA118F20394__impl*
+ end;//CheckAlive
+
 //#UC START# *4AA11788033F_498B135601B6_var*
 //#UC END# *4AA11788033F_498B135601B6_var*
 begin
@@ -703,6 +714,9 @@ end;//TDocumentModule.OpenDocument
 
 function TDocumentModule.OpenEntityAsDocument(const anEntity: IUnknown;
  const aContainer: IvcmContainer): IDocument;
+var l_Bookmark: IBookmark;
+var l_JBookmark: IJournalBookmark;
+var l_DocInfo: IdeDocInfo;
 //#UC START# *4AA1327E0334_498B135601B6_var*
 var
  l_Para : TParaId;
@@ -823,6 +837,7 @@ end;//TDocumentModule.OpenPictureInfo
 
 procedure TDocumentModule.OpenDocOnNumber;
  {* Открыть документ по номеру }
+var l_Data: InsOpenDocOnNumberData;
 //#UC START# *4AB133720122_498B135601B6_var*
 //#UC END# *4AB133720122_498B135601B6_var*
 begin

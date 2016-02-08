@@ -88,6 +88,8 @@ uses
 
 function TnsUniqueName.MakeName(const aName: Il3CString): Il3CString;
  {* возвращает уникальное имя }
+var l_PInt: PInteger;
+var l_Indx: Integer;
 //#UC START# *4ADC560A0041_4ADC55470317_var*
 //#UC END# *4ADC560A0041_4ADC55470317_var*
 begin
@@ -169,6 +171,7 @@ end;//TnsWindowsListPrim.CheckLength
 
 function TnsWindowsListPrim.FindNode(const aForm: IvcmEntityForm): Il3Node;
  {* возвращает Il3Node для формы aForm }
+var l_Window: InsWindow;
 //#UC START# *4ADC54290390_4ADC5146016D_var*
 //#UC END# *4ADC54290390_4ADC5146016D_var*
 begin
@@ -200,6 +203,7 @@ end;//TnsWindowsListPrim.FindNode
 
 procedure TnsWindowsListPrim.Remove(const aForm: IvcmEntityForm);
  {* удаляет форму из списка }
+var l_Node: Il3Node;
 //#UC START# *4ADC5467036A_4ADC5146016D_var*
 //#UC END# *4ADC5467036A_4ADC5146016D_var*
 begin
@@ -212,6 +216,9 @@ end;//TnsWindowsListPrim.Remove
 
 procedure TnsWindowsListPrim.Reload;
  {* перезагружает список }
+var l_Unique: TnsUniqueName;
+var l_Index: Integer;
+var l_MainForm: IvcmEntityForm;
 //#UC START# *4ADC54070106_4ADC5146016D_var*
 //#UC END# *4ADC54070106_4ADC5146016D_var*
 begin

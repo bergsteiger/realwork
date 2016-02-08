@@ -46,6 +46,8 @@ uses
 class function Tf1TagDataFromDTPFactory.MakeProvider(const aProvider: IDocumentTextProvider;
  aParent: Tf1ListTagDataFromDTPPrim;
  aChildID: TChildID): If1TagDataProvider;
+var l_T: Tk2Type;
+var l_P: Tf1TagDataFromDTP;
 //#UC START# *4C727B6A0242_4C7286FE0291_var*
 var
  l_EP : TEntryPoint;

@@ -1213,6 +1213,7 @@ begin
 end;//TInpharmModule.MedicFirms
 
 procedure TInpharmModule.OpenInpharmMainMenu(const aContainer: IvcmContainer);
+var l_FormId: TvcmFormID;
 //#UC START# *530340E702A3_4AA0D66F0159_var*
 //#UC END# *530340E702A3_4AA0D66F0159_var*
 begin

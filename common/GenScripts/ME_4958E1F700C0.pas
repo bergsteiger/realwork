@@ -390,6 +390,9 @@ begin
 end;//TPrimMainMenuNewForm.SearchClick
 
 procedure TPrimMainMenuNewForm.LoadBanner;
+var l_EO: IExternalObject;
+var l_Stream: TStream;
+var l_Name: IString;
 //#UC START# *4ACDC1AE00C1_4958E1F700C0_var*
 //#UC END# *4ACDC1AE00C1_4958E1F700C0_var*
 begin
@@ -435,6 +438,9 @@ begin
 end;//TPrimMainMenuNewForm.LoadBanner
 
 procedure TPrimMainMenuNewForm.BannerClick(aSender: TObject);
+var l_Link: IExternalLink;
+var l_Entity: IEntityBase;
+var l_Ref: IUnknown;
 //#UC START# *4ACF0DEC02DE_4958E1F700C0_var*
 //#UC END# *4ACF0DEC02DE_4958E1F700C0_var*
 begin

@@ -49,6 +49,20 @@ uses
 ;
 
 procedure TPrimForbidAutoregistrationOptionsForm.SaveAdminInfo;
+
+ procedure lp_SelectComboBox(const aComboBox: TnscComboBox);
+ //#UC START# *4C8A05EA005B__var*
+ //#UC END# *4C8A05EA005B__var*
+ begin
+ //#UC START# *4C8A05EA005B__impl*
+  with aComboBox do
+  begin
+   SetFocus;
+   SelectAll;
+  end;//with cbEmail do
+ //#UC END# *4C8A05EA005B__impl*
+ end;//lp_SelectComboBox
+
 //#UC START# *4C89FF5C0352_4C88F1C30376_var*
 //#UC END# *4C89FF5C0352_4C88F1C30376_var*
 begin

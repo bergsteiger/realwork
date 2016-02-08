@@ -289,6 +289,7 @@ begin
 end;//TAdminModule.OpenUserList
 
 function TAdminModule.ShowRenameGroupDialog(const aData: IbsEditGroupName): Integer;
+var l_Form: IvcmEntityForm;
 //#UC START# *4AA8E2C60357_4AA5120303E5_var*
 const
  cUserType: array [Boolean] of TvcmUserType = (Ord(admCreateGroup), Ord(admRenameGroup));

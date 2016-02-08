@@ -26,6 +26,9 @@ const
   {* Версия протокола - для защиты от дурака }
 
 type
+ PnsSplashData = ^TnsSplashData;
+  {* Указатель на заголовок }
+
  TnsSplashData = packed record
   {* Заголовок файла проецируемого в память }
   Version: Cardinal;
@@ -55,9 +58,6 @@ type
    {* Картинка с лого - едет компонент TvtPngImageList }
   LogoSize: Cardinal;
  end;//TnsSplashData
-
- PnsSplashData = ^TnsSplashData;
-  {* Указатель на заголовок }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
