@@ -55,6 +55,8 @@ begin
 end;//TEVDtoHTMLWriterTest.EVDtoHTML
 
 procedure TEVDtoHTMLWriterTest.SomeFormatToHTML(aReader: Tk2CustomFileReader);
+var l_Filter: Tl3CustomFiler;
+var l_Writer: TddHTMLGenerator;
 //#UC START# *516E775B03C9_516E72CA0386_var*
 //#UC END# *516E775B03C9_516E72CA0386_var*
 begin

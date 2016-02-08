@@ -42,6 +42,8 @@ uses
 
 procedure TXMLWriterTest.SomeFormatToXML(aReader: Tk2CustomFileReader;
  NeedCheck: Boolean = True);
+var l_Writer: TevdXMLWriter;
+var l_Filer: Tl3CustomFiler;
 //#UC START# *503633240255_503632AC03D9_var*
 //#UC END# *503633240255_503632AC03D9_var*
 begin
@@ -65,6 +67,7 @@ end;//TXMLWriterTest.SomeFormatToXML
 
 procedure TXMLWriterTest.EVDtoXML(const aFileName: AnsiString;
  NeedCheck: Boolean = True);
+var l_Reader: TevdNativeReader;
 //#UC START# *5036334B00AD_503632AC03D9_var*
 //#UC END# *5036334B00AD_503632AC03D9_var*
 begin
