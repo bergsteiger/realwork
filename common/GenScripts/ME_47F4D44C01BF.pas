@@ -158,6 +158,7 @@ uses
  , evExcept
  , SysUtils
  , nevPersistentDocumentContainer
+ , k2NullTagImpl
 ;
 
 type _Instance_R_ = TevLocationBase;
