@@ -70,6 +70,9 @@ uses
 
 function TnscCustomChatMemo.ValidateInsertionPoint: Boolean;
  {* ѕроверить точку вставки на возможность оной, и если невозможно, то сместить курсор }
+var l_Doc: InevPara;
+var l_Point: InevBasePoint;
+var l_Op: InevOp;
 //#UC START# *4A8C12F70348_4A8A871B02ED_var*
 //#UC END# *4A8C12F70348_4A8A871B02ED_var*
 begin
@@ -104,6 +107,7 @@ end;//TnscCustomChatMemo.ValidateInsertionPoint
 function TnscCustomChatMemo.IsParaInF1Doc(aPara: Tl3Variant;
  out theDoc: InevPara): Boolean;
  {* Ќаходитс€ параграф ли в документе, скопированном из F1 }
+var l_Doc: Tl3Tag;
 //#UC START# *4A8C16790143_4A8A871B02ED_var*
 //#UC END# *4A8C16790143_4A8A871B02ED_var*
 begin
