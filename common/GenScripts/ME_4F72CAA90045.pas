@@ -104,6 +104,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , l3IterateComponentParents
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3RTTI
  , l3Base
 ;
 
@@ -272,12 +273,40 @@ end;//Tl3ComponentInfoHelper.FormatMenuInfoForControl
 procedure Tl3ComponentInfoHelper.FormatObjectInfo(anObject: TObject;
  anInfoType: TRTTIInfoType;
  out aResult: AnsiString);
+
+ function DoIt(anItem: TComponent): Boolean;
+  {* Подитеративная функция для вызова L2Ml3IterateComponentParentsIterateFAction из FormatObjectInfo }
+ //#UC START# *C7EBA2EF89A6__var*
+ //#UC END# *C7EBA2EF89A6__var*
+ begin
+ //#UC START# *C7EBA2EF89A6__impl*
+  aResult := aResult + Tl3FormatObjectInfoHelper.Instance.Format(anItem, True, ObjectPropFound) + #13#10;
+ //#UC END# *C7EBA2EF89A6__impl*
+ end;//DoIt
+
 //#UC START# *551D508901D0_4F72CAA90045_var*
 //#UC END# *551D508901D0_4F72CAA90045_var*
 begin
-//#UC START# *551D508901D0_4F72CAA90045_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551D508901D0_4F72CAA90045_impl*
+ //#UC START# *551D508901D0iter*
+ aResult := '';
+ case anInfoType of
+  itHierarchyOnly:
+   begin
+    Assert(anObject is TComponent);
+ //#UC END# *551D508901D0iter*
+ Tl3IterateComponentParents.Instance.IterateF(L2Ml3IterateComponentParentsIterateFAction(@DoIt)
+ //#UC START# *551D508901D0iterparam*
+   , TComponent(anObject)
+ //#UC END# *551D508901D0iterparam*
+ )
+ //#UC START# *551D508901D0afteriter*
+   end;
+  itDetailed:
+   aResult := Tl3FormatObjectInfoHelper.Instance.Format(anObject, True, ObjectPropFound) +
+     #13#10#13#10 +
+     L3FormatRTTIInfo(anObject, True, ObjectPropFound, Tl3HugeMessageDlgWithWikiHelper.Instance.CanUseWiki);
+ end;
+ //#UC END# *551D508901D0afteriter*
 end;//Tl3ComponentInfoHelper.FormatObjectInfo
 
 class function Tl3ComponentInfoHelper.Exists: Boolean;

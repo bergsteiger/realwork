@@ -10,6 +10,18 @@ uses
 ;
 
 type
+ PGPPoint = ^TGPPoint;
+
+ PGPPointF = ^TGPPointF;
+
+ PGPSize = ^TGPSize;
+
+ PGPSizeF = ^TGPSizeF;
+
+ PGPRect = ^TGPRect;
+
+ PGPRectF = ^TGPRectF;
+
  TGPPoint = record
  end;//TGPPoint
 
@@ -22,23 +34,11 @@ type
  TGPSizeF = record
  end;//TGPSizeF
 
- PGPPoint = ^TGPPoint;
-
- PGPPointF = ^TGPPointF;
-
- PGPSize = ^TGPSize;
-
- PGPSizeF = ^TGPSizeF;
-
  TGPRect = record
  end;//TGPRect
 
- PGPRect = ^TGPRect;
-
  TGPRectF = record
  end;//TGPRectF
-
- PGPRectF = ^TGPRectF;
 
  TGPColor = ;
 
