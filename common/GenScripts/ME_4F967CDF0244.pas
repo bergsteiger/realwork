@@ -26,6 +26,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Windows
 ;
 
 function TkwMouseMiddleUp.GetMouseEventFlag: Integer;

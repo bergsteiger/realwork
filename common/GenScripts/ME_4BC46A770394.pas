@@ -38,6 +38,8 @@ uses
  , k2Base
  , k2Tags
  , l3String
+ , l3IID
+ , l3InterfacesMisc
 ;
 
 function Tk2TypeModelPart.CompareTags(A: Tl3Variant;

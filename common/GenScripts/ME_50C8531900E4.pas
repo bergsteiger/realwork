@@ -27,6 +27,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Windows
 ;
 
 function TkwMouseWheelUp.GetLineCount(const aCtx: TtfwContext): Integer;
