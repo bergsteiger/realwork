@@ -83,6 +83,9 @@ uses
 
 procedure TbsDocumentContextSearcher.DoContextFound(const aFoundBlock: InevRange;
  var aResult: TbsBaseSearchResult);
+var l_Start: InevBasePoint;
+var l_Finish: InevBasePoint;
+var l_Lock: Il3Lock;
 //#UC START# *4A1FEB0D01AF_495137C70135_var*
 //#UC END# *4A1FEB0D01AF_495137C70135_var*
 begin
@@ -111,6 +114,7 @@ end;//TbsDocumentContextSearcher.DoContextFound
 procedure TbsDocumentContextSearcher.DoSearchFinished(const aPrevFoundBlock: InevRange;
  SearchDown: Boolean;
  var aResult: TbsBaseSearchResult);
+var l_HasEntries: Boolean;
 //#UC START# *4A1FEB3F01DB_495137C70135_var*
 //#UC END# *4A1FEB3F01DB_495137C70135_var*
 begin

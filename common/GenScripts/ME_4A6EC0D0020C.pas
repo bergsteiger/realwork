@@ -152,6 +152,8 @@ type _Instance_R_ = TPrimEditionsContainerForm;
 
 procedure TPrimEditionsContainerForm.UpdateCaptionFromDS;
  {* Обновляет заголовок формы }
+var l_P: Il3CString;
+var l_S: Il3CString;
 //#UC START# *4A80256B02A5_4A6EC0D0020C_var*
 //#UC END# *4A80256B02A5_4A6EC0D0020C_var*
 begin
@@ -168,6 +170,8 @@ end;//TPrimEditionsContainerForm.UpdateCaptionFromDS
 
 function TPrimEditionsContainerForm.FindChangedText(aBack: Boolean): TGotoParaResult;
  {* Найти изменённый текст }
+var l_Form: IvcmEntityForm;
+var l_CP: IDiffIterator;
 //#UC START# *4ADC8D5C0182_4A6EC0D0020C_var*
 var
  l_Para : TParaNum;
@@ -232,6 +236,7 @@ begin
 end;//TPrimEditionsContainerForm.FindChangedText
 
 function TPrimEditionsContainerForm.CanFindChangedText(aBack: Boolean): Boolean;
+var l_CP: IDiffIterator;
 //#UC START# *4AE046D4038D_4A6EC0D0020C_var*
 //#UC END# *4AE046D4038D_4A6EC0D0020C_var*
 begin

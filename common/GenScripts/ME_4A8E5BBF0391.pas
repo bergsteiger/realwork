@@ -57,6 +57,8 @@ _StatusBarItems_ = _StatusBarItems_Parent_;
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 procedure _StatusBarItems_.RegisterOps;
  {* Реристрирует операции }
+var l_Form: IafwMainForm;
+var l_Visualizer: InscStatusBarItemsVisualizer;
 //#UC START# *4A8E5C6702D1_4A8E5BBF0391_var*
 //#UC END# *4A8E5C6702D1_4A8E5BBF0391_var*
 begin
@@ -83,6 +85,8 @@ end;//_StatusBarItems_.RegisterOps
 
 procedure _StatusBarItems_.UnregisterOps;
  {* Отрегистрирует операции }
+var l_Form: IafwMainForm;
+var l_Visualizer: InscStatusBarItemsVisualizer;
 //#UC START# *4A8E5C7903DE_4A8E5BBF0391_var*
 //#UC END# *4A8E5C7903DE_4A8E5BBF0391_var*
 begin

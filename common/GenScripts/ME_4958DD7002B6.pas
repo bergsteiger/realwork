@@ -282,6 +282,8 @@ end;//TPrimMainMenuForm.InitKeyboardNavigation
 
 procedure TPrimMainMenuForm.ActionElement(Sender: TObject;
  Index: Integer);
+var l_Node: Il3SimpleNode;
+var l_MenuNode: InsMainMenuNode;
 //#UC START# *4AC9E13902F9_4958DD7002B6_var*
 //#UC END# *4AC9E13902F9_4958DD7002B6_var*
 begin

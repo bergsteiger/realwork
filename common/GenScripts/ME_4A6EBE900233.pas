@@ -468,6 +468,8 @@ end;//TDiffForm.MakeDocumentContainer
 
 procedure TDiffForm.VScroll(aSender: TObject);
  {* Обработчик вертикального скроллера }
+var l_Cursor: InevBasePoint;
+ {* Курсор по обрезу экрана }
 //#UC START# *4A798D740347_4A6EBE900233_var*
 var
  l_D : Cardinal;
@@ -621,6 +623,7 @@ begin
 end;//TDiffForm.ParaChange
 
 procedure TDiffForm.SignalParaChange;
+var l_Para: IeeLeafPara;
 //#UC START# *4B547F9F029F_4A6EBE900233_var*
 //#UC END# *4B547F9F029F_4A6EBE900233_var*
 begin
@@ -703,6 +706,7 @@ end;//TDiffForm.UpdateEditionsChoose
 
 procedure TDiffForm.ChoosenEditionChanged(aSender: TObject);
  {* Выбрали другую редакцию }
+var l_Node: Il3SimpleNode;
 //#UC START# *4A8405A30085_4A6EBE900233_var*
 //#UC END# *4A8405A30085_4A6EBE900233_var*
 begin
@@ -828,6 +832,16 @@ end;//TDiffForm.IsParaCurrent
 procedure TDiffForm.SyncWithCursor(const aCursor: InevBasePoint;
  NeedCheckLine: Boolean);
  {* Синхронизировать другое окно с указанным курсором }
+var l_MI: InevBasePoint;
+ {* Самый вложенный курсор }
+var l_Line: Integer;
+ {* Строка внутри параграфа }
+var l_Para: Tl3Tag;
+ {* Текущий верхний параграф }
+var l_ParaID: Integer;
+ {* Идентификатор текущего верхнего параграфа }
+var l_Block: IevDocumentPart;
+ {* Блок под обрез экрана }
 //#UC START# *4BDADD4101E1_4A6EBE900233_var*
 //#UC END# *4BDADD4101E1_4A6EBE900233_var*
 begin
