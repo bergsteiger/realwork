@@ -1,32 +1,31 @@
 unit NOT_FINISHED_orb_int;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "MTDOrb"
-// Модуль: "w:/common/components/rtl/external/MTDOrb/src/orbint/NOT_FINISHED_orb_int.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::MTDOrb::orb_int
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\MTDOrb\src\orbint\NOT_FINISHED_orb_int.pas"
+// Стереотип: "Interfaces"
 
 interface
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3IntfUses
+;
+
 type
- IORB = interface(IUnknown)
-   ['{C15E149E-1B9A-444D-AF9E-03FA901B8775}']
+ IORB = interface
+  ['{C15E149E-1B9A-444D-AF9E-03FA901B8775}']
  end;//IORB
 
- IORBObject = interface(IUnknown)
-   ['{95F4B62E-65BC-44DF-9890-76F757494DDA}']
+ IORBObject = interface
+  ['{95F4B62E-65BC-44DF-9890-76F757494DDA}']
  end;//IORBObject
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 implementation
+
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 end.

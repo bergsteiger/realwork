@@ -1,29 +1,26 @@
 unit NOT_FINISHED_SecuritySrv;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "MTDOrb"
-// Модуль: "w:/common/components/rtl/external/MTDOrb/build/NOT_FINISHED_SecuritySrv.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::MTDOrb::build::SecuritySrv
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\MTDOrb\build\NOT_FINISHED_SecuritySrv.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3IntfUses
+;
+
 type
  TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv = class
  end;//TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 implementation
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
+
 end.

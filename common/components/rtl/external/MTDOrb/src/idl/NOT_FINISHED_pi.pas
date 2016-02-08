@@ -1,55 +1,46 @@
 unit NOT_FINISHED_pi;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "MTDOrb"
-// Модуль: "w:/common/components/rtl/external/MTDOrb/src/idl/NOT_FINISHED_pi.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::MTDOrb::idl::pi
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_pi.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
 uses
-  pi_int,
-  orb
-  ;
+ l3IntfUses
+ , pi_int
+ , orb
+;
 
 type
  TORBInitializer = class
- protected
- // protected methods
-   procedure Pre_init(const info: IORBInitInfo); virtual; abstract;
-   procedure Post_init(const info: IORBInitInfo); virtual; abstract;
+  protected
+   procedure pre__init(const info: IORBInitInfo); virtual; abstract;
+   procedure post__init(const info: IORBInitInfo); virtual; abstract;
  end;//TORBInitializer
 
  TInterceptor = class(TLocalORBObject)
- protected
- // protected methods
+  protected
    procedure _destroy; virtual; abstract;
-   function _get_name: ANSIString; virtual; abstract;
+   function _get__name: ANSIString; virtual; abstract;
  end;//TInterceptor
 
  TClientRequestInterceptor = class(TInterceptor)
- protected
- // protected methods
-   procedure Send_request(const ri: IClientRequestInfo); virtual; abstract;
-   procedure Send_poll(const ri: IClientRequestInfo); virtual; abstract;
-   procedure Receive_reply(const ri: IClientRequestInfo); virtual; abstract;
-   procedure Receive_exception(const ri: IClientRequestInfo); virtual; abstract;
-   procedure Receive_other(const ri: IClientRequestInfo); virtual; abstract;
+  protected
+   procedure send__request(const ri: IClientRequestInfo); virtual; abstract;
+   procedure send__poll(const ri: IClientRequestInfo); virtual; abstract;
+   procedure receive__reply(const ri: IClientRequestInfo); virtual; abstract;
+   procedure receive__exception(const ri: IClientRequestInfo); virtual; abstract;
+   procedure receive__other(const ri: IClientRequestInfo); virtual; abstract;
  end;//TClientRequestInterceptor
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 implementation
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
+
 end.

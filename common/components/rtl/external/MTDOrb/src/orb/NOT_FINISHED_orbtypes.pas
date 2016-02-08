@@ -1,29 +1,28 @@
 unit NOT_FINISHED_orbtypes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "MTDOrb"
-// Модуль: "w:/common/components/rtl/external/MTDOrb/src/orb/NOT_FINISHED_orbtypes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Low Level::MTDOrb::orbtypes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\MTDOrb\src\orb\NOT_FINISHED_orbtypes.pas"
+// Стереотип: "Interfaces"
 
 interface
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3IntfUses
+;
+
 type
  ServiceContext = record
  end;//ServiceContext
 
  ServiceId = ;
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 implementation
+
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 end.

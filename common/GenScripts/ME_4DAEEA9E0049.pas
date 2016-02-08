@@ -68,6 +68,7 @@ end;//TtfwScriptEngine.Script
 
 class procedure TtfwScriptEngine.Script(const aString: AnsiString;
  const aCaller: ItfwScriptCaller);
+var l_SS: TtfwStringStreamFactory;
 //#UC START# *4DAEEBC90028_4DAEEA9E0049_var*
 //#UC END# *4DAEEBC90028_4DAEEA9E0049_var*
 begin
@@ -83,6 +84,7 @@ end;//TtfwScriptEngine.Script
 
 class procedure TtfwScriptEngine.ScriptFromFile(const aFileName: AnsiString;
  const aCaller: ItfwScriptCaller);
+var l_FS: TtfwFileStreamFactory;
 //#UC START# *4DB02B590048_4DAEEA9E0049_var*
 //#UC END# *4DB02B590048_4DAEEA9E0049_var*
 begin
