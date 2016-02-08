@@ -1,29 +1,16 @@
 unit NOT_FINISHED_shdocvw;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Internet"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Internet/NOT_FINISHED_shdocvw.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Internet::Web::shdocvw
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Internet\NOT_FINISHED_shdocvw.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  OleCtrls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , OleCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TWebBrowser = class(TOleControl)
@@ -32,19 +19,16 @@ type
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TWebBrowser
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TWebBrowser);
-{$IfEnd} //not NoScripts
+ {* Регистрация TWebBrowser }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

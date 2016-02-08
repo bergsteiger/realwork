@@ -20,6 +20,9 @@ uses
  , l3ProtoObject
 ;
 
+type
+ Pl3Variant = ^Tl3Variant;
+
  (*
  Mk2Storable = interface
   {* Методы тега отвечающие за сохранение/восстановление }
@@ -28,7 +31,6 @@ uses
  end;//Mk2Storable
  *)
 
-type
  Tk2VarKind = (
   k2_vkInteger
   , k2_vkString
@@ -1129,8 +1131,6 @@ type
   property AttrW[anIndex: Integer; const aContext: Il3OpPack]: Tl3Variant
    write pm_SetAttrW;
  end;//Ik2Tag
-
- Pl3Variant = ^Tl3Variant;
 
  Tl3NullTag = class(Tl3ProtoObject, Il3TagRef)
   public

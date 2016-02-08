@@ -14,6 +14,8 @@ uses
 ;
 
 type
+ PTatLayerContext = ^TatLayerContext;
+
  TatCurr = record
   ChildrenCount: Integer;
   EP: TEntryPoint;
@@ -24,8 +26,6 @@ type
   Curr: TatCurr;
   MaxChild: TChildID;
  end;//TatLayerContext
-
- PTatLayerContext = ^TatLayerContext;
 
  TatDTPIterator = class
   private

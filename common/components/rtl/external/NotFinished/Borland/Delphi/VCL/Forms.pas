@@ -1,26 +1,16 @@
 unit Forms;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/Forms.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::Forms
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Forms.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Classes,
-  Controls
-  ;
+ l3IntfUses
+ , Classes
+ , Controls
+;
 
 type
  TApplication = class(TComponent)
@@ -28,43 +18,41 @@ type
  end;//TApplication
 
  TBorderStyle = (
-   
  );//TBorderStyle
 
  TScrollingWinControl = class(TWinControl)
  end;//TScrollingWinControl
 
  TCloseAction = (
-   
  );//TCloseAction
 
  TCustomForm = class(TScrollingWinControl)
- protected
- // protected methods
+  protected
    procedure UpdateActions; virtual;
-     {* Сигнатура метода UpdateActions }
    procedure DoClose(var Action: TCloseAction); virtual;
    function CloseQuery: Boolean; virtual;
-     {* CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.
+    {* CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.
 
 As implemented in TCustomForm, CloseQuery polls any MDI children by calling their CloseQuery methods. If no child form aborts the close, CloseQuery then calls the OnCloseQuery event handler, if it exists, to determine if the close should be allowed. If no such event handler exists, CloseQuery returns true. }
    procedure DoShow; virtual;
- public
- // public methods
+  public
    function ShowModal: Integer; virtual;
-   {$If defined(l3HackedVCL) AND not defined(NoVCL)}
+   {$If Defined(l3HackedVCL)}
    function NeedAutoScroll: Boolean; virtual;
-   {$IfEnd} //l3HackedVCL AND not NoVCL
+   {$IfEnd} // Defined(l3HackedVCL)
    function IsRealInstance: Boolean; virtual;
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); virtual;
+    Dummy: Integer = 0); reintroduce; virtual;
  end;//TCustomForm
 
  TWindowState = (
   {* TWindowState indicates whether a form is maximized, minimized, or normally sized. }
-   wsNormal // The form is in its normal state (that is, neither minimized nor maximized).
- , wsMinimized // The form is minimized.
- , wsMaximized // The form is maximized.
+  wsNormal
+   {* The form is in its normal state (that is, neither minimized nor maximized). }
+  , wsMinimized
+   {* The form is minimized. }
+  , wsMaximized
+   {* The form is maximized. }
  );//TWindowState
 
  TScreen = class(TComponent)
@@ -89,7 +77,6 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
  TFormClass = class of TForm;
 
  TScrollBarKind = (
-   
  );//TScrollBarKind
 
  TScrollBarInc = ;
@@ -100,7 +87,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
  TFrame = class(TCustomFrame)
  end;//TFrame
 
- TCloseQueryEvent = procedure (Sender: TObject;
+ TCloseQueryEvent = procedure(Sender: TObject;
   var CanClose: Boolean) of object;
 
  TScrollBox = class(TScrollingWinControl)
@@ -113,52 +100,64 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
  end;//TForm
 
  TBorderIcons = (
-   
  );//TBorderIcons
 
  TFormBorderStyle = (
-   
  );//TFormBorderStyle
 
  TFormStyle = (
-   
  );//TFormStyle
 
-procedure KeysToShiftState;
 procedure Application;
-   {* Сигнатура метода Application }
 procedure KeyDataToShiftState;
-   {* Сигнатура метода KeyDataToShiftState }
-{$IfEnd} //not NoVCL
+procedure KeysToShiftState;
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  ScrollingWinControlWordsPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  FormsProcessingPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  CustomFormProcessingPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ScrollingWinControlWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , FormsProcessingPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , CustomFormProcessingPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TCustomForm
+procedure Application;
+//#UC START# *4C8A2ADD01B1_47E13C6B0341_var*
+//#UC END# *4C8A2ADD01B1_47E13C6B0341_var*
+begin
+//#UC START# *4C8A2ADD01B1_47E13C6B0341_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4C8A2ADD01B1_47E13C6B0341_impl*
+end;//Application
+
+procedure KeyDataToShiftState;
+//#UC START# *4F75B95B02BD_47E13C6B0341_var*
+//#UC END# *4F75B95B02BD_47E13C6B0341_var*
+begin
+//#UC START# *4F75B95B02BD_47E13C6B0341_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4F75B95B02BD_47E13C6B0341_impl*
+end;//KeyDataToShiftState
+
+procedure KeysToShiftState;
+//#UC START# *47E13C7301D2_47E13C6B0341_var*
+//#UC END# *47E13C7301D2_47E13C6B0341_var*
+begin
+//#UC START# *47E13C7301D2_47E13C6B0341_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47E13C7301D2_47E13C6B0341_impl*
+end;//KeysToShiftState
 
 function TCustomForm.ShowModal: Integer;
 //#UC START# *520B42AF0115_484529DC0276_var*
@@ -188,6 +187,9 @@ begin
 end;//TCustomForm.DoClose
 
 function TCustomForm.CloseQuery: Boolean;
+ {* CloseQuery is called automatically when an attempt is made to close the form. CloseQuery can allow the form to close by returning true, or prevent the form from closing by returning false.
+
+As implemented in TCustomForm, CloseQuery polls any MDI children by calling their CloseQuery methods. If no child form aborts the close, CloseQuery then calls the OnCloseQuery event handler, if it exists, to determine if the close should be allowed. If no such event handler exists, CloseQuery returns true. }
 //#UC START# *4980403E021E_484529DC0276_var*
 //#UC END# *4980403E021E_484529DC0276_var*
 begin
@@ -196,7 +198,7 @@ begin
 //#UC END# *4980403E021E_484529DC0276_impl*
 end;//TCustomForm.CloseQuery
 
-{$If defined(l3HackedVCL) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL)}
 function TCustomForm.NeedAutoScroll: Boolean;
 //#UC START# *4B0E845502C1_484529DC0276_var*
 //#UC END# *4B0E845502C1_484529DC0276_var*
@@ -205,7 +207,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B0E845502C1_484529DC0276_impl*
 end;//TCustomForm.NeedAutoScroll
-{$IfEnd} //l3HackedVCL AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL)
 
 function TCustomForm.IsRealInstance: Boolean;
 //#UC START# *4B0E846D022B_484529DC0276_var*
@@ -226,7 +228,7 @@ begin
 end;//TCustomForm.DoShow
 
 constructor TCustomForm.CreateNew(AOwner: TComponent;
-  Dummy: Integer = 0);
+ Dummy: Integer = 0);
 //#UC START# *4F9007B20376_484529DC0276_var*
 //#UC END# *4F9007B20376_484529DC0276_var*
 begin
@@ -234,53 +236,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4F9007B20376_484529DC0276_impl*
 end;//TCustomForm.CreateNew
-// unit methods
-
-procedure Application;
-//#UC START# *4C8A2ADD01B1_47E13C6B0341_var*
-//#UC END# *4C8A2ADD01B1_47E13C6B0341_var*
-begin
-//#UC START# *4C8A2ADD01B1_47E13C6B0341_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A2ADD01B1_47E13C6B0341_impl*
-end;//Application
-
-procedure KeyDataToShiftState;
-//#UC START# *4F75B95B02BD_47E13C6B0341_var*
-//#UC END# *4F75B95B02BD_47E13C6B0341_var*
-begin
-//#UC START# *4F75B95B02BD_47E13C6B0341_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F75B95B02BD_47E13C6B0341_impl*
-end;//KeyDataToShiftState
-// unit methods
-
-procedure KeysToShiftState;
-//#UC START# *47E13C7301D2_47E13C6B0341_var*
-//#UC END# *47E13C7301D2_47E13C6B0341_var*
-begin
-//#UC START# *47E13C7301D2_47E13C6B0341_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47E13C7301D2_47E13C6B0341_impl*
-end;//KeysToShiftState
-{$IfEnd} //not NoVCL
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TScrollingWinControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TScrollingWinControl);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TCustomForm
+ {* Регистрация TScrollingWinControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomForm);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TScrollBox
+ {* Регистрация TCustomForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TScrollBox);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TForm
+ {* Регистрация TScrollBox }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TForm);
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация TForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

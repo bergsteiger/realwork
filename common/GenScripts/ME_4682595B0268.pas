@@ -60,6 +60,12 @@ const
  l3_NotChangeCountView = -3;
 
 type
+ Il3Base = l3Interfaces.Il3Base;
+  {* Базовый предок. }
+
+ Pl3TreeData = ^Tl3TreeData;
+  {* указатель на данные о перемещаемом объекте }
+
  Il3Nodes = interface(Il3Base)
   {* контейнер узлов }
   ['{4A85EA5F-CCB1-4250-A410-635227213794}']
@@ -211,9 +217,6 @@ type
   procedure Subscribe(const aSubscriber: Il3ContextFilterParamsNotifier);
   procedure UnSubscribe(const aSubscriber: Il3ContextFilterParamsNotifier);
  end;//Il3ContextFilterParamsNotifySource
-
- Il3Base = l3Interfaces.Il3Base;
-  {* Базовый предок. }
 
  Il3SimpleTree = interface(Il3RootSource)
   {* Дерево. }
@@ -419,9 +422,6 @@ type
    write Set_Parent;
    {* родительский узел. }
  end;//Il3SimpleInternalNode
-
- Pl3TreeData = ^Tl3TreeData;
-  {* указатель на данные о перемещаемом объекте }
 
  Il3ExpandedSimpleTree = interface(Il3SimpleTree)
   {* Дерево с расширенной функциональностью. }

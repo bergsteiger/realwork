@@ -37,6 +37,8 @@ uses
 ;
 
 function Tm4WordList.AddWord(const aStr: Tl3WString): Tm4WordID;
+var l_Item: Tm4Word;
+var l_Index: Integer;
 //#UC START# *4AB38FE40091_4AB37F2003B6_var*
 //#UC END# *4AB38FE40091_4AB37F2003B6_var*
 begin

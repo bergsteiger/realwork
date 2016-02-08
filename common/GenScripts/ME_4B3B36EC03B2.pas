@@ -21,6 +21,8 @@ uses
 ;
 
 type
+ Pl3StringIDEx = ^Tl3StringIDEx;
+
  Tl3StringIDExPrim = object(Tl3StringID)
   public
    rLocalized: Boolean;
@@ -44,8 +46,6 @@ type
    procedure Init;
     {* Инициализирует строку }
  end;//Tl3StringIDEx
-
- Pl3StringIDEx = ^Tl3StringIDEx;
 
  {$Undef l3Items_NoSort}
 

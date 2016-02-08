@@ -15,12 +15,12 @@ uses
 ;
 
 type
+ PSyncData = ^TSyncData;
+
  TSyncData = record
   Total: Integer;
   Waiting: Integer;
  end;//TSyncData
-
- PSyncData = ^TSyncData;
 
  TatSynchroPoint = class(Tl3_Base)
   {* "Точка синхронизации". Для синхронизации типа "дойти до определенного места и ждать пока все не достигнут этого места". }

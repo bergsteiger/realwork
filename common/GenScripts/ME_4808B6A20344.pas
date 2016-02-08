@@ -14,6 +14,8 @@ uses
 ;
 
 type
+ PFormatSettings = ^TFormatSettings;
+
  TatLogMessageType = (
   lmtNone
   , lmtInfo
@@ -21,8 +23,6 @@ type
   , lmtError
   , lmtException
  );//TatLogMessageType
-
- PFormatSettings = ^TFormatSettings;
 
  TatLogger = class(TInterfacedObject, IatLogger)
   private

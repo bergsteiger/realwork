@@ -10,10 +10,10 @@ uses
 ;
 
 type
+ PDropFiles = ^TDropFiles;
+
  TDropFiles = record
  end;//TDropFiles
-
- PDropFiles = ^TDropFiles;
 
 implementation
 

@@ -1,25 +1,25 @@
 unit NOT_FINISHED_Graphics;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/NOT_FINISHED_Graphics.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Graphics::Graphics
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\NOT_FINISHED_Graphics.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
 uses
-  Classes,
-  Windows
-  ;
+ l3IntfUses
+ , Classes
+ , Windows
+;
+
+const
+ clDefault = TColor($20000000);
+ clYellow = TColor($00FFFF);
+ clAqua = TColor($FFFF00);
+ clRed = TColor($0000FF);
+ clSilver = ;
+ clWindowText = ;
+ clGrayText = ;
+ clBlue = ;
 
 type
  TGraphic = class(TInterfacedPersistent)
@@ -44,16 +44,14 @@ type
   {* TMetafile is an encapsulation of the Win32 Enhanced metafile. }
  end;//TMetafile
 
-const
-  { Colors$1 }
- 
-
-type
  TFontPitch = (
   {* Тип шрифта }
-   fpDefault // The font pitch is set to the default value, which depends on the font specified in the font object's Name property.
- , fpVariable // The font pitch is set to variable. The characters in the font have different widths.
- , fpFixed // The font pitch is set to fixed. All characters in the font have the same width.
+  fpDefault
+   {* The font pitch is set to the default value, which depends on the font specified in the font object's Name property. }
+  , fpVariable
+   {* The font pitch is set to variable. The characters in the font have different widths. }
+  , fpFixed
+   {* The font pitch is set to fixed. All characters in the font have the same width. }
  );//TFontPitch
 
  TColor = Integer;
@@ -63,10 +61,14 @@ type
   {* Гарнитура шрифта. }
 
  TFontStyle = (
-   fsBold // The font is boldfaced.
- , fsItalic // The font is italicized.
- , fsUnderline // The font is underlined.
- , fsStrikeOut // The font is displayed with a horizontal line through it.
+  fsBold
+   {* The font is boldfaced. }
+  , fsItalic
+   {* The font is italicized. }
+  , fsUnderline
+   {* The font is underlined. }
+  , fsStrikeOut
+   {* The font is displayed with a horizontal line through it. }
  );//TFontStyle
 
  TFontStyles = set of TFontStyle;
@@ -107,13 +109,21 @@ type
  TMetafileHeader = record
  end;//TMetafileHeader
 
- HENHMETAFILE = Windows.THandle;
+ HENHMETAFILE = THandle;
+
+ TBrush = {final} class
+ end;//TBrush
+
+ TPen = {final} class
+ end;//TPen
+
 procedure ColorToRGB;
-   {* Сигнатура метода ColorToRGB }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure ColorToRGB;
 //#UC START# *50F928A102E2_47D15712022D_var*
@@ -123,4 +133,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50F928A102E2_47D15712022D_impl*
 end;//ColorToRGB
+
 end.

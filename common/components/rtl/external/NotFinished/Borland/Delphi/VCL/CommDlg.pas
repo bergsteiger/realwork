@@ -1,22 +1,22 @@
 unit CommDlg;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/CommDlg.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::CommDlg
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\CommDlg.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+{$If NOT Defined(NoVCL)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
+
+{$If NOT Defined(NoVCL)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

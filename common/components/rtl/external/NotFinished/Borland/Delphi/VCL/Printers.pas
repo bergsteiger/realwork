@@ -1,26 +1,15 @@
 unit Printers;
+ {* TPrinter encapsulates the Windows printer interface. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/Printers.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Printing::Printers
-//
-// TPrinter encapsulates the Windows printer interface.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Printers.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
 uses
-  SysUtils
-  ;
+ l3IntfUses
+ , SysUtils
+;
 
 type
  EPrinter = class(Exception)
@@ -31,32 +20,33 @@ type
  end;//TPrinter
 
  TPrinterState = (
-   psNoHandle
- , psHandleIC
- , psHandleDC
+  psNoHandle
+  , psHandleIC
+  , psHandleDC
  );//TPrinterState
 
  TPrinterOrientation = (
-   poPortrait
- , poLandscape
+  poPortrait
+  , poLandscape
  );//TPrinterOrientation
 
  TPrinterCapability = (
-   pcCopies
- , pcOrientation
- , pcCollation
+  pcCopies
+  , pcOrientation
+  , pcCollation
  );//TPrinterCapability
 
  TPrinterCapabilities = set of TPrinterCapability;
 
-function Printer: TPrinter; overload; 
+procedure Printer; overload;
+function Printer: TPrinter; overload;
 function SetPrinter(NewPrinter: TPrinter): TPrinter;
-procedure Printer; overload; 
-   {* Сигнатура метода Printer }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure Printer;
 //#UC START# *4AE1D63601CB_4799D2E6027B_var*

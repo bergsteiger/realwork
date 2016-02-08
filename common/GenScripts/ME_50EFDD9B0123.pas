@@ -40,6 +40,40 @@ uses
 ;
 
 procedure TkwPopQueryCardAttributeIsLogicOperationEnabled.DoModelImpl;
+var l_Name: Il3CString;
+var l_IsEnabled: Boolean;
+var l_Op: InevOp;
+
+ procedure CallIterator;
+
+  function DoIt(const anItem: IevReq): Boolean;
+   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
+  //#UC START# *1E86D84EDB95__var*
+  var
+   l_F : IevEditorControlField;
+  //#UC END# *1E86D84EDB95__var*
+  begin
+  //#UC START# *1E86D84EDB95__impl*
+   if l3Same(l_Name, anItem.ReqName) then
+   begin
+    Result := false;
+    l_F := anItem.FirstField;
+    l_IsEnabled := (l_F As IevEditorFieldWithTree).IsLogicalStateButtonEnabled; 
+    Exit;
+   end else
+    Result := true;
+  //#UC END# *1E86D84EDB95__impl*
+  end;//DoIt
+
+ //#UC START# *50F01237000C__var*
+ //#UC END# *50F01237000C__var*
+ begin
+  //#UC START# *50F01237000Citer*
+  TevReqIterator.Make(aCard).
+  //#UC END# *50F01237000Citer*
+  DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+ end;//CallIterator
+
 //#UC START# *50F011CD0374_50EFDD9B0123_var*
 //#UC END# *50F011CD0374_50EFDD9B0123_var*
 begin

@@ -32,14 +32,14 @@ const
   {* Поток. }
 
 type
+ Pm3StoreType = ^Tm3StoreType;
+  {* Указатель на Tm3StoreType. }
+
  Tm3StoreAccess = Integer;
   {* тип доступа к хранилищу. }
 
  Tm3StoreType = m3_stNone .. m3_stStream;
   {* Тип элемента хранилища. }
-
- Pm3StoreType = ^Tm3StoreType;
-  {* Указатель на Tm3StoreType. }
 
  Tm3StoreMode = (
   {* Режим открытия элемента каталога. }

@@ -45,6 +45,10 @@ uses
 function nsFindTagByID(aTag: Tl3Tag;
  aType: Tk2Type;
  anID: Integer): Tl3Tag;
+var l_Path: INodeIndexPath;
+var l_List: IFilterList;
+var l_Provider: IDocumentTextProvider;
+var l_Type: Tk2Type;
 //#UC START# *4C99D9AF02E2_4C99DF8C0241_var*
 var
  l_NeedCheckBookmark : Boolean;
@@ -184,6 +188,8 @@ end;//nsFindTagByID
 function nsTagByPath(aDocument: Tl3Tag;
  const aPath: INodeIndexPath;
  aNewSchool: Boolean): Tl3Tag;
+var l_Index: Integer;
+var l_Child: Tl3Tag;
 //#UC START# *4C72558F00BC_4C99DF8C0241_var*
 var
  l_J : Integer;

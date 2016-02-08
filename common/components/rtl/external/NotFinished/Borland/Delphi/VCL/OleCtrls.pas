@@ -1,49 +1,36 @@
 unit OleCtrls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/OleCtrls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::OleCtrls
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\OleCtrls.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Controls
-  ;
+ l3IntfUses
+ , Controls
+;
 
 type
  TOleControl = class(TWinControl)
  end;//TOleControl
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TOleControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TOleControl);
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация TOleControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

@@ -5,10 +5,10 @@
 
 {$Define l3OtherListView_imp}
 
- // _ListType_
-
 type
  PItemType = ^_ItemType_;
+
+ // _ListType_
 
  _l3OtherListView_ = class(Tl3CustomOtherListView)
   private

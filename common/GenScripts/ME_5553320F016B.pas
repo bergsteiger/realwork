@@ -13,6 +13,8 @@ uses
 ;
 
 type
+ LPOPEL = ^OPEL;
+
  SAB = record
  end;//SAB
 
@@ -20,8 +22,6 @@ type
 
  OPEL = record
  end;//OPEL
-
- LPOPEL = ^OPEL;
 {$IfEnd} // NOT Defined(Nemesis)
 
 implementation

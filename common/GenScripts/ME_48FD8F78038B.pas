@@ -6,14 +6,14 @@
 {$Define nsNodeNotifierBase_imp}
 
 type
+ PnsThreadCallParamsRec = ^TnsThreadCallParamsRec;
+
  TnsThreadCallParamsRec = record
   rNodeIndex: TVisibleIndex;
   rDelta: Integer;
   rIndexPath: INodeIndexPath;
   rChildIndex: TIndexInParent;
  end;//TnsThreadCallParamsRec
-
- PnsThreadCallParamsRec = ^TnsThreadCallParamsRec;
 
  _l3ThreadNotifier_Parent_ = _nsNodeNotifierBase_Parent_;
  {$Include l3ThreadNotifier.imp.pas}

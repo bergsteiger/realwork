@@ -57,6 +57,11 @@ const
  l3GlyphFontName = '__Glyph__';
 
 type
+ PIUnknown = ^IUnknown;
+  {* Указатель на IUnknown. }
+
+ PObject = ^TObject;
+
  Tl3ItemFlag = (
   {* Флаг элемента. }
   l3_ifNone
@@ -73,9 +78,6 @@ type
 
  Tl3Rgn = hRgn;
   {* Регион. }
-
- PIUnknown = ^IUnknown;
-  {* Указатель на IUnknown. }
 
  Tl3IteratorAction = function(Data: Pointer;
   Index: Integer): Boolean;
@@ -119,8 +121,6 @@ type
 
  EDoChangedAlreadyDone = class
  end;//EDoChangedAlreadyDone
-
- PObject = ^TObject;
 
  Tl3Operation = (
   {* Операция }

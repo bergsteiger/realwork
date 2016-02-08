@@ -30,11 +30,11 @@ const
  ssMiddle = Classes.ssMiddle;
  ssDouble = Classes.ssDouble;
  {* Алиасы для значений Graphics.TFontPitch }
- fpDefault = Graphics.fpDefault;
+ fpDefault = fpDefault;
   {* The font pitch is set to the default value, which depends on the font specified in the font object's Name property. }
- fpVariable = Graphics.fpVariable;
+ fpVariable = fpVariable;
   {* The font pitch is set to variable. The characters in the font have different widths. }
- fpFixed = Graphics.fpFixed;
+ fpFixed = fpFixed;
   {* The font pitch is set to fixed. All characters in the font have the same width. }
 
 type
@@ -55,8 +55,7 @@ type
 
  TFont = Graphics.TFont;
 
- VCLBitmap = TBitmap;
-  {* Картинка. }
+ TBitmap = Graphics.TBitmap;
 
  TPoint = Types.TPoint;
   {* Точка. }
@@ -113,6 +112,9 @@ type
  PInteger = Windows.PInteger;
 
  RtlDateTime = TDateTime;
+
+ VCLBitmap = TBitmap;
+  {* Картинка. }
 
 implementation
 

@@ -15,6 +15,8 @@ uses
 ;
 
 type
+ Pl3PatRecord = ^Tl3PatRecord;
+
  Tl3RegularSearch = class(Tl3_Base)
  end;//Tl3RegularSearch
 
@@ -58,8 +60,6 @@ type
   PossibleChars: TSetOfChar;
   NextOK: Boolean;
  end;//Tl3PatRecord
-
- Pl3PatRecord = ^Tl3PatRecord;
 
  Tl3NodeHeap = class
  end;//Tl3NodeHeap

@@ -1,26 +1,19 @@
 unit Menus;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/Menus.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::Menus
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Menus.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Messages,
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+ , Messages
+;
+
+const
+ MenuKeyCaps: array [0 .. -1] of  = ();
 
 type
  TMenuItem = class(TComponent)
@@ -29,47 +22,33 @@ type
 
  TMenu = class(TComponent)
   {* TMenu is the base type for menu components such as TMainMenu and TPopupMenu. }
- public
- // public methods
+  public
    function IsShortCut(var Message: TWMKey): Boolean; virtual;
  end;//TMenu
 
  TPopupMenu = class(TMenu)
   {* TPopupMenu encapsulates the properties, methods, and events of a pop-up menu. }
- public
- // public methods
+  public
    procedure Popup(X: Integer;
-     Y: Integer); virtual;
+    Y: Integer); virtual;
  end;//TPopupMenu
 
  TMenuKeyCap = (
-   
  );//TMenuKeyCap
 
-const
-  { MenuKeyCaps }
- MenuKeyCaps : array [0..-1] of  = (
-  
- );//MenuKeyCaps
-
-type
  TMainMenu = class(TMenu)
  end;//TMainMenu
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  SysUtils
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  MenuWordsPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  ;
-
-// start class TMenu
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , MenuWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TMenu.IsShortCut(var Message: TWMKey): Boolean;
 //#UC START# *52A0905E002D_49A3EC9F01DC_var*
@@ -79,10 +58,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52A0905E002D_49A3EC9F01DC_impl*
 end;//TMenu.IsShortCut
-// start class TPopupMenu
 
 procedure TPopupMenu.Popup(X: Integer;
-  Y: Integer);
+ Y: Integer);
 //#UC START# *52A090A90317_49A5750A01E8_var*
 //#UC END# *52A090A90317_49A5750A01E8_var*
 begin
@@ -90,5 +68,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52A090A90317_49A5750A01E8_impl*
 end;//TPopupMenu.Popup
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
+
 end.

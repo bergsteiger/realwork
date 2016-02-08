@@ -52,6 +52,38 @@ uses
 ;
 
 procedure TkwPopQueryCardAttributeSetCollapsed.DoModelImpl;
+var l_Op: InevOp;
+var l_Name: Il3CString;
+var l_Value: Boolean;
+
+ procedure CallIterator;
+
+  function DoIt(const anItem: IevReq): Boolean;
+   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
+  //#UC START# *07D78AC0F47E__var*
+  //#UC END# *07D78AC0F47E__var*
+  begin
+  //#UC START# *07D78AC0F47E__impl*
+   if l3Same(l_Name, anItem.ReqName) then
+   begin
+    Result := false;
+    anItem.Group.Expanded := not l_Value;
+    Exit;
+   end//l3Same(l_Name, anItem.ReqName)
+   else
+    Result := true;
+  //#UC END# *07D78AC0F47E__impl*
+  end;//DoIt
+
+ //#UC START# *4F6996830081__var*
+ //#UC END# *4F6996830081__var*
+ begin
+  //#UC START# *4F6996830081iter*
+  TevReqIterator.Make(aCard).
+  //#UC END# *4F6996830081iter*
+  DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+ end;//CallIterator
+
 //#UC START# *4F6995F7028A_4F69959502BB_var*
 //#UC END# *4F6995F7028A_4F69959502BB_var*
 begin

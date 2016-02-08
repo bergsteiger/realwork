@@ -61,6 +61,10 @@ function DoEVDtoRTF(const aEVD: IStream;
  HiddenCount: Integer;
  aHost: PAnsiChar;
  aNeedEliminateCommentDecor: Boolean): Boolean;
+var l_Reader: TevdNativeReader;
+var l_G: Tk2TagGenerator;
+var l_Writer: TevRTFObjectGenerator;
+var l_Styles: TevStandardStyles;
 //#UC START# *4B72B44A0392_4B72B41502F5_var*
 
  {$IfNDef notDebugStackTrace}

@@ -1,34 +1,31 @@
 unit ShadowWnd;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/ShadowWnd.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::ShadowWnd
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ShadowWnd.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
+uses
+ l3IntfUses
+;
+
 type
  TShadowWindow = class
  end;//TShadowWindow
 
  TControlSide = (
-   csRight
- , csBottom
+  csRight
+  , csBottom
  );//TControlSide
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
-{$IfEnd} //not NoVCL
+{$If NOT Defined(NoVCL)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCL)
+
 end.

@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ Pl3MemoryChain = ^Tl3MemoryChain;
+
  Tl3Ptr = record
   {* Smart-указатель на память. }
  end;//Tl3Ptr
@@ -69,8 +71,6 @@ type
 
  Tl3MemoryChain = record
  end;//Tl3MemoryChain
-
- Pl3MemoryChain = ^Tl3MemoryChain;
 
  Tl3BufferStreamMemoryPool = class(Tl3MemoryPoolPrim)
  end;//Tl3BufferStreamMemoryPool

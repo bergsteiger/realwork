@@ -12,6 +12,8 @@ uses
 ;
 
 type
+ TSNB = ^POleStr;
+
  IEnumFORMATETC = interface
   {* Итератор по данным внутри IDataObject. }
   ['{8FDCFD24-3B06-444D-98A9-7C250B54D48C}']
@@ -116,8 +118,6 @@ type
  end;//TIID
 
  POleStr = PWideChar;
-
- TSNB = ^POleStr;
 
 implementation
 

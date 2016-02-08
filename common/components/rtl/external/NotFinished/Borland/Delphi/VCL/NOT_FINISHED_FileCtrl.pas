@@ -1,30 +1,24 @@
 unit NOT_FINISHED_FileCtrl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/NOT_FINISHED_FileCtrl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::FileCtrl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\NOT_FINISHED_FileCtrl.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
+uses
+ l3IntfUses
+;
+
 procedure SelectDirectory;
-   {* Сигнатура метода SelectDirectory }
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
-// unit methods
+{$If NOT Defined(NoVCL)}
+uses
+ l3ImplUses
+;
 
 procedure SelectDirectory;
 //#UC START# *4AAF965F0187_4AAF960E0065_var*
@@ -34,6 +28,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4AAF965F0187_4AAF960E0065_impl*
 end;//SelectDirectory
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

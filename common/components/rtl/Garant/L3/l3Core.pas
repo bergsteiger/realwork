@@ -1,39 +1,41 @@
 unit l3Core;
+ {* Базовые примитивные типы и интерфейсы, унаследованные извне. Для уменьшения связности с внешними модулями. }
 
-{$IfDef DesignTimeLibrary}
-{.$WEAKPACKAGEUNIT ON}
-{$EndIf DesignTimeLibrary}
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Core.pas"
+// Стереотип: "Interfaces"
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Domain"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Core.pas"
-// Начат: 24.07.2007 15:19
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Требования к низкоуровневым библиотекам::L3$Domain::l3Core
-//
-// Базовые примитивные типы и интерфейсы, унаследованные извне. Для уменьшения связности с внешними
-// модулями.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  Types,
-  Messages,
-  Classes,
-  Graphics,
-  Windows
-  ;
+ l3IntfUses
+ , Classes
+ , Graphics
+ , Windows
+ , Types
+ , Messages
+;
+
+const
+ {* Цвета }
+ clDefault = Graphics.clDefault;
+  {* Цвет по-умолчанию. }
+ {* Алиасы для значений Classes.TShiftState }
+ ssShift = Classes.ssShift;
+ ssAlt = Classes.ssAlt;
+ ssCtrl = Classes.ssCtrl;
+ ssLeft = Classes.ssLeft;
+ ssRight = Classes.ssRight;
+ ssMiddle = Classes.ssMiddle;
+ ssDouble = Classes.ssDouble;
+ {* Алиасы для значений Graphics.TFontPitch }
+ fpDefault = fpDefault;
+  {* The font pitch is set to the default value, which depends on the font specified in the font object's Name property. }
+ fpVariable = fpVariable;
+  {* The font pitch is set to variable. The characters in the font have different widths. }
+ fpFixed = fpFixed;
+  {* The font pitch is set to fixed. All characters in the font have the same width. }
 
 type
  HPALETTE = Windows.HPALETTE;
@@ -53,8 +55,7 @@ type
 
  TFont = Graphics.TFont;
 
- VCLBitmap = Graphics.TBitmap;
-  {* Картинка. }
+ TBitmap = Graphics.TBitmap;
 
  TPoint = Types.TPoint;
   {* Точка. }
@@ -63,26 +64,20 @@ type
 
  TMessage = Messages.TMessage;
 
- Tl3Position = type System.Integer;
+ Tl3Position = type Integer;
   {* Позиция. }
 
- Tl3Inch = type System.Integer;
+ Tl3Inch = Integer;
   {* Дюйм. }
 
- Tl3Color = Graphics.TColor;
+ Tl3Color = TColor;
   {* Цвет. }
 
- VCLCanvas = Graphics.TCanvas;
+ VCLCanvas = TCanvas;
 
- VCLGraphic = Graphics.TGraphic;
+ VCLGraphic = TGraphic;
   {* Картинка. }
 
-const
-  { Цвета }
- clDefault = Graphics.clDefault;
-  { Цвет по-умолчанию. }
-
-type
  PTextMetric = Windows.PTextMetric;
 
  THandle = Windows.THandle;
@@ -90,7 +85,7 @@ type
  hRgn = Windows.hRgn;
   {* Хэндл региона. }
 
- WinBool = Windows.BOOL;
+ WinBool = BOOL;
 
  LCID = Windows.LCID;
 
@@ -112,29 +107,19 @@ type
 
  TPersistent = Classes.TPersistent;
 
- DWORD = System.Cardinal;
+ DWORD = Cardinal;
 
  PInteger = Windows.PInteger;
 
- RtlDateTime = System.TDateTime;
+ RtlDateTime = TDateTime;
 
-const
-  { Алиасы для значений Classes.TShiftState }
- ssShift = Classes.ssShift;
- ssAlt = Classes.ssAlt;
- ssCtrl = Classes.ssCtrl;
- ssLeft = Classes.ssLeft;
- ssRight = Classes.ssRight;
- ssMiddle = Classes.ssMiddle;
- ssDouble = Classes.ssDouble;
-  { Алиасы для значений Graphics.TFontPitch }
- fpDefault = Graphics.fpDefault;
-  { The font pitch is set to the default value, which depends on the font specified in the font object's Name property. }
- fpVariable = Graphics.fpVariable;
-  { The font pitch is set to variable. The characters in the font have different widths. }
- fpFixed = Graphics.fpFixed;
-  { The font pitch is set to fixed. All characters in the font have the same width. }
+ VCLBitmap = TBitmap;
+  {* Картинка. }
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

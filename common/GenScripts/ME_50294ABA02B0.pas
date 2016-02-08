@@ -11,14 +11,14 @@ uses
 ;
 
 type
+ PSFFHeader = ^SFFHeader;
+
  SFFHeader = record
   StringsCount: Integer;
   IndexOffset: Integer;
   DataOffset: Integer;
   DataLength: Integer;
  end;//SFFHeader
-
- PSFFHeader = ^SFFHeader;
 
  TatStringsFromFile = class(TObject)
   private

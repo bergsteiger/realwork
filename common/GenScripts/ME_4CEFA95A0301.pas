@@ -54,6 +54,11 @@ uses
 function TnsParaListNodeModelPart.MakeChildTag(aChildIndex: Integer;
  const aNode: If1TagDataProvider;
  aState: TnsNodeStates = []): Il3TagRef;
+var l_Comment: IStream;
+var l_CommentTag: Tl3Tag;
+var l_HolderTag: Il3TagRef;
+var l_Para: InevPara;
+var l_Container: InevDocumentContainer;
 //#UC START# *4CEFAD320395_4CEFA95A0301_var*
 
  procedure MakeTechComment(const aNode: If1TagDataProvider);

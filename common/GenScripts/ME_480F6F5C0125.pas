@@ -13,13 +13,13 @@ uses
 ;
 
 type
+ PevLineInfo = ^TevLineInfo;
+
  TevLineArray = class
  end;//TevLineArray
 
  TevLineInfo = packed record
  end;//TevLineInfo
-
- PevLineInfo = ^TevLineInfo;
 
 implementation
 

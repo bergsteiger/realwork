@@ -16,6 +16,8 @@ const
  c_WMFKey = Integer($9AC6CDD7);
 
 type
+ Pl3MetafileHeader = ^Tl3MetafileHeader;
+
  Tl3MetafileHeader = packed record
   Key: LongInt;
   Handle: SmallInt;
@@ -24,8 +26,6 @@ type
   Reserved: LongInt;
   CheckSum: Word;
  end;//Tl3MetafileHeader
-
- Pl3MetafileHeader = ^Tl3MetafileHeader;
 
 function l3IsValidMetafileHeader(const aWMFHeader: Tl3MetafileHeader): Boolean;
 function l3ComputeAldusChecksum(var theWMF: Tl3MetafileHeader): Word;

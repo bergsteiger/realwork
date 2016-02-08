@@ -21,6 +21,8 @@ uses
 ;
 
 type
+ Pl3CustomString = ^Tl3CustomString;
+
  Tl3Base = class(Tl3_Base)
   {* Базовый класс библиотеки L3. Реализует интерфейс IUnknown и подсчет ссылок. }
  end;//Tl3Base
@@ -31,8 +33,6 @@ type
   {* Строка. }
 
  Tl3CustomString = l3CustomString.Tl3CustomString;
-
- Pl3CustomString = ^Tl3CustomString;
 
  Tl3CResString = class(Tl3CProtoObject, Il3CString)
   protected

@@ -40,6 +40,40 @@ uses
 ;
 
 procedure TkwPopQueryCardAttributeSetFocus.DoModelImpl;
+var l_Name: Il3CString;
+var l_Op: InevOp;
+
+ procedure CallIterator;
+
+  function DoIt(const anItem: IevReq): Boolean;
+   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
+  //#UC START# *68801C8A78FF__var*
+  var
+   l_F : IevEditorControlField;
+  //#UC END# *68801C8A78FF__var*
+  begin
+  //#UC START# *68801C8A78FF__impl*
+   if l3Same(l_Name, anItem.ReqName) then
+   begin
+    Result := false;
+    l_F := anItem.FirstField;
+    l_F.SetFocus(true);
+    Exit;
+   end//l3Same(l_Name, anItem.ReqName)
+   else
+    Result := true;
+  //#UC END# *68801C8A78FF__impl*
+  end;//DoIt
+
+ //#UC START# *4F69A17402A1__var*
+ //#UC END# *4F69A17402A1__var*
+ begin
+  //#UC START# *4F69A17402A1iter*
+  TevReqIterator.Make(aCard).
+  //#UC END# *4F69A17402A1iter*
+  DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+ end;//CallIterator
+
 //#UC START# *4F69A12C0199_4F69A0DF02E0_var*
 //#UC END# *4F69A12C0199_4F69A0DF02E0_var*
 begin

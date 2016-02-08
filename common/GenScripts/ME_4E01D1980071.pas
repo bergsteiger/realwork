@@ -26,6 +26,8 @@ const
   {* 'Больше не показывать это сообщение.' }
 
 type
+ Pl3MessageID = ^Tl3MessageID;
+
  Tl3MessageData = object
   public
    {$If NOT Defined(NoVCL)}
@@ -92,8 +94,6 @@ type
    property AsMessage: Tl3Message
     read pm_GetAsMessage;
  end;//Tl3MessageID
-
- Pl3MessageID = ^Tl3MessageID;
 
 {$If NOT Defined(NoVCL)}
 function Tl3Message_C(const aString: Tl3StringIDEx;

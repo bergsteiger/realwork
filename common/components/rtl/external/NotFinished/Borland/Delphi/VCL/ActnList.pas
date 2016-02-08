@@ -1,25 +1,15 @@
 unit ActnList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/ActnList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::ActnList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ActnList.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+;
 
 type
  TContainedAction = class(TBasicAction)
@@ -40,8 +30,7 @@ type
  TActionLinkClass = class of TActionLink;
 
  TActionLink = class(TBasicActionLink)
- protected
- // protected methods
+  protected
    function IsCaptionLinked: Boolean; virtual;
    function IsCheckedLinked: Boolean; virtual;
    function IsEnabledLinked: Boolean; virtual;
@@ -68,26 +57,20 @@ type
 
  TActionList = class(TCustomActionList)
  end;//TActionList
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  SysUtils
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  ContainedActionsWordspack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  ActionListWordsPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  ;
-
-// start class TActionLink
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , ContainedActionsWordspack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ActionListWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TActionLink.IsCaptionLinked: Boolean;
 //#UC START# *508F983B0344_508F9823023D_var*
@@ -286,5 +269,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *508F99970386_508F9823023D_impl*
 end;//TActionLink.SetVisible
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
+
 end.

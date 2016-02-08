@@ -1,69 +1,54 @@
 unit l3VCLStringsItems;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3$Visual"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3VCLStringsItems.pas"
-// Начат: 29.12.2006 14:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3$Visual::l3VCLExtensions::Tl3VCLStringsItems
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3VCLStringsItems.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3CastableStrings,
-  l3PureMixIns
-  ;
+ l3IntfUses
+ , l3CastableStrings
+ , l3PureMixIns
+;
 
 type
  _l3Unknown_Parent_ = Tl3CastableStrings;
- {$Include ..\L3\l3Unknown.imp.pas}
+ {$Include l3Unknown.imp.pas}
  Tl3VCLStringsItems = class(_l3Unknown_)
- protected
- // realized methods
-   procedure Clear; override;
-   procedure Insert(Index: Integer;
-    const S: String); override;
+  protected
    function Get(Index: Integer): String; override;
    procedure Put(Index: Integer;
     const S: String); override;
    function GetCount: Integer; override;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    function GetObject(Index: Integer): TObject; override;
    procedure PutObject(Index: Integer;
     AObject: TObject); override;
+  public
+   procedure Clear; override;
+   procedure Insert(Index: Integer;
+    const S: String); override;
  end;//Tl3VCLStringsItems
 
 implementation
 
 uses
-  SysUtils,
-  l3Base,
-  l3Core,
-  Windows,
-  Classes,
-  l3MemUtils,
-  l3Interlocked
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
+;
 
-{$Include ..\L3\l3Unknown.imp.pas}
-
-// start class Tl3VCLStringsItems
+{$Include l3Unknown.imp.pas}
 
 procedure Tl3VCLStringsItems.Clear;
 //#UC START# *47E21AB50104_47E21D500381_var*
@@ -75,7 +60,7 @@ begin
 end;//Tl3VCLStringsItems.Clear
 
 procedure Tl3VCLStringsItems.Insert(Index: Integer;
-  const S: String);
+ const S: String);
 //#UC START# *47E21AD40366_47E21D500381_var*
 //#UC END# *47E21AD40366_47E21D500381_var*
 begin
@@ -95,7 +80,7 @@ begin
 end;//Tl3VCLStringsItems.Get
 
 procedure Tl3VCLStringsItems.Put(Index: Integer;
-  const S: String);
+ const S: String);
 //#UC START# *47E21B0A0167_47E21D500381_var*
 //#UC END# *47E21B0A0167_47E21D500381_var*
 begin
@@ -114,8 +99,9 @@ begin
 //#UC END# *47E21B2403D5_47E21D500381_impl*
 end;//Tl3VCLStringsItems.GetCount
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3VCLStringsItems.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_47E21D500381_var*
 //#UC END# *47A6FEE600FC_47E21D500381_var*
 begin
@@ -123,7 +109,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_47E21D500381_impl*
 end;//Tl3VCLStringsItems.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function Tl3VCLStringsItems.GetObject(Index: Integer): TObject;
 //#UC START# *47E21BAA029A_47E21D500381_var*
@@ -136,7 +122,7 @@ begin
 end;//Tl3VCLStringsItems.GetObject
 
 procedure Tl3VCLStringsItems.PutObject(Index: Integer;
-  AObject: TObject);
+ AObject: TObject);
 //#UC START# *47E21BC40258_47E21D500381_var*
 //#UC END# *47E21BC40258_47E21D500381_var*
 begin

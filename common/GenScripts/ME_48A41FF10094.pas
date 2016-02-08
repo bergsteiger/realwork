@@ -50,6 +50,20 @@ const
  INVALID_FILE_SIZE = DWORD($FFFFFFFF);
 
 type
+ PInteger = ^Integer;
+
+ PDeviceModeA = ^TDeviceModeA;
+
+ PCWPStruct = ^TCWPStruct;
+
+ PCWPRetStruct = ^TCWPRetStruct;
+
+ PMouseHookStruct = ^TMouseHookStruct;
+
+ PMsg = ^TMsg;
+
+ PSmallRect = ^TSmallRect;
+
  PLongint = System.PLongint;
 
  hWnd = type Cardinal;
@@ -61,8 +75,6 @@ type
  HFONT = type Cardinal;
 
  BOOL = Integer;
-
- PInteger = ^Integer;
 
  LPARAM = Integer;
 
@@ -98,8 +110,6 @@ type
  TDeviceModeA = record
  end;//TDeviceModeA
 
- PDeviceModeA = ^TDeviceModeA;
-
  PDeviceMode = PDeviceModeA;
 
  DWORD = Types.DWORD;
@@ -117,20 +127,14 @@ type
  TCWPStruct = record
  end;//TCWPStruct
 
- PCWPStruct = ^TCWPStruct;
-
  TInput = record
  end;//TInput
 
  TCWPRetStruct = record
  end;//TCWPRetStruct
 
- PCWPRetStruct = ^TCWPRetStruct;
-
  TMouseHookStruct = record
  end;//TMouseHookStruct
-
- PMouseHookStruct = ^TMouseHookStruct;
 
  LRESULT = Integer;
 
@@ -144,8 +148,6 @@ type
  TScrollInfo = record
  end;//TScrollInfo
 
- PMsg = ^TMsg;
-
  TEnhMetaHeader = ;
 
  TFileTime = record
@@ -155,8 +157,6 @@ type
 
  TSmallRect = record
  end;//TSmallRect
-
- PSmallRect = ^TSmallRect;
 
  HCURSOR = ;
 

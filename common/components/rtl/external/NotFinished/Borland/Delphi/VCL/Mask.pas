@@ -1,51 +1,36 @@
 unit Mask;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/Mask.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::Mask
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Mask.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  StdCtrls
-  ;
+ l3IntfUses
+ , StdCtrls
+;
 
 type
  TCustomMaskEdit = class(TCustomEdit)
- protected
- // protected methods
-    {$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
+  protected
+   {$If Defined(l3HackedVCL) AND NOT Defined(DesignTimeLibrary)}
    function TextFromClipboard: AnsiString; virtual;
-    {$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(DesignTimeLibrary)
  end;//TCustomMaskEdit
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TCustomMaskEdit
-
-{$If defined(l3HackedVCL) AND not defined(DesignTimeLibrary) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(DesignTimeLibrary)}
 function TCustomMaskEdit.TextFromClipboard: AnsiString;
 //#UC START# *554CBB4B0240_52A9ADCB0092_var*
 //#UC END# *554CBB4B0240_52A9ADCB0092_var*
@@ -54,13 +39,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *554CBB4B0240_52A9ADCB0092_impl*
 end;//TCustomMaskEdit.TextFromClipboard
-{$IfEnd} //l3HackedVCL AND not DesignTimeLibrary AND not NoVCL
-{$IfEnd} //not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(DesignTimeLibrary)
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TCustomMaskEdit
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomMaskEdit);
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация TCustomMaskEdit }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

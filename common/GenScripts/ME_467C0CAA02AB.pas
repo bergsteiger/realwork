@@ -19,6 +19,10 @@ uses
 ;
 
 type
+ Il3Base = l3Interfaces.Il3Base;
+
+ PIl3KeyDataListener = ^Il3KeyDataListener;
+
  Il3ObjectWrap = interface(Il3Base)
   {* Обертка вокруг объекта. Шаманство. Надо избавляться. }
   ['{691F62FE-0591-496A-AE9B-E36CE787B014}']
@@ -68,8 +72,6 @@ type
    read pm_GetEmpty;
    {* пустой регион? }
  end;//Il3Region
-
- Il3Base = l3Interfaces.Il3Base;
 
  Tl3TextFormatFlag = (
   {* Выравнивание текста. }
@@ -1241,8 +1243,6 @@ type
   procedure SubscribeGlobalKeyDataListener(const aListener: Il3KeyDataListener);
   procedure UnsubscribeGlobalKeyDataListener(const aListener: Il3KeyDataListener);
  end;//Il3CommandProcessor
-
- PIl3KeyDataListener = ^Il3KeyDataListener;
 
  TevDrawSubEvent = procedure(aSubTarget: TObject;
   const Canvas: Il3Canvas;

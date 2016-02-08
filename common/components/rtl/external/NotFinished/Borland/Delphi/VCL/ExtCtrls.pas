@@ -1,25 +1,15 @@
 unit ExtCtrls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Vcl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Vcl/ExtCtrls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Core::Vcl::Implementation::ExtCtrls
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ExtCtrls.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Controls
-  ;
+ l3IntfUses
+ , Controls
+;
 
 type
  TTimer = class
@@ -37,47 +27,40 @@ type
  TRadioGroup = class
  end;//TRadioGroup
 
- TPanelBevel = Controls.TBevelCut;
+ TPanelBevel = TBevelCut;
 
  TImage = class
  end;//TImage
 
  TBevel = class
  end;//TBevel
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  PanelProcessingPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  RadioGroupWordsPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  ;
-
-{$IfEnd} //not NoVCL
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , PanelProcessingPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , RadioGroupWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TCustomPanel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomPanel);
-{$IfEnd} //not NoScripts AND not NoVCL
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация TPanel
+ {* Регистрация TCustomPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TPanel);
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация TPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCL)
 
 end.

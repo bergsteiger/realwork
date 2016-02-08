@@ -58,6 +58,12 @@ type
     {* Собственно результат }
  end;//Tl3HResult
 
+const
+ ev_iidCursor: Tl3IID = (IID: 0);
+  {* курсор объекта }
+ ev_iidBlock: Tl3IID = (IID: 1);
+  {* выделение части объекта }
+
 function Tl3GUID_C(const anIID: TGUID): Tl3GUID;
 function Tl3HResult_C(aRes: hResult): Tl3HResult;
 

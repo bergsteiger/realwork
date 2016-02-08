@@ -104,6 +104,8 @@ end;//TnsTagNodePrim.ParseStyle
 
 function TnsTagNodePrim.GetTextAtomFromCaption(aProp: Tk2Prop;
  out Data: Tl3Variant): Boolean;
+var l_Text: TnsTagString;
+var l_String: IString;
 //#UC START# *4C6D1D74024A_467FCCB101CF_var*
 //#UC END# *4C6D1D74024A_467FCCB101CF_var*
 begin

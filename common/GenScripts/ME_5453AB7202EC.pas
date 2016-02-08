@@ -14,12 +14,12 @@ uses
 ;
 
 type
+ Pm3BranchHandlePrim = ^Tm3BranchHandlePrim;
+
  Tm3BranchHandlePrimData = record
   Hash: Word;
   Value: PWideChar;
  end;//Tm3BranchHandlePrimData
-
- Pm3BranchHandlePrim = ^Tm3BranchHandlePrim;
 
  Tm3BranchHandlesManager = class(Tl3SimpleMemoryManager)
   public

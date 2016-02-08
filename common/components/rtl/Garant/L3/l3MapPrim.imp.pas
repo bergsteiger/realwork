@@ -5,19 +5,19 @@
 
 {$Define l3MapPrim_imp}
 
+type
+ PValueType = ^_ValueType_;
+
  // _KeyType_
 
  // _ValueType_
 
-type
  Tl3KeyValuePair = object
   {* Пара ключ-значение }
   public
    rKey: _KeyType_;
    rValue: _ValueType_;
  end;//Tl3KeyValuePair
-
- PValueType = ^_ValueType_;
 
  _ItemType_ = Tl3KeyValuePair;
  _l3RecordListPrim_Parent_ = _l3MapPrim_Parent_;

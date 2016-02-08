@@ -11,21 +11,21 @@ uses
 ;
 
 type
+ PTypeInfo = ^TTypeInfo;
+  {* Информация о типе. }
+
+ PTypeData = ^TTypeData;
+
+ PPropInfo = ^;
+
  TTypeInfo = record
   {* Информация о типе. }
  end;//TTypeInfo
 
- PTypeInfo = ^TTypeInfo;
-  {* Информация о типе. }
-
  TTypeData = record
  end;//TTypeData
 
- PTypeData = ^TTypeData;
-
  GetObjectProp = procedure;
-
- PPropInfo = ^;
 
 implementation
 

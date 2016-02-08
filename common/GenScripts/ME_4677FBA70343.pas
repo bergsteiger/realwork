@@ -27,15 +27,15 @@ const
 
 const
  {* Кодировки символов. }
- CS_Ansi = Windows.ANSI_CHARSET;
- CS_OEM = Windows.OEM_CHARSET;
+ CS_Ansi = ANSI_CHARSET;
+ CS_OEM = OEM_CHARSET;
  CS_Default = DEFAULT_CHARSET;
  CS_Effective = RUSSIAN_CHARSET;
  CS_Russian = RUSSIAN_CHARSET;
  {* Кодовые страницы. }
- CP_ANSI = Windows.CP_ACP;
+ CP_ANSI = CP_ACP;
   {* константа представляющая кодировку ANSI. }
- CP_OEM = Windows.CP_OEMCP;
+ CP_OEM = CP_OEMCP;
   {* константа представляющая кодировку OEM. }
  CP_Unicode = -1;
   {* константа представляющая кодировку Unicode. }
@@ -85,6 +85,17 @@ const
   {* Нулевой базовый объект. }
 
 type
+ Il3Base = interface
+  {* Базовый интерфейс библиотеки L3 }
+  ['{7A76D305-0172-42D6-8C6E-2A6267750F01}']
+  function CheckStamp(const aGUID: TGUID): Boolean;
+   {* Проверяет метку реализации интерфейса. Например для того, чтобы узнать, что реализация наша "родная". }
+ end;//Il3Base
+
+ Pl3StringID = ^Tl3StringID;
+
+ Pl3WString = ^Tl3WString;
+
  Tl3WString = packed object
   {* Строка с кодировкой и с длиной. }
   public
@@ -104,13 +115,6 @@ type
    read pm_GetAsWStr;
    {* Возвращает данные строки. }
  end;//Il3CString
-
- Il3Base = interface
-  {* Базовый интерфейс библиотеки L3 }
-  ['{7A76D305-0172-42D6-8C6E-2A6267750F01}']
-  function CheckStamp(const aGUID: TGUID): Boolean;
-   {* Проверяет метку реализации интерфейса. Например для того, чтобы узнать, что реализация наша "родная". }
- end;//Il3Base
 
  TGUID = System.TGUID;
   {* GUID }
@@ -1485,8 +1489,6 @@ type
    rS: Integer;
  end;//Tl3StringID
 
- Pl3StringID = ^Tl3StringID;
-
  Il3ApplicationL10NStrings = interface(Il3Base)
   {* Локализуемые строки приложения }
   ['{717BCF75-F56A-4C93-8B05-DC8F9CAC81B6}']
@@ -1519,8 +1521,6 @@ type
    read pm_GetCount;
    {* Число элементов. }
  end;//Il3IntegerList
-
- Pl3WString = ^Tl3WString;
 
  Il3GetMessageListener = interface(Il3Listener)
   ['{BBFB4E66-A01B-449B-B2CF-BE82E016E2F7}']

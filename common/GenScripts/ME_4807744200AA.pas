@@ -10,6 +10,16 @@ uses
 ;
 
 type
+ PBoolean = ^Boolean;
+
+ PGUID = ^TGUID;
+
+ PLongint = ^Integer;
+
+ PResStringRec = ^TResStringRec;
+
+ PWideChar = ^WideChar;
+
  TObject = class
   protected
    procedure FreeInstance; virtual;
@@ -61,8 +71,6 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
 
  array [Boolean] of Integer = array [Boolean] of Integer;
 
- PBoolean = ^Boolean;
-
  AnsiChar = AnsiChar;
 
  ShortInt = AnsiChar;
@@ -86,10 +94,6 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
  TGUID = record
   {* GUID. }
  end;//TGUID
-
- PGUID = ^TGUID;
-
- PLongint = ^Integer;
 
  Int64 = Int64;
   {* 64-битное целое. }
@@ -137,8 +141,6 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
  TResStringRec = record
  end;//TResStringRec
 
- PResStringRec = ^TResStringRec;
-
  TVarRec = record
  end;//TVarRec
 
@@ -160,8 +162,6 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
  ByteBool = ;
 
  LongBool = Boolean;
-
- PWideChar = ^WideChar;
 
  String = AnsiString;
 

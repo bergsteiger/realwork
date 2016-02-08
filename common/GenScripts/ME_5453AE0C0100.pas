@@ -13,13 +13,13 @@ uses
 ;
 
 type
+ Pl3MemoryBlock = ^Tl3MemoryBlock;
+
  Tl3MemoryBlock = object
   public
    rNext: Pl3MemoryBlock;
    rFree: Cardinal;
  end;//Tl3MemoryBlock
-
- Pl3MemoryBlock = ^Tl3MemoryBlock;
 
  Tl3SimpleMemoryManager = class(Tl3SimpleMemoryManagerPrim)
   private
