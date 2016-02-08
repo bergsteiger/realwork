@@ -27,6 +27,9 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , Windows
+ , Controls
+ , Forms
 ;
 
 procedure TkwPopControlScrollInfo.DoScrollInfo(const aCtx: TtfwContext);

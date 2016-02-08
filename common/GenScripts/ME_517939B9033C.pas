@@ -37,6 +37,7 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , Forms
 ;
 
 procedure TkwScrollInfoWord.DoWinControl(aControl: TWinControl;

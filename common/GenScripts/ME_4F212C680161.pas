@@ -32,6 +32,8 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , Windows
+ , Forms
 ;
 
 {$Include kwControlFromStackWord.imp.pas}
