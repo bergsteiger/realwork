@@ -33,6 +33,9 @@ implementation
 uses
  l3ImplUses
  , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 class procedure TnsTextTabActivateEvent.Log(const aDoc: IDocument;

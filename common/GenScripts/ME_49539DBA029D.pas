@@ -1496,7 +1496,6 @@ begin
 end;//TExTextForm.EditBookmark
 
 function TExTextForm.NeedShowIntranetWarning: Boolean;
-var g_GoToIntranetMessage: THandle = 0;
 //#UC START# *4C40039C03CD_49539DBA029D_var*
 //#UC END# *4C40039C03CD_49539DBA029D_var*
 begin
@@ -2029,7 +2028,7 @@ begin
 end;//TExTextForm.LeafParaUnderCursor
 
 procedure TExTextForm.MakePositionList;
-var l_PositionList: IPositionList;
+var l_PositionList: IPositionList absolute Result;
 
  procedure CollectParas;
  var l_WasCorrection: Boolean;
