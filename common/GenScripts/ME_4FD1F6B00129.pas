@@ -22,9 +22,9 @@ uses
 ;
 
 type
- TvtImageListCreatorProc = function: TObject;
-
  PvtImageListCreatorProc = ^TvtImageListCreatorProc;
+
+ TvtImageListCreatorProc = function: TObject;
 
  TAlphaBlendFunc = function(DestDC: hDC;
   X: Integer;

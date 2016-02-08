@@ -15,6 +15,8 @@ uses
 ;
 
 type
+ Pdd_acVersionHandler = ^Tdd_acVersionHandler;
+
  Tdd_acVersionUpgradeProc = procedure(const aStorage: IddConfigStorage);
 
  Tdd_acVersionHandler = record
@@ -42,8 +44,6 @@ type
    constructor Create; override;
     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
  end;//TddAppConfigVersionManager
-
- Pdd_acVersionHandler = ^Tdd_acVersionHandler;
 
 implementation
 

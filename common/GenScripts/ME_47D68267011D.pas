@@ -54,7 +54,7 @@ end;//TvtFormHandlerID_C
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;
  aSortIndex: Tl3SortIndex;
- aList: _l3Searcher_): Integer; override;
+ aList: _l3Searcher_): Integer;
  {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_47D68267011D_var*
 //#UC END# *47B9BAFD01F4_47D68267011D_var*

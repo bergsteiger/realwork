@@ -32,6 +32,8 @@ uses
 ;
 
 type
+ PvcmHistoryFormCacheItem = ^TvcmHistoryFormCacheItem;
+
  TvcmBaseFormSetHistoryItem = class(Tl3ProtoObject, IvcmFormSetHistoryItem)
   private
    f_Caption: IvcmCString;
@@ -202,8 +204,6 @@ type
    class function Make(const aContainer: IvcmContainer;
     aForClone: Boolean): IvcmFormSetHistoryItem; reintroduce;
  end;//TvcmLegacyFormSetHistoryItem
-
- PvcmHistoryFormCacheItem = ^TvcmHistoryFormCacheItem;
 
  TvcmBaseFormSetHistoryStepItem = class(Tl3ProtoObject, IvcmFormSetHistoryStepItem)
   private

@@ -42,6 +42,8 @@ uses
 ;
 
 type
+ PvcmContainedFormDescr = ^TvcmContainedFormDescr;
+
  TvcmContainedFormDescr = object
   public
    rForm: TvcmEntityForm;
@@ -280,8 +282,6 @@ type
    property ReopeningTab: Boolean
     read pm_GetReopeningTab;
  end;//TvcmTabbedContainerFormDispatcher
-
- PvcmContainedFormDescr = ^TvcmContainedFormDescr;
 
 function TvcmContainedFormDescr_C(aForm: TvcmEntityForm;
  aContainer: TvcmTabbedContainerForm): TvcmContainedFormDescr; overload;
