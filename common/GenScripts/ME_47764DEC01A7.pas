@@ -106,7 +106,6 @@ uses
 ;
 
 procedure FreeApp;
-var g_Application: TafwApplication;
 //#UC START# *4B72F1360176_47764DEC01A7_var*
 //#UC END# *4B72F1360176_47764DEC01A7_var*
 begin
