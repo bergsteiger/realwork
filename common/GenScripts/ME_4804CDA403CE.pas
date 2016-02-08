@@ -61,6 +61,7 @@ procedure TevControlParaPainter.DrawImgListComponent(const aEditRect: Tl3SRect;
  aPartialDraw: Boolean;
  aBtnWidth: Integer);
  {* Отрисовывает комопоненты с иконками }
+var l_ImageInfo: TnevControlImageInfo;
 //#UC START# *49DB2E950297_4804CDA403CE_var*
 //#UC END# *49DB2E950297_4804CDA403CE_var*
 begin

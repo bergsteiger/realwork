@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ PevSavedCursor = ^TevSavedCursor;
+
  TevSavedCursor = class(Tl3ProtoObject)
   {* Объект для сохранения курсора. }
   private
@@ -47,8 +49,6 @@ type
     write f_New;
     {* новое значение курсора. }
  end;//TevSavedCursor
-
- PevSavedCursor = ^TevSavedCursor;
 {$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation

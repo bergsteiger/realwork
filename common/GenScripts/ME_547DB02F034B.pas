@@ -47,6 +47,10 @@ const
  def_Zoom = evDef.def_Zoom;
 
 type
+ PevSubPanelSub = ^TevSubPanelSub;
+
+ PevSubPanelSubArray = ^TevSubPanelSubArray;
+
  TevSubDrawType = (
   {* Тип отображения метки }
   ev_sdtNumber
@@ -299,8 +303,6 @@ type
  //#UC END# *547DB8BC03D3publ*
  end;//TevSubDescriptors
 
- PevSubPanelSub = ^TevSubPanelSub;
-
  //#UC START# *547DBA30028Eci*
  //#UC END# *547DBA30028Eci*
  //#UC START# *547DBA30028Ecit*
@@ -452,8 +454,6 @@ type
     write pm_SetSubDescriptors
     stored SubDescriptorsStored;
  end;//TevCustomSubPanel
-
- PevSubPanelSubArray = ^TevSubPanelSubArray;
 
  TevSubPlace = evdTypes.TevSubPlace;
 

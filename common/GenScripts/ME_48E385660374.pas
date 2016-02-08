@@ -176,6 +176,51 @@ end;//TedRangeImplementation.Collapse
 
 procedure TedRangeImplementation.Iterate;
  {* Итератор по листьевым параграфам }
+var l_Cont: Boolean;
+var l_OpPack: InevOp;
+
+ procedure IterateRange;
+  {* Перебирает диапазон }
+
+  function BlockAction(const anItem: InevRange;
+   anIndex: Integer): Boolean;
+   {* Подитеративная функция для вызова L2InevRangePrimIterateAction из IterateRange }
+
+   function DoIt(const anItem: InevRange;
+    anIndex: Integer): Boolean;
+    {* Подитеративная функция для вызова L2InevRangePrimIterateAction из BlockAction }
+   //#UC START# *1B9BCE274A0B__var*
+   //#UC END# *1B9BCE274A0B__var*
+   begin
+   //#UC START# *1B9BCE274A0B__impl*
+    Result := BlockAction(anItem, anIndex);
+   //#UC END# *1B9BCE274A0B__impl*
+   end;//DoIt
+
+  //#UC START# *4BBF194202E8__var*
+  //#UC END# *4BBF194202E8__var*
+  begin
+   //#UC START# *4BBF194202E8iter*
+   if anItem.Obj.AsObject.IsKindOf(k2_typParaList) then
+    anItem.
+   //#UC END# *4BBF194202E8iter*
+   IterateF(L2InevRangePrimIterateAction(@DoIt))
+   //#UC START# *4BBF194202E8afteriter*
+   else
+    l_Cont := anAction(TevLeafParagraph.Make(f_View, Processor, anItem));
+   Result := l_Cont;
+   //#UC END# *4BBF194202E8afteriter*
+  end;//BlockAction
+
+ //#UC START# *4BBF18C801F5__var*
+ //#UC END# *4BBF18C801F5__var*
+ begin
+  //#UC START# *4BBF18C801F5iter*
+  f_Loc.Range.
+  //#UC END# *4BBF18C801F5iter*
+  IterateF(L2InevRangePrimIterateAction(@BlockAction));
+ end;//IterateRange
+
 //#UC START# *4BBF09C60382_48E3859101D5_var*
 //#UC END# *4BBF09C60382_48E3859101D5_var*
 begin

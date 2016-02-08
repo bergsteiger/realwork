@@ -209,6 +209,7 @@ begin
 end;//TevParaListCursorPrim.OffsetPID
 
 procedure TevParaListCursorPrim.ParaChanged;
+var l_Listener: InevPointListener;
 //#UC START# *4A3A39CA022C_4A3A237A01C0_var*
 //#UC END# *4A3A39CA022C_4A3A237A01C0_var*
 begin

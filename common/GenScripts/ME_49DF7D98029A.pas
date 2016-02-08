@@ -291,6 +291,9 @@ end;//TevTextParaCursor.DoPrevCharForDelete
 
 procedure TevTextParaCursor.CheckSegments(aPos: Integer;
  const anOp: InevOp);
+var l_Segments: Tl3Variant;
+var l_Seg: Tl3Variant;
+var l_Index: Integer;
 //#UC START# *4A391212035B_49DF7D98029A_var*
 //#UC END# *4A391212035B_49DF7D98029A_var*
 begin

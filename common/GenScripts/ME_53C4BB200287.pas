@@ -19,14 +19,14 @@ const
  SWP_STATECHANGED = $8000;
 
 type
+ PTitleBarInfoEx = ^TTitleBarInfoEx;
+
  tagTitleBarInfoEx = record
  end;//tagTitleBarInfoEx
 
  TITLEBARINFOEX = tagTitleBarInfoEx;
 
  TTitleBarInfoEx = TITLEBARINFOEX;
-
- PTitleBarInfoEx = ^TTitleBarInfoEx;
 
  TVistaWindowCaptionMetrics = record
   rTitleBarInfo: TTitleBarInfoEx;

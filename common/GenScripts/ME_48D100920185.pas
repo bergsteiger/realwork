@@ -145,6 +145,8 @@ end;//TnevTextParaFormatting.Cleanup
 
 function TnevTextPara.SegmentIsHidden(aSegment: Tl3Variant;
  aHiddenStyles: TnevStandardStyles): Boolean;
+var l_Layer: Tl3Tag;
+var l_Child: Tl3Tag;
 //#UC START# *49E59D7F009F_48D100920185_var*
 //#UC END# *49E59D7F009F_48D100920185_var*
 begin
