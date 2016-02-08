@@ -47,12 +47,6 @@ uses
  l3ImplUses
  , SysUtils
  , evConst
- , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 procedure TevCellsOffsets.Clear;

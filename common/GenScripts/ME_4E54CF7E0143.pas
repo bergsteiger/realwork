@@ -74,11 +74,6 @@ uses
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_TevStandardStyles: TevStandardStyles = nil;

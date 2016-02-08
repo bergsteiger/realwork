@@ -60,11 +60,6 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_Tk2EVDReaderService: Tk2EVDReaderService = nil;

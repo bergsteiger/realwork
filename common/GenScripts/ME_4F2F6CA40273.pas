@@ -77,12 +77,6 @@ uses
  , evTableCellUtils
  {$IfEnd} // Defined(k2ForEditor)
  , evExcept
- , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 procedure TevCellsCharOffsets.AddCellWidthAndRecalc;

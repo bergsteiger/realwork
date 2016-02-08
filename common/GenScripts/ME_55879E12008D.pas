@@ -52,10 +52,6 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
- , l3Core
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_Tl3PopupControlService: Tl3PopupControlService = nil;

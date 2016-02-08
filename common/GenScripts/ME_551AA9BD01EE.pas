@@ -65,10 +65,6 @@ uses
  , SysUtils
  , l3Base
  , Controls
- , l3Core
- , Windows
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_Tl3IterateComponentParents: Tl3IterateComponentParents = nil;

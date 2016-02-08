@@ -34,13 +34,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , SysUtils
- , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 class function TnevConfirm.Make: InevConfirm;

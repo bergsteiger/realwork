@@ -57,10 +57,6 @@ uses
  , Controls
  , SysUtils
  , l3Base
- , l3Core
- , Windows
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_Tl3GetComponentBoundsHelper: Tl3GetComponentBoundsHelper = nil;

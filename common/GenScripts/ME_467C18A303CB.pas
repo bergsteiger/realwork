@@ -23,10 +23,6 @@ implementation
 uses
  l3ImplUses
  , k2NullTagImpl
- , k2Tags
- , l3Variant
- , k2Base
- , k2InterfaceFactory
 ;
 
 end.

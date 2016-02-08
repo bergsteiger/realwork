@@ -63,11 +63,6 @@ uses
  , l3String
  , l3Interfaces
  , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_TevCellWidthCorrecterSpy: TevCellWidthCorrecterSpy = nil;

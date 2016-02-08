@@ -78,12 +78,6 @@ uses
  , SysUtils
  , l3FileUtils
  , l3String
- , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 procedure TtfwDefaultScriptCaller.DoPrint(const aStr: Tl3WString);

@@ -63,11 +63,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_Tl3PicturePathService: Tl3PicturePathService = nil;
