@@ -25,13 +25,6 @@ implementation
 uses
  l3ImplUses
  , l3InterfacesMisc
- , SysUtils
- , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 {$Include l3COMQueryInterface.imp.pas}

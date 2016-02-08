@@ -121,9 +121,6 @@ uses
  , l3Base
  , l3MinMax
  , RTLConsts
- , Windows
- , l3MemUtils
- , l3Interlocked
 ;
 
 function TtfwParserToken_C(const aString: Il3CString;

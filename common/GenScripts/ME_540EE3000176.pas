@@ -39,12 +39,6 @@ uses
  l3ImplUses
  , SysUtils
  , l3ExceptionsLog
- , l3Base
- , l3Core
- , Windows
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 constructor Tl3Logger.Create(const aFileName: AnsiString);

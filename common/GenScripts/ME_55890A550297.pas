@@ -59,11 +59,6 @@ implementation
 uses
  l3ImplUses
  , l3ExceptionHandler
- , SysUtils
- , l3Base
- , l3Core
- , l3MemUtils
- , l3Interlocked
 ;
 
 procedure Tl3Timer.pm_SetEnabled(aValue: Boolean);

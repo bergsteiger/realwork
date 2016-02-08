@@ -100,10 +100,6 @@ uses
  , SysUtils
  , l3ListenersHooks
  , l3Base
- , l3Core
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_Tl3ListenersManager: Tl3ListenersManager = nil;

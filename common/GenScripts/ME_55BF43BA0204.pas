@@ -28,10 +28,6 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
 ;
 
 function CompareItemWithData(const anItem: _ItemType_;

@@ -37,10 +37,6 @@ uses
  , Messages
  , SysUtils
  , l3Base
- , l3Core
- , Classes
- , l3MemUtils
- , l3Interlocked
 ;
 
 var g_Tl3MouseWheelHelper: Tl3MouseWheelHelper = nil;
