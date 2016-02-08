@@ -31,6 +31,8 @@ const
  CMainTabbedWindowClass = 'TvcmTabbedContainerForm';
 
 type
+ PLongArray = ^TLongArray;
+
  TLongArrayRange = 0 .. 2147483646;
 
  TLongArray = array [TLongArrayRange] of Byte;
@@ -39,8 +41,6 @@ type
  end;//ELauncherError
 
  TRunWaitFunc = procedure of object;
-
- PLongArray = ^TLongArray;
 
 function GarantShowLink(aRef: PAnsiChar;
  aOpenInNewWindow: Boolean;

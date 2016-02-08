@@ -13,14 +13,14 @@ uses
 ;
 
 type
- TnsLinkDataArray = array of ;
-
  PnsLinkDataArray = ^TnsLinkDataArray;
+
+ PIntegrationData = ^TIntegrationData;
+
+ TnsLinkDataArray = array of ;
 
  TIntegrationData = packed record
  end;//TIntegrationData
-
- PIntegrationData = ^TIntegrationData;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
