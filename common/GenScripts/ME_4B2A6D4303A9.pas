@@ -25,6 +25,8 @@ uses
 ;
 
 type
+ PTimeInfo = ^TTimeInfo;
+
  TKFileOperation = (
   {* Операция с файлом в К }
   foGet
@@ -45,8 +47,6 @@ type
   public
    function Compare(const aName: TTimeInfoName): Integer;
  end;//TTimeInfoName
-
- PTimeInfo = ^TTimeInfo;
 
  TTimeInfo = object
   {* Информация о замере времени }
@@ -976,6 +976,12 @@ type _Instance_R_ = TTimeInfoList;
 
 procedure TTimeInfoList.Compact(aCount: Integer);
  {* Минимизирует число замеров в графике до указанного числа }
+var l_Name: TTimeInfoName;
+ {* Имя текущего замера }
+var l_i: Integer;
+var l_j: Integer;
+var l_C: Integer;
+var l_SeriesCount: Integer;
 //#UC START# *4B7A98A10031_4B2F5BB102A4_var*
 //#UC END# *4B7A98A10031_4B2F5BB102A4_var*
 begin
@@ -1013,6 +1019,12 @@ end;//TTimeInfoList.Compact
 
 procedure TTimeInfoList.DeleteOld(aDateDelta: Integer);
  {* Удаляет старые замеры }
+var l_Name: TTimeInfoName;
+var l_i: Integer;
+var l_j: Integer;
+var l_SeriesCount: Integer;
+var l_C: Integer;
+var l_MaxDate: TDateTime;
 //#UC START# *4B7AA321023D_4B2F5BB102A4_var*
 //#UC END# *4B7AA321023D_4B2F5BB102A4_var*
 begin
@@ -1335,6 +1347,9 @@ end;//TKTestListener.GetFileFromK
 
 procedure TKTestListener.GetTimesFromK;
  {* Получает из К замеры времени }
+var l_F: Tl3CustomFiler;
+var l_N: AnsiString;
+var l_L: Tl3WString;
 //#UC START# *4B2F9BAE023F_4B2A6CEB0377_var*
 
  function CutPrefix(const aPref : AnsiString; const aStr : Tl3WString): Tl3WString;
@@ -1535,6 +1550,47 @@ end;//TKTestListener.IsFakeK
 
 procedure TKTestListener.PutTimesToK;
  {* Выводит в К замеры времени }
+var l_Index: Integer;
+var l_F: Tl3CustomFiler;
+var l_N: AnsiString;
+var l_Info: TTimeInfo;
+
+ procedure OutTaskLink(const aN: AnsiString);
+ var l_KPos: Integer;
+ //#UC START# *4B7C16A10288__var*
+
+ procedure DoOut(aPos : Integer);
+ var
+  l_ID    : Integer;
+  l_Index : Integer;
+ begin
+  l_ID := 0;
+  for l_Index := aPos to Length(aN) do
+   if (aN[l_Index] in cc_Digits) then
+    l_ID := 10 * l_ID + Ord(aN[l_Index]) - Ord('0')
+   else
+    break;
+  if (l_ID > 0) then
+   l_F.WriteLn(Task + '[$' + IntToStr(l_ID) + '].');
+ end;
+
+ //#UC END# *4B7C16A10288__var*
+ begin
+ //#UC START# *4B7C16A10288__impl*
+  if ANSIStartsStr('TK', aN) then
+   DoOut(1 + 2);
+  l_KPos := Pos('.K', aN);
+  if (l_KPos <> 0) then
+   DoOut(l_KPos + 2)
+  else
+  begin
+   l_KPos := Pos('.k', aN);
+   if (l_KPos <> 0) then
+    DoOut(l_KPos + 2)
+  end;//l_KPos <> 0
+ //#UC END# *4B7C16A10288__impl*
+ end;//OutTaskLink
+
 //#UC START# *4B2F60140143_4B2A6CEB0377_var*
 
 {$OverflowChecks Off}

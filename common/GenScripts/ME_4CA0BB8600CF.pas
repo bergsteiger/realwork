@@ -107,6 +107,7 @@ end;//TKBridge.Exists
 
 procedure TKBridge.AttachFile(aPage: Integer;
  const aFile: AnsiString);
+var l_F: Tl3CustomFiler;
 //#UC START# *4CAC9C6100E7_4CA0BB8600CF_var*
 const
  cMaxSize = 9 * 1024 *1024;

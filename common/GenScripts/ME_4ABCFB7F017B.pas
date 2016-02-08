@@ -310,6 +310,9 @@ end;//Tfs_Consultation.GetInstance
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure TConsultationModule.GiveMarkOnConsultation(const aNode: Il3SimpleNode);
+var l_OpenConsultation: IsdsConsultation;
+var l_Form: IvcmEntityForm;
+var l_Cons: IsdsConsultation;
 //#UC START# *4ABBA1BF0053_4ABCFB7F017B_var*
 //#UC END# *4ABBA1BF0053_4ABCFB7F017B_var*
 begin
@@ -352,6 +355,7 @@ end;//TConsultationModule.OpenSendConsultation
 
 procedure TConsultationModule.OpenEntityAsConsultation(const aCons: IUnknown;
  const aContainer: IvcmContainer);
+var l_Cons: IConsultation;
 //#UC START# *4AA5385C03DD_4ABCFB7F017B_var*
 //#UC END# *4AA5385C03DD_4ABCFB7F017B_var*
 begin

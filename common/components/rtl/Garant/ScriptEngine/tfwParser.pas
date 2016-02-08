@@ -414,6 +414,33 @@ end;//TtfwDecoratorParser.ClearFields
 
 constructor TtfwParser.Create(aFiler: TtfwStreamFactory);
 //#UC START# *52EF72FE00AB_4F4735060149_var*
+
+ procedure OpenCoFiler(aMode : Tl3FileMode);
+ var
+  l_Try : Integer;
+ begin//OpenCoFiler
+  f_CompiledCode := Tl3CustomDosFiler.Make(f_CompiledCodeName, aMode, false, 1000);
+  f_CompiledCode.NeedProcessMessages := false;
+  f_CompiledCode.Indicator.NeedProgressProc := false;
+  l_Try := 5;
+  while (l_Try > 0) do
+  begin
+   try
+    f_CompiledCode.Open;
+   except
+    Dec(l_Try);
+    if (l_Try > 0) then
+    begin
+     Sleep(1000);
+     continue;
+    end//l_Try > 0
+    else
+     raise;
+   end;//try..except
+   break;
+  end;//while (l_Try > 0)
+ end;//OpenCoFiler
+
 const
  cSig = '%co ';
  cVersion = '1.15';
@@ -424,6 +451,7 @@ var
 begin
 //#UC START# *52EF72FE00AB_4F4735060149_impl*
  inherited Create;
+ f_CompiledCodeName := '';
  f_MyTokenType := l3_ttBOF;
  f_CompiledCodeIsActual := false;
  f_FileName := aFiler.FileName;
@@ -435,10 +463,7 @@ begin
 
    if FileExists(f_CompiledCodeName) then
    begin
-    f_CompiledCode := Tl3CustomDosFiler.Make(f_CompiledCodeName, l3_fmRead, false, 1000);
-    f_CompiledCode.NeedProcessMessages := false;
-    f_CompiledCode.Indicator.NeedProgressProc := false;
-    f_CompiledCode.Open;
+    OpenCoFiler(l3_fmRead);
     if l3Same(f_CompiledCode.ReadLn, l_FileTime) then
      f_CompiledCodeIsActual := true
     else
@@ -451,10 +476,7 @@ begin
    if not f_CompiledCodeIsActual then
    begin
     Assert(f_CompiledCode = nil);
-    f_CompiledCode := Tl3CustomDosFiler.Make(f_CompiledCodeName, l3_fmWrite, false, 1000);
-    f_CompiledCode.NeedProcessMessages := false;
-    f_CompiledCode.Indicator.NeedProgressProc := false;
-    f_CompiledCode.Open;
+    OpenCoFiler(l3_fmWrite);
     f_CompiledCode.WriteLn(l_FileTime);
    end;//not f_CompiledCodeIsActual
   end//FileExists(l_FileName)
@@ -730,6 +752,7 @@ begin
  f_Token := nil;
  FreeAndNil(f_CachedTokens);
  FreeAndNil(f_Parser);
+ f_CompiledCodeName := '';
  inherited;
 //#UC END# *479731C50290_4F4735060149_impl*
 end;//TtfwParser.Cleanup

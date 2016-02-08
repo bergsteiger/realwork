@@ -80,6 +80,7 @@ end;//TFiltersModule.FiltersOpen
 procedure TFiltersModule.OldSchoolFiltersOpen(const anAggregate: IvcmAggregate;
  const aContainer: IvcmContainer;
  anOwner: TComponent);
+var l_Filters: IvcmEntityForm;
 //#UC START# *4AC09F4F011A_4CCAA9E50274_var*
 //#UC END# *4AC09F4F011A_4CCAA9E50274_var*
 begin

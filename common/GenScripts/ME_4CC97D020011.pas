@@ -100,6 +100,7 @@ const
 procedure TBaseSearchModule.TryAnotherBaseSearch(const aContainer: IvcmContainer;
  const aProcessor: InsBaseSearchResultProcessor;
  TryFullList: Boolean = False);
+var l_Processor: InsBaseSearchResultProcessor;
 //#UC START# *4AB79DF40349_4CC97D020011_var*
 //#UC END# *4AB79DF40349_4CC97D020011_var*
 begin
@@ -116,6 +117,9 @@ end;//TBaseSearchModule.TryAnotherBaseSearch
 
 procedure TBaseSearchModule.OpenBaseSearch(OpenKind: TnsBaseSearchOpenKind;
  const aQuery: IQuery);
+var l_Container: IvcmContainer;
+var l_Opener: InsBaseSearchWindowOpener;
+var l_Processor: InsBaseSearchQueryDataProcessor;
 //#UC START# *4AB7881B00EA_4CC97D020011_var*
 //#UC END# *4AB7881B00EA_4CC97D020011_var*
 begin
@@ -142,6 +146,7 @@ begin
 end;//TBaseSearchModule.MakeBaseSearchWindow
 
 procedure TBaseSearchModule.BaseSearchCheckFragmentsCount(const aContainer: IvcmContainer);
+var l_Processor: InsBaseSearchQueryDataProcessor;
 //#UC START# *4AB79B8201F8_4CC97D020011_var*
 //#UC END# *4AB79B8201F8_4CC97D020011_var*
 begin
@@ -153,6 +158,7 @@ begin
 end;//TBaseSearchModule.BaseSearchCheckFragmentsCount
 
 procedure TBaseSearchModule.CheckBaseSearchDataReady(const aContainer: IvcmContainer);
+var l_Checker: InsBaseSearchDataReadyChecker;
 //#UC START# *4AB797E7001F_4CC97D020011_var*
 //#UC END# *4AB797E7001F_4CC97D020011_var*
 begin
@@ -164,6 +170,7 @@ begin
 end;//TBaseSearchModule.CheckBaseSearchDataReady
 
 procedure TBaseSearchModule.BaseSearchCheckFindBack(const aContainer: IvcmContainer);
+var l_Processor: InsBaseSearchQueryDataProcessor;
 //#UC START# *4AB7A5A500FB_4CC97D020011_var*
 //#UC END# *4AB7A5A500FB_4CC97D020011_var*
 begin

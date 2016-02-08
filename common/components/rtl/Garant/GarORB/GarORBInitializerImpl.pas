@@ -1,56 +1,38 @@
 unit GarORBInitializerImpl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "GarORB"
-// Модуль: "w:/common/components/rtl/Garant/GarORB/GarORBInitializerImpl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::GarORB::IniAndFini::TGarORBInitializerImpl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\GarORB\GarORBInitializerImpl.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\GarORB\tfwDefine.inc}
+{$Include tfwDefine.inc}
 
 interface
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
 uses
-  pi,
-  pi_int
-  ;
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+ l3IntfUses
+ , pi
+ , pi_int
+;
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
 type
  TGarORBInitializerImpl = class(TORBInitializer)
- protected
- // realized methods
-   procedure Pre_init(const info: IORBInitInfo); override;
-   procedure Post_init(const info: IORBInitInfo); override;
- public
- // public methods
+  protected
+   procedure pre__init(const info: IORBInitInfo); override;
+   procedure post__init(const info: IORBInitInfo); override;
+  public
    class procedure Init;
  end;//TGarORBInitializerImpl
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 implementation
 
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
+{$If Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)}
 uses
-  GarClientSecurity,
-  pi_impl,
-  SysUtils
-  ;
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
-
-{$If defined(MTDORB) AND defined(nsTest) AND not defined(NotTunedDUnit)}
-
-// start class TGarORBInitializerImpl
+ l3ImplUses
+ , GarClientSecurity
+ , pi_impl
+ , SysUtils
+;
 
 class procedure TGarORBInitializerImpl.Init;
 //#UC START# *4CA0D2C203BE_4CA0D1B8017C_var*
@@ -61,15 +43,15 @@ begin
 //#UC END# *4CA0D2C203BE_4CA0D1B8017C_impl*
 end;//TGarORBInitializerImpl.Init
 
-procedure TGarORBInitializerImpl.Pre_init(const info: IORBInitInfo);
+procedure TGarORBInitializerImpl.pre__init(const info: IORBInitInfo);
 //#UC START# *4CA0D24C02B9_4CA0D1B8017C_var*
 //#UC END# *4CA0D24C02B9_4CA0D1B8017C_var*
 begin
 //#UC START# *4CA0D24C02B9_4CA0D1B8017C_impl*
 //#UC END# *4CA0D24C02B9_4CA0D1B8017C_impl*
-end;//TGarORBInitializerImpl.Pre_init
+end;//TGarORBInitializerImpl.pre__init
 
-procedure TGarORBInitializerImpl.Post_init(const info: IORBInitInfo);
+procedure TGarORBInitializerImpl.post__init(const info: IORBInitInfo);
 //#UC START# *4CA0D27000D5_4CA0D1B8017C_var*
 var
  l_N : String;
@@ -85,8 +67,7 @@ begin
  WriteLn(DateTimeToStr(Now));
  info.add_client_request_interceptor(TGarClientSecurity.Create(info));
 //#UC END# *4CA0D27000D5_4CA0D1B8017C_impl*
-end;//TGarORBInitializerImpl.Post_init
-
-{$IfEnd} //MTDORB AND nsTest AND not NotTunedDUnit
+end;//TGarORBInitializerImpl.post__init
+{$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 end.

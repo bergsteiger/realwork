@@ -113,6 +113,7 @@ begin
 end;//TUnderControlModule.BuildUnderControlList
 
 procedure TUnderControlModule.UnderControlOpen(const aContainer: IvcmContainer);
+var l_Form: IvcmEntityForm;
 //#UC START# *4AC09339029B_4CCAC71C0347_var*
 //#UC END# *4AC09339029B_4CCAC71C0347_var*
 begin
