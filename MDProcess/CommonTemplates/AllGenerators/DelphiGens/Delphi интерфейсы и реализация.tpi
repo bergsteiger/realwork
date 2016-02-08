@@ -2449,6 +2449,12 @@ f _NeedFinalize
 	]\
 	]\
 
+	[{"%S%{Stub}U"!=""}\
+	[\
+	 : Stub %S%{Stub}#f_pas_script_Reference() ;
+	]\
+	]\
+
 	
 	ref; // %S%f_pas_script_Name() %SN\n
 
@@ -2819,6 +2825,10 @@ f _IsConstants
 
 	[{"%S%{Action}U"!=""}\
 	%S%{Action}#f_pas_script_GenerateIncludeOrForward()\
+	]\
+
+	[{"%S%{Stub}U"!=""}\
+	%S%{Stub}#f_pas_script_GenerateIncludeOrForward()\
 	]\
 
 	[{%S#f_pas_script_CanImplementMethods()=true}\

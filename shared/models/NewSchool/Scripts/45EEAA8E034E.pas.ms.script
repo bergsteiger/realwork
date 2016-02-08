@@ -550,6 +550,26 @@ ref; // ME_45EEE6810040 node
 
 ref; // ME_45EEE6AF02DF operation
 
+: ME_46151C8A0285
+ CONST UID '46151C8A0285'
+ CONST Name 'node_'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_45EEB95901C5' '457450470167.pas.ms.script' // NodeBase
+ ;
+
+ref; // ME_46151C8A0285 node_
+
+: ME_46151C8A02E3
+ CONST UID '46151C8A02E3'
+ CONST Name 'operation_'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_45EEE50F0320 // QueryLogicOperation
+ ;
+
+ref; // ME_46151C8A02E3 operation_
+
 : ME_46151C4A0238
  CONST UID '46151C4A0238'
  CONST Name 'make'
@@ -559,6 +579,11 @@ ref; // ME_45EEE6AF02DF operation
  CONST Abstraction at_regular
  : Parent ME_45EEE65400FB // QueryNodeValue
  ;
+ : Parameters
+   Seq: ( ME_46151C8A0285 // node_
+ ME_46151C8A02E3 // operation_
+ )
+ ; // Parameters
 
 ref; // ME_46151C4A0238 make
 
@@ -629,6 +654,16 @@ ref; // ME_45EEE431020A context
 
 ref; // ME_45EEE55D01B8 operation
 
+: ME_461A63980101
+ CONST UID '461A63980101'
+ CONST Name 'context_'
+ CONST Class class_Parameter
+ : Stereotype st_inout ;
+ : Target WL 'ME_431841610361' '4423F94903C8.pas.ms.script' // String
+ ;
+
+ref; // ME_461A63980101 context_
+
 : ME_461A637E0017
  CONST UID '461A637E0017'
  CONST Name 'make'
@@ -638,6 +673,10 @@ ref; // ME_45EEE55D01B8 operation
  CONST Abstraction at_regular
  : Parent ME_45EEE4310209 // ContextValue
  ;
+ : Parameters
+   Seq: ( ME_461A63980101 // context_
+ )
+ ; // Parameters
 
 ref; // ME_461A637E0017 make
 

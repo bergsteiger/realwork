@@ -704,6 +704,16 @@ ref; // ME_4B16640302E4 aContext
 
 ref; // ME_4B1663ED0181 C
 
+: ME_4B1664300164
+ CONST UID '4B1664300164'
+ CONST Name 'aB'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_4B16636E01DF // TnsContextFilterData
+ ;
+
+ref; // ME_4B1664300164 aB
+
 : ME_4B16641C031A
  CONST UID '4B16641C031A'
  CONST Name 'EQ'
@@ -714,6 +724,10 @@ ref; // ME_4B1663ED0181 C
  ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
+ : Parameters
+   Seq: ( ME_4B1664300164 // aB
+ )
+ ; // Parameters
 
 ref; // ME_4B16641C031A EQ
 

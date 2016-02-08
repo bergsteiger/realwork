@@ -98,6 +98,26 @@ ref; // ME_488DD19C0358 prop_value
 
 ref; // ME_488DD1A9000F time
 
+: ME_489816FE01BE
+ CONST UID '489816FE01BE'
+ CONST Name 'conf'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_489816FE01BE conf
+
+: ME_489816FE0200
+ CONST UID '489816FE0200'
+ CONST Name 'prop'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.pas.ms.script' // long
+ ;
+
+ref; // ME_489816FE0200 prop
+
 : ME_489816C3023E
  CONST UID '489816C3023E'
  CONST Name 'ctor'
@@ -108,6 +128,11 @@ ref; // ME_488DD1A9000F time
  CONST Abstraction at_regular
  : Parent ME_488DD13303A4 // ServerSettingData
  ;
+ : Parameters
+   Seq: ( ME_489816FE01BE // conf
+ ME_489816FE0200 // prop
+ )
+ ; // Parameters
 
 ref; // ME_489816C3023E ctor
 

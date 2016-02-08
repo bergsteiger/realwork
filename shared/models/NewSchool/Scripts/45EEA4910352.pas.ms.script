@@ -34,6 +34,16 @@ ref; // ME_4CB2DC4B0323 count
 
 ref; // ME_4CB2DC5C0083 flags
 
+: ME_4CB2DD5702C3
+ CONST UID '4CB2DD5702C3'
+ CONST Name 'my_flags'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.pas.ms.script' // unsigned long
+ ;
+
+ref; // ME_4CB2DD5702C3 my_flags
+
 : ME_4CB2DCFF0049
  CONST UID '4CB2DCFF0049'
  CONST Name 'make'
@@ -43,6 +53,10 @@ ref; // ME_4CB2DC5C0083 flags
  CONST Abstraction at_regular
  : Parent ME_4CB2DC4003E4 // FilterInfo
  ;
+ : Parameters
+   Seq: ( ME_4CB2DD5702C3 // my_flags
+ )
+ ; // Parameters
 
 ref; // ME_4CB2DCFF0049 make
 

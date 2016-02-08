@@ -442,6 +442,71 @@ ref; // ME_494283D90043 Res
 
 ref; // ME_49427DEE015B Tl3HResult
 
+FORWARD ME_53CE6449012F
+
+: ME_53CE646D021D
+ CONST UID '53CE646D021D'
+ CONST Name 'ev_iidCursor'
+ CONST Class class_Attribute
+ %SUMMARY 'курсор объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CE6449012F // OldGUIDS
+ ;
+ : Target ME_478CF8A20368 // Tl3IID
+ ;
+ CONST Value '(IID: 0)'
+ : ValueType ME_478CF8A20368 // Tl3IID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(IID: 0)'
+
+ref; // ME_53CE646D021D ev_iidCursor
+
+: ME_53CE648603B9
+ CONST UID '53CE648603B9'
+ CONST Name 'ev_iidBlock'
+ CONST Class class_Attribute
+ %SUMMARY 'выделение части объекта' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_53CE6449012F // OldGUIDS
+ ;
+ : Target ME_478CF8A20368 // Tl3IID
+ ;
+ CONST Value '(IID: 1)'
+ : ValueType ME_478CF8A20368 // Tl3IID
+ ;
+ CONST "AutoInc" false
+ CONST "forced type" 'none'
+ CONST "is define" false
+ CONST extprop:pas:Value '(IID: 1)'
+
+ref; // ME_53CE648603B9 ev_iidBlock
+
+: ME_53CE6449012F
+ CONST UID '53CE6449012F'
+ CONST Name 'OldGUIDS'
+ CONST Class class_Class
+ : Stereotype st_Constants ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_478CF8070260 // l3IID
+ ;
+ : Attributes
+   Seq: ( ME_53CE646D021D // ev_iidCursor
+ ME_53CE648603B9 // ev_iidBlock
+ )
+ ; // Attributes
+ CONST "spell names" false
+
+ref; // ME_53CE6449012F OldGUIDS
+
 : ME_478CF8070260
  CONST UID '478CF8070260'
  CONST Name 'l3IID'
@@ -461,6 +526,10 @@ ref; // ME_49427DEE015B Tl3HResult
  ME_49427DEE015B // Tl3HResult
  )
  ; // Children
+ : Constants
+   Seq: ( ME_53CE6449012F // OldGUIDS
+ )
+ ; // Constants
  CONST "UseNewGen" true
  CONST "author" 'Люлин А.В. ©'
  CONST "is namespace" true

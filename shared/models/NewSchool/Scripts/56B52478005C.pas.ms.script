@@ -2,73 +2,6 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_56B52478005C
-
-FORWARD ME_53CE6449012F
-
-: ME_53CE646D021D
- CONST UID '53CE646D021D'
- CONST Name 'ev_iidCursor'
- CONST Class class_Attribute
- %SUMMARY 'курсор объекта' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_53CE6449012F // OldGUIDS
- ;
- : Target WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
- ;
- CONST Value '(IID: 0)'
- : ValueType WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(IID: 0)'
-
-ref; // ME_53CE646D021D ev_iidCursor
-
-: ME_53CE648603B9
- CONST UID '53CE648603B9'
- CONST Name 'ev_iidBlock'
- CONST Class class_Attribute
- %SUMMARY 'выделение части объекта' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_53CE6449012F // OldGUIDS
- ;
- : Target WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
- ;
- CONST Value '(IID: 1)'
- : ValueType WL 'ME_478CF8A20368' '478CF8070260.pas.ms.script' // Tl3IID
- ;
- CONST "AutoInc" false
- CONST "forced type" 'none'
- CONST "is define" false
- CONST extprop:pas:Value '(IID: 1)'
-
-ref; // ME_53CE648603B9 ev_iidBlock
-
-: ME_53CE6449012F
- CONST UID '53CE6449012F'
- CONST Name 'OldGUIDS'
- CONST Class class_Class
- : Stereotype st_Constants ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_56B52478005C // l3OldInterfaceIDs
- ;
- : Attributes
-   Seq: ( ME_53CE646D021D // ev_iidCursor
- ME_53CE648603B9 // ev_iidBlock
- )
- ; // Attributes
- CONST "spell names" false
-
-ref; // ME_53CE6449012F OldGUIDS
-
 : ME_56B52478005C
  CONST UID '56B52478005C'
  CONST Name 'l3OldInterfaceIDs'
@@ -78,10 +11,6 @@ ref; // ME_53CE6449012F OldGUIDS
  CONST Abstraction at_regular
  : Parent WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.pas.ms.script' // L3$Domain
  ;
- : Constants
-   Seq: ( ME_53CE6449012F // OldGUIDS
- )
- ; // Constants
  : Depends
    Seq: ( WL 'ME_478CF8070260' '478CF8070260.pas.ms.script' // l3IID
  )
