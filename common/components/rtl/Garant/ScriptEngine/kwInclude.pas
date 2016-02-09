@@ -1,67 +1,50 @@
 unit kwInclude;
+ {* Зарезервированное слово: INCLUDE
+Пример:
+[code]
+ INCLUDE 'Included.script'
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwInclude.pas"
-// Начат: 04.05.2011 22:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::IncludesAndUses::IncludesAndUsesPack::Include
-//
-// Зарезервированное слово: INCLUDE
-// Пример:
-// {code}
-// INCLUDE 'Included.script'
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInclude.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwIncludeLike,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwIncludeLike
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwInclude = {scriptword} class(TtfwIncludeLike)
+ TkwInclude = class(TtfwIncludeLike)
   {* Зарезервированное слово: INCLUDE
 Пример:
 [code]
  INCLUDE 'Included.script'
 [code] }
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    class function GetWordNameForRegister: AnsiString; override;
    function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
  end;//TkwInclude
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwIncluded,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwInclude
+ l3ImplUses
+ , kwIncluded
+ , l3String
+;
 
 function TkwInclude.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4DC1949F00E1_var*
 //#UC END# *4DB6C99F026E_4DC1949F00E1_var*
 begin
@@ -71,7 +54,6 @@ begin
 end;//TkwInclude.EndBracket
 
 class function TkwInclude.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'INCLUDE';
 end;//TkwInclude.GetWordNameForRegister
@@ -85,12 +67,9 @@ begin
 //#UC END# *4DB9B446039A_4DC1949F00E1_impl*
 end;//TkwInclude.AfterWordMaxCount
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Include
  TkwInclude.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Include }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

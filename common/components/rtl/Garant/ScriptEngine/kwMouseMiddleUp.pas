@@ -1,47 +1,33 @@
 unit kwMouseMiddleUp;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMouseMiddleUp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::MouseInput::Mouse_MiddleUp
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseMiddleUp.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwMouseUpDownSupport
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwMouseUpDownSupport
+;
 
-{$If not defined(NoScripts)}
 type
- TkwMouseMiddleUp = {final scriptword} class(TkwMouseUpDownSupport)
- protected
- // realized methods
+ TkwMouseMiddleUp = {final} class(TkwMouseUpDownSupport)
+  protected
    function GetMouseEventFlag: Integer; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMouseMiddleUp
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMouseMiddleUp
+ l3ImplUses
+ , Windows
+;
 
 function TkwMouseMiddleUp.GetMouseEventFlag: Integer;
 //#UC START# *4F967BED0186_4F967CDF0244_var*
@@ -53,17 +39,13 @@ begin
 end;//TkwMouseMiddleUp.GetMouseEventFlag
 
 class function TkwMouseMiddleUp.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Mouse:MiddleUp';
 end;//TkwMouseMiddleUp.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Mouse_MiddleUp
  TkwMouseMiddleUp.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Mouse_MiddleUp }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -82,12 +82,8 @@ begin
 end;//TkwCompiledProcedureCreate.GetResultTypeInfo
 
 function TkwCompiledProcedureCreate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_87E51971436F_var*
-//#UC END# *559687E6025A_87E51971436F_var*
 begin
-//#UC START# *559687E6025A_87E51971436F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_87E51971436F_impl*
+ Result := 1;
 end;//TkwCompiledProcedureCreate.GetAllParamsCount
 
 function TkwCompiledProcedureCreate.ParamsTypes: PTypeInfoArray;

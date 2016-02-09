@@ -1,47 +1,33 @@
 unit kwMouseLeftUp;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMouseLeftUp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::MouseInput::Mouse_LeftUp
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseLeftUp.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwMouseUpDownSupport
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwMouseUpDownSupport
+;
 
-{$If not defined(NoScripts)}
 type
- TkwMouseLeftUp = {scriptword} class(TkwMouseUpDownSupport)
- protected
- // realized methods
+ TkwMouseLeftUp = class(TkwMouseUpDownSupport)
+  protected
    function GetMouseEventFlag: Integer; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMouseLeftUp
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMouseLeftUp
+ l3ImplUses
+ , Windows
+;
 
 function TkwMouseLeftUp.GetMouseEventFlag: Integer;
 //#UC START# *4F967BED0186_4F71C14601E6_var*
@@ -53,17 +39,13 @@ begin
 end;//TkwMouseLeftUp.GetMouseEventFlag
 
 class function TkwMouseLeftUp.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Mouse:LeftUp';
 end;//TkwMouseLeftUp.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Mouse_LeftUp
  TkwMouseLeftUp.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Mouse_LeftUp }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

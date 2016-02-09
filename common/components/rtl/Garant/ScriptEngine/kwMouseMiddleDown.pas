@@ -1,47 +1,33 @@
 unit kwMouseMiddleDown;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMouseMiddleDown.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::MouseInput::Mouse_MiddleDown
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseMiddleDown.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwMouseUpDownSupport
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwMouseUpDownSupport
+;
 
-{$If not defined(NoScripts)}
 type
- TkwMouseMiddleDown = {final scriptword} class(TkwMouseUpDownSupport)
- protected
- // realized methods
+ TkwMouseMiddleDown = {final} class(TkwMouseUpDownSupport)
+  protected
    function GetMouseEventFlag: Integer; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMouseMiddleDown
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMouseMiddleDown
+ l3ImplUses
+ , Windows
+;
 
 function TkwMouseMiddleDown.GetMouseEventFlag: Integer;
 //#UC START# *4F967BED0186_4F967CF70162_var*
@@ -53,17 +39,13 @@ begin
 end;//TkwMouseMiddleDown.GetMouseEventFlag
 
 class function TkwMouseMiddleDown.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Mouse:MiddleDown';
 end;//TkwMouseMiddleDown.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Mouse_MiddleDown
  TkwMouseMiddleDown.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Mouse_MiddleDown }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -19,6 +19,8 @@ implementation
 uses
  l3ImplUses
  , tfwScriptingTypes
+ , kwInclude
+ , kwUses
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

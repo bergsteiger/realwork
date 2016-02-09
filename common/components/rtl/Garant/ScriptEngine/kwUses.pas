@@ -1,37 +1,27 @@
 unit kwUses;
+ {* Подлючение внешних модулей в скрипт:
+Пример:
+[code]
+USES
+ DocumentNumbers.script
+;
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwUses.pas"
-// Начат: 06.05.2011 11:26
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::IncludesAndUses::IncludesAndUsesPack::Uses
-//
-// Подлючение внешних модулей в скрипт:
-// Пример:
-// {code}
-// USES
-// DocumentNumbers.script
-// ;
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwUses.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwUsesLike
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwUsesLike
+;
 
-{$If not defined(NoScripts)}
 type
- TkwUses = {scriptword} class(TkwUsesLike)
+ TkwUses = class(TkwUsesLike)
   {* Подлючение внешних модулей в скрипт:
 Пример:
 [code]
@@ -39,30 +29,26 @@ USES
  DocumentNumbers.script
 ;
 [code] }
- protected
- // overridden protected methods
+  protected
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwUses
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwUses
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 class function TkwUses.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'USES';
 end;//TkwUses.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Uses
  TkwUses.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Uses }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

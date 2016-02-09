@@ -1,47 +1,33 @@
 unit kwMouseLeftDown;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMouseLeftDown.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::MouseInput::Mouse_LeftDown
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseLeftDown.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwMouseUpDownSupport
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwMouseUpDownSupport
+;
 
-{$If not defined(NoScripts)}
 type
- TkwMouseLeftDown = {scriptword} class(TkwMouseUpDownSupport)
- protected
- // realized methods
+ TkwMouseLeftDown = class(TkwMouseUpDownSupport)
+  protected
    function GetMouseEventFlag: Integer; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMouseLeftDown
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMouseLeftDown
+ l3ImplUses
+ , Windows
+;
 
 function TkwMouseLeftDown.GetMouseEventFlag: Integer;
 //#UC START# *4F967BED0186_4F71C11F02F2_var*
@@ -53,17 +39,13 @@ begin
 end;//TkwMouseLeftDown.GetMouseEventFlag
 
 class function TkwMouseLeftDown.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Mouse:LeftDown';
 end;//TkwMouseLeftDown.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Mouse_LeftDown
  TkwMouseLeftDown.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация Mouse_LeftDown }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

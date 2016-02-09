@@ -1,53 +1,39 @@
 unit kwWaitCancel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwWaitCancel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::ModalDialogs::wait_Cancel
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWaitCancel.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
  _afwImpurity_Parent_ = TtfwRegisterableWord;
- {$Include ..\ScriptEngine\afwImpurity.imp.pas}
- TkwWaitCancel = {final scriptword} class(_afwImpurity_)
- protected
- // realized methods
+ {$Include afwImpurity.imp.pas}
+ TkwWaitCancel = {final} class(_afwImpurity_)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwWaitCancel
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  l3BatchService,
-  Controls
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3ImplUses
+ , l3BatchService
+ , Controls
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-{$Include ..\ScriptEngine\afwImpurity.imp.pas}
-
-// start class TkwWaitCancel
+{$Include afwImpurity.imp.pas}
 
 procedure TkwWaitCancel.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4FFFE217028B_var*
@@ -59,17 +45,13 @@ begin
 end;//TkwWaitCancel.DoDoIt
 
 class function TkwWaitCancel.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'wait:Cancel';
 end;//TkwWaitCancel.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация wait_Cancel
  TkwWaitCancel.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация wait_Cancel }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

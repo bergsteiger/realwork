@@ -1,49 +1,35 @@
 unit kwMouseWheelSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMouseWheelSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::MouseInput::TkwMouseWheelSupport
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelSupport.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwSendInputSupport,
-  Windows
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSendInputSupport
+ , tfwScriptingInterfaces
+ , Windows
+;
 
-{$If not defined(NoScripts)}
 type
  TkwMouseWheelSupport = {abstract} class(TkwSendInputSupport)
- protected
- // realized methods
-   function GetInputStruct(const aCtx: TtfwContext): TInput; override;
- protected
- // protected methods
+  protected
    function GetLineCount(const aCtx: TtfwContext): Integer; virtual; abstract;
+   function GetInputStruct(const aCtx: TtfwContext): TInput; override;
  end;//TkwMouseWheelSupport
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMouseWheelSupport
+ l3ImplUses
+ , l3Base
+;
 
 function TkwMouseWheelSupport.GetInputStruct(const aCtx: TtfwContext): TInput;
 //#UC START# *4F71A8960347_50C852B30225_var*
@@ -68,12 +54,9 @@ begin
 //#UC END# *4F71A8960347_50C852B30225_impl*
 end;//TkwMouseWheelSupport.GetInputStruct
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwMouseWheelSupport
  TkwMouseWheelSupport.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwMouseWheelSupport }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

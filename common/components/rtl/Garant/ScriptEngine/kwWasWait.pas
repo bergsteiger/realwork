@@ -1,55 +1,39 @@
 unit kwWasWait;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwWasWait.pas"
-// Начат: 28.04.2011 15:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::ModalDialogs::Was_Wait
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWasWait.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
  _afwImpurity_Parent_ = TtfwRegisterableWord;
- {$Include ..\ScriptEngine\afwImpurity.imp.pas}
- TkwWasWait = {scriptword} class(_afwImpurity_)
- protected
- // realized methods
+ {$Include afwImpurity.imp.pas}
+ TkwWasWait = class(_afwImpurity_)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwWasWait
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  l3BatchService,
-  Controls
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3ImplUses
+ , l3BatchService
+ , Controls
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-{$Include ..\ScriptEngine\afwImpurity.imp.pas}
-
-// start class TkwWasWait
+{$Include afwImpurity.imp.pas}
 
 procedure TkwWasWait.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB94B3103DB_var*
@@ -70,17 +54,13 @@ begin
 end;//TkwWasWait.DoDoIt
 
 class function TkwWasWait.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'waited:?';
 end;//TkwWasWait.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация Was_Wait
  TkwWasWait.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация Was_Wait }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

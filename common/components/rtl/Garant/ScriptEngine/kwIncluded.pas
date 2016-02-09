@@ -1,66 +1,50 @@
 unit kwIncluded;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwIncluded.pas"
-// Начат: 05.05.2011 21:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::IncludesAndUses::TkwIncluded
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIncluded.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwIncludedPrim,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwIncludedPrim
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  RkwIncluded = class of TkwIncluded;
 
  TkwIncluded = class(TkwIncludedPrim)
- private
- // private fields
-   f_FileName : AnsiString;
- protected
- // overridden protected methods
+  private
+   f_FileName: AnsiString;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
+    aSilent: Boolean): RtfwWord; override;
    procedure UnknownWord(var aContext: TtfwContext;
-     aWordNumber: Integer); override;
- public
- // public methods
+    aWordNumber: Integer); override;
+  public
    constructor Create(const aFileName: AnsiString); reintroduce;
  end;//TkwIncluded
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Parser,
-  SysUtils,
-  l3Filer,
-  l3Types,
-  l3Chars,
-  kwCompiledIncluded,
-  l3Base,
-  tfwFileStreamFactory
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwIncluded
+ l3ImplUses
+ , l3Parser
+ , SysUtils
+ , l3Filer
+ , l3Types
+ , l3Chars
+ , kwCompiledIncluded
+ , l3Base
+ , tfwFileStreamFactory
+;
 
 constructor TkwIncluded.Create(const aFileName: AnsiString);
 //#UC START# *4DC2E00703AA_4DC2DF5D0167_var*
@@ -94,7 +78,7 @@ begin
 end;//TkwIncluded.DoDoIt
 
 function TkwIncluded.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4DC2DF5D0167_var*
 //#UC END# *4DB6C99F026E_4DC2DF5D0167_var*
 begin
@@ -105,7 +89,7 @@ begin
 end;//TkwIncluded.EndBracket
 
 procedure TkwIncluded.UnknownWord(var aContext: TtfwContext;
-  aWordNumber: Integer);
+ aWordNumber: Integer);
 //#UC START# *4DB6F2760023_4DC2DF5D0167_var*
 //#UC END# *4DB6F2760023_4DC2DF5D0167_var*
 begin
@@ -119,12 +103,9 @@ begin
 //#UC END# *4DB6F2760023_4DC2DF5D0167_impl*
 end;//TkwIncluded.UnknownWord
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwIncluded
  TkwIncluded.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwIncluded }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,39 +1,37 @@
 unit MouseInputPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "MouseInputPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine::MouseInput::MouseInputPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\MouseInputPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwMouseLeftDown,
-  kwMouseLeftUp,
-  kwMouseMiddleUp,
-  kwMouseMiddleDown,
-  kwMouseRightUp,
-  kwMouseRightDown,
-  kwMouseSetCursorPosition,
-  kwMouseGetCursorIndex,
-  kwMouseGetCursorNameByIndex,
-  kwMouseGetCursorPosition,
-  kwMouseWheelUp,
-  kwMouseWheelDown,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwMouseLeftDown
+ , kwMouseLeftUp
+ , kwMouseMiddleUp
+ , kwMouseMiddleDown
+ , kwMouseRightUp
+ , kwMouseRightDown
+ , kwMouseSetCursorPosition
+ , kwMouseGetCursorIndex
+ , kwMouseGetCursorNameByIndex
+ , kwMouseGetCursorPosition
+ , kwMouseWheelUp
+ , kwMouseWheelDown
+ , tfwScriptingTypes
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
 end.

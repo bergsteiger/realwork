@@ -1,61 +1,45 @@
 unit kwMainCodeController;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMainCodeController.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::ScriptsCompilingAndProcessing::TkwMainCodeController
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMainCodeController.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwMain
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwMain
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwMainCodeController = class(TkwMain)
- private
- // private fields
-   f_Lambda : TtfwWord;
-   f_OuterContext : PtfwContext;
- protected
- // overridden protected methods
+  private
+   f_Lambda: TtfwWord;
+   f_OuterContext: PtfwContext;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function CacheDict: Boolean; override;
- public
- // overridden public methods
-   procedure RunCompiled(const aContext: TtfwContext); override;
- public
- // public methods
+  public
    constructor Create(aLambda: TtfwWord;
-     aOuterContext: PtfwContext); reintroduce;
+    aOuterContext: PtfwContext); reintroduce;
+   procedure RunCompiled(const aContext: TtfwContext); override;
  end;//TkwMainCodeController
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMainCodeController
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TkwMainCodeController.Create(aLambda: TtfwWord;
-  aOuterContext: PtfwContext);
+ aOuterContext: PtfwContext);
 //#UC START# *53DA263600C7_53DA257D011C_var*
 //#UC END# *53DA263600C7_53DA257D011C_var*
 begin
@@ -68,6 +52,7 @@ begin
 end;//TkwMainCodeController.Create
 
 procedure TkwMainCodeController.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53DA257D011C_var*
 //#UC END# *479731C50290_53DA257D011C_var*
 begin
@@ -97,12 +82,9 @@ begin
 //#UC END# *55AF8A9D03A2_53DA257D011C_impl*
 end;//TkwMainCodeController.CacheDict
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwMainCodeController
  TkwMainCodeController.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwMainCodeController }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

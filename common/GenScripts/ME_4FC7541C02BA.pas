@@ -40,9 +40,9 @@ uses
  , seModalWorker
  , l3AFWExceptions
  , l3BatchService
+ , l3MessagesService
  , SysUtils
  , l3Base
- , l3MessagesService
 ;
 
 var g_TseModalService: TseModalService = nil;

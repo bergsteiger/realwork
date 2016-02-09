@@ -1,33 +1,31 @@
 unit ModalDialogsKeywordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "ModalDialogsKeywordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine::ModalDialogs::ModalDialogsKeywordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ModalDialogsKeywordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-{$IfEnd} //not NoScripts AND not NoVCL
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  kwWasWait,
-  kwWaitNo,
-  kwWaitOk,
-  kwWaitYes,
-  kwWaitCancel,
-  kwWaitChoice,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwWasWait
+ , kwWaitNo
+ , kwWaitOk
+ , kwWaitYes
+ , kwWaitCancel
+ , kwWaitChoice
+ , tfwScriptingTypes
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
-{$IfEnd} //not NoScripts AND not NoVCL
 end.

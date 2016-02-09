@@ -26,6 +26,7 @@ uses
  , kwBracketBegin
  , kwBEGIN
  , tfwScriptingTypes
+ , kwRULES
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 

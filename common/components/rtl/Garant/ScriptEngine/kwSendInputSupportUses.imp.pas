@@ -1,29 +1,28 @@
 {$IfNDef kwSendInputSupportUses_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwSendInputSupportUses.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine::MouseInput::kwSendInputSupportUses
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupportUses.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define kwSendInputSupportUses_imp}
-{$If not defined(NoScripts)}
- _kwSendInputSupportUses_ = {abstract mixin} class(_kwSendInputSupportUses_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _kwSendInputSupportUses_ = {abstract} class(_kwSendInputSupportUses_Parent_)
  end;//_kwSendInputSupportUses_
-{$Else}
 
- _kwSendInputSupportUses_ = _kwSendInputSupportUses_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_kwSendInputSupportUses_ = _kwSendInputSupportUses_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else kwSendInputSupportUses_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef kwSendInputSupportUses_imp_impl}
 
+{$Define kwSendInputSupportUses_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf kwSendInputSupportUses_imp_impl}
 
 {$EndIf kwSendInputSupportUses_imp}
+

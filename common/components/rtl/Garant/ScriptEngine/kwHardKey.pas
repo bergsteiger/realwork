@@ -1,61 +1,47 @@
 unit kwHardKey;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwHardKey.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::KeyBoardInput::HardKey
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwHardKey.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Windows,
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+ , Windows
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
  TInputKeyRecord = record
-   aKey : Word;
-   aHold : Boolean;
+  aKey: Word;
+  aHold: Boolean;
  end;//TInputKeyRecord
 
  TInputKeyRecordArray = array of TInputKeyRecord;
 
  TInputArray = array of TInput;
 
- TkwHardKey = {final scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwHardKey = {final} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwHardKey
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Menus,
-  SysUtils,
-  Consts,
-  l3MessagesService
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
-
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-// start class TkwHardKey
+ l3ImplUses
+ , Menus
+ , SysUtils
+ , Consts
+ , l3MessagesService
+;
 
 procedure TkwHardKey.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_501956850225_var*
@@ -213,17 +199,13 @@ begin
 end;//TkwHardKey.DoDoIt
 
 class function TkwHardKey.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'HardKey';
 end;//TkwHardKey.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация HardKey
  TkwHardKey.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация HardKey }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

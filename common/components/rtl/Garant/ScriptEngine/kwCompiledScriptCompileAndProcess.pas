@@ -1,34 +1,26 @@
 unit kwCompiledScriptCompileAndProcess;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledScriptCompileAndProcess.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::ScriptsCompilingAndProcessing::TkwCompiledScriptCompileAndProcess
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledScriptCompileAndProcess.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwCompiledWordWorker,
-  l3Interfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordWorker
+ , tfwScriptingInterfaces
+ , tfwStreamFactory
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledScriptCompileAndProcess = class(TkwCompiledWordWorker, ItfwScriptCaller)
- private
- // private fields
-   f_NativeCaller : ItfwScriptCaller;
- protected
- // realized methods
+  private
+   f_NativeCaller: ItfwScriptCaller;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
    function ResolveOutputFilePath(const aFile: AnsiString): AnsiString;
@@ -36,20 +28,21 @@ type
    function KPage: AnsiString;
    procedure ToLog(const aSt: AnsiString);
    function CompileOnly: Boolean;
- public
- // realized methods
+   procedure ClearFields; override;
+  public
+   function MakeStream(const aData: AnsiString): TtfwStreamFactory; virtual;
    procedure CheckOutputWithInput(const aIn: AnsiString;
-     const aOut: AnsiString;
-     aHeaderBegin: AnsiChar;
-     aEtalonNeedsComputerName: Boolean;
-     aEtalonCanHaveDiff: Boolean;
-     const anExtraFileName: AnsiString;
-     aNeedsCheck: Boolean); overload; 
+    const aOut: AnsiString;
+    aHeaderBegin: AnsiChar;
+    aEtalonNeedsComputerName: Boolean;
+    aEtalonCanHaveDiff: Boolean;
+    const anExtraFileName: AnsiString;
+    aNeedsCheck: Boolean); overload;
    procedure Check(aCondition: Boolean;
     const aMessage: AnsiString = '');
-     {* Проверяет инвариант }
-   procedure Print(const aStr: Tl3WString); overload; 
-   procedure Print(const aStr: Il3CString); overload; 
+    {* Проверяет инвариант }
+   procedure Print(const aStr: Tl3WString); overload;
+   procedure Print(const aStr: Il3CString); overload;
    procedure CheckWithEtalon(const aFileName: AnsiString;
     aHeaderBegin: AnsiChar);
    procedure CheckPrintEtalon(const aLogName: AnsiString;
@@ -60,50 +53,51 @@ type
    function StartTimer: Longword;
    function StopTimer(const aSt: AnsiString = '';
     const aSubName: AnsiString = '';
-    aNeedTimeToLog: Boolean = true): Longword;
+    aNeedTimeToLog: Boolean = True): Longword;
    procedure CheckOutputWithInput(const aSt: AnsiString;
-     aHeaderBegin: AnsiChar = #0;
-     const anExtraFileName: AnsiString = '';
-     aNeedsCheck: Boolean = true); overload; 
+    aHeaderBegin: AnsiChar = #0;
+    const anExtraFileName: AnsiString = '';
+    aNeedsCheck: Boolean = True); overload;
    function GetIsWritingToK: Boolean;
    function GetIsFakeCVS: Boolean;
    function GetCVSPath: AnsiString;
    procedure DontRaiseIfEtalonCreated;
    procedure TimeToLog(aTime: Cardinal;
-     const aSt: AnsiString;
-     const aSubName: AnsiString);
+    const aSt: AnsiString;
+    const aSubName: AnsiString);
    function GetTestSetFolderName: AnsiString;
    function GetEtalonSuffix: AnsiString;
    procedure CheckPictureOnly;
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
  end;//TkwCompiledScriptCompileAndProcess
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwFileStreamFactory,
-  kwMain,
-  kwMainCodeController,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , tfwFileStreamFactory
+ , kwMain
+ , kwMainCodeController
+ , SysUtils
+;
 
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledScriptCompileAndProcess
+function TkwCompiledScriptCompileAndProcess.MakeStream(const aData: AnsiString): TtfwStreamFactory;
+//#UC START# *56420D080052_53DA24F802A7_var*
+//#UC END# *56420D080052_53DA24F802A7_var*
+begin
+//#UC START# *56420D080052_53DA24F802A7_impl*
+ Result := TtfwFileStreamFactory.Create(aData);
+//#UC END# *56420D080052_53DA24F802A7_impl*
+end;//TkwCompiledScriptCompileAndProcess.MakeStream
 
 procedure TkwCompiledScriptCompileAndProcess.CheckOutputWithInput(const aIn: AnsiString;
-  const aOut: AnsiString;
-  aHeaderBegin: AnsiChar;
-  aEtalonNeedsComputerName: Boolean;
-  aEtalonCanHaveDiff: Boolean;
-  const anExtraFileName: AnsiString;
-  aNeedsCheck: Boolean);
+ const aOut: AnsiString;
+ aHeaderBegin: AnsiChar;
+ aEtalonNeedsComputerName: Boolean;
+ aEtalonCanHaveDiff: Boolean;
+ const anExtraFileName: AnsiString;
+ aNeedsCheck: Boolean);
 //#UC START# *4CAEDCF9006A_53DA24F802A7_var*
 //#UC END# *4CAEDCF9006A_53DA24F802A7_var*
 begin
@@ -140,7 +134,8 @@ begin
 end;//TkwCompiledScriptCompileAndProcess.DoDoIt
 
 procedure TkwCompiledScriptCompileAndProcess.Check(aCondition: Boolean;
-  const aMessage: AnsiString = '');
+ const aMessage: AnsiString = '');
+ {* Проверяет инвариант }
 //#UC START# *4DAF1A280116_53DA24F802A7_var*
 //#UC END# *4DAF1A280116_53DA24F802A7_var*
 begin
@@ -186,7 +181,7 @@ begin
 end;//TkwCompiledScriptCompileAndProcess.ResolveOutputFilePath
 
 procedure TkwCompiledScriptCompileAndProcess.CheckWithEtalon(const aFileName: AnsiString;
-  aHeaderBegin: AnsiChar);
+ aHeaderBegin: AnsiChar);
 //#UC START# *4DD533BF023D_53DA24F802A7_var*
 //#UC END# *4DD533BF023D_53DA24F802A7_var*
 begin
@@ -205,7 +200,7 @@ begin
 end;//TkwCompiledScriptCompileAndProcess.ResolveInputFilePath
 
 procedure TkwCompiledScriptCompileAndProcess.CheckPrintEtalon(const aLogName: AnsiString;
-  const aOutputName: AnsiString);
+ const aOutputName: AnsiString);
 //#UC START# *4F0D7AC900FA_53DA24F802A7_var*
 //#UC END# *4F0D7AC900FA_53DA24F802A7_var*
 begin
@@ -224,7 +219,7 @@ begin
 end;//TkwCompiledScriptCompileAndProcess.ShouldStop
 
 procedure TkwCompiledScriptCompileAndProcess.CheckTimeout(aNow: Cardinal;
-  aTimeout: Cardinal);
+ aTimeout: Cardinal);
 //#UC START# *4F0D8C360085_53DA24F802A7_var*
 //#UC END# *4F0D8C360085_53DA24F802A7_var*
 begin
@@ -243,8 +238,8 @@ begin
 end;//TkwCompiledScriptCompileAndProcess.StartTimer
 
 function TkwCompiledScriptCompileAndProcess.StopTimer(const aSt: AnsiString = '';
-  const aSubName: AnsiString = '';
-  aNeedTimeToLog: Boolean = true): Longword;
+ const aSubName: AnsiString = '';
+ aNeedTimeToLog: Boolean = True): Longword;
 //#UC START# *4F0D8CB0015D_53DA24F802A7_var*
 //#UC END# *4F0D8CB0015D_53DA24F802A7_var*
 begin
@@ -272,9 +267,9 @@ begin
 end;//TkwCompiledScriptCompileAndProcess.ToLog
 
 procedure TkwCompiledScriptCompileAndProcess.CheckOutputWithInput(const aSt: AnsiString;
-  aHeaderBegin: AnsiChar = #0;
-  const anExtraFileName: AnsiString = '';
-  aNeedsCheck: Boolean = true);
+ aHeaderBegin: AnsiChar = #0;
+ const anExtraFileName: AnsiString = '';
+ aNeedsCheck: Boolean = True);
 //#UC START# *4F5F3C61023E_53DA24F802A7_var*
 //#UC END# *4F5F3C61023E_53DA24F802A7_var*
 begin
@@ -322,8 +317,8 @@ begin
 end;//TkwCompiledScriptCompileAndProcess.DontRaiseIfEtalonCreated
 
 procedure TkwCompiledScriptCompileAndProcess.TimeToLog(aTime: Cardinal;
-  const aSt: AnsiString;
-  const aSubName: AnsiString);
+ const aSt: AnsiString;
+ const aSubName: AnsiString);
 //#UC START# *511BC7C60063_53DA24F802A7_var*
 //#UC END# *511BC7C60063_53DA24F802A7_var*
 begin
@@ -369,20 +364,14 @@ begin
 end;//TkwCompiledScriptCompileAndProcess.CheckPictureOnly
 
 procedure TkwCompiledScriptCompileAndProcess.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_NativeCaller := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TkwCompiledScriptCompileAndProcess.ClearFields
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledScriptCompileAndProcess
  TkwCompiledScriptCompileAndProcess.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledScriptCompileAndProcess }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

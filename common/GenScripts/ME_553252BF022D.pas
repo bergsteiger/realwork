@@ -104,12 +104,8 @@ begin
 end;//TkwPopFormFormStyle.GetResultTypeInfo
 
 function TkwPopFormFormStyle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3ADE91F9FA16_var*
-//#UC END# *559687E6025A_3ADE91F9FA16_var*
 begin
-//#UC START# *559687E6025A_3ADE91F9FA16_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3ADE91F9FA16_impl*
+ Result := 1;
 end;//TkwPopFormFormStyle.GetAllParamsCount
 
 function TkwPopFormFormStyle.ParamsTypes: PTypeInfoArray;

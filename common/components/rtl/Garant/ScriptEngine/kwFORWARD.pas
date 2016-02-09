@@ -1,64 +1,49 @@
 unit kwFORWARD;
+ {* Предварительное определение слова }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwFORWARD.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::Compilation::FORWARD
-//
-// Предварительное определение слова
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwFORWARD.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwNewWord,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwNewWord
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
- TkwFORWARD = {final scriptword} class(TtfwNewWord)
+ TkwFORWARD = {final} class(TtfwNewWord)
   {* Предварительное определение слова }
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    class function GetWordNameForRegister: AnsiString; override;
    function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
    function AcceptsKeyWordAfter(const aContext: TtfwContext;
-     aWordNumber: Integer): Boolean; override;
+    aWordNumber: Integer): Boolean; override;
    procedure FinishDefinitionOfNewWord(aWordToFinish: TtfwKeyWord;
-     aCompiled: TkwCompiledWordPrim;
-     const aContext: TtfwContext); override;
-     {* Завершает определение вновь созданного слова }
+    aCompiled: TkwCompiledWordPrim;
+    const aContext: TtfwContext); override;
+    {* Завершает определение вновь созданного слова }
  end;//TkwFORWARD
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwForwardDeclaration,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwFORWARD
+ l3ImplUses
+ , kwForwardDeclaration
+ , SysUtils
+;
 
 function TkwFORWARD.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4F4BB5B50178_var*
 //#UC END# *4DB6C99F026E_4F4BB5B50178_var*
 begin
@@ -68,7 +53,6 @@ begin
 end;//TkwFORWARD.EndBracket
 
 class function TkwFORWARD.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'FORWARD';
 end;//TkwFORWARD.GetWordNameForRegister
@@ -83,7 +67,7 @@ begin
 end;//TkwFORWARD.AfterWordMaxCount
 
 function TkwFORWARD.AcceptsKeyWordAfter(const aContext: TtfwContext;
-  aWordNumber: Integer): Boolean;
+ aWordNumber: Integer): Boolean;
 //#UC START# *4DB9B502013D_4F4BB5B50178_var*
 //#UC END# *4DB9B502013D_4F4BB5B50178_var*
 begin
@@ -93,8 +77,9 @@ begin
 end;//TkwFORWARD.AcceptsKeyWordAfter
 
 procedure TkwFORWARD.FinishDefinitionOfNewWord(aWordToFinish: TtfwKeyWord;
-  aCompiled: TkwCompiledWordPrim;
-  const aContext: TtfwContext);
+ aCompiled: TkwCompiledWordPrim;
+ const aContext: TtfwContext);
+ {* Завершает определение вновь созданного слова }
 //#UC START# *4F219629036A_4F4BB5B50178_var*
 var
  l_W : TkwForwardDeclaration;
@@ -114,12 +99,9 @@ begin
 //#UC END# *4F219629036A_4F4BB5B50178_impl*
 end;//TkwFORWARD.FinishDefinitionOfNewWord
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация FORWARD
  TkwFORWARD.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация FORWARD }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

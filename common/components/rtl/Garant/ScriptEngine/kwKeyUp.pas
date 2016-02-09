@@ -1,60 +1,45 @@
 unit kwKeyUp;
+ {* 'Alt' KeyDown // зажать клавишу
+1000 SLEEP
+'Alt' KeyUp // отпустить клавишу }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwKeyUp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::KeyBoardInput::KeyUp
-//
-// 'Alt' KeyDown // зажать клавишу
-// 1000 SLEEP
-// 'Alt' KeyUp // отпустить клавишу
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwKeyUp.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
- TkwKeyUp = {final scriptword} class(TtfwRegisterableWord)
+ TkwKeyUp = {final} class(TtfwRegisterableWord)
   {* 'Alt' KeyDown // зажать клавишу
 1000 SLEEP
 'Alt' KeyUp // отпустить клавишу }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwKeyUp
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Windows,
-  Menus,
-  Classes,
-  Messages,
-  SysUtils,
-  l3MessagesService
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
-
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-// start class TkwKeyUp
+ l3ImplUses
+ , Windows
+ , Menus
+ , Classes
+ , Messages
+ , SysUtils
+ , l3MessagesService
+;
 
 procedure TkwKeyUp.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5220A3FC021A_var*
@@ -109,17 +94,13 @@ begin
 end;//TkwKeyUp.DoDoIt
 
 class function TkwKeyUp.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'KeyUp';
 end;//TkwKeyUp.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация KeyUp
  TkwKeyUp.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация KeyUp }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

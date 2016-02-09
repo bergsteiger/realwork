@@ -1,48 +1,34 @@
 unit kwMouseGetCursorPosition;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMouseGetCursorPosition.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::MouseInput::mouse_GetCursorPosition
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorPosition.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwMouseGetCursorPosition = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwMouseGetCursorPosition = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMouseGetCursorPosition
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMouseGetCursorPosition
+ l3ImplUses
+ , Windows
+;
 
 procedure TkwMouseGetCursorPosition.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EF0937D000A_var*
@@ -58,17 +44,13 @@ begin
 end;//TkwMouseGetCursorPosition.DoDoIt
 
 class function TkwMouseGetCursorPosition.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'mouse:GetCursorPosition';
 end;//TkwMouseGetCursorPosition.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация mouse_GetCursorPosition
  TkwMouseGetCursorPosition.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация mouse_GetCursorPosition }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

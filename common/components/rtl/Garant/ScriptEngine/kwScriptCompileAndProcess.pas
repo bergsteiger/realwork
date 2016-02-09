@@ -1,52 +1,37 @@
 unit kwScriptCompileAndProcess;
+ {* Компилирует скрипт и обрабатывает его указанной лямбдой }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwScriptCompileAndProcess.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::ScriptsCompilingAndProcessing::script_CompileAndProcess
-//
-// Компилирует скрипт и обрабатывает его указанной лямбдой
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwScriptCompileAndProcess.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwWordWorker,
-  tfwScriptingInterfaces,
-  kwCompiledWordWorker
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwWordWorker
+ , kwCompiledWordWorker
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwScriptCompileAndProcess = {final scriptword} class(TtfwWordWorker)
+ TkwScriptCompileAndProcess = {final} class(TtfwWordWorker)
   {* Компилирует скрипт и обрабатывает его указанной лямбдой }
- protected
- // realized methods
+  protected
    function CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwScriptCompileAndProcess
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledScriptCompileAndProcess
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwScriptCompileAndProcess
+ l3ImplUses
+ , kwCompiledScriptCompileAndProcess
+;
 
 function TkwScriptCompileAndProcess.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;
 //#UC START# *4DCBD67C0362_53DA248C0014_var*
@@ -58,17 +43,13 @@ begin
 end;//TkwScriptCompileAndProcess.CompiledWorkerClass
 
 class function TkwScriptCompileAndProcess.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'script:CompileAndProcess';
 end;//TkwScriptCompileAndProcess.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация script_CompileAndProcess
  TkwScriptCompileAndProcess.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация script_CompileAndProcess }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

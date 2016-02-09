@@ -272,12 +272,8 @@ begin
 end;//TkwPopTreeNodeGetNext.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNext.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A78303612230_var*
-//#UC END# *559687E6025A_A78303612230_var*
 begin
-//#UC START# *559687E6025A_A78303612230_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A78303612230_impl*
+ Result := 1;
 end;//TkwPopTreeNodeGetNext.GetAllParamsCount
 
 function TkwPopTreeNodeGetNext.ParamsTypes: PTypeInfoArray;
@@ -324,12 +320,8 @@ begin
 end;//TkwPopTreeNodeHasChildren.GetResultTypeInfo
 
 function TkwPopTreeNodeHasChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5E7363490ED0_var*
-//#UC END# *559687E6025A_5E7363490ED0_var*
 begin
-//#UC START# *559687E6025A_5E7363490ED0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5E7363490ED0_impl*
+ Result := 1;
 end;//TkwPopTreeNodeHasChildren.GetAllParamsCount
 
 function TkwPopTreeNodeHasChildren.ParamsTypes: PTypeInfoArray;
@@ -376,12 +368,8 @@ begin
 end;//TkwPopTreeNodeGetPrev.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrev.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_55B024C23EBF_var*
-//#UC END# *559687E6025A_55B024C23EBF_var*
 begin
-//#UC START# *559687E6025A_55B024C23EBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_55B024C23EBF_impl*
+ Result := 1;
 end;//TkwPopTreeNodeGetPrev.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrev.ParamsTypes: PTypeInfoArray;
@@ -428,12 +416,8 @@ begin
 end;//TkwPopTreeNodeGetFirstChild.GetResultTypeInfo
 
 function TkwPopTreeNodeGetFirstChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5EA990C4D795_var*
-//#UC END# *559687E6025A_5EA990C4D795_var*
 begin
-//#UC START# *559687E6025A_5EA990C4D795_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5EA990C4D795_impl*
+ Result := 1;
 end;//TkwPopTreeNodeGetFirstChild.GetAllParamsCount
 
 function TkwPopTreeNodeGetFirstChild.ParamsTypes: PTypeInfoArray;
@@ -480,12 +464,8 @@ begin
 end;//TkwPopTreeNodeGetLastChild.GetResultTypeInfo
 
 function TkwPopTreeNodeGetLastChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C6C1AF6914F1_var*
-//#UC END# *559687E6025A_C6C1AF6914F1_var*
 begin
-//#UC START# *559687E6025A_C6C1AF6914F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C6C1AF6914F1_impl*
+ Result := 1;
 end;//TkwPopTreeNodeGetLastChild.GetAllParamsCount
 
 function TkwPopTreeNodeGetLastChild.ParamsTypes: PTypeInfoArray;
@@ -532,12 +512,8 @@ begin
 end;//TkwPopTreeNodeGetNextSibling.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNextSibling.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D75C1EAFB29F_var*
-//#UC END# *559687E6025A_D75C1EAFB29F_var*
 begin
-//#UC START# *559687E6025A_D75C1EAFB29F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D75C1EAFB29F_impl*
+ Result := 1;
 end;//TkwPopTreeNodeGetNextSibling.GetAllParamsCount
 
 function TkwPopTreeNodeGetNextSibling.ParamsTypes: PTypeInfoArray;
@@ -584,12 +560,8 @@ begin
 end;//TkwPopTreeNodeGetPrevSibling.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrevSibling.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_35C934477819_var*
-//#UC END# *559687E6025A_35C934477819_var*
 begin
-//#UC START# *559687E6025A_35C934477819_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_35C934477819_impl*
+ Result := 1;
 end;//TkwPopTreeNodeGetPrevSibling.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrevSibling.ParamsTypes: PTypeInfoArray;
@@ -636,12 +608,8 @@ begin
 end;//TkwPopTreeNodeGetNextVisible.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNextVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4D009DB53D61_var*
-//#UC END# *559687E6025A_4D009DB53D61_var*
 begin
-//#UC START# *559687E6025A_4D009DB53D61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4D009DB53D61_impl*
+ Result := 1;
 end;//TkwPopTreeNodeGetNextVisible.GetAllParamsCount
 
 function TkwPopTreeNodeGetNextVisible.ParamsTypes: PTypeInfoArray;
@@ -688,12 +656,8 @@ begin
 end;//TkwPopTreeNodeGetPrevVisible.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrevVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CA039569FA58_var*
-//#UC END# *559687E6025A_CA039569FA58_var*
 begin
-//#UC START# *559687E6025A_CA039569FA58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CA039569FA58_impl*
+ Result := 1;
 end;//TkwPopTreeNodeGetPrevVisible.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrevVisible.ParamsTypes: PTypeInfoArray;
@@ -741,12 +705,8 @@ begin
 end;//TkwPopTreeNodeExpand.GetResultTypeInfo
 
 function TkwPopTreeNodeExpand.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_53AEF2794BFD_var*
-//#UC END# *559687E6025A_53AEF2794BFD_var*
 begin
-//#UC START# *559687E6025A_53AEF2794BFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_53AEF2794BFD_impl*
+ Result := 1;
 end;//TkwPopTreeNodeExpand.GetAllParamsCount
 
 function TkwPopTreeNodeExpand.ParamsTypes: PTypeInfoArray;

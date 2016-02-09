@@ -1,38 +1,28 @@
 unit kwKey;
+ {* Нажатие на кнопку клавиатуры.
+Пример:
+[code]
+: "Нажать" STRING IN aString
+ aString key
+;
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwKey.pas"
-// Начат: 22.04.2011 19:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::KeyBoardInput::Key
-//
-// Нажатие на кнопку клавиатуры.
-// Пример:
-// {code}
-// : "Нажать" STRING IN aString
-// aString key
-// ;
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwKey.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
 type
- TkwKey = {scriptword} class(TtfwRegisterableWord)
+ TkwKey = class(TtfwRegisterableWord)
   {* Нажатие на кнопку клавиатуры.
 Пример:
 [code]
@@ -40,30 +30,23 @@ type
  aString key
 ;
 [code] }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwKey
-{$IfEnd} //not NoScripts AND not NoVCL
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
-  Windows,
-  Menus,
-  Classes,
-  Messages,
-  l3MessagesService
-  ;
-{$IfEnd} //not NoScripts AND not NoVCL
-
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-
-// start class TkwKey
+ l3ImplUses
+ , Windows
+ , Menus
+ , Classes
+ , Messages
+ , l3MessagesService
+;
 
 procedure TkwKey.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB1A01E01F4_var*
@@ -171,17 +154,13 @@ begin
 end;//TkwKey.DoDoIt
 
 class function TkwKey.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'key';
 end;//TkwKey.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCL
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCL)}
-// Регистрация Key
  TkwKey.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCL
+ {* Регистрация Key }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

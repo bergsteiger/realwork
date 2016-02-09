@@ -1,61 +1,41 @@
 unit kwMouseGetCursorIndex;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Костицын М.
-// Модуль: "kwMouseGetCursorIndex.pas"
-// Начат: 16.12.2011
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::MouseInput::mouse_GetCursorIndex
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseGetCursorIndex.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwMouseGetCursorIndex = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwMouseGetCursorIndex = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwMouseGetCursorIndex
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Messages,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMouseGetCursorIndex
+ l3ImplUses
+ , Messages
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwMouseGetCursorIndex.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4EEB67C500AE_var*
@@ -92,17 +72,13 @@ begin
 end;//TkwMouseGetCursorIndex.DoDoIt
 
 class function TkwMouseGetCursorIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'mouse:GetCursorIndex';
 end;//TkwMouseGetCursorIndex.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация mouse_GetCursorIndex
  TkwMouseGetCursorIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация mouse_GetCursorIndex }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

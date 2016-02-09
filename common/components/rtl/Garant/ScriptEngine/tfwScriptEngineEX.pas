@@ -1,63 +1,47 @@
 unit tfwScriptEngineEX;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "tfwScriptEngineEX.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::ScriptEngine::TtfwScriptEngineEX
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngineEX.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptEngine
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptEngine
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwScriptEngineEX = class(TtfwScriptEngine)
  end;//TtfwScriptEngineEX
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  CodeFlowWordsPack,
-  CompilationPack,
-  WordsDefinitionPack,
-  IncludesAndUsesPack,
-  EtalonsWorkingPack,
-  MouseInputPack
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  ModalDialogsKeywordsPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  KeyboardInputPack
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
-  ObjectFromstackWords,
-  CodeBranchingPack,
-  ScriptsCompilingAndProcessingPack
-  {$If not defined(NoScripts) AND not defined(NoWindows)}
-  ,
-  WinUtilsPack
-  {$IfEnd} //not NoScripts AND not NoWindows
-  
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , CodeFlowWordsPack
+ , CompilationPack
+ , WordsDefinitionPack
+ , IncludesAndUsesPack
+ , EtalonsWorkingPack
+ , MouseInputPack
+ {$If NOT Defined(NoVCL)}
+ , ModalDialogsKeywordsPack
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , KeyboardInputPack
+ {$IfEnd} // NOT Defined(NoVCL)
+ , ObjectFromstackWords
+ , CodeBranchingPack
+ , ScriptsCompilingAndProcessingPack
+ {$If NOT Defined(NoWindows)}
+ , WinUtilsPack
+ {$IfEnd} // NOT Defined(NoWindows)
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$If not defined(NoScripts)}
-
-
-{$IfEnd} //not NoScripts
 end.

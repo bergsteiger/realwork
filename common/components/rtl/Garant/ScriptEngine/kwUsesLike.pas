@@ -1,56 +1,40 @@
 unit kwUsesLike;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwUsesLike.pas"
-// Начат: 12.02.2012 19:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::IncludesAndUses::TkwUsesLike
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwUsesLike.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwIncludeLike,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwIncludeLike
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwUsesLike = {abstract} class(TtfwIncludeLike)
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    procedure UnknownWord(var aContext: TtfwContext;
-     aWordNumber: Integer); override;
+    aWordNumber: Integer); override;
  end;//TkwUsesLike
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwStandardProcedureCloseBracket,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwUsesLike
+ l3ImplUses
+ , kwStandardProcedureCloseBracket
+ , l3String
+;
 
 function TkwUsesLike.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4F37D458015C_var*
 //#UC END# *4DB6C99F026E_4F37D458015C_var*
 begin
@@ -60,7 +44,7 @@ begin
 end;//TkwUsesLike.EndBracket
 
 procedure TkwUsesLike.UnknownWord(var aContext: TtfwContext;
-  aWordNumber: Integer);
+ aWordNumber: Integer);
 //#UC START# *4DB6F2760023_4F37D458015C_var*
 //#UC END# *4DB6F2760023_4F37D458015C_var*
 begin
@@ -69,12 +53,9 @@ begin
 //#UC END# *4DB6F2760023_4F37D458015C_impl*
 end;//TkwUsesLike.UnknownWord
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwUsesLike
  TkwUsesLike.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwUsesLike }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

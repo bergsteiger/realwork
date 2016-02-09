@@ -151,12 +151,8 @@ begin
 end;//TkwPopScriptEngineAsKeywordFinder.GetResultTypeInfo
 
 function TkwPopScriptEngineAsKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_63D6AB9D9B8E_var*
-//#UC END# *559687E6025A_63D6AB9D9B8E_var*
 begin
-//#UC START# *559687E6025A_63D6AB9D9B8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_63D6AB9D9B8E_impl*
+ Result := 1;
 end;//TkwPopScriptEngineAsKeywordFinder.GetAllParamsCount
 
 function TkwPopScriptEngineAsKeywordFinder.ParamsTypes: PTypeInfoArray;
@@ -204,12 +200,8 @@ begin
 end;//TkwPopScriptEngineAddInitialization.GetResultTypeInfo
 
 function TkwPopScriptEngineAddInitialization.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F4290567147F_var*
-//#UC END# *559687E6025A_F4290567147F_var*
 begin
-//#UC START# *559687E6025A_F4290567147F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F4290567147F_impl*
+ Result := 1;
 end;//TkwPopScriptEngineAddInitialization.GetAllParamsCount
 
 function TkwPopScriptEngineAddInitialization.ParamsTypes: PTypeInfoArray;
@@ -256,12 +248,8 @@ begin
 end;//TkwPopScriptEngineCurrentCompilingDictionary.GetResultTypeInfo
 
 function TkwPopScriptEngineCurrentCompilingDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1C1FE481A9C3_var*
-//#UC END# *559687E6025A_1C1FE481A9C3_var*
 begin
-//#UC START# *559687E6025A_1C1FE481A9C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1C1FE481A9C3_impl*
+ Result := 1;
 end;//TkwPopScriptEngineCurrentCompilingDictionary.GetAllParamsCount
 
 function TkwPopScriptEngineCurrentCompilingDictionary.ParamsTypes: PTypeInfoArray;
@@ -309,12 +297,8 @@ begin
 end;//TkwPopScriptEngineDisableForHelp.GetResultTypeInfo
 
 function TkwPopScriptEngineDisableForHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B7DCC24F906E_var*
-//#UC END# *559687E6025A_B7DCC24F906E_var*
 begin
-//#UC START# *559687E6025A_B7DCC24F906E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B7DCC24F906E_impl*
+ Result := 1;
 end;//TkwPopScriptEngineDisableForHelp.GetAllParamsCount
 
 function TkwPopScriptEngineDisableForHelp.ParamsTypes: PTypeInfoArray;

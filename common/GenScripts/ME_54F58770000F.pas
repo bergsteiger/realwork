@@ -98,12 +98,8 @@ begin
 end;//TkwPopRadioGroupItemIndex.GetResultTypeInfo
 
 function TkwPopRadioGroupItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8E50130D7478_var*
-//#UC END# *559687E6025A_8E50130D7478_var*
 begin
-//#UC START# *559687E6025A_8E50130D7478_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8E50130D7478_impl*
+ Result := 1;
 end;//TkwPopRadioGroupItemIndex.GetAllParamsCount
 
 function TkwPopRadioGroupItemIndex.ParamsTypes: PTypeInfoArray;

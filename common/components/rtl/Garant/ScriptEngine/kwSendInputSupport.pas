@@ -1,47 +1,38 @@
 unit kwSendInputSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwSendInputSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::MouseInput::TkwSendInputSupport
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupport.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows,
-  tfwScriptingInterfaces,
-  tfwRegisterableWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , Windows
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _kwSendInputSupportUses_Parent_ = TtfwRegisterableWord;
- {$Include ..\ScriptEngine\kwSendInputSupportUses.imp.pas}
+ {$Include kwSendInputSupportUses.imp.pas}
  TkwSendInputSupport = {abstract} class(_kwSendInputSupportUses_)
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // protected methods
+  protected
    function GetInputStruct(const aCtx: TtfwContext): TInput; virtual; abstract;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwSendInputSupport
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
-{$Include ..\ScriptEngine\kwSendInputSupportUses.imp.pas}
-
-// start class TkwSendInputSupport
+{$Include kwSendInputSupportUses.imp.pas}
 
 procedure TkwSendInputSupport.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F71A8080094_var*
@@ -55,12 +46,9 @@ begin
 //#UC END# *4DAEEDE10285_4F71A8080094_impl*
 end;//TkwSendInputSupport.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwSendInputSupport
  TkwSendInputSupport.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwSendInputSupport }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,44 +1,27 @@
 unit IncludesAndUsesPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "IncludesAndUsesPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine::IncludesAndUses::IncludesAndUsesPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\IncludesAndUsesPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwIncludeLike,
-  kwUsesLike,
-  kwInclude,
-  kwUses,
-  kwINCLUDES,
-  kwIncludesInChildren
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwIncluded,
-  l3String,
-  kwInnerIncluded,
-  kwInnerIncludedInChildren,
-  kwCompiledProcedure,
-  kwCompiledWord,
-  kwCompiledWordPrim,
-  SysUtils,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , kwInclude
+ , kwUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
 end.

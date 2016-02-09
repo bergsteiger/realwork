@@ -1,49 +1,35 @@
 unit kwMouseUpDownSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMouseUpDownSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::MouseInput::TkwMouseUpDownSupport
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseUpDownSupport.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSendInputSupport,
-  Windows,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSendInputSupport
+ , Windows
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwMouseUpDownSupport = {abstract} class(TkwSendInputSupport)
- protected
- // realized methods
-   function GetInputStruct(const aCtx: TtfwContext): TInput; override;
- protected
- // protected methods
+  protected
    function GetMouseEventFlag: Integer; virtual; abstract;
+   function GetInputStruct(const aCtx: TtfwContext): TInput; override;
  end;//TkwMouseUpDownSupport
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwMouseUpDownSupport
+ l3ImplUses
+ , l3Base
+;
 
 function TkwMouseUpDownSupport.GetInputStruct(const aCtx: TtfwContext): TInput;
 //#UC START# *4F71A8960347_4F967BAD0127_var*
@@ -62,12 +48,9 @@ begin
 //#UC END# *4F71A8960347_4F967BAD0127_impl*
 end;//TkwMouseUpDownSupport.GetInputStruct
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwMouseUpDownSupport
  TkwMouseUpDownSupport.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwMouseUpDownSupport }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.
