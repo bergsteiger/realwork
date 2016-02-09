@@ -42,6 +42,13 @@ uses
  l3ImplUses
  , SysUtils
  , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 {$If NOT Defined(NoVCM)}

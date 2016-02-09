@@ -72,6 +72,13 @@ uses
  {$IfEnd} // NOT Defined(NotTunedDUnit)
  , l3ImageUtils
  , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 function TFormulaRender.GetZoom: Integer;

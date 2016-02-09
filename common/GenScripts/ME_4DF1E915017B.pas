@@ -44,6 +44,13 @@ uses
  , SysUtils
  , TestFrameWork
  , PrintRowHeightsSpy
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 {$Include PrintRowCompare.imp.pas}

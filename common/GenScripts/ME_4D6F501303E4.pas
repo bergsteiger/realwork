@@ -76,6 +76,13 @@ uses
  {$If Defined(k2ForEditor)}
  , evCursorTools
  {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 {$Include SelectTablePart.imp.pas}

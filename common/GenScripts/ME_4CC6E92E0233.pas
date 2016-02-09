@@ -44,6 +44,14 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , nevTools
  , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 {$If NOT Defined(NoVCM)}

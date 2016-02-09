@@ -46,6 +46,13 @@ uses
  , SysUtils
  , k2Tags
  , TestFrameWork
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 procedure TTextMetricsPrimTest.DoSave(aForm: TPrimTextLoadForm;
