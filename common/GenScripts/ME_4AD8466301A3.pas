@@ -20,8 +20,6 @@ type
    class function Make: InsContextSearchHistory; reintroduce;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TnsDocumentContextHistory;
-    {* Метод получения экземпляра синглетона TnsDocumentContextHistory }
  end;//TnsDocumentContextHistory
 {$IfEnd} // NOT Defined(Admin)
 
@@ -34,25 +32,23 @@ uses
  , l3Base
 ;
 
-var g_TnsDocumentContextHistory: TnsDocumentContextHistory = nil;
+var g_TnsDocumentContextHistory: Pointer = nil;
  {* Экземпляр синглетона TnsDocumentContextHistory }
 
 procedure TnsDocumentContextHistoryFree;
  {* Метод освобождения экземпляра синглетона TnsDocumentContextHistory }
 begin
- l3Free(g_TnsDocumentContextHistory);
+ IUnknown(g_TnsDocumentContextHistory) := nil;
 end;//TnsDocumentContextHistoryFree
 
 class function TnsDocumentContextHistory.Make: InsContextSearchHistory;
-var
- l_Inst : TnsDocumentContextHistory;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TnsDocumentContextHistory = nil) then
+ begin
+  l3System.AddExitProc(TnsDocumentContextHistoryFree);
+  InsContextSearchHistory(g_TnsDocumentContextHistory) := inherited Make;
+ end;
+ Result := InsContextSearchHistory(g_TnsDocumentContextHistory);
 end;//TnsDocumentContextHistory.Make
 
 class function TnsDocumentContextHistory.Exists: Boolean;
@@ -60,17 +56,6 @@ class function TnsDocumentContextHistory.Exists: Boolean;
 begin
  Result := g_TnsDocumentContextHistory <> nil;
 end;//TnsDocumentContextHistory.Exists
-
-class function TnsDocumentContextHistory.Instance: TnsDocumentContextHistory;
- {* Метод получения экземпляра синглетона TnsDocumentContextHistory }
-begin
- if (g_TnsDocumentContextHistory = nil) then
- begin
-  l3System.AddExitProc(TnsDocumentContextHistoryFree);
-  g_TnsDocumentContextHistory := Create;
- end;
- Result := g_TnsDocumentContextHistory;
-end;//TnsDocumentContextHistory.Instance
 {$IfEnd} // NOT Defined(Admin)
 
 end.

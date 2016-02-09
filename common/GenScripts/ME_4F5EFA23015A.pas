@@ -985,7 +985,7 @@ end;//TkwHasTabs.GetResultTypeInfo
 
 function TkwHasTabs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwHasTabs.GetAllParamsCount
 
 function TkwHasTabs.ParamsTypes: PTypeInfoArray;
@@ -1032,7 +1032,7 @@ end;//TkwIsUnder64.GetResultTypeInfo
 
 function TkwIsUnder64.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwIsUnder64.GetAllParamsCount
 
 function TkwIsUnder64.ParamsTypes: PTypeInfoArray;
@@ -1087,7 +1087,7 @@ end;//TkwComputerName.GetResultTypeInfo
 
 function TkwComputerName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwComputerName.GetAllParamsCount
 
 function TkwComputerName.ParamsTypes: PTypeInfoArray;
@@ -1134,7 +1134,7 @@ end;//TkwOSName.GetResultTypeInfo
 
 function TkwOSName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwOSName.GetAllParamsCount
 
 function TkwOSName.ParamsTypes: PTypeInfoArray;
@@ -1219,7 +1219,7 @@ end;//TkwRandomize.GetResultTypeInfo
 
 function TkwRandomize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwRandomize.GetAllParamsCount
 
 procedure TkwSetRandSeed.SetRandSeed(const aCtx: TtfwContext;
@@ -1311,7 +1311,7 @@ end;//TkwRGB2String.GetResultTypeInfo
 
 function TkwRGB2String.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 3;
 end;//TkwRGB2String.GetAllParamsCount
 
 function TkwRGB2String.ParamsTypes: PTypeInfoArray;
@@ -1410,7 +1410,7 @@ end;//TkwIsXE.GetResultTypeInfo
 
 function TkwIsXE.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwIsXE.GetAllParamsCount
 
 function TkwIsXE.ParamsTypes: PTypeInfoArray;
@@ -1510,7 +1510,7 @@ end;//TkwScriptFileName.GetResultTypeInfo
 
 function TkwScriptFileName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwScriptFileName.GetAllParamsCount
 
 function TkwScriptFileName.ParamsTypes: PTypeInfoArray;
@@ -1559,7 +1559,7 @@ end;//TkwSysutilsChangeFileExt.GetResultTypeInfo
 
 function TkwSysutilsChangeFileExt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwSysutilsChangeFileExt.GetAllParamsCount
 
 function TkwSysutilsChangeFileExt.ParamsTypes: PTypeInfoArray;
@@ -1884,7 +1884,7 @@ end;//TkwSetAppPath2CurrentDir.GetResultTypeInfo
 
 function TkwSetAppPath2CurrentDir.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwSetAppPath2CurrentDir.GetAllParamsCount
 
 function TkwApplicationExeName.application_ExeName(const aCtx: TtfwContext): AnsiString;
@@ -1922,7 +1922,7 @@ end;//TkwApplicationExeName.GetResultTypeInfo
 
 function TkwApplicationExeName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwApplicationExeName.GetAllParamsCount
 
 function TkwApplicationExeName.ParamsTypes: PTypeInfoArray;
@@ -1969,7 +1969,7 @@ end;//TkwGetTickCount.GetResultTypeInfo
 
 function TkwGetTickCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwGetTickCount.GetAllParamsCount
 
 function TkwGetTickCount.ParamsTypes: PTypeInfoArray;
@@ -2016,7 +2016,7 @@ end;//TkwApplicationActionIdle.GetResultTypeInfo
 
 function TkwApplicationActionIdle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwApplicationActionIdle.GetAllParamsCount
 
 procedure TkwClipboardClear.DoDoIt(const aCtx: TtfwContext);
@@ -2044,7 +2044,7 @@ end;//TkwClipboardClear.GetResultTypeInfo
 
 function TkwClipboardClear.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwClipboardClear.GetAllParamsCount
 
 procedure TkwSetLocalDate.SetLocalDate(const aCtx: TtfwContext;
@@ -2093,7 +2093,7 @@ end;//TkwSetLocalDate.GetResultTypeInfo
 
 function TkwSetLocalDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 3;
 end;//TkwSetLocalDate.GetAllParamsCount
 
 function TkwSetLocalDate.ParamsTypes: PTypeInfoArray;
@@ -2153,7 +2153,7 @@ end;//TkwSetLocalTime.GetResultTypeInfo
 
 function TkwSetLocalTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 4;
 end;//TkwSetLocalTime.GetAllParamsCount
 
 function TkwSetLocalTime.ParamsTypes: PTypeInfoArray;
@@ -2219,7 +2219,7 @@ end;//TkwSetLocalDateTime.GetResultTypeInfo
 
 function TkwSetLocalDateTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 7;
 end;//TkwSetLocalDateTime.GetAllParamsCount
 
 function TkwSetLocalDateTime.ParamsTypes: PTypeInfoArray;
@@ -2261,7 +2261,7 @@ end;//TkwGetLocalDate.GetResultTypeInfo
 
 function TkwGetLocalDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwGetLocalDate.GetAllParamsCount
 
 procedure TkwGetLocalDateTime.DoDoIt(const aCtx: TtfwContext);
@@ -2298,7 +2298,7 @@ end;//TkwGetLocalDateTime.GetResultTypeInfo
 
 function TkwGetLocalDateTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwGetLocalDateTime.GetAllParamsCount
 
 procedure TkwGetLocalTime.DoDoIt(const aCtx: TtfwContext);
@@ -2332,7 +2332,7 @@ end;//TkwGetLocalTime.GetResultTypeInfo
 
 function TkwGetLocalTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwGetLocalTime.GetAllParamsCount
 
 procedure TkwStartTimer.DoDoIt(const aCtx: TtfwContext);
@@ -2360,7 +2360,7 @@ end;//TkwStartTimer.GetResultTypeInfo
 
 function TkwStartTimer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStartTimer.GetAllParamsCount
 
 function TkwStopTimer.StopTimer(const aCtx: TtfwContext;
@@ -2448,7 +2448,7 @@ end;//TkwStopTimerEx.GetResultTypeInfo
 
 function TkwStopTimerEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwStopTimerEx.GetAllParamsCount
 
 function TkwStopTimerEx.ParamsTypes: PTypeInfoArray;
@@ -2519,7 +2519,7 @@ end;//TkwTimeToLog.GetResultTypeInfo
 
 function TkwTimeToLog.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 3;
 end;//TkwTimeToLog.GetAllParamsCount
 
 function TkwTimeToLog.ParamsTypes: PTypeInfoArray;
@@ -2580,7 +2580,7 @@ end;//TkwShiftDate.GetResultTypeInfo
 
 function TkwShiftDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 3;
 end;//TkwShiftDate.GetAllParamsCount
 
 function TkwShiftDate.ParamsTypes: PTypeInfoArray;
@@ -2821,7 +2821,7 @@ end;//TkwScriptExceptionStack.GetResultTypeInfo
 
 function TkwScriptExceptionStack.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwScriptExceptionStack.GetAllParamsCount
 
 function TkwScriptExceptionStack.ParamsTypes: PTypeInfoArray;
@@ -2868,7 +2868,7 @@ end;//TkwSysutilsParamCount.GetResultTypeInfo
 
 function TkwSysutilsParamCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwSysutilsParamCount.GetAllParamsCount
 
 function TkwSysutilsParamCount.ParamsTypes: PTypeInfoArray;
@@ -2963,7 +2963,7 @@ end;//TkwSysutilsGetCurrentDir.GetResultTypeInfo
 
 function TkwSysutilsGetCurrentDir.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwSysutilsGetCurrentDir.GetAllParamsCount
 
 function TkwSysutilsGetCurrentDir.ParamsTypes: PTypeInfoArray;

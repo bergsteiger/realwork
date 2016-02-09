@@ -191,7 +191,7 @@ end;//TkwPopParserNextToken.GetResultTypeInfo
 
 function TkwPopParserNextToken.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopParserNextToken.GetAllParamsCount
 
 function TkwPopParserNextToken.ParamsTypes: PTypeInfoArray;
@@ -239,7 +239,7 @@ end;//TkwPopParserTokenLongString.GetResultTypeInfo
 
 function TkwPopParserTokenLongString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopParserTokenLongString.GetAllParamsCount
 
 function TkwPopParserTokenLongString.ParamsTypes: PTypeInfoArray;
@@ -287,7 +287,7 @@ end;//TkwPopParserTokenInt.GetResultTypeInfo
 
 function TkwPopParserTokenInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopParserTokenInt.GetAllParamsCount
 
 function TkwPopParserTokenInt.ParamsTypes: PTypeInfoArray;
@@ -335,7 +335,7 @@ end;//TkwPopParserFileName.GetResultTypeInfo
 
 function TkwPopParserFileName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopParserFileName.GetAllParamsCount
 
 function TkwPopParserFileName.ParamsTypes: PTypeInfoArray;
@@ -383,7 +383,7 @@ end;//TkwPopParserTokenType.GetResultTypeInfo
 
 function TkwPopParserTokenType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopParserTokenType.GetAllParamsCount
 
 function TkwPopParserTokenType.ParamsTypes: PTypeInfoArray;
@@ -431,7 +431,7 @@ end;//TkwPopParserSourceLine.GetResultTypeInfo
 
 function TkwPopParserSourceLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopParserSourceLine.GetAllParamsCount
 
 function TkwPopParserSourceLine.ParamsTypes: PTypeInfoArray;

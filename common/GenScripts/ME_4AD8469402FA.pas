@@ -20,8 +20,6 @@ type
    class function Make: InsContextSearchHistory; reintroduce;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TnsInpharmContextHistory;
-    {* Метод получения экземпляра синглетона TnsInpharmContextHistory }
  end;//TnsInpharmContextHistory
 {$IfEnd} // NOT Defined(Admin)
 
@@ -34,25 +32,23 @@ uses
  , l3Base
 ;
 
-var g_TnsInpharmContextHistory: TnsInpharmContextHistory = nil;
+var g_TnsInpharmContextHistory: Pointer = nil;
  {* Экземпляр синглетона TnsInpharmContextHistory }
 
 procedure TnsInpharmContextHistoryFree;
  {* Метод освобождения экземпляра синглетона TnsInpharmContextHistory }
 begin
- l3Free(g_TnsInpharmContextHistory);
+ IUnknown(g_TnsInpharmContextHistory) := nil;
 end;//TnsInpharmContextHistoryFree
 
 class function TnsInpharmContextHistory.Make: InsContextSearchHistory;
-var
- l_Inst : TnsInpharmContextHistory;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TnsInpharmContextHistory = nil) then
+ begin
+  l3System.AddExitProc(TnsInpharmContextHistoryFree);
+  InsContextSearchHistory(g_TnsInpharmContextHistory) := inherited Make;
+ end;
+ Result := InsContextSearchHistory(g_TnsInpharmContextHistory);
 end;//TnsInpharmContextHistory.Make
 
 class function TnsInpharmContextHistory.Exists: Boolean;
@@ -60,17 +56,6 @@ class function TnsInpharmContextHistory.Exists: Boolean;
 begin
  Result := g_TnsInpharmContextHistory <> nil;
 end;//TnsInpharmContextHistory.Exists
-
-class function TnsInpharmContextHistory.Instance: TnsInpharmContextHistory;
- {* Метод получения экземпляра синглетона TnsInpharmContextHistory }
-begin
- if (g_TnsInpharmContextHistory = nil) then
- begin
-  l3System.AddExitProc(TnsInpharmContextHistoryFree);
-  g_TnsInpharmContextHistory := Create;
- end;
- Result := g_TnsInpharmContextHistory;
-end;//TnsInpharmContextHistory.Instance
 {$IfEnd} // NOT Defined(Admin)
 
 end.

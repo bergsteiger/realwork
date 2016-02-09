@@ -170,7 +170,7 @@ end;//TkwPopKeywordFinderParentFinder.GetResultTypeInfo
 
 function TkwPopKeywordFinderParentFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopKeywordFinderParentFinder.GetAllParamsCount
 
 function TkwPopKeywordFinderParentFinder.ParamsTypes: PTypeInfoArray;

@@ -83,7 +83,7 @@ end;//TkwPopContainedActionExecute.GetResultTypeInfo
 
 function TkwPopContainedActionExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopContainedActionExecute.GetAllParamsCount
 
 function TkwPopContainedActionExecute.ParamsTypes: PTypeInfoArray;

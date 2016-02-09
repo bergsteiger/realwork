@@ -77,8 +77,6 @@ type
     {* Фабричный метод для TShowVersionCommentsMapImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TShowVersionCommentsMapImpl;
-    {* Метод получения экземпляра синглетона TShowVersionCommentsMapImpl }
  end;//TShowVersionCommentsMapImpl
 
  VersionCommentsLinkBegaviourMapHelper = {final} class
@@ -112,8 +110,6 @@ type
     {* Фабричный метод для TVersionCommentsLinkBegaviourMapImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TVersionCommentsLinkBegaviourMapImpl;
-    {* Метод получения экземпляра синглетона TVersionCommentsLinkBegaviourMapImpl }
  end;//TVersionCommentsLinkBegaviourMapImpl
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -128,21 +124,21 @@ uses
  , l3Base
 ;
 
-var g_TShowVersionCommentsMapImpl: TShowVersionCommentsMapImpl = nil;
+var g_TShowVersionCommentsMapImpl: Pointer = nil;
  {* Экземпляр синглетона TShowVersionCommentsMapImpl }
-var g_TVersionCommentsLinkBegaviourMapImpl: TVersionCommentsLinkBegaviourMapImpl = nil;
+var g_TVersionCommentsLinkBegaviourMapImpl: Pointer = nil;
  {* Экземпляр синглетона TVersionCommentsLinkBegaviourMapImpl }
 
 procedure TShowVersionCommentsMapImplFree;
  {* Метод освобождения экземпляра синглетона TShowVersionCommentsMapImpl }
 begin
- l3Free(g_TShowVersionCommentsMapImpl);
+ IUnknown(g_TShowVersionCommentsMapImpl) := nil;
 end;//TShowVersionCommentsMapImplFree
 
 procedure TVersionCommentsLinkBegaviourMapImplFree;
  {* Метод освобождения экземпляра синглетона TVersionCommentsLinkBegaviourMapImpl }
 begin
- l3Free(g_TVersionCommentsLinkBegaviourMapImpl);
+ IUnknown(g_TVersionCommentsLinkBegaviourMapImpl) := nil;
 end;//TVersionCommentsLinkBegaviourMapImplFree
 
 class procedure ShowVersionCommentsMapHelper.FillStrings(const aStrings: IafwStrings);
@@ -227,15 +223,13 @@ end;//TShowVersionCommentsMapImplPrim.ValueToDisplayName
 
 class function TShowVersionCommentsMapImpl.Make: Il3IntegerValueMap;
  {* Фабричный метод для TShowVersionCommentsMapImpl }
-var
- l_Inst : TShowVersionCommentsMapImpl;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TShowVersionCommentsMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TShowVersionCommentsMapImplFree);
+  Il3IntegerValueMap(g_TShowVersionCommentsMapImpl) := inherited Make;
+ end;
+ Result := Il3IntegerValueMap(g_TShowVersionCommentsMapImpl);
 end;//TShowVersionCommentsMapImpl.Make
 
 class function TShowVersionCommentsMapImpl.Exists: Boolean;
@@ -243,17 +237,6 @@ class function TShowVersionCommentsMapImpl.Exists: Boolean;
 begin
  Result := g_TShowVersionCommentsMapImpl <> nil;
 end;//TShowVersionCommentsMapImpl.Exists
-
-class function TShowVersionCommentsMapImpl.Instance: TShowVersionCommentsMapImpl;
- {* Метод получения экземпляра синглетона TShowVersionCommentsMapImpl }
-begin
- if (g_TShowVersionCommentsMapImpl = nil) then
- begin
-  l3System.AddExitProc(TShowVersionCommentsMapImplFree);
-  g_TShowVersionCommentsMapImpl := Create;
- end;
- Result := g_TShowVersionCommentsMapImpl;
-end;//TShowVersionCommentsMapImpl.Instance
 
 class procedure VersionCommentsLinkBegaviourMapHelper.FillStrings(const aStrings: IafwStrings);
  {* Заполнение списка строк значениями }
@@ -337,15 +320,13 @@ end;//TVersionCommentsLinkBegaviourMapImplPrim.ValueToDisplayName
 
 class function TVersionCommentsLinkBegaviourMapImpl.Make: Il3IntegerValueMap;
  {* Фабричный метод для TVersionCommentsLinkBegaviourMapImpl }
-var
- l_Inst : TVersionCommentsLinkBegaviourMapImpl;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TVersionCommentsLinkBegaviourMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TVersionCommentsLinkBegaviourMapImplFree);
+  Il3IntegerValueMap(g_TVersionCommentsLinkBegaviourMapImpl) := inherited Make;
+ end;
+ Result := Il3IntegerValueMap(g_TVersionCommentsLinkBegaviourMapImpl);
 end;//TVersionCommentsLinkBegaviourMapImpl.Make
 
 class function TVersionCommentsLinkBegaviourMapImpl.Exists: Boolean;
@@ -353,17 +334,6 @@ class function TVersionCommentsLinkBegaviourMapImpl.Exists: Boolean;
 begin
  Result := g_TVersionCommentsLinkBegaviourMapImpl <> nil;
 end;//TVersionCommentsLinkBegaviourMapImpl.Exists
-
-class function TVersionCommentsLinkBegaviourMapImpl.Instance: TVersionCommentsLinkBegaviourMapImpl;
- {* Метод получения экземпляра синглетона TVersionCommentsLinkBegaviourMapImpl }
-begin
- if (g_TVersionCommentsLinkBegaviourMapImpl = nil) then
- begin
-  l3System.AddExitProc(TVersionCommentsLinkBegaviourMapImplFree);
-  g_TVersionCommentsLinkBegaviourMapImpl := Create;
- end;
- Result := g_TVersionCommentsLinkBegaviourMapImpl;
-end;//TVersionCommentsLinkBegaviourMapImpl.Instance
 
 initialization
  str_svcCollapsed.Init;

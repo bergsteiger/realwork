@@ -111,7 +111,7 @@ end;//TkwEtalonNeeds64.GetResultTypeInfo
 
 function TkwEtalonNeeds64.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEtalonNeeds64.GetAllParamsCount
 
 procedure TkwEtalonNeedsComputerName.DoDoIt(const aCtx: TtfwContext);
@@ -139,7 +139,7 @@ end;//TkwEtalonNeedsComputerName.GetResultTypeInfo
 
 function TkwEtalonNeedsComputerName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEtalonNeedsComputerName.GetAllParamsCount
 
 procedure TkwEtalonNeedsOSName.DoDoIt(const aCtx: TtfwContext);
@@ -167,7 +167,7 @@ end;//TkwEtalonNeedsOSName.GetResultTypeInfo
 
 function TkwEtalonNeedsOSName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEtalonNeedsOSName.GetAllParamsCount
 
 procedure TkwEtalonNeedsXE.DoDoIt(const aCtx: TtfwContext);
@@ -197,7 +197,7 @@ end;//TkwEtalonNeedsXE.GetResultTypeInfo
 
 function TkwEtalonNeedsXE.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEtalonNeedsXE.GetAllParamsCount
 
 initialization

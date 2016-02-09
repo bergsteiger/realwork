@@ -468,7 +468,7 @@ end;//TkwPopWordInfoEmpty.GetResultTypeInfo
 
 function TkwPopWordInfoEmpty.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopWordInfoEmpty.GetAllParamsCount
 
 function TkwPopWordInfoEmpty.ParamsTypes: PTypeInfoArray;
@@ -810,7 +810,7 @@ end;//TkwPopWordInfoValueTypes.GetResultTypeInfo
 
 function TkwPopWordInfoValueTypes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopWordInfoValueTypes.GetAllParamsCount
 
 function TkwPopWordInfoValueTypes.ParamsTypes: PTypeInfoArray;
@@ -1005,7 +1005,7 @@ end;//TkwPopWordInfoToString.GetResultTypeInfo
 
 function TkwPopWordInfoToString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopWordInfoToString.GetAllParamsCount
 
 function TkwPopWordInfoToString.ParamsTypes: PTypeInfoArray;
@@ -1063,7 +1063,7 @@ end;//TkwPopWordInfoTypeName.GetResultTypeInfo
 
 function TkwPopWordInfoTypeName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopWordInfoTypeName.GetAllParamsCount
 
 function TkwPopWordInfoTypeName.ParamsTypes: PTypeInfoArray;
@@ -1121,7 +1121,7 @@ end;//TkwPopWordInfoLinkType.GetResultTypeInfo
 
 function TkwPopWordInfoLinkType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopWordInfoLinkType.GetAllParamsCount
 
 function TkwPopWordInfoLinkType.ParamsTypes: PTypeInfoArray;
@@ -1179,7 +1179,7 @@ end;//TkwPopWordInfoAccessType.GetResultTypeInfo
 
 function TkwPopWordInfoAccessType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopWordInfoAccessType.GetAllParamsCount
 
 function TkwPopWordInfoAccessType.ParamsTypes: PTypeInfoArray;

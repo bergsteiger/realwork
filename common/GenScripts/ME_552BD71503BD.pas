@@ -93,7 +93,7 @@ end;//TkwEnabledSaveRTFPictures.GetResultTypeInfo
 
 function TkwEnabledSaveRTFPictures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEnabledSaveRTFPictures.GetAllParamsCount
 
 procedure TkwGeneratePDFForEtalon.GeneratePDFForEtalon(const aCtx: TtfwContext;

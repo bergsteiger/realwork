@@ -424,7 +424,7 @@ end;//TkwPopObjectClassName.GetResultTypeInfo
 
 function TkwPopObjectClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopObjectClassName.GetAllParamsCount
 
 function TkwPopObjectClassName.ParamsTypes: PTypeInfoArray;
@@ -766,7 +766,7 @@ end;//TkwPopObjectRTTIInfo.GetResultTypeInfo
 
 function TkwPopObjectRTTIInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopObjectRTTIInfo.GetAllParamsCount
 
 function TkwPopObjectRTTIInfo.ParamsTypes: PTypeInfoArray;
@@ -816,7 +816,7 @@ end;//TkwPopObjectSetFloatProp.GetResultTypeInfo
 
 function TkwPopObjectSetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwPopObjectSetFloatProp.GetAllParamsCount
 
 function TkwPopObjectSetFloatProp.ParamsTypes: PTypeInfoArray;
@@ -866,7 +866,7 @@ end;//TkwPopObjectSetOrdProp.GetResultTypeInfo
 
 function TkwPopObjectSetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwPopObjectSetOrdProp.GetAllParamsCount
 
 function TkwPopObjectSetOrdProp.ParamsTypes: PTypeInfoArray;
@@ -916,7 +916,7 @@ end;//TkwPopObjectSetStrProp.GetResultTypeInfo
 
 function TkwPopObjectSetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwPopObjectSetStrProp.GetAllParamsCount
 
 function TkwPopObjectSetStrProp.ParamsTypes: PTypeInfoArray;

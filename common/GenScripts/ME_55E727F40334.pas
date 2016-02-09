@@ -154,7 +154,7 @@ end;//TkwPopDictionaryWordsIterator.GetResultTypeInfo
 
 function TkwPopDictionaryWordsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopDictionaryWordsIterator.GetAllParamsCount
 
 function TkwPopDictionaryWordsIterator.ParamsTypes: PTypeInfoArray;
@@ -251,7 +251,7 @@ end;//TkwPopDictionaryKeyWordsIterator.GetResultTypeInfo
 
 function TkwPopDictionaryKeyWordsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopDictionaryKeyWordsIterator.GetAllParamsCount
 
 function TkwPopDictionaryKeyWordsIterator.ParamsTypes: PTypeInfoArray;

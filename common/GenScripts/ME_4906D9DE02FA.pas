@@ -23,8 +23,6 @@ type
     {* Создаёт дерево подсказок }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TnsBaseSearchPromptTree;
-    {* Метод получения экземпляра синглетона TnsBaseSearchPromptTree }
  end;//TnsBaseSearchPromptTree
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -37,26 +35,24 @@ uses
  , l3Base
 ;
 
-var g_TnsBaseSearchPromptTree: TnsBaseSearchPromptTree = nil;
+var g_TnsBaseSearchPromptTree: Pointer = nil;
  {* Экземпляр синглетона TnsBaseSearchPromptTree }
 
 procedure TnsBaseSearchPromptTreeFree;
  {* Метод освобождения экземпляра синглетона TnsBaseSearchPromptTree }
 begin
- l3Free(g_TnsBaseSearchPromptTree);
+ IUnknown(g_TnsBaseSearchPromptTree) := nil;
 end;//TnsBaseSearchPromptTreeFree
 
 class function TnsBaseSearchPromptTree.Make: Il3SimpleTree;
  {* Создаёт дерево подсказок }
-var
- l_Inst : TnsBaseSearchPromptTree;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TnsBaseSearchPromptTree = nil) then
+ begin
+  l3System.AddExitProc(TnsBaseSearchPromptTreeFree);
+  Il3SimpleTree(g_TnsBaseSearchPromptTree) := inherited Make;
+ end;
+ Result := Il3SimpleTree(g_TnsBaseSearchPromptTree);
 end;//TnsBaseSearchPromptTree.Make
 
 class function TnsBaseSearchPromptTree.Exists: Boolean;
@@ -64,17 +60,6 @@ class function TnsBaseSearchPromptTree.Exists: Boolean;
 begin
  Result := g_TnsBaseSearchPromptTree <> nil;
 end;//TnsBaseSearchPromptTree.Exists
-
-class function TnsBaseSearchPromptTree.Instance: TnsBaseSearchPromptTree;
- {* Метод получения экземпляра синглетона TnsBaseSearchPromptTree }
-begin
- if (g_TnsBaseSearchPromptTree = nil) then
- begin
-  l3System.AddExitProc(TnsBaseSearchPromptTreeFree);
-  g_TnsBaseSearchPromptTree := Create;
- end;
- Result := g_TnsBaseSearchPromptTree;
-end;//TnsBaseSearchPromptTree.Instance
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

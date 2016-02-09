@@ -221,7 +221,7 @@ end;//TkwPopCompilerGetWordCompilingNow.GetResultTypeInfo
 
 function TkwPopCompilerGetWordCompilingNow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopCompilerGetWordCompilingNow.GetAllParamsCount
 
 function TkwPopCompilerGetWordCompilingNow.ParamsTypes: PTypeInfoArray;
@@ -328,7 +328,7 @@ end;//TkwPopCompilerKeywordFinder.GetResultTypeInfo
 
 function TkwPopCompilerKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopCompilerKeywordFinder.GetAllParamsCount
 
 function TkwPopCompilerKeywordFinder.ParamsTypes: PTypeInfoArray;
@@ -386,7 +386,7 @@ end;//TkwPopCompilerNewWordDefinitor.GetResultTypeInfo
 
 function TkwPopCompilerNewWordDefinitor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopCompilerNewWordDefinitor.GetAllParamsCount
 
 function TkwPopCompilerNewWordDefinitor.ParamsTypes: PTypeInfoArray;

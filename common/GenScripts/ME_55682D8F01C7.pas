@@ -1411,7 +1411,7 @@ end;//TkwStrToInt.GetResultTypeInfo
 
 function TkwStrToInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStrToInt.GetAllParamsCount
 
 function TkwStrToInt.ParamsTypes: PTypeInfoArray;
@@ -1695,7 +1695,7 @@ end;//TkwStringPosEx.GetResultTypeInfo
 
 function TkwStringPosEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwStringPosEx.GetAllParamsCount
 
 function TkwStringPosEx.ParamsTypes: PTypeInfoArray;
@@ -1759,7 +1759,7 @@ end;//TkwStringSplit.GetResultTypeInfo
 
 function TkwStringSplit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwStringSplit.GetAllParamsCount
 
 function TkwStringSplit.ParamsTypes: PTypeInfoArray;
@@ -1811,7 +1811,7 @@ end;//TkwStringReplace.GetResultTypeInfo
 
 function TkwStringReplace.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwStringReplace.GetAllParamsCount
 
 function TkwStringReplace.ParamsTypes: PTypeInfoArray;
@@ -1863,7 +1863,7 @@ end;//TkwStringReplaceFirst.GetResultTypeInfo
 
 function TkwStringReplaceFirst.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwStringReplaceFirst.GetAllParamsCount
 
 function TkwStringReplaceFirst.ParamsTypes: PTypeInfoArray;
@@ -1915,7 +1915,7 @@ end;//TkwTextReplace.GetResultTypeInfo
 
 function TkwTextReplace.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwTextReplace.GetAllParamsCount
 
 function TkwTextReplace.ParamsTypes: PTypeInfoArray;
@@ -1967,7 +1967,7 @@ end;//TkwTextReplaceFirst.GetResultTypeInfo
 
 function TkwTextReplaceFirst.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwTextReplaceFirst.GetAllParamsCount
 
 function TkwTextReplaceFirst.ParamsTypes: PTypeInfoArray;
@@ -2064,7 +2064,7 @@ end;//TkwStringCodePage.GetResultTypeInfo
 
 function TkwStringCodePage.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringCodePage.GetAllParamsCount
 
 function TkwStringCodePage.ParamsTypes: PTypeInfoArray;
@@ -2115,7 +2115,7 @@ end;//TkwStringLen.GetResultTypeInfo
 
 function TkwStringLen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringLen.GetAllParamsCount
 
 function TkwStringLen.ParamsTypes: PTypeInfoArray;
@@ -2164,7 +2164,7 @@ end;//TkwStringToChar.GetResultTypeInfo
 
 function TkwStringToChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringToChar.GetAllParamsCount
 
 function TkwStringToChar.ParamsTypes: PTypeInfoArray;
@@ -2313,7 +2313,7 @@ end;//TkwStringInc.GetResultTypeInfo
 
 function TkwStringInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringInc.GetAllParamsCount
 
 function TkwStringInc.ParamsTypes: PTypeInfoArray;
@@ -2417,7 +2417,7 @@ end;//TkwStringFirstChar.GetResultTypeInfo
 
 function TkwStringFirstChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringFirstChar.GetAllParamsCount
 
 function TkwStringFirstChar.ParamsTypes: PTypeInfoArray;
@@ -2465,7 +2465,7 @@ end;//TkwStringTrim.GetResultTypeInfo
 
 function TkwStringTrim.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringTrim.GetAllParamsCount
 
 function TkwStringTrim.ParamsTypes: PTypeInfoArray;
@@ -2513,7 +2513,7 @@ end;//TkwStringTrimLeft.GetResultTypeInfo
 
 function TkwStringTrimLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringTrimLeft.GetAllParamsCount
 
 function TkwStringTrimLeft.ParamsTypes: PTypeInfoArray;
@@ -2561,7 +2561,7 @@ end;//TkwStringTrimRight.GetResultTypeInfo
 
 function TkwStringTrimRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringTrimRight.GetAllParamsCount
 
 function TkwStringTrimRight.ParamsTypes: PTypeInfoArray;
@@ -2609,7 +2609,7 @@ end;//TkwStringDeleteDoubleSpaces.GetResultTypeInfo
 
 function TkwStringDeleteDoubleSpaces.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringDeleteDoubleSpaces.GetAllParamsCount
 
 function TkwStringDeleteDoubleSpaces.ParamsTypes: PTypeInfoArray;
@@ -2708,7 +2708,7 @@ end;//TkwStringSubstring.GetResultTypeInfo
 
 function TkwStringSubstring.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwStringSubstring.GetAllParamsCount
 
 function TkwStringSubstring.ParamsTypes: PTypeInfoArray;
@@ -2756,7 +2756,7 @@ end;//TkwStringLower.GetResultTypeInfo
 
 function TkwStringLower.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringLower.GetAllParamsCount
 
 function TkwStringLower.ParamsTypes: PTypeInfoArray;
@@ -2804,7 +2804,7 @@ end;//TkwStringUpper.GetResultTypeInfo
 
 function TkwStringUpper.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStringUpper.GetAllParamsCount
 
 function TkwStringUpper.ParamsTypes: PTypeInfoArray;
@@ -2862,7 +2862,7 @@ end;//TkwVarDecLen.GetResultTypeInfo
 
 function TkwVarDecLen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwVarDecLen.GetAllParamsCount
 
 function TkwVarDecLen.ParamsTypes: PTypeInfoArray;
@@ -2919,7 +2919,7 @@ end;//TkwVarInc.GetResultTypeInfo
 
 function TkwVarInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwVarInc.GetAllParamsCount
 
 function TkwVarInc.ParamsTypes: PTypeInfoArray;
@@ -3206,7 +3206,7 @@ end;//TkwVarPushCharAndInc.GetResultTypeInfo
 
 function TkwVarPushCharAndInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwVarPushCharAndInc.GetAllParamsCount
 
 function TkwVarPushCharAndInc.ParamsTypes: PTypeInfoArray;

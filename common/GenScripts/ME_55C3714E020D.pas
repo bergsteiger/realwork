@@ -510,7 +510,7 @@ end;//TkwPopValueTypesDefaultValue.GetResultTypeInfo
 
 function TkwPopValueTypesDefaultValue.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopValueTypesDefaultValue.GetAllParamsCount
 
 function TkwPopValueTypesDefaultValue.ParamsTypes: PTypeInfoArray;
@@ -666,7 +666,7 @@ end;//TkwPopValueTypesName.GetResultTypeInfo
 
 function TkwPopValueTypesName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopValueTypesName.GetAllParamsCount
 
 function TkwPopValueTypesName.ParamsTypes: PTypeInfoArray;

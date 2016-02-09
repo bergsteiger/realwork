@@ -83,7 +83,7 @@ end;//TkwKeyValuesCreate.GetResultTypeInfo
 
 function TkwKeyValuesCreate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwKeyValuesCreate.GetAllParamsCount
 
 function TkwKeyValuesCreate.ParamsTypes: PTypeInfoArray;

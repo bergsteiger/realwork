@@ -280,7 +280,7 @@ end;//TkwFontColor.GetResultTypeInfo
 
 function TkwFontColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFontColor.GetAllParamsCount
 
 function TkwFontColor.ParamsTypes: PTypeInfoArray;
@@ -338,7 +338,7 @@ end;//TkwFontBackColor.GetResultTypeInfo
 
 function TkwFontBackColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFontBackColor.GetAllParamsCount
 
 function TkwFontBackColor.ParamsTypes: PTypeInfoArray;
@@ -396,7 +396,7 @@ end;//TkwFontIsBold.GetResultTypeInfo
 
 function TkwFontIsBold.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFontIsBold.GetAllParamsCount
 
 function TkwFontIsBold.ParamsTypes: PTypeInfoArray;
@@ -454,7 +454,7 @@ end;//TkwFontIsItalic.GetResultTypeInfo
 
 function TkwFontIsItalic.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFontIsItalic.GetAllParamsCount
 
 function TkwFontIsItalic.ParamsTypes: PTypeInfoArray;
@@ -512,7 +512,7 @@ end;//TkwFontIsUnderline.GetResultTypeInfo
 
 function TkwFontIsUnderline.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFontIsUnderline.GetAllParamsCount
 
 function TkwFontIsUnderline.ParamsTypes: PTypeInfoArray;
@@ -570,7 +570,7 @@ end;//TkwFontIsStrikeOut.GetResultTypeInfo
 
 function TkwFontIsStrikeOut.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFontIsStrikeOut.GetAllParamsCount
 
 function TkwFontIsStrikeOut.ParamsTypes: PTypeInfoArray;
@@ -628,7 +628,7 @@ end;//TkwFontName.GetResultTypeInfo
 
 function TkwFontName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFontName.GetAllParamsCount
 
 function TkwFontName.ParamsTypes: PTypeInfoArray;
@@ -686,7 +686,7 @@ end;//TkwFontSize.GetResultTypeInfo
 
 function TkwFontSize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFontSize.GetAllParamsCount
 
 function TkwFontSize.ParamsTypes: PTypeInfoArray;

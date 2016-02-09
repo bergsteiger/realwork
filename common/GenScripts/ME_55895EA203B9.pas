@@ -403,7 +403,7 @@ end;//TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorCheckVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwPopNewWordDefinitorCheckVar.GetAllParamsCount
 
 function TkwPopNewWordDefinitorCheckVar.ParamsTypes: PTypeInfoArray;
@@ -453,7 +453,7 @@ end;//TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorDefineInParameter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwPopNewWordDefinitorDefineInParameter.GetAllParamsCount
 
 function TkwPopNewWordDefinitorDefineInParameter.ParamsTypes: PTypeInfoArray;
@@ -530,7 +530,7 @@ end;//TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorCheckRefcountVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwPopNewWordDefinitorCheckRefcountVar.GetAllParamsCount
 
 function TkwPopNewWordDefinitorCheckRefcountVar.ParamsTypes: PTypeInfoArray;
@@ -588,7 +588,7 @@ end;//TkwPopNewWordDefinitorKeywordFinder.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopNewWordDefinitorKeywordFinder.GetAllParamsCount
 
 function TkwPopNewWordDefinitorKeywordFinder.ParamsTypes: PTypeInfoArray;

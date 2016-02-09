@@ -247,7 +247,7 @@ end;//TkwMenuItemClick.GetResultTypeInfo
 
 function TkwMenuItemClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwMenuItemClick.GetAllParamsCount
 
 function TkwMenuItemClick.ParamsTypes: PTypeInfoArray;
@@ -363,7 +363,7 @@ end;//TkwMenuItemGetMenuHeight.GetResultTypeInfo
 
 function TkwMenuItemGetMenuHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwMenuItemGetMenuHeight.GetAllParamsCount
 
 function TkwMenuItemGetMenuHeight.ParamsTypes: PTypeInfoArray;
@@ -421,7 +421,7 @@ end;//TkwMenuItemCaption.GetResultTypeInfo
 
 function TkwMenuItemCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwMenuItemCaption.GetAllParamsCount
 
 function TkwMenuItemCaption.ParamsTypes: PTypeInfoArray;
@@ -479,7 +479,7 @@ end;//TkwMenuItemCount.GetResultTypeInfo
 
 function TkwMenuItemCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwMenuItemCount.GetAllParamsCount
 
 function TkwMenuItemCount.ParamsTypes: PTypeInfoArray;
@@ -537,7 +537,7 @@ end;//TkwMenuItemEnabled.GetResultTypeInfo
 
 function TkwMenuItemEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwMenuItemEnabled.GetAllParamsCount
 
 function TkwMenuItemEnabled.ParamsTypes: PTypeInfoArray;
@@ -595,7 +595,7 @@ end;//TkwMenuItemVisible.GetResultTypeInfo
 
 function TkwMenuItemVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwMenuItemVisible.GetAllParamsCount
 
 function TkwMenuItemVisible.ParamsTypes: PTypeInfoArray;

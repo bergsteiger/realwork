@@ -152,7 +152,7 @@ end;//TkwPopScriptEngineAsKeywordFinder.GetResultTypeInfo
 
 function TkwPopScriptEngineAsKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopScriptEngineAsKeywordFinder.GetAllParamsCount
 
 function TkwPopScriptEngineAsKeywordFinder.ParamsTypes: PTypeInfoArray;
@@ -249,7 +249,7 @@ end;//TkwPopScriptEngineCurrentCompilingDictionary.GetResultTypeInfo
 
 function TkwPopScriptEngineCurrentCompilingDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopScriptEngineCurrentCompilingDictionary.GetAllParamsCount
 
 function TkwPopScriptEngineCurrentCompilingDictionary.ParamsTypes: PTypeInfoArray;

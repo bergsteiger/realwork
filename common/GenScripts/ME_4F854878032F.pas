@@ -1019,7 +1019,7 @@ end;//TkwIterateChildWindows.GetResultTypeInfo
 
 function TkwIterateChildWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwIterateChildWindows.GetAllParamsCount
 
 function TkwIterateChildWindows.ParamsTypes: PTypeInfoArray;
@@ -1167,7 +1167,7 @@ end;//TkwGetForegroundWindow.GetResultTypeInfo
 
 function TkwGetForegroundWindow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwGetForegroundWindow.GetAllParamsCount
 
 function TkwGetForegroundWindow.ParamsTypes: PTypeInfoArray;
@@ -1314,7 +1314,7 @@ end;//TkwDesktopHeight.GetResultTypeInfo
 
 function TkwDesktopHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwDesktopHeight.GetAllParamsCount
 
 function TkwDesktopHeight.ParamsTypes: PTypeInfoArray;
@@ -1365,7 +1365,7 @@ end;//TkwDesktopWidth.GetResultTypeInfo
 
 function TkwDesktopWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwDesktopWidth.GetAllParamsCount
 
 function TkwDesktopWidth.ParamsTypes: PTypeInfoArray;
@@ -1520,7 +1520,7 @@ end;//TkwMainScreenWidth.GetResultTypeInfo
 
 function TkwMainScreenWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwMainScreenWidth.GetAllParamsCount
 
 function TkwMainScreenWidth.ParamsTypes: PTypeInfoArray;
@@ -1571,7 +1571,7 @@ end;//TkwMainScreenHeight.GetResultTypeInfo
 
 function TkwMainScreenHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwMainScreenHeight.GetAllParamsCount
 
 function TkwMainScreenHeight.ParamsTypes: PTypeInfoArray;
@@ -1622,7 +1622,7 @@ end;//TkwScreenCount.GetResultTypeInfo
 
 function TkwScreenCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwScreenCount.GetAllParamsCount
 
 function TkwScreenCount.ParamsTypes: PTypeInfoArray;
@@ -1753,7 +1753,7 @@ end;//TkwScreenShot2File.GetResultTypeInfo
 
 function TkwScreenShot2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 6;
 end;//TkwScreenShot2File.GetAllParamsCount
 
 function TkwScreenShot2File.ParamsTypes: PTypeInfoArray;
@@ -1806,7 +1806,7 @@ end;//TkwScreenShot2FileWithCheck.GetResultTypeInfo
 
 function TkwScreenShot2FileWithCheck.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 6;
 end;//TkwScreenShot2FileWithCheck.GetAllParamsCount
 
 function TkwScreenShot2FileWithCheck.ParamsTypes: PTypeInfoArray;

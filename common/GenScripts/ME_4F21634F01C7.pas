@@ -183,7 +183,7 @@ end;//TkwTHREAD.GetResultTypeInfo
 
 function TkwTHREAD.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTHREAD.GetAllParamsCount
 
 function TkwTHREAD.ParamsTypes: PTypeInfoArray;

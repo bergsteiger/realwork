@@ -106,7 +106,7 @@ end;//TkwFilterAutolinkFilter.GetResultTypeInfo
 
 function TkwFilterAutolinkFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFilterAutolinkFilter.GetAllParamsCount
 
 function TkwFilterAutolinkFilter.ParamsTypes: PTypeInfoArray;
@@ -143,7 +143,7 @@ end;//TkwFilterCleanAutolinkFilter.GetResultTypeInfo
 
 function TkwFilterCleanAutolinkFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFilterCleanAutolinkFilter.GetAllParamsCount
 
 initialization

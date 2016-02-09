@@ -243,7 +243,7 @@ end;//TkwPopDictionaryExFileName.GetResultTypeInfo
 
 function TkwPopDictionaryExFileName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopDictionaryExFileName.GetAllParamsCount
 
 function TkwPopDictionaryExFileName.ParamsTypes: PTypeInfoArray;
@@ -291,7 +291,7 @@ end;//TkwPopDictionaryExUsedDictionaries.GetResultTypeInfo
 
 function TkwPopDictionaryExUsedDictionaries.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopDictionaryExUsedDictionaries.GetAllParamsCount
 
 function TkwPopDictionaryExUsedDictionaries.ParamsTypes: PTypeInfoArray;
@@ -339,7 +339,7 @@ end;//TkwPopDictionaryExExportedDictionaries.GetResultTypeInfo
 
 function TkwPopDictionaryExExportedDictionaries.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopDictionaryExExportedDictionaries.GetAllParamsCount
 
 function TkwPopDictionaryExExportedDictionaries.ParamsTypes: PTypeInfoArray;
@@ -485,7 +485,7 @@ end;//TkwPopDictionaryExFileDateTime.GetResultTypeInfo
 
 function TkwPopDictionaryExFileDateTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopDictionaryExFileDateTime.GetAllParamsCount
 
 function TkwPopDictionaryExFileDateTime.ParamsTypes: PTypeInfoArray;
@@ -546,7 +546,7 @@ end;//TkwPopDictionaryExRemoveFromCache.GetResultTypeInfo
 
 function TkwPopDictionaryExRemoveFromCache.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopDictionaryExRemoveFromCache.GetAllParamsCount
 
 function TkwPopDictionaryExRemoveFromCache.ParamsTypes: PTypeInfoArray;

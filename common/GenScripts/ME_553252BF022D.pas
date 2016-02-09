@@ -105,7 +105,7 @@ end;//TkwPopFormFormStyle.GetResultTypeInfo
 
 function TkwPopFormFormStyle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopFormFormStyle.GetAllParamsCount
 
 function TkwPopFormFormStyle.ParamsTypes: PTypeInfoArray;

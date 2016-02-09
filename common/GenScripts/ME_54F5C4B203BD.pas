@@ -671,7 +671,7 @@ end;//TkwPopControlMouseWheelUp.GetResultTypeInfo
 
 function TkwPopControlMouseWheelUp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlMouseWheelUp.GetAllParamsCount
 
 function TkwPopControlMouseWheelUp.ParamsTypes: PTypeInfoArray;
@@ -719,7 +719,7 @@ end;//TkwPopControlMouseWheelDown.GetResultTypeInfo
 
 function TkwPopControlMouseWheelDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlMouseWheelDown.GetAllParamsCount
 
 function TkwPopControlMouseWheelDown.ParamsTypes: PTypeInfoArray;
@@ -769,7 +769,7 @@ end;//TkwPopControlSetFocus.GetResultTypeInfo
 
 function TkwPopControlSetFocus.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlSetFocus.GetAllParamsCount
 
 function TkwPopControlSetFocus.ParamsTypes: PTypeInfoArray;
@@ -834,7 +834,7 @@ end;//TkwPopControlMouseLeftDragAndDrop.GetResultTypeInfo
 
 function TkwPopControlMouseLeftDragAndDrop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwPopControlMouseLeftDragAndDrop.GetAllParamsCount
 
 function TkwPopControlMouseLeftDragAndDrop.ParamsTypes: PTypeInfoArray;
@@ -892,7 +892,7 @@ end;//TkwPopControlControlCount.GetResultTypeInfo
 
 function TkwPopControlControlCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlControlCount.GetAllParamsCount
 
 function TkwPopControlControlCount.ParamsTypes: PTypeInfoArray;
@@ -950,7 +950,7 @@ end;//TkwPopControlHandle.GetResultTypeInfo
 
 function TkwPopControlHandle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlHandle.GetAllParamsCount
 
 function TkwPopControlHandle.ParamsTypes: PTypeInfoArray;
@@ -1008,7 +1008,7 @@ end;//TkwPopControlFocused.GetResultTypeInfo
 
 function TkwPopControlFocused.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlFocused.GetAllParamsCount
 
 function TkwPopControlFocused.ParamsTypes: PTypeInfoArray;
@@ -1066,7 +1066,7 @@ end;//TkwPopControlCanFocus.GetResultTypeInfo
 
 function TkwPopControlCanFocus.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlCanFocus.GetAllParamsCount
 
 function TkwPopControlCanFocus.ParamsTypes: PTypeInfoArray;

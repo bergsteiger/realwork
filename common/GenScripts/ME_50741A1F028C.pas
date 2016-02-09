@@ -341,7 +341,7 @@ end;//TkwPopFormActiveMDIChild.GetResultTypeInfo
 
 function TkwPopFormActiveMDIChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopFormActiveMDIChild.GetAllParamsCount
 
 function TkwPopFormActiveMDIChild.ParamsTypes: PTypeInfoArray;
@@ -389,7 +389,7 @@ end;//TkwPopFormClose.GetResultTypeInfo
 
 function TkwPopFormClose.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopFormClose.GetAllParamsCount
 
 function TkwPopFormClose.ParamsTypes: PTypeInfoArray;
@@ -548,7 +548,7 @@ end;//TkwPopFormGetWindowState.GetResultTypeInfo
 
 function TkwPopFormGetWindowState.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopFormGetWindowState.GetAllParamsCount
 
 function TkwPopFormGetWindowState.ParamsTypes: PTypeInfoArray;
@@ -645,7 +645,7 @@ end;//TkwPopFormMDIChildCount.GetResultTypeInfo
 
 function TkwPopFormMDIChildCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopFormMDIChildCount.GetAllParamsCount
 
 function TkwPopFormMDIChildCount.ParamsTypes: PTypeInfoArray;
@@ -743,7 +743,7 @@ end;//TkwPopFormModalResult.GetResultTypeInfo
 
 function TkwPopFormModalResult.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopFormModalResult.GetAllParamsCount
 
 function TkwPopFormModalResult.ParamsTypes: PTypeInfoArray;
@@ -791,7 +791,7 @@ end;//TkwPopFormNext.GetResultTypeInfo
 
 function TkwPopFormNext.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopFormNext.GetAllParamsCount
 
 function TkwPopFormNext.ParamsTypes: PTypeInfoArray;

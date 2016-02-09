@@ -98,7 +98,7 @@ end;//TkwPopCompiledWordWorkerWordCompiled.GetResultTypeInfo
 
 function TkwPopCompiledWordWorkerWordCompiled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopCompiledWordWorkerWordCompiled.GetAllParamsCount
 
 function TkwPopCompiledWordWorkerWordCompiled.ParamsTypes: PTypeInfoArray;

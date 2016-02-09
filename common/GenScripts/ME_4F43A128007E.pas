@@ -1909,7 +1909,7 @@ end;//TkwTrue.GetResultTypeInfo
 
 function TkwTrue.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTrue.GetAllParamsCount
 
 function TkwTrue.ParamsTypes: PTypeInfoArray;
@@ -1956,7 +1956,7 @@ end;//TkwFalse.GetResultTypeInfo
 
 function TkwFalse.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwFalse.GetAllParamsCount
 
 function TkwFalse.ParamsTypes: PTypeInfoArray;
@@ -2181,7 +2181,7 @@ end;//TkwWHILEDO.GetResultTypeInfo
 
 function TkwWHILEDO.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwWHILEDO.GetAllParamsCount
 
 function TkwWHILEDO.ParamsTypes: PTypeInfoArray;
@@ -2219,7 +2219,7 @@ end;//TkwBREAK.GetResultTypeInfo
 
 function TkwBREAK.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwBREAK.GetAllParamsCount
 
 procedure TkwCONTINUE.DoDoIt(const aCtx: TtfwContext);
@@ -2248,7 +2248,7 @@ end;//TkwCONTINUE.GetResultTypeInfo
 
 function TkwCONTINUE.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCONTINUE.GetAllParamsCount
 
 procedure TkwEXIT.DoDoIt(const aCtx: TtfwContext);
@@ -2277,7 +2277,7 @@ end;//TkwEXIT.GetResultTypeInfo
 
 function TkwEXIT.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEXIT.GetAllParamsCount
 
 procedure TkwHALT.DoDoIt(const aCtx: TtfwContext);
@@ -2306,7 +2306,7 @@ end;//TkwHALT.GetResultTypeInfo
 
 function TkwHALT.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwHALT.GetAllParamsCount
 
 procedure TkwBREAKITERATOR.DoDoIt(const aCtx: TtfwContext);
@@ -2335,7 +2335,7 @@ end;//TkwBREAKITERATOR.GetResultTypeInfo
 
 function TkwBREAKITERATOR.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwBREAKITERATOR.GetAllParamsCount
 
 procedure TkwNOP.DoDoIt(const aCtx: TtfwContext);
@@ -2363,7 +2363,7 @@ end;//TkwNOP.GetResultTypeInfo
 
 function TkwNOP.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwNOP.GetAllParamsCount
 
 procedure TkwSLEEP.SLEEP(const aCtx: TtfwContext;
@@ -2447,7 +2447,7 @@ end;//TkwProcessMessages.GetResultTypeInfo
 
 function TkwProcessMessages.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwProcessMessages.GetAllParamsCount
 
 procedure TkwCheckAssert.CheckAssert(const aCtx: TtfwContext;
@@ -2535,7 +2535,7 @@ end;//TkwASSERTS.GetResultTypeInfo
 
 function TkwASSERTS.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwASSERTS.GetAllParamsCount
 
 function TkwASSERTS.ParamsTypes: PTypeInfoArray;
@@ -2572,7 +2572,7 @@ end;//TkwNil.GetResultTypeInfo
 
 function TkwNil.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwNil.GetAllParamsCount
 
 procedure TkwDoWord.DoWord(const aCtx: TtfwContext;
@@ -2660,7 +2660,7 @@ end;//TkwSmartEquals.GetResultTypeInfo
 
 function TkwSmartEquals.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwSmartEquals.GetAllParamsCount
 
 function TkwSmartEquals.ParamsTypes: PTypeInfoArray;
@@ -2709,7 +2709,7 @@ end;//TkwSmartNotEquals.GetResultTypeInfo
 
 function TkwSmartNotEquals.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwSmartNotEquals.GetAllParamsCount
 
 function TkwSmartNotEquals.ParamsTypes: PTypeInfoArray;
@@ -2772,7 +2772,7 @@ end;//TkwPushWord.GetResultTypeInfo
 
 function TkwPushWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPushWord.GetAllParamsCount
 
 function TkwPushWord.ParamsTypes: PTypeInfoArray;
@@ -2819,7 +2819,7 @@ end;//TkwCurrentException.GetResultTypeInfo
 
 function TkwCurrentException.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCurrentException.GetAllParamsCount
 
 function TkwCurrentException.ParamsTypes: PTypeInfoArray;
@@ -2869,7 +2869,7 @@ end;//TkwCurrentExceptionClass.GetResultTypeInfo
 
 function TkwCurrentExceptionClass.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCurrentExceptionClass.GetAllParamsCount
 
 function TkwCurrentExceptionClass.ParamsTypes: PTypeInfoArray;
@@ -2919,7 +2919,7 @@ end;//TkwCurrentExceptionClassName.GetResultTypeInfo
 
 function TkwCurrentExceptionClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCurrentExceptionClassName.GetAllParamsCount
 
 function TkwCurrentExceptionClassName.ParamsTypes: PTypeInfoArray;
@@ -2969,7 +2969,7 @@ end;//TkwCurrentExceptionMessage.GetResultTypeInfo
 
 function TkwCurrentExceptionMessage.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCurrentExceptionMessage.GetAllParamsCount
 
 function TkwCurrentExceptionMessage.ParamsTypes: PTypeInfoArray;
@@ -3124,7 +3124,7 @@ end;//TkwAdd.GetResultTypeInfo
 
 function TkwAdd.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwAdd.GetAllParamsCount
 
 function TkwAdd.ParamsTypes: PTypeInfoArray;
@@ -3173,7 +3173,7 @@ end;//TkwSub.GetResultTypeInfo
 
 function TkwSub.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwSub.GetAllParamsCount
 
 function TkwSub.ParamsTypes: PTypeInfoArray;
@@ -3222,7 +3222,7 @@ end;//TkwDivision.GetResultTypeInfo
 
 function TkwDivision.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwDivision.GetAllParamsCount
 
 function TkwDivision.ParamsTypes: PTypeInfoArray;
@@ -3271,7 +3271,7 @@ end;//TkwMul.GetResultTypeInfo
 
 function TkwMul.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwMul.GetAllParamsCount
 
 function TkwMul.ParamsTypes: PTypeInfoArray;
@@ -3320,7 +3320,7 @@ end;//TkwDivide.GetResultTypeInfo
 
 function TkwDivide.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwDivide.GetAllParamsCount
 
 function TkwDivide.ParamsTypes: PTypeInfoArray;
@@ -3466,7 +3466,7 @@ end;//TkwMulDiv.GetResultTypeInfo
 
 function TkwMulDiv.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 3;
 end;//TkwMulDiv.GetAllParamsCount
 
 function TkwMulDiv.ParamsTypes: PTypeInfoArray;
@@ -3563,7 +3563,7 @@ end;//TkwModFromDiv.GetResultTypeInfo
 
 function TkwModFromDiv.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwModFromDiv.GetAllParamsCount
 
 function TkwModFromDiv.ParamsTypes: PTypeInfoArray;
@@ -3612,7 +3612,7 @@ end;//TkwBoolAnd.GetResultTypeInfo
 
 function TkwBoolAnd.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwBoolAnd.GetAllParamsCount
 
 function TkwBoolAnd.ParamsTypes: PTypeInfoArray;
@@ -3661,7 +3661,7 @@ end;//TkwBoolOr.GetResultTypeInfo
 
 function TkwBoolOr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwBoolOr.GetAllParamsCount
 
 function TkwBoolOr.ParamsTypes: PTypeInfoArray;
@@ -3794,7 +3794,7 @@ end;//TkwSWAP.GetResultTypeInfo
 
 function TkwSWAP.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwSWAP.GetAllParamsCount
 
 procedure TkwDROP.DoDoIt(const aCtx: TtfwContext);
@@ -3822,7 +3822,7 @@ end;//TkwDROP.GetResultTypeInfo
 
 function TkwDROP.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwDROP.GetAllParamsCount
 
 procedure TkwDUP.DoDoIt(const aCtx: TtfwContext);
@@ -3850,7 +3850,7 @@ end;//TkwDUP.GetResultTypeInfo
 
 function TkwDUP.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwDUP.GetAllParamsCount
 
 procedure TkwDUPIfNotZero.DoDoIt(const aCtx: TtfwContext);
@@ -3878,7 +3878,7 @@ end;//TkwDUPIfNotZero.GetResultTypeInfo
 
 function TkwDUPIfNotZero.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwDUPIfNotZero.GetAllParamsCount
 
 procedure TkwROT.DoDoIt(const aCtx: TtfwContext);
@@ -3906,7 +3906,7 @@ end;//TkwROT.GetResultTypeInfo
 
 function TkwROT.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwROT.GetAllParamsCount
 
 procedure TkwPICK.DoDoIt(const aCtx: TtfwContext);
@@ -3934,7 +3934,7 @@ end;//TkwPICK.GetResultTypeInfo
 
 function TkwPICK.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPICK.GetAllParamsCount
 
 procedure TkwInvertROT.DoDoIt(const aCtx: TtfwContext);
@@ -3962,7 +3962,7 @@ end;//TkwInvertROT.GetResultTypeInfo
 
 function TkwInvertROT.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwInvertROT.GetAllParamsCount
 
 procedure TkwSWAP2.DoDoIt(const aCtx: TtfwContext);
@@ -3990,7 +3990,7 @@ end;//TkwSWAP2.GetResultTypeInfo
 
 function TkwSWAP2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwSWAP2.GetAllParamsCount
 
 procedure TkwOVER2.DoDoIt(const aCtx: TtfwContext);
@@ -4018,7 +4018,7 @@ end;//TkwOVER2.GetResultTypeInfo
 
 function TkwOVER2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwOVER2.GetAllParamsCount
 
 procedure TkwDUP2.DoDoIt(const aCtx: TtfwContext);
@@ -4046,7 +4046,7 @@ end;//TkwDUP2.GetResultTypeInfo
 
 function TkwDUP2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwDUP2.GetAllParamsCount
 
 procedure TkwDROP2.DoDoIt(const aCtx: TtfwContext);
@@ -4074,7 +4074,7 @@ end;//TkwDROP2.GetResultTypeInfo
 
 function TkwDROP2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwDROP2.GetAllParamsCount
 
 procedure TkwNIP.DoDoIt(const aCtx: TtfwContext);
@@ -4102,7 +4102,7 @@ end;//TkwNIP.GetResultTypeInfo
 
 function TkwNIP.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwNIP.GetAllParamsCount
 
 procedure TkwTUCK.DoDoIt(const aCtx: TtfwContext);
@@ -4130,7 +4130,7 @@ end;//TkwTUCK.GetResultTypeInfo
 
 function TkwTUCK.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTUCK.GetAllParamsCount
 
 procedure TkwOVER.DoDoIt(const aCtx: TtfwContext);
@@ -4158,7 +4158,7 @@ end;//TkwOVER.GetResultTypeInfo
 
 function TkwOVER.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwOVER.GetAllParamsCount
 
 procedure TkwROLL.DoDoIt(const aCtx: TtfwContext);
@@ -4186,7 +4186,7 @@ end;//TkwROLL.GetResultTypeInfo
 
 function TkwROLL.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwROLL.GetAllParamsCount
 
 function TkwNotEquals.NotEquals(const aCtx: TtfwContext;
@@ -4240,7 +4240,7 @@ end;//TkwNotEquals.GetResultTypeInfo
 
 function TkwNotEquals.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwNotEquals.GetAllParamsCount
 
 function TkwNotEquals.ParamsTypes: PTypeInfoArray;
@@ -4301,7 +4301,7 @@ end;//TkwGREATER.GetResultTypeInfo
 
 function TkwGREATER.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwGREATER.GetAllParamsCount
 
 function TkwGREATER.ParamsTypes: PTypeInfoArray;
@@ -4362,7 +4362,7 @@ end;//TkwLESS.GetResultTypeInfo
 
 function TkwLESS.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwLESS.GetAllParamsCount
 
 function TkwLESS.ParamsTypes: PTypeInfoArray;
@@ -4425,7 +4425,7 @@ end;//TkwEquals.GetResultTypeInfo
 
 function TkwEquals.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwEquals.GetAllParamsCount
 
 function TkwEquals.ParamsTypes: PTypeInfoArray;
@@ -4570,7 +4570,7 @@ end;//TkwBitAnd.GetResultTypeInfo
 
 function TkwBitAnd.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwBitAnd.GetAllParamsCount
 
 function TkwBitAnd.ParamsTypes: PTypeInfoArray;
@@ -4619,7 +4619,7 @@ end;//TkwBitOR.GetResultTypeInfo
 
 function TkwBitOR.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwBitOR.GetAllParamsCount
 
 function TkwBitOR.ParamsTypes: PTypeInfoArray;
@@ -4714,7 +4714,7 @@ end;//TkwStackLevel.GetResultTypeInfo
 
 function TkwStackLevel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwStackLevel.GetAllParamsCount
 
 function TkwStackLevel.ParamsTypes: PTypeInfoArray;
@@ -4954,7 +4954,7 @@ end;//TkwCtxParser.GetResultTypeInfo
 
 function TkwCtxParser.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCtxParser.GetAllParamsCount
 
 function TkwCtxParser.ParamsTypes: PTypeInfoArray;
@@ -5110,7 +5110,7 @@ end;//TkwIMMEDIATE.GetResultTypeInfo
 
 function TkwIMMEDIATE.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwIMMEDIATE.GetAllParamsCount
 
 function TkwCtxScriptCaller.Ctx_ScriptCaller(const aCtx: TtfwContext): ItfwScriptCaller;
@@ -5148,7 +5148,7 @@ end;//TkwCtxScriptCaller.GetResultTypeInfo
 
 function TkwCtxScriptCaller.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCtxScriptCaller.GetAllParamsCount
 
 function TkwCtxScriptCaller.ParamsTypes: PTypeInfoArray;
@@ -5195,7 +5195,7 @@ end;//TkwCtxEngine.GetResultTypeInfo
 
 function TkwCtxEngine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCtxEngine.GetAllParamsCount
 
 function TkwCtxEngine.ParamsTypes: PTypeInfoArray;
@@ -5242,7 +5242,7 @@ end;//TkwCtxStoredValuesStack.GetResultTypeInfo
 
 function TkwCtxStoredValuesStack.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCtxStoredValuesStack.GetAllParamsCount
 
 function TkwCtxStoredValuesStack.ParamsTypes: PTypeInfoArray;
@@ -5296,7 +5296,7 @@ end;//TkwCreateAndRaise.GetResultTypeInfo
 
 function TkwCreateAndRaise.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 2;
 end;//TkwCreateAndRaise.GetAllParamsCount
 
 function TkwCreateAndRaise.ParamsTypes: PTypeInfoArray;

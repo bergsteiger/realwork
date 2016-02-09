@@ -221,7 +221,7 @@ end;//TkwPopKeyWordWord.GetResultTypeInfo
 
 function TkwPopKeyWordWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopKeyWordWord.GetAllParamsCount
 
 function TkwPopKeyWordWord.ParamsTypes: PTypeInfoArray;
@@ -279,7 +279,7 @@ end;//TkwPopKeyWordName.GetResultTypeInfo
 
 function TkwPopKeyWordName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopKeyWordName.GetAllParamsCount
 
 function TkwPopKeyWordName.ParamsTypes: PTypeInfoArray;
@@ -337,7 +337,7 @@ end;//TkwPopKeyWordDictionary.GetResultTypeInfo
 
 function TkwPopKeyWordDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopKeyWordDictionary.GetAllParamsCount
 
 function TkwPopKeyWordDictionary.ParamsTypes: PTypeInfoArray;

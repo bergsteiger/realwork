@@ -85,7 +85,7 @@ end;//TkwPopMainDictionaryCompiledCode.GetResultTypeInfo
 
 function TkwPopMainDictionaryCompiledCode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopMainDictionaryCompiledCode.GetAllParamsCount
 
 function TkwPopMainDictionaryCompiledCode.ParamsTypes: PTypeInfoArray;

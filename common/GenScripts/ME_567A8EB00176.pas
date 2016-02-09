@@ -85,7 +85,7 @@ end;//TkwPopWordBoxBoxed.GetResultTypeInfo
 
 function TkwPopWordBoxBoxed.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopWordBoxBoxed.GetAllParamsCount
 
 function TkwPopWordBoxBoxed.ParamsTypes: PTypeInfoArray;

@@ -83,7 +83,7 @@ end;//TkwCompiledProcedureCreate.GetResultTypeInfo
 
 function TkwCompiledProcedureCreate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwCompiledProcedureCreate.GetAllParamsCount
 
 function TkwCompiledProcedureCreate.ParamsTypes: PTypeInfoArray;

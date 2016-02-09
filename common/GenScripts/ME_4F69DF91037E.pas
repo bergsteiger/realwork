@@ -787,7 +787,7 @@ end;//TkwPopControlInvalidate.GetResultTypeInfo
 
 function TkwPopControlInvalidate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlInvalidate.GetAllParamsCount
 
 function TkwPopControlInvalidate.ParamsTypes: PTypeInfoArray;
@@ -835,7 +835,7 @@ end;//TkwPopControlRepaint.GetResultTypeInfo
 
 function TkwPopControlRepaint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlRepaint.GetAllParamsCount
 
 function TkwPopControlRepaint.ParamsTypes: PTypeInfoArray;
@@ -883,7 +883,7 @@ end;//TkwPopControlClick.GetResultTypeInfo
 
 function TkwPopControlClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlClick.GetAllParamsCount
 
 function TkwPopControlClick.ParamsTypes: PTypeInfoArray;
@@ -931,7 +931,7 @@ end;//TkwPopControlShow.GetResultTypeInfo
 
 function TkwPopControlShow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlShow.GetAllParamsCount
 
 function TkwPopControlShow.ParamsTypes: PTypeInfoArray;
@@ -979,7 +979,7 @@ end;//TkwPopControlHide.GetResultTypeInfo
 
 function TkwPopControlHide.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlHide.GetAllParamsCount
 
 function TkwPopControlHide.ParamsTypes: PTypeInfoArray;
@@ -1027,7 +1027,7 @@ end;//TkwPopControlUndock.GetResultTypeInfo
 
 function TkwPopControlUndock.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlUndock.GetAllParamsCount
 
 function TkwPopControlUndock.ParamsTypes: PTypeInfoArray;
@@ -1124,7 +1124,7 @@ end;//TkwPopControlGetTopParentForm.GetResultTypeInfo
 
 function TkwPopControlGetTopParentForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlGetTopParentForm.GetAllParamsCount
 
 function TkwPopControlGetTopParentForm.ParamsTypes: PTypeInfoArray;
@@ -1172,7 +1172,7 @@ end;//TkwPopControlGetMainForm.GetResultTypeInfo
 
 function TkwPopControlGetMainForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlGetMainForm.GetAllParamsCount
 
 function TkwPopControlGetMainForm.ParamsTypes: PTypeInfoArray;
@@ -1220,7 +1220,7 @@ end;//TkwPopControlGetParentForm.GetResultTypeInfo
 
 function TkwPopControlGetParentForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlGetParentForm.GetAllParamsCount
 
 function TkwPopControlGetParentForm.ParamsTypes: PTypeInfoArray;
@@ -1268,7 +1268,7 @@ end;//TkwPopControlGetAnotherParentForm.GetResultTypeInfo
 
 function TkwPopControlGetAnotherParentForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlGetAnotherParentForm.GetAllParamsCount
 
 function TkwPopControlGetAnotherParentForm.ParamsTypes: PTypeInfoArray;
@@ -1374,7 +1374,7 @@ end;//TkwControlFocusedControlPush.GetResultTypeInfo
 
 function TkwControlFocusedControlPush.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwControlFocusedControlPush.GetAllParamsCount
 
 function TkwControlFocusedControlPush.ParamsTypes: PTypeInfoArray;
@@ -1443,7 +1443,7 @@ end;//TkwPopControlColor.GetResultTypeInfo
 
 function TkwPopControlColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlColor.GetAllParamsCount
 
 function TkwPopControlColor.ParamsTypes: PTypeInfoArray;
@@ -1501,7 +1501,7 @@ end;//TkwPopControlEnabled.GetResultTypeInfo
 
 function TkwPopControlEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlEnabled.GetAllParamsCount
 
 function TkwPopControlEnabled.ParamsTypes: PTypeInfoArray;
@@ -1559,7 +1559,7 @@ end;//TkwPopControlVisible.GetResultTypeInfo
 
 function TkwPopControlVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlVisible.GetAllParamsCount
 
 function TkwPopControlVisible.ParamsTypes: PTypeInfoArray;
@@ -1617,7 +1617,7 @@ end;//TkwPopControlName.GetResultTypeInfo
 
 function TkwPopControlName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlName.GetAllParamsCount
 
 function TkwPopControlName.ParamsTypes: PTypeInfoArray;
@@ -1675,7 +1675,7 @@ end;//TkwPopControlHint.GetResultTypeInfo
 
 function TkwPopControlHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlHint.GetAllParamsCount
 
 function TkwPopControlHint.ParamsTypes: PTypeInfoArray;
@@ -1733,7 +1733,7 @@ end;//TkwPopControlShowHint.GetResultTypeInfo
 
 function TkwPopControlShowHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlShowHint.GetAllParamsCount
 
 function TkwPopControlShowHint.ParamsTypes: PTypeInfoArray;
@@ -1791,7 +1791,7 @@ end;//TkwPopControlCaption.GetResultTypeInfo
 
 function TkwPopControlCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlCaption.GetAllParamsCount
 
 function TkwPopControlCaption.ParamsTypes: PTypeInfoArray;
@@ -1849,7 +1849,7 @@ end;//TkwPopControlTop.GetResultTypeInfo
 
 function TkwPopControlTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlTop.GetAllParamsCount
 
 function TkwPopControlTop.ParamsTypes: PTypeInfoArray;
@@ -1907,7 +1907,7 @@ end;//TkwPopControlLeft.GetResultTypeInfo
 
 function TkwPopControlLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlLeft.GetAllParamsCount
 
 function TkwPopControlLeft.ParamsTypes: PTypeInfoArray;
@@ -1965,7 +1965,7 @@ end;//TkwPopControlHeight.GetResultTypeInfo
 
 function TkwPopControlHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlHeight.GetAllParamsCount
 
 function TkwPopControlHeight.ParamsTypes: PTypeInfoArray;
@@ -2023,7 +2023,7 @@ end;//TkwPopControlWidth.GetResultTypeInfo
 
 function TkwPopControlWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlWidth.GetAllParamsCount
 
 function TkwPopControlWidth.ParamsTypes: PTypeInfoArray;
@@ -2081,7 +2081,7 @@ end;//TkwPopControlParent.GetResultTypeInfo
 
 function TkwPopControlParent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlParent.GetAllParamsCount
 
 function TkwPopControlParent.ParamsTypes: PTypeInfoArray;
@@ -2139,7 +2139,7 @@ end;//TkwPopControlFont.GetResultTypeInfo
 
 function TkwPopControlFont.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopControlFont.GetAllParamsCount
 
 function TkwPopControlFont.ParamsTypes: PTypeInfoArray;

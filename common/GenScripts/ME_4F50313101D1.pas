@@ -482,7 +482,7 @@ end;//TkwArrayClear.GetResultTypeInfo
 
 function TkwArrayClear.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwArrayClear.GetAllParamsCount
 
 function TkwArrayClear.ParamsTypes: PTypeInfoArray;
@@ -614,7 +614,7 @@ end;//TkwArrayReverted.GetResultTypeInfo
 
 function TkwArrayReverted.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwArrayReverted.GetAllParamsCount
 
 function TkwArrayReverted.ParamsTypes: PTypeInfoArray;
@@ -1063,7 +1063,7 @@ end;//TkwArrayCount.GetResultTypeInfo
 
 function TkwArrayCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwArrayCount.GetAllParamsCount
 
 function TkwArrayCount.ParamsTypes: PTypeInfoArray;

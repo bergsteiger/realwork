@@ -99,7 +99,7 @@ end;//TkwPopRadioGroupItemIndex.GetResultTypeInfo
 
 function TkwPopRadioGroupItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopRadioGroupItemIndex.GetAllParamsCount
 
 function TkwPopRadioGroupItemIndex.ParamsTypes: PTypeInfoArray;

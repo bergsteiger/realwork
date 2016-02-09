@@ -273,7 +273,7 @@ end;//TkwPopTreeNodeGetNext.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNext.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeGetNext.GetAllParamsCount
 
 function TkwPopTreeNodeGetNext.ParamsTypes: PTypeInfoArray;
@@ -321,7 +321,7 @@ end;//TkwPopTreeNodeHasChildren.GetResultTypeInfo
 
 function TkwPopTreeNodeHasChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeHasChildren.GetAllParamsCount
 
 function TkwPopTreeNodeHasChildren.ParamsTypes: PTypeInfoArray;
@@ -369,7 +369,7 @@ end;//TkwPopTreeNodeGetPrev.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrev.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeGetPrev.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrev.ParamsTypes: PTypeInfoArray;
@@ -417,7 +417,7 @@ end;//TkwPopTreeNodeGetFirstChild.GetResultTypeInfo
 
 function TkwPopTreeNodeGetFirstChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeGetFirstChild.GetAllParamsCount
 
 function TkwPopTreeNodeGetFirstChild.ParamsTypes: PTypeInfoArray;
@@ -465,7 +465,7 @@ end;//TkwPopTreeNodeGetLastChild.GetResultTypeInfo
 
 function TkwPopTreeNodeGetLastChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeGetLastChild.GetAllParamsCount
 
 function TkwPopTreeNodeGetLastChild.ParamsTypes: PTypeInfoArray;
@@ -513,7 +513,7 @@ end;//TkwPopTreeNodeGetNextSibling.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNextSibling.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeGetNextSibling.GetAllParamsCount
 
 function TkwPopTreeNodeGetNextSibling.ParamsTypes: PTypeInfoArray;
@@ -561,7 +561,7 @@ end;//TkwPopTreeNodeGetPrevSibling.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrevSibling.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeGetPrevSibling.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrevSibling.ParamsTypes: PTypeInfoArray;
@@ -609,7 +609,7 @@ end;//TkwPopTreeNodeGetNextVisible.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNextVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeGetNextVisible.GetAllParamsCount
 
 function TkwPopTreeNodeGetNextVisible.ParamsTypes: PTypeInfoArray;
@@ -657,7 +657,7 @@ end;//TkwPopTreeNodeGetPrevVisible.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrevVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwPopTreeNodeGetPrevVisible.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrevVisible.ParamsTypes: PTypeInfoArray;

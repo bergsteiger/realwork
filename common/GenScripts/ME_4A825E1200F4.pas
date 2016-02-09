@@ -20,8 +20,6 @@ type
    class function Make: IbsWorkJournal; reintroduce;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TbsWorkJournal;
-    {* Метод получения экземпляра синглетона TbsWorkJournal }
  end;//TbsWorkJournal
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -34,25 +32,23 @@ uses
  , l3Base
 ;
 
-var g_TbsWorkJournal: TbsWorkJournal = nil;
+var g_TbsWorkJournal: Pointer = nil;
  {* Экземпляр синглетона TbsWorkJournal }
 
 procedure TbsWorkJournalFree;
  {* Метод освобождения экземпляра синглетона TbsWorkJournal }
 begin
- l3Free(g_TbsWorkJournal);
+ IUnknown(g_TbsWorkJournal) := nil;
 end;//TbsWorkJournalFree
 
 class function TbsWorkJournal.Make: IbsWorkJournal;
-var
- l_Inst : TbsWorkJournal;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TbsWorkJournal = nil) then
+ begin
+  l3System.AddExitProc(TbsWorkJournalFree);
+  IbsWorkJournal(g_TbsWorkJournal) := inherited Make;
+ end;
+ Result := IbsWorkJournal(g_TbsWorkJournal);
 end;//TbsWorkJournal.Make
 
 class function TbsWorkJournal.Exists: Boolean;
@@ -60,17 +56,6 @@ class function TbsWorkJournal.Exists: Boolean;
 begin
  Result := g_TbsWorkJournal <> nil;
 end;//TbsWorkJournal.Exists
-
-class function TbsWorkJournal.Instance: TbsWorkJournal;
- {* Метод получения экземпляра синглетона TbsWorkJournal }
-begin
- if (g_TbsWorkJournal = nil) then
- begin
-  l3System.AddExitProc(TbsWorkJournalFree);
-  g_TbsWorkJournal := Create;
- end;
- Result := g_TbsWorkJournal;
-end;//TbsWorkJournal.Instance
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.
