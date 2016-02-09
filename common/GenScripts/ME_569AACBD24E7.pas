@@ -801,12 +801,8 @@ begin
 end;//TkwDictionContainerFormPnBackground.GetResultTypeInfo
 
 function TkwDictionContainerFormPnBackground.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5C1D4B47DA1C_var*
-//#UC END# *559687E6025A_5C1D4B47DA1C_var*
 begin
-//#UC START# *559687E6025A_5C1D4B47DA1C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5C1D4B47DA1C_impl*
+ Result := 1;
 end;//TkwDictionContainerFormPnBackground.GetAllParamsCount
 
 function TkwDictionContainerFormPnBackground.ParamsTypes: PTypeInfoArray;
@@ -863,12 +859,8 @@ begin
 end;//TkwDictionContainerFormNavigatorZone.GetResultTypeInfo
 
 function TkwDictionContainerFormNavigatorZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B758545C6415_var*
-//#UC END# *559687E6025A_B758545C6415_var*
 begin
-//#UC START# *559687E6025A_B758545C6415_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B758545C6415_impl*
+ Result := 1;
 end;//TkwDictionContainerFormNavigatorZone.GetAllParamsCount
 
 function TkwDictionContainerFormNavigatorZone.ParamsTypes: PTypeInfoArray;
@@ -925,12 +917,8 @@ begin
 end;//TkwDictionContainerFormPnWorkArea.GetResultTypeInfo
 
 function TkwDictionContainerFormPnWorkArea.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DA6459295537_var*
-//#UC END# *559687E6025A_DA6459295537_var*
 begin
-//#UC START# *559687E6025A_DA6459295537_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DA6459295537_impl*
+ Result := 1;
 end;//TkwDictionContainerFormPnWorkArea.GetAllParamsCount
 
 function TkwDictionContainerFormPnWorkArea.ParamsTypes: PTypeInfoArray;
@@ -987,12 +975,8 @@ begin
 end;//TkwDictionContainerFormChildZone.GetResultTypeInfo
 
 function TkwDictionContainerFormChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_83F1D2A5B92D_var*
-//#UC END# *559687E6025A_83F1D2A5B92D_var*
 begin
-//#UC START# *559687E6025A_83F1D2A5B92D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_83F1D2A5B92D_impl*
+ Result := 1;
 end;//TkwDictionContainerFormChildZone.GetAllParamsCount
 
 function TkwDictionContainerFormChildZone.ParamsTypes: PTypeInfoArray;
@@ -1049,12 +1033,8 @@ begin
 end;//TkwDictionContainerFormPnHeader.GetResultTypeInfo
 
 function TkwDictionContainerFormPnHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_279A8001124C_var*
-//#UC END# *559687E6025A_279A8001124C_var*
 begin
-//#UC START# *559687E6025A_279A8001124C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_279A8001124C_impl*
+ Result := 1;
 end;//TkwDictionContainerFormPnHeader.GetAllParamsCount
 
 function TkwDictionContainerFormPnHeader.ParamsTypes: PTypeInfoArray;
@@ -1111,12 +1091,8 @@ begin
 end;//TkwDictionContainerFormLbHeader.GetResultTypeInfo
 
 function TkwDictionContainerFormLbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1C8B99EC88F7_var*
-//#UC END# *559687E6025A_1C8B99EC88F7_var*
 begin
-//#UC START# *559687E6025A_1C8B99EC88F7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1C8B99EC88F7_impl*
+ Result := 1;
 end;//TkwDictionContainerFormLbHeader.GetAllParamsCount
 
 function TkwDictionContainerFormLbHeader.ParamsTypes: PTypeInfoArray;
@@ -1173,12 +1149,8 @@ begin
 end;//TkwDictionContainerFormPbHeader.GetResultTypeInfo
 
 function TkwDictionContainerFormPbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_78B0474AA39B_var*
-//#UC END# *559687E6025A_78B0474AA39B_var*
 begin
-//#UC START# *559687E6025A_78B0474AA39B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_78B0474AA39B_impl*
+ Result := 1;
 end;//TkwDictionContainerFormPbHeader.GetAllParamsCount
 
 function TkwDictionContainerFormPbHeader.ParamsTypes: PTypeInfoArray;
@@ -1235,12 +1207,8 @@ begin
 end;//TkwDictionContainerFormParentZone.GetResultTypeInfo
 
 function TkwDictionContainerFormParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0F3761C98BE0_var*
-//#UC END# *559687E6025A_0F3761C98BE0_var*
 begin
-//#UC START# *559687E6025A_0F3761C98BE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0F3761C98BE0_impl*
+ Result := 1;
 end;//TkwDictionContainerFormParentZone.GetAllParamsCount
 
 function TkwDictionContainerFormParentZone.ParamsTypes: PTypeInfoArray;

@@ -193,12 +193,8 @@ begin
 end;//TkwEnFoldersTreeFoldersTree.GetResultTypeInfo
 
 function TkwEnFoldersTreeFoldersTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6BEE06997D28_var*
-//#UC END# *559687E6025A_6BEE06997D28_var*
 begin
-//#UC START# *559687E6025A_6BEE06997D28_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6BEE06997D28_impl*
+ Result := 1;
 end;//TkwEnFoldersTreeFoldersTree.GetAllParamsCount
 
 function TkwEnFoldersTreeFoldersTree.ParamsTypes: PTypeInfoArray;

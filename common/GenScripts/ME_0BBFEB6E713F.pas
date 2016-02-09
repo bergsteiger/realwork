@@ -292,12 +292,8 @@ begin
 end;//TkwEnPageSetupPreviewGroupBox.GetResultTypeInfo
 
 function TkwEnPageSetupPreviewGroupBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_56C42AEE3D11_var*
-//#UC END# *559687E6025A_56C42AEE3D11_var*
 begin
-//#UC START# *559687E6025A_56C42AEE3D11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_56C42AEE3D11_impl*
+ Result := 1;
 end;//TkwEnPageSetupPreviewGroupBox.GetAllParamsCount
 
 function TkwEnPageSetupPreviewGroupBox.ParamsTypes: PTypeInfoArray;
@@ -354,12 +350,8 @@ begin
 end;//TkwEnPageSetupSettingsPageControl.GetResultTypeInfo
 
 function TkwEnPageSetupSettingsPageControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_82C3311120D2_var*
-//#UC END# *559687E6025A_82C3311120D2_var*
 begin
-//#UC START# *559687E6025A_82C3311120D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_82C3311120D2_impl*
+ Result := 1;
 end;//TkwEnPageSetupSettingsPageControl.GetAllParamsCount
 
 function TkwEnPageSetupSettingsPageControl.ParamsTypes: PTypeInfoArray;

@@ -1060,12 +1060,8 @@ begin
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C91AEE657109_var*
-//#UC END# *559687E6025A_C91AEE657109_var*
 begin
-//#UC START# *559687E6025A_C91AEE657109_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C91AEE657109_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfReferencesAndDictionaries.ParamsTypes: PTypeInfoArray;
@@ -1122,12 +1118,8 @@ begin
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_437CE9A2D1E0_var*
-//#UC END# *559687E6025A_437CE9A2D1E0_var*
 begin
-//#UC START# *559687E6025A_437CE9A2D1E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_437CE9A2D1E0_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.ParamsTypes: PTypeInfoArray;
@@ -1184,12 +1176,8 @@ begin
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0B5AD3386AA9_var*
-//#UC END# *559687E6025A_0B5AD3386AA9_var*
 begin
-//#UC START# *559687E6025A_0B5AD3386AA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0B5AD3386AA9_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.ParamsTypes: PTypeInfoArray;
@@ -1246,12 +1234,8 @@ begin
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_723F1F7F4BC5_var*
-//#UC END# *559687E6025A_723F1F7F4BC5_var*
 begin
-//#UC START# *559687E6025A_723F1F7F4BC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_723F1F7F4BC5_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.ParamsTypes: PTypeInfoArray;
@@ -1308,12 +1292,8 @@ begin
 end;//TkwEnMedicMainMenuHfMainFeatures.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfMainFeatures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6BE515CCE9E4_var*
-//#UC END# *559687E6025A_6BE515CCE9E4_var*
 begin
-//#UC START# *559687E6025A_6BE515CCE9E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6BE515CCE9E4_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuHfMainFeatures.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfMainFeatures.ParamsTypes: PTypeInfoArray;
@@ -1370,12 +1350,8 @@ begin
 end;//TkwEnMedicMainMenuTvMainFeatures.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvMainFeatures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_794F6F0CBB14_var*
-//#UC END# *559687E6025A_794F6F0CBB14_var*
 begin
-//#UC START# *559687E6025A_794F6F0CBB14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_794F6F0CBB14_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuTvMainFeatures.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvMainFeatures.ParamsTypes: PTypeInfoArray;
@@ -1432,12 +1408,8 @@ begin
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_10352C98F383_var*
-//#UC END# *559687E6025A_10352C98F383_var*
 begin
-//#UC START# *559687E6025A_10352C98F383_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_10352C98F383_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.ParamsTypes: PTypeInfoArray;
@@ -1494,12 +1466,8 @@ begin
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_88E38EE631AC_var*
-//#UC END# *559687E6025A_88E38EE631AC_var*
 begin
-//#UC START# *559687E6025A_88E38EE631AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_88E38EE631AC_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.ParamsTypes: PTypeInfoArray;
@@ -1556,12 +1524,8 @@ begin
 end;//TkwEnMedicMainMenuPnlMain.GetResultTypeInfo
 
 function TkwEnMedicMainMenuPnlMain.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3053DF0D7F26_var*
-//#UC END# *559687E6025A_3053DF0D7F26_var*
 begin
-//#UC START# *559687E6025A_3053DF0D7F26_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3053DF0D7F26_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuPnlMain.GetAllParamsCount
 
 function TkwEnMedicMainMenuPnlMain.ParamsTypes: PTypeInfoArray;
@@ -1618,12 +1582,8 @@ begin
 end;//TkwEnMedicMainMenuHfLastOpenDocs.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfLastOpenDocs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_56226AEAD4AE_var*
-//#UC END# *559687E6025A_56226AEAD4AE_var*
 begin
-//#UC START# *559687E6025A_56226AEAD4AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_56226AEAD4AE_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuHfLastOpenDocs.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfLastOpenDocs.ParamsTypes: PTypeInfoArray;
@@ -1680,12 +1640,8 @@ begin
 end;//TkwEnMedicMainMenuTvLastOpenDocs.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvLastOpenDocs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A599BAA66CFE_var*
-//#UC END# *559687E6025A_A599BAA66CFE_var*
 begin
-//#UC START# *559687E6025A_A599BAA66CFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A599BAA66CFE_impl*
+ Result := 1;
 end;//TkwEnMedicMainMenuTvLastOpenDocs.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvLastOpenDocs.ParamsTypes: PTypeInfoArray;

@@ -1155,12 +1155,8 @@ begin
 end;//TkwEnPrintDialogPoDocumentNames.GetResultTypeInfo
 
 function TkwEnPrintDialogPoDocumentNames.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_103A0129A2B3_var*
-//#UC END# *559687E6025A_103A0129A2B3_var*
 begin
-//#UC START# *559687E6025A_103A0129A2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_103A0129A2B3_impl*
+ Result := 1;
 end;//TkwEnPrintDialogPoDocumentNames.GetAllParamsCount
 
 function TkwEnPrintDialogPoDocumentNames.ParamsTypes: PTypeInfoArray;
@@ -1217,12 +1213,8 @@ begin
 end;//TkwEnPrintDialogRbPrintSelected.GetResultTypeInfo
 
 function TkwEnPrintDialogRbPrintSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_97819185B8B3_var*
-//#UC END# *559687E6025A_97819185B8B3_var*
 begin
-//#UC START# *559687E6025A_97819185B8B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_97819185B8B3_impl*
+ Result := 1;
 end;//TkwEnPrintDialogRbPrintSelected.GetAllParamsCount
 
 function TkwEnPrintDialogRbPrintSelected.ParamsTypes: PTypeInfoArray;
@@ -1279,12 +1271,8 @@ begin
 end;//TkwEnPrintDialogRbPrintCurrent.GetResultTypeInfo
 
 function TkwEnPrintDialogRbPrintCurrent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_23FF77EDE234_var*
-//#UC END# *559687E6025A_23FF77EDE234_var*
 begin
-//#UC START# *559687E6025A_23FF77EDE234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_23FF77EDE234_impl*
+ Result := 1;
 end;//TkwEnPrintDialogRbPrintCurrent.GetAllParamsCount
 
 function TkwEnPrintDialogRbPrintCurrent.ParamsTypes: PTypeInfoArray;
@@ -1341,12 +1329,8 @@ begin
 end;//TkwEnPrintDialogEdPrintInterval.GetResultTypeInfo
 
 function TkwEnPrintDialogEdPrintInterval.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_72BD6982D75C_var*
-//#UC END# *559687E6025A_72BD6982D75C_var*
 begin
-//#UC START# *559687E6025A_72BD6982D75C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_72BD6982D75C_impl*
+ Result := 1;
 end;//TkwEnPrintDialogEdPrintInterval.GetAllParamsCount
 
 function TkwEnPrintDialogEdPrintInterval.ParamsTypes: PTypeInfoArray;
@@ -1403,12 +1387,8 @@ begin
 end;//TkwEnPrintDialogEdCopyCount.GetResultTypeInfo
 
 function TkwEnPrintDialogEdCopyCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F312A27E7E41_var*
-//#UC END# *559687E6025A_F312A27E7E41_var*
 begin
-//#UC START# *559687E6025A_F312A27E7E41_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F312A27E7E41_impl*
+ Result := 1;
 end;//TkwEnPrintDialogEdCopyCount.GetAllParamsCount
 
 function TkwEnPrintDialogEdCopyCount.ParamsTypes: PTypeInfoArray;
@@ -1465,12 +1445,8 @@ begin
 end;//TkwEnPrintDialogCollateCheckBox.GetResultTypeInfo
 
 function TkwEnPrintDialogCollateCheckBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8A08E020034B_var*
-//#UC END# *559687E6025A_8A08E020034B_var*
 begin
-//#UC START# *559687E6025A_8A08E020034B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8A08E020034B_impl*
+ Result := 1;
 end;//TkwEnPrintDialogCollateCheckBox.GetAllParamsCount
 
 function TkwEnPrintDialogCollateCheckBox.ParamsTypes: PTypeInfoArray;
@@ -1527,12 +1503,8 @@ begin
 end;//TkwEnPrintDialogCbOddEven.GetResultTypeInfo
 
 function TkwEnPrintDialogCbOddEven.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D4AAEA04D37D_var*
-//#UC END# *559687E6025A_D4AAEA04D37D_var*
 begin
-//#UC START# *559687E6025A_D4AAEA04D37D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D4AAEA04D37D_impl*
+ Result := 1;
 end;//TkwEnPrintDialogCbOddEven.GetAllParamsCount
 
 function TkwEnPrintDialogCbOddEven.ParamsTypes: PTypeInfoArray;
@@ -1589,12 +1561,8 @@ begin
 end;//TkwEnPrintDialogPoDocumentTexts.GetResultTypeInfo
 
 function TkwEnPrintDialogPoDocumentTexts.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7B77E6E2C7AF_var*
-//#UC END# *559687E6025A_7B77E6E2C7AF_var*
 begin
-//#UC START# *559687E6025A_7B77E6E2C7AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7B77E6E2C7AF_impl*
+ Result := 1;
 end;//TkwEnPrintDialogPoDocumentTexts.GetAllParamsCount
 
 function TkwEnPrintDialogPoDocumentTexts.ParamsTypes: PTypeInfoArray;
@@ -1651,12 +1619,8 @@ begin
 end;//TkwEnPrintDialogRbPrintAll.GetResultTypeInfo
 
 function TkwEnPrintDialogRbPrintAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_064862418464_var*
-//#UC END# *559687E6025A_064862418464_var*
 begin
-//#UC START# *559687E6025A_064862418464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_064862418464_impl*
+ Result := 1;
 end;//TkwEnPrintDialogRbPrintAll.GetAllParamsCount
 
 function TkwEnPrintDialogRbPrintAll.ParamsTypes: PTypeInfoArray;
@@ -1713,12 +1677,8 @@ begin
 end;//TkwEnPrintDialogRbPrintInterval.GetResultTypeInfo
 
 function TkwEnPrintDialogRbPrintInterval.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6A445E1BC728_var*
-//#UC END# *559687E6025A_6A445E1BC728_var*
 begin
-//#UC START# *559687E6025A_6A445E1BC728_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6A445E1BC728_impl*
+ Result := 1;
 end;//TkwEnPrintDialogRbPrintInterval.GetAllParamsCount
 
 function TkwEnPrintDialogRbPrintInterval.ParamsTypes: PTypeInfoArray;
@@ -1775,12 +1735,8 @@ begin
 end;//TkwEnPrintDialogCbPrinter.GetResultTypeInfo
 
 function TkwEnPrintDialogCbPrinter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2BD5B9B2560F_var*
-//#UC END# *559687E6025A_2BD5B9B2560F_var*
 begin
-//#UC START# *559687E6025A_2BD5B9B2560F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2BD5B9B2560F_impl*
+ Result := 1;
 end;//TkwEnPrintDialogCbPrinter.GetAllParamsCount
 
 function TkwEnPrintDialogCbPrinter.ParamsTypes: PTypeInfoArray;
@@ -1837,12 +1793,8 @@ begin
 end;//TkwEnPrintDialogCbPrintInfo.GetResultTypeInfo
 
 function TkwEnPrintDialogCbPrintInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D98C3DAD8DBF_var*
-//#UC END# *559687E6025A_D98C3DAD8DBF_var*
 begin
-//#UC START# *559687E6025A_D98C3DAD8DBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D98C3DAD8DBF_impl*
+ Result := 1;
 end;//TkwEnPrintDialogCbPrintInfo.GetAllParamsCount
 
 function TkwEnPrintDialogCbPrintInfo.ParamsTypes: PTypeInfoArray;

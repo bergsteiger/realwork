@@ -195,12 +195,8 @@ begin
 end;//TkwEfPreviewFormPreviewPanel.GetResultTypeInfo
 
 function TkwEfPreviewFormPreviewPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BEE124DE58A4_var*
-//#UC END# *559687E6025A_BEE124DE58A4_var*
 begin
-//#UC START# *559687E6025A_BEE124DE58A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BEE124DE58A4_impl*
+ Result := 1;
 end;//TkwEfPreviewFormPreviewPanel.GetAllParamsCount
 
 function TkwEfPreviewFormPreviewPanel.ParamsTypes: PTypeInfoArray;

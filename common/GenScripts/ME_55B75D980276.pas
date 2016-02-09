@@ -100,12 +100,8 @@ begin
 end;//TkwLoggingStartListening.GetResultTypeInfo
 
 function TkwLoggingStartListening.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_66D69322DA0D_var*
-//#UC END# *559687E6025A_66D69322DA0D_var*
 begin
-//#UC START# *559687E6025A_66D69322DA0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_66D69322DA0D_impl*
+ Result := 0;
 end;//TkwLoggingStartListening.GetAllParamsCount
 
 procedure TkwLoggingFinishListening.DoDoIt(const aCtx: TtfwContext);
@@ -132,12 +128,8 @@ begin
 end;//TkwLoggingFinishListening.GetResultTypeInfo
 
 function TkwLoggingFinishListening.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_961A18770456_var*
-//#UC END# *559687E6025A_961A18770456_var*
 begin
-//#UC START# *559687E6025A_961A18770456_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_961A18770456_impl*
+ Result := 0;
 end;//TkwLoggingFinishListening.GetAllParamsCount
 
 function TkwLoggingGetLogRecords.logging_GetLogRecords(const aCtx: TtfwContext): AnsiString;
@@ -174,12 +166,8 @@ begin
 end;//TkwLoggingGetLogRecords.GetResultTypeInfo
 
 function TkwLoggingGetLogRecords.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4FDD3D4A4771_var*
-//#UC END# *559687E6025A_4FDD3D4A4771_var*
 begin
-//#UC START# *559687E6025A_4FDD3D4A4771_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4FDD3D4A4771_impl*
+ Result := 0;
 end;//TkwLoggingGetLogRecords.GetAllParamsCount
 
 function TkwLoggingGetLogRecords.ParamsTypes: PTypeInfoArray;

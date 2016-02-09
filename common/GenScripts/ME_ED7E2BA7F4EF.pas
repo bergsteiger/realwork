@@ -254,12 +254,8 @@ begin
 end;//TkwEnQueryCardEditor.GetResultTypeInfo
 
 function TkwEnQueryCardEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C531EBC72793_var*
-//#UC END# *559687E6025A_C531EBC72793_var*
 begin
-//#UC START# *559687E6025A_C531EBC72793_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C531EBC72793_impl*
+ Result := 1;
 end;//TkwEnQueryCardEditor.GetAllParamsCount
 
 function TkwEnQueryCardEditor.ParamsTypes: PTypeInfoArray;
@@ -316,12 +312,8 @@ begin
 end;//TkwEnQueryCardTextSource.GetResultTypeInfo
 
 function TkwEnQueryCardTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_88CF64489AF4_var*
-//#UC END# *559687E6025A_88CF64489AF4_var*
 begin
-//#UC START# *559687E6025A_88CF64489AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_88CF64489AF4_impl*
+ Result := 1;
 end;//TkwEnQueryCardTextSource.GetAllParamsCount
 
 function TkwEnQueryCardTextSource.ParamsTypes: PTypeInfoArray;

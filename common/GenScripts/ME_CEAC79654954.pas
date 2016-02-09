@@ -367,12 +367,8 @@ begin
 end;//TkwCfFoldersBackgroundPanel.GetResultTypeInfo
 
 function TkwCfFoldersBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5C9B2EC425D0_var*
-//#UC END# *559687E6025A_5C9B2EC425D0_var*
 begin
-//#UC START# *559687E6025A_5C9B2EC425D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5C9B2EC425D0_impl*
+ Result := 1;
 end;//TkwCfFoldersBackgroundPanel.GetAllParamsCount
 
 function TkwCfFoldersBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -429,12 +425,8 @@ begin
 end;//TkwCfFoldersParentZone.GetResultTypeInfo
 
 function TkwCfFoldersParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5C121167A7CC_var*
-//#UC END# *559687E6025A_5C121167A7CC_var*
 begin
-//#UC START# *559687E6025A_5C121167A7CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5C121167A7CC_impl*
+ Result := 1;
 end;//TkwCfFoldersParentZone.GetAllParamsCount
 
 function TkwCfFoldersParentZone.ParamsTypes: PTypeInfoArray;
@@ -491,12 +483,8 @@ begin
 end;//TkwCfFoldersChildZone.GetResultTypeInfo
 
 function TkwCfFoldersChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D0B699F2B747_var*
-//#UC END# *559687E6025A_D0B699F2B747_var*
 begin
-//#UC START# *559687E6025A_D0B699F2B747_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D0B699F2B747_impl*
+ Result := 1;
 end;//TkwCfFoldersChildZone.GetAllParamsCount
 
 function TkwCfFoldersChildZone.ParamsTypes: PTypeInfoArray;

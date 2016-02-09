@@ -193,12 +193,8 @@ begin
 end;//TkwCfFoldersInfoChildZone.GetResultTypeInfo
 
 function TkwCfFoldersInfoChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7EB92774F605_var*
-//#UC END# *559687E6025A_7EB92774F605_var*
 begin
-//#UC START# *559687E6025A_7EB92774F605_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7EB92774F605_impl*
+ Result := 1;
 end;//TkwCfFoldersInfoChildZone.GetAllParamsCount
 
 function TkwCfFoldersInfoChildZone.ParamsTypes: PTypeInfoArray;

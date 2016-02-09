@@ -455,12 +455,8 @@ begin
 end;//TkwCfSaveLoadPnHeader.GetResultTypeInfo
 
 function TkwCfSaveLoadPnHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2440EB34C9D0_var*
-//#UC END# *559687E6025A_2440EB34C9D0_var*
 begin
-//#UC START# *559687E6025A_2440EB34C9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2440EB34C9D0_impl*
+ Result := 1;
 end;//TkwCfSaveLoadPnHeader.GetAllParamsCount
 
 function TkwCfSaveLoadPnHeader.ParamsTypes: PTypeInfoArray;
@@ -517,12 +513,8 @@ begin
 end;//TkwCfSaveLoadLbHeader.GetResultTypeInfo
 
 function TkwCfSaveLoadLbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E675708F6BD5_var*
-//#UC END# *559687E6025A_E675708F6BD5_var*
 begin
-//#UC START# *559687E6025A_E675708F6BD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E675708F6BD5_impl*
+ Result := 1;
 end;//TkwCfSaveLoadLbHeader.GetAllParamsCount
 
 function TkwCfSaveLoadLbHeader.ParamsTypes: PTypeInfoArray;
@@ -579,12 +571,8 @@ begin
 end;//TkwCfSaveLoadPbHeader.GetResultTypeInfo
 
 function TkwCfSaveLoadPbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_26C9E1BE48F1_var*
-//#UC END# *559687E6025A_26C9E1BE48F1_var*
 begin
-//#UC START# *559687E6025A_26C9E1BE48F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_26C9E1BE48F1_impl*
+ Result := 1;
 end;//TkwCfSaveLoadPbHeader.GetAllParamsCount
 
 function TkwCfSaveLoadPbHeader.ParamsTypes: PTypeInfoArray;
@@ -641,12 +629,8 @@ begin
 end;//TkwCfSaveLoadParentZone.GetResultTypeInfo
 
 function TkwCfSaveLoadParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_27482DAD1D6E_var*
-//#UC END# *559687E6025A_27482DAD1D6E_var*
 begin
-//#UC START# *559687E6025A_27482DAD1D6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_27482DAD1D6E_impl*
+ Result := 1;
 end;//TkwCfSaveLoadParentZone.GetAllParamsCount
 
 function TkwCfSaveLoadParentZone.ParamsTypes: PTypeInfoArray;

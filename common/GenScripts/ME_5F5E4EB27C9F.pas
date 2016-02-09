@@ -193,12 +193,8 @@ begin
 end;//TkwEnMedicListSynchroViewZtChild.GetResultTypeInfo
 
 function TkwEnMedicListSynchroViewZtChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B2A1FE850B9A_var*
-//#UC END# *559687E6025A_B2A1FE850B9A_var*
 begin
-//#UC START# *559687E6025A_B2A1FE850B9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B2A1FE850B9A_impl*
+ Result := 1;
 end;//TkwEnMedicListSynchroViewZtChild.GetAllParamsCount
 
 function TkwEnMedicListSynchroViewZtChild.ParamsTypes: PTypeInfoArray;

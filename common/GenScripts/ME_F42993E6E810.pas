@@ -973,12 +973,8 @@ begin
 end;//TkwEnFoldersElementInfoCommentPanel.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoCommentPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FC246B9E60E7_var*
-//#UC END# *559687E6025A_FC246B9E60E7_var*
 begin
-//#UC START# *559687E6025A_FC246B9E60E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FC246B9E60E7_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoCommentPanel.GetAllParamsCount
 
 function TkwEnFoldersElementInfoCommentPanel.ParamsTypes: PTypeInfoArray;
@@ -1035,12 +1031,8 @@ begin
 end;//TkwEnFoldersElementInfoElementComment.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoElementComment.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4551FFBCF0C6_var*
-//#UC END# *559687E6025A_4551FFBCF0C6_var*
 begin
-//#UC START# *559687E6025A_4551FFBCF0C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4551FFBCF0C6_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoElementComment.GetAllParamsCount
 
 function TkwEnFoldersElementInfoElementComment.ParamsTypes: PTypeInfoArray;
@@ -1097,12 +1089,8 @@ begin
 end;//TkwEnFoldersElementInfoCaptionPanel.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoCaptionPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A0B79FE250B1_var*
-//#UC END# *559687E6025A_A0B79FE250B1_var*
 begin
-//#UC START# *559687E6025A_A0B79FE250B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A0B79FE250B1_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoCaptionPanel.GetAllParamsCount
 
 function TkwEnFoldersElementInfoCaptionPanel.ParamsTypes: PTypeInfoArray;
@@ -1159,12 +1147,8 @@ begin
 end;//TkwEnFoldersElementInfoLblComment.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoLblComment.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F4AFE53A600D_var*
-//#UC END# *559687E6025A_F4AFE53A600D_var*
 begin
-//#UC START# *559687E6025A_F4AFE53A600D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F4AFE53A600D_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoLblComment.GetAllParamsCount
 
 function TkwEnFoldersElementInfoLblComment.ParamsTypes: PTypeInfoArray;
@@ -1221,12 +1205,8 @@ begin
 end;//TkwEnFoldersElementInfoTopPanel.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoTopPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0598428B8405_var*
-//#UC END# *559687E6025A_0598428B8405_var*
 begin
-//#UC START# *559687E6025A_0598428B8405_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0598428B8405_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoTopPanel.GetAllParamsCount
 
 function TkwEnFoldersElementInfoTopPanel.ParamsTypes: PTypeInfoArray;
@@ -1283,12 +1263,8 @@ begin
 end;//TkwEnFoldersElementInfoNamePanel.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoNamePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_52A5040B9075_var*
-//#UC END# *559687E6025A_52A5040B9075_var*
 begin
-//#UC START# *559687E6025A_52A5040B9075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_52A5040B9075_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoNamePanel.GetAllParamsCount
 
 function TkwEnFoldersElementInfoNamePanel.ParamsTypes: PTypeInfoArray;
@@ -1345,12 +1321,8 @@ begin
 end;//TkwEnFoldersElementInfoLblElementName.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoLblElementName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D5C00B48FC3E_var*
-//#UC END# *559687E6025A_D5C00B48FC3E_var*
 begin
-//#UC START# *559687E6025A_D5C00B48FC3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D5C00B48FC3E_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoLblElementName.GetAllParamsCount
 
 function TkwEnFoldersElementInfoLblElementName.ParamsTypes: PTypeInfoArray;
@@ -1407,12 +1379,8 @@ begin
 end;//TkwEnFoldersElementInfoElementName.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoElementName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_267BC48F5895_var*
-//#UC END# *559687E6025A_267BC48F5895_var*
 begin
-//#UC START# *559687E6025A_267BC48F5895_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_267BC48F5895_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoElementName.GetAllParamsCount
 
 function TkwEnFoldersElementInfoElementName.ParamsTypes: PTypeInfoArray;
@@ -1469,12 +1437,8 @@ begin
 end;//TkwEnFoldersElementInfoCbShared.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoCbShared.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_11977A9AAA59_var*
-//#UC END# *559687E6025A_11977A9AAA59_var*
 begin
-//#UC START# *559687E6025A_11977A9AAA59_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_11977A9AAA59_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoCbShared.GetAllParamsCount
 
 function TkwEnFoldersElementInfoCbShared.ParamsTypes: PTypeInfoArray;
@@ -1531,12 +1495,8 @@ begin
 end;//TkwEnFoldersElementInfoInfoName.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoInfoName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4CFE9C00804F_var*
-//#UC END# *559687E6025A_4CFE9C00804F_var*
 begin
-//#UC START# *559687E6025A_4CFE9C00804F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4CFE9C00804F_impl*
+ Result := 1;
 end;//TkwEnFoldersElementInfoInfoName.GetAllParamsCount
 
 function TkwEnFoldersElementInfoInfoName.ParamsTypes: PTypeInfoArray;
