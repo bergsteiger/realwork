@@ -971,12 +971,8 @@ begin
 end;//TkwEnConsultationMarkGbMark.GetResultTypeInfo
 
 function TkwEnConsultationMarkGbMark.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_08E015178ADF_var*
-//#UC END# *559687E6025A_08E015178ADF_var*
 begin
-//#UC START# *559687E6025A_08E015178ADF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_08E015178ADF_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkGbMark.GetAllParamsCount
 
 function TkwEnConsultationMarkGbMark.ParamsTypes: PTypeInfoArray;
@@ -1033,12 +1029,8 @@ begin
 end;//TkwEnConsultationMarkRbNotSure.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbNotSure.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_102A22C548B7_var*
-//#UC END# *559687E6025A_102A22C548B7_var*
 begin
-//#UC START# *559687E6025A_102A22C548B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_102A22C548B7_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkRbNotSure.GetAllParamsCount
 
 function TkwEnConsultationMarkRbNotSure.ParamsTypes: PTypeInfoArray;
@@ -1095,12 +1087,8 @@ begin
 end;//TkwEnConsultationMarkRbTwo.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbTwo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1361F312A549_var*
-//#UC END# *559687E6025A_1361F312A549_var*
 begin
-//#UC START# *559687E6025A_1361F312A549_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1361F312A549_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkRbTwo.GetAllParamsCount
 
 function TkwEnConsultationMarkRbTwo.ParamsTypes: PTypeInfoArray;
@@ -1157,12 +1145,8 @@ begin
 end;//TkwEnConsultationMarkRbThree.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbThree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DCFA687F0AB6_var*
-//#UC END# *559687E6025A_DCFA687F0AB6_var*
 begin
-//#UC START# *559687E6025A_DCFA687F0AB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DCFA687F0AB6_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkRbThree.GetAllParamsCount
 
 function TkwEnConsultationMarkRbThree.ParamsTypes: PTypeInfoArray;
@@ -1219,12 +1203,8 @@ begin
 end;//TkwEnConsultationMarkRbFour.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbFour.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_017B75B3B73E_var*
-//#UC END# *559687E6025A_017B75B3B73E_var*
 begin
-//#UC START# *559687E6025A_017B75B3B73E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_017B75B3B73E_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkRbFour.GetAllParamsCount
 
 function TkwEnConsultationMarkRbFour.ParamsTypes: PTypeInfoArray;
@@ -1281,12 +1261,8 @@ begin
 end;//TkwEnConsultationMarkRbFive.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbFive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B408A9A1DAB5_var*
-//#UC END# *559687E6025A_B408A9A1DAB5_var*
 begin
-//#UC START# *559687E6025A_B408A9A1DAB5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B408A9A1DAB5_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkRbFive.GetAllParamsCount
 
 function TkwEnConsultationMarkRbFive.ParamsTypes: PTypeInfoArray;
@@ -1343,12 +1319,8 @@ begin
 end;//TkwEnConsultationMarkPnlHelp.GetResultTypeInfo
 
 function TkwEnConsultationMarkPnlHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_85E1FBE51015_var*
-//#UC END# *559687E6025A_85E1FBE51015_var*
 begin
-//#UC START# *559687E6025A_85E1FBE51015_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_85E1FBE51015_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkPnlHelp.GetAllParamsCount
 
 function TkwEnConsultationMarkPnlHelp.ParamsTypes: PTypeInfoArray;
@@ -1405,12 +1377,8 @@ begin
 end;//TkwEnConsultationMarkLblHelp.GetResultTypeInfo
 
 function TkwEnConsultationMarkLblHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BD995E557E53_var*
-//#UC END# *559687E6025A_BD995E557E53_var*
 begin
-//#UC START# *559687E6025A_BD995E557E53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BD995E557E53_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkLblHelp.GetAllParamsCount
 
 function TkwEnConsultationMarkLblHelp.ParamsTypes: PTypeInfoArray;
@@ -1467,12 +1435,8 @@ begin
 end;//TkwEnConsultationMarkGbComment.GetResultTypeInfo
 
 function TkwEnConsultationMarkGbComment.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5E131FAEC04F_var*
-//#UC END# *559687E6025A_5E131FAEC04F_var*
 begin
-//#UC START# *559687E6025A_5E131FAEC04F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5E131FAEC04F_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkGbComment.GetAllParamsCount
 
 function TkwEnConsultationMarkGbComment.ParamsTypes: PTypeInfoArray;
@@ -1529,12 +1493,8 @@ begin
 end;//TkwEnConsultationMarkMComment.GetResultTypeInfo
 
 function TkwEnConsultationMarkMComment.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_780807DC0F9A_var*
-//#UC END# *559687E6025A_780807DC0F9A_var*
 begin
-//#UC START# *559687E6025A_780807DC0F9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_780807DC0F9A_impl*
+ Result := 1;
 end;//TkwEnConsultationMarkMComment.GetAllParamsCount
 
 function TkwEnConsultationMarkMComment.ParamsTypes: PTypeInfoArray;
