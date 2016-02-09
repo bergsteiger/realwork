@@ -2632,20 +2632,23 @@ elem_iterator UsedTotal
 ; // UsedTotal
 
 elem_iterator AbstractUses
- [empty]
- ( 
-  Self .Inherits 
-  .filter> .IsSimpleClass 
-  .filter> ( .Abstraction at_abstract == )
- ) .for> ( 
-   IN aG
-  .joinWithLambded> ( 
-   aG .Implements 
-   .filter> .IsMixIn
-  ) // .joinWithLambded> 
-  .Dependencies .filter> ( .IsStereotype st_uses::Dependency ) .mapToTarget>
-  .join> ( aG call.me ) 
- ) // .for>
+ Cached:
+ (
+  [empty]
+  ( 
+   Self .Inherits 
+   .filter> .IsSimpleClass 
+   .filter> ( .Abstraction at_abstract == )
+  ) .for> ( 
+    IN aG
+   .joinWithLambded> ( 
+    aG .Implements 
+    .filter> .IsMixIn
+   ) // .joinWithLambded> 
+   .Dependencies .filter> ( .IsStereotype st_uses::Dependency ) .mapToTarget>
+   .join> ( aG call.me ) 
+  ) // .for>
+ )
  >>> Result
 ; // AbstractUses
 
