@@ -542,12 +542,8 @@ begin
 end;//TkwChatWindowFormBackgroundPanel.GetResultTypeInfo
 
 function TkwChatWindowFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_82D5B8204902_var*
-//#UC END# *559687E6025A_82D5B8204902_var*
 begin
-//#UC START# *559687E6025A_82D5B8204902_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_82D5B8204902_impl*
+ Result := 1;
 end;//TkwChatWindowFormBackgroundPanel.GetAllParamsCount
 
 function TkwChatWindowFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -604,12 +600,8 @@ begin
 end;//TkwChatWindowFormBottomPanel.GetResultTypeInfo
 
 function TkwChatWindowFormBottomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D5379CFED623_var*
-//#UC END# *559687E6025A_D5379CFED623_var*
 begin
-//#UC START# *559687E6025A_D5379CFED623_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D5379CFED623_impl*
+ Result := 1;
 end;//TkwChatWindowFormBottomPanel.GetAllParamsCount
 
 function TkwChatWindowFormBottomPanel.ParamsTypes: PTypeInfoArray;
@@ -666,12 +658,8 @@ begin
 end;//TkwChatWindowFormBottomEditor.GetResultTypeInfo
 
 function TkwChatWindowFormBottomEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3AAF433A3259_var*
-//#UC END# *559687E6025A_3AAF433A3259_var*
 begin
-//#UC START# *559687E6025A_3AAF433A3259_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3AAF433A3259_impl*
+ Result := 1;
 end;//TkwChatWindowFormBottomEditor.GetAllParamsCount
 
 function TkwChatWindowFormBottomEditor.ParamsTypes: PTypeInfoArray;
@@ -728,12 +716,8 @@ begin
 end;//TkwChatWindowFormTopPanel.GetResultTypeInfo
 
 function TkwChatWindowFormTopPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D0DB504BE24E_var*
-//#UC END# *559687E6025A_D0DB504BE24E_var*
 begin
-//#UC START# *559687E6025A_D0DB504BE24E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D0DB504BE24E_impl*
+ Result := 1;
 end;//TkwChatWindowFormTopPanel.GetAllParamsCount
 
 function TkwChatWindowFormTopPanel.ParamsTypes: PTypeInfoArray;
@@ -790,12 +774,8 @@ begin
 end;//TkwChatWindowFormHistoryEditor.GetResultTypeInfo
 
 function TkwChatWindowFormHistoryEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_75D7C1A3BFCB_var*
-//#UC END# *559687E6025A_75D7C1A3BFCB_var*
 begin
-//#UC START# *559687E6025A_75D7C1A3BFCB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_75D7C1A3BFCB_impl*
+ Result := 1;
 end;//TkwChatWindowFormHistoryEditor.GetAllParamsCount
 
 function TkwChatWindowFormHistoryEditor.ParamsTypes: PTypeInfoArray;

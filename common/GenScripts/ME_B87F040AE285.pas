@@ -369,12 +369,8 @@ begin
 end;//TkwContactListFormBackgroundPanel.GetResultTypeInfo
 
 function TkwContactListFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DAF37FC67167_var*
-//#UC END# *559687E6025A_DAF37FC67167_var*
 begin
-//#UC START# *559687E6025A_DAF37FC67167_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DAF37FC67167_impl*
+ Result := 1;
 end;//TkwContactListFormBackgroundPanel.GetAllParamsCount
 
 function TkwContactListFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -431,12 +427,8 @@ begin
 end;//TkwContactListFormContextFilter.GetResultTypeInfo
 
 function TkwContactListFormContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_141AC39E15DF_var*
-//#UC END# *559687E6025A_141AC39E15DF_var*
 begin
-//#UC START# *559687E6025A_141AC39E15DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_141AC39E15DF_impl*
+ Result := 1;
 end;//TkwContactListFormContextFilter.GetAllParamsCount
 
 function TkwContactListFormContextFilter.ParamsTypes: PTypeInfoArray;
@@ -493,12 +485,8 @@ begin
 end;//TkwContactListFormTrContactList.GetResultTypeInfo
 
 function TkwContactListFormTrContactList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3B0FB738C178_var*
-//#UC END# *559687E6025A_3B0FB738C178_var*
 begin
-//#UC START# *559687E6025A_3B0FB738C178_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3B0FB738C178_impl*
+ Result := 1;
 end;//TkwContactListFormTrContactList.GetAllParamsCount
 
 function TkwContactListFormTrContactList.ParamsTypes: PTypeInfoArray;

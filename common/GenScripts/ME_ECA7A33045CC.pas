@@ -195,12 +195,8 @@ begin
 end;//TkwChatHistoryFormHistoryEditor.GetResultTypeInfo
 
 function TkwChatHistoryFormHistoryEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_07D7665942C7_var*
-//#UC END# *559687E6025A_07D7665942C7_var*
 begin
-//#UC START# *559687E6025A_07D7665942C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_07D7665942C7_impl*
+ Result := 1;
 end;//TkwChatHistoryFormHistoryEditor.GetAllParamsCount
 
 function TkwChatHistoryFormHistoryEditor.ParamsTypes: PTypeInfoArray;

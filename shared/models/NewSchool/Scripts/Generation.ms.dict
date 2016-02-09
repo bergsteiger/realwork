@@ -2127,7 +2127,8 @@ STRING elem_func TypeInfo
    '@tfw_tiClassRef'
   DEFAULT
    ( 'TypeInfo(' Self .TypeName ')' )
- ; // RULES 
+ ; // RULES
+ >>> Result 
 ; // TypeInfo 
 
 ANY elem_func GetUserCode
@@ -2413,6 +2414,13 @@ elem_proc UserCode:
         Self .Implementor .SpelledFor >>> l_Op
         [ 
          ' Result := '
+         if ( l_Op .IsCreator ) then
+         begin
+          '!!!'
+         end // ( l_Op .IsCreator )
+         else
+         begin
+         end // ( l_Op .IsCreator )
          ';' 
         ] .Out 
        ) // ( l_Key cImplementationUserCodeSuffix == )
