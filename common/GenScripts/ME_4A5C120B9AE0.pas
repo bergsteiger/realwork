@@ -280,12 +280,8 @@ begin
 end;//TkwEfGroupListBackgroundPanel.GetResultTypeInfo
 
 function TkwEfGroupListBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6BCC2CEE5EC2_var*
-//#UC END# *559687E6025A_6BCC2CEE5EC2_var*
 begin
-//#UC START# *559687E6025A_6BCC2CEE5EC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6BCC2CEE5EC2_impl*
+ Result := 1;
 end;//TkwEfGroupListBackgroundPanel.GetAllParamsCount
 
 function TkwEfGroupListBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -342,12 +338,8 @@ begin
 end;//TkwEfGroupListGroupsTree.GetResultTypeInfo
 
 function TkwEfGroupListGroupsTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_682D3079A453_var*
-//#UC END# *559687E6025A_682D3079A453_var*
 begin
-//#UC START# *559687E6025A_682D3079A453_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_682D3079A453_impl*
+ Result := 1;
 end;//TkwEfGroupListGroupsTree.GetAllParamsCount
 
 function TkwEfGroupListGroupsTree.ParamsTypes: PTypeInfoArray;

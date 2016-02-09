@@ -282,12 +282,8 @@ begin
 end;//TkwEfGroupPropertyEdName.GetResultTypeInfo
 
 function TkwEfGroupPropertyEdName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4F99EBEBC67D_var*
-//#UC END# *559687E6025A_4F99EBEBC67D_var*
 begin
-//#UC START# *559687E6025A_4F99EBEBC67D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4F99EBEBC67D_impl*
+ Result := 1;
 end;//TkwEfGroupPropertyEdName.GetAllParamsCount
 
 function TkwEfGroupPropertyEdName.ParamsTypes: PTypeInfoArray;
@@ -344,12 +340,8 @@ begin
 end;//TkwEfGroupPropertyLabel1.GetResultTypeInfo
 
 function TkwEfGroupPropertyLabel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8DC84936A887_var*
-//#UC END# *559687E6025A_8DC84936A887_var*
 begin
-//#UC START# *559687E6025A_8DC84936A887_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8DC84936A887_impl*
+ Result := 1;
 end;//TkwEfGroupPropertyLabel1.GetAllParamsCount
 
 function TkwEfGroupPropertyLabel1.ParamsTypes: PTypeInfoArray;

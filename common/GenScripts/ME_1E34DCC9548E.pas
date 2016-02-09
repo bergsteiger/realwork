@@ -2005,12 +2005,8 @@ begin
 end;//TkwEfUserPropertyPnMainData.GetResultTypeInfo
 
 function TkwEfUserPropertyPnMainData.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A618F9A65B33_var*
-//#UC END# *559687E6025A_A618F9A65B33_var*
 begin
-//#UC START# *559687E6025A_A618F9A65B33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A618F9A65B33_impl*
+ Result := 1;
 end;//TkwEfUserPropertyPnMainData.GetAllParamsCount
 
 function TkwEfUserPropertyPnMainData.ParamsTypes: PTypeInfoArray;
@@ -2067,12 +2063,8 @@ begin
 end;//TkwEfUserPropertyFTopPanel.GetResultTypeInfo
 
 function TkwEfUserPropertyFTopPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9912EDEDB13A_var*
-//#UC END# *559687E6025A_9912EDEDB13A_var*
 begin
-//#UC START# *559687E6025A_9912EDEDB13A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9912EDEDB13A_impl*
+ Result := 1;
 end;//TkwEfUserPropertyFTopPanel.GetAllParamsCount
 
 function TkwEfUserPropertyFTopPanel.ParamsTypes: PTypeInfoArray;
@@ -2129,12 +2121,8 @@ begin
 end;//TkwEfUserPropertyUserNameLabel.GetResultTypeInfo
 
 function TkwEfUserPropertyUserNameLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_87CBC1818107_var*
-//#UC END# *559687E6025A_87CBC1818107_var*
 begin
-//#UC START# *559687E6025A_87CBC1818107_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_87CBC1818107_impl*
+ Result := 1;
 end;//TkwEfUserPropertyUserNameLabel.GetAllParamsCount
 
 function TkwEfUserPropertyUserNameLabel.ParamsTypes: PTypeInfoArray;
@@ -2191,12 +2179,8 @@ begin
 end;//TkwEfUserPropertyPasswordLabel.GetResultTypeInfo
 
 function TkwEfUserPropertyPasswordLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FCA5AA45B18C_var*
-//#UC END# *559687E6025A_FCA5AA45B18C_var*
 begin
-//#UC START# *559687E6025A_FCA5AA45B18C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FCA5AA45B18C_impl*
+ Result := 1;
 end;//TkwEfUserPropertyPasswordLabel.GetAllParamsCount
 
 function TkwEfUserPropertyPasswordLabel.ParamsTypes: PTypeInfoArray;
@@ -2253,12 +2237,8 @@ begin
 end;//TkwEfUserPropertyLoginLabel.GetResultTypeInfo
 
 function TkwEfUserPropertyLoginLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7EECD8556247_var*
-//#UC END# *559687E6025A_7EECD8556247_var*
 begin
-//#UC START# *559687E6025A_7EECD8556247_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7EECD8556247_impl*
+ Result := 1;
 end;//TkwEfUserPropertyLoginLabel.GetAllParamsCount
 
 function TkwEfUserPropertyLoginLabel.ParamsTypes: PTypeInfoArray;
@@ -2315,12 +2295,8 @@ begin
 end;//TkwEfUserPropertyEMailLabel.GetResultTypeInfo
 
 function TkwEfUserPropertyEMailLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_407D0C95B81D_var*
-//#UC END# *559687E6025A_407D0C95B81D_var*
 begin
-//#UC START# *559687E6025A_407D0C95B81D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_407D0C95B81D_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEMailLabel.GetAllParamsCount
 
 function TkwEfUserPropertyEMailLabel.ParamsTypes: PTypeInfoArray;
@@ -2377,12 +2353,8 @@ begin
 end;//TkwEfUserPropertyConfirmPasswordLabel.GetResultTypeInfo
 
 function TkwEfUserPropertyConfirmPasswordLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E2A2ADF329C1_var*
-//#UC END# *559687E6025A_E2A2ADF329C1_var*
 begin
-//#UC START# *559687E6025A_E2A2ADF329C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E2A2ADF329C1_impl*
+ Result := 1;
 end;//TkwEfUserPropertyConfirmPasswordLabel.GetAllParamsCount
 
 function TkwEfUserPropertyConfirmPasswordLabel.ParamsTypes: PTypeInfoArray;
@@ -2439,12 +2411,8 @@ begin
 end;//TkwEfUserPropertyGroupLabel.GetResultTypeInfo
 
 function TkwEfUserPropertyGroupLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C0C42246507E_var*
-//#UC END# *559687E6025A_C0C42246507E_var*
 begin
-//#UC START# *559687E6025A_C0C42246507E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C0C42246507E_impl*
+ Result := 1;
 end;//TkwEfUserPropertyGroupLabel.GetAllParamsCount
 
 function TkwEfUserPropertyGroupLabel.ParamsTypes: PTypeInfoArray;
@@ -2501,12 +2469,8 @@ begin
 end;//TkwEfUserPropertyEdPassword.GetResultTypeInfo
 
 function TkwEfUserPropertyEdPassword.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_86D1D9DD18CA_var*
-//#UC END# *559687E6025A_86D1D9DD18CA_var*
 begin
-//#UC START# *559687E6025A_86D1D9DD18CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_86D1D9DD18CA_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdPassword.GetAllParamsCount
 
 function TkwEfUserPropertyEdPassword.ParamsTypes: PTypeInfoArray;
@@ -2563,12 +2527,8 @@ begin
 end;//TkwEfUserPropertyEdUserName.GetResultTypeInfo
 
 function TkwEfUserPropertyEdUserName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_08D8BC6FA43D_var*
-//#UC END# *559687E6025A_08D8BC6FA43D_var*
 begin
-//#UC START# *559687E6025A_08D8BC6FA43D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_08D8BC6FA43D_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdUserName.GetAllParamsCount
 
 function TkwEfUserPropertyEdUserName.ParamsTypes: PTypeInfoArray;
@@ -2625,12 +2585,8 @@ begin
 end;//TkwEfUserPropertyEdLogin.GetResultTypeInfo
 
 function TkwEfUserPropertyEdLogin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C51032AFD05E_var*
-//#UC END# *559687E6025A_C51032AFD05E_var*
 begin
-//#UC START# *559687E6025A_C51032AFD05E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C51032AFD05E_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdLogin.GetAllParamsCount
 
 function TkwEfUserPropertyEdLogin.ParamsTypes: PTypeInfoArray;
@@ -2687,12 +2643,8 @@ begin
 end;//TkwEfUserPropertyEdEmail.GetResultTypeInfo
 
 function TkwEfUserPropertyEdEmail.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3FFAE6C84F06_var*
-//#UC END# *559687E6025A_3FFAE6C84F06_var*
 begin
-//#UC START# *559687E6025A_3FFAE6C84F06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3FFAE6C84F06_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdEmail.GetAllParamsCount
 
 function TkwEfUserPropertyEdEmail.ParamsTypes: PTypeInfoArray;
@@ -2749,12 +2701,8 @@ begin
 end;//TkwEfUserPropertyEdConfirm.GetResultTypeInfo
 
 function TkwEfUserPropertyEdConfirm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_26338150166F_var*
-//#UC END# *559687E6025A_26338150166F_var*
 begin
-//#UC START# *559687E6025A_26338150166F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_26338150166F_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdConfirm.GetAllParamsCount
 
 function TkwEfUserPropertyEdConfirm.ParamsTypes: PTypeInfoArray;
@@ -2811,12 +2759,8 @@ begin
 end;//TkwEfUserPropertyEdGroup.GetResultTypeInfo
 
 function TkwEfUserPropertyEdGroup.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5AF5B1CFA7B5_var*
-//#UC END# *559687E6025A_5AF5B1CFA7B5_var*
 begin
-//#UC START# *559687E6025A_5AF5B1CFA7B5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5AF5B1CFA7B5_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdGroup.GetAllParamsCount
 
 function TkwEfUserPropertyEdGroup.ParamsTypes: PTypeInfoArray;
@@ -2873,12 +2817,8 @@ begin
 end;//TkwEfUserPropertyFMiddlePanel.GetResultTypeInfo
 
 function TkwEfUserPropertyFMiddlePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E11334E5F6B4_var*
-//#UC END# *559687E6025A_E11334E5F6B4_var*
 begin
-//#UC START# *559687E6025A_E11334E5F6B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E11334E5F6B4_impl*
+ Result := 1;
 end;//TkwEfUserPropertyFMiddlePanel.GetAllParamsCount
 
 function TkwEfUserPropertyFMiddlePanel.ParamsTypes: PTypeInfoArray;
@@ -2935,12 +2875,8 @@ begin
 end;//TkwEfUserPropertyEdPrivilegedUser.GetResultTypeInfo
 
 function TkwEfUserPropertyEdPrivilegedUser.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_79BEBDC97698_var*
-//#UC END# *559687E6025A_79BEBDC97698_var*
 begin
-//#UC START# *559687E6025A_79BEBDC97698_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_79BEBDC97698_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdPrivilegedUser.GetAllParamsCount
 
 function TkwEfUserPropertyEdPrivilegedUser.ParamsTypes: PTypeInfoArray;
@@ -2997,12 +2933,8 @@ begin
 end;//TkwEfUserPropertyEdBuyConsulting.GetResultTypeInfo
 
 function TkwEfUserPropertyEdBuyConsulting.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FB3B15E261D3_var*
-//#UC END# *559687E6025A_FB3B15E261D3_var*
 begin
-//#UC START# *559687E6025A_FB3B15E261D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FB3B15E261D3_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdBuyConsulting.GetAllParamsCount
 
 function TkwEfUserPropertyEdBuyConsulting.ParamsTypes: PTypeInfoArray;
@@ -3059,12 +2991,8 @@ begin
 end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.GetResultTypeInfo
 
 function TkwEfUserPropertyFDontDeleteIdleUserPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_69FCBC13739E_var*
-//#UC END# *559687E6025A_69FCBC13739E_var*
 begin
-//#UC START# *559687E6025A_69FCBC13739E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_69FCBC13739E_impl*
+ Result := 1;
 end;//TkwEfUserPropertyFDontDeleteIdleUserPanel.GetAllParamsCount
 
 function TkwEfUserPropertyFDontDeleteIdleUserPanel.ParamsTypes: PTypeInfoArray;
@@ -3121,12 +3049,8 @@ begin
 end;//TkwEfUserPropertyEdDontDeleteIdleUser.GetResultTypeInfo
 
 function TkwEfUserPropertyEdDontDeleteIdleUser.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EF6334F8D3FF_var*
-//#UC END# *559687E6025A_EF6334F8D3FF_var*
 begin
-//#UC START# *559687E6025A_EF6334F8D3FF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EF6334F8D3FF_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdDontDeleteIdleUser.GetAllParamsCount
 
 function TkwEfUserPropertyEdDontDeleteIdleUser.ParamsTypes: PTypeInfoArray;
@@ -3183,12 +3107,8 @@ begin
 end;//TkwEfUserPropertyFBottomPanel.GetResultTypeInfo
 
 function TkwEfUserPropertyFBottomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D339A8964CB5_var*
-//#UC END# *559687E6025A_D339A8964CB5_var*
 begin
-//#UC START# *559687E6025A_D339A8964CB5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D339A8964CB5_impl*
+ Result := 1;
 end;//TkwEfUserPropertyFBottomPanel.GetAllParamsCount
 
 function TkwEfUserPropertyFBottomPanel.ParamsTypes: PTypeInfoArray;
@@ -3245,12 +3165,8 @@ begin
 end;//TkwEfUserPropertyInfoLabel.GetResultTypeInfo
 
 function TkwEfUserPropertyInfoLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_374755AD09A0_var*
-//#UC END# *559687E6025A_374755AD09A0_var*
 begin
-//#UC START# *559687E6025A_374755AD09A0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_374755AD09A0_impl*
+ Result := 1;
 end;//TkwEfUserPropertyInfoLabel.GetAllParamsCount
 
 function TkwEfUserPropertyInfoLabel.ParamsTypes: PTypeInfoArray;
@@ -3307,12 +3223,8 @@ begin
 end;//TkwEfUserPropertyEdHasSharedFilters.GetResultTypeInfo
 
 function TkwEfUserPropertyEdHasSharedFilters.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_912118CAC2B4_var*
-//#UC END# *559687E6025A_912118CAC2B4_var*
 begin
-//#UC START# *559687E6025A_912118CAC2B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_912118CAC2B4_impl*
+ Result := 1;
 end;//TkwEfUserPropertyEdHasSharedFilters.GetAllParamsCount
 
 function TkwEfUserPropertyEdHasSharedFilters.ParamsTypes: PTypeInfoArray;

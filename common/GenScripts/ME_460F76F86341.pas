@@ -367,12 +367,8 @@ begin
 end;//TkwCfAdminFormBackgroundPanel.GetResultTypeInfo
 
 function TkwCfAdminFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C4515223E983_var*
-//#UC END# *559687E6025A_C4515223E983_var*
 begin
-//#UC START# *559687E6025A_C4515223E983_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C4515223E983_impl*
+ Result := 1;
 end;//TkwCfAdminFormBackgroundPanel.GetAllParamsCount
 
 function TkwCfAdminFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -429,12 +425,8 @@ begin
 end;//TkwCfAdminFormPropertyZone.GetResultTypeInfo
 
 function TkwCfAdminFormPropertyZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AFA25E6606C9_var*
-//#UC END# *559687E6025A_AFA25E6606C9_var*
 begin
-//#UC START# *559687E6025A_AFA25E6606C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AFA25E6606C9_impl*
+ Result := 1;
 end;//TkwCfAdminFormPropertyZone.GetAllParamsCount
 
 function TkwCfAdminFormPropertyZone.ParamsTypes: PTypeInfoArray;
@@ -491,12 +483,8 @@ begin
 end;//TkwCfAdminFormTreeZone.GetResultTypeInfo
 
 function TkwCfAdminFormTreeZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CE662E9AFEBF_var*
-//#UC END# *559687E6025A_CE662E9AFEBF_var*
 begin
-//#UC START# *559687E6025A_CE662E9AFEBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CE662E9AFEBF_impl*
+ Result := 1;
 end;//TkwCfAdminFormTreeZone.GetAllParamsCount
 
 function TkwCfAdminFormTreeZone.ParamsTypes: PTypeInfoArray;
