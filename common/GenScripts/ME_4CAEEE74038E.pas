@@ -56,6 +56,9 @@ uses
  l3ImplUses
  , SysUtils
  , nsTypes
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor TnsFiltersNode.Create(const aFilter: IFilterFromQuery);

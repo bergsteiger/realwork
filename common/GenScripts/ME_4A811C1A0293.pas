@@ -48,13 +48,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , bsWorkJournal
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , WorkJournalKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , bsWorkJournal
 ;
 
 function TBaseWorkJournalModule.MakeWorkJournal: IbsWorkJournal;

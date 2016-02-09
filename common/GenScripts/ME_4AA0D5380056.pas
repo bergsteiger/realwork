@@ -114,6 +114,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , sdsTips
+ , nsStartupTips
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , DataAdapter
  , l3MessageID
  , SysUtils
  , l3Base
@@ -123,12 +129,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , StartupTipsKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , sdsTips
- , nsStartupTips
- {$If NOT Defined(NoVCL)}
- , Forms
- {$IfEnd} // NOT Defined(NoVCL)
- , DataAdapter
 ;
 
 var g_Tfs_Tips: Tfs_Tips = nil;

@@ -289,27 +289,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
- , SysUtils
- , l3Base
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , DefineSearchDateKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , OldSituationSearchKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , TreeAttributeFirstLevelKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , nsConst
  , l3String
  , afwFacade
  , DataAdapter
  , deListSet
- , Base_Operations_Strange_Controls
  , nsManagers
  , deList
  , nsTypes
@@ -324,6 +308,22 @@ uses
  , bsHyperLinkProcessorPrim
  {$If NOT Defined(NoScripts)}
  , afwAnswer
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Base_Operations_Strange_Controls
+ , l3MessageID
+ , SysUtils
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , DefineSearchDateKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , OldSituationSearchKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TreeAttributeFirstLevelKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

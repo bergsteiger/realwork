@@ -84,8 +84,6 @@ type
    class function Make: InsNewsLine; reintroduce;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TnsNewsLine;
-    {* Метод получения экземпляра синглетона TnsNewsLine }
  end;//TnsNewsLine
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -110,13 +108,13 @@ uses
  , afwFacade
 ;
 
-var g_TnsNewsLine: TnsNewsLine = nil;
+var g_TnsNewsLine: Pointer = nil;
  {* Экземпляр синглетона TnsNewsLine }
 
 procedure TnsNewsLineFree;
  {* Метод освобождения экземпляра синглетона TnsNewsLine }
 begin
- l3Free(g_TnsNewsLine);
+ IUnknown(g_TnsNewsLine) := nil;
 end;//TnsNewsLineFree
 
 type _Instance_R_ = TnsNewsLineSubscribersList;
@@ -475,15 +473,13 @@ begin
 end;//TnsNewsLinePrim.ClearFields
 
 class function TnsNewsLine.Make: InsNewsLine;
-var
- l_Inst : TnsNewsLine;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TnsNewsLine = nil) then
+ begin
+  l3System.AddExitProc(TnsNewsLineFree);
+  InsNewsLine(g_TnsNewsLine) := inherited Make;
+ end;
+ Result := InsNewsLine(g_TnsNewsLine);
 end;//TnsNewsLine.Make
 
 class function TnsNewsLine.Exists: Boolean;
@@ -491,17 +487,6 @@ class function TnsNewsLine.Exists: Boolean;
 begin
  Result := g_TnsNewsLine <> nil;
 end;//TnsNewsLine.Exists
-
-class function TnsNewsLine.Instance: TnsNewsLine;
- {* Метод получения экземпляра синглетона TnsNewsLine }
-begin
- if (g_TnsNewsLine = nil) then
- begin
-  l3System.AddExitProc(TnsNewsLineFree);
-  g_TnsNewsLine := Create;
- end;
- Result := g_TnsNewsLine;
-end;//TnsNewsLine.Instance
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

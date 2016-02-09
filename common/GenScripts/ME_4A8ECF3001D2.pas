@@ -138,15 +138,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , NewsLineKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- , SysUtils
- , l3Base
- , LoggingUnit
  , sdsAutoreferat
  , deDocInfo
  , DataAdapter
@@ -161,6 +152,15 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , NewsLineKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+ , LoggingUnit
 ;
 
 var g_Tfs_Autoreferat: Tfs_Autoreferat = nil;
