@@ -31,6 +31,16 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ , l3Base
+ , evOp
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 function TK235870623.GetFolder: AnsiString;

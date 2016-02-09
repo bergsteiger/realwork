@@ -41,6 +41,18 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ , evMsgCode
+ , evOp
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , l3Base
 ;
 
 function TK252520765.GetScrollCount: Integer;

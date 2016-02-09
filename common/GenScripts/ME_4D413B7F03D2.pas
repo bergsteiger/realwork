@@ -31,6 +31,18 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ , evMsgCode
+ , evOp
+ , l3Base
+ , l3InternalInterfaces
+ , evTypes
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 function TK251342574.GetFolder: AnsiString;

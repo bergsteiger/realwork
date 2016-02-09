@@ -59,6 +59,16 @@ uses
  , Windows
  , Messages
  , TestFrameWork
+ , evMsgCode
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nevTools
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , l3Base
 ;
 
 function TK271188165.GetScrollCount: Integer;
