@@ -82,12 +82,8 @@ begin
 end;//TkwPopContainedActionExecute.GetResultTypeInfo
 
 function TkwPopContainedActionExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_87D5D18D9F8E_var*
-//#UC END# *559687E6025A_87D5D18D9F8E_var*
 begin
-//#UC START# *559687E6025A_87D5D18D9F8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_87D5D18D9F8E_impl*
+ Result := 1;
 end;//TkwPopContainedActionExecute.GetAllParamsCount
 
 function TkwPopContainedActionExecute.ParamsTypes: PTypeInfoArray;

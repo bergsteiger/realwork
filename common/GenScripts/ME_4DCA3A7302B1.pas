@@ -99,6 +99,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3Chars
  , ddTableCell
  , ddTableRow
  , ddTextParagraph
@@ -127,7 +128,6 @@ uses
  , evdTypes
  , l3UnitsTools
  , evdStyles
- , l3Chars
 ;
 
 procedure ConvertText2Table(anEditor: TevCustomEditor);

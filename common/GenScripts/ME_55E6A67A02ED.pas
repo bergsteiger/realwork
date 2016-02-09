@@ -101,7 +101,7 @@ type
     const aSrcList: ISab);
   protected
    {$If NOT Defined(Nemesis)}
-   procedure dcn__DictionaryChange(const Info: TDictMessageRec);
+   procedure dcn_DictionaryChange(const Info: TDictMessageRec);
    {$IfEnd} // NOT Defined(Nemesis)
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -598,7 +598,7 @@ begin
 end;//TalcuDictChangeMDPSynchronizator.ExportSimpleDictToXML
 
 {$If NOT Defined(Nemesis)}
-procedure TalcuDictChangeMDPSynchronizator.dcn__DictionaryChange(const Info: TDictMessageRec);
+procedure TalcuDictChangeMDPSynchronizator.dcn_DictionaryChange(const Info: TDictMessageRec);
 //#UC START# *55E6B66A036E_55E6A67A02ED_var*
 var
  l_Sab: ISab;
@@ -620,7 +620,7 @@ begin
   PrepareDict(Info.DictType, l_Op, l_Sab);
  end;
 //#UC END# *55E6B66A036E_55E6A67A02ED_impl*
-end;//TalcuDictChangeMDPSynchronizator.dcn__DictionaryChange
+end;//TalcuDictChangeMDPSynchronizator.dcn_DictionaryChange
 {$IfEnd} // NOT Defined(Nemesis)
 
 procedure TalcuDictChangeMDPSynchronizator.Cleanup;

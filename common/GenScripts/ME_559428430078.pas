@@ -97,12 +97,8 @@ begin
 end;//TkwPopCompiledWordWorkerWordCompiled.GetResultTypeInfo
 
 function TkwPopCompiledWordWorkerWordCompiled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9E9D700614C3_var*
-//#UC END# *559687E6025A_9E9D700614C3_var*
 begin
-//#UC START# *559687E6025A_9E9D700614C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9E9D700614C3_impl*
+ Result := 1;
 end;//TkwPopCompiledWordWorkerWordCompiled.GetAllParamsCount
 
 function TkwPopCompiledWordWorkerWordCompiled.ParamsTypes: PTypeInfoArray;

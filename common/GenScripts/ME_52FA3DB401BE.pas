@@ -67,8 +67,8 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
  , DateUtils
- , alcuTaskListBase
  , l3Stream
+ , alcuTaskListBase
 ;
 
 type
@@ -253,7 +253,7 @@ var l_Writer: TevdNativeWriter;
   //#UC START# *53A04A0F017Diter*
   Self.
   //#UC END# *53A04A0F017Diter*
-  ForEachF((@));
+  ForEachF(L2alcuTasksIteratorForEachFAction(@DoIt));
  end;//DoSave
 
 //#UC START# *53A049ED0084_52FA3DB401BE_var*
@@ -346,7 +346,7 @@ begin
  Result := 0;
  Self.
  //#UC END# *53A049770398iter*
- ForEachF((@));
+ ForEachF(L2alcuTasksIteratorForEachFAction(@DoIt));
 end;//TalcuTaskList.ActiveTaskCount
 
 function TalcuTaskList.FindTask(aTaskType: TcsTaskType): TddProcessTask;
@@ -374,7 +374,7 @@ begin
  Result := nil;
  Self.
  //#UC END# *53A049B30045iter*
- ForEachF((@));
+ ForEachF(L2alcuTasksIteratorForEachFAction(@DoIt));
 end;//TalcuTaskList.FindTask
 
 procedure TalcuTaskList.Sort;

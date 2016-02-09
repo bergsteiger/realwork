@@ -111,12 +111,8 @@ begin
 end;//TkwPopKeywordFinderKeywordByName.GetResultTypeInfo
 
 function TkwPopKeywordFinderKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D73628563892_var*
-//#UC END# *559687E6025A_D73628563892_var*
 begin
-//#UC START# *559687E6025A_D73628563892_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D73628563892_impl*
+ Result := 2;
 end;//TkwPopKeywordFinderKeywordByName.GetAllParamsCount
 
 function TkwPopKeywordFinderKeywordByName.ParamsTypes: PTypeInfoArray;
@@ -173,12 +169,8 @@ begin
 end;//TkwPopKeywordFinderParentFinder.GetResultTypeInfo
 
 function TkwPopKeywordFinderParentFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F60851FE16E3_var*
-//#UC END# *559687E6025A_F60851FE16E3_var*
 begin
-//#UC START# *559687E6025A_F60851FE16E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F60851FE16E3_impl*
+ Result := 1;
 end;//TkwPopKeywordFinderParentFinder.GetAllParamsCount
 
 function TkwPopKeywordFinderParentFinder.ParamsTypes: PTypeInfoArray;
