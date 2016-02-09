@@ -35,6 +35,15 @@ uses
  l3ImplUses
  , evMsgCode
  , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwPopEditorParaDown.DoCursor(const aCtx: TtfwContext;

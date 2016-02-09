@@ -46,6 +46,15 @@ uses
  {$If Defined(k2ForEditor)}
  , evCursorTools
  {$IfEnd} // Defined(k2ForEditor)
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 {$Include SelectTablePart.imp.pas}

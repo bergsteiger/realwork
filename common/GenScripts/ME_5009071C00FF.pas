@@ -53,6 +53,13 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwPopEditorPrintAcnhor.SaveAnchor(const aCtx: TtfwContext;

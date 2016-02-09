@@ -33,6 +33,16 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwPopEditorSetTextParaStyle.DoPara(const aCtx: TtfwContext;

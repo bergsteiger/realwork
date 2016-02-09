@@ -32,6 +32,15 @@ implementation
 uses
  l3ImplUses
  , CommentPara_Const
+ , evOp
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwPopEditorDeleteUserComment.DoNextPara(const aCtx: TtfwContext;

@@ -42,6 +42,12 @@ uses
  l3ImplUses
  , evTypes
  , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 function TkwPopEditorPasteRTF.GetFormat(const aCtx: TtfwContext): Integer;

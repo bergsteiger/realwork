@@ -36,6 +36,13 @@ uses
  , l3Filer
  , nevInternalInterfaces
  , l3Types
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwInsertFromStreamCommon.DoWithEditor(const aCtx: TtfwContext;

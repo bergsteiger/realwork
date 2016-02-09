@@ -42,6 +42,13 @@ implementation
 uses
  l3ImplUses
  , l3Units
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwPopEditorDP2LP.DoWithEditor(const aCtx: TtfwContext;

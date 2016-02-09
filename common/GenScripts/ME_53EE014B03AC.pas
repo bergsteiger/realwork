@@ -50,6 +50,13 @@ uses
  {$If NOT Defined(NoVCL)}
  , l3PopupMenuHelper
  {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwSubPanelGetPopupMenuForSub.DoWithSubPanel(aControl: TevCustomSubPanel;

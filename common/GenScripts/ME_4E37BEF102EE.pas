@@ -44,6 +44,16 @@ implementation
 uses
  l3ImplUses
  , tfwScriptingInterfaces
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 class function TkwPopEditorResizeTableColumnEX.GetWordNameForRegister: AnsiString;

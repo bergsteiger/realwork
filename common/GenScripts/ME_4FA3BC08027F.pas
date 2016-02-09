@@ -38,6 +38,13 @@ uses
  l3ImplUses
  , StrUtils
  , SysUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 {$Include LinesDrawOutput.imp.pas}

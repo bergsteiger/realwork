@@ -57,6 +57,13 @@ uses
  , l3String
  , l3Base
  , evReqIterator
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwPopQueryCardAttributeSetWithLogicOperation.DoModelImpl;

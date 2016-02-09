@@ -32,6 +32,13 @@ uses
  , nevNavigation
  , afwNavigation
  , SysUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwPopEditorJumpToHyperlink.DoWithEditor(const aCtx: TtfwContext;

@@ -30,6 +30,13 @@ implementation
 uses
  l3ImplUses
  , evQueryCardInt
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TkwPopQueryCardGetCurrentReqName.DoCard(const aCtx: TtfwContext;

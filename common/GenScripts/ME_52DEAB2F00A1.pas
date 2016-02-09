@@ -32,6 +32,9 @@ uses
  , l3Memory
  , evEvdRd
  , evdNativeWriter
+ , SysUtils
+ , l3String
+ , l3Base
 ;
 
 procedure TkwEvdBin2EvdTxt.DoDoIt(const aCtx: TtfwContext);

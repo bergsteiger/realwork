@@ -44,6 +44,9 @@ uses
  , evParaTools
  {$IfEnd} // Defined(k2ForEditor)
  , evOp
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 {$Include kwEditorFromStackCursorWordUses.imp.pas}
