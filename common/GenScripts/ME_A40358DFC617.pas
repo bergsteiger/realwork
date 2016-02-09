@@ -370,7 +370,7 @@ end;//TkwDocNumberQueryFormLabel1.GetResultTypeInfo
 
 function TkwDocNumberQueryFormLabel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwDocNumberQueryFormLabel1.GetAllParamsCount
 
 function TkwDocNumberQueryFormLabel1.ParamsTypes: PTypeInfoArray;
@@ -428,7 +428,7 @@ end;//TkwDocNumberQueryFormEdNumber.GetResultTypeInfo
 
 function TkwDocNumberQueryFormEdNumber.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwDocNumberQueryFormEdNumber.GetAllParamsCount
 
 function TkwDocNumberQueryFormEdNumber.ParamsTypes: PTypeInfoArray;
@@ -486,7 +486,7 @@ end;//TkwDocNumberQueryFormCbInternal.GetResultTypeInfo
 
 function TkwDocNumberQueryFormCbInternal.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwDocNumberQueryFormCbInternal.GetAllParamsCount
 
 function TkwDocNumberQueryFormCbInternal.ParamsTypes: PTypeInfoArray;

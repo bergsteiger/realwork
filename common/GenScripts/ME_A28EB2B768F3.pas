@@ -322,7 +322,7 @@ end;//TkwPictureFormIeIO.GetResultTypeInfo
 
 function TkwPictureFormIeIO.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwPictureFormIeIO.GetAllParamsCount
 
 function TkwPictureFormIeIO.ParamsTypes: PTypeInfoArray;
@@ -380,7 +380,7 @@ end;//TkwPictureFormIeViewer.GetResultTypeInfo
 
 function TkwPictureFormIeViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwPictureFormIeViewer.GetAllParamsCount
 
 function TkwPictureFormIeViewer.ParamsTypes: PTypeInfoArray;
@@ -438,7 +438,7 @@ end;//TkwPictureFormIeProc.GetResultTypeInfo
 
 function TkwPictureFormIeProc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwPictureFormIeProc.GetAllParamsCount
 
 function TkwPictureFormIeProc.ParamsTypes: PTypeInfoArray;

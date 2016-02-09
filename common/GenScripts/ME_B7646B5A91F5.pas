@@ -194,7 +194,7 @@ end;//TkwRedactionsFormRedactionTree.GetResultTypeInfo
 
 function TkwRedactionsFormRedactionTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwRedactionsFormRedactionTree.GetAllParamsCount
 
 function TkwRedactionsFormRedactionTree.ParamsTypes: PTypeInfoArray;

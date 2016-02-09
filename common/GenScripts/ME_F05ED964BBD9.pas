@@ -281,7 +281,7 @@ end;//TkwListAnalizerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwListAnalizerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwListAnalizerFormBackgroundPanel.GetAllParamsCount
 
 function TkwListAnalizerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -339,7 +339,7 @@ end;//TkwListAnalizerFormListTree.GetResultTypeInfo
 
 function TkwListAnalizerFormListTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwListAnalizerFormListTree.GetAllParamsCount
 
 function TkwListAnalizerFormListTree.ParamsTypes: PTypeInfoArray;

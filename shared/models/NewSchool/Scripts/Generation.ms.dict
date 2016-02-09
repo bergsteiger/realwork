@@ -2360,6 +2360,10 @@ BOOLEAN elem_func IsVarWorker
  >>> Result
 ; // IsVarWorker
 
+BOOLEAN elem_func IsOutParam
+ Self .IsStereotype st_out >>> Result
+; // IsOutParam
+
 elem_proc UserCode:
  ^ IN aSuffix
  ^ IN aCode
@@ -2403,7 +2407,7 @@ elem_proc UserCode:
         Self .Implementor .SpelledFor >>> l_Op
         [ 
          ' Result := '
-         l_Op .Parameters .CountIt
+         l_Op .Parameters .filter> ( .IsOutParam ! ) .CountIt
          l_Op .HasSelf ? ( 1 + )
          l_Op .IsVarWorker ? ( 1 + )
          ';' 
@@ -2914,7 +2918,7 @@ STRING elem_func ParamPrefix
    cConstPrefix
   ( Self .IsStereotype st_noconst )
    cEmptyStr
-  ( Self .IsStereotype st_out )
+  ( Self .IsOutParam )
    'out '
   ( Self .IsStereotype st_inout )
    'var '

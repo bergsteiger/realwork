@@ -194,7 +194,7 @@ end;//TkwEnPictureInfoInfo.GetResultTypeInfo
 
 function TkwEnPictureInfoInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEnPictureInfoInfo.GetAllParamsCount
 
 function TkwEnPictureInfoInfo.ParamsTypes: PTypeInfoArray;

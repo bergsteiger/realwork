@@ -733,7 +733,7 @@ end;//TkwLeftEditionFormHeader.GetResultTypeInfo
 
 function TkwLeftEditionFormHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwLeftEditionFormHeader.GetAllParamsCount
 
 function TkwLeftEditionFormHeader.ParamsTypes: PTypeInfoArray;
@@ -791,7 +791,7 @@ end;//TkwLeftEditionFormPnLeft.GetResultTypeInfo
 
 function TkwLeftEditionFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwLeftEditionFormPnLeft.GetAllParamsCount
 
 function TkwLeftEditionFormPnLeft.ParamsTypes: PTypeInfoArray;
@@ -849,7 +849,7 @@ end;//TkwLeftEditionFormEditionLink.GetResultTypeInfo
 
 function TkwLeftEditionFormEditionLink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwLeftEditionFormEditionLink.GetAllParamsCount
 
 function TkwLeftEditionFormEditionLink.ParamsTypes: PTypeInfoArray;
@@ -907,7 +907,7 @@ end;//TkwLeftEditionFormPbIcon.GetResultTypeInfo
 
 function TkwLeftEditionFormPbIcon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwLeftEditionFormPbIcon.GetAllParamsCount
 
 function TkwLeftEditionFormPbIcon.ParamsTypes: PTypeInfoArray;
@@ -965,7 +965,7 @@ end;//TkwLeftEditionFormPnCaption.GetResultTypeInfo
 
 function TkwLeftEditionFormPnCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwLeftEditionFormPnCaption.GetAllParamsCount
 
 function TkwLeftEditionFormPnCaption.ParamsTypes: PTypeInfoArray;
@@ -1023,7 +1023,7 @@ end;//TkwLeftEditionFormText.GetResultTypeInfo
 
 function TkwLeftEditionFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwLeftEditionFormText.GetAllParamsCount
 
 function TkwLeftEditionFormText.ParamsTypes: PTypeInfoArray;

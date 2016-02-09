@@ -194,7 +194,7 @@ end;//TkwFcSynchroViewDocView.GetResultTypeInfo
 
 function TkwFcSynchroViewDocView.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwFcSynchroViewDocView.GetAllParamsCount
 
 function TkwFcSynchroViewDocView.ParamsTypes: PTypeInfoArray;

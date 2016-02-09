@@ -368,7 +368,7 @@ end;//TkwEditionsContainerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwEditionsContainerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEditionsContainerFormBackgroundPanel.GetAllParamsCount
 
 function TkwEditionsContainerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -426,7 +426,7 @@ end;//TkwEditionsContainerFormPnLeft.GetResultTypeInfo
 
 function TkwEditionsContainerFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEditionsContainerFormPnLeft.GetAllParamsCount
 
 function TkwEditionsContainerFormPnLeft.ParamsTypes: PTypeInfoArray;
@@ -484,7 +484,7 @@ end;//TkwEditionsContainerFormPnRight.GetResultTypeInfo
 
 function TkwEditionsContainerFormPnRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEditionsContainerFormPnRight.GetAllParamsCount
 
 function TkwEditionsContainerFormPnRight.ParamsTypes: PTypeInfoArray;

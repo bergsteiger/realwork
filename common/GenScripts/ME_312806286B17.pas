@@ -194,7 +194,7 @@ end;//TkwAttributesFormTvAttributes.GetResultTypeInfo
 
 function TkwAttributesFormTvAttributes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwAttributesFormTvAttributes.GetAllParamsCount
 
 function TkwAttributesFormTvAttributes.ParamsTypes: PTypeInfoArray;

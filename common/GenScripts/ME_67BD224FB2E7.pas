@@ -259,7 +259,7 @@ end;//TkwEfListInfoListInfoViewer.GetResultTypeInfo
 
 function TkwEfListInfoListInfoViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListInfoListInfoViewer.GetAllParamsCount
 
 function TkwEfListInfoListInfoViewer.ParamsTypes: PTypeInfoArray;
@@ -317,7 +317,7 @@ end;//TkwEfListInfoTextSource.GetResultTypeInfo
 
 function TkwEfListInfoTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListInfoTextSource.GetAllParamsCount
 
 function TkwEfListInfoTextSource.ParamsTypes: PTypeInfoArray;

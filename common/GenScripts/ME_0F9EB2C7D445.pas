@@ -809,7 +809,7 @@ end;//TkwEfListRemindersLine.GetResultTypeInfo
 
 function TkwEfListRemindersLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListRemindersLine.GetAllParamsCount
 
 function TkwEfListRemindersLine.ParamsTypes: PTypeInfoArray;
@@ -867,7 +867,7 @@ end;//TkwEfListRemListFiltered.GetResultTypeInfo
 
 function TkwEfListRemListFiltered.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListRemListFiltered.GetAllParamsCount
 
 function TkwEfListRemListFiltered.ParamsTypes: PTypeInfoArray;
@@ -925,7 +925,7 @@ end;//TkwEfListRemListModified.GetResultTypeInfo
 
 function TkwEfListRemListModified.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListRemListModified.GetAllParamsCount
 
 function TkwEfListRemListModified.ParamsTypes: PTypeInfoArray;
@@ -983,7 +983,7 @@ end;//TkwEfListRemTimeMachineWarning.GetResultTypeInfo
 
 function TkwEfListRemTimeMachineWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListRemTimeMachineWarning.GetAllParamsCount
 
 function TkwEfListRemTimeMachineWarning.ParamsTypes: PTypeInfoArray;
@@ -1041,7 +1041,7 @@ end;//TkwEfListEmptyListEditor.GetResultTypeInfo
 
 function TkwEfListEmptyListEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListEmptyListEditor.GetAllParamsCount
 
 function TkwEfListEmptyListEditor.ParamsTypes: PTypeInfoArray;
@@ -1099,7 +1099,7 @@ end;//TkwEfListListPanel.GetResultTypeInfo
 
 function TkwEfListListPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListListPanel.GetAllParamsCount
 
 function TkwEfListListPanel.ParamsTypes: PTypeInfoArray;
@@ -1157,7 +1157,7 @@ end;//TkwEfListTvList.GetResultTypeInfo
 
 function TkwEfListTvList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListTvList.GetAllParamsCount
 
 function TkwEfListTvList.ParamsTypes: PTypeInfoArray;
@@ -1215,7 +1215,7 @@ end;//TkwEfListCfList.GetResultTypeInfo
 
 function TkwEfListCfList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 0;
+ Result := 1;
 end;//TkwEfListCfList.GetAllParamsCount
 
 function TkwEfListCfList.ParamsTypes: PTypeInfoArray;
