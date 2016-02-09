@@ -33,6 +33,9 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 var g_TnsUseDocumentSubPanelOperationEvent: TnsUseDocumentSubPanelOperationEvent = nil;
