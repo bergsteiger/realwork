@@ -60,6 +60,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , SysUtils
+ , afwFacade
 ;
 
 procedure TPrimLegalMainMenuForm.UpdateMainMenuForm;

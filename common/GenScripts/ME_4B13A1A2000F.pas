@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , LoggingWrapperInterfaces
+ , nsLogEventData
+ , nsLogManager
 ;
 
 procedure TnsCounterEvent.Log;

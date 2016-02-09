@@ -57,6 +57,9 @@ uses
  , SysUtils
  , nsTypes
  , l3Base
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 var g_TnsContextFilterEventListener: TnsContextFilterEventListener = nil;

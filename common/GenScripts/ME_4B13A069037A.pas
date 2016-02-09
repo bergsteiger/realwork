@@ -28,6 +28,10 @@ implementation
 uses
  l3ImplUses
  , nsCachedEventsProcessor
+ , nsLogEventData
+ , nsLogManager
+ , LoggingUnit
+ , LoggingWrapperInterfaces
 ;
 
 procedure TnsPrimCachedEvent.RequestWrite;

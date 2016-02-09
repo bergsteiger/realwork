@@ -254,6 +254,9 @@ uses
  , nsExternalObjectPrim
  , SysUtils
  , l3String
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
 ;
 
 type

@@ -60,6 +60,10 @@ uses
  , l3Base
  , l3InterfacesMisc
  , nsBaseSearchService
+ {$If NOT Defined(DesignTimeLibrary)}
+ , evStyleTableSpy
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
+ , afwFacade
 ;
 
 type _Instance_R_ = TMainMenuWithBaseSearchSupportForm;
