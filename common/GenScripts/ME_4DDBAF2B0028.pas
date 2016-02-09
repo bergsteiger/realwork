@@ -87,6 +87,12 @@ uses
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)
+ , DataAdapter
+ , sdsChangesBetweenEditions
+ , nsChangesBetweenEditionsInfo
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -95,12 +101,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
- , DataAdapter
- , sdsChangesBetweenEditions
- , nsChangesBetweenEditionsInfo
- {$If NOT Defined(NoVCM)}
- , vcmMessagesSupport
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 var g_Tfs_ViewChangedFragments: Tfs_ViewChangedFragments = nil;

@@ -179,6 +179,11 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , DataAdapter
+ , DocumentRes
+ , vtUtils
+ , evdStyles
+ , k2Tags
+ , BitmapPara_Const
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -193,6 +198,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsHyperlinkProcessorTypes
  , SysUtils
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDefsList
+ {$IfEnd} // Defined(Nemesis)
  , l3Base
  , l3InterfacesMisc
  , nsBaseSearchService
@@ -213,6 +221,22 @@ uses
  , Classes
  , nsQuestions
  , nsExternalObjectModelPart
+ , eeInterfacesEx
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , eeParaTools
+ {$IfEnd} // Defined(Nemesis)
+ , evdBlockNameAdder
+ , nsDocumentTools
+ , PresentationInterfaces
+ , nsExternalObjectPrim
+ , bsUtils
+ , l3Stream
+ , l3Types
+ , nsToMSWordOp
+ , l3String
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit
@@ -220,6 +244,14 @@ uses
  , nsSearchInDocumentNextEvent
  , nsSearchInDocumentPrevEvent
  , nsSearchWindowManager
+ {$If Defined(Nemesis)}
+ , f1TextStyle_Const
+ {$IfEnd} // Defined(Nemesis)
+ , TextSegment_Const
+ , StyledLeafPara_Const
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
  , evCustomEditor
  , evEditorWithOperations
 ;

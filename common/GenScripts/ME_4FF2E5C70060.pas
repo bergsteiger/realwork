@@ -176,6 +176,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , sdsAAC
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -189,7 +190,6 @@ uses
  , l3Base
  , l3String
  , l3MessageID
- , sdsAAC
 ;
 
 var g_Tfs_AACContents: Tfs_AACContents = nil;
