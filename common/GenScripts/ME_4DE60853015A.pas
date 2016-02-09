@@ -81,7 +81,6 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , l3Base
  {$If Defined(AppClientSide)}
  , Editwin
  {$IfEnd} // Defined(AppClientSide)
@@ -102,6 +101,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Mail
  {$IfEnd} // NOT Defined(Nemesis)
+ , l3Base
 ;
 
 var g_TarTestConfig: TarTestConfig = nil;

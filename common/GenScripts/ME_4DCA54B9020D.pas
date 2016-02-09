@@ -75,7 +75,7 @@ BOOLEAN VAR l_Boolean
  f1::WasBeep >>> l_Boolean
 [code]  }
   private
-   function f1__WasBeep(const aCtx: TtfwContext): Boolean;
+   function f1_WasBeep(const aCtx: TtfwContext): Boolean;
     {* Реализация слова скрипта f1::WasBeep }
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -138,7 +138,7 @@ begin
 //#UC END# *5617F4D00243_3223F9BFFE72_impl*
 end;//TkwBrowse.ParamsTypes
 
-function TkwF1_WasBeep.f1__WasBeep(const aCtx: TtfwContext): Boolean;
+function TkwF1_WasBeep.f1_WasBeep(const aCtx: TtfwContext): Boolean;
  {* Реализация слова скрипта f1::WasBeep }
 //#UC START# *3C50E0D2B358_5888E53B751F_var*
 //#UC END# *3C50E0D2B358_5888E53B751F_var*
@@ -151,7 +151,7 @@ begin
  Result := false;
  {$EndIf InsiderTest}
 //#UC END# *3C50E0D2B358_5888E53B751F_impl*
-end;//TkwF1_WasBeep.f1__WasBeep
+end;//TkwF1_WasBeep.f1_WasBeep
 
 procedure TkwF1_WasBeep.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5888E53B751F_var*
