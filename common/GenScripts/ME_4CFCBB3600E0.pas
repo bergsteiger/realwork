@@ -219,8 +219,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , RTLConsts
  , Math
+ , RTLConsts
 ;
 
 const

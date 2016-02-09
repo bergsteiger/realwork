@@ -50,6 +50,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ , PrimCreateFilter_cfRename_UserType
+ , PrimCreateFilter_cfCreate_UserType
+ , dsCreateFilter
+ , deFilter
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -59,11 +64,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , CreateFilterKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , DataAdapter
- , PrimCreateFilter_cfRename_UserType
- , PrimCreateFilter_cfCreate_UserType
- , dsCreateFilter
- , deFilter
 ;
 
 procedure TFiltersModule.FiltersOpen(const aData: IucpFilters);

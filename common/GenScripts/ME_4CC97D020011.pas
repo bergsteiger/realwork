@@ -73,6 +73,10 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ , Search_Strange_Controls
+ , SearchLite_Strange_Controls
+ , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -86,10 +90,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , BaseSearchContainerKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , SysUtils
- , Search_Strange_Controls
- , SearchLite_Strange_Controls
- , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
 ;
 
 const

@@ -310,9 +310,9 @@ uses
  , Themes
  {$IfEnd} // NOT Defined(NoVCL)
  , Windows
+ , l3Chars
  , afwFacade
  , l3Base
- , l3Chars
 ;
 
 type
