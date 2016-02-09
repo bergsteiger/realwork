@@ -44,6 +44,9 @@ uses
  , l3String
  , nsTypes
  , IOUnit
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor TnsMainMenu2011Node.Create(const aSectionItem: ISectionItem);

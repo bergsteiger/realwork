@@ -103,12 +103,12 @@ uses
  , ControlPara_Const
  , l3String
  , ReqCell_Const
+ , ExternalOperationUnit
  , IOUnit
  , AdapterFacade
  , nsQuery
  , l3Base
  , evdVer
- , ExternalOperationUnit
 ;
 
 {$Include nsDocumentContainer.imp.pas}
@@ -366,7 +366,7 @@ begin
  l_WasSomeHyperlinkHidden := false;
  aTag.
  //#UC END# *4CF39F58031Eiter*
- IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@))
+ IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt))
  //#UC START# *4CF39F58031Eafteriter*
  ;
  if l_WasSomeHyperlinkHidden then

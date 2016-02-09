@@ -92,12 +92,8 @@ begin
 end;//TkwEnabledSaveRTFPictures.GetResultTypeInfo
 
 function TkwEnabledSaveRTFPictures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0624C398EE8C_var*
-//#UC END# *559687E6025A_0624C398EE8C_var*
 begin
-//#UC START# *559687E6025A_0624C398EE8C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0624C398EE8C_impl*
+ Result := 1;
 end;//TkwEnabledSaveRTFPictures.GetAllParamsCount
 
 procedure TkwGeneratePDFForEtalon.GeneratePDFForEtalon(const aCtx: TtfwContext;
@@ -135,12 +131,8 @@ begin
 end;//TkwGeneratePDFForEtalon.GetResultTypeInfo
 
 function TkwGeneratePDFForEtalon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8682318410BD_var*
-//#UC END# *559687E6025A_8682318410BD_var*
 begin
-//#UC START# *559687E6025A_8682318410BD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8682318410BD_impl*
+ Result := 1;
 end;//TkwGeneratePDFForEtalon.GetAllParamsCount
 
 function TkwGeneratePDFForEtalon.ParamsTypes: PTypeInfoArray;

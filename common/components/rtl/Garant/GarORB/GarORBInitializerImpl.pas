@@ -17,8 +17,8 @@ uses
 type
  TGarORBInitializerImpl = class(TORBInitializer)
   protected
-   procedure pre__init(const info: IORBInitInfo); override;
-   procedure post__init(const info: IORBInitInfo); override;
+   procedure pre_init(const info: IORBInitInfo); override;
+   procedure post_init(const info: IORBInitInfo); override;
   public
    class procedure Init;
  end;//TGarORBInitializerImpl
@@ -43,15 +43,15 @@ begin
 //#UC END# *4CA0D2C203BE_4CA0D1B8017C_impl*
 end;//TGarORBInitializerImpl.Init
 
-procedure TGarORBInitializerImpl.pre__init(const info: IORBInitInfo);
+procedure TGarORBInitializerImpl.pre_init(const info: IORBInitInfo);
 //#UC START# *4CA0D24C02B9_4CA0D1B8017C_var*
 //#UC END# *4CA0D24C02B9_4CA0D1B8017C_var*
 begin
 //#UC START# *4CA0D24C02B9_4CA0D1B8017C_impl*
 //#UC END# *4CA0D24C02B9_4CA0D1B8017C_impl*
-end;//TGarORBInitializerImpl.pre__init
+end;//TGarORBInitializerImpl.pre_init
 
-procedure TGarORBInitializerImpl.post__init(const info: IORBInitInfo);
+procedure TGarORBInitializerImpl.post_init(const info: IORBInitInfo);
 //#UC START# *4CA0D27000D5_4CA0D1B8017C_var*
 var
  l_N : String;
@@ -67,7 +67,7 @@ begin
  WriteLn(DateTimeToStr(Now));
  info.add_client_request_interceptor(TGarClientSecurity.Create(info));
 //#UC END# *4CA0D27000D5_4CA0D1B8017C_impl*
-end;//TGarORBInitializerImpl.post__init
+end;//TGarORBInitializerImpl.post_init
 {$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 
 end.

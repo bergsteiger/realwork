@@ -70,6 +70,7 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , afwFacade
+ , IOUnit
 ;
 
 type _Instance_R_ = TdsTipsDocument;

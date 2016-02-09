@@ -81,6 +81,7 @@ uses
  , nsFolderFilterInfo
  , l3InterfacesMisc
  , afwFacade
+ , IOUnit
 ;
 
 type _Instance_R_ = TdsConsultation;

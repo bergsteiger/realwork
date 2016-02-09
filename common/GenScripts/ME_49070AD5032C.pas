@@ -22,8 +22,6 @@ type
    class function Make: Il3SimpleTree; reintroduce;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TnsMedicDictionTree;
-    {* Метод получения экземпляра синглетона TnsMedicDictionTree }
  end;//TnsMedicDictionTree
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -36,25 +34,23 @@ uses
  , l3Base
 ;
 
-var g_TnsMedicDictionTree: TnsMedicDictionTree = nil;
+var g_TnsMedicDictionTree: Pointer = nil;
  {* Экземпляр синглетона TnsMedicDictionTree }
 
 procedure TnsMedicDictionTreeFree;
  {* Метод освобождения экземпляра синглетона TnsMedicDictionTree }
 begin
- l3Free(g_TnsMedicDictionTree);
+ IUnknown(g_TnsMedicDictionTree) := nil;
 end;//TnsMedicDictionTreeFree
 
 class function TnsMedicDictionTree.Make: Il3SimpleTree;
-var
- l_Inst : TnsMedicDictionTree;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TnsMedicDictionTree = nil) then
+ begin
+  l3System.AddExitProc(TnsMedicDictionTreeFree);
+  Il3SimpleTree(g_TnsMedicDictionTree) := inherited Make;
+ end;
+ Result := Il3SimpleTree(g_TnsMedicDictionTree);
 end;//TnsMedicDictionTree.Make
 
 class function TnsMedicDictionTree.Exists: Boolean;
@@ -62,17 +58,6 @@ class function TnsMedicDictionTree.Exists: Boolean;
 begin
  Result := g_TnsMedicDictionTree <> nil;
 end;//TnsMedicDictionTree.Exists
-
-class function TnsMedicDictionTree.Instance: TnsMedicDictionTree;
- {* Метод получения экземпляра синглетона TnsMedicDictionTree }
-begin
- if (g_TnsMedicDictionTree = nil) then
- begin
-  l3System.AddExitProc(TnsMedicDictionTreeFree);
-  g_TnsMedicDictionTree := Create;
- end;
- Result := g_TnsMedicDictionTree;
-end;//TnsMedicDictionTree.Instance
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

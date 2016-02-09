@@ -46,7 +46,7 @@ type
    class function Make: IbsConsultationManager; reintroduce;
  end;//TbsConsultationManager
 
-function g__ConsultationManager: IbsConsultationManager;
+function g_ConsultationManager: IbsConsultationManager;
 function IsConsultationManagerAssigned: Boolean;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -62,7 +62,7 @@ uses
 
 var gv_ConsultationManager: IbsConsultationManager = nil;
 
-function g__ConsultationManager: IbsConsultationManager;
+function g_ConsultationManager: IbsConsultationManager;
 //#UC START# *55FAEB22015B_55FAEA9B0079_var*
 //#UC END# *55FAEB22015B_55FAEA9B0079_var*
 begin
@@ -71,7 +71,7 @@ begin
   gv_ConsultationManager := TbsConsultationManager.Make;
  Result := gv_ConsultationManager;
 //#UC END# *55FAEB22015B_55FAEA9B0079_impl*
-end;//g__ConsultationManager
+end;//g_ConsultationManager
 
 function IsConsultationManagerAssigned: Boolean;
 //#UC START# *55FBE42C03DF_55FAEA9B0079_var*

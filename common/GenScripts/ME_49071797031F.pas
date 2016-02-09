@@ -20,8 +20,6 @@ type
    class function Make: Il3SimpleTree; reintroduce;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TnsMedicFirmsTree;
-    {* Метод получения экземпляра синглетона TnsMedicFirmsTree }
  end;//TnsMedicFirmsTree
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -34,25 +32,23 @@ uses
  , l3Base
 ;
 
-var g_TnsMedicFirmsTree: TnsMedicFirmsTree = nil;
+var g_TnsMedicFirmsTree: Pointer = nil;
  {* Экземпляр синглетона TnsMedicFirmsTree }
 
 procedure TnsMedicFirmsTreeFree;
  {* Метод освобождения экземпляра синглетона TnsMedicFirmsTree }
 begin
- l3Free(g_TnsMedicFirmsTree);
+ IUnknown(g_TnsMedicFirmsTree) := nil;
 end;//TnsMedicFirmsTreeFree
 
 class function TnsMedicFirmsTree.Make: Il3SimpleTree;
-var
- l_Inst : TnsMedicFirmsTree;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TnsMedicFirmsTree = nil) then
+ begin
+  l3System.AddExitProc(TnsMedicFirmsTreeFree);
+  Il3SimpleTree(g_TnsMedicFirmsTree) := inherited Make;
+ end;
+ Result := Il3SimpleTree(g_TnsMedicFirmsTree);
 end;//TnsMedicFirmsTree.Make
 
 class function TnsMedicFirmsTree.Exists: Boolean;
@@ -60,17 +56,6 @@ class function TnsMedicFirmsTree.Exists: Boolean;
 begin
  Result := g_TnsMedicFirmsTree <> nil;
 end;//TnsMedicFirmsTree.Exists
-
-class function TnsMedicFirmsTree.Instance: TnsMedicFirmsTree;
- {* Метод получения экземпляра синглетона TnsMedicFirmsTree }
-begin
- if (g_TnsMedicFirmsTree = nil) then
- begin
-  l3System.AddExitProc(TnsMedicFirmsTreeFree);
-  g_TnsMedicFirmsTree := Create;
- end;
- Result := g_TnsMedicFirmsTree;
-end;//TnsMedicFirmsTree.Instance
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

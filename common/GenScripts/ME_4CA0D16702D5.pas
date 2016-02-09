@@ -15,23 +15,23 @@ uses
 type
  TORBInitializer = class
   protected
-   procedure pre__init(const info: IORBInitInfo); virtual; abstract;
-   procedure post__init(const info: IORBInitInfo); virtual; abstract;
+   procedure pre_init(const info: IORBInitInfo); virtual; abstract;
+   procedure post_init(const info: IORBInitInfo); virtual; abstract;
  end;//TORBInitializer
 
  TInterceptor = class(TLocalORBObject)
   protected
    procedure _destroy; virtual; abstract;
-   function _get__name: ANSIString; virtual; abstract;
+   function _get_name: ANSIString; virtual; abstract;
  end;//TInterceptor
 
  TClientRequestInterceptor = class(TInterceptor)
   protected
-   procedure send__request(const ri: IClientRequestInfo); virtual; abstract;
-   procedure send__poll(const ri: IClientRequestInfo); virtual; abstract;
-   procedure receive__reply(const ri: IClientRequestInfo); virtual; abstract;
-   procedure receive__exception(const ri: IClientRequestInfo); virtual; abstract;
-   procedure receive__other(const ri: IClientRequestInfo); virtual; abstract;
+   procedure send_request(const ri: IClientRequestInfo); virtual; abstract;
+   procedure send_poll(const ri: IClientRequestInfo); virtual; abstract;
+   procedure receive_reply(const ri: IClientRequestInfo); virtual; abstract;
+   procedure receive_exception(const ri: IClientRequestInfo); virtual; abstract;
+   procedure receive_other(const ri: IClientRequestInfo); virtual; abstract;
  end;//TClientRequestInterceptor
 {$IfEnd} // Defined(nsTest) AND Defined(MTDORB) AND NOT Defined(NotTunedDUnit)
 

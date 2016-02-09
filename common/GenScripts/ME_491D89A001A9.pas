@@ -98,6 +98,7 @@ uses
  , l3InterfacesMisc
  , SysUtils
  , afwFacade
+ , IOUnit
  , deSearchInfo
  , DynamicTreeUnit
  , nsINodeWrap
