@@ -26,6 +26,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , nsLogEventData
+ , nsLogManager
+ , LoggingUnit
+ , LoggingWrapperInterfaces
 ;
 
 class procedure TnsSaveDocumentToFoldersEvent.Log(const aDoc: IDocument);
