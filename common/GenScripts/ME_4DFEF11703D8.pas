@@ -50,16 +50,16 @@ type
    function NeedMakeChildren: Boolean; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure Set__ChildNode(const aValue: Il3Node); override;
-   procedure Set__ParentNode(const aValue: Il3Node); override;
-   procedure Set__PrevNode(const aValue: Il3Node); override;
-   procedure Set__NextNode(const aValue: Il3Node); override;
-   function Get__AllChildrenCount: Integer; override;
+   procedure Set_ChildNode(const aValue: Il3Node); override;
+   procedure Set_ParentNode(const aValue: Il3Node); override;
+   procedure Set_PrevNode(const aValue: Il3Node); override;
+   procedure Set_NextNode(const aValue: Il3Node); override;
+   function Get_AllChildrenCount: Integer; override;
    function DoGetThisChildrenCount: Integer; override;
-   function Get__ParentNode: Il3Node; override;
-   function Get__ChildNode: Il3Node; override;
-   function Get__NextNode: Il3Node; override;
-   function Get__PrevNode: Il3Node; override;
+   function Get_ParentNode: Il3Node; override;
+   function Get_ChildNode: Il3Node; override;
+   function Get_NextNode: Il3Node; override;
+   function Get_PrevNode: Il3Node; override;
    function IsFirstNode: Boolean; override;
    function IsLastNode: Boolean; override;
    function HasChildNode: Boolean; override;
@@ -204,43 +204,43 @@ begin
 //#UC END# *479731C50290_4DFEF11703D8_impl*
 end;//TevContentsNode.Cleanup
 
-procedure TevContentsNode.Set__ChildNode(const aValue: Il3Node);
+procedure TevContentsNode.Set_ChildNode(const aValue: Il3Node);
 //#UC START# *4ADEEFA00164_4DFEF11703D8_var*
 //#UC END# *4ADEEFA00164_4DFEF11703D8_var*
 begin
 //#UC START# *4ADEEFA00164_4DFEF11703D8_impl*
  f_ChildNode := aValue;
 //#UC END# *4ADEEFA00164_4DFEF11703D8_impl*
-end;//TevContentsNode.Set__ChildNode
+end;//TevContentsNode.Set_ChildNode
 
-procedure TevContentsNode.Set__ParentNode(const aValue: Il3Node);
+procedure TevContentsNode.Set_ParentNode(const aValue: Il3Node);
 //#UC START# *4DFF154E0063_4DFEF11703D8_var*
 //#UC END# *4DFF154E0063_4DFEF11703D8_var*
 begin
 //#UC START# *4DFF154E0063_4DFEF11703D8_impl*
  f_ParentNode := Pointer(aValue);
 //#UC END# *4DFF154E0063_4DFEF11703D8_impl*
-end;//TevContentsNode.Set__ParentNode
+end;//TevContentsNode.Set_ParentNode
 
-procedure TevContentsNode.Set__PrevNode(const aValue: Il3Node);
+procedure TevContentsNode.Set_PrevNode(const aValue: Il3Node);
 //#UC START# *4DFF15710135_4DFEF11703D8_var*
 //#UC END# *4DFF15710135_4DFEF11703D8_var*
 begin
 //#UC START# *4DFF15710135_4DFEF11703D8_impl*
  f_PrevNode := Pointer(aValue);
 //#UC END# *4DFF15710135_4DFEF11703D8_impl*
-end;//TevContentsNode.Set__PrevNode
+end;//TevContentsNode.Set_PrevNode
 
-procedure TevContentsNode.Set__NextNode(const aValue: Il3Node);
+procedure TevContentsNode.Set_NextNode(const aValue: Il3Node);
 //#UC START# *4DFF15B3015B_4DFEF11703D8_var*
 //#UC END# *4DFF15B3015B_4DFEF11703D8_var*
 begin
 //#UC START# *4DFF15B3015B_4DFEF11703D8_impl*
  f_NextNode := aValue;
 //#UC END# *4DFF15B3015B_4DFEF11703D8_impl*
-end;//TevContentsNode.Set__NextNode
+end;//TevContentsNode.Set_NextNode
 
-function TevContentsNode.Get__AllChildrenCount: Integer;
+function TevContentsNode.Get_AllChildrenCount: Integer;
 //#UC START# *54C78C200291_4DFEF11703D8_var*
 //#UC END# *54C78C200291_4DFEF11703D8_var*
 begin
@@ -253,7 +253,7 @@ begin
  else
   Result := f_AllChildrenCount;
 //#UC END# *54C78C200291_4DFEF11703D8_impl*
-end;//TevContentsNode.Get__AllChildrenCount
+end;//TevContentsNode.Get_AllChildrenCount
 
 function TevContentsNode.DoGetThisChildrenCount: Integer;
 //#UC START# *54C78C8102DD_4DFEF11703D8_var*
@@ -264,34 +264,34 @@ begin
 //#UC END# *54C78C8102DD_4DFEF11703D8_impl*
 end;//TevContentsNode.DoGetThisChildrenCount
 
-function TevContentsNode.Get__ParentNode: Il3Node;
+function TevContentsNode.Get_ParentNode: Il3Node;
 //#UC START# *54C78E1002BE_4DFEF11703D8_var*
 //#UC END# *54C78E1002BE_4DFEF11703D8_var*
 begin
 //#UC START# *54C78E1002BE_4DFEF11703D8_impl*
  Result := Il3Node(f_ParentNode);
 //#UC END# *54C78E1002BE_4DFEF11703D8_impl*
-end;//TevContentsNode.Get__ParentNode
+end;//TevContentsNode.Get_ParentNode
 
-function TevContentsNode.Get__ChildNode: Il3Node;
+function TevContentsNode.Get_ChildNode: Il3Node;
 //#UC START# *54C78E2702B3_4DFEF11703D8_var*
 //#UC END# *54C78E2702B3_4DFEF11703D8_var*
 begin
 //#UC START# *54C78E2702B3_4DFEF11703D8_impl*
  Result := f_ChildNode;
 //#UC END# *54C78E2702B3_4DFEF11703D8_impl*
-end;//TevContentsNode.Get__ChildNode
+end;//TevContentsNode.Get_ChildNode
 
-function TevContentsNode.Get__NextNode: Il3Node;
+function TevContentsNode.Get_NextNode: Il3Node;
 //#UC START# *54C78E370213_4DFEF11703D8_var*
 //#UC END# *54C78E370213_4DFEF11703D8_var*
 begin
 //#UC START# *54C78E370213_4DFEF11703D8_impl*
  Result := f_NextNode;
 //#UC END# *54C78E370213_4DFEF11703D8_impl*
-end;//TevContentsNode.Get__NextNode
+end;//TevContentsNode.Get_NextNode
 
-function TevContentsNode.Get__PrevNode: Il3Node;
+function TevContentsNode.Get_PrevNode: Il3Node;
 //#UC START# *54C78E440118_4DFEF11703D8_var*
 //#UC END# *54C78E440118_4DFEF11703D8_var*
 begin
@@ -301,7 +301,7 @@ begin
  else
   Result := nil;
 //#UC END# *54C78E440118_4DFEF11703D8_impl*
-end;//TevContentsNode.Get__PrevNode
+end;//TevContentsNode.Get_PrevNode
 
 function TevContentsNode.IsFirstNode: Boolean;
 //#UC START# *54C78F5702CE_4DFEF11703D8_var*

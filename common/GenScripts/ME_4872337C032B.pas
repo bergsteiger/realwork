@@ -89,6 +89,9 @@ uses
  , l3Base
  , l3InterfacesMisc
  , l3Bits
+ {$If NOT Defined(NoScripts)}
+ , l3NodesKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor TctComboBoxStringsItemNode.Create(aStrings: TComboBoxStrings;

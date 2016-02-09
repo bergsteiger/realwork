@@ -123,6 +123,9 @@ uses
  , l3String
  , evTabStops
  , k2NullTagImpl
+ {$If NOT Defined(NoScripts)}
+ , evParaWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TnevParaPrim.TreatCollapsedAsHidden: Boolean;

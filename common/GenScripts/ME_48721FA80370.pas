@@ -71,6 +71,9 @@ uses
  , ctComboBoxStringsItemNode
  , l3InterfacesMisc
  , l3Bits
+ {$If NOT Defined(NoScripts)}
+ , l3NodesKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TComboBoxStrings.DoMakeChild: Il3SimpleNode;

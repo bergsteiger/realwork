@@ -110,11 +110,11 @@ type
    procedure pm_SetDropped(aValue: Boolean); override;
    procedure HideDropDown; override;
    {$If NOT Defined(NoVCM)}
-   function IvcmState__LoadState(const aState: IUnknown;
+   function IvcmState_LoadState(const aState: IUnknown;
     aStateType: TvcmStateType): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   function IvcmState__SaveState(out aState: IUnknown;
+   function IvcmState_SaveState(out aState: IUnknown;
     aStateType: TvcmStateType): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
   public
@@ -896,7 +896,7 @@ begin
 end;//TDropDownTreePrim.HideDropDown
 
 {$If NOT Defined(NoVCM)}
-function TDropDownTreePrim.IvcmState__LoadState(const aState: IUnknown;
+function TDropDownTreePrim.IvcmState_LoadState(const aState: IUnknown;
  aStateType: TvcmStateType): Boolean;
 //#UC START# *54084F6B01FD_4831599C0300_var*
 var
@@ -912,11 +912,11 @@ begin
   Result := False;
  //Result := inherited IvcmState_LoadState(aState, aStateType);
 //#UC END# *54084F6B01FD_4831599C0300_impl*
-end;//TDropDownTreePrim.IvcmState__LoadState
+end;//TDropDownTreePrim.IvcmState_LoadState
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-function TDropDownTreePrim.IvcmState__SaveState(out aState: IUnknown;
+function TDropDownTreePrim.IvcmState_SaveState(out aState: IUnknown;
  aStateType: TvcmStateType): Boolean;
 //#UC START# *54084FBC0018_4831599C0300_var*
 var
@@ -933,7 +933,7 @@ begin
  //Result := inherited IvcmState_SaveState(aState, aStateType);
  // !! Если будешь здесь копаться, то читай и TAbstractDropDown.IvcmState_SaveState
 //#UC END# *54084FBC0018_4831599C0300_impl*
-end;//TDropDownTreePrim.IvcmState__SaveState
+end;//TDropDownTreePrim.IvcmState_SaveState
 {$IfEnd} // NOT Defined(NoVCM)
 
 constructor TSubTree.Create(aOwner: TDropDownTreePrim);

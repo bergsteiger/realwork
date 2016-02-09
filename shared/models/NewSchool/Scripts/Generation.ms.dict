@@ -2351,6 +2351,18 @@ elem_proc UserCode:
   
   RULES
    ( 
+    ( Self .UID '559687E6025A' == ) // GetAllParamsCount
+    AND ( Self .Implementor .IsSummoned )
+   ) 
+     RULES
+      ( l_Key cVarUserCodeSuffix == )
+       ()
+      ( l_Key cImplementationUserCodeSuffix == )
+       ( ' Result := 1;' .Out )
+      DEFAULT
+       AsDefault 
+     ; // RULES
+   ( 
     ( Self .UID '52E9282B0271' == ) // RightParamsCount
     AND ( Self .Implementor .IsSummoned )
    ) 

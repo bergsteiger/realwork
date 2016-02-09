@@ -52,6 +52,9 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , k2Tags
  , SysUtils
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
 ;
 
 {$Include RoundMarkerValue.imp.pas}

@@ -58,6 +58,9 @@ uses
  , nevFacade
  , k2Tags
  , SysUtils
+ {$If Defined(k2ForEditor)}
+ , evTableCellUtils
+ {$IfEnd} // Defined(k2ForEditor)
 ;
 
 type _Instance_R_ = TevColumnBorderMarker;

@@ -46,10 +46,10 @@ uses
  , evTabStops
  , l3String
  , k2Base
+ , evSegLst
  , nevFontPrim
  , l3Types
  , nevSegmentObject
- , evSegLst
 ;
 
 type
