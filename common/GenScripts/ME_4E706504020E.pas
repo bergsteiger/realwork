@@ -25,6 +25,9 @@ implementation
 
 uses
  l3ImplUses
+ , evdTypes
+ , nevBase
+ , k2Tags
 ;
 
 {$Include CellFormatInfoCommon.imp.pas}

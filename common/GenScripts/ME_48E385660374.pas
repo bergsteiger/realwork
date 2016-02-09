@@ -124,6 +124,9 @@ uses
  {$If Defined(k2ForEditor)}
  , evUsialParagraph
  {$IfEnd} // Defined(k2ForEditor)
+ {$If NOT Defined(NoScripts)}
+ , IedRangeWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor TedRangeImplementation.Create(const aView: InevView;

@@ -36,13 +36,13 @@ uses
  , l3Math
  , evdStyles
  , l3MinMax
- , SysUtils
- , l3Base
  , k2Tags
  , evDef
  , evStyleInterface
  , evDefaultStylesFontSizesPrim
  , l3Types
+ , SysUtils
+ , l3Base
 ;
 
 var g_TevDefaultStylesFontSizes: TevDefaultStylesFontSizes = nil;

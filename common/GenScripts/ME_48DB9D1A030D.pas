@@ -47,6 +47,7 @@ uses
  , l3MinMax
  , k2Base
  , nevFacade
+ , evdTypes
 ;
 
 {$Include CellFormatInfoCommon.imp.pas}

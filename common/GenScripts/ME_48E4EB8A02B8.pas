@@ -65,6 +65,9 @@ implementation
 {$If Defined(k2ForEditor) AND Defined(evNeedEditableCursors)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , IedTableWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TevTable.Get_Frame: IedFrame;

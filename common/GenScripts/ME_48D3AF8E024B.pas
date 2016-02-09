@@ -21,13 +21,13 @@ uses
  , l3LineArray
 ;
 
-function evDir__InsertText(const aPara: InevTextPara;
+function evDir_InsertText(const aPara: InevTextPara;
  aSt: Tl3CustomString;
  aPos: Integer;
  UpdateSegments: Boolean;
  IncludeStart: Boolean = False;
  const Context: InevOp = nil): Boolean;
-function evDir__DeleteText(const aPara: InevTextPara;
+function evDir_DeleteText(const aPara: InevTextPara;
  aPos: Integer;
  Count: Integer;
  Deleted: PAnsiChar = nil;
@@ -237,7 +237,7 @@ begin
 //#UC END# *529F149200A7_48D3AF8E024B_impl*
 end;//evTextParaSetFontParamPrim
 
-function evDir__InsertText(const aPara: InevTextPara;
+function evDir_InsertText(const aPara: InevTextPara;
  aSt: Tl3CustomString;
  aPos: Integer;
  UpdateSegments: Boolean;
@@ -327,9 +327,9 @@ begin
    aPara.Invalidate([nev_spExtent]);
  end;//Result
 //#UC END# *5299C1960391_48D3AF8E024B_impl*
-end;//evDir__InsertText
+end;//evDir_InsertText
 
-function evDir__DeleteText(const aPara: InevTextPara;
+function evDir_DeleteText(const aPara: InevTextPara;
  aPos: Integer;
  Count: Integer;
  Deleted: PAnsiChar = nil;
@@ -479,7 +479,7 @@ begin
   end;//aPos < l_Text.Len
  end;//not l_Text.Empty
 //#UC END# *5299C235026F_48D3AF8E024B_impl*
-end;//evDir__DeleteText
+end;//evDir_DeleteText
 
 procedure evTextParaAddSegment(const aPara: InevTextPara;
  aLayerHandle: TevSegmentHandle;

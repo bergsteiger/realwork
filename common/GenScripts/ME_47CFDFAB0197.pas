@@ -22,7 +22,7 @@ type
    f_Para: InevPara;
     {* Поле для свойства Para }
   protected
-   procedure Set__Para(const Value: InevPara); virtual;
+   procedure Set_Para(const Value: InevPara); virtual;
    function Get_Para: InevPara;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -53,14 +53,14 @@ begin
 //#UC END# *47CFE07602FE_47CFDFAB0197_impl*
 end;//TevCustomControlTool.Create
 
-procedure TevCustomControlTool.Set__Para(const Value: InevPara);
+procedure TevCustomControlTool.Set_Para(const Value: InevPara);
 //#UC START# *47CFE37202A1_47CFDFAB0197_var*
 //#UC END# *47CFE37202A1_47CFDFAB0197_var*
 begin
 //#UC START# *47CFE37202A1_47CFDFAB0197_impl*
  f_Para := Value;
 //#UC END# *47CFE37202A1_47CFDFAB0197_impl*
-end;//TevCustomControlTool.Set__Para
+end;//TevCustomControlTool.Set_Para
 
 function TevCustomControlTool.Get_Para: InevPara;
 //#UC START# *47CD5D46015B_47CFDFAB0197get_var*

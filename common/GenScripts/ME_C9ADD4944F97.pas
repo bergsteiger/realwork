@@ -90,8 +90,6 @@ type
     {* Фабричный метод для TPrintAndExportFontSizeValuesMapImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TPrintAndExportFontSizeValuesMapImpl;
-    {* Метод получения экземпляра синглетона TPrintAndExportFontSizeValuesMapImpl }
  end;//TPrintAndExportFontSizeValuesMapImpl
 
 const
@@ -115,13 +113,13 @@ uses
  , l3Base
 ;
 
-var g_TPrintAndExportFontSizeValuesMapImpl: TPrintAndExportFontSizeValuesMapImpl = nil;
+var g_TPrintAndExportFontSizeValuesMapImpl: Pointer = nil;
  {* Экземпляр синглетона TPrintAndExportFontSizeValuesMapImpl }
 
 procedure TPrintAndExportFontSizeValuesMapImplFree;
  {* Метод освобождения экземпляра синглетона TPrintAndExportFontSizeValuesMapImpl }
 begin
- l3Free(g_TPrintAndExportFontSizeValuesMapImpl);
+ IUnknown(g_TPrintAndExportFontSizeValuesMapImpl) := nil;
 end;//TPrintAndExportFontSizeValuesMapImplFree
 
 class procedure PrintAndExportFontSizeValuesMapHelper.FillStrings(const aStrings: IafwStrings);
@@ -206,15 +204,13 @@ end;//TPrintAndExportFontSizeValuesMapImplPrim.ValueToDisplayName
 
 class function TPrintAndExportFontSizeValuesMapImpl.Make: Il3IntegerValueMap;
  {* Фабричный метод для TPrintAndExportFontSizeValuesMapImpl }
-var
- l_Inst : TPrintAndExportFontSizeValuesMapImpl;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TPrintAndExportFontSizeValuesMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TPrintAndExportFontSizeValuesMapImplFree);
+  Il3IntegerValueMap(g_TPrintAndExportFontSizeValuesMapImpl) := inherited Make;
+ end;
+ Result := Il3IntegerValueMap(g_TPrintAndExportFontSizeValuesMapImpl);
 end;//TPrintAndExportFontSizeValuesMapImpl.Make
 
 class function TPrintAndExportFontSizeValuesMapImpl.Exists: Boolean;
@@ -222,17 +218,6 @@ class function TPrintAndExportFontSizeValuesMapImpl.Exists: Boolean;
 begin
  Result := g_TPrintAndExportFontSizeValuesMapImpl <> nil;
 end;//TPrintAndExportFontSizeValuesMapImpl.Exists
-
-class function TPrintAndExportFontSizeValuesMapImpl.Instance: TPrintAndExportFontSizeValuesMapImpl;
- {* Метод получения экземпляра синглетона TPrintAndExportFontSizeValuesMapImpl }
-begin
- if (g_TPrintAndExportFontSizeValuesMapImpl = nil) then
- begin
-  l3System.AddExitProc(TPrintAndExportFontSizeValuesMapImplFree);
-  g_TPrintAndExportFontSizeValuesMapImpl := Create;
- end;
- Result := g_TPrintAndExportFontSizeValuesMapImpl;
-end;//TPrintAndExportFontSizeValuesMapImpl.Instance
 
 initialization
  str_PrintAndExportFontSize_pef8.Init;

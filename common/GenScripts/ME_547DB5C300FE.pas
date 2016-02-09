@@ -62,6 +62,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , FontWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TevCustomFont.Get_Size: Integer;

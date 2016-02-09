@@ -67,11 +67,11 @@ type
    procedure pm_SetTextSource(aValue: TevCustomTextSource); virtual;
    function IsReadOnly: Boolean; virtual;
    {$If NOT Defined(NoVCM)}
-   function IvcmState__LoadState(const aState: IUnknown;
+   function IvcmState_LoadState(const aState: IUnknown;
     aStateType: TvcmStateType): Boolean; virtual;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
-   function IvcmState__SaveState(out aState: IUnknown;
+   function IvcmState_SaveState(out aState: IUnknown;
     aStateType: TvcmStateType): Boolean; virtual;
    {$IfEnd} // NOT Defined(NoVCM)
    procedure DoHitTest(const aHotSpot: IevHotSpot;
@@ -213,7 +213,7 @@ begin
 end;//TevCustomEditorWindow.IsReadOnly
 
 {$If NOT Defined(NoVCM)}
-function TevCustomEditorWindow.IvcmState__LoadState(const aState: IUnknown;
+function TevCustomEditorWindow.IvcmState_LoadState(const aState: IUnknown;
  aStateType: TvcmStateType): Boolean;
 //#UC START# *54084F6B01FD_4829D92A037B_var*
 //#UC END# *54084F6B01FD_4829D92A037B_var*
@@ -221,11 +221,11 @@ begin
 //#UC START# *54084F6B01FD_4829D92A037B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *54084F6B01FD_4829D92A037B_impl*
-end;//TevCustomEditorWindow.IvcmState__LoadState
+end;//TevCustomEditorWindow.IvcmState_LoadState
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$If NOT Defined(NoVCM)}
-function TevCustomEditorWindow.IvcmState__SaveState(out aState: IUnknown;
+function TevCustomEditorWindow.IvcmState_SaveState(out aState: IUnknown;
  aStateType: TvcmStateType): Boolean;
 //#UC START# *54084FBC0018_4829D92A037B_var*
 //#UC END# *54084FBC0018_4829D92A037B_var*
@@ -233,7 +233,7 @@ begin
 //#UC START# *54084FBC0018_4829D92A037B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *54084FBC0018_4829D92A037B_impl*
-end;//TevCustomEditorWindow.IvcmState__SaveState
+end;//TevCustomEditorWindow.IvcmState_SaveState
 {$IfEnd} // NOT Defined(NoVCM)
 
 procedure TevCustomEditorWindow.DoHitTest(const aHotSpot: IevHotSpot;

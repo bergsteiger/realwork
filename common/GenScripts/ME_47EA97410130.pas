@@ -243,16 +243,16 @@ uses
  , nevPrintView
  , l3Prg
  , DecorTextPara_Const
- , PageBreak_Const
- , Table_Const
- , SectionBreak_Const
- , evSectionPara
  , evAbortFilter
  , l3Except
  , evMsgCode
  , Messages
  , evHiddenFilter
  , evdPageParamsFilter
+ , PageBreak_Const
+ , Table_Const
+ , SectionBreak_Const
+ , evSectionPara
 ;
 
 {$Include afwSettingChanged.imp.pas}

@@ -38,7 +38,7 @@ type
     const Keys: TevMouseState;
     anInPara: Boolean;
     const aMap: InevMap): Boolean; override;
-   procedure Set__Para(const Value: InevPara); override;
+   procedure Set_Para(const Value: InevPara); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
@@ -122,7 +122,7 @@ begin
 //#UC END# *48D1464501E8_48D215640290_impl*
 end;//TevLabel.DoLMouseBtnDown
 
-procedure TevLabel.Set__Para(const Value: InevPara);
+procedure TevLabel.Set_Para(const Value: InevPara);
 //#UC START# *47CFE37202A1_48D215640290_var*
 //#UC END# *47CFE37202A1_48D215640290_var*
 begin
@@ -132,7 +132,7 @@ begin
  if l3EmptyOrAllCharsInCharSet(l3PCharLen(Get_Caption), cc_WhiteSpace) then
   InitBoolProperty(k2_tiVisible, False);
 //#UC END# *47CFE37202A1_48D215640290_impl*
-end;//TevLabel.Set__Para
+end;//TevLabel.Set_Para
 
 function TevLabel.DoKeyCommand(const aView: InevControlView;
  aCmd: Word;

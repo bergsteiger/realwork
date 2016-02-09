@@ -40,8 +40,8 @@ uses
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , evStylesPrintAndExportSettingRes
  , evStylesPrintAndExportFontSizeSettingRes
- , SysUtils
  , afwFacade
+ , SysUtils
  , afwSettingsChangePublisher
  , l3Base
 ;

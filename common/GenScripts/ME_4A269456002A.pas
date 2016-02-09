@@ -90,10 +90,10 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ , SysUtils
  , l3Base
  , Classes
  , l3InterfacesMisc
- , SysUtils
 ;
 
 function evTranslateMouseAction(const aView: InevControlView;
