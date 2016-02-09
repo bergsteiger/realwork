@@ -49,6 +49,12 @@ uses
  , CommentPara_Const
  , l3Variant
  , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 function TCommentInTableAndScrollTest.IsUserComment(const aView: InevInputView): Boolean;

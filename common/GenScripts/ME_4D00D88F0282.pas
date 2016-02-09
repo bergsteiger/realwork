@@ -44,6 +44,11 @@ uses
  , SysUtils
  , l3String
  , TestFrameWork
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 function TPreviewWithLinesTestBefore235875079.OpenLinesLog(const aCanvas: Il3InfoCanvas;

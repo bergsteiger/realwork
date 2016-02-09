@@ -27,6 +27,10 @@ implementation
 uses
  l3ImplUses
  , bsTypesNew
+ , nsLogEventData
+ , nsLogManager
+ , LoggingUnit
+ , LoggingWrapperInterfaces
 ;
 
 class procedure TnsOpenDocumentFromLinkEvent.Log(const aDoc: IdeDocInfo);

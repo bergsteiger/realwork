@@ -38,6 +38,11 @@ uses
  , SysUtils
  , evSearch
  , TestFrameWork
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 function TTwoEmptyParaForOneReplacerTest.Searcher: IevSearcher;

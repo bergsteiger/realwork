@@ -43,6 +43,12 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
  , evOp
  , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 function TTableSelectTest.SelectColumn(var aColID: Integer): Boolean;

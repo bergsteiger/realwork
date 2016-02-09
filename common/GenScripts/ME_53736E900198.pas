@@ -37,6 +37,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ , l3Filer
+ , SysUtils
 ;
 
 {$If Defined(nsTest)}

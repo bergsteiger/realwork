@@ -32,6 +32,7 @@ uses
  {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  , nsConfigurationList
  {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+ , DataAdapter
 ;
 
 procedure TkwConfigurationActivate.DoWithConfiguration(const aConfiguration: IConfiguration;

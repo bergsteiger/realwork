@@ -324,7 +324,7 @@ begin
 end;//TalcuTaskList.TaskFileName
 
 procedure TalcuTaskList.ActiveTaskCount;
-var l_Result: Integer;
+var l_Result: Integer absolute Result;
 
  function DoIt(anItem: TddProcessTask): Boolean;
   {* Подитеративная функция для вызова  из ActiveTaskCount }

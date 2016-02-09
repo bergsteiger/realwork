@@ -31,6 +31,7 @@ uses
  l3ImplUses
  , IOUnit
  , nsTypes
+ , DataAdapter
 ;
 
 procedure TkwConfigurationGetName.DoWithConfiguration(const aConfiguration: IConfiguration;

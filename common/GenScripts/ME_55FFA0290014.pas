@@ -33,6 +33,8 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ , ddPipeOutInterfaces
+ , l3Base
 ;
 
 procedure TExportSeparatedByMainTest.TuneExportPipe;

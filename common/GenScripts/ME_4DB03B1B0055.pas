@@ -46,6 +46,7 @@ uses
  , nsUtils
  , nsConst
  , bsTypesNew
+ , tfwScriptEngine
 ;
 
 {$Include F1Test.imp.pas}

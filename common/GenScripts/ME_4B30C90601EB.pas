@@ -43,6 +43,11 @@ uses
  , SysUtils
  , k2TagGen
  , l3Variant
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 procedure TTextLoad.LoadGK;

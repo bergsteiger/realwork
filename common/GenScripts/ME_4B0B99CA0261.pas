@@ -29,6 +29,9 @@ implementation
 uses
  l3ImplUses
  , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 class procedure TnsExportToWordEvent.Log(const aDoc: IDocument;

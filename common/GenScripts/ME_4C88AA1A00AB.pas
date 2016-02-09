@@ -39,6 +39,11 @@ uses
  , nevTools
  , l3Base
  , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TPasteColumnTest.Process(aForm: TPrimTextLoadForm);

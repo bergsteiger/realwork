@@ -38,6 +38,9 @@ implementation
 uses
  l3ImplUses
  , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 constructor TnsDocumentPrintEvent.Create(const aDoc: IDocument;

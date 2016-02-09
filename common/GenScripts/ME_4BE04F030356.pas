@@ -41,6 +41,12 @@ uses
  l3ImplUses
  , evSearch
  , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 function TSearchAndReplaceTest.Searcher: IevSearcher;

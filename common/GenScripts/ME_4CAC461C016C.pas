@@ -37,6 +37,13 @@ uses
  , evCursorTools
  {$IfEnd} // Defined(k2ForEditor)
  , TestFrameWork
+ , nevTools
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 procedure TDeleteSectionBreakTest.DoBeforeDrawing(aForm: TPrimTextLoadForm);

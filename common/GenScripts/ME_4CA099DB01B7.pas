@@ -43,6 +43,11 @@ uses
  , l3Base
  , nevTools
  , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TQueryCardAddAttributeTest.Process(aForm: TPrimTextLoadForm);

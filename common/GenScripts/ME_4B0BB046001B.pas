@@ -27,6 +27,9 @@ implementation
 uses
  l3ImplUses
  , LoggingUnit
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 class procedure TnsPrimaryMonitorResolutionEvent.Log(aWidth: Cardinal;

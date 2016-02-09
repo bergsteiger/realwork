@@ -37,6 +37,12 @@ uses
  , nevBase
  , evMsgCode
  , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 procedure TDrawLineTest.Process(aForm: TPrimTextLoadForm);

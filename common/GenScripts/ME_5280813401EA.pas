@@ -31,6 +31,9 @@ uses
  l3ImplUses
  , LoggingUnit
  , nsTypes
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 class procedure TnsSearchInDocumentDoneEvent.Log(const aDoc: IDocument;

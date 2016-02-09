@@ -27,6 +27,7 @@ uses
  l3ImplUses
  , SysUtils
  , TestFrameWork
+ , tfwScriptEngine
 ;
 
 procedure TAutoTest.Run;

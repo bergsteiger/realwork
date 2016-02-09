@@ -41,6 +41,10 @@ uses
  l3ImplUses
  , afwFacade
  , SysUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 {$If NOT Defined(NoVCL)}

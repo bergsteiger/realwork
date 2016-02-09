@@ -44,6 +44,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ , l3Filer
+ , SysUtils
 ;
 
 function TK517772970_TcsLineRequestDefault.GetTaskClass: TddTaskClass;

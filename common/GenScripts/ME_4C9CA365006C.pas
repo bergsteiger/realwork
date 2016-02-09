@@ -52,6 +52,11 @@ uses
  , CommentPara_Const
  , eeEditorExport
  , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TCommentAndScrollTest.MoveCursor4Insert(aForm: TPrimTextLoadForm);

@@ -111,6 +111,8 @@ uses
  , l3Defaults
  , l3CanvasPrim
  , TestFrameWork
+ , vcmBase
+ , l3Base
 ;
 
 {$Include l3CheckStamp.imp.pas}

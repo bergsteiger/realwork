@@ -30,6 +30,7 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ , DataAdapter
 ;
 
 procedure TkwConfigurationWord.DoWithConfigurations(const aCtx: TtfwContext);

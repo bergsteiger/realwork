@@ -39,6 +39,11 @@ uses
  , TestFrameWork
  , l3Base
  , k2OperationContainer
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 procedure TTextEditorVisitorPrim.VisitText(const aStr: AnsiString = 'Load');

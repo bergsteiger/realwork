@@ -43,6 +43,7 @@ uses
  , l3MessagesService
  , l3DocumentsCacheService
  , TestFrameWork
+ , tfwScriptEngine
 ;
 
 procedure TCustomInsiderScripter.DoIt;

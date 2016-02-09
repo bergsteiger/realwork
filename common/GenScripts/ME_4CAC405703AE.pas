@@ -58,6 +58,11 @@ uses
  l3ImplUses
  , SysUtils
  , TestFrameWork
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 {$Include DrawOutputSupport.imp.pas}

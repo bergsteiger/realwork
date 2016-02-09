@@ -39,6 +39,12 @@ implementation
 uses
  l3ImplUses
  , TestFrameWork
+ , vcmBase
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 procedure TSearchAndReplacePrimTest.Process(aForm: TPrimTextLoadForm);

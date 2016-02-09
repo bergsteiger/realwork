@@ -27,6 +27,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , DataAdapter
+ , SettingsUnit
 ;
 
 procedure TkwConfigurationsGetConfiguration.DoWithConfigurations(const aCtx: TtfwContext);

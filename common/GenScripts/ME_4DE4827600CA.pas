@@ -29,6 +29,7 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwScriptEngine
 ;
 
 procedure TArchiInsiderTest.Run;

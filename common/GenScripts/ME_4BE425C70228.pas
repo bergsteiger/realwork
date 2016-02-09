@@ -40,6 +40,11 @@ uses
  , SysUtils
  , evStyleInterface
  , TestFrameWork
+ , vcmBase
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Base
 ;
 
 procedure TTextEditorVisitor.DoIt;

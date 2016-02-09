@@ -43,6 +43,8 @@ uses
  {$If Defined(nsTest)}
  , TestFrameWork
  {$IfEnd} // Defined(nsTest)
+ , l3Filer
+ , SysUtils
 ;
 
 function TK517772970_TCheckSaveToStreamDefault.TaskClass: TddTaskClass;

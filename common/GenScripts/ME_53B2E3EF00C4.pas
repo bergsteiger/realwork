@@ -29,6 +29,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , DataAdapter
 ;
 
 procedure TkwConfigurationGetID.DoWithConfiguration(const aConfiguration: IConfiguration;
