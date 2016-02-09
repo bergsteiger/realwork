@@ -682,6 +682,8 @@ type
     {* Хак для эмуляции включения МГО медали }
    {$IfEnd} // Defined(nsTest)
  end;//TExTextForm
+
+var g_GoToIntranetMessage: THandle = 0;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
@@ -791,6 +793,7 @@ uses
  , f1MultilinkResolver
  , nsQuestions
  , nsExternalObjectModelPart
+ , evdBlockNameAdder
  , nsSearchInDocumentEvent
  , nsSearchInDocumentDoneEvent
  , nsSearchInDocumentNextEvent
@@ -810,6 +813,11 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsHyperlinkProcessorTypes
+ , DocumentRes
+ , vtUtils
+ , evdStyles
+ , k2Tags
+ , evOp
  , DynamicTreeUnit
  , ExternalObjectUnit
  , nsDocumentFromListNavigationEvent
@@ -823,20 +831,22 @@ uses
  , nscStatusBarDelimiterDef
  {$IfEnd} // Defined(Nemesis)
  , DocumentUtil
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDefsList
+ {$IfEnd} // Defined(Nemesis)
  , Common_FormDefinitions_Controls
  , evConstStringData
  , evdHyperlinkInfo
  , nsHyperlinkToDocumentProducerConst
- , Block_Const
- , k2Tags
- , evSubImplementation
- , Document_Const
  , nsFolders
  , nsTagNodeTools
  , ParaList_Const
  , LeafPara_Const
+ , Block_Const
  , LeafParaDecorationsHolder_Const
  , CommentPara_Const
+ , evSubImplementation
+ , Document_Const
 ;
 
 type
@@ -2152,7 +2162,7 @@ var l_PositionList: IPositionList absolute Result;
   l_WasCorrection := false;
   aRange.
   //#UC END# *4F980CDF02C7iter*
-  IterateF(L2InevRangePrimIterateAction(@));
+  IterateF(L2InevRangePrimIterateAction(@DoIt));
  end;//CollectParas
 
 //#UC START# *4F97FB9C0324_49539DBA029D_var*

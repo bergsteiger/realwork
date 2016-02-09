@@ -304,6 +304,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , nsManagers
+ , sdsDocument
+ , sdsDocumentWithFlash
+ , BaseTypesUnit
+ , deDocInfo
+ , SysUtils
+ , nsExternalObjectPrim
+ , ExternalObjectUnit
+ , nsConst
+ , nsUtils
+ , afwFacade
+ , nsOpenDocOnNumberData
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -321,7 +333,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , bsUtils
  , l3MessageID
- , SysUtils
  , l3Base
  {$If NOT Defined(NoScripts)}
  , PictureKeywordsPack
@@ -361,17 +372,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , UserCR2_WarningBaloonKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , nsManagers
- , sdsDocument
- , sdsDocumentWithFlash
- , BaseTypesUnit
- , deDocInfo
- , nsExternalObjectPrim
- , ExternalObjectUnit
- , nsConst
- , nsUtils
- , afwFacade
- , nsOpenDocOnNumberData
 ;
 
 type

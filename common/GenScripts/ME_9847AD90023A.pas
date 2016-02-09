@@ -67,8 +67,6 @@ type
     {* Фабричный метод для TShowChangesInfoValuesMapImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TShowChangesInfoValuesMapImpl;
-    {* Метод получения экземпляра синглетона TShowChangesInfoValuesMapImpl }
  end;//TShowChangesInfoValuesMapImpl
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -83,13 +81,13 @@ uses
  , l3Base
 ;
 
-var g_TShowChangesInfoValuesMapImpl: TShowChangesInfoValuesMapImpl = nil;
+var g_TShowChangesInfoValuesMapImpl: Pointer = nil;
  {* Экземпляр синглетона TShowChangesInfoValuesMapImpl }
 
 procedure TShowChangesInfoValuesMapImplFree;
  {* Метод освобождения экземпляра синглетона TShowChangesInfoValuesMapImpl }
 begin
- l3Free(g_TShowChangesInfoValuesMapImpl);
+ IUnknown(g_TShowChangesInfoValuesMapImpl) := nil;
 end;//TShowChangesInfoValuesMapImplFree
 
 class procedure ShowChangesInfoValuesMapHelper.FillStrings(const aStrings: IafwStrings);
@@ -174,15 +172,13 @@ end;//TShowChangesInfoValuesMapImplPrim.ValueToDisplayName
 
 class function TShowChangesInfoValuesMapImpl.Make: Il3IntegerValueMap;
  {* Фабричный метод для TShowChangesInfoValuesMapImpl }
-var
- l_Inst : TShowChangesInfoValuesMapImpl;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TShowChangesInfoValuesMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TShowChangesInfoValuesMapImplFree);
+  Il3IntegerValueMap(g_TShowChangesInfoValuesMapImpl) := inherited Make;
+ end;
+ Result := Il3IntegerValueMap(g_TShowChangesInfoValuesMapImpl);
 end;//TShowChangesInfoValuesMapImpl.Make
 
 class function TShowChangesInfoValuesMapImpl.Exists: Boolean;
@@ -190,17 +186,6 @@ class function TShowChangesInfoValuesMapImpl.Exists: Boolean;
 begin
  Result := g_TShowChangesInfoValuesMapImpl <> nil;
 end;//TShowChangesInfoValuesMapImpl.Exists
-
-class function TShowChangesInfoValuesMapImpl.Instance: TShowChangesInfoValuesMapImpl;
- {* Метод получения экземпляра синглетона TShowChangesInfoValuesMapImpl }
-begin
- if (g_TShowChangesInfoValuesMapImpl = nil) then
- begin
-  l3System.AddExitProc(TShowChangesInfoValuesMapImplFree);
-  g_TShowChangesInfoValuesMapImpl := Create;
- end;
- Result := g_TShowChangesInfoValuesMapImpl;
-end;//TShowChangesInfoValuesMapImpl.Instance
 
 initialization
  str_ShowChangesInfo_Collapsed.Init;

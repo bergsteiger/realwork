@@ -134,6 +134,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , deAdmin
+ , sdsAdmin
+ , DataAdapter
+ , deNode
+ , l3String
  , l3MessageID
  , SysUtils
  , l3Base
@@ -158,11 +163,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , AdminFormKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , deAdmin
- , sdsAdmin
- , DataAdapter
- , deNode
- , l3String
 ;
 
 var g_Tfs_Admin: Tfs_Admin = nil;

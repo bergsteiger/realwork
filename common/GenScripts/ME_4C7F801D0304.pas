@@ -509,7 +509,7 @@ procedure TExTextOptionsForm.SetReminderOpParams;
    //#UC START# *4F916E210355iter*
    aRoot.
    //#UC END# *4F916E210355iter*
-   IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@));
+   IterateChildrenF(L2Mk2ChildrenIterateChildrenFAction(@DoIt));
   end;//MergeText
 
  //#UC START# *4F916DF101C2__var*
