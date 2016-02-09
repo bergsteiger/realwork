@@ -164,12 +164,8 @@ begin
 end;//TkwElCustomEditFormEdit.GetResultTypeInfo
 
 function TkwElCustomEditFormEdit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_713A666E50E1_var*
-//#UC END# *559687E6025A_713A666E50E1_var*
 begin
-//#UC START# *559687E6025A_713A666E50E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_713A666E50E1_impl*
+ Result := 1;
 end;//TkwElCustomEditFormEdit.GetAllParamsCount
 
 function TkwElCustomEditFormEdit.ParamsTypes: PTypeInfoArray;

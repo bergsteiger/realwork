@@ -193,12 +193,8 @@ begin
 end;//TkwOutlinerFormFormTreeControl.GetResultTypeInfo
 
 function TkwOutlinerFormFormTreeControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B10A49D0279E_var*
-//#UC END# *559687E6025A_B10A49D0279E_var*
 begin
-//#UC START# *559687E6025A_B10A49D0279E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B10A49D0279E_impl*
+ Result := 1;
 end;//TkwOutlinerFormFormTreeControl.GetAllParamsCount
 
 function TkwOutlinerFormFormTreeControl.ParamsTypes: PTypeInfoArray;

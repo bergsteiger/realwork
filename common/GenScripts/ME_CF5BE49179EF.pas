@@ -406,12 +406,8 @@ begin
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.GetResultTypeInfo
 
 function TkwF1LikeFormWithBSFormBaseSearchControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_136DA0DCC3CD_var*
-//#UC END# *559687E6025A_136DA0DCC3CD_var*
 begin
-//#UC START# *559687E6025A_136DA0DCC3CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_136DA0DCC3CD_impl*
+ Result := 1;
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.GetAllParamsCount
 
 function TkwF1LikeFormWithBSFormBaseSearchControl.ParamsTypes: PTypeInfoArray;
@@ -468,12 +464,8 @@ begin
 end;//TkwF1LikeFormWithBSFormText.GetResultTypeInfo
 
 function TkwF1LikeFormWithBSFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0261BE97F6D3_var*
-//#UC END# *559687E6025A_0261BE97F6D3_var*
 begin
-//#UC START# *559687E6025A_0261BE97F6D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0261BE97F6D3_impl*
+ Result := 1;
 end;//TkwF1LikeFormWithBSFormText.GetAllParamsCount
 
 function TkwF1LikeFormWithBSFormText.ParamsTypes: PTypeInfoArray;
@@ -530,12 +522,8 @@ begin
 end;//TkwF1LikeFormWithBSFormTextSource.GetResultTypeInfo
 
 function TkwF1LikeFormWithBSFormTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F2D78F0C5EE9_var*
-//#UC END# *559687E6025A_F2D78F0C5EE9_var*
 begin
-//#UC START# *559687E6025A_F2D78F0C5EE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F2D78F0C5EE9_impl*
+ Result := 1;
 end;//TkwF1LikeFormWithBSFormTextSource.GetAllParamsCount
 
 function TkwF1LikeFormWithBSFormTextSource.ParamsTypes: PTypeInfoArray;
@@ -592,12 +580,8 @@ begin
 end;//TkwF1LikeFormWithBSFormLoadManager.GetResultTypeInfo
 
 function TkwF1LikeFormWithBSFormLoadManager.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0296E955C9A5_var*
-//#UC END# *559687E6025A_0296E955C9A5_var*
 begin
-//#UC START# *559687E6025A_0296E955C9A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0296E955C9A5_impl*
+ Result := 1;
 end;//TkwF1LikeFormWithBSFormLoadManager.GetAllParamsCount
 
 function TkwF1LikeFormWithBSFormLoadManager.ParamsTypes: PTypeInfoArray;

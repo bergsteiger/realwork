@@ -358,12 +358,8 @@ begin
 end;//TkwEditionsContainerFormBackgroundPanel.SetValuePrim
 
 function TkwEditionsContainerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_86D7719CD46B_var*
-//#UC END# *551544E2001A_86D7719CD46B_var*
 begin
-//#UC START# *551544E2001A_86D7719CD46B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_86D7719CD46B_impl*
+ Result := ;
 end;//TkwEditionsContainerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwEditionsContainerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -416,12 +412,8 @@ begin
 end;//TkwEditionsContainerFormPnLeft.SetValuePrim
 
 function TkwEditionsContainerFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_083A7C7D6482_var*
-//#UC END# *551544E2001A_083A7C7D6482_var*
 begin
-//#UC START# *551544E2001A_083A7C7D6482_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_083A7C7D6482_impl*
+ Result := ;
 end;//TkwEditionsContainerFormPnLeft.GetResultTypeInfo
 
 function TkwEditionsContainerFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -474,12 +466,8 @@ begin
 end;//TkwEditionsContainerFormPnRight.SetValuePrim
 
 function TkwEditionsContainerFormPnRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7FDE9E2606E0_var*
-//#UC END# *551544E2001A_7FDE9E2606E0_var*
 begin
-//#UC START# *551544E2001A_7FDE9E2606E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7FDE9E2606E0_impl*
+ Result := ;
 end;//TkwEditionsContainerFormPnRight.GetResultTypeInfo
 
 function TkwEditionsContainerFormPnRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;

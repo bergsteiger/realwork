@@ -105,12 +105,8 @@ begin
 end;//TkwPopTreeNodeIsNodeFolder.GetResultTypeInfo
 
 function TkwPopTreeNodeIsNodeFolder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_565CDF98FF94_var*
-//#UC END# *559687E6025A_565CDF98FF94_var*
 begin
-//#UC START# *559687E6025A_565CDF98FF94_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_565CDF98FF94_impl*
+ Result := 1;
 end;//TkwPopTreeNodeIsNodeFolder.GetAllParamsCount
 
 function TkwPopTreeNodeIsNodeFolder.ParamsTypes: PTypeInfoArray;

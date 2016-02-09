@@ -163,12 +163,8 @@ begin
 end;//TkwPopCompilerCompileInParameterPopCode.GetWordNameForRegister
 
 function TkwPopCompilerCompileInParameterPopCode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1EEC2B16B8DA_var*
-//#UC END# *551544E2001A_1EEC2B16B8DA_var*
 begin
-//#UC START# *551544E2001A_1EEC2B16B8DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1EEC2B16B8DA_impl*
+ Result := ;
 end;//TkwPopCompilerCompileInParameterPopCode.GetResultTypeInfo
 
 function TkwPopCompilerCompileInParameterPopCode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -211,12 +207,8 @@ begin
 end;//TkwPopCompilerGetWordCompilingNow.GetWordNameForRegister
 
 function TkwPopCompilerGetWordCompilingNow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E67ED9D1F090_var*
-//#UC END# *551544E2001A_E67ED9D1F090_var*
 begin
-//#UC START# *551544E2001A_E67ED9D1F090_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E67ED9D1F090_impl*
+ Result := ;
 end;//TkwPopCompilerGetWordCompilingNow.GetResultTypeInfo
 
 function TkwPopCompilerGetWordCompilingNow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -260,12 +252,8 @@ begin
 end;//TkwPopCompilerAddCodePart.GetWordNameForRegister
 
 function TkwPopCompilerAddCodePart.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0A08F7650387_var*
-//#UC END# *551544E2001A_0A08F7650387_var*
 begin
-//#UC START# *551544E2001A_0A08F7650387_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0A08F7650387_impl*
+ Result := ;
 end;//TkwPopCompilerAddCodePart.GetResultTypeInfo
 
 function TkwPopCompilerAddCodePart.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -318,12 +306,8 @@ begin
 end;//TkwPopCompilerKeywordFinder.SetValuePrim
 
 function TkwPopCompilerKeywordFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3521615FAE64_var*
-//#UC END# *551544E2001A_3521615FAE64_var*
 begin
-//#UC START# *551544E2001A_3521615FAE64_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3521615FAE64_impl*
+ Result := ;
 end;//TkwPopCompilerKeywordFinder.GetResultTypeInfo
 
 function TkwPopCompilerKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -376,12 +360,8 @@ begin
 end;//TkwPopCompilerNewWordDefinitor.SetValuePrim
 
 function TkwPopCompilerNewWordDefinitor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_468F9B6E6285_var*
-//#UC END# *551544E2001A_468F9B6E6285_var*
 begin
-//#UC START# *551544E2001A_468F9B6E6285_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_468F9B6E6285_impl*
+ Result := ;
 end;//TkwPopCompilerNewWordDefinitor.GetResultTypeInfo
 
 function TkwPopCompilerNewWordDefinitor.GetAllParamsCount(const aCtx: TtfwContext): Integer;

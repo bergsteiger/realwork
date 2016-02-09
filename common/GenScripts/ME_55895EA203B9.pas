@@ -316,12 +316,8 @@ begin
 end;//TkwPopNewWordDefinitorCheckWord.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B46B312AFA96_var*
-//#UC END# *551544E2001A_B46B312AFA96_var*
 begin
-//#UC START# *551544E2001A_B46B312AFA96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B46B312AFA96_impl*
+ Result := ;
 end;//TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorCheckWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -393,12 +389,8 @@ begin
 end;//TkwPopNewWordDefinitorCheckVar.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0518A66C4F49_var*
-//#UC END# *551544E2001A_0518A66C4F49_var*
 begin
-//#UC START# *551544E2001A_0518A66C4F49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0518A66C4F49_impl*
+ Result := ;
 end;//TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorCheckVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -443,12 +435,8 @@ begin
 end;//TkwPopNewWordDefinitorDefineInParameter.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CDFCC0A90AF7_var*
-//#UC END# *551544E2001A_CDFCC0A90AF7_var*
 begin
-//#UC START# *551544E2001A_CDFCC0A90AF7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CDFCC0A90AF7_impl*
+ Result := ;
 end;//TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorDefineInParameter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -520,12 +508,8 @@ begin
 end;//TkwPopNewWordDefinitorCheckRefcountVar.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_61662B3659A7_var*
-//#UC END# *551544E2001A_61662B3659A7_var*
 begin
-//#UC START# *551544E2001A_61662B3659A7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_61662B3659A7_impl*
+ Result := ;
 end;//TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorCheckRefcountVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -578,12 +562,8 @@ begin
 end;//TkwPopNewWordDefinitorKeywordFinder.SetValuePrim
 
 function TkwPopNewWordDefinitorKeywordFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C919B8A4B92C_var*
-//#UC END# *551544E2001A_C919B8A4B92C_var*
 begin
-//#UC START# *551544E2001A_C919B8A4B92C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C919B8A4B92C_impl*
+ Result := ;
 end;//TkwPopNewWordDefinitorKeywordFinder.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;

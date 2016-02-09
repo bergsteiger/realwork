@@ -282,12 +282,8 @@ begin
 end;//TkwCreateFilterFormNameLabel.GetResultTypeInfo
 
 function TkwCreateFilterFormNameLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8D84CCE36454_var*
-//#UC END# *559687E6025A_8D84CCE36454_var*
 begin
-//#UC START# *559687E6025A_8D84CCE36454_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8D84CCE36454_impl*
+ Result := 1;
 end;//TkwCreateFilterFormNameLabel.GetAllParamsCount
 
 function TkwCreateFilterFormNameLabel.ParamsTypes: PTypeInfoArray;
@@ -344,12 +340,8 @@ begin
 end;//TkwCreateFilterFormFilterName.GetResultTypeInfo
 
 function TkwCreateFilterFormFilterName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E0C49BDE3F5C_var*
-//#UC END# *559687E6025A_E0C49BDE3F5C_var*
 begin
-//#UC START# *559687E6025A_E0C49BDE3F5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E0C49BDE3F5C_impl*
+ Result := 1;
 end;//TkwCreateFilterFormFilterName.GetAllParamsCount
 
 function TkwCreateFilterFormFilterName.ParamsTypes: PTypeInfoArray;

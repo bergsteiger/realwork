@@ -233,12 +233,8 @@ begin
 end;//TkwPopDictionaryExFileName.GetWordNameForRegister
 
 function TkwPopDictionaryExFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_06E8451D9B30_var*
-//#UC END# *551544E2001A_06E8451D9B30_var*
 begin
-//#UC START# *551544E2001A_06E8451D9B30_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_06E8451D9B30_impl*
+ Result := ;
 end;//TkwPopDictionaryExFileName.GetResultTypeInfo
 
 function TkwPopDictionaryExFileName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -281,12 +277,8 @@ begin
 end;//TkwPopDictionaryExUsedDictionaries.GetWordNameForRegister
 
 function TkwPopDictionaryExUsedDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B94C35EBE3DE_var*
-//#UC END# *551544E2001A_B94C35EBE3DE_var*
 begin
-//#UC START# *551544E2001A_B94C35EBE3DE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B94C35EBE3DE_impl*
+ Result := ;
 end;//TkwPopDictionaryExUsedDictionaries.GetResultTypeInfo
 
 function TkwPopDictionaryExUsedDictionaries.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -329,12 +321,8 @@ begin
 end;//TkwPopDictionaryExExportedDictionaries.GetWordNameForRegister
 
 function TkwPopDictionaryExExportedDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6AF5E6295E46_var*
-//#UC END# *551544E2001A_6AF5E6295E46_var*
 begin
-//#UC START# *551544E2001A_6AF5E6295E46_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6AF5E6295E46_impl*
+ Result := ;
 end;//TkwPopDictionaryExExportedDictionaries.GetResultTypeInfo
 
 function TkwPopDictionaryExExportedDictionaries.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -378,12 +366,8 @@ begin
 end;//TkwPopDictionaryExExportDictionary.GetWordNameForRegister
 
 function TkwPopDictionaryExExportDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4A28BCF78342_var*
-//#UC END# *551544E2001A_4A28BCF78342_var*
 begin
-//#UC START# *551544E2001A_4A28BCF78342_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4A28BCF78342_impl*
+ Result := ;
 end;//TkwPopDictionaryExExportDictionary.GetResultTypeInfo
 
 function TkwPopDictionaryExExportDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -427,12 +411,8 @@ begin
 end;//TkwPopDictionaryExUseDictionary.GetWordNameForRegister
 
 function TkwPopDictionaryExUseDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F63A2FD719D9_var*
-//#UC END# *551544E2001A_F63A2FD719D9_var*
 begin
-//#UC START# *551544E2001A_F63A2FD719D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F63A2FD719D9_impl*
+ Result := ;
 end;//TkwPopDictionaryExUseDictionary.GetResultTypeInfo
 
 function TkwPopDictionaryExUseDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -475,12 +455,8 @@ begin
 end;//TkwPopDictionaryExFileDateTime.GetWordNameForRegister
 
 function TkwPopDictionaryExFileDateTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_308455C44800_var*
-//#UC END# *551544E2001A_308455C44800_var*
 begin
-//#UC START# *551544E2001A_308455C44800_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_308455C44800_impl*
+ Result := ;
 end;//TkwPopDictionaryExFileDateTime.GetResultTypeInfo
 
 function TkwPopDictionaryExFileDateTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -536,12 +512,8 @@ begin
 end;//TkwPopDictionaryExRemoveFromCache.GetWordNameForRegister
 
 function TkwPopDictionaryExRemoveFromCache.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B74ACC6F66BC_var*
-//#UC END# *551544E2001A_B74ACC6F66BC_var*
 begin
-//#UC START# *551544E2001A_B74ACC6F66BC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B74ACC6F66BC_impl*
+ Result := ;
 end;//TkwPopDictionaryExRemoveFromCache.GetResultTypeInfo
 
 function TkwPopDictionaryExRemoveFromCache.GetAllParamsCount(const aCtx: TtfwContext): Integer;

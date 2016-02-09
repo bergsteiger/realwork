@@ -88,12 +88,8 @@ begin
 end;//TkwPopCompiledWordWorkerWordCompiled.SetValuePrim
 
 function TkwPopCompiledWordWorkerWordCompiled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9E9D700614C3_var*
-//#UC END# *551544E2001A_9E9D700614C3_var*
 begin
-//#UC START# *551544E2001A_9E9D700614C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9E9D700614C3_impl*
+ Result := ;
 end;//TkwPopCompiledWordWorkerWordCompiled.GetResultTypeInfo
 
 function TkwPopCompiledWordWorkerWordCompiled.GetAllParamsCount(const aCtx: TtfwContext): Integer;

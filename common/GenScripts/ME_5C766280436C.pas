@@ -1056,12 +1056,8 @@ begin
 end;//TkwAACContentsContainerFormPnBack.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnBack.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_263DE971DEE2_var*
-//#UC END# *559687E6025A_263DE971DEE2_var*
 begin
-//#UC START# *559687E6025A_263DE971DEE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_263DE971DEE2_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnBack.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnBack.ParamsTypes: PTypeInfoArray;
@@ -1118,12 +1114,8 @@ begin
 end;//TkwAACContentsContainerFormPnRightEx.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnRightEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AEF24D4E3600_var*
-//#UC END# *559687E6025A_AEF24D4E3600_var*
 begin
-//#UC START# *559687E6025A_AEF24D4E3600_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AEF24D4E3600_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnRightEx.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnRightEx.ParamsTypes: PTypeInfoArray;
@@ -1180,12 +1172,8 @@ begin
 end;//TkwAACContentsContainerFormPnRightForScroll.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnRightForScroll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_237FDDF0A879_var*
-//#UC END# *559687E6025A_237FDDF0A879_var*
 begin
-//#UC START# *559687E6025A_237FDDF0A879_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_237FDDF0A879_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnRightForScroll.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnRightForScroll.ParamsTypes: PTypeInfoArray;
@@ -1242,12 +1230,8 @@ begin
 end;//TkwAACContentsContainerFormPnRight.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_751A50BCF486_var*
-//#UC END# *559687E6025A_751A50BCF486_var*
 begin
-//#UC START# *559687E6025A_751A50BCF486_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_751A50BCF486_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnRight.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnRight.ParamsTypes: PTypeInfoArray;
@@ -1304,12 +1288,8 @@ begin
 end;//TkwAACContentsContainerFormPnlRightTop.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnlRightTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9B01FD076314_var*
-//#UC END# *559687E6025A_9B01FD076314_var*
 begin
-//#UC START# *559687E6025A_9B01FD076314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9B01FD076314_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnlRightTop.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnlRightTop.ParamsTypes: PTypeInfoArray;
@@ -1366,12 +1346,8 @@ begin
 end;//TkwAACContentsContainerFormScrRight.GetResultTypeInfo
 
 function TkwAACContentsContainerFormScrRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1C783FC526FD_var*
-//#UC END# *559687E6025A_1C783FC526FD_var*
 begin
-//#UC START# *559687E6025A_1C783FC526FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1C783FC526FD_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormScrRight.GetAllParamsCount
 
 function TkwAACContentsContainerFormScrRight.ParamsTypes: PTypeInfoArray;
@@ -1428,12 +1404,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeftEx.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnLeftEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D8CD8423C7D6_var*
-//#UC END# *559687E6025A_D8CD8423C7D6_var*
 begin
-//#UC START# *559687E6025A_D8CD8423C7D6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D8CD8423C7D6_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnLeftEx.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnLeftEx.ParamsTypes: PTypeInfoArray;
@@ -1490,12 +1462,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeftForScroll.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnLeftForScroll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_92C6BC5BF215_var*
-//#UC END# *559687E6025A_92C6BC5BF215_var*
 begin
-//#UC START# *559687E6025A_92C6BC5BF215_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_92C6BC5BF215_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnLeftForScroll.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnLeftForScroll.ParamsTypes: PTypeInfoArray;
@@ -1552,12 +1520,8 @@ begin
 end;//TkwAACContentsContainerFormPnlLeftTop.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnlLeftTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6C790E5B3DE3_var*
-//#UC END# *559687E6025A_6C790E5B3DE3_var*
 begin
-//#UC START# *559687E6025A_6C790E5B3DE3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6C790E5B3DE3_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnlLeftTop.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnlLeftTop.ParamsTypes: PTypeInfoArray;
@@ -1614,12 +1578,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeft.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8D6BA41415C4_var*
-//#UC END# *559687E6025A_8D6BA41415C4_var*
 begin
-//#UC START# *559687E6025A_8D6BA41415C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8D6BA41415C4_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormPnLeft.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnLeft.ParamsTypes: PTypeInfoArray;
@@ -1676,12 +1636,8 @@ begin
 end;//TkwAACContentsContainerFormScrLeft.GetResultTypeInfo
 
 function TkwAACContentsContainerFormScrLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F1BCB862CA6F_var*
-//#UC END# *559687E6025A_F1BCB862CA6F_var*
 begin
-//#UC START# *559687E6025A_F1BCB862CA6F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F1BCB862CA6F_impl*
+ Result := 1;
 end;//TkwAACContentsContainerFormScrLeft.GetAllParamsCount
 
 function TkwAACContentsContainerFormScrLeft.ParamsTypes: PTypeInfoArray;

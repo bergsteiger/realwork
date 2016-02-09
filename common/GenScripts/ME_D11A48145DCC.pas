@@ -541,12 +541,8 @@ begin
 end;//TkwBaseSearchContainerFormChildZone.GetResultTypeInfo
 
 function TkwBaseSearchContainerFormChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4369FA9D20E0_var*
-//#UC END# *559687E6025A_4369FA9D20E0_var*
 begin
-//#UC START# *559687E6025A_4369FA9D20E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4369FA9D20E0_impl*
+ Result := 1;
 end;//TkwBaseSearchContainerFormChildZone.GetAllParamsCount
 
 function TkwBaseSearchContainerFormChildZone.ParamsTypes: PTypeInfoArray;
@@ -603,12 +599,8 @@ begin
 end;//TkwBaseSearchContainerFormPnHeader.GetResultTypeInfo
 
 function TkwBaseSearchContainerFormPnHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9C462472CA0F_var*
-//#UC END# *559687E6025A_9C462472CA0F_var*
 begin
-//#UC START# *559687E6025A_9C462472CA0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9C462472CA0F_impl*
+ Result := 1;
 end;//TkwBaseSearchContainerFormPnHeader.GetAllParamsCount
 
 function TkwBaseSearchContainerFormPnHeader.ParamsTypes: PTypeInfoArray;
@@ -665,12 +657,8 @@ begin
 end;//TkwBaseSearchContainerFormLbHeader.GetResultTypeInfo
 
 function TkwBaseSearchContainerFormLbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1A5A446A4230_var*
-//#UC END# *559687E6025A_1A5A446A4230_var*
 begin
-//#UC START# *559687E6025A_1A5A446A4230_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1A5A446A4230_impl*
+ Result := 1;
 end;//TkwBaseSearchContainerFormLbHeader.GetAllParamsCount
 
 function TkwBaseSearchContainerFormLbHeader.ParamsTypes: PTypeInfoArray;
@@ -727,12 +715,8 @@ begin
 end;//TkwBaseSearchContainerFormPbHeader.GetResultTypeInfo
 
 function TkwBaseSearchContainerFormPbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2D9CD384ECE9_var*
-//#UC END# *559687E6025A_2D9CD384ECE9_var*
 begin
-//#UC START# *559687E6025A_2D9CD384ECE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2D9CD384ECE9_impl*
+ Result := 1;
 end;//TkwBaseSearchContainerFormPbHeader.GetAllParamsCount
 
 function TkwBaseSearchContainerFormPbHeader.ParamsTypes: PTypeInfoArray;
@@ -789,12 +773,8 @@ begin
 end;//TkwBaseSearchContainerFormParentZone.GetResultTypeInfo
 
 function TkwBaseSearchContainerFormParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E4F0AA226464_var*
-//#UC END# *559687E6025A_E4F0AA226464_var*
 begin
-//#UC START# *559687E6025A_E4F0AA226464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E4F0AA226464_impl*
+ Result := 1;
 end;//TkwBaseSearchContainerFormParentZone.GetAllParamsCount
 
 function TkwBaseSearchContainerFormParentZone.ParamsTypes: PTypeInfoArray;

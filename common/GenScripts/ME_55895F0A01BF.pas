@@ -153,12 +153,8 @@ begin
 end;//TkwPopKeyWordSetWord.GetWordNameForRegister
 
 function TkwPopKeyWordSetWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DA7B06A59C14_var*
-//#UC END# *551544E2001A_DA7B06A59C14_var*
 begin
-//#UC START# *551544E2001A_DA7B06A59C14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DA7B06A59C14_impl*
+ Result := ;
 end;//TkwPopKeyWordSetWord.GetResultTypeInfo
 
 function TkwPopKeyWordSetWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -211,12 +207,8 @@ begin
 end;//TkwPopKeyWordWord.SetValuePrim
 
 function TkwPopKeyWordWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_909E3EF864CC_var*
-//#UC END# *551544E2001A_909E3EF864CC_var*
 begin
-//#UC START# *551544E2001A_909E3EF864CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_909E3EF864CC_impl*
+ Result := ;
 end;//TkwPopKeyWordWord.GetResultTypeInfo
 
 function TkwPopKeyWordWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -269,12 +261,8 @@ begin
 end;//TkwPopKeyWordName.SetValuePrim
 
 function TkwPopKeyWordName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F4F627A63039_var*
-//#UC END# *551544E2001A_F4F627A63039_var*
 begin
-//#UC START# *551544E2001A_F4F627A63039_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F4F627A63039_impl*
+ Result := ;
 end;//TkwPopKeyWordName.GetResultTypeInfo
 
 function TkwPopKeyWordName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -327,12 +315,8 @@ begin
 end;//TkwPopKeyWordDictionary.SetValuePrim
 
 function TkwPopKeyWordDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_668B733FDAFB_var*
-//#UC END# *551544E2001A_668B733FDAFB_var*
 begin
-//#UC START# *551544E2001A_668B733FDAFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_668B733FDAFB_impl*
+ Result := ;
 end;//TkwPopKeyWordDictionary.GetResultTypeInfo
 
 function TkwPopKeyWordDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;

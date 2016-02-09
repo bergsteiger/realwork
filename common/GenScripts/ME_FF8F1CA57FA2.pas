@@ -458,12 +458,8 @@ begin
 end;//TkwEnBaseSearchCardPnlMain.GetResultTypeInfo
 
 function TkwEnBaseSearchCardPnlMain.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C1D4470B9513_var*
-//#UC END# *559687E6025A_C1D4470B9513_var*
 begin
-//#UC START# *559687E6025A_C1D4470B9513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C1D4470B9513_impl*
+ Result := 1;
 end;//TkwEnBaseSearchCardPnlMain.GetAllParamsCount
 
 function TkwEnBaseSearchCardPnlMain.ParamsTypes: PTypeInfoArray;
@@ -520,12 +516,8 @@ begin
 end;//TkwEnBaseSearchCardHfBaseSearch.GetResultTypeInfo
 
 function TkwEnBaseSearchCardHfBaseSearch.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CAA6BD51B722_var*
-//#UC END# *559687E6025A_CAA6BD51B722_var*
 begin
-//#UC START# *559687E6025A_CAA6BD51B722_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CAA6BD51B722_impl*
+ Result := 1;
 end;//TkwEnBaseSearchCardHfBaseSearch.GetAllParamsCount
 
 function TkwEnBaseSearchCardHfBaseSearch.ParamsTypes: PTypeInfoArray;
@@ -582,12 +574,8 @@ begin
 end;//TkwEnBaseSearchCardLrBaseSearch.GetResultTypeInfo
 
 function TkwEnBaseSearchCardLrBaseSearch.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C952194702DA_var*
-//#UC END# *559687E6025A_C952194702DA_var*
 begin
-//#UC START# *559687E6025A_C952194702DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C952194702DA_impl*
+ Result := 1;
 end;//TkwEnBaseSearchCardLrBaseSearch.GetAllParamsCount
 
 function TkwEnBaseSearchCardLrBaseSearch.ParamsTypes: PTypeInfoArray;
@@ -644,12 +632,8 @@ begin
 end;//TkwEnBaseSearchCardCardTextLabel.GetResultTypeInfo
 
 function TkwEnBaseSearchCardCardTextLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A6D5CED27A65_var*
-//#UC END# *559687E6025A_A6D5CED27A65_var*
 begin
-//#UC START# *559687E6025A_A6D5CED27A65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A6D5CED27A65_impl*
+ Result := 1;
 end;//TkwEnBaseSearchCardCardTextLabel.GetAllParamsCount
 
 function TkwEnBaseSearchCardCardTextLabel.ParamsTypes: PTypeInfoArray;

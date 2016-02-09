@@ -363,12 +363,8 @@ begin
 end;//TkwPopObjectInherits.GetWordNameForRegister
 
 function TkwPopObjectInherits.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C6231F1FCA26_var*
-//#UC END# *551544E2001A_C6231F1FCA26_var*
 begin
-//#UC START# *551544E2001A_C6231F1FCA26_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C6231F1FCA26_impl*
+ Result := ;
 end;//TkwPopObjectInherits.GetResultTypeInfo
 
 function TkwPopObjectInherits.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -414,12 +410,8 @@ begin
 end;//TkwPopObjectClassName.GetWordNameForRegister
 
 function TkwPopObjectClassName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7B6D4B0B5715_var*
-//#UC END# *551544E2001A_7B6D4B0B5715_var*
 begin
-//#UC START# *551544E2001A_7B6D4B0B5715_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7B6D4B0B5715_impl*
+ Result := ;
 end;//TkwPopObjectClassName.GetResultTypeInfo
 
 function TkwPopObjectClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -463,12 +455,8 @@ begin
 end;//TkwPopObjectGetFloatProp.GetWordNameForRegister
 
 function TkwPopObjectGetFloatProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EDA57987A3B6_var*
-//#UC END# *551544E2001A_EDA57987A3B6_var*
 begin
-//#UC START# *551544E2001A_EDA57987A3B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EDA57987A3B6_impl*
+ Result := ;
 end;//TkwPopObjectGetFloatProp.GetResultTypeInfo
 
 function TkwPopObjectGetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -512,12 +500,8 @@ begin
 end;//TkwPopObjectGetInterfaceProp.GetWordNameForRegister
 
 function TkwPopObjectGetInterfaceProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AB78BA187455_var*
-//#UC END# *551544E2001A_AB78BA187455_var*
 begin
-//#UC START# *551544E2001A_AB78BA187455_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AB78BA187455_impl*
+ Result := ;
 end;//TkwPopObjectGetInterfaceProp.GetResultTypeInfo
 
 function TkwPopObjectGetInterfaceProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -561,12 +545,8 @@ begin
 end;//TkwPopObjectGetObjProp.GetWordNameForRegister
 
 function TkwPopObjectGetObjProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BA0E0748BC5D_var*
-//#UC END# *551544E2001A_BA0E0748BC5D_var*
 begin
-//#UC START# *551544E2001A_BA0E0748BC5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BA0E0748BC5D_impl*
+ Result := ;
 end;//TkwPopObjectGetObjProp.GetResultTypeInfo
 
 function TkwPopObjectGetObjProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -610,12 +590,8 @@ begin
 end;//TkwPopObjectGetOrdProp.GetWordNameForRegister
 
 function TkwPopObjectGetOrdProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AB11F1E6DB9D_var*
-//#UC END# *551544E2001A_AB11F1E6DB9D_var*
 begin
-//#UC START# *551544E2001A_AB11F1E6DB9D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AB11F1E6DB9D_impl*
+ Result := ;
 end;//TkwPopObjectGetOrdProp.GetResultTypeInfo
 
 function TkwPopObjectGetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -659,12 +635,8 @@ begin
 end;//TkwPopObjectGetStrProp.GetWordNameForRegister
 
 function TkwPopObjectGetStrProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B3D2E54183FE_var*
-//#UC END# *551544E2001A_B3D2E54183FE_var*
 begin
-//#UC START# *551544E2001A_B3D2E54183FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B3D2E54183FE_impl*
+ Result := ;
 end;//TkwPopObjectGetStrProp.GetResultTypeInfo
 
 function TkwPopObjectGetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -708,12 +680,8 @@ begin
 end;//TkwPopObjectHasProp.GetWordNameForRegister
 
 function TkwPopObjectHasProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6EBCA1F985F5_var*
-//#UC END# *551544E2001A_6EBCA1F985F5_var*
 begin
-//#UC START# *551544E2001A_6EBCA1F985F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6EBCA1F985F5_impl*
+ Result := ;
 end;//TkwPopObjectHasProp.GetResultTypeInfo
 
 function TkwPopObjectHasProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -756,12 +724,8 @@ begin
 end;//TkwPopObjectRTTIInfo.GetWordNameForRegister
 
 function TkwPopObjectRTTIInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0725EE68AD3B_var*
-//#UC END# *551544E2001A_0725EE68AD3B_var*
 begin
-//#UC START# *551544E2001A_0725EE68AD3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0725EE68AD3B_impl*
+ Result := ;
 end;//TkwPopObjectRTTIInfo.GetResultTypeInfo
 
 function TkwPopObjectRTTIInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -806,12 +770,8 @@ begin
 end;//TkwPopObjectSetFloatProp.GetWordNameForRegister
 
 function TkwPopObjectSetFloatProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_529CD18EA056_var*
-//#UC END# *551544E2001A_529CD18EA056_var*
 begin
-//#UC START# *551544E2001A_529CD18EA056_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_529CD18EA056_impl*
+ Result := ;
 end;//TkwPopObjectSetFloatProp.GetResultTypeInfo
 
 function TkwPopObjectSetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -856,12 +816,8 @@ begin
 end;//TkwPopObjectSetOrdProp.GetWordNameForRegister
 
 function TkwPopObjectSetOrdProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A2938530A58A_var*
-//#UC END# *551544E2001A_A2938530A58A_var*
 begin
-//#UC START# *551544E2001A_A2938530A58A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A2938530A58A_impl*
+ Result := ;
 end;//TkwPopObjectSetOrdProp.GetResultTypeInfo
 
 function TkwPopObjectSetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -906,12 +862,8 @@ begin
 end;//TkwPopObjectSetStrProp.GetWordNameForRegister
 
 function TkwPopObjectSetStrProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_798893499F18_var*
-//#UC END# *551544E2001A_798893499F18_var*
 begin
-//#UC START# *551544E2001A_798893499F18_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_798893499F18_impl*
+ Result := ;
 end;//TkwPopObjectSetStrProp.GetResultTypeInfo
 
 function TkwPopObjectSetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;

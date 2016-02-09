@@ -155,12 +155,8 @@ begin
 end;//TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo
 
 function TkwGUITestRunnerPushDUnitForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0200DD1E29D8_var*
-//#UC END# *559687E6025A_0200DD1E29D8_var*
 begin
-//#UC START# *559687E6025A_0200DD1E29D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0200DD1E29D8_impl*
+ Result := 0;
 end;//TkwGUITestRunnerPushDUnitForm.GetAllParamsCount
 
 function TkwGUITestRunnerPushDUnitForm.ParamsTypes: PTypeInfoArray;
@@ -208,12 +204,8 @@ begin
 end;//TkwPopGUITestRunnerNodeToTest.GetResultTypeInfo
 
 function TkwPopGUITestRunnerNodeToTest.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D7892D333B1E_var*
-//#UC END# *559687E6025A_D7892D333B1E_var*
 begin
-//#UC START# *559687E6025A_D7892D333B1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D7892D333B1E_impl*
+ Result := 2;
 end;//TkwPopGUITestRunnerNodeToTest.GetAllParamsCount
 
 function TkwPopGUITestRunnerNodeToTest.ParamsTypes: PTypeInfoArray;
@@ -262,12 +254,8 @@ begin
 end;//TkwDeleteEtalons.GetResultTypeInfo
 
 function TkwDeleteEtalons.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6F1D31444115_var*
-//#UC END# *559687E6025A_6F1D31444115_var*
 begin
-//#UC START# *559687E6025A_6F1D31444115_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6F1D31444115_impl*
+ Result := 3;
 end;//TkwDeleteEtalons.GetAllParamsCount
 
 function TkwDeleteEtalons.ParamsTypes: PTypeInfoArray;

@@ -181,12 +181,8 @@ begin
 end;//TkwPopParserNextToken.GetWordNameForRegister
 
 function TkwPopParserNextToken.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9FCC7CEF0219_var*
-//#UC END# *551544E2001A_9FCC7CEF0219_var*
 begin
-//#UC START# *551544E2001A_9FCC7CEF0219_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9FCC7CEF0219_impl*
+ Result := ;
 end;//TkwPopParserNextToken.GetResultTypeInfo
 
 function TkwPopParserNextToken.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -229,12 +225,8 @@ begin
 end;//TkwPopParserTokenLongString.GetWordNameForRegister
 
 function TkwPopParserTokenLongString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_391DC30DE773_var*
-//#UC END# *551544E2001A_391DC30DE773_var*
 begin
-//#UC START# *551544E2001A_391DC30DE773_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_391DC30DE773_impl*
+ Result := ;
 end;//TkwPopParserTokenLongString.GetResultTypeInfo
 
 function TkwPopParserTokenLongString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -277,12 +269,8 @@ begin
 end;//TkwPopParserTokenInt.GetWordNameForRegister
 
 function TkwPopParserTokenInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_37FA824BDEEE_var*
-//#UC END# *551544E2001A_37FA824BDEEE_var*
 begin
-//#UC START# *551544E2001A_37FA824BDEEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_37FA824BDEEE_impl*
+ Result := ;
 end;//TkwPopParserTokenInt.GetResultTypeInfo
 
 function TkwPopParserTokenInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -325,12 +313,8 @@ begin
 end;//TkwPopParserFileName.GetWordNameForRegister
 
 function TkwPopParserFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_77621D03947E_var*
-//#UC END# *551544E2001A_77621D03947E_var*
 begin
-//#UC START# *551544E2001A_77621D03947E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_77621D03947E_impl*
+ Result := ;
 end;//TkwPopParserFileName.GetResultTypeInfo
 
 function TkwPopParserFileName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -373,12 +357,8 @@ begin
 end;//TkwPopParserTokenType.GetWordNameForRegister
 
 function TkwPopParserTokenType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5CF115AC9203_var*
-//#UC END# *551544E2001A_5CF115AC9203_var*
 begin
-//#UC START# *551544E2001A_5CF115AC9203_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5CF115AC9203_impl*
+ Result := ;
 end;//TkwPopParserTokenType.GetResultTypeInfo
 
 function TkwPopParserTokenType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -421,12 +401,8 @@ begin
 end;//TkwPopParserSourceLine.GetWordNameForRegister
 
 function TkwPopParserSourceLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F99E43E0E32C_var*
-//#UC END# *551544E2001A_F99E43E0E32C_var*
 begin
-//#UC START# *551544E2001A_F99E43E0E32C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F99E43E0E32C_impl*
+ Result := ;
 end;//TkwPopParserSourceLine.GetResultTypeInfo
 
 function TkwPopParserSourceLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;

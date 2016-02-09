@@ -234,12 +234,8 @@ begin
 end;//TkwChangesBetweenEditonsFormText.GetResultTypeInfo
 
 function TkwChangesBetweenEditonsFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1945ED3EEC31_var*
-//#UC END# *559687E6025A_1945ED3EEC31_var*
 begin
-//#UC START# *559687E6025A_1945ED3EEC31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1945ED3EEC31_impl*
+ Result := 1;
 end;//TkwChangesBetweenEditonsFormText.GetAllParamsCount
 
 function TkwChangesBetweenEditonsFormText.ParamsTypes: PTypeInfoArray;

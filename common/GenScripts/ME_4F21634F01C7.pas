@@ -120,12 +120,8 @@ begin
 end;//TkwMODAL.DoRun
 
 function TkwMODAL.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_05ABA7975E25_var*
-//#UC END# *551544E2001A_05ABA7975E25_var*
 begin
-//#UC START# *551544E2001A_05ABA7975E25_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_05ABA7975E25_impl*
+ Result := ;
 end;//TkwMODAL.GetResultTypeInfo
 
 function TkwMODAL.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -173,12 +169,8 @@ begin
 end;//TkwTHREAD.DoRun
 
 function TkwTHREAD.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_44C318D8896A_var*
-//#UC END# *551544E2001A_44C318D8896A_var*
 begin
-//#UC START# *551544E2001A_44C318D8896A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_44C318D8896A_impl*
+ Result := ;
 end;//TkwTHREAD.GetResultTypeInfo
 
 function TkwTHREAD.GetAllParamsCount(const aCtx: TtfwContext): Integer;

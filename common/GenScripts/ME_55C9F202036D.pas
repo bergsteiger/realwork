@@ -207,12 +207,8 @@ begin
 end;//TkwPopTestName.GetResultTypeInfo
 
 function TkwPopTestName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E6DE6CAD7EFE_var*
-//#UC END# *559687E6025A_E6DE6CAD7EFE_var*
 begin
-//#UC START# *559687E6025A_E6DE6CAD7EFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E6DE6CAD7EFE_impl*
+ Result := 1;
 end;//TkwPopTestName.GetAllParamsCount
 
 function TkwPopTestName.ParamsTypes: PTypeInfoArray;
@@ -269,12 +265,8 @@ begin
 end;//TkwPopTestEnabled.GetResultTypeInfo
 
 function TkwPopTestEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1CEB5B8AA2E5_var*
-//#UC END# *559687E6025A_1CEB5B8AA2E5_var*
 begin
-//#UC START# *559687E6025A_1CEB5B8AA2E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1CEB5B8AA2E5_impl*
+ Result := 1;
 end;//TkwPopTestEnabled.GetAllParamsCount
 
 function TkwPopTestEnabled.ParamsTypes: PTypeInfoArray;
@@ -331,12 +323,8 @@ begin
 end;//TkwPopTestSubFolder.GetResultTypeInfo
 
 function TkwPopTestSubFolder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4638C704D78B_var*
-//#UC END# *559687E6025A_4638C704D78B_var*
 begin
-//#UC START# *559687E6025A_4638C704D78B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4638C704D78B_impl*
+ Result := 1;
 end;//TkwPopTestSubFolder.GetAllParamsCount
 
 function TkwPopTestSubFolder.ParamsTypes: PTypeInfoArray;
@@ -393,12 +381,8 @@ begin
 end;//TkwPopTestHasScriptChildren.GetResultTypeInfo
 
 function TkwPopTestHasScriptChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_719F0EEEAFD0_var*
-//#UC END# *559687E6025A_719F0EEEAFD0_var*
 begin
-//#UC START# *559687E6025A_719F0EEEAFD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_719F0EEEAFD0_impl*
+ Result := 1;
 end;//TkwPopTestHasScriptChildren.GetAllParamsCount
 
 function TkwPopTestHasScriptChildren.ParamsTypes: PTypeInfoArray;
@@ -444,12 +428,8 @@ begin
 end;//TkwTestShouldStop.GetResultTypeInfo
 
 function TkwTestShouldStop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AFCC4A8F1DF4_var*
-//#UC END# *559687E6025A_AFCC4A8F1DF4_var*
 begin
-//#UC START# *559687E6025A_AFCC4A8F1DF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AFCC4A8F1DF4_impl*
+ Result := 0;
 end;//TkwTestShouldStop.GetAllParamsCount
 
 function TkwTestShouldStop.ParamsTypes: PTypeInfoArray;

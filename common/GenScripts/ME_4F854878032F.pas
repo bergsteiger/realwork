@@ -644,12 +644,8 @@ begin
 end;//TkwWndIsVisible.GetWordNameForRegister
 
 function TkwWndIsVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CB65D7FF1E6C_var*
-//#UC END# *551544E2001A_CB65D7FF1E6C_var*
 begin
-//#UC START# *551544E2001A_CB65D7FF1E6C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CB65D7FF1E6C_impl*
+ Result := ;
 end;//TkwWndIsVisible.GetResultTypeInfo
 
 function TkwWndIsVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -695,12 +691,8 @@ begin
 end;//TkwWndGetClassName.GetWordNameForRegister
 
 function TkwWndGetClassName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_455E9214E4B7_var*
-//#UC END# *551544E2001A_455E9214E4B7_var*
 begin
-//#UC START# *551544E2001A_455E9214E4B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_455E9214E4B7_impl*
+ Result := ;
 end;//TkwWndGetClassName.GetResultTypeInfo
 
 function TkwWndGetClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -746,12 +738,8 @@ begin
 end;//TkwWndGetWindowText.GetWordNameForRegister
 
 function TkwWndGetWindowText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6ECBEE6894B8_var*
-//#UC END# *551544E2001A_6ECBEE6894B8_var*
 begin
-//#UC START# *551544E2001A_6ECBEE6894B8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6ECBEE6894B8_impl*
+ Result := ;
 end;//TkwWndGetWindowText.GetResultTypeInfo
 
 function TkwWndGetWindowText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -794,12 +782,8 @@ begin
 end;//TkwWndCloseWindow.GetWordNameForRegister
 
 function TkwWndCloseWindow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B3B5EA3F1514_var*
-//#UC END# *551544E2001A_B3B5EA3F1514_var*
 begin
-//#UC START# *551544E2001A_B3B5EA3F1514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B3B5EA3F1514_impl*
+ Result := ;
 end;//TkwWndCloseWindow.GetResultTypeInfo
 
 function TkwWndCloseWindow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -845,12 +829,8 @@ begin
 end;//TkwWndWindowIsMine.GetWordNameForRegister
 
 function TkwWndWindowIsMine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C09FEECC1053_var*
-//#UC END# *551544E2001A_C09FEECC1053_var*
 begin
-//#UC START# *551544E2001A_C09FEECC1053_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C09FEECC1053_impl*
+ Result := ;
 end;//TkwWndWindowIsMine.GetResultTypeInfo
 
 function TkwWndWindowIsMine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -893,12 +873,8 @@ begin
 end;//TkwWndSetForeground.GetWordNameForRegister
 
 function TkwWndSetForeground.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1C5511E4225D_var*
-//#UC END# *551544E2001A_1C5511E4225D_var*
 begin
-//#UC START# *551544E2001A_1C5511E4225D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1C5511E4225D_impl*
+ Result := ;
 end;//TkwWndSetForeground.GetResultTypeInfo
 
 function TkwWndSetForeground.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -955,12 +931,8 @@ begin
 end;//TkwWinTreeGetCurrentText.GetWordNameForRegister
 
 function TkwWinTreeGetCurrentText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A893626FB9A5_var*
-//#UC END# *551544E2001A_A893626FB9A5_var*
 begin
-//#UC START# *551544E2001A_A893626FB9A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A893626FB9A5_impl*
+ Result := ;
 end;//TkwWinTreeGetCurrentText.GetResultTypeInfo
 
 function TkwWinTreeGetCurrentText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1009,12 +981,8 @@ begin
 end;//TkwIterateChildWindows.GetWordNameForRegister
 
 function TkwIterateChildWindows.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BB2233135443_var*
-//#UC END# *551544E2001A_BB2233135443_var*
 begin
-//#UC START# *551544E2001A_BB2233135443_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BB2233135443_impl*
+ Result := ;
 end;//TkwIterateChildWindows.GetResultTypeInfo
 
 function TkwIterateChildWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1062,12 +1030,8 @@ begin
 end;//TkwIterateWindows.GetWordNameForRegister
 
 function TkwIterateWindows.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2EB6B5E4913F_var*
-//#UC END# *551544E2001A_2EB6B5E4913F_var*
 begin
-//#UC START# *551544E2001A_2EB6B5E4913F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2EB6B5E4913F_impl*
+ Result := ;
 end;//TkwIterateWindows.GetResultTypeInfo
 
 function TkwIterateWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1110,12 +1074,8 @@ begin
 end;//TkwWindowFromPoint.GetWordNameForRegister
 
 function TkwWindowFromPoint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2D01DE64792B_var*
-//#UC END# *551544E2001A_2D01DE64792B_var*
 begin
-//#UC START# *551544E2001A_2D01DE64792B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2D01DE64792B_impl*
+ Result := ;
 end;//TkwWindowFromPoint.GetResultTypeInfo
 
 function TkwWindowFromPoint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1157,12 +1117,8 @@ begin
 end;//TkwGetForegroundWindow.GetWordNameForRegister
 
 function TkwGetForegroundWindow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CB29543BBB60_var*
-//#UC END# *551544E2001A_CB29543BBB60_var*
 begin
-//#UC START# *551544E2001A_CB29543BBB60_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CB29543BBB60_impl*
+ Result := ;
 end;//TkwGetForegroundWindow.GetResultTypeInfo
 
 function TkwGetForegroundWindow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1205,12 +1161,8 @@ begin
 end;//TkwFindWindowByCaption.GetWordNameForRegister
 
 function TkwFindWindowByCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0FB930B944B8_var*
-//#UC END# *551544E2001A_0FB930B944B8_var*
 begin
-//#UC START# *551544E2001A_0FB930B944B8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0FB930B944B8_impl*
+ Result := ;
 end;//TkwFindWindowByCaption.GetResultTypeInfo
 
 function TkwFindWindowByCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1253,12 +1205,8 @@ begin
 end;//TkwSetFuzzInPercent.GetWordNameForRegister
 
 function TkwSetFuzzInPercent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DDDEEE94C045_var*
-//#UC END# *551544E2001A_DDDEEE94C045_var*
 begin
-//#UC START# *551544E2001A_DDDEEE94C045_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DDDEEE94C045_impl*
+ Result := ;
 end;//TkwSetFuzzInPercent.GetResultTypeInfo
 
 function TkwSetFuzzInPercent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1304,12 +1252,8 @@ begin
 end;//TkwDesktopHeight.GetWordNameForRegister
 
 function TkwDesktopHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F5071C676120_var*
-//#UC END# *551544E2001A_F5071C676120_var*
 begin
-//#UC START# *551544E2001A_F5071C676120_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F5071C676120_impl*
+ Result := ;
 end;//TkwDesktopHeight.GetResultTypeInfo
 
 function TkwDesktopHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1355,12 +1299,8 @@ begin
 end;//TkwDesktopWidth.GetWordNameForRegister
 
 function TkwDesktopWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F2D32D266DD0_var*
-//#UC END# *551544E2001A_F2D32D266DD0_var*
 begin
-//#UC START# *551544E2001A_F2D32D266DD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F2D32D266DD0_impl*
+ Result := ;
 end;//TkwDesktopWidth.GetResultTypeInfo
 
 function TkwDesktopWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1407,12 +1347,8 @@ begin
 end;//TkwScreenWidth.GetWordNameForRegister
 
 function TkwScreenWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_44BBDAE720F0_var*
-//#UC END# *551544E2001A_44BBDAE720F0_var*
 begin
-//#UC START# *551544E2001A_44BBDAE720F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_44BBDAE720F0_impl*
+ Result := ;
 end;//TkwScreenWidth.GetResultTypeInfo
 
 function TkwScreenWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1459,12 +1395,8 @@ begin
 end;//TkwScreenHeight.GetWordNameForRegister
 
 function TkwScreenHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_91E516864416_var*
-//#UC END# *551544E2001A_91E516864416_var*
 begin
-//#UC START# *551544E2001A_91E516864416_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_91E516864416_impl*
+ Result := ;
 end;//TkwScreenHeight.GetResultTypeInfo
 
 function TkwScreenHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1510,12 +1442,8 @@ begin
 end;//TkwMainScreenWidth.GetWordNameForRegister
 
 function TkwMainScreenWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3832249557A1_var*
-//#UC END# *551544E2001A_3832249557A1_var*
 begin
-//#UC START# *551544E2001A_3832249557A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3832249557A1_impl*
+ Result := ;
 end;//TkwMainScreenWidth.GetResultTypeInfo
 
 function TkwMainScreenWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1561,12 +1489,8 @@ begin
 end;//TkwMainScreenHeight.GetWordNameForRegister
 
 function TkwMainScreenHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8022C1F2B088_var*
-//#UC END# *551544E2001A_8022C1F2B088_var*
 begin
-//#UC START# *551544E2001A_8022C1F2B088_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8022C1F2B088_impl*
+ Result := ;
 end;//TkwMainScreenHeight.GetResultTypeInfo
 
 function TkwMainScreenHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1612,12 +1536,8 @@ begin
 end;//TkwScreenCount.GetWordNameForRegister
 
 function TkwScreenCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4C862EA2F8C6_var*
-//#UC END# *551544E2001A_4C862EA2F8C6_var*
 begin
-//#UC START# *551544E2001A_4C862EA2F8C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4C862EA2F8C6_impl*
+ Result := ;
 end;//TkwScreenCount.GetResultTypeInfo
 
 function TkwScreenCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1690,12 +1610,8 @@ begin
 end;//TkwAskWindowToCloseItself.GetWordNameForRegister
 
 function TkwAskWindowToCloseItself.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_22E2D41E5FCD_var*
-//#UC END# *551544E2001A_22E2D41E5FCD_var*
 begin
-//#UC START# *551544E2001A_22E2D41E5FCD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_22E2D41E5FCD_impl*
+ Result := ;
 end;//TkwAskWindowToCloseItself.GetResultTypeInfo
 
 function TkwAskWindowToCloseItself.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1743,12 +1659,8 @@ begin
 end;//TkwScreenShot2File.GetWordNameForRegister
 
 function TkwScreenShot2File.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D7673935EC18_var*
-//#UC END# *551544E2001A_D7673935EC18_var*
 begin
-//#UC START# *551544E2001A_D7673935EC18_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D7673935EC18_impl*
+ Result := ;
 end;//TkwScreenShot2File.GetResultTypeInfo
 
 function TkwScreenShot2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1796,12 +1708,8 @@ begin
 end;//TkwScreenShot2FileWithCheck.GetWordNameForRegister
 
 function TkwScreenShot2FileWithCheck.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_13CADBEDE41C_var*
-//#UC END# *551544E2001A_13CADBEDE41C_var*
 begin
-//#UC START# *551544E2001A_13CADBEDE41C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_13CADBEDE41C_impl*
+ Result := ;
 end;//TkwScreenShot2FileWithCheck.GetResultTypeInfo
 
 function TkwScreenShot2FileWithCheck.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -1831,12 +1831,8 @@ begin
 end;//TkwNewBaseSearchFormFindBtn.GetResultTypeInfo
 
 function TkwNewBaseSearchFormFindBtn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8487F43B0D1E_var*
-//#UC END# *559687E6025A_8487F43B0D1E_var*
 begin
-//#UC START# *559687E6025A_8487F43B0D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8487F43B0D1E_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormFindBtn.GetAllParamsCount
 
 function TkwNewBaseSearchFormFindBtn.ParamsTypes: PTypeInfoArray;
@@ -1893,12 +1889,8 @@ begin
 end;//TkwNewBaseSearchFormFindBackBtn.GetResultTypeInfo
 
 function TkwNewBaseSearchFormFindBackBtn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8FD4A0277CFF_var*
-//#UC END# *559687E6025A_8FD4A0277CFF_var*
 begin
-//#UC START# *559687E6025A_8FD4A0277CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8FD4A0277CFF_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormFindBackBtn.GetAllParamsCount
 
 function TkwNewBaseSearchFormFindBackBtn.ParamsTypes: PTypeInfoArray;
@@ -1955,12 +1947,8 @@ begin
 end;//TkwNewBaseSearchFormCloseBtn.GetResultTypeInfo
 
 function TkwNewBaseSearchFormCloseBtn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_90CDA41F40D2_var*
-//#UC END# *559687E6025A_90CDA41F40D2_var*
 begin
-//#UC START# *559687E6025A_90CDA41F40D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_90CDA41F40D2_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormCloseBtn.GetAllParamsCount
 
 function TkwNewBaseSearchFormCloseBtn.ParamsTypes: PTypeInfoArray;
@@ -2017,12 +2005,8 @@ begin
 end;//TkwNewBaseSearchFormAreaCombo.GetResultTypeInfo
 
 function TkwNewBaseSearchFormAreaCombo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4D85E5711038_var*
-//#UC END# *559687E6025A_4D85E5711038_var*
 begin
-//#UC START# *559687E6025A_4D85E5711038_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4D85E5711038_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormAreaCombo.GetAllParamsCount
 
 function TkwNewBaseSearchFormAreaCombo.ParamsTypes: PTypeInfoArray;
@@ -2079,12 +2063,8 @@ begin
 end;//TkwNewBaseSearchFormQueryExampleLabel.GetResultTypeInfo
 
 function TkwNewBaseSearchFormQueryExampleLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_505ADAD50252_var*
-//#UC END# *559687E6025A_505ADAD50252_var*
 begin
-//#UC START# *559687E6025A_505ADAD50252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_505ADAD50252_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormQueryExampleLabel.GetAllParamsCount
 
 function TkwNewBaseSearchFormQueryExampleLabel.ParamsTypes: PTypeInfoArray;
@@ -2141,12 +2121,8 @@ begin
 end;//TkwNewBaseSearchFormDropButton.GetResultTypeInfo
 
 function TkwNewBaseSearchFormDropButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A991331821D4_var*
-//#UC END# *559687E6025A_A991331821D4_var*
 begin
-//#UC START# *559687E6025A_A991331821D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A991331821D4_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormDropButton.GetAllParamsCount
 
 function TkwNewBaseSearchFormDropButton.ParamsTypes: PTypeInfoArray;
@@ -2203,12 +2179,8 @@ begin
 end;//TkwNewBaseSearchFormFoundCountLabel.GetResultTypeInfo
 
 function TkwNewBaseSearchFormFoundCountLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6C75E19A9417_var*
-//#UC END# *559687E6025A_6C75E19A9417_var*
 begin
-//#UC START# *559687E6025A_6C75E19A9417_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6C75E19A9417_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormFoundCountLabel.GetAllParamsCount
 
 function TkwNewBaseSearchFormFoundCountLabel.ParamsTypes: PTypeInfoArray;
@@ -2265,12 +2237,8 @@ begin
 end;//TkwNewBaseSearchFormExampleLabel.GetResultTypeInfo
 
 function TkwNewBaseSearchFormExampleLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EB6013B55CA8_var*
-//#UC END# *559687E6025A_EB6013B55CA8_var*
 begin
-//#UC START# *559687E6025A_EB6013B55CA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EB6013B55CA8_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormExampleLabel.GetAllParamsCount
 
 function TkwNewBaseSearchFormExampleLabel.ParamsTypes: PTypeInfoArray;
@@ -2327,12 +2295,8 @@ begin
 end;//TkwNewBaseSearchFormContextEditPanel.GetResultTypeInfo
 
 function TkwNewBaseSearchFormContextEditPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BC18F8F57D3A_var*
-//#UC END# *559687E6025A_BC18F8F57D3A_var*
 begin
-//#UC START# *559687E6025A_BC18F8F57D3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BC18F8F57D3A_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormContextEditPanel.GetAllParamsCount
 
 function TkwNewBaseSearchFormContextEditPanel.ParamsTypes: PTypeInfoArray;
@@ -2389,12 +2353,8 @@ begin
 end;//TkwNewBaseSearchFormLayout1.GetResultTypeInfo
 
 function TkwNewBaseSearchFormLayout1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2824E7848D0C_var*
-//#UC END# *559687E6025A_2824E7848D0C_var*
 begin
-//#UC START# *559687E6025A_2824E7848D0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2824E7848D0C_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormLayout1.GetAllParamsCount
 
 function TkwNewBaseSearchFormLayout1.ParamsTypes: PTypeInfoArray;
@@ -2451,12 +2411,8 @@ begin
 end;//TkwNewBaseSearchFormLayout2.GetResultTypeInfo
 
 function TkwNewBaseSearchFormLayout2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_57D5D6C99B6B_var*
-//#UC END# *559687E6025A_57D5D6C99B6B_var*
 begin
-//#UC START# *559687E6025A_57D5D6C99B6B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_57D5D6C99B6B_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormLayout2.GetAllParamsCount
 
 function TkwNewBaseSearchFormLayout2.ParamsTypes: PTypeInfoArray;
@@ -2513,12 +2469,8 @@ begin
 end;//TkwNewBaseSearchFormLayout3.GetResultTypeInfo
 
 function TkwNewBaseSearchFormLayout3.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DC70024F6763_var*
-//#UC END# *559687E6025A_DC70024F6763_var*
 begin
-//#UC START# *559687E6025A_DC70024F6763_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DC70024F6763_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormLayout3.GetAllParamsCount
 
 function TkwNewBaseSearchFormLayout3.ParamsTypes: PTypeInfoArray;
@@ -2575,12 +2527,8 @@ begin
 end;//TkwNewBaseSearchFormVgScene1.GetResultTypeInfo
 
 function TkwNewBaseSearchFormVgScene1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B13A4A98049B_var*
-//#UC END# *559687E6025A_B13A4A98049B_var*
 begin
-//#UC START# *559687E6025A_B13A4A98049B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B13A4A98049B_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormVgScene1.GetAllParamsCount
 
 function TkwNewBaseSearchFormVgScene1.ParamsTypes: PTypeInfoArray;
@@ -2637,12 +2585,8 @@ begin
 end;//TkwNewBaseSearchFormMoreTab.GetResultTypeInfo
 
 function TkwNewBaseSearchFormMoreTab.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FF59636CB724_var*
-//#UC END# *559687E6025A_FF59636CB724_var*
 begin
-//#UC START# *559687E6025A_FF59636CB724_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FF59636CB724_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormMoreTab.GetAllParamsCount
 
 function TkwNewBaseSearchFormMoreTab.ParamsTypes: PTypeInfoArray;
@@ -2699,12 +2643,8 @@ begin
 end;//TkwNewBaseSearchFormBorder.GetResultTypeInfo
 
 function TkwNewBaseSearchFormBorder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_02D50A1E8F6D_var*
-//#UC END# *559687E6025A_02D50A1E8F6D_var*
 begin
-//#UC START# *559687E6025A_02D50A1E8F6D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_02D50A1E8F6D_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormBorder.GetAllParamsCount
 
 function TkwNewBaseSearchFormBorder.ParamsTypes: PTypeInfoArray;
@@ -2761,12 +2701,8 @@ begin
 end;//TkwNewBaseSearchFormInnerBorder.GetResultTypeInfo
 
 function TkwNewBaseSearchFormInnerBorder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_85C7A7A826B7_var*
-//#UC END# *559687E6025A_85C7A7A826B7_var*
 begin
-//#UC START# *559687E6025A_85C7A7A826B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_85C7A7A826B7_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormInnerBorder.GetAllParamsCount
 
 function TkwNewBaseSearchFormInnerBorder.ParamsTypes: PTypeInfoArray;
@@ -2823,12 +2759,8 @@ begin
 end;//TkwNewBaseSearchFormMostOuterRectangle.GetResultTypeInfo
 
 function TkwNewBaseSearchFormMostOuterRectangle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B8CD8BF7C9B3_var*
-//#UC END# *559687E6025A_B8CD8BF7C9B3_var*
 begin
-//#UC START# *559687E6025A_B8CD8BF7C9B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B8CD8BF7C9B3_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormMostOuterRectangle.GetAllParamsCount
 
 function TkwNewBaseSearchFormMostOuterRectangle.ParamsTypes: PTypeInfoArray;
@@ -2885,12 +2817,8 @@ begin
 end;//TkwNewBaseSearchFormRectangle1.GetResultTypeInfo
 
 function TkwNewBaseSearchFormRectangle1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CB750FEEA0A4_var*
-//#UC END# *559687E6025A_CB750FEEA0A4_var*
 begin
-//#UC START# *559687E6025A_CB750FEEA0A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CB750FEEA0A4_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormRectangle1.GetAllParamsCount
 
 function TkwNewBaseSearchFormRectangle1.ParamsTypes: PTypeInfoArray;
@@ -2947,12 +2875,8 @@ begin
 end;//TkwNewBaseSearchFormContextEdit.GetResultTypeInfo
 
 function TkwNewBaseSearchFormContextEdit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C6AE29665243_var*
-//#UC END# *559687E6025A_C6AE29665243_var*
 begin
-//#UC START# *559687E6025A_C6AE29665243_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C6AE29665243_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormContextEdit.GetAllParamsCount
 
 function TkwNewBaseSearchFormContextEdit.ParamsTypes: PTypeInfoArray;
@@ -3009,12 +2933,8 @@ begin
 end;//TkwNewBaseSearchFormFlashTimer.GetResultTypeInfo
 
 function TkwNewBaseSearchFormFlashTimer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_52CA7BEB5C5D_var*
-//#UC END# *559687E6025A_52CA7BEB5C5D_var*
 begin
-//#UC START# *559687E6025A_52CA7BEB5C5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_52CA7BEB5C5D_impl*
+ Result := 1;
 end;//TkwNewBaseSearchFormFlashTimer.GetAllParamsCount
 
 function TkwNewBaseSearchFormFlashTimer.ParamsTypes: PTypeInfoArray;

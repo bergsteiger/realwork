@@ -95,12 +95,8 @@ begin
 end;//TkwPopFormFormStyle.GetWordNameForRegister
 
 function TkwPopFormFormStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3ADE91F9FA16_var*
-//#UC END# *551544E2001A_3ADE91F9FA16_var*
 begin
-//#UC START# *551544E2001A_3ADE91F9FA16_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3ADE91F9FA16_impl*
+ Result := ;
 end;//TkwPopFormFormStyle.GetResultTypeInfo
 
 function TkwPopFormFormStyle.GetAllParamsCount(const aCtx: TtfwContext): Integer;

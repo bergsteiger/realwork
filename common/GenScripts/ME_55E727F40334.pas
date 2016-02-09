@@ -144,12 +144,8 @@ begin
 end;//TkwPopDictionaryWordsIterator.GetWordNameForRegister
 
 function TkwPopDictionaryWordsIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D1DB0CBA0A4E_var*
-//#UC END# *551544E2001A_D1DB0CBA0A4E_var*
 begin
-//#UC START# *551544E2001A_D1DB0CBA0A4E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D1DB0CBA0A4E_impl*
+ Result := ;
 end;//TkwPopDictionaryWordsIterator.GetResultTypeInfo
 
 function TkwPopDictionaryWordsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -193,12 +189,8 @@ begin
 end;//TkwPopDictionaryKeywordByName.GetWordNameForRegister
 
 function TkwPopDictionaryKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9E811BEE054C_var*
-//#UC END# *551544E2001A_9E811BEE054C_var*
 begin
-//#UC START# *551544E2001A_9E811BEE054C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9E811BEE054C_impl*
+ Result := ;
 end;//TkwPopDictionaryKeywordByName.GetResultTypeInfo
 
 function TkwPopDictionaryKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -241,12 +233,8 @@ begin
 end;//TkwPopDictionaryKeyWordsIterator.GetWordNameForRegister
 
 function TkwPopDictionaryKeyWordsIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7A25B6D5DC06_var*
-//#UC END# *551544E2001A_7A25B6D5DC06_var*
 begin
-//#UC START# *551544E2001A_7A25B6D5DC06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7A25B6D5DC06_impl*
+ Result := ;
 end;//TkwPopDictionaryKeyWordsIterator.GetResultTypeInfo
 
 function TkwPopDictionaryKeyWordsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -290,12 +278,8 @@ begin
 end;//TkwPopDictionaryOwnKeywordByName.GetWordNameForRegister
 
 function TkwPopDictionaryOwnKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5D0B14C07C4C_var*
-//#UC END# *551544E2001A_5D0B14C07C4C_var*
 begin
-//#UC START# *551544E2001A_5D0B14C07C4C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5D0B14C07C4C_impl*
+ Result := ;
 end;//TkwPopDictionaryOwnKeywordByName.GetResultTypeInfo
 
 function TkwPopDictionaryOwnKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;

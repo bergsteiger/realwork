@@ -75,12 +75,8 @@ begin
 end;//TkwPopMainDictionaryCompiledCode.GetWordNameForRegister
 
 function TkwPopMainDictionaryCompiledCode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FA2C6FCB48FD_var*
-//#UC END# *551544E2001A_FA2C6FCB48FD_var*
 begin
-//#UC START# *551544E2001A_FA2C6FCB48FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FA2C6FCB48FD_impl*
+ Result := ;
 end;//TkwPopMainDictionaryCompiledCode.GetResultTypeInfo
 
 function TkwPopMainDictionaryCompiledCode.GetAllParamsCount(const aCtx: TtfwContext): Integer;

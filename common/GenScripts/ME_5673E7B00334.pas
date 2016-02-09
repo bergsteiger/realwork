@@ -73,12 +73,8 @@ begin
 end;//TkwCompiledProcedureCreate.GetWordNameForRegister
 
 function TkwCompiledProcedureCreate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_87E51971436F_var*
-//#UC END# *551544E2001A_87E51971436F_var*
 begin
-//#UC START# *551544E2001A_87E51971436F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_87E51971436F_impl*
+ Result := !!!;
 end;//TkwCompiledProcedureCreate.GetResultTypeInfo
 
 function TkwCompiledProcedureCreate.GetAllParamsCount(const aCtx: TtfwContext): Integer;

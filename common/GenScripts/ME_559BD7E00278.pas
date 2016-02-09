@@ -142,12 +142,8 @@ begin
 end;//TkwPopScriptEngineAsKeywordFinder.GetWordNameForRegister
 
 function TkwPopScriptEngineAsKeywordFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_63D6AB9D9B8E_var*
-//#UC END# *551544E2001A_63D6AB9D9B8E_var*
 begin
-//#UC START# *551544E2001A_63D6AB9D9B8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_63D6AB9D9B8E_impl*
+ Result := ;
 end;//TkwPopScriptEngineAsKeywordFinder.GetResultTypeInfo
 
 function TkwPopScriptEngineAsKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -191,12 +187,8 @@ begin
 end;//TkwPopScriptEngineAddInitialization.GetWordNameForRegister
 
 function TkwPopScriptEngineAddInitialization.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F4290567147F_var*
-//#UC END# *551544E2001A_F4290567147F_var*
 begin
-//#UC START# *551544E2001A_F4290567147F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F4290567147F_impl*
+ Result := ;
 end;//TkwPopScriptEngineAddInitialization.GetResultTypeInfo
 
 function TkwPopScriptEngineAddInitialization.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -239,12 +231,8 @@ begin
 end;//TkwPopScriptEngineCurrentCompilingDictionary.GetWordNameForRegister
 
 function TkwPopScriptEngineCurrentCompilingDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1C1FE481A9C3_var*
-//#UC END# *551544E2001A_1C1FE481A9C3_var*
 begin
-//#UC START# *551544E2001A_1C1FE481A9C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1C1FE481A9C3_impl*
+ Result := ;
 end;//TkwPopScriptEngineCurrentCompilingDictionary.GetResultTypeInfo
 
 function TkwPopScriptEngineCurrentCompilingDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -288,12 +276,8 @@ begin
 end;//TkwPopScriptEngineDisableForHelp.GetWordNameForRegister
 
 function TkwPopScriptEngineDisableForHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B7DCC24F906E_var*
-//#UC END# *551544E2001A_B7DCC24F906E_var*
 begin
-//#UC START# *551544E2001A_B7DCC24F906E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B7DCC24F906E_impl*
+ Result := ;
 end;//TkwPopScriptEngineDisableForHelp.GetResultTypeInfo
 
 function TkwPopScriptEngineDisableForHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;

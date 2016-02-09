@@ -315,12 +315,8 @@ begin
 end;//TkwQFLikeTextLoadFormTextSource.GetResultTypeInfo
 
 function TkwQFLikeTextLoadFormTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CB4B5413D1DF_var*
-//#UC END# *559687E6025A_CB4B5413D1DF_var*
 begin
-//#UC START# *559687E6025A_CB4B5413D1DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CB4B5413D1DF_impl*
+ Result := 1;
 end;//TkwQFLikeTextLoadFormTextSource.GetAllParamsCount
 
 function TkwQFLikeTextLoadFormTextSource.ParamsTypes: PTypeInfoArray;
@@ -377,12 +373,8 @@ begin
 end;//TkwQFLikeTextLoadFormText.GetResultTypeInfo
 
 function TkwQFLikeTextLoadFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E29319DE781A_var*
-//#UC END# *559687E6025A_E29319DE781A_var*
 begin
-//#UC START# *559687E6025A_E29319DE781A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E29319DE781A_impl*
+ Result := 1;
 end;//TkwQFLikeTextLoadFormText.GetAllParamsCount
 
 function TkwQFLikeTextLoadFormText.ParamsTypes: PTypeInfoArray;
@@ -439,12 +431,8 @@ begin
 end;//TkwQFLikeTextLoadFormLoadManager.GetResultTypeInfo
 
 function TkwQFLikeTextLoadFormLoadManager.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F3E17599DE55_var*
-//#UC END# *559687E6025A_F3E17599DE55_var*
 begin
-//#UC START# *559687E6025A_F3E17599DE55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F3E17599DE55_impl*
+ Result := 1;
 end;//TkwQFLikeTextLoadFormLoadManager.GetAllParamsCount
 
 function TkwQFLikeTextLoadFormLoadManager.ParamsTypes: PTypeInfoArray;

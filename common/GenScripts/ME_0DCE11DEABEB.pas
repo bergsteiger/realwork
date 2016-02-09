@@ -193,12 +193,8 @@ begin
 end;//TkwFromWithPanelFormWorkSpace.GetResultTypeInfo
 
 function TkwFromWithPanelFormWorkSpace.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E583E346F779_var*
-//#UC END# *559687E6025A_E583E346F779_var*
 begin
-//#UC START# *559687E6025A_E583E346F779_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E583E346F779_impl*
+ Result := 1;
 end;//TkwFromWithPanelFormWorkSpace.GetAllParamsCount
 
 function TkwFromWithPanelFormWorkSpace.ParamsTypes: PTypeInfoArray;

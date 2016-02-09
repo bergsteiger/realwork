@@ -73,12 +73,8 @@ begin
 end;//TkwPopContainedActionExecute.GetWordNameForRegister
 
 function TkwPopContainedActionExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_87D5D18D9F8E_var*
-//#UC END# *551544E2001A_87D5D18D9F8E_var*
 begin
-//#UC START# *551544E2001A_87D5D18D9F8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_87D5D18D9F8E_impl*
+ Result := ;
 end;//TkwPopContainedActionExecute.GetResultTypeInfo
 
 function TkwPopContainedActionExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;

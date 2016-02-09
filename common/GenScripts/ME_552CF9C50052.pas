@@ -96,12 +96,8 @@ begin
 end;//TkwFilterAutolinkFilter.GetWordNameForRegister
 
 function TkwFilterAutolinkFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_115E7EFB89B4_var*
-//#UC END# *551544E2001A_115E7EFB89B4_var*
 begin
-//#UC START# *551544E2001A_115E7EFB89B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_115E7EFB89B4_impl*
+ Result := ;
 end;//TkwFilterAutolinkFilter.GetResultTypeInfo
 
 function TkwFilterAutolinkFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -133,12 +129,8 @@ begin
 end;//TkwFilterCleanAutolinkFilter.GetWordNameForRegister
 
 function TkwFilterCleanAutolinkFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_30FF429786F9_var*
-//#UC END# *551544E2001A_30FF429786F9_var*
 begin
-//#UC START# *551544E2001A_30FF429786F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_30FF429786F9_impl*
+ Result := ;
 end;//TkwFilterCleanAutolinkFilter.GetResultTypeInfo
 
 function TkwFilterCleanAutolinkFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;

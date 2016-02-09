@@ -78,12 +78,8 @@ begin
 end;//TkwPopTreeViewGetItem.GetWordNameForRegister
 
 function TkwPopTreeViewGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F4C36DEF11AB_var*
-//#UC END# *551544E2001A_F4C36DEF11AB_var*
 begin
-//#UC START# *551544E2001A_F4C36DEF11AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F4C36DEF11AB_impl*
+ Result := ;
 end;//TkwPopTreeViewGetItem.GetResultTypeInfo
 
 function TkwPopTreeViewGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;

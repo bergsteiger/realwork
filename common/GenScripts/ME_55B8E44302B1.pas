@@ -88,12 +88,8 @@ begin
 end;//TkwPopActionListFindAction.GetWordNameForRegister
 
 function TkwPopActionListFindAction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E7F049DA4A74_var*
-//#UC END# *551544E2001A_E7F049DA4A74_var*
 begin
-//#UC START# *551544E2001A_E7F049DA4A74_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E7F049DA4A74_impl*
+ Result := ;
 end;//TkwPopActionListFindAction.GetResultTypeInfo
 
 function TkwPopActionListFindAction.GetAllParamsCount(const aCtx: TtfwContext): Integer;

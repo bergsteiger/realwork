@@ -101,12 +101,8 @@ begin
 end;//TkwEtalonNeeds64.GetWordNameForRegister
 
 function TkwEtalonNeeds64.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_60A242C872F7_var*
-//#UC END# *551544E2001A_60A242C872F7_var*
 begin
-//#UC START# *551544E2001A_60A242C872F7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_60A242C872F7_impl*
+ Result := ;
 end;//TkwEtalonNeeds64.GetResultTypeInfo
 
 function TkwEtalonNeeds64.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -129,12 +125,8 @@ begin
 end;//TkwEtalonNeedsComputerName.GetWordNameForRegister
 
 function TkwEtalonNeedsComputerName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_116A432ADCB1_var*
-//#UC END# *551544E2001A_116A432ADCB1_var*
 begin
-//#UC START# *551544E2001A_116A432ADCB1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_116A432ADCB1_impl*
+ Result := ;
 end;//TkwEtalonNeedsComputerName.GetResultTypeInfo
 
 function TkwEtalonNeedsComputerName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -157,12 +149,8 @@ begin
 end;//TkwEtalonNeedsOSName.GetWordNameForRegister
 
 function TkwEtalonNeedsOSName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4A371D758055_var*
-//#UC END# *551544E2001A_4A371D758055_var*
 begin
-//#UC START# *551544E2001A_4A371D758055_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4A371D758055_impl*
+ Result := ;
 end;//TkwEtalonNeedsOSName.GetResultTypeInfo
 
 function TkwEtalonNeedsOSName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -187,12 +175,8 @@ begin
 end;//TkwEtalonNeedsXE.GetWordNameForRegister
 
 function TkwEtalonNeedsXE.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DECF86D5A261_var*
-//#UC END# *551544E2001A_DECF86D5A261_var*
 begin
-//#UC START# *551544E2001A_DECF86D5A261_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DECF86D5A261_impl*
+ Result := ;
 end;//TkwEtalonNeedsXE.GetResultTypeInfo
 
 function TkwEtalonNeedsXE.GetAllParamsCount(const aCtx: TtfwContext): Integer;

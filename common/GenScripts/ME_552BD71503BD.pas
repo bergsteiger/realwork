@@ -83,12 +83,8 @@ begin
 end;//TkwEnabledSaveRTFPictures.GetWordNameForRegister
 
 function TkwEnabledSaveRTFPictures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0624C398EE8C_var*
-//#UC END# *551544E2001A_0624C398EE8C_var*
 begin
-//#UC START# *551544E2001A_0624C398EE8C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0624C398EE8C_impl*
+ Result := ;
 end;//TkwEnabledSaveRTFPictures.GetResultTypeInfo
 
 function TkwEnabledSaveRTFPictures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -122,12 +118,8 @@ begin
 end;//TkwGeneratePDFForEtalon.GetWordNameForRegister
 
 function TkwGeneratePDFForEtalon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8682318410BD_var*
-//#UC END# *551544E2001A_8682318410BD_var*
 begin
-//#UC START# *551544E2001A_8682318410BD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8682318410BD_impl*
+ Result := ;
 end;//TkwGeneratePDFForEtalon.GetResultTypeInfo
 
 function TkwGeneratePDFForEtalon.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -237,12 +237,8 @@ begin
 end;//TkwMenuItemClick.GetWordNameForRegister
 
 function TkwMenuItemClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_639406FE8331_var*
-//#UC END# *551544E2001A_639406FE8331_var*
 begin
-//#UC START# *551544E2001A_639406FE8331_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_639406FE8331_impl*
+ Result := ;
 end;//TkwMenuItemClick.GetResultTypeInfo
 
 function TkwMenuItemClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -287,12 +283,8 @@ begin
 end;//TkwMenuItemGetItem.GetWordNameForRegister
 
 function TkwMenuItemGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_89C28B4155A9_var*
-//#UC END# *551544E2001A_89C28B4155A9_var*
 begin
-//#UC START# *551544E2001A_89C28B4155A9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_89C28B4155A9_impl*
+ Result := ;
 end;//TkwMenuItemGetItem.GetResultTypeInfo
 
 function TkwMenuItemGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -353,12 +345,8 @@ begin
 end;//TkwMenuItemGetMenuHeight.GetWordNameForRegister
 
 function TkwMenuItemGetMenuHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F44EDB26B480_var*
-//#UC END# *551544E2001A_F44EDB26B480_var*
 begin
-//#UC START# *551544E2001A_F44EDB26B480_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F44EDB26B480_impl*
+ Result := ;
 end;//TkwMenuItemGetMenuHeight.GetResultTypeInfo
 
 function TkwMenuItemGetMenuHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -411,12 +399,8 @@ begin
 end;//TkwMenuItemCaption.SetValuePrim
 
 function TkwMenuItemCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8BC1AB992E7A_var*
-//#UC END# *551544E2001A_8BC1AB992E7A_var*
 begin
-//#UC START# *551544E2001A_8BC1AB992E7A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8BC1AB992E7A_impl*
+ Result := ;
 end;//TkwMenuItemCaption.GetResultTypeInfo
 
 function TkwMenuItemCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -469,12 +453,8 @@ begin
 end;//TkwMenuItemCount.SetValuePrim
 
 function TkwMenuItemCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E34D149B8718_var*
-//#UC END# *551544E2001A_E34D149B8718_var*
 begin
-//#UC START# *551544E2001A_E34D149B8718_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E34D149B8718_impl*
+ Result := ;
 end;//TkwMenuItemCount.GetResultTypeInfo
 
 function TkwMenuItemCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -527,12 +507,8 @@ begin
 end;//TkwMenuItemEnabled.SetValuePrim
 
 function TkwMenuItemEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BDC4E91C886F_var*
-//#UC END# *551544E2001A_BDC4E91C886F_var*
 begin
-//#UC START# *551544E2001A_BDC4E91C886F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BDC4E91C886F_impl*
+ Result := ;
 end;//TkwMenuItemEnabled.GetResultTypeInfo
 
 function TkwMenuItemEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -585,12 +561,8 @@ begin
 end;//TkwMenuItemVisible.SetValuePrim
 
 function TkwMenuItemVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5633D99495D3_var*
-//#UC END# *551544E2001A_5633D99495D3_var*
 begin
-//#UC START# *551544E2001A_5633D99495D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5633D99495D3_impl*
+ Result := ;
 end;//TkwMenuItemVisible.GetResultTypeInfo
 
 function TkwMenuItemVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;

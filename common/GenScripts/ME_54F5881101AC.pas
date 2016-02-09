@@ -187,12 +187,8 @@ begin
 end;//TkwPopControlVScrollerVisible.SetValuePrim
 
 function TkwPopControlVScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D64D3C18264A_var*
-//#UC END# *551544E2001A_D64D3C18264A_var*
 begin
-//#UC START# *551544E2001A_D64D3C18264A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D64D3C18264A_impl*
+ Result := ;
 end;//TkwPopControlVScrollerVisible.GetResultTypeInfo
 
 function TkwPopControlVScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -273,12 +269,8 @@ begin
 end;//TkwPopControlHScrollerVisible.SetValuePrim
 
 function TkwPopControlHScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F808620CE3AB_var*
-//#UC END# *551544E2001A_F808620CE3AB_var*
 begin
-//#UC START# *551544E2001A_F808620CE3AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F808620CE3AB_impl*
+ Result := ;
 end;//TkwPopControlHScrollerVisible.GetResultTypeInfo
 
 function TkwPopControlHScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -331,12 +323,8 @@ begin
 end;//TkwPopScrollingWinControlVScrollerVisible.SetValuePrim
 
 function TkwPopScrollingWinControlVScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0E188022DACF_var*
-//#UC END# *551544E2001A_0E188022DACF_var*
 begin
-//#UC START# *551544E2001A_0E188022DACF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0E188022DACF_impl*
+ Result := ;
 end;//TkwPopScrollingWinControlVScrollerVisible.GetResultTypeInfo
 
 function TkwPopScrollingWinControlVScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -389,12 +377,8 @@ begin
 end;//TkwPopScrollingWinControlHScrollerVisible.SetValuePrim
 
 function TkwPopScrollingWinControlHScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B46C6A433AAC_var*
-//#UC END# *551544E2001A_B46C6A433AAC_var*
 begin
-//#UC START# *551544E2001A_B46C6A433AAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B46C6A433AAC_impl*
+ Result := ;
 end;//TkwPopScrollingWinControlHScrollerVisible.GetResultTypeInfo
 
 function TkwPopScrollingWinControlHScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;

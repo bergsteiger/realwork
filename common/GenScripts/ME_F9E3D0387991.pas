@@ -723,12 +723,8 @@ begin
 end;//TkwLeftEditionFormHeader.SetValuePrim
 
 function TkwLeftEditionFormHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_14C765452AB6_var*
-//#UC END# *551544E2001A_14C765452AB6_var*
 begin
-//#UC START# *551544E2001A_14C765452AB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_14C765452AB6_impl*
+ Result := ;
 end;//TkwLeftEditionFormHeader.GetResultTypeInfo
 
 function TkwLeftEditionFormHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -781,12 +777,8 @@ begin
 end;//TkwLeftEditionFormPnLeft.SetValuePrim
 
 function TkwLeftEditionFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A71E5CCD0855_var*
-//#UC END# *551544E2001A_A71E5CCD0855_var*
 begin
-//#UC START# *551544E2001A_A71E5CCD0855_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A71E5CCD0855_impl*
+ Result := ;
 end;//TkwLeftEditionFormPnLeft.GetResultTypeInfo
 
 function TkwLeftEditionFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -839,12 +831,8 @@ begin
 end;//TkwLeftEditionFormEditionLink.SetValuePrim
 
 function TkwLeftEditionFormEditionLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AE6668D2A312_var*
-//#UC END# *551544E2001A_AE6668D2A312_var*
 begin
-//#UC START# *551544E2001A_AE6668D2A312_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AE6668D2A312_impl*
+ Result := ;
 end;//TkwLeftEditionFormEditionLink.GetResultTypeInfo
 
 function TkwLeftEditionFormEditionLink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -897,12 +885,8 @@ begin
 end;//TkwLeftEditionFormPbIcon.SetValuePrim
 
 function TkwLeftEditionFormPbIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9B250C322986_var*
-//#UC END# *551544E2001A_9B250C322986_var*
 begin
-//#UC START# *551544E2001A_9B250C322986_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9B250C322986_impl*
+ Result := ;
 end;//TkwLeftEditionFormPbIcon.GetResultTypeInfo
 
 function TkwLeftEditionFormPbIcon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -955,12 +939,8 @@ begin
 end;//TkwLeftEditionFormPnCaption.SetValuePrim
 
 function TkwLeftEditionFormPnCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D45540FF7F22_var*
-//#UC END# *551544E2001A_D45540FF7F22_var*
 begin
-//#UC START# *551544E2001A_D45540FF7F22_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D45540FF7F22_impl*
+ Result := ;
 end;//TkwLeftEditionFormPnCaption.GetResultTypeInfo
 
 function TkwLeftEditionFormPnCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1013,12 +993,8 @@ begin
 end;//TkwLeftEditionFormText.SetValuePrim
 
 function TkwLeftEditionFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_43D7FA358290_var*
-//#UC END# *551544E2001A_43D7FA358290_var*
 begin
-//#UC START# *551544E2001A_43D7FA358290_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_43D7FA358290_impl*
+ Result := ;
 end;//TkwLeftEditionFormText.GetResultTypeInfo
 
 function TkwLeftEditionFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;

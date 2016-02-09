@@ -799,12 +799,8 @@ begin
 end;//TkwEfListRemindersLine.SetValuePrim
 
 function TkwEfListRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4B02DC799E8A_var*
-//#UC END# *551544E2001A_4B02DC799E8A_var*
 begin
-//#UC START# *551544E2001A_4B02DC799E8A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4B02DC799E8A_impl*
+ Result := ;
 end;//TkwEfListRemindersLine.GetResultTypeInfo
 
 function TkwEfListRemindersLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -857,12 +853,8 @@ begin
 end;//TkwEfListRemListFiltered.SetValuePrim
 
 function TkwEfListRemListFiltered.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9EDC79448FB0_var*
-//#UC END# *551544E2001A_9EDC79448FB0_var*
 begin
-//#UC START# *551544E2001A_9EDC79448FB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9EDC79448FB0_impl*
+ Result := ;
 end;//TkwEfListRemListFiltered.GetResultTypeInfo
 
 function TkwEfListRemListFiltered.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -915,12 +907,8 @@ begin
 end;//TkwEfListRemListModified.SetValuePrim
 
 function TkwEfListRemListModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_715456D52720_var*
-//#UC END# *551544E2001A_715456D52720_var*
 begin
-//#UC START# *551544E2001A_715456D52720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_715456D52720_impl*
+ Result := ;
 end;//TkwEfListRemListModified.GetResultTypeInfo
 
 function TkwEfListRemListModified.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -973,12 +961,8 @@ begin
 end;//TkwEfListRemTimeMachineWarning.SetValuePrim
 
 function TkwEfListRemTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_914FC12132E1_var*
-//#UC END# *551544E2001A_914FC12132E1_var*
 begin
-//#UC START# *551544E2001A_914FC12132E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_914FC12132E1_impl*
+ Result := ;
 end;//TkwEfListRemTimeMachineWarning.GetResultTypeInfo
 
 function TkwEfListRemTimeMachineWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1031,12 +1015,8 @@ begin
 end;//TkwEfListEmptyListEditor.SetValuePrim
 
 function TkwEfListEmptyListEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4926301346C5_var*
-//#UC END# *551544E2001A_4926301346C5_var*
 begin
-//#UC START# *551544E2001A_4926301346C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4926301346C5_impl*
+ Result := ;
 end;//TkwEfListEmptyListEditor.GetResultTypeInfo
 
 function TkwEfListEmptyListEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1089,12 +1069,8 @@ begin
 end;//TkwEfListListPanel.SetValuePrim
 
 function TkwEfListListPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_27A65BB46620_var*
-//#UC END# *551544E2001A_27A65BB46620_var*
 begin
-//#UC START# *551544E2001A_27A65BB46620_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_27A65BB46620_impl*
+ Result := ;
 end;//TkwEfListListPanel.GetResultTypeInfo
 
 function TkwEfListListPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1147,12 +1123,8 @@ begin
 end;//TkwEfListTvList.SetValuePrim
 
 function TkwEfListTvList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8A0E3F8249F5_var*
-//#UC END# *551544E2001A_8A0E3F8249F5_var*
 begin
-//#UC START# *551544E2001A_8A0E3F8249F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8A0E3F8249F5_impl*
+ Result := ;
 end;//TkwEfListTvList.GetResultTypeInfo
 
 function TkwEfListTvList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1205,12 +1177,8 @@ begin
 end;//TkwEfListCfList.SetValuePrim
 
 function TkwEfListCfList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E2E83C1BEE9F_var*
-//#UC END# *551544E2001A_E2E83C1BEE9F_var*
 begin
-//#UC START# *551544E2001A_E2E83C1BEE9F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E2E83C1BEE9F_impl*
+ Result := ;
 end;//TkwEfListCfList.GetResultTypeInfo
 
 function TkwEfListCfList.GetAllParamsCount(const aCtx: TtfwContext): Integer;

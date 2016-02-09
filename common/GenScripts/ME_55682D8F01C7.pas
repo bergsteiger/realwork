@@ -1010,12 +1010,8 @@ begin
 end;//TkwStartsStr.GetWordNameForRegister
 
 function TkwStartsStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0093B3082714_var*
-//#UC END# *551544E2001A_0093B3082714_var*
 begin
-//#UC START# *551544E2001A_0093B3082714_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0093B3082714_impl*
+ Result := ;
 end;//TkwStartsStr.GetResultTypeInfo
 
 function TkwStartsStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1059,12 +1055,8 @@ begin
 end;//TkwStartsText.GetWordNameForRegister
 
 function TkwStartsText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9996D7566EDE_var*
-//#UC END# *551544E2001A_9996D7566EDE_var*
 begin
-//#UC START# *551544E2001A_9996D7566EDE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9996D7566EDE_impl*
+ Result := ;
 end;//TkwStartsText.GetResultTypeInfo
 
 function TkwStartsText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1108,12 +1100,8 @@ begin
 end;//TkwEndsStr.GetWordNameForRegister
 
 function TkwEndsStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_397C461D6C30_var*
-//#UC END# *551544E2001A_397C461D6C30_var*
 begin
-//#UC START# *551544E2001A_397C461D6C30_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_397C461D6C30_impl*
+ Result := ;
 end;//TkwEndsStr.GetResultTypeInfo
 
 function TkwEndsStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1157,12 +1145,8 @@ begin
 end;//TkwEndsText.GetWordNameForRegister
 
 function TkwEndsText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8997C15C6CA8_var*
-//#UC END# *551544E2001A_8997C15C6CA8_var*
 begin
-//#UC START# *551544E2001A_8997C15C6CA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8997C15C6CA8_impl*
+ Result := ;
 end;//TkwEndsText.GetResultTypeInfo
 
 function TkwEndsText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1206,12 +1190,8 @@ begin
 end;//TkwSameStr.GetWordNameForRegister
 
 function TkwSameStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2309401B7CC1_var*
-//#UC END# *551544E2001A_2309401B7CC1_var*
 begin
-//#UC START# *551544E2001A_2309401B7CC1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2309401B7CC1_impl*
+ Result := ;
 end;//TkwSameStr.GetResultTypeInfo
 
 function TkwSameStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1255,12 +1235,8 @@ begin
 end;//TkwSameText.GetWordNameForRegister
 
 function TkwSameText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9FC28ACB9AA1_var*
-//#UC END# *551544E2001A_9FC28ACB9AA1_var*
 begin
-//#UC START# *551544E2001A_9FC28ACB9AA1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9FC28ACB9AA1_impl*
+ Result := ;
 end;//TkwSameText.GetResultTypeInfo
 
 function TkwSameText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1304,12 +1280,8 @@ begin
 end;//TkwCompareStr.GetWordNameForRegister
 
 function TkwCompareStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C670925F6482_var*
-//#UC END# *551544E2001A_C670925F6482_var*
 begin
-//#UC START# *551544E2001A_C670925F6482_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C670925F6482_impl*
+ Result := ;
 end;//TkwCompareStr.GetResultTypeInfo
 
 function TkwCompareStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1353,12 +1325,8 @@ begin
 end;//TkwCompareText.GetWordNameForRegister
 
 function TkwCompareText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0E02A0729BA6_var*
-//#UC END# *551544E2001A_0E02A0729BA6_var*
 begin
-//#UC START# *551544E2001A_0E02A0729BA6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0E02A0729BA6_impl*
+ Result := ;
 end;//TkwCompareText.GetResultTypeInfo
 
 function TkwCompareText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1401,12 +1369,8 @@ begin
 end;//TkwStrToInt.GetWordNameForRegister
 
 function TkwStrToInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_09008856C703_var*
-//#UC END# *551544E2001A_09008856C703_var*
 begin
-//#UC START# *551544E2001A_09008856C703_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_09008856C703_impl*
+ Result := ;
 end;//TkwStrToInt.GetResultTypeInfo
 
 function TkwStrToInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1450,12 +1414,8 @@ begin
 end;//TkwCat.GetWordNameForRegister
 
 function TkwCat.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DD57CECF347C_var*
-//#UC END# *551544E2001A_DD57CECF347C_var*
 begin
-//#UC START# *551544E2001A_DD57CECF347C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DD57CECF347C_impl*
+ Result := ;
 end;//TkwCat.GetResultTypeInfo
 
 function TkwCat.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1518,12 +1478,8 @@ begin
 end;//TkwStringConsistsOf.GetWordNameForRegister
 
 function TkwStringConsistsOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5F306006344B_var*
-//#UC END# *551544E2001A_5F306006344B_var*
 begin
-//#UC START# *551544E2001A_5F306006344B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5F306006344B_impl*
+ Result := ;
 end;//TkwStringConsistsOf.GetResultTypeInfo
 
 function TkwStringConsistsOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1586,12 +1542,8 @@ begin
 end;//TkwStringHasAnyOf.GetWordNameForRegister
 
 function TkwStringHasAnyOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2256016890B3_var*
-//#UC END# *551544E2001A_2256016890B3_var*
 begin
-//#UC START# *551544E2001A_2256016890B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2256016890B3_impl*
+ Result := ;
 end;//TkwStringHasAnyOf.GetResultTypeInfo
 
 function TkwStringHasAnyOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1635,12 +1587,8 @@ begin
 end;//TkwStringPos.GetWordNameForRegister
 
 function TkwStringPos.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_851E99BEB53B_var*
-//#UC END# *551544E2001A_851E99BEB53B_var*
 begin
-//#UC START# *551544E2001A_851E99BEB53B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_851E99BEB53B_impl*
+ Result := ;
 end;//TkwStringPos.GetResultTypeInfo
 
 function TkwStringPos.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1685,12 +1633,8 @@ begin
 end;//TkwStringPosEx.GetWordNameForRegister
 
 function TkwStringPosEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_24901BF384F4_var*
-//#UC END# *551544E2001A_24901BF384F4_var*
 begin
-//#UC START# *551544E2001A_24901BF384F4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_24901BF384F4_impl*
+ Result := ;
 end;//TkwStringPosEx.GetResultTypeInfo
 
 function TkwStringPosEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1749,12 +1693,8 @@ begin
 end;//TkwStringSplit.GetWordNameForRegister
 
 function TkwStringSplit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AA63BC1F51EC_var*
-//#UC END# *551544E2001A_AA63BC1F51EC_var*
 begin
-//#UC START# *551544E2001A_AA63BC1F51EC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AA63BC1F51EC_impl*
+ Result := ;
 end;//TkwStringSplit.GetResultTypeInfo
 
 function TkwStringSplit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1801,12 +1741,8 @@ begin
 end;//TkwStringReplace.GetWordNameForRegister
 
 function TkwStringReplace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8CA688C2805E_var*
-//#UC END# *551544E2001A_8CA688C2805E_var*
 begin
-//#UC START# *551544E2001A_8CA688C2805E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8CA688C2805E_impl*
+ Result := ;
 end;//TkwStringReplace.GetResultTypeInfo
 
 function TkwStringReplace.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1853,12 +1789,8 @@ begin
 end;//TkwStringReplaceFirst.GetWordNameForRegister
 
 function TkwStringReplaceFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FF1E0A42BBEF_var*
-//#UC END# *551544E2001A_FF1E0A42BBEF_var*
 begin
-//#UC START# *551544E2001A_FF1E0A42BBEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FF1E0A42BBEF_impl*
+ Result := ;
 end;//TkwStringReplaceFirst.GetResultTypeInfo
 
 function TkwStringReplaceFirst.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1905,12 +1837,8 @@ begin
 end;//TkwTextReplace.GetWordNameForRegister
 
 function TkwTextReplace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6F240EDBC3AE_var*
-//#UC END# *551544E2001A_6F240EDBC3AE_var*
 begin
-//#UC START# *551544E2001A_6F240EDBC3AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6F240EDBC3AE_impl*
+ Result := ;
 end;//TkwTextReplace.GetResultTypeInfo
 
 function TkwTextReplace.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1957,12 +1885,8 @@ begin
 end;//TkwTextReplaceFirst.GetWordNameForRegister
 
 function TkwTextReplaceFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0527F8C9DF24_var*
-//#UC END# *551544E2001A_0527F8C9DF24_var*
 begin
-//#UC START# *551544E2001A_0527F8C9DF24_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0527F8C9DF24_impl*
+ Result := ;
 end;//TkwTextReplaceFirst.GetResultTypeInfo
 
 function TkwTextReplaceFirst.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2006,12 +1930,8 @@ begin
 end;//TkwStringChar.GetWordNameForRegister
 
 function TkwStringChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9597582C9BD4_var*
-//#UC END# *551544E2001A_9597582C9BD4_var*
 begin
-//#UC START# *551544E2001A_9597582C9BD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9597582C9BD4_impl*
+ Result := ;
 end;//TkwStringChar.GetResultTypeInfo
 
 function TkwStringChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2054,12 +1974,8 @@ begin
 end;//TkwStringCodePage.GetWordNameForRegister
 
 function TkwStringCodePage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6CAF85926E0C_var*
-//#UC END# *551544E2001A_6CAF85926E0C_var*
 begin
-//#UC START# *551544E2001A_6CAF85926E0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6CAF85926E0C_impl*
+ Result := ;
 end;//TkwStringCodePage.GetResultTypeInfo
 
 function TkwStringCodePage.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2105,12 +2021,8 @@ begin
 end;//TkwStringLen.GetWordNameForRegister
 
 function TkwStringLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0BA6E62BEF84_var*
-//#UC END# *551544E2001A_0BA6E62BEF84_var*
 begin
-//#UC START# *551544E2001A_0BA6E62BEF84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0BA6E62BEF84_impl*
+ Result := ;
 end;//TkwStringLen.GetResultTypeInfo
 
 function TkwStringLen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2154,12 +2066,8 @@ begin
 end;//TkwStringToChar.GetWordNameForRegister
 
 function TkwStringToChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CA33F456975C_var*
-//#UC END# *551544E2001A_CA33F456975C_var*
 begin
-//#UC START# *551544E2001A_CA33F456975C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CA33F456975C_impl*
+ Result := ;
 end;//TkwStringToChar.GetResultTypeInfo
 
 function TkwStringToChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2202,12 +2110,8 @@ begin
 end;//TkwCharToString.GetWordNameForRegister
 
 function TkwCharToString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4C3CAF64FEF3_var*
-//#UC END# *551544E2001A_4C3CAF64FEF3_var*
 begin
-//#UC START# *551544E2001A_4C3CAF64FEF3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4C3CAF64FEF3_impl*
+ Result := !!!;
 end;//TkwCharToString.GetResultTypeInfo
 
 function TkwCharToString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2251,12 +2155,8 @@ begin
 end;//TkwCharDupe.GetWordNameForRegister
 
 function TkwCharDupe.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_355A8C3D70FA_var*
-//#UC END# *551544E2001A_355A8C3D70FA_var*
 begin
-//#UC START# *551544E2001A_355A8C3D70FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_355A8C3D70FA_impl*
+ Result := ;
 end;//TkwCharDupe.GetResultTypeInfo
 
 function TkwCharDupe.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2303,12 +2203,8 @@ begin
 end;//TkwStringInc.GetWordNameForRegister
 
 function TkwStringInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F3116B965978_var*
-//#UC END# *551544E2001A_F3116B965978_var*
 begin
-//#UC START# *551544E2001A_F3116B965978_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F3116B965978_impl*
+ Result := ;
 end;//TkwStringInc.GetResultTypeInfo
 
 function TkwStringInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2356,12 +2252,8 @@ begin
 end;//TkwStringShift.GetWordNameForRegister
 
 function TkwStringShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EFB7A59A9041_var*
-//#UC END# *551544E2001A_EFB7A59A9041_var*
 begin
-//#UC START# *551544E2001A_EFB7A59A9041_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EFB7A59A9041_impl*
+ Result := ;
 end;//TkwStringShift.GetResultTypeInfo
 
 function TkwStringShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2407,12 +2299,8 @@ begin
 end;//TkwStringFirstChar.GetWordNameForRegister
 
 function TkwStringFirstChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4E9A5EC5FAC6_var*
-//#UC END# *551544E2001A_4E9A5EC5FAC6_var*
 begin
-//#UC START# *551544E2001A_4E9A5EC5FAC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4E9A5EC5FAC6_impl*
+ Result := ;
 end;//TkwStringFirstChar.GetResultTypeInfo
 
 function TkwStringFirstChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2455,12 +2343,8 @@ begin
 end;//TkwStringTrim.GetWordNameForRegister
 
 function TkwStringTrim.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_95D9D233CD72_var*
-//#UC END# *551544E2001A_95D9D233CD72_var*
 begin
-//#UC START# *551544E2001A_95D9D233CD72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_95D9D233CD72_impl*
+ Result := ;
 end;//TkwStringTrim.GetResultTypeInfo
 
 function TkwStringTrim.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2503,12 +2387,8 @@ begin
 end;//TkwStringTrimLeft.GetWordNameForRegister
 
 function TkwStringTrimLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2D2FC66E49DD_var*
-//#UC END# *551544E2001A_2D2FC66E49DD_var*
 begin
-//#UC START# *551544E2001A_2D2FC66E49DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2D2FC66E49DD_impl*
+ Result := ;
 end;//TkwStringTrimLeft.GetResultTypeInfo
 
 function TkwStringTrimLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2551,12 +2431,8 @@ begin
 end;//TkwStringTrimRight.GetWordNameForRegister
 
 function TkwStringTrimRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_807D7A8440DD_var*
-//#UC END# *551544E2001A_807D7A8440DD_var*
 begin
-//#UC START# *551544E2001A_807D7A8440DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_807D7A8440DD_impl*
+ Result := ;
 end;//TkwStringTrimRight.GetResultTypeInfo
 
 function TkwStringTrimRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2599,12 +2475,8 @@ begin
 end;//TkwStringDeleteDoubleSpaces.GetWordNameForRegister
 
 function TkwStringDeleteDoubleSpaces.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D5F09D866A34_var*
-//#UC END# *551544E2001A_D5F09D866A34_var*
 begin
-//#UC START# *551544E2001A_D5F09D866A34_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D5F09D866A34_impl*
+ Result := ;
 end;//TkwStringDeleteDoubleSpaces.GetResultTypeInfo
 
 function TkwStringDeleteDoubleSpaces.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2648,12 +2520,8 @@ begin
 end;//TkwStringDeleteDoubleChars.GetWordNameForRegister
 
 function TkwStringDeleteDoubleChars.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_30A1EAD7A5D9_var*
-//#UC END# *551544E2001A_30A1EAD7A5D9_var*
 begin
-//#UC START# *551544E2001A_30A1EAD7A5D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_30A1EAD7A5D9_impl*
+ Result := ;
 end;//TkwStringDeleteDoubleChars.GetResultTypeInfo
 
 function TkwStringDeleteDoubleChars.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2698,12 +2566,8 @@ begin
 end;//TkwStringSubstring.GetWordNameForRegister
 
 function TkwStringSubstring.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2E3FD122E430_var*
-//#UC END# *551544E2001A_2E3FD122E430_var*
 begin
-//#UC START# *551544E2001A_2E3FD122E430_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2E3FD122E430_impl*
+ Result := ;
 end;//TkwStringSubstring.GetResultTypeInfo
 
 function TkwStringSubstring.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2746,12 +2610,8 @@ begin
 end;//TkwStringLower.GetWordNameForRegister
 
 function TkwStringLower.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B79BEA825961_var*
-//#UC END# *551544E2001A_B79BEA825961_var*
 begin
-//#UC START# *551544E2001A_B79BEA825961_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B79BEA825961_impl*
+ Result := ;
 end;//TkwStringLower.GetResultTypeInfo
 
 function TkwStringLower.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2794,12 +2654,8 @@ begin
 end;//TkwStringUpper.GetWordNameForRegister
 
 function TkwStringUpper.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8BA4B632B802_var*
-//#UC END# *551544E2001A_8BA4B632B802_var*
 begin
-//#UC START# *551544E2001A_8BA4B632B802_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8BA4B632B802_impl*
+ Result := ;
 end;//TkwStringUpper.GetResultTypeInfo
 
 function TkwStringUpper.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2852,12 +2708,8 @@ begin
 end;//TkwVarDecLen.DoRun
 
 function TkwVarDecLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5B249AD9723E_var*
-//#UC END# *551544E2001A_5B249AD9723E_var*
 begin
-//#UC START# *551544E2001A_5B249AD9723E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5B249AD9723E_impl*
+ Result := ;
 end;//TkwVarDecLen.GetResultTypeInfo
 
 function TkwVarDecLen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2909,12 +2761,8 @@ begin
 end;//TkwVarInc.DoRun
 
 function TkwVarInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FF4D82AA3241_var*
-//#UC END# *551544E2001A_FF4D82AA3241_var*
 begin
-//#UC START# *551544E2001A_FF4D82AA3241_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FF4D82AA3241_impl*
+ Result := ;
 end;//TkwVarInc.GetResultTypeInfo
 
 function TkwVarInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2998,12 +2846,8 @@ begin
 end;//TkwRSplitTo.DoRun
 
 function TkwRSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D442EF995DFF_var*
-//#UC END# *551544E2001A_D442EF995DFF_var*
 begin
-//#UC START# *551544E2001A_D442EF995DFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D442EF995DFF_impl*
+ Result := ;
 end;//TkwRSplitTo.GetResultTypeInfo
 
 function TkwRSplitTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3056,12 +2900,8 @@ begin
 end;//TkwVarShift.DoRun
 
 function TkwVarShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E1736F173AD3_var*
-//#UC END# *551544E2001A_E1736F173AD3_var*
 begin
-//#UC START# *551544E2001A_E1736F173AD3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E1736F173AD3_impl*
+ Result := ;
 end;//TkwVarShift.GetResultTypeInfo
 
 function TkwVarShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3138,12 +2978,8 @@ begin
 end;//TkwSplitTo.DoRun
 
 function TkwSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BF0C6B892128_var*
-//#UC END# *551544E2001A_BF0C6B892128_var*
 begin
-//#UC START# *551544E2001A_BF0C6B892128_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BF0C6B892128_impl*
+ Result := ;
 end;//TkwSplitTo.GetResultTypeInfo
 
 function TkwSplitTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3196,12 +3032,8 @@ begin
 end;//TkwVarPushCharAndInc.DoRun
 
 function TkwVarPushCharAndInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6014F0D564E4_var*
-//#UC END# *551544E2001A_6014F0D564E4_var*
 begin
-//#UC START# *551544E2001A_6014F0D564E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6014F0D564E4_impl*
+ Result := ;
 end;//TkwVarPushCharAndInc.GetResultTypeInfo
 
 function TkwVarPushCharAndInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;

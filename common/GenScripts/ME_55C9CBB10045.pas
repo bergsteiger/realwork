@@ -263,12 +263,8 @@ begin
 end;//TkwPopTreeNodeGetNext.GetWordNameForRegister
 
 function TkwPopTreeNodeGetNext.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A78303612230_var*
-//#UC END# *551544E2001A_A78303612230_var*
 begin
-//#UC START# *551544E2001A_A78303612230_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A78303612230_impl*
+ Result := ;
 end;//TkwPopTreeNodeGetNext.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNext.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -311,12 +307,8 @@ begin
 end;//TkwPopTreeNodeHasChildren.GetWordNameForRegister
 
 function TkwPopTreeNodeHasChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5E7363490ED0_var*
-//#UC END# *551544E2001A_5E7363490ED0_var*
 begin
-//#UC START# *551544E2001A_5E7363490ED0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5E7363490ED0_impl*
+ Result := ;
 end;//TkwPopTreeNodeHasChildren.GetResultTypeInfo
 
 function TkwPopTreeNodeHasChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -359,12 +351,8 @@ begin
 end;//TkwPopTreeNodeGetPrev.GetWordNameForRegister
 
 function TkwPopTreeNodeGetPrev.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_55B024C23EBF_var*
-//#UC END# *551544E2001A_55B024C23EBF_var*
 begin
-//#UC START# *551544E2001A_55B024C23EBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_55B024C23EBF_impl*
+ Result := ;
 end;//TkwPopTreeNodeGetPrev.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrev.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -407,12 +395,8 @@ begin
 end;//TkwPopTreeNodeGetFirstChild.GetWordNameForRegister
 
 function TkwPopTreeNodeGetFirstChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5EA990C4D795_var*
-//#UC END# *551544E2001A_5EA990C4D795_var*
 begin
-//#UC START# *551544E2001A_5EA990C4D795_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5EA990C4D795_impl*
+ Result := ;
 end;//TkwPopTreeNodeGetFirstChild.GetResultTypeInfo
 
 function TkwPopTreeNodeGetFirstChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -455,12 +439,8 @@ begin
 end;//TkwPopTreeNodeGetLastChild.GetWordNameForRegister
 
 function TkwPopTreeNodeGetLastChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C6C1AF6914F1_var*
-//#UC END# *551544E2001A_C6C1AF6914F1_var*
 begin
-//#UC START# *551544E2001A_C6C1AF6914F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C6C1AF6914F1_impl*
+ Result := ;
 end;//TkwPopTreeNodeGetLastChild.GetResultTypeInfo
 
 function TkwPopTreeNodeGetLastChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -503,12 +483,8 @@ begin
 end;//TkwPopTreeNodeGetNextSibling.GetWordNameForRegister
 
 function TkwPopTreeNodeGetNextSibling.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D75C1EAFB29F_var*
-//#UC END# *551544E2001A_D75C1EAFB29F_var*
 begin
-//#UC START# *551544E2001A_D75C1EAFB29F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D75C1EAFB29F_impl*
+ Result := ;
 end;//TkwPopTreeNodeGetNextSibling.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNextSibling.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -551,12 +527,8 @@ begin
 end;//TkwPopTreeNodeGetPrevSibling.GetWordNameForRegister
 
 function TkwPopTreeNodeGetPrevSibling.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_35C934477819_var*
-//#UC END# *551544E2001A_35C934477819_var*
 begin
-//#UC START# *551544E2001A_35C934477819_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_35C934477819_impl*
+ Result := ;
 end;//TkwPopTreeNodeGetPrevSibling.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrevSibling.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -599,12 +571,8 @@ begin
 end;//TkwPopTreeNodeGetNextVisible.GetWordNameForRegister
 
 function TkwPopTreeNodeGetNextVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4D009DB53D61_var*
-//#UC END# *551544E2001A_4D009DB53D61_var*
 begin
-//#UC START# *551544E2001A_4D009DB53D61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4D009DB53D61_impl*
+ Result := ;
 end;//TkwPopTreeNodeGetNextVisible.GetResultTypeInfo
 
 function TkwPopTreeNodeGetNextVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -647,12 +615,8 @@ begin
 end;//TkwPopTreeNodeGetPrevVisible.GetWordNameForRegister
 
 function TkwPopTreeNodeGetPrevVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CA039569FA58_var*
-//#UC END# *551544E2001A_CA039569FA58_var*
 begin
-//#UC START# *551544E2001A_CA039569FA58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CA039569FA58_impl*
+ Result := ;
 end;//TkwPopTreeNodeGetPrevVisible.GetResultTypeInfo
 
 function TkwPopTreeNodeGetPrevVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -696,12 +660,8 @@ begin
 end;//TkwPopTreeNodeExpand.GetWordNameForRegister
 
 function TkwPopTreeNodeExpand.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_53AEF2794BFD_var*
-//#UC END# *551544E2001A_53AEF2794BFD_var*
 begin
-//#UC START# *551544E2001A_53AEF2794BFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_53AEF2794BFD_impl*
+ Result := ;
 end;//TkwPopTreeNodeExpand.GetResultTypeInfo
 
 function TkwPopTreeNodeExpand.GetAllParamsCount(const aCtx: TtfwContext): Integer;
