@@ -1,56 +1,46 @@
 unit tfwIteratableParent;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwIteratableParent.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::Array::TtfwIteratableParent
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3PureMixIns,
-  l3ProtoObject,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , l3ProtoObject
+ , l3PureMixIns
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _ItemType_ = TtfwStackValue;
  TtfwIteratableParent = {abstract} class(Tl3ProtoObject)
- protected
- // realized methods
+  protected
    function pm_GetFirst: _ItemType_;
    function pm_GetLast: _ItemType_;
    function pm_GetItems(anIndex: Integer): _ItemType_;
    function pm_GetEmpty: Boolean;
    function pm_GetCount: Integer;
- public
- // realized methods
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    function IndexOf(const anItem: _ItemType_): Integer;
    function Add(const anItem: _ItemType_): Integer;
    procedure Clear;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
  end;//TtfwIteratableParent
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwIteratableParent
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TtfwIteratableParent.pm_GetFirst: _ItemType_;
 //#UC START# *47D8233603DD_52E29ED5016Bget_var*
@@ -131,8 +121,9 @@ begin
 //#UC END# *4F62FF5D0327_52E29ED5016B_impl*
 end;//TtfwIteratableParent.Clear
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwIteratableParent.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_52E29ED5016B_var*
 //#UC END# *47A6FEE600FC_52E29ED5016B_var*
 begin
@@ -140,8 +131,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_52E29ED5016B_impl*
 end;//TtfwIteratableParent.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not NoScripts
-
+{$IfEnd} // NOT Defined(NoScripts)
 end.

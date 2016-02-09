@@ -1,47 +1,35 @@
 unit tfwEnumRegistrator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwEnumRegistrator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ConstantsRegistration::TtfwEnumRegistrator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwEnumRegistrator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwEnumRegistrator = {final} class
- public
- // public methods
+  public
    class function RegisterEnum(aTypeInfo: PTypeInfo): Boolean;
  end;//TtfwEnumRegistrator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwEnumConstantRegistrator,
-  tfwRegisteredEnums,
-  tfwIntegerToEnumName,
-  tfwTypeModifier
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwEnumRegistrator
+ l3ImplUses
+ , tfwEnumConstantRegistrator
+ , tfwRegisteredEnums
+ , tfwIntegerToEnumName
+ , tfwTypeModifier
+;
 
 class function TtfwEnumRegistrator.RegisterEnum(aTypeInfo: PTypeInfo): Boolean;
 //#UC START# *53C7E877024C_53C7E84E012D_var*
@@ -76,7 +64,6 @@ begin
  end;//aTypeInfo.Name <> 'Boolean'
 //#UC END# *53C7E877024C_53C7E84E012D_impl*
 end;//TtfwEnumRegistrator.RegisterEnum
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

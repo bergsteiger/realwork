@@ -1,63 +1,52 @@
 unit tfwDictionaryList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryList
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryList.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionaryEx,
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes,
-  tfwDictionaryExPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryEx
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+ , tfwDictionaryExPrim
+;
 
-{$If not defined(NoScripts)}
 type
  _ItemType_ = TtfwDictionaryEx;
- {$Include ..\ScriptEngine\tfwDictionaryList.imp.pas}
+ {$Include tfwDictionaryList.imp.pas}
  _tfwNamedDictionaryList_Parent_ = _tfwDictionaryList_;
- {$Include ..\ScriptEngine\tfwNamedDictionaryList.imp.pas}
+ {$Include tfwNamedDictionaryList.imp.pas}
  TtfwDictionaryList = class(_tfwNamedDictionaryList_)
  end;//TtfwDictionaryList
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+ , l3String
+;
 
 type _Instance_R_ = TtfwDictionaryList;
 
-{$Include ..\ScriptEngine\tfwDictionaryList.imp.pas}
+{$Include tfwDictionaryList.imp.pas}
 
+{$Include tfwNamedDictionaryList.imp.pas}
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$Include ..\ScriptEngine\tfwNamedDictionaryList.imp.pas}
-
-
-{$IfEnd} //not NoScripts
 end.

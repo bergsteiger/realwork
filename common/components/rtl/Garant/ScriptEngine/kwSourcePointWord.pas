@@ -1,56 +1,39 @@
 unit kwSourcePointWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwSourcePointWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwSourcePointWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSourcePointWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptingInterfaces
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwSourcePointWord = {abstract} class(TtfwWord)
- private
- // private fields
-   f_SourceFileName : Il3CString;
-   f_SourceLine : Integer;
- protected
- // overridden protected methods
+  private
+   f_SourceFileName: Il3CString;
+   f_SourceLine: Integer;
+  protected
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
-   function SourcePoint: TtfwSourcePoint; override;
- public
- // public methods
+  public
    constructor Create(const aCtx: TtfwContext); reintroduce;
+   function SourcePoint: TtfwSourcePoint; override;
  end;//TkwSourcePointWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwSourcePointWord
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TkwSourcePointWord.Create(const aCtx: TtfwContext);
 //#UC START# *556427DD0163_556427250160_var*
@@ -72,11 +55,8 @@ begin
 end;//TkwSourcePointWord.Create
 
 procedure TkwSourcePointWord.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_SourceFileName := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TkwSourcePointWord.ClearFields
 
@@ -91,12 +71,9 @@ begin
 //#UC END# *556317DE02B5_556427250160_impl*
 end;//TkwSourcePointWord.SourcePoint
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwSourcePointWord
  TkwSourcePointWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwSourcePointWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

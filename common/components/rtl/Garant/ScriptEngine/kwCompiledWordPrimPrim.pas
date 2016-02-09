@@ -1,68 +1,55 @@
 unit kwCompiledWordPrimPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwCompiledWordPrimPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwCompiledWordPrimPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrimPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwKeyWordPrim,
-  kwSourcePointWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSourcePointWord
+ , tfwScriptingInterfaces
+ , tfwKeyWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledWordPrimPrim = class(TkwSourcePointWord)
- private
- // private fields
-   f_WordProducer : TtfwWord;
-    {* Слово, которое породило данное при компиляции}
- protected
- // overridden property methods
+  private
+   f_WordProducer: TtfwWord;
+    {* Слово, которое породило данное при компиляции }
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    function pm_GetWordProducer: TtfwWord; override;
    procedure pm_SetWordProducer(aValue: TtfwWord); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // overridden public methods
-   function GetEndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
-   function AcceptMedianBracket(aBracket: TtfwWord;
-     var aCtx: TtfwContext): Boolean; override;
- public
- // public methods
+  public
    constructor Create(aWordProducer: TtfwWord;
-     const aCtx: TtfwContext;
-     aKey: TtfwKeyWordPrim); reintroduce;
+    const aCtx: TtfwContext;
+    aKey: TtfwKeyWordPrim); reintroduce;
+   function GetEndBracket(const aContext: TtfwContext;
+    aSilent: Boolean): RtfwWord; override;
+   function AcceptMedianBracket(aBracket: TtfwWord;
+    var aCtx: TtfwContext): Boolean; override;
  end;//TkwCompiledWordPrimPrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledWordPrimPrim
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 constructor TkwCompiledWordPrimPrim.Create(aWordProducer: TtfwWord;
-  const aCtx: TtfwContext;
-  aKey: TtfwKeyWordPrim);
+ const aCtx: TtfwContext;
+ aKey: TtfwKeyWordPrim);
 //#UC START# *55EEDB4E00B3_55EEDAFE018F_var*
 //#UC END# *55EEDB4E00B3_55EEDAFE018F_var*
 begin
@@ -74,6 +61,7 @@ begin
 end;//TkwCompiledWordPrimPrim.Create
 
 procedure TkwCompiledWordPrimPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55EEDAFE018F_var*
 //#UC END# *479731C50290_55EEDAFE018F_var*
 begin
@@ -83,8 +71,9 @@ begin
 //#UC END# *479731C50290_55EEDAFE018F_impl*
 end;//TkwCompiledWordPrimPrim.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TkwCompiledWordPrimPrim.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_55EEDAFE018F_var*
 //#UC END# *47A6FEE600FC_55EEDAFE018F_var*
 begin
@@ -92,7 +81,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_55EEDAFE018F_impl*
 end;//TkwCompiledWordPrimPrim.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TkwCompiledWordPrimPrim.pm_GetWordProducer: TtfwWord;
 //#UC START# *4F43C9A10139_55EEDAFE018Fget_var*
@@ -114,7 +103,7 @@ begin
 end;//TkwCompiledWordPrimPrim.pm_SetWordProducer
 
 function TkwCompiledWordPrimPrim.GetEndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *52D6B62E001B_55EEDAFE018F_var*
 //#UC END# *52D6B62E001B_55EEDAFE018F_var*
 begin
@@ -124,7 +113,7 @@ begin
 end;//TkwCompiledWordPrimPrim.GetEndBracket
 
 function TkwCompiledWordPrimPrim.AcceptMedianBracket(aBracket: TtfwWord;
-  var aCtx: TtfwContext): Boolean;
+ var aCtx: TtfwContext): Boolean;
 //#UC START# *52D7DC84019E_55EEDAFE018F_var*
 //#UC END# *52D7DC84019E_55EEDAFE018F_var*
 begin
@@ -133,12 +122,9 @@ begin
 //#UC END# *52D7DC84019E_55EEDAFE018F_impl*
 end;//TkwCompiledWordPrimPrim.AcceptMedianBracket
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledWordPrimPrim
  TkwCompiledWordPrimPrim.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledWordPrimPrim }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

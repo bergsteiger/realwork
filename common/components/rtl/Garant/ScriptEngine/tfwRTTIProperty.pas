@@ -1,73 +1,53 @@
 unit tfwRTTIProperty;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwRTTIProperty.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwRTTIProperty
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRTTIProperty.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo,
-  tfwRegisterableWordPrim,
-  tfwScriptingInterfaces,
-  tfwTypeInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWordPrim
+ , TypInfo
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwRTTIProperty = class(TtfwRegisterableWordPrim)
- private
- // private fields
-   f_PropType : PTypeInfo;
-   f_Class : TClass;
-   f_PropName : AnsiString;
- protected
- // realized methods
+  private
+   f_PropType: PTypeInfo;
+   f_Class: TClass;
+   f_PropName: AnsiString;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden property methods
-   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- protected
- // overridden protected methods
    class function ReallyNeedRegister: Boolean; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
- public
- // public methods
+   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
+  public
    class procedure Register(aClass: TClass;
-     aPropInfo: PPropInfo);
+    aPropInfo: PPropInfo);
    constructor Create(aClass: TClass;
-     aPropInfo: PPropInfo); reintroduce;
+    aPropInfo: PPropInfo); reintroduce;
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
  end;//TtfwRTTIProperty
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwRTTIProperty
+ l3ImplUses
+ , SysUtils
+ , l3String
+;
 
 class procedure TtfwRTTIProperty.Register(aClass: TClass;
-  aPropInfo: PPropInfo);
+ aPropInfo: PPropInfo);
 //#UC START# *55C8626500B1_55C861DE03D5_var*
 var
  l_I : TtfwRTTIProperty;
@@ -86,7 +66,7 @@ begin
 end;//TtfwRTTIProperty.Register
 
 constructor TtfwRTTIProperty.Create(aClass: TClass;
-  aPropInfo: PPropInfo);
+ aPropInfo: PPropInfo);
 //#UC START# *55C862D0004D_55C861DE03D5_var*
 //#UC END# *55C862D0004D_55C861DE03D5_var*
 begin
@@ -145,7 +125,7 @@ begin
 end;//TtfwRTTIProperty.pm_GetResultTypeInfo
 
 procedure TtfwRTTIProperty.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D00B00031A_55C861DE03D5_var*
 var
  l_O : TObject;
@@ -187,12 +167,9 @@ begin
 //#UC END# *551544E2001A_55C861DE03D5_impl*
 end;//TtfwRTTIProperty.GetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwRTTIProperty
  TtfwRTTIProperty.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwRTTIProperty }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,41 +1,34 @@
 unit tfwAxiomaticsResNameGetter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwAxiomaticsResNameGetter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptedAxiomatics::TtfwAxiomaticsResNameGetter
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetter.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+
 type
  RtfwAxiomaticsResNameGetter = class of TtfwAxiomaticsResNameGetter;
 
  TtfwAxiomaticsResNameGetter = class
- public
- // public methods
+  public
    class function ResName: AnsiString; virtual; abstract;
    class procedure Register;
  end;//TtfwAxiomaticsResNameGetter
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwAxiomaticsResNameGetters
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwAxiomaticsResNameGetter
+ l3ImplUses
+ , tfwAxiomaticsResNameGetters
+;
 
 class procedure TtfwAxiomaticsResNameGetter.Register;
 //#UC START# *55B8C6800184_55B7A33101AF_var*
@@ -46,7 +39,6 @@ begin
   TtfwAxiomaticsResNameGetters.Instance.Add(Self);
 //#UC END# *55B8C6800184_55B7A33101AF_impl*
 end;//TtfwAxiomaticsResNameGetter.Register
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

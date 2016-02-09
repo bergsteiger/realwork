@@ -1,48 +1,38 @@
 unit tfwDictionaryPrimPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryPrimPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::Dictionary::TtfwDictionaryPrimPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionaryPrimPrimPrim,
-  l3Interfaces,
-  l3Types
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryPrimPrimPrim
+ , l3Interfaces
+ , l3Types
+;
 
-{$If not defined(NoScripts)}
 type
  _l3DelphiStringSearcher_Parent_ = TtfwDictionaryPrimPrimPrim;
- {$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcher.imp.pas}
+ {$Include l3DelphiStringSearcher.imp.pas}
  TtfwDictionaryPrimPrim = {abstract} class(_l3DelphiStringSearcher_)
  end;//TtfwDictionaryPrimPrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , l3String
+;
 
 type _Instance_R_ = TtfwDictionaryPrimPrim;
 
-{$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcher.imp.pas}
+{$Include l3DelphiStringSearcher.imp.pas}
+{$IfEnd} // NOT Defined(NoScripts)
 
-
-{$IfEnd} //not NoScripts
 end.

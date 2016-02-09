@@ -1,56 +1,41 @@
 unit tfwBeginLikeWord;
+ {* Поддержка слов-скобок. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwBeginLikeWord.pas"
-// Начат: 29.04.2011 21:02
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TtfwBeginLikeWord
-//
-// Поддержка слов-скобок.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwBeginLikeWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwAnonimousWord,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwAnonimousWord
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwBeginLikeWord = {abstract} class(TtfwAnonimousWord)
   {* Поддержка слов-скобок. }
- protected
- // overridden protected methods
+  protected
    procedure AfterCompile(var theNewContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim); override;
+    aCompiled: TkwCompiledWordPrim); override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
  end;//TtfwBeginLikeWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwBeginLikeCompiledCode
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwBeginLikeWord
+ l3ImplUses
+ , kwBeginLikeCompiledCode
+;
 
 procedure TtfwBeginLikeWord.AfterCompile(var theNewContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim);
+ aCompiled: TkwCompiledWordPrim);
 //#UC START# *4DB6CE2302C9_4DBAEF29031F_var*
 //#UC END# *4DB6CE2302C9_4DBAEF29031F_var*
 begin
@@ -69,12 +54,9 @@ begin
 //#UC END# *4DBAEE0D028D_4DBAEF29031F_impl*
 end;//TtfwBeginLikeWord.CompiledWordClass
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwBeginLikeWord
  TtfwBeginLikeWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwBeginLikeWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

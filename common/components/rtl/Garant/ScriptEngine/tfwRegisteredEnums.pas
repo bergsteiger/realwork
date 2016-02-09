@@ -1,59 +1,54 @@
 unit tfwRegisteredEnums;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwRegisteredEnums.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ConstantsRegistration::TtfwRegisteredEnums
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRegisteredEnums.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRTTITypeInfoList
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRTTITypeInfoList
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwRegisteredEnums = class(TtfwRTTITypeInfoList)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwRegisteredEnums;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwRegisteredEnums }
  end;//TtfwRegisteredEnums
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TtfwRegisteredEnums
-
-var g_TtfwRegisteredEnums : TtfwRegisteredEnums = nil;
+var g_TtfwRegisteredEnums: TtfwRegisteredEnums = nil;
+ {* Экземпляр синглетона TtfwRegisteredEnums }
 
 procedure TtfwRegisteredEnumsFree;
+ {* Метод освобождения экземпляра синглетона TtfwRegisteredEnums }
 begin
  l3Free(g_TtfwRegisteredEnums);
-end;
+end;//TtfwRegisteredEnumsFree
+
+class function TtfwRegisteredEnums.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwRegisteredEnums <> nil;
+end;//TtfwRegisteredEnums.Exists
 
 class function TtfwRegisteredEnums.Instance: TtfwRegisteredEnums;
+ {* Метод получения экземпляра синглетона TtfwRegisteredEnums }
 begin
  if (g_TtfwRegisteredEnums = nil) then
  begin
@@ -61,15 +56,7 @@ begin
   g_TtfwRegisteredEnums := Create;
  end;
  Result := g_TtfwRegisteredEnums;
-end;
-
-
-class function TtfwRegisteredEnums.Exists: Boolean;
- {-}
-begin
- Result := g_TtfwRegisteredEnums <> nil;
-end;//TtfwRegisteredEnums.Exists
-
-{$IfEnd} //not NoScripts
+end;//TtfwRegisteredEnums.Instance
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

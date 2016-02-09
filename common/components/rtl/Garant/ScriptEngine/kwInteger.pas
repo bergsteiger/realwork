@@ -1,66 +1,46 @@
 unit kwInteger;
+ {* Зарезервированное слово Interger }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwInteger.pas"
-// Начат: 26.04.2011 17:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TkwInteger
-//
-// Зарезервированное слово Interger
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInteger.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  TypInfo,
-  l3Interfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptingInterfaces
+ , TypInfo
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwInteger = class(TtfwWord)
   {* Зарезервированное слово Interger }
- private
- // private fields
-   f_Value : Integer;
-    {* Поле для свойства Value}
- protected
- // realized methods
+  private
+   f_Value: Integer;
+    {* Поле для свойства Value }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+  public
+   constructor Create(aValue: Integer); reintroduce;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function WordName: Il3CString; override;
- public
- // public methods
-   constructor Create(aValue: Integer); reintroduce;
- public
- // public properties
+  public
    property Value: Integer
-     read f_Value;
+    read f_Value;
  end;//TkwInteger
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwInteger
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TkwInteger.Create(aValue: Integer);
 //#UC START# *4DB6CD0F02C5_4DB6CCE100E0_var*
@@ -99,12 +79,9 @@ begin
 //#UC END# *55AFD7DA0258_4DB6CCE100E0_impl*
 end;//TkwInteger.WordName
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwInteger
  TkwInteger.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwInteger }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

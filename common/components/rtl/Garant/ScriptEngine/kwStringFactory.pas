@@ -1,76 +1,51 @@
 unit kwStringFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwStringFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TkwStringFactory
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStringFactory.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  kwString,
-  kwStringList
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwStringList
+ , kwString
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwStringFactory = class(TkwStringList)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    function MakeKW(const aValue: Il3CString): TkwString;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwStringFactory;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TkwStringFactory }
  end;//TkwStringFactory
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a},
-  SysUtils,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TkwStringFactory
-
-var g_TkwStringFactory : TkwStringFactory = nil;
+var g_TkwStringFactory: TkwStringFactory = nil;
+ {* Экземпляр синглетона TkwStringFactory }
 
 procedure TkwStringFactoryFree;
+ {* Метод освобождения экземпляра синглетона TkwStringFactory }
 begin
  l3Free(g_TkwStringFactory);
-end;
-
-class function TkwStringFactory.Instance: TkwStringFactory;
-begin
- if (g_TkwStringFactory = nil) then
- begin
-  l3System.AddExitProc(TkwStringFactoryFree);
-  g_TkwStringFactory := Create;
- end;
- Result := g_TkwStringFactory;
-end;
-
+end;//TkwStringFactoryFree
 
 function TkwStringFactory.MakeKW(const aValue: Il3CString): TkwString;
 //#UC START# *4F3E41C603BC_4F3E416701E8_var*
@@ -101,10 +76,21 @@ begin
 end;//TkwStringFactory.MakeKW
 
 class function TkwStringFactory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TkwStringFactory <> nil;
 end;//TkwStringFactory.Exists
+
+class function TkwStringFactory.Instance: TkwStringFactory;
+ {* Метод получения экземпляра синглетона TkwStringFactory }
+begin
+ if (g_TkwStringFactory = nil) then
+ begin
+  l3System.AddExitProc(TkwStringFactoryFree);
+  g_TkwStringFactory := Create;
+ end;
+ Result := g_TkwStringFactory;
+end;//TkwStringFactory.Instance
 
 procedure TkwStringFactory.InitFields;
 //#UC START# *47A042E100E2_4F3E416701E8_var*
@@ -115,7 +101,6 @@ begin
  Sorted := true;
 //#UC END# *47A042E100E2_4F3E416701E8_impl*
 end;//TkwStringFactory.InitFields
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

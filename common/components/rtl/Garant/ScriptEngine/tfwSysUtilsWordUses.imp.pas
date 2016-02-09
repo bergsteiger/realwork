@@ -1,29 +1,28 @@
 {$IfNDef tfwSysUtilsWordUses_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwSysUtilsWordUses.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$Core::WordsTemplates::tfwSysUtilsWordUses
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSysUtilsWordUses.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define tfwSysUtilsWordUses_imp}
-{$If not defined(NoScripts)}
- _tfwSysUtilsWordUses_ = {mixin} class(_tfwSysUtilsWordUses_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _tfwSysUtilsWordUses_ = class(_tfwSysUtilsWordUses_Parent_)
  end;//_tfwSysUtilsWordUses_
-{$Else}
 
- _tfwSysUtilsWordUses_ = _tfwSysUtilsWordUses_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_tfwSysUtilsWordUses_ = _tfwSysUtilsWordUses_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else tfwSysUtilsWordUses_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef tfwSysUtilsWordUses_imp_impl}
 
+{$Define tfwSysUtilsWordUses_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf tfwSysUtilsWordUses_imp_impl}
 
 {$EndIf tfwSysUtilsWordUses_imp}
+

@@ -1,39 +1,32 @@
 unit tfwDictionaryExPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryExPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryExPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryExPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionary
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionary
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwDictionaryExPrim = {abstract} class(TtfwDictionary)
- public
- // public methods
+  public
    function UsesDictionary(anOther: TtfwDictionaryExPrim): Boolean; virtual;
    function IsValidCode: Boolean; virtual;
  end;//TtfwDictionaryExPrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwDictionaryExPrim
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TtfwDictionaryExPrim.UsesDictionary(anOther: TtfwDictionaryExPrim): Boolean;
 //#UC START# *55A4FD6401D3_55A4FCDC01B8_var*
@@ -52,7 +45,6 @@ begin
  Result := true;
 //#UC END# *55A3E53A00A8_55A4FCDC01B8_impl*
 end;//TtfwDictionaryExPrim.IsValidCode
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

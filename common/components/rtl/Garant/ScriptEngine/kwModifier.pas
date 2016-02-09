@@ -1,55 +1,41 @@
 unit kwModifier;
+ {* Поддержка модификаторов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwModifier.pas"
-// Начат: 11.05.2011 21:28
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::Modifier
-//
-// Поддержка модификаторов.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwModifier.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwTypeInfo,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwTypeInfo
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwModifier = {abstract scriptword} class(TtfwRegisterableWord)
+ TkwModifier = {abstract} class(TtfwRegisterableWord)
   {* Поддержка модификаторов. }
- protected
- // property methods
+  protected
    function pm_GetModifier: TtfwTypeInfo; virtual; abstract;
- protected
- // realized methods
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+  public
    function IsImmediate(const aCtx: TtfwContext): Boolean; override;
- protected
- // protected properties
+  protected
    property Modifier: TtfwTypeInfo
-     read pm_GetModifier;
+    read pm_GetModifier;
  end;//TkwModifier
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwModifier
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwModifier.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DCACE1201A3_var*
@@ -61,17 +47,13 @@ begin
 end;//TkwModifier.DoDoIt
 
 function TkwModifier.IsImmediate(const aCtx: TtfwContext): Boolean;
- {-}
 begin
- Result := true;
+ Result := True;
 end;//TkwModifier.IsImmediate
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация Modifier
  TkwModifier.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация Modifier }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

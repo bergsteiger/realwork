@@ -1,88 +1,74 @@
 unit tfwDictionary;
+ {* Словарь }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwDictionary.pas"
-// Начат: 20.04.2011 18:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionary
-//
-// Словарь
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionary.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwScriptingInterfaces,
-  tfwDictionaryPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryPrim
+ , tfwScriptingInterfaces
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwDictionary = class(TtfwDictionaryPrim)
   {* Словарь }
- protected
- // property methods
+  protected
    function pm_GetDRbyCName(const aName: Il3CString): TtfwKeyWord;
- public
- // realized methods
-   function CheckWord(const aName: Il3CString): TtfwKeyWord;
- protected
- // overridden protected methods
-   procedure InitFields; override;
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- protected
- // protected methods
    function DoCheckWord(const aName: Il3CString): TtfwKeyWord; virtual;
    function DoGetDRbyCName(const aName: Il3CString): TtfwKeyWord; virtual;
    function IsAxiom: Boolean; virtual;
    function Add(aWord: TtfwKeyWord): Integer; virtual;
- public
- // public methods
+   procedure InitFields; override;
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    function AddWord(const aWordName: AnsiString;
-     aWordClass: RtfwWord): Boolean; overload; 
+    aWordClass: RtfwWord): Boolean; overload;
    function AddWord(const aWordName: AnsiString;
-     aWord: TtfwWord): Boolean; overload; 
+    aWord: TtfwWord): Boolean; overload;
    constructor Create; reintroduce;
    function OwnDRbyCName(const aName: Il3CString): TtfwKeyWord;
    function IsMain: Boolean; virtual;
- public
- // public properties
+   function CheckWord(const aName: Il3CString): TtfwKeyWord;
+  public
    property DRbyCName[const aName: Il3CString]: TtfwKeyWord
-     read pm_GetDRbyCName;
-     {* Элемент словаря по его имени }
+    read pm_GetDRbyCName;
+    {* Элемент словаря по его имени }
  end;//TtfwDictionary
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Types,
-  l3String,
-  Math,
-  tfwDictionaryWordsPack
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , l3Types
+ , l3String
+ , Math
+ , tfwDictionaryWordsPack
+ , SysUtils
+;
 
-{$If not defined(NoScripts)}
-
-// start class TtfwDictionary
+function TtfwDictionary.pm_GetDRbyCName(const aName: Il3CString): TtfwKeyWord;
+//#UC START# *4F465A710399_4DAEECD90016get_var*
+//#UC END# *4F465A710399_4DAEECD90016get_var*
+begin
+//#UC START# *4F465A710399_4DAEECD90016get_impl*
+ Result := DoGetDRbyCName(aName);
+//#UC END# *4F465A710399_4DAEECD90016get_impl*
+end;//TtfwDictionary.pm_GetDRbyCName
 
 function TtfwDictionary.AddWord(const aWordName: AnsiString;
-  aWordClass: RtfwWord): Boolean;
+ aWordClass: RtfwWord): Boolean;
 //#UC START# *4DAEEDA301CD_4DAEECD90016_var*
 var
  l_W : TtfwWord;
@@ -105,7 +91,7 @@ begin
 end;//TtfwDictionary.AddWord
 
 function TtfwDictionary.AddWord(const aWordName: AnsiString;
-  aWord: TtfwWord): Boolean;
+ aWord: TtfwWord): Boolean;
 //#UC START# *4DB5781B0086_4DAEECD90016_var*
 var
  l_W : TtfwKeyWord;
@@ -203,15 +189,6 @@ begin
 //#UC END# *55B0E87401FA_4DAEECD90016_impl*
 end;//TtfwDictionary.Add
 
-function TtfwDictionary.pm_GetDRbyCName(const aName: Il3CString): TtfwKeyWord;
-//#UC START# *4F465A710399_4DAEECD90016get_var*
-//#UC END# *4F465A710399_4DAEECD90016get_var*
-begin
-//#UC START# *4F465A710399_4DAEECD90016get_impl*
- Result := DoGetDRbyCName(aName);
-//#UC END# *4F465A710399_4DAEECD90016get_impl*
-end;//TtfwDictionary.pm_GetDRbyCName
-
 function TtfwDictionary.CheckWord(const aName: Il3CString): TtfwKeyWord;
 //#UC START# *4F46588B021E_4DAEECD90016_var*
 //#UC END# *4F46588B021E_4DAEECD90016_var*
@@ -231,8 +208,9 @@ begin
 //#UC END# *47A042E100E2_4DAEECD90016_impl*
 end;//TtfwDictionary.InitFields
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwDictionary.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4DAEECD90016_var*
 //#UC END# *47A6FEE600FC_4DAEECD90016_var*
 begin
@@ -240,8 +218,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4DAEECD90016_impl*
 end;//TtfwDictionary.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not NoScripts
-
+{$IfEnd} // NOT Defined(NoScripts)
 end.

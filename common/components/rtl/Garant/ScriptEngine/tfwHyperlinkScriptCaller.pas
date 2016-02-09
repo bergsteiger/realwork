@@ -1,30 +1,29 @@
 unit tfwHyperlinkScriptCaller;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwHyperlinkScriptCaller.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptCallers::TtfwHyperlinkScriptCaller
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwHyperlinkScriptCaller.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDefaultScriptCaller
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDefaultScriptCaller
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwHyperlinkScriptCaller = class(TtfwDefaultScriptCaller)
  end;//TtfwHyperlinkScriptCaller
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
+
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

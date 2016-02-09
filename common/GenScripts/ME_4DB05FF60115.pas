@@ -53,8 +53,8 @@ uses
  , l3String
  , SysUtils
  , l3Chars
- , l3Base
  , tfwCStringFactory
+ , l3Base
 ;
 
 var g_TtfwAutoregisteredDiction: TtfwAutoregisteredDiction = nil;

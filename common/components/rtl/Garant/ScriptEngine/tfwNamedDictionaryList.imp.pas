@@ -1,21 +1,15 @@
 {$IfNDef tfwNamedDictionaryList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwNamedDictionaryList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::tfwNamedDictionaryList
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwNamedDictionaryList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define tfwNamedDictionaryList_imp}
-{$If not defined(NoScripts)}
- _tfwNamedDictionaryList_ = {abstract mixin} class(_tfwNamedDictionaryList_Parent_)
- public
- // public methods
+
+{$If NOT Defined(NoScripts)}
+ _tfwNamedDictionaryList_ = {abstract} class(_tfwNamedDictionaryList_Parent_)
+  public
    procedure Insert(anIndex: Integer;
-     const anItem: _ItemType_);
+    const anItem: _ItemType_);
    procedure Add(const anItem: _ItemType_);
    function FindDictionary(const aFileName: Il3CString): _ItemType_; virtual;
    procedure Remove(const anItem: _ItemType_); virtual;
@@ -24,20 +18,21 @@
    procedure RemoveElementsOf(aList: _tfwNamedDictionaryList_);
    procedure RemoveNotValid;
  end;//_tfwNamedDictionaryList_
-{$Else}
 
- _tfwNamedDictionaryList_ = _tfwNamedDictionaryList_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_tfwNamedDictionaryList_ = _tfwNamedDictionaryList_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else tfwNamedDictionaryList_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef tfwNamedDictionaryList_imp_impl}
 
-// start class _tfwNamedDictionaryList_
+{$Define tfwNamedDictionaryList_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _tfwNamedDictionaryList_.Insert(anIndex: Integer;
-  const anItem: _ItemType_);
+ const anItem: _ItemType_);
 //#UC START# *55A3DF6602FC_55A63C1701BE_var*
 //#UC END# *55A3DF6602FC_55A63C1701BE_var*
 begin
@@ -164,7 +159,9 @@ begin
  end;//try..finally
 //#UC END# *55AFAA59009E_55A63C1701BE_impl*
 end;//_tfwNamedDictionaryList_.RemoveNotValid
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf tfwNamedDictionaryList_imp_impl}
 
 {$EndIf tfwNamedDictionaryList_imp}
+

@@ -1,44 +1,36 @@
 unit kwBeginLikeCompiledCode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwBeginLikeCompiledCode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwBeginLikeCompiledCode
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBeginLikeCompiledCode.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwBeginLikeCompiledCode = class(TkwCompiledWord)
- protected
- // overridden property methods
+  protected
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // overridden public methods
+  public
    function GetAsCaller(const aCtx: TtfwContext): TtfwWord; override;
    function MakeRefForCompile(const aCtx: TtfwContext;
-     aSNI: TtfwSuppressNextImmediate): TtfwWord; override;
+    aSNI: TtfwSuppressNextImmediate): TtfwWord; override;
  end;//TkwBeginLikeCompiledCode
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwBeginLikeCompiledCode
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TkwBeginLikeCompiledCode.pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo;
 //#UC START# *52CFC11603C8_52DFF03B0030get_var*
@@ -65,7 +57,7 @@ begin
 end;//TkwBeginLikeCompiledCode.GetAsCaller
 
 function TkwBeginLikeCompiledCode.MakeRefForCompile(const aCtx: TtfwContext;
-  aSNI: TtfwSuppressNextImmediate): TtfwWord;
+ aSNI: TtfwSuppressNextImmediate): TtfwWord;
 //#UC START# *55CB5B8C004E_52DFF03B0030_var*
 //#UC END# *55CB5B8C004E_52DFF03B0030_var*
 begin
@@ -81,12 +73,9 @@ begin
 //#UC END# *55CB5B8C004E_52DFF03B0030_impl*
 end;//TkwBeginLikeCompiledCode.MakeRefForCompile
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwBeginLikeCompiledCode
  TkwBeginLikeCompiledCode.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwBeginLikeCompiledCode }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,46 +1,36 @@
 unit kwTemporaryCompiledCode;
+ {* Временный контейне скомпилированного кода, который умрёт после компиляции. На который нельзя держать "слабые" ссылки. Например как Caller }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwTemporaryCompiledCode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwTemporaryCompiledCode
-//
-// Временный контейне скомпилированного кода, который умрёт после компиляции. На который нельзя
-// держать "слабые" ссылки. Например как Caller
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTemporaryCompiledCode.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwRuntimeWordWithCode,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwRuntimeWordWithCode
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwTemporaryCompiledCode = class(TkwRuntimeWordWithCode)
   {* Временный контейне скомпилированного кода, который умрёт после компиляции. На который нельзя держать "слабые" ссылки. Например как Caller }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+  public
    function GetAsCaller(const aCtx: TtfwContext): TtfwWord; override;
  end;//TkwTemporaryCompiledCode
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwTemporaryCompiledCode
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwTemporaryCompiledCode.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52DFE4E403E7_var*
@@ -61,12 +51,9 @@ begin
 //#UC END# *52DFE48500BB_52DFE4E403E7_impl*
 end;//TkwTemporaryCompiledCode.GetAsCaller
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwTemporaryCompiledCode
  TkwTemporaryCompiledCode.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwTemporaryCompiledCode }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,65 +1,48 @@
 unit tfwMainDictionary;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwMainDictionary.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwMainDictionary
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwMainDictionary.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwDictionaryEx,
-  l3Interfaces,
-  tfwDictionary
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryEx
+ , tfwScriptingInterfaces
+ , tfwDictionary
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwMainDictionary = class(TtfwDictionaryEx)
- private
- // private fields
-   f_CompiledCode : TtfwWord;
-    {* Поле для свойства CompiledCode}
- protected
- // property methods
+  private
+   f_CompiledCode: TtfwWord;
+    {* Поле для свойства CompiledCode }
+  protected
    procedure pm_SetCompiledCode(aValue: TtfwWord);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function FindInUsedDictionary(anOther: TtfwDictionary;
-     const aName: Il3CString): TtfwKeyWord; override;
- public
- // overridden public methods
+    const aName: Il3CString): TtfwKeyWord; override;
+  public
    function IsMain: Boolean; override;
- public
- // public properties
+  public
    property CompiledCode: TtfwWord
-     read f_CompiledCode
-     write pm_SetCompiledCode;
+    read f_CompiledCode
+    write pm_SetCompiledCode;
  end;//TtfwMainDictionary
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwMainDictionaryWordsPack
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwMainDictionary
+ l3ImplUses
+ , tfwMainDictionaryWordsPack
+;
 
 procedure TtfwMainDictionary.pm_SetCompiledCode(aValue: TtfwWord);
 //#UC START# *55A4E85101BA_55A0005D02CCset_var*
@@ -71,6 +54,7 @@ begin
 end;//TtfwMainDictionary.pm_SetCompiledCode
 
 procedure TtfwMainDictionary.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55A0005D02CC_var*
 //#UC END# *479731C50290_55A0005D02CC_var*
 begin
@@ -81,7 +65,7 @@ begin
 end;//TtfwMainDictionary.Cleanup
 
 function TtfwMainDictionary.FindInUsedDictionary(anOther: TtfwDictionary;
-  const aName: Il3CString): TtfwKeyWord;
+ const aName: Il3CString): TtfwKeyWord;
 //#UC START# *55A3A1E7038F_55A0005D02CC_var*
 //#UC END# *55A3A1E7038F_55A0005D02CC_var*
 begin
@@ -101,7 +85,6 @@ begin
  Result := true;
 //#UC END# *55A531FA016A_55A0005D02CC_impl*
 end;//TtfwMainDictionary.IsMain
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

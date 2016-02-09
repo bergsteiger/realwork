@@ -1,53 +1,42 @@
 {$IfNDef kwCompiledVar_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwCompiledVar.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::kwCompiledVar
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define kwCompiledVar_imp}
-{$If not defined(NoScripts)}
- _kwCompiledVar_ = {abstract mixin} class(_kwCompiledVar_Parent_)
- private
- // private fields
-   f_Value : TtfwStackValue;
-   f_TypeInfo : TtfwWordInfo;
- protected
- // realized methods
+
+{$If NOT Defined(NoScripts)}
+ _kwCompiledVar_ = {abstract} class(_kwCompiledVar_Parent_)
+  private
+   f_Value: TtfwStackValue;
+   f_TypeInfo: TtfwWordInfo;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden property methods
-   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
+  public
    procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function GetValue(const aCtx: TtfwContext): PtfwStackValue; override;
    function IsVarLike: Boolean; override;
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function CanClearInRecursiveCalls: Boolean; override;
  end;//_kwCompiledVar_
-{$Else}
 
- _kwCompiledVar_ = _kwCompiledVar_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_kwCompiledVar_ = _kwCompiledVar_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else kwCompiledVar_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef kwCompiledVar_imp_impl}
 
-// start class _kwCompiledVar_
+{$Define kwCompiledVar_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _kwCompiledVar_.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52D3E2EE0244_var*
 //#UC END# *4DAEEDE10285_52D3E2EE0244_var*
@@ -58,6 +47,7 @@ begin
 end;//_kwCompiledVar_.DoDoIt
 
 procedure _kwCompiledVar_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52D3E2EE0244_var*
 //#UC END# *479731C50290_52D3E2EE0244_var*
 begin
@@ -82,7 +72,7 @@ begin
 end;//_kwCompiledVar_.pm_GetResultTypeInfo
 
 procedure _kwCompiledVar_.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D00B00031A_52D3E2EE0244_var*
 //#UC END# *52D00B00031A_52D3E2EE0244_var*
 begin
@@ -110,7 +100,7 @@ begin
 end;//_kwCompiledVar_.IsVarLike
 
 procedure _kwCompiledVar_.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_52D3E2EE0244_var*
 //#UC END# *52EA6A2C0111_52D3E2EE0244_var*
 begin
@@ -127,7 +117,9 @@ begin
  Result := true;
 //#UC END# *559A470F0288_52D3E2EE0244_impl*
 end;//_kwCompiledVar_.CanClearInRecursiveCalls
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf kwCompiledVar_imp_impl}
 
 {$EndIf kwCompiledVar_imp}
+

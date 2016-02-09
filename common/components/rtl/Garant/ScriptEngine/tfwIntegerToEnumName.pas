@@ -1,56 +1,40 @@
 unit tfwIntegerToEnumName;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwIntegerToEnumName.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ConstantsRegistration::TtfwIntegerToEnumName
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIntegerToEnumName.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo,
-  tfwRegisterableWordPrim,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWordPrim
+ , TypInfo
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwIntegerToEnumName = class(TtfwRegisterableWordPrim)
- private
- // private fields
-   f_TypeInfo : PTypeInfo;
- protected
- // realized methods
+  private
+   f_TypeInfo: PTypeInfo;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
- public
- // public methods
+  public
    class procedure Register(aTypeInfo: PTypeInfo);
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
  end;//TtfwIntegerToEnumName
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  tfwStringToEnumValue
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwIntegerToEnumName
+ l3ImplUses
+ , SysUtils
+ , tfwStringToEnumValue
+;
 
 class procedure TtfwIntegerToEnumName.Register(aTypeInfo: PTypeInfo);
 //#UC START# *553129980377_553128CE018D_var*
@@ -88,12 +72,9 @@ begin
 //#UC END# *551544E2001A_553128CE018D_impl*
 end;//TtfwIntegerToEnumName.GetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwIntegerToEnumName
  TtfwIntegerToEnumName.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwIntegerToEnumName }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

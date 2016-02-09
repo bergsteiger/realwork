@@ -34,8 +34,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
- , l3Base
  , l3String
+ , l3Base
 ;
 
 var g_TkwStringFactory: TkwStringFactory = nil;

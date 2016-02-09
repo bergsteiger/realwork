@@ -1,72 +1,53 @@
 unit tfwWordWorker;
+ {* Поддержка исполняемых скомпилированных слов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwWordWorker.pas"
-// Начат: 12.05.2011 16:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TtfwWordWorker
-//
-// Поддержка исполняемых скомпилированных слов.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwAnonimousWord,
-  kwCompiledWordWorker,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwAnonimousWord
+ , kwCompiledWordWorker
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwWordWorker = {abstract} class(TtfwAnonimousWord)
   {* Поддержка исполняемых скомпилированных слов. }
- protected
- // realized methods
-   function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
-   procedure AfterCompile(var theNewContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim); override;
-   function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
-   function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
- protected
- // protected methods
+  protected
    function CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker; virtual; abstract;
    procedure FillCompiledWorker(aWorker: TtfwWord;
-     const aContext: TtfwContext); virtual;
+    const aContext: TtfwContext); virtual;
    procedure CompileWordWorker(const aContext: TtfwContext;
-     aRightParams: TkwCompiledWordPrim);
+    aRightParams: TkwCompiledWordPrim);
    function MakeCompiledWordWorker(const aContext: TtfwContext;
-     aRightParams: TkwCompiledWordPrim): TtfwWord; virtual;
+    aRightParams: TkwCompiledWordPrim): TtfwWord; virtual;
+   function EndBracket(const aContext: TtfwContext;
+    aSilent: Boolean): RtfwWord; override;
+   procedure AfterCompile(var theNewContext: TtfwContext;
+    aCompiled: TkwCompiledWordPrim); override;
+   function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
+   function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
  end;//TtfwWordWorker
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwTemporaryCompiledCode,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwWordWorker
+ l3ImplUses
+ , kwTemporaryCompiledCode
+ , SysUtils
+;
 
 procedure TtfwWordWorker.FillCompiledWorker(aWorker: TtfwWord;
-  const aContext: TtfwContext);
+ const aContext: TtfwContext);
 //#UC START# *4F219FA10268_4DCBD489023A_var*
 //#UC END# *4F219FA10268_4DCBD489023A_var*
 begin
@@ -76,7 +57,7 @@ begin
 end;//TtfwWordWorker.FillCompiledWorker
 
 procedure TtfwWordWorker.CompileWordWorker(const aContext: TtfwContext;
-  aRightParams: TkwCompiledWordPrim);
+ aRightParams: TkwCompiledWordPrim);
 //#UC START# *4F41566A02E5_4DCBD489023A_var*
 var
  l_CPW : TtfwWord{TkwCompiledWordWorker};
@@ -99,7 +80,7 @@ begin
 end;//TtfwWordWorker.CompileWordWorker
 
 function TtfwWordWorker.MakeCompiledWordWorker(const aContext: TtfwContext;
-  aRightParams: TkwCompiledWordPrim): TtfwWord;
+ aRightParams: TkwCompiledWordPrim): TtfwWord;
 //#UC START# *5284D8180211_4DCBD489023A_var*
 //#UC END# *5284D8180211_4DCBD489023A_var*
 begin
@@ -117,7 +98,7 @@ begin
 end;//TtfwWordWorker.MakeCompiledWordWorker
 
 function TtfwWordWorker.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4DCBD489023A_var*
 //#UC END# *4DB6C99F026E_4DCBD489023A_var*
 begin
@@ -127,7 +108,7 @@ begin
 end;//TtfwWordWorker.EndBracket
 
 procedure TtfwWordWorker.AfterCompile(var theNewContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim);
+ aCompiled: TkwCompiledWordPrim);
 //#UC START# *4DB6CE2302C9_4DCBD489023A_var*
 //#UC END# *4DB6CE2302C9_4DCBD489023A_var*
 begin
@@ -155,12 +136,9 @@ begin
 //#UC END# *4DBAEE0D028D_4DCBD489023A_impl*
 end;//TtfwWordWorker.CompiledWordClass
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwWordWorker
  TtfwWordWorker.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwWordWorker }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

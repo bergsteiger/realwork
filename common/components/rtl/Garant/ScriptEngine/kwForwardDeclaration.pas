@@ -1,74 +1,60 @@
 unit kwForwardDeclaration;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwForwardDeclaration.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TkwForwardDeclaration
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwForwardDeclaration.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwDictionaryPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptingInterfaces
+ , tfwDictionaryPrim
+ , l3Interfaces
+ , l3Variant
+;
 
-{$If not defined(NoScripts)}
 type
  TkwForwardDeclaration = class(TtfwWord)
- private
- // private fields
-   f_RealWord : TtfwWord;
-    {* Поле для свойства RealWord}
- protected
- // property methods
+  private
+   f_RealWord: TtfwWord;
+    {* Поле для свойства RealWord }
+  protected
    procedure pm_SetRealWord(aValue: TtfwWord);
- protected
- // realized methods
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    function pm_GetWordProducer: TtfwWord; override;
    procedure pm_SetWordProducer(aValue: TtfwWord); override;
    function pm_GetInnerDictionary: TtfwDictionaryPrim; override;
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+  public
    function IsForwardDeclaration: Boolean; override;
+   function GetKeywordFinder(const aCtx: TtfwContext): TtfwWord; override;
+   function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;
+   function GetKeywordByName(const aName: Il3CString): Tl3PrimString; override;
+   function GetParentFinder: TtfwWord; override;
+   function WordName: Il3CString; override;
    function MakeRefForCompile(const aCtx: TtfwContext;
-     aSNI: TtfwSuppressNextImmediate): TtfwWord; override;
- public
- // public properties
+    aSNI: TtfwSuppressNextImmediate): TtfwWord; override;
+  public
    property RealWord: TtfwWord
-     read f_RealWord
-     write pm_SetRealWord;
+    read f_RealWord
+    write pm_SetRealWord;
  end;//TkwForwardDeclaration
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  tfwClassRef,
-  kwForwardDeclarationHolder
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwForwardDeclaration
+ l3ImplUses
+ , SysUtils
+ , tfwClassRef
+ , kwForwardDeclarationHolder
+;
 
 procedure TkwForwardDeclaration.pm_SetRealWord(aValue: TtfwWord);
 //#UC START# *4F4BB75C021E_4F4BB70D0144set_var*
@@ -92,6 +78,7 @@ begin
 end;//TkwForwardDeclaration.DoDoIt
 
 procedure TkwForwardDeclaration.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F4BB70D0144_var*
 //#UC END# *479731C50290_4F4BB70D0144_var*
 begin
@@ -155,8 +142,53 @@ begin
 //#UC END# *52CFC11603C8_4F4BB70D0144get_impl*
 end;//TkwForwardDeclaration.pm_GetResultTypeInfo
 
+function TkwForwardDeclaration.GetKeywordFinder(const aCtx: TtfwContext): TtfwWord;
+//#UC START# *52D5637A031E_4F4BB70D0144_var*
+//#UC END# *52D5637A031E_4F4BB70D0144_var*
+begin
+//#UC START# *52D5637A031E_4F4BB70D0144_impl*
+ Result := f_RealWord.GetKeywordFinder(aCtx);
+//#UC END# *52D5637A031E_4F4BB70D0144_impl*
+end;//TkwForwardDeclaration.GetKeywordFinder
+
+function TkwForwardDeclaration.DoCheckWord(const aName: Il3CString): TtfwKeyWord;
+//#UC START# *55A7D34102A0_4F4BB70D0144_var*
+//#UC END# *55A7D34102A0_4F4BB70D0144_var*
+begin
+//#UC START# *55A7D34102A0_4F4BB70D0144_impl*
+ Result := f_RealWord.DoCheckWord(aName);
+//#UC END# *55A7D34102A0_4F4BB70D0144_impl*
+end;//TkwForwardDeclaration.DoCheckWord
+
+function TkwForwardDeclaration.GetKeywordByName(const aName: Il3CString): Tl3PrimString;
+//#UC START# *55ACE5210310_4F4BB70D0144_var*
+//#UC END# *55ACE5210310_4F4BB70D0144_var*
+begin
+//#UC START# *55ACE5210310_4F4BB70D0144_impl*
+ Result := f_RealWord.GetKeywordByName(aName);
+//#UC END# *55ACE5210310_4F4BB70D0144_impl*
+end;//TkwForwardDeclaration.GetKeywordByName
+
+function TkwForwardDeclaration.GetParentFinder: TtfwWord;
+//#UC START# *55ACF0F5025D_4F4BB70D0144_var*
+//#UC END# *55ACF0F5025D_4F4BB70D0144_var*
+begin
+//#UC START# *55ACF0F5025D_4F4BB70D0144_impl*
+ Result := f_RealWord.GetParentFinder;
+//#UC END# *55ACF0F5025D_4F4BB70D0144_impl*
+end;//TkwForwardDeclaration.GetParentFinder
+
+function TkwForwardDeclaration.WordName: Il3CString;
+//#UC START# *55AFD7DA0258_4F4BB70D0144_var*
+//#UC END# *55AFD7DA0258_4F4BB70D0144_var*
+begin
+//#UC START# *55AFD7DA0258_4F4BB70D0144_impl*
+ Result := f_RealWord.WordName;
+//#UC END# *55AFD7DA0258_4F4BB70D0144_impl*
+end;//TkwForwardDeclaration.WordName
+
 function TkwForwardDeclaration.MakeRefForCompile(const aCtx: TtfwContext;
-  aSNI: TtfwSuppressNextImmediate): TtfwWord;
+ aSNI: TtfwSuppressNextImmediate): TtfwWord;
 //#UC START# *55CB5B8C004E_4F4BB70D0144_var*
 //#UC END# *55CB5B8C004E_4F4BB70D0144_var*
 begin
@@ -165,12 +197,9 @@ begin
 //#UC END# *55CB5B8C004E_4F4BB70D0144_impl*
 end;//TkwForwardDeclaration.MakeRefForCompile
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwForwardDeclaration
  TkwForwardDeclaration.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwForwardDeclaration }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

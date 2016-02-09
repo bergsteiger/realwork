@@ -1,65 +1,50 @@
 unit tfwNewWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwNewWord.pas"
-// Начат: 28.09.2011 22:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TtfwNewWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwNewWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwScriptingInterfaces,
-  tfwCompilingWord,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwCompilingWord
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwNewWord = {abstract} class(TtfwCompilingWord)
- protected
- // overridden protected methods
+  protected
+   procedure FinishDefinitionOfNewWord(aWordToFinish: TtfwKeyWord;
+    aCompiled: TkwCompiledWordPrim;
+    const aContext: TtfwContext); virtual;
+    {* Завершает определение вновь созданного слова }
+   function GetNewWordName(const aContext: TtfwContext): Il3CString; virtual;
    procedure BeforeCompile(var theNewContext: TtfwContext); override;
    procedure AfterCompile(var theNewContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim); override;
- protected
- // protected methods
-   procedure FinishDefinitionOfNewWord(aWordToFinish: TtfwKeyWord;
-     aCompiled: TkwCompiledWordPrim;
-     const aContext: TtfwContext); virtual;
-     {* Завершает определение вновь созданного слова }
-   function GetNewWordName(const aContext: TtfwContext): Il3CString; virtual;
+    aCompiled: TkwCompiledWordPrim); override;
  end;//TtfwNewWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3String,
-  l3Parser,
-  kwForwardDeclaration
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwNewWord
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , l3Parser
+ , kwForwardDeclaration
+;
 
 procedure TtfwNewWord.FinishDefinitionOfNewWord(aWordToFinish: TtfwKeyWord;
-  aCompiled: TkwCompiledWordPrim;
-  const aContext: TtfwContext);
+ aCompiled: TkwCompiledWordPrim;
+ const aContext: TtfwContext);
+ {* Завершает определение вновь созданного слова }
 //#UC START# *4F219629036A_4DB9B6D20168_var*
 //#UC END# *4F219629036A_4DB9B6D20168_var*
 begin
@@ -208,7 +193,7 @@ begin
 end;//TtfwNewWord.BeforeCompile
 
 procedure TtfwNewWord.AfterCompile(var theNewContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim);
+ aCompiled: TkwCompiledWordPrim);
 //#UC START# *4DB6CE2302C9_4DB9B6D20168_var*
 //#UC END# *4DB6CE2302C9_4DB9B6D20168_var*
 begin
@@ -220,12 +205,9 @@ begin
 //#UC END# *4DB6CE2302C9_4DB9B6D20168_impl*
 end;//TtfwNewWord.AfterCompile
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwNewWord
  TtfwNewWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwNewWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

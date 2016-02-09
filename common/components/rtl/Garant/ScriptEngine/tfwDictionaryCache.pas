@@ -1,84 +1,60 @@
 unit tfwDictionaryCache;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryCache.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryCache
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryCache.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If defined(seCacheDict) AND not defined(NoScripts)}
+{$If Defined(seCacheDict) AND NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwDictionaryCachePrim,
-  l3Types
-  ;
-{$IfEnd} //seCacheDict AND not NoScripts
+ l3IntfUses
+ , tfwDictionaryCachePrim
+ , l3Interfaces
+ , l3Types
+;
 
-{$If defined(seCacheDict) AND not defined(NoScripts)}
 type
  _FindDataType_ = Tl3WString;
  _l3Searcher_Parent_ = TtfwDictionaryCachePrim;
- {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
+ {$Include l3Searcher.imp.pas}
  TtfwDictionaryCache = class(_l3Searcher_)
- public
- // overridden public methods
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+   class function Instance: TtfwDictionaryCache;
+    {* Метод получения экземпляра синглетона TtfwDictionaryCache }
    function FindDictionary(const aFileName: Il3CString): _ItemType_; override;
    procedure Remove(const anItem: _ItemType_); override;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
-   class function Instance: TtfwDictionaryCache;
-    {- возвращает экземпляр синглетона. }
  end;//TtfwDictionaryCache
-{$IfEnd} //seCacheDict AND not NoScripts
+{$IfEnd} // Defined(seCacheDict) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(seCacheDict) AND not defined(NoScripts)}
+{$If Defined(seCacheDict) AND NOT Defined(NoScripts)}
 uses
-  l3Base {a},
-  tfwMainDictionaryCache,
-  l3String
-  ;
-{$IfEnd} //seCacheDict AND not NoScripts
+ l3ImplUses
+ , tfwMainDictionaryCache
+ , l3String
+ , SysUtils
+ , l3Base
+;
 
-{$If defined(seCacheDict) AND not defined(NoScripts)}
-
-
-// start class TtfwDictionaryCache
-
-var g_TtfwDictionaryCache : TtfwDictionaryCache = nil;
+var g_TtfwDictionaryCache: TtfwDictionaryCache = nil;
+ {* Экземпляр синглетона TtfwDictionaryCache }
 
 procedure TtfwDictionaryCacheFree;
+ {* Метод освобождения экземпляра синглетона TtfwDictionaryCache }
 begin
  l3Free(g_TtfwDictionaryCache);
-end;
-
-class function TtfwDictionaryCache.Instance: TtfwDictionaryCache;
-begin
- if (g_TtfwDictionaryCache = nil) then
- begin
-  l3System.AddExitProc(TtfwDictionaryCacheFree);
-  g_TtfwDictionaryCache := Create;
- end;
- Result := g_TtfwDictionaryCache;
-end;
-
+end;//TtfwDictionaryCacheFree
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_55A3DF0603C6_var*
 //#UC END# *47B9BAFD01F4_55A3DF0603C6_var*
 begin
@@ -89,15 +65,24 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TtfwDictionaryCache;
 
-{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
-
-// start class TtfwDictionaryCache
+{$Include l3Searcher.imp.pas}
 
 class function TtfwDictionaryCache.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TtfwDictionaryCache <> nil;
 end;//TtfwDictionaryCache.Exists
+
+class function TtfwDictionaryCache.Instance: TtfwDictionaryCache;
+ {* Метод получения экземпляра синглетона TtfwDictionaryCache }
+begin
+ if (g_TtfwDictionaryCache = nil) then
+ begin
+  l3System.AddExitProc(TtfwDictionaryCacheFree);
+  g_TtfwDictionaryCache := Create;
+ end;
+ Result := g_TtfwDictionaryCache;
+end;//TtfwDictionaryCache.Instance
 
 function TtfwDictionaryCache.FindDictionary(const aFileName: Il3CString): _ItemType_;
 //#UC START# *559E857A037A_55A3DF0603C6_var*
@@ -122,7 +107,6 @@ begin
  inherited;
 //#UC END# *55A663000019_55A3DF0603C6_impl*
 end;//TtfwDictionaryCache.Remove
-
-{$IfEnd} //seCacheDict AND not NoScripts
+{$IfEnd} // Defined(seCacheDict) AND NOT Defined(NoScripts)
 
 end.

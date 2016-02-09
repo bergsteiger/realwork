@@ -1,56 +1,42 @@
 unit tfwIntegerConstantRegistrator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwIntegerConstantRegistrator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwIntegerConstantRegistrator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIntegerConstantRegistrator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwInteger
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwInteger
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwIntegerConstantRegistrator = class(TtfwInteger)
- private
- // private fields
-   f_Value : Integer;
- protected
- // overridden protected methods
+  private
+   f_Value: Integer;
+  protected
    class function ReallyNeedRegister: Boolean; override;
    function GetInteger: Integer; override;
- public
- // public methods
+  public
    class procedure Register(const aName: AnsiString;
-     aValue: Integer);
+    aValue: Integer);
    constructor Create(aValue: Integer); reintroduce;
  end;//TtfwIntegerConstantRegistrator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwIntegerConstantRegistrator
+ l3ImplUses
+ , SysUtils
+;
 
 class procedure TtfwIntegerConstantRegistrator.Register(const aName: AnsiString;
-  aValue: Integer);
+ aValue: Integer);
 //#UC START# *53C7C5F402F1_53C7C4BF03D9_var*
 var
  l_Inst : TtfwIntegerConstantRegistrator;
@@ -94,12 +80,9 @@ begin
 //#UC END# *4EE1DC8903BB_53C7C4BF03D9_impl*
 end;//TtfwIntegerConstantRegistrator.GetInteger
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwIntegerConstantRegistrator
  TtfwIntegerConstantRegistrator.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwIntegerConstantRegistrator }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

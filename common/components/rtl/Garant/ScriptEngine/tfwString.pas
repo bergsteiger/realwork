@@ -1,59 +1,41 @@
 unit tfwString;
+ {* Базовый предок для добавления слов в словарь. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwString.pas"
-// Начат: 27.05.2011 20:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwString
-//
-// Базовый предок для добавления слов в словарь.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwString.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  TypInfo,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwString = {abstract} class(TtfwRegisterableWord)
   {* Базовый предок для добавления слов в словарь. }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
- protected
- // protected methods
+  protected
    function GetString: AnsiString; virtual;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
  end;//TtfwString
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  l3Except,
-  tfwScriptingTypes
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwString
+ l3ImplUses
+ , l3Base
+ , l3Except
+ , tfwScriptingTypes
+;
 
 function TtfwString.GetString: AnsiString;
 //#UC START# *4DDFD2EA0116_4DDFD1430390_var*
@@ -83,12 +65,9 @@ begin
 //#UC END# *551544E2001A_4DDFD1430390_impl*
 end;//TtfwString.GetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwString
  TtfwString.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwString }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

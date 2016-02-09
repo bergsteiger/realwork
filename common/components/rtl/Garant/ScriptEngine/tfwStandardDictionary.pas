@@ -1,38 +1,31 @@
 unit tfwStandardDictionary;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwStandardDictionary.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwStandardDictionary
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStandardDictionary.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionaryEx
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryEx
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwStandardDictionary = class(TtfwDictionaryEx)
- protected
- // overridden protected methods
+  protected
    function IsAxiom: Boolean; override;
  end;//TtfwStandardDictionary
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwStandardDictionary
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TtfwStandardDictionary.IsAxiom: Boolean;
 //#UC START# *55A7ECD8020D_55B0EF37007C_var*
@@ -42,7 +35,6 @@ begin
  Result := true;
 //#UC END# *55A7ECD8020D_55B0EF37007C_impl*
 end;//TtfwStandardDictionary.IsAxiom
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

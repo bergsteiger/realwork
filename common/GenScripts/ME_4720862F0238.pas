@@ -67,6 +67,7 @@ type
   function pm_GetFirst: Tm3StorageElementID;
   function pm_GetLast: Tm3StorageElementID;
   function pm_GetItems(anIndex: Integer): Tm3StorageElementID;
+  function pm_GetCount: Integer;
   function IndexOf(const anItem: Tm3StorageElementID): Integer;
   function Add(const anItem: Tm3StorageElementID): Integer;
   property Empty: Boolean
@@ -80,6 +81,9 @@ type
   property Items[anIndex: Integer]: Tm3StorageElementID
    read pm_GetItems;
    default;
+  property Count: Integer
+   read pm_GetCount;
+   {* Число элементов. }
  end;//Im3StorageElementIDList
 
  TStatStg = ActiveX.TStatStg;

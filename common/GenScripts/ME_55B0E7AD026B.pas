@@ -32,9 +32,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , l3String
  , SysUtils
  , l3Base
- , l3String
 ;
 
 var g_TtfwStandardDictionaries: TtfwStandardDictionaries = nil;

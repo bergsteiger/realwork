@@ -1,79 +1,62 @@
 unit kwCompiledWordPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwCompiledWordPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwCompiledWordPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwWordRefList,
-  tfwKeyWordPrim,
-  kwCompiledWordPrimPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordPrimPrim
+ , tfwScriptingInterfaces
+ , tfwKeyWordPrim
+ , tfwWordRefList
+;
 
-{$If not defined(NoScripts)}
 type
  RkwCompiledWordPrim = class of TkwCompiledWordPrim;
 
  TkwCompiledWordPrim = {abstract} class(TkwCompiledWordPrimPrim)
- protected
- // overridden property methods
-   function pm_GetParentWord: TtfwWord; override;
- protected
- // overridden protected methods
+  protected
+   f_PrevFinder: TtfwWord;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // overridden public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   function pm_GetParentWord: TtfwWord; override;
+  public
+   constructor Create(aWordProducer: TtfwWord;
+    aPrevFinder: TtfwWord;
+    aTypeInfo: TtfwWordInfo;
+    const aCtx: TtfwContext;
+    aKey: TtfwKeyWordPrim); reintroduce; virtual;
+   function GetCode(const aCtx: TtfwContext): TtfwWordRefList; virtual;
    function GetCompiler(const aCtx: TtfwContext): TtfwWord; override;
    function GetInParam(const aCtx: TtfwContext;
-     anIndex: Integer): TtfwWord; override;
- protected
- // protected fields
-   f_PrevFinder : TtfwWord;
- public
- // public methods
-   constructor Create(aWordProducer: TtfwWord;
-     aPrevFinder: TtfwWord;
-     aTypeInfo: TtfwWordInfo;
-     const aCtx: TtfwContext;
-     aKey: TtfwKeyWordPrim); reintroduce; virtual;
-   function GetCode(const aCtx: TtfwContext): TtfwWordRefList; virtual;
+    anIndex: Integer): TtfwWord; override;
+   procedure SetParent(aParent: TtfwWord); override;
  end;//TkwCompiledWordPrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledWordPrim
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TkwCompiledWordPrim.Create(aWordProducer: TtfwWord;
-  aPrevFinder: TtfwWord;
-  aTypeInfo: TtfwWordInfo;
-  const aCtx: TtfwContext;
-  aKey: TtfwKeyWordPrim);
+ aPrevFinder: TtfwWord;
+ aTypeInfo: TtfwWordInfo;
+ const aCtx: TtfwContext;
+ aKey: TtfwKeyWordPrim);
 //#UC START# *4DC9723702F5_52D3C5F90029_var*
 //#UC END# *4DC9723702F5_52D3C5F90029_var*
 begin
@@ -99,6 +82,7 @@ begin
 end;//TkwCompiledWordPrim.GetCode
 
 procedure TkwCompiledWordPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52D3C5F90029_var*
 //#UC END# *479731C50290_52D3C5F90029_var*
 begin
@@ -109,8 +93,9 @@ begin
 //#UC END# *479731C50290_52D3C5F90029_impl*
 end;//TkwCompiledWordPrim.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TkwCompiledWordPrim.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_52D3C5F90029_var*
 //#UC END# *47A6FEE600FC_52D3C5F90029_var*
 begin
@@ -118,7 +103,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_52D3C5F90029_impl*
 end;//TkwCompiledWordPrim.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 function TkwCompiledWordPrim.pm_GetParentWord: TtfwWord;
 //#UC START# *52CFCF4B02C6_52D3C5F90029get_var*
@@ -145,7 +130,7 @@ begin
 end;//TkwCompiledWordPrim.GetCompiler
 
 function TkwCompiledWordPrim.GetInParam(const aCtx: TtfwContext;
-  anIndex: Integer): TtfwWord;
+ anIndex: Integer): TtfwWord;
 //#UC START# *52D5425A037F_52D3C5F90029_var*
 //#UC END# *52D5425A037F_52D3C5F90029_var*
 begin
@@ -155,12 +140,18 @@ begin
 //#UC END# *52D5425A037F_52D3C5F90029_impl*
 end;//TkwCompiledWordPrim.GetInParam
 
-{$IfEnd} //not NoScripts
+procedure TkwCompiledWordPrim.SetParent(aParent: TtfwWord);
+//#UC START# *5673E71002C8_52D3C5F90029_var*
+//#UC END# *5673E71002C8_52D3C5F90029_var*
+begin
+//#UC START# *5673E71002C8_52D3C5F90029_impl*
+ f_PrevFinder := aParent;
+//#UC END# *5673E71002C8_52D3C5F90029_impl*
+end;//TkwCompiledWordPrim.SetParent
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledWordPrim
  TkwCompiledWordPrim.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledWordPrim }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

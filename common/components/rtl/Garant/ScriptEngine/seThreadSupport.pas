@@ -1,74 +1,71 @@
 unit seThreadSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "seThreadSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: UtilityPack::Class Shared Delphi Low Level::ScriptEngine$Core::CodeFlowSupport::seThreadSupport
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seThreadSupport.pas"
+// Стереотип: "UtilityPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes,
-  l3ProtoDataContainer,
-  tfwScriptingInterfaces,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except
-  ;
+ l3IntfUses
+ , Classes
+ , tfwScriptingInterfaces
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+;
 
 type
  TWordThread = class(TThread)
- private
- // private fields
-   f_Context : TtfwContext;
-   f_Word : TtfwWord;
- protected
- // realized methods
+  private
+   f_Context: TtfwContext;
+   f_Word: TtfwWord;
+  protected
    procedure Execute; override;
- public
- // overridden public methods
+  public
    destructor Destroy; override;
  end;//TWordThread
 
  _ItemType_ = TWordThread;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
+ {$Include l3ObjectPtrList.imp.pas}
  TseWorkThreadList = class(_l3ObjectPtrList_)
- public
- // public methods
+  public
    procedure WaitForAllThreads;
    procedure AddAndResumeThread(const aContext: TtfwContext;
-     const aWord: TtfwWord);
+    const aWord: TtfwWord);
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TseWorkThreadList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TseWorkThreadList }
  end;//TseWorkThreadList
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Base {a},
-  l3MinMax,
-  RTLConsts
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
-// start class TWordThread
+var g_TseWorkThreadList: TseWorkThreadList = nil;
+ {* Экземпляр синглетона TseWorkThreadList }
+
+procedure TseWorkThreadListFree;
+ {* Метод освобождения экземпляра синглетона TseWorkThreadList }
+begin
+ l3Free(g_TseWorkThreadList);
+end;//TseWorkThreadListFree
 
 procedure TWordThread.Execute;
 //#UC START# *4FFFDF740099_4FFFDE6C016C_var*
@@ -90,31 +87,9 @@ begin
 //#UC END# *48077504027E_4FFFDE6C016C_impl*
 end;//TWordThread.Destroy
 
-// start class TseWorkThreadList
-
-var g_TseWorkThreadList : TseWorkThreadList = nil;
-
-procedure TseWorkThreadListFree;
-begin
- l3Free(g_TseWorkThreadList);
-end;
-
-class function TseWorkThreadList.Instance: TseWorkThreadList;
-begin
- if (g_TseWorkThreadList = nil) then
- begin
-  l3System.AddExitProc(TseWorkThreadListFree);
-  g_TseWorkThreadList := Create;
- end;
- Result := g_TseWorkThreadList;
-end;
-
-
 type _Instance_R_ = TseWorkThreadList;
 
-{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
-
-// start class TseWorkThreadList
+{$Include l3ObjectPtrList.imp.pas}
 
 procedure TseWorkThreadList.WaitForAllThreads;
 //#UC START# *50BF1C6D0267_50BF049002DB_var*
@@ -140,7 +115,7 @@ begin
 end;//TseWorkThreadList.WaitForAllThreads
 
 procedure TseWorkThreadList.AddAndResumeThread(const aContext: TtfwContext;
-  const aWord: TtfwWord);
+ const aWord: TtfwWord);
 //#UC START# *50BF1E9C001F_50BF049002DB_var*
 var
  l_Thread: TWordThread;
@@ -157,10 +132,21 @@ begin
 end;//TseWorkThreadList.AddAndResumeThread
 
 class function TseWorkThreadList.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TseWorkThreadList <> nil;
 end;//TseWorkThreadList.Exists
-{$IfEnd} //not NoScripts
+
+class function TseWorkThreadList.Instance: TseWorkThreadList;
+ {* Метод получения экземпляра синглетона TseWorkThreadList }
+begin
+ if (g_TseWorkThreadList = nil) then
+ begin
+  l3System.AddExitProc(TseWorkThreadListFree);
+  g_TseWorkThreadList := Create;
+ end;
+ Result := g_TseWorkThreadList;
+end;//TseWorkThreadList.Instance
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

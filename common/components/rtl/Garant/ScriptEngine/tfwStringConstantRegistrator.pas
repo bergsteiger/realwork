@@ -1,61 +1,46 @@
 unit tfwStringConstantRegistrator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwStringConstantRegistrator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwStringConstantRegistrator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStringConstantRegistrator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwString,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwString
+ , l3Interfaces
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwStringConstantRegistrator = class(TtfwString)
- private
- // private fields
-   f_Value : Il3CString;
- protected
- // overridden protected methods
+  private
+   f_Value: Il3CString;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function ReallyNeedRegister: Boolean; override;
    function GetString: AnsiString; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    class function Register(const aName: AnsiString;
-     const aValue: Il3CString): Boolean;
+    const aValue: Il3CString): Boolean;
  end;//TtfwStringConstantRegistrator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwStringConstantRegistrator
+ l3ImplUses
+ , l3String
+ , SysUtils
+;
 
 class function TtfwStringConstantRegistrator.Register(const aName: AnsiString;
-  const aValue: Il3CString): Boolean;
+ const aValue: Il3CString): Boolean;
 //#UC START# *55311BAA0306_55311B3903DC_var*
 var
  l_Inst : TtfwStringConstantRegistrator;
@@ -100,20 +85,14 @@ begin
 end;//TtfwStringConstantRegistrator.GetString
 
 procedure TtfwStringConstantRegistrator.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_Value := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TtfwStringConstantRegistrator.ClearFields
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwStringConstantRegistrator
  TtfwStringConstantRegistrator.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwStringConstantRegistrator }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -191,6 +191,7 @@ uses
  {$IfEnd} // Defined(seCacheDict)
  , tfwMainDictionaryList
  , tfwStandardDictionaries
+ , ItfwScriptEngineWordsPack
 ;
 
 procedure TtfwScriptEnginePrim.Script(aStream: TtfwStreamFactory;

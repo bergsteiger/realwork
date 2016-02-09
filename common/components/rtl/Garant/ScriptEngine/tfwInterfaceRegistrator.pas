@@ -1,48 +1,36 @@
 unit tfwInterfaceRegistrator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwInterfaceRegistrator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::TypesRegistration::TtfwInterfaceRegistrator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwInterfaceRegistrator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwInterfaceRegistrator = class
- public
- // public methods
+  public
    class function RegisterInterface(aTypeInfo: PTypeInfo): Boolean;
  end;//TtfwInterfaceRegistrator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwStringConstantRegistrator,
-  l3String,
-  tfwScriptingInterfaces,
-  SysUtils,
-  tfwTypeModifier
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwInterfaceRegistrator
+ l3ImplUses
+ , tfwStringConstantRegistrator
+ , l3String
+ , tfwScriptingInterfaces
+ , SysUtils
+ , tfwTypeModifier
+;
 
 class function TtfwInterfaceRegistrator.RegisterInterface(aTypeInfo: PTypeInfo): Boolean;
 //#UC START# *55311CD00337_55311C9F022C_var*
@@ -65,7 +53,6 @@ begin
   RegisterInterface(l_TD.IntfParent^);
 //#UC END# *55311CD00337_55311C9F022C_impl*
 end;//TtfwInterfaceRegistrator.RegisterInterface
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

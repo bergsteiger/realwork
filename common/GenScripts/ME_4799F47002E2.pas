@@ -21,9 +21,9 @@ uses
  l3ImplUses
  , Printers
  , l3ScreenIC
- , l3Canvas
  , l3Printer
  , l3Base
+ , l3Canvas
 ;
 
 var f_PrnIC: Pointer = nil;

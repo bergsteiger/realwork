@@ -1,67 +1,49 @@
 unit kwCompiledWordContainer;
+ {* Контейнер для зарезервированных слов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwCompiledWordContainer.pas"
-// Начат: 26.04.2011 19:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwCompiledWordContainer
-//
-// Контейнер для зарезервированных слов.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordContainer.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwSourcePointWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSourcePointWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledWordContainer = {abstract} class(TkwSourcePointWord)
   {* Контейнер для зарезервированных слов. }
- private
- // private fields
-   f_WordToWork : TtfwWord;
-    {* Поле для свойства WordToWork}
- protected
- // overridden protected methods
+  private
+   f_WordToWork: TtfwWord;
+    {* Поле для свойства WordToWork }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aCompiled: TtfwWord;
-     const aCtx: TtfwContext); reintroduce;
- public
- // public properties
+    const aCtx: TtfwContext); reintroduce;
+  public
    property WordToWork: TtfwWord
-     read f_WordToWork;
+    read f_WordToWork;
  end;//TkwCompiledWordContainer
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledWordContainer
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
 constructor TkwCompiledWordContainer.Create(aCompiled: TtfwWord;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4DB6E4AB01B1_4DB6E4630256_var*
 //#UC END# *4DB6E4AB01B1_4DB6E4630256_var*
 begin
@@ -72,6 +54,7 @@ begin
 end;//TkwCompiledWordContainer.Create
 
 procedure TkwCompiledWordContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DB6E4630256_var*
 //#UC END# *479731C50290_4DB6E4630256_var*
 begin
@@ -81,12 +64,9 @@ begin
 //#UC END# *479731C50290_4DB6E4630256_impl*
 end;//TkwCompiledWordContainer.Cleanup
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledWordContainer
  TkwCompiledWordContainer.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledWordContainer }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

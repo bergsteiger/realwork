@@ -1,46 +1,36 @@
 unit tfwClassLike;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwClassLike.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ClassLikeMapping::TtfwClassLike
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwClassLike.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwWordRefList,
-  tfwRegisterableWord,
-  kwCompiledWordPrimPrim,
-  tfwTypeInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , kwCompiledWordPrimPrim
+ , tfwWordRefList
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwClassLikeRunner = class(TkwCompiledWordPrimPrim)
- private
- // private fields
-   f_LeftWordRefs : TtfwWordRefList;
- protected
- // realized methods
+  private
+   f_LeftWordRefs: TtfwWordRefList;
+  protected
+   procedure PushParams(const aCtx: TtfwContext);
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden property methods
-   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
+  public
+   constructor Create(aWordProducer: TtfwWord;
+    const aCtx: TtfwContext;
+    aLeftWordRefs: TtfwWordRefList); reintroduce;
    procedure SetValuePrim(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); override;
    function GetValue(const aCtx: TtfwContext): PtfwStackValue; override;
@@ -52,72 +42,36 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    procedure SetValue(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); override;
- protected
- // protected methods
-   procedure PushParams(const aCtx: TtfwContext);
- public
- // public methods
-   constructor Create(aWordProducer: TtfwWord;
-     const aCtx: TtfwContext;
-     aLeftWordRefs: TtfwWordRefList); reintroduce;
  end;//TtfwClassLikeRunner
 
  TtfwClassLike = {abstract} class(TtfwRegisterableWord)
- protected
- // overridden protected methods
-   procedure PushAdditionalParams(const aCtx: TtfwContext); override;
- public
- // overridden public methods
-   function LeftWordRefParamsCount(const aCtx: TtfwContext): Integer; override;
-   function MakeRefForCompile(const aCtx: TtfwContext;
-     aSNI: TtfwSuppressNextImmediate): TtfwWord; override;
-   procedure SetValue(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
+  protected
    function BindParams: Boolean; virtual;
    function StrictChecking: Boolean; virtual;
+   procedure PushAdditionalParams(const aCtx: TtfwContext); override;
+  public
+   function LeftWordRefParamsCount(const aCtx: TtfwContext): Integer; override;
+   function MakeRefForCompile(const aCtx: TtfwContext;
+    aSNI: TtfwSuppressNextImmediate): TtfwWord; override;
+   procedure SetValue(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
  end;//TtfwClassLike
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  kwCompiledWordPrim,
-  TypInfo,
-  tfwValueTypes
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwClassLike
-
-function TtfwClassLike.BindParams: Boolean;
-//#UC START# *5617C8A30023_55CCAE000335_var*
-//#UC END# *5617C8A30023_55CCAE000335_var*
-begin
-//#UC START# *5617C8A30023_55CCAE000335_impl*
- //Result := false;
- Result := true;
-//#UC END# *5617C8A30023_55CCAE000335_impl*
-end;//TtfwClassLike.BindParams
-
-function TtfwClassLike.StrictChecking: Boolean;
-//#UC START# *561916700342_55CCAE000335_var*
-//#UC END# *561916700342_55CCAE000335_var*
-begin
-//#UC START# *561916700342_55CCAE000335_impl*
- Result := false;
-//#UC END# *561916700342_55CCAE000335_impl*
-end;//TtfwClassLike.StrictChecking
-// start class TtfwClassLikeRunner
+ l3ImplUses
+ , kwCompiledWordPrim
+ , TypInfo
+ , tfwValueTypes
+ , SysUtils
+;
 
 constructor TtfwClassLikeRunner.Create(aWordProducer: TtfwWord;
-  const aCtx: TtfwContext;
-  aLeftWordRefs: TtfwWordRefList);
+ const aCtx: TtfwContext;
+ aLeftWordRefs: TtfwWordRefList);
 //#UC START# *55EEDC7E039C_55EEDC5001F3_var*
 //#UC END# *55EEDC7E039C_55EEDC5001F3_var*
 begin
@@ -150,6 +104,7 @@ begin
 end;//TtfwClassLikeRunner.DoDoIt
 
 procedure TtfwClassLikeRunner.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55EEDC5001F3_var*
 //#UC END# *479731C50290_55EEDC5001F3_var*
 begin
@@ -169,7 +124,7 @@ begin
 end;//TtfwClassLikeRunner.pm_GetResultTypeInfo
 
 procedure TtfwClassLikeRunner.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D00B00031A_55EEDC5001F3_var*
 //#UC END# *52D00B00031A_55EEDC5001F3_var*
 begin
@@ -207,7 +162,7 @@ begin
 end;//TtfwClassLikeRunner.LeftWordRefParamsCount
 
 function TtfwClassLikeRunner.GetLeftWordRefValue(const aCtx: TtfwContext;
-  anIndex: Integer): TtfwWord;
+ anIndex: Integer): TtfwWord;
 //#UC START# *53E4A3C100AB_55EEDC5001F3_var*
 //#UC END# *53E4A3C100AB_55EEDC5001F3_var*
 begin
@@ -240,7 +195,7 @@ begin
 end;//TtfwClassLikeRunner.GetAllParamsCount
 
 procedure TtfwClassLikeRunner.SetValue(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *56096688024A_55EEDC5001F3_var*
 //#UC END# *56096688024A_55EEDC5001F3_var*
 begin
@@ -249,6 +204,25 @@ begin
  WordProducer.SetValue(aValue, aCtx);
 //#UC END# *56096688024A_55EEDC5001F3_impl*
 end;//TtfwClassLikeRunner.SetValue
+
+function TtfwClassLike.BindParams: Boolean;
+//#UC START# *5617C8A30023_55CCAE000335_var*
+//#UC END# *5617C8A30023_55CCAE000335_var*
+begin
+//#UC START# *5617C8A30023_55CCAE000335_impl*
+ //Result := false;
+ Result := true;
+//#UC END# *5617C8A30023_55CCAE000335_impl*
+end;//TtfwClassLike.BindParams
+
+function TtfwClassLike.StrictChecking: Boolean;
+//#UC START# *561916700342_55CCAE000335_var*
+//#UC END# *561916700342_55CCAE000335_var*
+begin
+//#UC START# *561916700342_55CCAE000335_impl*
+ Result := false;
+//#UC END# *561916700342_55CCAE000335_impl*
+end;//TtfwClassLike.StrictChecking
 
 function TtfwClassLike.LeftWordRefParamsCount(const aCtx: TtfwContext): Integer;
 //#UC START# *53E4914101D2_55CCAE000335_var*
@@ -263,7 +237,7 @@ begin
 end;//TtfwClassLike.LeftWordRefParamsCount
 
 function TtfwClassLike.MakeRefForCompile(const aCtx: TtfwContext;
-  aSNI: TtfwSuppressNextImmediate): TtfwWord;
+ aSNI: TtfwSuppressNextImmediate): TtfwWord;
 //#UC START# *55CB5B8C004E_55CCAE000335_var*
 var
  l_LeftWordRefCount : Integer;
@@ -352,7 +326,7 @@ begin
 end;//TtfwClassLike.PushAdditionalParams
 
 procedure TtfwClassLike.SetValue(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *56096688024A_55CCAE000335_var*
 //#UC END# *56096688024A_55CCAE000335_var*
 begin
@@ -361,16 +335,11 @@ begin
 //#UC END# *56096688024A_55CCAE000335_impl*
 end;//TtfwClassLike.SetValue
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwClassLikeRunner
  TtfwClassLikeRunner.RegisterClass;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TtfwClassLike
+ {* Регистрация TtfwClassLikeRunner }
  TtfwClassLike.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwClassLike }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

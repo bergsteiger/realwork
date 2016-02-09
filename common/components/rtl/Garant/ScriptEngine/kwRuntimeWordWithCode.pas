@@ -1,62 +1,50 @@
 unit kwRuntimeWordWithCode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwRuntimeWordWithCode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwRuntimeWordWithCode
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRuntimeWordWithCode.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledWordPrim,
-  tfwScriptingInterfaces,
-  tfwWordRefList
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordPrim
+ , tfwWordRefList
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _tfwCodeCompiler_Parent_ = TkwCompiledWordPrim;
- {$Include ..\ScriptEngine\tfwCodeCompiler.imp.pas}
+ {$Include tfwCodeCompiler.imp.pas}
  TkwRuntimeWordWithCode = {abstract} class(_tfwCodeCompiler_)
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetNewWordDefinitor: TtfwWord; override;
-   function GetKeywordFinder(const aCtx: TtfwContext): TtfwWord; override;
    procedure DoCompileInParameterPopCode(const aContext: TtfwContext;
-     aParameterToPop: TtfwWord;
-     aCheckCode: Boolean); override;
- public
- // overridden public methods
+    aParameterToPop: TtfwWord;
+    aCheckCode: Boolean); override;
+  public
    function GetCode(const aCtx: TtfwContext): TtfwWordRefList; override;
+   function GetKeywordFinder(const aCtx: TtfwContext): TtfwWord; override;
  end;//TkwRuntimeWordWithCode
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  kwForwardDeclarationHolder
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , kwForwardDeclarationHolder
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\tfwCodeCompiler.imp.pas}
-
-// start class TkwRuntimeWordWithCode
+{$Include tfwCodeCompiler.imp.pas}
 
 procedure TkwRuntimeWordWithCode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52D55D7B0178_var*
 //#UC END# *479731C50290_52D55D7B0178_var*
 begin
@@ -96,8 +84,8 @@ begin
 end;//TkwRuntimeWordWithCode.GetKeywordFinder
 
 procedure TkwRuntimeWordWithCode.DoCompileInParameterPopCode(const aContext: TtfwContext;
-  aParameterToPop: TtfwWord;
-  aCheckCode: Boolean);
+ aParameterToPop: TtfwWord;
+ aCheckCode: Boolean);
 //#UC START# *52D56A980103_52D55D7B0178_var*
 //#UC END# *52D56A980103_52D55D7B0178_var*
 begin
@@ -106,12 +94,9 @@ begin
 //#UC END# *52D56A980103_52D55D7B0178_impl*
 end;//TkwRuntimeWordWithCode.DoCompileInParameterPopCode
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwRuntimeWordWithCode
  TkwRuntimeWordWithCode.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwRuntimeWordWithCode }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

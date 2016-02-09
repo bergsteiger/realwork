@@ -1,75 +1,50 @@
 unit tfwWordInfoCache;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwWordInfoCache.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::WordInfoCache::TtfwWordInfoCache
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordInfoCache.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwWordInfoList,
-  tfwScriptingTypes
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwWordInfoList
+ , tfwScriptingInterfaces
+ , tfwScriptingTypes
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwWordInfoCache = class(TtfwWordInfoList)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    function GetTypeInfo(const aModifiers: TtfwWordInfoRec): TtfwWordInfo;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwWordInfoCache;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwWordInfoCache }
  end;//TtfwWordInfoCache
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a},
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TtfwWordInfoCache
-
-var g_TtfwWordInfoCache : TtfwWordInfoCache = nil;
+var g_TtfwWordInfoCache: TtfwWordInfoCache = nil;
+ {* Экземпляр синглетона TtfwWordInfoCache }
 
 procedure TtfwWordInfoCacheFree;
+ {* Метод освобождения экземпляра синглетона TtfwWordInfoCache }
 begin
  l3Free(g_TtfwWordInfoCache);
-end;
-
-class function TtfwWordInfoCache.Instance: TtfwWordInfoCache;
-begin
- if (g_TtfwWordInfoCache = nil) then
- begin
-  l3System.AddExitProc(TtfwWordInfoCacheFree);
-  g_TtfwWordInfoCache := Create;
- end;
- Result := g_TtfwWordInfoCache;
-end;
-
+end;//TtfwWordInfoCacheFree
 
 function TtfwWordInfoCache.GetTypeInfo(const aModifiers: TtfwWordInfoRec): TtfwWordInfo;
 //#UC START# *559F82A60110_559F828102D8_var*
@@ -98,10 +73,21 @@ begin
 end;//TtfwWordInfoCache.GetTypeInfo
 
 class function TtfwWordInfoCache.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TtfwWordInfoCache <> nil;
 end;//TtfwWordInfoCache.Exists
+
+class function TtfwWordInfoCache.Instance: TtfwWordInfoCache;
+ {* Метод получения экземпляра синглетона TtfwWordInfoCache }
+begin
+ if (g_TtfwWordInfoCache = nil) then
+ begin
+  l3System.AddExitProc(TtfwWordInfoCacheFree);
+  g_TtfwWordInfoCache := Create;
+ end;
+ Result := g_TtfwWordInfoCache;
+end;//TtfwWordInfoCache.Instance
 
 procedure TtfwWordInfoCache.InitFields;
 //#UC START# *47A042E100E2_559F828102D8_var*
@@ -112,7 +98,6 @@ begin
  Sorted := true;
 //#UC END# *47A042E100E2_559F828102D8_impl*
 end;//TtfwWordInfoCache.InitFields
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

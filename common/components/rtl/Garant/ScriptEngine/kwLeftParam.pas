@@ -1,41 +1,29 @@
 unit kwLeftParam;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwLeftParam.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwLeftParam
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3ProtoObject,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim,
-  tfwTypeInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordPrim
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , l3ProtoObject
+;
 
-{$If not defined(NoScripts)}
 type
  TkwObjRefParam = {abstract} class(TkwCompiledWordPrim)
- private
- // private fields
-   f_Value : TtfwStackValue;
- protected
- // realized methods
+  private
+   f_Value: TtfwStackValue;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden property methods
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // overridden public methods
+  public
    procedure SetValuePrim(const aValue: TtfwStackValue;
     const aCtx: TtfwContext); override;
    function GetValue(const aCtx: TtfwContext): PtfwStackValue; override;
@@ -48,194 +36,151 @@ type
  end;//TkwObjRefParam
 
  TkwRefParam = {abstract} class(TkwObjRefParam)
- public
- // overridden public methods
+  public
    function GetRef(const aCtx: TtfwContext): TtfwWord; override;
    function CanClearInRecursiveCalls: Boolean; override;
  end;//TkwRefParam
 
  TkwRightParam = class(TkwRefParam)
- protected
- // overridden property methods
+  protected
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // overridden public methods
+  public
    function IsRightParam(const aCtx: TtfwContext): Boolean; override;
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
     const aCtx: TtfwContext); override;
  end;//TkwRightParam
 
  TkwRightLiteralParam = class(TkwRightParam)
- protected
- // overridden property methods
+  protected
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // overridden public methods
+  public
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
     const aCtx: TtfwContext); override;
  end;//TkwRightLiteralParam
 
  TkwRightParamEx = class(TkwRightParam)
- private
- // private fields
-   f_TypeInfo : TtfwWordInfo;
- protected
- // overridden property methods
+  private
+   f_TypeInfo: TtfwWordInfo;
+  protected
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // overridden public methods
+  public
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
     const aCtx: TtfwContext); override;
  end;//TkwRightParamEx
 
  TkwLeftWordRefParam = class(TkwRefParam)
- protected
- // overridden property methods
+  protected
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // overridden public methods
+  public
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
     const aCtx: TtfwContext); override;
    function IsLeftWordRefParam(const aCtx: TtfwContext): Boolean; override;
  end;//TkwLeftWordRefParam
 
  TtfwRefParamWordInfo = {abstract} class(Tl3ProtoObject)
- private
- // private fields
-   f_WordInfo : TtfwWordInfo;
- protected
- // protected methods
+  private
+   f_WordInfo: TtfwWordInfo;
+  protected
    function GetWordInfo: TtfwWordInfo; virtual; abstract;
- public
- // public methods
+  public
    function WI: TtfwWordInfo;
  end;//TtfwRefParamWordInfo
 
  TkwObjRefParamWordInfo = class(TtfwRefParamWordInfo)
- protected
- // realized methods
+  protected
    function GetWordInfo: TtfwWordInfo; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwObjRefParamWordInfo;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TkwObjRefParamWordInfo }
  end;//TkwObjRefParamWordInfo
 
  TkwLeftWordRefParamWordInfo = class(TtfwRefParamWordInfo)
- protected
- // realized methods
+  protected
    function GetWordInfo: TtfwWordInfo; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwLeftWordRefParamWordInfo;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TkwLeftWordRefParamWordInfo }
  end;//TkwLeftWordRefParamWordInfo
 
  TkwRightParamWordInfo = class(TtfwRefParamWordInfo)
- protected
- // realized methods
+  protected
    function GetWordInfo: TtfwWordInfo; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwRightParamWordInfo;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TkwRightParamWordInfo }
  end;//TkwRightParamWordInfo
 
  TkwRightLiteralParamWordInfo = class(TtfwRefParamWordInfo)
- protected
- // realized methods
+  protected
    function GetWordInfo: TtfwWordInfo; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwRightLiteralParamWordInfo;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TkwRightLiteralParamWordInfo }
  end;//TkwRightLiteralParamWordInfo
 
  _kwCompiledVar_Parent_ = TkwCompiledWordPrim;
- {$Include ..\ScriptEngine\kwCompiledVar.imp.pas}
+ {$Include kwCompiledVar.imp.pas}
  TkwLeftParam = class(_kwCompiledVar_)
- public
- // overridden public methods
+  public
+   class function ClassForCreate(aTypeInfo: TtfwWordInfo;
+    const aCtx: TtfwContext): RkwCompiledWordPrim;
    function GetRef(const aCtx: TtfwContext): TtfwWord; override;
    function IsInParam: Boolean; override;
- public
- // public methods
-   class function ClassForCreate(aTypeInfo: TtfwWordInfo;
-     const aCtx: TtfwContext): RkwCompiledWordPrim;
  end;//TkwLeftParam
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwValueTypes,
-  l3Base {a},
-  TypInfo,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , l3Base
+ , TypInfo
+ , l3String
+ , tfwValueTypes
+ , SysUtils
+;
 
-{$If not defined(NoScripts)}
+var g_TkwObjRefParamWordInfo: TkwObjRefParamWordInfo = nil;
+ {* Экземпляр синглетона TkwObjRefParamWordInfo }
+var g_TkwLeftWordRefParamWordInfo: TkwLeftWordRefParamWordInfo = nil;
+ {* Экземпляр синглетона TkwLeftWordRefParamWordInfo }
+var g_TkwRightParamWordInfo: TkwRightParamWordInfo = nil;
+ {* Экземпляр синглетона TkwRightParamWordInfo }
+var g_TkwRightLiteralParamWordInfo: TkwRightLiteralParamWordInfo = nil;
+ {* Экземпляр синглетона TkwRightLiteralParamWordInfo }
 
-{$Include ..\ScriptEngine\kwCompiledVar.imp.pas}
-
-// start class TkwLeftParam
-
-class function TkwLeftParam.ClassForCreate(aTypeInfo: TtfwWordInfo;
-  const aCtx: TtfwContext): RkwCompiledWordPrim;
-//#UC START# *559A72E202EB_4F4158EB01D9_var*
-//#UC END# *559A72E202EB_4F4158EB01D9_var*
+procedure TkwObjRefParamWordInfoFree;
+ {* Метод освобождения экземпляра синглетона TkwObjRefParamWordInfo }
 begin
-//#UC START# *559A72E202EB_4F4158EB01D9_impl*
- if aTypeInfo.Has(tfw_wmRightWordRef) then
- begin
-  if aTypeInfo.EQwm([tfw_wmTreatUnknownAsString, tfw_wmRightWordRef]) then
-   Result := TkwRightLiteralParam
-  else
-  if aTypeInfo.EQwm([tfw_wmRightWordRef]) AND
-     (aTypeInfo.LinkType = tfw_ltNone) then
-   Result := TkwRightParam
-  else
-   Result := TkwRightParamEx;
- end//tfw_wmRightWordRef in aTypeInfo.Modifiers
- else
- if aTypeInfo.Has(tfw_wmLeftWordRef) then
- begin
-  if aTypeInfo.EQwm([tfw_wmLeftWordRef]) then
-   Result := TkwLeftWordRefParam
-  else
-  begin
-   Assert(false, 'Неверный список модификаторов');
-   Result := nil;
-  end;//else
- end//tfw_wmLeftWordRef in aTypeInfo.Modifiers
- else
- begin
-  if aTypeInfo.ValueTypes.EQ(TypeInfo(TObject)) then
-   Result := TkwObjRefParam
-  else
-   Result := TkwLeftParam;
- end;//else
-//#UC END# *559A72E202EB_4F4158EB01D9_impl*
-end;//TkwLeftParam.ClassForCreate
-// start class TkwObjRefParam
+ l3Free(g_TkwObjRefParamWordInfo);
+end;//TkwObjRefParamWordInfoFree
+
+procedure TkwLeftWordRefParamWordInfoFree;
+ {* Метод освобождения экземпляра синглетона TkwLeftWordRefParamWordInfo }
+begin
+ l3Free(g_TkwLeftWordRefParamWordInfo);
+end;//TkwLeftWordRefParamWordInfoFree
+
+procedure TkwRightParamWordInfoFree;
+ {* Метод освобождения экземпляра синглетона TkwRightParamWordInfo }
+begin
+ l3Free(g_TkwRightParamWordInfo);
+end;//TkwRightParamWordInfoFree
+
+procedure TkwRightLiteralParamWordInfoFree;
+ {* Метод освобождения экземпляра синглетона TkwRightLiteralParamWordInfo }
+begin
+ l3Free(g_TkwRightLiteralParamWordInfo);
+end;//TkwRightLiteralParamWordInfoFree
 
 procedure TkwObjRefParam.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_558D7FFE0092_var*
@@ -256,7 +201,7 @@ begin
 end;//TkwObjRefParam.pm_GetResultTypeInfo
 
 procedure TkwObjRefParam.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D00B00031A_558D7FFE0092_var*
 //#UC END# *52D00B00031A_558D7FFE0092_var*
 begin
@@ -293,7 +238,7 @@ begin
 end;//TkwObjRefParam.IsVarLike
 
 procedure TkwObjRefParam.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_558D7FFE0092_var*
 //#UC END# *52EA6A2C0111_558D7FFE0092_var*
 begin
@@ -330,7 +275,6 @@ begin
  Result := true;
 //#UC END# *559A4C5801D8_558D7FFE0092_impl*
 end;//TkwObjRefParam.IsInParam
-// start class TkwRefParam
 
 function TkwRefParam.GetRef(const aCtx: TtfwContext): TtfwWord;
 //#UC START# *558D2BCA0324_559AA1BE0237_var*
@@ -350,7 +294,6 @@ begin
  Result := false;
 //#UC END# *559A470F0288_559AA1BE0237_impl*
 end;//TkwRefParam.CanClearInRecursiveCalls
-// start class TkwRightParam
 
 function TkwRightParam.pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo;
 //#UC START# *52CFC11603C8_52E91D6202F4get_var*
@@ -371,7 +314,7 @@ begin
 end;//TkwRightParam.IsRightParam
 
 procedure TkwRightParam.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_52E91D6202F4_var*
 //#UC END# *52EA6A2C0111_52E91D6202F4_var*
 begin
@@ -379,7 +322,6 @@ begin
  RunnerAssert(aValue.EQwm([tfw_wmRightWordRef]), 'Неверный список модификаторов', aCtx);
 //#UC END# *52EA6A2C0111_52E91D6202F4_impl*
 end;//TkwRightParam.SetResultTypeInfo
-// start class TkwRightLiteralParam
 
 function TkwRightLiteralParam.pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo;
 //#UC START# *52CFC11603C8_559A730E020Eget_var*
@@ -391,7 +333,7 @@ begin
 end;//TkwRightLiteralParam.pm_GetResultTypeInfo
 
 procedure TkwRightLiteralParam.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_559A730E020E_var*
 //#UC END# *52EA6A2C0111_559A730E020E_var*
 begin
@@ -399,7 +341,6 @@ begin
  RunnerAssert(aValue.EQwm([tfw_wmRightWordRef, tfw_wmTreatUnknownAsString]), 'Неверный список модификаторов', aCtx);
 //#UC END# *52EA6A2C0111_559A730E020E_impl*
 end;//TkwRightLiteralParam.SetResultTypeInfo
-// start class TkwRightParamEx
 
 function TkwRightParamEx.pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo;
 //#UC START# *52CFC11603C8_559A7B3C014Eget_var*
@@ -414,7 +355,7 @@ begin
 end;//TkwRightParamEx.pm_GetResultTypeInfo
 
 procedure TkwRightParamEx.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_559A7B3C014E_var*
 //#UC END# *52EA6A2C0111_559A7B3C014E_var*
 begin
@@ -422,7 +363,6 @@ begin
  f_TypeInfo := aValue.Clone;
 //#UC END# *52EA6A2C0111_559A7B3C014E_impl*
 end;//TkwRightParamEx.SetResultTypeInfo
-// start class TkwLeftWordRefParam
 
 function TkwLeftWordRefParam.pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo;
 //#UC START# *52CFC11603C8_53E377040339get_var*
@@ -434,7 +374,7 @@ begin
 end;//TkwLeftWordRefParam.pm_GetResultTypeInfo
 
 procedure TkwLeftWordRefParam.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_53E377040339_var*
 //#UC END# *52EA6A2C0111_53E377040339_var*
 begin
@@ -451,7 +391,6 @@ begin
  Result := true;
 //#UC END# *53E389100169_53E377040339_impl*
 end;//TkwLeftWordRefParam.IsLeftWordRefParam
-// start class TtfwRefParamWordInfo
 
 function TtfwRefParamWordInfo.WI: TtfwWordInfo;
 //#UC START# *55EF0D4E0363_55EF0C53018A_var*
@@ -464,28 +403,8 @@ begin
 //#UC END# *55EF0D4E0363_55EF0C53018A_impl*
 end;//TtfwRefParamWordInfo.WI
 
-// start class TkwObjRefParamWordInfo
-
-var g_TkwObjRefParamWordInfo : TkwObjRefParamWordInfo = nil;
-
-procedure TkwObjRefParamWordInfoFree;
-begin
- l3Free(g_TkwObjRefParamWordInfo);
-end;
-
-class function TkwObjRefParamWordInfo.Instance: TkwObjRefParamWordInfo;
-begin
- if (g_TkwObjRefParamWordInfo = nil) then
- begin
-  l3System.AddExitProc(TkwObjRefParamWordInfoFree);
-  g_TkwObjRefParamWordInfo := Create;
- end;
- Result := g_TkwObjRefParamWordInfo;
-end;
-
-
 class function TkwObjRefParamWordInfo.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TkwObjRefParamWordInfo <> nil;
 end;//TkwObjRefParamWordInfo.Exists
@@ -499,28 +418,19 @@ begin
 //#UC END# *55EF0D710242_55EF0CD701A0_impl*
 end;//TkwObjRefParamWordInfo.GetWordInfo
 
-// start class TkwLeftWordRefParamWordInfo
-
-var g_TkwLeftWordRefParamWordInfo : TkwLeftWordRefParamWordInfo = nil;
-
-procedure TkwLeftWordRefParamWordInfoFree;
+class function TkwObjRefParamWordInfo.Instance: TkwObjRefParamWordInfo;
+ {* Метод получения экземпляра синглетона TkwObjRefParamWordInfo }
 begin
- l3Free(g_TkwLeftWordRefParamWordInfo);
-end;
-
-class function TkwLeftWordRefParamWordInfo.Instance: TkwLeftWordRefParamWordInfo;
-begin
- if (g_TkwLeftWordRefParamWordInfo = nil) then
+ if (g_TkwObjRefParamWordInfo = nil) then
  begin
-  l3System.AddExitProc(TkwLeftWordRefParamWordInfoFree);
-  g_TkwLeftWordRefParamWordInfo := Create;
+  l3System.AddExitProc(TkwObjRefParamWordInfoFree);
+  g_TkwObjRefParamWordInfo := Create;
  end;
- Result := g_TkwLeftWordRefParamWordInfo;
-end;
-
+ Result := g_TkwObjRefParamWordInfo;
+end;//TkwObjRefParamWordInfo.Instance
 
 class function TkwLeftWordRefParamWordInfo.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TkwLeftWordRefParamWordInfo <> nil;
 end;//TkwLeftWordRefParamWordInfo.Exists
@@ -534,28 +444,19 @@ begin
 //#UC END# *55EF0D710242_55EF0CF00017_impl*
 end;//TkwLeftWordRefParamWordInfo.GetWordInfo
 
-// start class TkwRightParamWordInfo
-
-var g_TkwRightParamWordInfo : TkwRightParamWordInfo = nil;
-
-procedure TkwRightParamWordInfoFree;
+class function TkwLeftWordRefParamWordInfo.Instance: TkwLeftWordRefParamWordInfo;
+ {* Метод получения экземпляра синглетона TkwLeftWordRefParamWordInfo }
 begin
- l3Free(g_TkwRightParamWordInfo);
-end;
-
-class function TkwRightParamWordInfo.Instance: TkwRightParamWordInfo;
-begin
- if (g_TkwRightParamWordInfo = nil) then
+ if (g_TkwLeftWordRefParamWordInfo = nil) then
  begin
-  l3System.AddExitProc(TkwRightParamWordInfoFree);
-  g_TkwRightParamWordInfo := Create;
+  l3System.AddExitProc(TkwLeftWordRefParamWordInfoFree);
+  g_TkwLeftWordRefParamWordInfo := Create;
  end;
- Result := g_TkwRightParamWordInfo;
-end;
-
+ Result := g_TkwLeftWordRefParamWordInfo;
+end;//TkwLeftWordRefParamWordInfo.Instance
 
 class function TkwRightParamWordInfo.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TkwRightParamWordInfo <> nil;
 end;//TkwRightParamWordInfo.Exists
@@ -569,28 +470,19 @@ begin
 //#UC END# *55EF0D710242_55EF0D18027B_impl*
 end;//TkwRightParamWordInfo.GetWordInfo
 
-// start class TkwRightLiteralParamWordInfo
-
-var g_TkwRightLiteralParamWordInfo : TkwRightLiteralParamWordInfo = nil;
-
-procedure TkwRightLiteralParamWordInfoFree;
+class function TkwRightParamWordInfo.Instance: TkwRightParamWordInfo;
+ {* Метод получения экземпляра синглетона TkwRightParamWordInfo }
 begin
- l3Free(g_TkwRightLiteralParamWordInfo);
-end;
-
-class function TkwRightLiteralParamWordInfo.Instance: TkwRightLiteralParamWordInfo;
-begin
- if (g_TkwRightLiteralParamWordInfo = nil) then
+ if (g_TkwRightParamWordInfo = nil) then
  begin
-  l3System.AddExitProc(TkwRightLiteralParamWordInfoFree);
-  g_TkwRightLiteralParamWordInfo := Create;
+  l3System.AddExitProc(TkwRightParamWordInfoFree);
+  g_TkwRightParamWordInfo := Create;
  end;
- Result := g_TkwRightLiteralParamWordInfo;
-end;
-
+ Result := g_TkwRightParamWordInfo;
+end;//TkwRightParamWordInfo.Instance
 
 class function TkwRightLiteralParamWordInfo.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TkwRightLiteralParamWordInfo <> nil;
 end;//TkwRightLiteralParamWordInfo.Exists
@@ -603,6 +495,57 @@ begin
  Result := TtfwWordInfo.Make(nil, [tfw_wmRightWordRef, tfw_wmTreatUnknownAsString], tfw_atNone, tfw_ltNone);
 //#UC END# *55EF0D710242_55EF1501024E_impl*
 end;//TkwRightLiteralParamWordInfo.GetWordInfo
+
+class function TkwRightLiteralParamWordInfo.Instance: TkwRightLiteralParamWordInfo;
+ {* Метод получения экземпляра синглетона TkwRightLiteralParamWordInfo }
+begin
+ if (g_TkwRightLiteralParamWordInfo = nil) then
+ begin
+  l3System.AddExitProc(TkwRightLiteralParamWordInfoFree);
+  g_TkwRightLiteralParamWordInfo := Create;
+ end;
+ Result := g_TkwRightLiteralParamWordInfo;
+end;//TkwRightLiteralParamWordInfo.Instance
+
+{$Include kwCompiledVar.imp.pas}
+
+class function TkwLeftParam.ClassForCreate(aTypeInfo: TtfwWordInfo;
+ const aCtx: TtfwContext): RkwCompiledWordPrim;
+//#UC START# *559A72E202EB_4F4158EB01D9_var*
+//#UC END# *559A72E202EB_4F4158EB01D9_var*
+begin
+//#UC START# *559A72E202EB_4F4158EB01D9_impl*
+ if aTypeInfo.Has(tfw_wmRightWordRef) then
+ begin
+  if aTypeInfo.EQwm([tfw_wmTreatUnknownAsString, tfw_wmRightWordRef]) then
+   Result := TkwRightLiteralParam
+  else
+  if aTypeInfo.EQwm([tfw_wmRightWordRef]) AND
+     (aTypeInfo.LinkType = tfw_ltNone) then
+   Result := TkwRightParam
+  else
+   Result := TkwRightParamEx;
+ end//tfw_wmRightWordRef in aTypeInfo.Modifiers
+ else
+ if aTypeInfo.Has(tfw_wmLeftWordRef) then
+ begin
+  if aTypeInfo.EQwm([tfw_wmLeftWordRef]) then
+   Result := TkwLeftWordRefParam
+  else
+  begin
+   Assert(false, 'Неверный список модификаторов');
+   Result := nil;
+  end;//else
+ end//tfw_wmLeftWordRef in aTypeInfo.Modifiers
+ else
+ begin
+  if aTypeInfo.ValueTypes.EQ(TypeInfo(TObject)) then
+   Result := TkwObjRefParam
+  else
+   Result := TkwLeftParam;
+ end;//else
+//#UC END# *559A72E202EB_4F4158EB01D9_impl*
+end;//TkwLeftParam.ClassForCreate
 
 function TkwLeftParam.GetRef(const aCtx: TtfwContext): TtfwWord;
 //#UC START# *558D2BCA0324_4F4158EB01D9_var*
@@ -625,36 +568,21 @@ begin
 //#UC END# *559A4C5801D8_4F4158EB01D9_impl*
 end;//TkwLeftParam.IsInParam
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwObjRefParam
  TkwObjRefParam.RegisterClass;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TkwRefParam
+ {* Регистрация TkwObjRefParam }
  TkwRefParam.RegisterClass;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TkwRightParam
+ {* Регистрация TkwRefParam }
  TkwRightParam.RegisterClass;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TkwRightLiteralParam
+ {* Регистрация TkwRightParam }
  TkwRightLiteralParam.RegisterClass;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TkwRightParamEx
+ {* Регистрация TkwRightLiteralParam }
  TkwRightParamEx.RegisterClass;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TkwLeftWordRefParam
+ {* Регистрация TkwRightParamEx }
  TkwLeftWordRefParam.RegisterClass;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TkwLeftParam
+ {* Регистрация TkwLeftWordRefParam }
  TkwLeftParam.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwLeftParam }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

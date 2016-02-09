@@ -1,71 +1,53 @@
 unit kwCompiledWordWorker;
+ {* Базовый класс для исполняемых скомпилированных слов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwCompiledWordWorker.pas"
-// Начат: 12.05.2011 16:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwCompiledWordWorker
-//
-// Базовый класс для исполняемых скомпилированных слов.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorker.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwSourcePointWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSourcePointWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  RkwCompiledWordWorker = class of TkwCompiledWordWorker;
 
  TkwCompiledWordWorker = {abstract} class(TkwSourcePointWord)
   {* Базовый класс для исполняемых скомпилированных слов. }
- private
- // private fields
-   f_WordToWork : TtfwWord;
-    {* Поле для свойства WordToWork}
- protected
- // overridden protected methods
+  private
+   f_WordToWork: TtfwWord;
+    {* Поле для свойства WordToWork }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aWordToPush: TtfwWord;
-     aWordToRun: TtfwWord;
-     const aCtx: TtfwContext); reintroduce; virtual;
- public
- // public properties
+    aWordToRun: TtfwWord;
+    const aCtx: TtfwContext); reintroduce; virtual;
+  public
    property WordToWork: TtfwWord
-     read f_WordToWork;
+    read f_WordToWork;
  end;//TkwCompiledWordWorker
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledWordWorker
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
 constructor TkwCompiledWordWorker.Create(aWordToPush: TtfwWord;
-  aWordToRun: TtfwWord;
-  const aCtx: TtfwContext);
+ aWordToRun: TtfwWord;
+ const aCtx: TtfwContext);
 //#UC START# *4DCBB0CD028D_4DCBD50101CB_var*
 //#UC END# *4DCBB0CD028D_4DCBD50101CB_var*
 begin
@@ -76,6 +58,7 @@ begin
 end;//TkwCompiledWordWorker.Create
 
 procedure TkwCompiledWordWorker.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DCBD50101CB_var*
 //#UC END# *479731C50290_4DCBD50101CB_var*
 begin
@@ -85,12 +68,9 @@ begin
 //#UC END# *479731C50290_4DCBD50101CB_impl*
 end;//TkwCompiledWordWorker.Cleanup
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledWordWorker
  TkwCompiledWordWorker.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledWordWorker }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

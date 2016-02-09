@@ -1,71 +1,47 @@
 unit kwIntegerFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwIntegerFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TkwIntegerFactory
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIntegerFactory.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwInteger,
-  kwIntegerArray
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwIntegerArray
+ , kwInteger
+;
 
-{$If not defined(NoScripts)}
 type
  TkwIntegerFactory = class(TkwIntegerArray)
- public
- // public methods
+  public
    function MakeKW(aValue: Integer): TkwInteger;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwIntegerFactory;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TkwIntegerFactory }
  end;//TkwIntegerFactory
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a},
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TkwIntegerFactory
-
-var g_TkwIntegerFactory : TkwIntegerFactory = nil;
+var g_TkwIntegerFactory: TkwIntegerFactory = nil;
+ {* Экземпляр синглетона TkwIntegerFactory }
 
 procedure TkwIntegerFactoryFree;
+ {* Метод освобождения экземпляра синглетона TkwIntegerFactory }
 begin
  l3Free(g_TkwIntegerFactory);
-end;
-
-class function TkwIntegerFactory.Instance: TkwIntegerFactory;
-begin
- if (g_TkwIntegerFactory = nil) then
- begin
-  l3System.AddExitProc(TkwIntegerFactoryFree);
-  g_TkwIntegerFactory := Create;
- end;
- Result := g_TkwIntegerFactory;
-end;
-
+end;//TkwIntegerFactoryFree
 
 function TkwIntegerFactory.MakeKW(aValue: Integer): TkwInteger;
 //#UC START# *4F3E412801B7_4F3E401D03AF_var*
@@ -94,11 +70,21 @@ begin
 end;//TkwIntegerFactory.MakeKW
 
 class function TkwIntegerFactory.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TkwIntegerFactory <> nil;
 end;//TkwIntegerFactory.Exists
 
-{$IfEnd} //not NoScripts
+class function TkwIntegerFactory.Instance: TkwIntegerFactory;
+ {* Метод получения экземпляра синглетона TkwIntegerFactory }
+begin
+ if (g_TkwIntegerFactory = nil) then
+ begin
+  l3System.AddExitProc(TkwIntegerFactoryFree);
+  g_TkwIntegerFactory := Create;
+ end;
+ Result := g_TkwIntegerFactory;
+end;//TkwIntegerFactory.Instance
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

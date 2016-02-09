@@ -1,46 +1,36 @@
 unit kwWordPtrPushWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwWordPtrPushWord.pas"
-// Начат: 12.02.2012 16:21
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwWordPtrPushWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWordPtrPushWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwWordPtrWorker,
-  tfwScriptingInterfaces,
-  l3Interfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwWordPtrWorker
+ , tfwScriptingInterfaces
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwWordPtrPushWord = class(TkwWordPtrWorker)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+  public
    function GetRef(const aCtx: TtfwContext): TtfwWord; override;
    function WordName: Il3CString; override;
  end;//TkwWordPtrPushWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwWordPtrPushWord
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwWordPtrPushWord.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F37AEBB0209_var*
@@ -70,12 +60,9 @@ begin
 //#UC END# *55AFD7DA0258_4F37AEBB0209_impl*
 end;//TkwWordPtrPushWord.WordName
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwWordPtrPushWord
  TkwWordPtrPushWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwWordPtrPushWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

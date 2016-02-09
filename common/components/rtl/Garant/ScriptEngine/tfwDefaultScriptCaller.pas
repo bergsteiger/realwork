@@ -1,51 +1,47 @@
 unit tfwDefaultScriptCaller;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDefaultScriptCaller.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptCallers::TtfwDefaultScriptCaller
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDefaultScriptCaller.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  l3ProtoObject,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , l3ProtoObject
+ , tfwScriptingInterfaces
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwDefaultScriptCaller = class(Tl3ProtoObject, ItfwScriptCaller)
- protected
- // realized methods
+  protected
+   class function DictPath: AnsiString; virtual;
    function ResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
    function ResolveOutputFilePath(const aFile: AnsiString): AnsiString;
    function ResolveInputFilePath(const aFile: AnsiString): AnsiString;
    function KPage: AnsiString;
    procedure ToLog(const aSt: AnsiString);
    function CompileOnly: Boolean;
- public
- // realized methods
+  public
+   procedure DoPrint(const aStr: Tl3WString); virtual;
+   constructor Create; reintroduce;
+   class function Make: ItfwScriptCaller; reintroduce;
+   class function DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString; virtual;
    procedure CheckOutputWithInput(const aIn: AnsiString;
-     const aOut: AnsiString;
-     aHeaderBegin: AnsiChar;
-     aEtalonNeedsComputerName: Boolean;
-     aEtalonCanHaveDiff: Boolean;
-     const anExtraFileName: AnsiString;
-     aNeedsCheck: Boolean); overload; 
+    const aOut: AnsiString;
+    aHeaderBegin: AnsiChar;
+    aEtalonNeedsComputerName: Boolean;
+    aEtalonCanHaveDiff: Boolean;
+    const anExtraFileName: AnsiString;
+    aNeedsCheck: Boolean); overload;
    procedure Check(aCondition: Boolean;
     const aMessage: AnsiString = '');
-     {* Проверяет инвариант }
-   procedure Print(const aStr: Tl3WString); overload; 
-   procedure Print(const aStr: Il3CString); overload; 
+    {* Проверяет инвариант }
+   procedure Print(const aStr: Tl3WString); overload;
+   procedure Print(const aStr: Il3CString); overload;
    procedure CheckWithEtalon(const aFileName: AnsiString;
     aHeaderBegin: AnsiChar);
    procedure CheckPrintEtalon(const aLogName: AnsiString;
@@ -56,47 +52,33 @@ type
    function StartTimer: Longword;
    function StopTimer(const aSt: AnsiString = '';
     const aSubName: AnsiString = '';
-    aNeedTimeToLog: Boolean = true): Longword;
+    aNeedTimeToLog: Boolean = True): Longword;
    procedure CheckOutputWithInput(const aSt: AnsiString;
-     aHeaderBegin: AnsiChar = #0;
-     const anExtraFileName: AnsiString = '';
-     aNeedsCheck: Boolean = true); overload; 
+    aHeaderBegin: AnsiChar = #0;
+    const anExtraFileName: AnsiString = '';
+    aNeedsCheck: Boolean = True); overload;
    function GetIsWritingToK: Boolean;
    function GetIsFakeCVS: Boolean;
    function GetCVSPath: AnsiString;
    procedure DontRaiseIfEtalonCreated;
    procedure TimeToLog(aTime: Cardinal;
-     const aSt: AnsiString;
-     const aSubName: AnsiString);
+    const aSt: AnsiString;
+    const aSubName: AnsiString);
    function GetTestSetFolderName: AnsiString;
    function GetEtalonSuffix: AnsiString;
    procedure CheckPictureOnly;
- protected
- // protected methods
-   function DictPath: AnsiString; virtual;
-   function DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString; virtual;
- public
- // public methods
-   procedure DoPrint(const aStr: Tl3WString); virtual;
-   constructor Create; reintroduce;
-   class function Make: ItfwScriptCaller; reintroduce;
-     {* Сигнатура фабрики TtfwDefaultScriptCaller.Make }
  end;//TtfwDefaultScriptCaller
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  SysUtils,
-  l3FileUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwDefaultScriptCaller
+ l3ImplUses
+ , SysUtils
+ , l3FileUtils
+ , l3String
+;
 
 procedure TtfwDefaultScriptCaller.DoPrint(const aStr: Tl3WString);
 //#UC START# *55C491FC025C_55C482690029_var*
@@ -126,9 +108,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TtfwDefaultScriptCaller.Make
 
-function TtfwDefaultScriptCaller.DictPath: AnsiString;
+class function TtfwDefaultScriptCaller.DictPath: AnsiString;
 //#UC START# *55CC867301F7_55C482690029_var*
 //#UC END# *55CC867301F7_55C482690029_var*
 begin
@@ -137,7 +119,7 @@ begin
 //#UC END# *55CC867301F7_55C482690029_impl*
 end;//TtfwDefaultScriptCaller.DictPath
 
-function TtfwDefaultScriptCaller.DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
+class function TtfwDefaultScriptCaller.DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
 //#UC START# *55D34AD90105_55C482690029_var*
 //#UC END# *55D34AD90105_55C482690029_var*
 begin
@@ -150,12 +132,12 @@ begin
 end;//TtfwDefaultScriptCaller.DoResolveIncludedFilePath
 
 procedure TtfwDefaultScriptCaller.CheckOutputWithInput(const aIn: AnsiString;
-  const aOut: AnsiString;
-  aHeaderBegin: AnsiChar;
-  aEtalonNeedsComputerName: Boolean;
-  aEtalonCanHaveDiff: Boolean;
-  const anExtraFileName: AnsiString;
-  aNeedsCheck: Boolean);
+ const aOut: AnsiString;
+ aHeaderBegin: AnsiChar;
+ aEtalonNeedsComputerName: Boolean;
+ aEtalonCanHaveDiff: Boolean;
+ const anExtraFileName: AnsiString;
+ aNeedsCheck: Boolean);
 //#UC START# *4CAEDCF9006A_55C482690029_var*
 //#UC END# *4CAEDCF9006A_55C482690029_var*
 begin
@@ -165,7 +147,8 @@ begin
 end;//TtfwDefaultScriptCaller.CheckOutputWithInput
 
 procedure TtfwDefaultScriptCaller.Check(aCondition: Boolean;
-  const aMessage: AnsiString = '');
+ const aMessage: AnsiString = '');
+ {* Проверяет инвариант }
 //#UC START# *4DAF1A280116_55C482690029_var*
 //#UC END# *4DAF1A280116_55C482690029_var*
 begin
@@ -211,7 +194,7 @@ begin
 end;//TtfwDefaultScriptCaller.ResolveOutputFilePath
 
 procedure TtfwDefaultScriptCaller.CheckWithEtalon(const aFileName: AnsiString;
-  aHeaderBegin: AnsiChar);
+ aHeaderBegin: AnsiChar);
 //#UC START# *4DD533BF023D_55C482690029_var*
 //#UC END# *4DD533BF023D_55C482690029_var*
 begin
@@ -230,7 +213,7 @@ begin
 end;//TtfwDefaultScriptCaller.ResolveInputFilePath
 
 procedure TtfwDefaultScriptCaller.CheckPrintEtalon(const aLogName: AnsiString;
-  const aOutputName: AnsiString);
+ const aOutputName: AnsiString);
 //#UC START# *4F0D7AC900FA_55C482690029_var*
 //#UC END# *4F0D7AC900FA_55C482690029_var*
 begin
@@ -249,7 +232,7 @@ begin
 end;//TtfwDefaultScriptCaller.ShouldStop
 
 procedure TtfwDefaultScriptCaller.CheckTimeout(aNow: Cardinal;
-  aTimeout: Cardinal);
+ aTimeout: Cardinal);
 //#UC START# *4F0D8C360085_55C482690029_var*
 //#UC END# *4F0D8C360085_55C482690029_var*
 begin
@@ -268,8 +251,8 @@ begin
 end;//TtfwDefaultScriptCaller.StartTimer
 
 function TtfwDefaultScriptCaller.StopTimer(const aSt: AnsiString = '';
-  const aSubName: AnsiString = '';
-  aNeedTimeToLog: Boolean = true): Longword;
+ const aSubName: AnsiString = '';
+ aNeedTimeToLog: Boolean = True): Longword;
 //#UC START# *4F0D8CB0015D_55C482690029_var*
 //#UC END# *4F0D8CB0015D_55C482690029_var*
 begin
@@ -297,9 +280,9 @@ begin
 end;//TtfwDefaultScriptCaller.ToLog
 
 procedure TtfwDefaultScriptCaller.CheckOutputWithInput(const aSt: AnsiString;
-  aHeaderBegin: AnsiChar = #0;
-  const anExtraFileName: AnsiString = '';
-  aNeedsCheck: Boolean = true);
+ aHeaderBegin: AnsiChar = #0;
+ const anExtraFileName: AnsiString = '';
+ aNeedsCheck: Boolean = True);
 //#UC START# *4F5F3C61023E_55C482690029_var*
 //#UC END# *4F5F3C61023E_55C482690029_var*
 begin
@@ -345,8 +328,8 @@ begin
 end;//TtfwDefaultScriptCaller.DontRaiseIfEtalonCreated
 
 procedure TtfwDefaultScriptCaller.TimeToLog(aTime: Cardinal;
-  const aSt: AnsiString;
-  const aSubName: AnsiString);
+ const aSt: AnsiString;
+ const aSubName: AnsiString);
 //#UC START# *511BC7C60063_55C482690029_var*
 //#UC END# *511BC7C60063_55C482690029_var*
 begin
@@ -390,7 +373,6 @@ begin
  Assert(false);
 //#UC END# *536A15F901DA_55C482690029_impl*
 end;//TtfwDefaultScriptCaller.CheckPictureOnly
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

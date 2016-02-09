@@ -1,63 +1,50 @@
 unit tfwArray;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwArray.pas"
-// Начат: 12.05.2011 21:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::Array::TtfwArray
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwValueList,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwValueList
+ , tfwScriptingInterfaces
+ , l3PureMixIns
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwArray = class(TtfwValueList, ItfwValueList)
- protected
- // realized methods
-   function pm_GetFirst: TtfwStackValue;
-   function pm_GetLast: TtfwStackValue;
-   function pm_GetItems(anIndex: Integer): TtfwStackValue;
+  protected
+   function pm_GetFirst: _ItemType_;
+   function pm_GetLast: _ItemType_;
+   function pm_GetItems(anIndex: Integer): _ItemType_;
    function pm_GetEmpty: Boolean;
    function pm_GetCount: Integer;
    procedure SetItem(anIndex: Integer;
-     const aValue: TtfwStackValue);
+    const aValue: TtfwStackValue);
    function ItemsCountInSlice: Integer;
- public
- // realized methods
-   function IndexOf(const anItem: TtfwStackValue): Integer;
-   function Add(const anItem: TtfwStackValue): Integer;
-   procedure Clear;
-   procedure ForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
-   procedure ForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
- public
- // public methods
+  public
    constructor Create; reintroduce;
    class function Make: ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwArray.Make }
+   function IndexOf(const anItem: _ItemType_): Integer;
+   function Add(const anItem: _ItemType_): Integer;
+   procedure Clear;
+   procedure ForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
+   procedure ForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
  end;//TtfwArray
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwArray
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 constructor TtfwArray.Create;
 //#UC START# *4DCC1E58031B_4DCC173A026C_var*
@@ -78,9 +65,9 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TtfwArray.Make
 
-function TtfwArray.pm_GetFirst: TtfwStackValue;
+function TtfwArray.pm_GetFirst: _ItemType_;
 //#UC START# *47D8233603DD_4DCC173A026Cget_var*
 //#UC END# *47D8233603DD_4DCC173A026Cget_var*
 begin
@@ -89,7 +76,7 @@ begin
 //#UC END# *47D8233603DD_4DCC173A026Cget_impl*
 end;//TtfwArray.pm_GetFirst
 
-function TtfwArray.pm_GetLast: TtfwStackValue;
+function TtfwArray.pm_GetLast: _ItemType_;
 //#UC START# *47D823570315_4DCC173A026Cget_var*
 //#UC END# *47D823570315_4DCC173A026Cget_var*
 begin
@@ -98,7 +85,7 @@ begin
 //#UC END# *47D823570315_4DCC173A026Cget_impl*
 end;//TtfwArray.pm_GetLast
 
-function TtfwArray.pm_GetItems(anIndex: Integer): TtfwStackValue;
+function TtfwArray.pm_GetItems(anIndex: Integer): _ItemType_;
 //#UC START# *47D8248802AD_4DCC173A026Cget_var*
 //#UC END# *47D8248802AD_4DCC173A026Cget_var*
 begin
@@ -116,7 +103,7 @@ begin
 //#UC END# *47E381E203D2_4DCC173A026Cget_impl*
 end;//TtfwArray.pm_GetEmpty
 
-function TtfwArray.IndexOf(const anItem: TtfwStackValue): Integer;
+function TtfwArray.IndexOf(const anItem: _ItemType_): Integer;
 //#UC START# *482955910076_4DCC173A026C_var*
 //#UC END# *482955910076_4DCC173A026C_var*
 begin
@@ -125,7 +112,7 @@ begin
 //#UC END# *482955910076_4DCC173A026C_impl*
 end;//TtfwArray.IndexOf
 
-function TtfwArray.Add(const anItem: TtfwStackValue): Integer;
+function TtfwArray.Add(const anItem: _ItemType_): Integer;
 //#UC START# *482958A203D0_4DCC173A026C_var*
 //#UC END# *482958A203D0_4DCC173A026C_var*
 begin
@@ -153,7 +140,7 @@ begin
 end;//TtfwArray.Clear
 
 procedure TtfwArray.ForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23B7A00EC_4DCC173A026C_var*
 var
  l_Index : Integer;
@@ -178,7 +165,7 @@ begin
 end;//TtfwArray.ForEach
 
 procedure TtfwArray.ForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23BB102FA_4DCC173A026C_var*
 var
  l_Index : Integer;
@@ -203,7 +190,7 @@ begin
 end;//TtfwArray.ForEachBack
 
 procedure TtfwArray.SetItem(anIndex: Integer;
-  const aValue: TtfwStackValue);
+ const aValue: TtfwStackValue);
 //#UC START# *55CDF40C03D4_4DCC173A026C_var*
 //#UC END# *55CDF40C03D4_4DCC173A026C_var*
 begin
@@ -220,7 +207,6 @@ begin
  Result := 1;
 //#UC END# *55E849210175_4DCC173A026C_impl*
 end;//TtfwArray.ItemsCountInSlice
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

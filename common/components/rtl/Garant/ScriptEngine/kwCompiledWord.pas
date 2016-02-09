@@ -1,113 +1,94 @@
 unit kwCompiledWord;
+ {* Поддержка скомпилированных слов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwCompiledWord.pas"
-// Начат: 26.04.2011 17:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwCompiledWord
-//
-// Поддержка скомпилированных слов
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionary,
-  tfwWordRefList,
-  kwRuntimeWordWithCodeExecution,
-  tfwScriptingInterfaces,
-  l3Interfaces,
-  tfwDictionaryPrim,
-  l3Variant
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwRuntimeWordWithCodeExecution
+ , tfwDictionary
+ , tfwWordRefList
+ , tfwDictionaryPrim
+ , tfwScriptingInterfaces
+ , l3Interfaces
+ , l3Variant
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledWord = class(TkwRuntimeWordWithCodeExecution)
   {* Поддержка скомпилированных слов }
- private
- // private fields
-   f_InParams : TtfwWordRefList;
-    {* Входные параметры слова}
-   f_RightParams : TtfwWordRefList;
-   f_LeftWordRefs : TtfwWordRefList;
-   f_LocalDictionary : TtfwDictionary;
-    {* Поле для свойства LocalDictionary}
- protected
- // overridden property methods
-   function pm_GetInnerDictionary: TtfwDictionaryPrim; override;
- protected
- // overridden protected methods
+  private
+   f_InParams: TtfwWordRefList;
+    {* Входные параметры слова }
+   f_RightParams: TtfwWordRefList;
+   f_LeftWordRefs: TtfwWordRefList;
+   f_LocalDictionary: TtfwDictionary;
+    {* Поле для свойства LocalDictionary }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure DoDoIt(const aCtx: TtfwContext); override;
    procedure StoreState(const aCtx: TtfwContext); override;
    procedure RestoreState(const aCtx: TtfwContext); override;
+   function pm_GetInnerDictionary: TtfwDictionaryPrim; override;
    function GetNewWordDefinitor: TtfwWord; override;
-   function GetKeywordFinder(const aCtx: TtfwContext): TtfwWord; override;
    procedure DoCompileInParameterPopCode(const aContext: TtfwContext;
-     aParameterToPop: TtfwWord;
-     aCheckCode: Boolean); override;
+    aParameterToPop: TtfwWord;
+    aCheckCode: Boolean); override;
    procedure ClearState(const aCtx: TtfwContext); override;
-   function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;
-   function GetKeywordByName(const aName: Il3CString): Tl3PrimString; override;
-   function GetParentFinder: TtfwWord; override;
- public
- // overridden public methods
+  public
    function IsCompiled: Boolean; override;
    function IsImmediate(const aCtx: TtfwContext): Boolean; override;
    function DoDefineInParameter(const aCtx: TtfwContext;
-     const aParamName: Il3CString;
-     aStereo: TtfwWord;
-     aTypeInfo: TtfwWordInfo): TtfwWord; override;
-     {* Определяет слову входной параметр }
+    const aParamName: Il3CString;
+    aStereo: TtfwWord;
+    aTypeInfo: TtfwWordInfo): TtfwWord; override;
+    {* Определяет слову входной параметр }
    procedure CompileInParameterPopCodeFromString(const aContext: TtfwContext;
-     const aParameterToPop: Il3CString); override;
+    const aParameterToPop: Il3CString); override;
    function HasLocalDictionary: Boolean; override;
-     {* Есть ли у слова локальный словарь }
+    {* Есть ли у слова локальный словарь }
    function GetInParam(const aCtx: TtfwContext;
-     anIndex: Integer): TtfwWord; override;
+    anIndex: Integer): TtfwWord; override;
+   function GetKeywordFinder(const aCtx: TtfwContext): TtfwWord; override;
    function RightParamsCount(const aCtx: TtfwContext): Integer; override;
    function LeftWordRefParamsCount(const aCtx: TtfwContext): Integer; override;
    function GetRightParam(const aCtx: TtfwContext;
-     anIndex: Integer): TtfwWord; override;
+    anIndex: Integer): TtfwWord; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- protected
- // protected properties
+   function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;
+   function GetKeywordByName(const aName: Il3CString): Tl3PrimString; override;
+   function GetParentFinder: TtfwWord; override;
+  protected
    property LocalDictionary: TtfwDictionary
-     read f_LocalDictionary;
+    read f_LocalDictionary;
  end;//TkwCompiledWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  tfwStoredValues,
-  tfwArray,
-  kwLeftParam,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledWord
+ l3ImplUses
+ , SysUtils
+ , tfwStoredValues
+ , tfwArray
+ , kwLeftParam
+ , l3String
+;
 
 procedure TkwCompiledWord.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DB6CA4F010D_var*
 //#UC END# *479731C50290_4DB6CA4F010D_var*
 begin
@@ -121,8 +102,9 @@ begin
 //#UC END# *479731C50290_4DB6CA4F010D_impl*
 end;//TkwCompiledWord.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TkwCompiledWord.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4DB6CA4F010D_var*
 //#UC END# *47A6FEE600FC_4DB6CA4F010D_var*
 begin
@@ -130,7 +112,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4DB6CA4F010D_impl*
 end;//TkwCompiledWord.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TkwCompiledWord.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB6CA4F010D_var*
@@ -174,9 +156,10 @@ begin
 end;//TkwCompiledWord.IsImmediate
 
 function TkwCompiledWord.DoDefineInParameter(const aCtx: TtfwContext;
-  const aParamName: Il3CString;
-  aStereo: TtfwWord;
-  aTypeInfo: TtfwWordInfo): TtfwWord;
+ const aParamName: Il3CString;
+ aStereo: TtfwWord;
+ aTypeInfo: TtfwWordInfo): TtfwWord;
+ {* Определяет слову входной параметр }
 //#UC START# *4F4161BC0024_4DB6CA4F010D_var*
 var
  l_Var : TtfwWord;
@@ -216,7 +199,7 @@ begin
 end;//TkwCompiledWord.DoDefineInParameter
 
 procedure TkwCompiledWord.CompileInParameterPopCodeFromString(const aContext: TtfwContext;
-  const aParameterToPop: Il3CString);
+ const aParameterToPop: Il3CString);
 //#UC START# *4F4177910352_4DB6CA4F010D_var*
 //#UC END# *4F4177910352_4DB6CA4F010D_var*
 begin
@@ -255,6 +238,7 @@ begin
 end;//TkwCompiledWord.pm_GetInnerDictionary
 
 function TkwCompiledWord.HasLocalDictionary: Boolean;
+ {* Есть ли у слова локальный словарь }
 //#UC START# *52D40FAA0073_4DB6CA4F010D_var*
 //#UC END# *52D40FAA0073_4DB6CA4F010D_var*
 begin
@@ -264,7 +248,7 @@ begin
 end;//TkwCompiledWord.HasLocalDictionary
 
 function TkwCompiledWord.GetInParam(const aCtx: TtfwContext;
-  anIndex: Integer): TtfwWord;
+ anIndex: Integer): TtfwWord;
 //#UC START# *52D5425A037F_4DB6CA4F010D_var*
 //#UC END# *52D5425A037F_4DB6CA4F010D_var*
 begin
@@ -295,8 +279,8 @@ begin
 end;//TkwCompiledWord.GetKeywordFinder
 
 procedure TkwCompiledWord.DoCompileInParameterPopCode(const aContext: TtfwContext;
-  aParameterToPop: TtfwWord;
-  aCheckCode: Boolean);
+ aParameterToPop: TtfwWord;
+ aCheckCode: Boolean);
 //#UC START# *52D56A980103_4DB6CA4F010D_var*
 var
  l_Index : Integer;
@@ -394,7 +378,7 @@ begin
 end;//TkwCompiledWord.LeftWordRefParamsCount
 
 function TkwCompiledWord.GetRightParam(const aCtx: TtfwContext;
-  anIndex: Integer): TtfwWord;
+ anIndex: Integer): TtfwWord;
 //#UC START# *55769895035B_4DB6CA4F010D_var*
 //#UC END# *55769895035B_4DB6CA4F010D_var*
 begin
@@ -468,12 +452,9 @@ begin
 //#UC END# *55ACF0F5025D_4DB6CA4F010D_impl*
 end;//TkwCompiledWord.GetParentFinder
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledWord
  TkwCompiledWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

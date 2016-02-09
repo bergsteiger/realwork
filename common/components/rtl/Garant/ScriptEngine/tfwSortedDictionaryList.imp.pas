@@ -1,36 +1,32 @@
 {$IfNDef tfwSortedDictionaryList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwSortedDictionaryList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::tfwSortedDictionaryList
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSortedDictionaryList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define tfwSortedDictionaryList_imp}
-{$If not defined(NoScripts)}
- {$Include ..\ScriptEngine\tfwDictionaryListPrim.imp.pas}
- _tfwSortedDictionaryList_ = {abstract mixin} class(_tfwDictionaryListPrim_)
- protected
- // overridden protected methods
+
+{$If NOT Defined(NoScripts)}
+ {$Include tfwDictionaryListPrim.imp.pas}
+ _tfwSortedDictionaryList_ = {abstract} class(_tfwDictionaryListPrim_)
+  protected
    procedure InitFields; override;
  end;//_tfwSortedDictionaryList_
-{$Else}
 
- {$Include ..\ScriptEngine\tfwDictionaryListPrim.imp.pas}
- _tfwSortedDictionaryList_ = _tfwDictionaryListPrim_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+{$Include tfwDictionaryListPrim.imp.pas}
+_tfwSortedDictionaryList_ = _tfwDictionaryListPrim_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else tfwSortedDictionaryList_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef tfwSortedDictionaryList_imp_impl}
 
-// start class _tfwSortedDictionaryList_
+{$Define tfwSortedDictionaryList_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_55B0E773009A_var*
 //#UC END# *47B99D4503A2_55B0E773009A_var*
 begin
@@ -39,10 +35,7 @@ begin
 //#UC END# *47B99D4503A2_55B0E773009A_impl*
 end;//CompareExistingItems
 
-
-{$Include ..\ScriptEngine\tfwDictionaryListPrim.imp.pas}
-
-// start class _tfwSortedDictionaryList_
+{$Include tfwDictionaryListPrim.imp.pas}
 
 procedure _tfwSortedDictionaryList_.InitFields;
 //#UC START# *47A042E100E2_55B0E773009A_var*
@@ -53,7 +46,9 @@ begin
  Sorted := true;
 //#UC END# *47A042E100E2_55B0E773009A_impl*
 end;//_tfwSortedDictionaryList_.InitFields
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf tfwSortedDictionaryList_imp_impl}
 
 {$EndIf tfwSortedDictionaryList_imp}
+

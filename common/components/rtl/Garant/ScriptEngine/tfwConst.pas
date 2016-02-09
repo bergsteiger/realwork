@@ -1,48 +1,38 @@
 unit tfwConst;
+ {* Поддержка констант. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwConst.pas"
-// Начат: 03.05.2011 12:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TtfwConst
-//
-// Поддержка констант.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwConst.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwConstLike,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwConstLike
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwConst = {abstract} class(TtfwConstLike)
   {* Поддержка констант. }
- protected
- // overridden protected methods
+  protected
    function AcceptsKeyWordAfter(const aContext: TtfwContext;
-     aWordNumber: Integer): Boolean; override;
+    aWordNumber: Integer): Boolean; override;
  end;//TtfwConst
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwConst
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TtfwConst.AcceptsKeyWordAfter(const aContext: TtfwContext;
-  aWordNumber: Integer): Boolean;
+ aWordNumber: Integer): Boolean;
 //#UC START# *4DB9B502013D_4DBFC3520093_var*
 //#UC END# *4DB9B502013D_4DBFC3520093_var*
 begin
@@ -53,12 +43,9 @@ begin
 //#UC END# *4DB9B502013D_4DBFC3520093_impl*
 end;//TtfwConst.AcceptsKeyWordAfter
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwConst
  TtfwConst.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwConst }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

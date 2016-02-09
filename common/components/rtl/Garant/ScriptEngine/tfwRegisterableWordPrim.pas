@@ -1,50 +1,37 @@
 unit tfwRegisterableWordPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwRegisterableWordPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwRegisterableWordPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRegisterableWordPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwRegisterableWordPrim = {abstract} class(TtfwWord)
- protected
- // protected methods
+  protected
    class function Register(const aName: AnsiString): Boolean;
    class function ReallyNeedRegister: Boolean; virtual;
    class procedure RegisterInEngine; virtual;
    class function GetWordNameForRegister: AnsiString; virtual;
- public
- // public methods
+  public
    function RegisterInstance(const aName: AnsiString): Boolean;
  end;//TtfwRegisterableWordPrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwAutoregisteredDiction
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwRegisterableWordPrim
+ l3ImplUses
+ , tfwAutoregisteredDiction
+;
 
 function TtfwRegisterableWordPrim.RegisterInstance(const aName: AnsiString): Boolean;
 //#UC START# *53F1E3A4014D_54D229E702B6_var*
@@ -101,12 +88,9 @@ begin
 //#UC END# *4DB0614603C8_54D229E702B6_impl*
 end;//TtfwRegisterableWordPrim.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwRegisterableWordPrim
  TtfwRegisterableWordPrim.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwRegisterableWordPrim }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

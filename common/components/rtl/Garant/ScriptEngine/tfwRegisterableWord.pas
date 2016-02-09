@@ -1,44 +1,32 @@
 unit tfwRegisterableWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwRegisterableWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwRegisterableWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRegisterableWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwRegisterableWord = {abstract} class(TtfwRegisterableWordPrim)
- public
- // overridden public methods
+  public
    class function NameForRegister: AnsiString; override;
  end;//TtfwRegisterableWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwAutoregisteredDiction
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwRegisterableWord
+ l3ImplUses
+ , tfwAutoregisteredDiction
+;
 
 class function TtfwRegisterableWord.NameForRegister: AnsiString;
 //#UC START# *52D7B67501CE_53EDC0E701BC_var*
@@ -49,12 +37,9 @@ begin
 //#UC END# *52D7B67501CE_53EDC0E701BC_impl*
 end;//TtfwRegisterableWord.NameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwRegisterableWord
  TtfwRegisterableWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwRegisterableWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

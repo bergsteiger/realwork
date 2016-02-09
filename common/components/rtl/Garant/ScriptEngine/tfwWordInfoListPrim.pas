@@ -1,61 +1,50 @@
 unit tfwWordInfoListPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwWordInfoListPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::WordInfoCache::TtfwWordInfoListPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordInfoListPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3ProtoDataContainer,
-  tfwScriptingInterfaces,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , l3ProtoDataContainer
+ , tfwScriptingInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoScripts)}
 type
  _ItemType_ = TtfwWordInfoF;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
+ {$Include l3UncomparabeObjectRefList.imp.pas}
  TtfwWordInfoListPrim = class(_l3UncomparabeObjectRefList_)
  end;//TtfwWordInfoListPrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwWordInfoListPrim
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_559F8232010B_var*
 //#UC END# *47B2C42A0163_559F8232010B_var*
 begin
@@ -63,9 +52,10 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47B2C42A0163_559F8232010B_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_559F8232010B_var*
 //#UC END# *47B99D4503A2_559F8232010B_var*
 begin
@@ -76,8 +66,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TtfwWordInfoListPrim;
 
-{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
+{$Include l3UncomparabeObjectRefList.imp.pas}
+{$IfEnd} // NOT Defined(NoScripts)
 
-
-{$IfEnd} //not NoScripts
 end.

@@ -118,6 +118,12 @@ uses
  , l3Variant
  , l3String
  , l3_String
+ {$If NOT Defined(NoScripts)}
+ , ItfwParserWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ItfwParserExWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , l3MinMax
  , RTLConsts

@@ -1,53 +1,40 @@
 unit kwValue;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwValue.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TkwValue
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwValue.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwTypeInfo,
-  l3Interfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwValue = class(TtfwWord)
- private
- // private fields
-   f_Value : TtfwStackValue;
- protected
- // realized methods
+  private
+   f_Value: TtfwStackValue;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   function WordName: Il3CString; override;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aValue: TtfwStackValue); reintroduce;
+   function WordName: Il3CString; override;
  end;//TkwValue
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwValue
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 constructor TkwValue.Create(const aValue: TtfwStackValue);
 //#UC START# *52B46E1B0256_52B46DD80194_var*
@@ -69,6 +56,7 @@ begin
 end;//TkwValue.DoDoIt
 
 procedure TkwValue.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52B46DD80194_var*
 //#UC END# *479731C50290_52B46DD80194_var*
 begin
@@ -90,12 +78,9 @@ begin
 //#UC END# *55AFD7DA0258_52B46DD80194_impl*
 end;//TkwValue.WordName
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwValue
  TkwValue.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwValue }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,73 +1,50 @@
 unit kwString;
+ {* Помещает значение в стек как строковое. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwString.pas"
-// Начат: 26.04.2011 17:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TkwString
-//
-// Помещает значение в стек как строковое.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwString.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwRegisterableWordPrim,
-  TypInfo,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWordPrim
+ , l3Interfaces
+ , tfwScriptingInterfaces
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TkwString = class(TtfwRegisterableWordPrim)
   {* Помещает значение в стек как строковое. }
- private
- // private fields
-   f_Value : Il3CString;
-    {* Поле для свойства Value}
- protected
- // realized methods
+  private
+   f_Value: Il3CString;
+    {* Поле для свойства Value }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // overridden public methods
+  public
+   constructor Create(const aValue: Il3CString); reintroduce;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function WordName: Il3CString; override;
- public
- // public methods
-   constructor Create(const aValue: Il3CString); reintroduce;
- public
- // public properties
+  public
    property Value: Il3CString
-     read f_Value;
+    read f_Value;
  end;//TkwString
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwString
+ l3ImplUses
+ , tfwScriptingTypes
+;
 
 constructor TkwString.Create(const aValue: Il3CString);
 //#UC START# *4DB6CD7402A0_4DB6CD4203D4_var*
@@ -89,6 +66,7 @@ begin
 end;//TkwString.DoDoIt
 
 procedure TkwString.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DB6CD4203D4_var*
 //#UC END# *479731C50290_4DB6CD4203D4_var*
 begin
@@ -99,11 +77,8 @@ begin
 end;//TkwString.Cleanup
 
 procedure TkwString.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_Value := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TkwString.ClearFields
 
@@ -125,12 +100,9 @@ begin
 //#UC END# *55AFD7DA0258_4DB6CD4203D4_impl*
 end;//TkwString.WordName
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwString
  TkwString.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwString }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

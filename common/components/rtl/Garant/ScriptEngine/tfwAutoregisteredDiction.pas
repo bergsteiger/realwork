@@ -1,103 +1,80 @@
 unit tfwAutoregisteredDiction;
+ {* Словарь с базовой аксиоматикой }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwAutoregisteredDiction.pas"
-// Начат: 21.04.2011 20:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwAutoregisteredDiction
-//
-// Словарь с базовой аксиоматикой
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwAutoregisteredDiction.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwDictionaryEx,
-  tfwStandardDictionary,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwStandardDictionary
+ , tfwDictionaryEx
+ , l3Interfaces
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwAutoregisteredDiction = class(TtfwStandardDictionary)
   {* Словарь с базовой аксиоматикой }
- private
- // private fields
-   f_AllAxiomaticsDefined : Boolean;
-    {* Поле для свойства AllAxiomaticsDefined}
- protected
- // property methods
+  private
+   f_AllAxiomaticsDefined: Boolean;
+    {* Поле для свойства AllAxiomaticsDefined }
+  protected
    procedure pm_SetAllAxiomaticsDefined(aValue: Boolean); virtual;
- protected
- // overridden protected methods
    function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    function IsAxiom: Boolean; override;
    function Add(aWord: TtfwKeyWord): Integer; override;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    function DictionaryByWord(const aWord: Il3CString): TtfwDictionaryEx;
    function CheckDictionaryByWordAndUse(const aWord: Il3CString): Boolean;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property AllAxiomaticsDefined: Boolean
-     read f_AllAxiomaticsDefined
-     write pm_SetAllAxiomaticsDefined;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwAutoregisteredDiction;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwAutoregisteredDiction }
+  public
+   property AllAxiomaticsDefined: Boolean
+    read f_AllAxiomaticsDefined
+    write pm_SetAllAxiomaticsDefined;
  end;//TtfwAutoregisteredDiction
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a},
-  tfwCStringFactory,
-  tfwStandardDictionaries,
-  l3String,
-  SysUtils,
-  l3Chars
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , tfwStandardDictionaries
+ , l3String
+ , SysUtils
+ , l3Chars
+ , tfwCStringFactory
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TtfwAutoregisteredDiction
-
-var g_TtfwAutoregisteredDiction : TtfwAutoregisteredDiction = nil;
+var g_TtfwAutoregisteredDiction: TtfwAutoregisteredDiction = nil;
+ {* Экземпляр синглетона TtfwAutoregisteredDiction }
 
 procedure TtfwAutoregisteredDictionFree;
+ {* Метод освобождения экземпляра синглетона TtfwAutoregisteredDiction }
 begin
  l3Free(g_TtfwAutoregisteredDiction);
-end;
+end;//TtfwAutoregisteredDictionFree
 
-class function TtfwAutoregisteredDiction.Instance: TtfwAutoregisteredDiction;
+procedure TtfwAutoregisteredDiction.pm_SetAllAxiomaticsDefined(aValue: Boolean);
+//#UC START# *52EF85600031_4DB05FF60115set_var*
+//#UC END# *52EF85600031_4DB05FF60115set_var*
 begin
- if (g_TtfwAutoregisteredDiction = nil) then
- begin
-  l3System.AddExitProc(TtfwAutoregisteredDictionFree);
-  g_TtfwAutoregisteredDiction := Create;
- end;
- Result := g_TtfwAutoregisteredDiction;
-end;
-
+//#UC START# *52EF85600031_4DB05FF60115set_impl*
+ Assert(not f_AllAxiomaticsDefined OR aValue);
+ f_AllAxiomaticsDefined := aValue;
+//#UC END# *52EF85600031_4DB05FF60115set_impl*
+end;//TtfwAutoregisteredDiction.pm_SetAllAxiomaticsDefined
 
 constructor TtfwAutoregisteredDiction.Create;
 //#UC START# *559E658901B3_4DB05FF60115_var*
@@ -224,21 +201,22 @@ begin
 //#UC END# *55B22D3C019E_4DB05FF60115_impl*
 end;//TtfwAutoregisteredDiction.CheckDictionaryByWordAndUse
 
-procedure TtfwAutoregisteredDiction.pm_SetAllAxiomaticsDefined(aValue: Boolean);
-//#UC START# *52EF85600031_4DB05FF60115set_var*
-//#UC END# *52EF85600031_4DB05FF60115set_var*
-begin
-//#UC START# *52EF85600031_4DB05FF60115set_impl*
- Assert(not f_AllAxiomaticsDefined OR aValue);
- f_AllAxiomaticsDefined := aValue;
-//#UC END# *52EF85600031_4DB05FF60115set_impl*
-end;//TtfwAutoregisteredDiction.pm_SetAllAxiomaticsDefined
-
 class function TtfwAutoregisteredDiction.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TtfwAutoregisteredDiction <> nil;
 end;//TtfwAutoregisteredDiction.Exists
+
+class function TtfwAutoregisteredDiction.Instance: TtfwAutoregisteredDiction;
+ {* Метод получения экземпляра синглетона TtfwAutoregisteredDiction }
+begin
+ if (g_TtfwAutoregisteredDiction = nil) then
+ begin
+  l3System.AddExitProc(TtfwAutoregisteredDictionFree);
+  g_TtfwAutoregisteredDiction := Create;
+ end;
+ Result := g_TtfwAutoregisteredDiction;
+end;//TtfwAutoregisteredDiction.Instance
 
 function TtfwAutoregisteredDiction.DoCheckWord(const aName: Il3CString): TtfwKeyWord;
 //#UC START# *4F465D580021_4DB05FF60115_var*
@@ -303,7 +281,6 @@ begin
  end;//l_D = Self
 //#UC END# *55B0E87401FA_4DB05FF60115_impl*
 end;//TtfwAutoregisteredDiction.Add
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

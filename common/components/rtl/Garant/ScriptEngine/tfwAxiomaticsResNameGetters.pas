@@ -1,59 +1,54 @@
 unit tfwAxiomaticsResNameGetters;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwAxiomaticsResNameGetters.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptedAxiomatics::TtfwAxiomaticsResNameGetters
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetters.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwAxiomaticsResNameGetterList
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwAxiomaticsResNameGetterList
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwAxiomaticsResNameGetters = class(TtfwAxiomaticsResNameGetterList)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwAxiomaticsResNameGetters;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwAxiomaticsResNameGetters }
  end;//TtfwAxiomaticsResNameGetters
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TtfwAxiomaticsResNameGetters
-
-var g_TtfwAxiomaticsResNameGetters : TtfwAxiomaticsResNameGetters = nil;
+var g_TtfwAxiomaticsResNameGetters: TtfwAxiomaticsResNameGetters = nil;
+ {* Экземпляр синглетона TtfwAxiomaticsResNameGetters }
 
 procedure TtfwAxiomaticsResNameGettersFree;
+ {* Метод освобождения экземпляра синглетона TtfwAxiomaticsResNameGetters }
 begin
  l3Free(g_TtfwAxiomaticsResNameGetters);
-end;
+end;//TtfwAxiomaticsResNameGettersFree
+
+class function TtfwAxiomaticsResNameGetters.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TtfwAxiomaticsResNameGetters <> nil;
+end;//TtfwAxiomaticsResNameGetters.Exists
 
 class function TtfwAxiomaticsResNameGetters.Instance: TtfwAxiomaticsResNameGetters;
+ {* Метод получения экземпляра синглетона TtfwAxiomaticsResNameGetters }
 begin
  if (g_TtfwAxiomaticsResNameGetters = nil) then
  begin
@@ -61,15 +56,7 @@ begin
   g_TtfwAxiomaticsResNameGetters := Create;
  end;
  Result := g_TtfwAxiomaticsResNameGetters;
-end;
-
-
-class function TtfwAxiomaticsResNameGetters.Exists: Boolean;
- {-}
-begin
- Result := g_TtfwAxiomaticsResNameGetters <> nil;
-end;//TtfwAxiomaticsResNameGetters.Exists
-
-{$IfEnd} //not NoScripts
+end;//TtfwAxiomaticsResNameGetters.Instance
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

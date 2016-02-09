@@ -1,62 +1,46 @@
 unit kwCompiledWordWorkerEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwCompiledWordWorkerEx.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwCompiledWordWorkerEx
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerEx.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwCompiledWordWorker,
-  tfwAnonimousWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordWorker
+ , tfwScriptingInterfaces
+ , tfwAnonimousWord
+;
 
-{$If not defined(NoScripts)}
 type
  _tfwOtherWordRunner_Parent_ = TkwCompiledWordWorker;
- {$Include ..\ScriptEngine\tfwOtherWordRunner.imp.pas}
+ {$Include tfwOtherWordRunner.imp.pas}
  TkwCompiledWordWorkerEx = class(_tfwOtherWordRunner_)
- private
- // private fields
-   f_WordToRun : TtfwWord;
- protected
- // realized methods
+  private
+   f_WordToRun: TtfwWord;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
    function GetWordToRun: TtfwAnonimousWord; override;
- protected
- // overridden property methods
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // overridden public methods
+  public
    constructor Create(aWordToPush: TtfwWord;
-     aWordToRun: TtfwWord;
-     const aCtx: TtfwContext); override;
+    aWordToRun: TtfwWord;
+    const aCtx: TtfwContext); override;
  end;//TkwCompiledWordWorkerEx
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwWordWorker
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , tfwWordWorker
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\tfwOtherWordRunner.imp.pas}
-
-// start class TkwCompiledWordWorkerEx
+{$Include tfwOtherWordRunner.imp.pas}
 
 procedure TkwCompiledWordWorkerEx.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5512E3740036_var*
@@ -78,8 +62,8 @@ begin
 end;//TkwCompiledWordWorkerEx.GetWordToRun
 
 constructor TkwCompiledWordWorkerEx.Create(aWordToPush: TtfwWord;
-  aWordToRun: TtfwWord;
-  const aCtx: TtfwContext);
+ aWordToRun: TtfwWord;
+ const aCtx: TtfwContext);
 //#UC START# *4DCBB0CD028D_5512E3740036_var*
 //#UC END# *4DCBB0CD028D_5512E3740036_var*
 begin
@@ -98,12 +82,9 @@ begin
 //#UC END# *52CFC11603C8_5512E3740036get_impl*
 end;//TkwCompiledWordWorkerEx.pm_GetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledWordWorkerEx
  TkwCompiledWordWorkerEx.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledWordWorkerEx }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

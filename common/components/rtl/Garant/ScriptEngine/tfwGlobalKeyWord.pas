@@ -1,39 +1,32 @@
 unit tfwGlobalKeyWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwGlobalKeyWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ClassLikeMapping::TtfwGlobalKeyWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwGlobalKeyWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClassLike
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwClassLike
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwGlobalKeyWord = {abstract} class(TtfwClassLike)
- protected
- // overridden protected methods
+  protected
    function BindParams: Boolean; override;
    function StrictChecking: Boolean; override;
  end;//TtfwGlobalKeyWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwGlobalKeyWord
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TtfwGlobalKeyWord.BindParams: Boolean;
 //#UC START# *5617C8A30023_561BAC4B0005_var*
@@ -54,12 +47,9 @@ begin
 //#UC END# *561916700342_561BAC4B0005_impl*
 end;//TtfwGlobalKeyWord.StrictChecking
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwGlobalKeyWord
  TtfwGlobalKeyWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwGlobalKeyWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

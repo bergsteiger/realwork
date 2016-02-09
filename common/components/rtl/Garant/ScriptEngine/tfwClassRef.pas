@@ -1,65 +1,49 @@
 unit tfwClassRef;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwClassRef.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwClassRef
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwClassRef.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWordPrim,
-  TypInfo,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWordPrim
+ , tfwScriptingInterfaces
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwClassRef = class(TtfwRegisterableWordPrim)
- private
- // private fields
-   f_Class : TClass;
- protected
- // realized methods
+  private
+   f_Class: TClass;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
- public
- // public methods
+  public
    constructor Create(aClass: TClass); reintroduce;
-   class function Register(aClass: TClass): Boolean; overload; 
-   class procedure Register(const aClasses: array of TClass); overload; 
+   class function Register(aClass: TClass): Boolean; overload;
+   class procedure Register(const aClasses: array of TClass); overload;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
  end;//TtfwClassRef
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Except,
-  l3Base,
-  StrUtils,
-  tfwTypeModifier,
-  tfwScriptingTypes,
-  tfwRTTIProperty,
-  tfwEnumRegistrator,
-  tfwTypeRegistrator
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwClassRef
+ l3ImplUses
+ , SysUtils
+ , l3Except
+ , l3Base
+ , StrUtils
+ , tfwTypeModifier
+ , tfwScriptingTypes
+ , tfwRTTIProperty
+ , tfwEnumRegistrator
+ , tfwTypeRegistrator
+;
 
 constructor TtfwClassRef.Create(aClass: TClass);
 //#UC START# *5085292201A0_508528D10384_var*
@@ -198,12 +182,9 @@ begin
 //#UC END# *551544E2001A_508528D10384_impl*
 end;//TtfwClassRef.GetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwClassRef
  TtfwClassRef.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwClassRef }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,51 +1,39 @@
 unit tfwAnonimousWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwAnonimousWord.pas"
-// Начат: 28.04.2011 23:09
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TtfwAnonimousWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwCompilingWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwCompilingWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwAnonimousWord = {abstract} class(TtfwCompilingWord)
- public
- // overridden public methods
-   function IsAnonimous(const aCtx: TtfwContext): Boolean; override;
- protected
- // protected methods
+  protected
    procedure DoCompiledWord(aWord: TtfwWord;
-     const aContext: TtfwContext); virtual;
- public
- // public methods
+    const aContext: TtfwContext); virtual;
+  public
    procedure DoRun(const aCtx: TtfwContext); virtual;
+   function IsAnonimous(const aCtx: TtfwContext): Boolean; override;
  end;//TtfwAnonimousWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwAnonimousWord
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TtfwAnonimousWord.DoCompiledWord(aWord: TtfwWord;
-  const aContext: TtfwContext);
+ const aContext: TtfwContext);
 //#UC START# *4DB9BBD6024F_4DB9BB43017B_var*
 //#UC END# *4DB9BBD6024F_4DB9BB43017B_var*
 begin
@@ -88,12 +76,9 @@ begin
 //#UC END# *4F3AB3600008_4DB9BB43017B_impl*
 end;//TtfwAnonimousWord.IsAnonimous
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwAnonimousWord
  TtfwAnonimousWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwAnonimousWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

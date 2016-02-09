@@ -1,46 +1,36 @@
 unit kwStringArray;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwStringArray.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TkwStringArray
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStringArray.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwStringListPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwStringListPrim
+;
 
-{$If not defined(NoScripts)}
 type
  _l3OpenArray_Parent_ = TkwStringListPrim;
- {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
+ {$Include l3OpenArray.imp.pas}
  TkwStringArray = class(_l3OpenArray_)
  end;//TkwStringArray
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , l3Base
+;
 
 type _Instance_R_ = TkwStringArray;
 
-{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
+{$Include l3OpenArray.imp.pas}
+{$IfEnd} // NOT Defined(NoScripts)
 
-
-{$IfEnd} //not NoScripts
 end.

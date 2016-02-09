@@ -1,46 +1,34 @@
 unit tfwWordWorkerEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwWordWorkerEx.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TtfwWordWorkerEx
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwWordWorker,
-  tfwScriptingInterfaces,
-  kwCompiledWordWorker
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwWordWorker
+ , kwCompiledWordWorker
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwWordWorkerEx = {abstract} class(TtfwWordWorker)
- protected
- // realized methods
+  protected
    function CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker; override;
  end;//TtfwWordWorkerEx
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledWordWorkerEx
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwWordWorkerEx
+ l3ImplUses
+ , kwCompiledWordWorkerEx
+;
 
 function TtfwWordWorkerEx.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;
 //#UC START# *4DCBD67C0362_5512E4070106_var*
@@ -51,12 +39,9 @@ begin
 //#UC END# *4DCBD67C0362_5512E4070106_impl*
 end;//TtfwWordWorkerEx.CompiledWorkerClass
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwWordWorkerEx
  TtfwWordWorkerEx.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwWordWorkerEx }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

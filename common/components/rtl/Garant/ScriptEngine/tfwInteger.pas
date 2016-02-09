@@ -1,58 +1,40 @@
 unit tfwInteger;
+ {* Базовый предок для добавления слов в словарь. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwInteger.pas"
-// Начат: 09.12.2011 13:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwInteger
-//
-// Базовый предок для добавления слов в словарь.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwInteger.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  TypInfo,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwInteger = {abstract} class(TtfwRegisterableWord)
   {* Базовый предок для добавления слов в словарь. }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
- protected
- // protected methods
+  protected
    function GetInteger: Integer; virtual;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
  end;//TtfwInteger
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Except,
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwInteger
+ l3ImplUses
+ , l3Except
+ , l3Base
+;
 
 function TtfwInteger.GetInteger: Integer;
 //#UC START# *4EE1DC8903BB_4EE1DBBB013C_var*
@@ -82,12 +64,9 @@ begin
 //#UC END# *551544E2001A_4EE1DBBB013C_impl*
 end;//TtfwInteger.GetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwInteger
  TtfwInteger.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwInteger }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

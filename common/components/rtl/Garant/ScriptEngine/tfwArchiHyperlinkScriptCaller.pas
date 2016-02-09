@@ -1,63 +1,54 @@
 unit tfwArchiHyperlinkScriptCaller;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwArchiHyperlinkScriptCaller.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptCallers::TtfwArchiHyperlinkScriptCaller
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwArchiHyperlinkScriptCaller.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwAxiomaticsResNameGetter,
-  tfwHyperlinkScriptCaller
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwHyperlinkScriptCaller
+ , tfwAxiomaticsResNameGetter
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwArchiHyperlinkScriptCaller = class(TtfwHyperlinkScriptCaller)
- protected
- // overridden protected methods
-   function DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString; override;
+  public
+   class function DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString; override;
  end;//TtfwArchiHyperlinkScriptCaller
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 type
-//#UC START# *2601B8C0800Aci*
-//#UC END# *2601B8C0800Aci*
-//#UC START# *2601B8C0800Acit*
-//#UC END# *2601B8C0800Acit*
-  TtfwArchiHyperlinkScriptCallerResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-   {* Регистрация скриптованой аксиоматики }
+ //#UC START# *2601B8C0800Aci*
+ //#UC END# *2601B8C0800Aci*
+ //#UC START# *2601B8C0800Acit*
+ //#UC END# *2601B8C0800Acit*
+ TtfwArchiHyperlinkScriptCallerResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
   public
-  // realized methods
    class function ResName: AnsiString; override;
-//#UC START# *2601B8C0800Apubl*
-//#UC END# *2601B8C0800Apubl*
-  end;//TtfwArchiHyperlinkScriptCallerResNameGetter
-
-// start class TtfwArchiHyperlinkScriptCallerResNameGetter
+ //#UC START# *2601B8C0800Apubl*
+ //#UC END# *2601B8C0800Apubl*
+ end;//TtfwArchiHyperlinkScriptCallerResNameGetter
 
 class function TtfwArchiHyperlinkScriptCallerResNameGetter.ResName: AnsiString;
- {-}
 begin
- Result := 'tfwArchiHyperlinkScriptCaller';
+  Result := 'tfwArchiHyperlinkScriptCaller';
 end;//TtfwArchiHyperlinkScriptCallerResNameGetter.ResName
 
  {$R tfwArchiHyperlinkScriptCaller.res}
 
-function TtfwArchiHyperlinkScriptCaller.DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
+class function TtfwArchiHyperlinkScriptCaller.DoResolveIncludedFilePath(const aFile: AnsiString): AnsiString;
 //#UC START# *55D34AD90105_55D34A7E0127_var*
 //#UC END# *55D34AD90105_55D34A7E0127_var*
 begin
@@ -66,12 +57,9 @@ begin
 //#UC END# *55D34AD90105_55D34A7E0127_impl*
 end;//TtfwArchiHyperlinkScriptCaller.DoResolveIncludedFilePath
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TtfwArchiHyperlinkScriptCallerResNameGetter.Register;
-{$IfEnd} //not NoScripts
+ {* Регистрация скриптованой аксиоматики }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

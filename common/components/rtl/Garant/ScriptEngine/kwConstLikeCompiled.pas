@@ -1,40 +1,33 @@
 unit kwConstLikeCompiled;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwConstLikeCompiled.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwConstLikeCompiled
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwConstLikeCompiled.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwRuntimeWordWithCodeExecution,
-  TypInfo,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwRuntimeWordWithCodeExecution
+ , TypInfo
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwConstLikeCompiled = class(TkwRuntimeWordWithCodeExecution)
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
  end;//TkwConstLikeCompiled
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwConstLikeCompiled
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TkwConstLikeCompiled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 //#UC START# *551544E2001A_551E87F00212_var*
@@ -45,12 +38,9 @@ begin
 //#UC END# *551544E2001A_551E87F00212_impl*
 end;//TkwConstLikeCompiled.GetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwConstLikeCompiled
  TkwConstLikeCompiled.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwConstLikeCompiled }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

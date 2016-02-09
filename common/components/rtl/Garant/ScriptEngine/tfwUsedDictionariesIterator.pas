@@ -1,38 +1,31 @@
 unit tfwUsedDictionariesIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwUsedDictionariesIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwUsedDictionariesIterator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwUsedDictionariesIterator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionaryPtrListIterator
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryPtrListIterator
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwUsedDictionariesIterator = class(TtfwDictionaryPtrListIterator)
- protected
- // realized methods
+  protected
    function ListToIterate: _ListType_; override;
  end;//TtfwUsedDictionariesIterator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwUsedDictionariesIterator
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TtfwUsedDictionariesIterator.ListToIterate: _ListType_;
 //#UC START# *55AE64E00011_55AE651402AA_var*
@@ -42,7 +35,6 @@ begin
  Result := Dictionary.UsedDictionaries;
 //#UC END# *55AE64E00011_55AE651402AA_impl*
 end;//TtfwUsedDictionariesIterator.ListToIterate
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

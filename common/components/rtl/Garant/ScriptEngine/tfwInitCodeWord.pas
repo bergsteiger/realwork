@@ -1,87 +1,66 @@
 unit tfwInitCodeWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwInitCodeWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwInitCodeWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwInitCodeWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwDictionaryExPrim,
-  tfwWordRefList,
-  l3Interfaces,
-  tfwDictionaryPrim,
-  l3Variant
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptingInterfaces
+ , tfwDictionaryExPrim
+ , tfwDictionaryPrim
+ , l3Interfaces
+ , l3Variant
+ , tfwWordRefList
+;
 
-{$If not defined(NoScripts)}
 type
  _tfwCodeCompiler_Parent_ = TtfwWord;
- {$Include ..\ScriptEngine\tfwCodeCompiler.imp.pas}
+ {$Include tfwCodeCompiler.imp.pas}
  TtfwInitCodeWord = class(_tfwCodeCompiler_)
- private
- // private fields
-   f_Dictionary : TtfwDictionaryExPrim;
-    {* Поле для свойства Dictionary}
- protected
- // realized methods
+  private
+   f_Dictionary: TtfwDictionaryExPrim;
+    {* Поле для свойства Dictionary }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden property methods
    function pm_GetInnerDictionary: TtfwDictionaryPrim; override;
- protected
- // overridden protected methods
    function GetNewWordDefinitor: TtfwWord; override;
-   function GetKeywordFinder(const aCtx: TtfwContext): TtfwWord; override;
    procedure DoCompileInParameterPopCode(const aContext: TtfwContext;
-     aParameterToPop: TtfwWord;
-     aCheckCode: Boolean); override;
+    aParameterToPop: TtfwWord;
+    aCheckCode: Boolean); override;
+  public
+   constructor Create(aDictionary: TtfwDictionaryExPrim); reintroduce;
+   function DoDefineInParameter(const aCtx: TtfwContext;
+    const aParamName: Il3CString;
+    aStereo: TtfwWord;
+    aTypeInfo: TtfwWordInfo): TtfwWord; override;
+    {* Определяет слову входной параметр }
+   function GetKeywordFinder(const aCtx: TtfwContext): TtfwWord; override;
    function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;
    function GetKeywordByName(const aName: Il3CString): Tl3PrimString; override;
    function GetParentFinder: TtfwWord; override;
- public
- // overridden public methods
-   function DoDefineInParameter(const aCtx: TtfwContext;
-     const aParamName: Il3CString;
-     aStereo: TtfwWord;
-     aTypeInfo: TtfwWordInfo): TtfwWord; override;
-     {* Определяет слову входной параметр }
- public
- // public methods
-   constructor Create(aDictionary: TtfwDictionaryExPrim); reintroduce;
- public
- // public properties
+  public
    property Dictionary: TtfwDictionaryExPrim
-     read f_Dictionary;
+    read f_Dictionary;
  end;//TtfwInitCodeWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionaryEx,
-  tfwAutoregisteredDiction,
-  kwForwardDeclarationHolder,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , tfwDictionaryEx
+ , tfwAutoregisteredDiction
+ , kwForwardDeclarationHolder
+ , SysUtils
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\tfwCodeCompiler.imp.pas}
-
-// start class TtfwInitCodeWord
+{$Include tfwCodeCompiler.imp.pas}
 
 constructor TtfwInitCodeWord.Create(aDictionary: TtfwDictionaryExPrim);
 //#UC START# *55A7DB260310_55A7DA0200C0_var*
@@ -104,9 +83,10 @@ begin
 end;//TtfwInitCodeWord.DoDoIt
 
 function TtfwInitCodeWord.DoDefineInParameter(const aCtx: TtfwContext;
-  const aParamName: Il3CString;
-  aStereo: TtfwWord;
-  aTypeInfo: TtfwWordInfo): TtfwWord;
+ const aParamName: Il3CString;
+ aStereo: TtfwWord;
+ aTypeInfo: TtfwWordInfo): TtfwWord;
+ {* Определяет слову входной параметр }
 //#UC START# *4F4161BC0024_55A7DA0200C0_var*
 //#UC END# *4F4161BC0024_55A7DA0200C0_var*
 begin
@@ -149,8 +129,8 @@ begin
 end;//TtfwInitCodeWord.GetKeywordFinder
 
 procedure TtfwInitCodeWord.DoCompileInParameterPopCode(const aContext: TtfwContext;
-  aParameterToPop: TtfwWord;
-  aCheckCode: Boolean);
+ aParameterToPop: TtfwWord;
+ aCheckCode: Boolean);
 //#UC START# *52D56A980103_55A7DA0200C0_var*
 //#UC END# *52D56A980103_55A7DA0200C0_var*
 begin
@@ -186,12 +166,9 @@ begin
 //#UC END# *55ACF0F5025D_55A7DA0200C0_impl*
 end;//TtfwInitCodeWord.GetParentFinder
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwInitCodeWord
  TtfwInitCodeWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwInitCodeWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

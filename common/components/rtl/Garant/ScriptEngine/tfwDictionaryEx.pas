@@ -1,117 +1,95 @@
 unit tfwDictionaryEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryEx.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryEx
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryEx.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwDictionary,
-  tfwScriptingInterfaces,
-  tfwStreamFactory,
-  tfwDictionaryPtrList,
-  tfwDictionaryExPrim,
-  tfwInitedDictionariesList,
-  tfwInitCodeWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryExPrim
+ , tfwScriptingInterfaces
+ , tfwDictionaryPtrList
+ , l3Interfaces
+ , tfwStreamFactory
+ , tfwInitCodeWord
+ , tfwDictionary
+ , tfwInitedDictionariesList
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwDictionaryEx = class(TtfwDictionaryExPrim)
- private
- // private fields
-   f_UsedDictionaries : TtfwDictionaryPtrList;
-    {* Поле для свойства UsedDictionaries}
-   f_FileName : Il3CString;
-    {* Поле для свойства FileName}
-   f_FileDateTime : TDateTime;
-    {* Поле для свойства FileDateTime}
-   f_Stream : TtfwStreamFactory;
-    {* Поле для свойства Stream}
-   f_InitCode : TtfwInitCodeWord;
-    {* Поле для свойства InitCode}
-   f_ExportedDictionaries : TtfwDictionaryPtrList;
-    {* Поле для свойства ExportedDictionaries}
- public
- // realized methods
-   procedure AddCodePart(aWord: TtfwWord;
-    const aCtx: TtfwContext;
-    aSNI: TtfwSuppressNextImmediate);
-     {* Добавляет скомпилированный код к текущему компилируемуму слову }
- protected
- // overridden protected methods
+  private
+   f_UsedDictionaries: TtfwDictionaryPtrList;
+    {* Поле для свойства UsedDictionaries }
+   f_FileName: Il3CString;
+    {* Поле для свойства FileName }
+   f_FileDateTime: TDateTime;
+    {* Поле для свойства FileDateTime }
+   f_Stream: TtfwStreamFactory;
+    {* Поле для свойства Stream }
+   f_InitCode: TtfwInitCodeWord;
+    {* Поле для свойства InitCode }
+   f_ExportedDictionaries: TtfwDictionaryPtrList;
+    {* Поле для свойства ExportedDictionaries }
+  protected
+   function FindInUsedDictionary(anOther: TtfwDictionary;
+    const aName: Il3CString): TtfwKeyWord; virtual;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    function DoGetDRbyCName(const aName: Il3CString): TtfwKeyWord; override;
- public
- // overridden public methods
-   function IsValidCode: Boolean; override;
-   function UsesDictionary(anOther: TtfwDictionaryExPrim): Boolean; override;
- protected
- // protected methods
-   function FindInUsedDictionary(anOther: TtfwDictionary;
-     const aName: Il3CString): TtfwKeyWord; virtual;
- public
- // public methods
+  public
    procedure RunInitCode(aRunned: TtfwInitedDictionariesList;
-     const aCtx: TtfwContext); virtual;
+    const aCtx: TtfwContext); virtual;
    procedure EnterCode(const aCtx: TtfwContext);
    procedure LeaveCode(const aCtx: TtfwContext);
    procedure UseDictionary(aDictionary: TtfwDictionaryEx);
    constructor Create(aFile: TtfwStreamFactory;
-     const aUsed: array of TtfwDictionaryEx); reintroduce; overload; 
+    const aUsed: array of TtfwDictionaryEx); reintroduce; overload;
    procedure ExportDictionary(aDictionary: TtfwDictionaryEx);
    constructor Create(const aFileName: Il3CString;
-     const aUsed: array of TtfwDictionaryEx); overload; 
- public
- // public properties
+    const aUsed: array of TtfwDictionaryEx); reintroduce; overload;
+   procedure AddCodePart(aWord: TtfwWord;
+    const aCtx: TtfwContext;
+    aSNI: TtfwSuppressNextImmediate);
+    {* Добавляет скомпилированный код к текущему компилируемуму слову }
+   function IsValidCode: Boolean; override;
+   function UsesDictionary(anOther: TtfwDictionaryExPrim): Boolean; override;
+  public
    property UsedDictionaries: TtfwDictionaryPtrList
-     read f_UsedDictionaries;
+    read f_UsedDictionaries;
    property FileName: Il3CString
-     read f_FileName;
+    read f_FileName;
    property FileDateTime: TDateTime
-     read f_FileDateTime;
+    read f_FileDateTime;
    property Stream: TtfwStreamFactory
-     read f_Stream;
+    read f_Stream;
    property InitCode: TtfwInitCodeWord
-     read f_InitCode;
+    read f_InitCode;
    property ExportedDictionaries: TtfwDictionaryPtrList
-     read f_ExportedDictionaries;
+    read f_ExportedDictionaries;
  end;//TtfwDictionaryEx
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  Math,
-  tfwAutoregisteredDiction,
-  l3String,
-  tfwDictionaryExWordsPack
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwDictionaryEx
+ l3ImplUses
+ , SysUtils
+ , Math
+ , tfwAutoregisteredDiction
+ , l3String
+ , tfwDictionaryExWordsPack
+;
 
 function TtfwDictionaryEx.FindInUsedDictionary(anOther: TtfwDictionary;
-  const aName: Il3CString): TtfwKeyWord;
+ const aName: Il3CString): TtfwKeyWord;
 //#UC START# *55A3A1E7038F_559E8B2E0385_var*
 //#UC END# *55A3A1E7038F_559E8B2E0385_var*
 begin
@@ -121,7 +99,7 @@ begin
 end;//TtfwDictionaryEx.FindInUsedDictionary
 
 procedure TtfwDictionaryEx.RunInitCode(aRunned: TtfwInitedDictionariesList;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *55A3BF0502F8_559E8B2E0385_var*
 var
  l_Index : Integer;
@@ -209,7 +187,7 @@ begin
 end;//TtfwDictionaryEx.UseDictionary
 
 constructor TtfwDictionaryEx.Create(aFile: TtfwStreamFactory;
-  const aUsed: array of TtfwDictionaryEx);
+ const aUsed: array of TtfwDictionaryEx);
 //#UC START# *55A54B4C03BC_559E8B2E0385_var*
 //#UC END# *55A54B4C03BC_559E8B2E0385_var*
 begin
@@ -242,7 +220,7 @@ begin
 end;//TtfwDictionaryEx.ExportDictionary
 
 constructor TtfwDictionaryEx.Create(const aFileName: Il3CString;
-  const aUsed: array of TtfwDictionaryEx);
+ const aUsed: array of TtfwDictionaryEx);
 //#UC START# *55B0E69B0385_559E8B2E0385_var*
 var
  l_Index : Integer;
@@ -260,8 +238,9 @@ begin
 end;//TtfwDictionaryEx.Create
 
 procedure TtfwDictionaryEx.AddCodePart(aWord: TtfwWord;
-  const aCtx: TtfwContext;
-  aSNI: TtfwSuppressNextImmediate);
+ const aCtx: TtfwContext;
+ aSNI: TtfwSuppressNextImmediate);
+ {* Добавляет скомпилированный код к текущему компилируемуму слову }
 //#UC START# *4DB6E3090290_559E8B2E0385_var*
 //#UC END# *4DB6E3090290_559E8B2E0385_var*
 begin
@@ -273,6 +252,7 @@ begin
 end;//TtfwDictionaryEx.AddCodePart
 
 procedure TtfwDictionaryEx.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_559E8B2E0385_var*
 //#UC END# *479731C50290_559E8B2E0385_var*
 begin
@@ -307,11 +287,8 @@ begin
 end;//TtfwDictionaryEx.DoCheckWord
 
 procedure TtfwDictionaryEx.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_FileName := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TtfwDictionaryEx.ClearFields
 
@@ -364,7 +341,6 @@ begin
     end;//anOther = f_UsedDictionaries[l_Index]
 //#UC END# *55A4FD6401D3_559E8B2E0385_impl*
 end;//TtfwDictionaryEx.UsesDictionary
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,50 +1,40 @@
 {$IfNDef tfwDictionaryListIterator_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryListIterator.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::tfwDictionaryListIterator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIterator.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define tfwDictionaryListIterator_imp}
-{$If not defined(NoScripts)}
+
+{$If NOT Defined(NoScripts)}
  _tfwDictionaryListIteratorPrim_Parent_ = TtfwIteratableParent;
- {$Include ..\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
- _tfwDictionaryListIterator_ = {abstract mixin} class(_tfwDictionaryListIteratorPrim_)
- private
- // private fields
-   f_ListToIterate : _ListType_;
- protected
- // realized methods
+ {$Include tfwDictionaryListIteratorPrim.imp.pas}
+ _tfwDictionaryListIterator_ = {abstract} class(_tfwDictionaryListIteratorPrim_)
+  private
+   f_ListToIterate: _ListType_;
+  protected
    function ListToIterate: _ListType_; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aListToIterate: _ListType_); reintroduce;
    class function Make(const aListToIterate: _ListType_): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики tfwDictionaryListIterator.Make }
  end;//_tfwDictionaryListIterator_
-{$Else}
 
- _tfwDictionaryListIteratorPrim_Parent_ = TtfwIteratableParent;
- {$Include ..\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
- _tfwDictionaryListIterator_ = _tfwDictionaryListIteratorPrim_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_tfwDictionaryListIteratorPrim_Parent_ = TtfwIteratableParent;
+{$Include tfwDictionaryListIteratorPrim.imp.pas}
+_tfwDictionaryListIterator_ = _tfwDictionaryListIteratorPrim_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else tfwDictionaryListIterator_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef tfwDictionaryListIterator_imp_impl}
 
-{$Include ..\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
+{$Define tfwDictionaryListIterator_imp_impl}
 
-// start class _tfwDictionaryListIterator_
+{$If NOT Defined(NoScripts)}
+{$Include tfwDictionaryListIteratorPrim.imp.pas}
 
 constructor _tfwDictionaryListIterator_.Create(const aListToIterate: _ListType_);
 //#UC START# *55E9ABC00239_55E9AB2C03C3_var*
@@ -67,7 +57,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//_tfwDictionaryListIterator_.Make
 
 function _tfwDictionaryListIterator_.ListToIterate: _ListType_;
 //#UC START# *55AE64E00011_55E9AB2C03C3_var*
@@ -79,6 +69,7 @@ begin
 end;//_tfwDictionaryListIterator_.ListToIterate
 
 procedure _tfwDictionaryListIterator_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55E9AB2C03C3_var*
 //#UC END# *479731C50290_55E9AB2C03C3_var*
 begin
@@ -88,7 +79,9 @@ begin
  inherited;
 //#UC END# *479731C50290_55E9AB2C03C3_impl*
 end;//_tfwDictionaryListIterator_.Cleanup
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf tfwDictionaryListIterator_imp_impl}
 
 {$EndIf tfwDictionaryListIterator_imp}
+

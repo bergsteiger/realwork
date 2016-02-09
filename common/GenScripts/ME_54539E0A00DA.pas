@@ -44,6 +44,9 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ , m2COMLib
+ , m3BuffStream
+ , m2S32Lib
 ;
 
 type _Instance_R_ = Tm3ArcHandleList;

@@ -39,6 +39,7 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ , l3String
 ;
 
 type _Instance_R_ = TtfwDictionaryList;

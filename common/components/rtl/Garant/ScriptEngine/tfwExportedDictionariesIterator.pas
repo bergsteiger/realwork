@@ -1,38 +1,31 @@
 unit tfwExportedDictionariesIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwExportedDictionariesIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwExportedDictionariesIterator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwExportedDictionariesIterator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionaryPtrListIterator
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryPtrListIterator
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwExportedDictionariesIterator = class(TtfwDictionaryPtrListIterator)
- protected
- // realized methods
+  protected
    function ListToIterate: _ListType_; override;
  end;//TtfwExportedDictionariesIterator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwExportedDictionariesIterator
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TtfwExportedDictionariesIterator.ListToIterate: _ListType_;
 //#UC START# *55AE64E00011_55AE650002D8_var*
@@ -42,7 +35,6 @@ begin
  Result := Dictionary.ExportedDictionaries;
 //#UC END# *55AE64E00011_55AE650002D8_impl*
 end;//TtfwExportedDictionariesIterator.ListToIterate
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

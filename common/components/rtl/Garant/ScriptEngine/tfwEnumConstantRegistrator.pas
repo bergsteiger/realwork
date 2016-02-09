@@ -1,59 +1,45 @@
 unit tfwEnumConstantRegistrator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwEnumConstantRegistrator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ConstantsRegistration::TtfwEnumConstantRegistrator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwEnumConstantRegistrator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo,
-  tfwIntegerConstantRegistrator,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwIntegerConstantRegistrator
+ , TypInfo
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwEnumConstantRegistrator = class(TtfwIntegerConstantRegistrator)
- private
- // private fields
-   f_TypeInfo : PTypeInfo;
- protected
- // overridden property methods
+  private
+   f_TypeInfo: PTypeInfo;
+  protected
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // public methods
+  public
    constructor Create(aValue: Integer;
-     aTypeInfo: PTypeInfo); reintroduce;
+    aTypeInfo: PTypeInfo); reintroduce;
    class procedure Register(const aName: AnsiString;
-     aValue: Integer;
-     aTypeInfo: PTypeInfo);
+    aValue: Integer;
+    aTypeInfo: PTypeInfo);
  end;//TtfwEnumConstantRegistrator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwEnumConstantRegistrator
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TtfwEnumConstantRegistrator.Create(aValue: Integer;
-  aTypeInfo: PTypeInfo);
+ aTypeInfo: PTypeInfo);
 //#UC START# *55C0DA200397_55C0D99E0109_var*
 //#UC END# *55C0DA200397_55C0D99E0109_var*
 begin
@@ -64,8 +50,8 @@ begin
 end;//TtfwEnumConstantRegistrator.Create
 
 class procedure TtfwEnumConstantRegistrator.Register(const aName: AnsiString;
-  aValue: Integer;
-  aTypeInfo: PTypeInfo);
+ aValue: Integer;
+ aTypeInfo: PTypeInfo);
 //#UC START# *55C0DA7C026A_55C0D99E0109_var*
 var
  l_Inst : TtfwEnumConstantRegistrator;
@@ -90,12 +76,9 @@ begin
 //#UC END# *52CFC11603C8_55C0D99E0109get_impl*
 end;//TtfwEnumConstantRegistrator.pm_GetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwEnumConstantRegistrator
  TtfwEnumConstantRegistrator.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwEnumConstantRegistrator }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

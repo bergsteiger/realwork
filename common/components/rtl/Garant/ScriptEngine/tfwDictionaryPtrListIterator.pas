@@ -1,54 +1,40 @@
 unit tfwDictionaryPtrListIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryPtrListIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryPtrListIterator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPtrListIterator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwDictionaryEx,
-  tfwDictionaryPtrList,
-  tfwDictionaryDataIteratorPrim,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDictionaryDataIteratorPrim
+ , tfwDictionaryPtrList
+ , tfwScriptingInterfaces
+ , tfwDictionaryEx
+;
 
-{$If not defined(NoScripts)}
 type
  _ListType_ = TtfwDictionaryPtrList;
  _tfwDictionaryListIteratorPrim_Parent_ = TtfwDictionaryDataIteratorPrim;
- {$Include ..\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
+ {$Include tfwDictionaryListIteratorPrim.imp.pas}
  TtfwDictionaryPtrListIterator = {abstract} class(_tfwDictionaryListIteratorPrim_)
- public
- // public methods
+  public
    class function Make(aDictionary: TtfwDictionaryEx): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwDictionaryPtrListIterator.Make }
  end;//TtfwDictionaryPtrListIterator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDictionary
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , tfwDictionary
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
-
-// start class TtfwDictionaryPtrListIterator
+{$Include tfwDictionaryListIteratorPrim.imp.pas}
 
 class function TtfwDictionaryPtrListIterator.Make(aDictionary: TtfwDictionaryEx): ItfwValueList;
 var
@@ -60,8 +46,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
-
-{$IfEnd} //not NoScripts
+end;//TtfwDictionaryPtrListIterator.Make
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

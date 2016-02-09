@@ -1,72 +1,83 @@
 unit tfwTypeModifier;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwTypeModifier.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::PrimitiveWords::TtfwTypeModifier
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeModifier.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo,
-  kwModifier,
-  tfwTypeInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwModifier
+ , TypInfo
+ , tfwTypeInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwClassModifier = class(TkwModifier)
- private
- // private fields
-   f_Class : TClass;
- protected
- // realized methods
+  private
+   f_Class: TClass;
+  protected
    function pm_GetModifier: TtfwTypeInfo; override;
- protected
- // overridden protected methods
    class function ReallyNeedRegister: Boolean; override;
- public
- // public methods
+  public
    constructor Create(aClass: TClass); reintroduce;
  end;//TtfwClassModifier
 
  TtfwTypeModifier = class(TkwModifier)
- private
- // private fields
-   f_TypeInfo : PTypeInfo;
- protected
- // realized methods
+  private
+   f_TypeInfo: PTypeInfo;
+  protected
    function pm_GetModifier: TtfwTypeInfo; override;
- protected
- // overridden protected methods
    class function ReallyNeedRegister: Boolean; override;
- public
- // public methods
-   class function RegisterTypeModifier(aTypeInfo: PTypeInfo): Boolean; overload; 
+  public
+   class function RegisterTypeModifier(aTypeInfo: PTypeInfo): Boolean; overload;
    constructor Create(aTypeInfo: PTypeInfo); reintroduce;
-   class function RegisterTypeModifier(aClass: TClass): Boolean; overload; 
+   class function RegisterTypeModifier(aClass: TClass): Boolean; overload;
  end;//TtfwTypeModifier
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+;
 
-{$If not defined(NoScripts)}
+constructor TtfwClassModifier.Create(aClass: TClass);
+//#UC START# *557555A801C1_55755516000B_var*
+//#UC END# *557555A801C1_55755516000B_var*
+begin
+//#UC START# *557555A801C1_55755516000B_impl*
+ inherited Create;
+ f_Class := aClass;
+//#UC END# *557555A801C1_55755516000B_impl*
+end;//TtfwClassModifier.Create
 
-// start class TtfwTypeModifier
+function TtfwClassModifier.pm_GetModifier: TtfwTypeInfo;
+//#UC START# *4DCACED80361_55755516000Bget_var*
+//#UC END# *4DCACED80361_55755516000Bget_var*
+begin
+//#UC START# *4DCACED80361_55755516000Bget_impl*
+ {$IfDef seTypeCheck}
+ Result := TtfwTypeInfo_C(f_Class);
+ {$Else  seTypeCheck}
+ Result := TtfwTypeInfo_C(TypeInfo(TObject));
+ {$EndIf seTypeCheck}
+//#UC END# *4DCACED80361_55755516000Bget_impl*
+end;//TtfwClassModifier.pm_GetModifier
+
+class function TtfwClassModifier.ReallyNeedRegister: Boolean;
+//#UC START# *4DC2E05B03DD_55755516000B_var*
+//#UC END# *4DC2E05B03DD_55755516000B_var*
+begin
+//#UC START# *4DC2E05B03DD_55755516000B_impl*
+ Result := false;
+//#UC END# *4DC2E05B03DD_55755516000B_impl*
+end;//TtfwClassModifier.ReallyNeedRegister
 
 class function TtfwTypeModifier.RegisterTypeModifier(aTypeInfo: PTypeInfo): Boolean;
 //#UC START# *5571B1010311_5571AC8301BE_var*
@@ -119,39 +130,6 @@ begin
  end;//l_CI <> nil
 //#UC END# *5575557101EC_5571AC8301BE_impl*
 end;//TtfwTypeModifier.RegisterTypeModifier
-// start class TtfwClassModifier
-
-constructor TtfwClassModifier.Create(aClass: TClass);
-//#UC START# *557555A801C1_55755516000B_var*
-//#UC END# *557555A801C1_55755516000B_var*
-begin
-//#UC START# *557555A801C1_55755516000B_impl*
- inherited Create;
- f_Class := aClass;
-//#UC END# *557555A801C1_55755516000B_impl*
-end;//TtfwClassModifier.Create
-
-function TtfwClassModifier.pm_GetModifier: TtfwTypeInfo;
-//#UC START# *4DCACED80361_55755516000Bget_var*
-//#UC END# *4DCACED80361_55755516000Bget_var*
-begin
-//#UC START# *4DCACED80361_55755516000Bget_impl*
- {$IfDef seTypeCheck}
- Result := TtfwTypeInfo_C(f_Class);
- {$Else  seTypeCheck}
- Result := TtfwTypeInfo_C(TypeInfo(TObject));
- {$EndIf seTypeCheck}
-//#UC END# *4DCACED80361_55755516000Bget_impl*
-end;//TtfwClassModifier.pm_GetModifier
-
-class function TtfwClassModifier.ReallyNeedRegister: Boolean;
-//#UC START# *4DC2E05B03DD_55755516000B_var*
-//#UC END# *4DC2E05B03DD_55755516000B_var*
-begin
-//#UC START# *4DC2E05B03DD_55755516000B_impl*
- Result := false;
-//#UC END# *4DC2E05B03DD_55755516000B_impl*
-end;//TtfwClassModifier.ReallyNeedRegister
 
 function TtfwTypeModifier.pm_GetModifier: TtfwTypeInfo;
 //#UC START# *4DCACED80361_5571AC8301BEget_var*
@@ -172,16 +150,11 @@ begin
 //#UC END# *4DC2E05B03DD_5571AC8301BE_impl*
 end;//TtfwTypeModifier.ReallyNeedRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwClassModifier
  TtfwClassModifier.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TtfwTypeModifier
+ {* Регистрация TtfwClassModifier }
  TtfwTypeModifier.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwTypeModifier }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

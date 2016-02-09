@@ -42,14 +42,14 @@ type
    procedure pm_SetFlag(anIndex: Integer;
     aValue: Boolean); virtual; abstract;
    function DoGetIndexInParent: Integer; virtual; abstract;
-   function Get__AllChildrenCount: Integer; virtual; abstract;
+   function Get_AllChildrenCount: Integer; virtual; abstract;
    function DoGetThisChildrenCount: Integer; virtual; abstract;
    function DoGetLevel: Integer; virtual;
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; virtual;
-   function Get__ParentNode: Il3Node; virtual; abstract;
-   function Get__ChildNode: Il3Node; virtual; abstract;
-   function Get__NextNode: Il3Node; virtual; abstract;
-   function Get__PrevNode: Il3Node; virtual; abstract;
+   function Get_ParentNode: Il3Node; virtual; abstract;
+   function Get_ChildNode: Il3Node; virtual; abstract;
+   function Get_NextNode: Il3Node; virtual; abstract;
+   function Get_PrevNode: Il3Node; virtual; abstract;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; virtual; abstract;
    function IsFirstNode: Boolean; virtual; abstract;
    function IsLastNode: Boolean; virtual; abstract;
@@ -204,7 +204,7 @@ type
    procedure Set_Flags(aValue: Integer);
    function GetSelf: Tl3CustomNode;
    function InheritFrom(aClassType: Tl3NodeClass): Boolean;
-   function Get__AllChildrenCount: Integer; override;
+   function Get_AllChildrenCount: Integer; override;
    function DoGetThisChildrenCount: Integer; override;
    function HasChildNode: Boolean; override;
    function GetIsDisappeared: Boolean; override;
@@ -265,10 +265,10 @@ type
    procedure Unsubscribe(const aRecipient: Il3Notify);
     {* "отписка" от извещений. }
    function DoGetIndexInParent: Integer; override;
-   function Get__ParentNode: Il3Node; override;
-   function Get__ChildNode: Il3Node; override;
-   function Get__NextNode: Il3Node; override;
-   function Get__PrevNode: Il3Node; override;
+   function Get_ParentNode: Il3Node; override;
+   function Get_ChildNode: Il3Node; override;
+   function Get_NextNode: Il3Node; override;
+   function Get_PrevNode: Il3Node; override;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; override;
    procedure Remove; override;
    function IterateChild(Action: Tl3NodeAction;
@@ -338,7 +338,7 @@ type
    procedure pm_SetChild(aValue: Tl3Node); override;
    function pm_GetFlags: Integer; override;
    procedure pm_SetFlags(aValue: Integer); override;
-   function Get__AllChildrenCount: Integer; override;
+   function Get_AllChildrenCount: Integer; override;
    function HasChildNode: Boolean; override;
    function GetMaybeChild: Boolean; override;
     {* может ли иметь дочерние узлы? }
@@ -432,8 +432,8 @@ type
     aOperation: Integer;
     aIndex: Integer);
     {* прошла операция. }
-   function Get__AllChildrenCount: Integer; override;
-   function Get__ChildNode: Il3Node; override;
+   function Get_AllChildrenCount: Integer; override;
+   function Get_ChildNode: Il3Node; override;
    function HasChildNode: Boolean; override;
    function IterateChild(Action: Tl3NodeAction;
     IterMode: Integer;
@@ -475,10 +475,10 @@ type
    procedure Notify(aOperation: Integer;
     const aNode: Il3SimpleNode);
     {* прошла операция. }
-   function Get__ParentNode: Il3Node; override;
-   function Get__ChildNode: Il3Node; override;
-   function Get__NextNode: Il3Node; override;
-   function Get__PrevNode: Il3Node; override;
+   function Get_ParentNode: Il3Node; override;
+   function Get_ChildNode: Il3Node; override;
+   function Get_NextNode: Il3Node; override;
+   function Get_PrevNode: Il3Node; override;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; override;
    function pm_GetFlag(anIndex: Integer): Boolean; override;
    procedure pm_SetFlag(anIndex: Integer;
@@ -654,8 +654,14 @@ uses
  , l3Nodes
  , l3Chars
  , l3InterfacesMisc
+ {$If NOT Defined(NoScripts)}
+ , l3NodesKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3String
  , l3Bits
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function Tl3PrimNode.pm_GetFlags: Integer;
@@ -1431,14 +1437,14 @@ begin
 //#UC END# *54C619B103B9_4ADDDFD50118_impl*
 end;//Tl3CustomNode.InheritFrom
 
-function Tl3CustomNode.Get__AllChildrenCount: Integer;
+function Tl3CustomNode.Get_AllChildrenCount: Integer;
 //#UC START# *54C78C200291_4ADDDFD50118_var*
 //#UC END# *54C78C200291_4ADDDFD50118_var*
 begin
 //#UC START# *54C78C200291_4ADDDFD50118_impl*
  Result := 0;
 //#UC END# *54C78C200291_4ADDDFD50118_impl*
-end;//Tl3CustomNode.Get__AllChildrenCount
+end;//Tl3CustomNode.Get_AllChildrenCount
 
 function Tl3CustomNode.DoGetThisChildrenCount: Integer;
 //#UC START# *54C78C8102DD_4ADDDFD50118_var*
@@ -1594,41 +1600,41 @@ begin
 //#UC END# *54C78A1E033E_4ADDDFC50302_impl*
 end;//Tl3Node.DoGetIndexInParent
 
-function Tl3Node.Get__ParentNode: Il3Node;
+function Tl3Node.Get_ParentNode: Il3Node;
 //#UC START# *54C78E1002BE_4ADDDFC50302_var*
 //#UC END# *54C78E1002BE_4ADDDFC50302_var*
 begin
 //#UC START# *54C78E1002BE_4ADDDFC50302_impl*
  Result := Parent;
 //#UC END# *54C78E1002BE_4ADDDFC50302_impl*
-end;//Tl3Node.Get__ParentNode
+end;//Tl3Node.Get_ParentNode
 
-function Tl3Node.Get__ChildNode: Il3Node;
+function Tl3Node.Get_ChildNode: Il3Node;
 //#UC START# *54C78E2702B3_4ADDDFC50302_var*
 //#UC END# *54C78E2702B3_4ADDDFC50302_var*
 begin
 //#UC START# *54C78E2702B3_4ADDDFC50302_impl*
  Result := Child;
 //#UC END# *54C78E2702B3_4ADDDFC50302_impl*
-end;//Tl3Node.Get__ChildNode
+end;//Tl3Node.Get_ChildNode
 
-function Tl3Node.Get__NextNode: Il3Node;
+function Tl3Node.Get_NextNode: Il3Node;
 //#UC START# *54C78E370213_4ADDDFC50302_var*
 //#UC END# *54C78E370213_4ADDDFC50302_var*
 begin
 //#UC START# *54C78E370213_4ADDDFC50302_impl*
  Result := Next;
 //#UC END# *54C78E370213_4ADDDFC50302_impl*
-end;//Tl3Node.Get__NextNode
+end;//Tl3Node.Get_NextNode
 
-function Tl3Node.Get__PrevNode: Il3Node;
+function Tl3Node.Get_PrevNode: Il3Node;
 //#UC START# *54C78E440118_4ADDDFC50302_var*
 //#UC END# *54C78E440118_4ADDDFC50302_var*
 begin
 //#UC START# *54C78E440118_4ADDDFC50302_impl*
  Result := Prev;
 //#UC END# *54C78E440118_4ADDDFC50302_impl*
-end;//Tl3Node.Get__PrevNode
+end;//Tl3Node.Get_PrevNode
 
 function Tl3Node.GetLevelForParent(const aNode: Il3SimpleNode): Integer;
 //#UC START# *54C78EA30198_4ADDDFC50302_var*
@@ -2625,14 +2631,14 @@ begin
 //#UC END# *54C78756019B_4A573D2F00C6set_impl*
 end;//Tl3PlaceNode.pm_SetFlags
 
-function Tl3PlaceNode.Get__AllChildrenCount: Integer;
+function Tl3PlaceNode.Get_AllChildrenCount: Integer;
 //#UC START# *54C78C200291_4A573D2F00C6_var*
 //#UC END# *54C78C200291_4A573D2F00C6_var*
 begin
 //#UC START# *54C78C200291_4A573D2F00C6_impl*
  Result := f_ChildCount;
 //#UC END# *54C78C200291_4A573D2F00C6_impl*
-end;//Tl3PlaceNode.Get__AllChildrenCount
+end;//Tl3PlaceNode.Get_AllChildrenCount
 
 function Tl3PlaceNode.HasChildNode: Boolean;
 //#UC START# *54C78FC902EA_4A573D2F00C6_var*
@@ -2967,7 +2973,7 @@ begin
 //#UC END# *46A4504B03C4_4ADDE0F50179_impl*
 end;//Tl3CustomListContainerNode.Notify
 
-function Tl3CustomListContainerNode.Get__AllChildrenCount: Integer;
+function Tl3CustomListContainerNode.Get_AllChildrenCount: Integer;
 //#UC START# *54C78C200291_4ADDE0F50179_var*
 //#UC END# *54C78C200291_4ADDE0F50179_var*
 begin
@@ -2976,16 +2982,16 @@ begin
  if (ChildCount <> Result) then
   IncAllChildrenCount(Result - ChildCount);
 //#UC END# *54C78C200291_4ADDE0F50179_impl*
-end;//Tl3CustomListContainerNode.Get__AllChildrenCount
+end;//Tl3CustomListContainerNode.Get_AllChildrenCount
 
-function Tl3CustomListContainerNode.Get__ChildNode: Il3Node;
+function Tl3CustomListContainerNode.Get_ChildNode: Il3Node;
 //#UC START# *54C78E2702B3_4ADDE0F50179_var*
 //#UC END# *54C78E2702B3_4ADDE0F50179_var*
 begin
 //#UC START# *54C78E2702B3_4ADDE0F50179_impl*
  Result := GetChildByNumber(0);
 //#UC END# *54C78E2702B3_4ADDE0F50179_impl*
-end;//Tl3CustomListContainerNode.Get__ChildNode
+end;//Tl3CustomListContainerNode.Get_ChildNode
 
 function Tl3CustomListContainerNode.HasChildNode: Boolean;
 //#UC START# *54C78FC902EA_4ADDE0F50179_var*
@@ -3261,25 +3267,25 @@ begin
 //#UC END# *477244190062_4ADDE17D0077_impl*
 end;//Tl3ListItemNode.Notify
 
-function Tl3ListItemNode.Get__ParentNode: Il3Node;
+function Tl3ListItemNode.Get_ParentNode: Il3Node;
 //#UC START# *54C78E1002BE_4ADDE17D0077_var*
 //#UC END# *54C78E1002BE_4ADDE17D0077_var*
 begin
 //#UC START# *54C78E1002BE_4ADDE17D0077_impl*
  Result := f_ListNode;
 //#UC END# *54C78E1002BE_4ADDE17D0077_impl*
-end;//Tl3ListItemNode.Get__ParentNode
+end;//Tl3ListItemNode.Get_ParentNode
 
-function Tl3ListItemNode.Get__ChildNode: Il3Node;
+function Tl3ListItemNode.Get_ChildNode: Il3Node;
 //#UC START# *54C78E2702B3_4ADDE17D0077_var*
 //#UC END# *54C78E2702B3_4ADDE17D0077_var*
 begin
 //#UC START# *54C78E2702B3_4ADDE17D0077_impl*
  Result := nil;
 //#UC END# *54C78E2702B3_4ADDE17D0077_impl*
-end;//Tl3ListItemNode.Get__ChildNode
+end;//Tl3ListItemNode.Get_ChildNode
 
-function Tl3ListItemNode.Get__NextNode: Il3Node;
+function Tl3ListItemNode.Get_NextNode: Il3Node;
 //#UC START# *54C78E370213_4ADDE17D0077_var*
 var
  lNextIndex : Integer;
@@ -3292,9 +3298,9 @@ begin
   lNextIndex := Succ(f_ListItem);
  Result := f_ListNode.GetChildByNumber(lNextIndex);
 //#UC END# *54C78E370213_4ADDE17D0077_impl*
-end;//Tl3ListItemNode.Get__NextNode
+end;//Tl3ListItemNode.Get_NextNode
 
-function Tl3ListItemNode.Get__PrevNode: Il3Node;
+function Tl3ListItemNode.Get_PrevNode: Il3Node;
 //#UC START# *54C78E440118_4ADDE17D0077_var*
 var
  lPrevIndex : Integer;
@@ -3307,7 +3313,7 @@ begin
   lPrevIndex := Pred(f_ListItem);
  Result := f_ListNode.GetChildByNumber(lPrevIndex);
 //#UC END# *54C78E440118_4ADDE17D0077_impl*
-end;//Tl3ListItemNode.Get__PrevNode
+end;//Tl3ListItemNode.Get_PrevNode
 
 function Tl3ListItemNode.GetLevelForParent(const aNode: Il3SimpleNode): Integer;
 //#UC START# *54C78EA30198_4ADDE17D0077_var*

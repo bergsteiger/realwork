@@ -62,9 +62,9 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , Controls
  , SysUtils
  , l3Base
- , Controls
 ;
 
 var g_Tl3IterateComponentParents: Tl3IterateComponentParents = nil;

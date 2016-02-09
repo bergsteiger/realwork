@@ -17,12 +17,12 @@ uses
 type
  Tl3CustomVirtualNode = class(Tl3CustomNode)
   protected
-   procedure Set__ChildNode(const aValue: Il3Node); virtual;
+   procedure Set_ChildNode(const aValue: Il3Node); virtual;
    function ChildNodeClass: Rl3CustomVirtualNode; virtual;
    function ParentNodeClass: Rl3CustomVirtualNode; virtual;
-   procedure Set__ParentNode(const aValue: Il3Node); virtual; abstract;
-   procedure Set__PrevNode(const aValue: Il3Node); virtual; abstract;
-   procedure Set__NextNode(const aValue: Il3Node); virtual; abstract;
+   procedure Set_ParentNode(const aValue: Il3Node); virtual; abstract;
+   procedure Set_PrevNode(const aValue: Il3Node); virtual; abstract;
+   procedure Set_NextNode(const aValue: Il3Node); virtual; abstract;
    procedure Remove; overload;
     {* удалить узел из дерева. }
    function Get_AllChildrenCount: Integer;
@@ -31,10 +31,10 @@ type
    function Get_ParentNode: Il3Node;
    function Get_ChildNode: Il3Node;
    function DoGetIndexInParent: Integer; override;
-   function Get__ParentNode: Il3Node; override;
-   function Get__ChildNode: Il3Node; override;
-   function Get__NextNode: Il3Node; override;
-   function Get__PrevNode: Il3Node; override;
+   function Get_ParentNode: Il3Node; override;
+   function Get_ChildNode: Il3Node; override;
+   function Get_NextNode: Il3Node; override;
+   function Get_PrevNode: Il3Node; override;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; override;
    function pm_GetFlag(anIndex: Integer): Boolean; override;
    procedure pm_SetFlag(anIndex: Integer;
@@ -62,9 +62,9 @@ type
 
  Tl3VirtualFlagsNode = class(Tl3CustomVirtualNode)
   protected
-   procedure Set__ParentNode(const aValue: Il3Node); override;
-   procedure Set__PrevNode(const aValue: Il3Node); override;
-   procedure Set__NextNode(const aValue: Il3Node); override;
+   procedure Set_ParentNode(const aValue: Il3Node); override;
+   procedure Set_PrevNode(const aValue: Il3Node); override;
+   procedure Set_NextNode(const aValue: Il3Node); override;
  end;//Tl3VirtualFlagsNode
 
 implementation
@@ -73,14 +73,14 @@ uses
  l3ImplUses
 ;
 
-procedure Tl3CustomVirtualNode.Set__ChildNode(const aValue: Il3Node);
+procedure Tl3CustomVirtualNode.Set_ChildNode(const aValue: Il3Node);
 //#UC START# *4ADEEFA00164_4ADDF3930121_var*
 //#UC END# *4ADEEFA00164_4ADDF3930121_var*
 begin
 //#UC START# *4ADEEFA00164_4ADDF3930121_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ADEEFA00164_4ADDF3930121_impl*
-end;//Tl3CustomVirtualNode.Set__ChildNode
+end;//Tl3CustomVirtualNode.Set_ChildNode
 
 function Tl3CustomVirtualNode.ChildNodeClass: Rl3CustomVirtualNode;
 //#UC START# *4B1CE7F6012A_4ADDF3930121_var*
@@ -164,41 +164,41 @@ begin
 //#UC END# *54C78A1E033E_4ADDF3930121_impl*
 end;//Tl3CustomVirtualNode.DoGetIndexInParent
 
-function Tl3CustomVirtualNode.Get__ParentNode: Il3Node;
+function Tl3CustomVirtualNode.Get_ParentNode: Il3Node;
 //#UC START# *54C78E1002BE_4ADDF3930121_var*
 //#UC END# *54C78E1002BE_4ADDF3930121_var*
 begin
 //#UC START# *54C78E1002BE_4ADDF3930121_impl*
  !!! Needs to be implemented !!!
 //#UC END# *54C78E1002BE_4ADDF3930121_impl*
-end;//Tl3CustomVirtualNode.Get__ParentNode
+end;//Tl3CustomVirtualNode.Get_ParentNode
 
-function Tl3CustomVirtualNode.Get__ChildNode: Il3Node;
+function Tl3CustomVirtualNode.Get_ChildNode: Il3Node;
 //#UC START# *54C78E2702B3_4ADDF3930121_var*
 //#UC END# *54C78E2702B3_4ADDF3930121_var*
 begin
 //#UC START# *54C78E2702B3_4ADDF3930121_impl*
  !!! Needs to be implemented !!!
 //#UC END# *54C78E2702B3_4ADDF3930121_impl*
-end;//Tl3CustomVirtualNode.Get__ChildNode
+end;//Tl3CustomVirtualNode.Get_ChildNode
 
-function Tl3CustomVirtualNode.Get__NextNode: Il3Node;
+function Tl3CustomVirtualNode.Get_NextNode: Il3Node;
 //#UC START# *54C78E370213_4ADDF3930121_var*
 //#UC END# *54C78E370213_4ADDF3930121_var*
 begin
 //#UC START# *54C78E370213_4ADDF3930121_impl*
  !!! Needs to be implemented !!!
 //#UC END# *54C78E370213_4ADDF3930121_impl*
-end;//Tl3CustomVirtualNode.Get__NextNode
+end;//Tl3CustomVirtualNode.Get_NextNode
 
-function Tl3CustomVirtualNode.Get__PrevNode: Il3Node;
+function Tl3CustomVirtualNode.Get_PrevNode: Il3Node;
 //#UC START# *54C78E440118_4ADDF3930121_var*
 //#UC END# *54C78E440118_4ADDF3930121_var*
 begin
 //#UC START# *54C78E440118_4ADDF3930121_impl*
  !!! Needs to be implemented !!!
 //#UC END# *54C78E440118_4ADDF3930121_impl*
-end;//Tl3CustomVirtualNode.Get__PrevNode
+end;//Tl3CustomVirtualNode.Get_PrevNode
 
 function Tl3CustomVirtualNode.GetLevelForParent(const aNode: Il3SimpleNode): Integer;
 //#UC START# *54C78EA30198_4ADDF3930121_var*
@@ -332,31 +332,31 @@ begin
 //#UC END# *54C8E60703B6_4ADDF3930121_impl*
 end;//Tl3CustomVirtualNode.DoInsertChildBefore
 
-procedure Tl3VirtualFlagsNode.Set__ParentNode(const aValue: Il3Node);
+procedure Tl3VirtualFlagsNode.Set_ParentNode(const aValue: Il3Node);
 //#UC START# *4DFF154E0063_4ADDF380009E_var*
 //#UC END# *4DFF154E0063_4ADDF380009E_var*
 begin
 //#UC START# *4DFF154E0063_4ADDF380009E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DFF154E0063_4ADDF380009E_impl*
-end;//Tl3VirtualFlagsNode.Set__ParentNode
+end;//Tl3VirtualFlagsNode.Set_ParentNode
 
-procedure Tl3VirtualFlagsNode.Set__PrevNode(const aValue: Il3Node);
+procedure Tl3VirtualFlagsNode.Set_PrevNode(const aValue: Il3Node);
 //#UC START# *4DFF15710135_4ADDF380009E_var*
 //#UC END# *4DFF15710135_4ADDF380009E_var*
 begin
 //#UC START# *4DFF15710135_4ADDF380009E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DFF15710135_4ADDF380009E_impl*
-end;//Tl3VirtualFlagsNode.Set__PrevNode
+end;//Tl3VirtualFlagsNode.Set_PrevNode
 
-procedure Tl3VirtualFlagsNode.Set__NextNode(const aValue: Il3Node);
+procedure Tl3VirtualFlagsNode.Set_NextNode(const aValue: Il3Node);
 //#UC START# *4DFF15B3015B_4ADDF380009E_var*
 //#UC END# *4DFF15B3015B_4ADDF380009E_var*
 begin
 //#UC START# *4DFF15B3015B_4ADDF380009E_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DFF15B3015B_4ADDF380009E_impl*
-end;//Tl3VirtualFlagsNode.Set__NextNode
+end;//Tl3VirtualFlagsNode.Set_NextNode
 
 end.

@@ -1,74 +1,50 @@
 unit tfwStandardDictionaries;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwStandardDictionaries.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwStandardDictionaries
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaries.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwStandardDictionary,
-  tfwStandardDictionaryList
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwStandardDictionaryList
+ , tfwStandardDictionary
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwStandardDictionaries = class(TtfwStandardDictionaryList)
- public
- // public methods
+  public
    function CheckDictionary(const aName: Il3CString): TtfwStandardDictionary;
    function FindDictionary(const aName: Il3CString): TtfwStandardDictionary;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TtfwStandardDictionaries;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TtfwStandardDictionaries }
  end;//TtfwStandardDictionaries
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a},
-  l3String,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , l3String
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TtfwStandardDictionaries
-
-var g_TtfwStandardDictionaries : TtfwStandardDictionaries = nil;
+var g_TtfwStandardDictionaries: TtfwStandardDictionaries = nil;
+ {* Экземпляр синглетона TtfwStandardDictionaries }
 
 procedure TtfwStandardDictionariesFree;
+ {* Метод освобождения экземпляра синглетона TtfwStandardDictionaries }
 begin
  l3Free(g_TtfwStandardDictionaries);
-end;
-
-class function TtfwStandardDictionaries.Instance: TtfwStandardDictionaries;
-begin
- if (g_TtfwStandardDictionaries = nil) then
- begin
-  l3System.AddExitProc(TtfwStandardDictionariesFree);
-  g_TtfwStandardDictionaries := Create;
- end;
- Result := g_TtfwStandardDictionaries;
-end;
-
+end;//TtfwStandardDictionariesFree
 
 function TtfwStandardDictionaries.CheckDictionary(const aName: Il3CString): TtfwStandardDictionary;
 //#UC START# *55B0FEC503CE_55B0E7AD026B_var*
@@ -108,11 +84,21 @@ begin
 end;//TtfwStandardDictionaries.FindDictionary
 
 class function TtfwStandardDictionaries.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TtfwStandardDictionaries <> nil;
 end;//TtfwStandardDictionaries.Exists
 
-{$IfEnd} //not NoScripts
+class function TtfwStandardDictionaries.Instance: TtfwStandardDictionaries;
+ {* Метод получения экземпляра синглетона TtfwStandardDictionaries }
+begin
+ if (g_TtfwStandardDictionaries = nil) then
+ begin
+  l3System.AddExitProc(TtfwStandardDictionariesFree);
+  g_TtfwStandardDictionaries := Create;
+ end;
+ Result := g_TtfwStandardDictionaries;
+end;//TtfwStandardDictionaries.Instance
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

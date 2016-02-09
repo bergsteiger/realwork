@@ -1,49 +1,43 @@
 unit tfwValueStack;
+ {* Стек переменных. Сюда помещаются/выводятся переменные при исполнении скрипта. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwValueStack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwValueStack
-//
-// Стек переменных. Сюда помещаются/выводятся переменные при исполнении скрипта.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwValueStack.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwValueList,
-  tfwTypeInfo,
-  l3Interfaces,
-  l3Variant,
-  Types,
-  TypInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwValueList
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , l3Interfaces
+ , l3Variant
+ , Types
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwValueStack = class(TtfwValueList)
   {* Стек переменных. Сюда помещаются/выводятся переменные при исполнении скрипта. }
- protected
- // realized methods
+  protected
+   function pLast: PtfwStackValue;
    function Get_ValuesCount: Integer;
- public
- // realized methods
+  public
+   function PrevTop(aDelta: Integer;
+    aNeedPop: Boolean): TtfwStackValue;
+    {* Получить значение предшествующее верхнему. }
    procedure PushInt(aValue: Integer);
    function PopInt: Integer;
    procedure PushBool(aValue: Boolean);
    function PopBool: Boolean;
    function IsTopBool: Boolean;
-   procedure PushString(const aString: AnsiString); overload; 
-   procedure PushString(const aString: Il3CString); overload; 
-   procedure PushString(aString: Tl3PrimString); overload; 
+   procedure PushString(const aString: AnsiString); overload;
+   procedure PushString(const aString: Il3CString); overload;
+   procedure PushString(aString: Tl3PrimString); overload;
    function IsTopString: Boolean;
    function PopDelphiString: AnsiString;
    function PopString: Il3CString;
@@ -68,11 +62,11 @@ type
    procedure Tuck;
    procedure Over;
    procedure Roll;
-   function PopIntf(const aGUID: TGUID): IUnknown; overload; 
-   function PopIntf: IUnknown; overload; 
+   function PopIntf(const aGUID: TGUID): IUnknown; overload;
+   function PopIntf: IUnknown; overload;
    function IsTopIntf: Boolean;
-     {* Определяет - лежит ли на верхушке стека интерфейс }
-   procedure PushString(const aString: Tl3WString); overload; 
+    {* Определяет - лежит ли на верхушке стека интерфейс }
+   procedure PushString(const aString: Tl3WString); overload;
    procedure PushFile(const aFile: ItfwFile);
    function PopFile: ItfwFile;
    function IsTopObj: Boolean;
@@ -85,7 +79,7 @@ type
    function PopClass: TClass;
    function IsTopClass: Boolean;
    function PopObjAs(aClass: TClass;
-     aAllowNil: Boolean = true): Pointer;
+    aAllowNil: Boolean = True): Pointer;
    function PopClassAs(aClass: TClass): Pointer;
    function PopWideString: WideString;
    procedure PushWideString(const aValue: WideString);
@@ -97,34 +91,23 @@ type
    procedure DropN(aN: Integer);
    function Top: PtfwStackValue;
    procedure PushIntf(const anIntf: IUnknown;
-     aType: PTypeInfo);
- protected
- // protected methods
-   function PLast: PtfwStackValue;
- public
- // public methods
-   function PrevTop(aDelta: Integer;
-     aNeedPop: Boolean): TtfwStackValue;
-     {* Получить значение предшествующее верхнему. }
+    aType: PTypeInfo);
  end;//TtfwValueStack
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  l3Base,
-  l3StringEx
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwValueStack
+ l3ImplUses
+ , l3String
+ , l3Base
+ , l3StringEx
+;
 
 function TtfwValueStack.PrevTop(aDelta: Integer;
-  aNeedPop: Boolean): TtfwStackValue;
+ aNeedPop: Boolean): TtfwStackValue;
+ {* Получить значение предшествующее верхнему. }
 //#UC START# *4DF069C60159_4DB009CF0103_var*
 var
  l_Index: Integer;
@@ -139,14 +122,14 @@ begin
 //#UC END# *4DF069C60159_4DB009CF0103_impl*
 end;//TtfwValueStack.PrevTop
 
-function TtfwValueStack.PLast: PtfwStackValue;
+function TtfwValueStack.pLast: PtfwStackValue;
 //#UC START# *55EFF78F01D7_4DB009CF0103_var*
 //#UC END# *55EFF78F01D7_4DB009CF0103_var*
 begin
 //#UC START# *55EFF78F01D7_4DB009CF0103_impl*
  Result := ItemSlot(Count - 1);
 //#UC END# *55EFF78F01D7_4DB009CF0103_impl*
-end;//TtfwValueStack.PLast
+end;//TtfwValueStack.pLast
 
 procedure TtfwValueStack.PushInt(aValue: Integer);
 //#UC START# *4DB008F503BE_4DB009CF0103_var*
@@ -525,7 +508,7 @@ begin
   Add(PrevTop(PopInt, True))
 // else
 //  EtfwCheck.Fail(False);
- //#UC END# *4DF0649B0073_4DB009CF0103_impl*
+//#UC END# *4DF0649B0073_4DB009CF0103_impl*
 end;//TtfwValueStack.Roll
 
 function TtfwValueStack.PopIntf(const aGUID: TGUID): IUnknown;
@@ -551,6 +534,7 @@ begin
 end;//TtfwValueStack.PopIntf
 
 function TtfwValueStack.IsTopIntf: Boolean;
+ {* Определяет - лежит ли на верхушке стека интерфейс }
 //#UC START# *4EB2759D021C_4DB009CF0103_var*
 //#UC END# *4EB2759D021C_4DB009CF0103_var*
 begin
@@ -701,7 +685,7 @@ begin
 end;//TtfwValueStack.IsTopClass
 
 function TtfwValueStack.PopObjAs(aClass: TClass;
-  aAllowNil: Boolean = true): Pointer;
+ aAllowNil: Boolean = True): Pointer;
 //#UC START# *54F7390300EC_4DB009CF0103_var*
 //#UC END# *54F7390300EC_4DB009CF0103_var*
 begin
@@ -819,7 +803,7 @@ begin
 end;//TtfwValueStack.Top
 
 procedure TtfwValueStack.PushIntf(const anIntf: IUnknown;
-  aType: PTypeInfo);
+ aType: PTypeInfo);
 //#UC START# *5613FA08013C_4DB009CF0103_var*
 //#UC END# *5613FA08013C_4DB009CF0103_var*
 begin
@@ -831,7 +815,6 @@ begin
  end;//with GrowByOne^
 //#UC END# *5613FA08013C_4DB009CF0103_impl*
 end;//TtfwValueStack.PushIntf
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

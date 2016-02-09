@@ -1,55 +1,45 @@
 {$IfNDef tfwCodeCompiler_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwCodeCompiler.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::tfwCodeCompiler
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define tfwCodeCompiler_imp}
-{$If not defined(NoScripts)}
- _tfwCodeCompiler_ = {abstract mixin} class(_tfwCodeCompiler_Parent_)
- private
- // private fields
-   f_Code : TtfwWordRefList;
-    {* Поле для свойства Code}
- protected
- // overridden protected methods
+
+{$If NOT Defined(NoScripts)}
+ _tfwCodeCompiler_ = {abstract} class(_tfwCodeCompiler_Parent_)
+  private
+   f_Code: TtfwWordRefList;
+    {* Поле для свойства Code }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoAddCodePart(aWord: TtfwWord;
-     const aCtx: TtfwContext;
-     aSNI: TtfwSuppressNextImmediate); override;
- public
- // overridden public methods
-   function HasCode: Boolean; override;
-     {* Есть ли у слова компилированный код }
-   function CodeCount: Integer; override;
-     {* Число элементов скомпилированного кода }
-   function GetCompiler(const aCtx: TtfwContext): TtfwWord; override;
- public
- // public methods
+    const aCtx: TtfwContext;
+    aSNI: TtfwSuppressNextImmediate); override;
+  public
    procedure RunCode(const aCtx: TtfwContext);
- public
- // public properties
+   function HasCode: Boolean; override;
+    {* Есть ли у слова компилированный код }
+   function CodeCount: Integer; override;
+    {* Число элементов скомпилированного кода }
+   function GetCompiler(const aCtx: TtfwContext): TtfwWord; override;
+  public
    property Code: TtfwWordRefList
-     read f_Code;
+    read f_Code;
  end;//_tfwCodeCompiler_
-{$Else}
 
- _tfwCodeCompiler_ = _tfwCodeCompiler_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_tfwCodeCompiler_ = _tfwCodeCompiler_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else tfwCodeCompiler_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef tfwCodeCompiler_imp_impl}
 
-// start class _tfwCodeCompiler_
+{$Define tfwCodeCompiler_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _tfwCodeCompiler_.RunCode(const aCtx: TtfwContext);
 //#UC START# *55A4EA4402A7_55A4E9940396_var*
 var
@@ -64,6 +54,7 @@ begin
 end;//_tfwCodeCompiler_.RunCode
 
 procedure _tfwCodeCompiler_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55A4E9940396_var*
 //#UC END# *479731C50290_55A4E9940396_var*
 begin
@@ -74,8 +65,8 @@ begin
 end;//_tfwCodeCompiler_.Cleanup
 
 procedure _tfwCodeCompiler_.DoAddCodePart(aWord: TtfwWord;
-  const aCtx: TtfwContext;
-  aSNI: TtfwSuppressNextImmediate);
+ const aCtx: TtfwContext;
+ aSNI: TtfwSuppressNextImmediate);
 //#UC START# *4DB6CB1703AD_55A4E9940396_var*
 var
  l_Holder : TtfwWord;
@@ -106,6 +97,7 @@ begin
 end;//_tfwCodeCompiler_.DoAddCodePart
 
 function _tfwCodeCompiler_.HasCode: Boolean;
+ {* Есть ли у слова компилированный код }
 //#UC START# *52D40F640308_55A4E9940396_var*
 //#UC END# *52D40F640308_55A4E9940396_var*
 begin
@@ -115,6 +107,7 @@ begin
 end;//_tfwCodeCompiler_.HasCode
 
 function _tfwCodeCompiler_.CodeCount: Integer;
+ {* Число элементов скомпилированного кода }
 //#UC START# *52D4191402A2_55A4E9940396_var*
 //#UC END# *52D4191402A2_55A4E9940396_var*
 begin
@@ -134,7 +127,9 @@ begin
  Result := Self;
 //#UC END# *52D523A40118_55A4E9940396_impl*
 end;//_tfwCodeCompiler_.GetCompiler
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf tfwCodeCompiler_imp_impl}
 
 {$EndIf tfwCodeCompiler_imp}
+

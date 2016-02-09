@@ -1,70 +1,56 @@
 unit kwCompiledVar;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwCompiledVar.pas"
-// Начат: 29.04.2011 22:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwCompiledVar
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledWordPrim,
-  tfwScriptingInterfaces,
-  tfwTypeInfo,
-  tfwKeyWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordPrim
+ , tfwScriptingInterfaces
+ , tfwKeyWordPrim
+ , tfwTypeInfo
+;
 
-{$If not defined(NoScripts)}
 type
  _kwCompiledVar_Parent_ = TkwCompiledWordPrim;
- {$Include ..\ScriptEngine\kwCompiledVar.imp.pas}
+ {$Include kwCompiledVar.imp.pas}
  TkwCompiledVar = class(_kwCompiledVar_)
- public
- // overridden public methods
+  public
    constructor Create(aWordProducer: TtfwWord;
-     aPrevFinder: TtfwWord;
-     aTypeInfo: TtfwWordInfo;
-     const aCtx: TtfwContext;
-     aKey: TtfwKeyWordPrim); override;
+    aPrevFinder: TtfwWord;
+    aTypeInfo: TtfwWordInfo;
+    const aCtx: TtfwContext;
+    aKey: TtfwKeyWordPrim); override;
    function GetEndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
+    aSilent: Boolean): RtfwWord; override;
    function AcceptMedianBracket(aBracket: TtfwWord;
-     var aCtx: TtfwContext): Boolean; override;
+    var aCtx: TtfwContext): Boolean; override;
  end;//TkwCompiledVar
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwArray,
-  l3Base,
-  TypInfo,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , tfwArray
+ , l3Base
+ , TypInfo
+ , l3String
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\kwCompiledVar.imp.pas}
-
-// start class TkwCompiledVar
+{$Include kwCompiledVar.imp.pas}
 
 constructor TkwCompiledVar.Create(aWordProducer: TtfwWord;
-  aPrevFinder: TtfwWord;
-  aTypeInfo: TtfwWordInfo;
-  const aCtx: TtfwContext;
-  aKey: TtfwKeyWordPrim);
+ aPrevFinder: TtfwWord;
+ aTypeInfo: TtfwWordInfo;
+ const aCtx: TtfwContext;
+ aKey: TtfwKeyWordPrim);
 //#UC START# *4DC9723702F5_4DBB04B6014C_var*
 //#UC END# *4DC9723702F5_4DBB04B6014C_var*
 begin
@@ -74,7 +60,7 @@ begin
 end;//TkwCompiledVar.Create
 
 function TkwCompiledVar.GetEndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *52D6B62E001B_4DBB04B6014C_var*
 //#UC END# *52D6B62E001B_4DBB04B6014C_var*
 begin
@@ -84,7 +70,7 @@ begin
 end;//TkwCompiledVar.GetEndBracket
 
 function TkwCompiledVar.AcceptMedianBracket(aBracket: TtfwWord;
-  var aCtx: TtfwContext): Boolean;
+ var aCtx: TtfwContext): Boolean;
 //#UC START# *52D7DC84019E_4DBB04B6014C_var*
 //#UC END# *52D7DC84019E_4DBB04B6014C_var*
 begin
@@ -93,12 +79,9 @@ begin
 //#UC END# *52D7DC84019E_4DBB04B6014C_impl*
 end;//TkwCompiledVar.AcceptMedianBracket
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledVar
  TkwCompiledVar.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledVar }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

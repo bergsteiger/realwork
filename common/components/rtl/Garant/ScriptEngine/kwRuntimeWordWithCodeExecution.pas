@@ -1,39 +1,32 @@
 unit kwRuntimeWordWithCodeExecution;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwRuntimeWordWithCodeExecution.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwRuntimeWordWithCodeExecution
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRuntimeWordWithCodeExecution.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwRuntimeWordWithCode,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwRuntimeWordWithCode
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwRuntimeWordWithCodeExecution = class(TkwRuntimeWordWithCode)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwRuntimeWordWithCodeExecution
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwRuntimeWordWithCodeExecution
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwRuntimeWordWithCodeExecution.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52D69DF30179_var*
@@ -44,12 +37,9 @@ begin
 //#UC END# *4DAEEDE10285_52D69DF30179_impl*
 end;//TkwRuntimeWordWithCodeExecution.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwRuntimeWordWithCodeExecution
  TkwRuntimeWordWithCodeExecution.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwRuntimeWordWithCodeExecution }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

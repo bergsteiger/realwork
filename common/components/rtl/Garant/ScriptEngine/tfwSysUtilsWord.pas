@@ -1,58 +1,42 @@
 unit tfwSysUtilsWord;
+ {* Поддержка слов из SysUtils }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwSysUtilsWord.pas"
-// Начат: 16.05.2011 11:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::WordsTemplates::TtfwSysUtilsWord
-//
-// Поддержка слов из SysUtils
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSysUtilsWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+;
 
-{$If not defined(NoScripts)}
 type
  _tfwSysUtilsWordUses_Parent_ = TtfwRegisterableWord;
- {$Include ..\ScriptEngine\tfwSysUtilsWordUses.imp.pas}
+ {$Include tfwSysUtilsWordUses.imp.pas}
  TtfwSysUtilsWord = {abstract} class(_tfwSysUtilsWordUses_)
   {* Поддержка слов из SysUtils }
  end;//TtfwSysUtilsWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3String,
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\tfwSysUtilsWordUses.imp.pas}
-
-
-{$IfEnd} //not NoScripts
+{$Include tfwSysUtilsWordUses.imp.pas}
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwSysUtilsWord
  TtfwSysUtilsWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwSysUtilsWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

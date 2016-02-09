@@ -1,90 +1,73 @@
 unit tfwStoredValues;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwStoredValues.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::StoredValues::TtfwStoredValues
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3ProtoDataContainer,
-  tfwScriptingInterfaces,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , l3ProtoDataContainer
+ , tfwScriptingInterfaces
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
-{$If not defined(NoScripts)}
 type
  _ItemType_ = TtfwStoredValue;
  _l3RecordListPrimPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrimPrim.imp.pas}
+ {$Include l3RecordListPrimPrim.imp.pas}
  TtfwStoredValues = class(_l3RecordListPrimPrim_, ItfwStoredValues)
- protected
- // realized methods
+  protected
    procedure Restore(const aCtx: TtfwContext);
    function Grow: PtfwStoredValue;
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create; reintroduce;
    class function Make: ItfwStoredValues; reintroduce;
-     {* Сигнатура фабрики TtfwStoredValues.Make }
  end;//TtfwStoredValues
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledVar,
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , kwCompiledVar
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-{$If not defined(NoScripts)}
-
-// start class TtfwStoredValues
-
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  ); forward;
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_4F49408A03C0_var*
 //#UC END# *47B07CF403D0_4F49408A03C0_var*
 begin
@@ -93,11 +76,11 @@ begin
  Assert(false);
 //#UC END# *47B07CF403D0_4F49408A03C0_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_4F49408A03C0_var*
 //#UC END# *47B2C42A0163_4F49408A03C0_var*
 begin
@@ -105,14 +88,14 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_4F49408A03C0_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  );
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
+ {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_4F49408A03C0_var*
 //#UC END# *47B94A5C006E_4F49408A03C0_var*
 begin
@@ -124,6 +107,7 @@ begin
 end;//FreeItem
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4F49408A03C0_var*
 //#UC END# *47B99D4503A2_4F49408A03C0_var*
 begin
@@ -135,9 +119,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TtfwStoredValues;
 
-{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrimPrim.imp.pas}
-
-// start class TtfwStoredValues
+{$Include l3RecordListPrimPrim.imp.pas}
 
 constructor TtfwStoredValues.Create;
 //#UC START# *4F4947D50241_4F49408A03C0_var*
@@ -158,7 +140,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TtfwStoredValues.Make
 
 procedure TtfwStoredValues.Restore(const aCtx: TtfwContext);
 //#UC START# *4F494C0D009A_4F49408A03C0_var*
@@ -191,8 +173,9 @@ begin
 //#UC END# *56012ACE02B2_4F49408A03C0_impl*
 end;//TtfwStoredValues.Grow
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwStoredValues.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4F49408A03C0_var*
 //#UC END# *47A6FEE600FC_4F49408A03C0_var*
 begin
@@ -200,8 +183,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4F49408A03C0_impl*
 end;//TtfwStoredValues.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$IfEnd} //not NoScripts
-
+{$IfEnd} // NOT Defined(NoScripts)
 end.

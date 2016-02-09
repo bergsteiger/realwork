@@ -1,49 +1,36 @@
 unit kwCloseBracket;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "kwCloseBracket.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::CloseBracket
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCloseBracket.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwCloseBracket = {abstract scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwCloseBracket = {abstract} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+  public
    function IsImmediate(const aCtx: TtfwContext): Boolean; override;
    function IsCloseBracket: Boolean; override;
  end;//TkwCloseBracket
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCloseBracket
+ l3ImplUses
+ , l3String
+;
 
 procedure TkwCloseBracket.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52D6AC0F0186_var*
@@ -58,9 +45,8 @@ begin
 end;//TkwCloseBracket.DoDoIt
 
 function TkwCloseBracket.IsImmediate(const aCtx: TtfwContext): Boolean;
- {-}
 begin
- Result := true;
+ Result := True;
 end;//TkwCloseBracket.IsImmediate
 
 function TkwCloseBracket.IsCloseBracket: Boolean;
@@ -72,12 +58,9 @@ begin
 //#UC END# *52D6ABCB0026_52D6AC0F0186_impl*
 end;//TkwCloseBracket.IsCloseBracket
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация CloseBracket
  TkwCloseBracket.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация CloseBracket }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

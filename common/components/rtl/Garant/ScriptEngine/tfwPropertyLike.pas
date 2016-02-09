@@ -1,39 +1,32 @@
 unit tfwPropertyLike;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwPropertyLike.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ClassLikeMapping::TtfwPropertyLike
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwPropertyLike.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClassLike
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwClassLike
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwPropertyLike = {abstract} class(TtfwClassLike)
- protected
- // overridden protected methods
+  protected
    function BindParams: Boolean; override;
    function StrictChecking: Boolean; override;
  end;//TtfwPropertyLike
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwPropertyLike
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TtfwPropertyLike.BindParams: Boolean;
 //#UC START# *5617C8A30023_5619169603BE_var*
@@ -53,12 +46,9 @@ begin
 //#UC END# *561916700342_5619169603BE_impl*
 end;//TtfwPropertyLike.StrictChecking
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwPropertyLike
  TtfwPropertyLike.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwPropertyLike }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

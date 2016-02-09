@@ -79,6 +79,9 @@ uses
  , SysUtils
  , l3Base
  , Graphics
+ {$If NOT Defined(NoScripts)}
+ , FontWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

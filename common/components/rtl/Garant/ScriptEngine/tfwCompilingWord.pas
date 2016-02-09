@@ -1,98 +1,81 @@
 unit tfwCompilingWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwCompilingWord.pas"
-// Начат: 26.04.2011 17:30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TtfwCompilingWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim,
-  tfwRegisterableWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+ , l3Interfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwCompilingWord = {abstract} class(TtfwRegisterableWord)
- protected
- // realized methods
+  protected
+   function EndBracket(const aContext: TtfwContext;
+    aSilent: Boolean): RtfwWord; virtual; abstract;
+   procedure BeforeCompile(var theNewContext: TtfwContext); virtual;
+   procedure AfterCompile(var theNewContext: TtfwContext;
+    aCompiled: TkwCompiledWordPrim); virtual;
+   procedure UnknownWord(var aContext: TtfwContext;
+    aWordNumber: Integer); virtual;
+   function AfterWordMaxCount(const aCtx: TtfwContext): Integer; virtual;
+   function AcceptsKeyWordAfter(const aContext: TtfwContext;
+    aWordNumber: Integer): Boolean; virtual;
+   function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; virtual;
+   procedure DoStringToken(const aContext: TtfwContext;
+    aCompiled: TtfwWord;
+    const aString: Il3CString); virtual;
+   function AcceptsEOF: Boolean; virtual;
+   function DisabledEndBracket(const aContext: TtfwContext;
+    aSilent: Boolean): RtfwWord;
+   procedure FillCompiledWord(aCompiled: TtfwWord;
+    const aCtx: TtfwContext); virtual;
+   function GetWordProducerForCompiledClass: TtfwWord; virtual;
+   function SuppressNextImmediate(const aContext: TtfwContext;
+    aWordNumber: Integer): TtfwSuppressNextImmediate; virtual;
+   procedure AfterCodePartAdded(aWord: TtfwWord;
+    var aCtx: TtfwContext); virtual;
+   procedure DoKeyword(var aContext: TtfwContext;
+    aWord: TtfwWord;
+    aFinder: TtfwWord;
+    aWordNumber: Integer); virtual;
+   procedure CheckWordInfoOnCompile(const aCtx: TtfwContext); virtual;
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+  public
    function IsImmediate(const aCtx: TtfwContext): Boolean; override;
    function CompiledWordClassPrim(const aCtx: TtfwContext): RtfwWord; override;
    function GetEndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // protected methods
-   function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; virtual; abstract;
-   procedure BeforeCompile(var theNewContext: TtfwContext); virtual;
-   procedure AfterCompile(var theNewContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim); virtual;
-   procedure UnknownWord(var aContext: TtfwContext;
-     aWordNumber: Integer); virtual;
-   function AfterWordMaxCount(const aCtx: TtfwContext): Integer; virtual;
-   function AcceptsKeyWordAfter(const aContext: TtfwContext;
-     aWordNumber: Integer): Boolean; virtual;
-   function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; virtual;
-   procedure DoStringToken(const aContext: TtfwContext;
-     aCompiled: TtfwWord;
-     const aString: Il3CString); virtual;
-   function AcceptsEOF: Boolean; virtual;
-   function DisabledEndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord;
-   procedure FillCompiledWord(aCompiled: TtfwWord;
-     const aCtx: TtfwContext); virtual;
-   function GetWordProducerForCompiledClass: TtfwWord; virtual;
-   function SuppressNextImmediate(const aContext: TtfwContext;
-     aWordNumber: Integer): TtfwSuppressNextImmediate; virtual;
-   procedure AfterCodePartAdded(aWord: TtfwWord;
-     var aCtx: TtfwContext); virtual;
-   procedure DoKeyword(var aContext: TtfwContext;
-     aWord: TtfwWord;
-     aFinder: TtfwWord;
-     aWordNumber: Integer); virtual;
-   procedure CheckWordInfoOnCompile(const aCtx: TtfwContext); virtual;
+    aSilent: Boolean): RtfwWord; override;
  end;//TtfwCompilingWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Parser,
-  kwCompiledWord,
-  kwInteger,
-  kwString,
-  SysUtils,
-  TypInfo,
-  l3Base,
-  l3ParserInterfaces,
-  kwIntegerFactory,
-  kwStringFactory,
-  l3String,
-  l3Chars,
-  StrUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwCompilingWord
+ l3ImplUses
+ , l3Parser
+ , kwCompiledWord
+ , kwInteger
+ , kwString
+ , SysUtils
+ , TypInfo
+ , l3Base
+ , l3ParserInterfaces
+ , kwIntegerFactory
+ , kwStringFactory
+ , l3String
+ , l3Chars
+ , StrUtils
+;
 
 procedure TtfwCompilingWord.BeforeCompile(var theNewContext: TtfwContext);
 //#UC START# *4DB6CDDA038B_4DB6C8F30161_var*
@@ -104,7 +87,7 @@ begin
 end;//TtfwCompilingWord.BeforeCompile
 
 procedure TtfwCompilingWord.AfterCompile(var theNewContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim);
+ aCompiled: TkwCompiledWordPrim);
 //#UC START# *4DB6CE2302C9_4DB6C8F30161_var*
 //#UC END# *4DB6CE2302C9_4DB6C8F30161_var*
 begin
@@ -114,7 +97,7 @@ begin
 end;//TtfwCompilingWord.AfterCompile
 
 procedure TtfwCompilingWord.UnknownWord(var aContext: TtfwContext;
-  aWordNumber: Integer);
+ aWordNumber: Integer);
 //#UC START# *4DB6F2760023_4DB6C8F30161_var*
 //#UC END# *4DB6F2760023_4DB6C8F30161_var*
 begin
@@ -133,7 +116,7 @@ begin
 end;//TtfwCompilingWord.AfterWordMaxCount
 
 function TtfwCompilingWord.AcceptsKeyWordAfter(const aContext: TtfwContext;
-  aWordNumber: Integer): Boolean;
+ aWordNumber: Integer): Boolean;
 //#UC START# *4DB9B502013D_4DB6C8F30161_var*
 //#UC END# *4DB9B502013D_4DB6C8F30161_var*
 begin
@@ -152,8 +135,8 @@ begin
 end;//TtfwCompilingWord.CompiledWordClass
 
 procedure TtfwCompilingWord.DoStringToken(const aContext: TtfwContext;
-  aCompiled: TtfwWord;
-  const aString: Il3CString);
+ aCompiled: TtfwWord;
+ const aString: Il3CString);
 //#UC START# *4DC19432023E_4DB6C8F30161_var*
 var
  l_S : kwString.TkwString;
@@ -179,7 +162,7 @@ begin
 end;//TtfwCompilingWord.AcceptsEOF
 
 function TtfwCompilingWord.DisabledEndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4EF4A9500352_4DB6C8F30161_var*
 //#UC END# *4EF4A9500352_4DB6C8F30161_var*
 begin
@@ -191,7 +174,7 @@ begin
 end;//TtfwCompilingWord.DisabledEndBracket
 
 procedure TtfwCompilingWord.FillCompiledWord(aCompiled: TtfwWord;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F21A4F60049_4DB6C8F30161_var*
 //#UC END# *4F21A4F60049_4DB6C8F30161_var*
 begin
@@ -210,7 +193,7 @@ begin
 end;//TtfwCompilingWord.GetWordProducerForCompiledClass
 
 function TtfwCompilingWord.SuppressNextImmediate(const aContext: TtfwContext;
-  aWordNumber: Integer): TtfwSuppressNextImmediate;
+ aWordNumber: Integer): TtfwSuppressNextImmediate;
 //#UC START# *4F3AB3B101FC_4DB6C8F30161_var*
 //#UC END# *4F3AB3B101FC_4DB6C8F30161_var*
 begin
@@ -220,7 +203,7 @@ begin
 end;//TtfwCompilingWord.SuppressNextImmediate
 
 procedure TtfwCompilingWord.AfterCodePartAdded(aWord: TtfwWord;
-  var aCtx: TtfwContext);
+ var aCtx: TtfwContext);
 //#UC START# *4F3BCE1501F0_4DB6C8F30161_var*
 //#UC END# *4F3BCE1501F0_4DB6C8F30161_var*
 begin
@@ -230,9 +213,9 @@ begin
 end;//TtfwCompilingWord.AfterCodePartAdded
 
 procedure TtfwCompilingWord.DoKeyword(var aContext: TtfwContext;
-  aWord: TtfwWord;
-  aFinder: TtfwWord;
-  aWordNumber: Integer);
+ aWord: TtfwWord;
+ aFinder: TtfwWord;
+ aWordNumber: Integer);
 //#UC START# *53E21481021D_4DB6C8F30161_var*
 var
  l_W  : TtfwWord;
@@ -544,7 +527,7 @@ begin
 end;//TtfwCompilingWord.CompiledWordClassPrim
 
 function TtfwCompilingWord.GetEndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *52D6B62E001B_4DB6C8F30161_var*
 //#UC END# *52D6B62E001B_4DB6C8F30161_var*
 begin
@@ -553,12 +536,9 @@ begin
 //#UC END# *52D6B62E001B_4DB6C8F30161_impl*
 end;//TtfwCompilingWord.GetEndBracket
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwCompilingWord
  TtfwCompilingWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwCompilingWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

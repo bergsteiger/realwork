@@ -1,95 +1,95 @@
 unit tfwScriptEnginePrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwScriptEnginePrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptEngineCore::TtfwScriptEnginePrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEnginePrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwScriptingInterfaces,
-  tfwValueStack,
-  tfwCompilingWord,
-  tfwWordRefList,
-  tfwStreamFactory,
-  tfwSourcePointList,
-  tfwDictionaryStack,
-  tfwDictionaryEx,
-  tfwMainDictionary,
-  tfwDictionaryList,
-  tfwInitedDictionariesList,
-  tfwScriptEngineExInterfaces,
-  kwCompiledWordPrim,
-  l3Variant,
-  tfwTypeInfo,
-  Types,
-  tfwDictionaryPrim,
-  TypInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwCompilingWord
+ , tfwScriptingInterfaces
+ , tfwScriptEngineExInterfaces
+ , tfwDictionaryEx
+ , tfwValueStack
+ , tfwSourcePointList
+ , tfwDictionaryList
+ , tfwDictionaryStack
+ , tfwMainDictionary
+ , tfwInitedDictionariesList
+ , tfwWordRefList
+ , tfwStreamFactory
+ , l3Interfaces
+ , tfwTypeInfo
+ , l3Variant
+ , Types
+ , tfwDictionaryPrim
+ , TypInfo
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwScriptEnginePrim = {abstract} class(TtfwCompilingWord, ItfwScriptEngine, ItfwScriptEngineEx)
- private
- // private fields
-   f_UserDictionary : TtfwDictionaryEx;
-   f_ScriptFileName : AnsiString;
-   f_ExceptionStack : TtfwSourcePointList;
-   f_Dictionaries : TtfwDictionaryList;
-   f_DictionariesStack : TtfwDictionaryStack;
-   f_InitedDictionaries : TtfwInitedDictionariesList;
-   f_CascadeDict : Boolean;
-   f_DisabledForHelp : TtfwWordRefList;
-   f_ValueStack : TtfwValueStack;
-    {* Поле для свойства ValueStack}
-   f_MainDictionary : TtfwMainDictionary;
-    {* Поле для свойства MainDictionary}
- protected
- // realized methods
+  private
+   f_UserDictionary: TtfwDictionaryEx;
+   f_ScriptFileName: AnsiString;
+   f_ExceptionStack: TtfwSourcePointList;
+   f_Dictionaries: TtfwDictionaryList;
+   f_DictionariesStack: TtfwDictionaryStack;
+   f_InitedDictionaries: TtfwInitedDictionariesList;
+   f_DisabledForHelp: TtfwWordRefList;
+   f_ValueStack: TtfwValueStack;
+    {* Поле для свойства ValueStack }
+   f_MainDictionary: TtfwMainDictionary;
+    {* Поле для свойства MainDictionary }
+  protected
+   procedure RunInitCode(const aCtx: TtfwContext);
+   function CacheDict: Boolean; virtual;
+   class function Shift(anIndent: Integer): Il3CString;
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
+    aSilent: Boolean): RtfwWord; override;
    function Get_ValuesCount: Integer;
    function Clone: ItfwScriptEngine;
    procedure WordFail(const aPoint: TtfwSourcePoint);
    procedure WordSuccess;
-     {* Сигнатура метода WordSuccess }
    procedure ExceptionStackToLog;
-     {* Сигнатура метода ExceptionStackToLog }
    function ExceptionStack: ItfwValueList;
    procedure FailToLog;
-     {* Сигнатура метода FailToLog }
    function OpenDictionary(var aCtx: TtfwContext): Boolean;
    procedure CloseDictionary(const aCtx: TtfwContext);
    procedure AddInitialization(const aCtx: TtfwContext;
-     aWord: TtfwWord);
+    aWord: TtfwWord);
    function CurrentCompilingDictionary: TtfwDictionaryPrim;
-   function Get_CascadeDict: Boolean;
-   procedure Set_CascadeDict(aValue: Boolean);
    procedure DisableForHelp(aWord: TtfwWord);
    function Get_Dictionaries: TtfwDictionaryList;
    function Get_InitedDictionaries: TtfwInitedDictionariesList;
    function Get_MainDictionary: TtfwMainDictionary;
    function Get_DisabledForHelp: TtfwWordRefList;
- public
- // realized methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure DoAddCodePart(aWord: TtfwWord;
+    const aCtx: TtfwContext;
+    aSNI: TtfwSuppressNextImmediate); override;
+   procedure AfterCompile(var theNewContext: TtfwContext;
+    aCompiled: TkwCompiledWordPrim); override;
+   function GetNewWordDefinitor: TtfwWord; override;
+  public
+   procedure Script(aStream: TtfwStreamFactory;
+    const aCaller: ItfwScriptCaller); virtual;
+   procedure EnterCode(const aCtx: TtfwContext);
+   procedure LeaveCode(const aCtx: TtfwContext);
+   procedure RunCompiled(const aContext: TtfwContext); virtual;
    procedure PushInt(aValue: Integer);
    function PopInt: Integer;
    procedure PushBool(aValue: Boolean);
    function PopBool: Boolean;
    function IsTopBool: Boolean;
-   procedure PushString(const aString: AnsiString); overload; 
-   procedure PushString(const aString: Il3CString); overload; 
-   procedure PushString(aString: Tl3PrimString); overload; 
+   procedure PushString(const aString: AnsiString); overload;
+   procedure PushString(const aString: Il3CString); overload;
+   procedure PushString(aString: Tl3PrimString); overload;
    function IsTopString: Boolean;
    function PopDelphiString: AnsiString;
    function PopString: Il3CString;
@@ -114,11 +114,11 @@ type
    procedure Tuck;
    procedure Over;
    procedure Roll;
-   function PopIntf(const aGUID: TGUID): IUnknown; overload; 
-   function PopIntf: IUnknown; overload; 
+   function PopIntf(const aGUID: TGUID): IUnknown; overload;
+   function PopIntf: IUnknown; overload;
    function IsTopIntf: Boolean;
-     {* Определяет - лежит ли на верхушке стека интерфейс }
-   procedure PushString(const aString: Tl3WString); overload; 
+    {* Определяет - лежит ли на верхушке стека интерфейс }
+   procedure PushString(const aString: Tl3WString); overload;
    procedure PushFile(const aFile: ItfwFile);
    function PopFile: ItfwFile;
    function IsTopObj: Boolean;
@@ -131,7 +131,7 @@ type
    function PopClass: TClass;
    function IsTopClass: Boolean;
    function PopObjAs(aClass: TClass;
-     aAllowNil: Boolean = true): Pointer;
+    aAllowNil: Boolean = True): Pointer;
    function PopClassAs(aClass: TClass): Pointer;
    function PopWideString: WideString;
    procedure PushWideString(const aValue: WideString);
@@ -143,93 +143,59 @@ type
    procedure DropN(aN: Integer);
    function Top: PtfwStackValue;
    procedure PushIntf(const anIntf: IUnknown;
-     aType: PTypeInfo);
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure DoAddCodePart(aWord: TtfwWord;
-     const aCtx: TtfwContext;
-     aSNI: TtfwSuppressNextImmediate); override;
-   procedure AfterCompile(var theNewContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim); override;
-   function GetNewWordDefinitor: TtfwWord; override;
+    aType: PTypeInfo);
+   function GetCompiler(const aCtx: TtfwContext): TtfwWord; override;
    function GetKeywordFinder(const aCtx: TtfwContext): TtfwWord; override;
    function DoCheckWord(const aName: Il3CString): TtfwKeyWord; override;
    function GetKeywordByName(const aName: Il3CString): Tl3PrimString; override;
    function GetParentFinder: TtfwWord; override;
- public
- // overridden public methods
-   function GetCompiler(const aCtx: TtfwContext): TtfwWord; override;
- protected
- // protected methods
-   procedure RunInitCode(const aCtx: TtfwContext);
-   function CacheDict: Boolean; virtual;
-   class function Shift(anIndent: Integer): Il3CString;
- public
- // public methods
-   procedure Script(aStream: TtfwStreamFactory;
-     const aCaller: ItfwScriptCaller); virtual;
-   procedure EnterCode(const aCtx: TtfwContext);
-   procedure LeaveCode(const aCtx: TtfwContext);
-   procedure RunCompiled(const aContext: TtfwContext); virtual;
- protected
- // protected properties
+  protected
    property MainDictionary: TtfwMainDictionary
-     read f_MainDictionary;
- public
- // public properties
+    read f_MainDictionary;
+  public
    property ValueStack: TtfwValueStack
-     read f_ValueStack;
+    read f_ValueStack;
  end;//TtfwScriptEnginePrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  l3String,
-  SysUtils,
-  l3StringList,
-  l3Types,
-  tfwParser,
-  l3Filer,
-  l3Parser,
-  l3Chars,
-  l3Stream,
-  tfwStoredValuesStack,
-  tfwAutoregisteredDiction,
-  l3Memory,
-  seWordsInfo,
-  l3ScriptService,
-  tfwArray,
-  tfwParserInterfaces,
-  tfwDictionaryListPrim,
-  tfwDictionaryPtrList
-  {$If defined(seCacheDict) AND not defined(NoScripts)}
-  ,
-  tfwDictionaryCache
-  {$IfEnd} //seCacheDict AND not NoScripts
-  ,
-  seThreadSupport
-  {$If defined(seCacheDict) AND not defined(NoScripts)}
-  ,
-  tfwMainDictionaryCache
-  {$IfEnd} //seCacheDict AND not NoScripts
-  ,
-  tfwMainDictionaryList,
-  tfwStandardDictionaries,
-  ItfwScriptEngineWordsPack
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwScriptEnginePrim
+ l3ImplUses
+ , l3Base
+ , l3String
+ , SysUtils
+ , l3StringList
+ , l3Types
+ , tfwParser
+ , l3Filer
+ , l3Parser
+ , l3Chars
+ , l3Stream
+ , tfwStoredValuesStack
+ , tfwAutoregisteredDiction
+ , l3Memory
+ , seWordsInfo
+ , l3ScriptService
+ , tfwArray
+ , tfwParserInterfaces
+ , tfwDictionaryListPrim
+ , tfwDictionaryPtrList
+ {$If Defined(seCacheDict)}
+ , tfwDictionaryCache
+ {$IfEnd} // Defined(seCacheDict)
+ , seThreadSupport
+ {$If Defined(seCacheDict)}
+ , tfwMainDictionaryCache
+ {$IfEnd} // Defined(seCacheDict)
+ , tfwMainDictionaryList
+ , tfwStandardDictionaries
+ , ItfwScriptEngineWordsPack
+;
 
 procedure TtfwScriptEnginePrim.Script(aStream: TtfwStreamFactory;
-  const aCaller: ItfwScriptCaller);
+ const aCaller: ItfwScriptCaller);
 //#UC START# *4F733B9C0064_4F733A0701F0_var*
 
  {$IfDef seCacheDict}
@@ -593,7 +559,7 @@ begin
 end;//TtfwScriptEnginePrim.IsTopInt
 
 function TtfwScriptEnginePrim.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4F733A0701F0_var*
 //#UC END# *4DB6C99F026E_4F733A0701F0_var*
 begin
@@ -805,6 +771,7 @@ begin
 end;//TtfwScriptEnginePrim.PopIntf
 
 function TtfwScriptEnginePrim.IsTopIntf: Boolean;
+ {* Определяет - лежит ли на верхушке стека интерфейс }
 //#UC START# *4EB2759D021C_4F733A0701F0_var*
 //#UC END# *4EB2759D021C_4F733A0701F0_var*
 begin
@@ -966,7 +933,7 @@ begin
 end;//TtfwScriptEnginePrim.Clone
 
 function TtfwScriptEnginePrim.PopObjAs(aClass: TClass;
-  aAllowNil: Boolean = true): Pointer;
+ aAllowNil: Boolean = True): Pointer;
 //#UC START# *54F7390300EC_4F733A0701F0_var*
 //#UC END# *54F7390300EC_4F733A0701F0_var*
 begin
@@ -1233,7 +1200,7 @@ begin
 end;//TtfwScriptEnginePrim.CloseDictionary
 
 procedure TtfwScriptEnginePrim.AddInitialization(const aCtx: TtfwContext;
-  aWord: TtfwWord);
+ aWord: TtfwWord);
 //#UC START# *559E77B00246_4F733A0701F0_var*
 //#UC END# *559E77B00246_4F733A0701F0_var*
 begin
@@ -1251,24 +1218,6 @@ begin
  Result := f_UserDictionary;
 //#UC END# *55AE59EC022F_4F733A0701F0_impl*
 end;//TtfwScriptEnginePrim.CurrentCompilingDictionary
-
-function TtfwScriptEnginePrim.Get_CascadeDict: Boolean;
-//#UC START# *55AF7BE601CF_4F733A0701F0get_var*
-//#UC END# *55AF7BE601CF_4F733A0701F0get_var*
-begin
-//#UC START# *55AF7BE601CF_4F733A0701F0get_impl*
- Result := f_CascadeDict;
-//#UC END# *55AF7BE601CF_4F733A0701F0get_impl*
-end;//TtfwScriptEnginePrim.Get_CascadeDict
-
-procedure TtfwScriptEnginePrim.Set_CascadeDict(aValue: Boolean);
-//#UC START# *55AF7BE601CF_4F733A0701F0set_var*
-//#UC END# *55AF7BE601CF_4F733A0701F0set_var*
-begin
-//#UC START# *55AF7BE601CF_4F733A0701F0set_impl*
- f_CascadeDict := aValue;
-//#UC END# *55AF7BE601CF_4F733A0701F0set_impl*
-end;//TtfwScriptEnginePrim.Set_CascadeDict
 
 procedure TtfwScriptEnginePrim.DisableForHelp(aWord: TtfwWord);
 //#UC START# *55AFBAA10337_4F733A0701F0_var*
@@ -1345,7 +1294,7 @@ begin
 end;//TtfwScriptEnginePrim.Top
 
 procedure TtfwScriptEnginePrim.PushIntf(const anIntf: IUnknown;
-  aType: PTypeInfo);
+ aType: PTypeInfo);
 //#UC START# *5613FA08013C_4F733A0701F0_var*
 //#UC END# *5613FA08013C_4F733A0701F0_var*
 begin
@@ -1357,6 +1306,7 @@ begin
 end;//TtfwScriptEnginePrim.PushIntf
 
 procedure TtfwScriptEnginePrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F733A0701F0_var*
 //#UC END# *479731C50290_4F733A0701F0_var*
 begin
@@ -1373,8 +1323,8 @@ begin
 end;//TtfwScriptEnginePrim.Cleanup
 
 procedure TtfwScriptEnginePrim.DoAddCodePart(aWord: TtfwWord;
-  const aCtx: TtfwContext;
-  aSNI: TtfwSuppressNextImmediate);
+ const aCtx: TtfwContext;
+ aSNI: TtfwSuppressNextImmediate);
 //#UC START# *4DB6CB1703AD_4F733A0701F0_var*
 //#UC END# *4DB6CB1703AD_4F733A0701F0_var*
 begin
@@ -1387,7 +1337,7 @@ begin
 end;//TtfwScriptEnginePrim.DoAddCodePart
 
 procedure TtfwScriptEnginePrim.AfterCompile(var theNewContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim);
+ aCompiled: TkwCompiledWordPrim);
 //#UC START# *4DB6CE2302C9_4F733A0701F0_var*
 //#UC END# *4DB6CE2302C9_4F733A0701F0_var*
 begin
@@ -1472,12 +1422,9 @@ begin
 //#UC END# *55ACF0F5025D_4F733A0701F0_impl*
 end;//TtfwScriptEnginePrim.GetParentFinder
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwScriptEnginePrim
  TtfwScriptEnginePrim.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwScriptEnginePrim }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

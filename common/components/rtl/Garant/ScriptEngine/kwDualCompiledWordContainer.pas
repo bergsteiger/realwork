@@ -1,80 +1,48 @@
 unit kwDualCompiledWordContainer;
+ {* Контейнер для хранения парных скомпилированных слов (begin end) }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "kwDualCompiledWordContainer.pas"
-// Начат: 29.04.2011 17:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TkwDualCompiledWordContainer
-//
-// Контейнер для хранения парных скомпилированных слов (begin end)
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwDualCompiledWordContainer.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwCompiledWordContainer
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordContainer
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwDualCompiledWordContainer = {abstract} class(TkwCompiledWordContainer)
   {* Контейнер для хранения парных скомпилированных слов (begin end) }
- protected
- // property methods
+  protected
+   f_ElseBranch: TtfwWord;
+  protected
    function pm_GetElseBranch: TtfwWord;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_ElseBranch : TtfwWord;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aIf: TtfwWord;
-     aElse: TtfwWord;
-     const aCtx: TtfwContext); reintroduce;
- public
- // public properties
+    aElse: TtfwWord;
+    const aCtx: TtfwContext); reintroduce;
+  public
    property ElseBranch: TtfwWord
-     read pm_GetElseBranch;
+    read pm_GetElseBranch;
  end;//TkwDualCompiledWordContainer
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  SysUtils,
-  tfwClassRef
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwDualCompiledWordContainer
-
-constructor TkwDualCompiledWordContainer.Create(aIf: TtfwWord;
-  aElse: TtfwWord;
-  const aCtx: TtfwContext);
-//#UC START# *4DB6F4CB03BE_4DBAC27801EF_var*
-//#UC END# *4DB6F4CB03BE_4DBAC27801EF_var*
-begin
-//#UC START# *4DB6F4CB03BE_4DBAC27801EF_impl*
- inherited Create(aIf, aCtx);
- aElse.SetRefTo(f_ElseBranch);
-//#UC END# *4DB6F4CB03BE_4DBAC27801EF_impl*
-end;//TkwDualCompiledWordContainer.Create
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , tfwClassRef
+;
 
 function TkwDualCompiledWordContainer.pm_GetElseBranch: TtfwWord;
 //#UC START# *53DB68CF0124_4DBAC27801EFget_var*
@@ -85,7 +53,20 @@ begin
 //#UC END# *53DB68CF0124_4DBAC27801EFget_impl*
 end;//TkwDualCompiledWordContainer.pm_GetElseBranch
 
+constructor TkwDualCompiledWordContainer.Create(aIf: TtfwWord;
+ aElse: TtfwWord;
+ const aCtx: TtfwContext);
+//#UC START# *4DB6F4CB03BE_4DBAC27801EF_var*
+//#UC END# *4DB6F4CB03BE_4DBAC27801EF_var*
+begin
+//#UC START# *4DB6F4CB03BE_4DBAC27801EF_impl*
+ inherited Create(aIf, aCtx);
+ aElse.SetRefTo(f_ElseBranch);
+//#UC END# *4DB6F4CB03BE_4DBAC27801EF_impl*
+end;//TkwDualCompiledWordContainer.Create
+
 procedure TkwDualCompiledWordContainer.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DBAC27801EF_var*
 //#UC END# *479731C50290_4DBAC27801EF_var*
 begin
@@ -95,12 +76,9 @@ begin
 //#UC END# *479731C50290_4DBAC27801EF_impl*
 end;//TkwDualCompiledWordContainer.Cleanup
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwDualCompiledWordContainer
  TkwDualCompiledWordContainer.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwDualCompiledWordContainer }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

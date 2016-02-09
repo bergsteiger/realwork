@@ -1,79 +1,40 @@
 unit tfwTypeRegistrator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwTypeRegistrator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::TypesRegistration::TtfwTypeRegistrator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeRegistrator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TypInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , TypInfo
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwTypeRegistrator = class
- private
- // private methods
+  private
    class procedure RegisterColorValue(const aValue: AnsiString);
    class procedure RegisterCharsetValue(const aValue: AnsiString);
- public
- // public methods
+  public
    class function RegisterType(aTypeInfo: PTypeInfo): Boolean;
  end;//TtfwTypeRegistrator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Graphics,
-  tfwEnumRegistrator,
-  tfwClassRef,
-  tfwInterfaceRegistrator,
-  tfwTypeModifier,
-  tfwEnumConstantRegistrator
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwTypeRegistrator
-
-class procedure TtfwTypeRegistrator.RegisterColorValue(const aValue: AnsiString);
-//#UC START# *55C361080119_5527F8330362_var*
-var
- l_TI : PTypeInfo;
-//#UC END# *55C361080119_5527F8330362_var*
-begin
-//#UC START# *55C361080119_5527F8330362_impl*
- l_TI := TypeInfo(TColor);
- TtfwEnumConstantRegistrator.Register(l_TI.Name + '::' + aValue, StringToColor(aValue), l_TI);
-//#UC END# *55C361080119_5527F8330362_impl*
-end;//TtfwTypeRegistrator.RegisterColorValue
-
-class procedure TtfwTypeRegistrator.RegisterCharsetValue(const aValue: AnsiString);
-//#UC START# *55C48B0D0230_5527F8330362_var*
-var
- l_TI : PTypeInfo;
- l_Index : Integer;
-//#UC END# *55C48B0D0230_5527F8330362_var*
-begin
-//#UC START# *55C48B0D0230_5527F8330362_impl*
- l_TI := TypeInfo(TFontCharset);
- IdentToCharset(aValue, l_Index);
- TtfwEnumConstantRegistrator.Register(l_TI.Name + '::' + aValue, l_Index, l_TI);
-//#UC END# *55C48B0D0230_5527F8330362_impl*
-end;//TtfwTypeRegistrator.RegisterCharsetValue
+ l3ImplUses
+ , tfwEnumRegistrator
+ , tfwClassRef
+ , tfwInterfaceRegistrator
+ , tfwTypeModifier
+ , tfwEnumConstantRegistrator
+ , Graphics
+;
 
 class function TtfwTypeRegistrator.RegisterType(aTypeInfo: PTypeInfo): Boolean;
 //#UC START# *5527F84D01B5_5527F8330362_var*
@@ -112,6 +73,31 @@ begin
 //#UC END# *5527F84D01B5_5527F8330362_impl*
 end;//TtfwTypeRegistrator.RegisterType
 
-{$IfEnd} //not NoScripts
+class procedure TtfwTypeRegistrator.RegisterColorValue(const aValue: AnsiString);
+//#UC START# *55C361080119_5527F8330362_var*
+var
+ l_TI : PTypeInfo;
+//#UC END# *55C361080119_5527F8330362_var*
+begin
+//#UC START# *55C361080119_5527F8330362_impl*
+ l_TI := TypeInfo(TColor);
+ TtfwEnumConstantRegistrator.Register(l_TI.Name + '::' + aValue, StringToColor(aValue), l_TI);
+//#UC END# *55C361080119_5527F8330362_impl*
+end;//TtfwTypeRegistrator.RegisterColorValue
+
+class procedure TtfwTypeRegistrator.RegisterCharsetValue(const aValue: AnsiString);
+//#UC START# *55C48B0D0230_5527F8330362_var*
+var
+ l_TI : PTypeInfo;
+ l_Index : Integer;
+//#UC END# *55C48B0D0230_5527F8330362_var*
+begin
+//#UC START# *55C48B0D0230_5527F8330362_impl*
+ l_TI := TypeInfo(TFontCharset);
+ IdentToCharset(aValue, l_Index);
+ TtfwEnumConstantRegistrator.Register(l_TI.Name + '::' + aValue, l_Index, l_TI);
+//#UC END# *55C48B0D0230_5527F8330362_impl*
+end;//TtfwTypeRegistrator.RegisterCharsetValue
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,57 +1,42 @@
 unit tfwDictionaryDataIteratorPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryDataIteratorPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::TtfwDictionaryDataIteratorPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryDataIteratorPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwIteratableParent,
-  tfwDictionaryEx
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwIteratableParent
+ , tfwDictionaryEx
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwDictionaryDataIteratorPrim = {abstract} class(TtfwIteratableParent)
- private
- // private fields
-   f_Dictionary : TtfwDictionaryEx;
-    {* Поле для свойства Dictionary}
- protected
- // overridden protected methods
+  private
+   f_Dictionary: TtfwDictionaryEx;
+    {* Поле для свойства Dictionary }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aDictionary: TtfwDictionaryEx); reintroduce;
- protected
- // protected properties
+  protected
    property Dictionary: TtfwDictionaryEx
-     read f_Dictionary;
+    read f_Dictionary;
  end;//TtfwDictionaryDataIteratorPrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwDictionaryDataIteratorPrim
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TtfwDictionaryDataIteratorPrim.Create(aDictionary: TtfwDictionaryEx);
 //#UC START# *55AE5C1603DE_55AE5B950148_var*
@@ -66,6 +51,7 @@ begin
 end;//TtfwDictionaryDataIteratorPrim.Create
 
 procedure TtfwDictionaryDataIteratorPrim.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55AE5B950148_var*
 //#UC END# *479731C50290_55AE5B950148_var*
 begin
@@ -75,7 +61,6 @@ begin
  inherited;
 //#UC END# *479731C50290_55AE5B950148_impl*
 end;//TtfwDictionaryDataIteratorPrim.Cleanup
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

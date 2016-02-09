@@ -782,6 +782,7 @@ type
   function pm_GetFirst: TtfwStackValue;
   function pm_GetLast: TtfwStackValue;
   function pm_GetItems(anIndex: Integer): TtfwStackValue;
+  function pm_GetCount: Integer;
   procedure SetItem(anIndex: Integer;
    const aValue: TtfwStackValue);
   function ItemsCountInSlice: Integer;
@@ -799,6 +800,9 @@ type
   property Items[anIndex: Integer]: TtfwStackValue
    read pm_GetItems;
    default;
+  property Count: Integer
+   read pm_GetCount;
+   {* Число элементов. }
  end;//ItfwValueList
 
  TtfwStoredValue = record
@@ -826,6 +830,7 @@ type
   function pm_GetFirst: ItfwStoredValues;
   function pm_GetLast: ItfwStoredValues;
   function pm_GetItems(anIndex: Integer): ItfwStoredValues;
+  function pm_GetCount: Integer;
   function IndexOf(const anItem: ItfwStoredValues): Integer;
   function Add(const anItem: ItfwStoredValues): Integer;
   procedure Restore(const aCtx: TtfwContext);
@@ -842,6 +847,9 @@ type
   property Items[anIndex: Integer]: ItfwStoredValues
    read pm_GetItems;
    default;
+  property Count: Integer
+   read pm_GetCount;
+   {* Число элементов. }
  end;//ItfwStoredValuesStack
 
  ItfwStoredValues = interface

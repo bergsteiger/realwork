@@ -1,57 +1,41 @@
 unit tfwConstLike;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Автор: Люлин А.В.
-// Модуль: "tfwConstLike.pas"
-// Начат: 15.02.2012 18:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Core::CompiledWords::TtfwConstLike
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwConstLike.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwNewWord,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwNewWord
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwConstLike = {abstract} class(TtfwNewWord)
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
  end;//TtfwConstLike
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwRuntimeWordWithCodeExecution,
-  kwConstLikeCompiled
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwConstLike
+ l3ImplUses
+ , kwRuntimeWordWithCodeExecution
+ , kwConstLikeCompiled
+;
 
 function TtfwConstLike.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4F3BC124004D_var*
 //#UC END# *4DB6C99F026E_4F3BC124004D_var*
 begin
@@ -78,12 +62,9 @@ begin
 //#UC END# *4DBAEE0D028D_4F3BC124004D_impl*
 end;//TtfwConstLike.CompiledWordClass
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwConstLike
  TtfwConstLike.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwConstLike }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,46 +1,40 @@
 {$IfNDef tfwDictionaryListIteratorPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Core"
-// Модуль: "tfwDictionaryListIteratorPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine$Core::ScriptingKeywordsCore::tfwDictionaryListIteratorPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define tfwDictionaryListIteratorPrim_imp}
-{$If not defined(NoScripts)}
- _tfwDictionaryListIteratorPrim_ = {abstract mixin} class(_tfwDictionaryListIteratorPrim_Parent_, ItfwValueList)
- protected
- // realized methods
-   procedure SetItem(anIndex: Integer;
-     const aValue: TtfwStackValue);
-   function ItemsCountInSlice: Integer;
- public
- // realized methods
-   procedure ForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
-   procedure ForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
- protected
- // protected methods
+
+{$If NOT Defined(NoScripts)}
+ // _ListType_
+
+ _tfwDictionaryListIteratorPrim_ = {abstract} class(_tfwDictionaryListIteratorPrim_Parent_, ItfwValueList)
+  protected
    function ListToIterate: _ListType_; virtual; abstract;
+   procedure SetItem(anIndex: Integer;
+    const aValue: TtfwStackValue);
+   function ItemsCountInSlice: Integer;
+  public
+   procedure ForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
+   procedure ForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
  end;//_tfwDictionaryListIteratorPrim_
-{$Else}
 
- _tfwDictionaryListIteratorPrim_ = _tfwDictionaryListIteratorPrim_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_tfwDictionaryListIteratorPrim_ = _tfwDictionaryListIteratorPrim_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else tfwDictionaryListIteratorPrim_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef tfwDictionaryListIteratorPrim_imp_impl}
 
-// start class _tfwDictionaryListIteratorPrim_
+{$Define tfwDictionaryListIteratorPrim_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _tfwDictionaryListIteratorPrim_.ForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23B7A00EC_55E9A6C303B7_var*
 var
  l_I : Integer;
@@ -70,7 +64,7 @@ begin
 end;//_tfwDictionaryListIteratorPrim_.ForEach
 
 procedure _tfwDictionaryListIteratorPrim_.ForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23BB102FA_55E9A6C303B7_var*
 var
  l_I : Integer;
@@ -100,7 +94,7 @@ begin
 end;//_tfwDictionaryListIteratorPrim_.ForEachBack
 
 procedure _tfwDictionaryListIteratorPrim_.SetItem(anIndex: Integer;
-  const aValue: TtfwStackValue);
+ const aValue: TtfwStackValue);
 //#UC START# *55CDF40C03D4_55E9A6C303B7_var*
 //#UC END# *55CDF40C03D4_55E9A6C303B7_var*
 begin
@@ -117,7 +111,9 @@ begin
  Result := 1;
 //#UC END# *55E849210175_55E9A6C303B7_impl*
 end;//_tfwDictionaryListIteratorPrim_.ItemsCountInSlice
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf tfwDictionaryListIteratorPrim_imp_impl}
 
 {$EndIf tfwDictionaryListIteratorPrim_imp}
+
