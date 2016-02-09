@@ -93,6 +93,12 @@ uses
  , l3FileUtils
  , daUtils
  , SysUtils
+ , evdNativeWriter
+ , l3Filer
+ , l3Types
+ , k2TagGen
+ , evdNativeReader
+ , k2DocumentBuffer
 ;
 
 {$Include evdTagHolder.imp.pas}

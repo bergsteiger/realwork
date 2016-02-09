@@ -2320,6 +2320,38 @@ ModelElement elem_func MethodType
  >>> Result
 ; // MethodType
 
+BOOLEAN elem_func IsKeyWord
+ Self .IsStereotype st_keyword::Operation >>> Result
+; // IsKeyWord
+
+BOOLEAN elem_func IsCreator
+ Self .IsStereotype st_creator::Operation >>> Result
+; // IsCreator
+
+BOOLEAN elem_func HasSelf
+ RULES
+  ( Self .IsCreator )
+   false
+  ( Self .IsKeyWord )
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> Result
+; // HasSelf
+
+BOOLEAN elem_func IsVarWorker
+ RULES
+  ( Self .IsStereotype st_varworker::Operation )
+   true
+  ( Self .IsStereotype st_globalvarworker::Operation )
+   true
+  DEFAULT
+   false 
+ ; // RULES
+ >>> Result
+; // IsVarWorker
+
 elem_proc UserCode:
  ^ IN aSuffix
  ^ IN aCode
@@ -2364,6 +2396,8 @@ elem_proc UserCode:
         [ 
          ' Result := '
          l_Op .Parameters .CountIt
+         l_Op .HasSelf ? ( 1 + )
+         l_Op .IsVarWorker ? ( 1 + )
          ';' 
         ] .Out 
        ) // ( l_Key cImplementationUserCodeSuffix == )

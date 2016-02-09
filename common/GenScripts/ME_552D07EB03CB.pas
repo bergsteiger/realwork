@@ -112,8 +112,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
- , l3Base
  , daFieldDescription
+ , l3Base
 ;
 
 var g_TdaScheme: TdaScheme = nil;

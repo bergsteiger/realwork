@@ -716,7 +716,7 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.ParamsTypes: PTypeInfoArray;
@@ -774,7 +774,7 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.ParamsTypes: PTypeInfoArray;
@@ -832,7 +832,7 @@ end;//TkwEnTurnOnTimeMachineDeDate.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineDeDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEnTurnOnTimeMachineDeDate.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineDeDate.ParamsTypes: PTypeInfoArray;
@@ -890,7 +890,7 @@ end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.ParamsTypes: PTypeInfoArray;
@@ -948,7 +948,7 @@ end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.ParamsTypes: PTypeInfoArray;
@@ -1006,7 +1006,7 @@ end;//TkwEnTurnOnTimeMachineBtnOk.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineBtnOk.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEnTurnOnTimeMachineBtnOk.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineBtnOk.ParamsTypes: PTypeInfoArray;
@@ -1064,7 +1064,7 @@ end;//TkwEnTurnOnTimeMachineBtnCancel.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineBtnCancel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwEnTurnOnTimeMachineBtnCancel.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineBtnCancel.ParamsTypes: PTypeInfoArray;

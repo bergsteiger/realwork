@@ -35,7 +35,6 @@ implementation
 uses
  l3ImplUses
  , SysUtils
- , l3Base
  , htDataProviderFactory
  , daDataProviderSuperFactory
  , ncsClientParamsStorage
@@ -49,6 +48,7 @@ uses
  {$If Defined(AppServerSide)}
  , ncsServerParamsStorage
  {$IfEnd} // Defined(AppServerSide)
+ , l3Base
 ;
 
 var g_TncsDataAccessServices: TncsDataAccessServices = nil;

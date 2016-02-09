@@ -179,8 +179,12 @@ begin
 end;//TkwPopComponentGetComponent.GetResultTypeInfo
 
 function TkwPopComponentGetComponent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_D0FE9D22441B_var*
+//#UC END# *559687E6025A_D0FE9D22441B_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_D0FE9D22441B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_D0FE9D22441B_impl*
 end;//TkwPopComponentGetComponent.GetAllParamsCount
 
 function TkwPopComponentGetComponent.ParamsTypes: PTypeInfoArray;
@@ -228,8 +232,12 @@ begin
 end;//TkwPopComponentFindComponent.GetResultTypeInfo
 
 function TkwPopComponentFindComponent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_4F10E1D50761_var*
+//#UC END# *559687E6025A_4F10E1D50761_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_4F10E1D50761_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_4F10E1D50761_impl*
 end;//TkwPopComponentFindComponent.GetAllParamsCount
 
 function TkwPopComponentFindComponent.ParamsTypes: PTypeInfoArray;
@@ -286,8 +294,12 @@ begin
 end;//TkwPopComponentComponentCount.GetResultTypeInfo
 
 function TkwPopComponentComponentCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_3B829E298F09_var*
+//#UC END# *559687E6025A_3B829E298F09_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_3B829E298F09_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_3B829E298F09_impl*
 end;//TkwPopComponentComponentCount.GetAllParamsCount
 
 function TkwPopComponentComponentCount.ParamsTypes: PTypeInfoArray;
@@ -344,8 +356,12 @@ begin
 end;//TkwPopComponentOwner.GetResultTypeInfo
 
 function TkwPopComponentOwner.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_722F6A69957B_var*
+//#UC END# *559687E6025A_722F6A69957B_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_722F6A69957B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_722F6A69957B_impl*
 end;//TkwPopComponentOwner.GetAllParamsCount
 
 function TkwPopComponentOwner.ParamsTypes: PTypeInfoArray;
@@ -402,8 +418,12 @@ begin
 end;//TkwPopComponentName.GetResultTypeInfo
 
 function TkwPopComponentName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_4DE6AA14F838_var*
+//#UC END# *559687E6025A_4DE6AA14F838_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_4DE6AA14F838_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_4DE6AA14F838_impl*
 end;//TkwPopComponentName.GetAllParamsCount
 
 function TkwPopComponentName.ParamsTypes: PTypeInfoArray;

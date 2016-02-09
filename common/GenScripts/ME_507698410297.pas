@@ -372,8 +372,12 @@ begin
 end;//TkwPopObjectInherits.GetResultTypeInfo
 
 function TkwPopObjectInherits.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_C6231F1FCA26_var*
+//#UC END# *559687E6025A_C6231F1FCA26_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_C6231F1FCA26_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_C6231F1FCA26_impl*
 end;//TkwPopObjectInherits.GetAllParamsCount
 
 function TkwPopObjectInherits.ParamsTypes: PTypeInfoArray;
@@ -423,8 +427,12 @@ begin
 end;//TkwPopObjectClassName.GetResultTypeInfo
 
 function TkwPopObjectClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_7B6D4B0B5715_var*
+//#UC END# *559687E6025A_7B6D4B0B5715_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_7B6D4B0B5715_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_7B6D4B0B5715_impl*
 end;//TkwPopObjectClassName.GetAllParamsCount
 
 function TkwPopObjectClassName.ParamsTypes: PTypeInfoArray;
@@ -472,8 +480,12 @@ begin
 end;//TkwPopObjectGetFloatProp.GetResultTypeInfo
 
 function TkwPopObjectGetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_EDA57987A3B6_var*
+//#UC END# *559687E6025A_EDA57987A3B6_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_EDA57987A3B6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_EDA57987A3B6_impl*
 end;//TkwPopObjectGetFloatProp.GetAllParamsCount
 
 function TkwPopObjectGetFloatProp.ParamsTypes: PTypeInfoArray;
@@ -521,8 +533,12 @@ begin
 end;//TkwPopObjectGetInterfaceProp.GetResultTypeInfo
 
 function TkwPopObjectGetInterfaceProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_AB78BA187455_var*
+//#UC END# *559687E6025A_AB78BA187455_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_AB78BA187455_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_AB78BA187455_impl*
 end;//TkwPopObjectGetInterfaceProp.GetAllParamsCount
 
 function TkwPopObjectGetInterfaceProp.ParamsTypes: PTypeInfoArray;
@@ -570,8 +586,12 @@ begin
 end;//TkwPopObjectGetObjProp.GetResultTypeInfo
 
 function TkwPopObjectGetObjProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_BA0E0748BC5D_var*
+//#UC END# *559687E6025A_BA0E0748BC5D_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_BA0E0748BC5D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_BA0E0748BC5D_impl*
 end;//TkwPopObjectGetObjProp.GetAllParamsCount
 
 function TkwPopObjectGetObjProp.ParamsTypes: PTypeInfoArray;
@@ -619,8 +639,12 @@ begin
 end;//TkwPopObjectGetOrdProp.GetResultTypeInfo
 
 function TkwPopObjectGetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_AB11F1E6DB9D_var*
+//#UC END# *559687E6025A_AB11F1E6DB9D_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_AB11F1E6DB9D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_AB11F1E6DB9D_impl*
 end;//TkwPopObjectGetOrdProp.GetAllParamsCount
 
 function TkwPopObjectGetOrdProp.ParamsTypes: PTypeInfoArray;
@@ -668,8 +692,12 @@ begin
 end;//TkwPopObjectGetStrProp.GetResultTypeInfo
 
 function TkwPopObjectGetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_B3D2E54183FE_var*
+//#UC END# *559687E6025A_B3D2E54183FE_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_B3D2E54183FE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_B3D2E54183FE_impl*
 end;//TkwPopObjectGetStrProp.GetAllParamsCount
 
 function TkwPopObjectGetStrProp.ParamsTypes: PTypeInfoArray;
@@ -717,8 +745,12 @@ begin
 end;//TkwPopObjectHasProp.GetResultTypeInfo
 
 function TkwPopObjectHasProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_6EBCA1F985F5_var*
+//#UC END# *559687E6025A_6EBCA1F985F5_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_6EBCA1F985F5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_6EBCA1F985F5_impl*
 end;//TkwPopObjectHasProp.GetAllParamsCount
 
 function TkwPopObjectHasProp.ParamsTypes: PTypeInfoArray;
@@ -765,8 +797,12 @@ begin
 end;//TkwPopObjectRTTIInfo.GetResultTypeInfo
 
 function TkwPopObjectRTTIInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_0725EE68AD3B_var*
+//#UC END# *559687E6025A_0725EE68AD3B_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_0725EE68AD3B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_0725EE68AD3B_impl*
 end;//TkwPopObjectRTTIInfo.GetAllParamsCount
 
 function TkwPopObjectRTTIInfo.ParamsTypes: PTypeInfoArray;
@@ -815,8 +851,12 @@ begin
 end;//TkwPopObjectSetFloatProp.GetResultTypeInfo
 
 function TkwPopObjectSetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_529CD18EA056_var*
+//#UC END# *559687E6025A_529CD18EA056_var*
 begin
- Result := 2;
+//#UC START# *559687E6025A_529CD18EA056_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_529CD18EA056_impl*
 end;//TkwPopObjectSetFloatProp.GetAllParamsCount
 
 function TkwPopObjectSetFloatProp.ParamsTypes: PTypeInfoArray;
@@ -865,8 +905,12 @@ begin
 end;//TkwPopObjectSetOrdProp.GetResultTypeInfo
 
 function TkwPopObjectSetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_A2938530A58A_var*
+//#UC END# *559687E6025A_A2938530A58A_var*
 begin
- Result := 2;
+//#UC START# *559687E6025A_A2938530A58A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_A2938530A58A_impl*
 end;//TkwPopObjectSetOrdProp.GetAllParamsCount
 
 function TkwPopObjectSetOrdProp.ParamsTypes: PTypeInfoArray;
@@ -915,8 +959,12 @@ begin
 end;//TkwPopObjectSetStrProp.GetResultTypeInfo
 
 function TkwPopObjectSetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_798893499F18_var*
+//#UC END# *559687E6025A_798893499F18_var*
 begin
- Result := 2;
+//#UC START# *559687E6025A_798893499F18_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_798893499F18_impl*
 end;//TkwPopObjectSetStrProp.GetAllParamsCount
 
 function TkwPopObjectSetStrProp.ParamsTypes: PTypeInfoArray;

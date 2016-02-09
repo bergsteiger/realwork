@@ -280,12 +280,8 @@ begin
 end;//TkwListAnalizerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwListAnalizerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B5BF39070BB2_var*
-//#UC END# *559687E6025A_B5BF39070BB2_var*
 begin
-//#UC START# *559687E6025A_B5BF39070BB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B5BF39070BB2_impl*
+ Result := 0;
 end;//TkwListAnalizerFormBackgroundPanel.GetAllParamsCount
 
 function TkwListAnalizerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -342,12 +338,8 @@ begin
 end;//TkwListAnalizerFormListTree.GetResultTypeInfo
 
 function TkwListAnalizerFormListTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4AAC0AE9EF9E_var*
-//#UC END# *559687E6025A_4AAC0AE9EF9E_var*
 begin
-//#UC START# *559687E6025A_4AAC0AE9EF9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4AAC0AE9EF9E_impl*
+ Result := 0;
 end;//TkwListAnalizerFormListTree.GetAllParamsCount
 
 function TkwListAnalizerFormListTree.ParamsTypes: PTypeInfoArray;

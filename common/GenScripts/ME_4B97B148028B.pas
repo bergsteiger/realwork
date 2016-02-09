@@ -88,8 +88,6 @@ type
     {* Фабричный метод для TWordPositionNamesMapImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TWordPositionNamesMapImpl;
-    {* Метод получения экземпляра синглетона TWordPositionNamesMapImpl }
  end;//TWordPositionNamesMapImpl
 
  TreeLevelDistNamesMapHelper = {final} class
@@ -123,8 +121,6 @@ type
     {* Фабричный метод для TTreeLevelDistNamesMapImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TTreeLevelDistNamesMapImpl;
-    {* Метод получения экземпляра синглетона TTreeLevelDistNamesMapImpl }
  end;//TTreeLevelDistNamesMapImpl
 
  WordOrderNamesMapHelper = {final} class
@@ -158,8 +154,6 @@ type
     {* Фабричный метод для TWordOrderNamesMapImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TWordOrderNamesMapImpl;
-    {* Метод получения экземпляра синглетона TWordOrderNamesMapImpl }
  end;//TWordOrderNamesMapImpl
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -174,29 +168,29 @@ uses
  , l3Base
 ;
 
-var g_TWordPositionNamesMapImpl: TWordPositionNamesMapImpl = nil;
+var g_TWordPositionNamesMapImpl: Pointer = nil;
  {* Экземпляр синглетона TWordPositionNamesMapImpl }
-var g_TTreeLevelDistNamesMapImpl: TTreeLevelDistNamesMapImpl = nil;
+var g_TTreeLevelDistNamesMapImpl: Pointer = nil;
  {* Экземпляр синглетона TTreeLevelDistNamesMapImpl }
-var g_TWordOrderNamesMapImpl: TWordOrderNamesMapImpl = nil;
+var g_TWordOrderNamesMapImpl: Pointer = nil;
  {* Экземпляр синглетона TWordOrderNamesMapImpl }
 
 procedure TWordPositionNamesMapImplFree;
  {* Метод освобождения экземпляра синглетона TWordPositionNamesMapImpl }
 begin
- l3Free(g_TWordPositionNamesMapImpl);
+ IUnknown(g_TWordPositionNamesMapImpl) := nil;
 end;//TWordPositionNamesMapImplFree
 
 procedure TTreeLevelDistNamesMapImplFree;
  {* Метод освобождения экземпляра синглетона TTreeLevelDistNamesMapImpl }
 begin
- l3Free(g_TTreeLevelDistNamesMapImpl);
+ IUnknown(g_TTreeLevelDistNamesMapImpl) := nil;
 end;//TTreeLevelDistNamesMapImplFree
 
 procedure TWordOrderNamesMapImplFree;
  {* Метод освобождения экземпляра синглетона TWordOrderNamesMapImpl }
 begin
- l3Free(g_TWordOrderNamesMapImpl);
+ IUnknown(g_TWordOrderNamesMapImpl) := nil;
 end;//TWordOrderNamesMapImplFree
 
 class procedure WordPositionNamesMapHelper.FillStrings(const aStrings: IafwStrings);
@@ -281,15 +275,13 @@ end;//TWordPositionNamesMapImplPrim.ValueToDisplayName
 
 class function TWordPositionNamesMapImpl.Make: Il3IntegerValueMap;
  {* Фабричный метод для TWordPositionNamesMapImpl }
-var
- l_Inst : TWordPositionNamesMapImpl;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TWordPositionNamesMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TWordPositionNamesMapImplFree);
+  Il3IntegerValueMap(g_TWordPositionNamesMapImpl) := inherited Make;
+ end;
+ Result := Il3IntegerValueMap(g_TWordPositionNamesMapImpl);
 end;//TWordPositionNamesMapImpl.Make
 
 class function TWordPositionNamesMapImpl.Exists: Boolean;
@@ -297,17 +289,6 @@ class function TWordPositionNamesMapImpl.Exists: Boolean;
 begin
  Result := g_TWordPositionNamesMapImpl <> nil;
 end;//TWordPositionNamesMapImpl.Exists
-
-class function TWordPositionNamesMapImpl.Instance: TWordPositionNamesMapImpl;
- {* Метод получения экземпляра синглетона TWordPositionNamesMapImpl }
-begin
- if (g_TWordPositionNamesMapImpl = nil) then
- begin
-  l3System.AddExitProc(TWordPositionNamesMapImplFree);
-  g_TWordPositionNamesMapImpl := Create;
- end;
- Result := g_TWordPositionNamesMapImpl;
-end;//TWordPositionNamesMapImpl.Instance
 
 class procedure TreeLevelDistNamesMapHelper.FillStrings(const aStrings: IafwStrings);
  {* Заполнение списка строк значениями }
@@ -391,15 +372,13 @@ end;//TTreeLevelDistNamesMapImplPrim.ValueToDisplayName
 
 class function TTreeLevelDistNamesMapImpl.Make: Il3IntegerValueMap;
  {* Фабричный метод для TTreeLevelDistNamesMapImpl }
-var
- l_Inst : TTreeLevelDistNamesMapImpl;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TTreeLevelDistNamesMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TTreeLevelDistNamesMapImplFree);
+  Il3IntegerValueMap(g_TTreeLevelDistNamesMapImpl) := inherited Make;
+ end;
+ Result := Il3IntegerValueMap(g_TTreeLevelDistNamesMapImpl);
 end;//TTreeLevelDistNamesMapImpl.Make
 
 class function TTreeLevelDistNamesMapImpl.Exists: Boolean;
@@ -407,17 +386,6 @@ class function TTreeLevelDistNamesMapImpl.Exists: Boolean;
 begin
  Result := g_TTreeLevelDistNamesMapImpl <> nil;
 end;//TTreeLevelDistNamesMapImpl.Exists
-
-class function TTreeLevelDistNamesMapImpl.Instance: TTreeLevelDistNamesMapImpl;
- {* Метод получения экземпляра синглетона TTreeLevelDistNamesMapImpl }
-begin
- if (g_TTreeLevelDistNamesMapImpl = nil) then
- begin
-  l3System.AddExitProc(TTreeLevelDistNamesMapImplFree);
-  g_TTreeLevelDistNamesMapImpl := Create;
- end;
- Result := g_TTreeLevelDistNamesMapImpl;
-end;//TTreeLevelDistNamesMapImpl.Instance
 
 class procedure WordOrderNamesMapHelper.FillStrings(const aStrings: IafwStrings);
  {* Заполнение списка строк значениями }
@@ -501,15 +469,13 @@ end;//TWordOrderNamesMapImplPrim.ValueToDisplayName
 
 class function TWordOrderNamesMapImpl.Make: Il3IntegerValueMap;
  {* Фабричный метод для TWordOrderNamesMapImpl }
-var
- l_Inst : TWordOrderNamesMapImpl;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TWordOrderNamesMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TWordOrderNamesMapImplFree);
+  Il3IntegerValueMap(g_TWordOrderNamesMapImpl) := inherited Make;
+ end;
+ Result := Il3IntegerValueMap(g_TWordOrderNamesMapImpl);
 end;//TWordOrderNamesMapImpl.Make
 
 class function TWordOrderNamesMapImpl.Exists: Boolean;
@@ -517,17 +483,6 @@ class function TWordOrderNamesMapImpl.Exists: Boolean;
 begin
  Result := g_TWordOrderNamesMapImpl <> nil;
 end;//TWordOrderNamesMapImpl.Exists
-
-class function TWordOrderNamesMapImpl.Instance: TWordOrderNamesMapImpl;
- {* Метод получения экземпляра синглетона TWordOrderNamesMapImpl }
-begin
- if (g_TWordOrderNamesMapImpl = nil) then
- begin
-  l3System.AddExitProc(TWordOrderNamesMapImplFree);
-  g_TWordOrderNamesMapImpl := Create;
- end;
- Result := g_TWordOrderNamesMapImpl;
-end;//TWordOrderNamesMapImpl.Instance
 
 initialization
  str_nsc_wpAnyPathWord.Init;

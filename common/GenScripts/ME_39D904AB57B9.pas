@@ -718,7 +718,7 @@ end;//TkwContentsFormBackgroundPanel.GetResultTypeInfo
 
 function TkwContentsFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwContentsFormBackgroundPanel.GetAllParamsCount
 
 function TkwContentsFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -776,7 +776,7 @@ end;//TkwContentsFormLstBookmarks.GetResultTypeInfo
 
 function TkwContentsFormLstBookmarks.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwContentsFormLstBookmarks.GetAllParamsCount
 
 function TkwContentsFormLstBookmarks.ParamsTypes: PTypeInfoArray;
@@ -834,7 +834,7 @@ end;//TkwContentsFormLstComments.GetResultTypeInfo
 
 function TkwContentsFormLstComments.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwContentsFormLstComments.GetAllParamsCount
 
 function TkwContentsFormLstComments.ParamsTypes: PTypeInfoArray;
@@ -892,7 +892,7 @@ end;//TkwContentsFormLstExternalObjects.GetResultTypeInfo
 
 function TkwContentsFormLstExternalObjects.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwContentsFormLstExternalObjects.GetAllParamsCount
 
 function TkwContentsFormLstExternalObjects.ParamsTypes: PTypeInfoArray;
@@ -950,7 +950,7 @@ end;//TkwContentsFormContentsTree.GetResultTypeInfo
 
 function TkwContentsFormContentsTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwContentsFormContentsTree.GetAllParamsCount
 
 function TkwContentsFormContentsTree.ParamsTypes: PTypeInfoArray;
@@ -1008,7 +1008,7 @@ end;//TkwContentsFormContextFilter.GetResultTypeInfo
 
 function TkwContentsFormContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwContentsFormContextFilter.GetAllParamsCount
 
 function TkwContentsFormContextFilter.ParamsTypes: PTypeInfoArray;
@@ -1066,7 +1066,7 @@ end;//TkwContentsFormTasks.GetResultTypeInfo
 
 function TkwContentsFormTasks.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwContentsFormTasks.GetAllParamsCount
 
 function TkwContentsFormTasks.ParamsTypes: PTypeInfoArray;

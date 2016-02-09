@@ -1275,7 +1275,7 @@ end;//TkwTextFormRemindersLine.GetResultTypeInfo
 
 function TkwTextFormRemindersLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormRemindersLine.GetAllParamsCount
 
 function TkwTextFormRemindersLine.ParamsTypes: PTypeInfoArray;
@@ -1333,7 +1333,7 @@ end;//TkwTextFormWarnTimeMachineException.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineException.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnTimeMachineException.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineException.ParamsTypes: PTypeInfoArray;
@@ -1391,7 +1391,7 @@ end;//TkwTextFormWarnIsAbolished.GetResultTypeInfo
 
 function TkwTextFormWarnIsAbolished.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnIsAbolished.GetAllParamsCount
 
 function TkwTextFormWarnIsAbolished.ParamsTypes: PTypeInfoArray;
@@ -1449,7 +1449,7 @@ end;//TkwTextFormWarnPreActive.GetResultTypeInfo
 
 function TkwTextFormWarnPreActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnPreActive.GetAllParamsCount
 
 function TkwTextFormWarnPreActive.ParamsTypes: PTypeInfoArray;
@@ -1507,7 +1507,7 @@ end;//TkwTextFormWarnTimeMachineWarning.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnTimeMachineWarning.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineWarning.ParamsTypes: PTypeInfoArray;
@@ -1565,7 +1565,7 @@ end;//TkwTextFormWarnOnControl.GetResultTypeInfo
 
 function TkwTextFormWarnOnControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnOnControl.GetAllParamsCount
 
 function TkwTextFormWarnOnControl.ParamsTypes: PTypeInfoArray;
@@ -1623,7 +1623,7 @@ end;//TkwTextFormWarnJuror.GetResultTypeInfo
 
 function TkwTextFormWarnJuror.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnJuror.GetAllParamsCount
 
 function TkwTextFormWarnJuror.ParamsTypes: PTypeInfoArray;
@@ -1681,7 +1681,7 @@ end;//TkwTextFormWarnRedaction.GetResultTypeInfo
 
 function TkwTextFormWarnRedaction.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnRedaction.GetAllParamsCount
 
 function TkwTextFormWarnRedaction.ParamsTypes: PTypeInfoArray;
@@ -1739,7 +1739,7 @@ end;//TkwTextFormWarnInactualDocument.GetResultTypeInfo
 
 function TkwTextFormWarnInactualDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnInactualDocument.GetAllParamsCount
 
 function TkwTextFormWarnInactualDocument.ParamsTypes: PTypeInfoArray;
@@ -1797,7 +1797,7 @@ end;//TkwTextFormWarnTimeMachineOn.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineOn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormWarnTimeMachineOn.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineOn.ParamsTypes: PTypeInfoArray;
@@ -1855,7 +1855,7 @@ end;//TkwTextFormSubPanel.GetResultTypeInfo
 
 function TkwTextFormSubPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormSubPanel.GetAllParamsCount
 
 function TkwTextFormSubPanel.ParamsTypes: PTypeInfoArray;
@@ -1913,7 +1913,7 @@ end;//TkwTextFormHScroll.GetResultTypeInfo
 
 function TkwTextFormHScroll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormHScroll.GetAllParamsCount
 
 function TkwTextFormHScroll.ParamsTypes: PTypeInfoArray;
@@ -1971,7 +1971,7 @@ end;//TkwTextFormText.GetResultTypeInfo
 
 function TkwTextFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwTextFormText.GetAllParamsCount
 
 function TkwTextFormText.ParamsTypes: PTypeInfoArray;

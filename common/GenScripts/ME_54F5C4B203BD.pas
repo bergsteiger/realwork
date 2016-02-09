@@ -354,8 +354,12 @@ begin
 end;//TkwPopControlMouseLeftClick.GetResultTypeInfo
 
 function TkwPopControlMouseLeftClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_207CDF6BFC46_var*
+//#UC END# *559687E6025A_207CDF6BFC46_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_207CDF6BFC46_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_207CDF6BFC46_impl*
 end;//TkwPopControlMouseLeftClick.GetAllParamsCount
 
 function TkwPopControlMouseLeftClick.ParamsTypes: PTypeInfoArray;
@@ -411,8 +415,12 @@ begin
 end;//TkwPopControlMouseMiddleClick.GetResultTypeInfo
 
 function TkwPopControlMouseMiddleClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_652B805E6BDC_var*
+//#UC END# *559687E6025A_652B805E6BDC_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_652B805E6BDC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_652B805E6BDC_impl*
 end;//TkwPopControlMouseMiddleClick.GetAllParamsCount
 
 function TkwPopControlMouseMiddleClick.ParamsTypes: PTypeInfoArray;
@@ -468,8 +476,12 @@ begin
 end;//TkwPopControlMouseRightClick.GetResultTypeInfo
 
 function TkwPopControlMouseRightClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_01A83C03B567_var*
+//#UC END# *559687E6025A_01A83C03B567_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_01A83C03B567_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_01A83C03B567_impl*
 end;//TkwPopControlMouseRightClick.GetAllParamsCount
 
 function TkwPopControlMouseRightClick.ParamsTypes: PTypeInfoArray;
@@ -573,8 +585,12 @@ begin
 end;//TkwPopControlFindControlByName.GetResultTypeInfo
 
 function TkwPopControlFindControlByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_89E1228A3BE4_var*
+//#UC END# *559687E6025A_89E1228A3BE4_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_89E1228A3BE4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_89E1228A3BE4_impl*
 end;//TkwPopControlFindControlByName.GetAllParamsCount
 
 function TkwPopControlFindControlByName.ParamsTypes: PTypeInfoArray;
@@ -622,8 +638,12 @@ begin
 end;//TkwPopControlGetControl.GetResultTypeInfo
 
 function TkwPopControlGetControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_0EDEBD14C685_var*
+//#UC END# *559687E6025A_0EDEBD14C685_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_0EDEBD14C685_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_0EDEBD14C685_impl*
 end;//TkwPopControlGetControl.GetAllParamsCount
 
 function TkwPopControlGetControl.ParamsTypes: PTypeInfoArray;
@@ -670,8 +690,12 @@ begin
 end;//TkwPopControlMouseWheelUp.GetResultTypeInfo
 
 function TkwPopControlMouseWheelUp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_60259FDDB2DC_var*
+//#UC END# *559687E6025A_60259FDDB2DC_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_60259FDDB2DC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_60259FDDB2DC_impl*
 end;//TkwPopControlMouseWheelUp.GetAllParamsCount
 
 function TkwPopControlMouseWheelUp.ParamsTypes: PTypeInfoArray;
@@ -718,8 +742,12 @@ begin
 end;//TkwPopControlMouseWheelDown.GetResultTypeInfo
 
 function TkwPopControlMouseWheelDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_5676987B6AD8_var*
+//#UC END# *559687E6025A_5676987B6AD8_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_5676987B6AD8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_5676987B6AD8_impl*
 end;//TkwPopControlMouseWheelDown.GetAllParamsCount
 
 function TkwPopControlMouseWheelDown.ParamsTypes: PTypeInfoArray;
@@ -768,8 +796,12 @@ begin
 end;//TkwPopControlSetFocus.GetResultTypeInfo
 
 function TkwPopControlSetFocus.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_52E34524FDF7_var*
+//#UC END# *559687E6025A_52E34524FDF7_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_52E34524FDF7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_52E34524FDF7_impl*
 end;//TkwPopControlSetFocus.GetAllParamsCount
 
 function TkwPopControlSetFocus.ParamsTypes: PTypeInfoArray;
@@ -833,8 +865,12 @@ begin
 end;//TkwPopControlMouseLeftDragAndDrop.GetResultTypeInfo
 
 function TkwPopControlMouseLeftDragAndDrop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_7A8A3BB834BD_var*
+//#UC END# *559687E6025A_7A8A3BB834BD_var*
 begin
- Result := 2;
+//#UC START# *559687E6025A_7A8A3BB834BD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_7A8A3BB834BD_impl*
 end;//TkwPopControlMouseLeftDragAndDrop.GetAllParamsCount
 
 function TkwPopControlMouseLeftDragAndDrop.ParamsTypes: PTypeInfoArray;
@@ -891,8 +927,12 @@ begin
 end;//TkwPopControlControlCount.GetResultTypeInfo
 
 function TkwPopControlControlCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_8E3044782C31_var*
+//#UC END# *559687E6025A_8E3044782C31_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_8E3044782C31_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_8E3044782C31_impl*
 end;//TkwPopControlControlCount.GetAllParamsCount
 
 function TkwPopControlControlCount.ParamsTypes: PTypeInfoArray;
@@ -949,8 +989,12 @@ begin
 end;//TkwPopControlHandle.GetResultTypeInfo
 
 function TkwPopControlHandle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_3CF2D3C5A0DB_var*
+//#UC END# *559687E6025A_3CF2D3C5A0DB_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_3CF2D3C5A0DB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_3CF2D3C5A0DB_impl*
 end;//TkwPopControlHandle.GetAllParamsCount
 
 function TkwPopControlHandle.ParamsTypes: PTypeInfoArray;
@@ -1007,8 +1051,12 @@ begin
 end;//TkwPopControlFocused.GetResultTypeInfo
 
 function TkwPopControlFocused.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_171FB83EF557_var*
+//#UC END# *559687E6025A_171FB83EF557_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_171FB83EF557_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_171FB83EF557_impl*
 end;//TkwPopControlFocused.GetAllParamsCount
 
 function TkwPopControlFocused.ParamsTypes: PTypeInfoArray;
@@ -1065,8 +1113,12 @@ begin
 end;//TkwPopControlCanFocus.GetResultTypeInfo
 
 function TkwPopControlCanFocus.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_8BEC198C8027_var*
+//#UC END# *559687E6025A_8BEC198C8027_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_8BEC198C8027_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_8BEC198C8027_impl*
 end;//TkwPopControlCanFocus.GetAllParamsCount
 
 function TkwPopControlCanFocus.ParamsTypes: PTypeInfoArray;

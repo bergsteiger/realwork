@@ -142,6 +142,21 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , nsStyleEditor
+ , evStyleInterface
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , nsSettingsUtils
+ , DataAdapter
+ , SysUtils
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsConfigurationList
+ {$If NOT Defined(NoVCM)}
+ , vcmEntityForm
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -170,21 +185,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , SelfInfoKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , nsStyleEditor
- , evStyleInterface
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
- , nsSettingsUtils
- , DataAdapter
- , SysUtils
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , nsConfigurationList
- {$If NOT Defined(NoVCM)}
- , vcmEntityForm
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 const

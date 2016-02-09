@@ -196,7 +196,7 @@ end;//TkwWarningBaloonFormViewer.GetResultTypeInfo
 
 function TkwWarningBaloonFormViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 1;
+ Result := 0;
 end;//TkwWarningBaloonFormViewer.GetAllParamsCount
 
 function TkwWarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;

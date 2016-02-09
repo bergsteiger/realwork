@@ -367,12 +367,8 @@ begin
 end;//TkwEditionsContainerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwEditionsContainerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_86D7719CD46B_var*
-//#UC END# *559687E6025A_86D7719CD46B_var*
 begin
-//#UC START# *559687E6025A_86D7719CD46B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_86D7719CD46B_impl*
+ Result := 0;
 end;//TkwEditionsContainerFormBackgroundPanel.GetAllParamsCount
 
 function TkwEditionsContainerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -429,12 +425,8 @@ begin
 end;//TkwEditionsContainerFormPnLeft.GetResultTypeInfo
 
 function TkwEditionsContainerFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_083A7C7D6482_var*
-//#UC END# *559687E6025A_083A7C7D6482_var*
 begin
-//#UC START# *559687E6025A_083A7C7D6482_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_083A7C7D6482_impl*
+ Result := 0;
 end;//TkwEditionsContainerFormPnLeft.GetAllParamsCount
 
 function TkwEditionsContainerFormPnLeft.ParamsTypes: PTypeInfoArray;
@@ -491,12 +483,8 @@ begin
 end;//TkwEditionsContainerFormPnRight.GetResultTypeInfo
 
 function TkwEditionsContainerFormPnRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7FDE9E2606E0_var*
-//#UC END# *559687E6025A_7FDE9E2606E0_var*
 begin
-//#UC START# *559687E6025A_7FDE9E2606E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7FDE9E2606E0_impl*
+ Result := 0;
 end;//TkwEditionsContainerFormPnRight.GetAllParamsCount
 
 function TkwEditionsContainerFormPnRight.ParamsTypes: PTypeInfoArray;

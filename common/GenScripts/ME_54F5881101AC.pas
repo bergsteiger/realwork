@@ -196,8 +196,12 @@ begin
 end;//TkwPopControlVScrollerVisible.GetResultTypeInfo
 
 function TkwPopControlVScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_D64D3C18264A_var*
+//#UC END# *559687E6025A_D64D3C18264A_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_D64D3C18264A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_D64D3C18264A_impl*
 end;//TkwPopControlVScrollerVisible.GetAllParamsCount
 
 function TkwPopControlVScrollerVisible.ParamsTypes: PTypeInfoArray;
@@ -282,8 +286,12 @@ begin
 end;//TkwPopControlHScrollerVisible.GetResultTypeInfo
 
 function TkwPopControlHScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_F808620CE3AB_var*
+//#UC END# *559687E6025A_F808620CE3AB_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_F808620CE3AB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_F808620CE3AB_impl*
 end;//TkwPopControlHScrollerVisible.GetAllParamsCount
 
 function TkwPopControlHScrollerVisible.ParamsTypes: PTypeInfoArray;
@@ -340,8 +348,12 @@ begin
 end;//TkwPopScrollingWinControlVScrollerVisible.GetResultTypeInfo
 
 function TkwPopScrollingWinControlVScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_0E188022DACF_var*
+//#UC END# *559687E6025A_0E188022DACF_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_0E188022DACF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_0E188022DACF_impl*
 end;//TkwPopScrollingWinControlVScrollerVisible.GetAllParamsCount
 
 function TkwPopScrollingWinControlVScrollerVisible.ParamsTypes: PTypeInfoArray;
@@ -398,8 +410,12 @@ begin
 end;//TkwPopScrollingWinControlHScrollerVisible.GetResultTypeInfo
 
 function TkwPopScrollingWinControlHScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_B46C6A433AAC_var*
+//#UC END# *559687E6025A_B46C6A433AAC_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_B46C6A433AAC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_B46C6A433AAC_impl*
 end;//TkwPopScrollingWinControlHScrollerVisible.GetAllParamsCount
 
 function TkwPopScrollingWinControlHScrollerVisible.ParamsTypes: PTypeInfoArray;

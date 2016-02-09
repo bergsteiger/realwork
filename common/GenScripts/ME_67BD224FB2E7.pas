@@ -258,12 +258,8 @@ begin
 end;//TkwEfListInfoListInfoViewer.GetResultTypeInfo
 
 function TkwEfListInfoListInfoViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6C1002171F6A_var*
-//#UC END# *559687E6025A_6C1002171F6A_var*
 begin
-//#UC START# *559687E6025A_6C1002171F6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6C1002171F6A_impl*
+ Result := 0;
 end;//TkwEfListInfoListInfoViewer.GetAllParamsCount
 
 function TkwEfListInfoListInfoViewer.ParamsTypes: PTypeInfoArray;
@@ -320,12 +316,8 @@ begin
 end;//TkwEfListInfoTextSource.GetResultTypeInfo
 
 function TkwEfListInfoTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_288FE0C200C7_var*
-//#UC END# *559687E6025A_288FE0C200C7_var*
 begin
-//#UC START# *559687E6025A_288FE0C200C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_288FE0C200C7_impl*
+ Result := 0;
 end;//TkwEfListInfoTextSource.GetAllParamsCount
 
 function TkwEfListInfoTextSource.ParamsTypes: PTypeInfoArray;

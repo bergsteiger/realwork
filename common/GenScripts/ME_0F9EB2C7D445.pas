@@ -808,12 +808,8 @@ begin
 end;//TkwEfListRemindersLine.GetResultTypeInfo
 
 function TkwEfListRemindersLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4B02DC799E8A_var*
-//#UC END# *559687E6025A_4B02DC799E8A_var*
 begin
-//#UC START# *559687E6025A_4B02DC799E8A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4B02DC799E8A_impl*
+ Result := 0;
 end;//TkwEfListRemindersLine.GetAllParamsCount
 
 function TkwEfListRemindersLine.ParamsTypes: PTypeInfoArray;
@@ -870,12 +866,8 @@ begin
 end;//TkwEfListRemListFiltered.GetResultTypeInfo
 
 function TkwEfListRemListFiltered.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9EDC79448FB0_var*
-//#UC END# *559687E6025A_9EDC79448FB0_var*
 begin
-//#UC START# *559687E6025A_9EDC79448FB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9EDC79448FB0_impl*
+ Result := 0;
 end;//TkwEfListRemListFiltered.GetAllParamsCount
 
 function TkwEfListRemListFiltered.ParamsTypes: PTypeInfoArray;
@@ -932,12 +924,8 @@ begin
 end;//TkwEfListRemListModified.GetResultTypeInfo
 
 function TkwEfListRemListModified.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_715456D52720_var*
-//#UC END# *559687E6025A_715456D52720_var*
 begin
-//#UC START# *559687E6025A_715456D52720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_715456D52720_impl*
+ Result := 0;
 end;//TkwEfListRemListModified.GetAllParamsCount
 
 function TkwEfListRemListModified.ParamsTypes: PTypeInfoArray;
@@ -994,12 +982,8 @@ begin
 end;//TkwEfListRemTimeMachineWarning.GetResultTypeInfo
 
 function TkwEfListRemTimeMachineWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_914FC12132E1_var*
-//#UC END# *559687E6025A_914FC12132E1_var*
 begin
-//#UC START# *559687E6025A_914FC12132E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_914FC12132E1_impl*
+ Result := 0;
 end;//TkwEfListRemTimeMachineWarning.GetAllParamsCount
 
 function TkwEfListRemTimeMachineWarning.ParamsTypes: PTypeInfoArray;
@@ -1056,12 +1040,8 @@ begin
 end;//TkwEfListEmptyListEditor.GetResultTypeInfo
 
 function TkwEfListEmptyListEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4926301346C5_var*
-//#UC END# *559687E6025A_4926301346C5_var*
 begin
-//#UC START# *559687E6025A_4926301346C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4926301346C5_impl*
+ Result := 0;
 end;//TkwEfListEmptyListEditor.GetAllParamsCount
 
 function TkwEfListEmptyListEditor.ParamsTypes: PTypeInfoArray;
@@ -1118,12 +1098,8 @@ begin
 end;//TkwEfListListPanel.GetResultTypeInfo
 
 function TkwEfListListPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_27A65BB46620_var*
-//#UC END# *559687E6025A_27A65BB46620_var*
 begin
-//#UC START# *559687E6025A_27A65BB46620_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_27A65BB46620_impl*
+ Result := 0;
 end;//TkwEfListListPanel.GetAllParamsCount
 
 function TkwEfListListPanel.ParamsTypes: PTypeInfoArray;
@@ -1180,12 +1156,8 @@ begin
 end;//TkwEfListTvList.GetResultTypeInfo
 
 function TkwEfListTvList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8A0E3F8249F5_var*
-//#UC END# *559687E6025A_8A0E3F8249F5_var*
 begin
-//#UC START# *559687E6025A_8A0E3F8249F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8A0E3F8249F5_impl*
+ Result := 0;
 end;//TkwEfListTvList.GetAllParamsCount
 
 function TkwEfListTvList.ParamsTypes: PTypeInfoArray;
@@ -1242,12 +1214,8 @@ begin
 end;//TkwEfListCfList.GetResultTypeInfo
 
 function TkwEfListCfList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E2E83C1BEE9F_var*
-//#UC END# *559687E6025A_E2E83C1BEE9F_var*
 begin
-//#UC START# *559687E6025A_E2E83C1BEE9F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E2E83C1BEE9F_impl*
+ Result := 0;
 end;//TkwEfListCfList.GetAllParamsCount
 
 function TkwEfListCfList.ParamsTypes: PTypeInfoArray;
