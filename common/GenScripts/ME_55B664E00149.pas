@@ -106,12 +106,8 @@ begin
 end;//TkwDocEditorWindowIsNeedSaveDocument.GetResultTypeInfo
 
 function TkwDocEditorWindowIsNeedSaveDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1E0CF5C9A3AF_var*
-//#UC END# *559687E6025A_1E0CF5C9A3AF_var*
 begin
-//#UC START# *559687E6025A_1E0CF5C9A3AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1E0CF5C9A3AF_impl*
+ Result := 1;
 end;//TkwDocEditorWindowIsNeedSaveDocument.GetAllParamsCount
 
 function TkwDocEditorWindowIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;

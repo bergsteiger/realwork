@@ -96,7 +96,7 @@ end;//TkwPopFormFormStyle.GetWordNameForRegister
 
 function TkwPopFormFormStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TFormStyle);
 end;//TkwPopFormFormStyle.GetResultTypeInfo
 
 function TkwPopFormFormStyle.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -103,7 +103,7 @@ end;//TkwPopKeywordFinderKeywordByName.GetWordNameForRegister
 
 function TkwPopKeywordFinderKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwKeyWord);
 end;//TkwPopKeywordFinderKeywordByName.GetResultTypeInfo
 
 function TkwPopKeywordFinderKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -157,7 +157,7 @@ end;//TkwPopKeywordFinderParentFinder.SetValuePrim
 
 function TkwPopKeywordFinderParentFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwKeywordFinder);
 end;//TkwPopKeywordFinderParentFinder.GetResultTypeInfo
 
 function TkwPopKeywordFinderParentFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;

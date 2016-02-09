@@ -89,7 +89,7 @@ end;//TkwPopActionListFindAction.GetWordNameForRegister
 
 function TkwPopActionListFindAction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TContainedAction);
 end;//TkwPopActionListFindAction.GetResultTypeInfo
 
 function TkwPopActionListFindAction.GetAllParamsCount(const aCtx: TtfwContext): Integer;

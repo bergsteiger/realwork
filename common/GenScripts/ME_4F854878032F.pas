@@ -645,7 +645,7 @@ end;//TkwWndIsVisible.GetWordNameForRegister
 
 function TkwWndIsVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwWndIsVisible.GetResultTypeInfo
 
 function TkwWndIsVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -692,7 +692,7 @@ end;//TkwWndGetClassName.GetWordNameForRegister
 
 function TkwWndGetClassName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwWndGetClassName.GetResultTypeInfo
 
 function TkwWndGetClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -739,7 +739,7 @@ end;//TkwWndGetWindowText.GetWordNameForRegister
 
 function TkwWndGetWindowText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwWndGetWindowText.GetResultTypeInfo
 
 function TkwWndGetWindowText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -783,7 +783,7 @@ end;//TkwWndCloseWindow.GetWordNameForRegister
 
 function TkwWndCloseWindow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwWndCloseWindow.GetResultTypeInfo
 
 function TkwWndCloseWindow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -830,7 +830,7 @@ end;//TkwWndWindowIsMine.GetWordNameForRegister
 
 function TkwWndWindowIsMine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwWndWindowIsMine.GetResultTypeInfo
 
 function TkwWndWindowIsMine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -874,7 +874,7 @@ end;//TkwWndSetForeground.GetWordNameForRegister
 
 function TkwWndSetForeground.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwWndSetForeground.GetResultTypeInfo
 
 function TkwWndSetForeground.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -932,7 +932,7 @@ end;//TkwWinTreeGetCurrentText.GetWordNameForRegister
 
 function TkwWinTreeGetCurrentText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwWinTreeGetCurrentText.GetResultTypeInfo
 
 function TkwWinTreeGetCurrentText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -982,7 +982,7 @@ end;//TkwIterateChildWindows.GetWordNameForRegister
 
 function TkwIterateChildWindows.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwIterateChildWindows.GetResultTypeInfo
 
 function TkwIterateChildWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1031,7 +1031,7 @@ end;//TkwIterateWindows.GetWordNameForRegister
 
 function TkwIterateWindows.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwIterateWindows.GetResultTypeInfo
 
 function TkwIterateWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1075,7 +1075,7 @@ end;//TkwWindowFromPoint.GetWordNameForRegister
 
 function TkwWindowFromPoint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(THandle);
 end;//TkwWindowFromPoint.GetResultTypeInfo
 
 function TkwWindowFromPoint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1118,7 +1118,7 @@ end;//TkwGetForegroundWindow.GetWordNameForRegister
 
 function TkwGetForegroundWindow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(THandle);
 end;//TkwGetForegroundWindow.GetResultTypeInfo
 
 function TkwGetForegroundWindow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1162,7 +1162,7 @@ end;//TkwFindWindowByCaption.GetWordNameForRegister
 
 function TkwFindWindowByCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(THandle);
 end;//TkwFindWindowByCaption.GetResultTypeInfo
 
 function TkwFindWindowByCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1206,7 +1206,7 @@ end;//TkwSetFuzzInPercent.GetWordNameForRegister
 
 function TkwSetFuzzInPercent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwSetFuzzInPercent.GetResultTypeInfo
 
 function TkwSetFuzzInPercent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1253,7 +1253,7 @@ end;//TkwDesktopHeight.GetWordNameForRegister
 
 function TkwDesktopHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwDesktopHeight.GetResultTypeInfo
 
 function TkwDesktopHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1300,7 +1300,7 @@ end;//TkwDesktopWidth.GetWordNameForRegister
 
 function TkwDesktopWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwDesktopWidth.GetResultTypeInfo
 
 function TkwDesktopWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1348,7 +1348,7 @@ end;//TkwScreenWidth.GetWordNameForRegister
 
 function TkwScreenWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwScreenWidth.GetResultTypeInfo
 
 function TkwScreenWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1396,7 +1396,7 @@ end;//TkwScreenHeight.GetWordNameForRegister
 
 function TkwScreenHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwScreenHeight.GetResultTypeInfo
 
 function TkwScreenHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1443,7 +1443,7 @@ end;//TkwMainScreenWidth.GetWordNameForRegister
 
 function TkwMainScreenWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwMainScreenWidth.GetResultTypeInfo
 
 function TkwMainScreenWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1490,7 +1490,7 @@ end;//TkwMainScreenHeight.GetWordNameForRegister
 
 function TkwMainScreenHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwMainScreenHeight.GetResultTypeInfo
 
 function TkwMainScreenHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1537,7 +1537,7 @@ end;//TkwScreenCount.GetWordNameForRegister
 
 function TkwScreenCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwScreenCount.GetResultTypeInfo
 
 function TkwScreenCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1611,7 +1611,7 @@ end;//TkwAskWindowToCloseItself.GetWordNameForRegister
 
 function TkwAskWindowToCloseItself.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwAskWindowToCloseItself.GetResultTypeInfo
 
 function TkwAskWindowToCloseItself.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1660,7 +1660,7 @@ end;//TkwScreenShot2File.GetWordNameForRegister
 
 function TkwScreenShot2File.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwScreenShot2File.GetResultTypeInfo
 
 function TkwScreenShot2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1709,7 +1709,7 @@ end;//TkwScreenShot2FileWithCheck.GetWordNameForRegister
 
 function TkwScreenShot2FileWithCheck.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwScreenShot2FileWithCheck.GetResultTypeInfo
 
 function TkwScreenShot2FileWithCheck.GetAllParamsCount(const aCtx: TtfwContext): Integer;

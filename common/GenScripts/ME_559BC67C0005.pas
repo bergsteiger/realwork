@@ -118,7 +118,7 @@ end;//TkwPopParserExPushString.GetWordNameForRegister
 
 function TkwPopParserExPushString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopParserExPushString.GetResultTypeInfo
 
 function TkwPopParserExPushString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -163,7 +163,7 @@ end;//TkwPopParserExPushSymbol.GetWordNameForRegister
 
 function TkwPopParserExPushSymbol.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopParserExPushSymbol.GetResultTypeInfo
 
 function TkwPopParserExPushSymbol.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -208,7 +208,7 @@ end;//TkwPopParserExPushInt.GetWordNameForRegister
 
 function TkwPopParserExPushInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopParserExPushInt.GetResultTypeInfo
 
 function TkwPopParserExPushInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;

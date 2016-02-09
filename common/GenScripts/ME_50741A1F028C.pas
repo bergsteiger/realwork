@@ -332,7 +332,7 @@ end;//TkwPopFormActiveMDIChild.GetWordNameForRegister
 
 function TkwPopFormActiveMDIChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TForm);
 end;//TkwPopFormActiveMDIChild.GetResultTypeInfo
 
 function TkwPopFormActiveMDIChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -376,7 +376,7 @@ end;//TkwPopFormClose.GetWordNameForRegister
 
 function TkwPopFormClose.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopFormClose.GetResultTypeInfo
 
 function TkwPopFormClose.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -483,7 +483,7 @@ end;//TkwPopFormFindMenuItem.GetWordNameForRegister
 
 function TkwPopFormFindMenuItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TMenuItem);
 end;//TkwPopFormFindMenuItem.GetResultTypeInfo
 
 function TkwPopFormFindMenuItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -527,7 +527,7 @@ end;//TkwPopFormGetWindowState.GetWordNameForRegister
 
 function TkwPopFormGetWindowState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TWindowState);
 end;//TkwPopFormGetWindowState.GetResultTypeInfo
 
 function TkwPopFormGetWindowState.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -572,7 +572,7 @@ end;//TkwPopFormHasControl.GetWordNameForRegister
 
 function TkwPopFormHasControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopFormHasControl.GetResultTypeInfo
 
 function TkwPopFormHasControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -616,7 +616,7 @@ end;//TkwPopFormMDIChildCount.GetWordNameForRegister
 
 function TkwPopFormMDIChildCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopFormMDIChildCount.GetResultTypeInfo
 
 function TkwPopFormMDIChildCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -661,7 +661,7 @@ end;//TkwPopFormMDIChildren.GetWordNameForRegister
 
 function TkwPopFormMDIChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TForm);
 end;//TkwPopFormMDIChildren.GetResultTypeInfo
 
 function TkwPopFormMDIChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -706,7 +706,7 @@ end;//TkwPopFormModalResult.GetWordNameForRegister
 
 function TkwPopFormModalResult.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopFormModalResult.GetResultTypeInfo
 
 function TkwPopFormModalResult.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -750,7 +750,7 @@ end;//TkwPopFormNext.GetWordNameForRegister
 
 function TkwPopFormNext.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopFormNext.GetResultTypeInfo
 
 function TkwPopFormNext.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -795,7 +795,7 @@ end;//TkwPopFormSetWindowState.GetWordNameForRegister
 
 function TkwPopFormSetWindowState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopFormSetWindowState.GetResultTypeInfo
 
 function TkwPopFormSetWindowState.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -860,7 +860,7 @@ end;//TkwPopFormFindActionList.GetWordNameForRegister
 
 function TkwPopFormFindActionList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TActionList);
 end;//TkwPopFormFindActionList.GetResultTypeInfo
 
 function TkwPopFormFindActionList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -923,7 +923,7 @@ end;//TkwIterateForms.GetWordNameForRegister
 
 function TkwIterateForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwIterateForms.GetResultTypeInfo
 
 function TkwIterateForms.GetAllParamsCount(const aCtx: TtfwContext): Integer;

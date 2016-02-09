@@ -76,7 +76,7 @@ end;//TkwPopMainDictionaryCompiledCode.GetWordNameForRegister
 
 function TkwPopMainDictionaryCompiledCode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwWord);
 end;//TkwPopMainDictionaryCompiledCode.GetResultTypeInfo
 
 function TkwPopMainDictionaryCompiledCode.GetAllParamsCount(const aCtx: TtfwContext): Integer;

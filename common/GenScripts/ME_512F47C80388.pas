@@ -79,7 +79,7 @@ end;//TkwPopTreeViewGetItem.GetWordNameForRegister
 
 function TkwPopTreeViewGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TTreeNode);
 end;//TkwPopTreeViewGetItem.GetResultTypeInfo
 
 function TkwPopTreeViewGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;

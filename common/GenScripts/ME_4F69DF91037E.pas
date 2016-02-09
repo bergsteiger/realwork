@@ -681,7 +681,7 @@ end;//TkwPopControlClientToScreen.GetWordNameForRegister
 
 function TkwPopControlClientToScreen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiStruct;
 end;//TkwPopControlClientToScreen.GetResultTypeInfo
 
 function TkwPopControlClientToScreen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -726,7 +726,7 @@ end;//TkwPopControlScreenToClient.GetWordNameForRegister
 
 function TkwPopControlScreenToClient.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiStruct;
 end;//TkwPopControlScreenToClient.GetResultTypeInfo
 
 function TkwPopControlScreenToClient.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -770,7 +770,7 @@ end;//TkwPopControlInvalidate.GetWordNameForRegister
 
 function TkwPopControlInvalidate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopControlInvalidate.GetResultTypeInfo
 
 function TkwPopControlInvalidate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -814,7 +814,7 @@ end;//TkwPopControlRepaint.GetWordNameForRegister
 
 function TkwPopControlRepaint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopControlRepaint.GetResultTypeInfo
 
 function TkwPopControlRepaint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -858,7 +858,7 @@ end;//TkwPopControlClick.GetWordNameForRegister
 
 function TkwPopControlClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopControlClick.GetResultTypeInfo
 
 function TkwPopControlClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -902,7 +902,7 @@ end;//TkwPopControlShow.GetWordNameForRegister
 
 function TkwPopControlShow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopControlShow.GetResultTypeInfo
 
 function TkwPopControlShow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -946,7 +946,7 @@ end;//TkwPopControlHide.GetWordNameForRegister
 
 function TkwPopControlHide.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopControlHide.GetResultTypeInfo
 
 function TkwPopControlHide.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -990,7 +990,7 @@ end;//TkwPopControlUndock.GetWordNameForRegister
 
 function TkwPopControlUndock.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopControlUndock.GetResultTypeInfo
 
 function TkwPopControlUndock.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1035,7 +1035,7 @@ end;//TkwPopControlGetPopupMenu.GetWordNameForRegister
 
 function TkwPopControlGetPopupMenu.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TMenuItem);
 end;//TkwPopControlGetPopupMenu.GetResultTypeInfo
 
 function TkwPopControlGetPopupMenu.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1079,7 +1079,7 @@ end;//TkwPopControlGetTopParentForm.GetWordNameForRegister
 
 function TkwPopControlGetTopParentForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TCustomForm);
 end;//TkwPopControlGetTopParentForm.GetResultTypeInfo
 
 function TkwPopControlGetTopParentForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1123,7 +1123,7 @@ end;//TkwPopControlGetMainForm.GetWordNameForRegister
 
 function TkwPopControlGetMainForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TCustomForm);
 end;//TkwPopControlGetMainForm.GetResultTypeInfo
 
 function TkwPopControlGetMainForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1167,7 +1167,7 @@ end;//TkwPopControlGetParentForm.GetWordNameForRegister
 
 function TkwPopControlGetParentForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TCustomForm);
 end;//TkwPopControlGetParentForm.GetResultTypeInfo
 
 function TkwPopControlGetParentForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1211,7 +1211,7 @@ end;//TkwPopControlGetAnotherParentForm.GetWordNameForRegister
 
 function TkwPopControlGetAnotherParentForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TCustomForm);
 end;//TkwPopControlGetAnotherParentForm.GetResultTypeInfo
 
 function TkwPopControlGetAnotherParentForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1374,7 +1374,7 @@ end;//TkwPopControlColor.SetValuePrim
 
 function TkwPopControlColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TColor);
 end;//TkwPopControlColor.GetResultTypeInfo
 
 function TkwPopControlColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1428,7 +1428,7 @@ end;//TkwPopControlEnabled.SetValuePrim
 
 function TkwPopControlEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopControlEnabled.GetResultTypeInfo
 
 function TkwPopControlEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1482,7 +1482,7 @@ end;//TkwPopControlVisible.SetValuePrim
 
 function TkwPopControlVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopControlVisible.GetResultTypeInfo
 
 function TkwPopControlVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1536,7 +1536,7 @@ end;//TkwPopControlName.SetValuePrim
 
 function TkwPopControlName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopControlName.GetResultTypeInfo
 
 function TkwPopControlName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1590,7 +1590,7 @@ end;//TkwPopControlHint.SetValuePrim
 
 function TkwPopControlHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopControlHint.GetResultTypeInfo
 
 function TkwPopControlHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1644,7 +1644,7 @@ end;//TkwPopControlShowHint.SetValuePrim
 
 function TkwPopControlShowHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopControlShowHint.GetResultTypeInfo
 
 function TkwPopControlShowHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1698,7 +1698,7 @@ end;//TkwPopControlCaption.SetValuePrim
 
 function TkwPopControlCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopControlCaption.GetResultTypeInfo
 
 function TkwPopControlCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1752,7 +1752,7 @@ end;//TkwPopControlTop.SetValuePrim
 
 function TkwPopControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopControlTop.GetResultTypeInfo
 
 function TkwPopControlTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1806,7 +1806,7 @@ end;//TkwPopControlLeft.SetValuePrim
 
 function TkwPopControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopControlLeft.GetResultTypeInfo
 
 function TkwPopControlLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1860,7 +1860,7 @@ end;//TkwPopControlHeight.SetValuePrim
 
 function TkwPopControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopControlHeight.GetResultTypeInfo
 
 function TkwPopControlHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1914,7 +1914,7 @@ end;//TkwPopControlWidth.SetValuePrim
 
 function TkwPopControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopControlWidth.GetResultTypeInfo
 
 function TkwPopControlWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1968,7 +1968,7 @@ end;//TkwPopControlParent.SetValuePrim
 
 function TkwPopControlParent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TControl);
 end;//TkwPopControlParent.GetResultTypeInfo
 
 function TkwPopControlParent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2022,7 +2022,7 @@ end;//TkwPopControlFont.SetValuePrim
 
 function TkwPopControlFont.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Il3FontInfo);
 end;//TkwPopControlFont.GetResultTypeInfo
 
 function TkwPopControlFont.GetAllParamsCount(const aCtx: TtfwContext): Integer;

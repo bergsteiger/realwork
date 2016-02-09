@@ -74,7 +74,7 @@ end;//TkwPopContainedActionExecute.GetWordNameForRegister
 
 function TkwPopContainedActionExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopContainedActionExecute.GetResultTypeInfo
 
 function TkwPopContainedActionExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;

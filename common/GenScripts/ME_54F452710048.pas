@@ -171,7 +171,7 @@ end;//TkwPopComponentGetComponent.GetWordNameForRegister
 
 function TkwPopComponentGetComponent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TComponent);
 end;//TkwPopComponentGetComponent.GetResultTypeInfo
 
 function TkwPopComponentGetComponent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -216,7 +216,7 @@ end;//TkwPopComponentFindComponent.GetWordNameForRegister
 
 function TkwPopComponentFindComponent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TComponent);
 end;//TkwPopComponentFindComponent.GetResultTypeInfo
 
 function TkwPopComponentFindComponent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -270,7 +270,7 @@ end;//TkwPopComponentComponentCount.SetValuePrim
 
 function TkwPopComponentComponentCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopComponentComponentCount.GetResultTypeInfo
 
 function TkwPopComponentComponentCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -324,7 +324,7 @@ end;//TkwPopComponentOwner.SetValuePrim
 
 function TkwPopComponentOwner.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TComponent);
 end;//TkwPopComponentOwner.GetResultTypeInfo
 
 function TkwPopComponentOwner.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -378,7 +378,7 @@ end;//TkwPopComponentName.SetValuePrim
 
 function TkwPopComponentName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopComponentName.GetResultTypeInfo
 
 function TkwPopComponentName.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -188,7 +188,7 @@ end;//TkwPopControlVScrollerVisible.SetValuePrim
 
 function TkwPopControlVScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopControlVScrollerVisible.GetResultTypeInfo
 
 function TkwPopControlVScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -270,7 +270,7 @@ end;//TkwPopControlHScrollerVisible.SetValuePrim
 
 function TkwPopControlHScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopControlHScrollerVisible.GetResultTypeInfo
 
 function TkwPopControlHScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -324,7 +324,7 @@ end;//TkwPopScrollingWinControlVScrollerVisible.SetValuePrim
 
 function TkwPopScrollingWinControlVScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopScrollingWinControlVScrollerVisible.GetResultTypeInfo
 
 function TkwPopScrollingWinControlVScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -378,7 +378,7 @@ end;//TkwPopScrollingWinControlHScrollerVisible.SetValuePrim
 
 function TkwPopScrollingWinControlHScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopScrollingWinControlHScrollerVisible.GetResultTypeInfo
 
 function TkwPopScrollingWinControlHScrollerVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;

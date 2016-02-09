@@ -145,7 +145,7 @@ end;//TkwPopDictionaryWordsIterator.GetWordNameForRegister
 
 function TkwPopDictionaryWordsIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(ItfwValueList);
 end;//TkwPopDictionaryWordsIterator.GetResultTypeInfo
 
 function TkwPopDictionaryWordsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -190,7 +190,7 @@ end;//TkwPopDictionaryKeywordByName.GetWordNameForRegister
 
 function TkwPopDictionaryKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwKeyWord);
 end;//TkwPopDictionaryKeywordByName.GetResultTypeInfo
 
 function TkwPopDictionaryKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -234,7 +234,7 @@ end;//TkwPopDictionaryKeyWordsIterator.GetWordNameForRegister
 
 function TkwPopDictionaryKeyWordsIterator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(ItfwValueList);
 end;//TkwPopDictionaryKeyWordsIterator.GetResultTypeInfo
 
 function TkwPopDictionaryKeyWordsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -279,7 +279,7 @@ end;//TkwPopDictionaryOwnKeywordByName.GetWordNameForRegister
 
 function TkwPopDictionaryOwnKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwKeyWord);
 end;//TkwPopDictionaryOwnKeywordByName.GetResultTypeInfo
 
 function TkwPopDictionaryOwnKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;

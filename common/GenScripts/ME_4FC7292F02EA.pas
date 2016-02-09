@@ -238,7 +238,7 @@ end;//TkwMenuItemClick.GetWordNameForRegister
 
 function TkwMenuItemClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwMenuItemClick.GetResultTypeInfo
 
 function TkwMenuItemClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -284,7 +284,7 @@ end;//TkwMenuItemGetItem.GetWordNameForRegister
 
 function TkwMenuItemGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TMenuItem);
 end;//TkwMenuItemGetItem.GetResultTypeInfo
 
 function TkwMenuItemGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -346,7 +346,7 @@ end;//TkwMenuItemGetMenuHeight.GetWordNameForRegister
 
 function TkwMenuItemGetMenuHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwMenuItemGetMenuHeight.GetResultTypeInfo
 
 function TkwMenuItemGetMenuHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -400,7 +400,7 @@ end;//TkwMenuItemCaption.SetValuePrim
 
 function TkwMenuItemCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwMenuItemCaption.GetResultTypeInfo
 
 function TkwMenuItemCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -454,7 +454,7 @@ end;//TkwMenuItemCount.SetValuePrim
 
 function TkwMenuItemCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwMenuItemCount.GetResultTypeInfo
 
 function TkwMenuItemCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -508,7 +508,7 @@ end;//TkwMenuItemEnabled.SetValuePrim
 
 function TkwMenuItemEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwMenuItemEnabled.GetResultTypeInfo
 
 function TkwMenuItemEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -562,7 +562,7 @@ end;//TkwMenuItemVisible.SetValuePrim
 
 function TkwMenuItemVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwMenuItemVisible.GetResultTypeInfo
 
 function TkwMenuItemVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;

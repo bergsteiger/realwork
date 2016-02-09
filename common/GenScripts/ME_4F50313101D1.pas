@@ -473,7 +473,7 @@ end;//TkwArrayClear.GetWordNameForRegister
 
 function TkwArrayClear.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwArrayClear.GetResultTypeInfo
 
 function TkwArrayClear.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -544,7 +544,7 @@ end;//TkwArrayItem.SetValuePrim
 
 function TkwArrayItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiStruct;
 end;//TkwArrayItem.GetResultTypeInfo
 
 function TkwArrayItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -597,7 +597,7 @@ end;//TkwArrayReverted.GetWordNameForRegister
 
 function TkwArrayReverted.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(ItfwValueList);
 end;//TkwArrayReverted.GetResultTypeInfo
 
 function TkwArrayReverted.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -642,7 +642,7 @@ end;//TkwArrayFilter.GetWordNameForRegister
 
 function TkwArrayFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(ItfwValueList);
 end;//TkwArrayFilter.GetResultTypeInfo
 
 function TkwArrayFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -687,7 +687,7 @@ end;//TkwArrayMap.GetWordNameForRegister
 
 function TkwArrayMap.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(ItfwValueList);
 end;//TkwArrayMap.GetResultTypeInfo
 
 function TkwArrayMap.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -732,7 +732,7 @@ end;//TkwArrayIterate.GetWordNameForRegister
 
 function TkwArrayIterate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwArrayIterate.GetResultTypeInfo
 
 function TkwArrayIterate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -777,7 +777,7 @@ end;//TkwArrayAdd.GetWordNameForRegister
 
 function TkwArrayAdd.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwArrayAdd.GetResultTypeInfo
 
 function TkwArrayAdd.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -866,7 +866,7 @@ end;//TkwArrayJoin.GetWordNameForRegister
 
 function TkwArrayJoin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(ItfwValueList);
 end;//TkwArrayJoin.GetResultTypeInfo
 
 function TkwArrayJoin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -911,7 +911,7 @@ end;//TkwArrayTrunc.GetWordNameForRegister
 
 function TkwArrayTrunc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(ItfwValueList);
 end;//TkwArrayTrunc.GetResultTypeInfo
 
 function TkwArrayTrunc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -956,7 +956,7 @@ end;//TkwArraySlice.GetWordNameForRegister
 
 function TkwArraySlice.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(ItfwValueList);
 end;//TkwArraySlice.GetResultTypeInfo
 
 function TkwArraySlice.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1010,7 +1010,7 @@ end;//TkwArrayCount.SetValuePrim
 
 function TkwArrayCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwArrayCount.GetResultTypeInfo
 
 function TkwArrayCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;

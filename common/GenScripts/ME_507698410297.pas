@@ -364,7 +364,7 @@ end;//TkwPopObjectInherits.GetWordNameForRegister
 
 function TkwPopObjectInherits.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopObjectInherits.GetResultTypeInfo
 
 function TkwPopObjectInherits.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -411,7 +411,7 @@ end;//TkwPopObjectClassName.GetWordNameForRegister
 
 function TkwPopObjectClassName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopObjectClassName.GetResultTypeInfo
 
 function TkwPopObjectClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -456,7 +456,7 @@ end;//TkwPopObjectGetFloatProp.GetWordNameForRegister
 
 function TkwPopObjectGetFloatProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopObjectGetFloatProp.GetResultTypeInfo
 
 function TkwPopObjectGetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -501,7 +501,7 @@ end;//TkwPopObjectGetInterfaceProp.GetWordNameForRegister
 
 function TkwPopObjectGetInterfaceProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(IUnknown);
 end;//TkwPopObjectGetInterfaceProp.GetResultTypeInfo
 
 function TkwPopObjectGetInterfaceProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -546,7 +546,7 @@ end;//TkwPopObjectGetObjProp.GetWordNameForRegister
 
 function TkwPopObjectGetObjProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TObject);
 end;//TkwPopObjectGetObjProp.GetResultTypeInfo
 
 function TkwPopObjectGetObjProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -591,7 +591,7 @@ end;//TkwPopObjectGetOrdProp.GetWordNameForRegister
 
 function TkwPopObjectGetOrdProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopObjectGetOrdProp.GetResultTypeInfo
 
 function TkwPopObjectGetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -636,7 +636,7 @@ end;//TkwPopObjectGetStrProp.GetWordNameForRegister
 
 function TkwPopObjectGetStrProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopObjectGetStrProp.GetResultTypeInfo
 
 function TkwPopObjectGetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -681,7 +681,7 @@ end;//TkwPopObjectHasProp.GetWordNameForRegister
 
 function TkwPopObjectHasProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwPopObjectHasProp.GetResultTypeInfo
 
 function TkwPopObjectHasProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -725,7 +725,7 @@ end;//TkwPopObjectRTTIInfo.GetWordNameForRegister
 
 function TkwPopObjectRTTIInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopObjectRTTIInfo.GetResultTypeInfo
 
 function TkwPopObjectRTTIInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -771,7 +771,7 @@ end;//TkwPopObjectSetFloatProp.GetWordNameForRegister
 
 function TkwPopObjectSetFloatProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopObjectSetFloatProp.GetResultTypeInfo
 
 function TkwPopObjectSetFloatProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -817,7 +817,7 @@ end;//TkwPopObjectSetOrdProp.GetWordNameForRegister
 
 function TkwPopObjectSetOrdProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopObjectSetOrdProp.GetResultTypeInfo
 
 function TkwPopObjectSetOrdProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -863,7 +863,7 @@ end;//TkwPopObjectSetStrProp.GetWordNameForRegister
 
 function TkwPopObjectSetStrProp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopObjectSetStrProp.GetResultTypeInfo
 
 function TkwPopObjectSetStrProp.GetAllParamsCount(const aCtx: TtfwContext): Integer;

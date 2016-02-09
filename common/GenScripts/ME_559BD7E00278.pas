@@ -143,7 +143,7 @@ end;//TkwPopScriptEngineAsKeywordFinder.GetWordNameForRegister
 
 function TkwPopScriptEngineAsKeywordFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwKeywordFinder);
 end;//TkwPopScriptEngineAsKeywordFinder.GetResultTypeInfo
 
 function TkwPopScriptEngineAsKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -188,7 +188,7 @@ end;//TkwPopScriptEngineAddInitialization.GetWordNameForRegister
 
 function TkwPopScriptEngineAddInitialization.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopScriptEngineAddInitialization.GetResultTypeInfo
 
 function TkwPopScriptEngineAddInitialization.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -232,7 +232,7 @@ end;//TkwPopScriptEngineCurrentCompilingDictionary.GetWordNameForRegister
 
 function TkwPopScriptEngineCurrentCompilingDictionary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwDictionaryEx);
 end;//TkwPopScriptEngineCurrentCompilingDictionary.GetResultTypeInfo
 
 function TkwPopScriptEngineCurrentCompilingDictionary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -277,7 +277,7 @@ end;//TkwPopScriptEngineDisableForHelp.GetWordNameForRegister
 
 function TkwPopScriptEngineDisableForHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopScriptEngineDisableForHelp.GetResultTypeInfo
 
 function TkwPopScriptEngineDisableForHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;

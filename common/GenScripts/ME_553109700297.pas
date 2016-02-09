@@ -111,12 +111,8 @@ begin
 end;//TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo
 
 function TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_50112451BECA_var*
-//#UC END# *559687E6025A_50112451BECA_var*
 begin
-//#UC START# *559687E6025A_50112451BECA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_50112451BECA_impl*
+ Result := 2;
 end;//TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount
 
 function TkwAttrExplorerGotoOnAttrNode.ParamsTypes: PTypeInfoArray;

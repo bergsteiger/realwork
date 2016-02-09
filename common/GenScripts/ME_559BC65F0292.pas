@@ -182,7 +182,7 @@ end;//TkwPopParserNextToken.GetWordNameForRegister
 
 function TkwPopParserNextToken.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPopParserNextToken.GetResultTypeInfo
 
 function TkwPopParserNextToken.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -226,7 +226,7 @@ end;//TkwPopParserTokenLongString.GetWordNameForRegister
 
 function TkwPopParserTokenLongString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopParserTokenLongString.GetResultTypeInfo
 
 function TkwPopParserTokenLongString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -270,7 +270,7 @@ end;//TkwPopParserTokenInt.GetWordNameForRegister
 
 function TkwPopParserTokenInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopParserTokenInt.GetResultTypeInfo
 
 function TkwPopParserTokenInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -314,7 +314,7 @@ end;//TkwPopParserFileName.GetWordNameForRegister
 
 function TkwPopParserFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwPopParserFileName.GetResultTypeInfo
 
 function TkwPopParserFileName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -358,7 +358,7 @@ end;//TkwPopParserTokenType.GetWordNameForRegister
 
 function TkwPopParserTokenType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Tl3TokenType);
 end;//TkwPopParserTokenType.GetResultTypeInfo
 
 function TkwPopParserTokenType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -402,7 +402,7 @@ end;//TkwPopParserSourceLine.GetWordNameForRegister
 
 function TkwPopParserSourceLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwPopParserSourceLine.GetResultTypeInfo
 
 function TkwPopParserSourceLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
