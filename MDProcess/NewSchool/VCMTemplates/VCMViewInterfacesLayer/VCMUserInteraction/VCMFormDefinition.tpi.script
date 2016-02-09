@@ -130,7 +130,8 @@ implementation @ <<VCMFormDefinition>>
 //	\{code\})\
   '{code}' )% ) 
 //	%{Word_Inst}%f_set_up(ifdef,InsiderTest)\
-
+//	%{Word_Inst}%f_set_var(SpelledFor,L)\
+  ( get_global_var ( 'Word_Inst' ) %f set_var %( 'SpelledFor' %, 'L' )% ) 
 
 //	[{"%{TtfwString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwString.GetString)]\
   if ( ( ( get_global_var ( 'TtfwString.GetString' ) |N ) ) %== '' ) then

@@ -66,52 +66,11 @@ implementation @ <<VCMFormZone>>
 //	]
  end // if
 
-// Определяет зоны
-//%f _pas_DefineZones
-; // wiki_up_print
-
-: pas_DefineZones OBJECT IN %S
-//#UC START# *4A79821E02AAfor4A797F2E017E*
-//	[{%G%f_NeedPutToDFM()=true}\
- if ( ( %G %f NeedPutToDFM %( )% ) %==  true ) then
- begin
-//	\n# item
-  #13#10
-  out_indent ' item'
-//	#   Control = %GN
-  out_indent '   Control = '
-  %G |N 
-//	#   ZoneType = vcm_zt%S{ZoneType}
-  out_indent '   ZoneType = vcm_zt'
-  %S get_up ( 'ZoneType' ) 
-//	[{%S{CanClose}!=undefined}\
-  if ( ( %S get_up ( 'CanClose' ) ) %!= 'undefined' ) then
-  begin
-//	[{%S{CanClose}=true}{\
-   if ( ( %S get_up ( 'CanClose' ) ) %==  true ) then
-   begin
-//	#   CanClose = vcm_ccEnable
-    out_indent '   CanClose = vcm_ccEnable'
-//	]\
-   end // if
-   else
-   begin
-//	#   CanClose = vcm_ccDisable
-    out_indent '   CanClose = vcm_ccDisable'
-//	}\
-   end // else
-//	]\
-  end // if
-//	# end\
-  out_indent ' end'
-//	]
- end // if
-//#UC END# *4A79821E02AAfor4A797F2E017E*
-; // pas_DefineZones
-
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+; // wiki_up_print
 
 end. // <<VCMFormZone>>
 

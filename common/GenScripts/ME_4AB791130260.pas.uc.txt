@@ -253,11 +253,10 @@ var
   end//l_State = nil
   else
   begin
-   f_BaseSearcher := l_State.Data as InsBaseSearcher;
+   f_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
+   f_BaseSearcher.AssignState((l_State.Data as InsBaseSearcher).MakeStateParams(ns_sseAll, True));
    Assert(f_BaseSearcher <> nil);
-   f_BaseSearcher.WindowData.ActiveClass := l_State.ActiveClass;
-   // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296635902#comment-296635902
-   Self.f_ActiveClassForSaveInHistory := l_State.ActiveClass;
+   f_ActiveClassForSaveInHistory := l_State.ActiveClass;
    // http://mdp.garant.ru/pages/viewpage.action?pageId=327826220
    AfterSearcherSet;
    Result := true;
@@ -269,6 +268,7 @@ var
 //#UC START# *49807428008C_4AB791130260_var*
 var
  l_State : InsBaseSearchFormState;
+ l_BaseSearcherState: InsBaseSearcherInitialState;
 //#UC END# *49807428008C_4AB791130260_var*
 //#UC START# *4995562701A0_4AB791130260_impl*
  // DoNothings;
@@ -346,12 +346,6 @@ var
 //#UC END# *4A97EBE702F8_4AB791130260test_impl*
 //#UC START# *4A97EBE702F8_4AB791130260test_var*
 //#UC END# *4A97EBE702F8_4AB791130260test_var*
-//#UC START# *4AC4E7DA017F_4AB791130260_impl*
-   Assert(aData <> nil);
-   f_BaseSearcher := aData as InsBaseSearcher;
-   f_BaseSearcher.ValidateBaseSearchForm(aForm.As_IvcmEntityForm);
-   AfterSearcherSet;
-//#UC END# *4AC4E7DA017F_4AB791130260_impl*
 //#UC START# *4AC5D61E0284_4AB791130260exec_impl*
  if CloseBtnEnabled then
   DoCloseBtnClick
@@ -817,7 +811,7 @@ var
  l_NewActive: Boolean;
 //#UC END# *55321ADE02E9_4AB791130260_var*
 //#UC START# *55B9F0BD0069_4AB791130260_impl*
- Result := not MainMenuLikeBaseSearch;
+ Result := {not MainMenuLikeBaseSearch}True;
 //#UC END# *55B9F0BD0069_4AB791130260_impl*
 //#UC START# *55B9F0BD0069_4AB791130260_var*
 //#UC END# *55B9F0BD0069_4AB791130260_var*

@@ -2101,8 +2101,104 @@ implementation @ :: <<Struct>> <<ctor>> ;
 ; // pas_BeforeMethodBodyImplementation
 
 
-//: Struct::Class::sequence::Attribute
+// Вложенные стереотипы
+//: Struct::Class::ctor::Operation::Parameter
 end. // :: <<Struct>> <<ctor>> ;
+
+implementation @ :: <<Struct>> <<ctor>> Parameter ;
+//= Ifdef::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// генератор idl спецификаций (.idl)
+//+ idl
+<<generator>> idl OBJECT IN %S
+//#UC START# *47022BBE0261for56B36217038E*
+//#UC END# *47022BBE0261for56B36217038E*
+; // idl
+
+
+// генератор заголовочных файлов C++ (.h)
+//+ h
+<<generator>> h OBJECT IN %S
+//#UC START# *47022C88029Ffor56B36217038E*
+//#UC END# *47022C88029Ffor56B36217038E*
+; // h
+
+
+// генератор файлов реализации C++ (.cpp)
+//+ cpp
+<<generator>> cpp OBJECT IN %S
+//#UC START# *47022CB8034Bfor56B36217038E*
+//#UC END# *47022CB8034Bfor56B36217038E*
+; // cpp
+
+
+// генератор классов, интерфейсов на java (.java)
+//+ java
+<<generator>> java OBJECT IN %S
+//#UC START# *470321950119for56B36217038E*
+//#UC END# *470321950119for56B36217038E*
+; // java
+
+
+// С++ TIE-обвязка для DLL (_tie.h)
+//+ dll.h
+<<generator>> dll.h OBJECT IN %S
+//#UC START# *47032EC4032Cfor56B36217038E*
+//#UC END# *47032EC4032Cfor56B36217038E*
+; // dll.h
+
+
+// Delphi интерфейсы для адаптера (.pas)
+//+ pas
+<<generator>> pas OBJECT IN %S
+//#UC START# *470F152700FAfor56B36217038E*
+//#UC END# *470F152700FAfor56B36217038E*
+; // pas
+
+
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor56B36217038E*
+//#UC END# *470F1571031Cfor56B36217038E*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor56B36217038E*
+//#UC END# *470F15B800CBfor56B36217038E*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	MDP
+ 'MDP'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()
+ call-inherited:: 'Delphi интерфейсы и реализация' wiki_up_print %( )%
+
+
+
+//: Struct::Class::sequence::Attribute
+; // wiki_up_print
+
+end. // :: <<Struct>> <<ctor>> Parameter ;
 
 implementation @ :: <<Struct>> <<sequence>> ;
 //? Атрибут-массив

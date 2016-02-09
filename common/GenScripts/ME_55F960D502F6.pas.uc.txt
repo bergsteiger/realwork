@@ -20,81 +20,11 @@
 //#UC END# *56010A7801F2_55F960D502F6_impl*
 //#UC START# *56010A7801F2_55F960D502F6_var*
 //#UC END# *56010A7801F2_55F960D502F6_var*
-//#UC START# *56010AB70258_55F960D502F6_impl*
- f_QueryName := Format('Qry%p', [Pointer(Self)]);
- l_Result := PQprepare(f_Connection.Handle, PAnsiChar(f_QueryName),  PAnsiChar(BuildSQL), Params.Count, nil);
- try
-  pgCheckStatus(l_Result);
- finally
-  PQclear(l_Result);
- end;
-// !!! Needs to be implemented !!!
-//#UC END# *56010AB70258_55F960D502F6_impl*
-//#UC START# *56010AB70258_55F960D502F6_var*
-var
- l_Result: PPGResult;
-//#UC END# *56010AB70258_55F960D502F6_var*
-//#UC START# *56010ACB00F0_55F960D502F6_impl*
- l_Result := PQExec(f_Connection.Handle, PAnsiChar(Format('DEALLOCATE PREPARED %s', [f_QueryName])));
- try
-  f_QueryName := '';
-  pgCheckStatus(l_Result);
- finally
-  PQClear(l_Result);
- end;
-//#UC END# *56010ACB00F0_55F960D502F6_impl*
-//#UC START# *56010ACB00F0_55F960D502F6_var*
-var
- l_Result: PPGResult;
-//#UC END# *56010ACB00F0_55F960D502F6_var*
 //#UC START# *560506760367_55F960D502F6_impl*
- Result := Format('%s'#13#10+'  %s'#13#10+' %s', [BuildSelectClause, BuildFromClause, BuildWhereClause]);
+ Result := BuildSQLValue(Params);
 //#UC END# *560506760367_55F960D502F6_impl*
 //#UC START# *560506760367_55F960D502F6_var*
 //#UC END# *560506760367_55F960D502F6_var*
-//#UC START# *56050F3E0081_55F960D502F6_impl*
- Assert(SelectFields.Count > 0);
- Result := 'select ';
- for l_IDX := 0 to SelectFields.Count - 1 do
- begin
-  if l_IDX > 0 then
-   Result := Result + ', '#13#10+'       ';
-  Result := Result + SelectFields[l_IDX].BuildSQLValue;
- end;
-//#UC END# *56050F3E0081_55F960D502F6_impl*
-//#UC START# *56050F3E0081_55F960D502F6_var*
-var
- l_IDX: Integer;
- l_Count: Integer;
-//#UC END# *56050F3E0081_55F960D502F6_var*
-//#UC START# *56050F450363_55F960D502F6_impl*
- if Tables.Count > 0 then
- begin
-  Result := '  from ';
-  for l_IDX := 0 to Tables.Count - 1 do
-  begin
-   if l_IDX > 0 then
-    Result := Result + ', '#13#10+'       ';
-   Result := Result + Tables[l_IDX].BuildSQLValue;
-  end;
- end
- else
-  Result := '';
-//#UC END# *56050F450363_55F960D502F6_impl*
-//#UC START# *56050F450363_55F960D502F6_var*
-var
- l_IDX: Integer;
-//#UC END# *56050F450363_55F960D502F6_var*
-//#UC START# *56050F510228_55F960D502F6_impl*
- if WhereCondition <> nil then
-  Result := '  where ' + WhereCondition.BuildSQLValue(Params)
- else
-  Result := '';
-//#UC END# *56050F510228_55F960D502F6_impl*
-//#UC START# *56050F510228_55F960D502F6_var*
-var
- l_IDX: Integer;
-//#UC END# *56050F510228_55F960D502F6_var*
 //#UC START# *560B861302E9_55F960D502F6_impl*
  Result := TpgParamList.Make;
 //#UC END# *560B861302E9_55F960D502F6_impl*

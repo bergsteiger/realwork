@@ -195,12 +195,12 @@ implementation @ <<ProjectGroup>>
 //R  
 //#UC START# *470F1571031Cfor561FCB1E032C*
 //P true
-//	<%CX>
+//	<{}{%C{UseNewGen}!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if true then
+  if ( ( %C get_up ( 'UseNewGen' ) ) %!=  true ) then
   begin
    %C |X 
    ++! l_Counter
@@ -250,28 +250,6 @@ implementation @ <<ProjectGroup>>
  end // for C
 //#UC END# *46E28D830109for561FCB1E032C*
 ; // mda
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Генератор файлов форм (.dfm)
-//+ dfm
-<<generator>> dfm OBJECT IN %S
-//R  
-//#UC START# *49F5795900ECfor561FCB1E032C*
-//P true
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *49F5795900ECfor561FCB1E032C*
-; // dfm
 
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator

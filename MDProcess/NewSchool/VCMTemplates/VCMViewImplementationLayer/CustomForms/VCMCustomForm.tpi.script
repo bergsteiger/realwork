@@ -88,54 +88,6 @@ implementation @ <<VCMCustomForm>>
 ; // pas_OutHackRef
 
 
-// Выводит конролы формы в DFM
-//%f _ToDFM
-: ToDFM OBJECT IN %S
-//#UC START# *4ACB7806017Bfor4947E2F10338*
-//	<%C#f_ToDFM()>\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C %?f ToDFM %( )% 
-   ++! l_Counter
-  end // if
- end // for C
-//	<%G#f_ToDFM()>\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%G
- begin
-  OBJECT IN %G
-  if true then
-  begin
-   %G %?f ToDFM %( )% 
-   ++! l_Counter
-  end // if
- end // for G
-//	<%R#f_ToDFM()>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%R
- begin
-  OBJECT IN %R
-  if true then
-  begin
-   %R %?f ToDFM %( )% 
-   ++! l_Counter
-  end // if
- end // for R
-//#UC END# *4ACB7806017Bfor4947E2F10338*
-; // ToDFM
-
-
-//%f _pas_BeforeDFMControls
-: pas_BeforeDFMControls OBJECT IN %S
-//#UC START# *4B5DDD5A02ACfor4947E2F10338*
-//#UC END# *4B5DDD5A02ACfor4947E2F10338*
-; // pas_BeforeDFMControls
-
-
 //%f _pas_OutEntities
 : pas_OutEntities OBJECT IN %S
 //#UC START# *4B5DE28502D6for4947E2F10338*
@@ -529,46 +481,6 @@ implementation @ <<VCMCustomForm>>
  end // if
 //#UC END# *4948C3290020for4947E2F10338*
 ; // pas_UnitPath
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Генератор файлов форм (.dfm)
-//+ dfm
-<<generator>> dfm OBJECT IN %S
-//R  
-//#UC START# *49F5795900ECfor4947E2F10338*
-//O [{%Sa=final}[{%S{finished}!=true|%S{finished dfm}!=true}NOT_FINISHED_]%S%f_pas_UnitName().dfm]
-//C %S%f_pas_UnitPath()
-//	[{"%SO"!=""}\
- if ( ( %S |O ) %!= '' ) then
- begin
-//	object %f_cut_prefix(%S%f_pas_TypeName(),T): %S%f_pas_TypeName()
-  'object '
-  [%f] cut_prefix %( %S %f pas_TypeName %( )% %, 'T' )% ': '
-  %S %f pas_TypeName %( )% 
-//	  Left = 204
-  '  Left = 204'
-//	  Top = 118
-  '  Top = 118'
-//	  Width = 320
-  '  Width = 320'
-//	  Height = 240\
-  '  Height = 240'
-
-
-//	%S%f_pas_BeforeDFMControls()\
-  %S %f pas_BeforeDFMControls %( )% 
-
-//	%f_clear_list(FORM_CONTROLS)\
-  [%f] clear_list %( 'FORM_CONTROLS' )% 
-//	%S%f_ToDFM()
-  %S %f ToDFM %( )% 
-//	end\
-  'end'
-//	]
- end // if
-//#UC END# *49F5795900ECfor4947E2F10338*
-; // dfm
 
 
 

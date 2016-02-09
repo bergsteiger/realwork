@@ -45,15 +45,6 @@ implementation @ "Delphi интерфейсы и реализация"
 ; // intf3.pas
 
 
-// Генератор файлов форм (.dfm)
-//+ dfm
-<<generator>> dfm OBJECT IN %S
-//R  
-//#UC START# *49F5795900ECfor470F151302FD*
-//#UC END# *49F5795900ECfor470F151302FD*
-; // dfm
-
-
 //+ pas.script
 <<generator>> pas.script OBJECT IN %S
 //R  
@@ -7067,15 +7058,18 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	<{}{%f_is_empty(ALL_GENERATORS_ID)=false}{W}\
   INTEGER VAR l_Counter l_Counter := 0
-  while true
+  for %S%P
   begin
+   OBJECT IN %P
    if ( ( [%f] is_empty %( 'ALL_GENERATORS_ID' )% ) %==  false ) then
    begin
 //	%f_pop_first_to_var(ALL_GENERATORS_ID,GEN_ID)\
     [%f] pop_first_to_var %( 'ALL_GENERATORS_ID' %, 'GEN_ID' )% 
-//	[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell}\
+//	[{%{GEN_ID}N!=wiki&%{GEN_ID}N!=spell&"%{GEN_ID}N"!="pas.script"&"%{GEN_ID}N"!="pas.script.runner"}\
     if ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'wiki' AND 
-      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'spell'  ) ) then
+      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'spell'  ) AND 
+      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'pas.script'  ) AND 
+      ( ( ( get_global_var ( 'GEN_ID' ) |N ) ) %!= 'pas.script.runner'  ) ) then
     begin
 //	[{%f_has_non_empty_gen(S,%{GEN_ID}N)=true}\
      if ( ( [%f] has_non_empty_gen %( 'S' %, ( get_global_var ( 'GEN_ID' ) |N ) )% ) %==  true ) then
@@ -7091,6 +7085,8 @@ implementation @ "Delphi интерфейсы и реализация"
       end // if
 //	]\
      end // if
+
+
 //	[{"%f_with_gen_id(%{GEN_ID}N,%Sd)"!=""}\
      if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% ) %!= '' ) then
      begin
@@ -7101,25 +7097,31 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{%S#f_IsMethod()!=true}\
        if ( ( %S %?f IsMethod %( )% ) %!=  true ) then
        begin
+//	[{%S#f_IsProject()=true|"%f_with_gen_id(%{GEN_ID}N,%Pd)"!="%f_with_gen_id(%{GEN_ID}N,%Sd)"}\
+        if ( ( %S %?f IsProject %( )% ) %==  true OR 
+          ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %P |d )% ) %!= ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% )  ) ) then
+        begin
 //	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\)'
-        ' CONST '
-        ( get_global_var ( 'GEN_ID' ) |N ) ':PathOnly '''
-        [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% %, '/' %, '\' )% '''
+         ' CONST '
+         ( get_global_var ( 'GEN_ID' ) |N ) ':PathOnly '''
+         [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% %, '/' %, '\' )% '''
+//	]\
+        end // if
 //	]\
        end // if
 //	]\
       end // if
 //	]\
      end // if
+
+
 //	]\
     end // if
 //	>\
 
     ++! l_Counter
    end // if
-   else
-    break
-  end // while
+  end // for P
 //	]\
  end // if
  NOP
@@ -7335,6 +7337,36 @@ implementation @ "Delphi интерфейсы и реализация"
 //	 : SpelledFor %S%{SpelledFor}#f_pas_script_Reference() ;
    ' : SpelledFor '
    %S ( get_object_var ( 'SpelledFor' ) )  out_indent 'f_pas_script_Reference() ;'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[{"%S%{Action}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Action' ) |U )  ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Action %S%{Action}#f_pas_script_Reference() ;
+   ' : Action '
+   %S ( get_object_var ( 'Action' ) )  out_indent 'f_pas_script_Reference() ;'
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[{"%S%{Stub}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Stub' ) |U )  ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 : Stub %S%{Stub}#f_pas_script_Reference() ;
+   ' : Stub '
+   %S ( get_object_var ( 'Stub' ) )  out_indent 'f_pas_script_Reference() ;'
 //	]\
   end // if
   NOP
@@ -8415,6 +8447,22 @@ implementation @ "Delphi интерфейсы и реализация"
  begin
 //	%S%{SpelledFor}#f_pas_script_GenerateIncludeOrForward()\
   %S ( get_object_var ( 'SpelledFor' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
+//	]\
+ end // if
+
+//	[{"%S%{Action}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Action' ) |U )  ) %!= '' ) then
+ begin
+//	%S%{Action}#f_pas_script_GenerateIncludeOrForward()\
+  %S ( get_object_var ( 'Action' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
+//	]\
+ end // if
+
+//	[{"%S%{Stub}U"!=""}\
+ if ( ( %S ( get_object_var ( 'Stub' ) |U )  ) %!= '' ) then
+ begin
+//	%S%{Stub}#f_pas_script_GenerateIncludeOrForward()\
+  %S ( get_object_var ( 'Stub' ) )  out_indent 'f_pas_script_GenerateIncludeOrForward()'
 //	]\
  end // if
 

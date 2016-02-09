@@ -6,7 +6,7 @@
 //#UC START# *4DAEEDE10285_53DA24F802A7_impl*
  f_NativeCaller := aCtx.rCaller;
  try
-  l_Stream := TtfwFileStreamFactory.Create(aCtx.rEngine.PopDelphiString);
+  l_Stream := Self.MakeStream(aCtx.rEngine.PopDelphiString);
   try
    l_Controller := TkwMainCodeController.Create(WordToWork, @aCtx);
    try
@@ -24,7 +24,7 @@
 //#UC START# *4DAEEDE10285_53DA24F802A7_var*
 var
  l_Controller : TkwMainCodeController;
- l_Stream     : TtfwFileStreamFactory;
+ l_Stream     : TtfwStreamFactory;
 //#UC END# *4DAEEDE10285_53DA24F802A7_var*
 //#UC START# *4DAF1A280116_53DA24F802A7_impl*
  Assert(false, 'Не доделано');

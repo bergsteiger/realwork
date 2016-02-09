@@ -90,3 +90,65 @@ var
 //#UC END# *56B0AE550267_47414C8700D5_impl*
 //#UC START# *56B0AE550267_47414C8700D5_var*
 //#UC END# *56B0AE550267_47414C8700D5_var*
+//#UC START# *56B0B9790320_47414C8700D5_impl*
+ Result := f_IsPreview;
+//#UC END# *56B0B9790320_47414C8700D5_impl*
+//#UC START# *56B0B9790320_47414C8700D5_var*
+//#UC END# *56B0B9790320_47414C8700D5_var*
+//#UC START# *56B4A55202AB_47414C8700D5_impl*
+ Result := l3_oprYes;
+ if aDoc then
+  f_CurrentPage := 0;
+ if Assigned(f_PagesArray) then
+  // - если печатаем только выбранные листы
+ begin
+  l_CurrentPage := f_CurrentPage;
+  // Учитываем печать страницы-продолжения
+  if (l_CurrentPage > 0) and ByWidth then
+   Dec(l_CurrentPage);
+  if (l_CurrentPage >= Length(f_PagesArray)) then
+  begin
+   Result := l3_oprEndDoc;
+   l_IsPreview := true;
+  end//f_CurrentPage >= Length(f_PagesArray);
+  else
+  begin
+   l_IsPreview := (f_PagesArray[l_CurrentPage].rNumber <> f_PageNumber);
+   if not (ByWidth or l_IsPreview) then
+    Inc(f_CurrentPage);
+  end;//l_CurrentPage >= Length(f_PagesArray)
+  if not l_IsPreview then
+  begin
+   //SetDC(Canvas.Handle, ev_dcfCanvas);
+  end//not l_IsPreview
+  else
+  begin
+   //SetDC(Canvas.Handle, ev_dcfCanvas);
+   if (f_PreviewPage = nil) then
+    f_PreviewPage := TafwPreviewPage.Make(Self);
+  end;//not l_IsPreview
+ end//Assigned(f_PagesArray)
+ else
+  l_IsPreview := false;
+ f_IsPreview := l_IsPreview;
+ if f_IsPreview AND (Result <> l3_oprEndDoc) then
+  Result := l3_oprNo;
+//#UC END# *56B4A55202AB_47414C8700D5_impl*
+//#UC START# *56B4A55202AB_47414C8700D5_var*
+var
+ l_IsPreview : Boolean;
+ l_CurrentPage: Integer;
+//#UC END# *56B4A55202AB_47414C8700D5_var*
+//#UC START# *56B4BDA30301_47414C8700D5_impl*
+ if (f_PreviewPage <> nil) then
+ begin
+  SetCanvas(nil, false);
+  f_PreviewPage := nil;
+ end;//f_PreviewPage <> nil
+ inherited;
+ if f_IsPreview then
+  SetCanvas(nil, false);
+ f_IsPreview := false;
+//#UC END# *56B4BDA30301_47414C8700D5_impl*
+//#UC START# *56B4BDA30301_47414C8700D5_var*
+//#UC END# *56B4BDA30301_47414C8700D5_var*

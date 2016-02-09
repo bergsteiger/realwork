@@ -1146,7 +1146,55 @@ implementation @ :: <<StaticObject>> <<Operation>> ;
 ; // wiki_child_kind
 
 
+// Вложенные стереотипы
+//: StaticObject::Class::Operation::Parameter
+end. // :: <<StaticObject>> <<Operation>> ;
+
+implementation @ :: <<StaticObject>> <<Operation>> ;
+//= Ifdef::MDAGenerator
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+// Параметры стереотипа
+//Y code_param.gif
+//L code_param
+
+// Генераторы
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor56B4DD02022A*
+//#UC END# *470F1571031Cfor56B4DD02022A*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor56B4DD02022A*
+//#UC END# *470F15B800CBfor56B4DD02022A*
+; // impl.pas
+
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S%[Delphi интерфейсы и реализация::MDAGenerator]f_wiki_up_print()
+ call-inherited:: 'Delphi интерфейсы и реализация' wiki_up_print %( )%
+
+
+
 //: StaticObject::Class::ctor::Operation
+; // wiki_up_print
+
 end. // :: <<StaticObject>> <<Operation>> ;
 
 implementation @ :: <<StaticObject>> <<ctor>> ;

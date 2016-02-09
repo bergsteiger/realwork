@@ -91,9 +91,6 @@
 //	}
 
 //	group "Delphi интерфейсы и реализация" {
-//		generator "dfm" {
-//			Description: Генератор файлов форм (.dfm)
-//		}
 //		generator "impl.pas" {
 //			Description: Реализация на Delphi(.pas)
 //			lid: delphi
@@ -417,25 +414,8 @@ implementation @ <<default>>
   end // if
  end // for C
 
-//+ dfm
-; // idl_ami
-
-<<generator>> dfm OBJECT IN %S
-//P
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-
 //+ impl.pas
-; // dfm
+; // idl_ami
 
 <<generator>> impl.pas OBJECT IN %S
 //P
@@ -1025,8 +1005,6 @@ USES
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'com.rgs' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"cpp")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'cpp' )% 
-//	%f_add_to_list(ALL_GENERATORS_ID,"dfm")
-  [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'dfm' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"dll.cpp")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'dll.cpp' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"dll.h")

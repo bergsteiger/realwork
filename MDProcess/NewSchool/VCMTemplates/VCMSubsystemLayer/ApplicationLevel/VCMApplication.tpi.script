@@ -630,32 +630,6 @@ implementation @ <<VCMApplication>>
 ; // pas_UnitPath
 
 
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Генератор файлов форм (.dfm)
-//+ dfm
-<<generator>> dfm OBJECT IN %S
-//R  
-//#UC START# *49F5795900ECfor4958D0CD0287*
-//	[{%SS!=VCMTestApplication}\
- if ( ( %S |S ) %!= 'VCMTestApplication' ) then
- begin
-//	<{}{"%CO"!=""}%CX>\
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%C
-  begin
-   OBJECT IN %C
-   if ( ( %C |O ) %!= '' ) then
-   begin
-    %C |X 
-    ++! l_Counter
-   end // if
-  end // for C
-//	]
- end // if
-//#UC END# *49F5795900ECfor4958D0CD0287*
-; // dfm
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

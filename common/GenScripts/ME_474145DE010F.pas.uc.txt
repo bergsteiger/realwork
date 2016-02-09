@@ -243,7 +243,7 @@ var
 //#UC START# *47DFCA030114_474145DE010F_impl*
  inherited;
  if (f_PreviewPage <> nil) then
-  f_PreviewPage.Finish(PageNumber, PageWidthNumber, f_OverallPageNumber);
+  f_PreviewPage.Finish(PageNumber, PageWidthNumber, OverallPageNumber);
 //#UC END# *47DFCA030114_474145DE010F_impl*
 //#UC START# *47DFCA030114_474145DE010F_var*
 //#UC END# *47DFCA030114_474145DE010F_var*
@@ -277,6 +277,11 @@ const
  D = 8;
  D1 = 3;
 //#UC END# *47DFCAEE0007_474145DE010F_var*
+//#UC START# *4A4CC195011E_474145DE010F_impl*
+ Result := not f_IsPageCounter and inherited DoGetDrawEnabled;
+//#UC END# *4A4CC195011E_474145DE010F_impl*
+//#UC START# *4A4CC195011E_474145DE010F_var*
+//#UC END# *4A4CC195011E_474145DE010F_var*
 //#UC START# *4CB32D4C030E_474145DE010F_impl*
  Result := f_IsPageCounter;
 //#UC END# *4CB32D4C030E_474145DE010F_impl*
@@ -297,3 +302,59 @@ const
 //#UC END# *4CC69872038E_474145DE010F_impl*
 //#UC START# *4CC69872038E_474145DE010F_var*
 //#UC END# *4CC69872038E_474145DE010F_var*
+//#UC START# *56B0B9790320_474145DE010F_impl*
+ Result := True;
+//#UC END# *56B0B9790320_474145DE010F_impl*
+//#UC START# *56B0B9790320_474145DE010F_var*
+//#UC END# *56B0B9790320_474145DE010F_var*
+//#UC START# *56B4B5EF019F_474145DE010F_impl*
+ {$IfNDef l3UsePrinterForPreview}
+ afw.ProcessMessages;
+ {$EndIf  l3UsePrinterForPreview}
+ if (f_PreviewPage = nil) then
+  f_PreviewPage := TafwPreviewPage.Make(Self);
+ inherited;
+//#UC END# *56B4B5EF019F_474145DE010F_impl*
+//#UC START# *56B4B5EF019F_474145DE010F_var*
+//#UC END# *56B4B5EF019F_474145DE010F_var*
+//#UC START# *56B4BABD03A2_474145DE010F_impl*
+ if (anObjectID <> 0) then
+ begin
+  if (f_Pages = nil) then
+   f_Pages := TnevPages.MakeSorted;
+  f_Pages.AddParaOnPage(anObjectID, PageNumber);
+ end;//anObjectID <> 0
+//#UC END# *56B4BABD03A2_474145DE010F_impl*
+//#UC START# *56B4BABD03A2_474145DE010F_var*
+//#UC END# *56B4BABD03A2_474145DE010F_var*
+//#UC START# *56B4BBCF00D5_474145DE010F_impl*
+ inherited;
+ if (f_PreviewPage <> nil) then
+  f_PreviewPage.Finish(PageNumber, PageWidthNumber, OverallPageNumber);
+//#UC END# *56B4BBCF00D5_474145DE010F_impl*
+//#UC START# *56B4BBCF00D5_474145DE010F_var*
+//#UC END# *56B4BBCF00D5_474145DE010F_var*
+//#UC START# *56B4BDA30301_474145DE010F_impl*
+ inherited;
+ SetCanvas(nil, false);
+ if (f_PreviewPage <> nil) then
+ begin
+  f_PagesInfo.rOverallPagesCount := f_PreviewPage.OverallPageNumber;
+  if (f_PreviewPage.PageNumber = GetPagesCount) then
+  begin
+   l_PreviewPage := PreviewPage(f_PreviewPage.PageNumber - 1, 0);
+   if Assigned(l_PreviewPage) then
+   l_PreviewPage.Add(f_PreviewPage);
+  end//f_PreviewPage.PageNumber = GetPagesCount
+  else
+   f_PagesList.Add(f_PreviewPage);
+  f_PreviewPage.Drop(f_IsPageCounter);
+  f_PreviewPage := nil;
+ end;//f_PreviewPage <> nil
+ if not Drawing AND (f_PagesInfo.rPagesCount = High(Integer)) then
+  f_PagesInfo.rPagesCount := GetPagesCount;
+//#UC END# *56B4BDA30301_474145DE010F_impl*
+//#UC START# *56B4BDA30301_474145DE010F_var*
+var
+ l_PreviewPage: IafwPreviewPage;
+//#UC END# *56B4BDA30301_474145DE010F_var*

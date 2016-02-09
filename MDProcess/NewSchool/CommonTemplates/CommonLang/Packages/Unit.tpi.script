@@ -185,12 +185,12 @@ implementation @ <<Unit>>
  begin
   %S %f pas_OutUnitFile %( )% 
  end // if
-//	<%CX>
+//	<{}{%C{UseNewGen}!=true}%CX>
  INTEGER VAR l_Counter l_Counter := 0
  for %S%C
  begin
   OBJECT IN %C
-  if true then
+  if ( ( %C get_up ( 'UseNewGen' ) ) %!=  true ) then
   begin
    %C |X 
    ++! l_Counter
@@ -221,29 +221,6 @@ implementation @ <<Unit>>
  end // for C
 //#UC END# *470321950119for47048FBD0213*
 ; // java
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Генератор файлов форм (.dfm)
-//+ dfm
-<<generator>> dfm OBJECT IN %S
-//R  
-//#UC START# *49F5795900ECfor47048FBD0213*
-//P
-//C %S%f_pas_UnitPath()
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-//#UC END# *49F5795900ECfor47048FBD0213*
-; // dfm
 
 
 // перекрытие базового стереотипа ModelBuilding::MDAGenerator

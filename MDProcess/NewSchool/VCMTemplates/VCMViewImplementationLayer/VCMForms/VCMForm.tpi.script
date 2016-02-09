@@ -854,6 +854,8 @@ implementation @ <<VCMForm>>
   [%f] loc_GetNameForScript %( ( get_global_var ( 'Word_Inst' ) ) )% ' TryFocus ASSERT'
 //	\{code\})\
   '{code}' )% ) 
+//	%{Word_Inst}%f_set_var(SpelledFor,S)\
+  ( get_global_var ( 'Word_Inst' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
 
 //	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
   if ( ( ( get_global_var ( 'TtfwControlString.GetString' ) |N ) ) %== '' ) then
@@ -1079,6 +1081,8 @@ end. // <<VCMForm>>
  ( get_global_var ( 'Word_Inst' ) %f set_visibility_type %( 'PrivateAccess' )% ) 
 //	%{Word_Inst}%f_set_abstraction_type(final)\
  ( get_global_var ( 'Word_Inst' ) %f set_abstraction_type %( 'final' )% ) 
+//	%{Word_Inst}%f_set_var(SpelledFor,S)\
+ ( get_global_var ( 'Word_Inst' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
 
 //	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
  if ( ( ( get_global_var ( 'TtfwControlString.GetString' ) |N ) ) %== '' ) then
@@ -2595,81 +2599,6 @@ implementation @ <<VCMForm>>
  end // if
 //#UC END# *494B856502ECfor4B5DA84A00DD*
 ; // pas_OutOverridesIntf
-
-
-// перекрытие базового стереотипа VCMCustomForm::Class
-//%f _pas_BeforeDFMControls
-: pas_BeforeDFMControls OBJECT IN %S
-//#UC START# *4B5DDD5A02ACfor4B5DA84A00DD*
-//	%S%[inherited]\
- inherited
-//	\n\
- #13#10
-//	  Caption = '%SD'
- '  Caption = '''
- %S |D '''
-//	  Color = clBtnFace\
-//	  Color = $00F9F8FA\
- '  Color = $00F9F8FA'
-//	[{"%S{ZoneType}"!="%S{!ZoneType}"}
- if ( ( %S get_up ( 'ZoneType' ) ) %!= ( %S get_up_def ( 'ZoneType' ) ) ) then
- begin
-  #13#10
-
-//	  ZoneType = vcm_zt%S{ZoneType}]\
-  '  ZoneType = vcm_zt'
-  %S get_up ( 'ZoneType' ) 
- end // if
-//	[{%S%f_HasUserTypeRec()!=true}
-//	  UserTypes = \<
-//	    item
-//	      Name = 'ut%f_N(%S)'
-//	      Caption = '%SD'
-//	    end\>]\
-//	\n\
- #13#10
-//	  PixelsPerInch = 96
- '  PixelsPerInch = 96'
-//	  TextHeight = 13\
- '  TextHeight = 13'
-
-//	[\n  Zones = \<<%G#f_pas_DefineZones()>\>]
- if NOT-EMPTY
- begin
-  #13#10'  Zones = <'
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%G
-  begin
-   OBJECT IN %G
-   if true then
-   begin
-    %G %?f pas_DefineZones %( )% 
-    ++! l_Counter
-   end // if
-  end // for G
-  '>' 
- end // if
- NOP
-
-//	  object Entities: TvcmEntities\n\
- '  object Entities: TvcmEntities'#13#10
-//	    Entities = \<
-//	      item
-//	        Name = 'enFake'
-//	        Operations = \<
-//	          item
-//	            Name = 'opFake'
-//	          end\>
-//	      end\
-//	\>\n\
-//	    Left = 24
- '    Left = 24'
-//	    Top = 24
- '    Top = 24'
-//	  end
- '  end'
-//#UC END# *4B5DDD5A02ACfor4B5DA84A00DD*
-; // pas_BeforeDFMControls
 
 
 // перекрытие базового стереотипа VCMCustomForm::Class

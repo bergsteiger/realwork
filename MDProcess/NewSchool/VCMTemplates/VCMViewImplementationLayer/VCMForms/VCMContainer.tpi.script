@@ -26,48 +26,6 @@ implementation @ <<VCMContainer>>
 //	SHD
  'SHD'
 
-// Определяет зоны
-//%f _pas_DefineZones
-; // st_space_key
-
-: pas_DefineZones OBJECT IN %S
-//#UC START# *4A79803A0020for4947FD1201CE*
-//	<%C#f_pas_DefineZones()>\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C %?f pas_DefineZones %( )% 
-   ++! l_Counter
-  end // if
- end // for C
-//	<%G#f_pas_DefineZones()>\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%G
- begin
-  OBJECT IN %G
-  if true then
-  begin
-   %G %?f pas_DefineZones %( )% 
-   ++! l_Counter
-  end // if
- end // for G
-//	<%R#f_pas_DefineZones()>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%R
- begin
-  OBJECT IN %R
-  if true then
-  begin
-   %R %?f pas_DefineZones %( )% 
-   ++! l_Counter
-  end // if
- end // for R
-//#UC END# *4A79803A0020for4947FD1201CE*
-; // pas_DefineZones
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
@@ -75,6 +33,8 @@ implementation @ <<VCMContainer>>
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // нет документации
 //%f _pas_DefaultAncestor
+; // st_space_key
+
 : pas_DefaultAncestor OBJECT IN %S
 //#UC START# *4948E5B60391for4947FD1201CE*
 //	TvcmContainerForm

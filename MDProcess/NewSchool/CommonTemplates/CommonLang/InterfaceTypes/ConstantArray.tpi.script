@@ -102,6 +102,8 @@ implementation @ <<ConstantArray>>
   begin
 //	%P%f_add_class(%SU_Helper,SimpleClass,%SNHelper,Helper_Inst)\
    %P %f add_class %( %S |U '_Helper' %, 'SimpleClass' %, %S |N 'Helper' %, 'Helper_Inst' )% 
+//	%{Helper_Inst}%f_set_var(SpelledFor,S)\
+   ( get_global_var ( 'Helper_Inst' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
 //	%{Helper_Inst}%f_set_visibility_type(%SV)\
    ( get_global_var ( 'Helper_Inst' ) %f set_visibility_type %( %S |V )% ) 
 //	%{Helper_Inst}%f_set_documentation(Утилитный класс для преобразования значений %SN)\
@@ -256,6 +258,8 @@ implementation @ <<ConstantArray>>
 //	%P%f_add_class(%SU_MapImplPrim,SimpleClass,T%SNImplPrim,Map_ImplPrim)\
    %P %f add_class %( %S |U '_MapImplPrim' %, 'SimpleClass' %, 'T'
    %S |N 'ImplPrim' %, 'Map_ImplPrim' )% 
+//	%{Map_ImplPrim}%f_set_var(SpelledFor,S)\
+   ( get_global_var ( 'Map_ImplPrim' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
 //	%{Map_ImplPrim}%f_set_visibility_type(%SV)\
    ( get_global_var ( 'Map_ImplPrim' ) %f set_visibility_type %( %S |V )% ) 
 //	%{Map_ImplPrim}%f_set_documentation(Класс для реализации мапы для %SN)\
@@ -395,6 +399,8 @@ implementation @ <<ConstantArray>>
 //	%P%f_add_class(%SU_MapImpl,SimpleClass,T%SNImpl,Map_Impl)\
    %P %f add_class %( %S |U '_MapImpl' %, 'SimpleClass' %, 'T'
    %S |N 'Impl' %, 'Map_Impl' )% 
+//	%{Map_Impl}%f_set_var(SpelledFor,S)\
+   ( get_global_var ( 'Map_Impl' ) %f set_var %( 'SpelledFor' %, 'S' )% ) 
 //	%{Map_Impl}%f_set_visibility_type(%SV)\
    ( get_global_var ( 'Map_Impl' ) %f set_visibility_type %( %S |V )% ) 
 //	%{Map_Impl}%f_set_documentation(Класс для реализации мапы для %SN)\
