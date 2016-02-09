@@ -1228,12 +1228,8 @@ begin
 end;//TkwEnDefineSearchDatePanel1.GetResultTypeInfo
 
 function TkwEnDefineSearchDatePanel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EF233F6425B4_var*
-//#UC END# *559687E6025A_EF233F6425B4_var*
 begin
-//#UC START# *559687E6025A_EF233F6425B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EF233F6425B4_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDatePanel1.GetAllParamsCount
 
 function TkwEnDefineSearchDatePanel1.ParamsTypes: PTypeInfoArray;
@@ -1290,12 +1286,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel1.GetResultTypeInfo
 
 function TkwEnDefineSearchDateElLabel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DE36FA6549B3_var*
-//#UC END# *559687E6025A_DE36FA6549B3_var*
 begin
-//#UC START# *559687E6025A_DE36FA6549B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DE36FA6549B3_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateElLabel1.GetAllParamsCount
 
 function TkwEnDefineSearchDateElLabel1.ParamsTypes: PTypeInfoArray;
@@ -1352,12 +1344,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel2.GetResultTypeInfo
 
 function TkwEnDefineSearchDateElLabel2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AAF6259B7DA9_var*
-//#UC END# *559687E6025A_AAF6259B7DA9_var*
 begin
-//#UC START# *559687E6025A_AAF6259B7DA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AAF6259B7DA9_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateElLabel2.GetAllParamsCount
 
 function TkwEnDefineSearchDateElLabel2.ParamsTypes: PTypeInfoArray;
@@ -1414,12 +1402,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel3.GetResultTypeInfo
 
 function TkwEnDefineSearchDateElLabel3.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_955555D1ED6A_var*
-//#UC END# *559687E6025A_955555D1ED6A_var*
 begin
-//#UC START# *559687E6025A_955555D1ED6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_955555D1ED6A_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateElLabel3.GetAllParamsCount
 
 function TkwEnDefineSearchDateElLabel3.ParamsTypes: PTypeInfoArray;
@@ -1476,12 +1460,8 @@ begin
 end;//TkwEnDefineSearchDateDD1EqD2.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD1EqD2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B7C6C7A4A9BF_var*
-//#UC END# *559687E6025A_B7C6C7A4A9BF_var*
 begin
-//#UC START# *559687E6025A_B7C6C7A4A9BF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B7C6C7A4A9BF_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateDD1EqD2.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD1EqD2.ParamsTypes: PTypeInfoArray;
@@ -1538,12 +1518,8 @@ begin
 end;//TkwEnDefineSearchDateRbEq.GetResultTypeInfo
 
 function TkwEnDefineSearchDateRbEq.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5012D1B98349_var*
-//#UC END# *559687E6025A_5012D1B98349_var*
 begin
-//#UC START# *559687E6025A_5012D1B98349_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5012D1B98349_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateRbEq.GetAllParamsCount
 
 function TkwEnDefineSearchDateRbEq.ParamsTypes: PTypeInfoArray;
@@ -1600,12 +1576,8 @@ begin
 end;//TkwEnDefineSearchDateRbInt.GetResultTypeInfo
 
 function TkwEnDefineSearchDateRbInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C42773E14E1A_var*
-//#UC END# *559687E6025A_C42773E14E1A_var*
 begin
-//#UC START# *559687E6025A_C42773E14E1A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C42773E14E1A_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateRbInt.GetAllParamsCount
 
 function TkwEnDefineSearchDateRbInt.ParamsTypes: PTypeInfoArray;
@@ -1662,12 +1634,8 @@ begin
 end;//TkwEnDefineSearchDateRbD2Only.GetResultTypeInfo
 
 function TkwEnDefineSearchDateRbD2Only.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D9C07BFDD553_var*
-//#UC END# *559687E6025A_D9C07BFDD553_var*
 begin
-//#UC START# *559687E6025A_D9C07BFDD553_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D9C07BFDD553_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateRbD2Only.GetAllParamsCount
 
 function TkwEnDefineSearchDateRbD2Only.ParamsTypes: PTypeInfoArray;
@@ -1724,12 +1692,8 @@ begin
 end;//TkwEnDefineSearchDateDD1Only.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD1Only.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B8D252A3188F_var*
-//#UC END# *559687E6025A_B8D252A3188F_var*
 begin
-//#UC START# *559687E6025A_B8D252A3188F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B8D252A3188F_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateDD1Only.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD1Only.ParamsTypes: PTypeInfoArray;
@@ -1786,12 +1750,8 @@ begin
 end;//TkwEnDefineSearchDateDD2Only.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD2Only.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EF82DE42CA45_var*
-//#UC END# *559687E6025A_EF82DE42CA45_var*
 begin
-//#UC START# *559687E6025A_EF82DE42CA45_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EF82DE42CA45_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateDD2Only.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD2Only.ParamsTypes: PTypeInfoArray;
@@ -1848,12 +1808,8 @@ begin
 end;//TkwEnDefineSearchDateDD1.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DC21835A6044_var*
-//#UC END# *559687E6025A_DC21835A6044_var*
 begin
-//#UC START# *559687E6025A_DC21835A6044_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DC21835A6044_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateDD1.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD1.ParamsTypes: PTypeInfoArray;
@@ -1910,12 +1866,8 @@ begin
 end;//TkwEnDefineSearchDateRbD1Only.GetResultTypeInfo
 
 function TkwEnDefineSearchDateRbD1Only.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2ACC0213635E_var*
-//#UC END# *559687E6025A_2ACC0213635E_var*
 begin
-//#UC START# *559687E6025A_2ACC0213635E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2ACC0213635E_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateRbD1Only.GetAllParamsCount
 
 function TkwEnDefineSearchDateRbD1Only.ParamsTypes: PTypeInfoArray;
@@ -1972,12 +1924,8 @@ begin
 end;//TkwEnDefineSearchDateDD2.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_06117A43FF72_var*
-//#UC END# *559687E6025A_06117A43FF72_var*
 begin
-//#UC START# *559687E6025A_06117A43FF72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_06117A43FF72_impl*
+ Result := 1;
 end;//TkwEnDefineSearchDateDD2.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD2.ParamsTypes: PTypeInfoArray;

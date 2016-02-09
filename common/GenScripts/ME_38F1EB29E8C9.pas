@@ -539,12 +539,8 @@ begin
 end;//TkwStyleEditorContainerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EBEA0AF6DB49_var*
-//#UC END# *559687E6025A_EBEA0AF6DB49_var*
 begin
-//#UC START# *559687E6025A_EBEA0AF6DB49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EBEA0AF6DB49_impl*
+ Result := 1;
 end;//TkwStyleEditorContainerFormBackgroundPanel.GetAllParamsCount
 
 function TkwStyleEditorContainerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -601,12 +597,8 @@ begin
 end;//TkwStyleEditorContainerFormMainZone.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormMainZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FAE31F4C0B42_var*
-//#UC END# *559687E6025A_FAE31F4C0B42_var*
 begin
-//#UC START# *559687E6025A_FAE31F4C0B42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FAE31F4C0B42_impl*
+ Result := 1;
 end;//TkwStyleEditorContainerFormMainZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormMainZone.ParamsTypes: PTypeInfoArray;
@@ -663,12 +655,8 @@ begin
 end;//TkwStyleEditorContainerFormParentZone.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_489405F97345_var*
-//#UC END# *559687E6025A_489405F97345_var*
 begin
-//#UC START# *559687E6025A_489405F97345_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_489405F97345_impl*
+ Result := 1;
 end;//TkwStyleEditorContainerFormParentZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormParentZone.ParamsTypes: PTypeInfoArray;
@@ -725,12 +713,8 @@ begin
 end;//TkwStyleEditorContainerFormChildZone.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_940A5D9F84B6_var*
-//#UC END# *559687E6025A_940A5D9F84B6_var*
 begin
-//#UC START# *559687E6025A_940A5D9F84B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_940A5D9F84B6_impl*
+ Result := 1;
 end;//TkwStyleEditorContainerFormChildZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormChildZone.ParamsTypes: PTypeInfoArray;
@@ -787,12 +771,8 @@ begin
 end;//TkwStyleEditorContainerFormNavigatorZone.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormNavigatorZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7EBE25C04E3C_var*
-//#UC END# *559687E6025A_7EBE25C04E3C_var*
 begin
-//#UC START# *559687E6025A_7EBE25C04E3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7EBE25C04E3C_impl*
+ Result := 1;
 end;//TkwStyleEditorContainerFormNavigatorZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormNavigatorZone.ParamsTypes: PTypeInfoArray;

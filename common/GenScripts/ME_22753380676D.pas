@@ -193,12 +193,8 @@ begin
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetResultTypeInfo
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_33551677EC80_var*
-//#UC END# *559687E6025A_33551677EC80_var*
 begin
-//#UC START# *559687E6025A_33551677EC80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_33551677EC80_impl*
+ Result := 1;
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetAllParamsCount
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.ParamsTypes: PTypeInfoArray;

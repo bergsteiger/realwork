@@ -800,12 +800,8 @@ begin
 end;//TkwCfOldSituationSearchBackgroundPanel.GetResultTypeInfo
 
 function TkwCfOldSituationSearchBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E6E04DA21252_var*
-//#UC END# *559687E6025A_E6E04DA21252_var*
 begin
-//#UC START# *559687E6025A_E6E04DA21252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E6E04DA21252_impl*
+ Result := 1;
 end;//TkwCfOldSituationSearchBackgroundPanel.GetAllParamsCount
 
 function TkwCfOldSituationSearchBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -862,12 +858,8 @@ begin
 end;//TkwCfOldSituationSearchContextFilter.GetResultTypeInfo
 
 function TkwCfOldSituationSearchContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A70ACD88A02D_var*
-//#UC END# *559687E6025A_A70ACD88A02D_var*
 begin
-//#UC START# *559687E6025A_A70ACD88A02D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A70ACD88A02D_impl*
+ Result := 1;
 end;//TkwCfOldSituationSearchContextFilter.GetAllParamsCount
 
 function TkwCfOldSituationSearchContextFilter.ParamsTypes: PTypeInfoArray;
@@ -924,12 +916,8 @@ begin
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.GetResultTypeInfo
 
 function TkwCfOldSituationSearchInnerBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3226F237B61F_var*
-//#UC END# *559687E6025A_3226F237B61F_var*
 begin
-//#UC START# *559687E6025A_3226F237B61F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3226F237B61F_impl*
+ Result := 1;
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.GetAllParamsCount
 
 function TkwCfOldSituationSearchInnerBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -986,12 +974,8 @@ begin
 end;//TkwCfOldSituationSearchBotomPanel.GetResultTypeInfo
 
 function TkwCfOldSituationSearchBotomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F188CE819F7D_var*
-//#UC END# *559687E6025A_F188CE819F7D_var*
 begin
-//#UC START# *559687E6025A_F188CE819F7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F188CE819F7D_impl*
+ Result := 1;
 end;//TkwCfOldSituationSearchBotomPanel.GetAllParamsCount
 
 function TkwCfOldSituationSearchBotomPanel.ParamsTypes: PTypeInfoArray;
@@ -1048,12 +1032,8 @@ begin
 end;//TkwCfOldSituationSearchParentZone.GetResultTypeInfo
 
 function TkwCfOldSituationSearchParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9530C933E1D4_var*
-//#UC END# *559687E6025A_9530C933E1D4_var*
 begin
-//#UC START# *559687E6025A_9530C933E1D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9530C933E1D4_impl*
+ Result := 1;
 end;//TkwCfOldSituationSearchParentZone.GetAllParamsCount
 
 function TkwCfOldSituationSearchParentZone.ParamsTypes: PTypeInfoArray;
@@ -1110,12 +1090,8 @@ begin
 end;//TkwCfOldSituationSearchZoneContainer.GetResultTypeInfo
 
 function TkwCfOldSituationSearchZoneContainer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C9CB01FB6D8E_var*
-//#UC END# *559687E6025A_C9CB01FB6D8E_var*
 begin
-//#UC START# *559687E6025A_C9CB01FB6D8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C9CB01FB6D8E_impl*
+ Result := 1;
 end;//TkwCfOldSituationSearchZoneContainer.GetAllParamsCount
 
 function TkwCfOldSituationSearchZoneContainer.ParamsTypes: PTypeInfoArray;
@@ -1172,12 +1148,8 @@ begin
 end;//TkwCfOldSituationSearchChildZone.GetResultTypeInfo
 
 function TkwCfOldSituationSearchChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6E6F2EE2FBD4_var*
-//#UC END# *559687E6025A_6E6F2EE2FBD4_var*
 begin
-//#UC START# *559687E6025A_6E6F2EE2FBD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6E6F2EE2FBD4_impl*
+ Result := 1;
 end;//TkwCfOldSituationSearchChildZone.GetAllParamsCount
 
 function TkwCfOldSituationSearchChildZone.ParamsTypes: PTypeInfoArray;
@@ -1234,12 +1206,8 @@ begin
 end;//TkwCfOldSituationSearchMainZone.GetResultTypeInfo
 
 function TkwCfOldSituationSearchMainZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6CD72A3FA477_var*
-//#UC END# *559687E6025A_6CD72A3FA477_var*
 begin
-//#UC START# *559687E6025A_6CD72A3FA477_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6CD72A3FA477_impl*
+ Result := 1;
 end;//TkwCfOldSituationSearchMainZone.GetAllParamsCount
 
 function TkwCfOldSituationSearchMainZone.ParamsTypes: PTypeInfoArray;

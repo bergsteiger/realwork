@@ -113,12 +113,8 @@ begin
 end;//TkwPopTaskPanelGetHideField.GetResultTypeInfo
 
 function TkwPopTaskPanelGetHideField.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C357835C3D1B_var*
-//#UC END# *559687E6025A_C357835C3D1B_var*
 begin
-//#UC START# *559687E6025A_C357835C3D1B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C357835C3D1B_impl*
+ Result := 2;
 end;//TkwPopTaskPanelGetHideField.GetAllParamsCount
 
 function TkwPopTaskPanelGetHideField.ParamsTypes: PTypeInfoArray;
@@ -175,12 +171,8 @@ begin
 end;//TkwPopTaskPanelCount.GetResultTypeInfo
 
 function TkwPopTaskPanelCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C2B2EE13F5CE_var*
-//#UC END# *559687E6025A_C2B2EE13F5CE_var*
 begin
-//#UC START# *559687E6025A_C2B2EE13F5CE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C2B2EE13F5CE_impl*
+ Result := 1;
 end;//TkwPopTaskPanelCount.GetAllParamsCount
 
 function TkwPopTaskPanelCount.ParamsTypes: PTypeInfoArray;

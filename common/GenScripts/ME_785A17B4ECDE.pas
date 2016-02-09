@@ -193,12 +193,8 @@ begin
 end;//TkwEnConfigurationListTvConfs.GetResultTypeInfo
 
 function TkwEnConfigurationListTvConfs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_05D945CE3B09_var*
-//#UC END# *559687E6025A_05D945CE3B09_var*
 begin
-//#UC START# *559687E6025A_05D945CE3B09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_05D945CE3B09_impl*
+ Result := 1;
 end;//TkwEnConfigurationListTvConfs.GetAllParamsCount
 
 function TkwEnConfigurationListTvConfs.ParamsTypes: PTypeInfoArray;

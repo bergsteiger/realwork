@@ -605,12 +605,8 @@ begin
 end;//TkwEfRubricatorRubricatorList.GetResultTypeInfo
 
 function TkwEfRubricatorRubricatorList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_570087BEBDE5_var*
-//#UC END# *559687E6025A_570087BEBDE5_var*
 begin
-//#UC START# *559687E6025A_570087BEBDE5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_570087BEBDE5_impl*
+ Result := 1;
 end;//TkwEfRubricatorRubricatorList.GetAllParamsCount
 
 function TkwEfRubricatorRubricatorList.ParamsTypes: PTypeInfoArray;
@@ -667,12 +663,8 @@ begin
 end;//TkwEfRubricatorTopPanel.GetResultTypeInfo
 
 function TkwEfRubricatorTopPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_64EE419069C8_var*
-//#UC END# *559687E6025A_64EE419069C8_var*
 begin
-//#UC START# *559687E6025A_64EE419069C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_64EE419069C8_impl*
+ Result := 1;
 end;//TkwEfRubricatorTopPanel.GetAllParamsCount
 
 function TkwEfRubricatorTopPanel.ParamsTypes: PTypeInfoArray;
@@ -729,12 +721,8 @@ begin
 end;//TkwEfRubricatorPaintBox.GetResultTypeInfo
 
 function TkwEfRubricatorPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_741A23B47FE2_var*
-//#UC END# *559687E6025A_741A23B47FE2_var*
 begin
-//#UC START# *559687E6025A_741A23B47FE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_741A23B47FE2_impl*
+ Result := 1;
 end;//TkwEfRubricatorPaintBox.GetAllParamsCount
 
 function TkwEfRubricatorPaintBox.ParamsTypes: PTypeInfoArray;
@@ -791,12 +779,8 @@ begin
 end;//TkwEfRubricatorNewDocLabel.GetResultTypeInfo
 
 function TkwEfRubricatorNewDocLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_88E2B9AA0F4C_var*
-//#UC END# *559687E6025A_88E2B9AA0F4C_var*
 begin
-//#UC START# *559687E6025A_88E2B9AA0F4C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_88E2B9AA0F4C_impl*
+ Result := 1;
 end;//TkwEfRubricatorNewDocLabel.GetAllParamsCount
 
 function TkwEfRubricatorNewDocLabel.ParamsTypes: PTypeInfoArray;
@@ -853,12 +837,8 @@ begin
 end;//TkwEfRubricatorDelimiterPanel.GetResultTypeInfo
 
 function TkwEfRubricatorDelimiterPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_25E8A124FE5E_var*
-//#UC END# *559687E6025A_25E8A124FE5E_var*
 begin
-//#UC START# *559687E6025A_25E8A124FE5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_25E8A124FE5E_impl*
+ Result := 1;
 end;//TkwEfRubricatorDelimiterPanel.GetAllParamsCount
 
 function TkwEfRubricatorDelimiterPanel.ParamsTypes: PTypeInfoArray;
@@ -915,12 +895,8 @@ begin
 end;//TkwEfRubricatorExampleTextSource.GetResultTypeInfo
 
 function TkwEfRubricatorExampleTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7906F7EBF729_var*
-//#UC END# *559687E6025A_7906F7EBF729_var*
 begin
-//#UC START# *559687E6025A_7906F7EBF729_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7906F7EBF729_impl*
+ Result := 1;
 end;//TkwEfRubricatorExampleTextSource.GetAllParamsCount
 
 function TkwEfRubricatorExampleTextSource.ParamsTypes: PTypeInfoArray;

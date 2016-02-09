@@ -1143,12 +1143,8 @@ begin
 end;//TkwMemoryUsageFormPnTagTree.GetResultTypeInfo
 
 function TkwMemoryUsageFormPnTagTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EB9FBD616CB1_var*
-//#UC END# *559687E6025A_EB9FBD616CB1_var*
 begin
-//#UC START# *559687E6025A_EB9FBD616CB1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EB9FBD616CB1_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormPnTagTree.GetAllParamsCount
 
 function TkwMemoryUsageFormPnTagTree.ParamsTypes: PTypeInfoArray;
@@ -1205,12 +1201,8 @@ begin
 end;//TkwMemoryUsageFormTagTree.GetResultTypeInfo
 
 function TkwMemoryUsageFormTagTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6187FA2B989D_var*
-//#UC END# *559687E6025A_6187FA2B989D_var*
 begin
-//#UC START# *559687E6025A_6187FA2B989D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6187FA2B989D_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormTagTree.GetAllParamsCount
 
 function TkwMemoryUsageFormTagTree.ParamsTypes: PTypeInfoArray;
@@ -1267,12 +1259,8 @@ begin
 end;//TkwMemoryUsageFormPnMemClasses.GetResultTypeInfo
 
 function TkwMemoryUsageFormPnMemClasses.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0A1F937A1E8B_var*
-//#UC END# *559687E6025A_0A1F937A1E8B_var*
 begin
-//#UC START# *559687E6025A_0A1F937A1E8B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0A1F937A1E8B_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormPnMemClasses.GetAllParamsCount
 
 function TkwMemoryUsageFormPnMemClasses.ParamsTypes: PTypeInfoArray;
@@ -1329,12 +1317,8 @@ begin
 end;//TkwMemoryUsageFormMemClasses.GetResultTypeInfo
 
 function TkwMemoryUsageFormMemClasses.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C31096E13498_var*
-//#UC END# *559687E6025A_C31096E13498_var*
 begin
-//#UC START# *559687E6025A_C31096E13498_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C31096E13498_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormMemClasses.GetAllParamsCount
 
 function TkwMemoryUsageFormMemClasses.ParamsTypes: PTypeInfoArray;
@@ -1391,12 +1375,8 @@ begin
 end;//TkwMemoryUsageFormPnSummary.GetResultTypeInfo
 
 function TkwMemoryUsageFormPnSummary.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9F88B97A0726_var*
-//#UC END# *559687E6025A_9F88B97A0726_var*
 begin
-//#UC START# *559687E6025A_9F88B97A0726_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9F88B97A0726_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormPnSummary.GetAllParamsCount
 
 function TkwMemoryUsageFormPnSummary.ParamsTypes: PTypeInfoArray;
@@ -1453,12 +1433,8 @@ begin
 end;//TkwMemoryUsageFormLbLocalMemory.GetResultTypeInfo
 
 function TkwMemoryUsageFormLbLocalMemory.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_67E3D725FC3F_var*
-//#UC END# *559687E6025A_67E3D725FC3F_var*
 begin
-//#UC START# *559687E6025A_67E3D725FC3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_67E3D725FC3F_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormLbLocalMemory.GetAllParamsCount
 
 function TkwMemoryUsageFormLbLocalMemory.ParamsTypes: PTypeInfoArray;
@@ -1515,12 +1491,8 @@ begin
 end;//TkwMemoryUsageFormLbObjectMemory.GetResultTypeInfo
 
 function TkwMemoryUsageFormLbObjectMemory.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C36040A1C157_var*
-//#UC END# *559687E6025A_C36040A1C157_var*
 begin
-//#UC START# *559687E6025A_C36040A1C157_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C36040A1C157_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormLbObjectMemory.GetAllParamsCount
 
 function TkwMemoryUsageFormLbObjectMemory.ParamsTypes: PTypeInfoArray;
@@ -1577,12 +1549,8 @@ begin
 end;//TkwMemoryUsageFormLbObjectCount.GetResultTypeInfo
 
 function TkwMemoryUsageFormLbObjectCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DD2F688CA4C3_var*
-//#UC END# *559687E6025A_DD2F688CA4C3_var*
 begin
-//#UC START# *559687E6025A_DD2F688CA4C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DD2F688CA4C3_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormLbObjectCount.GetAllParamsCount
 
 function TkwMemoryUsageFormLbObjectCount.ParamsTypes: PTypeInfoArray;
@@ -1639,12 +1607,8 @@ begin
 end;//TkwMemoryUsageFormLbGlobalMemory.GetResultTypeInfo
 
 function TkwMemoryUsageFormLbGlobalMemory.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E1C674926073_var*
-//#UC END# *559687E6025A_E1C674926073_var*
 begin
-//#UC START# *559687E6025A_E1C674926073_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E1C674926073_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormLbGlobalMemory.GetAllParamsCount
 
 function TkwMemoryUsageFormLbGlobalMemory.ParamsTypes: PTypeInfoArray;
@@ -1701,12 +1665,8 @@ begin
 end;//TkwMemoryUsageFormLbDocumentsInCacheCount.GetResultTypeInfo
 
 function TkwMemoryUsageFormLbDocumentsInCacheCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AF077E188BE6_var*
-//#UC END# *559687E6025A_AF077E188BE6_var*
 begin
-//#UC START# *559687E6025A_AF077E188BE6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AF077E188BE6_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormLbDocumentsInCacheCount.GetAllParamsCount
 
 function TkwMemoryUsageFormLbDocumentsInCacheCount.ParamsTypes: PTypeInfoArray;
@@ -1763,12 +1723,8 @@ begin
 end;//TkwMemoryUsageFormLbAllLocalMemory.GetResultTypeInfo
 
 function TkwMemoryUsageFormLbAllLocalMemory.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BCDCCCE325BD_var*
-//#UC END# *559687E6025A_BCDCCCE325BD_var*
 begin
-//#UC START# *559687E6025A_BCDCCCE325BD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BCDCCCE325BD_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormLbAllLocalMemory.GetAllParamsCount
 
 function TkwMemoryUsageFormLbAllLocalMemory.ParamsTypes: PTypeInfoArray;
@@ -1825,12 +1781,8 @@ begin
 end;//TkwMemoryUsageFormLbTotalMemory.GetResultTypeInfo
 
 function TkwMemoryUsageFormLbTotalMemory.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E93F88B4464E_var*
-//#UC END# *559687E6025A_E93F88B4464E_var*
 begin
-//#UC START# *559687E6025A_E93F88B4464E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E93F88B4464E_impl*
+ Result := 1;
 end;//TkwMemoryUsageFormLbTotalMemory.GetAllParamsCount
 
 function TkwMemoryUsageFormLbTotalMemory.ParamsTypes: PTypeInfoArray;

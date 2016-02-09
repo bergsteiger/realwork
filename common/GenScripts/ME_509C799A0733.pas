@@ -343,12 +343,8 @@ begin
 end;//TkwStyleEditorExampleFormTextSource.GetResultTypeInfo
 
 function TkwStyleEditorExampleFormTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_94CDC606065E_var*
-//#UC END# *559687E6025A_94CDC606065E_var*
 begin
-//#UC START# *559687E6025A_94CDC606065E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_94CDC606065E_impl*
+ Result := 1;
 end;//TkwStyleEditorExampleFormTextSource.GetAllParamsCount
 
 function TkwStyleEditorExampleFormTextSource.ParamsTypes: PTypeInfoArray;
@@ -405,12 +401,8 @@ begin
 end;//TkwStyleEditorExampleFormEditorPanel.GetResultTypeInfo
 
 function TkwStyleEditorExampleFormEditorPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_42F01C50817A_var*
-//#UC END# *559687E6025A_42F01C50817A_var*
 begin
-//#UC START# *559687E6025A_42F01C50817A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_42F01C50817A_impl*
+ Result := 1;
 end;//TkwStyleEditorExampleFormEditorPanel.GetAllParamsCount
 
 function TkwStyleEditorExampleFormEditorPanel.ParamsTypes: PTypeInfoArray;
@@ -467,12 +459,8 @@ begin
 end;//TkwStyleEditorExampleFormEditor.GetResultTypeInfo
 
 function TkwStyleEditorExampleFormEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_32A323F849AD_var*
-//#UC END# *559687E6025A_32A323F849AD_var*
 begin
-//#UC START# *559687E6025A_32A323F849AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_32A323F849AD_impl*
+ Result := 1;
 end;//TkwStyleEditorExampleFormEditor.GetAllParamsCount
 
 function TkwStyleEditorExampleFormEditor.ParamsTypes: PTypeInfoArray;

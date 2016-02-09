@@ -809,12 +809,8 @@ begin
 end;//TkwMonitoringsMainFormStatusBar.GetResultTypeInfo
 
 function TkwMonitoringsMainFormStatusBar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_74561386DA27_var*
-//#UC END# *559687E6025A_74561386DA27_var*
 begin
-//#UC START# *559687E6025A_74561386DA27_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_74561386DA27_impl*
+ Result := 1;
 end;//TkwMonitoringsMainFormStatusBar.GetAllParamsCount
 
 function TkwMonitoringsMainFormStatusBar.ParamsTypes: PTypeInfoArray;
@@ -871,12 +867,8 @@ begin
 end;//TkwMonitoringsMainFormClientZone.GetResultTypeInfo
 
 function TkwMonitoringsMainFormClientZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_67275B119336_var*
-//#UC END# *559687E6025A_67275B119336_var*
 begin
-//#UC START# *559687E6025A_67275B119336_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_67275B119336_impl*
+ Result := 1;
 end;//TkwMonitoringsMainFormClientZone.GetAllParamsCount
 
 function TkwMonitoringsMainFormClientZone.ParamsTypes: PTypeInfoArray;
@@ -933,12 +925,8 @@ begin
 end;//TkwMonitoringsMainFormMainZone.GetResultTypeInfo
 
 function TkwMonitoringsMainFormMainZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FB177BDCBB79_var*
-//#UC END# *559687E6025A_FB177BDCBB79_var*
 begin
-//#UC START# *559687E6025A_FB177BDCBB79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FB177BDCBB79_impl*
+ Result := 1;
 end;//TkwMonitoringsMainFormMainZone.GetAllParamsCount
 
 function TkwMonitoringsMainFormMainZone.ParamsTypes: PTypeInfoArray;
@@ -995,12 +983,8 @@ begin
 end;//TkwMonitoringsMainFormParentZonePanel.GetResultTypeInfo
 
 function TkwMonitoringsMainFormParentZonePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F9BD5754D88D_var*
-//#UC END# *559687E6025A_F9BD5754D88D_var*
 begin
-//#UC START# *559687E6025A_F9BD5754D88D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F9BD5754D88D_impl*
+ Result := 1;
 end;//TkwMonitoringsMainFormParentZonePanel.GetAllParamsCount
 
 function TkwMonitoringsMainFormParentZonePanel.ParamsTypes: PTypeInfoArray;
@@ -1057,12 +1041,8 @@ begin
 end;//TkwMonitoringsMainFormChildZonePanel.GetResultTypeInfo
 
 function TkwMonitoringsMainFormChildZonePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B530B36B6E25_var*
-//#UC END# *559687E6025A_B530B36B6E25_var*
 begin
-//#UC START# *559687E6025A_B530B36B6E25_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B530B36B6E25_impl*
+ Result := 1;
 end;//TkwMonitoringsMainFormChildZonePanel.GetAllParamsCount
 
 function TkwMonitoringsMainFormChildZonePanel.ParamsTypes: PTypeInfoArray;
@@ -1119,12 +1099,8 @@ begin
 end;//TkwMonitoringsMainFormBaseSearchPanel.GetResultTypeInfo
 
 function TkwMonitoringsMainFormBaseSearchPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_01806529867E_var*
-//#UC END# *559687E6025A_01806529867E_var*
 begin
-//#UC START# *559687E6025A_01806529867E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_01806529867E_impl*
+ Result := 1;
 end;//TkwMonitoringsMainFormBaseSearchPanel.GetAllParamsCount
 
 function TkwMonitoringsMainFormBaseSearchPanel.ParamsTypes: PTypeInfoArray;
@@ -1181,12 +1157,8 @@ begin
 end;//TkwMonitoringsMainFormLeftNavigator.GetResultTypeInfo
 
 function TkwMonitoringsMainFormLeftNavigator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B2F985D76D09_var*
-//#UC END# *559687E6025A_B2F985D76D09_var*
 begin
-//#UC START# *559687E6025A_B2F985D76D09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B2F985D76D09_impl*
+ Result := 1;
 end;//TkwMonitoringsMainFormLeftNavigator.GetAllParamsCount
 
 function TkwMonitoringsMainFormLeftNavigator.ParamsTypes: PTypeInfoArray;
@@ -1245,12 +1217,8 @@ begin
 end;//TkwMonitoringsMainFormRightNavigator.GetResultTypeInfo
 
 function TkwMonitoringsMainFormRightNavigator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F9DA87AC99B7_var*
-//#UC END# *559687E6025A_F9DA87AC99B7_var*
 begin
-//#UC START# *559687E6025A_F9DA87AC99B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F9DA87AC99B7_impl*
+ Result := 1;
 end;//TkwMonitoringsMainFormRightNavigator.GetAllParamsCount
 
 function TkwMonitoringsMainFormRightNavigator.ParamsTypes: PTypeInfoArray;

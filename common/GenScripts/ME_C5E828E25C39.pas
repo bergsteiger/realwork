@@ -1318,12 +1318,8 @@ begin
 end;//TkwEfStartupTipsTopPanel.GetResultTypeInfo
 
 function TkwEfStartupTipsTopPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EE12A0E102A6_var*
-//#UC END# *559687E6025A_EE12A0E102A6_var*
 begin
-//#UC START# *559687E6025A_EE12A0E102A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EE12A0E102A6_impl*
+ Result := 1;
 end;//TkwEfStartupTipsTopPanel.GetAllParamsCount
 
 function TkwEfStartupTipsTopPanel.ParamsTypes: PTypeInfoArray;
@@ -1380,12 +1376,8 @@ begin
 end;//TkwEfStartupTipsTitlePaintBox.GetResultTypeInfo
 
 function TkwEfStartupTipsTitlePaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_11DD36D2649A_var*
-//#UC END# *559687E6025A_11DD36D2649A_var*
 begin
-//#UC START# *559687E6025A_11DD36D2649A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_11DD36D2649A_impl*
+ Result := 1;
 end;//TkwEfStartupTipsTitlePaintBox.GetAllParamsCount
 
 function TkwEfStartupTipsTitlePaintBox.ParamsTypes: PTypeInfoArray;
@@ -1442,12 +1434,8 @@ begin
 end;//TkwEfStartupTipsTitleLabel.GetResultTypeInfo
 
 function TkwEfStartupTipsTitleLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6C5C35701670_var*
-//#UC END# *559687E6025A_6C5C35701670_var*
 begin
-//#UC START# *559687E6025A_6C5C35701670_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6C5C35701670_impl*
+ Result := 1;
 end;//TkwEfStartupTipsTitleLabel.GetAllParamsCount
 
 function TkwEfStartupTipsTitleLabel.ParamsTypes: PTypeInfoArray;
@@ -1504,12 +1492,8 @@ begin
 end;//TkwEfStartupTipsBottomPanel.GetResultTypeInfo
 
 function TkwEfStartupTipsBottomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_598F59526313_var*
-//#UC END# *559687E6025A_598F59526313_var*
 begin
-//#UC START# *559687E6025A_598F59526313_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_598F59526313_impl*
+ Result := 1;
 end;//TkwEfStartupTipsBottomPanel.GetAllParamsCount
 
 function TkwEfStartupTipsBottomPanel.ParamsTypes: PTypeInfoArray;
@@ -1566,12 +1550,8 @@ begin
 end;//TkwEfStartupTipsHintPanel.GetResultTypeInfo
 
 function TkwEfStartupTipsHintPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EBF9C26AA60F_var*
-//#UC END# *559687E6025A_EBF9C26AA60F_var*
 begin
-//#UC START# *559687E6025A_EBF9C26AA60F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EBF9C26AA60F_impl*
+ Result := 1;
 end;//TkwEfStartupTipsHintPanel.GetAllParamsCount
 
 function TkwEfStartupTipsHintPanel.ParamsTypes: PTypeInfoArray;
@@ -1628,12 +1608,8 @@ begin
 end;//TkwEfStartupTipsTipLabel.GetResultTypeInfo
 
 function TkwEfStartupTipsTipLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_248F46EBCD73_var*
-//#UC END# *559687E6025A_248F46EBCD73_var*
 begin
-//#UC START# *559687E6025A_248F46EBCD73_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_248F46EBCD73_impl*
+ Result := 1;
 end;//TkwEfStartupTipsTipLabel.GetAllParamsCount
 
 function TkwEfStartupTipsTipLabel.ParamsTypes: PTypeInfoArray;
@@ -1690,12 +1666,8 @@ begin
 end;//TkwEfStartupTipsDetailLabel.GetResultTypeInfo
 
 function TkwEfStartupTipsDetailLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_61D8D00BE8C2_var*
-//#UC END# *559687E6025A_61D8D00BE8C2_var*
 begin
-//#UC START# *559687E6025A_61D8D00BE8C2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_61D8D00BE8C2_impl*
+ Result := 1;
 end;//TkwEfStartupTipsDetailLabel.GetAllParamsCount
 
 function TkwEfStartupTipsDetailLabel.ParamsTypes: PTypeInfoArray;
@@ -1752,12 +1724,8 @@ begin
 end;//TkwEfStartupTipsShowCheckBox.GetResultTypeInfo
 
 function TkwEfStartupTipsShowCheckBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E9BE84B24F36_var*
-//#UC END# *559687E6025A_E9BE84B24F36_var*
 begin
-//#UC START# *559687E6025A_E9BE84B24F36_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E9BE84B24F36_impl*
+ Result := 1;
 end;//TkwEfStartupTipsShowCheckBox.GetAllParamsCount
 
 function TkwEfStartupTipsShowCheckBox.ParamsTypes: PTypeInfoArray;
@@ -1814,12 +1782,8 @@ begin
 end;//TkwEfStartupTipsWwwPanel.GetResultTypeInfo
 
 function TkwEfStartupTipsWwwPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_493A43BD43E6_var*
-//#UC END# *559687E6025A_493A43BD43E6_var*
 begin
-//#UC START# *559687E6025A_493A43BD43E6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_493A43BD43E6_impl*
+ Result := 1;
 end;//TkwEfStartupTipsWwwPanel.GetAllParamsCount
 
 function TkwEfStartupTipsWwwPanel.ParamsTypes: PTypeInfoArray;
@@ -1876,12 +1840,8 @@ begin
 end;//TkwEfStartupTipsWwwPaintBox.GetResultTypeInfo
 
 function TkwEfStartupTipsWwwPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FDE4342F213E_var*
-//#UC END# *559687E6025A_FDE4342F213E_var*
 begin
-//#UC START# *559687E6025A_FDE4342F213E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FDE4342F213E_impl*
+ Result := 1;
 end;//TkwEfStartupTipsWwwPaintBox.GetAllParamsCount
 
 function TkwEfStartupTipsWwwPaintBox.ParamsTypes: PTypeInfoArray;
@@ -1938,12 +1898,8 @@ begin
 end;//TkwEfStartupTipsWwwLabel.GetResultTypeInfo
 
 function TkwEfStartupTipsWwwLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E19827E4AB44_var*
-//#UC END# *559687E6025A_E19827E4AB44_var*
 begin
-//#UC START# *559687E6025A_E19827E4AB44_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E19827E4AB44_impl*
+ Result := 1;
 end;//TkwEfStartupTipsWwwLabel.GetAllParamsCount
 
 function TkwEfStartupTipsWwwLabel.ParamsTypes: PTypeInfoArray;
@@ -2000,12 +1956,8 @@ begin
 end;//TkwEfStartupTipsNextButton.GetResultTypeInfo
 
 function TkwEfStartupTipsNextButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_017E5F40C5E1_var*
-//#UC END# *559687E6025A_017E5F40C5E1_var*
 begin
-//#UC START# *559687E6025A_017E5F40C5E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_017E5F40C5E1_impl*
+ Result := 1;
 end;//TkwEfStartupTipsNextButton.GetAllParamsCount
 
 function TkwEfStartupTipsNextButton.ParamsTypes: PTypeInfoArray;
@@ -2062,12 +2014,8 @@ begin
 end;//TkwEfStartupTipsPrevButton.GetResultTypeInfo
 
 function TkwEfStartupTipsPrevButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FCA8BAEFEB0E_var*
-//#UC END# *559687E6025A_FCA8BAEFEB0E_var*
 begin
-//#UC START# *559687E6025A_FCA8BAEFEB0E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FCA8BAEFEB0E_impl*
+ Result := 1;
 end;//TkwEfStartupTipsPrevButton.GetAllParamsCount
 
 function TkwEfStartupTipsPrevButton.ParamsTypes: PTypeInfoArray;
@@ -2124,12 +2072,8 @@ begin
 end;//TkwEfStartupTipsCloseButton.GetResultTypeInfo
 
 function TkwEfStartupTipsCloseButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_95F72E34E5A5_var*
-//#UC END# *559687E6025A_95F72E34E5A5_var*
 begin
-//#UC START# *559687E6025A_95F72E34E5A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_95F72E34E5A5_impl*
+ Result := 1;
 end;//TkwEfStartupTipsCloseButton.GetAllParamsCount
 
 function TkwEfStartupTipsCloseButton.ParamsTypes: PTypeInfoArray;

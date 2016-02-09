@@ -193,12 +193,8 @@ begin
 end;//TkwStyleEditorNavigatorFormStyleTreeView.GetResultTypeInfo
 
 function TkwStyleEditorNavigatorFormStyleTreeView.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B10F98691ABD_var*
-//#UC END# *559687E6025A_B10F98691ABD_var*
 begin
-//#UC START# *559687E6025A_B10F98691ABD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B10F98691ABD_impl*
+ Result := 1;
 end;//TkwStyleEditorNavigatorFormStyleTreeView.GetAllParamsCount
 
 function TkwStyleEditorNavigatorFormStyleTreeView.ParamsTypes: PTypeInfoArray;
