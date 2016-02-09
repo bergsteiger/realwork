@@ -62,6 +62,7 @@ uses
  , nsReqRowNode
  , nsBlockNode
  , nsBlockNodePrim
+ , nsStyleParser
 ;
 
 {$Include k2ParentedTagObject.imp.pas}

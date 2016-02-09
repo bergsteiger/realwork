@@ -22,6 +22,7 @@ implementation
 
 uses
  l3ImplUses
+ , nsStyleParser
 ;
 
 end.

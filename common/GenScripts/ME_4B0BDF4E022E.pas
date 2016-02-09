@@ -30,6 +30,9 @@ uses
  l3ImplUses
  , LoggingUnit
  , nsTypes
+ , nsLogEventData
+ , nsLogManager
+ , LoggingWrapperInterfaces
 ;
 
 class procedure TnsFindContextInListEvent.Log(const aList: IDynList;
