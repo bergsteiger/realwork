@@ -121,12 +121,8 @@ begin
 end;//TkwBrowse.GetResultTypeInfo
 
 function TkwBrowse.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3223F9BFFE72_var*
-//#UC END# *559687E6025A_3223F9BFFE72_var*
 begin
-//#UC START# *559687E6025A_3223F9BFFE72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3223F9BFFE72_impl*
+ Result := 1;
 end;//TkwBrowse.GetAllParamsCount
 
 function TkwBrowse.ParamsTypes: PTypeInfoArray;
@@ -177,12 +173,8 @@ begin
 end;//TkwF1_WasBeep.GetResultTypeInfo
 
 function TkwF1_WasBeep.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5888E53B751F_var*
-//#UC END# *559687E6025A_5888E53B751F_var*
 begin
-//#UC START# *559687E6025A_5888E53B751F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5888E53B751F_impl*
+ Result := 0;
 end;//TkwF1_WasBeep.GetAllParamsCount
 
 function TkwF1_WasBeep.ParamsTypes: PTypeInfoArray;

@@ -189,12 +189,8 @@ begin
 end;//TkwFilterNodeAutoApplied.GetResultTypeInfo
 
 function TkwFilterNodeAutoApplied.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_81D0AC689E19_var*
-//#UC END# *559687E6025A_81D0AC689E19_var*
 begin
-//#UC START# *559687E6025A_81D0AC689E19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_81D0AC689E19_impl*
+ Result := 1;
 end;//TkwFilterNodeAutoApplied.GetAllParamsCount
 
 function TkwFilterNodeAutoApplied.ParamsTypes: PTypeInfoArray;
@@ -251,12 +247,8 @@ begin
 end;//TkwFilterNodeIsUsed.GetResultTypeInfo
 
 function TkwFilterNodeIsUsed.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3EAB6B490CA4_var*
-//#UC END# *559687E6025A_3EAB6B490CA4_var*
 begin
-//#UC START# *559687E6025A_3EAB6B490CA4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3EAB6B490CA4_impl*
+ Result := 1;
 end;//TkwFilterNodeIsUsed.GetAllParamsCount
 
 function TkwFilterNodeIsUsed.ParamsTypes: PTypeInfoArray;
@@ -313,12 +305,8 @@ begin
 end;//TkwFilterNodeIsDeleted.GetResultTypeInfo
 
 function TkwFilterNodeIsDeleted.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2F875C7C1CA3_var*
-//#UC END# *559687E6025A_2F875C7C1CA3_var*
 begin
-//#UC START# *559687E6025A_2F875C7C1CA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2F875C7C1CA3_impl*
+ Result := 1;
 end;//TkwFilterNodeIsDeleted.GetAllParamsCount
 
 function TkwFilterNodeIsDeleted.ParamsTypes: PTypeInfoArray;
@@ -383,12 +371,8 @@ begin
 end;//TkwFilterNodeIsChangeable.GetResultTypeInfo
 
 function TkwFilterNodeIsChangeable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_008D699CFE74_var*
-//#UC END# *559687E6025A_008D699CFE74_var*
 begin
-//#UC START# *559687E6025A_008D699CFE74_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_008D699CFE74_impl*
+ Result := 1;
 end;//TkwFilterNodeIsChangeable.GetAllParamsCount
 
 function TkwFilterNodeIsChangeable.ParamsTypes: PTypeInfoArray;
