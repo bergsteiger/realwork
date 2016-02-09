@@ -244,6 +244,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , OvcConst
 ;
 
 procedure TvtCustomPanelPrim.pm_SetBevelInner(aValue: TPanelBevel);

@@ -156,13 +156,13 @@ implementation
 uses
  l3ImplUses
  , l3Chars
+ , l3String
  , ddTextSegment
  , ddDocumentAtom
  , ddBase
  , ddDocumentAtomList
  , ddTextParaString
  , l3MinMax
- , l3String
  , SysUtils
  , RTFtypes
  , ddCellProperty

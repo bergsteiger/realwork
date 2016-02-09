@@ -95,10 +95,10 @@ uses
  , l3Chars
  , l3String
  , ddTypes
+ , l3UnitsTools
  , l3MinMax
  , RTLConsts
  , SysUtils
- , l3UnitsTools
 ;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
