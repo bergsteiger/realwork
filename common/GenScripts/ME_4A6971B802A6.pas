@@ -96,6 +96,7 @@ uses
  , PrimContactList_chatContacts_UserType
  , BaseHistoryWindow_utChatHistory_UserType
  , BaseChatWindow_cwChat_UserType
+ , bsChatDispatcher
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -108,7 +109,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , ChatHistoryKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , bsChatDispatcher
 ;
 
 function TBaseChatModule.MakeChatDispatcher: IbsChatDispatcher;

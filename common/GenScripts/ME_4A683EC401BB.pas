@@ -20,8 +20,6 @@ type
    class function Make: IbsChatDispatcher; reintroduce;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TbsChatDispatcher;
-    {* Метод получения экземпляра синглетона TbsChatDispatcher }
  end;//TbsChatDispatcher
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -34,25 +32,23 @@ uses
  , l3Base
 ;
 
-var g_TbsChatDispatcher: TbsChatDispatcher = nil;
+var g_TbsChatDispatcher: Pointer = nil;
  {* Экземпляр синглетона TbsChatDispatcher }
 
 procedure TbsChatDispatcherFree;
  {* Метод освобождения экземпляра синглетона TbsChatDispatcher }
 begin
- l3Free(g_TbsChatDispatcher);
+ IUnknown(g_TbsChatDispatcher) := nil;
 end;//TbsChatDispatcherFree
 
 class function TbsChatDispatcher.Make: IbsChatDispatcher;
-var
- l_Inst : TbsChatDispatcher;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TbsChatDispatcher = nil) then
+ begin
+  l3System.AddExitProc(TbsChatDispatcherFree);
+  IbsChatDispatcher(g_TbsChatDispatcher) := inherited Make;
+ end;
+ Result := IbsChatDispatcher(g_TbsChatDispatcher);
 end;//TbsChatDispatcher.Make
 
 class function TbsChatDispatcher.Exists: Boolean;
@@ -60,17 +56,6 @@ class function TbsChatDispatcher.Exists: Boolean;
 begin
  Result := g_TbsChatDispatcher <> nil;
 end;//TbsChatDispatcher.Exists
-
-class function TbsChatDispatcher.Instance: TbsChatDispatcher;
- {* Метод получения экземпляра синглетона TbsChatDispatcher }
-begin
- if (g_TbsChatDispatcher = nil) then
- begin
-  l3System.AddExitProc(TbsChatDispatcherFree);
-  g_TbsChatDispatcher := Create;
- end;
- Result := g_TbsChatDispatcher;
-end;//TbsChatDispatcher.Instance
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

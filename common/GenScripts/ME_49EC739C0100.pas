@@ -95,6 +95,10 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , sdsInternetAgent
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -104,10 +108,6 @@ uses
  , l3MessageID
  , SysUtils
  , LoggingUnit
- , sdsInternetAgent
- {$If NOT Defined(NoVCM)}
- , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 var g_Tfs_InternetAgent: Tfs_InternetAgent = nil;

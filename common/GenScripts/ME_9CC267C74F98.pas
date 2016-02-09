@@ -732,8 +732,12 @@ begin
 end;//TkwRightEditionFormHeader.GetResultTypeInfo
 
 function TkwRightEditionFormHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_AE860CA93B6E_var*
+//#UC END# *559687E6025A_AE860CA93B6E_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_AE860CA93B6E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_AE860CA93B6E_impl*
 end;//TkwRightEditionFormHeader.GetAllParamsCount
 
 function TkwRightEditionFormHeader.ParamsTypes: PTypeInfoArray;
@@ -790,8 +794,12 @@ begin
 end;//TkwRightEditionFormPnLeft.GetResultTypeInfo
 
 function TkwRightEditionFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_7E1E7EBF838A_var*
+//#UC END# *559687E6025A_7E1E7EBF838A_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_7E1E7EBF838A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_7E1E7EBF838A_impl*
 end;//TkwRightEditionFormPnLeft.GetAllParamsCount
 
 function TkwRightEditionFormPnLeft.ParamsTypes: PTypeInfoArray;
@@ -848,8 +856,12 @@ begin
 end;//TkwRightEditionFormEditionLink.GetResultTypeInfo
 
 function TkwRightEditionFormEditionLink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_D2C7803A2AFF_var*
+//#UC END# *559687E6025A_D2C7803A2AFF_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_D2C7803A2AFF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_D2C7803A2AFF_impl*
 end;//TkwRightEditionFormEditionLink.GetAllParamsCount
 
 function TkwRightEditionFormEditionLink.ParamsTypes: PTypeInfoArray;
@@ -906,8 +918,12 @@ begin
 end;//TkwRightEditionFormPbIcon.GetResultTypeInfo
 
 function TkwRightEditionFormPbIcon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_E1580AA1F7C8_var*
+//#UC END# *559687E6025A_E1580AA1F7C8_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_E1580AA1F7C8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_E1580AA1F7C8_impl*
 end;//TkwRightEditionFormPbIcon.GetAllParamsCount
 
 function TkwRightEditionFormPbIcon.ParamsTypes: PTypeInfoArray;
@@ -964,8 +980,12 @@ begin
 end;//TkwRightEditionFormPnCaption.GetResultTypeInfo
 
 function TkwRightEditionFormPnCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_AE83AF2A976A_var*
+//#UC END# *559687E6025A_AE83AF2A976A_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_AE83AF2A976A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_AE83AF2A976A_impl*
 end;//TkwRightEditionFormPnCaption.GetAllParamsCount
 
 function TkwRightEditionFormPnCaption.ParamsTypes: PTypeInfoArray;
@@ -1022,8 +1042,12 @@ begin
 end;//TkwRightEditionFormText.GetResultTypeInfo
 
 function TkwRightEditionFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_39642DBB84EF_var*
+//#UC END# *559687E6025A_39642DBB84EF_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_39642DBB84EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_39642DBB84EF_impl*
 end;//TkwRightEditionFormText.GetAllParamsCount
 
 function TkwRightEditionFormText.ParamsTypes: PTypeInfoArray;

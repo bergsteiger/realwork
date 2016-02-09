@@ -132,6 +132,11 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ , DocumentRes
+ , vtUtils
+ , evdStyles
+ , k2Tags
+ , BitmapPara_Const
  , nsHyperLinkProcessor
  , nsOpenUtils
  , nsConst
@@ -140,6 +145,7 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsHyperlinkProcessorTypes
+ , SysUtils
 ;
 
 type _Instance_R_ = TAbstractHistoryForm;
