@@ -367,12 +367,8 @@ begin
 end;//TkwEfEULAShellCaptionLabel.GetResultTypeInfo
 
 function TkwEfEULAShellCaptionLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_58C15386A400_var*
-//#UC END# *559687E6025A_58C15386A400_var*
 begin
-//#UC START# *559687E6025A_58C15386A400_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_58C15386A400_impl*
+ Result := 1;
 end;//TkwEfEULAShellCaptionLabel.GetAllParamsCount
 
 function TkwEfEULAShellCaptionLabel.ParamsTypes: PTypeInfoArray;
@@ -429,12 +425,8 @@ begin
 end;//TkwEfEULAOkButton.GetResultTypeInfo
 
 function TkwEfEULAOkButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_84B2391A0258_var*
-//#UC END# *559687E6025A_84B2391A0258_var*
 begin
-//#UC START# *559687E6025A_84B2391A0258_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_84B2391A0258_impl*
+ Result := 1;
 end;//TkwEfEULAOkButton.GetAllParamsCount
 
 function TkwEfEULAOkButton.ParamsTypes: PTypeInfoArray;
@@ -491,12 +483,8 @@ begin
 end;//TkwEfEULAEeMemoWithEditOperations1.GetResultTypeInfo
 
 function TkwEfEULAEeMemoWithEditOperations1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_ACE4A3A50395_var*
-//#UC END# *559687E6025A_ACE4A3A50395_var*
 begin
-//#UC START# *559687E6025A_ACE4A3A50395_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_ACE4A3A50395_impl*
+ Result := 1;
 end;//TkwEfEULAEeMemoWithEditOperations1.GetAllParamsCount
 
 function TkwEfEULAEeMemoWithEditOperations1.ParamsTypes: PTypeInfoArray;

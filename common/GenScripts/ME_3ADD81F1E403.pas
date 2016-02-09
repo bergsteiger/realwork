@@ -369,12 +369,8 @@ begin
 end;//TkwEnNavigatorBackgroundPanel.GetResultTypeInfo
 
 function TkwEnNavigatorBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_70C417ED0B1C_var*
-//#UC END# *559687E6025A_70C417ED0B1C_var*
 begin
-//#UC START# *559687E6025A_70C417ED0B1C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_70C417ED0B1C_impl*
+ Result := 1;
 end;//TkwEnNavigatorBackgroundPanel.GetAllParamsCount
 
 function TkwEnNavigatorBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -431,12 +427,8 @@ begin
 end;//TkwEnNavigatorContextFilter.GetResultTypeInfo
 
 function TkwEnNavigatorContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6F24A35F9C81_var*
-//#UC END# *559687E6025A_6F24A35F9C81_var*
 begin
-//#UC START# *559687E6025A_6F24A35F9C81_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6F24A35F9C81_impl*
+ Result := 1;
 end;//TkwEnNavigatorContextFilter.GetAllParamsCount
 
 function TkwEnNavigatorContextFilter.ParamsTypes: PTypeInfoArray;
@@ -493,12 +485,8 @@ begin
 end;//TkwEnNavigatorNavigatorTree.GetResultTypeInfo
 
 function TkwEnNavigatorNavigatorTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_584619536FEF_var*
-//#UC END# *559687E6025A_584619536FEF_var*
 begin
-//#UC START# *559687E6025A_584619536FEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_584619536FEF_impl*
+ Result := 1;
 end;//TkwEnNavigatorNavigatorTree.GetAllParamsCount
 
 function TkwEnNavigatorNavigatorTree.ParamsTypes: PTypeInfoArray;

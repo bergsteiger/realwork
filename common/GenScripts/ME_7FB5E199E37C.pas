@@ -946,12 +946,8 @@ begin
 end;//TkwShutDownFormShutdownTimer.GetResultTypeInfo
 
 function TkwShutDownFormShutdownTimer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DE97E923CA92_var*
-//#UC END# *559687E6025A_DE97E923CA92_var*
 begin
-//#UC START# *559687E6025A_DE97E923CA92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DE97E923CA92_impl*
+ Result := 1;
 end;//TkwShutDownFormShutdownTimer.GetAllParamsCount
 
 function TkwShutDownFormShutdownTimer.ParamsTypes: PTypeInfoArray;
@@ -1008,12 +1004,8 @@ begin
 end;//TkwShutDownFormVtPanel1.GetResultTypeInfo
 
 function TkwShutDownFormVtPanel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_158CF0E1A25F_var*
-//#UC END# *559687E6025A_158CF0E1A25F_var*
 begin
-//#UC START# *559687E6025A_158CF0E1A25F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_158CF0E1A25F_impl*
+ Result := 1;
 end;//TkwShutDownFormVtPanel1.GetAllParamsCount
 
 function TkwShutDownFormVtPanel1.ParamsTypes: PTypeInfoArray;
@@ -1070,12 +1062,8 @@ begin
 end;//TkwShutDownFormLeftPanel.GetResultTypeInfo
 
 function TkwShutDownFormLeftPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_59E9C9B4EA9C_var*
-//#UC END# *559687E6025A_59E9C9B4EA9C_var*
 begin
-//#UC START# *559687E6025A_59E9C9B4EA9C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_59E9C9B4EA9C_impl*
+ Result := 1;
 end;//TkwShutDownFormLeftPanel.GetAllParamsCount
 
 function TkwShutDownFormLeftPanel.ParamsTypes: PTypeInfoArray;
@@ -1132,12 +1120,8 @@ begin
 end;//TkwShutDownFormImage.GetResultTypeInfo
 
 function TkwShutDownFormImage.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E7709C854526_var*
-//#UC END# *559687E6025A_E7709C854526_var*
 begin
-//#UC START# *559687E6025A_E7709C854526_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E7709C854526_impl*
+ Result := 1;
 end;//TkwShutDownFormImage.GetAllParamsCount
 
 function TkwShutDownFormImage.ParamsTypes: PTypeInfoArray;
@@ -1194,12 +1178,8 @@ begin
 end;//TkwShutDownFormCenterPanel.GetResultTypeInfo
 
 function TkwShutDownFormCenterPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_656B67C7EC87_var*
-//#UC END# *559687E6025A_656B67C7EC87_var*
 begin
-//#UC START# *559687E6025A_656B67C7EC87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_656B67C7EC87_impl*
+ Result := 1;
 end;//TkwShutDownFormCenterPanel.GetAllParamsCount
 
 function TkwShutDownFormCenterPanel.ParamsTypes: PTypeInfoArray;
@@ -1256,12 +1236,8 @@ begin
 end;//TkwShutDownFormTopSpacerPanel.GetResultTypeInfo
 
 function TkwShutDownFormTopSpacerPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_00128E113C54_var*
-//#UC END# *559687E6025A_00128E113C54_var*
 begin
-//#UC START# *559687E6025A_00128E113C54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_00128E113C54_impl*
+ Result := 1;
 end;//TkwShutDownFormTopSpacerPanel.GetAllParamsCount
 
 function TkwShutDownFormTopSpacerPanel.ParamsTypes: PTypeInfoArray;
@@ -1318,12 +1294,8 @@ begin
 end;//TkwShutDownFormWarningText.GetResultTypeInfo
 
 function TkwShutDownFormWarningText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3CE1A3888F23_var*
-//#UC END# *559687E6025A_3CE1A3888F23_var*
 begin
-//#UC START# *559687E6025A_3CE1A3888F23_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3CE1A3888F23_impl*
+ Result := 1;
 end;//TkwShutDownFormWarningText.GetAllParamsCount
 
 function TkwShutDownFormWarningText.ParamsTypes: PTypeInfoArray;
@@ -1380,12 +1352,8 @@ begin
 end;//TkwShutDownFormRightSpacerPanel.GetResultTypeInfo
 
 function TkwShutDownFormRightSpacerPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C2796C4F6F52_var*
-//#UC END# *559687E6025A_C2796C4F6F52_var*
 begin
-//#UC START# *559687E6025A_C2796C4F6F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C2796C4F6F52_impl*
+ Result := 1;
 end;//TkwShutDownFormRightSpacerPanel.GetAllParamsCount
 
 function TkwShutDownFormRightSpacerPanel.ParamsTypes: PTypeInfoArray;
@@ -1442,12 +1410,8 @@ begin
 end;//TkwShutDownFormPnlBottom.GetResultTypeInfo
 
 function TkwShutDownFormPnlBottom.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_27832B920452_var*
-//#UC END# *559687E6025A_27832B920452_var*
 begin
-//#UC START# *559687E6025A_27832B920452_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_27832B920452_impl*
+ Result := 1;
 end;//TkwShutDownFormPnlBottom.GetAllParamsCount
 
 function TkwShutDownFormPnlBottom.ParamsTypes: PTypeInfoArray;
@@ -1504,12 +1468,8 @@ begin
 end;//TkwShutDownFormCloseButton.GetResultTypeInfo
 
 function TkwShutDownFormCloseButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1E09A179F85E_var*
-//#UC END# *559687E6025A_1E09A179F85E_var*
 begin
-//#UC START# *559687E6025A_1E09A179F85E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1E09A179F85E_impl*
+ Result := 1;
 end;//TkwShutDownFormCloseButton.GetAllParamsCount
 
 function TkwShutDownFormCloseButton.ParamsTypes: PTypeInfoArray;

@@ -801,12 +801,8 @@ begin
 end;//TkwLongProcessFormClientPanel.GetResultTypeInfo
 
 function TkwLongProcessFormClientPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_486A220C7922_var*
-//#UC END# *559687E6025A_486A220C7922_var*
 begin
-//#UC START# *559687E6025A_486A220C7922_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_486A220C7922_impl*
+ Result := 1;
 end;//TkwLongProcessFormClientPanel.GetAllParamsCount
 
 function TkwLongProcessFormClientPanel.ParamsTypes: PTypeInfoArray;
@@ -863,12 +859,8 @@ begin
 end;//TkwLongProcessFormMessageLabel.GetResultTypeInfo
 
 function TkwLongProcessFormMessageLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_70AD8C304A76_var*
-//#UC END# *559687E6025A_70AD8C304A76_var*
 begin
-//#UC START# *559687E6025A_70AD8C304A76_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_70AD8C304A76_impl*
+ Result := 1;
 end;//TkwLongProcessFormMessageLabel.GetAllParamsCount
 
 function TkwLongProcessFormMessageLabel.ParamsTypes: PTypeInfoArray;
@@ -925,12 +917,8 @@ begin
 end;//TkwLongProcessFormBottomPanel.GetResultTypeInfo
 
 function TkwLongProcessFormBottomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7257AAEDA827_var*
-//#UC END# *559687E6025A_7257AAEDA827_var*
 begin
-//#UC START# *559687E6025A_7257AAEDA827_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7257AAEDA827_impl*
+ Result := 1;
 end;//TkwLongProcessFormBottomPanel.GetAllParamsCount
 
 function TkwLongProcessFormBottomPanel.ParamsTypes: PTypeInfoArray;
@@ -987,12 +975,8 @@ begin
 end;//TkwLongProcessFormProgressBar.GetResultTypeInfo
 
 function TkwLongProcessFormProgressBar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B362DE4317E9_var*
-//#UC END# *559687E6025A_B362DE4317E9_var*
 begin
-//#UC START# *559687E6025A_B362DE4317E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B362DE4317E9_impl*
+ Result := 1;
 end;//TkwLongProcessFormProgressBar.GetAllParamsCount
 
 function TkwLongProcessFormProgressBar.ParamsTypes: PTypeInfoArray;
@@ -1049,12 +1033,8 @@ begin
 end;//TkwLongProcessFormLeftPanel.GetResultTypeInfo
 
 function TkwLongProcessFormLeftPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_763DFD3968B4_var*
-//#UC END# *559687E6025A_763DFD3968B4_var*
 begin
-//#UC START# *559687E6025A_763DFD3968B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_763DFD3968B4_impl*
+ Result := 1;
 end;//TkwLongProcessFormLeftPanel.GetAllParamsCount
 
 function TkwLongProcessFormLeftPanel.ParamsTypes: PTypeInfoArray;
@@ -1111,12 +1091,8 @@ begin
 end;//TkwLongProcessFormImage.GetResultTypeInfo
 
 function TkwLongProcessFormImage.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E257BCDBC2B9_var*
-//#UC END# *559687E6025A_E257BCDBC2B9_var*
 begin
-//#UC START# *559687E6025A_E257BCDBC2B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E257BCDBC2B9_impl*
+ Result := 1;
 end;//TkwLongProcessFormImage.GetAllParamsCount
 
 function TkwLongProcessFormImage.ParamsTypes: PTypeInfoArray;
@@ -1173,12 +1149,8 @@ begin
 end;//TkwLongProcessFormButtonPanel.GetResultTypeInfo
 
 function TkwLongProcessFormButtonPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_372A17FE3DFD_var*
-//#UC END# *559687E6025A_372A17FE3DFD_var*
 begin
-//#UC START# *559687E6025A_372A17FE3DFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_372A17FE3DFD_impl*
+ Result := 1;
 end;//TkwLongProcessFormButtonPanel.GetAllParamsCount
 
 function TkwLongProcessFormButtonPanel.ParamsTypes: PTypeInfoArray;
@@ -1235,12 +1207,8 @@ begin
 end;//TkwLongProcessFormBtnExit.GetResultTypeInfo
 
 function TkwLongProcessFormBtnExit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_ECD55A49EDCE_var*
-//#UC END# *559687E6025A_ECD55A49EDCE_var*
 begin
-//#UC START# *559687E6025A_ECD55A49EDCE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_ECD55A49EDCE_impl*
+ Result := 1;
 end;//TkwLongProcessFormBtnExit.GetAllParamsCount
 
 function TkwLongProcessFormBtnExit.ParamsTypes: PTypeInfoArray;

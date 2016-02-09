@@ -195,12 +195,8 @@ begin
 end;//TkwEnTasksPanelTpvMain.GetResultTypeInfo
 
 function TkwEnTasksPanelTpvMain.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_934E9DB43F55_var*
-//#UC END# *559687E6025A_934E9DB43F55_var*
 begin
-//#UC START# *559687E6025A_934E9DB43F55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_934E9DB43F55_impl*
+ Result := 1;
 end;//TkwEnTasksPanelTpvMain.GetAllParamsCount
 
 function TkwEnTasksPanelTpvMain.ParamsTypes: PTypeInfoArray;

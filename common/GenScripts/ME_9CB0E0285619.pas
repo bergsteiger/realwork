@@ -541,12 +541,8 @@ begin
 end;//TkwRememberPasswordFormEMailLabel.GetResultTypeInfo
 
 function TkwRememberPasswordFormEMailLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8762FC4AA6B6_var*
-//#UC END# *559687E6025A_8762FC4AA6B6_var*
 begin
-//#UC START# *559687E6025A_8762FC4AA6B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8762FC4AA6B6_impl*
+ Result := 1;
 end;//TkwRememberPasswordFormEMailLabel.GetAllParamsCount
 
 function TkwRememberPasswordFormEMailLabel.ParamsTypes: PTypeInfoArray;
@@ -603,12 +599,8 @@ begin
 end;//TkwRememberPasswordFormHintLabel.GetResultTypeInfo
 
 function TkwRememberPasswordFormHintLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E057630A6AF4_var*
-//#UC END# *559687E6025A_E057630A6AF4_var*
 begin
-//#UC START# *559687E6025A_E057630A6AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E057630A6AF4_impl*
+ Result := 1;
 end;//TkwRememberPasswordFormHintLabel.GetAllParamsCount
 
 function TkwRememberPasswordFormHintLabel.ParamsTypes: PTypeInfoArray;
@@ -665,12 +657,8 @@ begin
 end;//TkwRememberPasswordFormBtnCancel.GetResultTypeInfo
 
 function TkwRememberPasswordFormBtnCancel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1DAD0A24AD05_var*
-//#UC END# *559687E6025A_1DAD0A24AD05_var*
 begin
-//#UC START# *559687E6025A_1DAD0A24AD05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1DAD0A24AD05_impl*
+ Result := 1;
 end;//TkwRememberPasswordFormBtnCancel.GetAllParamsCount
 
 function TkwRememberPasswordFormBtnCancel.ParamsTypes: PTypeInfoArray;
@@ -727,12 +715,8 @@ begin
 end;//TkwRememberPasswordFormBtnSend.GetResultTypeInfo
 
 function TkwRememberPasswordFormBtnSend.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9D168AD23177_var*
-//#UC END# *559687E6025A_9D168AD23177_var*
 begin
-//#UC START# *559687E6025A_9D168AD23177_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9D168AD23177_impl*
+ Result := 1;
 end;//TkwRememberPasswordFormBtnSend.GetAllParamsCount
 
 function TkwRememberPasswordFormBtnSend.ParamsTypes: PTypeInfoArray;
@@ -789,12 +773,8 @@ begin
 end;//TkwRememberPasswordFormEdEmail.GetResultTypeInfo
 
 function TkwRememberPasswordFormEdEmail.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AA3BE956D240_var*
-//#UC END# *559687E6025A_AA3BE956D240_var*
 begin
-//#UC START# *559687E6025A_AA3BE956D240_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AA3BE956D240_impl*
+ Result := 1;
 end;//TkwRememberPasswordFormEdEmail.GetAllParamsCount
 
 function TkwRememberPasswordFormEdEmail.ParamsTypes: PTypeInfoArray;

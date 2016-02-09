@@ -193,12 +193,8 @@ begin
 end;//TkwEnSelectedAttributesSelectedTree.GetResultTypeInfo
 
 function TkwEnSelectedAttributesSelectedTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A201FE36705B_var*
-//#UC END# *559687E6025A_A201FE36705B_var*
 begin
-//#UC START# *559687E6025A_A201FE36705B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A201FE36705B_impl*
+ Result := 1;
 end;//TkwEnSelectedAttributesSelectedTree.GetAllParamsCount
 
 function TkwEnSelectedAttributesSelectedTree.ParamsTypes: PTypeInfoArray;

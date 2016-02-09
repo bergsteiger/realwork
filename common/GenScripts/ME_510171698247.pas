@@ -1497,12 +1497,8 @@ begin
 end;//TkwLoginFormRegisteredGroupBox.GetResultTypeInfo
 
 function TkwLoginFormRegisteredGroupBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9B4F211D4C21_var*
-//#UC END# *559687E6025A_9B4F211D4C21_var*
 begin
-//#UC START# *559687E6025A_9B4F211D4C21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9B4F211D4C21_impl*
+ Result := 1;
 end;//TkwLoginFormRegisteredGroupBox.GetAllParamsCount
 
 function TkwLoginFormRegisteredGroupBox.ParamsTypes: PTypeInfoArray;
@@ -1559,12 +1555,8 @@ begin
 end;//TkwLoginFormLblLogin.GetResultTypeInfo
 
 function TkwLoginFormLblLogin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FFD5E9C273CA_var*
-//#UC END# *559687E6025A_FFD5E9C273CA_var*
 begin
-//#UC START# *559687E6025A_FFD5E9C273CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FFD5E9C273CA_impl*
+ Result := 1;
 end;//TkwLoginFormLblLogin.GetAllParamsCount
 
 function TkwLoginFormLblLogin.ParamsTypes: PTypeInfoArray;
@@ -1621,12 +1613,8 @@ begin
 end;//TkwLoginFormLblPassword.GetResultTypeInfo
 
 function TkwLoginFormLblPassword.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_ADC1F68E0487_var*
-//#UC END# *559687E6025A_ADC1F68E0487_var*
 begin
-//#UC START# *559687E6025A_ADC1F68E0487_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_ADC1F68E0487_impl*
+ Result := 1;
 end;//TkwLoginFormLblPassword.GetAllParamsCount
 
 function TkwLoginFormLblPassword.ParamsTypes: PTypeInfoArray;
@@ -1683,12 +1671,8 @@ begin
 end;//TkwLoginFormEnterPaintBox.GetResultTypeInfo
 
 function TkwLoginFormEnterPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_75E9BCD66298_var*
-//#UC END# *559687E6025A_75E9BCD66298_var*
 begin
-//#UC START# *559687E6025A_75E9BCD66298_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_75E9BCD66298_impl*
+ Result := 1;
 end;//TkwLoginFormEnterPaintBox.GetAllParamsCount
 
 function TkwLoginFormEnterPaintBox.ParamsTypes: PTypeInfoArray;
@@ -1745,12 +1729,8 @@ begin
 end;//TkwLoginFormEdUserName.GetResultTypeInfo
 
 function TkwLoginFormEdUserName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C550F6E48B7D_var*
-//#UC END# *559687E6025A_C550F6E48B7D_var*
 begin
-//#UC START# *559687E6025A_C550F6E48B7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C550F6E48B7D_impl*
+ Result := 1;
 end;//TkwLoginFormEdUserName.GetAllParamsCount
 
 function TkwLoginFormEdUserName.ParamsTypes: PTypeInfoArray;
@@ -1807,12 +1787,8 @@ begin
 end;//TkwLoginFormEdPassword.GetResultTypeInfo
 
 function TkwLoginFormEdPassword.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7BF42C20181F_var*
-//#UC END# *559687E6025A_7BF42C20181F_var*
 begin
-//#UC START# *559687E6025A_7BF42C20181F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7BF42C20181F_impl*
+ Result := 1;
 end;//TkwLoginFormEdPassword.GetAllParamsCount
 
 function TkwLoginFormEdPassword.ParamsTypes: PTypeInfoArray;
@@ -1869,12 +1845,8 @@ begin
 end;//TkwLoginFormLblForgetPassword.GetResultTypeInfo
 
 function TkwLoginFormLblForgetPassword.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1E431A639AC6_var*
-//#UC END# *559687E6025A_1E431A639AC6_var*
 begin
-//#UC START# *559687E6025A_1E431A639AC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1E431A639AC6_impl*
+ Result := 1;
 end;//TkwLoginFormLblForgetPassword.GetAllParamsCount
 
 function TkwLoginFormLblForgetPassword.ParamsTypes: PTypeInfoArray;
@@ -1931,12 +1903,8 @@ begin
 end;//TkwLoginFormCbAutoLogin.GetResultTypeInfo
 
 function TkwLoginFormCbAutoLogin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7240CBBD5078_var*
-//#UC END# *559687E6025A_7240CBBD5078_var*
 begin
-//#UC START# *559687E6025A_7240CBBD5078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7240CBBD5078_impl*
+ Result := 1;
 end;//TkwLoginFormCbAutoLogin.GetAllParamsCount
 
 function TkwLoginFormCbAutoLogin.ParamsTypes: PTypeInfoArray;
@@ -1993,12 +1961,8 @@ begin
 end;//TkwLoginFormBtnOk.GetResultTypeInfo
 
 function TkwLoginFormBtnOk.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_82596223B513_var*
-//#UC END# *559687E6025A_82596223B513_var*
 begin
-//#UC START# *559687E6025A_82596223B513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_82596223B513_impl*
+ Result := 1;
 end;//TkwLoginFormBtnOk.GetAllParamsCount
 
 function TkwLoginFormBtnOk.ParamsTypes: PTypeInfoArray;
@@ -2055,12 +2019,8 @@ begin
 end;//TkwLoginFormNewUserGroupBox.GetResultTypeInfo
 
 function TkwLoginFormNewUserGroupBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_03381F46504D_var*
-//#UC END# *559687E6025A_03381F46504D_var*
 begin
-//#UC START# *559687E6025A_03381F46504D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_03381F46504D_impl*
+ Result := 1;
 end;//TkwLoginFormNewUserGroupBox.GetAllParamsCount
 
 function TkwLoginFormNewUserGroupBox.ParamsTypes: PTypeInfoArray;
@@ -2117,12 +2077,8 @@ begin
 end;//TkwLoginFormNewUserLabel.GetResultTypeInfo
 
 function TkwLoginFormNewUserLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FEA3248A13D0_var*
-//#UC END# *559687E6025A_FEA3248A13D0_var*
 begin
-//#UC START# *559687E6025A_FEA3248A13D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FEA3248A13D0_impl*
+ Result := 1;
 end;//TkwLoginFormNewUserLabel.GetAllParamsCount
 
 function TkwLoginFormNewUserLabel.ParamsTypes: PTypeInfoArray;
@@ -2179,12 +2135,8 @@ begin
 end;//TkwLoginFormNewUserPaintBox.GetResultTypeInfo
 
 function TkwLoginFormNewUserPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_545C2415CF4A_var*
-//#UC END# *559687E6025A_545C2415CF4A_var*
 begin
-//#UC START# *559687E6025A_545C2415CF4A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_545C2415CF4A_impl*
+ Result := 1;
 end;//TkwLoginFormNewUserPaintBox.GetAllParamsCount
 
 function TkwLoginFormNewUserPaintBox.ParamsTypes: PTypeInfoArray;
@@ -2241,12 +2193,8 @@ begin
 end;//TkwLoginFormLblNewUser.GetResultTypeInfo
 
 function TkwLoginFormLblNewUser.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BD193B22974F_var*
-//#UC END# *559687E6025A_BD193B22974F_var*
 begin
-//#UC START# *559687E6025A_BD193B22974F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BD193B22974F_impl*
+ Result := 1;
 end;//TkwLoginFormLblNewUser.GetAllParamsCount
 
 function TkwLoginFormLblNewUser.ParamsTypes: PTypeInfoArray;
@@ -2303,12 +2251,8 @@ begin
 end;//TkwLoginFormHelpPanel.GetResultTypeInfo
 
 function TkwLoginFormHelpPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1EF3C1D6EB3F_var*
-//#UC END# *559687E6025A_1EF3C1D6EB3F_var*
 begin
-//#UC START# *559687E6025A_1EF3C1D6EB3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1EF3C1D6EB3F_impl*
+ Result := 1;
 end;//TkwLoginFormHelpPanel.GetAllParamsCount
 
 function TkwLoginFormHelpPanel.ParamsTypes: PTypeInfoArray;
@@ -2365,12 +2309,8 @@ begin
 end;//TkwLoginFormHelpPaintBox.GetResultTypeInfo
 
 function TkwLoginFormHelpPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0D089B690A42_var*
-//#UC END# *559687E6025A_0D089B690A42_var*
 begin
-//#UC START# *559687E6025A_0D089B690A42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0D089B690A42_impl*
+ Result := 1;
 end;//TkwLoginFormHelpPaintBox.GetAllParamsCount
 
 function TkwLoginFormHelpPaintBox.ParamsTypes: PTypeInfoArray;
@@ -2427,12 +2367,8 @@ begin
 end;//TkwLoginFormHelpLabel.GetResultTypeInfo
 
 function TkwLoginFormHelpLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_61075CCC4E17_var*
-//#UC END# *559687E6025A_61075CCC4E17_var*
 begin
-//#UC START# *559687E6025A_61075CCC4E17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_61075CCC4E17_impl*
+ Result := 1;
 end;//TkwLoginFormHelpLabel.GetAllParamsCount
 
 function TkwLoginFormHelpLabel.ParamsTypes: PTypeInfoArray;

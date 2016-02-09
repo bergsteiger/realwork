@@ -367,12 +367,8 @@ begin
 end;//TkwCfAttributeSelectBackgroundPanel.GetResultTypeInfo
 
 function TkwCfAttributeSelectBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_89575F4DA07E_var*
-//#UC END# *559687E6025A_89575F4DA07E_var*
 begin
-//#UC START# *559687E6025A_89575F4DA07E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_89575F4DA07E_impl*
+ Result := 1;
 end;//TkwCfAttributeSelectBackgroundPanel.GetAllParamsCount
 
 function TkwCfAttributeSelectBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -429,12 +425,8 @@ begin
 end;//TkwCfAttributeSelectSelectedZone.GetResultTypeInfo
 
 function TkwCfAttributeSelectSelectedZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_74458A23E791_var*
-//#UC END# *559687E6025A_74458A23E791_var*
 begin
-//#UC START# *559687E6025A_74458A23E791_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_74458A23E791_impl*
+ Result := 1;
 end;//TkwCfAttributeSelectSelectedZone.GetAllParamsCount
 
 function TkwCfAttributeSelectSelectedZone.ParamsTypes: PTypeInfoArray;
@@ -491,12 +483,8 @@ begin
 end;//TkwCfAttributeSelectValuesZone.GetResultTypeInfo
 
 function TkwCfAttributeSelectValuesZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_122E41686ED8_var*
-//#UC END# *559687E6025A_122E41686ED8_var*
 begin
-//#UC START# *559687E6025A_122E41686ED8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_122E41686ED8_impl*
+ Result := 1;
 end;//TkwCfAttributeSelectValuesZone.GetAllParamsCount
 
 function TkwCfAttributeSelectValuesZone.ParamsTypes: PTypeInfoArray;
