@@ -1759,7 +1759,7 @@ end;//TkwStringSplit.GetResultTypeInfo
 
 function TkwStringSplit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
 begin
- Result := 3;
+ Result := 2;
 end;//TkwStringSplit.GetAllParamsCount
 
 function TkwStringSplit.ParamsTypes: PTypeInfoArray;
