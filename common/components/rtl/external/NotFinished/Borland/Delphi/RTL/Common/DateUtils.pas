@@ -1,34 +1,26 @@
 unit DateUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/DateUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Common::DateUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\DateUtils.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  { DateTimeConsts }
  MonthsPerYear = 12;
 
-function YearOf(const AValue: TDateTime): Word;
 procedure MillisecondsBetween;
-   {* Сигнатура метода MillisecondsBetween }
 procedure IncDay;
-   {* Сигнатура метода IncDay }
+function YearOf(const AValue: TDateTime): Word;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure MillisecondsBetween;
 //#UC START# *54EC25F3023A_48D391C60190_var*

@@ -1,24 +1,14 @@
 unit ComObj;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/ComObj.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Common::ComObj
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\ComObj.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
 uses
-  SysUtils
-  ;
+ l3IntfUses
+ , SysUtils
+;
 
 type
  EOleError = class(Exception)
@@ -28,12 +18,14 @@ type
  EOleSysError = class(EOleError)
   {* EOleSysError is the exception class for errors specific to the OLE IDispatch interface }
  end;//EOleSysError
+
 procedure OleCheck;
-   {* Сигнатура метода OleCheck }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure OleCheck;
 //#UC START# *4D186F8401C5_4981AC0701C1_var*

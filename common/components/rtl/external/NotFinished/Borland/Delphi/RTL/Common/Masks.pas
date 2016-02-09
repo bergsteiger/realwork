@@ -1,24 +1,14 @@
 unit Masks;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/Masks.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Common::Masks
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Masks.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
 uses
-  SysUtils
-  ;
+ l3IntfUses
+ , SysUtils
+;
 
 type
  EMaskException = class(Exception)
@@ -29,15 +19,18 @@ type
  end;//TMask
 
 function MatchesMask(const Filename: AnsiString;
-  const Mask: AnsiString): Boolean;
-   {* Indicates whether a file name conforms to the format specified by a filter string. }
+ const Mask: AnsiString): Boolean;
+ {* Indicates whether a file name conforms to the format specified by a filter string. }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 function MatchesMask(const Filename: AnsiString;
-  const Mask: AnsiString): Boolean;
+ const Mask: AnsiString): Boolean;
+ {* Indicates whether a file name conforms to the format specified by a filter string. }
 //#UC START# *50254A2603D3_502549AF030B_var*
 //#UC END# *50254A2603D3_502549AF030B_var*
 begin

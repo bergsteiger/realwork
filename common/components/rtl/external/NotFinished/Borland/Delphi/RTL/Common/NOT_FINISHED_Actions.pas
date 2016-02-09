@@ -1,29 +1,26 @@
 unit NOT_FINISHED_Actions;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/NOT_FINISHED_Actions.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Common::Actions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\NOT_FINISHED_Actions.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If defined(XE)}
+{$If Defined(XE)}
+uses
+ l3IntfUses
+;
+
 type
  TCustomShortCutList = class
  end;//TCustomShortCutList
-{$IfEnd} //XE
+{$IfEnd} // Defined(XE)
 
 implementation
 
-{$If defined(XE)}
-{$IfEnd} //XE
+{$If Defined(XE)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(XE)
+
 end.

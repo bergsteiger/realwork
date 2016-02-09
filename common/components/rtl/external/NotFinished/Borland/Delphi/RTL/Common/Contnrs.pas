@@ -1,24 +1,14 @@
 unit Contnrs;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/Contnrs.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Common::Contnrs
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Contnrs.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
 uses
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+;
 
 type
  TObjectList = class(TList)
@@ -38,5 +28,9 @@ type
  end;//TBucketList
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

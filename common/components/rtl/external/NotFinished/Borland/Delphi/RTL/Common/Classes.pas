@@ -1,64 +1,49 @@
 unit Classes;
+ {* Реализация модуля Classes. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/Classes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Common::Classes
-//
-// Реализация модуля Classes.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Classes.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
 uses
-  ActiveX,
-  Messages,
-  SysUtils
-  ;
+ l3IntfUses
+ , Messages
+ , ActiveX
+ , SysUtils
+;
 
 type
  TFiler = class(TObject)
  end;//TFiler
 
  TPersistent = class(TObject)
- protected
- // protected methods
+  protected
    procedure DefineProperties(Filer: TFiler); virtual;
    function GetNamePath: String; virtual;
    procedure AssignTo(Dest: TPersistent); virtual;
    function GetOwner: TPersistent; virtual;
- public
- // public methods
+  public
    procedure Assign(Source: TPersistent); virtual;
  end;//TPersistent
 
  TComponentName = ;
 
- TWndMethod = procedure (var Message: TMessage) of object;
+ TWndMethod = procedure(var Message: TMessage) of object;
 
  TBiDiMode = (
-   
  );//TBiDiMode
 
  TSeekOrigin = (
   {* TStream seek origins }
-   soBeginning
- , soCurrent
- , soEnd
+  soBeginning
+  , soCurrent
+  , soEnd
  );//TSeekOrigin
 
  TStrings = class(TPersistent)
   {* TStrings is the base class for objects that represent a list of strings. }
- protected
- // protected methods
+  protected
    function Get(Index: Integer): String; virtual; abstract;
    procedure Put(Index: Integer;
     const S: String); virtual; abstract;
@@ -66,16 +51,15 @@ type
    function GetObject(Index: Integer): TObject; virtual;
    procedure PutObject(Index: Integer;
     AObject: TObject); virtual;
- public
- // public methods
+  public
    procedure Clear; virtual; abstract;
    procedure Insert(Index: Integer;
     const S: String); virtual; abstract;
  end;//TStrings
 
  TOperation = (
-   opInsert
- , opRemove
+  opInsert
+  , opRemove
  );//TOperation
 
  TList = class(TObject)
@@ -84,15 +68,15 @@ type
 
  TStringList = class(TStrings)
   {* TStringList maintains a list of strings. }
- protected
- // realized methods
-   procedure Clear; override;
-   procedure Insert(Index: Integer;
-    const S: String); override;
+  protected
    function Get(Index: Integer): String; override;
    procedure Put(Index: Integer;
     const S: String); override;
    function GetCount: Integer; override;
+  public
+   procedure Clear; override;
+   procedure Insert(Index: Integer;
+    const S: String); override;
  end;//TStringList
 
  TInterfaceList = class(TInterfacedObject)
@@ -100,9 +84,9 @@ type
  end;//TInterfaceList
 
  TDuplicates = (
-   dupIgnore
- , dupAccept
- , dupError
+  dupIgnore
+  , dupAccept
+  , dupError
  );//TDuplicates
 
  TStreamAdapter = class(TInterfacedObject, IStream)
@@ -111,28 +95,25 @@ type
 
  TStream = class(TObject)
   {* TStream is the base class type for stream objects that can read from or write to various kinds of storage media, such as disk files, dynamic memory, and so on }
- protected
- // protected methods
+  protected
    procedure SetSize(const NewSize: Int64); virtual;
- public
- // public methods
+  public
    function Read(var Buffer;
     Count: Integer): Integer; virtual; abstract;
-   function Write(const Buffer;
+   function Write(Buffer;
     Count: Integer): Integer; virtual; abstract;
    function Seek(Offset: Integer;
-    Origin: Word): Integer; overload;  virtual;
+    Origin: Word): Integer; overload; virtual;
    function Seek(const Offset: Int64;
-    Origin: TSeekOrigin): Int64; overload;  virtual;
+    Origin: TSeekOrigin): Int64; overload; virtual;
  end;//TStream
 
  TCustomMemoryStream = {abstract} class(TStream)
   {* TCustomMemoryStream is an abstract base class used as the common ancestor for memory streams }
- protected
- // realized methods
+  public
    function Read(var Buffer;
     Count: Integer): Integer; override;
-   function Write(const Buffer;
+   function Write(Buffer;
     Count: Integer): Integer; override;
  end;//TCustomMemoryStream
 
@@ -159,8 +140,7 @@ type
 
  TThread = class(TObject)
   {* TThread is an abstract class that enables creation of separate threads of execution in an application. }
- protected
- // protected methods
+  protected
    procedure Execute; virtual; abstract;
  end;//TThread
 
@@ -169,26 +149,25 @@ type
  end;//TMemoryStream
 
  TShiftState = (
-   ssShift
- , ssAlt
- , ssCtrl
- , ssLeft
- , ssRight
- , ssMiddle
- , ssDouble
+  ssShift
+  , ssAlt
+  , ssCtrl
+  , ssLeft
+  , ssRight
+  , ssMiddle
+  , ssDouble
  );//TShiftState
 
- TShortCut = ;
+ TShortCut =  .. ;
 
  TAlignment = (
-   
  );//TAlignment
 
  EListError = class(Exception)
  end;//EListError
 
- TNotifyEvent = procedure (Sender: TObject) of object;
-   {* TNotifyEvent is used for events that do not require parameters. }
+ TNotifyEvent = procedure(Sender: TObject) of object;
+  {* TNotifyEvent is used for events that do not require parameters. }
 
  EStreamError = class
  end;//EStreamError
@@ -198,49 +177,42 @@ type
 
  TComponent = class(TPersistent)
   {* TComponent is the common ancestor of all component classes. }
- protected
- // protected methods
+  protected
    procedure Notification(AComponent: TComponent;
-     Operation: TOperation); virtual;
+    Operation: TOperation); virtual;
    procedure WriteState(Writer: TWriter); virtual;
    procedure SetName(const aValue: TComponentName); virtual;
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; virtual; stdcall;
    procedure Loaded; virtual;
- public
- // public methods
+  public
    constructor Create(AOwner: TComponent); reintroduce; virtual;
  end;//TComponent
 
  TDataModule = class(TComponent)
  end;//TDataModule
 
-
  TCollection = class;
 
  TCollectionItem = class(TPersistent)
- protected
- // protected methods
+  protected
    procedure SetIndex(Value: Integer); virtual;
    function GetDisplayName: String; virtual;
- public
- // public methods
+  public
    constructor Create(aCollection: TCollection); reintroduce; virtual;
  end;//TCollectionItem
 
  TCollectionNotification = (
-   
  );//TCollectionNotification
 
  TCollection = class(TPersistent)
- protected
- // protected methods
+  protected
    procedure Notify(Item: TCollectionItem;
-     Action: TCollectionNotification); virtual;
+    Action: TCollectionNotification); virtual;
    function GetAttrCount: Integer; virtual;
    function GetAttr(Index: Integer): AnsiString; virtual;
    function GetItemAttr(Index: Integer;
-     ItemIndex: Integer): AnsiString; virtual;
+    ItemIndex: Integer): AnsiString; virtual;
  end;//TCollection
 
  TCollectionItemClass = class of TCollectionItem;
@@ -256,8 +228,7 @@ type
  end;//TOwnedCollection
 
  TThread = class(TObject)
- protected
- // protected methods
+  protected
    procedure Execute; virtual; abstract;
  end;//TThread
 
@@ -266,8 +237,7 @@ type
  THelpType = ;
 
  TBasicActionLink = class(TObject)
- protected
- // protected methods
+  protected
    procedure AssignClient(AClient: TObject); virtual;
  end;//TBasicActionLink
 
@@ -276,27 +246,39 @@ type
 
  EReadError = class(Exception)
  end;//EReadError
+
 procedure Rect;
-   {* Сигнатура метода Rect }
 procedure AllocateHWnd(Mathod: TWndMethod);
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  ComponentsProcessingPack
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , ComponentsProcessingPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class TPersistent
+procedure Rect;
+//#UC START# *4CB722C101EB_478CF30500C1_var*
+//#UC END# *4CB722C101EB_478CF30500C1_var*
+begin
+//#UC START# *4CB722C101EB_478CF30500C1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4CB722C101EB_478CF30500C1_impl*
+end;//Rect
+
+procedure AllocateHWnd(Mathod: TWndMethod);
+//#UC START# *549BCFD20030_478CF30500C1_var*
+//#UC END# *549BCFD20030_478CF30500C1_var*
+begin
+//#UC START# *549BCFD20030_478CF30500C1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *549BCFD20030_478CF30500C1_impl*
+end;//AllocateHWnd
 
 procedure TPersistent.DefineProperties(Filer: TFiler);
 //#UC START# *4FD08EF002D0_478CF32A03B6_var*
@@ -342,7 +324,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *480DD1890221_478CF32A03B6_impl*
 end;//TPersistent.GetOwner
-// start class TStrings
 
 function TStrings.GetObject(Index: Integer): TObject;
 //#UC START# *47E21BAA029A_47E21A8A0324_var*
@@ -354,7 +335,7 @@ begin
 end;//TStrings.GetObject
 
 procedure TStrings.PutObject(Index: Integer;
-  AObject: TObject);
+ AObject: TObject);
 //#UC START# *47E21BC40258_47E21A8A0324_var*
 //#UC END# *47E21BC40258_47E21A8A0324_var*
 begin
@@ -362,7 +343,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47E21BC40258_47E21A8A0324_impl*
 end;//TStrings.PutObject
-// start class TStringList
 
 procedure TStringList.Clear;
 //#UC START# *47E21AB50104_4807756101FE_var*
@@ -374,7 +354,7 @@ begin
 end;//TStringList.Clear
 
 procedure TStringList.Insert(Index: Integer;
-  const S: String);
+ const S: String);
 //#UC START# *47E21AD40366_4807756101FE_var*
 //#UC END# *47E21AD40366_4807756101FE_var*
 begin
@@ -393,7 +373,7 @@ begin
 end;//TStringList.Get
 
 procedure TStringList.Put(Index: Integer;
-  const S: String);
+ const S: String);
 //#UC START# *47E21B0A0167_4807756101FE_var*
 //#UC END# *47E21B0A0167_4807756101FE_var*
 begin
@@ -410,7 +390,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47E21B2403D5_4807756101FE_impl*
 end;//TStringList.GetCount
-// start class TStream
 
 procedure TStream.SetSize(const NewSize: Int64);
 //#UC START# *5481E0EE0096_47E150FF028A_var*
@@ -422,7 +401,7 @@ begin
 end;//TStream.SetSize
 
 function TStream.Seek(Offset: Integer;
-  Origin: Word): Integer;
+ Origin: Word): Integer;
 //#UC START# *49BE65B10224_47E150FF028A_var*
 //#UC END# *49BE65B10224_47E150FF028A_var*
 begin
@@ -432,7 +411,7 @@ begin
 end;//TStream.Seek
 
 function TStream.Seek(const Offset: Int64;
-  Origin: TSeekOrigin): Int64;
+ Origin: TSeekOrigin): Int64;
 //#UC START# *49BE65E80020_47E150FF028A_var*
 //#UC END# *49BE65E80020_47E150FF028A_var*
 begin
@@ -440,10 +419,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *49BE65E80020_47E150FF028A_impl*
 end;//TStream.Seek
-// start class TCustomMemoryStream
 
 function TCustomMemoryStream.Read(var Buffer;
-  Count: Integer): Integer;
+ Count: Integer): Integer;
 //#UC START# *49BE656C006E_483FF4CA0307_var*
 //#UC END# *49BE656C006E_483FF4CA0307_var*
 begin
@@ -452,8 +430,8 @@ begin
 //#UC END# *49BE656C006E_483FF4CA0307_impl*
 end;//TCustomMemoryStream.Read
 
-function TCustomMemoryStream.Write(const Buffer;
-  Count: Integer): Integer;
+function TCustomMemoryStream.Write(Buffer;
+ Count: Integer): Integer;
 //#UC START# *49BE658C0261_483FF4CA0307_var*
 //#UC END# *49BE658C0261_483FF4CA0307_var*
 begin
@@ -461,20 +439,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *49BE658C0261_483FF4CA0307_impl*
 end;//TCustomMemoryStream.Write
-// unit methods
-
-procedure Rect;
-//#UC START# *4CB722C101EB_478CF30500C1_var*
-//#UC END# *4CB722C101EB_478CF30500C1_var*
-begin
-//#UC START# *4CB722C101EB_478CF30500C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4CB722C101EB_478CF30500C1_impl*
-end;//Rect
-// start class TComponent
 
 procedure TComponent.Notification(AComponent: TComponent;
-  Operation: TOperation);
+ Operation: TOperation);
 //#UC START# *4F884378016A_479878FA0103_var*
 //#UC END# *4F884378016A_479878FA0103_var*
 begin
@@ -511,7 +478,7 @@ begin
 end;//TComponent.Create
 
 function TComponent.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
 //#UC START# *47D160620295_479878FA0103_var*
 //#UC END# *47D160620295_479878FA0103_var*
 begin
@@ -528,7 +495,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *484516C00214_479878FA0103_impl*
 end;//TComponent.Loaded
-// start class TCollectionItem
 
 procedure TCollectionItem.SetIndex(Value: Integer);
 //#UC START# *4F8E7D3303B9_4D555B5B01E8_var*
@@ -556,10 +522,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D555CF50027_4D555B5B01E8_impl*
 end;//TCollectionItem.Create
-// start class TCollection
 
 procedure TCollection.Notify(Item: TCollectionItem;
-  Action: TCollectionNotification);
+ Action: TCollectionNotification);
 //#UC START# *4F8E7A900279_4D555B78015F_var*
 //#UC END# *4F8E7A900279_4D555B78015F_var*
 begin
@@ -587,7 +552,7 @@ begin
 end;//TCollection.GetAttr
 
 function TCollection.GetItemAttr(Index: Integer;
-  ItemIndex: Integer): AnsiString;
+ ItemIndex: Integer): AnsiString;
 //#UC START# *560A9DEB0155_4D555B78015F_var*
 //#UC END# *560A9DEB0155_4D555B78015F_var*
 begin
@@ -595,7 +560,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *560A9DEB0155_4D555B78015F_impl*
 end;//TCollection.GetItemAttr
-// start class TBasicActionLink
 
 procedure TBasicActionLink.AssignClient(AClient: TObject);
 //#UC START# *5339368F0001_52A088B20026_var*
@@ -606,27 +570,18 @@ begin
 //#UC END# *5339368F0001_52A088B20026_impl*
 end;//TBasicActionLink.AssignClient
 
-procedure AllocateHWnd(Mathod: TWndMethod);
-//#UC START# *549BCFD20030_478CF30500C1_var*
-//#UC END# *549BCFD20030_478CF30500C1_var*
-begin
-//#UC START# *549BCFD20030_478CF30500C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *549BCFD20030_478CF30500C1_impl*
-end;//AllocateHWnd
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TCollectionItem
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCollectionItem);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TCollection
+ {* Регистрация TCollectionItem }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCollection);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TOwnedCollection
+ {* Регистрация TCollection }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TOwnedCollection);
-{$IfEnd} //not NoScripts
+ {* Регистрация TOwnedCollection }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

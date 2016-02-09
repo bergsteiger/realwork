@@ -1,40 +1,36 @@
 unit TypInfo;
+ {* Методы для работы с RTTI. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/TypInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Rtl::Rtl::TypInfo
-//
-// Методы для работы с RTTI.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\TypInfo.pas"
+// Стереотип: "Interfaces"
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
+ PTypeInfo = ^TTypeInfo;
+  {* Информация о типе. }
+
+ PTypeData = ^TTypeData;
+
+ PPropInfo = ^;
+
  TTypeInfo = record
   {* Информация о типе. }
  end;//TTypeInfo
 
- PTypeInfo = ^TTypeInfo;
-  {* Информация о типе. }
-
  TTypeData = record
  end;//TTypeData
 
- PTypeData = ^TTypeData;
-
- GetObjectProp = 
-
- PPropInfo = ^;
+ GetObjectProp = procedure;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

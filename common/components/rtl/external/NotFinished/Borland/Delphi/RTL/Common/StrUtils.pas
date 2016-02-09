@@ -1,42 +1,30 @@
 unit StrUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/StrUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Common::StrUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\StrUtils.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-function LeftStr(const AText: AnsiString;
-  ACount: Integer): AnsiString;
-   {* Returns the substring of a specified length that appears at the start of a string. }
+uses
+ l3IntfUses
+;
+
 procedure AnsiReplaceStr;
-   {* Сигнатура метода AnsiReplaceStr }
 procedure AnsiStartsStr;
-   {* Сигнатура метода AnsiStartsStr }
 procedure AnsiStartsText;
-   {* Сигнатура метода AnsiStartsText }
 procedure AnsiEndsStr;
-   {* Сигнатура метода AnsiEndsStr }
 procedure PosEx;
-   {* Сигнатура метода PosEx }
 procedure AnsiContainsText;
-   {* Сигнатура метода AnsiContainsText }
 procedure IfThen;
-   {* Сигнатура метода IfThen }
+function LeftStr(const AText: AnsiString;
+ ACount: Integer): AnsiString;
+ {* Returns the substring of a specified length that appears at the start of a string. }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure AnsiReplaceStr;
 //#UC START# *4B570AFF0023_483C378301CB_var*
@@ -102,7 +90,8 @@ begin
 end;//IfThen
 
 function LeftStr(const AText: AnsiString;
-  ACount: Integer): AnsiString;
+ ACount: Integer): AnsiString;
+ {* Returns the substring of a specified length that appears at the start of a string. }
 //#UC START# *483C379A00C1_483C378301CB_var*
 //#UC END# *483C379A00C1_483C378301CB_var*
 begin

@@ -1,36 +1,28 @@
 unit Math;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Common/Math.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Common::Math
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Math.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-function RandomRange(aFrom: Integer;
-  aTo: Integer): Integer;
-   {* Returns a random integer from a specified range. }
+uses
+ l3IntfUses
+;
+
 procedure IfThen;
-   {* Сигнатура метода IfThen }
 procedure Sign;
-   {* Сигнатура метода Sign }
 procedure InRange;
-   {* Сигнатура метода InRange }
 procedure Min;
-   {* Сигнатура метода Min }
+procedure Max;
+function RandomRange(aFrom: Integer;
+ aTo: Integer): Integer;
+ {* Returns a random integer from a specified range. }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure IfThen;
 //#UC START# *4C341F8A008E_4808A20402DC_var*
@@ -68,8 +60,18 @@ begin
 //#UC END# *5475911A0274_4808A20402DC_impl*
 end;//Min
 
+procedure Max;
+//#UC START# *56459FB100FF_4808A20402DC_var*
+//#UC END# *56459FB100FF_4808A20402DC_var*
+begin
+//#UC START# *56459FB100FF_4808A20402DC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56459FB100FF_4808A20402DC_impl*
+end;//Max
+
 function RandomRange(aFrom: Integer;
-  aTo: Integer): Integer;
+ aTo: Integer): Integer;
+ {* Returns a random integer from a specified range. }
 //#UC START# *4808A21203A5_4808A20402DC_var*
 //#UC END# *4808A21203A5_4808A20402DC_var*
 begin

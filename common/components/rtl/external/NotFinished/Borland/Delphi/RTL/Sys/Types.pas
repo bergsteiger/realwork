@@ -1,20 +1,13 @@
 unit Types;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Sys/Types.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Rtl::Rtl::Types
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\Types.pas"
+// Стереотип: "Interfaces"
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TRect = record
@@ -25,7 +18,7 @@ type
   {* Точка. }
  end;//TPoint
 
- DWORD = System.LongWord;
+ DWORD = LongWord;
 
  TSmallPoint = record
  end;//TSmallPoint
@@ -34,5 +27,9 @@ type
  end;//TSize
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

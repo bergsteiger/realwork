@@ -49,6 +49,7 @@ uses
  {$If Defined(k2ForEditor)}
  , evCursorTools
  {$IfEnd} // Defined(k2ForEditor)
+ , Table_Const
 ;
 
 {$Include kwEditorGetTableFromCursor.imp.pas}

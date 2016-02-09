@@ -1,22 +1,18 @@
 unit Messages;
+ {* Сообщения Windows. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Win/Messages.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi Rtl::Rtl::Messages
-//
-// Сообщения Windows.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\Messages.pas"
+// Стереотип: "Interfaces"
 
 interface
+
+uses
+ l3IntfUses
+;
+
+const
+ WM_USER = $0400;
+ WM_LBUTTONDBLCLK = $0203;
 
 type
  TMessage = record
@@ -26,12 +22,6 @@ type
  TWMKeyDown = record
  end;//TWMKeyDown
 
-const
-  { Msg Codes }
- WM_USER = $0400;
- WM_LBUTTONDBLCLK = $0203;
-
-type
  TWMEraseBkGnd = record
  end;//TWMEraseBkGnd
 
@@ -160,5 +150,9 @@ type
  TWMShowWindow = ;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

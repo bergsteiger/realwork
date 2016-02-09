@@ -39,6 +39,7 @@ uses
  , l3Units
  , evConst
  , nevGUIInterfaces
+ , Table_Const
 ;
 
 {$Include kwEditorGetTableFromCursor.imp.pas}

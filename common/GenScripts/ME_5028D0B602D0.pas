@@ -49,6 +49,7 @@ uses
  , l3Base
  , SysUtils
  , nevFacade
+ , Table_Const
 ;
 
 {$Include kwEditorGetTableFromCursor.imp.pas}

@@ -1,47 +1,37 @@
 unit SysUtils;
+ {* System Utilities Unit }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Sys/SysUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Sys::SysUtils
-//
-// System Utilities Unit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\SysUtils.pas"
+// Стереотип: "UtilityPack"
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TMultiReadExclusiveWriteSynchronizer = class
   {* TMultiReadExclusiveWriteSynchronizer protects memory in a multi-threaded application. }
  end;//TMultiReadExclusiveWriteSynchronizer
 
- TFileName = type System.AnsiString;
+ TFileName = type AnsiString;
   {* TFileName is a string that represents a file name. }
 
  Exception = class(TObject)
   {* Base Exception. }
- private
- // private fields
-   f_Message : AnsiString;
-    {* Поле для свойства Message}
-   f_HelpContext : Integer;
-    {* Поле для свойства HelpContext}
- public
- // public properties
+  private
+   f_Message: AnsiString;
+    {* Поле для свойства Message }
+   f_HelpContext: Integer;
+    {* Поле для свойства HelpContext }
+  public
    property Message: AnsiString
-     read f_Message
-     write f_Message;
+    read f_Message
+    write f_Message;
    property HelpContext: Integer
-     read f_HelpContext
-     write f_HelpContext;
+    read f_HelpContext
+    write f_HelpContext;
  end;//Exception
 
  ExceptClass = class of Exception;
@@ -53,7 +43,8 @@ type
   {* TFormatSettings defines a thread-safe string formatting context. }
  end;//TFormatSettings
 
- TProcedure = procedure ;
+ TProcedure = procedure;
+  {* TProcedure is used as the type for generic procedures that do not have arguments. }
 
  EAbort = class
  end;//EAbort
@@ -68,59 +59,39 @@ type
  EOutOfMemory = class
  end;//EOutOfMemory
 
-var DecimalSeparator : AnsiChar;
-
-function Supports(const Instance: IUnknown;
-  const IID: TGUID;
-  out Intf): Boolean; overload; 
 procedure FreeAndNil;
-   {* Сигнатура метода FreeAndNil }
-procedure Supports; overload; 
-   {* Сигнатура метода Supports }
+procedure Supports; overload;
 procedure IntToStr;
-   {* Сигнатура метода IntToStr }
 procedure CompareStr;
-   {* Сигнатура метода CompareStr }
 procedure ANSISameText;
-   {* Сигнатура метода ANSISameText }
 procedure StrToInt;
-   {* Сигнатура метода StrToInt }
 procedure ExtractFilePath;
-   {* Сигнатура метода ExtractFilePath }
 procedure Format;
-   {* Сигнатура метода Format }
 procedure ChangeFileExt;
-   {* Сигнатура метода ChangeFileExt }
 procedure IsEqualGUID;
-   {* Сигнатура метода IsEqualGUID }
 procedure FileExists;
-   {* Сигнатура метода FileExists }
 procedure GetClassName;
-   {* Сигнатура метода GetClassName }
 procedure Trim;
-   {* Сигнатура метода Trim }
 procedure AnsiStrLIComp;
-   {* Сигнатура метода AnsiStrLIComp }
 procedure RenameFile;
-   {* Сигнатура метода RenameFile }
 procedure DeleteFile;
-   {* Сигнатура метода DeleteFile }
 procedure StrToIntDef;
-   {* Сигнатура метода StrToIntDef }
 procedure FormatDateTime;
-   {* Сигнатура метода FormatDateTime }
 procedure Sleep;
-   {* Сигнатура метода Sleep }
 procedure ForceDirectories;
-   {* Сигнатура метода ForceDirectories }
 procedure IntToHex;
-   {* Сигнатура метода IntToHex }
 procedure AllocMem;
-   {* Сигнатура метода AllocMem }
+function Supports(const Instance: IUnknown;
+ const IID: TGUID;
+ out Intf): Boolean; overload;
+
+var DecimalSeparator: AnsiChar;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure FreeAndNil;
 //#UC START# *4ADC58F703CF_47877EB202FB_var*
@@ -321,8 +292,8 @@ begin
 end;//AllocMem
 
 function Supports(const Instance: IUnknown;
-  const IID: TGUID;
-  out Intf): Boolean;
+ const IID: TGUID;
+ out Intf): Boolean;
 //#UC START# *47877EF503B1_47877EB202FB_var*
 //#UC END# *47877EF503B1_47877EB202FB_var*
 begin

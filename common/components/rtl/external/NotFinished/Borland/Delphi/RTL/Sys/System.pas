@@ -1,33 +1,34 @@
 unit System;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Sys/System.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Sys::System
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\System.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
+ PBoolean = ^Boolean;
+
+ PGUID = ^TGUID;
+
+ PLongint = ^Integer;
+
+ PResStringRec = ^TResStringRec;
+
+ PWideChar = ^WideChar;
+
  TObject = class
- protected
- // protected methods
+  protected
    procedure FreeInstance; virtual;
    procedure BeforeDestruction; virtual;
    procedure AfterConstruction; virtual;
-     {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
+    {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
 
 The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
- public
- // public methods
+  public
    class function NewInstance: TObject; virtual;
    constructor Create; reintroduce;
    destructor Destroy; virtual;
@@ -57,11 +58,18 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
 
  WideString = a-wstring;
 
+ Integer = Integer;
+
+ Pointer = pointer;
+
+ Cardinal = Cardinal;
+  {* Беззнаковое 32-битное целое. }
+
  LongWord = Cardinal;
 
- array [Boolean] of Integer = array [Boolean] of Integer;
+ Boolean = Boolean;
 
- PBoolean = ^Boolean;
+ array [Boolean] of Integer = array [Boolean] of Integer;
 
  AnsiChar = AnsiChar;
 
@@ -72,10 +80,13 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
 
  Double = double;
 
+ IUnknown = IUnknown;
+  {* Базовый интерфейс. }
+
  array of IUnknown = array of IUnknown;
 
- IDispatch = interface(IUnknown)
-   ['{23D408F2-6D26-4063-BFA1-7428D7624A59}']
+ IDispatch = interface
+  ['{23D408F2-6D26-4063-BFA1-7428D7624A59}']
  end;//IDispatch
 
  WordBool = Boolean;
@@ -83,10 +94,6 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
  TGUID = record
   {* GUID. }
  end;//TGUID
-
- PGUID = ^TGUID;
-
- PLongint = ^Integer;
 
  Int64 = Int64;
   {* 64-битное целое. }
@@ -98,6 +105,7 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
   {* байт }
 
  Word = unsigned short;
+  {* YEAR – год публикации (M); }
 
  AnsiString = AnsiString;
   {* Стандартный строковый тип Delphi. }
@@ -116,24 +124,22 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
  array of AnsiString = array of AnsiString;
   {* открытый массив строк }
 
-(*
- MIUnknown = PureMixIn
-   function _AddRef: Integer; stdcall;
-     {* Увеличивает счетчик ссылок. }
-   function _Release: Integer; stdcall;
-     {* Уменьшает счетчик ссылок. }
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; stdcall;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+ (*
+ MIUnknown = interface
+  function _AddRef: Integer; stdcall;
+   {* Увеличивает счетчик ссылок. }
+  function _Release: Integer; stdcall;
+   {* Уменьшает счетчик ссылок. }
+  function QueryInterface(const IID: TGUID;
+   out Obj): HResult; stdcall;
+   {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//MIUnknown
-*)
+ *)
 
  SmallInt = short;
 
  TResStringRec = record
  end;//TResStringRec
-
- PResStringRec = ^TResStringRec;
 
  TVarRec = record
  end;//TVarRec
@@ -141,7 +147,6 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
  array of const = array of ;
 
  TextFile = (
-   
  );//TextFile
 
  ANSIString = AnsiString;
@@ -158,8 +163,6 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
 
  LongBool = Boolean;
 
- PWideChar = ^WideChar;
-
  String = AnsiString;
 
  PChar = PAnsiChar;
@@ -168,17 +171,16 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
 
  Char = WideChar;
 
- IUnknown = interface(IUnknown)
+ IUnknown = interface
   {* Реальная реализация интерфейса IUnknown. }
-   ['{6FBF146C-F37A-4150-8541-482A3B39C3DE}']
-  // MIUnknown
-   function _AddRef: Integer; stdcall;
-     {* Увеличивает счетчик ссылок. }
-   function _Release: Integer; stdcall;
-     {* Уменьшает счетчик ссылок. }
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; stdcall;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
+  ['{6FBF146C-F37A-4150-8541-482A3B39C3DE}']
+  function _AddRef: Integer; stdcall;
+   {* Увеличивает счетчик ссылок. }
+  function _Release: Integer; stdcall;
+   {* Уменьшает счетчик ссылок. }
+  function QueryInterface(const IID: TGUID;
+   out Obj): HResult; stdcall;
+   {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//IUnknown
 
  PANSIChar = PAnsiChar;
@@ -194,15 +196,11 @@ When you assign a Variant that contains custom data (such as a Delphi string, or
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  ObjectFromstackWords
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TObject
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , ObjectFromstackWords
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 class function TObject.NewInstance: TObject;
 //#UC START# *516131510341_4807745602C8_var*
@@ -250,6 +248,9 @@ begin
 end;//TObject.Destroy
 
 procedure TObject.AfterConstruction;
+ {* AfterConstruction is called automatically after the object’s last constructor has executed. Do not call it explicitly in your applications.
+
+The AfterConstruction method implemented in TObject does nothing. Override this method when creating a class that takes some action after the object is created. For example, TCustomForm overrides AfterConstruction to generate an OnCreate event. }
 //#UC START# *49F057120234_4807745602C8_var*
 //#UC END# *49F057120234_4807745602C8_var*
 begin
@@ -257,4 +258,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *49F057120234_4807745602C8_impl*
 end;//TObject.AfterConstruction
+
 end.

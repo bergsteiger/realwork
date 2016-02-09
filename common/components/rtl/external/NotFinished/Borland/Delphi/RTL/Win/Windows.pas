@@ -1,34 +1,71 @@
 unit Windows;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Rtl"
-// Модуль: "w:/common/components/rtl/external/NotFinished/Borland/Delphi/Rtl/Win/Windows.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Rtl::Rtl::Win::Windows
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\Windows.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
 uses
-  Types
-  ;
-
-type
- PLongint = System.PLongint;
+ l3IntfUses
+ , Types
+;
 
 const
-  { CodePages }
  CP_ACP = !;
  CP_OEMCP = !;
+ PAGE_NOACCESS = 1;
+ PAGE_READONLY = 2;
+ PAGE_READWRITE = 4;
+ PAGE_WRITECOPY = 8;
+ PAGE_EXECUTE = $10;
+ PAGE_EXECUTE_READ = $20;
+ PAGE_EXECUTE_READWRITE = $40;
+ PAGE_EXECUTE_WRITECOPY = $80;
+ PAGE_GUARD = $100;
+ PAGE_NOCACHE = $200;
+ VK_APPS = !;
+ ANSI_CHARSET = 1;
+ OEM_CHARSET = !;
+ DEFAULT_CHARSET = !;
+ RUSSIAN_CHARSET = !;
+ HORZRES = !;
+ VK_ESCAPE = !;
+ CF_LOCALE = !;
+ {* ShowWindow() Commands }
+ SW_HIDE = 0;
+ SW_SHOWNORMAL = 1;
+ SW_NORMAL = 1;
+ SW_SHOWMINIMIZED = 2;
+ SW_SHOWMAXIMIZED = 3;
+ SW_MAXIMIZE = 3;
+ SW_SHOWNOACTIVATE = 4;
+ SW_SHOW = 5;
+ SW_MINIMIZE = 6;
+ SW_SHOWMINNOACTIVE = 7;
+ SW_SHOWNA = 8;
+ SW_RESTORE = 9;
+ SW_SHOWDEFAULT = 10;
+ SW_MAX = 10;
+ INVALID_HANDLE_VALUE = DWORD(-1);
+ INVALID_FILE_SIZE = DWORD($FFFFFFFF);
 
 type
+ PInteger = ^Integer;
+
+ PDeviceModeA = ^TDeviceModeA;
+
+ PCWPStruct = ^TCWPStruct;
+
+ PCWPRetStruct = ^TCWPRetStruct;
+
+ PMouseHookStruct = ^TMouseHookStruct;
+
+ PMsg = ^TMsg;
+
+ PSmallRect = ^TSmallRect;
+
+ PLongint = System.PLongint;
+
  hWnd = type Cardinal;
 
  HPALETTE = type Cardinal;
@@ -37,7 +74,7 @@ type
 
  HFONT = type Cardinal;
 
- PInteger = ^Integer;
+ BOOL = Integer;
 
  LPARAM = Integer;
 
@@ -73,76 +110,22 @@ type
  TDeviceModeA = record
  end;//TDeviceModeA
 
- PDeviceModeA = ^TDeviceModeA;
-
  PDeviceMode = PDeviceModeA;
 
-const
-  { Memory Manipulation }
- PAGE_NOACCESS = 1;
- PAGE_READONLY = 2;
- PAGE_READWRITE = 4;
- PAGE_WRITECOPY = 8;
- PAGE_EXECUTE = $10;
- PAGE_EXECUTE_READ = $20;
- PAGE_EXECUTE_READWRITE = $40;
- PAGE_EXECUTE_WRITECOPY = $80;
- PAGE_GUARD = $100;
- PAGE_NOCACHE = $200;
-  { Key Codes }
- VK_APPS = !;
-  { CharSets }
- ANSI_CHARSET = 1;
- OEM_CHARSET = !;
- DEFAULT_CHARSET = !;
- RUSSIAN_CHARSET = !;
-  { Device Caps }
- HORZRES = !;
-
-type
  DWORD = Types.DWORD;
 
  TRTLCriticalSection = record
  end;//TRTLCriticalSection
 
-const
-  { Timeouts }
- INFINITE : DWORD = $FFFFFFFF;
-
-type
- UINT = System.LongWord;
+ UINT = LongWord;
 
  LCID = Cardinal;
   {* Идентификатор локали. }
 
-const
-  { Chars }
- VK_ESCAPE = !;
-  { Clipboard Formats }
- CF_LOCALE = !;
-  { ShowWindow() Commands }
- SW_HIDE = 0;
- SW_SHOWNORMAL = 1;
- SW_NORMAL = 1;
- SW_SHOWMINIMIZED = 2;
- SW_SHOWMAXIMIZED = 3;
- SW_MAXIMIZE = 3;
- SW_SHOWNOACTIVATE = 4;
- SW_SHOW = 5;
- SW_MINIMIZE = 6;
- SW_SHOWMINNOACTIVE = 7;
- SW_SHOWNA = 8;
- SW_RESTORE = 9;
- SW_SHOWDEFAULT = 10;
- SW_MAX = 10;
-
-type
  HWND = hWnd;
 
  TCWPStruct = record
  end;//TCWPStruct
-
- PCWPStruct = ^TCWPStruct;
 
  TInput = record
  end;//TInput
@@ -150,26 +133,20 @@ type
  TCWPRetStruct = record
  end;//TCWPRetStruct
 
- PCWPRetStruct = ^TCWPRetStruct;
-
  TMouseHookStruct = record
  end;//TMouseHookStruct
-
- PMouseHookStruct = ^TMouseHookStruct;
 
  LRESULT = Integer;
 
  TBlendFunction = record
-   BlendOp : Byte;
-   BlendFlags : Byte;
-   SourceConstantAlpha : Byte;
-   AlphaFormat : Byte;
+  BlendOp: Byte;
+  BlendFlags: Byte;
+  SourceConstantAlpha: Byte;
+  AlphaFormat: Byte;
  end;//TBlendFunction
 
  TScrollInfo = record
  end;//TScrollInfo
-
- PMsg = ^TMsg;
 
  TEnhMetaHeader = ;
 
@@ -181,58 +158,39 @@ type
  TSmallRect = record
  end;//TSmallRect
 
- PSmallRect = ^TSmallRect;
-
  HCURSOR = ;
 
 const
-  { Invalid Values }
- INVALID_HANDLE_VALUE = DWORD(-1);
- INVALID_FILE_SIZE = DWORD($FFFFFFFF);
+ INFINITE: DWORD = $FFFFFFFF;
 
-function TerminateProcess(hProcess: HANDLE;
-  uExitCode: UINT): BOOL;
-   {* The TerminateProcess function terminates the specified process and all of its threads. }
-function GetCurrentProcess: HANDLE; overload; 
-   {* The GetCurrentProcess function returns a pseudohandle for the current process. }
 procedure CreateProcess;
-   {* Сигнатура метода CreateProcess }
 procedure GetTickCount;
-   {* Сигнатура метода GetTickCount }
 procedure SetFocus;
-   {* Сигнатура метода SetFocus }
 procedure SendMessage;
-   {* Сигнатура метода SendMessage }
 procedure GetFocus;
-   {* Сигнатура метода GetFocus }
 procedure CreateRoundRectRgn;
-   {* Сигнатура метода CreateRoundRectRgn }
 procedure WinExec;
-   {* Сигнатура метода WinExec }
 procedure WindowFromPoint;
-   {* Сигнатура метода WindowFromPoint }
 procedure PostMessage;
-   {* Сигнатура метода PostMessage }
 procedure GetForegroundWindow;
-   {* Сигнатура метода GetForegroundWindow }
-procedure GetCurrentProcess; overload; 
-   {* Сигнатура метода GetCurrentProcess }
+procedure GetCurrentProcess; overload;
 procedure GetWindowThreadProcessId;
-   {* Сигнатура метода GetWindowThreadProcessId }
 procedure GlobalLock;
-   {* Сигнатура метода GlobalLock }
 procedure CopyRect;
-   {* Сигнатура метода CopyRect }
 procedure RGB;
-   {* Сигнатура метода RGB }
 procedure QueryPerformanceCounter;
-   {* Сигнатура метода QueryPerformanceCounter }
 procedure QueryPerformanceFrequency;
-   {* Сигнатура метода QueryPerformanceFrequency }
+function TerminateProcess(hProcess: HANDLE;
+ uExitCode: UINT): BOOL;
+ {* The TerminateProcess function terminates the specified process and all of its threads. }
+function GetCurrentProcess: HANDLE; overload;
+ {* The GetCurrentProcess function returns a pseudohandle for the current process. }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure IsWindowEnabled;
 //#UC START# *4DCD6C0402E8_48A41FF10094_var*
@@ -397,7 +355,8 @@ begin
 end;//QueryPerformanceFrequency
 
 function TerminateProcess(hProcess: HANDLE;
-  uExitCode: UINT): BOOL;
+ uExitCode: UINT): BOOL;
+ {* The TerminateProcess function terminates the specified process and all of its threads. }
 //#UC START# *48A4207A03C1_48A41FF10094_var*
 //#UC END# *48A4207A03C1_48A41FF10094_var*
 begin
@@ -407,6 +366,7 @@ begin
 end;//TerminateProcess
 
 function GetCurrentProcess: HANDLE;
+ {* The GetCurrentProcess function returns a pseudohandle for the current process. }
 //#UC START# *48A420D30305_48A41FF10094_var*
 //#UC END# *48A420D30305_48A41FF10094_var*
 begin
