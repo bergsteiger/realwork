@@ -161,12 +161,8 @@ begin
 end;//TkwPopListerSelectWithShift.GetResultTypeInfo
 
 function TkwPopListerSelectWithShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3601E7023043_var*
-//#UC END# *559687E6025A_3601E7023043_var*
 begin
-//#UC START# *559687E6025A_3601E7023043_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3601E7023043_impl*
+ Result := 2;
 end;//TkwPopListerSelectWithShift.GetAllParamsCount
 
 function TkwPopListerSelectWithShift.ParamsTypes: PTypeInfoArray;
@@ -214,12 +210,8 @@ begin
 end;//TkwPopListerGetSelected.GetResultTypeInfo
 
 function TkwPopListerGetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_94BB02952F38_var*
-//#UC END# *559687E6025A_94BB02952F38_var*
 begin
-//#UC START# *559687E6025A_94BB02952F38_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_94BB02952F38_impl*
+ Result := 2;
 end;//TkwPopListerGetSelected.GetAllParamsCount
 
 function TkwPopListerGetSelected.ParamsTypes: PTypeInfoArray;
@@ -266,12 +258,8 @@ begin
 end;//TkwPopListerFooterCaption.GetResultTypeInfo
 
 function TkwPopListerFooterCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0BB474851F7E_var*
-//#UC END# *559687E6025A_0BB474851F7E_var*
 begin
-//#UC START# *559687E6025A_0BB474851F7E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0BB474851F7E_impl*
+ Result := 1;
 end;//TkwPopListerFooterCaption.GetAllParamsCount
 
 function TkwPopListerFooterCaption.ParamsTypes: PTypeInfoArray;
@@ -328,12 +316,8 @@ begin
 end;//TkwPopListerCurrent.GetResultTypeInfo
 
 function TkwPopListerCurrent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AC4C8A615B0D_var*
-//#UC END# *559687E6025A_AC4C8A615B0D_var*
 begin
-//#UC START# *559687E6025A_AC4C8A615B0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AC4C8A615B0D_impl*
+ Result := 1;
 end;//TkwPopListerCurrent.GetAllParamsCount
 
 function TkwPopListerCurrent.ParamsTypes: PTypeInfoArray;

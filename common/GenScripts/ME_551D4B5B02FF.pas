@@ -189,12 +189,8 @@ begin
 end;//TkwVgComboBoxGetText.GetResultTypeInfo
 
 function TkwVgComboBoxGetText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3D1B97A2F7D1_var*
-//#UC END# *559687E6025A_3D1B97A2F7D1_var*
 begin
-//#UC START# *559687E6025A_3D1B97A2F7D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3D1B97A2F7D1_impl*
+ Result := 1;
 end;//TkwVgComboBoxGetText.GetAllParamsCount
 
 function TkwVgComboBoxGetText.ParamsTypes: PTypeInfoArray;
@@ -241,12 +237,8 @@ begin
 end;//TkwVgComboBoxItemHeight.GetResultTypeInfo
 
 function TkwVgComboBoxItemHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6AF76187796E_var*
-//#UC END# *559687E6025A_6AF76187796E_var*
 begin
-//#UC START# *559687E6025A_6AF76187796E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6AF76187796E_impl*
+ Result := 1;
 end;//TkwVgComboBoxItemHeight.GetAllParamsCount
 
 function TkwVgComboBoxItemHeight.ParamsTypes: PTypeInfoArray;
@@ -293,12 +285,8 @@ begin
 end;//TkwVgComboBoxItemIndex.GetResultTypeInfo
 
 function TkwVgComboBoxItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E6401AA7CFD9_var*
-//#UC END# *559687E6025A_E6401AA7CFD9_var*
 begin
-//#UC START# *559687E6025A_E6401AA7CFD9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E6401AA7CFD9_impl*
+ Result := 1;
 end;//TkwVgComboBoxItemIndex.GetAllParamsCount
 
 function TkwVgComboBoxItemIndex.ParamsTypes: PTypeInfoArray;
@@ -346,12 +334,8 @@ begin
 end;//TkwVgComboBoxGetItem.GetResultTypeInfo
 
 function TkwVgComboBoxGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F404139FE541_var*
-//#UC END# *559687E6025A_F404139FE541_var*
 begin
-//#UC START# *559687E6025A_F404139FE541_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F404139FE541_impl*
+ Result := 2;
 end;//TkwVgComboBoxGetItem.GetAllParamsCount
 
 function TkwVgComboBoxGetItem.ParamsTypes: PTypeInfoArray;
@@ -403,12 +387,8 @@ begin
 end;//TkwVgComboBoxGetHighLightItemIndex.GetResultTypeInfo
 
 function TkwVgComboBoxGetHighLightItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4E17F992CC09_var*
-//#UC END# *559687E6025A_4E17F992CC09_var*
 begin
-//#UC START# *559687E6025A_4E17F992CC09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4E17F992CC09_impl*
+ Result := 1;
 end;//TkwVgComboBoxGetHighLightItemIndex.GetAllParamsCount
 
 function TkwVgComboBoxGetHighLightItemIndex.ParamsTypes: PTypeInfoArray;

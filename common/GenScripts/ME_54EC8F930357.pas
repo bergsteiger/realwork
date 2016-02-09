@@ -86,12 +86,8 @@ begin
 end;//TkwPopFlashGetFrame.GetResultTypeInfo
 
 function TkwPopFlashGetFrame.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4E9CC5473030_var*
-//#UC END# *559687E6025A_4E9CC5473030_var*
 begin
-//#UC START# *559687E6025A_4E9CC5473030_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4E9CC5473030_impl*
+ Result := 1;
 end;//TkwPopFlashGetFrame.GetAllParamsCount
 
 function TkwPopFlashGetFrame.ParamsTypes: PTypeInfoArray;

@@ -111,12 +111,8 @@ begin
 end;//TkwApplicationCancelHint.GetResultTypeInfo
 
 function TkwApplicationCancelHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_602888D14BF8_var*
-//#UC END# *559687E6025A_602888D14BF8_var*
 begin
-//#UC START# *559687E6025A_602888D14BF8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_602888D14BF8_impl*
+ Result := 0;
 end;//TkwApplicationCancelHint.GetAllParamsCount
 
 function TkwApplicationIsHintVisible.application_IsHintVisible(const aCtx: TtfwContext): Boolean;
@@ -154,12 +150,8 @@ begin
 end;//TkwApplicationIsHintVisible.GetResultTypeInfo
 
 function TkwApplicationIsHintVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0EF7A152CBB4_var*
-//#UC END# *559687E6025A_0EF7A152CBB4_var*
 begin
-//#UC START# *559687E6025A_0EF7A152CBB4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0EF7A152CBB4_impl*
+ Result := 0;
 end;//TkwApplicationIsHintVisible.GetAllParamsCount
 
 function TkwApplicationIsHintVisible.ParamsTypes: PTypeInfoArray;
@@ -209,12 +201,8 @@ begin
 end;//TkwApplicationGetLastHint.GetResultTypeInfo
 
 function TkwApplicationGetLastHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_64C2DF1C9241_var*
-//#UC END# *559687E6025A_64C2DF1C9241_var*
 begin
-//#UC START# *559687E6025A_64C2DF1C9241_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_64C2DF1C9241_impl*
+ Result := 0;
 end;//TkwApplicationGetLastHint.GetAllParamsCount
 
 function TkwApplicationGetLastHint.ParamsTypes: PTypeInfoArray;

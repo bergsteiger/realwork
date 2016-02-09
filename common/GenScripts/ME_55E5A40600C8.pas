@@ -302,12 +302,8 @@ begin
 end;//TkwPopRangeTable.GetResultTypeInfo
 
 function TkwPopRangeTable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_41E2AA39512B_var*
-//#UC END# *559687E6025A_41E2AA39512B_var*
 begin
-//#UC START# *559687E6025A_41E2AA39512B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_41E2AA39512B_impl*
+ Result := 1;
 end;//TkwPopRangeTable.GetAllParamsCount
 
 function TkwPopRangeTable.ParamsTypes: PTypeInfoArray;
@@ -354,12 +350,8 @@ begin
 end;//TkwPopRangeHyperlink.GetResultTypeInfo
 
 function TkwPopRangeHyperlink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DF0E3B22C362_var*
-//#UC END# *559687E6025A_DF0E3B22C362_var*
 begin
-//#UC START# *559687E6025A_DF0E3B22C362_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DF0E3B22C362_impl*
+ Result := 1;
 end;//TkwPopRangeHyperlink.GetAllParamsCount
 
 function TkwPopRangeHyperlink.ParamsTypes: PTypeInfoArray;
@@ -406,12 +398,8 @@ begin
 end;//TkwPopRangeCollapsed.GetResultTypeInfo
 
 function TkwPopRangeCollapsed.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_56060897E1ED_var*
-//#UC END# *559687E6025A_56060897E1ED_var*
 begin
-//#UC START# *559687E6025A_56060897E1ED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_56060897E1ED_impl*
+ Result := 1;
 end;//TkwPopRangeCollapsed.GetAllParamsCount
 
 function TkwPopRangeCollapsed.ParamsTypes: PTypeInfoArray;
@@ -458,12 +446,8 @@ begin
 end;//TkwPopRangeTextParagraph.GetResultTypeInfo
 
 function TkwPopRangeTextParagraph.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B851C7CE944A_var*
-//#UC END# *559687E6025A_B851C7CE944A_var*
 begin
-//#UC START# *559687E6025A_B851C7CE944A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B851C7CE944A_impl*
+ Result := 1;
 end;//TkwPopRangeTextParagraph.GetAllParamsCount
 
 function TkwPopRangeTextParagraph.ParamsTypes: PTypeInfoArray;
@@ -510,12 +494,8 @@ begin
 end;//TkwPopRangeDocument.GetResultTypeInfo
 
 function TkwPopRangeDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_438278DD03B7_var*
-//#UC END# *559687E6025A_438278DD03B7_var*
 begin
-//#UC START# *559687E6025A_438278DD03B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_438278DD03B7_impl*
+ Result := 1;
 end;//TkwPopRangeDocument.GetAllParamsCount
 
 function TkwPopRangeDocument.ParamsTypes: PTypeInfoArray;
@@ -562,12 +542,8 @@ begin
 end;//TkwPopRangeDeleteChar.GetResultTypeInfo
 
 function TkwPopRangeDeleteChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7BD8700AF40A_var*
-//#UC END# *559687E6025A_7BD8700AF40A_var*
 begin
-//#UC START# *559687E6025A_7BD8700AF40A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7BD8700AF40A_impl*
+ Result := 1;
 end;//TkwPopRangeDeleteChar.GetAllParamsCount
 
 function TkwPopRangeDeleteChar.ParamsTypes: PTypeInfoArray;
@@ -614,12 +590,8 @@ begin
 end;//TkwPopRangeInsertParaBreak.GetResultTypeInfo
 
 function TkwPopRangeInsertParaBreak.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FC198E99CE03_var*
-//#UC END# *559687E6025A_FC198E99CE03_var*
 begin
-//#UC START# *559687E6025A_FC198E99CE03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FC198E99CE03_impl*
+ Result := 1;
 end;//TkwPopRangeInsertParaBreak.GetAllParamsCount
 
 function TkwPopRangeInsertParaBreak.ParamsTypes: PTypeInfoArray;
@@ -667,12 +639,8 @@ begin
 end;//TkwPopRangeInsertString.GetResultTypeInfo
 
 function TkwPopRangeInsertString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_682E7D1F5450_var*
-//#UC END# *559687E6025A_682E7D1F5450_var*
 begin
-//#UC START# *559687E6025A_682E7D1F5450_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_682E7D1F5450_impl*
+ Result := 2;
 end;//TkwPopRangeInsertString.GetAllParamsCount
 
 function TkwPopRangeInsertString.ParamsTypes: PTypeInfoArray;
@@ -720,12 +688,8 @@ begin
 end;//TkwPopRangeDelete.GetResultTypeInfo
 
 function TkwPopRangeDelete.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CC0CFA982703_var*
-//#UC END# *559687E6025A_CC0CFA982703_var*
 begin
-//#UC START# *559687E6025A_CC0CFA982703_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CC0CFA982703_impl*
+ Result := 2;
 end;//TkwPopRangeDelete.GetAllParamsCount
 
 function TkwPopRangeDelete.ParamsTypes: PTypeInfoArray;
@@ -772,12 +736,8 @@ begin
 end;//TkwPopRangeContainsOneLeaf.GetResultTypeInfo
 
 function TkwPopRangeContainsOneLeaf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_82CA30B619E2_var*
-//#UC END# *559687E6025A_82CA30B619E2_var*
 begin
-//#UC START# *559687E6025A_82CA30B619E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_82CA30B619E2_impl*
+ Result := 1;
 end;//TkwPopRangeContainsOneLeaf.GetAllParamsCount
 
 function TkwPopRangeContainsOneLeaf.ParamsTypes: PTypeInfoArray;
@@ -824,12 +784,8 @@ begin
 end;//TkwPopRangeAsString.GetResultTypeInfo
 
 function TkwPopRangeAsString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_107BCD56569D_var*
-//#UC END# *559687E6025A_107BCD56569D_var*
 begin
-//#UC START# *559687E6025A_107BCD56569D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_107BCD56569D_impl*
+ Result := 1;
 end;//TkwPopRangeAsString.GetAllParamsCount
 
 function TkwPopRangeAsString.ParamsTypes: PTypeInfoArray;

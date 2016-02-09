@@ -156,12 +156,8 @@ begin
 end;//TkwGeneratorsExecute.GetResultTypeInfo
 
 function TkwGeneratorsExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_825779F5AD08_var*
-//#UC END# *559687E6025A_825779F5AD08_var*
 begin
-//#UC START# *559687E6025A_825779F5AD08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_825779F5AD08_impl*
+ Result := 2;
 end;//TkwGeneratorsExecute.GetAllParamsCount
 
 function TkwGeneratorsExecute.ParamsTypes: PTypeInfoArray;
@@ -215,12 +211,8 @@ begin
 end;//TkwGeneratorsLink.GetResultTypeInfo
 
 function TkwGeneratorsLink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E6DB290D23D7_var*
-//#UC END# *559687E6025A_E6DB290D23D7_var*
 begin
-//#UC START# *559687E6025A_E6DB290D23D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E6DB290D23D7_impl*
+ Result := 2;
 end;//TkwGeneratorsLink.GetAllParamsCount
 
 function TkwGeneratorsLink.ParamsTypes: PTypeInfoArray;

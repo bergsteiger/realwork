@@ -87,12 +87,8 @@ begin
 end;//TkwDDSupportGetState.GetResultTypeInfo
 
 function TkwDDSupportGetState.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_765DA382B537_var*
-//#UC END# *559687E6025A_765DA382B537_var*
 begin
-//#UC START# *559687E6025A_765DA382B537_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_765DA382B537_impl*
+ Result := 0;
 end;//TkwDDSupportGetState.GetAllParamsCount
 
 function TkwDDSupportGetState.ParamsTypes: PTypeInfoArray;

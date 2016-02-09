@@ -166,12 +166,8 @@ begin
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetResultTypeInfo
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B6E9E8EFCE95_var*
-//#UC END# *559687E6025A_B6E9E8EFCE95_var*
 begin
-//#UC START# *559687E6025A_B6E9E8EFCE95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B6E9E8EFCE95_impl*
+ Result := 1;
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetAllParamsCount
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.ParamsTypes: PTypeInfoArray;
@@ -228,12 +224,8 @@ begin
 end;//TkwPopFormIsFloatingState.GetResultTypeInfo
 
 function TkwPopFormIsFloatingState.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E5D04ADC6C87_var*
-//#UC END# *559687E6025A_E5D04ADC6C87_var*
 begin
-//#UC START# *559687E6025A_E5D04ADC6C87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E5D04ADC6C87_impl*
+ Result := 1;
 end;//TkwPopFormIsFloatingState.GetAllParamsCount
 
 function TkwPopFormIsFloatingState.ParamsTypes: PTypeInfoArray;
@@ -290,12 +282,8 @@ begin
 end;//TkwPopFormUserType.GetResultTypeInfo
 
 function TkwPopFormUserType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F96A7A339D27_var*
-//#UC END# *559687E6025A_F96A7A339D27_var*
 begin
-//#UC START# *559687E6025A_F96A7A339D27_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F96A7A339D27_impl*
+ Result := 1;
 end;//TkwPopFormUserType.GetAllParamsCount
 
 function TkwPopFormUserType.ParamsTypes: PTypeInfoArray;
@@ -352,12 +340,8 @@ begin
 end;//TkwPopFormFormID.GetResultTypeInfo
 
 function TkwPopFormFormID.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B0B047C68F92_var*
-//#UC END# *559687E6025A_B0B047C68F92_var*
 begin
-//#UC START# *559687E6025A_B0B047C68F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B0B047C68F92_impl*
+ Result := 1;
 end;//TkwPopFormFormID.GetAllParamsCount
 
 function TkwPopFormFormID.ParamsTypes: PTypeInfoArray;

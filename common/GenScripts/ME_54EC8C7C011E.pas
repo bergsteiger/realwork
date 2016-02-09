@@ -357,12 +357,8 @@ begin
 end;//TkwPopComboBoxDropDown.GetResultTypeInfo
 
 function TkwPopComboBoxDropDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B7676CD1AAB3_var*
-//#UC END# *559687E6025A_B7676CD1AAB3_var*
 begin
-//#UC START# *559687E6025A_B7676CD1AAB3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B7676CD1AAB3_impl*
+ Result := 2;
 end;//TkwPopComboBoxDropDown.GetAllParamsCount
 
 function TkwPopComboBoxDropDown.ParamsTypes: PTypeInfoArray;
@@ -409,12 +405,8 @@ begin
 end;//TkwPopComboBoxGetItemIndex.GetResultTypeInfo
 
 function TkwPopComboBoxGetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_731890DC5F90_var*
-//#UC END# *559687E6025A_731890DC5F90_var*
 begin
-//#UC START# *559687E6025A_731890DC5F90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_731890DC5F90_impl*
+ Result := 1;
 end;//TkwPopComboBoxGetItemIndex.GetAllParamsCount
 
 function TkwPopComboBoxGetItemIndex.ParamsTypes: PTypeInfoArray;
@@ -462,12 +454,8 @@ begin
 end;//TkwPopComboBoxIndexOf.GetResultTypeInfo
 
 function TkwPopComboBoxIndexOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_697C86093610_var*
-//#UC END# *559687E6025A_697C86093610_var*
 begin
-//#UC START# *559687E6025A_697C86093610_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_697C86093610_impl*
+ Result := 2;
 end;//TkwPopComboBoxIndexOf.GetAllParamsCount
 
 function TkwPopComboBoxIndexOf.ParamsTypes: PTypeInfoArray;
@@ -515,12 +503,8 @@ begin
 end;//TkwPopComboBoxSelectItem.GetResultTypeInfo
 
 function TkwPopComboBoxSelectItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E94AE4FC3D32_var*
-//#UC END# *559687E6025A_E94AE4FC3D32_var*
 begin
-//#UC START# *559687E6025A_E94AE4FC3D32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E94AE4FC3D32_impl*
+ Result := 2;
 end;//TkwPopComboBoxSelectItem.GetAllParamsCount
 
 function TkwPopComboBoxSelectItem.ParamsTypes: PTypeInfoArray;
@@ -569,12 +553,8 @@ begin
 end;//TkwPopComboBoxSetItemIndex.GetResultTypeInfo
 
 function TkwPopComboBoxSetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DF10F6F55A61_var*
-//#UC END# *559687E6025A_DF10F6F55A61_var*
 begin
-//#UC START# *559687E6025A_DF10F6F55A61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DF10F6F55A61_impl*
+ Result := 2;
 end;//TkwPopComboBoxSetItemIndex.GetAllParamsCount
 
 function TkwPopComboBoxSetItemIndex.ParamsTypes: PTypeInfoArray;
@@ -641,12 +621,8 @@ begin
 end;//TkwPopComboBoxSaveItems.GetResultTypeInfo
 
 function TkwPopComboBoxSaveItems.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F4F78563FAA5_var*
-//#UC END# *559687E6025A_F4F78563FAA5_var*
 begin
-//#UC START# *559687E6025A_F4F78563FAA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F4F78563FAA5_impl*
+ Result := 2;
 end;//TkwPopComboBoxSaveItems.GetAllParamsCount
 
 function TkwPopComboBoxSaveItems.ParamsTypes: PTypeInfoArray;
@@ -694,12 +670,8 @@ begin
 end;//TkwPopComboTreeDropDown.GetResultTypeInfo
 
 function TkwPopComboTreeDropDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CBB40EABEDB6_var*
-//#UC END# *559687E6025A_CBB40EABEDB6_var*
 begin
-//#UC START# *559687E6025A_CBB40EABEDB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CBB40EABEDB6_impl*
+ Result := 2;
 end;//TkwPopComboTreeDropDown.GetAllParamsCount
 
 function TkwPopComboTreeDropDown.ParamsTypes: PTypeInfoArray;
@@ -749,12 +721,8 @@ begin
 end;//TkwPopComboTreeGetItemIndex.GetResultTypeInfo
 
 function TkwPopComboTreeGetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FDB2008A1DAA_var*
-//#UC END# *559687E6025A_FDB2008A1DAA_var*
 begin
-//#UC START# *559687E6025A_FDB2008A1DAA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FDB2008A1DAA_impl*
+ Result := 1;
 end;//TkwPopComboTreeGetItemIndex.GetAllParamsCount
 
 function TkwPopComboTreeGetItemIndex.ParamsTypes: PTypeInfoArray;
@@ -802,12 +770,8 @@ begin
 end;//TkwPopComboTreeIndexOf.GetResultTypeInfo
 
 function TkwPopComboTreeIndexOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C0C842FB1A8C_var*
-//#UC END# *559687E6025A_C0C842FB1A8C_var*
 begin
-//#UC START# *559687E6025A_C0C842FB1A8C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C0C842FB1A8C_impl*
+ Result := 2;
 end;//TkwPopComboTreeIndexOf.GetAllParamsCount
 
 function TkwPopComboTreeIndexOf.ParamsTypes: PTypeInfoArray;
@@ -855,12 +819,8 @@ begin
 end;//TkwPopComboTreeSelectItem.GetResultTypeInfo
 
 function TkwPopComboTreeSelectItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B5A21C7BEE37_var*
-//#UC END# *559687E6025A_B5A21C7BEE37_var*
 begin
-//#UC START# *559687E6025A_B5A21C7BEE37_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B5A21C7BEE37_impl*
+ Result := 2;
 end;//TkwPopComboTreeSelectItem.GetAllParamsCount
 
 function TkwPopComboTreeSelectItem.ParamsTypes: PTypeInfoArray;
@@ -917,12 +877,8 @@ begin
 end;//TkwPopComboTreeSetItemIndex.GetResultTypeInfo
 
 function TkwPopComboTreeSetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8C448529271A_var*
-//#UC END# *559687E6025A_8C448529271A_var*
 begin
-//#UC START# *559687E6025A_8C448529271A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8C448529271A_impl*
+ Result := 2;
 end;//TkwPopComboTreeSetItemIndex.GetAllParamsCount
 
 function TkwPopComboTreeSetItemIndex.ParamsTypes: PTypeInfoArray;
@@ -985,12 +941,8 @@ begin
 end;//TkwPopComboTreeSaveItems.GetResultTypeInfo
 
 function TkwPopComboTreeSaveItems.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_957FA5E0E3AB_var*
-//#UC END# *559687E6025A_957FA5E0E3AB_var*
 begin
-//#UC START# *559687E6025A_957FA5E0E3AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_957FA5E0E3AB_impl*
+ Result := 2;
 end;//TkwPopComboTreeSaveItems.GetAllParamsCount
 
 function TkwPopComboTreeSaveItems.ParamsTypes: PTypeInfoArray;

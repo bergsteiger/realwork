@@ -360,12 +360,8 @@ begin
 end;//TkwVcmTabsCloseCurrent.GetResultTypeInfo
 
 function TkwVcmTabsCloseCurrent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_137FD631C8A7_var*
-//#UC END# *559687E6025A_137FD631C8A7_var*
 begin
-//#UC START# *559687E6025A_137FD631C8A7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_137FD631C8A7_impl*
+ Result := 0;
 end;//TkwVcmTabsCloseCurrent.GetAllParamsCount
 
 procedure TkwVcmTabsClose.vcm_tabs_Close(const aCtx: TtfwContext;
@@ -404,12 +400,8 @@ begin
 end;//TkwVcmTabsClose.GetResultTypeInfo
 
 function TkwVcmTabsClose.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_12F6A6736B71_var*
-//#UC END# *559687E6025A_12F6A6736B71_var*
 begin
-//#UC START# *559687E6025A_12F6A6736B71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_12F6A6736B71_impl*
+ Result := 1;
 end;//TkwVcmTabsClose.GetAllParamsCount
 
 function TkwVcmTabsClose.ParamsTypes: PTypeInfoArray;
@@ -445,12 +437,8 @@ begin
 end;//TkwVcmTabsCloseAllButCurrent.GetResultTypeInfo
 
 function TkwVcmTabsCloseAllButCurrent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_91294BF70EF7_var*
-//#UC END# *559687E6025A_91294BF70EF7_var*
 begin
-//#UC START# *559687E6025A_91294BF70EF7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_91294BF70EF7_impl*
+ Result := 0;
 end;//TkwVcmTabsCloseAllButCurrent.GetAllParamsCount
 
 function TkwVcmTabsActive.vcm_tabs_Active(const aCtx: TtfwContext): Integer;
@@ -487,12 +475,8 @@ begin
 end;//TkwVcmTabsActive.GetResultTypeInfo
 
 function TkwVcmTabsActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EA6F3BD4A5CA_var*
-//#UC END# *559687E6025A_EA6F3BD4A5CA_var*
 begin
-//#UC START# *559687E6025A_EA6F3BD4A5CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EA6F3BD4A5CA_impl*
+ Result := 0;
 end;//TkwVcmTabsActive.GetAllParamsCount
 
 function TkwVcmTabsActive.ParamsTypes: PTypeInfoArray;
@@ -540,12 +524,8 @@ begin
 end;//TkwVcmTabsSetActive.GetResultTypeInfo
 
 function TkwVcmTabsSetActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_36E868893B0A_var*
-//#UC END# *559687E6025A_36E868893B0A_var*
 begin
-//#UC START# *559687E6025A_36E868893B0A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_36E868893B0A_impl*
+ Result := 1;
 end;//TkwVcmTabsSetActive.GetAllParamsCount
 
 function TkwVcmTabsSetActive.ParamsTypes: PTypeInfoArray;
@@ -591,12 +571,8 @@ begin
 end;//TkwVcmTabsCount.GetResultTypeInfo
 
 function TkwVcmTabsCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D1C0BD993D2F_var*
-//#UC END# *559687E6025A_D1C0BD993D2F_var*
 begin
-//#UC START# *559687E6025A_D1C0BD993D2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D1C0BD993D2F_impl*
+ Result := 0;
 end;//TkwVcmTabsCount.GetAllParamsCount
 
 function TkwVcmTabsCount.ParamsTypes: PTypeInfoArray;
@@ -632,12 +608,8 @@ begin
 end;//TkwVcmTabsOpenNewTab.GetResultTypeInfo
 
 function TkwVcmTabsOpenNewTab.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_76B187B4575B_var*
-//#UC END# *559687E6025A_76B187B4575B_var*
 begin
-//#UC START# *559687E6025A_76B187B4575B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_76B187B4575B_impl*
+ Result := 0;
 end;//TkwVcmTabsOpenNewTab.GetAllParamsCount
 
 function TkwVcmTabsCanOpenNewTab.vcm_tabs_CanOpenNewTab(const aCtx: TtfwContext): Boolean;
@@ -674,12 +646,8 @@ begin
 end;//TkwVcmTabsCanOpenNewTab.GetResultTypeInfo
 
 function TkwVcmTabsCanOpenNewTab.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D42D3E4F7AC2_var*
-//#UC END# *559687E6025A_D42D3E4F7AC2_var*
 begin
-//#UC START# *559687E6025A_D42D3E4F7AC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D42D3E4F7AC2_impl*
+ Result := 0;
 end;//TkwVcmTabsCanOpenNewTab.GetAllParamsCount
 
 function TkwVcmTabsCanOpenNewTab.ParamsTypes: PTypeInfoArray;
@@ -727,12 +695,8 @@ begin
 end;//TkwVcmTabsDuplicate.GetResultTypeInfo
 
 function TkwVcmTabsDuplicate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_25BDB3DFEC33_var*
-//#UC END# *559687E6025A_25BDB3DFEC33_var*
 begin
-//#UC START# *559687E6025A_25BDB3DFEC33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_25BDB3DFEC33_impl*
+ Result := 1;
 end;//TkwVcmTabsDuplicate.GetAllParamsCount
 
 function TkwVcmTabsDuplicate.ParamsTypes: PTypeInfoArray;
@@ -780,12 +744,8 @@ begin
 end;//TkwVcmTabsCanDuplicate.GetResultTypeInfo
 
 function TkwVcmTabsCanDuplicate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_43C0563688C9_var*
-//#UC END# *559687E6025A_43C0563688C9_var*
 begin
-//#UC START# *559687E6025A_43C0563688C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_43C0563688C9_impl*
+ Result := 1;
 end;//TkwVcmTabsCanDuplicate.GetAllParamsCount
 
 function TkwVcmTabsCanDuplicate.ParamsTypes: PTypeInfoArray;
@@ -822,12 +782,8 @@ begin
 end;//TkwVcmTabsReopen.GetResultTypeInfo
 
 function TkwVcmTabsReopen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C449AC698640_var*
-//#UC END# *559687E6025A_C449AC698640_var*
 begin
-//#UC START# *559687E6025A_C449AC698640_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C449AC698640_impl*
+ Result := 0;
 end;//TkwVcmTabsReopen.GetAllParamsCount
 
 function TkwVcmTabsCanReopen.vcm_tabs_CanReopen(const aCtx: TtfwContext): Boolean;
@@ -865,12 +821,8 @@ begin
 end;//TkwVcmTabsCanReopen.GetResultTypeInfo
 
 function TkwVcmTabsCanReopen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B8D479345CBE_var*
-//#UC END# *559687E6025A_B8D479345CBE_var*
 begin
-//#UC START# *559687E6025A_B8D479345CBE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B8D479345CBE_impl*
+ Result := 0;
 end;//TkwVcmTabsCanReopen.GetAllParamsCount
 
 function TkwVcmTabsCanReopen.ParamsTypes: PTypeInfoArray;
@@ -918,12 +870,8 @@ begin
 end;//TkwVcmTabsGetIconIndex.GetResultTypeInfo
 
 function TkwVcmTabsGetIconIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1F0AD0312C05_var*
-//#UC END# *559687E6025A_1F0AD0312C05_var*
 begin
-//#UC START# *559687E6025A_1F0AD0312C05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1F0AD0312C05_impl*
+ Result := 1;
 end;//TkwVcmTabsGetIconIndex.GetAllParamsCount
 
 function TkwVcmTabsGetIconIndex.ParamsTypes: PTypeInfoArray;
@@ -971,12 +919,8 @@ begin
 end;//TkwVcmTabsGetCaption.GetResultTypeInfo
 
 function TkwVcmTabsGetCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_27CA2643776F_var*
-//#UC END# *559687E6025A_27CA2643776F_var*
 begin
-//#UC START# *559687E6025A_27CA2643776F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_27CA2643776F_impl*
+ Result := 1;
 end;//TkwVcmTabsGetCaption.GetAllParamsCount
 
 function TkwVcmTabsGetCaption.ParamsTypes: PTypeInfoArray;
@@ -1024,12 +968,8 @@ begin
 end;//TkwVcmTabsCanUndock.GetResultTypeInfo
 
 function TkwVcmTabsCanUndock.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C1A0F850A859_var*
-//#UC END# *559687E6025A_C1A0F850A859_var*
 begin
-//#UC START# *559687E6025A_C1A0F850A859_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C1A0F850A859_impl*
+ Result := 1;
 end;//TkwVcmTabsCanUndock.GetAllParamsCount
 
 function TkwVcmTabsCanUndock.ParamsTypes: PTypeInfoArray;
@@ -1077,12 +1017,8 @@ begin
 end;//TkwVcmTabsUndock.GetResultTypeInfo
 
 function TkwVcmTabsUndock.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DB5208478590_var*
-//#UC END# *559687E6025A_DB5208478590_var*
 begin
-//#UC START# *559687E6025A_DB5208478590_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DB5208478590_impl*
+ Result := 1;
 end;//TkwVcmTabsUndock.GetAllParamsCount
 
 function TkwVcmTabsUndock.ParamsTypes: PTypeInfoArray;

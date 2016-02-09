@@ -299,12 +299,8 @@ begin
 end;//TkwPopRemindersLineClientToScreen.GetResultTypeInfo
 
 function TkwPopRemindersLineClientToScreen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9653AE4CDED4_var*
-//#UC END# *559687E6025A_9653AE4CDED4_var*
 begin
-//#UC START# *559687E6025A_9653AE4CDED4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9653AE4CDED4_impl*
+ Result := 2;
 end;//TkwPopRemindersLineClientToScreen.GetAllParamsCount
 
 function TkwPopRemindersLineClientToScreen.ParamsTypes: PTypeInfoArray;
@@ -354,12 +350,8 @@ begin
 end;//TkwPopRemindersLineGetReminder.GetResultTypeInfo
 
 function TkwPopRemindersLineGetReminder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FF04F6E03205_var*
-//#UC END# *559687E6025A_FF04F6E03205_var*
 begin
-//#UC START# *559687E6025A_FF04F6E03205_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FF04F6E03205_impl*
+ Result := 2;
 end;//TkwPopRemindersLineGetReminder.GetAllParamsCount
 
 function TkwPopRemindersLineGetReminder.ParamsTypes: PTypeInfoArray;
@@ -416,12 +408,8 @@ begin
 end;//TkwPopRemindersLineAbsLeft.GetResultTypeInfo
 
 function TkwPopRemindersLineAbsLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F126CBF8C36E_var*
-//#UC END# *559687E6025A_F126CBF8C36E_var*
 begin
-//#UC START# *559687E6025A_F126CBF8C36E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F126CBF8C36E_impl*
+ Result := 1;
 end;//TkwPopRemindersLineAbsLeft.GetAllParamsCount
 
 function TkwPopRemindersLineAbsLeft.ParamsTypes: PTypeInfoArray;
@@ -478,12 +466,8 @@ begin
 end;//TkwPopRemindersLineAbsTop.GetResultTypeInfo
 
 function TkwPopRemindersLineAbsTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1F4F64719530_var*
-//#UC END# *559687E6025A_1F4F64719530_var*
 begin
-//#UC START# *559687E6025A_1F4F64719530_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1F4F64719530_impl*
+ Result := 1;
 end;//TkwPopRemindersLineAbsTop.GetAllParamsCount
 
 function TkwPopRemindersLineAbsTop.ParamsTypes: PTypeInfoArray;
@@ -540,12 +524,8 @@ begin
 end;//TkwPopRemindersLineCount.GetResultTypeInfo
 
 function TkwPopRemindersLineCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_445623FA8275_var*
-//#UC END# *559687E6025A_445623FA8275_var*
 begin
-//#UC START# *559687E6025A_445623FA8275_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_445623FA8275_impl*
+ Result := 1;
 end;//TkwPopRemindersLineCount.GetAllParamsCount
 
 function TkwPopRemindersLineCount.ParamsTypes: PTypeInfoArray;
@@ -602,12 +582,8 @@ begin
 end;//TkwPopRemindersLineHeight.GetResultTypeInfo
 
 function TkwPopRemindersLineHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_760507B09407_var*
-//#UC END# *559687E6025A_760507B09407_var*
 begin
-//#UC START# *559687E6025A_760507B09407_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_760507B09407_impl*
+ Result := 1;
 end;//TkwPopRemindersLineHeight.GetAllParamsCount
 
 function TkwPopRemindersLineHeight.ParamsTypes: PTypeInfoArray;
@@ -664,12 +640,8 @@ begin
 end;//TkwPopRemindersLineLeft.GetResultTypeInfo
 
 function TkwPopRemindersLineLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_52CD5A5422A8_var*
-//#UC END# *559687E6025A_52CD5A5422A8_var*
 begin
-//#UC START# *559687E6025A_52CD5A5422A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_52CD5A5422A8_impl*
+ Result := 1;
 end;//TkwPopRemindersLineLeft.GetAllParamsCount
 
 function TkwPopRemindersLineLeft.ParamsTypes: PTypeInfoArray;
@@ -726,12 +698,8 @@ begin
 end;//TkwPopRemindersLineTop.GetResultTypeInfo
 
 function TkwPopRemindersLineTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E47F2394242D_var*
-//#UC END# *559687E6025A_E47F2394242D_var*
 begin
-//#UC START# *559687E6025A_E47F2394242D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E47F2394242D_impl*
+ Result := 1;
 end;//TkwPopRemindersLineTop.GetAllParamsCount
 
 function TkwPopRemindersLineTop.ParamsTypes: PTypeInfoArray;
@@ -788,12 +756,8 @@ begin
 end;//TkwPopRemindersLineVisible.GetResultTypeInfo
 
 function TkwPopRemindersLineVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_002E70A99E5D_var*
-//#UC END# *559687E6025A_002E70A99E5D_var*
 begin
-//#UC START# *559687E6025A_002E70A99E5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_002E70A99E5D_impl*
+ Result := 1;
 end;//TkwPopRemindersLineVisible.GetAllParamsCount
 
 function TkwPopRemindersLineVisible.ParamsTypes: PTypeInfoArray;
@@ -850,12 +814,8 @@ begin
 end;//TkwPopRemindersLineWidth.GetResultTypeInfo
 
 function TkwPopRemindersLineWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_ECE9F55BFC1D_var*
-//#UC END# *559687E6025A_ECE9F55BFC1D_var*
 begin
-//#UC START# *559687E6025A_ECE9F55BFC1D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_ECE9F55BFC1D_impl*
+ Result := 1;
 end;//TkwPopRemindersLineWidth.GetAllParamsCount
 
 function TkwPopRemindersLineWidth.ParamsTypes: PTypeInfoArray;

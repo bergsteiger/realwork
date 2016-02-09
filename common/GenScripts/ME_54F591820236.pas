@@ -97,12 +97,8 @@ begin
 end;//TkwPopTB97ButtonDown.GetResultTypeInfo
 
 function TkwPopTB97ButtonDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C746DA0CF72F_var*
-//#UC END# *559687E6025A_C746DA0CF72F_var*
 begin
-//#UC START# *559687E6025A_C746DA0CF72F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C746DA0CF72F_impl*
+ Result := 1;
 end;//TkwPopTB97ButtonDown.GetAllParamsCount
 
 function TkwPopTB97ButtonDown.ParamsTypes: PTypeInfoArray;

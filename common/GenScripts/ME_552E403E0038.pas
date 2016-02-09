@@ -90,12 +90,8 @@ begin
 end;//TkwPopStatusPanelGetText.GetResultTypeInfo
 
 function TkwPopStatusPanelGetText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7D107A8BDD1A_var*
-//#UC END# *559687E6025A_7D107A8BDD1A_var*
 begin
-//#UC START# *559687E6025A_7D107A8BDD1A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7D107A8BDD1A_impl*
+ Result := 1;
 end;//TkwPopStatusPanelGetText.GetAllParamsCount
 
 function TkwPopStatusPanelGetText.ParamsTypes: PTypeInfoArray;

@@ -139,12 +139,8 @@ begin
 end;//TkwPopControlFindVGControlByName.GetResultTypeInfo
 
 function TkwPopControlFindVGControlByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BAFBA1D026AA_var*
-//#UC END# *559687E6025A_BAFBA1D026AA_var*
 begin
-//#UC START# *559687E6025A_BAFBA1D026AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BAFBA1D026AA_impl*
+ Result := 2;
 end;//TkwPopControlFindVGControlByName.GetAllParamsCount
 
 function TkwPopControlFindVGControlByName.ParamsTypes: PTypeInfoArray;

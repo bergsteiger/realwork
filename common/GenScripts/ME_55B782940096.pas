@@ -85,12 +85,8 @@ begin
 end;//TkwPopComboTreeCurrentNode.GetResultTypeInfo
 
 function TkwPopComboTreeCurrentNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9F9FF0616B3E_var*
-//#UC END# *559687E6025A_9F9FF0616B3E_var*
 begin
-//#UC START# *559687E6025A_9F9FF0616B3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9F9FF0616B3E_impl*
+ Result := 1;
 end;//TkwPopComboTreeCurrentNode.GetAllParamsCount
 
 function TkwPopComboTreeCurrentNode.ParamsTypes: PTypeInfoArray;

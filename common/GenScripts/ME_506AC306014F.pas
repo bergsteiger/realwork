@@ -408,12 +408,8 @@ begin
 end;//TkwVgControlVisible.GetResultTypeInfo
 
 function TkwVgControlVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_89C786B088C6_var*
-//#UC END# *559687E6025A_89C786B088C6_var*
 begin
-//#UC START# *559687E6025A_89C786B088C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_89C786B088C6_impl*
+ Result := 1;
 end;//TkwVgControlVisible.GetAllParamsCount
 
 function TkwVgControlVisible.ParamsTypes: PTypeInfoArray;
@@ -460,12 +456,8 @@ begin
 end;//TkwVgControlHeight.GetResultTypeInfo
 
 function TkwVgControlHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_05A703B5907E_var*
-//#UC END# *559687E6025A_05A703B5907E_var*
 begin
-//#UC START# *559687E6025A_05A703B5907E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_05A703B5907E_impl*
+ Result := 1;
 end;//TkwVgControlHeight.GetAllParamsCount
 
 function TkwVgControlHeight.ParamsTypes: PTypeInfoArray;
@@ -512,12 +504,8 @@ begin
 end;//TkwVgControlWidth.GetResultTypeInfo
 
 function TkwVgControlWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6D438B9C5A14_var*
-//#UC END# *559687E6025A_6D438B9C5A14_var*
 begin
-//#UC START# *559687E6025A_6D438B9C5A14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6D438B9C5A14_impl*
+ Result := 1;
 end;//TkwVgControlWidth.GetAllParamsCount
 
 function TkwVgControlWidth.ParamsTypes: PTypeInfoArray;
@@ -564,12 +552,8 @@ begin
 end;//TkwVgControlLeft.GetResultTypeInfo
 
 function TkwVgControlLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0ED393F18084_var*
-//#UC END# *559687E6025A_0ED393F18084_var*
 begin
-//#UC START# *559687E6025A_0ED393F18084_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0ED393F18084_impl*
+ Result := 1;
 end;//TkwVgControlLeft.GetAllParamsCount
 
 function TkwVgControlLeft.ParamsTypes: PTypeInfoArray;
@@ -616,12 +600,8 @@ begin
 end;//TkwVgControlTop.GetResultTypeInfo
 
 function TkwVgControlTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E4BF70016043_var*
-//#UC END# *559687E6025A_E4BF70016043_var*
 begin
-//#UC START# *559687E6025A_E4BF70016043_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E4BF70016043_impl*
+ Result := 1;
 end;//TkwVgControlTop.GetAllParamsCount
 
 function TkwVgControlTop.ParamsTypes: PTypeInfoArray;
@@ -668,12 +648,8 @@ begin
 end;//TkwVgControlEnabled.GetResultTypeInfo
 
 function TkwVgControlEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_20CB200689C7_var*
-//#UC END# *559687E6025A_20CB200689C7_var*
 begin
-//#UC START# *559687E6025A_20CB200689C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_20CB200689C7_impl*
+ Result := 1;
 end;//TkwVgControlEnabled.GetAllParamsCount
 
 function TkwVgControlEnabled.ParamsTypes: PTypeInfoArray;
@@ -720,12 +696,8 @@ begin
 end;//TkwVgControlName.GetResultTypeInfo
 
 function TkwVgControlName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F80A519316B5_var*
-//#UC END# *559687E6025A_F80A519316B5_var*
 begin
-//#UC START# *559687E6025A_F80A519316B5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F80A519316B5_impl*
+ Result := 1;
 end;//TkwVgControlName.GetAllParamsCount
 
 function TkwVgControlName.ParamsTypes: PTypeInfoArray;
@@ -776,12 +748,8 @@ begin
 end;//TkwVgControlClick.GetResultTypeInfo
 
 function TkwVgControlClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E94B273F03D9_var*
-//#UC END# *559687E6025A_E94B273F03D9_var*
 begin
-//#UC START# *559687E6025A_E94B273F03D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E94B273F03D9_impl*
+ Result := 1;
 end;//TkwVgControlClick.GetAllParamsCount
 
 function TkwVgControlClick.ParamsTypes: PTypeInfoArray;
@@ -841,12 +809,8 @@ begin
 end;//TkwVgControlCountSiblingLikeMe.GetResultTypeInfo
 
 function TkwVgControlCountSiblingLikeMe.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8969D4FAAB14_var*
-//#UC END# *559687E6025A_8969D4FAAB14_var*
 begin
-//#UC START# *559687E6025A_8969D4FAAB14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8969D4FAAB14_impl*
+ Result := 1;
 end;//TkwVgControlCountSiblingLikeMe.GetAllParamsCount
 
 function TkwVgControlCountSiblingLikeMe.ParamsTypes: PTypeInfoArray;
@@ -893,12 +857,8 @@ begin
 end;//TkwVgControlGetIsChecked.GetResultTypeInfo
 
 function TkwVgControlGetIsChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D3F9471133D7_var*
-//#UC END# *559687E6025A_D3F9471133D7_var*
 begin
-//#UC START# *559687E6025A_D3F9471133D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D3F9471133D7_impl*
+ Result := 1;
 end;//TkwVgControlGetIsChecked.GetAllParamsCount
 
 function TkwVgControlGetIsChecked.ParamsTypes: PTypeInfoArray;
@@ -946,12 +906,8 @@ begin
 end;//TkwVgControlSetIsChecked.GetResultTypeInfo
 
 function TkwVgControlSetIsChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5389853B1E01_var*
-//#UC END# *559687E6025A_5389853B1E01_var*
 begin
-//#UC START# *559687E6025A_5389853B1E01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5389853B1E01_impl*
+ Result := 2;
 end;//TkwVgControlSetIsChecked.GetAllParamsCount
 
 function TkwVgControlSetIsChecked.ParamsTypes: PTypeInfoArray;
@@ -1009,12 +965,8 @@ begin
 end;//TkwVgControlLeftInScene.GetResultTypeInfo
 
 function TkwVgControlLeftInScene.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0B0F33EAEBDF_var*
-//#UC END# *559687E6025A_0B0F33EAEBDF_var*
 begin
-//#UC START# *559687E6025A_0B0F33EAEBDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0B0F33EAEBDF_impl*
+ Result := 1;
 end;//TkwVgControlLeftInScene.GetAllParamsCount
 
 function TkwVgControlLeftInScene.ParamsTypes: PTypeInfoArray;
@@ -1072,12 +1024,8 @@ begin
 end;//TkwVgControlTopInScene.GetResultTypeInfo
 
 function TkwVgControlTopInScene.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FFE6E88470A5_var*
-//#UC END# *559687E6025A_FFE6E88470A5_var*
 begin
-//#UC START# *559687E6025A_FFE6E88470A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FFE6E88470A5_impl*
+ Result := 1;
 end;//TkwVgControlTopInScene.GetAllParamsCount
 
 function TkwVgControlTopInScene.ParamsTypes: PTypeInfoArray;
@@ -1124,12 +1072,8 @@ begin
 end;//TkwVgControlScene.GetResultTypeInfo
 
 function TkwVgControlScene.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E3230FB2D73B_var*
-//#UC END# *559687E6025A_E3230FB2D73B_var*
 begin
-//#UC START# *559687E6025A_E3230FB2D73B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E3230FB2D73B_impl*
+ Result := 1;
 end;//TkwVgControlScene.GetAllParamsCount
 
 function TkwVgControlScene.ParamsTypes: PTypeInfoArray;
@@ -1182,12 +1126,8 @@ begin
 end;//TkwVgControlText.GetResultTypeInfo
 
 function TkwVgControlText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BD648FBA9D21_var*
-//#UC END# *559687E6025A_BD648FBA9D21_var*
 begin
-//#UC START# *559687E6025A_BD648FBA9D21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BD648FBA9D21_impl*
+ Result := 1;
 end;//TkwVgControlText.GetAllParamsCount
 
 function TkwVgControlText.ParamsTypes: PTypeInfoArray;

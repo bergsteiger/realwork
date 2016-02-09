@@ -99,12 +99,8 @@ begin
 end;//TkwPopRadioButtonChecked.GetResultTypeInfo
 
 function TkwPopRadioButtonChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_06BAC463482F_var*
-//#UC END# *559687E6025A_06BAC463482F_var*
 begin
-//#UC START# *559687E6025A_06BAC463482F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_06BAC463482F_impl*
+ Result := 1;
 end;//TkwPopRadioButtonChecked.GetAllParamsCount
 
 function TkwPopRadioButtonChecked.ParamsTypes: PTypeInfoArray;

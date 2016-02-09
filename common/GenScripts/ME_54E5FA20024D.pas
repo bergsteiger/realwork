@@ -125,12 +125,8 @@ begin
 end;//TkwPopHideFieldIsExpanded.GetResultTypeInfo
 
 function TkwPopHideFieldIsExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A0AE99A180FB_var*
-//#UC END# *559687E6025A_A0AE99A180FB_var*
 begin
-//#UC START# *559687E6025A_A0AE99A180FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A0AE99A180FB_impl*
+ Result := 1;
 end;//TkwPopHideFieldIsExpanded.GetAllParamsCount
 
 function TkwPopHideFieldIsExpanded.ParamsTypes: PTypeInfoArray;
@@ -181,12 +177,8 @@ begin
 end;//TkwPopHideFieldSetExpanded.GetResultTypeInfo
 
 function TkwPopHideFieldSetExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D92EF59DAD00_var*
-//#UC END# *559687E6025A_D92EF59DAD00_var*
 begin
-//#UC START# *559687E6025A_D92EF59DAD00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D92EF59DAD00_impl*
+ Result := 2;
 end;//TkwPopHideFieldSetExpanded.GetAllParamsCount
 
 function TkwPopHideFieldSetExpanded.ParamsTypes: PTypeInfoArray;
@@ -233,12 +225,8 @@ begin
 end;//TkwPopHideFieldGetCaption.GetResultTypeInfo
 
 function TkwPopHideFieldGetCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D34E3A240E95_var*
-//#UC END# *559687E6025A_D34E3A240E95_var*
 begin
-//#UC START# *559687E6025A_D34E3A240E95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D34E3A240E95_impl*
+ Result := 1;
 end;//TkwPopHideFieldGetCaption.GetAllParamsCount
 
 function TkwPopHideFieldGetCaption.ParamsTypes: PTypeInfoArray;

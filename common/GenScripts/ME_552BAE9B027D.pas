@@ -142,12 +142,8 @@ begin
 end;//TkwVcmToolbarSetGlyphSize.GetResultTypeInfo
 
 function TkwVcmToolbarSetGlyphSize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4463E51B5CE8_var*
-//#UC END# *559687E6025A_4463E51B5CE8_var*
 begin
-//#UC START# *559687E6025A_4463E51B5CE8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4463E51B5CE8_impl*
+ Result := 1;
 end;//TkwVcmToolbarSetGlyphSize.GetAllParamsCount
 
 function TkwVcmToolbarSetGlyphSize.ParamsTypes: PTypeInfoArray;
@@ -193,12 +189,8 @@ begin
 end;//TkwVcmToolbarGetGlyphSize.GetResultTypeInfo
 
 function TkwVcmToolbarGetGlyphSize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CB878D8D1F92_var*
-//#UC END# *559687E6025A_CB878D8D1F92_var*
 begin
-//#UC START# *559687E6025A_CB878D8D1F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CB878D8D1F92_impl*
+ Result := 0;
 end;//TkwVcmToolbarGetGlyphSize.GetAllParamsCount
 
 function TkwVcmToolbarGetGlyphSize.ParamsTypes: PTypeInfoArray;
@@ -244,12 +236,8 @@ begin
 end;//TkwVcmToolbarGetGlyphColorDepth.GetResultTypeInfo
 
 function TkwVcmToolbarGetGlyphColorDepth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8FA6E0CDB066_var*
-//#UC END# *559687E6025A_8FA6E0CDB066_var*
 begin
-//#UC START# *559687E6025A_8FA6E0CDB066_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8FA6E0CDB066_impl*
+ Result := 0;
 end;//TkwVcmToolbarGetGlyphColorDepth.GetAllParamsCount
 
 function TkwVcmToolbarGetGlyphColorDepth.ParamsTypes: PTypeInfoArray;
@@ -296,12 +284,8 @@ begin
 end;//TkwVcmToolbarSetGlyphColorDepth.GetResultTypeInfo
 
 function TkwVcmToolbarSetGlyphColorDepth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2E579942A814_var*
-//#UC END# *559687E6025A_2E579942A814_var*
 begin
-//#UC START# *559687E6025A_2E579942A814_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2E579942A814_impl*
+ Result := 1;
 end;//TkwVcmToolbarSetGlyphColorDepth.GetAllParamsCount
 
 function TkwVcmToolbarSetGlyphColorDepth.ParamsTypes: PTypeInfoArray;

@@ -522,12 +522,8 @@ begin
 end;//TkwTreeCheckFlag.GetResultTypeInfo
 
 function TkwTreeCheckFlag.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3A8F612BD250_var*
-//#UC END# *559687E6025A_3A8F612BD250_var*
 begin
-//#UC START# *559687E6025A_3A8F612BD250_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3A8F612BD250_impl*
+ Result := 3;
 end;//TkwTreeCheckFlag.GetAllParamsCount
 
 function TkwTreeCheckFlag.ParamsTypes: PTypeInfoArray;
@@ -574,12 +570,8 @@ begin
 end;//TkwTreeCollapseAll.GetResultTypeInfo
 
 function TkwTreeCollapseAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DCC8D602858A_var*
-//#UC END# *559687E6025A_DCC8D602858A_var*
 begin
-//#UC START# *559687E6025A_DCC8D602858A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DCC8D602858A_impl*
+ Result := 1;
 end;//TkwTreeCollapseAll.GetAllParamsCount
 
 function TkwTreeCollapseAll.ParamsTypes: PTypeInfoArray;
@@ -626,12 +618,8 @@ begin
 end;//TkwTreeCurrentNodeIsExpanded.GetResultTypeInfo
 
 function TkwTreeCurrentNodeIsExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_24EBB16818DB_var*
-//#UC END# *559687E6025A_24EBB16818DB_var*
 begin
-//#UC START# *559687E6025A_24EBB16818DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_24EBB16818DB_impl*
+ Result := 1;
 end;//TkwTreeCurrentNodeIsExpanded.GetAllParamsCount
 
 function TkwTreeCurrentNodeIsExpanded.ParamsTypes: PTypeInfoArray;
@@ -686,12 +674,8 @@ begin
 end;//TkwTreeDeleteAllChildren.GetResultTypeInfo
 
 function TkwTreeDeleteAllChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_88EA9B4D8249_var*
-//#UC END# *559687E6025A_88EA9B4D8249_var*
 begin
-//#UC START# *559687E6025A_88EA9B4D8249_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_88EA9B4D8249_impl*
+ Result := 1;
 end;//TkwTreeDeleteAllChildren.GetAllParamsCount
 
 function TkwTreeDeleteAllChildren.ParamsTypes: PTypeInfoArray;
@@ -738,12 +722,8 @@ begin
 end;//TkwTreeExpandAll.GetResultTypeInfo
 
 function TkwTreeExpandAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_11D7E325A602_var*
-//#UC END# *559687E6025A_11D7E325A602_var*
 begin
-//#UC START# *559687E6025A_11D7E325A602_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_11D7E325A602_impl*
+ Result := 1;
 end;//TkwTreeExpandAll.GetAllParamsCount
 
 function TkwTreeExpandAll.ParamsTypes: PTypeInfoArray;
@@ -790,12 +770,8 @@ begin
 end;//TkwTreeCurrentNode.GetResultTypeInfo
 
 function TkwTreeCurrentNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6EB6AE69700F_var*
-//#UC END# *559687E6025A_6EB6AE69700F_var*
 begin
-//#UC START# *559687E6025A_6EB6AE69700F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6EB6AE69700F_impl*
+ Result := 1;
 end;//TkwTreeCurrentNode.GetAllParamsCount
 
 function TkwTreeCurrentNode.ParamsTypes: PTypeInfoArray;
@@ -843,12 +819,8 @@ begin
 end;//TkwTreeGetItem.GetResultTypeInfo
 
 function TkwTreeGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E66BB4447886_var*
-//#UC END# *559687E6025A_E66BB4447886_var*
 begin
-//#UC START# *559687E6025A_E66BB4447886_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E66BB4447886_impl*
+ Result := 2;
 end;//TkwTreeGetItem.GetAllParamsCount
 
 function TkwTreeGetItem.ParamsTypes: PTypeInfoArray;
@@ -895,12 +867,8 @@ begin
 end;//TkwTreeGetItemsCount.GetResultTypeInfo
 
 function TkwTreeGetItemsCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6AA86FBC7A2F_var*
-//#UC END# *559687E6025A_6AA86FBC7A2F_var*
 begin
-//#UC START# *559687E6025A_6AA86FBC7A2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6AA86FBC7A2F_impl*
+ Result := 1;
 end;//TkwTreeGetItemsCount.GetAllParamsCount
 
 function TkwTreeGetItemsCount.ParamsTypes: PTypeInfoArray;
@@ -960,12 +928,8 @@ begin
 end;//TkwTreeIterateNodes.GetResultTypeInfo
 
 function TkwTreeIterateNodes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_57DF7C56BA33_var*
-//#UC END# *559687E6025A_57DF7C56BA33_var*
 begin
-//#UC START# *559687E6025A_57DF7C56BA33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_57DF7C56BA33_impl*
+ Result := 2;
 end;//TkwTreeIterateNodes.GetAllParamsCount
 
 function TkwTreeIterateNodes.ParamsTypes: PTypeInfoArray;
@@ -1050,12 +1014,8 @@ begin
 end;//TkwTreeSaveState2File.GetResultTypeInfo
 
 function TkwTreeSaveState2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B4D43BCE4979_var*
-//#UC END# *559687E6025A_B4D43BCE4979_var*
 begin
-//#UC START# *559687E6025A_B4D43BCE4979_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B4D43BCE4979_impl*
+ Result := 2;
 end;//TkwTreeSaveState2File.GetAllParamsCount
 
 function TkwTreeSaveState2File.ParamsTypes: PTypeInfoArray;
@@ -1103,12 +1063,8 @@ begin
 end;//TkwTreeChildrenCount.GetResultTypeInfo
 
 function TkwTreeChildrenCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_015D1248A6CF_var*
-//#UC END# *559687E6025A_015D1248A6CF_var*
 begin
-//#UC START# *559687E6025A_015D1248A6CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_015D1248A6CF_impl*
+ Result := 2;
 end;//TkwTreeChildrenCount.GetAllParamsCount
 
 function TkwTreeChildrenCount.ParamsTypes: PTypeInfoArray;
@@ -1156,12 +1112,8 @@ begin
 end;//TkwTreeExpand.GetResultTypeInfo
 
 function TkwTreeExpand.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B776D637E7D3_var*
-//#UC END# *559687E6025A_B776D637E7D3_var*
 begin
-//#UC START# *559687E6025A_B776D637E7D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B776D637E7D3_impl*
+ Result := 2;
 end;//TkwTreeExpand.GetAllParamsCount
 
 function TkwTreeExpand.ParamsTypes: PTypeInfoArray;
@@ -1210,12 +1162,8 @@ begin
 end;//TkwTreeGetItemHeight.GetResultTypeInfo
 
 function TkwTreeGetItemHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_62AE36AC72B7_var*
-//#UC END# *559687E6025A_62AE36AC72B7_var*
 begin
-//#UC START# *559687E6025A_62AE36AC72B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_62AE36AC72B7_impl*
+ Result := 2;
 end;//TkwTreeGetItemHeight.GetAllParamsCount
 
 function TkwTreeGetItemHeight.ParamsTypes: PTypeInfoArray;
@@ -1268,12 +1216,8 @@ begin
 end;//TkwTreeGetItemImageIndex.GetResultTypeInfo
 
 function TkwTreeGetItemImageIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A8F9DB23E07A_var*
-//#UC END# *559687E6025A_A8F9DB23E07A_var*
 begin
-//#UC START# *559687E6025A_A8F9DB23E07A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A8F9DB23E07A_impl*
+ Result := 2;
 end;//TkwTreeGetItemImageIndex.GetAllParamsCount
 
 function TkwTreeGetItemImageIndex.ParamsTypes: PTypeInfoArray;
@@ -1322,12 +1266,8 @@ begin
 end;//TkwTreeGetItemLeft.GetResultTypeInfo
 
 function TkwTreeGetItemLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6CAA56491F95_var*
-//#UC END# *559687E6025A_6CAA56491F95_var*
 begin
-//#UC START# *559687E6025A_6CAA56491F95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6CAA56491F95_impl*
+ Result := 2;
 end;//TkwTreeGetItemLeft.GetAllParamsCount
 
 function TkwTreeGetItemLeft.ParamsTypes: PTypeInfoArray;
@@ -1376,12 +1316,8 @@ begin
 end;//TkwTreeGetItemTop.GetResultTypeInfo
 
 function TkwTreeGetItemTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5F6D76A66CAD_var*
-//#UC END# *559687E6025A_5F6D76A66CAD_var*
 begin
-//#UC START# *559687E6025A_5F6D76A66CAD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5F6D76A66CAD_impl*
+ Result := 2;
 end;//TkwTreeGetItemTop.GetAllParamsCount
 
 function TkwTreeGetItemTop.ParamsTypes: PTypeInfoArray;
@@ -1430,12 +1366,8 @@ begin
 end;//TkwTreeGetItemWidth.GetResultTypeInfo
 
 function TkwTreeGetItemWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_645DA96C0332_var*
-//#UC END# *559687E6025A_645DA96C0332_var*
 begin
-//#UC START# *559687E6025A_645DA96C0332_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_645DA96C0332_impl*
+ Result := 2;
 end;//TkwTreeGetItemWidth.GetAllParamsCount
 
 function TkwTreeGetItemWidth.ParamsTypes: PTypeInfoArray;
@@ -1483,12 +1415,8 @@ begin
 end;//TkwTreeGetSelected.GetResultTypeInfo
 
 function TkwTreeGetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_5AEA5F2D19AB_var*
-//#UC END# *559687E6025A_5AEA5F2D19AB_var*
 begin
-//#UC START# *559687E6025A_5AEA5F2D19AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_5AEA5F2D19AB_impl*
+ Result := 2;
 end;//TkwTreeGetSelected.GetAllParamsCount
 
 function TkwTreeGetSelected.ParamsTypes: PTypeInfoArray;
@@ -1537,12 +1465,8 @@ begin
 end;//TkwTreeSetSelected.GetResultTypeInfo
 
 function TkwTreeSetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_017A97801F00_var*
-//#UC END# *559687E6025A_017A97801F00_var*
 begin
-//#UC START# *559687E6025A_017A97801F00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_017A97801F00_impl*
+ Result := 3;
 end;//TkwTreeSetSelected.GetAllParamsCount
 
 function TkwTreeSetSelected.ParamsTypes: PTypeInfoArray;
@@ -1590,12 +1514,8 @@ begin
 end;//TkwTreeCollapse.GetResultTypeInfo
 
 function TkwTreeCollapse.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9749EACE054F_var*
-//#UC END# *559687E6025A_9749EACE054F_var*
 begin
-//#UC START# *559687E6025A_9749EACE054F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9749EACE054F_impl*
+ Result := 2;
 end;//TkwTreeCollapse.GetAllParamsCount
 
 function TkwTreeCollapse.ParamsTypes: PTypeInfoArray;

@@ -111,12 +111,8 @@ begin
 end;//TkwPopSpinEditValue.GetResultTypeInfo
 
 function TkwPopSpinEditValue.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0F40F0279E11_var*
-//#UC END# *559687E6025A_0F40F0279E11_var*
 begin
-//#UC START# *559687E6025A_0F40F0279E11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0F40F0279E11_impl*
+ Result := 1;
 end;//TkwPopSpinEditValue.GetAllParamsCount
 
 function TkwPopSpinEditValue.ParamsTypes: PTypeInfoArray;

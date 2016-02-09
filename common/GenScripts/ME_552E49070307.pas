@@ -167,12 +167,8 @@ begin
 end;//TkwPopPageControlFindPageByCaption.GetResultTypeInfo
 
 function TkwPopPageControlFindPageByCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_39ABBBDC9493_var*
-//#UC END# *559687E6025A_39ABBBDC9493_var*
 begin
-//#UC START# *559687E6025A_39ABBBDC9493_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_39ABBBDC9493_impl*
+ Result := 2;
 end;//TkwPopPageControlFindPageByCaption.GetAllParamsCount
 
 function TkwPopPageControlFindPageByCaption.ParamsTypes: PTypeInfoArray;
@@ -233,12 +229,8 @@ begin
 end;//TkwPopPageControlPageCaptionByIndex.GetResultTypeInfo
 
 function TkwPopPageControlPageCaptionByIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1C7B18964322_var*
-//#UC END# *559687E6025A_1C7B18964322_var*
 begin
-//#UC START# *559687E6025A_1C7B18964322_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1C7B18964322_impl*
+ Result := 2;
 end;//TkwPopPageControlPageCaptionByIndex.GetAllParamsCount
 
 function TkwPopPageControlPageCaptionByIndex.ParamsTypes: PTypeInfoArray;
@@ -288,12 +280,8 @@ begin
 end;//TkwPopPageControlPageByIndex.GetResultTypeInfo
 
 function TkwPopPageControlPageByIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CF3FBFFD21B3_var*
-//#UC END# *559687E6025A_CF3FBFFD21B3_var*
 begin
-//#UC START# *559687E6025A_CF3FBFFD21B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CF3FBFFD21B3_impl*
+ Result := 2;
 end;//TkwPopPageControlPageByIndex.GetAllParamsCount
 
 function TkwPopPageControlPageByIndex.ParamsTypes: PTypeInfoArray;
@@ -351,12 +339,8 @@ begin
 end;//TkwPopPageControlGetAllPageCaptions.GetResultTypeInfo
 
 function TkwPopPageControlGetAllPageCaptions.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2A5E921BA82F_var*
-//#UC END# *559687E6025A_2A5E921BA82F_var*
 begin
-//#UC START# *559687E6025A_2A5E921BA82F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2A5E921BA82F_impl*
+ Result := 1;
 end;//TkwPopPageControlGetAllPageCaptions.GetAllParamsCount
 
 function TkwPopPageControlGetAllPageCaptions.ParamsTypes: PTypeInfoArray;

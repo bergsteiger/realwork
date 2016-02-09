@@ -334,12 +334,8 @@ begin
 end;//TkwParaBoolA.GetResultTypeInfo
 
 function TkwParaBoolA.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_73A41501B720_var*
-//#UC END# *559687E6025A_73A41501B720_var*
 begin
-//#UC START# *559687E6025A_73A41501B720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_73A41501B720_impl*
+ Result := 2;
 end;//TkwParaBoolA.GetAllParamsCount
 
 function TkwParaBoolA.ParamsTypes: PTypeInfoArray;
@@ -389,12 +385,8 @@ begin
 end;//TkwParaBoolW.GetResultTypeInfo
 
 function TkwParaBoolW.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7DB044DC9B24_var*
-//#UC END# *559687E6025A_7DB044DC9B24_var*
 begin
-//#UC START# *559687E6025A_7DB044DC9B24_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7DB044DC9B24_impl*
+ Result := 4;
 end;//TkwParaBoolW.GetAllParamsCount
 
 function TkwParaBoolW.ParamsTypes: PTypeInfoArray;
@@ -441,12 +433,8 @@ begin
 end;//TkwParaGetParent.GetResultTypeInfo
 
 function TkwParaGetParent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8E4CB03D8918_var*
-//#UC END# *559687E6025A_8E4CB03D8918_var*
 begin
-//#UC START# *559687E6025A_8E4CB03D8918_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8E4CB03D8918_impl*
+ Result := 1;
 end;//TkwParaGetParent.GetAllParamsCount
 
 function TkwParaGetParent.ParamsTypes: PTypeInfoArray;
@@ -493,12 +481,8 @@ begin
 end;//TkwParaGetType.GetResultTypeInfo
 
 function TkwParaGetType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1F1556695E5E_var*
-//#UC END# *559687E6025A_1F1556695E5E_var*
 begin
-//#UC START# *559687E6025A_1F1556695E5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1F1556695E5E_impl*
+ Result := 1;
 end;//TkwParaGetType.GetAllParamsCount
 
 function TkwParaGetType.ParamsTypes: PTypeInfoArray;
@@ -546,12 +530,8 @@ begin
 end;//TkwParaIntA.GetResultTypeInfo
 
 function TkwParaIntA.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_87CE9706F506_var*
-//#UC END# *559687E6025A_87CE9706F506_var*
 begin
-//#UC START# *559687E6025A_87CE9706F506_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_87CE9706F506_impl*
+ Result := 2;
 end;//TkwParaIntA.GetAllParamsCount
 
 function TkwParaIntA.ParamsTypes: PTypeInfoArray;
@@ -601,12 +581,8 @@ begin
 end;//TkwParaIntW.GetResultTypeInfo
 
 function TkwParaIntW.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9C157259C948_var*
-//#UC END# *559687E6025A_9C157259C948_var*
 begin
-//#UC START# *559687E6025A_9C157259C948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9C157259C948_impl*
+ Result := 4;
 end;//TkwParaIntW.GetAllParamsCount
 
 function TkwParaIntW.ParamsTypes: PTypeInfoArray;
@@ -654,12 +630,8 @@ begin
 end;//TkwParaIsSame.GetResultTypeInfo
 
 function TkwParaIsSame.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FD4CFCA9A1DA_var*
-//#UC END# *559687E6025A_FD4CFCA9A1DA_var*
 begin
-//#UC START# *559687E6025A_FD4CFCA9A1DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FD4CFCA9A1DA_impl*
+ Result := 2;
 end;//TkwParaIsSame.GetAllParamsCount
 
 function TkwParaIsSame.ParamsTypes: PTypeInfoArray;
@@ -707,12 +679,8 @@ begin
 end;//TkwParaStrA.GetResultTypeInfo
 
 function TkwParaStrA.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A38F9F2F9E00_var*
-//#UC END# *559687E6025A_A38F9F2F9E00_var*
 begin
-//#UC START# *559687E6025A_A38F9F2F9E00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A38F9F2F9E00_impl*
+ Result := 2;
 end;//TkwParaStrA.GetAllParamsCount
 
 function TkwParaStrA.ParamsTypes: PTypeInfoArray;
@@ -759,12 +727,8 @@ begin
 end;//TkwParaStyleName.GetResultTypeInfo
 
 function TkwParaStyleName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6834305B1C71_var*
-//#UC END# *559687E6025A_6834305B1C71_var*
 begin
-//#UC START# *559687E6025A_6834305B1C71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6834305B1C71_impl*
+ Result := 1;
 end;//TkwParaStyleName.GetAllParamsCount
 
 function TkwParaStyleName.ParamsTypes: PTypeInfoArray;
@@ -811,12 +775,8 @@ begin
 end;//TkwParaText.GetResultTypeInfo
 
 function TkwParaText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_742EC299532F_var*
-//#UC END# *559687E6025A_742EC299532F_var*
 begin
-//#UC START# *559687E6025A_742EC299532F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_742EC299532F_impl*
+ Result := 1;
 end;//TkwParaText.GetAllParamsCount
 
 function TkwParaText.ParamsTypes: PTypeInfoArray;
@@ -864,12 +824,8 @@ begin
 end;//TkwParaTypeInherits.GetResultTypeInfo
 
 function TkwParaTypeInherits.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E16D3A553EA8_var*
-//#UC END# *559687E6025A_E16D3A553EA8_var*
 begin
-//#UC START# *559687E6025A_E16D3A553EA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E16D3A553EA8_impl*
+ Result := 2;
 end;//TkwParaTypeInherits.GetAllParamsCount
 
 function TkwParaTypeInherits.ParamsTypes: PTypeInfoArray;

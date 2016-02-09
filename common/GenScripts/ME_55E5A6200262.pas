@@ -307,12 +307,8 @@ begin
 end;//TkwPopTableInsertRows.GetResultTypeInfo
 
 function TkwPopTableInsertRows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B20D345184F3_var*
-//#UC END# *559687E6025A_B20D345184F3_var*
 begin
-//#UC START# *559687E6025A_B20D345184F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B20D345184F3_impl*
+ Result := 2;
 end;//TkwPopTableInsertRows.GetAllParamsCount
 
 function TkwPopTableInsertRows.ParamsTypes: PTypeInfoArray;
@@ -359,12 +355,8 @@ begin
 end;//TkwPopTableSplit.GetResultTypeInfo
 
 function TkwPopTableSplit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C352B50F9289_var*
-//#UC END# *559687E6025A_C352B50F9289_var*
 begin
-//#UC START# *559687E6025A_C352B50F9289_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C352B50F9289_impl*
+ Result := 1;
 end;//TkwPopTableSplit.GetAllParamsCount
 
 function TkwPopTableSplit.ParamsTypes: PTypeInfoArray;
@@ -411,12 +403,8 @@ begin
 end;//TkwPopTableMerge.GetResultTypeInfo
 
 function TkwPopTableMerge.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_51F83F13B477_var*
-//#UC END# *559687E6025A_51F83F13B477_var*
 begin
-//#UC START# *559687E6025A_51F83F13B477_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_51F83F13B477_impl*
+ Result := 1;
 end;//TkwPopTableMerge.GetAllParamsCount
 
 function TkwPopTableMerge.ParamsTypes: PTypeInfoArray;
@@ -463,12 +451,8 @@ begin
 end;//TkwPopTableDelete.GetResultTypeInfo
 
 function TkwPopTableDelete.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9A1A2962F095_var*
-//#UC END# *559687E6025A_9A1A2962F095_var*
 begin
-//#UC START# *559687E6025A_9A1A2962F095_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9A1A2962F095_impl*
+ Result := 1;
 end;//TkwPopTableDelete.GetAllParamsCount
 
 function TkwPopTableDelete.ParamsTypes: PTypeInfoArray;
@@ -515,12 +499,8 @@ begin
 end;//TkwPopTableRowCount.GetResultTypeInfo
 
 function TkwPopTableRowCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D3B877D57F14_var*
-//#UC END# *559687E6025A_D3B877D57F14_var*
 begin
-//#UC START# *559687E6025A_D3B877D57F14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D3B877D57F14_impl*
+ Result := 1;
 end;//TkwPopTableRowCount.GetAllParamsCount
 
 function TkwPopTableRowCount.ParamsTypes: PTypeInfoArray;
@@ -567,12 +547,8 @@ begin
 end;//TkwPopTableCell.GetResultTypeInfo
 
 function TkwPopTableCell.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EF2649C51BB8_var*
-//#UC END# *559687E6025A_EF2649C51BB8_var*
 begin
-//#UC START# *559687E6025A_EF2649C51BB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EF2649C51BB8_impl*
+ Result := 1;
 end;//TkwPopTableCell.GetAllParamsCount
 
 function TkwPopTableCell.ParamsTypes: PTypeInfoArray;
@@ -619,12 +595,8 @@ begin
 end;//TkwPopTableCells.GetResultTypeInfo
 
 function TkwPopTableCells.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2EB72067A09C_var*
-//#UC END# *559687E6025A_2EB72067A09C_var*
 begin
-//#UC START# *559687E6025A_2EB72067A09C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2EB72067A09C_impl*
+ Result := 1;
 end;//TkwPopTableCells.GetAllParamsCount
 
 function TkwPopTableCells.ParamsTypes: PTypeInfoArray;
@@ -671,12 +643,8 @@ begin
 end;//TkwPopTableColumn.GetResultTypeInfo
 
 function TkwPopTableColumn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B6DB26D3AD5E_var*
-//#UC END# *559687E6025A_B6DB26D3AD5E_var*
 begin
-//#UC START# *559687E6025A_B6DB26D3AD5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B6DB26D3AD5E_impl*
+ Result := 1;
 end;//TkwPopTableColumn.GetAllParamsCount
 
 function TkwPopTableColumn.ParamsTypes: PTypeInfoArray;
@@ -723,12 +691,8 @@ begin
 end;//TkwPopTableColumnsIterator.GetResultTypeInfo
 
 function TkwPopTableColumnsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_983A86B9A3EB_var*
-//#UC END# *559687E6025A_983A86B9A3EB_var*
 begin
-//#UC START# *559687E6025A_983A86B9A3EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_983A86B9A3EB_impl*
+ Result := 1;
 end;//TkwPopTableColumnsIterator.GetAllParamsCount
 
 function TkwPopTableColumnsIterator.ParamsTypes: PTypeInfoArray;
@@ -775,12 +739,8 @@ begin
 end;//TkwPopTableRowsIterator.GetResultTypeInfo
 
 function TkwPopTableRowsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_06F487D1C4C1_var*
-//#UC END# *559687E6025A_06F487D1C4C1_var*
 begin
-//#UC START# *559687E6025A_06F487D1C4C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_06F487D1C4C1_impl*
+ Result := 1;
 end;//TkwPopTableRowsIterator.GetAllParamsCount
 
 function TkwPopTableRowsIterator.ParamsTypes: PTypeInfoArray;
@@ -848,12 +808,8 @@ begin
 end;//TkwPopTableOldNSRC.GetResultTypeInfo
 
 function TkwPopTableOldNSRC.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0948A1EE404E_var*
-//#UC END# *559687E6025A_0948A1EE404E_var*
 begin
-//#UC START# *559687E6025A_0948A1EE404E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0948A1EE404E_impl*
+ Result := 1;
 end;//TkwPopTableOldNSRC.GetAllParamsCount
 
 function TkwPopTableOldNSRC.ParamsTypes: PTypeInfoArray;

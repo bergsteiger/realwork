@@ -155,12 +155,8 @@ begin
 end;//TkwPopMenuForChromeLikeActive.GetResultTypeInfo
 
 function TkwPopMenuForChromeLikeActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0E751338C548_var*
-//#UC END# *559687E6025A_0E751338C548_var*
 begin
-//#UC START# *559687E6025A_0E751338C548_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0E751338C548_impl*
+ Result := 1;
 end;//TkwPopMenuForChromeLikeActive.GetAllParamsCount
 
 function TkwPopMenuForChromeLikeActive.ParamsTypes: PTypeInfoArray;
@@ -207,12 +203,8 @@ begin
 end;//TkwPopMenuForChromeLikeHovered.GetResultTypeInfo
 
 function TkwPopMenuForChromeLikeHovered.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_82B96D3A5D58_var*
-//#UC END# *559687E6025A_82B96D3A5D58_var*
 begin
-//#UC START# *559687E6025A_82B96D3A5D58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_82B96D3A5D58_impl*
+ Result := 1;
 end;//TkwPopMenuForChromeLikeHovered.GetAllParamsCount
 
 function TkwPopMenuForChromeLikeHovered.ParamsTypes: PTypeInfoArray;
@@ -259,12 +251,8 @@ begin
 end;//TkwPopMenuForChromeLikeMenuItem.GetResultTypeInfo
 
 function TkwPopMenuForChromeLikeMenuItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B39FBDC27B79_var*
-//#UC END# *559687E6025A_B39FBDC27B79_var*
 begin
-//#UC START# *559687E6025A_B39FBDC27B79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B39FBDC27B79_impl*
+ Result := 1;
 end;//TkwPopMenuForChromeLikeMenuItem.GetAllParamsCount
 
 function TkwPopMenuForChromeLikeMenuItem.ParamsTypes: PTypeInfoArray;
