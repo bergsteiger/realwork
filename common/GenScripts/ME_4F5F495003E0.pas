@@ -110,8 +110,12 @@ begin
 end;//TkwEtalonNeeds64.GetResultTypeInfo
 
 function TkwEtalonNeeds64.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_60A242C872F7_var*
+//#UC END# *559687E6025A_60A242C872F7_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_60A242C872F7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_60A242C872F7_impl*
 end;//TkwEtalonNeeds64.GetAllParamsCount
 
 procedure TkwEtalonNeedsComputerName.DoDoIt(const aCtx: TtfwContext);
@@ -138,8 +142,12 @@ begin
 end;//TkwEtalonNeedsComputerName.GetResultTypeInfo
 
 function TkwEtalonNeedsComputerName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_116A432ADCB1_var*
+//#UC END# *559687E6025A_116A432ADCB1_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_116A432ADCB1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_116A432ADCB1_impl*
 end;//TkwEtalonNeedsComputerName.GetAllParamsCount
 
 procedure TkwEtalonNeedsOSName.DoDoIt(const aCtx: TtfwContext);
@@ -166,8 +174,12 @@ begin
 end;//TkwEtalonNeedsOSName.GetResultTypeInfo
 
 function TkwEtalonNeedsOSName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_4A371D758055_var*
+//#UC END# *559687E6025A_4A371D758055_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_4A371D758055_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_4A371D758055_impl*
 end;//TkwEtalonNeedsOSName.GetAllParamsCount
 
 procedure TkwEtalonNeedsXE.DoDoIt(const aCtx: TtfwContext);
@@ -196,8 +208,12 @@ begin
 end;//TkwEtalonNeedsXE.GetResultTypeInfo
 
 function TkwEtalonNeedsXE.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_DECF86D5A261_var*
+//#UC END# *559687E6025A_DECF86D5A261_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_DECF86D5A261_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_DECF86D5A261_impl*
 end;//TkwEtalonNeedsXE.GetAllParamsCount
 
 initialization

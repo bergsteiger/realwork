@@ -126,15 +126,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- , l3MessageID
  , SysUtils
- , l3Base
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ConsultationMarkKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , sdsConsultation
  , bsConsultation
  , bsUtils
@@ -143,6 +135,14 @@ uses
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
  , DataAdapter
+ , l3MessageID
+ , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ConsultationMarkKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 var g_Tfs_SendConsultation: Tfs_SendConsultation = nil;

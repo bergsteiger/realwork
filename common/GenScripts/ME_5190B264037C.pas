@@ -279,8 +279,12 @@ begin
 end;//TkwFontColor.GetResultTypeInfo
 
 function TkwFontColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_B42B6353E972_var*
+//#UC END# *559687E6025A_B42B6353E972_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_B42B6353E972_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_B42B6353E972_impl*
 end;//TkwFontColor.GetAllParamsCount
 
 function TkwFontColor.ParamsTypes: PTypeInfoArray;
@@ -337,8 +341,12 @@ begin
 end;//TkwFontBackColor.GetResultTypeInfo
 
 function TkwFontBackColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_ADDA8C159EED_var*
+//#UC END# *559687E6025A_ADDA8C159EED_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_ADDA8C159EED_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_ADDA8C159EED_impl*
 end;//TkwFontBackColor.GetAllParamsCount
 
 function TkwFontBackColor.ParamsTypes: PTypeInfoArray;
@@ -395,8 +403,12 @@ begin
 end;//TkwFontIsBold.GetResultTypeInfo
 
 function TkwFontIsBold.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_6426AF77D4E5_var*
+//#UC END# *559687E6025A_6426AF77D4E5_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_6426AF77D4E5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_6426AF77D4E5_impl*
 end;//TkwFontIsBold.GetAllParamsCount
 
 function TkwFontIsBold.ParamsTypes: PTypeInfoArray;
@@ -453,8 +465,12 @@ begin
 end;//TkwFontIsItalic.GetResultTypeInfo
 
 function TkwFontIsItalic.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_FAD60EB55765_var*
+//#UC END# *559687E6025A_FAD60EB55765_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_FAD60EB55765_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_FAD60EB55765_impl*
 end;//TkwFontIsItalic.GetAllParamsCount
 
 function TkwFontIsItalic.ParamsTypes: PTypeInfoArray;
@@ -511,8 +527,12 @@ begin
 end;//TkwFontIsUnderline.GetResultTypeInfo
 
 function TkwFontIsUnderline.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_0A56585439B0_var*
+//#UC END# *559687E6025A_0A56585439B0_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_0A56585439B0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_0A56585439B0_impl*
 end;//TkwFontIsUnderline.GetAllParamsCount
 
 function TkwFontIsUnderline.ParamsTypes: PTypeInfoArray;
@@ -569,8 +589,12 @@ begin
 end;//TkwFontIsStrikeOut.GetResultTypeInfo
 
 function TkwFontIsStrikeOut.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_48690441DF69_var*
+//#UC END# *559687E6025A_48690441DF69_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_48690441DF69_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_48690441DF69_impl*
 end;//TkwFontIsStrikeOut.GetAllParamsCount
 
 function TkwFontIsStrikeOut.ParamsTypes: PTypeInfoArray;
@@ -627,8 +651,12 @@ begin
 end;//TkwFontName.GetResultTypeInfo
 
 function TkwFontName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_7A73CF636A32_var*
+//#UC END# *559687E6025A_7A73CF636A32_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_7A73CF636A32_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_7A73CF636A32_impl*
 end;//TkwFontName.GetAllParamsCount
 
 function TkwFontName.ParamsTypes: PTypeInfoArray;
@@ -685,8 +713,12 @@ begin
 end;//TkwFontSize.GetResultTypeInfo
 
 function TkwFontSize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_F76B0EA46A07_var*
+//#UC END# *559687E6025A_F76B0EA46A07_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_F76B0EA46A07_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_F76B0EA46A07_impl*
 end;//TkwFontSize.GetAllParamsCount
 
 function TkwFontSize.ParamsTypes: PTypeInfoArray;

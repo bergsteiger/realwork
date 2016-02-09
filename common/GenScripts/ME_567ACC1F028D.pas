@@ -82,8 +82,12 @@ begin
 end;//TkwKeyValuesCreate.GetResultTypeInfo
 
 function TkwKeyValuesCreate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_6CD721531904_var*
+//#UC END# *559687E6025A_6CD721531904_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_6CD721531904_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_6CD721531904_impl*
 end;//TkwKeyValuesCreate.GetAllParamsCount
 
 function TkwKeyValuesCreate.ParamsTypes: PTypeInfoArray;

@@ -2328,6 +2328,10 @@ BOOLEAN elem_func IsCreator
  Self .IsStereotype st_creator::Operation >>> Result
 ; // IsCreator
 
+BOOLEAN elem_func IsAcceptableForScripts
+ Self .UPisTrue 'extprop:rc:isAcceptableForScripts' >>> Result
+; // IsAcceptableForScripts
+
 BOOLEAN elem_func HasSelf
  RULES
   ( Self .IsCreator )
@@ -6017,7 +6021,7 @@ elem_generator rc.script
   begin
    Self .Inherits
    .join> ( Self .Implements )
-   .filter> ( .UPisTrue 'extprop:rc:isAcceptableForScripts' )
+   .filter> .IsAcceptableForScripts
    //.filter> ( DROP Self .NeedsWordsAliases /* Тут надо ещё проверку на SV */ )
    .for> OutWordAlias
   end // ( Self .NeedsWordsAliases )

@@ -234,6 +234,7 @@ uses
  , TestDocumentList
  , vtVerInf
  , l3VersionInfoService
+ , JwaWinBase
  , l3Chars
  , SysUtils
  , JclSysInfo
@@ -251,13 +252,12 @@ uses
  , Contents_int
  {$IfEnd} // Defined(MTDORB)
  , tfwKConst
- , l3Base
- , l3MinMax
- , RTLConsts
  , Windows
  , l3Stream
  , l3String
- , JwaWinBase
+ , l3MinMax
+ , l3Base
+ , RTLConsts
 ;
 
 var f_File: TextFile;

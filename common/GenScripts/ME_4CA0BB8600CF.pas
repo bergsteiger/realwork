@@ -60,9 +60,9 @@ uses
  , GarClientSecurity
  , Contents
  , tfwKConst
- , l3Base
  , l3FileUtils
  , l3Types
+ , l3Base
 ;
 
 var g_TKBridge: TKBridge = nil;

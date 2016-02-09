@@ -113,6 +113,9 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ITestWordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 ;
 
 procedure RegisterTest;

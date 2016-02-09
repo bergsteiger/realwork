@@ -653,8 +653,12 @@ begin
 end;//TkwWndIsVisible.GetResultTypeInfo
 
 function TkwWndIsVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_CB65D7FF1E6C_var*
+//#UC END# *559687E6025A_CB65D7FF1E6C_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_CB65D7FF1E6C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_CB65D7FF1E6C_impl*
 end;//TkwWndIsVisible.GetAllParamsCount
 
 function TkwWndIsVisible.ParamsTypes: PTypeInfoArray;
@@ -704,8 +708,12 @@ begin
 end;//TkwWndGetClassName.GetResultTypeInfo
 
 function TkwWndGetClassName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_455E9214E4B7_var*
+//#UC END# *559687E6025A_455E9214E4B7_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_455E9214E4B7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_455E9214E4B7_impl*
 end;//TkwWndGetClassName.GetAllParamsCount
 
 function TkwWndGetClassName.ParamsTypes: PTypeInfoArray;
@@ -755,8 +763,12 @@ begin
 end;//TkwWndGetWindowText.GetResultTypeInfo
 
 function TkwWndGetWindowText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_6ECBEE6894B8_var*
+//#UC END# *559687E6025A_6ECBEE6894B8_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_6ECBEE6894B8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_6ECBEE6894B8_impl*
 end;//TkwWndGetWindowText.GetAllParamsCount
 
 function TkwWndGetWindowText.ParamsTypes: PTypeInfoArray;
@@ -803,8 +815,12 @@ begin
 end;//TkwWndCloseWindow.GetResultTypeInfo
 
 function TkwWndCloseWindow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_B3B5EA3F1514_var*
+//#UC END# *559687E6025A_B3B5EA3F1514_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_B3B5EA3F1514_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_B3B5EA3F1514_impl*
 end;//TkwWndCloseWindow.GetAllParamsCount
 
 function TkwWndCloseWindow.ParamsTypes: PTypeInfoArray;
@@ -854,8 +870,12 @@ begin
 end;//TkwWndWindowIsMine.GetResultTypeInfo
 
 function TkwWndWindowIsMine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_C09FEECC1053_var*
+//#UC END# *559687E6025A_C09FEECC1053_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_C09FEECC1053_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_C09FEECC1053_impl*
 end;//TkwWndWindowIsMine.GetAllParamsCount
 
 function TkwWndWindowIsMine.ParamsTypes: PTypeInfoArray;
@@ -902,8 +922,12 @@ begin
 end;//TkwWndSetForeground.GetResultTypeInfo
 
 function TkwWndSetForeground.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_1C5511E4225D_var*
+//#UC END# *559687E6025A_1C5511E4225D_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_1C5511E4225D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_1C5511E4225D_impl*
 end;//TkwWndSetForeground.GetAllParamsCount
 
 function TkwWndSetForeground.ParamsTypes: PTypeInfoArray;
@@ -964,8 +988,12 @@ begin
 end;//TkwWinTreeGetCurrentText.GetResultTypeInfo
 
 function TkwWinTreeGetCurrentText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_A893626FB9A5_var*
+//#UC END# *559687E6025A_A893626FB9A5_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_A893626FB9A5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_A893626FB9A5_impl*
 end;//TkwWinTreeGetCurrentText.GetAllParamsCount
 
 function TkwWinTreeGetCurrentText.ParamsTypes: PTypeInfoArray;
@@ -1018,8 +1046,12 @@ begin
 end;//TkwIterateChildWindows.GetResultTypeInfo
 
 function TkwIterateChildWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_BB2233135443_var*
+//#UC END# *559687E6025A_BB2233135443_var*
 begin
- Result := 2;
+//#UC START# *559687E6025A_BB2233135443_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_BB2233135443_impl*
 end;//TkwIterateChildWindows.GetAllParamsCount
 
 function TkwIterateChildWindows.ParamsTypes: PTypeInfoArray;
@@ -1071,8 +1103,12 @@ begin
 end;//TkwIterateWindows.GetResultTypeInfo
 
 function TkwIterateWindows.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_2EB6B5E4913F_var*
+//#UC END# *559687E6025A_2EB6B5E4913F_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_2EB6B5E4913F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_2EB6B5E4913F_impl*
 end;//TkwIterateWindows.GetAllParamsCount
 
 function TkwIterateWindows.ParamsTypes: PTypeInfoArray;
@@ -1119,8 +1155,12 @@ begin
 end;//TkwWindowFromPoint.GetResultTypeInfo
 
 function TkwWindowFromPoint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_2D01DE64792B_var*
+//#UC END# *559687E6025A_2D01DE64792B_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_2D01DE64792B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_2D01DE64792B_impl*
 end;//TkwWindowFromPoint.GetAllParamsCount
 
 function TkwWindowFromPoint.ParamsTypes: PTypeInfoArray;
@@ -1166,8 +1206,12 @@ begin
 end;//TkwGetForegroundWindow.GetResultTypeInfo
 
 function TkwGetForegroundWindow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_CB29543BBB60_var*
+//#UC END# *559687E6025A_CB29543BBB60_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_CB29543BBB60_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_CB29543BBB60_impl*
 end;//TkwGetForegroundWindow.GetAllParamsCount
 
 function TkwGetForegroundWindow.ParamsTypes: PTypeInfoArray;
@@ -1214,8 +1258,12 @@ begin
 end;//TkwFindWindowByCaption.GetResultTypeInfo
 
 function TkwFindWindowByCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_0FB930B944B8_var*
+//#UC END# *559687E6025A_0FB930B944B8_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_0FB930B944B8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_0FB930B944B8_impl*
 end;//TkwFindWindowByCaption.GetAllParamsCount
 
 function TkwFindWindowByCaption.ParamsTypes: PTypeInfoArray;
@@ -1262,8 +1310,12 @@ begin
 end;//TkwSetFuzzInPercent.GetResultTypeInfo
 
 function TkwSetFuzzInPercent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_DDDEEE94C045_var*
+//#UC END# *559687E6025A_DDDEEE94C045_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_DDDEEE94C045_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_DDDEEE94C045_impl*
 end;//TkwSetFuzzInPercent.GetAllParamsCount
 
 function TkwSetFuzzInPercent.ParamsTypes: PTypeInfoArray;
@@ -1313,8 +1365,12 @@ begin
 end;//TkwDesktopHeight.GetResultTypeInfo
 
 function TkwDesktopHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_F5071C676120_var*
+//#UC END# *559687E6025A_F5071C676120_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_F5071C676120_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_F5071C676120_impl*
 end;//TkwDesktopHeight.GetAllParamsCount
 
 function TkwDesktopHeight.ParamsTypes: PTypeInfoArray;
@@ -1364,8 +1420,12 @@ begin
 end;//TkwDesktopWidth.GetResultTypeInfo
 
 function TkwDesktopWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_F2D32D266DD0_var*
+//#UC END# *559687E6025A_F2D32D266DD0_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_F2D32D266DD0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_F2D32D266DD0_impl*
 end;//TkwDesktopWidth.GetAllParamsCount
 
 function TkwDesktopWidth.ParamsTypes: PTypeInfoArray;
@@ -1416,8 +1476,12 @@ begin
 end;//TkwScreenWidth.GetResultTypeInfo
 
 function TkwScreenWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_44BBDAE720F0_var*
+//#UC END# *559687E6025A_44BBDAE720F0_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_44BBDAE720F0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_44BBDAE720F0_impl*
 end;//TkwScreenWidth.GetAllParamsCount
 
 function TkwScreenWidth.ParamsTypes: PTypeInfoArray;
@@ -1468,8 +1532,12 @@ begin
 end;//TkwScreenHeight.GetResultTypeInfo
 
 function TkwScreenHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_91E516864416_var*
+//#UC END# *559687E6025A_91E516864416_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_91E516864416_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_91E516864416_impl*
 end;//TkwScreenHeight.GetAllParamsCount
 
 function TkwScreenHeight.ParamsTypes: PTypeInfoArray;
@@ -1519,8 +1587,12 @@ begin
 end;//TkwMainScreenWidth.GetResultTypeInfo
 
 function TkwMainScreenWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_3832249557A1_var*
+//#UC END# *559687E6025A_3832249557A1_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_3832249557A1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_3832249557A1_impl*
 end;//TkwMainScreenWidth.GetAllParamsCount
 
 function TkwMainScreenWidth.ParamsTypes: PTypeInfoArray;
@@ -1570,8 +1642,12 @@ begin
 end;//TkwMainScreenHeight.GetResultTypeInfo
 
 function TkwMainScreenHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_8022C1F2B088_var*
+//#UC END# *559687E6025A_8022C1F2B088_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_8022C1F2B088_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_8022C1F2B088_impl*
 end;//TkwMainScreenHeight.GetAllParamsCount
 
 function TkwMainScreenHeight.ParamsTypes: PTypeInfoArray;
@@ -1621,8 +1697,12 @@ begin
 end;//TkwScreenCount.GetResultTypeInfo
 
 function TkwScreenCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_4C862EA2F8C6_var*
+//#UC END# *559687E6025A_4C862EA2F8C6_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_4C862EA2F8C6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_4C862EA2F8C6_impl*
 end;//TkwScreenCount.GetAllParamsCount
 
 function TkwScreenCount.ParamsTypes: PTypeInfoArray;
@@ -1699,8 +1779,12 @@ begin
 end;//TkwAskWindowToCloseItself.GetResultTypeInfo
 
 function TkwAskWindowToCloseItself.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_22E2D41E5FCD_var*
+//#UC END# *559687E6025A_22E2D41E5FCD_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_22E2D41E5FCD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_22E2D41E5FCD_impl*
 end;//TkwAskWindowToCloseItself.GetAllParamsCount
 
 function TkwAskWindowToCloseItself.ParamsTypes: PTypeInfoArray;
@@ -1752,8 +1836,12 @@ begin
 end;//TkwScreenShot2File.GetResultTypeInfo
 
 function TkwScreenShot2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_D7673935EC18_var*
+//#UC END# *559687E6025A_D7673935EC18_var*
 begin
- Result := 6;
+//#UC START# *559687E6025A_D7673935EC18_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_D7673935EC18_impl*
 end;//TkwScreenShot2File.GetAllParamsCount
 
 function TkwScreenShot2File.ParamsTypes: PTypeInfoArray;
@@ -1805,8 +1893,12 @@ begin
 end;//TkwScreenShot2FileWithCheck.GetResultTypeInfo
 
 function TkwScreenShot2FileWithCheck.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_13CADBEDE41C_var*
+//#UC END# *559687E6025A_13CADBEDE41C_var*
 begin
- Result := 6;
+//#UC START# *559687E6025A_13CADBEDE41C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_13CADBEDE41C_impl*
 end;//TkwScreenShot2FileWithCheck.GetAllParamsCount
 
 function TkwScreenShot2FileWithCheck.ParamsTypes: PTypeInfoArray;

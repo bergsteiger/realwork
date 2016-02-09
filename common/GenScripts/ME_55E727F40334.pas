@@ -153,8 +153,12 @@ begin
 end;//TkwPopDictionaryWordsIterator.GetResultTypeInfo
 
 function TkwPopDictionaryWordsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_D1DB0CBA0A4E_var*
+//#UC END# *559687E6025A_D1DB0CBA0A4E_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_D1DB0CBA0A4E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_D1DB0CBA0A4E_impl*
 end;//TkwPopDictionaryWordsIterator.GetAllParamsCount
 
 function TkwPopDictionaryWordsIterator.ParamsTypes: PTypeInfoArray;
@@ -202,8 +206,12 @@ begin
 end;//TkwPopDictionaryKeywordByName.GetResultTypeInfo
 
 function TkwPopDictionaryKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_9E811BEE054C_var*
+//#UC END# *559687E6025A_9E811BEE054C_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_9E811BEE054C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_9E811BEE054C_impl*
 end;//TkwPopDictionaryKeywordByName.GetAllParamsCount
 
 function TkwPopDictionaryKeywordByName.ParamsTypes: PTypeInfoArray;
@@ -250,8 +258,12 @@ begin
 end;//TkwPopDictionaryKeyWordsIterator.GetResultTypeInfo
 
 function TkwPopDictionaryKeyWordsIterator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_7A25B6D5DC06_var*
+//#UC END# *559687E6025A_7A25B6D5DC06_var*
 begin
- Result := 0;
+//#UC START# *559687E6025A_7A25B6D5DC06_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_7A25B6D5DC06_impl*
 end;//TkwPopDictionaryKeyWordsIterator.GetAllParamsCount
 
 function TkwPopDictionaryKeyWordsIterator.ParamsTypes: PTypeInfoArray;
@@ -299,8 +311,12 @@ begin
 end;//TkwPopDictionaryOwnKeywordByName.GetResultTypeInfo
 
 function TkwPopDictionaryOwnKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+//#UC START# *559687E6025A_5D0B14C07C4C_var*
+//#UC END# *559687E6025A_5D0B14C07C4C_var*
 begin
- Result := 1;
+//#UC START# *559687E6025A_5D0B14C07C4C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *559687E6025A_5D0B14C07C4C_impl*
 end;//TkwPopDictionaryOwnKeywordByName.GetAllParamsCount
 
 function TkwPopDictionaryOwnKeywordByName.ParamsTypes: PTypeInfoArray;
