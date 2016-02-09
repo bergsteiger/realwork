@@ -20,9 +20,9 @@ uses
 type
  Tl3WinControlCanvas = class(Tl3ControlCanvas)
   protected
-   procedure FireDCSetToNull; override;
-   procedure FreeAlienDC(aDC: hDC); override;
    function GetAlienDC: hDC; override;
+   procedure FreeAlienDC(aDC: hDC); override;
+   procedure FireDCSetToNull; override;
   public
    constructor Create(aControl: TWinControl;
     const aCaret: Il3Caret = nil); reintroduce;
@@ -51,26 +51,6 @@ begin
 //#UC END# *4FAE537C02FA_48C68AA40296_impl*
 end;//Tl3WinControlCanvas.Create
 
-procedure Tl3WinControlCanvas.FireDCSetToNull;
-//#UC START# *4FAE530D02C3_48C68AA40296_var*
-//#UC END# *4FAE530D02C3_48C68AA40296_var*
-begin
-//#UC START# *4FAE530D02C3_48C68AA40296_impl*
- inherited;
- f_DCFlag := ev_dcfGot;
-//#UC END# *4FAE530D02C3_48C68AA40296_impl*
-end;//Tl3WinControlCanvas.FireDCSetToNull
-
-procedure Tl3WinControlCanvas.FreeAlienDC(aDC: hDC);
-//#UC START# *4FAE532B0348_48C68AA40296_var*
-//#UC END# *4FAE532B0348_48C68AA40296_var*
-begin
-//#UC START# *4FAE532B0348_48C68AA40296_impl*
- if TWinControl(Owner).HandleAllocated then
-  l3System.ReleaseDC(TWinControl(Owner).Handle, aDC);
-//#UC END# *4FAE532B0348_48C68AA40296_impl*
-end;//Tl3WinControlCanvas.FreeAlienDC
-
 function Tl3WinControlCanvas.GetAlienDC: hDC;
 //#UC START# *4FAE533E035C_48C68AA40296_var*
 //#UC END# *4FAE533E035C_48C68AA40296_var*
@@ -79,5 +59,25 @@ begin
  Result := l3System.GetDC(TWinControl(Owner).Handle);
 //#UC END# *4FAE533E035C_48C68AA40296_impl*
 end;//Tl3WinControlCanvas.GetAlienDC
+
+procedure Tl3WinControlCanvas.FreeAlienDC(aDC: hDC);
+//#UC START# *56B0B2610026_48C68AA40296_var*
+//#UC END# *56B0B2610026_48C68AA40296_var*
+begin
+//#UC START# *56B0B2610026_48C68AA40296_impl*
+ if TWinControl(Owner).HandleAllocated then
+  l3System.ReleaseDC(TWinControl(Owner).Handle, aDC);
+//#UC END# *56B0B2610026_48C68AA40296_impl*
+end;//Tl3WinControlCanvas.FreeAlienDC
+
+procedure Tl3WinControlCanvas.FireDCSetToNull;
+//#UC START# *56B0B54F03CC_48C68AA40296_var*
+//#UC END# *56B0B54F03CC_48C68AA40296_var*
+begin
+//#UC START# *56B0B54F03CC_48C68AA40296_impl*
+ inherited;
+ DCFlag := ev_dcfGot;
+//#UC END# *56B0B54F03CC_48C68AA40296_impl*
+end;//Tl3WinControlCanvas.FireDCSetToNull
 
 end.

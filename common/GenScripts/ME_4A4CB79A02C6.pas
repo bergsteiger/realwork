@@ -240,6 +240,7 @@ type
    function CreateRectRgn(const aRect: Tl3SRect): Tl3Rgn;
    function DoGetClientRect: Tl3Rect; virtual;
    function CheckConvertTable(OEM: Boolean): PAnsiChar;
+   procedure MakeScreenDC;
    function DoGetPageSetupWidth: Tl3Inch; virtual;
    function DoGetPageSetupHeight: Tl3Inch; virtual;
    function DoGetDrawEnabled: Boolean; virtual;
@@ -282,9 +283,6 @@ type
     {* средняя ширина символов контекста в пикселях. }
    function AverageCharWidth: Integer;
     {* средняя ширина символов контекста в дюймах. }
-   function TextExtent(const S: Tl3WString;
-    aNoTabs: Boolean = False): Tl3Point;
-    {* возвращает длину строки текста в дюймах. }
    function Pos2Index(W: Integer;
     const S: Tl3PCharLen): Integer;
     {* находит индекс символа на рассоянии W дюймов от начала строки S. }
@@ -294,13 +292,6 @@ type
     {* находит индекс символа на рассоянии W дюймов от начала строки S. }
    function AverageCharHeight: Integer;
     {* средняя высота символов контекста в дюймах. }
-   function LP2DP(const P: Tl3_Point;
-    NeedZoom: Boolean = False): Tl3SPoint;
-    {* преобразует точку в дюймах в точку в пикселях. }
-   function LR2DR(const R: Tl3Rect): Tl3SRect;
-    {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
-   function DR2LR(const R: Tl3SRect): Tl3Rect;
-    {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
    procedure Lock;
     {* начать работу с канвой. }
    procedure Unlock;
@@ -322,11 +313,6 @@ type
    function TabInfo: Il3TabInfo;
    function EQ(const aCanvas: Il3InfoCanvas): Boolean;
    function NearestColor(C: Tl3Color): Tl3Color;
-   function DrawText(const aSt: Tl3WString;
-    var R: TRect;
-    aFormat: Cardinal;
-    AFl: TObject = nil): Il3MultiLines;
-    {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
    procedure TabbedMultilineTextOut(const aSt: Tl3WString;
     const Tabs: Il3TabStops;
     var Rect: Tl3Rect;
@@ -361,10 +347,8 @@ type
     const Extent: Tl3Point;
     Hidden: Boolean = False);
    procedure IncCaret(aDeltaX: Integer);
-   procedure BeginPaint;
    procedure StartObject(anObjectID: Integer);
    procedure SetPageTop;
-   procedure EndPaint;
    function DrawRgnOrBlock: Boolean;
    function HasToDraw: Boolean;
    procedure StretchDraw(const R: Tl3Rect;
@@ -500,6 +484,26 @@ type
    procedure SetDC(DC: hDC;
     Flag: TevDCFlag);
    procedure AddRect(const aRect: Tl3SRect);
+   class function MakeForPrinting(const aPrinter: Il3Printer): Il3InfoCanvas; reintroduce;
+   class function MakeForScreen: Il3InfoCanvas;
+   class function Make: Il3Canvas;
+   function TextExtent(const S: Tl3WString;
+    aNoTabs: Boolean = False): Tl3Point;
+    {* возвращает длину строки текста в дюймах. }
+   function LP2DP(const P: Tl3_Point;
+    NeedZoom: Boolean = False): Tl3SPoint;
+    {* преобразует точку в дюймах в точку в пикселях. }
+   function LR2DR(const R: Tl3Rect): Tl3SRect;
+    {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
+   function DR2LR(const R: Tl3SRect): Tl3Rect;
+    {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
+   function DrawText(const aSt: Tl3WString;
+    var R: TRect;
+    aFormat: Cardinal;
+    AFl: TObject = nil): Il3MultiLines;
+    {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
+   procedure BeginPaint;
+   procedure EndPaint;
    procedure BeginInvert;
    procedure EndInvert;
    function IsVirtual: Boolean;
@@ -529,9 +533,6 @@ type
    property ClipRect: Tl3Rect
     read pm_GetClipRect
     write pm_SetClipRect;
-   property DC: hDC
-    read pm_GetDC
-    write pm_SetDC;
    property SWindowOrg: Tl3SPoint
     read pm_GetSWindowOrg
     write pm_SetSWindowOrg;
@@ -549,6 +550,9 @@ type
    property WindowOrg: Tl3Point
     read pm_GetWindowOrg
     write pm_SetWindowOrg;
+   property DC: hDC
+    read pm_GetDC
+    write pm_SetDC;
    property BackColor: TColor
     read pm_GetBackColor
     write pm_SetBackColor;
@@ -640,7 +644,6 @@ uses
  , l3LineArray
  , l3VirtualCanvas
  , l3Bitmap
- , l3Canvas
  {$If Defined(l3Requires_m0)}
  , m2XLtLib
  {$IfEnd} // Defined(l3Requires_m0)
@@ -1872,6 +1875,60 @@ begin
  Result := f_ConvertTable[OEM].AsPointer;
 //#UC END# *56B4DC3E0242_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.CheckConvertTable
+
+procedure Tl3CanvasPrim.MakeScreenDC;
+//#UC START# *56B86C580374_4A4CB79A02C6_var*
+//#UC END# *56B86C580374_4A4CB79A02C6_var*
+begin
+//#UC START# *56B86C580374_4A4CB79A02C6_impl*
+ SetDC(CreateIC('DISPLAY', nil, nil, nil), ev_dcfCreated);
+//#UC END# *56B86C580374_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.MakeScreenDC
+
+class function Tl3CanvasPrim.MakeForPrinting(const aPrinter: Il3Printer): Il3InfoCanvas;
+var
+ l_Inst : Tl3CanvasPrim;
+begin
+ l_Inst := CreateForPrinting(aPrinter);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//Tl3CanvasPrim.MakeForPrinting
+
+class function Tl3CanvasPrim.MakeForScreen: Il3InfoCanvas;
+//#UC START# *56B86CC6013A_4A4CB79A02C6_var*
+var
+ l_Self: Tl3CanvasPrim;
+//#UC END# *56B86CC6013A_4A4CB79A02C6_var*
+begin
+//#UC START# *56B86CC6013A_4A4CB79A02C6_impl*
+ l_Self := Create;
+ try
+  l_Self.MakeScreenDC;
+  Result := l_Self;
+ finally
+  l_Self.Free;
+ end;//try..finally
+//#UC END# *56B86CC6013A_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.MakeForScreen
+
+class function Tl3CanvasPrim.Make: Il3Canvas;
+//#UC START# *56B86CD200C4_4A4CB79A02C6_var*
+var
+ l_Self: Tl3CanvasPrim;
+//#UC END# *56B86CD200C4_4A4CB79A02C6_var*
+begin
+//#UC START# *56B86CD200C4_4A4CB79A02C6_impl*
+ l_Self := Create;
+ try
+  Result := l_Self;
+ finally
+  l_Self.Free;
+ end;//try..finally
+//#UC END# *56B86CD200C4_4A4CB79A02C6_impl*
+end;//Tl3CanvasPrim.Make
 
 function Tl3CanvasPrim.DoGetPageSetupWidth: Tl3Inch;
 //#UC START# *4A4CBCD002EA_4A4CB79A02C6_var*
@@ -4220,7 +4277,7 @@ var
  l_St       : Tl3PCharLenPrim;
  l_Convert  : Tl3Str;
  l_Bmp      : Graphics.TBitmap;
- l_Canvas   : Tl3Canvas;
+ l_Canvas   : Tl3CanvasPrim;
  l_TmpPt    : Tl3Point;
  l_TmpRect  : Tl3Rect;
 //#UC END# *4728B9F10060_4A4CB79A02C6_var*
@@ -4278,7 +4335,7 @@ begin
      // выводим на канву. Сделано для обхода проблемы с метафайлом и юникодом на Win98.
      l_Bmp := Tl3Bitmap.Create;
      l_Bmp.Handle := CreateCompatibleBitmap(Self.DC, R1.Right - R1.Left, R1.Bottom - R1.Top);
-     l_Canvas := Tl3Canvas.CreateOwned(l_Bmp);
+     l_Canvas := Tl3CanvasPrim.CreateOwned(l_Bmp);
      try
       with l_TmpRect do
       begin

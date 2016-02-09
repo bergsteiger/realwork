@@ -48,6 +48,9 @@ uses
  , IOUnit
  , SysUtils
  , l3InterfacesMisc
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor TnsNewCachableNode.Create(const aNode: INodeBase);

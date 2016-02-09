@@ -30,7 +30,7 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure FinishDataUpdate; override;
-   function Get__CRootNode: Il3RootNode; override;
+   function Get_CRootNode: Il3RootNode; override;
   public
    property BeenReseted: TnsResetTreeStatus
     read f_BeenReseted;
@@ -107,7 +107,7 @@ begin
 //#UC END# *47EA4E9002C6_4908A9240071_impl*
 end;//TnsDataResetTree.FinishDataUpdate
 
-function TnsDataResetTree.Get__CRootNode: Il3RootNode;
+function TnsDataResetTree.Get_CRootNode: Il3RootNode;
 //#UC START# *4FFC1D0502D0_4908A9240071_var*
 //#UC END# *4FFC1D0502D0_4908A9240071_var*
 begin
@@ -135,6 +135,6 @@ begin
  else
   Result := inherited Get_CRootNode;
 //#UC END# *4FFC1D0502D0_4908A9240071_impl*
-end;//TnsDataResetTree.Get__CRootNode
+end;//TnsDataResetTree.Get_CRootNode
 
 end.

@@ -110,6 +110,9 @@ uses
  , SysUtils
  , l3InterfacesMisc
  , l3Base
+ {$If NOT Defined(NoScripts)}
+ , l3NodesKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const

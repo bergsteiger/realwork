@@ -361,6 +361,43 @@ type
   , sp_btBlock
  );//TspBlockType
 
+ (*
+ Ml3CanvasPaint = interface
+  procedure BeginPaint;
+  procedure EndPaint;
+ end;//Ml3CanvasPaint
+ *)
+
+ (*
+ Ml3InfoCanvas = interface
+  function DR2LR(const R: Tl3SRect): Tl3Rect;
+   {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
+  function LP2DP(const P: Tl3_Point;
+   NeedZoom: Boolean = False): Tl3SPoint;
+   {* преобразует точку в дюймах в точку в пикселях. }
+  function LR2DR(const R: Tl3Rect): Tl3SRect;
+   {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
+  function TextExtent(const S: Tl3WString;
+   aNoTabs: Boolean = False): Tl3Point;
+   {* возвращает длину строки текста в дюймах. }
+  function DrawText(const aSt: Tl3WString;
+   var R: TRect;
+   aFormat: Cardinal;
+   AFl: TObject = nil): Il3MultiLines;
+   {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
+ end;//Ml3InfoCanvas
+ *)
+
+ Il3CStringList = interface(Il3List)
+  ['{F7BD6D08-43A8-4C7B-AF1B-BA0233E5CA55}']
+  function pm_GetItems(anIndex: Integer): Il3CString;
+  property Items[anIndex: Integer]: Il3CString
+   read pm_GetItems;
+   default;
+ end;//Il3CStringList
+
+ Tl3AskClearClipboardProc = procedure(var aResult: Integer) of object;
+
  Il3FrameLines = interface;
 
  Il3InfoCanvas = interface(Il3Base)
@@ -388,9 +425,6 @@ type
    {* средняя ширина символов контекста в пикселях. }
   function AverageCharWidth: Integer;
    {* средняя ширина символов контекста в дюймах. }
-  function TextExtent(const S: Tl3WString;
-   aNoTabs: Boolean = False): Tl3Point;
-   {* возвращает длину строки текста в дюймах. }
   function Pos2Index(W: Integer;
    const S: Tl3PCharLen): Integer;
    {* находит индекс символа на рассоянии W дюймов от начала строки S. }
@@ -400,13 +434,6 @@ type
    {* находит индекс символа на рассоянии W дюймов от начала строки S. }
   function AverageCharHeight: Integer;
    {* средняя высота символов контекста в дюймах. }
-  function LP2DP(const P: Tl3_Point;
-   NeedZoom: Boolean = False): Tl3SPoint;
-   {* преобразует точку в дюймах в точку в пикселях. }
-  function LR2DR(const R: Tl3Rect): Tl3SRect;
-   {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
-  function DR2LR(const R: Tl3SRect): Tl3Rect;
-   {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
   procedure Lock;
    {* начать работу с канвой. }
   procedure Unlock;
@@ -428,11 +455,6 @@ type
   function TabInfo: Il3TabInfo;
   function EQ(const aCanvas: Il3InfoCanvas): Boolean;
   function NearestColor(C: Tl3Color): Tl3Color;
-  function DrawText(const aSt: Tl3WString;
-   var R: TRect;
-   aFormat: Cardinal;
-   AFl: TObject = nil): Il3MultiLines;
-   {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
   procedure TabbedMultilineTextOut(const aSt: Tl3WString;
    const Tabs: Il3TabStops;
    var Rect: Tl3Rect;
@@ -457,6 +479,21 @@ type
   function IsVirtual: Boolean;
   procedure PushLineSpacing;
   procedure PopLineSpacing;
+  function DR2LR(const R: Tl3SRect): Tl3Rect;
+   {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
+  function LP2DP(const P: Tl3_Point;
+   NeedZoom: Boolean = False): Tl3SPoint;
+   {* преобразует точку в дюймах в точку в пикселях. }
+  function LR2DR(const R: Tl3Rect): Tl3SRect;
+   {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
+  function TextExtent(const S: Tl3WString;
+   aNoTabs: Boolean = False): Tl3Point;
+   {* возвращает длину строки текста в дюймах. }
+  function DrawText(const aSt: Tl3WString;
+   var R: TRect;
+   aFormat: Cardinal;
+   AFl: TObject = nil): Il3MultiLines;
+   {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
   property DC: hDC
    read pm_GetDC
    write pm_SetDC;
@@ -554,10 +591,8 @@ type
    const Extent: Tl3Point;
    Hidden: Boolean = False);
   procedure IncCaret(aDeltaX: Integer);
-  procedure BeginPaint;
   procedure StartObject(anObjectID: Integer);
   procedure SetPageTop;
-  procedure EndPaint;
   function DrawRgnOrBlock: Boolean;
   function HasToDraw: Boolean;
   procedure StretchDraw(const R: Tl3Rect;
@@ -620,6 +655,8 @@ type
   procedure PopClipRect;
   procedure BeginInvert;
   procedure EndInvert;
+  procedure BeginPaint;
+  procedure EndPaint;
   property WindowOrg: Tl3Point
    read pm_GetWindowOrg
    write pm_SetWindowOrg;
@@ -695,16 +732,6 @@ type
    read pm_GetInvert;
  end;//Il3Canvas
 
- Il3CStringList = interface(Il3List)
-  ['{F7BD6D08-43A8-4C7B-AF1B-BA0233E5CA55}']
-  function pm_GetItems(anIndex: Integer): Il3CString;
-  property Items[anIndex: Integer]: Il3CString
-   read pm_GetItems;
-   default;
- end;//Il3CStringList
-
- Tl3AskClearClipboardProc = procedure(var aResult: Integer) of object;
-
  Il3HAFPainter = interface(Il3Base)
   ['{5237593E-C8A3-4298-A62C-7AC17464D22C}']
   function Get_MacroReplacer: Il3HAFMacroReplacer;
@@ -776,6 +803,21 @@ type
    {* Флаг окончания отрисовки объекта. }
  end;//Ml3FrameLines
  *)
+
+ Tl3Range = record
+  rStart: Integer;
+  rLength: Integer;
+ end;//Tl3Range
+
+ Il3RangeTool = interface(Il3Base)
+  ['{6D668689-FA10-4F02-AAC3-F7F6067D951B}']
+  function pm_GetRangeCount: Integer;
+  function Get_Ranges(Index: Integer): Tl3Range;
+  property RangeCount: Integer
+   read pm_GetRangeCount;
+  property Ranges[Index: Integer]: Tl3Range
+   read Get_Ranges;
+ end;//Il3RangeTool
 
  Il3FrameLines = interface(Il3Base)
   {* Интерфейс выравнивателя линий для объектов с рамками. Линии располагаются в двух массивах (вертикальных и горизонтальных линий) }
@@ -869,21 +911,6 @@ type
    write pm_SetBigSize;
  end;//Il3ImageList
 
- Tl3Range = record
-  rStart: Integer;
-  rLength: Integer;
- end;//Tl3Range
-
- Il3RangeTool = interface(Il3Base)
-  ['{6D668689-FA10-4F02-AAC3-F7F6067D951B}']
-  function pm_GetRangeCount: Integer;
-  function Get_Ranges(Index: Integer): Tl3Range;
-  property RangeCount: Integer
-   read pm_GetRangeCount;
-  property Ranges[Index: Integer]: Tl3Range
-   read Get_Ranges;
- end;//Il3RangeTool
-
  Il3Bitmap = interface(Il3Base)
   {* Картинка. }
   ['{35C6D55E-4EC5-41B3-9336-6BE9C95F4790}']
@@ -909,100 +936,6 @@ type
    read pm_GetInchHeight;
  end;//Il3Bitmap
 
- Il3SmartCanvas = interface(Il3Base)
-  {* Канва для рисования примитивов контролов. }
-  ['{AF479CB2-7EAE-49C8-BCFE-E05A2805CE38}']
-  procedure DrawEdit(const R: Tl3SRect;
-   aEnabled: Boolean;
-   aFocused: Boolean;
-   aReadOnly: Boolean;
-   anIs3D: Boolean;
-   aPartDraw: Boolean;
-   var aBorderWidth: Integer);
-  procedure DrawCheckOrRadio(aDrawCheck: Boolean;
-   const R: Tl3SRect;
-   aState: Tl3CheckBoxState;
-   aEnabled: Boolean;
-   aFlat: Boolean);
-  procedure DrawComboBox(const R: Tl3SRect;
-   aBtnWidth: Integer;
-   anEnabled: Boolean;
-   aFocused: Boolean;
-   aReadOnly: Boolean;
-   anIs3D: Boolean;
-   aPartDraw: Boolean;
-   aDown: Boolean);
-  procedure DrawSpinEditBox(const R: Tl3SRect;
-   aBtnWidth: Integer;
-   aEnabled: Boolean;
-   aFocused: Boolean;
-   aReadOnly: Boolean;
-   aPartDraw: Boolean;
-   anIs3D: Boolean);
-  procedure DrawButton(const aCaption: Tl3PCharLen;
-   const R: Tl3SRect;
-   aEnabled: Boolean;
-   aFlat: Boolean;
-   aTransparent: Boolean;
-   aMouseInControl: Boolean;
-   aState: Tl3ButtonState;
-   aColor: Tl3Color;
-   const aImgList: Il3ImageList;
-   aIndex: Integer);
-  procedure DrawHelpControl(const aRect: Tl3SRect;
-   aColor: Tl3Color;
-   const aImgList: Il3ImageList;
-   aIndex: Integer);
-  procedure DrawPictureButton(const aRect: Tl3SRect;
-   aMouseInControl: Boolean;
-   anEnabled: Boolean;
-   aState: Tl3ButtonState;
-   aColor: Tl3Color;
-   const aImgList: Il3ImageList;
-   aIndex: Integer);
-  procedure DrawSpinButtons(const R: Tl3SRect;
-   aEnabled: Boolean;
-   aFlat: Boolean);
-  procedure DrawElipsisEdit(const R: Tl3SRect;
-   aBtnWidth: Integer;
-   aEnabled: Boolean;
-   aFocused: Boolean;
-   aReadOnly: Boolean;
-   anIs3D: Boolean;
-   aPartDraw: Boolean;
-   const aImgList: Il3ImageList;
-   aImageIndex: Integer);
-  procedure DrawCollapsedPanel(const aCaption: Tl3PCharLen;
-   var R: Tl3SRect;
-   aEnabled: Boolean;
-   aCollapsed: Boolean;
-   aUpper: Boolean;
-   aDown: Boolean;
-   aBtnVisible: Boolean;
-   aColor: Tl3Color;
-   anAlignment: Tl3Alignment;
-   const aImgList: Il3ImageList;
-   aNeedFrame: Boolean);
- end;//Il3SmartCanvas
-
- Il3NodePainter = interface(Il3Base)
-  {* Интерфейс для отрисовки ноды. }
-  ['{26FC09D4-160F-45A0-BBB2-908CC44A010B}']
-  procedure PaintNode(const aCanvas: Il3Canvas;
-   const aRect: Tl3Rect;
-   aSelStart: Integer;
-   aSelEnd: Integer;
-   DoInverse: Boolean = False);
-   {* Рисует ноду }
-  function CalcHeight(const aCanvas: Il3InfoCanvas;
-   aWidth: Integer): Integer;
-   {* Считает высоту по ширине. }
-  function HintSupported: Boolean;
-   {* Надо выводить хинт }
-  function GetItemTextIndent(const aCanvas: Il3InfoCanvas;
-   aTextHeight: Integer): Integer;
- end;//Il3NodePainter
-
  Hl3Canvas = object
   {* Обёртка для Il3Canvas }
   private
@@ -1013,9 +946,6 @@ type
     {* средняя ширина символов контекста в пикселях. }
    function AverageCharWidth: Integer;
     {* средняя ширина символов контекста в дюймах. }
-   function TextExtent(const S: Tl3WString;
-    aNoTabs: Boolean = False): Tl3Point;
-    {* возвращает длину строки текста в дюймах. }
    function Pos2Index(W: Integer;
     const S: Tl3PCharLen): Integer;
     {* находит индекс символа на рассоянии W дюймов от начала строки S. }
@@ -1025,13 +955,6 @@ type
     {* находит индекс символа на рассоянии W дюймов от начала строки S. }
    function AverageCharHeight: Integer;
     {* средняя высота символов контекста в дюймах. }
-   function LP2DP(const P: Tl3_Point;
-    NeedZoom: Boolean = False): Tl3SPoint;
-    {* преобразует точку в дюймах в точку в пикселях. }
-   function LR2DR(const R: Tl3Rect): Tl3SRect;
-    {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
-   function DR2LR(const R: Tl3SRect): Tl3Rect;
-    {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
    procedure Lock;
     {* начать работу с канвой. }
    procedure Unlock;
@@ -1053,11 +976,6 @@ type
    function TabInfo: Il3TabInfo;
    function EQ(const aCanvas: Il3InfoCanvas): Boolean;
    function NearestColor(C: Tl3Color): Tl3Color;
-   function DrawText(const aSt: Tl3WString;
-    var R: TRect;
-    aFormat: Cardinal;
-    AFl: TObject = nil): Il3MultiLines;
-    {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
    procedure TabbedMultilineTextOut(const aSt: Tl3WString;
     const Tabs: Il3TabStops;
     var Rect: Tl3Rect;
@@ -1092,10 +1010,8 @@ type
     const Extent: Tl3Point;
     Hidden: Boolean = False);
    procedure IncCaret(aDeltaX: Integer);
-   procedure BeginPaint;
    procedure StartObject(anObjectID: Integer);
    procedure SetPageTop;
-   procedure EndPaint;
    function DrawRgnOrBlock: Boolean;
    function HasToDraw: Boolean;
    procedure StretchDraw(const R: Tl3Rect;
@@ -1208,6 +1124,23 @@ type
    procedure BeginDarkColor;
    procedure EndDarkColor;
   public
+   function TextExtent(const S: Tl3WString;
+    aNoTabs: Boolean = False): Tl3Point;
+    {* возвращает длину строки текста в дюймах. }
+   function LP2DP(const P: Tl3_Point;
+    NeedZoom: Boolean = False): Tl3SPoint;
+    {* преобразует точку в дюймах в точку в пикселях. }
+   function LR2DR(const R: Tl3Rect): Tl3SRect;
+    {* преобразует прямоугольник в дюймах в прямоугольник в пикселях. }
+   function DR2LR(const R: Tl3SRect): Tl3Rect;
+    {* преобразует прямоугольник в пикселях в прямоугольник в дюймах. }
+   function DrawText(const aSt: Tl3WString;
+    var R: TRect;
+    aFormat: Cardinal;
+    AFl: TObject = nil): Il3MultiLines;
+    {* как ни глупо звучит, но это нужно на информационной канве, т.к. она вычисляет прямоугольник вывода. }
+   procedure BeginPaint;
+   procedure EndPaint;
    procedure BeginInvert;
    procedure EndInvert;
    function IsVirtual: Boolean;
@@ -1249,6 +1182,100 @@ type
   const R: Tl3Rect;
   SubType: Tl3Handle;
   aSub: TObject) of object;
+
+ Il3SmartCanvas = interface(Il3Base)
+  {* Канва для рисования примитивов контролов. }
+  ['{AF479CB2-7EAE-49C8-BCFE-E05A2805CE38}']
+  procedure DrawEdit(const R: Tl3SRect;
+   aEnabled: Boolean;
+   aFocused: Boolean;
+   aReadOnly: Boolean;
+   anIs3D: Boolean;
+   aPartDraw: Boolean;
+   var aBorderWidth: Integer);
+  procedure DrawCheckOrRadio(aDrawCheck: Boolean;
+   const R: Tl3SRect;
+   aState: Tl3CheckBoxState;
+   aEnabled: Boolean;
+   aFlat: Boolean);
+  procedure DrawComboBox(const R: Tl3SRect;
+   aBtnWidth: Integer;
+   anEnabled: Boolean;
+   aFocused: Boolean;
+   aReadOnly: Boolean;
+   anIs3D: Boolean;
+   aPartDraw: Boolean;
+   aDown: Boolean);
+  procedure DrawSpinEditBox(const R: Tl3SRect;
+   aBtnWidth: Integer;
+   aEnabled: Boolean;
+   aFocused: Boolean;
+   aReadOnly: Boolean;
+   aPartDraw: Boolean;
+   anIs3D: Boolean);
+  procedure DrawButton(const aCaption: Tl3PCharLen;
+   const R: Tl3SRect;
+   aEnabled: Boolean;
+   aFlat: Boolean;
+   aTransparent: Boolean;
+   aMouseInControl: Boolean;
+   aState: Tl3ButtonState;
+   aColor: Tl3Color;
+   const aImgList: Il3ImageList;
+   aIndex: Integer);
+  procedure DrawHelpControl(const aRect: Tl3SRect;
+   aColor: Tl3Color;
+   const aImgList: Il3ImageList;
+   aIndex: Integer);
+  procedure DrawPictureButton(const aRect: Tl3SRect;
+   aMouseInControl: Boolean;
+   anEnabled: Boolean;
+   aState: Tl3ButtonState;
+   aColor: Tl3Color;
+   const aImgList: Il3ImageList;
+   aIndex: Integer);
+  procedure DrawSpinButtons(const R: Tl3SRect;
+   aEnabled: Boolean;
+   aFlat: Boolean);
+  procedure DrawElipsisEdit(const R: Tl3SRect;
+   aBtnWidth: Integer;
+   aEnabled: Boolean;
+   aFocused: Boolean;
+   aReadOnly: Boolean;
+   anIs3D: Boolean;
+   aPartDraw: Boolean;
+   const aImgList: Il3ImageList;
+   aImageIndex: Integer);
+  procedure DrawCollapsedPanel(const aCaption: Tl3PCharLen;
+   var R: Tl3SRect;
+   aEnabled: Boolean;
+   aCollapsed: Boolean;
+   aUpper: Boolean;
+   aDown: Boolean;
+   aBtnVisible: Boolean;
+   aColor: Tl3Color;
+   anAlignment: Tl3Alignment;
+   const aImgList: Il3ImageList;
+   aNeedFrame: Boolean);
+ end;//Il3SmartCanvas
+
+ Il3NodePainter = interface(Il3Base)
+  {* Интерфейс для отрисовки ноды. }
+  ['{26FC09D4-160F-45A0-BBB2-908CC44A010B}']
+  procedure PaintNode(const aCanvas: Il3Canvas;
+   const aRect: Tl3Rect;
+   aSelStart: Integer;
+   aSelEnd: Integer;
+   DoInverse: Boolean = False);
+   {* Рисует ноду }
+  function CalcHeight(const aCanvas: Il3InfoCanvas;
+   aWidth: Integer): Integer;
+   {* Считает высоту по ширине. }
+  function HintSupported: Boolean;
+   {* Надо выводить хинт }
+  function GetItemTextIndent(const aCanvas: Il3InfoCanvas;
+   aTextHeight: Integer): Integer;
+ end;//Il3NodePainter
 
 const
  l3PageOrientationInvert: Tl3PageOrientationArray = (l3_poLandscape, l3_poPortrait);

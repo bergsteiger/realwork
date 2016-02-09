@@ -41,11 +41,11 @@ implementation
 
 uses
  l3ImplUses
- , SysUtils
- , l3Base
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , l3Base
 ;
 
 var g_Tl3ProcessMessagesManager: Tl3ProcessMessagesManager = nil;

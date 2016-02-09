@@ -83,6 +83,7 @@ uses
  , nsFolderFilterInfo
  , l3InterfacesMisc
  , afwFacade
+ , IOUnit
  , deSearchInfo
  , DynamicTreeUnit
  , nsINodeWrap

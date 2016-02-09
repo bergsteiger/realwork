@@ -31,6 +31,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor TnsNewCachableNodeThatNeedKeepRoot.Create(const aNode: INodeBase;

@@ -57,10 +57,10 @@ type
    procedure Set_LastChild(const aValue: Il3Node);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure Set__ChildNode(const aValue: Il3Node); override;
+   procedure Set_ChildNode(const aValue: Il3Node); override;
    procedure ClearFields; override;
-   function Get__AllChildrenCount: Integer; override;
-   function Get__ChildNode: Il3Node; override;
+   function Get_AllChildrenCount: Integer; override;
+   function Get_ChildNode: Il3Node; override;
    procedure DoSortChilds(const aChild: Il3Node = nil); override;
    function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
    procedure DoReleaseChilds; override;
@@ -243,14 +243,14 @@ begin
 //#UC END# *479731C50290_4ADDF4470087_impl*
 end;//TnsBaseNode.Cleanup
 
-procedure TnsBaseNode.Set__ChildNode(const aValue: Il3Node);
+procedure TnsBaseNode.Set_ChildNode(const aValue: Il3Node);
 //#UC START# *4ADEEFA00164_4ADDF4470087_var*
 //#UC END# *4ADEEFA00164_4ADDF4470087_var*
 begin
 //#UC START# *4ADEEFA00164_4ADDF4470087_impl*
  ChildNode := aValue;
 //#UC END# *4ADEEFA00164_4ADDF4470087_impl*
-end;//TnsBaseNode.Set__ChildNode
+end;//TnsBaseNode.Set_ChildNode
 
 procedure TnsBaseNode.ClearFields;
 begin
@@ -260,7 +260,7 @@ begin
  inherited;
 end;//TnsBaseNode.ClearFields
 
-function TnsBaseNode.Get__AllChildrenCount: Integer;
+function TnsBaseNode.Get_AllChildrenCount: Integer;
 //#UC START# *54C78C200291_4ADDF4470087_var*
  procedure CountChild(const aNode: Il3Node);
  begin
@@ -279,16 +279,16 @@ begin
  else
   Result := f_AllChildrenCount;
 //#UC END# *54C78C200291_4ADDF4470087_impl*
-end;//TnsBaseNode.Get__AllChildrenCount
+end;//TnsBaseNode.Get_AllChildrenCount
 
-function TnsBaseNode.Get__ChildNode: Il3Node;
+function TnsBaseNode.Get_ChildNode: Il3Node;
 //#UC START# *54C78E2702B3_4ADDF4470087_var*
 //#UC END# *54C78E2702B3_4ADDF4470087_var*
 begin
 //#UC START# *54C78E2702B3_4ADDF4470087_impl*
  Result := ChildNode;
 //#UC END# *54C78E2702B3_4ADDF4470087_impl*
-end;//TnsBaseNode.Get__ChildNode
+end;//TnsBaseNode.Get_ChildNode
 
 procedure TnsBaseNode.DoSortChilds(const aChild: Il3Node = nil);
 //#UC START# *54C8E0850062_4ADDF4470087_var*

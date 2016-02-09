@@ -41,7 +41,7 @@ type
     aValue: integer); virtual;
    procedure pm_SetfCountView(aValue: Integer);
    function pm_GetCurrentItem: Integer;
-   function Get__CRootNode: Il3RootNode; virtual;
+   function Get_CRootNode: Il3RootNode; virtual;
    function Get_RootNode: Il3SimpleRootNode;
    procedure Set_RootNode(const aValue: Il3SimpleRootNode);
    procedure Invalidate;
@@ -280,14 +280,14 @@ begin
 //#UC END# *4FD9FAB40003_4804BDA10127get_impl*
 end;//Tl3Tree.pm_GetCurrentItem
 
-function Tl3Tree.Get__CRootNode: Il3RootNode;
+function Tl3Tree.Get_CRootNode: Il3RootNode;
 //#UC START# *4FFC1D0502D0_4804BDA10127_var*
 //#UC END# *4FFC1D0502D0_4804BDA10127_var*
 begin
 //#UC START# *4FFC1D0502D0_4804BDA10127_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4FFC1D0502D0_4804BDA10127_impl*
-end;//Tl3Tree.Get__CRootNode
+end;//Tl3Tree.Get_CRootNode
 
 procedure Tl3Tree.DoNotify(aOperation: Integer;
  const aNode: Il3SimpleNode);

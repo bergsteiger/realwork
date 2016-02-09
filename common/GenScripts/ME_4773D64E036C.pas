@@ -127,6 +127,9 @@ uses
  , l3CEmptyStringPrim
  , l3CEmptyString
  , l3FourByteCString
+ {$If NOT Defined(NoScripts)}
+ , tfwIl3CStringPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure l3CStr;

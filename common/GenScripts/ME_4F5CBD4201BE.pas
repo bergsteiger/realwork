@@ -27,6 +27,9 @@ implementation
 uses
  l3ImplUses
  , l3String
+ {$If NOT Defined(NoScripts)}
+ , tfwIl3CStringPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor Tl3CEmptyStringPrim.Create;

@@ -30,6 +30,9 @@ uses
  l3ImplUses
  , l3String
  , l3Chars
+ {$If NOT Defined(NoScripts)}
+ , tfwIl3CStringPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 constructor Tl3FourByteCString.Create(aChars: Integer);

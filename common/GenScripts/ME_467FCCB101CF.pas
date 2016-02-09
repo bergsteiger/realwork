@@ -79,9 +79,9 @@ uses
  , BitmapPara_Const
  , k2Empty_Const
  , nsStyleParser
+ , SysUtils
  , l3CustomString
  , k2Tags
- , SysUtils
  , k2Facade
 ;
 
