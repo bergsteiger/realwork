@@ -14,8 +14,8 @@ uses
  , afwInterfaces
  , afwTypes
  , l3InternalInterfaces
- , l3CanvasPrim
  , Graphics
+ , l3CanvasPrim
 ;
 
 type
@@ -27,14 +27,13 @@ type
    f_PreviewPage: IafwPreviewPage;
    f_PagesArray: TafwPrintPagesArray;
   protected
-   function NeedOpenRealPage(aDoc: Boolean;
-    ByWidth: Boolean = False): Tl3OpenPageResult; override;
-   function IsPreview: Boolean; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure DoEndPaint; override;
-    {* Реализация окончания рисования. }
    procedure ClearFields; override;
+   function IsPreview: Boolean; override;
+   function NeedOpenRealPage(aDoc: Boolean;
+    ByWidth: Boolean = False): Tl3OpenPageResult; override;
+   procedure DoEndPaint; override;
   public
    constructor Create(const aPrinter: IafwPrinter;
     const aPagesArray: TafwPrintPagesArray = nil); reintroduce;
@@ -77,15 +76,56 @@ begin
  end;//try..finally
 end;//TafwCanvasEx.Make
 
+procedure TafwCanvasEx.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_47414C8700D5_var*
+//#UC END# *479731C50290_47414C8700D5_var*
+begin
+//#UC START# *479731C50290_47414C8700D5_impl*
+ f_PagesArray := nil;
+ f_CurrentPage := 0;
+ inherited;
+ f_PreviewPage := nil;
+//#UC END# *479731C50290_47414C8700D5_impl*
+end;//TafwCanvasEx.Cleanup
+
+procedure TafwCanvasEx.ClearFields;
+begin
+ f_PreviewPage := nil;
+ Finalize(f_PagesArray);
+ inherited;
+end;//TafwCanvasEx.ClearFields
+
+procedure TafwCanvasEx.SetCanvas(aValue: TCanvas;
+ anAlien: Boolean);
+//#UC START# *56B0AE550267_47414C8700D5_var*
+//#UC END# *56B0AE550267_47414C8700D5_var*
+begin
+//#UC START# *56B0AE550267_47414C8700D5_impl*
+ if (DCFlag = ev_dcfLinked) then
+  SetDC(0, ev_dcfCanvas);
+ inherited;
+//#UC END# *56B0AE550267_47414C8700D5_impl*
+end;//TafwCanvasEx.SetCanvas
+
+function TafwCanvasEx.IsPreview: Boolean;
+//#UC START# *56B0B9790320_47414C8700D5_var*
+//#UC END# *56B0B9790320_47414C8700D5_var*
+begin
+//#UC START# *56B0B9790320_47414C8700D5_impl*
+ Result := f_IsPreview;
+//#UC END# *56B0B9790320_47414C8700D5_impl*
+end;//TafwCanvasEx.IsPreview
+
 function TafwCanvasEx.NeedOpenRealPage(aDoc: Boolean;
  ByWidth: Boolean = False): Tl3OpenPageResult;
-//#UC START# *478E406D004B_47414C8700D5_var*
+//#UC START# *56B4A55202AB_47414C8700D5_var*
 var
  l_IsPreview : Boolean;
  l_CurrentPage: Integer;
-//#UC END# *478E406D004B_47414C8700D5_var*
+//#UC END# *56B4A55202AB_47414C8700D5_var*
 begin
-//#UC START# *478E406D004B_47414C8700D5_impl*
+//#UC START# *56B4A55202AB_47414C8700D5_impl*
  Result := l3_oprYes;
  if aDoc then
   f_CurrentPage := 0;
@@ -123,37 +163,14 @@ begin
  f_IsPreview := l_IsPreview;
  if f_IsPreview AND (Result <> l3_oprEndDoc) then
   Result := l3_oprNo;
-//#UC END# *478E406D004B_47414C8700D5_impl*
+//#UC END# *56B4A55202AB_47414C8700D5_impl*
 end;//TafwCanvasEx.NeedOpenRealPage
 
-function TafwCanvasEx.IsPreview: Boolean;
-//#UC START# *478E40D30089_47414C8700D5_var*
-//#UC END# *478E40D30089_47414C8700D5_var*
-begin
-//#UC START# *478E40D30089_47414C8700D5_impl*
- Result := f_IsPreview;
-//#UC END# *478E40D30089_47414C8700D5_impl*
-end;//TafwCanvasEx.IsPreview
-
-procedure TafwCanvasEx.Cleanup;
- {* Функция очистки полей объекта. }
-//#UC START# *479731C50290_47414C8700D5_var*
-//#UC END# *479731C50290_47414C8700D5_var*
-begin
-//#UC START# *479731C50290_47414C8700D5_impl*
- f_PagesArray := nil;
- f_CurrentPage := 0;
- inherited;
- f_PreviewPage := nil;
-//#UC END# *479731C50290_47414C8700D5_impl*
-end;//TafwCanvasEx.Cleanup
-
 procedure TafwCanvasEx.DoEndPaint;
- {* Реализация окончания рисования. }
-//#UC START# *4797837E0112_47414C8700D5_var*
-//#UC END# *4797837E0112_47414C8700D5_var*
+//#UC START# *56B4BDA30301_47414C8700D5_var*
+//#UC END# *56B4BDA30301_47414C8700D5_var*
 begin
-//#UC START# *4797837E0112_47414C8700D5_impl*
+//#UC START# *56B4BDA30301_47414C8700D5_impl*
  if (f_PreviewPage <> nil) then
  begin
   SetCanvas(nil, false);
@@ -163,26 +180,7 @@ begin
  if f_IsPreview then
   SetCanvas(nil, false);
  f_IsPreview := false;
-//#UC END# *4797837E0112_47414C8700D5_impl*
+//#UC END# *56B4BDA30301_47414C8700D5_impl*
 end;//TafwCanvasEx.DoEndPaint
-
-procedure TafwCanvasEx.ClearFields;
-begin
- f_PreviewPage := nil;
- Finalize(f_PagesArray);
- inherited;
-end;//TafwCanvasEx.ClearFields
-
-procedure TafwCanvasEx.SetCanvas(aValue: TCanvas;
- anAlien: Boolean);
-//#UC START# *56B0AE550267_47414C8700D5_var*
-//#UC END# *56B0AE550267_47414C8700D5_var*
-begin
-//#UC START# *56B0AE550267_47414C8700D5_impl*
- if (DCFlag = ev_dcfLinked) then
-  SetDC(0, ev_dcfCanvas);
- inherited;
-//#UC END# *56B0AE550267_47414C8700D5_impl*
-end;//TafwCanvasEx.SetCanvas
 
 end.

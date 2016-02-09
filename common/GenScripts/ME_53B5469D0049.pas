@@ -94,6 +94,7 @@ uses
  , k2Interfaces
  , k2DictionaryPrim
  , k2InterfaceFactory
+ , k2List
  , ComObj
  , l3BaseStream
 ;

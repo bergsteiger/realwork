@@ -159,9 +159,9 @@ uses
  l3ImplUses
  , afwSettingsImplSing
  , afwSettingsImplemented
+ , Windows
  , SysUtils
  , l3Base
- , Windows
 ;
 
 type

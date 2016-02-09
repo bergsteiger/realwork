@@ -37,6 +37,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ , OvcConst
 ;
 
 {$Include afwShortcutsHandler.imp.pas}

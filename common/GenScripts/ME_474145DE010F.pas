@@ -76,19 +76,18 @@ type
     aWIndex: Integer): IafwPreviewPage;
     {* страница preview. }
    function Get_PagesInfo: TafwPagesInfo;
-   function IsPreview: Boolean; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure DoEndPaint; override;
-    {* Реализация окончания рисования. }
-   function DoGetDrawEnabled: Boolean; override;
-   procedure DoStartPage; override;
-   procedure DoStartObject(anObjectID: Integer); override;
-   procedure DoSetPageTop; override;
    procedure FillRectPrim(const R: TRect); override;
    procedure DoFillForeRect(const R: Tl3SRect); override;
+   function DoGetDrawEnabled: Boolean; override;
    function GetIsPagesCounter: Boolean; override;
    procedure ClearFields; override;
+   function IsPreview: Boolean; override;
+   procedure StartPage; override;
+   procedure DoStartObject(anObjectID: Integer); override;
+   procedure DoSetPageTop; override;
+   procedure DoEndPaint; override;
   public
    constructor Create(const aPrinter: IafwPrinter;
     aIsPageCounter: Boolean;
@@ -392,15 +391,6 @@ begin
 //#UC END# *4CC697810106_474145DE010Fget_impl*
 end;//TafwPreviewCanvas.Get_PagesInfo
 
-function TafwPreviewCanvas.IsPreview: Boolean;
-//#UC START# *478E40D30089_474145DE010F_var*
-//#UC END# *478E40D30089_474145DE010F_var*
-begin
-//#UC START# *478E40D30089_474145DE010F_impl*
- Result := true;
-//#UC END# *478E40D30089_474145DE010F_impl*
-end;//TafwPreviewCanvas.IsPreview
-
 procedure TafwPreviewCanvas.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_474145DE010F_var*
@@ -416,83 +406,6 @@ begin
  f_PreviewPage := nil;
 //#UC END# *479731C50290_474145DE010F_impl*
 end;//TafwPreviewCanvas.Cleanup
-
-procedure TafwPreviewCanvas.DoEndPaint;
- {* Реализация окончания рисования. }
-//#UC START# *4797837E0112_474145DE010F_var*
-var
- l_PreviewPage: IafwPreviewPage;
-//#UC END# *4797837E0112_474145DE010F_var*
-begin
-//#UC START# *4797837E0112_474145DE010F_impl*
- inherited;
- SetCanvas(nil, false);
- if (f_PreviewPage <> nil) then
- begin
-  f_PagesInfo.rOverallPagesCount := f_PreviewPage.OverallPageNumber;
-  if (f_PreviewPage.PageNumber = GetPagesCount) then
-  begin
-   l_PreviewPage := PreviewPage(f_PreviewPage.PageNumber - 1, 0);
-   if Assigned(l_PreviewPage) then
-   l_PreviewPage.Add(f_PreviewPage);
-  end//f_PreviewPage.PageNumber = GetPagesCount
-  else
-   f_PagesList.Add(f_PreviewPage);
-  f_PreviewPage.Drop(f_IsPageCounter);
-  f_PreviewPage := nil;
- end;//f_PreviewPage <> nil
- if not Drawing AND (f_PagesInfo.rPagesCount = High(Integer)) then
-  f_PagesInfo.rPagesCount := GetPagesCount;
-//#UC END# *4797837E0112_474145DE010F_impl*
-end;//TafwPreviewCanvas.DoEndPaint
-
-function TafwPreviewCanvas.DoGetDrawEnabled: Boolean;
-//#UC START# *47DFBDDA03CC_474145DE010F_var*
-//#UC END# *47DFBDDA03CC_474145DE010F_var*
-begin
-//#UC START# *47DFBDDA03CC_474145DE010F_impl*
- Result := not f_IsPageCounter AND inherited DoGetDrawEnabled;
-//#UC END# *47DFBDDA03CC_474145DE010F_impl*
-end;//TafwPreviewCanvas.DoGetDrawEnabled
-
-procedure TafwPreviewCanvas.DoStartPage;
-//#UC START# *47DFBEC80085_474145DE010F_var*
-//#UC END# *47DFBEC80085_474145DE010F_var*
-begin
-//#UC START# *47DFBEC80085_474145DE010F_impl*
- {$IfNDef l3UsePrinterForPreview}
- afw.ProcessMessages;
- {$EndIf  l3UsePrinterForPreview}
- if (f_PreviewPage = nil) then
-  f_PreviewPage := TafwPreviewPage.Make(Self);
- inherited;
-//#UC END# *47DFBEC80085_474145DE010F_impl*
-end;//TafwPreviewCanvas.DoStartPage
-
-procedure TafwPreviewCanvas.DoStartObject(anObjectID: Integer);
-//#UC START# *47DFC90A0366_474145DE010F_var*
-//#UC END# *47DFC90A0366_474145DE010F_var*
-begin
-//#UC START# *47DFC90A0366_474145DE010F_impl*
- if (anObjectID <> 0) then
- begin
-  if (f_Pages = nil) then
-   f_Pages := TnevPages.MakeSorted;
-  f_Pages.AddParaOnPage(anObjectID, PageNumber);
- end;//anObjectID <> 0
-//#UC END# *47DFC90A0366_474145DE010F_impl*
-end;//TafwPreviewCanvas.DoStartObject
-
-procedure TafwPreviewCanvas.DoSetPageTop;
-//#UC START# *47DFCA030114_474145DE010F_var*
-//#UC END# *47DFCA030114_474145DE010F_var*
-begin
-//#UC START# *47DFCA030114_474145DE010F_impl*
- inherited;
- if (f_PreviewPage <> nil) then
-  f_PreviewPage.Finish(PageNumber, PageWidthNumber, f_OverallPageNumber);
-//#UC END# *47DFCA030114_474145DE010F_impl*
-end;//TafwPreviewCanvas.DoSetPageTop
 
 procedure TafwPreviewCanvas.FillRectPrim(const R: TRect);
 //#UC START# *47DFCAAF0249_474145DE010F_var*
@@ -532,6 +445,15 @@ begin
 //#UC END# *47DFCAEE0007_474145DE010F_impl*
 end;//TafwPreviewCanvas.DoFillForeRect
 
+function TafwPreviewCanvas.DoGetDrawEnabled: Boolean;
+//#UC START# *4A4CC195011E_474145DE010F_var*
+//#UC END# *4A4CC195011E_474145DE010F_var*
+begin
+//#UC START# *4A4CC195011E_474145DE010F_impl*
+ Result := not f_IsPageCounter and inherited DoGetDrawEnabled;
+//#UC END# *4A4CC195011E_474145DE010F_impl*
+end;//TafwPreviewCanvas.DoGetDrawEnabled
+
 function TafwPreviewCanvas.GetIsPagesCounter: Boolean;
 //#UC START# *4CB32D4C030E_474145DE010F_var*
 //#UC END# *4CB32D4C030E_474145DE010F_var*
@@ -546,5 +468,81 @@ begin
  f_PreviewPage := nil;
  inherited;
 end;//TafwPreviewCanvas.ClearFields
+
+function TafwPreviewCanvas.IsPreview: Boolean;
+//#UC START# *56B0B9790320_474145DE010F_var*
+//#UC END# *56B0B9790320_474145DE010F_var*
+begin
+//#UC START# *56B0B9790320_474145DE010F_impl*
+ Result := True;
+//#UC END# *56B0B9790320_474145DE010F_impl*
+end;//TafwPreviewCanvas.IsPreview
+
+procedure TafwPreviewCanvas.StartPage;
+//#UC START# *56B4B5EF019F_474145DE010F_var*
+//#UC END# *56B4B5EF019F_474145DE010F_var*
+begin
+//#UC START# *56B4B5EF019F_474145DE010F_impl*
+ {$IfNDef l3UsePrinterForPreview}
+ afw.ProcessMessages;
+ {$EndIf  l3UsePrinterForPreview}
+ if (f_PreviewPage = nil) then
+  f_PreviewPage := TafwPreviewPage.Make(Self);
+ inherited;
+//#UC END# *56B4B5EF019F_474145DE010F_impl*
+end;//TafwPreviewCanvas.StartPage
+
+procedure TafwPreviewCanvas.DoStartObject(anObjectID: Integer);
+//#UC START# *56B4BABD03A2_474145DE010F_var*
+//#UC END# *56B4BABD03A2_474145DE010F_var*
+begin
+//#UC START# *56B4BABD03A2_474145DE010F_impl*
+ if (anObjectID <> 0) then
+ begin
+  if (f_Pages = nil) then
+   f_Pages := TnevPages.MakeSorted;
+  f_Pages.AddParaOnPage(anObjectID, PageNumber);
+ end;//anObjectID <> 0
+//#UC END# *56B4BABD03A2_474145DE010F_impl*
+end;//TafwPreviewCanvas.DoStartObject
+
+procedure TafwPreviewCanvas.DoSetPageTop;
+//#UC START# *56B4BBCF00D5_474145DE010F_var*
+//#UC END# *56B4BBCF00D5_474145DE010F_var*
+begin
+//#UC START# *56B4BBCF00D5_474145DE010F_impl*
+ inherited;
+ if (f_PreviewPage <> nil) then
+  f_PreviewPage.Finish(PageNumber, PageWidthNumber, OverallPageNumber);
+//#UC END# *56B4BBCF00D5_474145DE010F_impl*
+end;//TafwPreviewCanvas.DoSetPageTop
+
+procedure TafwPreviewCanvas.DoEndPaint;
+//#UC START# *56B4BDA30301_474145DE010F_var*
+var
+ l_PreviewPage: IafwPreviewPage;
+//#UC END# *56B4BDA30301_474145DE010F_var*
+begin
+//#UC START# *56B4BDA30301_474145DE010F_impl*
+ inherited;
+ SetCanvas(nil, false);
+ if (f_PreviewPage <> nil) then
+ begin
+  f_PagesInfo.rOverallPagesCount := f_PreviewPage.OverallPageNumber;
+  if (f_PreviewPage.PageNumber = GetPagesCount) then
+  begin
+   l_PreviewPage := PreviewPage(f_PreviewPage.PageNumber - 1, 0);
+   if Assigned(l_PreviewPage) then
+   l_PreviewPage.Add(f_PreviewPage);
+  end//f_PreviewPage.PageNumber = GetPagesCount
+  else
+   f_PagesList.Add(f_PreviewPage);
+  f_PreviewPage.Drop(f_IsPageCounter);
+  f_PreviewPage := nil;
+ end;//f_PreviewPage <> nil
+ if not Drawing AND (f_PagesInfo.rPagesCount = High(Integer)) then
+  f_PagesInfo.rPagesCount := GetPagesCount;
+//#UC END# *56B4BDA30301_474145DE010F_impl*
+end;//TafwPreviewCanvas.DoEndPaint
 
 end.

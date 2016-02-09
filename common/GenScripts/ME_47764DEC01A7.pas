@@ -89,6 +89,8 @@ type
     {* приложение AFW. }
  end;//TafwImplementation
 
+var g_Application: TafwApplication;
+
 implementation
 
 uses

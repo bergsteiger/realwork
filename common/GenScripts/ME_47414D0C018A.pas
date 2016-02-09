@@ -24,8 +24,8 @@ type
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function GetCaret: Il3Caret; override;
    procedure ClearFields; override;
+   function GetCaret: Il3Caret; override;
   public
    constructor Create(const anExtent: TafwPoint;
     const aCaret: IafwCaret); reintroduce;
@@ -76,19 +76,19 @@ begin
 //#UC END# *479731C50290_47414D0C018A_impl*
 end;//TafwMeasureCanvas.Cleanup
 
-function TafwMeasureCanvas.GetCaret: Il3Caret;
-//#UC START# *47DFB3CE02C5_47414D0C018A_var*
-//#UC END# *47DFB3CE02C5_47414D0C018A_var*
-begin
-//#UC START# *47DFB3CE02C5_47414D0C018A_impl*
- Result := f_Caret;
-//#UC END# *47DFB3CE02C5_47414D0C018A_impl*
-end;//TafwMeasureCanvas.GetCaret
-
 procedure TafwMeasureCanvas.ClearFields;
 begin
  f_Caret := nil;
  inherited;
 end;//TafwMeasureCanvas.ClearFields
+
+function TafwMeasureCanvas.GetCaret: Il3Caret;
+//#UC START# *56B49F030225_47414D0C018A_var*
+//#UC END# *56B49F030225_47414D0C018A_var*
+begin
+//#UC START# *56B49F030225_47414D0C018A_impl*
+ Result := f_Caret;
+//#UC END# *56B49F030225_47414D0C018A_impl*
+end;//TafwMeasureCanvas.GetCaret
 
 end.

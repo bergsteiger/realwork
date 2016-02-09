@@ -58,6 +58,7 @@ uses
  , k2Interfaces
  , k2DictionaryPrim
  , k2InterfaceFactory
+ , k2List
 ;
 
 type _Instance_R_ = Tk2HugeTagObject;
