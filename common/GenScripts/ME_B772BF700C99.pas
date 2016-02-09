@@ -193,12 +193,8 @@ begin
 end;//TkwWorkJournalFormJournalTree.GetResultTypeInfo
 
 function TkwWorkJournalFormJournalTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2FB40EF219EB_var*
-//#UC END# *559687E6025A_2FB40EF219EB_var*
 begin
-//#UC START# *559687E6025A_2FB40EF219EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2FB40EF219EB_impl*
+ Result := 1;
 end;//TkwWorkJournalFormJournalTree.GetAllParamsCount
 
 function TkwWorkJournalFormJournalTree.ParamsTypes: PTypeInfoArray;

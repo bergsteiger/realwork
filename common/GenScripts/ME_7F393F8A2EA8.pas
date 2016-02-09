@@ -193,12 +193,8 @@ begin
 end;//TkwEnNewsLineDateList.GetResultTypeInfo
 
 function TkwEnNewsLineDateList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A7F619520F52_var*
-//#UC END# *559687E6025A_A7F619520F52_var*
 begin
-//#UC START# *559687E6025A_A7F619520F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A7F619520F52_impl*
+ Result := 1;
 end;//TkwEnNewsLineDateList.GetAllParamsCount
 
 function TkwEnNewsLineDateList.ParamsTypes: PTypeInfoArray;

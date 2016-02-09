@@ -3398,12 +3398,8 @@ begin
 end;//TkwCustomizeTasksPanelFormSpRight.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormSpRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F7EFDD0A0622_var*
-//#UC END# *559687E6025A_F7EFDD0A0622_var*
 begin
-//#UC START# *559687E6025A_F7EFDD0A0622_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F7EFDD0A0622_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormSpRight.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormSpRight.ParamsTypes: PTypeInfoArray;
@@ -3460,12 +3456,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlBottom.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormPnlBottom.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_30A77B945B54_var*
-//#UC END# *559687E6025A_30A77B945B54_var*
 begin
-//#UC START# *559687E6025A_30A77B945B54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_30A77B945B54_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormPnlBottom.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlBottom.ParamsTypes: PTypeInfoArray;
@@ -3522,12 +3514,8 @@ begin
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_830FC77EF285_var*
-//#UC END# *559687E6025A_830FC77EF285_var*
 begin
-//#UC START# *559687E6025A_830FC77EF285_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_830FC77EF285_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.ParamsTypes: PTypeInfoArray;
@@ -3584,12 +3572,8 @@ begin
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C6FF95C2A3CB_var*
-//#UC END# *559687E6025A_C6FF95C2A3CB_var*
 begin
-//#UC START# *559687E6025A_C6FF95C2A3CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C6FF95C2A3CB_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.ParamsTypes: PTypeInfoArray;
@@ -3646,12 +3630,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtOk.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtOk.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F707F1CC5E90_var*
-//#UC END# *559687E6025A_F707F1CC5E90_var*
 begin
-//#UC START# *559687E6025A_F707F1CC5E90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F707F1CC5E90_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtOk.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtOk.ParamsTypes: PTypeInfoArray;
@@ -3708,12 +3688,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtCancel.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtCancel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8EDCD0E495D1_var*
-//#UC END# *559687E6025A_8EDCD0E495D1_var*
 begin
-//#UC START# *559687E6025A_8EDCD0E495D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8EDCD0E495D1_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtCancel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtCancel.ParamsTypes: PTypeInfoArray;
@@ -3770,12 +3746,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtApply.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtApply.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BDD28480233F_var*
-//#UC END# *559687E6025A_BDD28480233F_var*
 begin
-//#UC START# *559687E6025A_BDD28480233F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BDD28480233F_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtApply.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtApply.ParamsTypes: PTypeInfoArray;
@@ -3832,12 +3804,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlRep.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormPnlRep.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3A63DD696AA2_var*
-//#UC END# *559687E6025A_3A63DD696AA2_var*
 begin
-//#UC START# *559687E6025A_3A63DD696AA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3A63DD696AA2_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormPnlRep.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlRep.ParamsTypes: PTypeInfoArray;
@@ -3894,12 +3862,8 @@ begin
 end;//TkwCustomizeTasksPanelFormSplRep.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormSplRep.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_32B42EEEDDA8_var*
-//#UC END# *559687E6025A_32B42EEEDDA8_var*
 begin
-//#UC START# *559687E6025A_32B42EEEDDA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_32B42EEEDDA8_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormSplRep.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormSplRep.ParamsTypes: PTypeInfoArray;
@@ -3956,12 +3920,8 @@ begin
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_69860393305E_var*
-//#UC END# *559687E6025A_69860393305E_var*
 begin
-//#UC START# *559687E6025A_69860393305E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_69860393305E_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.ParamsTypes: PTypeInfoArray;
@@ -4018,12 +3978,8 @@ begin
 end;//TkwCustomizeTasksPanelFormTvRepGroups.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormTvRepGroups.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_986ABA2A8C16_var*
-//#UC END# *559687E6025A_986ABA2A8C16_var*
 begin
-//#UC START# *559687E6025A_986ABA2A8C16_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_986ABA2A8C16_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormTvRepGroups.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormTvRepGroups.ParamsTypes: PTypeInfoArray;
@@ -4080,12 +4036,8 @@ begin
 end;//TkwCustomizeTasksPanelFormVtPanel1.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormVtPanel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_30C7717A0A01_var*
-//#UC END# *559687E6025A_30C7717A0A01_var*
 begin
-//#UC START# *559687E6025A_30C7717A0A01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_30C7717A0A01_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormVtPanel1.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormVtPanel1.ParamsTypes: PTypeInfoArray;
@@ -4142,12 +4094,8 @@ begin
 end;//TkwCustomizeTasksPanelFormCbGroupName.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormCbGroupName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9949328605B2_var*
-//#UC END# *559687E6025A_9949328605B2_var*
 begin
-//#UC START# *559687E6025A_9949328605B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9949328605B2_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormCbGroupName.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormCbGroupName.ParamsTypes: PTypeInfoArray;
@@ -4204,12 +4152,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C2C53273FCEF_var*
-//#UC END# *559687E6025A_C2C53273FCEF_var*
 begin
-//#UC START# *559687E6025A_C2C53273FCEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C2C53273FCEF_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.ParamsTypes: PTypeInfoArray;
@@ -4266,12 +4210,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_10B158D87985_var*
-//#UC END# *559687E6025A_10B158D87985_var*
 begin
-//#UC START# *559687E6025A_10B158D87985_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_10B158D87985_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.ParamsTypes: PTypeInfoArray;
@@ -4328,12 +4268,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_96E949C9C123_var*
-//#UC END# *559687E6025A_96E949C9C123_var*
 begin
-//#UC START# *559687E6025A_96E949C9C123_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_96E949C9C123_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.ParamsTypes: PTypeInfoArray;
@@ -4390,12 +4326,8 @@ begin
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6FC654DB8656_var*
-//#UC END# *559687E6025A_6FC654DB8656_var*
 begin
-//#UC START# *559687E6025A_6FC654DB8656_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6FC654DB8656_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.ParamsTypes: PTypeInfoArray;
@@ -4452,12 +4384,8 @@ begin
 end;//TkwCustomizeTasksPanelFormTvRepOps.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormTvRepOps.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A38BA9C74BE4_var*
-//#UC END# *559687E6025A_A38BA9C74BE4_var*
 begin
-//#UC START# *559687E6025A_A38BA9C74BE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A38BA9C74BE4_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormTvRepOps.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormTvRepOps.ParamsTypes: PTypeInfoArray;
@@ -4514,12 +4442,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlForms.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormPnlForms.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_98A522EB9B72_var*
-//#UC END# *559687E6025A_98A522EB9B72_var*
 begin
-//#UC START# *559687E6025A_98A522EB9B72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_98A522EB9B72_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormPnlForms.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlForms.ParamsTypes: PTypeInfoArray;
@@ -4576,12 +4500,8 @@ begin
 end;//TkwCustomizeTasksPanelFormLblForms.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormLblForms.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7897D9940B95_var*
-//#UC END# *559687E6025A_7897D9940B95_var*
 begin
-//#UC START# *559687E6025A_7897D9940B95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7897D9940B95_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormLblForms.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormLblForms.ParamsTypes: PTypeInfoArray;
@@ -4638,12 +4558,8 @@ begin
 end;//TkwCustomizeTasksPanelFormCbForms.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormCbForms.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1A3E1FD39C35_var*
-//#UC END# *559687E6025A_1A3E1FD39C35_var*
 begin
-//#UC START# *559687E6025A_1A3E1FD39C35_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1A3E1FD39C35_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormCbForms.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormCbForms.ParamsTypes: PTypeInfoArray;
@@ -4700,12 +4616,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlMain.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormPnlMain.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0C210ABBA2B3_var*
-//#UC END# *559687E6025A_0C210ABBA2B3_var*
 begin
-//#UC START# *559687E6025A_0C210ABBA2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0C210ABBA2B3_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormPnlMain.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlMain.ParamsTypes: PTypeInfoArray;
@@ -4762,12 +4674,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlLeft.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormPnlLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7437A67D8F04_var*
-//#UC END# *559687E6025A_7437A67D8F04_var*
 begin
-//#UC START# *559687E6025A_7437A67D8F04_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7437A67D8F04_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormPnlLeft.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlLeft.ParamsTypes: PTypeInfoArray;
@@ -4824,12 +4732,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_18FC0FBEC908_var*
-//#UC END# *559687E6025A_18FC0FBEC908_var*
 begin
-//#UC START# *559687E6025A_18FC0FBEC908_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_18FC0FBEC908_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.ParamsTypes: PTypeInfoArray;
@@ -4886,12 +4790,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_43465A2C4EA5_var*
-//#UC END# *559687E6025A_43465A2C4EA5_var*
 begin
-//#UC START# *559687E6025A_43465A2C4EA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_43465A2C4EA5_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.ParamsTypes: PTypeInfoArray;
@@ -4948,12 +4848,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AFBC0E97D4D0_var*
-//#UC END# *559687E6025A_AFBC0E97D4D0_var*
 begin
-//#UC START# *559687E6025A_AFBC0E97D4D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AFBC0E97D4D0_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.ParamsTypes: PTypeInfoArray;
@@ -5010,12 +4906,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EF74613C5669_var*
-//#UC END# *559687E6025A_EF74613C5669_var*
 begin
-//#UC START# *559687E6025A_EF74613C5669_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EF74613C5669_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.ParamsTypes: PTypeInfoArray;
@@ -5072,12 +4964,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D7EB4AB84AE4_var*
-//#UC END# *559687E6025A_D7EB4AB84AE4_var*
 begin
-//#UC START# *559687E6025A_D7EB4AB84AE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D7EB4AB84AE4_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.ParamsTypes: PTypeInfoArray;
@@ -5134,12 +5022,8 @@ begin
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8CF041C165C6_var*
-//#UC END# *559687E6025A_8CF041C165C6_var*
 begin
-//#UC START# *559687E6025A_8CF041C165C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8CF041C165C6_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.ParamsTypes: PTypeInfoArray;
@@ -5196,12 +5080,8 @@ begin
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8B03628B7726_var*
-//#UC END# *559687E6025A_8B03628B7726_var*
 begin
-//#UC START# *559687E6025A_8B03628B7726_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8B03628B7726_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.ParamsTypes: PTypeInfoArray;
@@ -5258,12 +5138,8 @@ begin
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6980CE14D559_var*
-//#UC END# *559687E6025A_6980CE14D559_var*
 begin
-//#UC START# *559687E6025A_6980CE14D559_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6980CE14D559_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.ParamsTypes: PTypeInfoArray;
@@ -5320,12 +5196,8 @@ begin
 end;//TkwCustomizeTasksPanelFormLblCaption.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormLblCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_602A6F187FAB_var*
-//#UC END# *559687E6025A_602A6F187FAB_var*
 begin
-//#UC START# *559687E6025A_602A6F187FAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_602A6F187FAB_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormLblCaption.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormLblCaption.ParamsTypes: PTypeInfoArray;
@@ -5382,12 +5254,8 @@ begin
 end;//TkwCustomizeTasksPanelFormEdChange.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormEdChange.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1C9E311E45DD_var*
-//#UC END# *559687E6025A_1C9E311E45DD_var*
 begin
-//#UC START# *559687E6025A_1C9E311E45DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1C9E311E45DD_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormEdChange.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormEdChange.ParamsTypes: PTypeInfoArray;
@@ -5444,12 +5312,8 @@ begin
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D09D41A6B747_var*
-//#UC END# *559687E6025A_D09D41A6B747_var*
 begin
-//#UC START# *559687E6025A_D09D41A6B747_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D09D41A6B747_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.ParamsTypes: PTypeInfoArray;
@@ -5506,12 +5370,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_EC814F34DB5A_var*
-//#UC END# *559687E6025A_EC814F34DB5A_var*
 begin
-//#UC START# *559687E6025A_EC814F34DB5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_EC814F34DB5A_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.ParamsTypes: PTypeInfoArray;
@@ -5568,12 +5428,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D2DE7F6F9FC5_var*
-//#UC END# *559687E6025A_D2DE7F6F9FC5_var*
 begin
-//#UC START# *559687E6025A_D2DE7F6F9FC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D2DE7F6F9FC5_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.ParamsTypes: PTypeInfoArray;
@@ -5630,12 +5486,8 @@ begin
 end;//TkwCustomizeTasksPanelFormUpBitBtn.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormUpBitBtn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E1CA9B7A6AB2_var*
-//#UC END# *559687E6025A_E1CA9B7A6AB2_var*
 begin
-//#UC START# *559687E6025A_E1CA9B7A6AB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E1CA9B7A6AB2_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormUpBitBtn.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormUpBitBtn.ParamsTypes: PTypeInfoArray;
@@ -5692,12 +5544,8 @@ begin
 end;//TkwCustomizeTasksPanelFormDownBitBtn.GetResultTypeInfo
 
 function TkwCustomizeTasksPanelFormDownBitBtn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0A40E3797513_var*
-//#UC END# *559687E6025A_0A40E3797513_var*
 begin
-//#UC START# *559687E6025A_0A40E3797513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0A40E3797513_impl*
+ Result := 1;
 end;//TkwCustomizeTasksPanelFormDownBitBtn.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormDownBitBtn.ParamsTypes: PTypeInfoArray;

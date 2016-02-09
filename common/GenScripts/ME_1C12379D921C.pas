@@ -193,12 +193,8 @@ begin
 end;//TkwEnPostingsListTvPostings.GetResultTypeInfo
 
 function TkwEnPostingsListTvPostings.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_901756EC93AA_var*
-//#UC END# *559687E6025A_901756EC93AA_var*
 begin
-//#UC START# *559687E6025A_901756EC93AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_901756EC93AA_impl*
+ Result := 1;
 end;//TkwEnPostingsListTvPostings.GetAllParamsCount
 
 function TkwEnPostingsListTvPostings.ParamsTypes: PTypeInfoArray;

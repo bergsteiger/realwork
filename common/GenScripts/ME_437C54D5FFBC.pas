@@ -809,12 +809,8 @@ begin
 end;//TkwAdminMainFormStatusBar.GetResultTypeInfo
 
 function TkwAdminMainFormStatusBar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_89E614579362_var*
-//#UC END# *559687E6025A_89E614579362_var*
 begin
-//#UC START# *559687E6025A_89E614579362_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_89E614579362_impl*
+ Result := 1;
 end;//TkwAdminMainFormStatusBar.GetAllParamsCount
 
 function TkwAdminMainFormStatusBar.ParamsTypes: PTypeInfoArray;
@@ -871,12 +867,8 @@ begin
 end;//TkwAdminMainFormClientZone.GetResultTypeInfo
 
 function TkwAdminMainFormClientZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E2B94D80617E_var*
-//#UC END# *559687E6025A_E2B94D80617E_var*
 begin
-//#UC START# *559687E6025A_E2B94D80617E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E2B94D80617E_impl*
+ Result := 1;
 end;//TkwAdminMainFormClientZone.GetAllParamsCount
 
 function TkwAdminMainFormClientZone.ParamsTypes: PTypeInfoArray;
@@ -933,12 +925,8 @@ begin
 end;//TkwAdminMainFormMainZone.GetResultTypeInfo
 
 function TkwAdminMainFormMainZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_8D55CF0F60D9_var*
-//#UC END# *559687E6025A_8D55CF0F60D9_var*
 begin
-//#UC START# *559687E6025A_8D55CF0F60D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_8D55CF0F60D9_impl*
+ Result := 1;
 end;//TkwAdminMainFormMainZone.GetAllParamsCount
 
 function TkwAdminMainFormMainZone.ParamsTypes: PTypeInfoArray;
@@ -995,12 +983,8 @@ begin
 end;//TkwAdminMainFormParentZonePanel.GetResultTypeInfo
 
 function TkwAdminMainFormParentZonePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C5666F9F0C68_var*
-//#UC END# *559687E6025A_C5666F9F0C68_var*
 begin
-//#UC START# *559687E6025A_C5666F9F0C68_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C5666F9F0C68_impl*
+ Result := 1;
 end;//TkwAdminMainFormParentZonePanel.GetAllParamsCount
 
 function TkwAdminMainFormParentZonePanel.ParamsTypes: PTypeInfoArray;
@@ -1057,12 +1041,8 @@ begin
 end;//TkwAdminMainFormChildZonePanel.GetResultTypeInfo
 
 function TkwAdminMainFormChildZonePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FB1B50338E95_var*
-//#UC END# *559687E6025A_FB1B50338E95_var*
 begin
-//#UC START# *559687E6025A_FB1B50338E95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FB1B50338E95_impl*
+ Result := 1;
 end;//TkwAdminMainFormChildZonePanel.GetAllParamsCount
 
 function TkwAdminMainFormChildZonePanel.ParamsTypes: PTypeInfoArray;
@@ -1119,12 +1099,8 @@ begin
 end;//TkwAdminMainFormBaseSearchPanel.GetResultTypeInfo
 
 function TkwAdminMainFormBaseSearchPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_89016C41C797_var*
-//#UC END# *559687E6025A_89016C41C797_var*
 begin
-//#UC START# *559687E6025A_89016C41C797_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_89016C41C797_impl*
+ Result := 1;
 end;//TkwAdminMainFormBaseSearchPanel.GetAllParamsCount
 
 function TkwAdminMainFormBaseSearchPanel.ParamsTypes: PTypeInfoArray;
@@ -1181,12 +1157,8 @@ begin
 end;//TkwAdminMainFormLeftNavigator.GetResultTypeInfo
 
 function TkwAdminMainFormLeftNavigator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B57C2147F5C5_var*
-//#UC END# *559687E6025A_B57C2147F5C5_var*
 begin
-//#UC START# *559687E6025A_B57C2147F5C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B57C2147F5C5_impl*
+ Result := 1;
 end;//TkwAdminMainFormLeftNavigator.GetAllParamsCount
 
 function TkwAdminMainFormLeftNavigator.ParamsTypes: PTypeInfoArray;
@@ -1245,12 +1217,8 @@ begin
 end;//TkwAdminMainFormRightNavigator.GetResultTypeInfo
 
 function TkwAdminMainFormRightNavigator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6EAD1664D2EB_var*
-//#UC END# *559687E6025A_6EAD1664D2EB_var*
 begin
-//#UC START# *559687E6025A_6EAD1664D2EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6EAD1664D2EB_impl*
+ Result := 1;
 end;//TkwAdminMainFormRightNavigator.GetAllParamsCount
 
 function TkwAdminMainFormRightNavigator.ParamsTypes: PTypeInfoArray;
