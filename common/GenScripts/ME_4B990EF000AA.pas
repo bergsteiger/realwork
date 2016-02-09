@@ -507,6 +507,9 @@ uses
  , l3Base
  , multimon
  , l3Nodes
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const

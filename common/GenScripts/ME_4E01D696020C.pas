@@ -117,7 +117,6 @@ uses
  , vcmDialogs
  {$IfEnd} // NOT Defined(NoVGScene)
  , l3BatchService
- , l3Base
  , vcmInterfaces
  {$If NOT Defined(NoVCL)}
  , Forms
@@ -136,6 +135,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , afwAnswer
  {$IfEnd} // NOT Defined(NoScripts)
+ , l3Base
  , vcmMessageQueuePrim
 ;
 

@@ -149,6 +149,8 @@ uses
  , afwFacade
  , l3BatchService
  , l3Interfaces
+ , nscSimpleEditorForDialogs
+ , vtStdRes
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
@@ -172,8 +174,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , nscSimpleEditorForDialogs
- , vtStdRes
 ;
 
 function GetAvgCharSize(aCanvas: TCanvas): TPoint;
