@@ -49,12 +49,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , UnderControlKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , DynamicTreeUnit
  , DynamicDocListUnit
  , deListSet
@@ -63,6 +57,12 @@ uses
  , BaseTypesUnit
  , nsFolders
  , FoldersDomainInterfaces
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , UnderControlKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TUnderControlModule.CloseUnderControl(const aContainer: IvcmContainer);

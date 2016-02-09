@@ -179,6 +179,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , l3String
+ , deDiction
+ , l3Chars
+ , SysUtils
+ , nsDictionTree
+ , sdsDiction
+ , DataAdapter
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -186,9 +193,7 @@ uses
  , DictionKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , bsUtils
- , SysUtils
  , nsDocumentTools
- , l3String
  , l3MessageID
  , l3Base
  , LoggingUnit
@@ -198,11 +203,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , CommonDictionKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , deDiction
- , l3Chars
- , nsDictionTree
- , sdsDiction
- , DataAdapter
 ;
 
 var g_Tfs_Diction: Tfs_Diction = nil;

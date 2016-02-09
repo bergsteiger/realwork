@@ -126,7 +126,20 @@ uses
  , Logo_Form
  , nsAppTitleData
  , f1StartupCompletedService
+ , BaseTypesUnit
+ , evDocumentsCache
+ {$If NOT Defined(NoVCM)}
+ , vcmHistory
+ {$IfEnd} // NOT Defined(NoVCM)
+ , Windows
+ , afwConsts
+ , afwFacade
+ , l3Base
  , DataAdapter
+ , StartUnit
+ , SPHTMLHelp
+ , GblAdapter
+ , SysUtils
  , F1Like_FormDefinitions_Controls
  , nsCustomStyleProcessor
  {$If NOT Defined(NoVCL)}
@@ -136,23 +149,10 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , LoggingUnit
- , SysUtils
- , l3Base
  {$If NOT Defined(NoVCM)}
  , vtNavigator
  {$IfEnd} // NOT Defined(NoVCM)
  , nsConst
- , BaseTypesUnit
- , evDocumentsCache
- {$If NOT Defined(NoVCM)}
- , vcmHistory
- {$IfEnd} // NOT Defined(NoVCM)
- , Windows
- , afwConsts
- , afwFacade
- , StartUnit
- , SPHTMLHelp
- , GblAdapter
 ;
 
 type

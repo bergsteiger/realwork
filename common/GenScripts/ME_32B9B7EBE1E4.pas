@@ -195,12 +195,8 @@ begin
 end;//TkwWarningBaloonFormViewer.GetResultTypeInfo
 
 function TkwWarningBaloonFormViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_6B8C8DEE7B25_var*
-//#UC END# *559687E6025A_6B8C8DEE7B25_var*
 begin
-//#UC START# *559687E6025A_6B8C8DEE7B25_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_6B8C8DEE7B25_impl*
+ Result := 1;
 end;//TkwWarningBaloonFormViewer.GetAllParamsCount
 
 function TkwWarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;

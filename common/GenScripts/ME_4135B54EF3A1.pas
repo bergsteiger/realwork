@@ -79,8 +79,6 @@ type
     {* Фабричный метод для TChangeableMainMenuTypeValuesMapImpl }
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TChangeableMainMenuTypeValuesMapImpl;
-    {* Метод получения экземпляра синглетона TChangeableMainMenuTypeValuesMapImpl }
  end;//TChangeableMainMenuTypeValuesMapImpl
 
 const
@@ -103,13 +101,13 @@ uses
  , l3Base
 ;
 
-var g_TChangeableMainMenuTypeValuesMapImpl: TChangeableMainMenuTypeValuesMapImpl = nil;
+var g_TChangeableMainMenuTypeValuesMapImpl: Pointer = nil;
  {* Экземпляр синглетона TChangeableMainMenuTypeValuesMapImpl }
 
 procedure TChangeableMainMenuTypeValuesMapImplFree;
  {* Метод освобождения экземпляра синглетона TChangeableMainMenuTypeValuesMapImpl }
 begin
- l3Free(g_TChangeableMainMenuTypeValuesMapImpl);
+ IUnknown(g_TChangeableMainMenuTypeValuesMapImpl) := nil;
 end;//TChangeableMainMenuTypeValuesMapImplFree
 
 class procedure ChangeableMainMenuTypeValuesMapHelper.FillStrings(const aStrings: IafwStrings);
@@ -194,15 +192,13 @@ end;//TChangeableMainMenuTypeValuesMapImplPrim.ValueToDisplayName
 
 class function TChangeableMainMenuTypeValuesMapImpl.Make: Il3IntegerValueMap;
  {* Фабричный метод для TChangeableMainMenuTypeValuesMapImpl }
-var
- l_Inst : TChangeableMainMenuTypeValuesMapImpl;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TChangeableMainMenuTypeValuesMapImpl = nil) then
+ begin
+  l3System.AddExitProc(TChangeableMainMenuTypeValuesMapImplFree);
+  Il3IntegerValueMap(g_TChangeableMainMenuTypeValuesMapImpl) := inherited Make;
+ end;
+ Result := Il3IntegerValueMap(g_TChangeableMainMenuTypeValuesMapImpl);
 end;//TChangeableMainMenuTypeValuesMapImpl.Make
 
 class function TChangeableMainMenuTypeValuesMapImpl.Exists: Boolean;
@@ -210,17 +206,6 @@ class function TChangeableMainMenuTypeValuesMapImpl.Exists: Boolean;
 begin
  Result := g_TChangeableMainMenuTypeValuesMapImpl <> nil;
 end;//TChangeableMainMenuTypeValuesMapImpl.Exists
-
-class function TChangeableMainMenuTypeValuesMapImpl.Instance: TChangeableMainMenuTypeValuesMapImpl;
- {* Метод получения экземпляра синглетона TChangeableMainMenuTypeValuesMapImpl }
-begin
- if (g_TChangeableMainMenuTypeValuesMapImpl = nil) then
- begin
-  l3System.AddExitProc(TChangeableMainMenuTypeValuesMapImplFree);
-  g_TChangeableMainMenuTypeValuesMapImpl := Create;
- end;
- Result := g_TChangeableMainMenuTypeValuesMapImpl;
-end;//TChangeableMainMenuTypeValuesMapImpl.Instance
 
 initialization
  str_ChangeableMainMenuType.Init;

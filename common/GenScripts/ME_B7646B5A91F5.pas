@@ -193,12 +193,8 @@ begin
 end;//TkwRedactionsFormRedactionTree.GetResultTypeInfo
 
 function TkwRedactionsFormRedactionTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A2E39CF13C2B_var*
-//#UC END# *559687E6025A_A2E39CF13C2B_var*
 begin
-//#UC START# *559687E6025A_A2E39CF13C2B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A2E39CF13C2B_impl*
+ Result := 1;
 end;//TkwRedactionsFormRedactionTree.GetAllParamsCount
 
 function TkwRedactionsFormRedactionTree.ParamsTypes: PTypeInfoArray;

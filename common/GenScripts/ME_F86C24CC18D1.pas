@@ -715,12 +715,8 @@ begin
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_738D30BFC216_var*
-//#UC END# *559687E6025A_738D30BFC216_var*
 begin
-//#UC START# *559687E6025A_738D30BFC216_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_738D30BFC216_impl*
+ Result := 1;
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.ParamsTypes: PTypeInfoArray;
@@ -777,12 +773,8 @@ begin
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_410A0E5236E8_var*
-//#UC END# *559687E6025A_410A0E5236E8_var*
 begin
-//#UC START# *559687E6025A_410A0E5236E8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_410A0E5236E8_impl*
+ Result := 1;
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.ParamsTypes: PTypeInfoArray;
@@ -839,12 +831,8 @@ begin
 end;//TkwEnTurnOnTimeMachineDeDate.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineDeDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_34CF83AB09E2_var*
-//#UC END# *559687E6025A_34CF83AB09E2_var*
 begin
-//#UC START# *559687E6025A_34CF83AB09E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_34CF83AB09E2_impl*
+ Result := 1;
 end;//TkwEnTurnOnTimeMachineDeDate.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineDeDate.ParamsTypes: PTypeInfoArray;
@@ -901,12 +889,8 @@ begin
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_D77A7DA792C7_var*
-//#UC END# *559687E6025A_D77A7DA792C7_var*
 begin
-//#UC START# *559687E6025A_D77A7DA792C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_D77A7DA792C7_impl*
+ Result := 1;
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.ParamsTypes: PTypeInfoArray;
@@ -963,12 +947,8 @@ begin
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_47E2676FB408_var*
-//#UC END# *559687E6025A_47E2676FB408_var*
 begin
-//#UC START# *559687E6025A_47E2676FB408_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_47E2676FB408_impl*
+ Result := 1;
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.ParamsTypes: PTypeInfoArray;
@@ -1025,12 +1005,8 @@ begin
 end;//TkwEnTurnOnTimeMachineBtnOk.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineBtnOk.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E6A646BF492A_var*
-//#UC END# *559687E6025A_E6A646BF492A_var*
 begin
-//#UC START# *559687E6025A_E6A646BF492A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E6A646BF492A_impl*
+ Result := 1;
 end;//TkwEnTurnOnTimeMachineBtnOk.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineBtnOk.ParamsTypes: PTypeInfoArray;
@@ -1087,12 +1063,8 @@ begin
 end;//TkwEnTurnOnTimeMachineBtnCancel.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineBtnCancel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FEC8921670AD_var*
-//#UC END# *559687E6025A_FEC8921670AD_var*
 begin
-//#UC START# *559687E6025A_FEC8921670AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FEC8921670AD_impl*
+ Result := 1;
 end;//TkwEnTurnOnTimeMachineBtnCancel.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineBtnCancel.ParamsTypes: PTypeInfoArray;

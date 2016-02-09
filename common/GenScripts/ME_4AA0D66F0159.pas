@@ -398,6 +398,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , sdsMedicDiction
+ , sdsMedicFirmDocument
+ , sdsDrugDocument
+ , sdsDrugList
+ , DataAdapter
+ , deListSet
+ , sdsMedicFirmList
  , l3MessageID
  , SysUtils
  , l3Base
@@ -414,13 +421,6 @@ uses
  , MedicListSynchroViewKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , LoggingUnit
- , sdsMedicDiction
- , sdsMedicFirmDocument
- , sdsDrugDocument
- , sdsDrugList
- , DataAdapter
- , deListSet
- , sdsMedicFirmList
 ;
 
 var g_Tfs_MedicDiction: Tfs_MedicDiction = nil;

@@ -688,7 +688,13 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , LoggingUnit
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDefsList
+ {$IfEnd} // Defined(Nemesis)
  , SysUtils
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDef
+ {$IfEnd} // Defined(Nemesis)
  , l3Base
  , l3InterfacesMisc
  , nsBaseSearchService

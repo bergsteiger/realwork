@@ -303,8 +303,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
- , LoggingUnit
- , evdTypes
  , DataAdapter
  , ExternalObjectUnit
  , BaseTypesUnit
@@ -320,6 +318,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , nevBase
  , SysUtils
+ , evdTypes
  , l3Variant
  , bsTypesNew
  , nsTypes
@@ -327,6 +326,7 @@ uses
  , nsFilterableTreeStruct
  , nsContextFilterParams
  , IOUnit
+ , LoggingUnit
 ;
 
 type

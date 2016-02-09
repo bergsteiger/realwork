@@ -289,6 +289,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , afwFacade
+ , nsPageSetup
+ , DataAdapter
+ , nsTypes
+ , nsNewCachableNode
+ , nsNodes
+ , SysUtils
+ , nsExternalObjectPrim
+ , nsUtils
+ , bsUtils
+ , l3Base
+ , nsConst
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -308,11 +320,8 @@ uses
  , StartUnit
  , l3String
  , vtVerInf
- , DataAdapter
  , ComplectUnit
  , IOUnit
- , nsTypes
- , nsUtils
  , l3MinMax
  , vtDialogsRes
  {$If NOT Defined(NoVCL)}
@@ -340,15 +349,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , TurnOffTimeMachineKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , afwFacade
- , nsPageSetup
- , nsNewCachableNode
- , nsNodes
- , SysUtils
- , nsExternalObjectPrim
- , bsUtils
- , l3Base
- , nsConst
 ;
 
 const

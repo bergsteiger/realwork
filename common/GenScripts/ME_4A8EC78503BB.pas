@@ -80,6 +80,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , nsTypes
+ , afwFacade
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , F1_Application_Template_InternalOperations_Controls
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -93,12 +99,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , LongProcessKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- , nsTypes
- , afwFacade
- {$If NOT Defined(NoVCL)}
- , Forms
- {$IfEnd} // NOT Defined(NoVCL)
- , F1_Application_Template_InternalOperations_Controls
 ;
 
 const

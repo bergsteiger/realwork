@@ -19,8 +19,6 @@ type
    class function Make: InsCachedEventsProcessor; reintroduce;
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: TnsCachedEventsProcessor;
-    {* Метод получения экземпляра синглетона TnsCachedEventsProcessor }
  end;//TnsCachedEventsProcessor
 
 implementation
@@ -31,25 +29,23 @@ uses
  , l3Base
 ;
 
-var g_TnsCachedEventsProcessor: TnsCachedEventsProcessor = nil;
+var g_TnsCachedEventsProcessor: Pointer = nil;
  {* Экземпляр синглетона TnsCachedEventsProcessor }
 
 procedure TnsCachedEventsProcessorFree;
  {* Метод освобождения экземпляра синглетона TnsCachedEventsProcessor }
 begin
- l3Free(g_TnsCachedEventsProcessor);
+ IUnknown(g_TnsCachedEventsProcessor) := nil;
 end;//TnsCachedEventsProcessorFree
 
 class function TnsCachedEventsProcessor.Make: InsCachedEventsProcessor;
-var
- l_Inst : TnsCachedEventsProcessor;
 begin
- l_Inst := Create;
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+ if (g_TnsCachedEventsProcessor = nil) then
+ begin
+  l3System.AddExitProc(TnsCachedEventsProcessorFree);
+  InsCachedEventsProcessor(g_TnsCachedEventsProcessor) := inherited Make;
+ end;
+ Result := InsCachedEventsProcessor(g_TnsCachedEventsProcessor);
 end;//TnsCachedEventsProcessor.Make
 
 class function TnsCachedEventsProcessor.Exists: Boolean;
@@ -57,16 +53,5 @@ class function TnsCachedEventsProcessor.Exists: Boolean;
 begin
  Result := g_TnsCachedEventsProcessor <> nil;
 end;//TnsCachedEventsProcessor.Exists
-
-class function TnsCachedEventsProcessor.Instance: TnsCachedEventsProcessor;
- {* Метод получения экземпляра синглетона TnsCachedEventsProcessor }
-begin
- if (g_TnsCachedEventsProcessor = nil) then
- begin
-  l3System.AddExitProc(TnsCachedEventsProcessorFree);
-  g_TnsCachedEventsProcessor := Create;
- end;
- Result := g_TnsCachedEventsProcessor;
-end;//TnsCachedEventsProcessor.Instance
 
 end.

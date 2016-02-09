@@ -177,6 +177,22 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , DataAdapter
+ {$If NOT Defined(NoVCM)}
+ , vcmItems
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmMessagesSupport
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nsFolders
+ , vtCtrls
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Folders_Strange_Controls
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -196,22 +212,6 @@ uses
  , FoldersElementInfoKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , LoggingUnit
- , DataAdapter
- {$If NOT Defined(NoVCM)}
- , vcmItems
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmMessagesSupport
- {$IfEnd} // NOT Defined(NoVCM)
- , nsFolders
- , vtCtrls
- {$If NOT Defined(NoVCL)}
- , Forms
- {$IfEnd} // NOT Defined(NoVCL)
- , Folders_Strange_Controls
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 var g_Tfs_Folders: Tfs_Folders = nil;

@@ -195,12 +195,8 @@ begin
 end;//TkwSynchroViewWarningBaloonFormViewer.GetResultTypeInfo
 
 function TkwSynchroViewWarningBaloonFormViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C36D33260EB8_var*
-//#UC END# *559687E6025A_C36D33260EB8_var*
 begin
-//#UC START# *559687E6025A_C36D33260EB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C36D33260EB8_impl*
+ Result := 1;
 end;//TkwSynchroViewWarningBaloonFormViewer.GetAllParamsCount
 
 function TkwSynchroViewWarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;

@@ -308,6 +308,10 @@ uses
  , nscStatusBarDelimiterDef
  {$IfEnd} // Defined(Nemesis)
  , DocumentUtil
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDefsList
+ {$IfEnd} // Defined(Nemesis)
+ , SysUtils
  , afwFacade
  , Common_FormDefinitions_Controls
  , evConstStringData
@@ -321,7 +325,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsDocumentPreview
  , afwComplexDocumentPreview
- , SysUtils
  , evBitmapDataObject
  , nsFixedHAFMacroReplacer
  , nsObjectPreview

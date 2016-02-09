@@ -310,6 +310,10 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  , DataAdapter
+ , vtUtils
+ , evdStyles
+ , k2Tags
+ , BitmapPara_Const
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -342,6 +346,22 @@ uses
  , evTypes
  , nsQuestions
  , nsExternalObjectModelPart
+ , eeInterfacesEx
+ {$If Defined(Nemesis)}
+ , eePara
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , eeParaTools
+ {$IfEnd} // Defined(Nemesis)
+ , evdBlockNameAdder
+ , nsDocumentTools
+ , PresentationInterfaces
+ , nsExternalObjectPrim
+ , bsUtils
+ , l3Stream
+ , l3Types
+ , nsToMSWordOp
+ , l3String
  , bsDocumentContextSearcher
  , nsSearchInDocumentEvent
  , BaseTypesUnit
@@ -349,18 +369,21 @@ uses
  , nsSearchInDocumentNextEvent
  , nsSearchInDocumentPrevEvent
  , nsSearchWindowManager
- , l3String
  , Common_FormDefinitions_Controls
+ {$If Defined(Nemesis)}
+ , f1TextStyle_Const
+ {$IfEnd} // Defined(Nemesis)
+ , TextSegment_Const
+ , StyledLeafPara_Const
+ {$If Defined(k2ForEditor)}
+ , evSegLst
+ {$IfEnd} // Defined(k2ForEditor)
  , evCustomEditor
  , EditionsRes_Form
  , nsEditionsUtils
  , l3Nodes
  , nsEditionNodes
  , LeafPara_Const
- , k2Tags
- {$If Defined(Nemesis)}
- , eePara
- {$IfEnd} // Defined(Nemesis)
 ;
 
 type

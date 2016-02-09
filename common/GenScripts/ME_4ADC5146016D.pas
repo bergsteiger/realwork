@@ -77,13 +77,13 @@ uses
  {$If NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
- , vcmStringList
  , l3String
  , l3NodesModelPart
  , SysUtils
  , vcmBase
  , nsWindowNode
  , l3Chars
+ , vcmStringList
 ;
 
 function TnsUniqueName.MakeName(const aName: Il3CString): Il3CString;

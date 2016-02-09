@@ -255,7 +255,6 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
- , LoggingUnit
  , DynamicDocListUnit
  , bsUtils
  {$If NOT Defined(NoVCL)}
@@ -263,6 +262,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , ConsultingUnit
  , nsPostingsTreeSingle
+ , LoggingUnit
 ;
 
 type

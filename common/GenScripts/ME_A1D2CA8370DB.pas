@@ -1274,12 +1274,8 @@ begin
 end;//TkwTextFormRemindersLine.GetResultTypeInfo
 
 function TkwTextFormRemindersLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_90150A717339_var*
-//#UC END# *559687E6025A_90150A717339_var*
 begin
-//#UC START# *559687E6025A_90150A717339_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_90150A717339_impl*
+ Result := 1;
 end;//TkwTextFormRemindersLine.GetAllParamsCount
 
 function TkwTextFormRemindersLine.ParamsTypes: PTypeInfoArray;
@@ -1336,12 +1332,8 @@ begin
 end;//TkwTextFormWarnTimeMachineException.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineException.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_727D705B6FA2_var*
-//#UC END# *559687E6025A_727D705B6FA2_var*
 begin
-//#UC START# *559687E6025A_727D705B6FA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_727D705B6FA2_impl*
+ Result := 1;
 end;//TkwTextFormWarnTimeMachineException.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineException.ParamsTypes: PTypeInfoArray;
@@ -1398,12 +1390,8 @@ begin
 end;//TkwTextFormWarnIsAbolished.GetResultTypeInfo
 
 function TkwTextFormWarnIsAbolished.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0289BC4D5C98_var*
-//#UC END# *559687E6025A_0289BC4D5C98_var*
 begin
-//#UC START# *559687E6025A_0289BC4D5C98_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0289BC4D5C98_impl*
+ Result := 1;
 end;//TkwTextFormWarnIsAbolished.GetAllParamsCount
 
 function TkwTextFormWarnIsAbolished.ParamsTypes: PTypeInfoArray;
@@ -1460,12 +1448,8 @@ begin
 end;//TkwTextFormWarnPreActive.GetResultTypeInfo
 
 function TkwTextFormWarnPreActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_ACA021C09FCA_var*
-//#UC END# *559687E6025A_ACA021C09FCA_var*
 begin
-//#UC START# *559687E6025A_ACA021C09FCA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_ACA021C09FCA_impl*
+ Result := 1;
 end;//TkwTextFormWarnPreActive.GetAllParamsCount
 
 function TkwTextFormWarnPreActive.ParamsTypes: PTypeInfoArray;
@@ -1522,12 +1506,8 @@ begin
 end;//TkwTextFormWarnTimeMachineWarning.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E6CBDC26628D_var*
-//#UC END# *559687E6025A_E6CBDC26628D_var*
 begin
-//#UC START# *559687E6025A_E6CBDC26628D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E6CBDC26628D_impl*
+ Result := 1;
 end;//TkwTextFormWarnTimeMachineWarning.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineWarning.ParamsTypes: PTypeInfoArray;
@@ -1584,12 +1564,8 @@ begin
 end;//TkwTextFormWarnOnControl.GetResultTypeInfo
 
 function TkwTextFormWarnOnControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9EC0F704660C_var*
-//#UC END# *559687E6025A_9EC0F704660C_var*
 begin
-//#UC START# *559687E6025A_9EC0F704660C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9EC0F704660C_impl*
+ Result := 1;
 end;//TkwTextFormWarnOnControl.GetAllParamsCount
 
 function TkwTextFormWarnOnControl.ParamsTypes: PTypeInfoArray;
@@ -1646,12 +1622,8 @@ begin
 end;//TkwTextFormWarnJuror.GetResultTypeInfo
 
 function TkwTextFormWarnJuror.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FF3DC6808151_var*
-//#UC END# *559687E6025A_FF3DC6808151_var*
 begin
-//#UC START# *559687E6025A_FF3DC6808151_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FF3DC6808151_impl*
+ Result := 1;
 end;//TkwTextFormWarnJuror.GetAllParamsCount
 
 function TkwTextFormWarnJuror.ParamsTypes: PTypeInfoArray;
@@ -1708,12 +1680,8 @@ begin
 end;//TkwTextFormWarnRedaction.GetResultTypeInfo
 
 function TkwTextFormWarnRedaction.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C6F656F5F519_var*
-//#UC END# *559687E6025A_C6F656F5F519_var*
 begin
-//#UC START# *559687E6025A_C6F656F5F519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C6F656F5F519_impl*
+ Result := 1;
 end;//TkwTextFormWarnRedaction.GetAllParamsCount
 
 function TkwTextFormWarnRedaction.ParamsTypes: PTypeInfoArray;
@@ -1770,12 +1738,8 @@ begin
 end;//TkwTextFormWarnInactualDocument.GetResultTypeInfo
 
 function TkwTextFormWarnInactualDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DFD5690970AB_var*
-//#UC END# *559687E6025A_DFD5690970AB_var*
 begin
-//#UC START# *559687E6025A_DFD5690970AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DFD5690970AB_impl*
+ Result := 1;
 end;//TkwTextFormWarnInactualDocument.GetAllParamsCount
 
 function TkwTextFormWarnInactualDocument.ParamsTypes: PTypeInfoArray;
@@ -1832,12 +1796,8 @@ begin
 end;//TkwTextFormWarnTimeMachineOn.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineOn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3F2343F5CBC9_var*
-//#UC END# *559687E6025A_3F2343F5CBC9_var*
 begin
-//#UC START# *559687E6025A_3F2343F5CBC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3F2343F5CBC9_impl*
+ Result := 1;
 end;//TkwTextFormWarnTimeMachineOn.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineOn.ParamsTypes: PTypeInfoArray;
@@ -1894,12 +1854,8 @@ begin
 end;//TkwTextFormSubPanel.GetResultTypeInfo
 
 function TkwTextFormSubPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F953CE4B1F89_var*
-//#UC END# *559687E6025A_F953CE4B1F89_var*
 begin
-//#UC START# *559687E6025A_F953CE4B1F89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F953CE4B1F89_impl*
+ Result := 1;
 end;//TkwTextFormSubPanel.GetAllParamsCount
 
 function TkwTextFormSubPanel.ParamsTypes: PTypeInfoArray;
@@ -1956,12 +1912,8 @@ begin
 end;//TkwTextFormHScroll.GetResultTypeInfo
 
 function TkwTextFormHScroll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_61746557FDD0_var*
-//#UC END# *559687E6025A_61746557FDD0_var*
 begin
-//#UC START# *559687E6025A_61746557FDD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_61746557FDD0_impl*
+ Result := 1;
 end;//TkwTextFormHScroll.GetAllParamsCount
 
 function TkwTextFormHScroll.ParamsTypes: PTypeInfoArray;
@@ -2018,12 +1970,8 @@ begin
 end;//TkwTextFormText.GetResultTypeInfo
 
 function TkwTextFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_AFA1F527A874_var*
-//#UC END# *559687E6025A_AFA1F527A874_var*
 begin
-//#UC START# *559687E6025A_AFA1F527A874_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_AFA1F527A874_impl*
+ Result := 1;
 end;//TkwTextFormText.GetAllParamsCount
 
 function TkwTextFormText.ParamsTypes: PTypeInfoArray;

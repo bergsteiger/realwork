@@ -44,8 +44,12 @@ implementation
 
 uses
  l3ImplUses
- , nsStyleParser
  , SysUtils
+ , k2Facade
+ , nsStyleParser
+ , l3Base
+ , evdVer
+ , k2Empty_Const
  , nevTools
  , DocumentUnit
  {$If Defined(k2ForEditor)}

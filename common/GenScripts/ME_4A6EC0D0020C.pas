@@ -127,6 +127,16 @@ uses
  {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDefsList
+ {$IfEnd} // Defined(Nemesis)
+ , SysUtils
+ {$If Defined(Nemesis)}
+ , nscStatusBarOperationDef
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , l3String
  {$If NOT Defined(NoVCM)}

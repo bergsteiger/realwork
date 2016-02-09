@@ -193,12 +193,8 @@ begin
 end;//TkwAttributesFormTvAttributes.GetResultTypeInfo
 
 function TkwAttributesFormTvAttributes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_C2DA991E7351_var*
-//#UC END# *559687E6025A_C2DA991E7351_var*
 begin
-//#UC START# *559687E6025A_C2DA991E7351_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_C2DA991E7351_impl*
+ Result := 1;
 end;//TkwAttributesFormTvAttributes.GetAllParamsCount
 
 function TkwAttributesFormTvAttributes.ParamsTypes: PTypeInfoArray;

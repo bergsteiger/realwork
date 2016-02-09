@@ -42,6 +42,11 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , afwFacade
+ , nsConst
+ , nsTypes
+ , DataAdapter
+ , nsManagers
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -49,11 +54,6 @@ uses
  , MainMenuNewKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , LoggingUnit
- , afwFacade
- , nsConst
- , nsTypes
- , DataAdapter
- , nsManagers
 ;
 
 type

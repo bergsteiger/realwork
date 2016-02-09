@@ -321,12 +321,8 @@ begin
 end;//TkwPictureFormIeIO.GetResultTypeInfo
 
 function TkwPictureFormIeIO.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_17635237745C_var*
-//#UC END# *559687E6025A_17635237745C_var*
 begin
-//#UC START# *559687E6025A_17635237745C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_17635237745C_impl*
+ Result := 1;
 end;//TkwPictureFormIeIO.GetAllParamsCount
 
 function TkwPictureFormIeIO.ParamsTypes: PTypeInfoArray;
@@ -383,12 +379,8 @@ begin
 end;//TkwPictureFormIeViewer.GetResultTypeInfo
 
 function TkwPictureFormIeViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_101ACB961C5C_var*
-//#UC END# *559687E6025A_101ACB961C5C_var*
 begin
-//#UC START# *559687E6025A_101ACB961C5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_101ACB961C5C_impl*
+ Result := 1;
 end;//TkwPictureFormIeViewer.GetAllParamsCount
 
 function TkwPictureFormIeViewer.ParamsTypes: PTypeInfoArray;
@@ -445,12 +437,8 @@ begin
 end;//TkwPictureFormIeProc.GetResultTypeInfo
 
 function TkwPictureFormIeProc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BF66EC4F24E9_var*
-//#UC END# *559687E6025A_BF66EC4F24E9_var*
 begin
-//#UC START# *559687E6025A_BF66EC4F24E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BF66EC4F24E9_impl*
+ Result := 1;
 end;//TkwPictureFormIeProc.GetAllParamsCount
 
 function TkwPictureFormIeProc.ParamsTypes: PTypeInfoArray;

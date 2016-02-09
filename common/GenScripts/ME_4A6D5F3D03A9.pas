@@ -133,6 +133,11 @@ uses
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , l3MessageID
+ {$If NOT Defined(NoVCM)}
+ , StdRes
+ {$IfEnd} // NOT Defined(NoVCM)
+ , sdsCompareEditions
+ , nsCompareEditionsInfo
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -147,11 +152,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
- {$If NOT Defined(NoVCM)}
- , StdRes
- {$IfEnd} // NOT Defined(NoVCM)
- , sdsCompareEditions
- , nsCompareEditionsInfo
 ;
 
 var g_Tfs_CompareEditions: Tfs_CompareEditions = nil;

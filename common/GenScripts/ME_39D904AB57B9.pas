@@ -717,12 +717,8 @@ begin
 end;//TkwContentsFormBackgroundPanel.GetResultTypeInfo
 
 function TkwContentsFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4C8C363B5514_var*
-//#UC END# *559687E6025A_4C8C363B5514_var*
 begin
-//#UC START# *559687E6025A_4C8C363B5514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4C8C363B5514_impl*
+ Result := 1;
 end;//TkwContentsFormBackgroundPanel.GetAllParamsCount
 
 function TkwContentsFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
@@ -779,12 +775,8 @@ begin
 end;//TkwContentsFormLstBookmarks.GetResultTypeInfo
 
 function TkwContentsFormLstBookmarks.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_4490BAA2CF4F_var*
-//#UC END# *559687E6025A_4490BAA2CF4F_var*
 begin
-//#UC START# *559687E6025A_4490BAA2CF4F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_4490BAA2CF4F_impl*
+ Result := 1;
 end;//TkwContentsFormLstBookmarks.GetAllParamsCount
 
 function TkwContentsFormLstBookmarks.ParamsTypes: PTypeInfoArray;
@@ -841,12 +833,8 @@ begin
 end;//TkwContentsFormLstComments.GetResultTypeInfo
 
 function TkwContentsFormLstComments.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BB45F71CEF15_var*
-//#UC END# *559687E6025A_BB45F71CEF15_var*
 begin
-//#UC START# *559687E6025A_BB45F71CEF15_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BB45F71CEF15_impl*
+ Result := 1;
 end;//TkwContentsFormLstComments.GetAllParamsCount
 
 function TkwContentsFormLstComments.ParamsTypes: PTypeInfoArray;
@@ -903,12 +891,8 @@ begin
 end;//TkwContentsFormLstExternalObjects.GetResultTypeInfo
 
 function TkwContentsFormLstExternalObjects.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BC07363209CB_var*
-//#UC END# *559687E6025A_BC07363209CB_var*
 begin
-//#UC START# *559687E6025A_BC07363209CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BC07363209CB_impl*
+ Result := 1;
 end;//TkwContentsFormLstExternalObjects.GetAllParamsCount
 
 function TkwContentsFormLstExternalObjects.ParamsTypes: PTypeInfoArray;
@@ -965,12 +949,8 @@ begin
 end;//TkwContentsFormContentsTree.GetResultTypeInfo
 
 function TkwContentsFormContentsTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_73822264D1F3_var*
-//#UC END# *559687E6025A_73822264D1F3_var*
 begin
-//#UC START# *559687E6025A_73822264D1F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_73822264D1F3_impl*
+ Result := 1;
 end;//TkwContentsFormContentsTree.GetAllParamsCount
 
 function TkwContentsFormContentsTree.ParamsTypes: PTypeInfoArray;
@@ -1027,12 +1007,8 @@ begin
 end;//TkwContentsFormContextFilter.GetResultTypeInfo
 
 function TkwContentsFormContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_1F49FC7EEC5A_var*
-//#UC END# *559687E6025A_1F49FC7EEC5A_var*
 begin
-//#UC START# *559687E6025A_1F49FC7EEC5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_1F49FC7EEC5A_impl*
+ Result := 1;
 end;//TkwContentsFormContextFilter.GetAllParamsCount
 
 function TkwContentsFormContextFilter.ParamsTypes: PTypeInfoArray;
@@ -1089,12 +1065,8 @@ begin
 end;//TkwContentsFormTasks.GetResultTypeInfo
 
 function TkwContentsFormTasks.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_7D17DDA72BEE_var*
-//#UC END# *559687E6025A_7D17DDA72BEE_var*
 begin
-//#UC START# *559687E6025A_7D17DDA72BEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_7D17DDA72BEE_impl*
+ Result := 1;
 end;//TkwContentsFormTasks.GetAllParamsCount
 
 function TkwContentsFormTasks.ParamsTypes: PTypeInfoArray;

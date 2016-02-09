@@ -193,12 +193,8 @@ begin
 end;//TkwEnPictureInfoInfo.GetResultTypeInfo
 
 function TkwEnPictureInfoInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_9B1531781ADE_var*
-//#UC END# *559687E6025A_9B1531781ADE_var*
 begin
-//#UC START# *559687E6025A_9B1531781ADE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_9B1531781ADE_impl*
+ Result := 1;
 end;//TkwEnPictureInfoInfo.GetAllParamsCount
 
 function TkwEnPictureInfoInfo.ParamsTypes: PTypeInfoArray;

@@ -308,6 +308,12 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
+ , SysUtils
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , sdsList
+ , ListInterfaces
  , PresentationInterfaces
  , resWarnImages
  , Base_Operations_Strange_Controls
@@ -326,16 +332,10 @@ uses
  , ListAnalizerKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
  , l3MessageID
- , SysUtils
  , l3Base
  {$If NOT Defined(NoScripts)}
  , ListAnalizeKeywordsPack
  {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCL)}
- , Forms
- {$IfEnd} // NOT Defined(NoVCL)
- , sdsList
- , ListInterfaces
 ;
 
 var g_Tfs_List: Tfs_List = nil;
