@@ -349,12 +349,8 @@ end;//TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_89575F4DA07E_var*
-//#UC END# *52D00B00031A_89575F4DA07E_var*
 begin
-//#UC START# *52D00B00031A_89575F4DA07E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_89575F4DA07E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwCfAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -368,12 +364,8 @@ begin
 end;//TkwCfAttributeSelectBackgroundPanel.GetAllParamsCount
 
 function TkwCfAttributeSelectBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_89575F4DA07E_var*
-//#UC END# *5617F4D00243_89575F4DA07E_var*
 begin
-//#UC START# *5617F4D00243_89575F4DA07E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_89575F4DA07E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfAttributeSelectBackgroundPanel.ParamsTypes
 
 function TkwCfAttributeSelectSelectedZone.SelectedZone(const aCtx: TtfwContext;
@@ -403,12 +395,8 @@ end;//TkwCfAttributeSelectSelectedZone.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectSelectedZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_74458A23E791_var*
-//#UC END# *52D00B00031A_74458A23E791_var*
 begin
-//#UC START# *52D00B00031A_74458A23E791_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_74458A23E791_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfAttributeSelectSelectedZone.SetValuePrim
 
 function TkwCfAttributeSelectSelectedZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -422,12 +410,8 @@ begin
 end;//TkwCfAttributeSelectSelectedZone.GetAllParamsCount
 
 function TkwCfAttributeSelectSelectedZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_74458A23E791_var*
-//#UC END# *5617F4D00243_74458A23E791_var*
 begin
-//#UC START# *5617F4D00243_74458A23E791_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_74458A23E791_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfAttributeSelectSelectedZone.ParamsTypes
 
 function TkwCfAttributeSelectValuesZone.ValuesZone(const aCtx: TtfwContext;
@@ -457,12 +441,8 @@ end;//TkwCfAttributeSelectValuesZone.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectValuesZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_122E41686ED8_var*
-//#UC END# *52D00B00031A_122E41686ED8_var*
 begin
-//#UC START# *52D00B00031A_122E41686ED8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_122E41686ED8_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfAttributeSelectValuesZone.SetValuePrim
 
 function TkwCfAttributeSelectValuesZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -476,12 +456,8 @@ begin
 end;//TkwCfAttributeSelectValuesZone.GetAllParamsCount
 
 function TkwCfAttributeSelectValuesZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_122E41686ED8_var*
-//#UC END# *5617F4D00243_122E41686ED8_var*
 begin
-//#UC START# *5617F4D00243_122E41686ED8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_122E41686ED8_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfAttributeSelectValuesZone.ParamsTypes
 
 initialization

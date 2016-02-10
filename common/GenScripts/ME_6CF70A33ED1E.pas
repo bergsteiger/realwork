@@ -354,12 +354,8 @@ end;//TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3C4C01C8C1CC_var*
-//#UC END# *52D00B00031A_3C4C01C8C1CC_var*
 begin
-//#UC START# *52D00B00031A_3C4C01C8C1CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3C4C01C8C1CC_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwEfTreeAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -373,12 +369,8 @@ begin
 end;//TkwEfTreeAttributeSelectBackgroundPanel.GetAllParamsCount
 
 function TkwEfTreeAttributeSelectBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3C4C01C8C1CC_var*
-//#UC END# *5617F4D00243_3C4C01C8C1CC_var*
 begin
-//#UC START# *5617F4D00243_3C4C01C8C1CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3C4C01C8C1CC_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfTreeAttributeSelectBackgroundPanel.ParamsTypes
 
 function TkwEfTreeAttributeSelectContextFilter.ContextFilter(const aCtx: TtfwContext;
@@ -408,12 +400,8 @@ end;//TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3EBF063E3680_var*
-//#UC END# *52D00B00031A_3EBF063E3680_var*
 begin
-//#UC START# *52D00B00031A_3EBF063E3680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3EBF063E3680_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfTreeAttributeSelectContextFilter.SetValuePrim
 
 function TkwEfTreeAttributeSelectContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -427,12 +415,8 @@ begin
 end;//TkwEfTreeAttributeSelectContextFilter.GetAllParamsCount
 
 function TkwEfTreeAttributeSelectContextFilter.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3EBF063E3680_var*
-//#UC END# *5617F4D00243_3EBF063E3680_var*
 begin
-//#UC START# *5617F4D00243_3EBF063E3680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3EBF063E3680_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfTreeAttributeSelectContextFilter.ParamsTypes
 
 function TkwEfTreeAttributeSelectAttributeTree.AttributeTree(const aCtx: TtfwContext;
@@ -462,12 +446,8 @@ end;//TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectAttributeTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E3BEF01A8948_var*
-//#UC END# *52D00B00031A_E3BEF01A8948_var*
 begin
-//#UC START# *52D00B00031A_E3BEF01A8948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E3BEF01A8948_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfTreeAttributeSelectAttributeTree.SetValuePrim
 
 function TkwEfTreeAttributeSelectAttributeTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -481,12 +461,8 @@ begin
 end;//TkwEfTreeAttributeSelectAttributeTree.GetAllParamsCount
 
 function TkwEfTreeAttributeSelectAttributeTree.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E3BEF01A8948_var*
-//#UC END# *5617F4D00243_E3BEF01A8948_var*
 begin
-//#UC START# *5617F4D00243_E3BEF01A8948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E3BEF01A8948_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfTreeAttributeSelectAttributeTree.ParamsTypes
 
 initialization
