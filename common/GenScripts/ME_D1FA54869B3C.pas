@@ -249,12 +249,18 @@ begin
 end;//TkwChildFormChildZone.ChildZone
 
 procedure TkwChildFormChildZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_310E6CF39C5E_var*
-//#UC END# *4DAEEDE10285_310E6CF39C5E_var*
+var l_aChildForm: TChildForm;
 begin
-//#UC START# *4DAEEDE10285_310E6CF39C5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_310E6CF39C5E_impl*
+ try
+  l_aChildForm := TChildForm(aCtx.rEngine.PopObjAs(TChildForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChildForm: TChildForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ChildZone(aCtx, l_aChildForm));
 end;//TkwChildFormChildZone.DoDoIt
 
 class function TkwChildFormChildZone.GetWordNameForRegister: AnsiString;
@@ -264,12 +270,8 @@ end;//TkwChildFormChildZone.GetWordNameForRegister
 
 procedure TkwChildFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_310E6CF39C5E_var*
-//#UC END# *52D00B00031A_310E6CF39C5E_var*
 begin
-//#UC START# *52D00B00031A_310E6CF39C5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_310E6CF39C5E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwChildFormChildZone.SetValuePrim
 
 function TkwChildFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -283,12 +285,8 @@ begin
 end;//TkwChildFormChildZone.GetAllParamsCount
 
 function TkwChildFormChildZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_310E6CF39C5E_var*
-//#UC END# *5617F4D00243_310E6CF39C5E_var*
 begin
-//#UC START# *5617F4D00243_310E6CF39C5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_310E6CF39C5E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TChildForm)]);
 end;//TkwChildFormChildZone.ParamsTypes
 
 function TkwChildFormMainPageTab.MainPageTab(const aCtx: TtfwContext;
@@ -303,12 +301,18 @@ begin
 end;//TkwChildFormMainPageTab.MainPageTab
 
 procedure TkwChildFormMainPageTab.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B752FF576E67_var*
-//#UC END# *4DAEEDE10285_B752FF576E67_var*
+var l_aChildForm: TChildForm;
 begin
-//#UC START# *4DAEEDE10285_B752FF576E67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B752FF576E67_impl*
+ try
+  l_aChildForm := TChildForm(aCtx.rEngine.PopObjAs(TChildForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChildForm: TChildForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MainPageTab(aCtx, l_aChildForm));
 end;//TkwChildFormMainPageTab.DoDoIt
 
 class function TkwChildFormMainPageTab.GetWordNameForRegister: AnsiString;
@@ -318,12 +322,8 @@ end;//TkwChildFormMainPageTab.GetWordNameForRegister
 
 procedure TkwChildFormMainPageTab.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B752FF576E67_var*
-//#UC END# *52D00B00031A_B752FF576E67_var*
 begin
-//#UC START# *52D00B00031A_B752FF576E67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B752FF576E67_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwChildFormMainPageTab.SetValuePrim
 
 function TkwChildFormMainPageTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -337,12 +337,8 @@ begin
 end;//TkwChildFormMainPageTab.GetAllParamsCount
 
 function TkwChildFormMainPageTab.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B752FF576E67_var*
-//#UC END# *5617F4D00243_B752FF576E67_var*
 begin
-//#UC START# *5617F4D00243_B752FF576E67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B752FF576E67_impl*
+ Result := OpenTypesToTypes([TypeInfo(TChildForm)]);
 end;//TkwChildFormMainPageTab.ParamsTypes
 
 initialization

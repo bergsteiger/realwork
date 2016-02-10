@@ -103,12 +103,8 @@ begin
 end;//TkwIsNeedSaveDocument.GetAllParamsCount
 
 function TkwIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BB6D8477DC61_var*
-//#UC END# *5617F4D00243_BB6D8477DC61_var*
 begin
-//#UC START# *5617F4D00243_BB6D8477DC61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BB6D8477DC61_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwIsNeedSaveDocument.ParamsTypes
 
 initialization

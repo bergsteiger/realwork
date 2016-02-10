@@ -160,12 +160,18 @@ begin
 end;//TkwParentFormParentZone.ParentZone
 
 procedure TkwParentFormParentZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E6FBE1D9F4EF_var*
-//#UC END# *4DAEEDE10285_E6FBE1D9F4EF_var*
+var l_aParentForm: TParentForm;
 begin
-//#UC START# *4DAEEDE10285_E6FBE1D9F4EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E6FBE1D9F4EF_impl*
+ try
+  l_aParentForm := TParentForm(aCtx.rEngine.PopObjAs(TParentForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParentForm: TParentForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZone(aCtx, l_aParentForm));
 end;//TkwParentFormParentZone.DoDoIt
 
 class function TkwParentFormParentZone.GetWordNameForRegister: AnsiString;
@@ -175,12 +181,8 @@ end;//TkwParentFormParentZone.GetWordNameForRegister
 
 procedure TkwParentFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E6FBE1D9F4EF_var*
-//#UC END# *52D00B00031A_E6FBE1D9F4EF_var*
 begin
-//#UC START# *52D00B00031A_E6FBE1D9F4EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E6FBE1D9F4EF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwParentFormParentZone.SetValuePrim
 
 function TkwParentFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -194,12 +196,8 @@ begin
 end;//TkwParentFormParentZone.GetAllParamsCount
 
 function TkwParentFormParentZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E6FBE1D9F4EF_var*
-//#UC END# *5617F4D00243_E6FBE1D9F4EF_var*
 begin
-//#UC START# *5617F4D00243_E6FBE1D9F4EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E6FBE1D9F4EF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TParentForm)]);
 end;//TkwParentFormParentZone.ParamsTypes
 
 initialization

@@ -178,6 +178,7 @@ end;//TkwSynchroViewWarningBaloonFormViewer.GetWordNameForRegister
 procedure TkwSynchroViewWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
+DoSetValue(, aValue);
 end;//TkwSynchroViewWarningBaloonFormViewer.SetValuePrim
 
 function TkwSynchroViewWarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
