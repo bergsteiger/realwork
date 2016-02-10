@@ -178,7 +178,6 @@ end;//TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister
 procedure TkwTranslationWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwTranslationWarningBaloonFormViewer.SetValuePrim
 
 function TkwTranslationWarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

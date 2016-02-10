@@ -700,7 +700,6 @@ end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
 procedure TkwContentsFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwContentsFormBackgroundPanel.SetValuePrim
 
 function TkwContentsFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -746,7 +745,6 @@ end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
 procedure TkwContentsFormLstBookmarks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwContentsFormLstBookmarks.SetValuePrim
 
 function TkwContentsFormLstBookmarks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -792,7 +790,6 @@ end;//TkwContentsFormLstComments.GetWordNameForRegister
 procedure TkwContentsFormLstComments.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwContentsFormLstComments.SetValuePrim
 
 function TkwContentsFormLstComments.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -838,7 +835,6 @@ end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
 procedure TkwContentsFormLstExternalObjects.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwContentsFormLstExternalObjects.SetValuePrim
 
 function TkwContentsFormLstExternalObjects.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -884,7 +880,6 @@ end;//TkwContentsFormContentsTree.GetWordNameForRegister
 procedure TkwContentsFormContentsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwContentsFormContentsTree.SetValuePrim
 
 function TkwContentsFormContentsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -930,7 +925,6 @@ end;//TkwContentsFormContextFilter.GetWordNameForRegister
 procedure TkwContentsFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwContentsFormContextFilter.SetValuePrim
 
 function TkwContentsFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -976,7 +970,6 @@ end;//TkwContentsFormTasks.GetWordNameForRegister
 procedure TkwContentsFormTasks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwContentsFormTasks.SetValuePrim
 
 function TkwContentsFormTasks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

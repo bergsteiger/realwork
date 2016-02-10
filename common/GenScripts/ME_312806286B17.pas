@@ -176,7 +176,6 @@ end;//TkwAttributesFormTvAttributes.GetWordNameForRegister
 procedure TkwAttributesFormTvAttributes.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwAttributesFormTvAttributes.SetValuePrim
 
 function TkwAttributesFormTvAttributes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -304,7 +304,6 @@ end;//TkwPictureFormIeIO.GetWordNameForRegister
 procedure TkwPictureFormIeIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwPictureFormIeIO.SetValuePrim
 
 function TkwPictureFormIeIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -350,7 +349,6 @@ end;//TkwPictureFormIeViewer.GetWordNameForRegister
 procedure TkwPictureFormIeViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwPictureFormIeViewer.SetValuePrim
 
 function TkwPictureFormIeViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -396,7 +394,6 @@ end;//TkwPictureFormIeProc.GetWordNameForRegister
 procedure TkwPictureFormIeProc.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwPictureFormIeProc.SetValuePrim
 
 function TkwPictureFormIeProc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -176,7 +176,6 @@ end;//TkwEnPictureInfoInfo.GetWordNameForRegister
 procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEnPictureInfoInfo.SetValuePrim
 
 function TkwEnPictureInfoInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

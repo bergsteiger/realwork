@@ -791,7 +791,6 @@ end;//TkwEfListRemindersLine.GetWordNameForRegister
 procedure TkwEfListRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListRemindersLine.SetValuePrim
 
 function TkwEfListRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -837,7 +836,6 @@ end;//TkwEfListRemListFiltered.GetWordNameForRegister
 procedure TkwEfListRemListFiltered.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListRemListFiltered.SetValuePrim
 
 function TkwEfListRemListFiltered.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -883,7 +881,6 @@ end;//TkwEfListRemListModified.GetWordNameForRegister
 procedure TkwEfListRemListModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListRemListModified.SetValuePrim
 
 function TkwEfListRemListModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -929,7 +926,6 @@ end;//TkwEfListRemTimeMachineWarning.GetWordNameForRegister
 procedure TkwEfListRemTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListRemTimeMachineWarning.SetValuePrim
 
 function TkwEfListRemTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -975,7 +971,6 @@ end;//TkwEfListEmptyListEditor.GetWordNameForRegister
 procedure TkwEfListEmptyListEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListEmptyListEditor.SetValuePrim
 
 function TkwEfListEmptyListEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1021,7 +1016,6 @@ end;//TkwEfListListPanel.GetWordNameForRegister
 procedure TkwEfListListPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListListPanel.SetValuePrim
 
 function TkwEfListListPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1067,7 +1061,6 @@ end;//TkwEfListTvList.GetWordNameForRegister
 procedure TkwEfListTvList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListTvList.SetValuePrim
 
 function TkwEfListTvList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1113,7 +1106,6 @@ end;//TkwEfListCfList.GetWordNameForRegister
 procedure TkwEfListCfList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListCfList.SetValuePrim
 
 function TkwEfListCfList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

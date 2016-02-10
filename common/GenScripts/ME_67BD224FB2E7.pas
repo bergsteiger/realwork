@@ -241,7 +241,6 @@ end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
 procedure TkwEfListInfoListInfoViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListInfoListInfoViewer.SetValuePrim
 
 function TkwEfListInfoListInfoViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -287,7 +286,6 @@ end;//TkwEfListInfoTextSource.GetWordNameForRegister
 procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 begin
-DoSetValue(, aValue);
 end;//TkwEfListInfoTextSource.SetValuePrim
 
 function TkwEfListInfoTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
