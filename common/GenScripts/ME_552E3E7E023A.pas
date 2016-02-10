@@ -71,12 +71,28 @@ begin
 end;//TkwPopStatusBarGetPanel.GetPanel
 
 procedure TkwPopStatusBarGetPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0B36D9E86F88_var*
-//#UC END# *4DAEEDE10285_0B36D9E86F88_var*
+var l_aStatusBar: TvtStatusBar;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_0B36D9E86F88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0B36D9E86F88_impl*
+ try
+  l_aStatusBar := TvtStatusBar(aCtx.rEngine.PopObjAs(TvtStatusBar));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusBar: TvtStatusBar : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetPanel(aCtx, l_aStatusBar, l_anIndex));
 end;//TkwPopStatusBarGetPanel.DoDoIt
 
 class function TkwPopStatusBarGetPanel.GetWordNameForRegister: AnsiString;
@@ -95,12 +111,8 @@ begin
 end;//TkwPopStatusBarGetPanel.GetAllParamsCount
 
 function TkwPopStatusBarGetPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0B36D9E86F88_var*
-//#UC END# *5617F4D00243_0B36D9E86F88_var*
 begin
-//#UC START# *5617F4D00243_0B36D9E86F88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0B36D9E86F88_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtStatusBar), TypeInfo(Integer)]);
 end;//TkwPopStatusBarGetPanel.ParamsTypes
 
 initialization

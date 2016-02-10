@@ -133,12 +133,18 @@ begin
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.IsFloatingStateAndParentNotVisible
 
 procedure TkwPopFormIsFloatingStateAndParentNotVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B6E9E8EFCE95_var*
-//#UC END# *4DAEEDE10285_B6E9E8EFCE95_var*
+var l_aForm: TvcmEntityForm;
 begin
-//#UC START# *4DAEEDE10285_B6E9E8EFCE95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B6E9E8EFCE95_impl*
+ try
+  l_aForm := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsFloatingStateAndParentNotVisible(aCtx, l_aForm));
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.DoDoIt
 
 class function TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister: AnsiString;
@@ -148,12 +154,8 @@ end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister
 
 procedure TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B6E9E8EFCE95_var*
-//#UC END# *52D00B00031A_B6E9E8EFCE95_var*
 begin
-//#UC START# *52D00B00031A_B6E9E8EFCE95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B6E9E8EFCE95_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -167,12 +169,8 @@ begin
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetAllParamsCount
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B6E9E8EFCE95_var*
-//#UC END# *5617F4D00243_B6E9E8EFCE95_var*
 begin
-//#UC START# *5617F4D00243_B6E9E8EFCE95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B6E9E8EFCE95_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.ParamsTypes
 
 function TkwPopFormIsFloatingState.IsFloatingState(const aCtx: TtfwContext;
@@ -187,12 +185,18 @@ begin
 end;//TkwPopFormIsFloatingState.IsFloatingState
 
 procedure TkwPopFormIsFloatingState.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E5D04ADC6C87_var*
-//#UC END# *4DAEEDE10285_E5D04ADC6C87_var*
+var l_aForm: TvcmEntityForm;
 begin
-//#UC START# *4DAEEDE10285_E5D04ADC6C87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E5D04ADC6C87_impl*
+ try
+  l_aForm := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsFloatingState(aCtx, l_aForm));
 end;//TkwPopFormIsFloatingState.DoDoIt
 
 class function TkwPopFormIsFloatingState.GetWordNameForRegister: AnsiString;
@@ -202,12 +206,8 @@ end;//TkwPopFormIsFloatingState.GetWordNameForRegister
 
 procedure TkwPopFormIsFloatingState.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E5D04ADC6C87_var*
-//#UC END# *52D00B00031A_E5D04ADC6C87_var*
 begin
-//#UC START# *52D00B00031A_E5D04ADC6C87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E5D04ADC6C87_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopFormIsFloatingState.SetValuePrim
 
 function TkwPopFormIsFloatingState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -221,12 +221,8 @@ begin
 end;//TkwPopFormIsFloatingState.GetAllParamsCount
 
 function TkwPopFormIsFloatingState.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E5D04ADC6C87_var*
-//#UC END# *5617F4D00243_E5D04ADC6C87_var*
 begin
-//#UC START# *5617F4D00243_E5D04ADC6C87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E5D04ADC6C87_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormIsFloatingState.ParamsTypes
 
 function TkwPopFormUserType.UserType(const aCtx: TtfwContext;
@@ -241,12 +237,18 @@ begin
 end;//TkwPopFormUserType.UserType
 
 procedure TkwPopFormUserType.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F96A7A339D27_var*
-//#UC END# *4DAEEDE10285_F96A7A339D27_var*
+var l_aForm: TvcmEntityForm;
 begin
-//#UC START# *4DAEEDE10285_F96A7A339D27_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F96A7A339D27_impl*
+ try
+  l_aForm := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(UserType(aCtx, l_aForm));
 end;//TkwPopFormUserType.DoDoIt
 
 class function TkwPopFormUserType.GetWordNameForRegister: AnsiString;
@@ -256,12 +258,8 @@ end;//TkwPopFormUserType.GetWordNameForRegister
 
 procedure TkwPopFormUserType.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F96A7A339D27_var*
-//#UC END# *52D00B00031A_F96A7A339D27_var*
 begin
-//#UC START# *52D00B00031A_F96A7A339D27_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F96A7A339D27_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopFormUserType.SetValuePrim
 
 function TkwPopFormUserType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -275,12 +273,8 @@ begin
 end;//TkwPopFormUserType.GetAllParamsCount
 
 function TkwPopFormUserType.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F96A7A339D27_var*
-//#UC END# *5617F4D00243_F96A7A339D27_var*
 begin
-//#UC START# *5617F4D00243_F96A7A339D27_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F96A7A339D27_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormUserType.ParamsTypes
 
 function TkwPopFormFormID.FormID(const aCtx: TtfwContext;
@@ -295,12 +289,18 @@ begin
 end;//TkwPopFormFormID.FormID
 
 procedure TkwPopFormFormID.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B0B047C68F92_var*
-//#UC END# *4DAEEDE10285_B0B047C68F92_var*
+var l_aForm: TvcmEntityForm;
 begin
-//#UC START# *4DAEEDE10285_B0B047C68F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B0B047C68F92_impl*
+ try
+  l_aForm := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(FormID(aCtx, l_aForm));
 end;//TkwPopFormFormID.DoDoIt
 
 class function TkwPopFormFormID.GetWordNameForRegister: AnsiString;
@@ -310,12 +310,8 @@ end;//TkwPopFormFormID.GetWordNameForRegister
 
 procedure TkwPopFormFormID.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B0B047C68F92_var*
-//#UC END# *52D00B00031A_B0B047C68F92_var*
 begin
-//#UC START# *52D00B00031A_B0B047C68F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B0B047C68F92_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopFormFormID.SetValuePrim
 
 function TkwPopFormFormID.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -329,12 +325,8 @@ begin
 end;//TkwPopFormFormID.GetAllParamsCount
 
 function TkwPopFormFormID.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B0B047C68F92_var*
-//#UC END# *5617F4D00243_B0B047C68F92_var*
 begin
-//#UC START# *5617F4D00243_B0B047C68F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B0B047C68F92_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmEntityForm)]);
 end;//TkwPopFormFormID.ParamsTypes
 
 initialization

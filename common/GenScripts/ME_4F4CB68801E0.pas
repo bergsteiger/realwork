@@ -484,12 +484,28 @@ begin
 end;//TkwPopEditorScrollBottom.ScrollBottom
 
 procedure TkwPopEditorScrollBottom.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_57E2F8D45E5B_var*
-//#UC END# *4DAEEDE10285_57E2F8D45E5B_var*
+var l_aEditor: TevCustomEditorWindow;
+var l_aVert: Boolean;
 begin
-//#UC START# *4DAEEDE10285_57E2F8D45E5B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_57E2F8D45E5B_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aVert := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVert: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ScrollBottom(aCtx, l_aEditor, l_aVert);
 end;//TkwPopEditorScrollBottom.DoDoIt
 
 class function TkwPopEditorScrollBottom.GetWordNameForRegister: AnsiString;
@@ -508,12 +524,8 @@ begin
 end;//TkwPopEditorScrollBottom.GetAllParamsCount
 
 function TkwPopEditorScrollBottom.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_57E2F8D45E5B_var*
-//#UC END# *5617F4D00243_57E2F8D45E5B_var*
 begin
-//#UC START# *5617F4D00243_57E2F8D45E5B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_57E2F8D45E5B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean)]);
 end;//TkwPopEditorScrollBottom.ParamsTypes
 
 procedure TkwPopEditorScrollLineUp.ScrollLineUp(const aCtx: TtfwContext;
@@ -528,12 +540,18 @@ begin
 end;//TkwPopEditorScrollLineUp.ScrollLineUp
 
 procedure TkwPopEditorScrollLineUp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_984121B2A39C_var*
-//#UC END# *4DAEEDE10285_984121B2A39C_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_984121B2A39C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_984121B2A39C_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ScrollLineUp(aCtx, l_aEditor);
 end;//TkwPopEditorScrollLineUp.DoDoIt
 
 class function TkwPopEditorScrollLineUp.GetWordNameForRegister: AnsiString;
@@ -552,12 +570,8 @@ begin
 end;//TkwPopEditorScrollLineUp.GetAllParamsCount
 
 function TkwPopEditorScrollLineUp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_984121B2A39C_var*
-//#UC END# *5617F4D00243_984121B2A39C_var*
 begin
-//#UC START# *5617F4D00243_984121B2A39C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_984121B2A39C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorScrollLineUp.ParamsTypes
 
 procedure TkwPopEditorScrollLineDown.ScrollLineDown(const aCtx: TtfwContext;
@@ -572,12 +586,18 @@ begin
 end;//TkwPopEditorScrollLineDown.ScrollLineDown
 
 procedure TkwPopEditorScrollLineDown.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6EFB94FBB9D0_var*
-//#UC END# *4DAEEDE10285_6EFB94FBB9D0_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_6EFB94FBB9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6EFB94FBB9D0_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ScrollLineDown(aCtx, l_aEditor);
 end;//TkwPopEditorScrollLineDown.DoDoIt
 
 class function TkwPopEditorScrollLineDown.GetWordNameForRegister: AnsiString;
@@ -596,12 +616,8 @@ begin
 end;//TkwPopEditorScrollLineDown.GetAllParamsCount
 
 function TkwPopEditorScrollLineDown.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6EFB94FBB9D0_var*
-//#UC END# *5617F4D00243_6EFB94FBB9D0_var*
 begin
-//#UC START# *5617F4D00243_6EFB94FBB9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6EFB94FBB9D0_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorScrollLineDown.ParamsTypes
 
 procedure TkwPopEditorScrollTo.ScrollTo(const aCtx: TtfwContext;
@@ -618,12 +634,38 @@ begin
 end;//TkwPopEditorScrollTo.ScrollTo
 
 procedure TkwPopEditorScrollTo.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C6DBF363488D_var*
-//#UC END# *4DAEEDE10285_C6DBF363488D_var*
+var l_aEditor: TevCustomEditorWindow;
+var l_aVert: Boolean;
+var l_aPosition: Integer;
 begin
-//#UC START# *4DAEEDE10285_C6DBF363488D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C6DBF363488D_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aVert := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVert: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aPosition := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPosition: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ScrollTo(aCtx, l_aEditor, l_aVert, l_aPosition);
 end;//TkwPopEditorScrollTo.DoDoIt
 
 class function TkwPopEditorScrollTo.GetWordNameForRegister: AnsiString;
@@ -642,12 +684,8 @@ begin
 end;//TkwPopEditorScrollTo.GetAllParamsCount
 
 function TkwPopEditorScrollTo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C6DBF363488D_var*
-//#UC END# *5617F4D00243_C6DBF363488D_var*
 begin
-//#UC START# *5617F4D00243_C6DBF363488D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C6DBF363488D_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean), TypeInfo(Integer)]);
 end;//TkwPopEditorScrollTo.ParamsTypes
 
 function TkwPopEditorPushParaFromCursor.PushParaFromCursor(const aCtx: TtfwContext;
@@ -662,12 +700,18 @@ begin
 end;//TkwPopEditorPushParaFromCursor.PushParaFromCursor
 
 procedure TkwPopEditorPushParaFromCursor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A463E79E2664_var*
-//#UC END# *4DAEEDE10285_A463E79E2664_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_A463E79E2664_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A463E79E2664_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(PushParaFromCursor(aCtx, l_aEditor),InevPara);
 end;//TkwPopEditorPushParaFromCursor.DoDoIt
 
 class function TkwPopEditorPushParaFromCursor.GetWordNameForRegister: AnsiString;
@@ -686,12 +730,8 @@ begin
 end;//TkwPopEditorPushParaFromCursor.GetAllParamsCount
 
 function TkwPopEditorPushParaFromCursor.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A463E79E2664_var*
-//#UC END# *5617F4D00243_A463E79E2664_var*
 begin
-//#UC START# *5617F4D00243_A463E79E2664_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A463E79E2664_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorPushParaFromCursor.ParamsTypes
 
 procedure TkwPopEditorSelectAll.SelectAll(const aCtx: TtfwContext;
@@ -706,12 +746,18 @@ begin
 end;//TkwPopEditorSelectAll.SelectAll
 
 procedure TkwPopEditorSelectAll.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E1035C3F4EA_var*
-//#UC END# *4DAEEDE10285_4E1035C3F4EA_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_4E1035C3F4EA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E1035C3F4EA_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SelectAll(aCtx, l_aEditor);
 end;//TkwPopEditorSelectAll.DoDoIt
 
 class function TkwPopEditorSelectAll.GetWordNameForRegister: AnsiString;
@@ -730,12 +776,8 @@ begin
 end;//TkwPopEditorSelectAll.GetAllParamsCount
 
 function TkwPopEditorSelectAll.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4E1035C3F4EA_var*
-//#UC END# *5617F4D00243_4E1035C3F4EA_var*
 begin
-//#UC START# *5617F4D00243_4E1035C3F4EA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4E1035C3F4EA_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectAll.ParamsTypes
 
 procedure TkwPopEditorSelectPara.SelectPara(const aCtx: TtfwContext;
@@ -750,12 +792,18 @@ begin
 end;//TkwPopEditorSelectPara.SelectPara
 
 procedure TkwPopEditorSelectPara.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3286856E5FD0_var*
-//#UC END# *4DAEEDE10285_3286856E5FD0_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_3286856E5FD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3286856E5FD0_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SelectPara(aCtx, l_aEditor);
 end;//TkwPopEditorSelectPara.DoDoIt
 
 class function TkwPopEditorSelectPara.GetWordNameForRegister: AnsiString;
@@ -774,12 +822,8 @@ begin
 end;//TkwPopEditorSelectPara.GetAllParamsCount
 
 function TkwPopEditorSelectPara.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3286856E5FD0_var*
-//#UC END# *5617F4D00243_3286856E5FD0_var*
 begin
-//#UC START# *5617F4D00243_3286856E5FD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3286856E5FD0_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectPara.ParamsTypes
 
 function TkwPopEditorAtTop.AtTop(const aCtx: TtfwContext;
@@ -794,12 +838,18 @@ begin
 end;//TkwPopEditorAtTop.AtTop
 
 procedure TkwPopEditorAtTop.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7B4AFEA8148C_var*
-//#UC END# *4DAEEDE10285_7B4AFEA8148C_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_7B4AFEA8148C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7B4AFEA8148C_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(AtTop(aCtx, l_aEditor));
 end;//TkwPopEditorAtTop.DoDoIt
 
 class function TkwPopEditorAtTop.GetWordNameForRegister: AnsiString;
@@ -818,12 +868,8 @@ begin
 end;//TkwPopEditorAtTop.GetAllParamsCount
 
 function TkwPopEditorAtTop.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7B4AFEA8148C_var*
-//#UC END# *5617F4D00243_7B4AFEA8148C_var*
 begin
-//#UC START# *5617F4D00243_7B4AFEA8148C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7B4AFEA8148C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorAtTop.ParamsTypes
 
 procedure TkwPopEditorSelectWord.SelectWord(const aCtx: TtfwContext;
@@ -838,12 +884,18 @@ begin
 end;//TkwPopEditorSelectWord.SelectWord
 
 procedure TkwPopEditorSelectWord.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2C60D13844FA_var*
-//#UC END# *4DAEEDE10285_2C60D13844FA_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_2C60D13844FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2C60D13844FA_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SelectWord(aCtx, l_aEditor);
 end;//TkwPopEditorSelectWord.DoDoIt
 
 class function TkwPopEditorSelectWord.GetWordNameForRegister: AnsiString;
@@ -862,12 +914,8 @@ begin
 end;//TkwPopEditorSelectWord.GetAllParamsCount
 
 function TkwPopEditorSelectWord.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2C60D13844FA_var*
-//#UC END# *5617F4D00243_2C60D13844FA_var*
 begin
-//#UC START# *5617F4D00243_2C60D13844FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2C60D13844FA_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorSelectWord.ParamsTypes
 
 function TkwPopEditorCaretVisible.CaretVisible(const aCtx: TtfwContext;
@@ -893,12 +941,18 @@ begin
 end;//TkwPopEditorCaretVisible.DoSetValue
 
 procedure TkwPopEditorCaretVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B38D1749E0D8_var*
-//#UC END# *4DAEEDE10285_B38D1749E0D8_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_B38D1749E0D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B38D1749E0D8_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(CaretVisible(aCtx, l_aEditor));
 end;//TkwPopEditorCaretVisible.DoDoIt
 
 class function TkwPopEditorCaretVisible.GetWordNameForRegister: AnsiString;
@@ -908,12 +962,8 @@ end;//TkwPopEditorCaretVisible.GetWordNameForRegister
 
 procedure TkwPopEditorCaretVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B38D1749E0D8_var*
-//#UC END# *52D00B00031A_B38D1749E0D8_var*
 begin
-//#UC START# *52D00B00031A_B38D1749E0D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B38D1749E0D8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopEditorCaretVisible.SetValuePrim
 
 function TkwPopEditorCaretVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -927,12 +977,8 @@ begin
 end;//TkwPopEditorCaretVisible.GetAllParamsCount
 
 function TkwPopEditorCaretVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B38D1749E0D8_var*
-//#UC END# *5617F4D00243_B38D1749E0D8_var*
 begin
-//#UC START# *5617F4D00243_B38D1749E0D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B38D1749E0D8_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorCaretVisible.ParamsTypes
 
 function TkwPopEditorShowDocumentParts.ShowDocumentParts(const aCtx: TtfwContext;
@@ -947,12 +993,18 @@ begin
 end;//TkwPopEditorShowDocumentParts.ShowDocumentParts
 
 procedure TkwPopEditorShowDocumentParts.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A77B7AB26CFF_var*
-//#UC END# *4DAEEDE10285_A77B7AB26CFF_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_A77B7AB26CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A77B7AB26CFF_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(ShowDocumentParts(aCtx, l_aEditor));
 end;//TkwPopEditorShowDocumentParts.DoDoIt
 
 class function TkwPopEditorShowDocumentParts.GetWordNameForRegister: AnsiString;
@@ -962,12 +1014,8 @@ end;//TkwPopEditorShowDocumentParts.GetWordNameForRegister
 
 procedure TkwPopEditorShowDocumentParts.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A77B7AB26CFF_var*
-//#UC END# *52D00B00031A_A77B7AB26CFF_var*
 begin
-//#UC START# *52D00B00031A_A77B7AB26CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A77B7AB26CFF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopEditorShowDocumentParts.SetValuePrim
 
 function TkwPopEditorShowDocumentParts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -981,12 +1029,8 @@ begin
 end;//TkwPopEditorShowDocumentParts.GetAllParamsCount
 
 function TkwPopEditorShowDocumentParts.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A77B7AB26CFF_var*
-//#UC END# *5617F4D00243_A77B7AB26CFF_var*
 begin
-//#UC START# *5617F4D00243_A77B7AB26CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A77B7AB26CFF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorShowDocumentParts.ParamsTypes
 
 function TkwPopEditorWebStyle.WebStyle(const aCtx: TtfwContext;
@@ -1001,12 +1045,18 @@ begin
 end;//TkwPopEditorWebStyle.WebStyle
 
 procedure TkwPopEditorWebStyle.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_85D5F3815C6E_var*
-//#UC END# *4DAEEDE10285_85D5F3815C6E_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_85D5F3815C6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_85D5F3815C6E_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(WebStyle(aCtx, l_aEditor));
 end;//TkwPopEditorWebStyle.DoDoIt
 
 class function TkwPopEditorWebStyle.GetWordNameForRegister: AnsiString;
@@ -1016,12 +1066,8 @@ end;//TkwPopEditorWebStyle.GetWordNameForRegister
 
 procedure TkwPopEditorWebStyle.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_85D5F3815C6E_var*
-//#UC END# *52D00B00031A_85D5F3815C6E_var*
 begin
-//#UC START# *52D00B00031A_85D5F3815C6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_85D5F3815C6E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopEditorWebStyle.SetValuePrim
 
 function TkwPopEditorWebStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1035,12 +1081,8 @@ begin
 end;//TkwPopEditorWebStyle.GetAllParamsCount
 
 function TkwPopEditorWebStyle.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_85D5F3815C6E_var*
-//#UC END# *5617F4D00243_85D5F3815C6E_var*
 begin
-//#UC START# *5617F4D00243_85D5F3815C6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_85D5F3815C6E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorWebStyle.ParamsTypes
 
 function TkwPopEditorDrawSpecial.DrawSpecial(const aCtx: TtfwContext;
@@ -1055,12 +1097,18 @@ begin
 end;//TkwPopEditorDrawSpecial.DrawSpecial
 
 procedure TkwPopEditorDrawSpecial.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BB22FD3C71A4_var*
-//#UC END# *4DAEEDE10285_BB22FD3C71A4_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_BB22FD3C71A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BB22FD3C71A4_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(DrawSpecial(aCtx, l_aEditor));
 end;//TkwPopEditorDrawSpecial.DoDoIt
 
 class function TkwPopEditorDrawSpecial.GetWordNameForRegister: AnsiString;
@@ -1070,12 +1118,8 @@ end;//TkwPopEditorDrawSpecial.GetWordNameForRegister
 
 procedure TkwPopEditorDrawSpecial.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BB22FD3C71A4_var*
-//#UC END# *52D00B00031A_BB22FD3C71A4_var*
 begin
-//#UC START# *52D00B00031A_BB22FD3C71A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BB22FD3C71A4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopEditorDrawSpecial.SetValuePrim
 
 function TkwPopEditorDrawSpecial.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1089,12 +1133,8 @@ begin
 end;//TkwPopEditorDrawSpecial.GetAllParamsCount
 
 function TkwPopEditorDrawSpecial.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BB22FD3C71A4_var*
-//#UC END# *5617F4D00243_BB22FD3C71A4_var*
 begin
-//#UC START# *5617F4D00243_BB22FD3C71A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BB22FD3C71A4_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDrawSpecial.ParamsTypes
 
 function TkwPopEditorDocumentTailVisible.DocumentTailVisible(const aCtx: TtfwContext;
@@ -1109,12 +1149,18 @@ begin
 end;//TkwPopEditorDocumentTailVisible.DocumentTailVisible
 
 procedure TkwPopEditorDocumentTailVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EE3EA3E1113C_var*
-//#UC END# *4DAEEDE10285_EE3EA3E1113C_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_EE3EA3E1113C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EE3EA3E1113C_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(DocumentTailVisible(aCtx, l_aEditor));
 end;//TkwPopEditorDocumentTailVisible.DoDoIt
 
 class function TkwPopEditorDocumentTailVisible.GetWordNameForRegister: AnsiString;
@@ -1124,12 +1170,8 @@ end;//TkwPopEditorDocumentTailVisible.GetWordNameForRegister
 
 procedure TkwPopEditorDocumentTailVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EE3EA3E1113C_var*
-//#UC END# *52D00B00031A_EE3EA3E1113C_var*
 begin
-//#UC START# *52D00B00031A_EE3EA3E1113C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EE3EA3E1113C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopEditorDocumentTailVisible.SetValuePrim
 
 function TkwPopEditorDocumentTailVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1143,12 +1185,8 @@ begin
 end;//TkwPopEditorDocumentTailVisible.GetAllParamsCount
 
 function TkwPopEditorDocumentTailVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EE3EA3E1113C_var*
-//#UC END# *5617F4D00243_EE3EA3E1113C_var*
 begin
-//#UC START# *5617F4D00243_EE3EA3E1113C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EE3EA3E1113C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDocumentTailVisible.ParamsTypes
 
 function TkwPopEditorModified.Modified(const aCtx: TtfwContext;
@@ -1163,12 +1201,18 @@ begin
 end;//TkwPopEditorModified.Modified
 
 procedure TkwPopEditorModified.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C36C39E9CCC8_var*
-//#UC END# *4DAEEDE10285_C36C39E9CCC8_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_C36C39E9CCC8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C36C39E9CCC8_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Modified(aCtx, l_aEditor));
 end;//TkwPopEditorModified.DoDoIt
 
 class function TkwPopEditorModified.GetWordNameForRegister: AnsiString;
@@ -1178,12 +1222,8 @@ end;//TkwPopEditorModified.GetWordNameForRegister
 
 procedure TkwPopEditorModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C36C39E9CCC8_var*
-//#UC END# *52D00B00031A_C36C39E9CCC8_var*
 begin
-//#UC START# *52D00B00031A_C36C39E9CCC8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C36C39E9CCC8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopEditorModified.SetValuePrim
 
 function TkwPopEditorModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1197,12 +1237,8 @@ begin
 end;//TkwPopEditorModified.GetAllParamsCount
 
 function TkwPopEditorModified.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C36C39E9CCC8_var*
-//#UC END# *5617F4D00243_C36C39E9CCC8_var*
 begin
-//#UC START# *5617F4D00243_C36C39E9CCC8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C36C39E9CCC8_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorModified.ParamsTypes
 
 function TkwPopEditorDrawLines.DrawLines(const aCtx: TtfwContext;
@@ -1228,12 +1264,18 @@ begin
 end;//TkwPopEditorDrawLines.DoSetValue
 
 procedure TkwPopEditorDrawLines.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3928ECE1F34F_var*
-//#UC END# *4DAEEDE10285_3928ECE1F34F_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_3928ECE1F34F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3928ECE1F34F_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(DrawLines(aCtx, l_aEditor));
 end;//TkwPopEditorDrawLines.DoDoIt
 
 class function TkwPopEditorDrawLines.GetWordNameForRegister: AnsiString;
@@ -1243,12 +1285,8 @@ end;//TkwPopEditorDrawLines.GetWordNameForRegister
 
 procedure TkwPopEditorDrawLines.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3928ECE1F34F_var*
-//#UC END# *52D00B00031A_3928ECE1F34F_var*
 begin
-//#UC START# *52D00B00031A_3928ECE1F34F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3928ECE1F34F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopEditorDrawLines.SetValuePrim
 
 function TkwPopEditorDrawLines.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1262,12 +1300,8 @@ begin
 end;//TkwPopEditorDrawLines.GetAllParamsCount
 
 function TkwPopEditorDrawLines.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3928ECE1F34F_var*
-//#UC END# *5617F4D00243_3928ECE1F34F_var*
 begin
-//#UC START# *5617F4D00243_3928ECE1F34F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3928ECE1F34F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorDrawLines.ParamsTypes
 
 function TkwPopEditorAllowRubberTables.AllowRubberTables(const aCtx: TtfwContext;
@@ -1282,12 +1316,18 @@ begin
 end;//TkwPopEditorAllowRubberTables.AllowRubberTables
 
 procedure TkwPopEditorAllowRubberTables.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1009897A0104_var*
-//#UC END# *4DAEEDE10285_1009897A0104_var*
+var l_aEditor: TevCustomEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_1009897A0104_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1009897A0104_impl*
+ try
+  l_aEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Ord(AllowRubberTables(aCtx, l_aEditor)));
 end;//TkwPopEditorAllowRubberTables.DoDoIt
 
 class function TkwPopEditorAllowRubberTables.GetWordNameForRegister: AnsiString;
@@ -1297,12 +1337,8 @@ end;//TkwPopEditorAllowRubberTables.GetWordNameForRegister
 
 procedure TkwPopEditorAllowRubberTables.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1009897A0104_var*
-//#UC END# *52D00B00031A_1009897A0104_var*
 begin
-//#UC START# *52D00B00031A_1009897A0104_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1009897A0104_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopEditorAllowRubberTables.SetValuePrim
 
 function TkwPopEditorAllowRubberTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1316,12 +1352,8 @@ begin
 end;//TkwPopEditorAllowRubberTables.GetAllParamsCount
 
 function TkwPopEditorAllowRubberTables.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1009897A0104_var*
-//#UC END# *5617F4D00243_1009897A0104_var*
 begin
-//#UC START# *5617F4D00243_1009897A0104_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1009897A0104_impl*
+ Result := OpenTypesToTypes([TypeInfo(TevCustomEditorWindow)]);
 end;//TkwPopEditorAllowRubberTables.ParamsTypes
 
 initialization

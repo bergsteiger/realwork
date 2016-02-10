@@ -64,12 +64,8 @@ begin
 end;//TkwDDSupportGetState.DDSupport_GetState
 
 procedure TkwDDSupportGetState.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_765DA382B537_var*
-//#UC END# *4DAEEDE10285_765DA382B537_var*
 begin
-//#UC START# *4DAEEDE10285_765DA382B537_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_765DA382B537_impl*
+ aCtx.rEngine.PushInt(Ord(DDSupport_GetState(aCtx)));
 end;//TkwDDSupportGetState.DoDoIt
 
 class function TkwDDSupportGetState.GetWordNameForRegister: AnsiString;
@@ -88,12 +84,8 @@ begin
 end;//TkwDDSupportGetState.GetAllParamsCount
 
 function TkwDDSupportGetState.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_765DA382B537_var*
-//#UC END# *5617F4D00243_765DA382B537_var*
 begin
-//#UC START# *5617F4D00243_765DA382B537_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_765DA382B537_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwDDSupportGetState.ParamsTypes
 
 initialization

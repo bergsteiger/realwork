@@ -166,12 +166,18 @@ begin
 end;//TkwVgComboBoxGetText.vg_ComboBox_GetText
 
 procedure TkwVgComboBoxGetText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3D1B97A2F7D1_var*
-//#UC END# *4DAEEDE10285_3D1B97A2F7D1_var*
+var l_aComboBox: TvgComboBox;
 begin
-//#UC START# *4DAEEDE10285_3D1B97A2F7D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3D1B97A2F7D1_impl*
+ try
+  l_aComboBox := TvgComboBox(aCtx.rEngine.PopObjAs(TvgComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TvgComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(vg_ComboBox_GetText(aCtx, l_aComboBox));
 end;//TkwVgComboBoxGetText.DoDoIt
 
 class function TkwVgComboBoxGetText.GetWordNameForRegister: AnsiString;
@@ -190,12 +196,8 @@ begin
 end;//TkwVgComboBoxGetText.GetAllParamsCount
 
 function TkwVgComboBoxGetText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3D1B97A2F7D1_var*
-//#UC END# *5617F4D00243_3D1B97A2F7D1_var*
 begin
-//#UC START# *5617F4D00243_3D1B97A2F7D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3D1B97A2F7D1_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgComboBox)]);
 end;//TkwVgComboBoxGetText.ParamsTypes
 
 function TkwVgComboBoxItemHeight.vg_ComboBox_ItemHeight(const aCtx: TtfwContext;
@@ -210,12 +212,18 @@ begin
 end;//TkwVgComboBoxItemHeight.vg_ComboBox_ItemHeight
 
 procedure TkwVgComboBoxItemHeight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6AF76187796E_var*
-//#UC END# *4DAEEDE10285_6AF76187796E_var*
+var l_aComboBox: TvgComboBox;
 begin
-//#UC START# *4DAEEDE10285_6AF76187796E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6AF76187796E_impl*
+ try
+  l_aComboBox := TvgComboBox(aCtx.rEngine.PopObjAs(TvgComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TvgComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_ComboBox_ItemHeight(aCtx, l_aComboBox));
 end;//TkwVgComboBoxItemHeight.DoDoIt
 
 class function TkwVgComboBoxItemHeight.GetWordNameForRegister: AnsiString;
@@ -234,12 +242,8 @@ begin
 end;//TkwVgComboBoxItemHeight.GetAllParamsCount
 
 function TkwVgComboBoxItemHeight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6AF76187796E_var*
-//#UC END# *5617F4D00243_6AF76187796E_var*
 begin
-//#UC START# *5617F4D00243_6AF76187796E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6AF76187796E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgComboBox)]);
 end;//TkwVgComboBoxItemHeight.ParamsTypes
 
 function TkwVgComboBoxItemIndex.vg_ComboBox_ItemIndex(const aCtx: TtfwContext;
@@ -254,12 +258,18 @@ begin
 end;//TkwVgComboBoxItemIndex.vg_ComboBox_ItemIndex
 
 procedure TkwVgComboBoxItemIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E6401AA7CFD9_var*
-//#UC END# *4DAEEDE10285_E6401AA7CFD9_var*
+var l_aComboBox: TvgComboBox;
 begin
-//#UC START# *4DAEEDE10285_E6401AA7CFD9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E6401AA7CFD9_impl*
+ try
+  l_aComboBox := TvgComboBox(aCtx.rEngine.PopObjAs(TvgComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TvgComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_ComboBox_ItemIndex(aCtx, l_aComboBox));
 end;//TkwVgComboBoxItemIndex.DoDoIt
 
 class function TkwVgComboBoxItemIndex.GetWordNameForRegister: AnsiString;
@@ -278,12 +288,8 @@ begin
 end;//TkwVgComboBoxItemIndex.GetAllParamsCount
 
 function TkwVgComboBoxItemIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E6401AA7CFD9_var*
-//#UC END# *5617F4D00243_E6401AA7CFD9_var*
 begin
-//#UC START# *5617F4D00243_E6401AA7CFD9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E6401AA7CFD9_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgComboBox)]);
 end;//TkwVgComboBoxItemIndex.ParamsTypes
 
 function TkwVgComboBoxGetItem.vg_ComboBox_GetItem(const aCtx: TtfwContext;
@@ -299,12 +305,28 @@ begin
 end;//TkwVgComboBoxGetItem.vg_ComboBox_GetItem
 
 procedure TkwVgComboBoxGetItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F404139FE541_var*
-//#UC END# *4DAEEDE10285_F404139FE541_var*
+var l_aComboBox: TvgComboBox;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_F404139FE541_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F404139FE541_impl*
+ try
+  l_aComboBox := TvgComboBox(aCtx.rEngine.PopObjAs(TvgComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TvgComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(vg_ComboBox_GetItem(aCtx, l_aComboBox, l_anIndex));
 end;//TkwVgComboBoxGetItem.DoDoIt
 
 class function TkwVgComboBoxGetItem.GetWordNameForRegister: AnsiString;
@@ -323,12 +345,8 @@ begin
 end;//TkwVgComboBoxGetItem.GetAllParamsCount
 
 function TkwVgComboBoxGetItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F404139FE541_var*
-//#UC END# *5617F4D00243_F404139FE541_var*
 begin
-//#UC START# *5617F4D00243_F404139FE541_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F404139FE541_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgComboBox), TypeInfo(Integer)]);
 end;//TkwVgComboBoxGetItem.ParamsTypes
 
 function TkwVgComboBoxGetHighLightItemIndex.vg_ComboBox_GetHighLightItemIndex(const aCtx: TtfwContext;
@@ -348,12 +366,18 @@ begin
 end;//TkwVgComboBoxGetHighLightItemIndex.vg_ComboBox_GetHighLightItemIndex
 
 procedure TkwVgComboBoxGetHighLightItemIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E17F992CC09_var*
-//#UC END# *4DAEEDE10285_4E17F992CC09_var*
+var l_aComboBox: TvgComboBox;
 begin
-//#UC START# *4DAEEDE10285_4E17F992CC09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E17F992CC09_impl*
+ try
+  l_aComboBox := TvgComboBox(aCtx.rEngine.PopObjAs(TvgComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TvgComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_ComboBox_GetHighLightItemIndex(aCtx, l_aComboBox));
 end;//TkwVgComboBoxGetHighLightItemIndex.DoDoIt
 
 class function TkwVgComboBoxGetHighLightItemIndex.GetWordNameForRegister: AnsiString;
@@ -372,12 +396,8 @@ begin
 end;//TkwVgComboBoxGetHighLightItemIndex.GetAllParamsCount
 
 function TkwVgComboBoxGetHighLightItemIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4E17F992CC09_var*
-//#UC END# *5617F4D00243_4E17F992CC09_var*
 begin
-//#UC START# *5617F4D00243_4E17F992CC09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4E17F992CC09_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgComboBox)]);
 end;//TkwVgComboBoxGetHighLightItemIndex.ParamsTypes
 
 initialization

@@ -116,12 +116,28 @@ begin
 end;//TkwPopControlFindVGControlByName.FindVGControlByName
 
 procedure TkwPopControlFindVGControlByName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BAFBA1D026AA_var*
-//#UC END# *4DAEEDE10285_BAFBA1D026AA_var*
+var l_aControl: TWinControl;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_BAFBA1D026AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BAFBA1D026AA_impl*
+ try
+  l_aControl := TWinControl(aCtx.rEngine.PopObjAs(TWinControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TWinControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FindVGControlByName(aCtx, l_aControl, l_aName));
 end;//TkwPopControlFindVGControlByName.DoDoIt
 
 class function TkwPopControlFindVGControlByName.GetWordNameForRegister: AnsiString;
@@ -140,12 +156,8 @@ begin
 end;//TkwPopControlFindVGControlByName.GetAllParamsCount
 
 function TkwPopControlFindVGControlByName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BAFBA1D026AA_var*
-//#UC END# *5617F4D00243_BAFBA1D026AA_var*
 begin
-//#UC START# *5617F4D00243_BAFBA1D026AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BAFBA1D026AA_impl*
+ Result := OpenTypesToTypes([TypeInfo(TWinControl), @tfw_tiString]);
 end;//TkwPopControlFindVGControlByName.ParamsTypes
 
 initialization

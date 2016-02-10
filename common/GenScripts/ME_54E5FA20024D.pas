@@ -102,12 +102,18 @@ begin
 end;//TkwPopHideFieldIsExpanded.IsExpanded
 
 procedure TkwPopHideFieldIsExpanded.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A0AE99A180FB_var*
-//#UC END# *4DAEEDE10285_A0AE99A180FB_var*
+var l_aHideField: TvtCustomHideField;
 begin
-//#UC START# *4DAEEDE10285_A0AE99A180FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A0AE99A180FB_impl*
+ try
+  l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHideField: TvtCustomHideField : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsExpanded(aCtx, l_aHideField));
 end;//TkwPopHideFieldIsExpanded.DoDoIt
 
 class function TkwPopHideFieldIsExpanded.GetWordNameForRegister: AnsiString;
@@ -126,12 +132,8 @@ begin
 end;//TkwPopHideFieldIsExpanded.GetAllParamsCount
 
 function TkwPopHideFieldIsExpanded.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A0AE99A180FB_var*
-//#UC END# *5617F4D00243_A0AE99A180FB_var*
 begin
-//#UC START# *5617F4D00243_A0AE99A180FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A0AE99A180FB_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField)]);
 end;//TkwPopHideFieldIsExpanded.ParamsTypes
 
 procedure TkwPopHideFieldSetExpanded.SetExpanded(const aCtx: TtfwContext;
@@ -150,12 +152,28 @@ begin
 end;//TkwPopHideFieldSetExpanded.SetExpanded
 
 procedure TkwPopHideFieldSetExpanded.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D92EF59DAD00_var*
-//#UC END# *4DAEEDE10285_D92EF59DAD00_var*
+var l_aHideField: TvtCustomHideField;
+var l_aValue: Boolean;
 begin
-//#UC START# *4DAEEDE10285_D92EF59DAD00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D92EF59DAD00_impl*
+ try
+  l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHideField: TvtCustomHideField : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetExpanded(aCtx, l_aHideField, l_aValue);
 end;//TkwPopHideFieldSetExpanded.DoDoIt
 
 class function TkwPopHideFieldSetExpanded.GetWordNameForRegister: AnsiString;
@@ -174,12 +192,8 @@ begin
 end;//TkwPopHideFieldSetExpanded.GetAllParamsCount
 
 function TkwPopHideFieldSetExpanded.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D92EF59DAD00_var*
-//#UC END# *5617F4D00243_D92EF59DAD00_var*
 begin
-//#UC START# *5617F4D00243_D92EF59DAD00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D92EF59DAD00_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField), TypeInfo(Boolean)]);
 end;//TkwPopHideFieldSetExpanded.ParamsTypes
 
 function TkwPopHideFieldGetCaption.GetCaption(const aCtx: TtfwContext;
@@ -194,12 +208,18 @@ begin
 end;//TkwPopHideFieldGetCaption.GetCaption
 
 procedure TkwPopHideFieldGetCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D34E3A240E95_var*
-//#UC END# *4DAEEDE10285_D34E3A240E95_var*
+var l_aHideField: TvtCustomHideField;
 begin
-//#UC START# *4DAEEDE10285_D34E3A240E95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D34E3A240E95_impl*
+ try
+  l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHideField: TvtCustomHideField : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(GetCaption(aCtx, l_aHideField));
 end;//TkwPopHideFieldGetCaption.DoDoIt
 
 class function TkwPopHideFieldGetCaption.GetWordNameForRegister: AnsiString;
@@ -218,12 +238,8 @@ begin
 end;//TkwPopHideFieldGetCaption.GetAllParamsCount
 
 function TkwPopHideFieldGetCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D34E3A240E95_var*
-//#UC END# *5617F4D00243_D34E3A240E95_var*
 begin
-//#UC START# *5617F4D00243_D34E3A240E95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D34E3A240E95_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField)]);
 end;//TkwPopHideFieldGetCaption.ParamsTypes
 
 initialization

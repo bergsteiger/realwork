@@ -115,12 +115,28 @@ begin
 end;//TkwPopCheckListBoxGetChecked.GetChecked
 
 procedure TkwPopCheckListBoxGetChecked.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_61EE94402745_var*
-//#UC END# *4DAEEDE10285_61EE94402745_var*
+var l_aCheckListBox: TCheckListBox;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_61EE94402745_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_61EE94402745_impl*
+ try
+  l_aCheckListBox := TCheckListBox(aCtx.rEngine.PopObjAs(TCheckListBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCheckListBox: TCheckListBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(GetChecked(aCtx, l_aCheckListBox, l_anIndex));
 end;//TkwPopCheckListBoxGetChecked.DoDoIt
 
 class function TkwPopCheckListBoxGetChecked.GetWordNameForRegister: AnsiString;
@@ -139,12 +155,8 @@ begin
 end;//TkwPopCheckListBoxGetChecked.GetAllParamsCount
 
 function TkwPopCheckListBoxGetChecked.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_61EE94402745_var*
-//#UC END# *5617F4D00243_61EE94402745_var*
 begin
-//#UC START# *5617F4D00243_61EE94402745_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_61EE94402745_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCheckListBox), TypeInfo(Integer)]);
 end;//TkwPopCheckListBoxGetChecked.ParamsTypes
 
 procedure TkwPopCheckListBoxSetChecked.SetChecked(const aCtx: TtfwContext;
@@ -161,12 +173,38 @@ begin
 end;//TkwPopCheckListBoxSetChecked.SetChecked
 
 procedure TkwPopCheckListBoxSetChecked.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CA2863D28A34_var*
-//#UC END# *4DAEEDE10285_CA2863D28A34_var*
+var l_aCheckListBox: TCheckListBox;
+var l_anIndex: Integer;
+var l_aValue: Boolean;
 begin
-//#UC START# *4DAEEDE10285_CA2863D28A34_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CA2863D28A34_impl*
+ try
+  l_aCheckListBox := TCheckListBox(aCtx.rEngine.PopObjAs(TCheckListBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCheckListBox: TCheckListBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetChecked(aCtx, l_aCheckListBox, l_anIndex, l_aValue);
 end;//TkwPopCheckListBoxSetChecked.DoDoIt
 
 class function TkwPopCheckListBoxSetChecked.GetWordNameForRegister: AnsiString;
@@ -185,12 +223,8 @@ begin
 end;//TkwPopCheckListBoxSetChecked.GetAllParamsCount
 
 function TkwPopCheckListBoxSetChecked.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CA2863D28A34_var*
-//#UC END# *5617F4D00243_CA2863D28A34_var*
 begin
-//#UC START# *5617F4D00243_CA2863D28A34_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CA2863D28A34_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCheckListBox), TypeInfo(Integer), TypeInfo(Boolean)]);
 end;//TkwPopCheckListBoxSetChecked.ParamsTypes
 
 procedure TkwPopCheckListBoxUncheckAll.UncheckAll(const aCtx: TtfwContext;
@@ -208,12 +242,18 @@ begin
 end;//TkwPopCheckListBoxUncheckAll.UncheckAll
 
 procedure TkwPopCheckListBoxUncheckAll.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CC902BB857AE_var*
-//#UC END# *4DAEEDE10285_CC902BB857AE_var*
+var l_aCheckListBox: TCheckListBox;
 begin
-//#UC START# *4DAEEDE10285_CC902BB857AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CC902BB857AE_impl*
+ try
+  l_aCheckListBox := TCheckListBox(aCtx.rEngine.PopObjAs(TCheckListBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCheckListBox: TCheckListBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ UncheckAll(aCtx, l_aCheckListBox);
 end;//TkwPopCheckListBoxUncheckAll.DoDoIt
 
 class function TkwPopCheckListBoxUncheckAll.GetWordNameForRegister: AnsiString;
@@ -232,12 +272,8 @@ begin
 end;//TkwPopCheckListBoxUncheckAll.GetAllParamsCount
 
 function TkwPopCheckListBoxUncheckAll.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CC902BB857AE_var*
-//#UC END# *5617F4D00243_CC902BB857AE_var*
 begin
-//#UC START# *5617F4D00243_CC902BB857AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CC902BB857AE_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCheckListBox)]);
 end;//TkwPopCheckListBoxUncheckAll.ParamsTypes
 
 initialization

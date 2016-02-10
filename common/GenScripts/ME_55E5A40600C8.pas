@@ -279,12 +279,18 @@ begin
 end;//TkwPopRangeTable.Table
 
 procedure TkwPopRangeTable.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_41E2AA39512B_var*
-//#UC END# *4DAEEDE10285_41E2AA39512B_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_41E2AA39512B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_41E2AA39512B_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(Table(aCtx, l_aRange),IedTable);
 end;//TkwPopRangeTable.DoDoIt
 
 class function TkwPopRangeTable.GetWordNameForRegister: AnsiString;
@@ -303,12 +309,8 @@ begin
 end;//TkwPopRangeTable.GetAllParamsCount
 
 function TkwPopRangeTable.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_41E2AA39512B_var*
-//#UC END# *5617F4D00243_41E2AA39512B_var*
 begin
-//#UC START# *5617F4D00243_41E2AA39512B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_41E2AA39512B_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeTable.ParamsTypes
 
 function TkwPopRangeHyperlink.Hyperlink(const aCtx: TtfwContext;
@@ -323,12 +325,18 @@ begin
 end;//TkwPopRangeHyperlink.Hyperlink
 
 procedure TkwPopRangeHyperlink.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DF0E3B22C362_var*
-//#UC END# *4DAEEDE10285_DF0E3B22C362_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_DF0E3B22C362_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DF0E3B22C362_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(Hyperlink(aCtx, l_aRange),IevHyperlink);
 end;//TkwPopRangeHyperlink.DoDoIt
 
 class function TkwPopRangeHyperlink.GetWordNameForRegister: AnsiString;
@@ -347,12 +355,8 @@ begin
 end;//TkwPopRangeHyperlink.GetAllParamsCount
 
 function TkwPopRangeHyperlink.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DF0E3B22C362_var*
-//#UC END# *5617F4D00243_DF0E3B22C362_var*
 begin
-//#UC START# *5617F4D00243_DF0E3B22C362_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DF0E3B22C362_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeHyperlink.ParamsTypes
 
 function TkwPopRangeCollapsed.Collapsed(const aCtx: TtfwContext;
@@ -367,12 +371,18 @@ begin
 end;//TkwPopRangeCollapsed.Collapsed
 
 procedure TkwPopRangeCollapsed.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_56060897E1ED_var*
-//#UC END# *4DAEEDE10285_56060897E1ED_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_56060897E1ED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_56060897E1ED_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Collapsed(aCtx, l_aRange));
 end;//TkwPopRangeCollapsed.DoDoIt
 
 class function TkwPopRangeCollapsed.GetWordNameForRegister: AnsiString;
@@ -391,12 +401,8 @@ begin
 end;//TkwPopRangeCollapsed.GetAllParamsCount
 
 function TkwPopRangeCollapsed.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_56060897E1ED_var*
-//#UC END# *5617F4D00243_56060897E1ED_var*
 begin
-//#UC START# *5617F4D00243_56060897E1ED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_56060897E1ED_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeCollapsed.ParamsTypes
 
 function TkwPopRangeTextParagraph.TextParagraph(const aCtx: TtfwContext;
@@ -411,12 +417,18 @@ begin
 end;//TkwPopRangeTextParagraph.TextParagraph
 
 procedure TkwPopRangeTextParagraph.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B851C7CE944A_var*
-//#UC END# *4DAEEDE10285_B851C7CE944A_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_B851C7CE944A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B851C7CE944A_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(TextParagraph(aCtx, l_aRange),IedTextParagraph);
 end;//TkwPopRangeTextParagraph.DoDoIt
 
 class function TkwPopRangeTextParagraph.GetWordNameForRegister: AnsiString;
@@ -435,12 +447,8 @@ begin
 end;//TkwPopRangeTextParagraph.GetAllParamsCount
 
 function TkwPopRangeTextParagraph.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B851C7CE944A_var*
-//#UC END# *5617F4D00243_B851C7CE944A_var*
 begin
-//#UC START# *5617F4D00243_B851C7CE944A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B851C7CE944A_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeTextParagraph.ParamsTypes
 
 function TkwPopRangeDocument.Document(const aCtx: TtfwContext;
@@ -455,12 +463,18 @@ begin
 end;//TkwPopRangeDocument.Document
 
 procedure TkwPopRangeDocument.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_438278DD03B7_var*
-//#UC END# *4DAEEDE10285_438278DD03B7_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_438278DD03B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_438278DD03B7_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(Document(aCtx, l_aRange),IevDocument);
 end;//TkwPopRangeDocument.DoDoIt
 
 class function TkwPopRangeDocument.GetWordNameForRegister: AnsiString;
@@ -479,12 +493,8 @@ begin
 end;//TkwPopRangeDocument.GetAllParamsCount
 
 function TkwPopRangeDocument.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_438278DD03B7_var*
-//#UC END# *5617F4D00243_438278DD03B7_var*
 begin
-//#UC START# *5617F4D00243_438278DD03B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_438278DD03B7_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeDocument.ParamsTypes
 
 function TkwPopRangeDeleteChar.DeleteChar(const aCtx: TtfwContext;
@@ -499,12 +509,18 @@ begin
 end;//TkwPopRangeDeleteChar.DeleteChar
 
 procedure TkwPopRangeDeleteChar.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7BD8700AF40A_var*
-//#UC END# *4DAEEDE10285_7BD8700AF40A_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_7BD8700AF40A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7BD8700AF40A_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(DeleteChar(aCtx, l_aRange));
 end;//TkwPopRangeDeleteChar.DoDoIt
 
 class function TkwPopRangeDeleteChar.GetWordNameForRegister: AnsiString;
@@ -523,12 +539,8 @@ begin
 end;//TkwPopRangeDeleteChar.GetAllParamsCount
 
 function TkwPopRangeDeleteChar.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7BD8700AF40A_var*
-//#UC END# *5617F4D00243_7BD8700AF40A_var*
 begin
-//#UC START# *5617F4D00243_7BD8700AF40A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7BD8700AF40A_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeDeleteChar.ParamsTypes
 
 function TkwPopRangeInsertParaBreak.InsertParaBreak(const aCtx: TtfwContext;
@@ -543,12 +555,18 @@ begin
 end;//TkwPopRangeInsertParaBreak.InsertParaBreak
 
 procedure TkwPopRangeInsertParaBreak.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FC198E99CE03_var*
-//#UC END# *4DAEEDE10285_FC198E99CE03_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_FC198E99CE03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FC198E99CE03_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(InsertParaBreak(aCtx, l_aRange));
 end;//TkwPopRangeInsertParaBreak.DoDoIt
 
 class function TkwPopRangeInsertParaBreak.GetWordNameForRegister: AnsiString;
@@ -567,12 +585,8 @@ begin
 end;//TkwPopRangeInsertParaBreak.GetAllParamsCount
 
 function TkwPopRangeInsertParaBreak.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FC198E99CE03_var*
-//#UC END# *5617F4D00243_FC198E99CE03_var*
 begin
-//#UC START# *5617F4D00243_FC198E99CE03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FC198E99CE03_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeInsertParaBreak.ParamsTypes
 
 function TkwPopRangeInsertString.InsertString(const aCtx: TtfwContext;
@@ -588,12 +602,28 @@ begin
 end;//TkwPopRangeInsertString.InsertString
 
 procedure TkwPopRangeInsertString.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_682E7D1F5450_var*
-//#UC END# *4DAEEDE10285_682E7D1F5450_var*
+var l_aRange: IedRange;
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_682E7D1F5450_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_682E7D1F5450_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(InsertString(aCtx, l_aRange, l_aString));
 end;//TkwPopRangeInsertString.DoDoIt
 
 class function TkwPopRangeInsertString.GetWordNameForRegister: AnsiString;
@@ -612,12 +642,8 @@ begin
 end;//TkwPopRangeInsertString.GetAllParamsCount
 
 function TkwPopRangeInsertString.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_682E7D1F5450_var*
-//#UC END# *5617F4D00243_682E7D1F5450_var*
 begin
-//#UC START# *5617F4D00243_682E7D1F5450_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_682E7D1F5450_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange), @tfw_tiString]);
 end;//TkwPopRangeInsertString.ParamsTypes
 
 function TkwPopRangeDelete.Delete(const aCtx: TtfwContext;
@@ -633,12 +659,28 @@ begin
 end;//TkwPopRangeDelete.Delete
 
 procedure TkwPopRangeDelete.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CC0CFA982703_var*
-//#UC END# *4DAEEDE10285_CC0CFA982703_var*
+var l_aRange: IedRange;
+var l_aMode: TevClearMode;
 begin
-//#UC START# *4DAEEDE10285_CC0CFA982703_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CC0CFA982703_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aMode := TevClearMode(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMode: TevClearMode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Delete(aCtx, l_aRange, l_aMode));
 end;//TkwPopRangeDelete.DoDoIt
 
 class function TkwPopRangeDelete.GetWordNameForRegister: AnsiString;
@@ -657,12 +699,8 @@ begin
 end;//TkwPopRangeDelete.GetAllParamsCount
 
 function TkwPopRangeDelete.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CC0CFA982703_var*
-//#UC END# *5617F4D00243_CC0CFA982703_var*
 begin
-//#UC START# *5617F4D00243_CC0CFA982703_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CC0CFA982703_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange), TypeInfo(TevClearMode)]);
 end;//TkwPopRangeDelete.ParamsTypes
 
 function TkwPopRangeContainsOneLeaf.ContainsOneLeaf(const aCtx: TtfwContext;
@@ -677,12 +715,18 @@ begin
 end;//TkwPopRangeContainsOneLeaf.ContainsOneLeaf
 
 procedure TkwPopRangeContainsOneLeaf.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82CA30B619E2_var*
-//#UC END# *4DAEEDE10285_82CA30B619E2_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_82CA30B619E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82CA30B619E2_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(ContainsOneLeaf(aCtx, l_aRange));
 end;//TkwPopRangeContainsOneLeaf.DoDoIt
 
 class function TkwPopRangeContainsOneLeaf.GetWordNameForRegister: AnsiString;
@@ -701,12 +745,8 @@ begin
 end;//TkwPopRangeContainsOneLeaf.GetAllParamsCount
 
 function TkwPopRangeContainsOneLeaf.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_82CA30B619E2_var*
-//#UC END# *5617F4D00243_82CA30B619E2_var*
 begin
-//#UC START# *5617F4D00243_82CA30B619E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_82CA30B619E2_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeContainsOneLeaf.ParamsTypes
 
 function TkwPopRangeAsString.AsString(const aCtx: TtfwContext;
@@ -721,12 +761,18 @@ begin
 end;//TkwPopRangeAsString.AsString
 
 procedure TkwPopRangeAsString.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_107BCD56569D_var*
-//#UC END# *4DAEEDE10285_107BCD56569D_var*
+var l_aRange: IedRange;
 begin
-//#UC START# *4DAEEDE10285_107BCD56569D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_107BCD56569D_impl*
+ try
+  l_aRange := IedRange(aCtx.rEngine.PopIntf(IedRange));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRange: IedRange : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(AsString(aCtx, l_aRange));
 end;//TkwPopRangeAsString.DoDoIt
 
 class function TkwPopRangeAsString.GetWordNameForRegister: AnsiString;
@@ -745,12 +791,8 @@ begin
 end;//TkwPopRangeAsString.GetAllParamsCount
 
 function TkwPopRangeAsString.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_107BCD56569D_var*
-//#UC END# *5617F4D00243_107BCD56569D_var*
 begin
-//#UC START# *5617F4D00243_107BCD56569D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_107BCD56569D_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedRange)]);
 end;//TkwPopRangeAsString.ParamsTypes
 
 initialization

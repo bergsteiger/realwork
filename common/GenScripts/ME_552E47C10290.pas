@@ -138,12 +138,28 @@ begin
 end;//TkwPopListerSelectWithShift.SelectWithShift
 
 procedure TkwPopListerSelectWithShift.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3601E7023043_var*
-//#UC END# *4DAEEDE10285_3601E7023043_var*
+var l_aLister: TvtCustomLister;
+var l_aFinish: Integer;
 begin
-//#UC START# *4DAEEDE10285_3601E7023043_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3601E7023043_impl*
+ try
+  l_aLister := TvtCustomLister(aCtx.rEngine.PopObjAs(TvtCustomLister));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLister: TvtCustomLister : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFinish := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFinish: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SelectWithShift(aCtx, l_aLister, l_aFinish);
 end;//TkwPopListerSelectWithShift.DoDoIt
 
 class function TkwPopListerSelectWithShift.GetWordNameForRegister: AnsiString;
@@ -162,12 +178,8 @@ begin
 end;//TkwPopListerSelectWithShift.GetAllParamsCount
 
 function TkwPopListerSelectWithShift.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3601E7023043_var*
-//#UC END# *5617F4D00243_3601E7023043_var*
 begin
-//#UC START# *5617F4D00243_3601E7023043_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3601E7023043_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
 end;//TkwPopListerSelectWithShift.ParamsTypes
 
 function TkwPopListerGetSelected.GetSelected(const aCtx: TtfwContext;
@@ -183,12 +195,28 @@ begin
 end;//TkwPopListerGetSelected.GetSelected
 
 procedure TkwPopListerGetSelected.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_94BB02952F38_var*
-//#UC END# *4DAEEDE10285_94BB02952F38_var*
+var l_aLister: TvtCustomLister;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_94BB02952F38_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_94BB02952F38_impl*
+ try
+  l_aLister := TvtCustomLister(aCtx.rEngine.PopObjAs(TvtCustomLister));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLister: TvtCustomLister : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(GetSelected(aCtx, l_aLister, l_anIndex));
 end;//TkwPopListerGetSelected.DoDoIt
 
 class function TkwPopListerGetSelected.GetWordNameForRegister: AnsiString;
@@ -207,12 +235,8 @@ begin
 end;//TkwPopListerGetSelected.GetAllParamsCount
 
 function TkwPopListerGetSelected.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_94BB02952F38_var*
-//#UC END# *5617F4D00243_94BB02952F38_var*
 begin
-//#UC START# *5617F4D00243_94BB02952F38_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_94BB02952F38_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomLister), TypeInfo(Integer)]);
 end;//TkwPopListerGetSelected.ParamsTypes
 
 function TkwPopListerFooterCaption.FooterCaption(const aCtx: TtfwContext;
@@ -227,12 +251,18 @@ begin
 end;//TkwPopListerFooterCaption.FooterCaption
 
 procedure TkwPopListerFooterCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0BB474851F7E_var*
-//#UC END# *4DAEEDE10285_0BB474851F7E_var*
+var l_aLister: TvtCustomLister;
 begin
-//#UC START# *4DAEEDE10285_0BB474851F7E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0BB474851F7E_impl*
+ try
+  l_aLister := TvtCustomLister(aCtx.rEngine.PopObjAs(TvtCustomLister));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLister: TvtCustomLister : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(FooterCaption(aCtx, l_aLister));
 end;//TkwPopListerFooterCaption.DoDoIt
 
 class function TkwPopListerFooterCaption.GetWordNameForRegister: AnsiString;
@@ -251,12 +281,8 @@ begin
 end;//TkwPopListerFooterCaption.GetAllParamsCount
 
 function TkwPopListerFooterCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0BB474851F7E_var*
-//#UC END# *5617F4D00243_0BB474851F7E_var*
 begin
-//#UC START# *5617F4D00243_0BB474851F7E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0BB474851F7E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomLister)]);
 end;//TkwPopListerFooterCaption.ParamsTypes
 
 function TkwPopListerCurrent.Current(const aCtx: TtfwContext;
@@ -271,12 +297,18 @@ begin
 end;//TkwPopListerCurrent.Current
 
 procedure TkwPopListerCurrent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AC4C8A615B0D_var*
-//#UC END# *4DAEEDE10285_AC4C8A615B0D_var*
+var l_aLister: TvtCustomLister;
 begin
-//#UC START# *4DAEEDE10285_AC4C8A615B0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AC4C8A615B0D_impl*
+ try
+  l_aLister := TvtCustomLister(aCtx.rEngine.PopObjAs(TvtCustomLister));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLister: TvtCustomLister : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Current(aCtx, l_aLister));
 end;//TkwPopListerCurrent.DoDoIt
 
 class function TkwPopListerCurrent.GetWordNameForRegister: AnsiString;
@@ -286,12 +318,8 @@ end;//TkwPopListerCurrent.GetWordNameForRegister
 
 procedure TkwPopListerCurrent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AC4C8A615B0D_var*
-//#UC END# *52D00B00031A_AC4C8A615B0D_var*
 begin
-//#UC START# *52D00B00031A_AC4C8A615B0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AC4C8A615B0D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopListerCurrent.SetValuePrim
 
 function TkwPopListerCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -305,12 +333,8 @@ begin
 end;//TkwPopListerCurrent.GetAllParamsCount
 
 function TkwPopListerCurrent.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AC4C8A615B0D_var*
-//#UC END# *5617F4D00243_AC4C8A615B0D_var*
 begin
-//#UC START# *5617F4D00243_AC4C8A615B0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AC4C8A615B0D_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomLister)]);
 end;//TkwPopListerCurrent.ParamsTypes
 
 initialization

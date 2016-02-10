@@ -67,12 +67,18 @@ begin
 end;//TkwPopStatusPanelGetText.GetText
 
 procedure TkwPopStatusPanelGetText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7D107A8BDD1A_var*
-//#UC END# *4DAEEDE10285_7D107A8BDD1A_var*
+var l_aStatusPanel: TvtStatusPanel;
 begin
-//#UC START# *4DAEEDE10285_7D107A8BDD1A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7D107A8BDD1A_impl*
+ try
+  l_aStatusPanel := TvtStatusPanel(aCtx.rEngine.PopObjAs(TvtStatusPanel));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusPanel: TvtStatusPanel : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(GetText(aCtx, l_aStatusPanel));
 end;//TkwPopStatusPanelGetText.DoDoIt
 
 class function TkwPopStatusPanelGetText.GetWordNameForRegister: AnsiString;
@@ -91,12 +97,8 @@ begin
 end;//TkwPopStatusPanelGetText.GetAllParamsCount
 
 function TkwPopStatusPanelGetText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7D107A8BDD1A_var*
-//#UC END# *5617F4D00243_7D107A8BDD1A_var*
 begin
-//#UC START# *5617F4D00243_7D107A8BDD1A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7D107A8BDD1A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtStatusPanel)]);
 end;//TkwPopStatusPanelGetText.ParamsTypes
 
 initialization

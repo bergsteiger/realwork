@@ -63,12 +63,18 @@ begin
 end;//TkwPopFlashGetFrame.GetFrame
 
 procedure TkwPopFlashGetFrame.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E9CC5473030_var*
-//#UC END# *4DAEEDE10285_4E9CC5473030_var*
+var l_aFlash: TvtShockwaveFlashEx;
 begin
-//#UC START# *4DAEEDE10285_4E9CC5473030_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E9CC5473030_impl*
+ try
+  l_aFlash := TvtShockwaveFlashEx(aCtx.rEngine.PopObjAs(TvtShockwaveFlashEx));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFlash: TvtShockwaveFlashEx : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(GetFrame(aCtx, l_aFlash));
 end;//TkwPopFlashGetFrame.DoDoIt
 
 class function TkwPopFlashGetFrame.GetWordNameForRegister: AnsiString;
@@ -87,12 +93,8 @@ begin
 end;//TkwPopFlashGetFrame.GetAllParamsCount
 
 function TkwPopFlashGetFrame.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4E9CC5473030_var*
-//#UC END# *5617F4D00243_4E9CC5473030_var*
 begin
-//#UC START# *5617F4D00243_4E9CC5473030_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4E9CC5473030_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtShockwaveFlashEx)]);
 end;//TkwPopFlashGetFrame.ParamsTypes
 
 initialization

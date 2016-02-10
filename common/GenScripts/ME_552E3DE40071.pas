@@ -66,12 +66,18 @@ begin
 end;//TkwPopRadioButtonChecked.Checked
 
 procedure TkwPopRadioButtonChecked.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_06BAC463482F_var*
-//#UC END# *4DAEEDE10285_06BAC463482F_var*
+var l_aRadioButton: TRadioButton;
 begin
-//#UC START# *4DAEEDE10285_06BAC463482F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_06BAC463482F_impl*
+ try
+  l_aRadioButton := TRadioButton(aCtx.rEngine.PopObjAs(TRadioButton));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRadioButton: TRadioButton : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Checked(aCtx, l_aRadioButton));
 end;//TkwPopRadioButtonChecked.DoDoIt
 
 class function TkwPopRadioButtonChecked.GetWordNameForRegister: AnsiString;
@@ -81,12 +87,8 @@ end;//TkwPopRadioButtonChecked.GetWordNameForRegister
 
 procedure TkwPopRadioButtonChecked.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_06BAC463482F_var*
-//#UC END# *52D00B00031A_06BAC463482F_var*
 begin
-//#UC START# *52D00B00031A_06BAC463482F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_06BAC463482F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopRadioButtonChecked.SetValuePrim
 
 function TkwPopRadioButtonChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -100,12 +102,8 @@ begin
 end;//TkwPopRadioButtonChecked.GetAllParamsCount
 
 function TkwPopRadioButtonChecked.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_06BAC463482F_var*
-//#UC END# *5617F4D00243_06BAC463482F_var*
 begin
-//#UC START# *5617F4D00243_06BAC463482F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_06BAC463482F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TRadioButton)]);
 end;//TkwPopRadioButtonChecked.ParamsTypes
 
 initialization

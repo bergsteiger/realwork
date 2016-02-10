@@ -284,12 +284,28 @@ begin
 end;//TkwPopTableInsertRows.InsertRows
 
 procedure TkwPopTableInsertRows.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B20D345184F3_var*
-//#UC END# *4DAEEDE10285_B20D345184F3_var*
+var l_aTable: IedTable;
+var l_NumRows: Integer;
 begin
-//#UC START# *4DAEEDE10285_B20D345184F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B20D345184F3_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_NumRows := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра NumRows: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(InsertRows(aCtx, l_aTable, l_NumRows));
 end;//TkwPopTableInsertRows.DoDoIt
 
 class function TkwPopTableInsertRows.GetWordNameForRegister: AnsiString;
@@ -308,12 +324,8 @@ begin
 end;//TkwPopTableInsertRows.GetAllParamsCount
 
 function TkwPopTableInsertRows.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B20D345184F3_var*
-//#UC END# *5617F4D00243_B20D345184F3_var*
 begin
-//#UC START# *5617F4D00243_B20D345184F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B20D345184F3_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable), TypeInfo(Integer)]);
 end;//TkwPopTableInsertRows.ParamsTypes
 
 function TkwPopTableSplit.Split(const aCtx: TtfwContext;
@@ -328,12 +340,18 @@ begin
 end;//TkwPopTableSplit.Split
 
 procedure TkwPopTableSplit.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C352B50F9289_var*
-//#UC END# *4DAEEDE10285_C352B50F9289_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_C352B50F9289_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C352B50F9289_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Split(aCtx, l_aTable));
 end;//TkwPopTableSplit.DoDoIt
 
 class function TkwPopTableSplit.GetWordNameForRegister: AnsiString;
@@ -352,12 +370,8 @@ begin
 end;//TkwPopTableSplit.GetAllParamsCount
 
 function TkwPopTableSplit.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C352B50F9289_var*
-//#UC END# *5617F4D00243_C352B50F9289_var*
 begin
-//#UC START# *5617F4D00243_C352B50F9289_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C352B50F9289_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableSplit.ParamsTypes
 
 function TkwPopTableMerge.Merge(const aCtx: TtfwContext;
@@ -372,12 +386,18 @@ begin
 end;//TkwPopTableMerge.Merge
 
 procedure TkwPopTableMerge.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_51F83F13B477_var*
-//#UC END# *4DAEEDE10285_51F83F13B477_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_51F83F13B477_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_51F83F13B477_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Merge(aCtx, l_aTable));
 end;//TkwPopTableMerge.DoDoIt
 
 class function TkwPopTableMerge.GetWordNameForRegister: AnsiString;
@@ -396,12 +416,8 @@ begin
 end;//TkwPopTableMerge.GetAllParamsCount
 
 function TkwPopTableMerge.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_51F83F13B477_var*
-//#UC END# *5617F4D00243_51F83F13B477_var*
 begin
-//#UC START# *5617F4D00243_51F83F13B477_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_51F83F13B477_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableMerge.ParamsTypes
 
 function TkwPopTableDelete.Delete(const aCtx: TtfwContext;
@@ -416,12 +432,18 @@ begin
 end;//TkwPopTableDelete.Delete
 
 procedure TkwPopTableDelete.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9A1A2962F095_var*
-//#UC END# *4DAEEDE10285_9A1A2962F095_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_9A1A2962F095_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9A1A2962F095_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Delete(aCtx, l_aTable));
 end;//TkwPopTableDelete.DoDoIt
 
 class function TkwPopTableDelete.GetWordNameForRegister: AnsiString;
@@ -440,12 +462,8 @@ begin
 end;//TkwPopTableDelete.GetAllParamsCount
 
 function TkwPopTableDelete.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9A1A2962F095_var*
-//#UC END# *5617F4D00243_9A1A2962F095_var*
 begin
-//#UC START# *5617F4D00243_9A1A2962F095_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9A1A2962F095_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableDelete.ParamsTypes
 
 function TkwPopTableRowCount.RowCount(const aCtx: TtfwContext;
@@ -460,12 +478,18 @@ begin
 end;//TkwPopTableRowCount.RowCount
 
 procedure TkwPopTableRowCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D3B877D57F14_var*
-//#UC END# *4DAEEDE10285_D3B877D57F14_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_D3B877D57F14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D3B877D57F14_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(RowCount(aCtx, l_aTable));
 end;//TkwPopTableRowCount.DoDoIt
 
 class function TkwPopTableRowCount.GetWordNameForRegister: AnsiString;
@@ -484,12 +508,8 @@ begin
 end;//TkwPopTableRowCount.GetAllParamsCount
 
 function TkwPopTableRowCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D3B877D57F14_var*
-//#UC END# *5617F4D00243_D3B877D57F14_var*
 begin
-//#UC START# *5617F4D00243_D3B877D57F14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D3B877D57F14_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableRowCount.ParamsTypes
 
 function TkwPopTableCell.Cell(const aCtx: TtfwContext;
@@ -504,12 +524,18 @@ begin
 end;//TkwPopTableCell.Cell
 
 procedure TkwPopTableCell.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EF2649C51BB8_var*
-//#UC END# *4DAEEDE10285_EF2649C51BB8_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_EF2649C51BB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EF2649C51BB8_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(Cell(aCtx, l_aTable),IedCell);
 end;//TkwPopTableCell.DoDoIt
 
 class function TkwPopTableCell.GetWordNameForRegister: AnsiString;
@@ -528,12 +554,8 @@ begin
 end;//TkwPopTableCell.GetAllParamsCount
 
 function TkwPopTableCell.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EF2649C51BB8_var*
-//#UC END# *5617F4D00243_EF2649C51BB8_var*
 begin
-//#UC START# *5617F4D00243_EF2649C51BB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EF2649C51BB8_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableCell.ParamsTypes
 
 function TkwPopTableCells.Cells(const aCtx: TtfwContext;
@@ -548,12 +570,18 @@ begin
 end;//TkwPopTableCells.Cells
 
 procedure TkwPopTableCells.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2EB72067A09C_var*
-//#UC END# *4DAEEDE10285_2EB72067A09C_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_2EB72067A09C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2EB72067A09C_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(Cells(aCtx, l_aTable),IedCells);
 end;//TkwPopTableCells.DoDoIt
 
 class function TkwPopTableCells.GetWordNameForRegister: AnsiString;
@@ -572,12 +600,8 @@ begin
 end;//TkwPopTableCells.GetAllParamsCount
 
 function TkwPopTableCells.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2EB72067A09C_var*
-//#UC END# *5617F4D00243_2EB72067A09C_var*
 begin
-//#UC START# *5617F4D00243_2EB72067A09C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2EB72067A09C_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableCells.ParamsTypes
 
 function TkwPopTableColumn.Column(const aCtx: TtfwContext;
@@ -592,12 +616,18 @@ begin
 end;//TkwPopTableColumn.Column
 
 procedure TkwPopTableColumn.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B6DB26D3AD5E_var*
-//#UC END# *4DAEEDE10285_B6DB26D3AD5E_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_B6DB26D3AD5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B6DB26D3AD5E_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(Column(aCtx, l_aTable),IedColumn);
 end;//TkwPopTableColumn.DoDoIt
 
 class function TkwPopTableColumn.GetWordNameForRegister: AnsiString;
@@ -616,12 +646,8 @@ begin
 end;//TkwPopTableColumn.GetAllParamsCount
 
 function TkwPopTableColumn.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B6DB26D3AD5E_var*
-//#UC END# *5617F4D00243_B6DB26D3AD5E_var*
 begin
-//#UC START# *5617F4D00243_B6DB26D3AD5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B6DB26D3AD5E_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableColumn.ParamsTypes
 
 function TkwPopTableColumnsIterator.ColumnsIterator(const aCtx: TtfwContext;
@@ -636,12 +662,18 @@ begin
 end;//TkwPopTableColumnsIterator.ColumnsIterator
 
 procedure TkwPopTableColumnsIterator.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_983A86B9A3EB_var*
-//#UC END# *4DAEEDE10285_983A86B9A3EB_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_983A86B9A3EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_983A86B9A3EB_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(ColumnsIterator(aCtx, l_aTable),IedColumnsIterator);
 end;//TkwPopTableColumnsIterator.DoDoIt
 
 class function TkwPopTableColumnsIterator.GetWordNameForRegister: AnsiString;
@@ -660,12 +692,8 @@ begin
 end;//TkwPopTableColumnsIterator.GetAllParamsCount
 
 function TkwPopTableColumnsIterator.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_983A86B9A3EB_var*
-//#UC END# *5617F4D00243_983A86B9A3EB_var*
 begin
-//#UC START# *5617F4D00243_983A86B9A3EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_983A86B9A3EB_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableColumnsIterator.ParamsTypes
 
 function TkwPopTableRowsIterator.RowsIterator(const aCtx: TtfwContext;
@@ -680,12 +708,18 @@ begin
 end;//TkwPopTableRowsIterator.RowsIterator
 
 procedure TkwPopTableRowsIterator.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_06F487D1C4C1_var*
-//#UC END# *4DAEEDE10285_06F487D1C4C1_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_06F487D1C4C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_06F487D1C4C1_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(RowsIterator(aCtx, l_aTable),IedRowsIterator);
 end;//TkwPopTableRowsIterator.DoDoIt
 
 class function TkwPopTableRowsIterator.GetWordNameForRegister: AnsiString;
@@ -704,12 +738,8 @@ begin
 end;//TkwPopTableRowsIterator.GetAllParamsCount
 
 function TkwPopTableRowsIterator.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_06F487D1C4C1_var*
-//#UC END# *5617F4D00243_06F487D1C4C1_var*
 begin
-//#UC START# *5617F4D00243_06F487D1C4C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_06F487D1C4C1_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableRowsIterator.ParamsTypes
 
 function TkwPopTableOldNSRC.OldNSRC(const aCtx: TtfwContext;
@@ -735,12 +765,18 @@ begin
 end;//TkwPopTableOldNSRC.DoSetValue
 
 procedure TkwPopTableOldNSRC.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0948A1EE404E_var*
-//#UC END# *4DAEEDE10285_0948A1EE404E_var*
+var l_aTable: IedTable;
 begin
-//#UC START# *4DAEEDE10285_0948A1EE404E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0948A1EE404E_impl*
+ try
+  l_aTable := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTable: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(OldNSRC(aCtx, l_aTable));
 end;//TkwPopTableOldNSRC.DoDoIt
 
 class function TkwPopTableOldNSRC.GetWordNameForRegister: AnsiString;
@@ -750,12 +786,8 @@ end;//TkwPopTableOldNSRC.GetWordNameForRegister
 
 procedure TkwPopTableOldNSRC.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0948A1EE404E_var*
-//#UC END# *52D00B00031A_0948A1EE404E_var*
 begin
-//#UC START# *52D00B00031A_0948A1EE404E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0948A1EE404E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopTableOldNSRC.SetValuePrim
 
 function TkwPopTableOldNSRC.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -769,12 +801,8 @@ begin
 end;//TkwPopTableOldNSRC.GetAllParamsCount
 
 function TkwPopTableOldNSRC.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0948A1EE404E_var*
-//#UC END# *5617F4D00243_0948A1EE404E_var*
 begin
-//#UC START# *5617F4D00243_0948A1EE404E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0948A1EE404E_impl*
+ Result := OpenTypesToTypes([TypeInfo(IedTable)]);
 end;//TkwPopTableOldNSRC.ParamsTypes
 
 initialization

@@ -133,12 +133,28 @@ begin
 end;//TkwGeneratorsExecute.generators_Execute
 
 procedure TkwGeneratorsExecute.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_825779F5AD08_var*
-//#UC END# *4DAEEDE10285_825779F5AD08_var*
+var l_aTagGenerator: Ik2TagGenerator;
+var l_aFileName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_825779F5AD08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_825779F5AD08_impl*
+ try
+  l_aTagGenerator := Ik2TagGenerator(aCtx.rEngine.PopIntf(Ik2TagGenerator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTagGenerator: Ik2TagGenerator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFileName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ generators_Execute(aCtx, l_aTagGenerator, l_aFileName);
 end;//TkwGeneratorsExecute.DoDoIt
 
 class function TkwGeneratorsExecute.GetWordNameForRegister: AnsiString;
@@ -157,12 +173,8 @@ begin
 end;//TkwGeneratorsExecute.GetAllParamsCount
 
 function TkwGeneratorsExecute.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_825779F5AD08_var*
-//#UC END# *5617F4D00243_825779F5AD08_var*
 begin
-//#UC START# *5617F4D00243_825779F5AD08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_825779F5AD08_impl*
+ Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), @tfw_tiString]);
 end;//TkwGeneratorsExecute.ParamsTypes
 
 function TkwGeneratorsLink.generators_Link(const aCtx: TtfwContext;
@@ -184,12 +196,28 @@ begin
 end;//TkwGeneratorsLink.generators_Link
 
 procedure TkwGeneratorsLink.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E6DB290D23D7_var*
-//#UC END# *4DAEEDE10285_E6DB290D23D7_var*
+var l_aTagGenerator: Ik2TagGenerator;
+var l_aGenHead: Ik2TagGenerator;
 begin
-//#UC START# *4DAEEDE10285_E6DB290D23D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E6DB290D23D7_impl*
+ try
+  l_aTagGenerator := Ik2TagGenerator(aCtx.rEngine.PopIntf(Ik2TagGenerator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTagGenerator: Ik2TagGenerator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aGenHead := Ik2TagGenerator(aCtx.rEngine.PopIntf(Ik2TagGenerator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aGenHead: Ik2TagGenerator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(generators_Link(aCtx, l_aTagGenerator, l_aGenHead),Ik2TagGenerator);
 end;//TkwGeneratorsLink.DoDoIt
 
 class function TkwGeneratorsLink.GetWordNameForRegister: AnsiString;
@@ -208,12 +236,8 @@ begin
 end;//TkwGeneratorsLink.GetAllParamsCount
 
 function TkwGeneratorsLink.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E6DB290D23D7_var*
-//#UC END# *5617F4D00243_E6DB290D23D7_var*
 begin
-//#UC START# *5617F4D00243_E6DB290D23D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E6DB290D23D7_impl*
+ Result := OpenTypesToTypes([TypeInfo(Ik2TagGenerator), TypeInfo(Ik2TagGenerator)]);
 end;//TkwGeneratorsLink.ParamsTypes
 
 initialization

@@ -390,12 +390,18 @@ begin
 end;//TkwPopReminderClick.Click
 
 procedure TkwPopReminderClick.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1C5F9BBE1179_var*
-//#UC END# *4DAEEDE10285_1C5F9BBE1179_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_1C5F9BBE1179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1C5F9BBE1179_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Click(aCtx, l_aReminder);
 end;//TkwPopReminderClick.DoDoIt
 
 class function TkwPopReminderClick.GetWordNameForRegister: AnsiString;
@@ -414,12 +420,8 @@ begin
 end;//TkwPopReminderClick.GetAllParamsCount
 
 function TkwPopReminderClick.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1C5F9BBE1179_var*
-//#UC END# *5617F4D00243_1C5F9BBE1179_var*
 begin
-//#UC START# *5617F4D00243_1C5F9BBE1179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1C5F9BBE1179_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderClick.ParamsTypes
 
 procedure TkwPopReminderMove.Move(const aCtx: TtfwContext;
@@ -436,12 +438,28 @@ begin
 end;//TkwPopReminderMove.Move
 
 procedure TkwPopReminderMove.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0442CDEB32BC_var*
-//#UC END# *4DAEEDE10285_0442CDEB32BC_var*
+var l_aReminder: TvgReminder;
+var l_aDelta: TPoint;
 begin
-//#UC START# *4DAEEDE10285_0442CDEB32BC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0442CDEB32BC_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aDelta := aCtx.rEngine.PopPoint;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDelta: TPoint : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Move(aCtx, l_aReminder, l_aDelta);
 end;//TkwPopReminderMove.DoDoIt
 
 class function TkwPopReminderMove.GetWordNameForRegister: AnsiString;
@@ -460,12 +478,8 @@ begin
 end;//TkwPopReminderMove.GetAllParamsCount
 
 function TkwPopReminderMove.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0442CDEB32BC_var*
-//#UC END# *5617F4D00243_0442CDEB32BC_var*
 begin
-//#UC START# *5617F4D00243_0442CDEB32BC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0442CDEB32BC_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder), @tfw_tiStruct]);
 end;//TkwPopReminderMove.ParamsTypes
 
 function TkwPopReminderFindEditor.FindEditor(const aCtx: TtfwContext;
@@ -490,12 +504,18 @@ begin
 end;//TkwPopReminderFindEditor.FindEditor
 
 procedure TkwPopReminderFindEditor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_649B596A6C75_var*
-//#UC END# *4DAEEDE10285_649B596A6C75_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_649B596A6C75_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_649B596A6C75_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FindEditor(aCtx, l_aReminder));
 end;//TkwPopReminderFindEditor.DoDoIt
 
 class function TkwPopReminderFindEditor.GetWordNameForRegister: AnsiString;
@@ -514,12 +534,8 @@ begin
 end;//TkwPopReminderFindEditor.GetAllParamsCount
 
 function TkwPopReminderFindEditor.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_649B596A6C75_var*
-//#UC END# *5617F4D00243_649B596A6C75_var*
 begin
-//#UC START# *5617F4D00243_649B596A6C75_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_649B596A6C75_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderFindEditor.ParamsTypes
 
 function TkwPopReminderGetPopupMenu.GetPopupMenu(const aCtx: TtfwContext;
@@ -538,12 +554,18 @@ begin
 end;//TkwPopReminderGetPopupMenu.GetPopupMenu
 
 procedure TkwPopReminderGetPopupMenu.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C1FAEFF176B2_var*
-//#UC END# *4DAEEDE10285_C1FAEFF176B2_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_C1FAEFF176B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C1FAEFF176B2_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetPopupMenu(aCtx, l_aReminder));
 end;//TkwPopReminderGetPopupMenu.DoDoIt
 
 class function TkwPopReminderGetPopupMenu.GetWordNameForRegister: AnsiString;
@@ -562,12 +584,8 @@ begin
 end;//TkwPopReminderGetPopupMenu.GetAllParamsCount
 
 function TkwPopReminderGetPopupMenu.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C1FAEFF176B2_var*
-//#UC END# *5617F4D00243_C1FAEFF176B2_var*
 begin
-//#UC START# *5617F4D00243_C1FAEFF176B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C1FAEFF176B2_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderGetPopupMenu.ParamsTypes
 
 function TkwPopReminderImageIndex.ImageIndex(const aCtx: TtfwContext;
@@ -582,12 +600,18 @@ begin
 end;//TkwPopReminderImageIndex.ImageIndex
 
 procedure TkwPopReminderImageIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A580AA2892B6_var*
-//#UC END# *4DAEEDE10285_A580AA2892B6_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_A580AA2892B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A580AA2892B6_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(ImageIndex(aCtx, l_aReminder));
 end;//TkwPopReminderImageIndex.DoDoIt
 
 class function TkwPopReminderImageIndex.GetWordNameForRegister: AnsiString;
@@ -597,12 +621,8 @@ end;//TkwPopReminderImageIndex.GetWordNameForRegister
 
 procedure TkwPopReminderImageIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A580AA2892B6_var*
-//#UC END# *52D00B00031A_A580AA2892B6_var*
 begin
-//#UC START# *52D00B00031A_A580AA2892B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A580AA2892B6_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderImageIndex.SetValuePrim
 
 function TkwPopReminderImageIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -616,12 +636,8 @@ begin
 end;//TkwPopReminderImageIndex.GetAllParamsCount
 
 function TkwPopReminderImageIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A580AA2892B6_var*
-//#UC END# *5617F4D00243_A580AA2892B6_var*
 begin
-//#UC START# *5617F4D00243_A580AA2892B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A580AA2892B6_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderImageIndex.ParamsTypes
 
 function TkwPopReminderUserType.UserType(const aCtx: TtfwContext;
@@ -636,12 +652,18 @@ begin
 end;//TkwPopReminderUserType.UserType
 
 procedure TkwPopReminderUserType.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_03823097F08B_var*
-//#UC END# *4DAEEDE10285_03823097F08B_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_03823097F08B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_03823097F08B_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(UserType(aCtx, l_aReminder));
 end;//TkwPopReminderUserType.DoDoIt
 
 class function TkwPopReminderUserType.GetWordNameForRegister: AnsiString;
@@ -651,12 +673,8 @@ end;//TkwPopReminderUserType.GetWordNameForRegister
 
 procedure TkwPopReminderUserType.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_03823097F08B_var*
-//#UC END# *52D00B00031A_03823097F08B_var*
 begin
-//#UC START# *52D00B00031A_03823097F08B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_03823097F08B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderUserType.SetValuePrim
 
 function TkwPopReminderUserType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -670,12 +688,8 @@ begin
 end;//TkwPopReminderUserType.GetAllParamsCount
 
 function TkwPopReminderUserType.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_03823097F08B_var*
-//#UC END# *5617F4D00243_03823097F08B_var*
 begin
-//#UC START# *5617F4D00243_03823097F08B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_03823097F08B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderUserType.ParamsTypes
 
 function TkwPopReminderIsBaloonVisible.IsBaloonVisible(const aCtx: TtfwContext;
@@ -690,12 +704,18 @@ begin
 end;//TkwPopReminderIsBaloonVisible.IsBaloonVisible
 
 procedure TkwPopReminderIsBaloonVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B5B73476616C_var*
-//#UC END# *4DAEEDE10285_B5B73476616C_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_B5B73476616C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B5B73476616C_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsBaloonVisible(aCtx, l_aReminder));
 end;//TkwPopReminderIsBaloonVisible.DoDoIt
 
 class function TkwPopReminderIsBaloonVisible.GetWordNameForRegister: AnsiString;
@@ -705,12 +725,8 @@ end;//TkwPopReminderIsBaloonVisible.GetWordNameForRegister
 
 procedure TkwPopReminderIsBaloonVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B5B73476616C_var*
-//#UC END# *52D00B00031A_B5B73476616C_var*
 begin
-//#UC START# *52D00B00031A_B5B73476616C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B5B73476616C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderIsBaloonVisible.SetValuePrim
 
 function TkwPopReminderIsBaloonVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -724,12 +740,8 @@ begin
 end;//TkwPopReminderIsBaloonVisible.GetAllParamsCount
 
 function TkwPopReminderIsBaloonVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B5B73476616C_var*
-//#UC END# *5617F4D00243_B5B73476616C_var*
 begin
-//#UC START# *5617F4D00243_B5B73476616C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B5B73476616C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderIsBaloonVisible.ParamsTypes
 
 function TkwPopReminderVisible.Visible(const aCtx: TtfwContext;
@@ -744,12 +756,18 @@ begin
 end;//TkwPopReminderVisible.Visible
 
 procedure TkwPopReminderVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_86556B367D77_var*
-//#UC END# *4DAEEDE10285_86556B367D77_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_86556B367D77_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_86556B367D77_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Visible(aCtx, l_aReminder));
 end;//TkwPopReminderVisible.DoDoIt
 
 class function TkwPopReminderVisible.GetWordNameForRegister: AnsiString;
@@ -759,12 +777,8 @@ end;//TkwPopReminderVisible.GetWordNameForRegister
 
 procedure TkwPopReminderVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_86556B367D77_var*
-//#UC END# *52D00B00031A_86556B367D77_var*
 begin
-//#UC START# *52D00B00031A_86556B367D77_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_86556B367D77_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderVisible.SetValuePrim
 
 function TkwPopReminderVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -778,12 +792,8 @@ begin
 end;//TkwPopReminderVisible.GetAllParamsCount
 
 function TkwPopReminderVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_86556B367D77_var*
-//#UC END# *5617F4D00243_86556B367D77_var*
 begin
-//#UC START# *5617F4D00243_86556B367D77_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_86556B367D77_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderVisible.ParamsTypes
 
 function TkwPopReminderName.Name(const aCtx: TtfwContext;
@@ -798,12 +808,18 @@ begin
 end;//TkwPopReminderName.Name
 
 procedure TkwPopReminderName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_53BA7E6BD35A_var*
-//#UC END# *4DAEEDE10285_53BA7E6BD35A_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_53BA7E6BD35A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_53BA7E6BD35A_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Name(aCtx, l_aReminder));
 end;//TkwPopReminderName.DoDoIt
 
 class function TkwPopReminderName.GetWordNameForRegister: AnsiString;
@@ -813,12 +829,8 @@ end;//TkwPopReminderName.GetWordNameForRegister
 
 procedure TkwPopReminderName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_53BA7E6BD35A_var*
-//#UC END# *52D00B00031A_53BA7E6BD35A_var*
 begin
-//#UC START# *52D00B00031A_53BA7E6BD35A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_53BA7E6BD35A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderName.SetValuePrim
 
 function TkwPopReminderName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -832,12 +844,8 @@ begin
 end;//TkwPopReminderName.GetAllParamsCount
 
 function TkwPopReminderName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_53BA7E6BD35A_var*
-//#UC END# *5617F4D00243_53BA7E6BD35A_var*
 begin
-//#UC START# *5617F4D00243_53BA7E6BD35A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_53BA7E6BD35A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderName.ParamsTypes
 
 function TkwPopReminderFlash.Flash(const aCtx: TtfwContext;
@@ -852,12 +860,18 @@ begin
 end;//TkwPopReminderFlash.Flash
 
 procedure TkwPopReminderFlash.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_41F02D480F88_var*
-//#UC END# *4DAEEDE10285_41F02D480F88_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_41F02D480F88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_41F02D480F88_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Flash(aCtx, l_aReminder));
 end;//TkwPopReminderFlash.DoDoIt
 
 class function TkwPopReminderFlash.GetWordNameForRegister: AnsiString;
@@ -867,12 +881,8 @@ end;//TkwPopReminderFlash.GetWordNameForRegister
 
 procedure TkwPopReminderFlash.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_41F02D480F88_var*
-//#UC END# *52D00B00031A_41F02D480F88_var*
 begin
-//#UC START# *52D00B00031A_41F02D480F88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_41F02D480F88_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderFlash.SetValuePrim
 
 function TkwPopReminderFlash.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -886,12 +896,8 @@ begin
 end;//TkwPopReminderFlash.GetAllParamsCount
 
 function TkwPopReminderFlash.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_41F02D480F88_var*
-//#UC END# *5617F4D00243_41F02D480F88_var*
 begin
-//#UC START# *5617F4D00243_41F02D480F88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_41F02D480F88_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderFlash.ParamsTypes
 
 function TkwPopReminderTextBackColor.TextBackColor(const aCtx: TtfwContext;
@@ -906,12 +912,18 @@ begin
 end;//TkwPopReminderTextBackColor.TextBackColor
 
 procedure TkwPopReminderTextBackColor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4910B3AB2F0F_var*
-//#UC END# *4DAEEDE10285_4910B3AB2F0F_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_4910B3AB2F0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4910B3AB2F0F_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(TextBackColor(aCtx, l_aReminder));
 end;//TkwPopReminderTextBackColor.DoDoIt
 
 class function TkwPopReminderTextBackColor.GetWordNameForRegister: AnsiString;
@@ -921,12 +933,8 @@ end;//TkwPopReminderTextBackColor.GetWordNameForRegister
 
 procedure TkwPopReminderTextBackColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4910B3AB2F0F_var*
-//#UC END# *52D00B00031A_4910B3AB2F0F_var*
 begin
-//#UC START# *52D00B00031A_4910B3AB2F0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4910B3AB2F0F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderTextBackColor.SetValuePrim
 
 function TkwPopReminderTextBackColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -940,12 +948,8 @@ begin
 end;//TkwPopReminderTextBackColor.GetAllParamsCount
 
 function TkwPopReminderTextBackColor.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4910B3AB2F0F_var*
-//#UC END# *5617F4D00243_4910B3AB2F0F_var*
 begin
-//#UC START# *5617F4D00243_4910B3AB2F0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4910B3AB2F0F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderTextBackColor.ParamsTypes
 
 function TkwPopReminderShowHint.ShowHint(const aCtx: TtfwContext;
@@ -960,12 +964,18 @@ begin
 end;//TkwPopReminderShowHint.ShowHint
 
 procedure TkwPopReminderShowHint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_01DFD9EDE9C7_var*
-//#UC END# *4DAEEDE10285_01DFD9EDE9C7_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_01DFD9EDE9C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_01DFD9EDE9C7_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(ShowHint(aCtx, l_aReminder));
 end;//TkwPopReminderShowHint.DoDoIt
 
 class function TkwPopReminderShowHint.GetWordNameForRegister: AnsiString;
@@ -975,12 +985,8 @@ end;//TkwPopReminderShowHint.GetWordNameForRegister
 
 procedure TkwPopReminderShowHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_01DFD9EDE9C7_var*
-//#UC END# *52D00B00031A_01DFD9EDE9C7_var*
 begin
-//#UC START# *52D00B00031A_01DFD9EDE9C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_01DFD9EDE9C7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderShowHint.SetValuePrim
 
 function TkwPopReminderShowHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -994,12 +1000,8 @@ begin
 end;//TkwPopReminderShowHint.GetAllParamsCount
 
 function TkwPopReminderShowHint.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_01DFD9EDE9C7_var*
-//#UC END# *5617F4D00243_01DFD9EDE9C7_var*
 begin
-//#UC START# *5617F4D00243_01DFD9EDE9C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_01DFD9EDE9C7_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderShowHint.ParamsTypes
 
 function TkwPopReminderCaption.Caption(const aCtx: TtfwContext;
@@ -1014,12 +1016,18 @@ begin
 end;//TkwPopReminderCaption.Caption
 
 procedure TkwPopReminderCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D817B4A59BC2_var*
-//#UC END# *4DAEEDE10285_D817B4A59BC2_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_D817B4A59BC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D817B4A59BC2_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Caption(aCtx, l_aReminder));
 end;//TkwPopReminderCaption.DoDoIt
 
 class function TkwPopReminderCaption.GetWordNameForRegister: AnsiString;
@@ -1029,12 +1037,8 @@ end;//TkwPopReminderCaption.GetWordNameForRegister
 
 procedure TkwPopReminderCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D817B4A59BC2_var*
-//#UC END# *52D00B00031A_D817B4A59BC2_var*
 begin
-//#UC START# *52D00B00031A_D817B4A59BC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D817B4A59BC2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderCaption.SetValuePrim
 
 function TkwPopReminderCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1048,12 +1052,8 @@ begin
 end;//TkwPopReminderCaption.GetAllParamsCount
 
 function TkwPopReminderCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D817B4A59BC2_var*
-//#UC END# *5617F4D00243_D817B4A59BC2_var*
 begin
-//#UC START# *5617F4D00243_D817B4A59BC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D817B4A59BC2_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderCaption.ParamsTypes
 
 function TkwPopReminderHint.Hint(const aCtx: TtfwContext;
@@ -1068,12 +1068,18 @@ begin
 end;//TkwPopReminderHint.Hint
 
 procedure TkwPopReminderHint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3D456BE889E3_var*
-//#UC END# *4DAEEDE10285_3D456BE889E3_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_3D456BE889E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3D456BE889E3_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Hint(aCtx, l_aReminder));
 end;//TkwPopReminderHint.DoDoIt
 
 class function TkwPopReminderHint.GetWordNameForRegister: AnsiString;
@@ -1083,12 +1089,8 @@ end;//TkwPopReminderHint.GetWordNameForRegister
 
 procedure TkwPopReminderHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3D456BE889E3_var*
-//#UC END# *52D00B00031A_3D456BE889E3_var*
 begin
-//#UC START# *52D00B00031A_3D456BE889E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3D456BE889E3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderHint.SetValuePrim
 
 function TkwPopReminderHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1102,12 +1104,8 @@ begin
 end;//TkwPopReminderHint.GetAllParamsCount
 
 function TkwPopReminderHint.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3D456BE889E3_var*
-//#UC END# *5617F4D00243_3D456BE889E3_var*
 begin
-//#UC START# *5617F4D00243_3D456BE889E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3D456BE889E3_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderHint.ParamsTypes
 
 function TkwPopReminderPopupForm.PopupForm(const aCtx: TtfwContext;
@@ -1122,12 +1120,18 @@ begin
 end;//TkwPopReminderPopupForm.PopupForm
 
 procedure TkwPopReminderPopupForm.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_27F1AE8E8012_var*
-//#UC END# *4DAEEDE10285_27F1AE8E8012_var*
+var l_aReminder: TvgReminder;
 begin
-//#UC START# *4DAEEDE10285_27F1AE8E8012_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_27F1AE8E8012_impl*
+ try
+  l_aReminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aReminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(PopupForm(aCtx, l_aReminder));
 end;//TkwPopReminderPopupForm.DoDoIt
 
 class function TkwPopReminderPopupForm.GetWordNameForRegister: AnsiString;
@@ -1137,12 +1141,8 @@ end;//TkwPopReminderPopupForm.GetWordNameForRegister
 
 procedure TkwPopReminderPopupForm.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_27F1AE8E8012_var*
-//#UC END# *52D00B00031A_27F1AE8E8012_var*
 begin
-//#UC START# *52D00B00031A_27F1AE8E8012_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_27F1AE8E8012_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopReminderPopupForm.SetValuePrim
 
 function TkwPopReminderPopupForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1156,12 +1156,8 @@ begin
 end;//TkwPopReminderPopupForm.GetAllParamsCount
 
 function TkwPopReminderPopupForm.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_27F1AE8E8012_var*
-//#UC END# *5617F4D00243_27F1AE8E8012_var*
 begin
-//#UC START# *5617F4D00243_27F1AE8E8012_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_27F1AE8E8012_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgReminder)]);
 end;//TkwPopReminderPopupForm.ParamsTypes
 
 initialization

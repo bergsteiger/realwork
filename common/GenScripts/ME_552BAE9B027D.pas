@@ -119,12 +119,18 @@ begin
 end;//TkwVcmToolbarSetGlyphSize.vcm_Toolbar_SetGlyphSize
 
 procedure TkwVcmToolbarSetGlyphSize.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4463E51B5CE8_var*
-//#UC END# *4DAEEDE10285_4463E51B5CE8_var*
+var l_aValue: TvcmGlyphSize;
 begin
-//#UC START# *4DAEEDE10285_4463E51B5CE8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4463E51B5CE8_impl*
+ try
+  l_aValue := TvcmGlyphSize(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: TvcmGlyphSize : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_Toolbar_SetGlyphSize(aCtx, l_aValue);
 end;//TkwVcmToolbarSetGlyphSize.DoDoIt
 
 class function TkwVcmToolbarSetGlyphSize.GetWordNameForRegister: AnsiString;
@@ -143,12 +149,8 @@ begin
 end;//TkwVcmToolbarSetGlyphSize.GetAllParamsCount
 
 function TkwVcmToolbarSetGlyphSize.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4463E51B5CE8_var*
-//#UC END# *5617F4D00243_4463E51B5CE8_var*
 begin
-//#UC START# *5617F4D00243_4463E51B5CE8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4463E51B5CE8_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmGlyphSize)]);
 end;//TkwVcmToolbarSetGlyphSize.ParamsTypes
 
 function TkwVcmToolbarGetGlyphSize.vcm_Toolbar_GetGlyphSize(const aCtx: TtfwContext): TvcmGlyphSize;
@@ -162,12 +164,8 @@ begin
 end;//TkwVcmToolbarGetGlyphSize.vcm_Toolbar_GetGlyphSize
 
 procedure TkwVcmToolbarGetGlyphSize.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CB878D8D1F92_var*
-//#UC END# *4DAEEDE10285_CB878D8D1F92_var*
 begin
-//#UC START# *4DAEEDE10285_CB878D8D1F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CB878D8D1F92_impl*
+ aCtx.rEngine.PushInt(Ord(vcm_Toolbar_GetGlyphSize(aCtx)));
 end;//TkwVcmToolbarGetGlyphSize.DoDoIt
 
 class function TkwVcmToolbarGetGlyphSize.GetWordNameForRegister: AnsiString;
@@ -186,12 +184,8 @@ begin
 end;//TkwVcmToolbarGetGlyphSize.GetAllParamsCount
 
 function TkwVcmToolbarGetGlyphSize.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CB878D8D1F92_var*
-//#UC END# *5617F4D00243_CB878D8D1F92_var*
 begin
-//#UC START# *5617F4D00243_CB878D8D1F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CB878D8D1F92_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVcmToolbarGetGlyphSize.ParamsTypes
 
 function TkwVcmToolbarGetGlyphColorDepth.vcm_Toolbar_GetGlyphColorDepth(const aCtx: TtfwContext): TvcmGlyphColordepth;
@@ -205,12 +199,8 @@ begin
 end;//TkwVcmToolbarGetGlyphColorDepth.vcm_Toolbar_GetGlyphColorDepth
 
 procedure TkwVcmToolbarGetGlyphColorDepth.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8FA6E0CDB066_var*
-//#UC END# *4DAEEDE10285_8FA6E0CDB066_var*
 begin
-//#UC START# *4DAEEDE10285_8FA6E0CDB066_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8FA6E0CDB066_impl*
+ aCtx.rEngine.PushInt(Ord(vcm_Toolbar_GetGlyphColorDepth(aCtx)));
 end;//TkwVcmToolbarGetGlyphColorDepth.DoDoIt
 
 class function TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister: AnsiString;
@@ -229,12 +219,8 @@ begin
 end;//TkwVcmToolbarGetGlyphColorDepth.GetAllParamsCount
 
 function TkwVcmToolbarGetGlyphColorDepth.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8FA6E0CDB066_var*
-//#UC END# *5617F4D00243_8FA6E0CDB066_var*
 begin
-//#UC START# *5617F4D00243_8FA6E0CDB066_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8FA6E0CDB066_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVcmToolbarGetGlyphColorDepth.ParamsTypes
 
 procedure TkwVcmToolbarSetGlyphColorDepth.vcm_Toolbar_SetGlyphColorDepth(const aCtx: TtfwContext;
@@ -249,12 +235,18 @@ begin
 end;//TkwVcmToolbarSetGlyphColorDepth.vcm_Toolbar_SetGlyphColorDepth
 
 procedure TkwVcmToolbarSetGlyphColorDepth.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2E579942A814_var*
-//#UC END# *4DAEEDE10285_2E579942A814_var*
+var l_aValue: TvcmGlyphColordepth;
 begin
-//#UC START# *4DAEEDE10285_2E579942A814_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2E579942A814_impl*
+ try
+  l_aValue := TvcmGlyphColordepth(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: TvcmGlyphColordepth : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_Toolbar_SetGlyphColorDepth(aCtx, l_aValue);
 end;//TkwVcmToolbarSetGlyphColorDepth.DoDoIt
 
 class function TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister: AnsiString;
@@ -273,12 +265,8 @@ begin
 end;//TkwVcmToolbarSetGlyphColorDepth.GetAllParamsCount
 
 function TkwVcmToolbarSetGlyphColorDepth.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2E579942A814_var*
-//#UC END# *5617F4D00243_2E579942A814_var*
 begin
-//#UC START# *5617F4D00243_2E579942A814_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2E579942A814_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmGlyphColordepth)]);
 end;//TkwVcmToolbarSetGlyphColorDepth.ParamsTypes
 
 initialization

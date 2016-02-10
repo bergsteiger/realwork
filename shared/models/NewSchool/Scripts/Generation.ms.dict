@@ -2682,7 +2682,7 @@ elem_proc UserCode:
   ; // .AsVar
   
   elem: ParamAsVar
-   Self .Name Self .Target AsVar
+   Self .Name Self .Target .AsVar
   ; // ParamAsVar
   
   RULES
@@ -2712,7 +2712,7 @@ elem_proc UserCode:
         l_Call .ParametersWithoutContext
         .for> (
           IN aParam
-         [ aParam .AsVar ] .Out
+         [ aParam .ParamAsVar ] .Out
         ) // .for>
        )
        (

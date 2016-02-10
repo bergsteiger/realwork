@@ -78,12 +78,18 @@ begin
 end;//TkwPopSpinEditValue.DoSetValue
 
 procedure TkwPopSpinEditValue.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0F40F0279E11_var*
-//#UC END# *4DAEEDE10285_0F40F0279E11_var*
+var l_aSpinEdit: TvtSpinEdit;
 begin
-//#UC START# *4DAEEDE10285_0F40F0279E11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0F40F0279E11_impl*
+ try
+  l_aSpinEdit := TvtSpinEdit(aCtx.rEngine.PopObjAs(TvtSpinEdit));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSpinEdit: TvtSpinEdit : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Value(aCtx, l_aSpinEdit));
 end;//TkwPopSpinEditValue.DoDoIt
 
 class function TkwPopSpinEditValue.GetWordNameForRegister: AnsiString;
@@ -93,12 +99,8 @@ end;//TkwPopSpinEditValue.GetWordNameForRegister
 
 procedure TkwPopSpinEditValue.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0F40F0279E11_var*
-//#UC END# *52D00B00031A_0F40F0279E11_var*
 begin
-//#UC START# *52D00B00031A_0F40F0279E11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0F40F0279E11_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopSpinEditValue.SetValuePrim
 
 function TkwPopSpinEditValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -112,12 +114,8 @@ begin
 end;//TkwPopSpinEditValue.GetAllParamsCount
 
 function TkwPopSpinEditValue.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0F40F0279E11_var*
-//#UC END# *5617F4D00243_0F40F0279E11_var*
 begin
-//#UC START# *5617F4D00243_0F40F0279E11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0F40F0279E11_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtSpinEdit)]);
 end;//TkwPopSpinEditValue.ParamsTypes
 
 initialization

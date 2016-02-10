@@ -499,12 +499,38 @@ begin
 end;//TkwTreeCheckFlag.tree_CheckFlag
 
 procedure TkwTreeCheckFlag.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3A8F612BD250_var*
-//#UC END# *4DAEEDE10285_3A8F612BD250_var*
+var l_aTree: TvtCustomOutliner;
+var l_aFlag: Integer;
+var l_aNodeID: Integer;
 begin
-//#UC START# *4DAEEDE10285_3A8F612BD250_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3A8F612BD250_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFlag := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFlag: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aNodeID := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNodeID: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(tree_CheckFlag(aCtx, l_aTree, l_aFlag, l_aNodeID));
 end;//TkwTreeCheckFlag.DoDoIt
 
 class function TkwTreeCheckFlag.GetWordNameForRegister: AnsiString;
@@ -523,12 +549,8 @@ begin
 end;//TkwTreeCheckFlag.GetAllParamsCount
 
 function TkwTreeCheckFlag.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3A8F612BD250_var*
-//#UC END# *5617F4D00243_3A8F612BD250_var*
 begin
-//#UC START# *5617F4D00243_3A8F612BD250_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3A8F612BD250_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwTreeCheckFlag.ParamsTypes
 
 procedure TkwTreeCollapseAll.tree_CollapseAll(const aCtx: TtfwContext;
@@ -543,12 +565,18 @@ begin
 end;//TkwTreeCollapseAll.tree_CollapseAll
 
 procedure TkwTreeCollapseAll.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DCC8D602858A_var*
-//#UC END# *4DAEEDE10285_DCC8D602858A_var*
+var l_aTree: TvtCustomOutliner;
 begin
-//#UC START# *4DAEEDE10285_DCC8D602858A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DCC8D602858A_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ tree_CollapseAll(aCtx, l_aTree);
 end;//TkwTreeCollapseAll.DoDoIt
 
 class function TkwTreeCollapseAll.GetWordNameForRegister: AnsiString;
@@ -567,12 +595,8 @@ begin
 end;//TkwTreeCollapseAll.GetAllParamsCount
 
 function TkwTreeCollapseAll.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DCC8D602858A_var*
-//#UC END# *5617F4D00243_DCC8D602858A_var*
 begin
-//#UC START# *5617F4D00243_DCC8D602858A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DCC8D602858A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCollapseAll.ParamsTypes
 
 function TkwTreeCurrentNodeIsExpanded.tree_CurrentNode_IsExpanded(const aCtx: TtfwContext;
@@ -587,12 +611,18 @@ begin
 end;//TkwTreeCurrentNodeIsExpanded.tree_CurrentNode_IsExpanded
 
 procedure TkwTreeCurrentNodeIsExpanded.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_24EBB16818DB_var*
-//#UC END# *4DAEEDE10285_24EBB16818DB_var*
+var l_aTree: TvtCustomOutliner;
 begin
-//#UC START# *4DAEEDE10285_24EBB16818DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_24EBB16818DB_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(tree_CurrentNode_IsExpanded(aCtx, l_aTree));
 end;//TkwTreeCurrentNodeIsExpanded.DoDoIt
 
 class function TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister: AnsiString;
@@ -611,12 +641,8 @@ begin
 end;//TkwTreeCurrentNodeIsExpanded.GetAllParamsCount
 
 function TkwTreeCurrentNodeIsExpanded.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_24EBB16818DB_var*
-//#UC END# *5617F4D00243_24EBB16818DB_var*
 begin
-//#UC START# *5617F4D00243_24EBB16818DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_24EBB16818DB_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCurrentNodeIsExpanded.ParamsTypes
 
 procedure TkwTreeDeleteAllChildren.tree_DeleteAllChildren(const aCtx: TtfwContext;
@@ -639,12 +665,18 @@ begin
 end;//TkwTreeDeleteAllChildren.tree_DeleteAllChildren
 
 procedure TkwTreeDeleteAllChildren.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_88EA9B4D8249_var*
-//#UC END# *4DAEEDE10285_88EA9B4D8249_var*
+var l_aTree: TvtCustomOutliner;
 begin
-//#UC START# *4DAEEDE10285_88EA9B4D8249_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_88EA9B4D8249_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ tree_DeleteAllChildren(aCtx, l_aTree);
 end;//TkwTreeDeleteAllChildren.DoDoIt
 
 class function TkwTreeDeleteAllChildren.GetWordNameForRegister: AnsiString;
@@ -663,12 +695,8 @@ begin
 end;//TkwTreeDeleteAllChildren.GetAllParamsCount
 
 function TkwTreeDeleteAllChildren.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_88EA9B4D8249_var*
-//#UC END# *5617F4D00243_88EA9B4D8249_var*
 begin
-//#UC START# *5617F4D00243_88EA9B4D8249_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_88EA9B4D8249_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeDeleteAllChildren.ParamsTypes
 
 procedure TkwTreeExpandAll.tree_ExpandAll(const aCtx: TtfwContext;
@@ -683,12 +711,18 @@ begin
 end;//TkwTreeExpandAll.tree_ExpandAll
 
 procedure TkwTreeExpandAll.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_11D7E325A602_var*
-//#UC END# *4DAEEDE10285_11D7E325A602_var*
+var l_aTree: TvtCustomOutliner;
 begin
-//#UC START# *4DAEEDE10285_11D7E325A602_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_11D7E325A602_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ tree_ExpandAll(aCtx, l_aTree);
 end;//TkwTreeExpandAll.DoDoIt
 
 class function TkwTreeExpandAll.GetWordNameForRegister: AnsiString;
@@ -707,12 +741,8 @@ begin
 end;//TkwTreeExpandAll.GetAllParamsCount
 
 function TkwTreeExpandAll.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_11D7E325A602_var*
-//#UC END# *5617F4D00243_11D7E325A602_var*
 begin
-//#UC START# *5617F4D00243_11D7E325A602_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_11D7E325A602_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeExpandAll.ParamsTypes
 
 function TkwTreeCurrentNode.tree_CurrentNode(const aCtx: TtfwContext;
@@ -727,12 +757,18 @@ begin
 end;//TkwTreeCurrentNode.tree_CurrentNode
 
 procedure TkwTreeCurrentNode.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6EB6AE69700F_var*
-//#UC END# *4DAEEDE10285_6EB6AE69700F_var*
+var l_aTree: TvtCustomOutliner;
 begin
-//#UC START# *4DAEEDE10285_6EB6AE69700F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6EB6AE69700F_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(tree_CurrentNode(aCtx, l_aTree),Il3SimpleNode);
 end;//TkwTreeCurrentNode.DoDoIt
 
 class function TkwTreeCurrentNode.GetWordNameForRegister: AnsiString;
@@ -751,12 +787,8 @@ begin
 end;//TkwTreeCurrentNode.GetAllParamsCount
 
 function TkwTreeCurrentNode.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6EB6AE69700F_var*
-//#UC END# *5617F4D00243_6EB6AE69700F_var*
 begin
-//#UC START# *5617F4D00243_6EB6AE69700F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6EB6AE69700F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCurrentNode.ParamsTypes
 
 function TkwTreeGetItem.tree_GetItem(const aCtx: TtfwContext;
@@ -772,12 +804,28 @@ begin
 end;//TkwTreeGetItem.tree_GetItem
 
 procedure TkwTreeGetItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E66BB4447886_var*
-//#UC END# *4DAEEDE10285_E66BB4447886_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_E66BB4447886_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E66BB4447886_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(tree_GetItem(aCtx, l_aTree, l_anIndex),Il3SimpleNode);
 end;//TkwTreeGetItem.DoDoIt
 
 class function TkwTreeGetItem.GetWordNameForRegister: AnsiString;
@@ -796,12 +844,8 @@ begin
 end;//TkwTreeGetItem.GetAllParamsCount
 
 function TkwTreeGetItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E66BB4447886_var*
-//#UC END# *5617F4D00243_E66BB4447886_var*
 begin
-//#UC START# *5617F4D00243_E66BB4447886_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E66BB4447886_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItem.ParamsTypes
 
 function TkwTreeGetItemsCount.tree_GetItemsCount(const aCtx: TtfwContext;
@@ -816,12 +860,18 @@ begin
 end;//TkwTreeGetItemsCount.tree_GetItemsCount
 
 procedure TkwTreeGetItemsCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6AA86FBC7A2F_var*
-//#UC END# *4DAEEDE10285_6AA86FBC7A2F_var*
+var l_aTree: TvtCustomOutliner;
 begin
-//#UC START# *4DAEEDE10285_6AA86FBC7A2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6AA86FBC7A2F_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(tree_GetItemsCount(aCtx, l_aTree));
 end;//TkwTreeGetItemsCount.DoDoIt
 
 class function TkwTreeGetItemsCount.GetWordNameForRegister: AnsiString;
@@ -840,12 +890,8 @@ begin
 end;//TkwTreeGetItemsCount.GetAllParamsCount
 
 function TkwTreeGetItemsCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6AA86FBC7A2F_var*
-//#UC END# *5617F4D00243_6AA86FBC7A2F_var*
 begin
-//#UC START# *5617F4D00243_6AA86FBC7A2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6AA86FBC7A2F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeGetItemsCount.ParamsTypes
 
 procedure TkwTreeIterateNodes.tree_IterateNodes(const aCtx: TtfwContext;
@@ -873,12 +919,28 @@ begin
 end;//TkwTreeIterateNodes.tree_IterateNodes
 
 procedure TkwTreeIterateNodes.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_57DF7C56BA33_var*
-//#UC END# *4DAEEDE10285_57DF7C56BA33_var*
+var l_aTree: TvtCustomOutliner;
+var l_aLambda: TtfwWord;
 begin
-//#UC START# *4DAEEDE10285_57DF7C56BA33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_57DF7C56BA33_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLambda: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ tree_IterateNodes(aCtx, l_aTree, l_aLambda);
 end;//TkwTreeIterateNodes.DoDoIt
 
 class function TkwTreeIterateNodes.GetWordNameForRegister: AnsiString;
@@ -897,12 +959,8 @@ begin
 end;//TkwTreeIterateNodes.GetAllParamsCount
 
 function TkwTreeIterateNodes.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_57DF7C56BA33_var*
-//#UC END# *5617F4D00243_57DF7C56BA33_var*
 begin
-//#UC START# *5617F4D00243_57DF7C56BA33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_57DF7C56BA33_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(TtfwWord)]);
 end;//TkwTreeIterateNodes.ParamsTypes
 
 procedure TkwTreeSaveState2File.tree_SaveState2File(const aCtx: TtfwContext;
@@ -955,12 +1013,28 @@ begin
 end;//TkwTreeSaveState2File.tree_SaveState2File
 
 procedure TkwTreeSaveState2File.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B4D43BCE4979_var*
-//#UC END# *4DAEEDE10285_B4D43BCE4979_var*
+var l_aTree: TvtCustomOutliner;
+var l_aFileName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_B4D43BCE4979_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B4D43BCE4979_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFileName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ tree_SaveState2File(aCtx, l_aTree, l_aFileName);
 end;//TkwTreeSaveState2File.DoDoIt
 
 class function TkwTreeSaveState2File.GetWordNameForRegister: AnsiString;
@@ -979,12 +1053,8 @@ begin
 end;//TkwTreeSaveState2File.GetAllParamsCount
 
 function TkwTreeSaveState2File.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B4D43BCE4979_var*
-//#UC END# *5617F4D00243_B4D43BCE4979_var*
 begin
-//#UC START# *5617F4D00243_B4D43BCE4979_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B4D43BCE4979_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), @tfw_tiString]);
 end;//TkwTreeSaveState2File.ParamsTypes
 
 function TkwTreeChildrenCount.tree_ChildrenCount(const aCtx: TtfwContext;
@@ -1000,12 +1070,28 @@ begin
 end;//TkwTreeChildrenCount.tree_ChildrenCount
 
 procedure TkwTreeChildrenCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_015D1248A6CF_var*
-//#UC END# *4DAEEDE10285_015D1248A6CF_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_015D1248A6CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_015D1248A6CF_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(tree_ChildrenCount(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeChildrenCount.DoDoIt
 
 class function TkwTreeChildrenCount.GetWordNameForRegister: AnsiString;
@@ -1024,12 +1110,8 @@ begin
 end;//TkwTreeChildrenCount.GetAllParamsCount
 
 function TkwTreeChildrenCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_015D1248A6CF_var*
-//#UC END# *5617F4D00243_015D1248A6CF_var*
 begin
-//#UC START# *5617F4D00243_015D1248A6CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_015D1248A6CF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeChildrenCount.ParamsTypes
 
 procedure TkwTreeExpand.tree_expand(const aCtx: TtfwContext;
@@ -1045,12 +1127,28 @@ begin
 end;//TkwTreeExpand.tree_expand
 
 procedure TkwTreeExpand.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B776D637E7D3_var*
-//#UC END# *4DAEEDE10285_B776D637E7D3_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_B776D637E7D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B776D637E7D3_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ tree_expand(aCtx, l_aTree, l_anIndex);
 end;//TkwTreeExpand.DoDoIt
 
 class function TkwTreeExpand.GetWordNameForRegister: AnsiString;
@@ -1069,12 +1167,8 @@ begin
 end;//TkwTreeExpand.GetAllParamsCount
 
 function TkwTreeExpand.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B776D637E7D3_var*
-//#UC END# *5617F4D00243_B776D637E7D3_var*
 begin
-//#UC START# *5617F4D00243_B776D637E7D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B776D637E7D3_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeExpand.ParamsTypes
 
 function TkwTreeGetItemHeight.tree_GetItem_Height(const aCtx: TtfwContext;
@@ -1091,12 +1185,28 @@ begin
 end;//TkwTreeGetItemHeight.tree_GetItem_Height
 
 procedure TkwTreeGetItemHeight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_62AE36AC72B7_var*
-//#UC END# *4DAEEDE10285_62AE36AC72B7_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_62AE36AC72B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_62AE36AC72B7_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(tree_GetItem_Height(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemHeight.DoDoIt
 
 class function TkwTreeGetItemHeight.GetWordNameForRegister: AnsiString;
@@ -1115,12 +1225,8 @@ begin
 end;//TkwTreeGetItemHeight.GetAllParamsCount
 
 function TkwTreeGetItemHeight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_62AE36AC72B7_var*
-//#UC END# *5617F4D00243_62AE36AC72B7_var*
 begin
-//#UC START# *5617F4D00243_62AE36AC72B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_62AE36AC72B7_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemHeight.ParamsTypes
 
 function TkwTreeGetItemImageIndex.tree_GetItemImageIndex(const aCtx: TtfwContext;
@@ -1141,12 +1247,28 @@ begin
 end;//TkwTreeGetItemImageIndex.tree_GetItemImageIndex
 
 procedure TkwTreeGetItemImageIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A8F9DB23E07A_var*
-//#UC END# *4DAEEDE10285_A8F9DB23E07A_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_A8F9DB23E07A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A8F9DB23E07A_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(tree_GetItemImageIndex(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemImageIndex.DoDoIt
 
 class function TkwTreeGetItemImageIndex.GetWordNameForRegister: AnsiString;
@@ -1165,12 +1287,8 @@ begin
 end;//TkwTreeGetItemImageIndex.GetAllParamsCount
 
 function TkwTreeGetItemImageIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A8F9DB23E07A_var*
-//#UC END# *5617F4D00243_A8F9DB23E07A_var*
 begin
-//#UC START# *5617F4D00243_A8F9DB23E07A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A8F9DB23E07A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemImageIndex.ParamsTypes
 
 function TkwTreeGetItemLeft.tree_GetItem_Left(const aCtx: TtfwContext;
@@ -1187,12 +1305,28 @@ begin
 end;//TkwTreeGetItemLeft.tree_GetItem_Left
 
 procedure TkwTreeGetItemLeft.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6CAA56491F95_var*
-//#UC END# *4DAEEDE10285_6CAA56491F95_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_6CAA56491F95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6CAA56491F95_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(tree_GetItem_Left(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemLeft.DoDoIt
 
 class function TkwTreeGetItemLeft.GetWordNameForRegister: AnsiString;
@@ -1211,12 +1345,8 @@ begin
 end;//TkwTreeGetItemLeft.GetAllParamsCount
 
 function TkwTreeGetItemLeft.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6CAA56491F95_var*
-//#UC END# *5617F4D00243_6CAA56491F95_var*
 begin
-//#UC START# *5617F4D00243_6CAA56491F95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6CAA56491F95_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemLeft.ParamsTypes
 
 function TkwTreeGetItemTop.tree_GetItem_Top(const aCtx: TtfwContext;
@@ -1233,12 +1363,28 @@ begin
 end;//TkwTreeGetItemTop.tree_GetItem_Top
 
 procedure TkwTreeGetItemTop.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5F6D76A66CAD_var*
-//#UC END# *4DAEEDE10285_5F6D76A66CAD_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_5F6D76A66CAD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5F6D76A66CAD_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(tree_GetItem_Top(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemTop.DoDoIt
 
 class function TkwTreeGetItemTop.GetWordNameForRegister: AnsiString;
@@ -1257,12 +1403,8 @@ begin
 end;//TkwTreeGetItemTop.GetAllParamsCount
 
 function TkwTreeGetItemTop.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5F6D76A66CAD_var*
-//#UC END# *5617F4D00243_5F6D76A66CAD_var*
 begin
-//#UC START# *5617F4D00243_5F6D76A66CAD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5F6D76A66CAD_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemTop.ParamsTypes
 
 function TkwTreeGetItemWidth.tree_GetItem_Width(const aCtx: TtfwContext;
@@ -1279,12 +1421,28 @@ begin
 end;//TkwTreeGetItemWidth.tree_GetItem_Width
 
 procedure TkwTreeGetItemWidth.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_645DA96C0332_var*
-//#UC END# *4DAEEDE10285_645DA96C0332_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_645DA96C0332_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_645DA96C0332_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(tree_GetItem_Width(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemWidth.DoDoIt
 
 class function TkwTreeGetItemWidth.GetWordNameForRegister: AnsiString;
@@ -1303,12 +1461,8 @@ begin
 end;//TkwTreeGetItemWidth.GetAllParamsCount
 
 function TkwTreeGetItemWidth.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_645DA96C0332_var*
-//#UC END# *5617F4D00243_645DA96C0332_var*
 begin
-//#UC START# *5617F4D00243_645DA96C0332_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_645DA96C0332_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemWidth.ParamsTypes
 
 function TkwTreeGetSelected.tree_GetSelected(const aCtx: TtfwContext;
@@ -1324,12 +1478,28 @@ begin
 end;//TkwTreeGetSelected.tree_GetSelected
 
 procedure TkwTreeGetSelected.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5AEA5F2D19AB_var*
-//#UC END# *4DAEEDE10285_5AEA5F2D19AB_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_5AEA5F2D19AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5AEA5F2D19AB_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(tree_GetSelected(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetSelected.DoDoIt
 
 class function TkwTreeGetSelected.GetWordNameForRegister: AnsiString;
@@ -1348,12 +1518,8 @@ begin
 end;//TkwTreeGetSelected.GetAllParamsCount
 
 function TkwTreeGetSelected.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5AEA5F2D19AB_var*
-//#UC END# *5617F4D00243_5AEA5F2D19AB_var*
 begin
-//#UC START# *5617F4D00243_5AEA5F2D19AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5AEA5F2D19AB_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetSelected.ParamsTypes
 
 procedure TkwTreeSetSelected.tree_SetSelected(const aCtx: TtfwContext;
@@ -1370,12 +1536,38 @@ begin
 end;//TkwTreeSetSelected.tree_SetSelected
 
 procedure TkwTreeSetSelected.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_017A97801F00_var*
-//#UC END# *4DAEEDE10285_017A97801F00_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
+var l_aValue: Boolean;
 begin
-//#UC START# *4DAEEDE10285_017A97801F00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_017A97801F00_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ tree_SetSelected(aCtx, l_aTree, l_anIndex, l_aValue);
 end;//TkwTreeSetSelected.DoDoIt
 
 class function TkwTreeSetSelected.GetWordNameForRegister: AnsiString;
@@ -1394,12 +1586,8 @@ begin
 end;//TkwTreeSetSelected.GetAllParamsCount
 
 function TkwTreeSetSelected.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_017A97801F00_var*
-//#UC END# *5617F4D00243_017A97801F00_var*
 begin
-//#UC START# *5617F4D00243_017A97801F00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_017A97801F00_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer), TypeInfo(Boolean)]);
 end;//TkwTreeSetSelected.ParamsTypes
 
 procedure TkwTreeCollapse.tree_collapse(const aCtx: TtfwContext;
@@ -1415,12 +1603,28 @@ begin
 end;//TkwTreeCollapse.tree_collapse
 
 procedure TkwTreeCollapse.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9749EACE054F_var*
-//#UC END# *4DAEEDE10285_9749EACE054F_var*
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_9749EACE054F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9749EACE054F_impl*
+ try
+  l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTree: TvtCustomOutliner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ tree_collapse(aCtx, l_aTree, l_anIndex);
 end;//TkwTreeCollapse.DoDoIt
 
 class function TkwTreeCollapse.GetWordNameForRegister: AnsiString;
@@ -1439,12 +1643,8 @@ begin
 end;//TkwTreeCollapse.GetAllParamsCount
 
 function TkwTreeCollapse.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9749EACE054F_var*
-//#UC END# *5617F4D00243_9749EACE054F_var*
 begin
-//#UC START# *5617F4D00243_9749EACE054F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9749EACE054F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeCollapse.ParamsTypes
 
 initialization

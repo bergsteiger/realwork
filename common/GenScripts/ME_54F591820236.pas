@@ -64,12 +64,18 @@ begin
 end;//TkwPopTB97ButtonDown.Down
 
 procedure TkwPopTB97ButtonDown.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C746DA0CF72F_var*
-//#UC END# *4DAEEDE10285_C746DA0CF72F_var*
+var l_aTB97Button: TCustomToolbarButton97;
 begin
-//#UC START# *4DAEEDE10285_C746DA0CF72F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C746DA0CF72F_impl*
+ try
+  l_aTB97Button := TCustomToolbarButton97(aCtx.rEngine.PopObjAs(TCustomToolbarButton97));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTB97Button: TCustomToolbarButton97 : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Down(aCtx, l_aTB97Button));
 end;//TkwPopTB97ButtonDown.DoDoIt
 
 class function TkwPopTB97ButtonDown.GetWordNameForRegister: AnsiString;
@@ -79,12 +85,8 @@ end;//TkwPopTB97ButtonDown.GetWordNameForRegister
 
 procedure TkwPopTB97ButtonDown.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C746DA0CF72F_var*
-//#UC END# *52D00B00031A_C746DA0CF72F_var*
 begin
-//#UC START# *52D00B00031A_C746DA0CF72F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C746DA0CF72F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopTB97ButtonDown.SetValuePrim
 
 function TkwPopTB97ButtonDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -98,12 +100,8 @@ begin
 end;//TkwPopTB97ButtonDown.GetAllParamsCount
 
 function TkwPopTB97ButtonDown.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C746DA0CF72F_var*
-//#UC END# *5617F4D00243_C746DA0CF72F_var*
 begin
-//#UC START# *5617F4D00243_C746DA0CF72F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C746DA0CF72F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomToolbarButton97)]);
 end;//TkwPopTB97ButtonDown.ParamsTypes
 
 initialization

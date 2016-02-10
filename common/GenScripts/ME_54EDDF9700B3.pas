@@ -311,12 +311,28 @@ begin
 end;//TkwParaBoolA.BoolA
 
 procedure TkwParaBoolA.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_73A41501B720_var*
-//#UC END# *4DAEEDE10285_73A41501B720_var*
+var l_aPara: InevPara;
+var l_aTag: Integer;
 begin
-//#UC START# *4DAEEDE10285_73A41501B720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_73A41501B720_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTag := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTag: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(BoolA(aCtx, l_aPara, l_aTag));
 end;//TkwParaBoolA.DoDoIt
 
 class function TkwParaBoolA.GetWordNameForRegister: AnsiString;
@@ -335,12 +351,8 @@ begin
 end;//TkwParaBoolA.GetAllParamsCount
 
 function TkwParaBoolA.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_73A41501B720_var*
-//#UC END# *5617F4D00243_73A41501B720_var*
 begin
-//#UC START# *5617F4D00243_73A41501B720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_73A41501B720_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaBoolA.ParamsTypes
 
 procedure TkwParaBoolW.BoolW(const aCtx: TtfwContext;
@@ -358,12 +370,48 @@ begin
 end;//TkwParaBoolW.BoolW
 
 procedure TkwParaBoolW.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7DB044DC9B24_var*
-//#UC END# *4DAEEDE10285_7DB044DC9B24_var*
+var l_aPara: InevPara;
+var l_anEditor: TevCustomEditorWindow;
+var l_aValue: Boolean;
+var l_aTag: Integer;
 begin
-//#UC START# *4DAEEDE10285_7DB044DC9B24_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7DB044DC9B24_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTag := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTag: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ BoolW(aCtx, l_aPara, l_anEditor, l_aValue, l_aTag);
 end;//TkwParaBoolW.DoDoIt
 
 class function TkwParaBoolW.GetWordNameForRegister: AnsiString;
@@ -382,12 +430,8 @@ begin
 end;//TkwParaBoolW.GetAllParamsCount
 
 function TkwParaBoolW.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7DB044DC9B24_var*
-//#UC END# *5617F4D00243_7DB044DC9B24_var*
 begin
-//#UC START# *5617F4D00243_7DB044DC9B24_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7DB044DC9B24_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean), TypeInfo(Integer)]);
 end;//TkwParaBoolW.ParamsTypes
 
 function TkwParaGetParent.GetParent(const aCtx: TtfwContext;
@@ -402,12 +446,18 @@ begin
 end;//TkwParaGetParent.GetParent
 
 procedure TkwParaGetParent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8E4CB03D8918_var*
-//#UC END# *4DAEEDE10285_8E4CB03D8918_var*
+var l_aPara: InevPara;
 begin
-//#UC START# *4DAEEDE10285_8E4CB03D8918_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8E4CB03D8918_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(GetParent(aCtx, l_aPara),InevPara);
 end;//TkwParaGetParent.DoDoIt
 
 class function TkwParaGetParent.GetWordNameForRegister: AnsiString;
@@ -426,12 +476,8 @@ begin
 end;//TkwParaGetParent.GetAllParamsCount
 
 function TkwParaGetParent.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8E4CB03D8918_var*
-//#UC END# *5617F4D00243_8E4CB03D8918_var*
 begin
-//#UC START# *5617F4D00243_8E4CB03D8918_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8E4CB03D8918_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaGetParent.ParamsTypes
 
 function TkwParaGetType.GetType(const aCtx: TtfwContext;
@@ -446,12 +492,18 @@ begin
 end;//TkwParaGetType.GetType
 
 procedure TkwParaGetType.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1F1556695E5E_var*
-//#UC END# *4DAEEDE10285_1F1556695E5E_var*
+var l_aPara: InevPara;
 begin
-//#UC START# *4DAEEDE10285_1F1556695E5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1F1556695E5E_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetType(aCtx, l_aPara));
 end;//TkwParaGetType.DoDoIt
 
 class function TkwParaGetType.GetWordNameForRegister: AnsiString;
@@ -470,12 +522,8 @@ begin
 end;//TkwParaGetType.GetAllParamsCount
 
 function TkwParaGetType.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1F1556695E5E_var*
-//#UC END# *5617F4D00243_1F1556695E5E_var*
 begin
-//#UC START# *5617F4D00243_1F1556695E5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1F1556695E5E_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaGetType.ParamsTypes
 
 function TkwParaIntA.IntA(const aCtx: TtfwContext;
@@ -491,12 +539,28 @@ begin
 end;//TkwParaIntA.IntA
 
 procedure TkwParaIntA.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_87CE9706F506_var*
-//#UC END# *4DAEEDE10285_87CE9706F506_var*
+var l_aPara: InevPara;
+var l_aTag: Integer;
 begin
-//#UC START# *4DAEEDE10285_87CE9706F506_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_87CE9706F506_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTag := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTag: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(IntA(aCtx, l_aPara, l_aTag));
 end;//TkwParaIntA.DoDoIt
 
 class function TkwParaIntA.GetWordNameForRegister: AnsiString;
@@ -515,12 +579,8 @@ begin
 end;//TkwParaIntA.GetAllParamsCount
 
 function TkwParaIntA.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_87CE9706F506_var*
-//#UC END# *5617F4D00243_87CE9706F506_var*
 begin
-//#UC START# *5617F4D00243_87CE9706F506_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_87CE9706F506_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaIntA.ParamsTypes
 
 procedure TkwParaIntW.IntW(const aCtx: TtfwContext;
@@ -538,12 +598,48 @@ begin
 end;//TkwParaIntW.IntW
 
 procedure TkwParaIntW.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9C157259C948_var*
-//#UC END# *4DAEEDE10285_9C157259C948_var*
+var l_aPara: InevPara;
+var l_anEditor: TevCustomEditorWindow;
+var l_aValue: Integer;
+var l_aTag: Integer;
 begin
-//#UC START# *4DAEEDE10285_9C157259C948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9C157259C948_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anEditor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTag := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTag: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ IntW(aCtx, l_aPara, l_anEditor, l_aValue, l_aTag);
 end;//TkwParaIntW.DoDoIt
 
 class function TkwParaIntW.GetWordNameForRegister: AnsiString;
@@ -562,12 +658,8 @@ begin
 end;//TkwParaIntW.GetAllParamsCount
 
 function TkwParaIntW.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9C157259C948_var*
-//#UC END# *5617F4D00243_9C157259C948_var*
 begin
-//#UC START# *5617F4D00243_9C157259C948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9C157259C948_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(TevCustomEditorWindow), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwParaIntW.ParamsTypes
 
 function TkwParaIsSame.IsSame(const aCtx: TtfwContext;
@@ -583,12 +675,28 @@ begin
 end;//TkwParaIsSame.IsSame
 
 procedure TkwParaIsSame.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FD4CFCA9A1DA_var*
-//#UC END# *4DAEEDE10285_FD4CFCA9A1DA_var*
+var l_aPara: InevPara;
+var l_anOther: InevPara;
 begin
-//#UC START# *4DAEEDE10285_FD4CFCA9A1DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FD4CFCA9A1DA_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsSame(aCtx, l_aPara, l_anOther));
 end;//TkwParaIsSame.DoDoIt
 
 class function TkwParaIsSame.GetWordNameForRegister: AnsiString;
@@ -607,12 +715,8 @@ begin
 end;//TkwParaIsSame.GetAllParamsCount
 
 function TkwParaIsSame.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FD4CFCA9A1DA_var*
-//#UC END# *5617F4D00243_FD4CFCA9A1DA_var*
 begin
-//#UC START# *5617F4D00243_FD4CFCA9A1DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FD4CFCA9A1DA_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(InevPara)]);
 end;//TkwParaIsSame.ParamsTypes
 
 function TkwParaStrA.StrA(const aCtx: TtfwContext;
@@ -628,12 +732,28 @@ begin
 end;//TkwParaStrA.StrA
 
 procedure TkwParaStrA.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A38F9F2F9E00_var*
-//#UC END# *4DAEEDE10285_A38F9F2F9E00_var*
+var l_aPara: InevPara;
+var l_aTag: Integer;
 begin
-//#UC START# *4DAEEDE10285_A38F9F2F9E00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A38F9F2F9E00_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTag := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTag: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(StrA(aCtx, l_aPara, l_aTag));
 end;//TkwParaStrA.DoDoIt
 
 class function TkwParaStrA.GetWordNameForRegister: AnsiString;
@@ -652,12 +772,8 @@ begin
 end;//TkwParaStrA.GetAllParamsCount
 
 function TkwParaStrA.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A38F9F2F9E00_var*
-//#UC END# *5617F4D00243_A38F9F2F9E00_var*
 begin
-//#UC START# *5617F4D00243_A38F9F2F9E00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A38F9F2F9E00_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaStrA.ParamsTypes
 
 function TkwParaStyleName.StyleName(const aCtx: TtfwContext;
@@ -672,12 +788,18 @@ begin
 end;//TkwParaStyleName.StyleName
 
 procedure TkwParaStyleName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6834305B1C71_var*
-//#UC END# *4DAEEDE10285_6834305B1C71_var*
+var l_aPara: InevPara;
 begin
-//#UC START# *4DAEEDE10285_6834305B1C71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6834305B1C71_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(StyleName(aCtx, l_aPara));
 end;//TkwParaStyleName.DoDoIt
 
 class function TkwParaStyleName.GetWordNameForRegister: AnsiString;
@@ -696,12 +818,8 @@ begin
 end;//TkwParaStyleName.GetAllParamsCount
 
 function TkwParaStyleName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6834305B1C71_var*
-//#UC END# *5617F4D00243_6834305B1C71_var*
 begin
-//#UC START# *5617F4D00243_6834305B1C71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6834305B1C71_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaStyleName.ParamsTypes
 
 function TkwParaText.Text(const aCtx: TtfwContext;
@@ -716,12 +834,18 @@ begin
 end;//TkwParaText.Text
 
 procedure TkwParaText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_742EC299532F_var*
-//#UC END# *4DAEEDE10285_742EC299532F_var*
+var l_aPara: InevPara;
 begin
-//#UC START# *4DAEEDE10285_742EC299532F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_742EC299532F_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Text(aCtx, l_aPara));
 end;//TkwParaText.DoDoIt
 
 class function TkwParaText.GetWordNameForRegister: AnsiString;
@@ -740,12 +864,8 @@ begin
 end;//TkwParaText.GetAllParamsCount
 
 function TkwParaText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_742EC299532F_var*
-//#UC END# *5617F4D00243_742EC299532F_var*
 begin
-//#UC START# *5617F4D00243_742EC299532F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_742EC299532F_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaText.ParamsTypes
 
 function TkwParaTypeInherits.Type_Inherits(const aCtx: TtfwContext;
@@ -761,12 +881,28 @@ begin
 end;//TkwParaTypeInherits.Type_Inherits
 
 procedure TkwParaTypeInherits.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E16D3A553EA8_var*
-//#UC END# *4DAEEDE10285_E16D3A553EA8_var*
+var l_aPara: InevPara;
+var l_aTypeID: Integer;
 begin
-//#UC START# *4DAEEDE10285_E16D3A553EA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E16D3A553EA8_impl*
+ try
+  l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPara: InevPara : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTypeID := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTypeID: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Type_Inherits(aCtx, l_aPara, l_aTypeID));
 end;//TkwParaTypeInherits.DoDoIt
 
 class function TkwParaTypeInherits.GetWordNameForRegister: AnsiString;
@@ -785,12 +921,8 @@ begin
 end;//TkwParaTypeInherits.GetAllParamsCount
 
 function TkwParaTypeInherits.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E16D3A553EA8_var*
-//#UC END# *5617F4D00243_E16D3A553EA8_var*
 begin
-//#UC START# *5617F4D00243_E16D3A553EA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E16D3A553EA8_impl*
+ Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaTypeInherits.ParamsTypes
 
 initialization

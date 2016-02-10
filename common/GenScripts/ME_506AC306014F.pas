@@ -385,12 +385,18 @@ begin
 end;//TkwVgControlVisible.vg_control_Visible
 
 procedure TkwVgControlVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_89C786B088C6_var*
-//#UC END# *4DAEEDE10285_89C786B088C6_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_89C786B088C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_89C786B088C6_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(vg_control_Visible(aCtx, l_aVisualObject));
 end;//TkwVgControlVisible.DoDoIt
 
 class function TkwVgControlVisible.GetWordNameForRegister: AnsiString;
@@ -409,12 +415,8 @@ begin
 end;//TkwVgControlVisible.GetAllParamsCount
 
 function TkwVgControlVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_89C786B088C6_var*
-//#UC END# *5617F4D00243_89C786B088C6_var*
 begin
-//#UC START# *5617F4D00243_89C786B088C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_89C786B088C6_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlVisible.ParamsTypes
 
 function TkwVgControlHeight.vg_control_Height(const aCtx: TtfwContext;
@@ -429,12 +431,18 @@ begin
 end;//TkwVgControlHeight.vg_control_Height
 
 procedure TkwVgControlHeight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_05A703B5907E_var*
-//#UC END# *4DAEEDE10285_05A703B5907E_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_05A703B5907E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_05A703B5907E_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_control_Height(aCtx, l_aVisualObject));
 end;//TkwVgControlHeight.DoDoIt
 
 class function TkwVgControlHeight.GetWordNameForRegister: AnsiString;
@@ -453,12 +461,8 @@ begin
 end;//TkwVgControlHeight.GetAllParamsCount
 
 function TkwVgControlHeight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_05A703B5907E_var*
-//#UC END# *5617F4D00243_05A703B5907E_var*
 begin
-//#UC START# *5617F4D00243_05A703B5907E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_05A703B5907E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlHeight.ParamsTypes
 
 function TkwVgControlWidth.vg_control_Width(const aCtx: TtfwContext;
@@ -473,12 +477,18 @@ begin
 end;//TkwVgControlWidth.vg_control_Width
 
 procedure TkwVgControlWidth.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6D438B9C5A14_var*
-//#UC END# *4DAEEDE10285_6D438B9C5A14_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_6D438B9C5A14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6D438B9C5A14_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_control_Width(aCtx, l_aVisualObject));
 end;//TkwVgControlWidth.DoDoIt
 
 class function TkwVgControlWidth.GetWordNameForRegister: AnsiString;
@@ -497,12 +507,8 @@ begin
 end;//TkwVgControlWidth.GetAllParamsCount
 
 function TkwVgControlWidth.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6D438B9C5A14_var*
-//#UC END# *5617F4D00243_6D438B9C5A14_var*
 begin
-//#UC START# *5617F4D00243_6D438B9C5A14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6D438B9C5A14_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlWidth.ParamsTypes
 
 function TkwVgControlLeft.vg_control_Left(const aCtx: TtfwContext;
@@ -517,12 +523,18 @@ begin
 end;//TkwVgControlLeft.vg_control_Left
 
 procedure TkwVgControlLeft.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0ED393F18084_var*
-//#UC END# *4DAEEDE10285_0ED393F18084_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_0ED393F18084_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0ED393F18084_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_control_Left(aCtx, l_aVisualObject));
 end;//TkwVgControlLeft.DoDoIt
 
 class function TkwVgControlLeft.GetWordNameForRegister: AnsiString;
@@ -541,12 +553,8 @@ begin
 end;//TkwVgControlLeft.GetAllParamsCount
 
 function TkwVgControlLeft.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0ED393F18084_var*
-//#UC END# *5617F4D00243_0ED393F18084_var*
 begin
-//#UC START# *5617F4D00243_0ED393F18084_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0ED393F18084_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlLeft.ParamsTypes
 
 function TkwVgControlTop.vg_control_Top(const aCtx: TtfwContext;
@@ -561,12 +569,18 @@ begin
 end;//TkwVgControlTop.vg_control_Top
 
 procedure TkwVgControlTop.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E4BF70016043_var*
-//#UC END# *4DAEEDE10285_E4BF70016043_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_E4BF70016043_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E4BF70016043_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_control_Top(aCtx, l_aVisualObject));
 end;//TkwVgControlTop.DoDoIt
 
 class function TkwVgControlTop.GetWordNameForRegister: AnsiString;
@@ -585,12 +599,8 @@ begin
 end;//TkwVgControlTop.GetAllParamsCount
 
 function TkwVgControlTop.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E4BF70016043_var*
-//#UC END# *5617F4D00243_E4BF70016043_var*
 begin
-//#UC START# *5617F4D00243_E4BF70016043_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E4BF70016043_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlTop.ParamsTypes
 
 function TkwVgControlEnabled.vg_control_Enabled(const aCtx: TtfwContext;
@@ -605,12 +615,18 @@ begin
 end;//TkwVgControlEnabled.vg_control_Enabled
 
 procedure TkwVgControlEnabled.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_20CB200689C7_var*
-//#UC END# *4DAEEDE10285_20CB200689C7_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_20CB200689C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_20CB200689C7_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(vg_control_Enabled(aCtx, l_aVisualObject));
 end;//TkwVgControlEnabled.DoDoIt
 
 class function TkwVgControlEnabled.GetWordNameForRegister: AnsiString;
@@ -629,12 +645,8 @@ begin
 end;//TkwVgControlEnabled.GetAllParamsCount
 
 function TkwVgControlEnabled.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_20CB200689C7_var*
-//#UC END# *5617F4D00243_20CB200689C7_var*
 begin
-//#UC START# *5617F4D00243_20CB200689C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_20CB200689C7_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlEnabled.ParamsTypes
 
 function TkwVgControlName.vg_control_Name(const aCtx: TtfwContext;
@@ -649,12 +661,18 @@ begin
 end;//TkwVgControlName.vg_control_Name
 
 procedure TkwVgControlName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F80A519316B5_var*
-//#UC END# *4DAEEDE10285_F80A519316B5_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_F80A519316B5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F80A519316B5_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(vg_control_Name(aCtx, l_aVisualObject));
 end;//TkwVgControlName.DoDoIt
 
 class function TkwVgControlName.GetWordNameForRegister: AnsiString;
@@ -673,12 +691,8 @@ begin
 end;//TkwVgControlName.GetAllParamsCount
 
 function TkwVgControlName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F80A519316B5_var*
-//#UC END# *5617F4D00243_F80A519316B5_var*
 begin
-//#UC START# *5617F4D00243_F80A519316B5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F80A519316B5_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlName.ParamsTypes
 
 procedure TkwVgControlClick.vg_control_Click(const aCtx: TtfwContext;
@@ -697,12 +711,18 @@ begin
 end;//TkwVgControlClick.vg_control_Click
 
 procedure TkwVgControlClick.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E94B273F03D9_var*
-//#UC END# *4DAEEDE10285_E94B273F03D9_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_E94B273F03D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E94B273F03D9_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vg_control_Click(aCtx, l_aVisualObject);
 end;//TkwVgControlClick.DoDoIt
 
 class function TkwVgControlClick.GetWordNameForRegister: AnsiString;
@@ -721,12 +741,8 @@ begin
 end;//TkwVgControlClick.GetAllParamsCount
 
 function TkwVgControlClick.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E94B273F03D9_var*
-//#UC END# *5617F4D00243_E94B273F03D9_var*
 begin
-//#UC START# *5617F4D00243_E94B273F03D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E94B273F03D9_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlClick.ParamsTypes
 
 function TkwVgControlCountSiblingLikeMe.vg_control_CountSiblingLikeMe(const aCtx: TtfwContext;
@@ -754,12 +770,18 @@ begin
 end;//TkwVgControlCountSiblingLikeMe.vg_control_CountSiblingLikeMe
 
 procedure TkwVgControlCountSiblingLikeMe.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8969D4FAAB14_var*
-//#UC END# *4DAEEDE10285_8969D4FAAB14_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_8969D4FAAB14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8969D4FAAB14_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_control_CountSiblingLikeMe(aCtx, l_aVisualObject));
 end;//TkwVgControlCountSiblingLikeMe.DoDoIt
 
 class function TkwVgControlCountSiblingLikeMe.GetWordNameForRegister: AnsiString;
@@ -778,12 +800,8 @@ begin
 end;//TkwVgControlCountSiblingLikeMe.GetAllParamsCount
 
 function TkwVgControlCountSiblingLikeMe.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8969D4FAAB14_var*
-//#UC END# *5617F4D00243_8969D4FAAB14_var*
 begin
-//#UC START# *5617F4D00243_8969D4FAAB14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8969D4FAAB14_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlCountSiblingLikeMe.ParamsTypes
 
 function TkwVgControlGetIsChecked.vg_control_GetIsChecked(const aCtx: TtfwContext;
@@ -798,12 +816,18 @@ begin
 end;//TkwVgControlGetIsChecked.vg_control_GetIsChecked
 
 procedure TkwVgControlGetIsChecked.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D3F9471133D7_var*
-//#UC END# *4DAEEDE10285_D3F9471133D7_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_D3F9471133D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D3F9471133D7_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(vg_control_GetIsChecked(aCtx, l_aVisualObject));
 end;//TkwVgControlGetIsChecked.DoDoIt
 
 class function TkwVgControlGetIsChecked.GetWordNameForRegister: AnsiString;
@@ -822,12 +846,8 @@ begin
 end;//TkwVgControlGetIsChecked.GetAllParamsCount
 
 function TkwVgControlGetIsChecked.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D3F9471133D7_var*
-//#UC END# *5617F4D00243_D3F9471133D7_var*
 begin
-//#UC START# *5617F4D00243_D3F9471133D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D3F9471133D7_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlGetIsChecked.ParamsTypes
 
 procedure TkwVgControlSetIsChecked.vg_control_SetIsChecked(const aCtx: TtfwContext;
@@ -843,12 +863,28 @@ begin
 end;//TkwVgControlSetIsChecked.vg_control_SetIsChecked
 
 procedure TkwVgControlSetIsChecked.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5389853B1E01_var*
-//#UC END# *4DAEEDE10285_5389853B1E01_var*
+var l_aVisualObject: TvgVisualObject;
+var l_aValue: Boolean;
 begin
-//#UC START# *4DAEEDE10285_5389853B1E01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5389853B1E01_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vg_control_SetIsChecked(aCtx, l_aVisualObject, l_aValue);
 end;//TkwVgControlSetIsChecked.DoDoIt
 
 class function TkwVgControlSetIsChecked.GetWordNameForRegister: AnsiString;
@@ -867,12 +903,8 @@ begin
 end;//TkwVgControlSetIsChecked.GetAllParamsCount
 
 function TkwVgControlSetIsChecked.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5389853B1E01_var*
-//#UC END# *5617F4D00243_5389853B1E01_var*
 begin
-//#UC START# *5617F4D00243_5389853B1E01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5389853B1E01_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject), TypeInfo(Boolean)]);
 end;//TkwVgControlSetIsChecked.ParamsTypes
 
 function TkwVgControlLeftInScene.vg_control_LeftInScene(const aCtx: TtfwContext;
@@ -898,12 +930,18 @@ begin
 end;//TkwVgControlLeftInScene.vg_control_LeftInScene
 
 procedure TkwVgControlLeftInScene.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0B0F33EAEBDF_var*
-//#UC END# *4DAEEDE10285_0B0F33EAEBDF_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_0B0F33EAEBDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0B0F33EAEBDF_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_control_LeftInScene(aCtx, l_aVisualObject));
 end;//TkwVgControlLeftInScene.DoDoIt
 
 class function TkwVgControlLeftInScene.GetWordNameForRegister: AnsiString;
@@ -922,12 +960,8 @@ begin
 end;//TkwVgControlLeftInScene.GetAllParamsCount
 
 function TkwVgControlLeftInScene.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0B0F33EAEBDF_var*
-//#UC END# *5617F4D00243_0B0F33EAEBDF_var*
 begin
-//#UC START# *5617F4D00243_0B0F33EAEBDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0B0F33EAEBDF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlLeftInScene.ParamsTypes
 
 function TkwVgControlTopInScene.vg_control_TopInScene(const aCtx: TtfwContext;
@@ -953,12 +987,18 @@ begin
 end;//TkwVgControlTopInScene.vg_control_TopInScene
 
 procedure TkwVgControlTopInScene.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FFE6E88470A5_var*
-//#UC END# *4DAEEDE10285_FFE6E88470A5_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_FFE6E88470A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FFE6E88470A5_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vg_control_TopInScene(aCtx, l_aVisualObject));
 end;//TkwVgControlTopInScene.DoDoIt
 
 class function TkwVgControlTopInScene.GetWordNameForRegister: AnsiString;
@@ -977,12 +1017,8 @@ begin
 end;//TkwVgControlTopInScene.GetAllParamsCount
 
 function TkwVgControlTopInScene.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FFE6E88470A5_var*
-//#UC END# *5617F4D00243_FFE6E88470A5_var*
 begin
-//#UC START# *5617F4D00243_FFE6E88470A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FFE6E88470A5_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlTopInScene.ParamsTypes
 
 function TkwVgControlScene.vg_control_Scene(const aCtx: TtfwContext;
@@ -997,12 +1033,18 @@ begin
 end;//TkwVgControlScene.vg_control_Scene
 
 procedure TkwVgControlScene.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E3230FB2D73B_var*
-//#UC END# *4DAEEDE10285_E3230FB2D73B_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_E3230FB2D73B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E3230FB2D73B_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(vg_control_Scene(aCtx, l_aVisualObject));
 end;//TkwVgControlScene.DoDoIt
 
 class function TkwVgControlScene.GetWordNameForRegister: AnsiString;
@@ -1021,12 +1063,8 @@ begin
 end;//TkwVgControlScene.GetAllParamsCount
 
 function TkwVgControlScene.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E3230FB2D73B_var*
-//#UC END# *5617F4D00243_E3230FB2D73B_var*
 begin
-//#UC START# *5617F4D00243_E3230FB2D73B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E3230FB2D73B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlScene.ParamsTypes
 
 function TkwVgControlText.vg_control_Text(const aCtx: TtfwContext;
@@ -1047,12 +1085,18 @@ begin
 end;//TkwVgControlText.vg_control_Text
 
 procedure TkwVgControlText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BD648FBA9D21_var*
-//#UC END# *4DAEEDE10285_BD648FBA9D21_var*
+var l_aVisualObject: TvgVisualObject;
 begin
-//#UC START# *4DAEEDE10285_BD648FBA9D21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BD648FBA9D21_impl*
+ try
+  l_aVisualObject := TvgVisualObject(aCtx.rEngine.PopObjAs(TvgVisualObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVisualObject: TvgVisualObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(vg_control_Text(aCtx, l_aVisualObject));
 end;//TkwVgControlText.DoDoIt
 
 class function TkwVgControlText.GetWordNameForRegister: AnsiString;
@@ -1071,12 +1115,8 @@ begin
 end;//TkwVgControlText.GetAllParamsCount
 
 function TkwVgControlText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BD648FBA9D21_var*
-//#UC END# *5617F4D00243_BD648FBA9D21_var*
 begin
-//#UC START# *5617F4D00243_BD648FBA9D21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BD648FBA9D21_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvgVisualObject)]);
 end;//TkwVgControlText.ParamsTypes
 
 initialization

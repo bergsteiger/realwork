@@ -123,12 +123,8 @@ begin
 end;//TkwApplicationIsHintVisible.application_IsHintVisible
 
 procedure TkwApplicationIsHintVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0EF7A152CBB4_var*
-//#UC END# *4DAEEDE10285_0EF7A152CBB4_var*
 begin
-//#UC START# *4DAEEDE10285_0EF7A152CBB4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0EF7A152CBB4_impl*
+ aCtx.rEngine.PushBool(application_IsHintVisible(aCtx));
 end;//TkwApplicationIsHintVisible.DoDoIt
 
 class function TkwApplicationIsHintVisible.GetWordNameForRegister: AnsiString;
@@ -147,12 +143,8 @@ begin
 end;//TkwApplicationIsHintVisible.GetAllParamsCount
 
 function TkwApplicationIsHintVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0EF7A152CBB4_var*
-//#UC END# *5617F4D00243_0EF7A152CBB4_var*
 begin
-//#UC START# *5617F4D00243_0EF7A152CBB4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0EF7A152CBB4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwApplicationIsHintVisible.ParamsTypes
 
 function TkwApplicationGetLastHint.application_GetLastHint(const aCtx: TtfwContext): Il3CString;
@@ -170,12 +162,8 @@ begin
 end;//TkwApplicationGetLastHint.application_GetLastHint
 
 procedure TkwApplicationGetLastHint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_64C2DF1C9241_var*
-//#UC END# *4DAEEDE10285_64C2DF1C9241_var*
 begin
-//#UC START# *4DAEEDE10285_64C2DF1C9241_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_64C2DF1C9241_impl*
+ aCtx.rEngine.PushString(application_GetLastHint(aCtx));
 end;//TkwApplicationGetLastHint.DoDoIt
 
 class function TkwApplicationGetLastHint.GetWordNameForRegister: AnsiString;
@@ -194,12 +182,8 @@ begin
 end;//TkwApplicationGetLastHint.GetAllParamsCount
 
 function TkwApplicationGetLastHint.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_64C2DF1C9241_var*
-//#UC END# *5617F4D00243_64C2DF1C9241_var*
 begin
-//#UC START# *5617F4D00243_64C2DF1C9241_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_64C2DF1C9241_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwApplicationGetLastHint.ParamsTypes
 
 initialization

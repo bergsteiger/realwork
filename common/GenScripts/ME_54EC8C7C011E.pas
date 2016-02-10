@@ -334,12 +334,28 @@ begin
 end;//TkwPopComboBoxDropDown.DropDown
 
 procedure TkwPopComboBoxDropDown.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B7676CD1AAB3_var*
-//#UC END# *4DAEEDE10285_B7676CD1AAB3_var*
+var l_aComboBox: TCustomComboBox;
+var l_aValue: Boolean;
 begin
-//#UC START# *4DAEEDE10285_B7676CD1AAB3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B7676CD1AAB3_impl*
+ try
+  l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TCustomComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DropDown(aCtx, l_aComboBox, l_aValue);
 end;//TkwPopComboBoxDropDown.DoDoIt
 
 class function TkwPopComboBoxDropDown.GetWordNameForRegister: AnsiString;
@@ -358,12 +374,8 @@ begin
 end;//TkwPopComboBoxDropDown.GetAllParamsCount
 
 function TkwPopComboBoxDropDown.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B7676CD1AAB3_var*
-//#UC END# *5617F4D00243_B7676CD1AAB3_var*
 begin
-//#UC START# *5617F4D00243_B7676CD1AAB3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B7676CD1AAB3_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(Boolean)]);
 end;//TkwPopComboBoxDropDown.ParamsTypes
 
 function TkwPopComboBoxGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
@@ -378,12 +390,18 @@ begin
 end;//TkwPopComboBoxGetItemIndex.GetItemIndex
 
 procedure TkwPopComboBoxGetItemIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_731890DC5F90_var*
-//#UC END# *4DAEEDE10285_731890DC5F90_var*
+var l_aComboBox: TCustomComboBox;
 begin
-//#UC START# *4DAEEDE10285_731890DC5F90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_731890DC5F90_impl*
+ try
+  l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TCustomComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(GetItemIndex(aCtx, l_aComboBox));
 end;//TkwPopComboBoxGetItemIndex.DoDoIt
 
 class function TkwPopComboBoxGetItemIndex.GetWordNameForRegister: AnsiString;
@@ -402,12 +420,8 @@ begin
 end;//TkwPopComboBoxGetItemIndex.GetAllParamsCount
 
 function TkwPopComboBoxGetItemIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_731890DC5F90_var*
-//#UC END# *5617F4D00243_731890DC5F90_var*
 begin
-//#UC START# *5617F4D00243_731890DC5F90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_731890DC5F90_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox)]);
 end;//TkwPopComboBoxGetItemIndex.ParamsTypes
 
 function TkwPopComboBoxIndexOf.IndexOf(const aCtx: TtfwContext;
@@ -423,12 +437,28 @@ begin
 end;//TkwPopComboBoxIndexOf.IndexOf
 
 procedure TkwPopComboBoxIndexOf.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_697C86093610_var*
-//#UC END# *4DAEEDE10285_697C86093610_var*
+var l_aComboBox: TCustomComboBox;
+var l_aString: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_697C86093610_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_697C86093610_impl*
+ try
+  l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TCustomComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aString := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(IndexOf(aCtx, l_aComboBox, l_aString));
 end;//TkwPopComboBoxIndexOf.DoDoIt
 
 class function TkwPopComboBoxIndexOf.GetWordNameForRegister: AnsiString;
@@ -447,12 +477,8 @@ begin
 end;//TkwPopComboBoxIndexOf.GetAllParamsCount
 
 function TkwPopComboBoxIndexOf.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_697C86093610_var*
-//#UC END# *5617F4D00243_697C86093610_var*
 begin
-//#UC START# *5617F4D00243_697C86093610_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_697C86093610_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxIndexOf.ParamsTypes
 
 procedure TkwPopComboBoxSelectItem.SelectItem(const aCtx: TtfwContext;
@@ -468,12 +494,28 @@ begin
 end;//TkwPopComboBoxSelectItem.SelectItem
 
 procedure TkwPopComboBoxSelectItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E94AE4FC3D32_var*
-//#UC END# *4DAEEDE10285_E94AE4FC3D32_var*
+var l_aComboBox: TCustomComboBox;
+var l_aString: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_E94AE4FC3D32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E94AE4FC3D32_impl*
+ try
+  l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TCustomComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aString := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SelectItem(aCtx, l_aComboBox, l_aString);
 end;//TkwPopComboBoxSelectItem.DoDoIt
 
 class function TkwPopComboBoxSelectItem.GetWordNameForRegister: AnsiString;
@@ -492,12 +534,8 @@ begin
 end;//TkwPopComboBoxSelectItem.GetAllParamsCount
 
 function TkwPopComboBoxSelectItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E94AE4FC3D32_var*
-//#UC END# *5617F4D00243_E94AE4FC3D32_var*
 begin
-//#UC START# *5617F4D00243_E94AE4FC3D32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E94AE4FC3D32_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxSelectItem.ParamsTypes
 
 procedure TkwPopComboBoxSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
@@ -514,12 +552,28 @@ begin
 end;//TkwPopComboBoxSetItemIndex.SetItemIndex
 
 procedure TkwPopComboBoxSetItemIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DF10F6F55A61_var*
-//#UC END# *4DAEEDE10285_DF10F6F55A61_var*
+var l_aComboBox: TCustomComboBox;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_DF10F6F55A61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DF10F6F55A61_impl*
+ try
+  l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TCustomComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetItemIndex(aCtx, l_aComboBox, l_anIndex);
 end;//TkwPopComboBoxSetItemIndex.DoDoIt
 
 class function TkwPopComboBoxSetItemIndex.GetWordNameForRegister: AnsiString;
@@ -538,12 +592,8 @@ begin
 end;//TkwPopComboBoxSetItemIndex.GetAllParamsCount
 
 function TkwPopComboBoxSetItemIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DF10F6F55A61_var*
-//#UC END# *5617F4D00243_DF10F6F55A61_var*
 begin
-//#UC START# *5617F4D00243_DF10F6F55A61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DF10F6F55A61_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(Integer)]);
 end;//TkwPopComboBoxSetItemIndex.ParamsTypes
 
 procedure TkwPopComboBoxSaveItems.SaveItems(const aCtx: TtfwContext;
@@ -578,12 +628,28 @@ begin
 end;//TkwPopComboBoxSaveItems.SaveItems
 
 procedure TkwPopComboBoxSaveItems.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F4F78563FAA5_var*
-//#UC END# *4DAEEDE10285_F4F78563FAA5_var*
+var l_aComboBox: TCustomComboBox;
+var l_aFileName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_F4F78563FAA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F4F78563FAA5_impl*
+ try
+  l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboBox: TCustomComboBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFileName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SaveItems(aCtx, l_aComboBox, l_aFileName);
 end;//TkwPopComboBoxSaveItems.DoDoIt
 
 class function TkwPopComboBoxSaveItems.GetWordNameForRegister: AnsiString;
@@ -602,12 +668,8 @@ begin
 end;//TkwPopComboBoxSaveItems.GetAllParamsCount
 
 function TkwPopComboBoxSaveItems.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F4F78563FAA5_var*
-//#UC END# *5617F4D00243_F4F78563FAA5_var*
 begin
-//#UC START# *5617F4D00243_F4F78563FAA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F4F78563FAA5_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxSaveItems.ParamsTypes
 
 procedure TkwPopComboTreeDropDown.DropDown(const aCtx: TtfwContext;
@@ -623,12 +685,28 @@ begin
 end;//TkwPopComboTreeDropDown.DropDown
 
 procedure TkwPopComboTreeDropDown.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CBB40EABEDB6_var*
-//#UC END# *4DAEEDE10285_CBB40EABEDB6_var*
+var l_aComboTree: TvtComboTree;
+var l_aValue: Boolean;
 begin
-//#UC START# *4DAEEDE10285_CBB40EABEDB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CBB40EABEDB6_impl*
+ try
+  l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboTree: TvtComboTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DropDown(aCtx, l_aComboTree, l_aValue);
 end;//TkwPopComboTreeDropDown.DoDoIt
 
 class function TkwPopComboTreeDropDown.GetWordNameForRegister: AnsiString;
@@ -647,12 +725,8 @@ begin
 end;//TkwPopComboTreeDropDown.GetAllParamsCount
 
 function TkwPopComboTreeDropDown.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CBB40EABEDB6_var*
-//#UC END# *5617F4D00243_CBB40EABEDB6_var*
 begin
-//#UC START# *5617F4D00243_CBB40EABEDB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CBB40EABEDB6_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(Boolean)]);
 end;//TkwPopComboTreeDropDown.ParamsTypes
 
 function TkwPopComboTreeGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
@@ -670,12 +744,18 @@ begin
 end;//TkwPopComboTreeGetItemIndex.GetItemIndex
 
 procedure TkwPopComboTreeGetItemIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FDB2008A1DAA_var*
-//#UC END# *4DAEEDE10285_FDB2008A1DAA_var*
+var l_aComboTree: TvtComboTree;
 begin
-//#UC START# *4DAEEDE10285_FDB2008A1DAA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FDB2008A1DAA_impl*
+ try
+  l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboTree: TvtComboTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(GetItemIndex(aCtx, l_aComboTree));
 end;//TkwPopComboTreeGetItemIndex.DoDoIt
 
 class function TkwPopComboTreeGetItemIndex.GetWordNameForRegister: AnsiString;
@@ -694,12 +774,8 @@ begin
 end;//TkwPopComboTreeGetItemIndex.GetAllParamsCount
 
 function TkwPopComboTreeGetItemIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FDB2008A1DAA_var*
-//#UC END# *5617F4D00243_FDB2008A1DAA_var*
 begin
-//#UC START# *5617F4D00243_FDB2008A1DAA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FDB2008A1DAA_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree)]);
 end;//TkwPopComboTreeGetItemIndex.ParamsTypes
 
 function TkwPopComboTreeIndexOf.IndexOf(const aCtx: TtfwContext;
@@ -715,12 +791,28 @@ begin
 end;//TkwPopComboTreeIndexOf.IndexOf
 
 procedure TkwPopComboTreeIndexOf.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C0C842FB1A8C_var*
-//#UC END# *4DAEEDE10285_C0C842FB1A8C_var*
+var l_aComboTree: TvtComboTree;
+var l_aString: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_C0C842FB1A8C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C0C842FB1A8C_impl*
+ try
+  l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboTree: TvtComboTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aString := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(IndexOf(aCtx, l_aComboTree, l_aString));
 end;//TkwPopComboTreeIndexOf.DoDoIt
 
 class function TkwPopComboTreeIndexOf.GetWordNameForRegister: AnsiString;
@@ -739,12 +831,8 @@ begin
 end;//TkwPopComboTreeIndexOf.GetAllParamsCount
 
 function TkwPopComboTreeIndexOf.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C0C842FB1A8C_var*
-//#UC END# *5617F4D00243_C0C842FB1A8C_var*
 begin
-//#UC START# *5617F4D00243_C0C842FB1A8C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C0C842FB1A8C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeIndexOf.ParamsTypes
 
 procedure TkwPopComboTreeSelectItem.SelectItem(const aCtx: TtfwContext;
@@ -760,12 +848,28 @@ begin
 end;//TkwPopComboTreeSelectItem.SelectItem
 
 procedure TkwPopComboTreeSelectItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B5A21C7BEE37_var*
-//#UC END# *4DAEEDE10285_B5A21C7BEE37_var*
+var l_aComboTree: TvtComboTree;
+var l_aString: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_B5A21C7BEE37_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B5A21C7BEE37_impl*
+ try
+  l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboTree: TvtComboTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aString := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SelectItem(aCtx, l_aComboTree, l_aString);
 end;//TkwPopComboTreeSelectItem.DoDoIt
 
 class function TkwPopComboTreeSelectItem.GetWordNameForRegister: AnsiString;
@@ -784,12 +888,8 @@ begin
 end;//TkwPopComboTreeSelectItem.GetAllParamsCount
 
 function TkwPopComboTreeSelectItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B5A21C7BEE37_var*
-//#UC END# *5617F4D00243_B5A21C7BEE37_var*
 begin
-//#UC START# *5617F4D00243_B5A21C7BEE37_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B5A21C7BEE37_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeSelectItem.ParamsTypes
 
 procedure TkwPopComboTreeSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
@@ -814,12 +914,28 @@ begin
 end;//TkwPopComboTreeSetItemIndex.SetItemIndex
 
 procedure TkwPopComboTreeSetItemIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8C448529271A_var*
-//#UC END# *4DAEEDE10285_8C448529271A_var*
+var l_aComboTree: TvtComboTree;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_8C448529271A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8C448529271A_impl*
+ try
+  l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboTree: TvtComboTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetItemIndex(aCtx, l_aComboTree, l_anIndex);
 end;//TkwPopComboTreeSetItemIndex.DoDoIt
 
 class function TkwPopComboTreeSetItemIndex.GetWordNameForRegister: AnsiString;
@@ -838,12 +954,8 @@ begin
 end;//TkwPopComboTreeSetItemIndex.GetAllParamsCount
 
 function TkwPopComboTreeSetItemIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8C448529271A_var*
-//#UC END# *5617F4D00243_8C448529271A_var*
 begin
-//#UC START# *5617F4D00243_8C448529271A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8C448529271A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(Integer)]);
 end;//TkwPopComboTreeSetItemIndex.ParamsTypes
 
 procedure TkwPopComboTreeSaveItems.SaveItems(const aCtx: TtfwContext;
@@ -874,12 +986,28 @@ begin
 end;//TkwPopComboTreeSaveItems.SaveItems
 
 procedure TkwPopComboTreeSaveItems.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_957FA5E0E3AB_var*
-//#UC END# *4DAEEDE10285_957FA5E0E3AB_var*
+var l_aComboTree: TvtComboTree;
+var l_aFileName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_957FA5E0E3AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_957FA5E0E3AB_impl*
+ try
+  l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComboTree: TvtComboTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFileName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SaveItems(aCtx, l_aComboTree, l_aFileName);
 end;//TkwPopComboTreeSaveItems.DoDoIt
 
 class function TkwPopComboTreeSaveItems.GetWordNameForRegister: AnsiString;
@@ -898,12 +1026,8 @@ begin
 end;//TkwPopComboTreeSaveItems.GetAllParamsCount
 
 function TkwPopComboTreeSaveItems.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_957FA5E0E3AB_var*
-//#UC END# *5617F4D00243_957FA5E0E3AB_var*
 begin
-//#UC START# *5617F4D00243_957FA5E0E3AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_957FA5E0E3AB_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeSaveItems.ParamsTypes
 
 initialization
