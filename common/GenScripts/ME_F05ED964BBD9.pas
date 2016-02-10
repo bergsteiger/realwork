@@ -262,7 +262,12 @@ end;//TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwListAnalizerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B5BF39070BB2_var*
+//#UC END# *52D00B00031A_B5BF39070BB2_var*
 begin
+//#UC START# *52D00B00031A_B5BF39070BB2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B5BF39070BB2_impl*
 end;//TkwListAnalizerFormBackgroundPanel.SetValuePrim
 
 function TkwListAnalizerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -307,7 +312,12 @@ end;//TkwListAnalizerFormListTree.GetWordNameForRegister
 
 procedure TkwListAnalizerFormListTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4AAC0AE9EF9E_var*
+//#UC END# *52D00B00031A_4AAC0AE9EF9E_var*
 begin
+//#UC START# *52D00B00031A_4AAC0AE9EF9E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4AAC0AE9EF9E_impl*
 end;//TkwListAnalizerFormListTree.SetValuePrim
 
 function TkwListAnalizerFormListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

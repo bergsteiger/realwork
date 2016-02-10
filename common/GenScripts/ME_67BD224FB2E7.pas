@@ -240,7 +240,12 @@ end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
 
 procedure TkwEfListInfoListInfoViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6C1002171F6A_var*
+//#UC END# *52D00B00031A_6C1002171F6A_var*
 begin
+//#UC START# *52D00B00031A_6C1002171F6A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6C1002171F6A_impl*
 end;//TkwEfListInfoListInfoViewer.SetValuePrim
 
 function TkwEfListInfoListInfoViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -285,7 +290,12 @@ end;//TkwEfListInfoTextSource.GetWordNameForRegister
 
 procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_288FE0C200C7_var*
+//#UC END# *52D00B00031A_288FE0C200C7_var*
 begin
+//#UC START# *52D00B00031A_288FE0C200C7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_288FE0C200C7_impl*
 end;//TkwEfListInfoTextSource.SetValuePrim
 
 function TkwEfListInfoTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

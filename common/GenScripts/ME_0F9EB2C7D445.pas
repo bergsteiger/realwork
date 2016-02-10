@@ -790,7 +790,12 @@ end;//TkwEfListRemindersLine.GetWordNameForRegister
 
 procedure TkwEfListRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4B02DC799E8A_var*
+//#UC END# *52D00B00031A_4B02DC799E8A_var*
 begin
+//#UC START# *52D00B00031A_4B02DC799E8A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4B02DC799E8A_impl*
 end;//TkwEfListRemindersLine.SetValuePrim
 
 function TkwEfListRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -835,7 +840,12 @@ end;//TkwEfListRemListFiltered.GetWordNameForRegister
 
 procedure TkwEfListRemListFiltered.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_9EDC79448FB0_var*
+//#UC END# *52D00B00031A_9EDC79448FB0_var*
 begin
+//#UC START# *52D00B00031A_9EDC79448FB0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_9EDC79448FB0_impl*
 end;//TkwEfListRemListFiltered.SetValuePrim
 
 function TkwEfListRemListFiltered.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -880,7 +890,12 @@ end;//TkwEfListRemListModified.GetWordNameForRegister
 
 procedure TkwEfListRemListModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_715456D52720_var*
+//#UC END# *52D00B00031A_715456D52720_var*
 begin
+//#UC START# *52D00B00031A_715456D52720_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_715456D52720_impl*
 end;//TkwEfListRemListModified.SetValuePrim
 
 function TkwEfListRemListModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -925,7 +940,12 @@ end;//TkwEfListRemTimeMachineWarning.GetWordNameForRegister
 
 procedure TkwEfListRemTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_914FC12132E1_var*
+//#UC END# *52D00B00031A_914FC12132E1_var*
 begin
+//#UC START# *52D00B00031A_914FC12132E1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_914FC12132E1_impl*
 end;//TkwEfListRemTimeMachineWarning.SetValuePrim
 
 function TkwEfListRemTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -970,7 +990,12 @@ end;//TkwEfListEmptyListEditor.GetWordNameForRegister
 
 procedure TkwEfListEmptyListEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4926301346C5_var*
+//#UC END# *52D00B00031A_4926301346C5_var*
 begin
+//#UC START# *52D00B00031A_4926301346C5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4926301346C5_impl*
 end;//TkwEfListEmptyListEditor.SetValuePrim
 
 function TkwEfListEmptyListEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1015,7 +1040,12 @@ end;//TkwEfListListPanel.GetWordNameForRegister
 
 procedure TkwEfListListPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_27A65BB46620_var*
+//#UC END# *52D00B00031A_27A65BB46620_var*
 begin
+//#UC START# *52D00B00031A_27A65BB46620_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_27A65BB46620_impl*
 end;//TkwEfListListPanel.SetValuePrim
 
 function TkwEfListListPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1060,7 +1090,12 @@ end;//TkwEfListTvList.GetWordNameForRegister
 
 procedure TkwEfListTvList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8A0E3F8249F5_var*
+//#UC END# *52D00B00031A_8A0E3F8249F5_var*
 begin
+//#UC START# *52D00B00031A_8A0E3F8249F5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8A0E3F8249F5_impl*
 end;//TkwEfListTvList.SetValuePrim
 
 function TkwEfListTvList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1105,7 +1140,12 @@ end;//TkwEfListCfList.GetWordNameForRegister
 
 procedure TkwEfListCfList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E2E83C1BEE9F_var*
+//#UC END# *52D00B00031A_E2E83C1BEE9F_var*
 begin
+//#UC START# *52D00B00031A_E2E83C1BEE9F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E2E83C1BEE9F_impl*
 end;//TkwEfListCfList.SetValuePrim
 
 function TkwEfListCfList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
