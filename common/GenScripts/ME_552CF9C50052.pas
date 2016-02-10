@@ -82,12 +82,8 @@ end;//TkwFilterAutolinkFilter.filter_AutolinkFilter
 {$IfEnd} // Defined(Archi)
 
 procedure TkwFilterAutolinkFilter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_115E7EFB89B4_var*
-//#UC END# *4DAEEDE10285_115E7EFB89B4_var*
 begin
-//#UC START# *4DAEEDE10285_115E7EFB89B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_115E7EFB89B4_impl*
+ aCtx.rEngine.PushIntf(filter_AutolinkFilter(aCtx),Ik2TagGenerator);
 end;//TkwFilterAutolinkFilter.DoDoIt
 
 class function TkwFilterAutolinkFilter.GetWordNameForRegister: AnsiString;
@@ -106,12 +102,8 @@ begin
 end;//TkwFilterAutolinkFilter.GetAllParamsCount
 
 function TkwFilterAutolinkFilter.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_115E7EFB89B4_var*
-//#UC END# *5617F4D00243_115E7EFB89B4_var*
 begin
-//#UC START# *5617F4D00243_115E7EFB89B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_115E7EFB89B4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwFilterAutolinkFilter.ParamsTypes
 
 procedure TkwFilterCleanAutolinkFilter.DoDoIt(const aCtx: TtfwContext);

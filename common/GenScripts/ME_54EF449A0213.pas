@@ -158,12 +158,18 @@ begin
 end;//TkwNodeIsFirst.IsFirst
 
 procedure TkwNodeIsFirst.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_45751BDD834B_var*
-//#UC END# *4DAEEDE10285_45751BDD834B_var*
+var l_aNode: Il3SimpleNode;
 begin
-//#UC START# *4DAEEDE10285_45751BDD834B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_45751BDD834B_impl*
+ try
+  l_aNode := Il3SimpleNode(aCtx.rEngine.PopIntf(Il3SimpleNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: Il3SimpleNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsFirst(aCtx, l_aNode));
 end;//TkwNodeIsFirst.DoDoIt
 
 class function TkwNodeIsFirst.GetWordNameForRegister: AnsiString;
@@ -173,12 +179,8 @@ end;//TkwNodeIsFirst.GetWordNameForRegister
 
 procedure TkwNodeIsFirst.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_45751BDD834B_var*
-//#UC END# *52D00B00031A_45751BDD834B_var*
 begin
-//#UC START# *52D00B00031A_45751BDD834B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_45751BDD834B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству IsFirst', aCtx);
 end;//TkwNodeIsFirst.SetValuePrim
 
 function TkwNodeIsFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -192,12 +194,8 @@ begin
 end;//TkwNodeIsFirst.GetAllParamsCount
 
 function TkwNodeIsFirst.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_45751BDD834B_var*
-//#UC END# *5617F4D00243_45751BDD834B_var*
 begin
-//#UC START# *5617F4D00243_45751BDD834B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_45751BDD834B_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeIsFirst.ParamsTypes
 
 function TkwNodeIsLast.IsLast(const aCtx: TtfwContext;
@@ -212,12 +210,18 @@ begin
 end;//TkwNodeIsLast.IsLast
 
 procedure TkwNodeIsLast.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_97BDCC1D1FFB_var*
-//#UC END# *4DAEEDE10285_97BDCC1D1FFB_var*
+var l_aNode: Il3SimpleNode;
 begin
-//#UC START# *4DAEEDE10285_97BDCC1D1FFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_97BDCC1D1FFB_impl*
+ try
+  l_aNode := Il3SimpleNode(aCtx.rEngine.PopIntf(Il3SimpleNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: Il3SimpleNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsLast(aCtx, l_aNode));
 end;//TkwNodeIsLast.DoDoIt
 
 class function TkwNodeIsLast.GetWordNameForRegister: AnsiString;
@@ -227,12 +231,8 @@ end;//TkwNodeIsLast.GetWordNameForRegister
 
 procedure TkwNodeIsLast.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_97BDCC1D1FFB_var*
-//#UC END# *52D00B00031A_97BDCC1D1FFB_var*
 begin
-//#UC START# *52D00B00031A_97BDCC1D1FFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_97BDCC1D1FFB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству IsLast', aCtx);
 end;//TkwNodeIsLast.SetValuePrim
 
 function TkwNodeIsLast.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -246,12 +246,8 @@ begin
 end;//TkwNodeIsLast.GetAllParamsCount
 
 function TkwNodeIsLast.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_97BDCC1D1FFB_var*
-//#UC END# *5617F4D00243_97BDCC1D1FFB_var*
 begin
-//#UC START# *5617F4D00243_97BDCC1D1FFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_97BDCC1D1FFB_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeIsLast.ParamsTypes
 
 function TkwNodeFlags.Flags(const aCtx: TtfwContext;
@@ -266,12 +262,18 @@ begin
 end;//TkwNodeFlags.Flags
 
 procedure TkwNodeFlags.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DA2D728F699C_var*
-//#UC END# *4DAEEDE10285_DA2D728F699C_var*
+var l_aNode: Il3SimpleNode;
 begin
-//#UC START# *4DAEEDE10285_DA2D728F699C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DA2D728F699C_impl*
+ try
+  l_aNode := Il3SimpleNode(aCtx.rEngine.PopIntf(Il3SimpleNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: Il3SimpleNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Flags(aCtx, l_aNode));
 end;//TkwNodeFlags.DoDoIt
 
 class function TkwNodeFlags.GetWordNameForRegister: AnsiString;
@@ -281,12 +283,8 @@ end;//TkwNodeFlags.GetWordNameForRegister
 
 procedure TkwNodeFlags.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DA2D728F699C_var*
-//#UC END# *52D00B00031A_DA2D728F699C_var*
 begin
-//#UC START# *52D00B00031A_DA2D728F699C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DA2D728F699C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Flags', aCtx);
 end;//TkwNodeFlags.SetValuePrim
 
 function TkwNodeFlags.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -300,12 +298,8 @@ begin
 end;//TkwNodeFlags.GetAllParamsCount
 
 function TkwNodeFlags.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DA2D728F699C_var*
-//#UC END# *5617F4D00243_DA2D728F699C_var*
 begin
-//#UC START# *5617F4D00243_DA2D728F699C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DA2D728F699C_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeFlags.ParamsTypes
 
 function TkwNodeText.Text(const aCtx: TtfwContext;
@@ -320,12 +314,18 @@ begin
 end;//TkwNodeText.Text
 
 procedure TkwNodeText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_70C4D26A03EF_var*
-//#UC END# *4DAEEDE10285_70C4D26A03EF_var*
+var l_aNode: Il3SimpleNode;
 begin
-//#UC START# *4DAEEDE10285_70C4D26A03EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_70C4D26A03EF_impl*
+ try
+  l_aNode := Il3SimpleNode(aCtx.rEngine.PopIntf(Il3SimpleNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: Il3SimpleNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Text(aCtx, l_aNode));
 end;//TkwNodeText.DoDoIt
 
 class function TkwNodeText.GetWordNameForRegister: AnsiString;
@@ -335,12 +335,8 @@ end;//TkwNodeText.GetWordNameForRegister
 
 procedure TkwNodeText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_70C4D26A03EF_var*
-//#UC END# *52D00B00031A_70C4D26A03EF_var*
 begin
-//#UC START# *52D00B00031A_70C4D26A03EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_70C4D26A03EF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwNodeText.SetValuePrim
 
 function TkwNodeText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -354,12 +350,8 @@ begin
 end;//TkwNodeText.GetAllParamsCount
 
 function TkwNodeText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_70C4D26A03EF_var*
-//#UC END# *5617F4D00243_70C4D26A03EF_var*
 begin
-//#UC START# *5617F4D00243_70C4D26A03EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_70C4D26A03EF_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3SimpleNode)]);
 end;//TkwNodeText.ParamsTypes
 
 initialization

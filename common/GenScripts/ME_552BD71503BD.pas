@@ -104,12 +104,18 @@ begin
 end;//TkwGeneratePDFForEtalon.GeneratePDFForEtalon
 
 procedure TkwGeneratePDFForEtalon.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8682318410BD_var*
-//#UC END# *4DAEEDE10285_8682318410BD_var*
+var l_aValue: Boolean;
 begin
-//#UC START# *4DAEEDE10285_8682318410BD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8682318410BD_impl*
+ try
+  l_aValue := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ GeneratePDFForEtalon(aCtx, l_aValue);
 end;//TkwGeneratePDFForEtalon.DoDoIt
 
 class function TkwGeneratePDFForEtalon.GetWordNameForRegister: AnsiString;
@@ -128,12 +134,8 @@ begin
 end;//TkwGeneratePDFForEtalon.GetAllParamsCount
 
 function TkwGeneratePDFForEtalon.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8682318410BD_var*
-//#UC END# *5617F4D00243_8682318410BD_var*
 begin
-//#UC START# *5617F4D00243_8682318410BD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8682318410BD_impl*
+ Result := OpenTypesToTypes([TypeInfo(Boolean)]);
 end;//TkwGeneratePDFForEtalon.ParamsTypes
 
 initialization

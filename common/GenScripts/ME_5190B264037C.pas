@@ -246,12 +246,18 @@ begin
 end;//TkwFontColor.Color
 
 procedure TkwFontColor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B42B6353E972_var*
-//#UC END# *4DAEEDE10285_B42B6353E972_var*
+var l_aFont: Il3FontInfo;
 begin
-//#UC START# *4DAEEDE10285_B42B6353E972_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B42B6353E972_impl*
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Integer(Color(aCtx, l_aFont)));
 end;//TkwFontColor.DoDoIt
 
 class function TkwFontColor.GetWordNameForRegister: AnsiString;
@@ -261,12 +267,8 @@ end;//TkwFontColor.GetWordNameForRegister
 
 procedure TkwFontColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B42B6353E972_var*
-//#UC END# *52D00B00031A_B42B6353E972_var*
 begin
-//#UC START# *52D00B00031A_B42B6353E972_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B42B6353E972_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Color', aCtx);
 end;//TkwFontColor.SetValuePrim
 
 function TkwFontColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -280,12 +282,8 @@ begin
 end;//TkwFontColor.GetAllParamsCount
 
 function TkwFontColor.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B42B6353E972_var*
-//#UC END# *5617F4D00243_B42B6353E972_var*
 begin
-//#UC START# *5617F4D00243_B42B6353E972_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B42B6353E972_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontColor.ParamsTypes
 
 function TkwFontBackColor.BackColor(const aCtx: TtfwContext;
@@ -300,12 +298,18 @@ begin
 end;//TkwFontBackColor.BackColor
 
 procedure TkwFontBackColor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ADDA8C159EED_var*
-//#UC END# *4DAEEDE10285_ADDA8C159EED_var*
+var l_aFont: Il3FontInfo;
 begin
-//#UC START# *4DAEEDE10285_ADDA8C159EED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ADDA8C159EED_impl*
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Integer(BackColor(aCtx, l_aFont)));
 end;//TkwFontBackColor.DoDoIt
 
 class function TkwFontBackColor.GetWordNameForRegister: AnsiString;
@@ -315,12 +319,8 @@ end;//TkwFontBackColor.GetWordNameForRegister
 
 procedure TkwFontBackColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ADDA8C159EED_var*
-//#UC END# *52D00B00031A_ADDA8C159EED_var*
 begin
-//#UC START# *52D00B00031A_ADDA8C159EED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ADDA8C159EED_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackColor', aCtx);
 end;//TkwFontBackColor.SetValuePrim
 
 function TkwFontBackColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -334,12 +334,8 @@ begin
 end;//TkwFontBackColor.GetAllParamsCount
 
 function TkwFontBackColor.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_ADDA8C159EED_var*
-//#UC END# *5617F4D00243_ADDA8C159EED_var*
 begin
-//#UC START# *5617F4D00243_ADDA8C159EED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_ADDA8C159EED_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontBackColor.ParamsTypes
 
 function TkwFontIsBold.IsBold(const aCtx: TtfwContext;
@@ -354,12 +350,18 @@ begin
 end;//TkwFontIsBold.IsBold
 
 procedure TkwFontIsBold.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6426AF77D4E5_var*
-//#UC END# *4DAEEDE10285_6426AF77D4E5_var*
+var l_aFont: Il3FontInfo;
 begin
-//#UC START# *4DAEEDE10285_6426AF77D4E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6426AF77D4E5_impl*
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsBold(aCtx, l_aFont));
 end;//TkwFontIsBold.DoDoIt
 
 class function TkwFontIsBold.GetWordNameForRegister: AnsiString;
@@ -369,12 +371,8 @@ end;//TkwFontIsBold.GetWordNameForRegister
 
 procedure TkwFontIsBold.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6426AF77D4E5_var*
-//#UC END# *52D00B00031A_6426AF77D4E5_var*
 begin
-//#UC START# *52D00B00031A_6426AF77D4E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6426AF77D4E5_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству IsBold', aCtx);
 end;//TkwFontIsBold.SetValuePrim
 
 function TkwFontIsBold.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -388,12 +386,8 @@ begin
 end;//TkwFontIsBold.GetAllParamsCount
 
 function TkwFontIsBold.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6426AF77D4E5_var*
-//#UC END# *5617F4D00243_6426AF77D4E5_var*
 begin
-//#UC START# *5617F4D00243_6426AF77D4E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6426AF77D4E5_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsBold.ParamsTypes
 
 function TkwFontIsItalic.IsItalic(const aCtx: TtfwContext;
@@ -408,12 +402,18 @@ begin
 end;//TkwFontIsItalic.IsItalic
 
 procedure TkwFontIsItalic.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FAD60EB55765_var*
-//#UC END# *4DAEEDE10285_FAD60EB55765_var*
+var l_aFont: Il3FontInfo;
 begin
-//#UC START# *4DAEEDE10285_FAD60EB55765_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FAD60EB55765_impl*
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsItalic(aCtx, l_aFont));
 end;//TkwFontIsItalic.DoDoIt
 
 class function TkwFontIsItalic.GetWordNameForRegister: AnsiString;
@@ -423,12 +423,8 @@ end;//TkwFontIsItalic.GetWordNameForRegister
 
 procedure TkwFontIsItalic.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FAD60EB55765_var*
-//#UC END# *52D00B00031A_FAD60EB55765_var*
 begin
-//#UC START# *52D00B00031A_FAD60EB55765_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FAD60EB55765_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству IsItalic', aCtx);
 end;//TkwFontIsItalic.SetValuePrim
 
 function TkwFontIsItalic.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -442,12 +438,8 @@ begin
 end;//TkwFontIsItalic.GetAllParamsCount
 
 function TkwFontIsItalic.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FAD60EB55765_var*
-//#UC END# *5617F4D00243_FAD60EB55765_var*
 begin
-//#UC START# *5617F4D00243_FAD60EB55765_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FAD60EB55765_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsItalic.ParamsTypes
 
 function TkwFontIsUnderline.IsUnderline(const aCtx: TtfwContext;
@@ -462,12 +454,18 @@ begin
 end;//TkwFontIsUnderline.IsUnderline
 
 procedure TkwFontIsUnderline.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0A56585439B0_var*
-//#UC END# *4DAEEDE10285_0A56585439B0_var*
+var l_aFont: Il3FontInfo;
 begin
-//#UC START# *4DAEEDE10285_0A56585439B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0A56585439B0_impl*
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsUnderline(aCtx, l_aFont));
 end;//TkwFontIsUnderline.DoDoIt
 
 class function TkwFontIsUnderline.GetWordNameForRegister: AnsiString;
@@ -477,12 +475,8 @@ end;//TkwFontIsUnderline.GetWordNameForRegister
 
 procedure TkwFontIsUnderline.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0A56585439B0_var*
-//#UC END# *52D00B00031A_0A56585439B0_var*
 begin
-//#UC START# *52D00B00031A_0A56585439B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0A56585439B0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству IsUnderline', aCtx);
 end;//TkwFontIsUnderline.SetValuePrim
 
 function TkwFontIsUnderline.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -496,12 +490,8 @@ begin
 end;//TkwFontIsUnderline.GetAllParamsCount
 
 function TkwFontIsUnderline.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0A56585439B0_var*
-//#UC END# *5617F4D00243_0A56585439B0_var*
 begin
-//#UC START# *5617F4D00243_0A56585439B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0A56585439B0_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsUnderline.ParamsTypes
 
 function TkwFontIsStrikeOut.IsStrikeOut(const aCtx: TtfwContext;
@@ -516,12 +506,18 @@ begin
 end;//TkwFontIsStrikeOut.IsStrikeOut
 
 procedure TkwFontIsStrikeOut.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_48690441DF69_var*
-//#UC END# *4DAEEDE10285_48690441DF69_var*
+var l_aFont: Il3FontInfo;
 begin
-//#UC START# *4DAEEDE10285_48690441DF69_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_48690441DF69_impl*
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsStrikeOut(aCtx, l_aFont));
 end;//TkwFontIsStrikeOut.DoDoIt
 
 class function TkwFontIsStrikeOut.GetWordNameForRegister: AnsiString;
@@ -531,12 +527,8 @@ end;//TkwFontIsStrikeOut.GetWordNameForRegister
 
 procedure TkwFontIsStrikeOut.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_48690441DF69_var*
-//#UC END# *52D00B00031A_48690441DF69_var*
 begin
-//#UC START# *52D00B00031A_48690441DF69_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_48690441DF69_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству IsStrikeOut', aCtx);
 end;//TkwFontIsStrikeOut.SetValuePrim
 
 function TkwFontIsStrikeOut.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -550,12 +542,8 @@ begin
 end;//TkwFontIsStrikeOut.GetAllParamsCount
 
 function TkwFontIsStrikeOut.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_48690441DF69_var*
-//#UC END# *5617F4D00243_48690441DF69_var*
 begin
-//#UC START# *5617F4D00243_48690441DF69_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_48690441DF69_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontIsStrikeOut.ParamsTypes
 
 function TkwFontName.Name(const aCtx: TtfwContext;
@@ -570,12 +558,18 @@ begin
 end;//TkwFontName.Name
 
 procedure TkwFontName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7A73CF636A32_var*
-//#UC END# *4DAEEDE10285_7A73CF636A32_var*
+var l_aFont: Il3FontInfo;
 begin
-//#UC START# *4DAEEDE10285_7A73CF636A32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7A73CF636A32_impl*
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Name(aCtx, l_aFont));
 end;//TkwFontName.DoDoIt
 
 class function TkwFontName.GetWordNameForRegister: AnsiString;
@@ -585,12 +579,8 @@ end;//TkwFontName.GetWordNameForRegister
 
 procedure TkwFontName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7A73CF636A32_var*
-//#UC END# *52D00B00031A_7A73CF636A32_var*
 begin
-//#UC START# *52D00B00031A_7A73CF636A32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7A73CF636A32_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
 end;//TkwFontName.SetValuePrim
 
 function TkwFontName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -604,12 +594,8 @@ begin
 end;//TkwFontName.GetAllParamsCount
 
 function TkwFontName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7A73CF636A32_var*
-//#UC END# *5617F4D00243_7A73CF636A32_var*
 begin
-//#UC START# *5617F4D00243_7A73CF636A32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7A73CF636A32_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontName.ParamsTypes
 
 function TkwFontSize.Size(const aCtx: TtfwContext;
@@ -624,12 +610,18 @@ begin
 end;//TkwFontSize.Size
 
 procedure TkwFontSize.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F76B0EA46A07_var*
-//#UC END# *4DAEEDE10285_F76B0EA46A07_var*
+var l_aFont: Il3FontInfo;
 begin
-//#UC START# *4DAEEDE10285_F76B0EA46A07_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F76B0EA46A07_impl*
+ try
+  l_aFont := Il3FontInfo(aCtx.rEngine.PopIntf(Il3FontInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFont: Il3FontInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Size(aCtx, l_aFont));
 end;//TkwFontSize.DoDoIt
 
 class function TkwFontSize.GetWordNameForRegister: AnsiString;
@@ -639,12 +631,8 @@ end;//TkwFontSize.GetWordNameForRegister
 
 procedure TkwFontSize.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F76B0EA46A07_var*
-//#UC END# *52D00B00031A_F76B0EA46A07_var*
 begin
-//#UC START# *52D00B00031A_F76B0EA46A07_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F76B0EA46A07_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Size', aCtx);
 end;//TkwFontSize.SetValuePrim
 
 function TkwFontSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -658,12 +646,8 @@ begin
 end;//TkwFontSize.GetAllParamsCount
 
 function TkwFontSize.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F76B0EA46A07_var*
-//#UC END# *5617F4D00243_F76B0EA46A07_var*
 begin
-//#UC START# *5617F4D00243_F76B0EA46A07_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F76B0EA46A07_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3FontInfo)]);
 end;//TkwFontSize.ParamsTypes
 
 initialization

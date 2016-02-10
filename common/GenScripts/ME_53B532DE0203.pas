@@ -132,12 +132,18 @@ begin
 end;//TkwNodeCaption.Caption
 
 procedure TkwNodeCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_925538F9D93F_var*
-//#UC END# *4DAEEDE10285_925538F9D93F_var*
+var l_aNode: Il3Node;
 begin
-//#UC START# *4DAEEDE10285_925538F9D93F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_925538F9D93F_impl*
+ try
+  l_aNode := Il3Node(aCtx.rEngine.PopIntf(Il3Node));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: Il3Node : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Caption(aCtx, l_aNode));
 end;//TkwNodeCaption.DoDoIt
 
 class function TkwNodeCaption.GetWordNameForRegister: AnsiString;
@@ -147,12 +153,8 @@ end;//TkwNodeCaption.GetWordNameForRegister
 
 procedure TkwNodeCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_925538F9D93F_var*
-//#UC END# *52D00B00031A_925538F9D93F_var*
 begin
-//#UC START# *52D00B00031A_925538F9D93F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_925538F9D93F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
 end;//TkwNodeCaption.SetValuePrim
 
 function TkwNodeCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -166,12 +168,8 @@ begin
 end;//TkwNodeCaption.GetAllParamsCount
 
 function TkwNodeCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_925538F9D93F_var*
-//#UC END# *5617F4D00243_925538F9D93F_var*
 begin
-//#UC START# *5617F4D00243_925538F9D93F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_925538F9D93F_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeCaption.ParamsTypes
 
 function TkwNodeIndex.Index(const aCtx: TtfwContext;
@@ -186,12 +184,18 @@ begin
 end;//TkwNodeIndex.Index
 
 procedure TkwNodeIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_34FBBF0F2ACD_var*
-//#UC END# *4DAEEDE10285_34FBBF0F2ACD_var*
+var l_aNode: Il3Node;
 begin
-//#UC START# *4DAEEDE10285_34FBBF0F2ACD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_34FBBF0F2ACD_impl*
+ try
+  l_aNode := Il3Node(aCtx.rEngine.PopIntf(Il3Node));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: Il3Node : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Index(aCtx, l_aNode));
 end;//TkwNodeIndex.DoDoIt
 
 class function TkwNodeIndex.GetWordNameForRegister: AnsiString;
@@ -201,12 +205,8 @@ end;//TkwNodeIndex.GetWordNameForRegister
 
 procedure TkwNodeIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_34FBBF0F2ACD_var*
-//#UC END# *52D00B00031A_34FBBF0F2ACD_var*
 begin
-//#UC START# *52D00B00031A_34FBBF0F2ACD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_34FBBF0F2ACD_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Index', aCtx);
 end;//TkwNodeIndex.SetValuePrim
 
 function TkwNodeIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -220,12 +220,8 @@ begin
 end;//TkwNodeIndex.GetAllParamsCount
 
 function TkwNodeIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_34FBBF0F2ACD_var*
-//#UC END# *5617F4D00243_34FBBF0F2ACD_var*
 begin
-//#UC START# *5617F4D00243_34FBBF0F2ACD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_34FBBF0F2ACD_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeIndex.ParamsTypes
 
 function TkwNodeIndexInTree.IndexInTree(const aCtx: TtfwContext;
@@ -254,12 +250,18 @@ begin
 end;//TkwNodeIndexInTree.IndexInTree
 
 procedure TkwNodeIndexInTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1B9E11EA21FB_var*
-//#UC END# *4DAEEDE10285_1B9E11EA21FB_var*
+var l_aNode: Il3Node;
 begin
-//#UC START# *4DAEEDE10285_1B9E11EA21FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1B9E11EA21FB_impl*
+ try
+  l_aNode := Il3Node(aCtx.rEngine.PopIntf(Il3Node));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: Il3Node : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(IndexInTree(aCtx, l_aNode));
 end;//TkwNodeIndexInTree.DoDoIt
 
 class function TkwNodeIndexInTree.GetWordNameForRegister: AnsiString;
@@ -269,12 +271,8 @@ end;//TkwNodeIndexInTree.GetWordNameForRegister
 
 procedure TkwNodeIndexInTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1B9E11EA21FB_var*
-//#UC END# *52D00B00031A_1B9E11EA21FB_var*
 begin
-//#UC START# *52D00B00031A_1B9E11EA21FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1B9E11EA21FB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству IndexInTree', aCtx);
 end;//TkwNodeIndexInTree.SetValuePrim
 
 function TkwNodeIndexInTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -288,12 +286,8 @@ begin
 end;//TkwNodeIndexInTree.GetAllParamsCount
 
 function TkwNodeIndexInTree.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1B9E11EA21FB_var*
-//#UC END# *5617F4D00243_1B9E11EA21FB_var*
 begin
-//#UC START# *5617F4D00243_1B9E11EA21FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1B9E11EA21FB_impl*
+ Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeIndexInTree.ParamsTypes
 
 initialization
