@@ -262,12 +262,8 @@ end;//TkwEfGroupListBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEfGroupListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6BCC2CEE5EC2_var*
-//#UC END# *52D00B00031A_6BCC2CEE5EC2_var*
 begin
-//#UC START# *52D00B00031A_6BCC2CEE5EC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6BCC2CEE5EC2_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfGroupListBackgroundPanel.SetValuePrim
 
 function TkwEfGroupListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -281,12 +277,8 @@ begin
 end;//TkwEfGroupListBackgroundPanel.GetAllParamsCount
 
 function TkwEfGroupListBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6BCC2CEE5EC2_var*
-//#UC END# *5617F4D00243_6BCC2CEE5EC2_var*
 begin
-//#UC START# *5617F4D00243_6BCC2CEE5EC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6BCC2CEE5EC2_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfGroupListBackgroundPanel.ParamsTypes
 
 function TkwEfGroupListGroupsTree.GroupsTree(const aCtx: TtfwContext;
@@ -316,12 +308,8 @@ end;//TkwEfGroupListGroupsTree.GetWordNameForRegister
 
 procedure TkwEfGroupListGroupsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_682D3079A453_var*
-//#UC END# *52D00B00031A_682D3079A453_var*
 begin
-//#UC START# *52D00B00031A_682D3079A453_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_682D3079A453_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfGroupListGroupsTree.SetValuePrim
 
 function TkwEfGroupListGroupsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -335,12 +323,8 @@ begin
 end;//TkwEfGroupListGroupsTree.GetAllParamsCount
 
 function TkwEfGroupListGroupsTree.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_682D3079A453_var*
-//#UC END# *5617F4D00243_682D3079A453_var*
 begin
-//#UC START# *5617F4D00243_682D3079A453_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_682D3079A453_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfGroupListGroupsTree.ParamsTypes
 
 initialization

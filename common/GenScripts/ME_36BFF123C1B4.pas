@@ -264,12 +264,8 @@ end;//TkwEfGroupPropertyEdName.GetWordNameForRegister
 
 procedure TkwEfGroupPropertyEdName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4F99EBEBC67D_var*
-//#UC END# *52D00B00031A_4F99EBEBC67D_var*
 begin
-//#UC START# *52D00B00031A_4F99EBEBC67D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4F99EBEBC67D_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfGroupPropertyEdName.SetValuePrim
 
 function TkwEfGroupPropertyEdName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -283,12 +279,8 @@ begin
 end;//TkwEfGroupPropertyEdName.GetAllParamsCount
 
 function TkwEfGroupPropertyEdName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4F99EBEBC67D_var*
-//#UC END# *5617F4D00243_4F99EBEBC67D_var*
 begin
-//#UC START# *5617F4D00243_4F99EBEBC67D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4F99EBEBC67D_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfGroupPropertyEdName.ParamsTypes
 
 function TkwEfGroupPropertyLabel1.Label1(const aCtx: TtfwContext;
@@ -318,12 +310,8 @@ end;//TkwEfGroupPropertyLabel1.GetWordNameForRegister
 
 procedure TkwEfGroupPropertyLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8DC84936A887_var*
-//#UC END# *52D00B00031A_8DC84936A887_var*
 begin
-//#UC START# *52D00B00031A_8DC84936A887_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8DC84936A887_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfGroupPropertyLabel1.SetValuePrim
 
 function TkwEfGroupPropertyLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -337,12 +325,8 @@ begin
 end;//TkwEfGroupPropertyLabel1.GetAllParamsCount
 
 function TkwEfGroupPropertyLabel1.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8DC84936A887_var*
-//#UC END# *5617F4D00243_8DC84936A887_var*
 begin
-//#UC START# *5617F4D00243_8DC84936A887_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8DC84936A887_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfGroupPropertyLabel1.ParamsTypes
 
 initialization

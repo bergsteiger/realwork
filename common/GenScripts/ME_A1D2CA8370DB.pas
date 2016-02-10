@@ -1256,12 +1256,8 @@ end;//TkwTextFormRemindersLine.GetWordNameForRegister
 
 procedure TkwTextFormRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_90150A717339_var*
-//#UC END# *52D00B00031A_90150A717339_var*
 begin
-//#UC START# *52D00B00031A_90150A717339_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_90150A717339_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormRemindersLine.SetValuePrim
 
 function TkwTextFormRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1275,12 +1271,8 @@ begin
 end;//TkwTextFormRemindersLine.GetAllParamsCount
 
 function TkwTextFormRemindersLine.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_90150A717339_var*
-//#UC END# *5617F4D00243_90150A717339_var*
 begin
-//#UC START# *5617F4D00243_90150A717339_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_90150A717339_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormRemindersLine.ParamsTypes
 
 function TkwTextFormWarnTimeMachineException.WarnTimeMachineException(const aCtx: TtfwContext;
@@ -1310,12 +1302,8 @@ end;//TkwTextFormWarnTimeMachineException.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineException.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_727D705B6FA2_var*
-//#UC END# *52D00B00031A_727D705B6FA2_var*
 begin
-//#UC START# *52D00B00031A_727D705B6FA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_727D705B6FA2_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnTimeMachineException.SetValuePrim
 
 function TkwTextFormWarnTimeMachineException.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1329,12 +1317,8 @@ begin
 end;//TkwTextFormWarnTimeMachineException.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineException.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_727D705B6FA2_var*
-//#UC END# *5617F4D00243_727D705B6FA2_var*
 begin
-//#UC START# *5617F4D00243_727D705B6FA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_727D705B6FA2_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnTimeMachineException.ParamsTypes
 
 function TkwTextFormWarnIsAbolished.WarnIsAbolished(const aCtx: TtfwContext;
@@ -1364,12 +1348,8 @@ end;//TkwTextFormWarnIsAbolished.GetWordNameForRegister
 
 procedure TkwTextFormWarnIsAbolished.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0289BC4D5C98_var*
-//#UC END# *52D00B00031A_0289BC4D5C98_var*
 begin
-//#UC START# *52D00B00031A_0289BC4D5C98_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0289BC4D5C98_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnIsAbolished.SetValuePrim
 
 function TkwTextFormWarnIsAbolished.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1383,12 +1363,8 @@ begin
 end;//TkwTextFormWarnIsAbolished.GetAllParamsCount
 
 function TkwTextFormWarnIsAbolished.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0289BC4D5C98_var*
-//#UC END# *5617F4D00243_0289BC4D5C98_var*
 begin
-//#UC START# *5617F4D00243_0289BC4D5C98_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0289BC4D5C98_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnIsAbolished.ParamsTypes
 
 function TkwTextFormWarnPreActive.WarnPreActive(const aCtx: TtfwContext;
@@ -1418,12 +1394,8 @@ end;//TkwTextFormWarnPreActive.GetWordNameForRegister
 
 procedure TkwTextFormWarnPreActive.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ACA021C09FCA_var*
-//#UC END# *52D00B00031A_ACA021C09FCA_var*
 begin
-//#UC START# *52D00B00031A_ACA021C09FCA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ACA021C09FCA_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnPreActive.SetValuePrim
 
 function TkwTextFormWarnPreActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1437,12 +1409,8 @@ begin
 end;//TkwTextFormWarnPreActive.GetAllParamsCount
 
 function TkwTextFormWarnPreActive.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_ACA021C09FCA_var*
-//#UC END# *5617F4D00243_ACA021C09FCA_var*
 begin
-//#UC START# *5617F4D00243_ACA021C09FCA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_ACA021C09FCA_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnPreActive.ParamsTypes
 
 function TkwTextFormWarnTimeMachineWarning.WarnTimeMachineWarning(const aCtx: TtfwContext;
@@ -1472,12 +1440,8 @@ end;//TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E6CBDC26628D_var*
-//#UC END# *52D00B00031A_E6CBDC26628D_var*
 begin
-//#UC START# *52D00B00031A_E6CBDC26628D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E6CBDC26628D_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnTimeMachineWarning.SetValuePrim
 
 function TkwTextFormWarnTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1491,12 +1455,8 @@ begin
 end;//TkwTextFormWarnTimeMachineWarning.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineWarning.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E6CBDC26628D_var*
-//#UC END# *5617F4D00243_E6CBDC26628D_var*
 begin
-//#UC START# *5617F4D00243_E6CBDC26628D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E6CBDC26628D_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnTimeMachineWarning.ParamsTypes
 
 function TkwTextFormWarnOnControl.WarnOnControl(const aCtx: TtfwContext;
@@ -1526,12 +1486,8 @@ end;//TkwTextFormWarnOnControl.GetWordNameForRegister
 
 procedure TkwTextFormWarnOnControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9EC0F704660C_var*
-//#UC END# *52D00B00031A_9EC0F704660C_var*
 begin
-//#UC START# *52D00B00031A_9EC0F704660C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9EC0F704660C_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnOnControl.SetValuePrim
 
 function TkwTextFormWarnOnControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1545,12 +1501,8 @@ begin
 end;//TkwTextFormWarnOnControl.GetAllParamsCount
 
 function TkwTextFormWarnOnControl.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9EC0F704660C_var*
-//#UC END# *5617F4D00243_9EC0F704660C_var*
 begin
-//#UC START# *5617F4D00243_9EC0F704660C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9EC0F704660C_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnOnControl.ParamsTypes
 
 function TkwTextFormWarnJuror.WarnJuror(const aCtx: TtfwContext;
@@ -1580,12 +1532,8 @@ end;//TkwTextFormWarnJuror.GetWordNameForRegister
 
 procedure TkwTextFormWarnJuror.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FF3DC6808151_var*
-//#UC END# *52D00B00031A_FF3DC6808151_var*
 begin
-//#UC START# *52D00B00031A_FF3DC6808151_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FF3DC6808151_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnJuror.SetValuePrim
 
 function TkwTextFormWarnJuror.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1599,12 +1547,8 @@ begin
 end;//TkwTextFormWarnJuror.GetAllParamsCount
 
 function TkwTextFormWarnJuror.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FF3DC6808151_var*
-//#UC END# *5617F4D00243_FF3DC6808151_var*
 begin
-//#UC START# *5617F4D00243_FF3DC6808151_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FF3DC6808151_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnJuror.ParamsTypes
 
 function TkwTextFormWarnRedaction.WarnRedaction(const aCtx: TtfwContext;
@@ -1634,12 +1578,8 @@ end;//TkwTextFormWarnRedaction.GetWordNameForRegister
 
 procedure TkwTextFormWarnRedaction.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C6F656F5F519_var*
-//#UC END# *52D00B00031A_C6F656F5F519_var*
 begin
-//#UC START# *52D00B00031A_C6F656F5F519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C6F656F5F519_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnRedaction.SetValuePrim
 
 function TkwTextFormWarnRedaction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1653,12 +1593,8 @@ begin
 end;//TkwTextFormWarnRedaction.GetAllParamsCount
 
 function TkwTextFormWarnRedaction.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C6F656F5F519_var*
-//#UC END# *5617F4D00243_C6F656F5F519_var*
 begin
-//#UC START# *5617F4D00243_C6F656F5F519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C6F656F5F519_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnRedaction.ParamsTypes
 
 function TkwTextFormWarnInactualDocument.WarnInactualDocument(const aCtx: TtfwContext;
@@ -1688,12 +1624,8 @@ end;//TkwTextFormWarnInactualDocument.GetWordNameForRegister
 
 procedure TkwTextFormWarnInactualDocument.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DFD5690970AB_var*
-//#UC END# *52D00B00031A_DFD5690970AB_var*
 begin
-//#UC START# *52D00B00031A_DFD5690970AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DFD5690970AB_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnInactualDocument.SetValuePrim
 
 function TkwTextFormWarnInactualDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1707,12 +1639,8 @@ begin
 end;//TkwTextFormWarnInactualDocument.GetAllParamsCount
 
 function TkwTextFormWarnInactualDocument.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DFD5690970AB_var*
-//#UC END# *5617F4D00243_DFD5690970AB_var*
 begin
-//#UC START# *5617F4D00243_DFD5690970AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DFD5690970AB_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnInactualDocument.ParamsTypes
 
 function TkwTextFormWarnTimeMachineOn.WarnTimeMachineOn(const aCtx: TtfwContext;
@@ -1742,12 +1670,8 @@ end;//TkwTextFormWarnTimeMachineOn.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineOn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3F2343F5CBC9_var*
-//#UC END# *52D00B00031A_3F2343F5CBC9_var*
 begin
-//#UC START# *52D00B00031A_3F2343F5CBC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3F2343F5CBC9_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnTimeMachineOn.SetValuePrim
 
 function TkwTextFormWarnTimeMachineOn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1761,12 +1685,8 @@ begin
 end;//TkwTextFormWarnTimeMachineOn.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineOn.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3F2343F5CBC9_var*
-//#UC END# *5617F4D00243_3F2343F5CBC9_var*
 begin
-//#UC START# *5617F4D00243_3F2343F5CBC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3F2343F5CBC9_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormWarnTimeMachineOn.ParamsTypes
 
 function TkwTextFormSubPanel.SubPanel(const aCtx: TtfwContext;
@@ -1796,12 +1716,8 @@ end;//TkwTextFormSubPanel.GetWordNameForRegister
 
 procedure TkwTextFormSubPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F953CE4B1F89_var*
-//#UC END# *52D00B00031A_F953CE4B1F89_var*
 begin
-//#UC START# *52D00B00031A_F953CE4B1F89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F953CE4B1F89_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormSubPanel.SetValuePrim
 
 function TkwTextFormSubPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1815,12 +1731,8 @@ begin
 end;//TkwTextFormSubPanel.GetAllParamsCount
 
 function TkwTextFormSubPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F953CE4B1F89_var*
-//#UC END# *5617F4D00243_F953CE4B1F89_var*
 begin
-//#UC START# *5617F4D00243_F953CE4B1F89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F953CE4B1F89_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormSubPanel.ParamsTypes
 
 function TkwTextFormHScroll.HScroll(const aCtx: TtfwContext;
@@ -1850,12 +1762,8 @@ end;//TkwTextFormHScroll.GetWordNameForRegister
 
 procedure TkwTextFormHScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_61746557FDD0_var*
-//#UC END# *52D00B00031A_61746557FDD0_var*
 begin
-//#UC START# *52D00B00031A_61746557FDD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_61746557FDD0_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormHScroll.SetValuePrim
 
 function TkwTextFormHScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1869,12 +1777,8 @@ begin
 end;//TkwTextFormHScroll.GetAllParamsCount
 
 function TkwTextFormHScroll.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_61746557FDD0_var*
-//#UC END# *5617F4D00243_61746557FDD0_var*
 begin
-//#UC START# *5617F4D00243_61746557FDD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_61746557FDD0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormHScroll.ParamsTypes
 
 function TkwTextFormText.Text(const aCtx: TtfwContext;
@@ -1904,12 +1808,8 @@ end;//TkwTextFormText.GetWordNameForRegister
 
 procedure TkwTextFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AFA1F527A874_var*
-//#UC END# *52D00B00031A_AFA1F527A874_var*
 begin
-//#UC START# *52D00B00031A_AFA1F527A874_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AFA1F527A874_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormText.SetValuePrim
 
 function TkwTextFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1923,12 +1823,8 @@ begin
 end;//TkwTextFormText.GetAllParamsCount
 
 function TkwTextFormText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AFA1F527A874_var*
-//#UC END# *5617F4D00243_AFA1F527A874_var*
 begin
-//#UC START# *5617F4D00243_AFA1F527A874_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AFA1F527A874_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTextFormText.ParamsTypes
 
 initialization

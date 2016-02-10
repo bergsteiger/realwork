@@ -695,12 +695,8 @@ end;//TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblReference.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A8ED3F2A32F9_var*
-//#UC END# *52D00B00031A_A8ED3F2A32F9_var*
 begin
-//#UC START# *52D00B00031A_A8ED3F2A32F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A8ED3F2A32F9_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfForbidAutoregistrationLblReference.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblReference.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -714,12 +710,8 @@ begin
 end;//TkwEfForbidAutoregistrationLblReference.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationLblReference.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A8ED3F2A32F9_var*
-//#UC END# *5617F4D00243_A8ED3F2A32F9_var*
 begin
-//#UC START# *5617F4D00243_A8ED3F2A32F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A8ED3F2A32F9_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfForbidAutoregistrationLblReference.ParamsTypes
 
 function TkwEfForbidAutoregistrationGbInfo.gbInfo(const aCtx: TtfwContext;
@@ -749,12 +741,8 @@ end;//TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationGbInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B434E42C072E_var*
-//#UC END# *52D00B00031A_B434E42C072E_var*
 begin
-//#UC START# *52D00B00031A_B434E42C072E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B434E42C072E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfForbidAutoregistrationGbInfo.SetValuePrim
 
 function TkwEfForbidAutoregistrationGbInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -768,12 +756,8 @@ begin
 end;//TkwEfForbidAutoregistrationGbInfo.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationGbInfo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B434E42C072E_var*
-//#UC END# *5617F4D00243_B434E42C072E_var*
 begin
-//#UC START# *5617F4D00243_B434E42C072E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B434E42C072E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfForbidAutoregistrationGbInfo.ParamsTypes
 
 function TkwEfForbidAutoregistrationLblPhone.lblPhone(const aCtx: TtfwContext;
@@ -803,12 +787,8 @@ end;//TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblPhone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_20A0A124DABA_var*
-//#UC END# *52D00B00031A_20A0A124DABA_var*
 begin
-//#UC START# *52D00B00031A_20A0A124DABA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_20A0A124DABA_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfForbidAutoregistrationLblPhone.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblPhone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -822,12 +802,8 @@ begin
 end;//TkwEfForbidAutoregistrationLblPhone.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationLblPhone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_20A0A124DABA_var*
-//#UC END# *5617F4D00243_20A0A124DABA_var*
 begin
-//#UC START# *5617F4D00243_20A0A124DABA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_20A0A124DABA_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfForbidAutoregistrationLblPhone.ParamsTypes
 
 function TkwEfForbidAutoregistrationLblEmail.lblEmail(const aCtx: TtfwContext;
@@ -857,12 +833,8 @@ end;//TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D03F48103D05_var*
-//#UC END# *52D00B00031A_D03F48103D05_var*
 begin
-//#UC START# *52D00B00031A_D03F48103D05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D03F48103D05_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfForbidAutoregistrationLblEmail.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -876,12 +848,8 @@ begin
 end;//TkwEfForbidAutoregistrationLblEmail.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationLblEmail.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D03F48103D05_var*
-//#UC END# *5617F4D00243_D03F48103D05_var*
 begin
-//#UC START# *5617F4D00243_D03F48103D05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D03F48103D05_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfForbidAutoregistrationLblEmail.ParamsTypes
 
 function TkwEfForbidAutoregistrationLblHint.lblHint(const aCtx: TtfwContext;
@@ -911,12 +879,8 @@ end;//TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D20CEB956674_var*
-//#UC END# *52D00B00031A_D20CEB956674_var*
 begin
-//#UC START# *52D00B00031A_D20CEB956674_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D20CEB956674_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfForbidAutoregistrationLblHint.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -930,12 +894,8 @@ begin
 end;//TkwEfForbidAutoregistrationLblHint.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationLblHint.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D20CEB956674_var*
-//#UC END# *5617F4D00243_D20CEB956674_var*
 begin
-//#UC START# *5617F4D00243_D20CEB956674_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D20CEB956674_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfForbidAutoregistrationLblHint.ParamsTypes
 
 function TkwEfForbidAutoregistrationCbPhone.cbPhone(const aCtx: TtfwContext;
@@ -965,12 +925,8 @@ end;//TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationCbPhone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6AD1645F5DAC_var*
-//#UC END# *52D00B00031A_6AD1645F5DAC_var*
 begin
-//#UC START# *52D00B00031A_6AD1645F5DAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6AD1645F5DAC_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfForbidAutoregistrationCbPhone.SetValuePrim
 
 function TkwEfForbidAutoregistrationCbPhone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -984,12 +940,8 @@ begin
 end;//TkwEfForbidAutoregistrationCbPhone.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationCbPhone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6AD1645F5DAC_var*
-//#UC END# *5617F4D00243_6AD1645F5DAC_var*
 begin
-//#UC START# *5617F4D00243_6AD1645F5DAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6AD1645F5DAC_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfForbidAutoregistrationCbPhone.ParamsTypes
 
 function TkwEfForbidAutoregistrationCbEmail.cbEmail(const aCtx: TtfwContext;
@@ -1019,12 +971,8 @@ end;//TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationCbEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_444FFAC43ABB_var*
-//#UC END# *52D00B00031A_444FFAC43ABB_var*
 begin
-//#UC START# *52D00B00031A_444FFAC43ABB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_444FFAC43ABB_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfForbidAutoregistrationCbEmail.SetValuePrim
 
 function TkwEfForbidAutoregistrationCbEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1038,12 +986,8 @@ begin
 end;//TkwEfForbidAutoregistrationCbEmail.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationCbEmail.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_444FFAC43ABB_var*
-//#UC END# *5617F4D00243_444FFAC43ABB_var*
 begin
-//#UC START# *5617F4D00243_444FFAC43ABB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_444FFAC43ABB_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfForbidAutoregistrationCbEmail.ParamsTypes
 
 initialization
