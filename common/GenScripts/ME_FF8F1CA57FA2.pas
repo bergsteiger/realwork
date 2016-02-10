@@ -440,12 +440,8 @@ end;//TkwEnBaseSearchCardPnlMain.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C1D4470B9513_var*
-//#UC END# *52D00B00031A_C1D4470B9513_var*
 begin
-//#UC START# *52D00B00031A_C1D4470B9513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C1D4470B9513_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnBaseSearchCardPnlMain.SetValuePrim
 
 function TkwEnBaseSearchCardPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -459,12 +455,8 @@ begin
 end;//TkwEnBaseSearchCardPnlMain.GetAllParamsCount
 
 function TkwEnBaseSearchCardPnlMain.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C1D4470B9513_var*
-//#UC END# *5617F4D00243_C1D4470B9513_var*
 begin
-//#UC START# *5617F4D00243_C1D4470B9513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C1D4470B9513_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnBaseSearchCardPnlMain.ParamsTypes
 
 function TkwEnBaseSearchCardHfBaseSearch.hfBaseSearch(const aCtx: TtfwContext;
@@ -494,12 +486,8 @@ end;//TkwEnBaseSearchCardHfBaseSearch.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardHfBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_CAA6BD51B722_var*
-//#UC END# *52D00B00031A_CAA6BD51B722_var*
 begin
-//#UC START# *52D00B00031A_CAA6BD51B722_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_CAA6BD51B722_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnBaseSearchCardHfBaseSearch.SetValuePrim
 
 function TkwEnBaseSearchCardHfBaseSearch.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -513,12 +501,8 @@ begin
 end;//TkwEnBaseSearchCardHfBaseSearch.GetAllParamsCount
 
 function TkwEnBaseSearchCardHfBaseSearch.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CAA6BD51B722_var*
-//#UC END# *5617F4D00243_CAA6BD51B722_var*
 begin
-//#UC START# *5617F4D00243_CAA6BD51B722_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CAA6BD51B722_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnBaseSearchCardHfBaseSearch.ParamsTypes
 
 function TkwEnBaseSearchCardLrBaseSearch.lrBaseSearch(const aCtx: TtfwContext;
@@ -548,12 +532,8 @@ end;//TkwEnBaseSearchCardLrBaseSearch.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardLrBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C952194702DA_var*
-//#UC END# *52D00B00031A_C952194702DA_var*
 begin
-//#UC START# *52D00B00031A_C952194702DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C952194702DA_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnBaseSearchCardLrBaseSearch.SetValuePrim
 
 function TkwEnBaseSearchCardLrBaseSearch.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -567,12 +547,8 @@ begin
 end;//TkwEnBaseSearchCardLrBaseSearch.GetAllParamsCount
 
 function TkwEnBaseSearchCardLrBaseSearch.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C952194702DA_var*
-//#UC END# *5617F4D00243_C952194702DA_var*
 begin
-//#UC START# *5617F4D00243_C952194702DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C952194702DA_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnBaseSearchCardLrBaseSearch.ParamsTypes
 
 function TkwEnBaseSearchCardCardTextLabel.CardTextLabel(const aCtx: TtfwContext;
@@ -602,12 +578,8 @@ end;//TkwEnBaseSearchCardCardTextLabel.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardCardTextLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A6D5CED27A65_var*
-//#UC END# *52D00B00031A_A6D5CED27A65_var*
 begin
-//#UC START# *52D00B00031A_A6D5CED27A65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A6D5CED27A65_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnBaseSearchCardCardTextLabel.SetValuePrim
 
 function TkwEnBaseSearchCardCardTextLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -621,12 +593,8 @@ begin
 end;//TkwEnBaseSearchCardCardTextLabel.GetAllParamsCount
 
 function TkwEnBaseSearchCardCardTextLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A6D5CED27A65_var*
-//#UC END# *5617F4D00243_A6D5CED27A65_var*
 begin
-//#UC START# *5617F4D00243_A6D5CED27A65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A6D5CED27A65_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnBaseSearchCardCardTextLabel.ParamsTypes
 
 initialization

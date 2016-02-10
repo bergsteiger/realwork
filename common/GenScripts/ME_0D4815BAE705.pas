@@ -175,7 +175,6 @@ end;//TkwFcSynchroViewDocView.GetWordNameForRegister
 
 procedure TkwFcSynchroViewDocView.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwFcSynchroViewDocView.SetValuePrim
 

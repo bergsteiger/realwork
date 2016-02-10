@@ -177,7 +177,6 @@ end;//TkwUserCR1WarningBaloonFormViewer.GetWordNameForRegister
 
 procedure TkwUserCR1WarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwUserCR1WarningBaloonFormViewer.SetValuePrim
 

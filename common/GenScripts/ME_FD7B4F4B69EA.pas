@@ -284,12 +284,18 @@ begin
 end;//TkwF1LikeTextLoadFormText.Text
 
 procedure TkwF1LikeTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_92E0CD11116C_var*
-//#UC END# *4DAEEDE10285_92E0CD11116C_var*
+var l_aF1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_92E0CD11116C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_92E0CD11116C_impl*
+ try
+  l_aF1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aF1LikeTextLoadForm));
 end;//TkwF1LikeTextLoadFormText.DoDoIt
 
 class function TkwF1LikeTextLoadFormText.GetWordNameForRegister: AnsiString;
@@ -299,12 +305,8 @@ end;//TkwF1LikeTextLoadFormText.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_92E0CD11116C_var*
-//#UC END# *52D00B00031A_92E0CD11116C_var*
 begin
-//#UC START# *52D00B00031A_92E0CD11116C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_92E0CD11116C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwF1LikeTextLoadFormText.SetValuePrim
 
 function TkwF1LikeTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -318,12 +320,8 @@ begin
 end;//TkwF1LikeTextLoadFormText.GetAllParamsCount
 
 function TkwF1LikeTextLoadFormText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_92E0CD11116C_var*
-//#UC END# *5617F4D00243_92E0CD11116C_var*
 begin
-//#UC START# *5617F4D00243_92E0CD11116C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_92E0CD11116C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TF1LikeTextLoadForm)]);
 end;//TkwF1LikeTextLoadFormText.ParamsTypes
 
 function TkwF1LikeTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
@@ -338,12 +336,18 @@ begin
 end;//TkwF1LikeTextLoadFormTextSource.TextSource
 
 procedure TkwF1LikeTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A1D2254061BE_var*
-//#UC END# *4DAEEDE10285_A1D2254061BE_var*
+var l_aF1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_A1D2254061BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A1D2254061BE_impl*
+ try
+  l_aF1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aF1LikeTextLoadForm));
 end;//TkwF1LikeTextLoadFormTextSource.DoDoIt
 
 class function TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
@@ -353,12 +357,8 @@ end;//TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A1D2254061BE_var*
-//#UC END# *52D00B00031A_A1D2254061BE_var*
 begin
-//#UC START# *52D00B00031A_A1D2254061BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A1D2254061BE_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwF1LikeTextLoadFormTextSource.SetValuePrim
 
 function TkwF1LikeTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -372,12 +372,8 @@ begin
 end;//TkwF1LikeTextLoadFormTextSource.GetAllParamsCount
 
 function TkwF1LikeTextLoadFormTextSource.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A1D2254061BE_var*
-//#UC END# *5617F4D00243_A1D2254061BE_var*
 begin
-//#UC START# *5617F4D00243_A1D2254061BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A1D2254061BE_impl*
+ Result := OpenTypesToTypes([TypeInfo(TF1LikeTextLoadForm)]);
 end;//TkwF1LikeTextLoadFormTextSource.ParamsTypes
 
 function TkwF1LikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
@@ -392,12 +388,18 @@ begin
 end;//TkwF1LikeTextLoadFormLoadManager.LoadManager
 
 procedure TkwF1LikeTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8DECEC4A4E9A_var*
-//#UC END# *4DAEEDE10285_8DECEC4A4E9A_var*
+var l_aF1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_8DECEC4A4E9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8DECEC4A4E9A_impl*
+ try
+  l_aF1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LoadManager(aCtx, l_aF1LikeTextLoadForm));
 end;//TkwF1LikeTextLoadFormLoadManager.DoDoIt
 
 class function TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
@@ -407,12 +409,8 @@ end;//TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8DECEC4A4E9A_var*
-//#UC END# *52D00B00031A_8DECEC4A4E9A_var*
 begin
-//#UC START# *52D00B00031A_8DECEC4A4E9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8DECEC4A4E9A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwF1LikeTextLoadFormLoadManager.SetValuePrim
 
 function TkwF1LikeTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -426,12 +424,8 @@ begin
 end;//TkwF1LikeTextLoadFormLoadManager.GetAllParamsCount
 
 function TkwF1LikeTextLoadFormLoadManager.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8DECEC4A4E9A_var*
-//#UC END# *5617F4D00243_8DECEC4A4E9A_var*
 begin
-//#UC START# *5617F4D00243_8DECEC4A4E9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8DECEC4A4E9A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TF1LikeTextLoadForm)]);
 end;//TkwF1LikeTextLoadFormLoadManager.ParamsTypes
 
 initialization

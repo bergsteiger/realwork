@@ -373,12 +373,18 @@ begin
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.BaseSearchControl
 
 procedure TkwF1LikeFormWithBSFormBaseSearchControl.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_136DA0DCC3CD_var*
-//#UC END# *4DAEEDE10285_136DA0DCC3CD_var*
+var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
-//#UC START# *4DAEEDE10285_136DA0DCC3CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_136DA0DCC3CD_impl*
+ try
+  l_aF1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BaseSearchControl(aCtx, l_aF1LikeFormWithBSForm));
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.DoDoIt
 
 class function TkwF1LikeFormWithBSFormBaseSearchControl.GetWordNameForRegister: AnsiString;
@@ -388,12 +394,8 @@ end;//TkwF1LikeFormWithBSFormBaseSearchControl.GetWordNameForRegister
 
 procedure TkwF1LikeFormWithBSFormBaseSearchControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_136DA0DCC3CD_var*
-//#UC END# *52D00B00031A_136DA0DCC3CD_var*
 begin
-//#UC START# *52D00B00031A_136DA0DCC3CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_136DA0DCC3CD_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.SetValuePrim
 
 function TkwF1LikeFormWithBSFormBaseSearchControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -407,12 +409,8 @@ begin
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.GetAllParamsCount
 
 function TkwF1LikeFormWithBSFormBaseSearchControl.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_136DA0DCC3CD_var*
-//#UC END# *5617F4D00243_136DA0DCC3CD_var*
 begin
-//#UC START# *5617F4D00243_136DA0DCC3CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_136DA0DCC3CD_impl*
+ Result := OpenTypesToTypes([TypeInfo(TF1LikeFormWithBSForm)]);
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.ParamsTypes
 
 function TkwF1LikeFormWithBSFormText.Text(const aCtx: TtfwContext;
@@ -427,12 +425,18 @@ begin
 end;//TkwF1LikeFormWithBSFormText.Text
 
 procedure TkwF1LikeFormWithBSFormText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0261BE97F6D3_var*
-//#UC END# *4DAEEDE10285_0261BE97F6D3_var*
+var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
-//#UC START# *4DAEEDE10285_0261BE97F6D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0261BE97F6D3_impl*
+ try
+  l_aF1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aF1LikeFormWithBSForm));
 end;//TkwF1LikeFormWithBSFormText.DoDoIt
 
 class function TkwF1LikeFormWithBSFormText.GetWordNameForRegister: AnsiString;
@@ -442,12 +446,8 @@ end;//TkwF1LikeFormWithBSFormText.GetWordNameForRegister
 
 procedure TkwF1LikeFormWithBSFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0261BE97F6D3_var*
-//#UC END# *52D00B00031A_0261BE97F6D3_var*
 begin
-//#UC START# *52D00B00031A_0261BE97F6D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0261BE97F6D3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwF1LikeFormWithBSFormText.SetValuePrim
 
 function TkwF1LikeFormWithBSFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -461,12 +461,8 @@ begin
 end;//TkwF1LikeFormWithBSFormText.GetAllParamsCount
 
 function TkwF1LikeFormWithBSFormText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0261BE97F6D3_var*
-//#UC END# *5617F4D00243_0261BE97F6D3_var*
 begin
-//#UC START# *5617F4D00243_0261BE97F6D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0261BE97F6D3_impl*
+ Result := OpenTypesToTypes([TypeInfo(TF1LikeFormWithBSForm)]);
 end;//TkwF1LikeFormWithBSFormText.ParamsTypes
 
 function TkwF1LikeFormWithBSFormTextSource.TextSource(const aCtx: TtfwContext;
@@ -481,12 +477,18 @@ begin
 end;//TkwF1LikeFormWithBSFormTextSource.TextSource
 
 procedure TkwF1LikeFormWithBSFormTextSource.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F2D78F0C5EE9_var*
-//#UC END# *4DAEEDE10285_F2D78F0C5EE9_var*
+var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
-//#UC START# *4DAEEDE10285_F2D78F0C5EE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F2D78F0C5EE9_impl*
+ try
+  l_aF1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aF1LikeFormWithBSForm));
 end;//TkwF1LikeFormWithBSFormTextSource.DoDoIt
 
 class function TkwF1LikeFormWithBSFormTextSource.GetWordNameForRegister: AnsiString;
@@ -496,12 +498,8 @@ end;//TkwF1LikeFormWithBSFormTextSource.GetWordNameForRegister
 
 procedure TkwF1LikeFormWithBSFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F2D78F0C5EE9_var*
-//#UC END# *52D00B00031A_F2D78F0C5EE9_var*
 begin
-//#UC START# *52D00B00031A_F2D78F0C5EE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F2D78F0C5EE9_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwF1LikeFormWithBSFormTextSource.SetValuePrim
 
 function TkwF1LikeFormWithBSFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -515,12 +513,8 @@ begin
 end;//TkwF1LikeFormWithBSFormTextSource.GetAllParamsCount
 
 function TkwF1LikeFormWithBSFormTextSource.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F2D78F0C5EE9_var*
-//#UC END# *5617F4D00243_F2D78F0C5EE9_var*
 begin
-//#UC START# *5617F4D00243_F2D78F0C5EE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F2D78F0C5EE9_impl*
+ Result := OpenTypesToTypes([TypeInfo(TF1LikeFormWithBSForm)]);
 end;//TkwF1LikeFormWithBSFormTextSource.ParamsTypes
 
 function TkwF1LikeFormWithBSFormLoadManager.LoadManager(const aCtx: TtfwContext;
@@ -535,12 +529,18 @@ begin
 end;//TkwF1LikeFormWithBSFormLoadManager.LoadManager
 
 procedure TkwF1LikeFormWithBSFormLoadManager.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0296E955C9A5_var*
-//#UC END# *4DAEEDE10285_0296E955C9A5_var*
+var l_aF1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
-//#UC START# *4DAEEDE10285_0296E955C9A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0296E955C9A5_impl*
+ try
+  l_aF1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aF1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LoadManager(aCtx, l_aF1LikeFormWithBSForm));
 end;//TkwF1LikeFormWithBSFormLoadManager.DoDoIt
 
 class function TkwF1LikeFormWithBSFormLoadManager.GetWordNameForRegister: AnsiString;
@@ -550,12 +550,8 @@ end;//TkwF1LikeFormWithBSFormLoadManager.GetWordNameForRegister
 
 procedure TkwF1LikeFormWithBSFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0296E955C9A5_var*
-//#UC END# *52D00B00031A_0296E955C9A5_var*
 begin
-//#UC START# *52D00B00031A_0296E955C9A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0296E955C9A5_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwF1LikeFormWithBSFormLoadManager.SetValuePrim
 
 function TkwF1LikeFormWithBSFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -569,12 +565,8 @@ begin
 end;//TkwF1LikeFormWithBSFormLoadManager.GetAllParamsCount
 
 function TkwF1LikeFormWithBSFormLoadManager.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0296E955C9A5_var*
-//#UC END# *5617F4D00243_0296E955C9A5_var*
 begin
-//#UC START# *5617F4D00243_0296E955C9A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0296E955C9A5_impl*
+ Result := OpenTypesToTypes([TypeInfo(TF1LikeFormWithBSForm)]);
 end;//TkwF1LikeFormWithBSFormLoadManager.ParamsTypes
 
 initialization

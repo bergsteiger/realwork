@@ -175,7 +175,6 @@ end;//TkwAttributesFormTvAttributes.GetWordNameForRegister
 
 procedure TkwAttributesFormTvAttributes.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwAttributesFormTvAttributes.SetValuePrim
 

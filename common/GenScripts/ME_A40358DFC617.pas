@@ -351,7 +351,6 @@ end;//TkwDocNumberQueryFormLabel1.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwDocNumberQueryFormLabel1.SetValuePrim
 
@@ -397,7 +396,6 @@ end;//TkwDocNumberQueryFormEdNumber.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormEdNumber.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwDocNumberQueryFormEdNumber.SetValuePrim
 
@@ -443,7 +441,6 @@ end;//TkwDocNumberQueryFormCbInternal.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormCbInternal.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwDocNumberQueryFormCbInternal.SetValuePrim
 

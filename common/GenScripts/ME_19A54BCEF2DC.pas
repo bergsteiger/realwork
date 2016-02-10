@@ -175,12 +175,8 @@ end;//TkwEnFiltersFiltersList.GetWordNameForRegister
 
 procedure TkwEnFiltersFiltersList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F040B0369BA3_var*
-//#UC END# *52D00B00031A_F040B0369BA3_var*
 begin
-//#UC START# *52D00B00031A_F040B0369BA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F040B0369BA3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnFiltersFiltersList.SetValuePrim
 
 function TkwEnFiltersFiltersList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -194,12 +190,8 @@ begin
 end;//TkwEnFiltersFiltersList.GetAllParamsCount
 
 function TkwEnFiltersFiltersList.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F040B0369BA3_var*
-//#UC END# *5617F4D00243_F040B0369BA3_var*
 begin
-//#UC START# *5617F4D00243_F040B0369BA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F040B0369BA3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnFiltersFiltersList.ParamsTypes
 
 initialization

@@ -303,7 +303,6 @@ end;//TkwPictureFormIeIO.GetWordNameForRegister
 
 procedure TkwPictureFormIeIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwPictureFormIeIO.SetValuePrim
 
@@ -349,7 +348,6 @@ end;//TkwPictureFormIeViewer.GetWordNameForRegister
 
 procedure TkwPictureFormIeViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwPictureFormIeViewer.SetValuePrim
 
@@ -395,7 +393,6 @@ end;//TkwPictureFormIeProc.GetWordNameForRegister
 
 procedure TkwPictureFormIeProc.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwPictureFormIeProc.SetValuePrim
 

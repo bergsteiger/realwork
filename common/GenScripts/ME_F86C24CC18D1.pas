@@ -697,7 +697,6 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineRbTotmOnDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.SetValuePrim
 
@@ -743,7 +742,6 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.SetValuePrim
 
@@ -789,7 +787,6 @@ end;//TkwEnTurnOnTimeMachineDeDate.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineDeDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEnTurnOnTimeMachineDeDate.SetValuePrim
 
@@ -835,7 +832,6 @@ end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachinePbDialogIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.SetValuePrim
 
@@ -881,7 +877,6 @@ end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim
 
@@ -927,7 +922,6 @@ end;//TkwEnTurnOnTimeMachineBtnOk.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineBtnOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEnTurnOnTimeMachineBtnOk.SetValuePrim
 
@@ -973,7 +967,6 @@ end;//TkwEnTurnOnTimeMachineBtnCancel.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineBtnCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEnTurnOnTimeMachineBtnCancel.SetValuePrim
 

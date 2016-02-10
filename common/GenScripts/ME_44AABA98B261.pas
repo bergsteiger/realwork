@@ -175,7 +175,6 @@ end;//TkwEnPictureInfoInfo.GetWordNameForRegister
 
 procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEnPictureInfoInfo.SetValuePrim
 

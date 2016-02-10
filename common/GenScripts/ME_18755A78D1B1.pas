@@ -953,12 +953,8 @@ end;//TkwEnConsultationMarkGbMark.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkGbMark.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_08E015178ADF_var*
-//#UC END# *52D00B00031A_08E015178ADF_var*
 begin
-//#UC START# *52D00B00031A_08E015178ADF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_08E015178ADF_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkGbMark.SetValuePrim
 
 function TkwEnConsultationMarkGbMark.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -972,12 +968,8 @@ begin
 end;//TkwEnConsultationMarkGbMark.GetAllParamsCount
 
 function TkwEnConsultationMarkGbMark.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_08E015178ADF_var*
-//#UC END# *5617F4D00243_08E015178ADF_var*
 begin
-//#UC START# *5617F4D00243_08E015178ADF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_08E015178ADF_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkGbMark.ParamsTypes
 
 function TkwEnConsultationMarkRbNotSure.rbNotSure(const aCtx: TtfwContext;
@@ -1007,12 +999,8 @@ end;//TkwEnConsultationMarkRbNotSure.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbNotSure.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_102A22C548B7_var*
-//#UC END# *52D00B00031A_102A22C548B7_var*
 begin
-//#UC START# *52D00B00031A_102A22C548B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_102A22C548B7_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkRbNotSure.SetValuePrim
 
 function TkwEnConsultationMarkRbNotSure.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1026,12 +1014,8 @@ begin
 end;//TkwEnConsultationMarkRbNotSure.GetAllParamsCount
 
 function TkwEnConsultationMarkRbNotSure.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_102A22C548B7_var*
-//#UC END# *5617F4D00243_102A22C548B7_var*
 begin
-//#UC START# *5617F4D00243_102A22C548B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_102A22C548B7_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkRbNotSure.ParamsTypes
 
 function TkwEnConsultationMarkRbTwo.rbTwo(const aCtx: TtfwContext;
@@ -1061,12 +1045,8 @@ end;//TkwEnConsultationMarkRbTwo.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbTwo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1361F312A549_var*
-//#UC END# *52D00B00031A_1361F312A549_var*
 begin
-//#UC START# *52D00B00031A_1361F312A549_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1361F312A549_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkRbTwo.SetValuePrim
 
 function TkwEnConsultationMarkRbTwo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1080,12 +1060,8 @@ begin
 end;//TkwEnConsultationMarkRbTwo.GetAllParamsCount
 
 function TkwEnConsultationMarkRbTwo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1361F312A549_var*
-//#UC END# *5617F4D00243_1361F312A549_var*
 begin
-//#UC START# *5617F4D00243_1361F312A549_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1361F312A549_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkRbTwo.ParamsTypes
 
 function TkwEnConsultationMarkRbThree.rbThree(const aCtx: TtfwContext;
@@ -1115,12 +1091,8 @@ end;//TkwEnConsultationMarkRbThree.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbThree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DCFA687F0AB6_var*
-//#UC END# *52D00B00031A_DCFA687F0AB6_var*
 begin
-//#UC START# *52D00B00031A_DCFA687F0AB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DCFA687F0AB6_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkRbThree.SetValuePrim
 
 function TkwEnConsultationMarkRbThree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1134,12 +1106,8 @@ begin
 end;//TkwEnConsultationMarkRbThree.GetAllParamsCount
 
 function TkwEnConsultationMarkRbThree.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DCFA687F0AB6_var*
-//#UC END# *5617F4D00243_DCFA687F0AB6_var*
 begin
-//#UC START# *5617F4D00243_DCFA687F0AB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DCFA687F0AB6_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkRbThree.ParamsTypes
 
 function TkwEnConsultationMarkRbFour.rbFour(const aCtx: TtfwContext;
@@ -1169,12 +1137,8 @@ end;//TkwEnConsultationMarkRbFour.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbFour.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_017B75B3B73E_var*
-//#UC END# *52D00B00031A_017B75B3B73E_var*
 begin
-//#UC START# *52D00B00031A_017B75B3B73E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_017B75B3B73E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkRbFour.SetValuePrim
 
 function TkwEnConsultationMarkRbFour.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1188,12 +1152,8 @@ begin
 end;//TkwEnConsultationMarkRbFour.GetAllParamsCount
 
 function TkwEnConsultationMarkRbFour.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_017B75B3B73E_var*
-//#UC END# *5617F4D00243_017B75B3B73E_var*
 begin
-//#UC START# *5617F4D00243_017B75B3B73E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_017B75B3B73E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkRbFour.ParamsTypes
 
 function TkwEnConsultationMarkRbFive.rbFive(const aCtx: TtfwContext;
@@ -1223,12 +1183,8 @@ end;//TkwEnConsultationMarkRbFive.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbFive.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B408A9A1DAB5_var*
-//#UC END# *52D00B00031A_B408A9A1DAB5_var*
 begin
-//#UC START# *52D00B00031A_B408A9A1DAB5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B408A9A1DAB5_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkRbFive.SetValuePrim
 
 function TkwEnConsultationMarkRbFive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1242,12 +1198,8 @@ begin
 end;//TkwEnConsultationMarkRbFive.GetAllParamsCount
 
 function TkwEnConsultationMarkRbFive.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B408A9A1DAB5_var*
-//#UC END# *5617F4D00243_B408A9A1DAB5_var*
 begin
-//#UC START# *5617F4D00243_B408A9A1DAB5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B408A9A1DAB5_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkRbFive.ParamsTypes
 
 function TkwEnConsultationMarkPnlHelp.pnlHelp(const aCtx: TtfwContext;
@@ -1277,12 +1229,8 @@ end;//TkwEnConsultationMarkPnlHelp.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkPnlHelp.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_85E1FBE51015_var*
-//#UC END# *52D00B00031A_85E1FBE51015_var*
 begin
-//#UC START# *52D00B00031A_85E1FBE51015_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_85E1FBE51015_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkPnlHelp.SetValuePrim
 
 function TkwEnConsultationMarkPnlHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1296,12 +1244,8 @@ begin
 end;//TkwEnConsultationMarkPnlHelp.GetAllParamsCount
 
 function TkwEnConsultationMarkPnlHelp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_85E1FBE51015_var*
-//#UC END# *5617F4D00243_85E1FBE51015_var*
 begin
-//#UC START# *5617F4D00243_85E1FBE51015_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_85E1FBE51015_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkPnlHelp.ParamsTypes
 
 function TkwEnConsultationMarkLblHelp.lblHelp(const aCtx: TtfwContext;
@@ -1331,12 +1275,8 @@ end;//TkwEnConsultationMarkLblHelp.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkLblHelp.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BD995E557E53_var*
-//#UC END# *52D00B00031A_BD995E557E53_var*
 begin
-//#UC START# *52D00B00031A_BD995E557E53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BD995E557E53_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkLblHelp.SetValuePrim
 
 function TkwEnConsultationMarkLblHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1350,12 +1290,8 @@ begin
 end;//TkwEnConsultationMarkLblHelp.GetAllParamsCount
 
 function TkwEnConsultationMarkLblHelp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BD995E557E53_var*
-//#UC END# *5617F4D00243_BD995E557E53_var*
 begin
-//#UC START# *5617F4D00243_BD995E557E53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BD995E557E53_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkLblHelp.ParamsTypes
 
 function TkwEnConsultationMarkGbComment.gbComment(const aCtx: TtfwContext;
@@ -1385,12 +1321,8 @@ end;//TkwEnConsultationMarkGbComment.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkGbComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_5E131FAEC04F_var*
-//#UC END# *52D00B00031A_5E131FAEC04F_var*
 begin
-//#UC START# *52D00B00031A_5E131FAEC04F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_5E131FAEC04F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkGbComment.SetValuePrim
 
 function TkwEnConsultationMarkGbComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1404,12 +1336,8 @@ begin
 end;//TkwEnConsultationMarkGbComment.GetAllParamsCount
 
 function TkwEnConsultationMarkGbComment.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5E131FAEC04F_var*
-//#UC END# *5617F4D00243_5E131FAEC04F_var*
 begin
-//#UC START# *5617F4D00243_5E131FAEC04F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5E131FAEC04F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkGbComment.ParamsTypes
 
 function TkwEnConsultationMarkMComment.mComment(const aCtx: TtfwContext;
@@ -1439,12 +1367,8 @@ end;//TkwEnConsultationMarkMComment.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkMComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_780807DC0F9A_var*
-//#UC END# *52D00B00031A_780807DC0F9A_var*
 begin
-//#UC START# *52D00B00031A_780807DC0F9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_780807DC0F9A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnConsultationMarkMComment.SetValuePrim
 
 function TkwEnConsultationMarkMComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1458,12 +1382,8 @@ begin
 end;//TkwEnConsultationMarkMComment.GetAllParamsCount
 
 function TkwEnConsultationMarkMComment.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_780807DC0F9A_var*
-//#UC END# *5617F4D00243_780807DC0F9A_var*
 begin
-//#UC START# *5617F4D00243_780807DC0F9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_780807DC0F9A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnConsultationMarkMComment.ParamsTypes
 
 initialization

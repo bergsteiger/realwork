@@ -240,7 +240,6 @@ end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
 
 procedure TkwEfListInfoListInfoViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEfListInfoListInfoViewer.SetValuePrim
 
@@ -286,7 +285,6 @@ end;//TkwEfListInfoTextSource.GetWordNameForRegister
 
 procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwEfListInfoTextSource.SetValuePrim
 

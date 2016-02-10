@@ -264,12 +264,8 @@ end;//TkwCreateFilterFormNameLabel.GetWordNameForRegister
 
 procedure TkwCreateFilterFormNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8D84CCE36454_var*
-//#UC END# *52D00B00031A_8D84CCE36454_var*
 begin
-//#UC START# *52D00B00031A_8D84CCE36454_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8D84CCE36454_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCreateFilterFormNameLabel.SetValuePrim
 
 function TkwCreateFilterFormNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -283,12 +279,8 @@ begin
 end;//TkwCreateFilterFormNameLabel.GetAllParamsCount
 
 function TkwCreateFilterFormNameLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8D84CCE36454_var*
-//#UC END# *5617F4D00243_8D84CCE36454_var*
 begin
-//#UC START# *5617F4D00243_8D84CCE36454_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8D84CCE36454_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCreateFilterFormNameLabel.ParamsTypes
 
 function TkwCreateFilterFormFilterName.FilterName(const aCtx: TtfwContext;
@@ -318,12 +310,8 @@ end;//TkwCreateFilterFormFilterName.GetWordNameForRegister
 
 procedure TkwCreateFilterFormFilterName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E0C49BDE3F5C_var*
-//#UC END# *52D00B00031A_E0C49BDE3F5C_var*
 begin
-//#UC START# *52D00B00031A_E0C49BDE3F5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E0C49BDE3F5C_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCreateFilterFormFilterName.SetValuePrim
 
 function TkwCreateFilterFormFilterName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -337,12 +325,8 @@ begin
 end;//TkwCreateFilterFormFilterName.GetAllParamsCount
 
 function TkwCreateFilterFormFilterName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E0C49BDE3F5C_var*
-//#UC END# *5617F4D00243_E0C49BDE3F5C_var*
 begin
-//#UC START# *5617F4D00243_E0C49BDE3F5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E0C49BDE3F5C_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCreateFilterFormFilterName.ParamsTypes
 
 initialization

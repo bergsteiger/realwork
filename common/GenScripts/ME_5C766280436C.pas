@@ -1038,12 +1038,8 @@ end;//TkwAACContentsContainerFormPnBack.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnBack.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_263DE971DEE2_var*
-//#UC END# *52D00B00031A_263DE971DEE2_var*
 begin
-//#UC START# *52D00B00031A_263DE971DEE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_263DE971DEE2_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnBack.SetValuePrim
 
 function TkwAACContentsContainerFormPnBack.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1057,12 +1053,8 @@ begin
 end;//TkwAACContentsContainerFormPnBack.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnBack.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_263DE971DEE2_var*
-//#UC END# *5617F4D00243_263DE971DEE2_var*
 begin
-//#UC START# *5617F4D00243_263DE971DEE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_263DE971DEE2_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnBack.ParamsTypes
 
 function TkwAACContentsContainerFormPnRightEx.pnRightEx(const aCtx: TtfwContext;
@@ -1092,12 +1084,8 @@ end;//TkwAACContentsContainerFormPnRightEx.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnRightEx.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AEF24D4E3600_var*
-//#UC END# *52D00B00031A_AEF24D4E3600_var*
 begin
-//#UC START# *52D00B00031A_AEF24D4E3600_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AEF24D4E3600_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnRightEx.SetValuePrim
 
 function TkwAACContentsContainerFormPnRightEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1111,12 +1099,8 @@ begin
 end;//TkwAACContentsContainerFormPnRightEx.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnRightEx.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AEF24D4E3600_var*
-//#UC END# *5617F4D00243_AEF24D4E3600_var*
 begin
-//#UC START# *5617F4D00243_AEF24D4E3600_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AEF24D4E3600_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnRightEx.ParamsTypes
 
 function TkwAACContentsContainerFormPnRightForScroll.pnRightForScroll(const aCtx: TtfwContext;
@@ -1146,12 +1130,8 @@ end;//TkwAACContentsContainerFormPnRightForScroll.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnRightForScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_237FDDF0A879_var*
-//#UC END# *52D00B00031A_237FDDF0A879_var*
 begin
-//#UC START# *52D00B00031A_237FDDF0A879_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_237FDDF0A879_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnRightForScroll.SetValuePrim
 
 function TkwAACContentsContainerFormPnRightForScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1165,12 +1145,8 @@ begin
 end;//TkwAACContentsContainerFormPnRightForScroll.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnRightForScroll.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_237FDDF0A879_var*
-//#UC END# *5617F4D00243_237FDDF0A879_var*
 begin
-//#UC START# *5617F4D00243_237FDDF0A879_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_237FDDF0A879_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnRightForScroll.ParamsTypes
 
 function TkwAACContentsContainerFormPnRight.pnRight(const aCtx: TtfwContext;
@@ -1200,12 +1176,8 @@ end;//TkwAACContentsContainerFormPnRight.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnRight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_751A50BCF486_var*
-//#UC END# *52D00B00031A_751A50BCF486_var*
 begin
-//#UC START# *52D00B00031A_751A50BCF486_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_751A50BCF486_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnRight.SetValuePrim
 
 function TkwAACContentsContainerFormPnRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1219,12 +1191,8 @@ begin
 end;//TkwAACContentsContainerFormPnRight.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnRight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_751A50BCF486_var*
-//#UC END# *5617F4D00243_751A50BCF486_var*
 begin
-//#UC START# *5617F4D00243_751A50BCF486_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_751A50BCF486_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnRight.ParamsTypes
 
 function TkwAACContentsContainerFormPnlRightTop.pnlRightTop(const aCtx: TtfwContext;
@@ -1254,12 +1222,8 @@ end;//TkwAACContentsContainerFormPnlRightTop.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnlRightTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9B01FD076314_var*
-//#UC END# *52D00B00031A_9B01FD076314_var*
 begin
-//#UC START# *52D00B00031A_9B01FD076314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9B01FD076314_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnlRightTop.SetValuePrim
 
 function TkwAACContentsContainerFormPnlRightTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1273,12 +1237,8 @@ begin
 end;//TkwAACContentsContainerFormPnlRightTop.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnlRightTop.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9B01FD076314_var*
-//#UC END# *5617F4D00243_9B01FD076314_var*
 begin
-//#UC START# *5617F4D00243_9B01FD076314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9B01FD076314_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnlRightTop.ParamsTypes
 
 function TkwAACContentsContainerFormScrRight.scrRight(const aCtx: TtfwContext;
@@ -1308,12 +1268,8 @@ end;//TkwAACContentsContainerFormScrRight.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormScrRight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1C783FC526FD_var*
-//#UC END# *52D00B00031A_1C783FC526FD_var*
 begin
-//#UC START# *52D00B00031A_1C783FC526FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1C783FC526FD_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormScrRight.SetValuePrim
 
 function TkwAACContentsContainerFormScrRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1327,12 +1283,8 @@ begin
 end;//TkwAACContentsContainerFormScrRight.GetAllParamsCount
 
 function TkwAACContentsContainerFormScrRight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1C783FC526FD_var*
-//#UC END# *5617F4D00243_1C783FC526FD_var*
 begin
-//#UC START# *5617F4D00243_1C783FC526FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1C783FC526FD_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormScrRight.ParamsTypes
 
 function TkwAACContentsContainerFormPnLeftEx.pnLeftEx(const aCtx: TtfwContext;
@@ -1362,12 +1314,8 @@ end;//TkwAACContentsContainerFormPnLeftEx.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnLeftEx.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D8CD8423C7D6_var*
-//#UC END# *52D00B00031A_D8CD8423C7D6_var*
 begin
-//#UC START# *52D00B00031A_D8CD8423C7D6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D8CD8423C7D6_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnLeftEx.SetValuePrim
 
 function TkwAACContentsContainerFormPnLeftEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1381,12 +1329,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeftEx.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnLeftEx.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D8CD8423C7D6_var*
-//#UC END# *5617F4D00243_D8CD8423C7D6_var*
 begin
-//#UC START# *5617F4D00243_D8CD8423C7D6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D8CD8423C7D6_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnLeftEx.ParamsTypes
 
 function TkwAACContentsContainerFormPnLeftForScroll.pnLeftForScroll(const aCtx: TtfwContext;
@@ -1416,12 +1360,8 @@ end;//TkwAACContentsContainerFormPnLeftForScroll.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnLeftForScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_92C6BC5BF215_var*
-//#UC END# *52D00B00031A_92C6BC5BF215_var*
 begin
-//#UC START# *52D00B00031A_92C6BC5BF215_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_92C6BC5BF215_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnLeftForScroll.SetValuePrim
 
 function TkwAACContentsContainerFormPnLeftForScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1435,12 +1375,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeftForScroll.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnLeftForScroll.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_92C6BC5BF215_var*
-//#UC END# *5617F4D00243_92C6BC5BF215_var*
 begin
-//#UC START# *5617F4D00243_92C6BC5BF215_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_92C6BC5BF215_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnLeftForScroll.ParamsTypes
 
 function TkwAACContentsContainerFormPnlLeftTop.pnlLeftTop(const aCtx: TtfwContext;
@@ -1470,12 +1406,8 @@ end;//TkwAACContentsContainerFormPnlLeftTop.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnlLeftTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6C790E5B3DE3_var*
-//#UC END# *52D00B00031A_6C790E5B3DE3_var*
 begin
-//#UC START# *52D00B00031A_6C790E5B3DE3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6C790E5B3DE3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnlLeftTop.SetValuePrim
 
 function TkwAACContentsContainerFormPnlLeftTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1489,12 +1421,8 @@ begin
 end;//TkwAACContentsContainerFormPnlLeftTop.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnlLeftTop.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6C790E5B3DE3_var*
-//#UC END# *5617F4D00243_6C790E5B3DE3_var*
 begin
-//#UC START# *5617F4D00243_6C790E5B3DE3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6C790E5B3DE3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnlLeftTop.ParamsTypes
 
 function TkwAACContentsContainerFormPnLeft.pnLeft(const aCtx: TtfwContext;
@@ -1524,12 +1452,8 @@ end;//TkwAACContentsContainerFormPnLeft.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8D6BA41415C4_var*
-//#UC END# *52D00B00031A_8D6BA41415C4_var*
 begin
-//#UC START# *52D00B00031A_8D6BA41415C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8D6BA41415C4_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormPnLeft.SetValuePrim
 
 function TkwAACContentsContainerFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1543,12 +1467,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeft.GetAllParamsCount
 
 function TkwAACContentsContainerFormPnLeft.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8D6BA41415C4_var*
-//#UC END# *5617F4D00243_8D6BA41415C4_var*
 begin
-//#UC START# *5617F4D00243_8D6BA41415C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8D6BA41415C4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormPnLeft.ParamsTypes
 
 function TkwAACContentsContainerFormScrLeft.scrLeft(const aCtx: TtfwContext;
@@ -1578,12 +1498,8 @@ end;//TkwAACContentsContainerFormScrLeft.GetWordNameForRegister
 
 procedure TkwAACContentsContainerFormScrLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F1BCB862CA6F_var*
-//#UC END# *52D00B00031A_F1BCB862CA6F_var*
 begin
-//#UC START# *52D00B00031A_F1BCB862CA6F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F1BCB862CA6F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwAACContentsContainerFormScrLeft.SetValuePrim
 
 function TkwAACContentsContainerFormScrLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1597,12 +1513,8 @@ begin
 end;//TkwAACContentsContainerFormScrLeft.GetAllParamsCount
 
 function TkwAACContentsContainerFormScrLeft.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F1BCB862CA6F_var*
-//#UC END# *5617F4D00243_F1BCB862CA6F_var*
 begin
-//#UC START# *5617F4D00243_F1BCB862CA6F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F1BCB862CA6F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwAACContentsContainerFormScrLeft.ParamsTypes
 
 initialization

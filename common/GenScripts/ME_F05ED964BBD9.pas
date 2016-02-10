@@ -262,7 +262,6 @@ end;//TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwListAnalizerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwListAnalizerFormBackgroundPanel.SetValuePrim
 
@@ -308,7 +307,6 @@ end;//TkwListAnalizerFormListTree.GetWordNameForRegister
 
 procedure TkwListAnalizerFormListTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwListAnalizerFormListTree.SetValuePrim
 

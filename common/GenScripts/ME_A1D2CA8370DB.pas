@@ -1256,7 +1256,6 @@ end;//TkwTextFormRemindersLine.GetWordNameForRegister
 
 procedure TkwTextFormRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormRemindersLine.SetValuePrim
 
@@ -1302,7 +1301,6 @@ end;//TkwTextFormWarnTimeMachineException.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineException.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnTimeMachineException.SetValuePrim
 
@@ -1348,7 +1346,6 @@ end;//TkwTextFormWarnIsAbolished.GetWordNameForRegister
 
 procedure TkwTextFormWarnIsAbolished.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnIsAbolished.SetValuePrim
 
@@ -1394,7 +1391,6 @@ end;//TkwTextFormWarnPreActive.GetWordNameForRegister
 
 procedure TkwTextFormWarnPreActive.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnPreActive.SetValuePrim
 
@@ -1440,7 +1436,6 @@ end;//TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnTimeMachineWarning.SetValuePrim
 
@@ -1486,7 +1481,6 @@ end;//TkwTextFormWarnOnControl.GetWordNameForRegister
 
 procedure TkwTextFormWarnOnControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnOnControl.SetValuePrim
 
@@ -1532,7 +1526,6 @@ end;//TkwTextFormWarnJuror.GetWordNameForRegister
 
 procedure TkwTextFormWarnJuror.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnJuror.SetValuePrim
 
@@ -1578,7 +1571,6 @@ end;//TkwTextFormWarnRedaction.GetWordNameForRegister
 
 procedure TkwTextFormWarnRedaction.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnRedaction.SetValuePrim
 
@@ -1624,7 +1616,6 @@ end;//TkwTextFormWarnInactualDocument.GetWordNameForRegister
 
 procedure TkwTextFormWarnInactualDocument.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnInactualDocument.SetValuePrim
 
@@ -1670,7 +1661,6 @@ end;//TkwTextFormWarnTimeMachineOn.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineOn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormWarnTimeMachineOn.SetValuePrim
 
@@ -1716,7 +1706,6 @@ end;//TkwTextFormSubPanel.GetWordNameForRegister
 
 procedure TkwTextFormSubPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormSubPanel.SetValuePrim
 
@@ -1762,7 +1751,6 @@ end;//TkwTextFormHScroll.GetWordNameForRegister
 
 procedure TkwTextFormHScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormHScroll.SetValuePrim
 
@@ -1808,7 +1796,6 @@ end;//TkwTextFormText.GetWordNameForRegister
 
 procedure TkwTextFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwTextFormText.SetValuePrim
 

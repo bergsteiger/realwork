@@ -160,12 +160,18 @@ begin
 end;//TkwFromWithPanelFormWorkSpace.WorkSpace
 
 procedure TkwFromWithPanelFormWorkSpace.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E583E346F779_var*
-//#UC END# *4DAEEDE10285_E583E346F779_var*
+var l_aFromWithPanelForm: TFromWithPanelForm;
 begin
-//#UC START# *4DAEEDE10285_E583E346F779_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E583E346F779_impl*
+ try
+  l_aFromWithPanelForm := TFromWithPanelForm(aCtx.rEngine.PopObjAs(TFromWithPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFromWithPanelForm: TFromWithPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WorkSpace(aCtx, l_aFromWithPanelForm));
 end;//TkwFromWithPanelFormWorkSpace.DoDoIt
 
 class function TkwFromWithPanelFormWorkSpace.GetWordNameForRegister: AnsiString;
@@ -175,12 +181,8 @@ end;//TkwFromWithPanelFormWorkSpace.GetWordNameForRegister
 
 procedure TkwFromWithPanelFormWorkSpace.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E583E346F779_var*
-//#UC END# *52D00B00031A_E583E346F779_var*
 begin
-//#UC START# *52D00B00031A_E583E346F779_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E583E346F779_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwFromWithPanelFormWorkSpace.SetValuePrim
 
 function TkwFromWithPanelFormWorkSpace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -194,12 +196,8 @@ begin
 end;//TkwFromWithPanelFormWorkSpace.GetAllParamsCount
 
 function TkwFromWithPanelFormWorkSpace.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E583E346F779_var*
-//#UC END# *5617F4D00243_E583E346F779_var*
 begin
-//#UC START# *5617F4D00243_E583E346F779_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E583E346F779_impl*
+ Result := OpenTypesToTypes([TypeInfo(TFromWithPanelForm)]);
 end;//TkwFromWithPanelFormWorkSpace.ParamsTypes
 
 initialization

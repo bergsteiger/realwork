@@ -132,12 +132,8 @@ begin
 end;//TkwGUITestRunnerPushDUnitForm.push_DUnitForm
 
 procedure TkwGUITestRunnerPushDUnitForm.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0200DD1E29D8_var*
-//#UC END# *4DAEEDE10285_0200DD1E29D8_var*
 begin
-//#UC START# *4DAEEDE10285_0200DD1E29D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0200DD1E29D8_impl*
+ aCtx.rEngine.PushObj(push_DUnitForm(aCtx));
 end;//TkwGUITestRunnerPushDUnitForm.DoDoIt
 
 class function TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister: AnsiString;
@@ -147,7 +143,7 @@ end;//TkwGUITestRunnerPushDUnitForm.GetWordNameForRegister
 
 function TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := !!!;
+ Result := TypeInfo(TGUITestRunner);
 end;//TkwGUITestRunnerPushDUnitForm.GetResultTypeInfo
 
 function TkwGUITestRunnerPushDUnitForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -156,12 +152,8 @@ begin
 end;//TkwGUITestRunnerPushDUnitForm.GetAllParamsCount
 
 function TkwGUITestRunnerPushDUnitForm.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0200DD1E29D8_var*
-//#UC END# *5617F4D00243_0200DD1E29D8_var*
 begin
-//#UC START# *5617F4D00243_0200DD1E29D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0200DD1E29D8_impl*
+ Result := OpenTypesToTypes([TypeInfo(TGUITestRunner)]);
 end;//TkwGUITestRunnerPushDUnitForm.ParamsTypes
 
 function TkwPopGUITestRunnerNodeToTest.NodeToTest(const aCtx: TtfwContext;
@@ -177,12 +169,28 @@ begin
 end;//TkwPopGUITestRunnerNodeToTest.NodeToTest
 
 procedure TkwPopGUITestRunnerNodeToTest.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D7892D333B1E_var*
-//#UC END# *4DAEEDE10285_D7892D333B1E_var*
+var l_aGUITestRunner: TGUITestRunner;
+var l_aNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_D7892D333B1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D7892D333B1E_impl*
+ try
+  l_aGUITestRunner := TGUITestRunner(aCtx.rEngine.PopObjAs(TGUITestRunner));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aGUITestRunner: TGUITestRunner : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(NodeToTest(aCtx, l_aGUITestRunner, l_aNode),ITest);
 end;//TkwPopGUITestRunnerNodeToTest.DoDoIt
 
 class function TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister: AnsiString;
@@ -201,12 +209,8 @@ begin
 end;//TkwPopGUITestRunnerNodeToTest.GetAllParamsCount
 
 function TkwPopGUITestRunnerNodeToTest.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D7892D333B1E_var*
-//#UC END# *5617F4D00243_D7892D333B1E_var*
 begin
-//#UC START# *5617F4D00243_D7892D333B1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D7892D333B1E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TGUITestRunner), TypeInfo(TTreeNode)]);
 end;//TkwPopGUITestRunnerNodeToTest.ParamsTypes
 
 procedure TkwDeleteEtalons.DeleteEtalons(const aCtx: TtfwContext;
@@ -223,12 +227,38 @@ begin
 end;//TkwDeleteEtalons.DeleteEtalons
 
 procedure TkwDeleteEtalons.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6F1D31444115_var*
-//#UC END# *4DAEEDE10285_6F1D31444115_var*
+var l_aName: AnsiString;
+var l_aSubFolder: AnsiString;
+var l_anIsScript: Boolean;
 begin
-//#UC START# *4DAEEDE10285_6F1D31444115_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6F1D31444115_impl*
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aSubFolder := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSubFolder: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIsScript := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIsScript: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DeleteEtalons(aCtx, l_aName, l_aSubFolder, l_anIsScript);
 end;//TkwDeleteEtalons.DoDoIt
 
 class function TkwDeleteEtalons.GetWordNameForRegister: AnsiString;
@@ -247,12 +277,8 @@ begin
 end;//TkwDeleteEtalons.GetAllParamsCount
 
 function TkwDeleteEtalons.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6F1D31444115_var*
-//#UC END# *5617F4D00243_6F1D31444115_var*
 begin
-//#UC START# *5617F4D00243_6F1D31444115_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6F1D31444115_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Boolean)]);
 end;//TkwDeleteEtalons.ParamsTypes
 
 initialization

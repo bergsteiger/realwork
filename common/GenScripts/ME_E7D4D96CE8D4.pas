@@ -282,12 +282,18 @@ begin
 end;//TkwQFLikeTextLoadFormTextSource.TextSource
 
 procedure TkwQFLikeTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CB4B5413D1DF_var*
-//#UC END# *4DAEEDE10285_CB4B5413D1DF_var*
+var l_aQFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_CB4B5413D1DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CB4B5413D1DF_impl*
+ try
+  l_aQFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aQFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormTextSource.DoDoIt
 
 class function TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
@@ -297,12 +303,8 @@ end;//TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_CB4B5413D1DF_var*
-//#UC END# *52D00B00031A_CB4B5413D1DF_var*
 begin
-//#UC START# *52D00B00031A_CB4B5413D1DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_CB4B5413D1DF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwQFLikeTextLoadFormTextSource.SetValuePrim
 
 function TkwQFLikeTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -316,12 +318,8 @@ begin
 end;//TkwQFLikeTextLoadFormTextSource.GetAllParamsCount
 
 function TkwQFLikeTextLoadFormTextSource.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CB4B5413D1DF_var*
-//#UC END# *5617F4D00243_CB4B5413D1DF_var*
 begin
-//#UC START# *5617F4D00243_CB4B5413D1DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CB4B5413D1DF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormTextSource.ParamsTypes
 
 function TkwQFLikeTextLoadFormText.Text(const aCtx: TtfwContext;
@@ -336,12 +334,18 @@ begin
 end;//TkwQFLikeTextLoadFormText.Text
 
 procedure TkwQFLikeTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E29319DE781A_var*
-//#UC END# *4DAEEDE10285_E29319DE781A_var*
+var l_aQFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_E29319DE781A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E29319DE781A_impl*
+ try
+  l_aQFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aQFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormText.DoDoIt
 
 class function TkwQFLikeTextLoadFormText.GetWordNameForRegister: AnsiString;
@@ -351,12 +355,8 @@ end;//TkwQFLikeTextLoadFormText.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E29319DE781A_var*
-//#UC END# *52D00B00031A_E29319DE781A_var*
 begin
-//#UC START# *52D00B00031A_E29319DE781A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E29319DE781A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwQFLikeTextLoadFormText.SetValuePrim
 
 function TkwQFLikeTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -370,12 +370,8 @@ begin
 end;//TkwQFLikeTextLoadFormText.GetAllParamsCount
 
 function TkwQFLikeTextLoadFormText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E29319DE781A_var*
-//#UC END# *5617F4D00243_E29319DE781A_var*
 begin
-//#UC START# *5617F4D00243_E29319DE781A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E29319DE781A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormText.ParamsTypes
 
 function TkwQFLikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
@@ -390,12 +386,18 @@ begin
 end;//TkwQFLikeTextLoadFormLoadManager.LoadManager
 
 procedure TkwQFLikeTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F3E17599DE55_var*
-//#UC END# *4DAEEDE10285_F3E17599DE55_var*
+var l_aQFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_F3E17599DE55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F3E17599DE55_impl*
+ try
+  l_aQFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aQFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LoadManager(aCtx, l_aQFLikeTextLoadForm));
 end;//TkwQFLikeTextLoadFormLoadManager.DoDoIt
 
 class function TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
@@ -405,12 +407,8 @@ end;//TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F3E17599DE55_var*
-//#UC END# *52D00B00031A_F3E17599DE55_var*
 begin
-//#UC START# *52D00B00031A_F3E17599DE55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F3E17599DE55_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwQFLikeTextLoadFormLoadManager.SetValuePrim
 
 function TkwQFLikeTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -424,12 +422,8 @@ begin
 end;//TkwQFLikeTextLoadFormLoadManager.GetAllParamsCount
 
 function TkwQFLikeTextLoadFormLoadManager.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F3E17599DE55_var*
-//#UC END# *5617F4D00243_F3E17599DE55_var*
 begin
-//#UC START# *5617F4D00243_F3E17599DE55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F3E17599DE55_impl*
+ Result := OpenTypesToTypes([TypeInfo(TQFLikeTextLoadForm)]);
 end;//TkwQFLikeTextLoadFormLoadManager.ParamsTypes
 
 initialization

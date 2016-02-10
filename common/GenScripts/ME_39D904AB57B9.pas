@@ -699,7 +699,6 @@ end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwContentsFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwContentsFormBackgroundPanel.SetValuePrim
 
@@ -745,7 +744,6 @@ end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
 
 procedure TkwContentsFormLstBookmarks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwContentsFormLstBookmarks.SetValuePrim
 
@@ -791,7 +789,6 @@ end;//TkwContentsFormLstComments.GetWordNameForRegister
 
 procedure TkwContentsFormLstComments.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwContentsFormLstComments.SetValuePrim
 
@@ -837,7 +834,6 @@ end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
 
 procedure TkwContentsFormLstExternalObjects.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwContentsFormLstExternalObjects.SetValuePrim
 
@@ -883,7 +879,6 @@ end;//TkwContentsFormContentsTree.GetWordNameForRegister
 
 procedure TkwContentsFormContentsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwContentsFormContentsTree.SetValuePrim
 
@@ -929,7 +924,6 @@ end;//TkwContentsFormContextFilter.GetWordNameForRegister
 
 procedure TkwContentsFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwContentsFormContextFilter.SetValuePrim
 
@@ -975,7 +969,6 @@ end;//TkwContentsFormTasks.GetWordNameForRegister
 
 procedure TkwContentsFormTasks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwContentsFormTasks.SetValuePrim
 

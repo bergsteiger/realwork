@@ -160,12 +160,18 @@ begin
 end;//TkwOutlinerFormFormTreeControl.TreeControl
 
 procedure TkwOutlinerFormFormTreeControl.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B10A49D0279E_var*
-//#UC END# *4DAEEDE10285_B10A49D0279E_var*
+var l_aOutlinerFormForm: TOutlinerFormForm;
 begin
-//#UC START# *4DAEEDE10285_B10A49D0279E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B10A49D0279E_impl*
+ try
+  l_aOutlinerFormForm := TOutlinerFormForm(aCtx.rEngine.PopObjAs(TOutlinerFormForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aOutlinerFormForm: TOutlinerFormForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TreeControl(aCtx, l_aOutlinerFormForm));
 end;//TkwOutlinerFormFormTreeControl.DoDoIt
 
 class function TkwOutlinerFormFormTreeControl.GetWordNameForRegister: AnsiString;
@@ -175,12 +181,8 @@ end;//TkwOutlinerFormFormTreeControl.GetWordNameForRegister
 
 procedure TkwOutlinerFormFormTreeControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B10A49D0279E_var*
-//#UC END# *52D00B00031A_B10A49D0279E_var*
 begin
-//#UC START# *52D00B00031A_B10A49D0279E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B10A49D0279E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwOutlinerFormFormTreeControl.SetValuePrim
 
 function TkwOutlinerFormFormTreeControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -194,12 +196,8 @@ begin
 end;//TkwOutlinerFormFormTreeControl.GetAllParamsCount
 
 function TkwOutlinerFormFormTreeControl.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B10A49D0279E_var*
-//#UC END# *5617F4D00243_B10A49D0279E_var*
 begin
-//#UC START# *5617F4D00243_B10A49D0279E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B10A49D0279E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TOutlinerFormForm)]);
 end;//TkwOutlinerFormFormTreeControl.ParamsTypes
 
 initialization

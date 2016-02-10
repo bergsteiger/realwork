@@ -131,12 +131,18 @@ begin
 end;//TkwElCustomEditFormEdit.Edit
 
 procedure TkwElCustomEditFormEdit.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_713A666E50E1_var*
-//#UC END# *4DAEEDE10285_713A666E50E1_var*
+var l_aelCustomEditForm: TelCustomEditForm;
 begin
-//#UC START# *4DAEEDE10285_713A666E50E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_713A666E50E1_impl*
+ try
+  l_aelCustomEditForm := TelCustomEditForm(aCtx.rEngine.PopObjAs(TelCustomEditForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aelCustomEditForm: TelCustomEditForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Edit(aCtx, l_aelCustomEditForm));
 end;//TkwElCustomEditFormEdit.DoDoIt
 
 class function TkwElCustomEditFormEdit.GetWordNameForRegister: AnsiString;
@@ -146,12 +152,8 @@ end;//TkwElCustomEditFormEdit.GetWordNameForRegister
 
 procedure TkwElCustomEditFormEdit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_713A666E50E1_var*
-//#UC END# *52D00B00031A_713A666E50E1_var*
 begin
-//#UC START# *52D00B00031A_713A666E50E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_713A666E50E1_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwElCustomEditFormEdit.SetValuePrim
 
 function TkwElCustomEditFormEdit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -165,12 +167,8 @@ begin
 end;//TkwElCustomEditFormEdit.GetAllParamsCount
 
 function TkwElCustomEditFormEdit.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_713A666E50E1_var*
-//#UC END# *5617F4D00243_713A666E50E1_var*
 begin
-//#UC START# *5617F4D00243_713A666E50E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_713A666E50E1_impl*
+ Result := OpenTypesToTypes([TypeInfo(TelCustomEditForm)]);
 end;//TkwElCustomEditFormEdit.ParamsTypes
 
 initialization

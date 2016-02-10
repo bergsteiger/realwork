@@ -282,12 +282,18 @@ begin
 end;//TkwTextLoadFormText.Text
 
 procedure TkwTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3A01E87E6153_var*
-//#UC END# *4DAEEDE10285_3A01E87E6153_var*
+var l_aTextLoadForm: TTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_3A01E87E6153_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3A01E87E6153_impl*
+ try
+  l_aTextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aTextLoadForm));
 end;//TkwTextLoadFormText.DoDoIt
 
 class function TkwTextLoadFormText.GetWordNameForRegister: AnsiString;
@@ -297,12 +303,8 @@ end;//TkwTextLoadFormText.GetWordNameForRegister
 
 procedure TkwTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3A01E87E6153_var*
-//#UC END# *52D00B00031A_3A01E87E6153_var*
 begin
-//#UC START# *52D00B00031A_3A01E87E6153_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3A01E87E6153_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwTextLoadFormText.SetValuePrim
 
 function TkwTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -316,12 +318,8 @@ begin
 end;//TkwTextLoadFormText.GetAllParamsCount
 
 function TkwTextLoadFormText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3A01E87E6153_var*
-//#UC END# *5617F4D00243_3A01E87E6153_var*
 begin
-//#UC START# *5617F4D00243_3A01E87E6153_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3A01E87E6153_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTextLoadForm)]);
 end;//TkwTextLoadFormText.ParamsTypes
 
 function TkwTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
@@ -336,12 +334,18 @@ begin
 end;//TkwTextLoadFormTextSource.TextSource
 
 procedure TkwTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D6313D19545C_var*
-//#UC END# *4DAEEDE10285_D6313D19545C_var*
+var l_aTextLoadForm: TTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_D6313D19545C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D6313D19545C_impl*
+ try
+  l_aTextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aTextLoadForm));
 end;//TkwTextLoadFormTextSource.DoDoIt
 
 class function TkwTextLoadFormTextSource.GetWordNameForRegister: AnsiString;
@@ -351,12 +355,8 @@ end;//TkwTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D6313D19545C_var*
-//#UC END# *52D00B00031A_D6313D19545C_var*
 begin
-//#UC START# *52D00B00031A_D6313D19545C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D6313D19545C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwTextLoadFormTextSource.SetValuePrim
 
 function TkwTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -370,12 +370,8 @@ begin
 end;//TkwTextLoadFormTextSource.GetAllParamsCount
 
 function TkwTextLoadFormTextSource.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D6313D19545C_var*
-//#UC END# *5617F4D00243_D6313D19545C_var*
 begin
-//#UC START# *5617F4D00243_D6313D19545C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D6313D19545C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTextLoadForm)]);
 end;//TkwTextLoadFormTextSource.ParamsTypes
 
 function TkwTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
@@ -390,12 +386,18 @@ begin
 end;//TkwTextLoadFormLoadManager.LoadManager
 
 procedure TkwTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C123391CA040_var*
-//#UC END# *4DAEEDE10285_C123391CA040_var*
+var l_aTextLoadForm: TTextLoadForm;
 begin
-//#UC START# *4DAEEDE10285_C123391CA040_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C123391CA040_impl*
+ try
+  l_aTextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LoadManager(aCtx, l_aTextLoadForm));
 end;//TkwTextLoadFormLoadManager.DoDoIt
 
 class function TkwTextLoadFormLoadManager.GetWordNameForRegister: AnsiString;
@@ -405,12 +407,8 @@ end;//TkwTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C123391CA040_var*
-//#UC END# *52D00B00031A_C123391CA040_var*
 begin
-//#UC START# *52D00B00031A_C123391CA040_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C123391CA040_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwTextLoadFormLoadManager.SetValuePrim
 
 function TkwTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -424,12 +422,8 @@ begin
 end;//TkwTextLoadFormLoadManager.GetAllParamsCount
 
 function TkwTextLoadFormLoadManager.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C123391CA040_var*
-//#UC END# *5617F4D00243_C123391CA040_var*
 begin
-//#UC START# *5617F4D00243_C123391CA040_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C123391CA040_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTextLoadForm)]);
 end;//TkwTextLoadFormLoadManager.ParamsTypes
 
 initialization

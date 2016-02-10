@@ -174,12 +174,18 @@ begin
 end;//TkwPopTestName.Name
 
 procedure TkwPopTestName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E6DE6CAD7EFE_var*
-//#UC END# *4DAEEDE10285_E6DE6CAD7EFE_var*
+var l_aTest: ITest;
 begin
-//#UC START# *4DAEEDE10285_E6DE6CAD7EFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E6DE6CAD7EFE_impl*
+ try
+  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Name(aCtx, l_aTest));
 end;//TkwPopTestName.DoDoIt
 
 class function TkwPopTestName.GetWordNameForRegister: AnsiString;
@@ -189,12 +195,8 @@ end;//TkwPopTestName.GetWordNameForRegister
 
 procedure TkwPopTestName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E6DE6CAD7EFE_var*
-//#UC END# *52D00B00031A_E6DE6CAD7EFE_var*
 begin
-//#UC START# *52D00B00031A_E6DE6CAD7EFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E6DE6CAD7EFE_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopTestName.SetValuePrim
 
 function TkwPopTestName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -208,12 +210,8 @@ begin
 end;//TkwPopTestName.GetAllParamsCount
 
 function TkwPopTestName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E6DE6CAD7EFE_var*
-//#UC END# *5617F4D00243_E6DE6CAD7EFE_var*
 begin
-//#UC START# *5617F4D00243_E6DE6CAD7EFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E6DE6CAD7EFE_impl*
+ Result := OpenTypesToTypes([TypeInfo(ITest)]);
 end;//TkwPopTestName.ParamsTypes
 
 function TkwPopTestEnabled.Enabled(const aCtx: TtfwContext;
@@ -228,12 +226,18 @@ begin
 end;//TkwPopTestEnabled.Enabled
 
 procedure TkwPopTestEnabled.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1CEB5B8AA2E5_var*
-//#UC END# *4DAEEDE10285_1CEB5B8AA2E5_var*
+var l_aTest: ITest;
 begin
-//#UC START# *4DAEEDE10285_1CEB5B8AA2E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1CEB5B8AA2E5_impl*
+ try
+  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Enabled(aCtx, l_aTest));
 end;//TkwPopTestEnabled.DoDoIt
 
 class function TkwPopTestEnabled.GetWordNameForRegister: AnsiString;
@@ -243,12 +247,8 @@ end;//TkwPopTestEnabled.GetWordNameForRegister
 
 procedure TkwPopTestEnabled.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1CEB5B8AA2E5_var*
-//#UC END# *52D00B00031A_1CEB5B8AA2E5_var*
 begin
-//#UC START# *52D00B00031A_1CEB5B8AA2E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1CEB5B8AA2E5_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopTestEnabled.SetValuePrim
 
 function TkwPopTestEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -262,12 +262,8 @@ begin
 end;//TkwPopTestEnabled.GetAllParamsCount
 
 function TkwPopTestEnabled.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1CEB5B8AA2E5_var*
-//#UC END# *5617F4D00243_1CEB5B8AA2E5_var*
 begin
-//#UC START# *5617F4D00243_1CEB5B8AA2E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1CEB5B8AA2E5_impl*
+ Result := OpenTypesToTypes([TypeInfo(ITest)]);
 end;//TkwPopTestEnabled.ParamsTypes
 
 function TkwPopTestSubFolder.SubFolder(const aCtx: TtfwContext;
@@ -282,12 +278,18 @@ begin
 end;//TkwPopTestSubFolder.SubFolder
 
 procedure TkwPopTestSubFolder.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4638C704D78B_var*
-//#UC END# *4DAEEDE10285_4638C704D78B_var*
+var l_aTest: ITest;
 begin
-//#UC START# *4DAEEDE10285_4638C704D78B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4638C704D78B_impl*
+ try
+  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(SubFolder(aCtx, l_aTest));
 end;//TkwPopTestSubFolder.DoDoIt
 
 class function TkwPopTestSubFolder.GetWordNameForRegister: AnsiString;
@@ -297,12 +299,8 @@ end;//TkwPopTestSubFolder.GetWordNameForRegister
 
 procedure TkwPopTestSubFolder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4638C704D78B_var*
-//#UC END# *52D00B00031A_4638C704D78B_var*
 begin
-//#UC START# *52D00B00031A_4638C704D78B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4638C704D78B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopTestSubFolder.SetValuePrim
 
 function TkwPopTestSubFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -316,12 +314,8 @@ begin
 end;//TkwPopTestSubFolder.GetAllParamsCount
 
 function TkwPopTestSubFolder.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4638C704D78B_var*
-//#UC END# *5617F4D00243_4638C704D78B_var*
 begin
-//#UC START# *5617F4D00243_4638C704D78B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4638C704D78B_impl*
+ Result := OpenTypesToTypes([TypeInfo(ITest)]);
 end;//TkwPopTestSubFolder.ParamsTypes
 
 function TkwPopTestHasScriptChildren.HasScriptChildren(const aCtx: TtfwContext;
@@ -336,12 +330,18 @@ begin
 end;//TkwPopTestHasScriptChildren.HasScriptChildren
 
 procedure TkwPopTestHasScriptChildren.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_719F0EEEAFD0_var*
-//#UC END# *4DAEEDE10285_719F0EEEAFD0_var*
+var l_aTest: ITest;
 begin
-//#UC START# *4DAEEDE10285_719F0EEEAFD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_719F0EEEAFD0_impl*
+ try
+  l_aTest := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTest: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(HasScriptChildren(aCtx, l_aTest));
 end;//TkwPopTestHasScriptChildren.DoDoIt
 
 class function TkwPopTestHasScriptChildren.GetWordNameForRegister: AnsiString;
@@ -351,12 +351,8 @@ end;//TkwPopTestHasScriptChildren.GetWordNameForRegister
 
 procedure TkwPopTestHasScriptChildren.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_719F0EEEAFD0_var*
-//#UC END# *52D00B00031A_719F0EEEAFD0_var*
 begin
-//#UC START# *52D00B00031A_719F0EEEAFD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_719F0EEEAFD0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopTestHasScriptChildren.SetValuePrim
 
 function TkwPopTestHasScriptChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -370,12 +366,8 @@ begin
 end;//TkwPopTestHasScriptChildren.GetAllParamsCount
 
 function TkwPopTestHasScriptChildren.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_719F0EEEAFD0_var*
-//#UC END# *5617F4D00243_719F0EEEAFD0_var*
 begin
-//#UC START# *5617F4D00243_719F0EEEAFD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_719F0EEEAFD0_impl*
+ Result := OpenTypesToTypes([TypeInfo(ITest)]);
 end;//TkwPopTestHasScriptChildren.ParamsTypes
 
 function TkwTestShouldStop.test_ShouldStop(const aCtx: TtfwContext): Boolean;
@@ -389,12 +381,8 @@ begin
 end;//TkwTestShouldStop.test_ShouldStop
 
 procedure TkwTestShouldStop.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AFCC4A8F1DF4_var*
-//#UC END# *4DAEEDE10285_AFCC4A8F1DF4_var*
 begin
-//#UC START# *4DAEEDE10285_AFCC4A8F1DF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AFCC4A8F1DF4_impl*
+ aCtx.rEngine.PushBool(test_ShouldStop(aCtx));
 end;//TkwTestShouldStop.DoDoIt
 
 class function TkwTestShouldStop.GetWordNameForRegister: AnsiString;
@@ -413,12 +401,8 @@ begin
 end;//TkwTestShouldStop.GetAllParamsCount
 
 function TkwTestShouldStop.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AFCC4A8F1DF4_var*
-//#UC END# *5617F4D00243_AFCC4A8F1DF4_var*
 begin
-//#UC START# *5617F4D00243_AFCC4A8F1DF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AFCC4A8F1DF4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTestShouldStop.ParamsTypes
 
 initialization

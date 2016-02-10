@@ -175,7 +175,6 @@ end;//TkwRedactionsFormRedactionTree.GetWordNameForRegister
 
 procedure TkwRedactionsFormRedactionTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
 end;//TkwRedactionsFormRedactionTree.SetValuePrim
 
