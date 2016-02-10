@@ -10,6 +10,8 @@ interface
 uses
  l3IntfUses
  , HyTechProviderParams_Const
+ , k2String_Const
+ , k2Long_Const
 ;
 
  // ComboAccessProviderParamsTag
