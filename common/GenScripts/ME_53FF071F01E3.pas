@@ -11,12 +11,15 @@ interface
 uses
  l3IntfUses
  , Printers
+ , l3Canvas
  , l3PrinterInterfaces
+ , l3Core
+ , l3Units
+ , l3InternalInterfaces
  , l3SimpleObject
  , l3Metafile
  , Classes
  , GarantPDFDocument
- , l3InternalInterfaces
 ;
 
 type
@@ -29,10 +32,20 @@ type
 
  TddPDFExporter = class;
 
- TddPDFCanvas = class
+ TddPDFCanvas = class(Tl3Canvas)
   {* Канвая для экспорта. }
   private
    f_PDFDoc: IddPDFDoc;
+  protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure FillRectPrim(const R: TRect); override;
+   procedure DoFillForeRect(const R: Tl3SRect); override;
+   procedure DoStartDrawAAC(aType: TspBlockType); override;
+   procedure DoEndDrawAAC(const R: Tl3Rect); override;
+   function IsPreview: Boolean; override;
+   procedure StartPage; override;
+   procedure DoEndPaint; override;
   public
    constructor Create(const anExpoter: TddPDFExporter;
     const aPrinter: Il3Printer); reintroduce;
@@ -93,6 +106,130 @@ begin
  f_PDFDoc := anExpoter;
 //#UC END# *53FF0CB80082_53FF077501B7_impl*
 end;//TddPDFCanvas.Create
+
+procedure TddPDFCanvas.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_53FF077501B7_var*
+//#UC END# *479731C50290_53FF077501B7_var*
+begin
+//#UC START# *479731C50290_53FF077501B7_impl*
+ f_PDFDoc := nil;
+ inherited;
+//#UC END# *479731C50290_53FF077501B7_impl*
+end;//TddPDFCanvas.Cleanup
+
+procedure TddPDFCanvas.FillRectPrim(const R: TRect);
+//#UC START# *47DFCAAF0249_53FF077501B7_var*
+//#UC END# *47DFCAAF0249_53FF077501B7_var*
+begin
+//#UC START# *47DFCAAF0249_53FF077501B7_impl*
+ Canvas.FillRect(R);
+//#UC END# *47DFCAAF0249_53FF077501B7_impl*
+end;//TddPDFCanvas.FillRectPrim
+
+procedure TddPDFCanvas.DoFillForeRect(const R: Tl3SRect);
+//#UC START# *47DFCAEE0007_53FF077501B7_var*
+const
+ D = 8;
+ D1 = 3;
+//#UC END# *47DFCAEE0007_53FF077501B7_var*
+begin
+//#UC START# *47DFCAEE0007_53FF077501B7_impl*
+ if (R.Bottom - R.Top < D) then
+ begin
+  if (R.Right - R.Left < D) then
+   inherited
+  else
+  begin
+   AddRect(l3SRect(R.Left, R.Top - D1, R.Right, R.Bottom + D1));
+   Line(l3SPoint(R.Left, R.Top), l3SPoint(R.Right, R.Top));
+  end;//R.Right - R.Left < D
+ end//R.Bottom - R.Top < D
+ else
+ if (R.Right - R.Left < D) then
+ begin
+  AddRect(l3SRect(R.Left - D1, R.Top, R.Right + D1, R.Bottom));
+  Line(l3SPoint(R.Left, R.Top), l3SPoint(R.Left, R.Bottom));
+ end//R.Right - R.Left < D
+ else
+  inherited;
+//#UC END# *47DFCAEE0007_53FF077501B7_impl*
+end;//TddPDFCanvas.DoFillForeRect
+
+procedure TddPDFCanvas.DoStartDrawAAC(aType: TspBlockType);
+//#UC START# *54B4DDF502DD_53FF077501B7_var*
+//#UC END# *54B4DDF502DD_53FF077501B7_var*
+begin
+//#UC START# *54B4DDF502DD_53FF077501B7_impl*
+ GDICommentStatAAC(DC, aType);
+//#UC END# *54B4DDF502DD_53FF077501B7_impl*
+end;//TddPDFCanvas.DoStartDrawAAC
+
+procedure TddPDFCanvas.DoEndDrawAAC(const R: Tl3Rect);
+//#UC START# *54B4DE1700CA_53FF077501B7_var*
+//#UC END# *54B4DE1700CA_53FF077501B7_var*
+begin
+//#UC START# *54B4DE1700CA_53FF077501B7_impl*
+ GDICommentEndAAC(DC, TRect(WO(R)), BackColor);
+//#UC END# *54B4DE1700CA_53FF077501B7_impl*
+end;//TddPDFCanvas.DoEndDrawAAC
+
+function TddPDFCanvas.IsPreview: Boolean;
+//#UC START# *56B0B9790320_53FF077501B7_var*
+//#UC END# *56B0B9790320_53FF077501B7_var*
+begin
+//#UC START# *56B0B9790320_53FF077501B7_impl*
+ Result := True;
+//#UC END# *56B0B9790320_53FF077501B7_impl*
+end;//TddPDFCanvas.IsPreview
+
+procedure TddPDFCanvas.StartPage;
+//#UC START# *56B4B5EF019F_53FF077501B7_var*
+var
+ l_CR          : Tl3Rect;
+ l_WO          : Tl3Point;
+ l_Rect        : Tl3Rect;
+ l_Canvas      : Il3Canvas;
+ l_NeedCorrect : Boolean;
+ l_BottomHeight: Integer;
+//#UC END# *56B4B5EF019F_53FF077501B7_var*
+begin
+//#UC START# *56B4B5EF019F_53FF077501B7_impl*
+ f_PDFDoc.NewPage(TPrinterOrientation(PageOrientation));
+ WindowOrg := l3Point0;
+ ClipRect := l3RectBnd(l3Point0,
+                       DP2LP(l3SPoint(DeviceCaps(HORZRES),
+                                      DeviceCaps(VERTRES))));
+ Printed := true;
+ l_BottomHeight := pm_GetMargins.Bottom;
+ l_WO := WindowOrg;
+ WindowOrg := l_WO;
+ MoveWindowOrg(l3PointX(-WindowOrg.X));
+ l_NeedCorrect := DeviceCaps(PHYSICALOFFSETY) = 0;
+ MoveWindowOrg(l3PointY(-l_BottomHeight));
+ l_Rect := ClipRect;
+ if (l_Rect.Left < 0) then l_Rect.Left := 0;
+ if (l_Rect.Top < 0) then l_Rect.Top := 0;
+ if l_NeedCorrect then
+  l_Rect.BottomRight := l_Rect.BottomRight.Sub(l3PointY(l_BottomHeight));
+ ClipRect := l_Rect;
+//#UC END# *56B4B5EF019F_53FF077501B7_impl*
+end;//TddPDFCanvas.StartPage
+
+procedure TddPDFCanvas.DoEndPaint;
+//#UC START# *56B4BDA30301_53FF077501B7_var*
+//#UC END# *56B4BDA30301_53FF077501B7_var*
+begin
+//#UC START# *56B4BDA30301_53FF077501B7_impl*
+ inherited;
+ SetCanvas(nil, false);
+ if not Drawing then
+ begin
+  f_PDFDoc.EndDoc;
+  f_PDFDoc := nil;
+ end; // if not Drawing then
+//#UC END# *56B4BDA30301_53FF077501B7_impl*
+end;//TddPDFCanvas.DoEndPaint
 
 function TddPDFExporter.pm_GetCanvas: TddPDFCanvas;
 //#UC START# *53FF0B94012E_53FF07670079get_var*
