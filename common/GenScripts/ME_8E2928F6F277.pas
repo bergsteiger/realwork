@@ -776,12 +776,18 @@ begin
 end;//TkwMainFormStatusBar.StatusBar
 
 procedure TkwMainFormStatusBar.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E7937E8D2012_var*
-//#UC END# *4DAEEDE10285_E7937E8D2012_var*
+var l_aMainForm: TMainForm;
 begin
-//#UC START# *4DAEEDE10285_E7937E8D2012_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E7937E8D2012_impl*
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(StatusBar(aCtx, l_aMainForm));
 end;//TkwMainFormStatusBar.DoDoIt
 
 class function TkwMainFormStatusBar.GetWordNameForRegister: AnsiString;
@@ -791,12 +797,8 @@ end;//TkwMainFormStatusBar.GetWordNameForRegister
 
 procedure TkwMainFormStatusBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E7937E8D2012_var*
-//#UC END# *52D00B00031A_E7937E8D2012_var*
 begin
-//#UC START# *52D00B00031A_E7937E8D2012_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E7937E8D2012_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwMainFormStatusBar.SetValuePrim
 
 function TkwMainFormStatusBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -810,12 +812,8 @@ begin
 end;//TkwMainFormStatusBar.GetAllParamsCount
 
 function TkwMainFormStatusBar.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E7937E8D2012_var*
-//#UC END# *5617F4D00243_E7937E8D2012_var*
 begin
-//#UC START# *5617F4D00243_E7937E8D2012_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E7937E8D2012_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormStatusBar.ParamsTypes
 
 function TkwMainFormClientZone.ClientZone(const aCtx: TtfwContext;
@@ -830,12 +828,18 @@ begin
 end;//TkwMainFormClientZone.ClientZone
 
 procedure TkwMainFormClientZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E8000876B931_var*
-//#UC END# *4DAEEDE10285_E8000876B931_var*
+var l_aMainForm: TMainForm;
 begin
-//#UC START# *4DAEEDE10285_E8000876B931_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E8000876B931_impl*
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ClientZone(aCtx, l_aMainForm));
 end;//TkwMainFormClientZone.DoDoIt
 
 class function TkwMainFormClientZone.GetWordNameForRegister: AnsiString;
@@ -845,12 +849,8 @@ end;//TkwMainFormClientZone.GetWordNameForRegister
 
 procedure TkwMainFormClientZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E8000876B931_var*
-//#UC END# *52D00B00031A_E8000876B931_var*
 begin
-//#UC START# *52D00B00031A_E8000876B931_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E8000876B931_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwMainFormClientZone.SetValuePrim
 
 function TkwMainFormClientZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -864,12 +864,8 @@ begin
 end;//TkwMainFormClientZone.GetAllParamsCount
 
 function TkwMainFormClientZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E8000876B931_var*
-//#UC END# *5617F4D00243_E8000876B931_var*
 begin
-//#UC START# *5617F4D00243_E8000876B931_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E8000876B931_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormClientZone.ParamsTypes
 
 function TkwMainFormMainZone.MainZone(const aCtx: TtfwContext;
@@ -884,12 +880,18 @@ begin
 end;//TkwMainFormMainZone.MainZone
 
 procedure TkwMainFormMainZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0F505AC58780_var*
-//#UC END# *4DAEEDE10285_0F505AC58780_var*
+var l_aMainForm: TMainForm;
 begin
-//#UC START# *4DAEEDE10285_0F505AC58780_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0F505AC58780_impl*
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MainZone(aCtx, l_aMainForm));
 end;//TkwMainFormMainZone.DoDoIt
 
 class function TkwMainFormMainZone.GetWordNameForRegister: AnsiString;
@@ -899,12 +901,8 @@ end;//TkwMainFormMainZone.GetWordNameForRegister
 
 procedure TkwMainFormMainZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0F505AC58780_var*
-//#UC END# *52D00B00031A_0F505AC58780_var*
 begin
-//#UC START# *52D00B00031A_0F505AC58780_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0F505AC58780_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwMainFormMainZone.SetValuePrim
 
 function TkwMainFormMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -918,12 +916,8 @@ begin
 end;//TkwMainFormMainZone.GetAllParamsCount
 
 function TkwMainFormMainZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0F505AC58780_var*
-//#UC END# *5617F4D00243_0F505AC58780_var*
 begin
-//#UC START# *5617F4D00243_0F505AC58780_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0F505AC58780_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormMainZone.ParamsTypes
 
 function TkwMainFormParentZonePanel.ParentZonePanel(const aCtx: TtfwContext;
@@ -938,12 +932,18 @@ begin
 end;//TkwMainFormParentZonePanel.ParentZonePanel
 
 procedure TkwMainFormParentZonePanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_13CB2670C2C7_var*
-//#UC END# *4DAEEDE10285_13CB2670C2C7_var*
+var l_aMainForm: TMainForm;
 begin
-//#UC START# *4DAEEDE10285_13CB2670C2C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_13CB2670C2C7_impl*
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZonePanel(aCtx, l_aMainForm));
 end;//TkwMainFormParentZonePanel.DoDoIt
 
 class function TkwMainFormParentZonePanel.GetWordNameForRegister: AnsiString;
@@ -953,12 +953,8 @@ end;//TkwMainFormParentZonePanel.GetWordNameForRegister
 
 procedure TkwMainFormParentZonePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_13CB2670C2C7_var*
-//#UC END# *52D00B00031A_13CB2670C2C7_var*
 begin
-//#UC START# *52D00B00031A_13CB2670C2C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_13CB2670C2C7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwMainFormParentZonePanel.SetValuePrim
 
 function TkwMainFormParentZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -972,12 +968,8 @@ begin
 end;//TkwMainFormParentZonePanel.GetAllParamsCount
 
 function TkwMainFormParentZonePanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_13CB2670C2C7_var*
-//#UC END# *5617F4D00243_13CB2670C2C7_var*
 begin
-//#UC START# *5617F4D00243_13CB2670C2C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_13CB2670C2C7_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormParentZonePanel.ParamsTypes
 
 function TkwMainFormChildZonePanel.ChildZonePanel(const aCtx: TtfwContext;
@@ -992,12 +984,18 @@ begin
 end;//TkwMainFormChildZonePanel.ChildZonePanel
 
 procedure TkwMainFormChildZonePanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CA34AD1DFE87_var*
-//#UC END# *4DAEEDE10285_CA34AD1DFE87_var*
+var l_aMainForm: TMainForm;
 begin
-//#UC START# *4DAEEDE10285_CA34AD1DFE87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CA34AD1DFE87_impl*
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ChildZonePanel(aCtx, l_aMainForm));
 end;//TkwMainFormChildZonePanel.DoDoIt
 
 class function TkwMainFormChildZonePanel.GetWordNameForRegister: AnsiString;
@@ -1007,12 +1005,8 @@ end;//TkwMainFormChildZonePanel.GetWordNameForRegister
 
 procedure TkwMainFormChildZonePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_CA34AD1DFE87_var*
-//#UC END# *52D00B00031A_CA34AD1DFE87_var*
 begin
-//#UC START# *52D00B00031A_CA34AD1DFE87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_CA34AD1DFE87_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwMainFormChildZonePanel.SetValuePrim
 
 function TkwMainFormChildZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1026,12 +1020,8 @@ begin
 end;//TkwMainFormChildZonePanel.GetAllParamsCount
 
 function TkwMainFormChildZonePanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CA34AD1DFE87_var*
-//#UC END# *5617F4D00243_CA34AD1DFE87_var*
 begin
-//#UC START# *5617F4D00243_CA34AD1DFE87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CA34AD1DFE87_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormChildZonePanel.ParamsTypes
 
 function TkwMainFormBaseSearchPanel.BaseSearchPanel(const aCtx: TtfwContext;
@@ -1046,12 +1036,18 @@ begin
 end;//TkwMainFormBaseSearchPanel.BaseSearchPanel
 
 procedure TkwMainFormBaseSearchPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_52B37CC440AC_var*
-//#UC END# *4DAEEDE10285_52B37CC440AC_var*
+var l_aMainForm: TMainForm;
 begin
-//#UC START# *4DAEEDE10285_52B37CC440AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_52B37CC440AC_impl*
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BaseSearchPanel(aCtx, l_aMainForm));
 end;//TkwMainFormBaseSearchPanel.DoDoIt
 
 class function TkwMainFormBaseSearchPanel.GetWordNameForRegister: AnsiString;
@@ -1061,12 +1057,8 @@ end;//TkwMainFormBaseSearchPanel.GetWordNameForRegister
 
 procedure TkwMainFormBaseSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_52B37CC440AC_var*
-//#UC END# *52D00B00031A_52B37CC440AC_var*
 begin
-//#UC START# *52D00B00031A_52B37CC440AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_52B37CC440AC_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwMainFormBaseSearchPanel.SetValuePrim
 
 function TkwMainFormBaseSearchPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1080,12 +1072,8 @@ begin
 end;//TkwMainFormBaseSearchPanel.GetAllParamsCount
 
 function TkwMainFormBaseSearchPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_52B37CC440AC_var*
-//#UC END# *5617F4D00243_52B37CC440AC_var*
 begin
-//#UC START# *5617F4D00243_52B37CC440AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_52B37CC440AC_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormBaseSearchPanel.ParamsTypes
 
 function TkwMainFormLeftNavigator.LeftNavigator(const aCtx: TtfwContext;
@@ -1100,12 +1088,18 @@ begin
 end;//TkwMainFormLeftNavigator.LeftNavigator
 
 procedure TkwMainFormLeftNavigator.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0C160E9D7D22_var*
-//#UC END# *4DAEEDE10285_0C160E9D7D22_var*
+var l_aMainForm: TMainForm;
 begin
-//#UC START# *4DAEEDE10285_0C160E9D7D22_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0C160E9D7D22_impl*
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LeftNavigator(aCtx, l_aMainForm));
 end;//TkwMainFormLeftNavigator.DoDoIt
 
 class function TkwMainFormLeftNavigator.GetWordNameForRegister: AnsiString;
@@ -1115,12 +1109,8 @@ end;//TkwMainFormLeftNavigator.GetWordNameForRegister
 
 procedure TkwMainFormLeftNavigator.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0C160E9D7D22_var*
-//#UC END# *52D00B00031A_0C160E9D7D22_var*
 begin
-//#UC START# *52D00B00031A_0C160E9D7D22_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0C160E9D7D22_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwMainFormLeftNavigator.SetValuePrim
 
 function TkwMainFormLeftNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1134,12 +1124,8 @@ begin
 end;//TkwMainFormLeftNavigator.GetAllParamsCount
 
 function TkwMainFormLeftNavigator.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0C160E9D7D22_var*
-//#UC END# *5617F4D00243_0C160E9D7D22_var*
 begin
-//#UC START# *5617F4D00243_0C160E9D7D22_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0C160E9D7D22_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormLeftNavigator.ParamsTypes
 
 {$If Defined(HasRightNavigator)}
@@ -1156,12 +1142,18 @@ end;//TkwMainFormRightNavigator.RightNavigator
 {$IfEnd} // Defined(HasRightNavigator)
 
 procedure TkwMainFormRightNavigator.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DAD6AC79A3FE_var*
-//#UC END# *4DAEEDE10285_DAD6AC79A3FE_var*
+var l_aMainForm: TMainForm;
 begin
-//#UC START# *4DAEEDE10285_DAD6AC79A3FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DAD6AC79A3FE_impl*
+ try
+  l_aMainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RightNavigator(aCtx, l_aMainForm));
 end;//TkwMainFormRightNavigator.DoDoIt
 
 class function TkwMainFormRightNavigator.GetWordNameForRegister: AnsiString;
@@ -1171,12 +1163,8 @@ end;//TkwMainFormRightNavigator.GetWordNameForRegister
 
 procedure TkwMainFormRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DAD6AC79A3FE_var*
-//#UC END# *52D00B00031A_DAD6AC79A3FE_var*
 begin
-//#UC START# *52D00B00031A_DAD6AC79A3FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DAD6AC79A3FE_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwMainFormRightNavigator.SetValuePrim
 
 function TkwMainFormRightNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1190,12 +1178,8 @@ begin
 end;//TkwMainFormRightNavigator.GetAllParamsCount
 
 function TkwMainFormRightNavigator.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DAD6AC79A3FE_var*
-//#UC END# *5617F4D00243_DAD6AC79A3FE_var*
 begin
-//#UC START# *5617F4D00243_DAD6AC79A3FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DAD6AC79A3FE_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormRightNavigator.ParamsTypes
 
 initialization

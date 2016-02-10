@@ -103,6 +103,8 @@ type
    procedure pm_SetStages(aValue: TaeStagesSet);
    function pm_GetExpandEditions: Boolean;
    procedure pm_SetExpandEditions(aValue: Boolean);
+   function pm_GetInfoDocsIncludedOnly: Boolean;
+   procedure pm_SetInfoDocsIncludedOnly(aValue: Boolean);
    {$If NOT Defined(Nemesis)}
    function GetDescription: AnsiString; override;
    {$IfEnd} // NOT Defined(Nemesis)
@@ -207,6 +209,9 @@ type
    property ExpandEditions: Boolean
     read pm_GetExpandEditions
     write pm_SetExpandEditions;
+   property InfoDocsIncludedOnly: Boolean
+    read pm_GetInfoDocsIncludedOnly
+    write pm_SetInfoDocsIncludedOnly;
  end;//TalcuAutoExportTaskPrim
 {$IfEnd} // Defined(ServerTasks)
 
@@ -737,6 +742,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *CBC40A3F22A1_53B6A5FA0212set_impl*
 end;//TalcuAutoExportTaskPrim.pm_SetExpandEditions
+
+function TalcuAutoExportTaskPrim.pm_GetInfoDocsIncludedOnly: Boolean;
+//#UC START# *3538557C30E3_53B6A5FA0212get_var*
+//#UC END# *3538557C30E3_53B6A5FA0212get_var*
+begin
+//#UC START# *3538557C30E3_53B6A5FA0212get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *3538557C30E3_53B6A5FA0212get_impl*
+end;//TalcuAutoExportTaskPrim.pm_GetInfoDocsIncludedOnly
+
+procedure TalcuAutoExportTaskPrim.pm_SetInfoDocsIncludedOnly(aValue: Boolean);
+//#UC START# *3538557C30E3_53B6A5FA0212set_var*
+//#UC END# *3538557C30E3_53B6A5FA0212set_var*
+begin
+//#UC START# *3538557C30E3_53B6A5FA0212set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *3538557C30E3_53B6A5FA0212set_impl*
+end;//TalcuAutoExportTaskPrim.pm_SetInfoDocsIncludedOnly
 
 class function TalcuAutoExportTaskPrim.GetTaggedDataType: Tk2Type;
 //#UC START# *53AC03EE01FD_53B6A5FA0212_var*
