@@ -236,12 +236,8 @@ end;//TkwEnQueryCardEditor.GetWordNameForRegister
 
 procedure TkwEnQueryCardEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C531EBC72793_var*
-//#UC END# *52D00B00031A_C531EBC72793_var*
 begin
-//#UC START# *52D00B00031A_C531EBC72793_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C531EBC72793_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnQueryCardEditor.SetValuePrim
 
 function TkwEnQueryCardEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -255,12 +251,8 @@ begin
 end;//TkwEnQueryCardEditor.GetAllParamsCount
 
 function TkwEnQueryCardEditor.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C531EBC72793_var*
-//#UC END# *5617F4D00243_C531EBC72793_var*
 begin
-//#UC START# *5617F4D00243_C531EBC72793_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C531EBC72793_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnQueryCardEditor.ParamsTypes
 
 function TkwEnQueryCardTextSource.TextSource(const aCtx: TtfwContext;
@@ -290,12 +282,8 @@ end;//TkwEnQueryCardTextSource.GetWordNameForRegister
 
 procedure TkwEnQueryCardTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_88CF64489AF4_var*
-//#UC END# *52D00B00031A_88CF64489AF4_var*
 begin
-//#UC START# *52D00B00031A_88CF64489AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_88CF64489AF4_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnQueryCardTextSource.SetValuePrim
 
 function TkwEnQueryCardTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -309,12 +297,8 @@ begin
 end;//TkwEnQueryCardTextSource.GetAllParamsCount
 
 function TkwEnQueryCardTextSource.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_88CF64489AF4_var*
-//#UC END# *5617F4D00243_88CF64489AF4_var*
 begin
-//#UC START# *5617F4D00243_88CF64489AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_88CF64489AF4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnQueryCardTextSource.ParamsTypes
 
 initialization

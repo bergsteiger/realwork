@@ -159,12 +159,8 @@ begin
 end;//TkwLoggingGetLogRecords.GetAllParamsCount
 
 function TkwLoggingGetLogRecords.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4FDD3D4A4771_var*
-//#UC END# *5617F4D00243_4FDD3D4A4771_var*
 begin
-//#UC START# *5617F4D00243_4FDD3D4A4771_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4FDD3D4A4771_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoggingGetLogRecords.ParamsTypes
 
 initialization

@@ -699,12 +699,8 @@ end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwContentsFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4C8C363B5514_var*
-//#UC END# *52D00B00031A_4C8C363B5514_var*
 begin
-//#UC START# *52D00B00031A_4C8C363B5514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4C8C363B5514_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContentsFormBackgroundPanel.SetValuePrim
 
 function TkwContentsFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -718,12 +714,8 @@ begin
 end;//TkwContentsFormBackgroundPanel.GetAllParamsCount
 
 function TkwContentsFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4C8C363B5514_var*
-//#UC END# *5617F4D00243_4C8C363B5514_var*
 begin
-//#UC START# *5617F4D00243_4C8C363B5514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4C8C363B5514_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContentsFormBackgroundPanel.ParamsTypes
 
 function TkwContentsFormLstBookmarks.lstBookmarks(const aCtx: TtfwContext;
@@ -753,12 +745,8 @@ end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
 
 procedure TkwContentsFormLstBookmarks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4490BAA2CF4F_var*
-//#UC END# *52D00B00031A_4490BAA2CF4F_var*
 begin
-//#UC START# *52D00B00031A_4490BAA2CF4F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4490BAA2CF4F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContentsFormLstBookmarks.SetValuePrim
 
 function TkwContentsFormLstBookmarks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -772,12 +760,8 @@ begin
 end;//TkwContentsFormLstBookmarks.GetAllParamsCount
 
 function TkwContentsFormLstBookmarks.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4490BAA2CF4F_var*
-//#UC END# *5617F4D00243_4490BAA2CF4F_var*
 begin
-//#UC START# *5617F4D00243_4490BAA2CF4F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4490BAA2CF4F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContentsFormLstBookmarks.ParamsTypes
 
 function TkwContentsFormLstComments.lstComments(const aCtx: TtfwContext;
@@ -807,12 +791,8 @@ end;//TkwContentsFormLstComments.GetWordNameForRegister
 
 procedure TkwContentsFormLstComments.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BB45F71CEF15_var*
-//#UC END# *52D00B00031A_BB45F71CEF15_var*
 begin
-//#UC START# *52D00B00031A_BB45F71CEF15_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BB45F71CEF15_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContentsFormLstComments.SetValuePrim
 
 function TkwContentsFormLstComments.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -826,12 +806,8 @@ begin
 end;//TkwContentsFormLstComments.GetAllParamsCount
 
 function TkwContentsFormLstComments.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BB45F71CEF15_var*
-//#UC END# *5617F4D00243_BB45F71CEF15_var*
 begin
-//#UC START# *5617F4D00243_BB45F71CEF15_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BB45F71CEF15_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContentsFormLstComments.ParamsTypes
 
 function TkwContentsFormLstExternalObjects.lstExternalObjects(const aCtx: TtfwContext;
@@ -861,12 +837,8 @@ end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
 
 procedure TkwContentsFormLstExternalObjects.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BC07363209CB_var*
-//#UC END# *52D00B00031A_BC07363209CB_var*
 begin
-//#UC START# *52D00B00031A_BC07363209CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BC07363209CB_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContentsFormLstExternalObjects.SetValuePrim
 
 function TkwContentsFormLstExternalObjects.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -880,12 +852,8 @@ begin
 end;//TkwContentsFormLstExternalObjects.GetAllParamsCount
 
 function TkwContentsFormLstExternalObjects.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BC07363209CB_var*
-//#UC END# *5617F4D00243_BC07363209CB_var*
 begin
-//#UC START# *5617F4D00243_BC07363209CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BC07363209CB_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContentsFormLstExternalObjects.ParamsTypes
 
 function TkwContentsFormContentsTree.ContentsTree(const aCtx: TtfwContext;
@@ -915,12 +883,8 @@ end;//TkwContentsFormContentsTree.GetWordNameForRegister
 
 procedure TkwContentsFormContentsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_73822264D1F3_var*
-//#UC END# *52D00B00031A_73822264D1F3_var*
 begin
-//#UC START# *52D00B00031A_73822264D1F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_73822264D1F3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContentsFormContentsTree.SetValuePrim
 
 function TkwContentsFormContentsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -934,12 +898,8 @@ begin
 end;//TkwContentsFormContentsTree.GetAllParamsCount
 
 function TkwContentsFormContentsTree.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_73822264D1F3_var*
-//#UC END# *5617F4D00243_73822264D1F3_var*
 begin
-//#UC START# *5617F4D00243_73822264D1F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_73822264D1F3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContentsFormContentsTree.ParamsTypes
 
 function TkwContentsFormContextFilter.ContextFilter(const aCtx: TtfwContext;
@@ -969,12 +929,8 @@ end;//TkwContentsFormContextFilter.GetWordNameForRegister
 
 procedure TkwContentsFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1F49FC7EEC5A_var*
-//#UC END# *52D00B00031A_1F49FC7EEC5A_var*
 begin
-//#UC START# *52D00B00031A_1F49FC7EEC5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1F49FC7EEC5A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContentsFormContextFilter.SetValuePrim
 
 function TkwContentsFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -988,12 +944,8 @@ begin
 end;//TkwContentsFormContextFilter.GetAllParamsCount
 
 function TkwContentsFormContextFilter.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1F49FC7EEC5A_var*
-//#UC END# *5617F4D00243_1F49FC7EEC5A_var*
 begin
-//#UC START# *5617F4D00243_1F49FC7EEC5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1F49FC7EEC5A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContentsFormContextFilter.ParamsTypes
 
 function TkwContentsFormTasks.Tasks(const aCtx: TtfwContext;
@@ -1023,12 +975,8 @@ end;//TkwContentsFormTasks.GetWordNameForRegister
 
 procedure TkwContentsFormTasks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7D17DDA72BEE_var*
-//#UC END# *52D00B00031A_7D17DDA72BEE_var*
 begin
-//#UC START# *52D00B00031A_7D17DDA72BEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7D17DDA72BEE_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContentsFormTasks.SetValuePrim
 
 function TkwContentsFormTasks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1042,12 +990,8 @@ begin
 end;//TkwContentsFormTasks.GetAllParamsCount
 
 function TkwContentsFormTasks.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7D17DDA72BEE_var*
-//#UC END# *5617F4D00243_7D17DDA72BEE_var*
 begin
-//#UC START# *5617F4D00243_7D17DDA72BEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7D17DDA72BEE_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContentsFormTasks.ParamsTypes
 
 initialization

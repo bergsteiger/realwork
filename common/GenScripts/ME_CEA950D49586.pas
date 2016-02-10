@@ -437,12 +437,8 @@ end;//TkwCfSaveLoadPnHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadPnHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2440EB34C9D0_var*
-//#UC END# *52D00B00031A_2440EB34C9D0_var*
 begin
-//#UC START# *52D00B00031A_2440EB34C9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2440EB34C9D0_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfSaveLoadPnHeader.SetValuePrim
 
 function TkwCfSaveLoadPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -456,12 +452,8 @@ begin
 end;//TkwCfSaveLoadPnHeader.GetAllParamsCount
 
 function TkwCfSaveLoadPnHeader.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2440EB34C9D0_var*
-//#UC END# *5617F4D00243_2440EB34C9D0_var*
 begin
-//#UC START# *5617F4D00243_2440EB34C9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2440EB34C9D0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfSaveLoadPnHeader.ParamsTypes
 
 function TkwCfSaveLoadLbHeader.lbHeader(const aCtx: TtfwContext;
@@ -491,12 +483,8 @@ end;//TkwCfSaveLoadLbHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadLbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E675708F6BD5_var*
-//#UC END# *52D00B00031A_E675708F6BD5_var*
 begin
-//#UC START# *52D00B00031A_E675708F6BD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E675708F6BD5_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfSaveLoadLbHeader.SetValuePrim
 
 function TkwCfSaveLoadLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -510,12 +498,8 @@ begin
 end;//TkwCfSaveLoadLbHeader.GetAllParamsCount
 
 function TkwCfSaveLoadLbHeader.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E675708F6BD5_var*
-//#UC END# *5617F4D00243_E675708F6BD5_var*
 begin
-//#UC START# *5617F4D00243_E675708F6BD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E675708F6BD5_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfSaveLoadLbHeader.ParamsTypes
 
 function TkwCfSaveLoadPbHeader.pbHeader(const aCtx: TtfwContext;
@@ -545,12 +529,8 @@ end;//TkwCfSaveLoadPbHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadPbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_26C9E1BE48F1_var*
-//#UC END# *52D00B00031A_26C9E1BE48F1_var*
 begin
-//#UC START# *52D00B00031A_26C9E1BE48F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_26C9E1BE48F1_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfSaveLoadPbHeader.SetValuePrim
 
 function TkwCfSaveLoadPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -564,12 +544,8 @@ begin
 end;//TkwCfSaveLoadPbHeader.GetAllParamsCount
 
 function TkwCfSaveLoadPbHeader.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_26C9E1BE48F1_var*
-//#UC END# *5617F4D00243_26C9E1BE48F1_var*
 begin
-//#UC START# *5617F4D00243_26C9E1BE48F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_26C9E1BE48F1_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfSaveLoadPbHeader.ParamsTypes
 
 function TkwCfSaveLoadParentZone.ParentZone(const aCtx: TtfwContext;
@@ -599,12 +575,8 @@ end;//TkwCfSaveLoadParentZone.GetWordNameForRegister
 
 procedure TkwCfSaveLoadParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_27482DAD1D6E_var*
-//#UC END# *52D00B00031A_27482DAD1D6E_var*
 begin
-//#UC START# *52D00B00031A_27482DAD1D6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_27482DAD1D6E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfSaveLoadParentZone.SetValuePrim
 
 function TkwCfSaveLoadParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -618,12 +590,8 @@ begin
 end;//TkwCfSaveLoadParentZone.GetAllParamsCount
 
 function TkwCfSaveLoadParentZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_27482DAD1D6E_var*
-//#UC END# *5617F4D00243_27482DAD1D6E_var*
 begin
-//#UC START# *5617F4D00243_27482DAD1D6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_27482DAD1D6E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfSaveLoadParentZone.ParamsTypes
 
 initialization

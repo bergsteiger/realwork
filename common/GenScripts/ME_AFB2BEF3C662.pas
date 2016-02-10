@@ -351,12 +351,8 @@ end;//TkwEnDictionBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B2258800EAED_var*
-//#UC END# *52D00B00031A_B2258800EAED_var*
 begin
-//#UC START# *52D00B00031A_B2258800EAED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B2258800EAED_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDictionBackgroundPanel.SetValuePrim
 
 function TkwEnDictionBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -370,12 +366,8 @@ begin
 end;//TkwEnDictionBackgroundPanel.GetAllParamsCount
 
 function TkwEnDictionBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B2258800EAED_var*
-//#UC END# *5617F4D00243_B2258800EAED_var*
 begin
-//#UC START# *5617F4D00243_B2258800EAED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B2258800EAED_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDictionBackgroundPanel.ParamsTypes
 
 function TkwEnDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
@@ -405,12 +397,8 @@ end;//TkwEnDictionContextFilter.GetWordNameForRegister
 
 procedure TkwEnDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B4EC4D5AF267_var*
-//#UC END# *52D00B00031A_B4EC4D5AF267_var*
 begin
-//#UC START# *52D00B00031A_B4EC4D5AF267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B4EC4D5AF267_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDictionContextFilter.SetValuePrim
 
 function TkwEnDictionContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -424,12 +412,8 @@ begin
 end;//TkwEnDictionContextFilter.GetAllParamsCount
 
 function TkwEnDictionContextFilter.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B4EC4D5AF267_var*
-//#UC END# *5617F4D00243_B4EC4D5AF267_var*
 begin
-//#UC START# *5617F4D00243_B4EC4D5AF267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B4EC4D5AF267_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDictionContextFilter.ParamsTypes
 
 function TkwEnDictionWordsTree.WordsTree(const aCtx: TtfwContext;
@@ -459,12 +443,8 @@ end;//TkwEnDictionWordsTree.GetWordNameForRegister
 
 procedure TkwEnDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ED3545E875CA_var*
-//#UC END# *52D00B00031A_ED3545E875CA_var*
 begin
-//#UC START# *52D00B00031A_ED3545E875CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ED3545E875CA_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDictionWordsTree.SetValuePrim
 
 function TkwEnDictionWordsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -478,12 +458,8 @@ begin
 end;//TkwEnDictionWordsTree.GetAllParamsCount
 
 function TkwEnDictionWordsTree.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_ED3545E875CA_var*
-//#UC END# *5617F4D00243_ED3545E875CA_var*
 begin
-//#UC START# *5617F4D00243_ED3545E875CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_ED3545E875CA_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDictionWordsTree.ParamsTypes
 
 initialization

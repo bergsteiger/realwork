@@ -303,12 +303,8 @@ end;//TkwPictureFormIeIO.GetWordNameForRegister
 
 procedure TkwPictureFormIeIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_17635237745C_var*
-//#UC END# *52D00B00031A_17635237745C_var*
 begin
-//#UC START# *52D00B00031A_17635237745C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_17635237745C_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwPictureFormIeIO.SetValuePrim
 
 function TkwPictureFormIeIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -322,12 +318,8 @@ begin
 end;//TkwPictureFormIeIO.GetAllParamsCount
 
 function TkwPictureFormIeIO.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_17635237745C_var*
-//#UC END# *5617F4D00243_17635237745C_var*
 begin
-//#UC START# *5617F4D00243_17635237745C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_17635237745C_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPictureFormIeIO.ParamsTypes
 
 function TkwPictureFormIeViewer.ieViewer(const aCtx: TtfwContext;
@@ -357,12 +349,8 @@ end;//TkwPictureFormIeViewer.GetWordNameForRegister
 
 procedure TkwPictureFormIeViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_101ACB961C5C_var*
-//#UC END# *52D00B00031A_101ACB961C5C_var*
 begin
-//#UC START# *52D00B00031A_101ACB961C5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_101ACB961C5C_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwPictureFormIeViewer.SetValuePrim
 
 function TkwPictureFormIeViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -376,12 +364,8 @@ begin
 end;//TkwPictureFormIeViewer.GetAllParamsCount
 
 function TkwPictureFormIeViewer.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_101ACB961C5C_var*
-//#UC END# *5617F4D00243_101ACB961C5C_var*
 begin
-//#UC START# *5617F4D00243_101ACB961C5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_101ACB961C5C_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPictureFormIeViewer.ParamsTypes
 
 function TkwPictureFormIeProc.ieProc(const aCtx: TtfwContext;
@@ -411,12 +395,8 @@ end;//TkwPictureFormIeProc.GetWordNameForRegister
 
 procedure TkwPictureFormIeProc.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BF66EC4F24E9_var*
-//#UC END# *52D00B00031A_BF66EC4F24E9_var*
 begin
-//#UC START# *52D00B00031A_BF66EC4F24E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BF66EC4F24E9_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwPictureFormIeProc.SetValuePrim
 
 function TkwPictureFormIeProc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -430,12 +410,8 @@ begin
 end;//TkwPictureFormIeProc.GetAllParamsCount
 
 function TkwPictureFormIeProc.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BF66EC4F24E9_var*
-//#UC END# *5617F4D00243_BF66EC4F24E9_var*
 begin
-//#UC START# *5617F4D00243_BF66EC4F24E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BF66EC4F24E9_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPictureFormIeProc.ParamsTypes
 
 initialization

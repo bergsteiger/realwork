@@ -274,12 +274,8 @@ end;//TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister
 
 procedure TkwEnPageSetupPreviewGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_56C42AEE3D11_var*
-//#UC END# *52D00B00031A_56C42AEE3D11_var*
 begin
-//#UC START# *52D00B00031A_56C42AEE3D11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_56C42AEE3D11_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnPageSetupPreviewGroupBox.SetValuePrim
 
 function TkwEnPageSetupPreviewGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -293,12 +289,8 @@ begin
 end;//TkwEnPageSetupPreviewGroupBox.GetAllParamsCount
 
 function TkwEnPageSetupPreviewGroupBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_56C42AEE3D11_var*
-//#UC END# *5617F4D00243_56C42AEE3D11_var*
 begin
-//#UC START# *5617F4D00243_56C42AEE3D11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_56C42AEE3D11_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnPageSetupPreviewGroupBox.ParamsTypes
 
 function TkwEnPageSetupSettingsPageControl.SettingsPageControl(const aCtx: TtfwContext;
@@ -328,12 +320,8 @@ end;//TkwEnPageSetupSettingsPageControl.GetWordNameForRegister
 
 procedure TkwEnPageSetupSettingsPageControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_82C3311120D2_var*
-//#UC END# *52D00B00031A_82C3311120D2_var*
 begin
-//#UC START# *52D00B00031A_82C3311120D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_82C3311120D2_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnPageSetupSettingsPageControl.SetValuePrim
 
 function TkwEnPageSetupSettingsPageControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -347,12 +335,8 @@ begin
 end;//TkwEnPageSetupSettingsPageControl.GetAllParamsCount
 
 function TkwEnPageSetupSettingsPageControl.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_82C3311120D2_var*
-//#UC END# *5617F4D00243_82C3311120D2_var*
 begin
-//#UC START# *5617F4D00243_82C3311120D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_82C3311120D2_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnPageSetupSettingsPageControl.ParamsTypes
 
 initialization

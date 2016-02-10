@@ -1042,12 +1042,8 @@ end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuHfReferencesAndDictionaries.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C91AEE657109_var*
-//#UC END# *52D00B00031A_C91AEE657109_var*
 begin
-//#UC START# *52D00B00031A_C91AEE657109_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C91AEE657109_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.SetValuePrim
 
 function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1061,12 +1057,8 @@ begin
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfReferencesAndDictionaries.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C91AEE657109_var*
-//#UC END# *5617F4D00243_C91AEE657109_var*
 begin
-//#UC START# *5617F4D00243_C91AEE657109_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C91AEE657109_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.ParamsTypes
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.tvReferencesAndDictionaries(const aCtx: TtfwContext;
@@ -1096,12 +1088,8 @@ end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuTvReferencesAndDictionaries.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_437CE9A2D1E0_var*
-//#UC END# *52D00B00031A_437CE9A2D1E0_var*
 begin
-//#UC START# *52D00B00031A_437CE9A2D1E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_437CE9A2D1E0_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.SetValuePrim
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1115,12 +1103,8 @@ begin
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_437CE9A2D1E0_var*
-//#UC END# *5617F4D00243_437CE9A2D1E0_var*
 begin
-//#UC START# *5617F4D00243_437CE9A2D1E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_437CE9A2D1E0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.ParamsTypes
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.hfReferencePharmaceuticalInformation(const aCtx: TtfwContext;
@@ -1150,12 +1134,8 @@ end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetWordNameForRegis
 
 procedure TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0B5AD3386AA9_var*
-//#UC END# *52D00B00031A_0B5AD3386AA9_var*
 begin
-//#UC START# *52D00B00031A_0B5AD3386AA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0B5AD3386AA9_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.SetValuePrim
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1169,12 +1149,8 @@ begin
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0B5AD3386AA9_var*
-//#UC END# *5617F4D00243_0B5AD3386AA9_var*
 begin
-//#UC START# *5617F4D00243_0B5AD3386AA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0B5AD3386AA9_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.ParamsTypes
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.tvReferencePharmaceuticalInformation(const aCtx: TtfwContext;
@@ -1204,12 +1180,8 @@ end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetWordNameForRegis
 
 procedure TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_723F1F7F4BC5_var*
-//#UC END# *52D00B00031A_723F1F7F4BC5_var*
 begin
-//#UC START# *52D00B00031A_723F1F7F4BC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_723F1F7F4BC5_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.SetValuePrim
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1223,12 +1195,8 @@ begin
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_723F1F7F4BC5_var*
-//#UC END# *5617F4D00243_723F1F7F4BC5_var*
 begin
-//#UC START# *5617F4D00243_723F1F7F4BC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_723F1F7F4BC5_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.ParamsTypes
 
 function TkwEnMedicMainMenuHfMainFeatures.hfMainFeatures(const aCtx: TtfwContext;
@@ -1258,12 +1226,8 @@ end;//TkwEnMedicMainMenuHfMainFeatures.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuHfMainFeatures.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6BE515CCE9E4_var*
-//#UC END# *52D00B00031A_6BE515CCE9E4_var*
 begin
-//#UC START# *52D00B00031A_6BE515CCE9E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6BE515CCE9E4_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuHfMainFeatures.SetValuePrim
 
 function TkwEnMedicMainMenuHfMainFeatures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1277,12 +1241,8 @@ begin
 end;//TkwEnMedicMainMenuHfMainFeatures.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfMainFeatures.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6BE515CCE9E4_var*
-//#UC END# *5617F4D00243_6BE515CCE9E4_var*
 begin
-//#UC START# *5617F4D00243_6BE515CCE9E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6BE515CCE9E4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuHfMainFeatures.ParamsTypes
 
 function TkwEnMedicMainMenuTvMainFeatures.tvMainFeatures(const aCtx: TtfwContext;
@@ -1312,12 +1272,8 @@ end;//TkwEnMedicMainMenuTvMainFeatures.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuTvMainFeatures.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_794F6F0CBB14_var*
-//#UC END# *52D00B00031A_794F6F0CBB14_var*
 begin
-//#UC START# *52D00B00031A_794F6F0CBB14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_794F6F0CBB14_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuTvMainFeatures.SetValuePrim
 
 function TkwEnMedicMainMenuTvMainFeatures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1331,12 +1287,8 @@ begin
 end;//TkwEnMedicMainMenuTvMainFeatures.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvMainFeatures.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_794F6F0CBB14_var*
-//#UC END# *5617F4D00243_794F6F0CBB14_var*
 begin
-//#UC START# *5617F4D00243_794F6F0CBB14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_794F6F0CBB14_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuTvMainFeatures.ParamsTypes
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.hfRegulatoryInformation(const aCtx: TtfwContext;
@@ -1366,12 +1318,8 @@ end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuHfRegulatoryInformation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_10352C98F383_var*
-//#UC END# *52D00B00031A_10352C98F383_var*
 begin
-//#UC START# *52D00B00031A_10352C98F383_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_10352C98F383_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.SetValuePrim
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1385,12 +1333,8 @@ begin
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_10352C98F383_var*
-//#UC END# *5617F4D00243_10352C98F383_var*
 begin
-//#UC START# *5617F4D00243_10352C98F383_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_10352C98F383_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.ParamsTypes
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.tvRegulatoryInformation(const aCtx: TtfwContext;
@@ -1420,12 +1364,8 @@ end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuTvRegulatoryInformation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_88E38EE631AC_var*
-//#UC END# *52D00B00031A_88E38EE631AC_var*
 begin
-//#UC START# *52D00B00031A_88E38EE631AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_88E38EE631AC_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.SetValuePrim
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1439,12 +1379,8 @@ begin
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_88E38EE631AC_var*
-//#UC END# *5617F4D00243_88E38EE631AC_var*
 begin
-//#UC START# *5617F4D00243_88E38EE631AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_88E38EE631AC_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.ParamsTypes
 
 function TkwEnMedicMainMenuPnlMain.pnlMain(const aCtx: TtfwContext;
@@ -1474,12 +1410,8 @@ end;//TkwEnMedicMainMenuPnlMain.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3053DF0D7F26_var*
-//#UC END# *52D00B00031A_3053DF0D7F26_var*
 begin
-//#UC START# *52D00B00031A_3053DF0D7F26_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3053DF0D7F26_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuPnlMain.SetValuePrim
 
 function TkwEnMedicMainMenuPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1493,12 +1425,8 @@ begin
 end;//TkwEnMedicMainMenuPnlMain.GetAllParamsCount
 
 function TkwEnMedicMainMenuPnlMain.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3053DF0D7F26_var*
-//#UC END# *5617F4D00243_3053DF0D7F26_var*
 begin
-//#UC START# *5617F4D00243_3053DF0D7F26_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3053DF0D7F26_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuPnlMain.ParamsTypes
 
 function TkwEnMedicMainMenuHfLastOpenDocs.hfLastOpenDocs(const aCtx: TtfwContext;
@@ -1528,12 +1456,8 @@ end;//TkwEnMedicMainMenuHfLastOpenDocs.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuHfLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_56226AEAD4AE_var*
-//#UC END# *52D00B00031A_56226AEAD4AE_var*
 begin
-//#UC START# *52D00B00031A_56226AEAD4AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_56226AEAD4AE_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuHfLastOpenDocs.SetValuePrim
 
 function TkwEnMedicMainMenuHfLastOpenDocs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1547,12 +1471,8 @@ begin
 end;//TkwEnMedicMainMenuHfLastOpenDocs.GetAllParamsCount
 
 function TkwEnMedicMainMenuHfLastOpenDocs.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_56226AEAD4AE_var*
-//#UC END# *5617F4D00243_56226AEAD4AE_var*
 begin
-//#UC START# *5617F4D00243_56226AEAD4AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_56226AEAD4AE_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuHfLastOpenDocs.ParamsTypes
 
 function TkwEnMedicMainMenuTvLastOpenDocs.tvLastOpenDocs(const aCtx: TtfwContext;
@@ -1582,12 +1502,8 @@ end;//TkwEnMedicMainMenuTvLastOpenDocs.GetWordNameForRegister
 
 procedure TkwEnMedicMainMenuTvLastOpenDocs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A599BAA66CFE_var*
-//#UC END# *52D00B00031A_A599BAA66CFE_var*
 begin
-//#UC START# *52D00B00031A_A599BAA66CFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A599BAA66CFE_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicMainMenuTvLastOpenDocs.SetValuePrim
 
 function TkwEnMedicMainMenuTvLastOpenDocs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1601,12 +1517,8 @@ begin
 end;//TkwEnMedicMainMenuTvLastOpenDocs.GetAllParamsCount
 
 function TkwEnMedicMainMenuTvLastOpenDocs.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A599BAA66CFE_var*
-//#UC END# *5617F4D00243_A599BAA66CFE_var*
 begin
-//#UC START# *5617F4D00243_A599BAA66CFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A599BAA66CFE_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicMainMenuTvLastOpenDocs.ParamsTypes
 
 initialization

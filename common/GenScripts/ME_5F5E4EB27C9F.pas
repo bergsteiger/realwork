@@ -175,12 +175,8 @@ end;//TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister
 
 procedure TkwEnMedicListSynchroViewZtChild.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B2A1FE850B9A_var*
-//#UC END# *52D00B00031A_B2A1FE850B9A_var*
 begin
-//#UC START# *52D00B00031A_B2A1FE850B9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B2A1FE850B9A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnMedicListSynchroViewZtChild.SetValuePrim
 
 function TkwEnMedicListSynchroViewZtChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -194,12 +190,8 @@ begin
 end;//TkwEnMedicListSynchroViewZtChild.GetAllParamsCount
 
 function TkwEnMedicListSynchroViewZtChild.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B2A1FE850B9A_var*
-//#UC END# *5617F4D00243_B2A1FE850B9A_var*
 begin
-//#UC START# *5617F4D00243_B2A1FE850B9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B2A1FE850B9A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnMedicListSynchroViewZtChild.ParamsTypes
 
 initialization

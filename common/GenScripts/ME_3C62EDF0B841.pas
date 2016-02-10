@@ -177,12 +177,8 @@ end;//TkwSynchroViewWarningBaloonFormViewer.GetWordNameForRegister
 
 procedure TkwSynchroViewWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C36D33260EB8_var*
-//#UC END# *52D00B00031A_C36D33260EB8_var*
 begin
-//#UC START# *52D00B00031A_C36D33260EB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C36D33260EB8_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwSynchroViewWarningBaloonFormViewer.SetValuePrim
 
 function TkwSynchroViewWarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -196,12 +192,8 @@ begin
 end;//TkwSynchroViewWarningBaloonFormViewer.GetAllParamsCount
 
 function TkwSynchroViewWarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C36D33260EB8_var*
-//#UC END# *5617F4D00243_C36D33260EB8_var*
 begin
-//#UC START# *5617F4D00243_C36D33260EB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C36D33260EB8_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwSynchroViewWarningBaloonFormViewer.ParamsTypes
 
 initialization

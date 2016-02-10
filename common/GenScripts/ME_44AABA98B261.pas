@@ -175,12 +175,8 @@ end;//TkwEnPictureInfoInfo.GetWordNameForRegister
 
 procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9B1531781ADE_var*
-//#UC END# *52D00B00031A_9B1531781ADE_var*
 begin
-//#UC START# *52D00B00031A_9B1531781ADE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9B1531781ADE_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnPictureInfoInfo.SetValuePrim
 
 function TkwEnPictureInfoInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -194,12 +190,8 @@ begin
 end;//TkwEnPictureInfoInfo.GetAllParamsCount
 
 function TkwEnPictureInfoInfo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9B1531781ADE_var*
-//#UC END# *5617F4D00243_9B1531781ADE_var*
 begin
-//#UC START# *5617F4D00243_9B1531781ADE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9B1531781ADE_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnPictureInfoInfo.ParamsTypes
 
 initialization

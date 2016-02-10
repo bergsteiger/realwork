@@ -351,12 +351,8 @@ end;//TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnCommonDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4988BB9A5265_var*
-//#UC END# *52D00B00031A_4988BB9A5265_var*
 begin
-//#UC START# *52D00B00031A_4988BB9A5265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4988BB9A5265_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnCommonDictionBackgroundPanel.SetValuePrim
 
 function TkwEnCommonDictionBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -370,12 +366,8 @@ begin
 end;//TkwEnCommonDictionBackgroundPanel.GetAllParamsCount
 
 function TkwEnCommonDictionBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4988BB9A5265_var*
-//#UC END# *5617F4D00243_4988BB9A5265_var*
 begin
-//#UC START# *5617F4D00243_4988BB9A5265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4988BB9A5265_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnCommonDictionBackgroundPanel.ParamsTypes
 
 function TkwEnCommonDictionWordsTree.WordsTree(const aCtx: TtfwContext;
@@ -405,12 +397,8 @@ end;//TkwEnCommonDictionWordsTree.GetWordNameForRegister
 
 procedure TkwEnCommonDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_71793BC09F4D_var*
-//#UC END# *52D00B00031A_71793BC09F4D_var*
 begin
-//#UC START# *52D00B00031A_71793BC09F4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_71793BC09F4D_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnCommonDictionWordsTree.SetValuePrim
 
 function TkwEnCommonDictionWordsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -424,12 +412,8 @@ begin
 end;//TkwEnCommonDictionWordsTree.GetAllParamsCount
 
 function TkwEnCommonDictionWordsTree.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_71793BC09F4D_var*
-//#UC END# *5617F4D00243_71793BC09F4D_var*
 begin
-//#UC START# *5617F4D00243_71793BC09F4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_71793BC09F4D_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnCommonDictionWordsTree.ParamsTypes
 
 function TkwEnCommonDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
@@ -459,12 +443,8 @@ end;//TkwEnCommonDictionContextFilter.GetWordNameForRegister
 
 procedure TkwEnCommonDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_308467DC9822_var*
-//#UC END# *52D00B00031A_308467DC9822_var*
 begin
-//#UC START# *52D00B00031A_308467DC9822_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_308467DC9822_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnCommonDictionContextFilter.SetValuePrim
 
 function TkwEnCommonDictionContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -478,12 +458,8 @@ begin
 end;//TkwEnCommonDictionContextFilter.GetAllParamsCount
 
 function TkwEnCommonDictionContextFilter.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_308467DC9822_var*
-//#UC END# *5617F4D00243_308467DC9822_var*
 begin
-//#UC START# *5617F4D00243_308467DC9822_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_308467DC9822_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnCommonDictionContextFilter.ParamsTypes
 
 initialization

@@ -1301,9 +1301,9 @@ var
  case UserType of
   slqtPostingOrder:
    if aDataUpdate then
-    Result := defDataAdapter.Monitoring.IsExist
+    Result := defDataAdapter.IsInpharmExists
    else
-    Result := defDataAdapter.Monitoring.IsExist and not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch);
+    Result := defDataAdapter.IsInpharmExists and not Assigned(TnsPostingsTreeSingle.Instance.MgrSearch);
   slqtPublishSource: Result := defDataAdapter.IsExists_PublishSourceTag;
   slqtInpharmSearch: Result := defDataAdapter.IsInpharmExists;
  else
