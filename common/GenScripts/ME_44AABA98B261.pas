@@ -175,8 +175,8 @@ end;//TkwEnPictureInfoInfo.GetWordNameForRegister
 
 procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnPictureInfoInfo.SetValuePrim
 
 function TkwEnPictureInfoInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

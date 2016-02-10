@@ -1256,8 +1256,8 @@ end;//TkwTextFormRemindersLine.GetWordNameForRegister
 
 procedure TkwTextFormRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormRemindersLine.SetValuePrim
 
 function TkwTextFormRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1302,8 +1302,8 @@ end;//TkwTextFormWarnTimeMachineException.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineException.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnTimeMachineException.SetValuePrim
 
 function TkwTextFormWarnTimeMachineException.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1348,8 +1348,8 @@ end;//TkwTextFormWarnIsAbolished.GetWordNameForRegister
 
 procedure TkwTextFormWarnIsAbolished.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnIsAbolished.SetValuePrim
 
 function TkwTextFormWarnIsAbolished.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1394,8 +1394,8 @@ end;//TkwTextFormWarnPreActive.GetWordNameForRegister
 
 procedure TkwTextFormWarnPreActive.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnPreActive.SetValuePrim
 
 function TkwTextFormWarnPreActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1440,8 +1440,8 @@ end;//TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnTimeMachineWarning.SetValuePrim
 
 function TkwTextFormWarnTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1486,8 +1486,8 @@ end;//TkwTextFormWarnOnControl.GetWordNameForRegister
 
 procedure TkwTextFormWarnOnControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnOnControl.SetValuePrim
 
 function TkwTextFormWarnOnControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1532,8 +1532,8 @@ end;//TkwTextFormWarnJuror.GetWordNameForRegister
 
 procedure TkwTextFormWarnJuror.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnJuror.SetValuePrim
 
 function TkwTextFormWarnJuror.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1578,8 +1578,8 @@ end;//TkwTextFormWarnRedaction.GetWordNameForRegister
 
 procedure TkwTextFormWarnRedaction.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnRedaction.SetValuePrim
 
 function TkwTextFormWarnRedaction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1624,8 +1624,8 @@ end;//TkwTextFormWarnInactualDocument.GetWordNameForRegister
 
 procedure TkwTextFormWarnInactualDocument.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnInactualDocument.SetValuePrim
 
 function TkwTextFormWarnInactualDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1670,8 +1670,8 @@ end;//TkwTextFormWarnTimeMachineOn.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineOn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormWarnTimeMachineOn.SetValuePrim
 
 function TkwTextFormWarnTimeMachineOn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1716,8 +1716,8 @@ end;//TkwTextFormSubPanel.GetWordNameForRegister
 
 procedure TkwTextFormSubPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormSubPanel.SetValuePrim
 
 function TkwTextFormSubPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1762,8 +1762,8 @@ end;//TkwTextFormHScroll.GetWordNameForRegister
 
 procedure TkwTextFormHScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormHScroll.SetValuePrim
 
 function TkwTextFormHScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1808,8 +1808,8 @@ end;//TkwTextFormText.GetWordNameForRegister
 
 procedure TkwTextFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTextFormText.SetValuePrim
 
 function TkwTextFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

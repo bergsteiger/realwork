@@ -175,8 +175,8 @@ end;//TkwRedactionsFormRedactionTree.GetWordNameForRegister
 
 procedure TkwRedactionsFormRedactionTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwRedactionsFormRedactionTree.SetValuePrim
 
 function TkwRedactionsFormRedactionTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

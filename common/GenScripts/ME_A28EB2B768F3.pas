@@ -303,8 +303,8 @@ end;//TkwPictureFormIeIO.GetWordNameForRegister
 
 procedure TkwPictureFormIeIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwPictureFormIeIO.SetValuePrim
 
 function TkwPictureFormIeIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -349,8 +349,8 @@ end;//TkwPictureFormIeViewer.GetWordNameForRegister
 
 procedure TkwPictureFormIeViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwPictureFormIeViewer.SetValuePrim
 
 function TkwPictureFormIeViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -395,8 +395,8 @@ end;//TkwPictureFormIeProc.GetWordNameForRegister
 
 procedure TkwPictureFormIeProc.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwPictureFormIeProc.SetValuePrim
 
 function TkwPictureFormIeProc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

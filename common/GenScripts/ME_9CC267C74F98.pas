@@ -714,12 +714,8 @@ end;//TkwRightEditionFormHeader.GetWordNameForRegister
 
 procedure TkwRightEditionFormHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AE860CA93B6E_var*
-//#UC END# *52D00B00031A_AE860CA93B6E_var*
+var l_: ;
 begin
-//#UC START# *52D00B00031A_AE860CA93B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AE860CA93B6E_impl*
 end;//TkwRightEditionFormHeader.SetValuePrim
 
 function TkwRightEditionFormHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -733,12 +729,8 @@ begin
 end;//TkwRightEditionFormHeader.GetAllParamsCount
 
 function TkwRightEditionFormHeader.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AE860CA93B6E_var*
-//#UC END# *5617F4D00243_AE860CA93B6E_var*
 begin
-//#UC START# *5617F4D00243_AE860CA93B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AE860CA93B6E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwRightEditionFormHeader.ParamsTypes
 
 function TkwRightEditionFormPnLeft.pnLeft(const aCtx: TtfwContext;
@@ -768,12 +760,8 @@ end;//TkwRightEditionFormPnLeft.GetWordNameForRegister
 
 procedure TkwRightEditionFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7E1E7EBF838A_var*
-//#UC END# *52D00B00031A_7E1E7EBF838A_var*
+var l_: ;
 begin
-//#UC START# *52D00B00031A_7E1E7EBF838A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7E1E7EBF838A_impl*
 end;//TkwRightEditionFormPnLeft.SetValuePrim
 
 function TkwRightEditionFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -787,12 +775,8 @@ begin
 end;//TkwRightEditionFormPnLeft.GetAllParamsCount
 
 function TkwRightEditionFormPnLeft.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7E1E7EBF838A_var*
-//#UC END# *5617F4D00243_7E1E7EBF838A_var*
 begin
-//#UC START# *5617F4D00243_7E1E7EBF838A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7E1E7EBF838A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwRightEditionFormPnLeft.ParamsTypes
 
 function TkwRightEditionFormEditionLink.EditionLink(const aCtx: TtfwContext;
@@ -822,12 +806,8 @@ end;//TkwRightEditionFormEditionLink.GetWordNameForRegister
 
 procedure TkwRightEditionFormEditionLink.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D2C7803A2AFF_var*
-//#UC END# *52D00B00031A_D2C7803A2AFF_var*
+var l_: ;
 begin
-//#UC START# *52D00B00031A_D2C7803A2AFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D2C7803A2AFF_impl*
 end;//TkwRightEditionFormEditionLink.SetValuePrim
 
 function TkwRightEditionFormEditionLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -841,12 +821,8 @@ begin
 end;//TkwRightEditionFormEditionLink.GetAllParamsCount
 
 function TkwRightEditionFormEditionLink.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D2C7803A2AFF_var*
-//#UC END# *5617F4D00243_D2C7803A2AFF_var*
 begin
-//#UC START# *5617F4D00243_D2C7803A2AFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D2C7803A2AFF_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwRightEditionFormEditionLink.ParamsTypes
 
 function TkwRightEditionFormPbIcon.pbIcon(const aCtx: TtfwContext;
@@ -876,12 +852,8 @@ end;//TkwRightEditionFormPbIcon.GetWordNameForRegister
 
 procedure TkwRightEditionFormPbIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E1580AA1F7C8_var*
-//#UC END# *52D00B00031A_E1580AA1F7C8_var*
+var l_: ;
 begin
-//#UC START# *52D00B00031A_E1580AA1F7C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E1580AA1F7C8_impl*
 end;//TkwRightEditionFormPbIcon.SetValuePrim
 
 function TkwRightEditionFormPbIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -895,12 +867,8 @@ begin
 end;//TkwRightEditionFormPbIcon.GetAllParamsCount
 
 function TkwRightEditionFormPbIcon.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E1580AA1F7C8_var*
-//#UC END# *5617F4D00243_E1580AA1F7C8_var*
 begin
-//#UC START# *5617F4D00243_E1580AA1F7C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E1580AA1F7C8_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwRightEditionFormPbIcon.ParamsTypes
 
 function TkwRightEditionFormPnCaption.pnCaption(const aCtx: TtfwContext;
@@ -930,12 +898,8 @@ end;//TkwRightEditionFormPnCaption.GetWordNameForRegister
 
 procedure TkwRightEditionFormPnCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AE83AF2A976A_var*
-//#UC END# *52D00B00031A_AE83AF2A976A_var*
+var l_: ;
 begin
-//#UC START# *52D00B00031A_AE83AF2A976A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AE83AF2A976A_impl*
 end;//TkwRightEditionFormPnCaption.SetValuePrim
 
 function TkwRightEditionFormPnCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -949,12 +913,8 @@ begin
 end;//TkwRightEditionFormPnCaption.GetAllParamsCount
 
 function TkwRightEditionFormPnCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AE83AF2A976A_var*
-//#UC END# *5617F4D00243_AE83AF2A976A_var*
 begin
-//#UC START# *5617F4D00243_AE83AF2A976A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AE83AF2A976A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwRightEditionFormPnCaption.ParamsTypes
 
 function TkwRightEditionFormText.Text(const aCtx: TtfwContext;
@@ -984,12 +944,8 @@ end;//TkwRightEditionFormText.GetWordNameForRegister
 
 procedure TkwRightEditionFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_39642DBB84EF_var*
-//#UC END# *52D00B00031A_39642DBB84EF_var*
+var l_: ;
 begin
-//#UC START# *52D00B00031A_39642DBB84EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_39642DBB84EF_impl*
 end;//TkwRightEditionFormText.SetValuePrim
 
 function TkwRightEditionFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1003,12 +959,8 @@ begin
 end;//TkwRightEditionFormText.GetAllParamsCount
 
 function TkwRightEditionFormText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_39642DBB84EF_var*
-//#UC END# *5617F4D00243_39642DBB84EF_var*
 begin
-//#UC START# *5617F4D00243_39642DBB84EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_39642DBB84EF_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwRightEditionFormText.ParamsTypes
 
 initialization

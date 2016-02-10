@@ -177,8 +177,8 @@ end;//TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister
 
 procedure TkwTranslationWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwTranslationWarningBaloonFormViewer.SetValuePrim
 
 function TkwTranslationWarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

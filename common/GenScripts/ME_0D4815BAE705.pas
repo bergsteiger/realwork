@@ -175,8 +175,8 @@ end;//TkwFcSynchroViewDocView.GetWordNameForRegister
 
 procedure TkwFcSynchroViewDocView.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_: ;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwFcSynchroViewDocView.SetValuePrim
 
 function TkwFcSynchroViewDocView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
