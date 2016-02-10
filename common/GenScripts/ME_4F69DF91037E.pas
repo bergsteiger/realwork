@@ -1420,8 +1420,8 @@ end;//TkwPopControlColor.GetWordNameForRegister
 
 procedure TkwPopControlColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_Control: TControl;
 begin
+ RunnerError('Ќельз€ присваивать значение readonly свойству Color', aCtx);
 end;//TkwPopControlColor.SetValuePrim
 
 function TkwPopControlColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1784,8 +1784,8 @@ end;//TkwPopControlTop.GetWordNameForRegister
 
 procedure TkwPopControlTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_Control: TControl;
 begin
+ RunnerError('Ќельз€ присваивать значение readonly свойству Top', aCtx);
 end;//TkwPopControlTop.SetValuePrim
 
 function TkwPopControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1836,8 +1836,8 @@ end;//TkwPopControlLeft.GetWordNameForRegister
 
 procedure TkwPopControlLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_Control: TControl;
 begin
+ RunnerError('Ќельз€ присваивать значение readonly свойству Left', aCtx);
 end;//TkwPopControlLeft.SetValuePrim
 
 function TkwPopControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1888,8 +1888,8 @@ end;//TkwPopControlHeight.GetWordNameForRegister
 
 procedure TkwPopControlHeight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_Control: TControl;
 begin
+ RunnerError('Ќельз€ присваивать значение readonly свойству Height', aCtx);
 end;//TkwPopControlHeight.SetValuePrim
 
 function TkwPopControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1940,8 +1940,8 @@ end;//TkwPopControlWidth.GetWordNameForRegister
 
 procedure TkwPopControlWidth.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_Control: TControl;
 begin
+ RunnerError('Ќельз€ присваивать значение readonly свойству Width', aCtx);
 end;//TkwPopControlWidth.SetValuePrim
 
 function TkwPopControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
