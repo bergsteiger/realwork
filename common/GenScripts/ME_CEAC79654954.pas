@@ -349,12 +349,8 @@ end;//TkwCfFoldersBackgroundPanel.GetWordNameForRegister
 
 procedure TkwCfFoldersBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_5C9B2EC425D0_var*
-//#UC END# *52D00B00031A_5C9B2EC425D0_var*
 begin
-//#UC START# *52D00B00031A_5C9B2EC425D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_5C9B2EC425D0_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfFoldersBackgroundPanel.SetValuePrim
 
 function TkwCfFoldersBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -368,12 +364,8 @@ begin
 end;//TkwCfFoldersBackgroundPanel.GetAllParamsCount
 
 function TkwCfFoldersBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5C9B2EC425D0_var*
-//#UC END# *5617F4D00243_5C9B2EC425D0_var*
 begin
-//#UC START# *5617F4D00243_5C9B2EC425D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5C9B2EC425D0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfFoldersBackgroundPanel.ParamsTypes
 
 function TkwCfFoldersParentZone.ParentZone(const aCtx: TtfwContext;
@@ -403,12 +395,8 @@ end;//TkwCfFoldersParentZone.GetWordNameForRegister
 
 procedure TkwCfFoldersParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_5C121167A7CC_var*
-//#UC END# *52D00B00031A_5C121167A7CC_var*
 begin
-//#UC START# *52D00B00031A_5C121167A7CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_5C121167A7CC_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfFoldersParentZone.SetValuePrim
 
 function TkwCfFoldersParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -422,12 +410,8 @@ begin
 end;//TkwCfFoldersParentZone.GetAllParamsCount
 
 function TkwCfFoldersParentZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5C121167A7CC_var*
-//#UC END# *5617F4D00243_5C121167A7CC_var*
 begin
-//#UC START# *5617F4D00243_5C121167A7CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5C121167A7CC_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfFoldersParentZone.ParamsTypes
 
 function TkwCfFoldersChildZone.ChildZone(const aCtx: TtfwContext;
@@ -457,12 +441,8 @@ end;//TkwCfFoldersChildZone.GetWordNameForRegister
 
 procedure TkwCfFoldersChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D0B699F2B747_var*
-//#UC END# *52D00B00031A_D0B699F2B747_var*
 begin
-//#UC START# *52D00B00031A_D0B699F2B747_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D0B699F2B747_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfFoldersChildZone.SetValuePrim
 
 function TkwCfFoldersChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -476,12 +456,8 @@ begin
 end;//TkwCfFoldersChildZone.GetAllParamsCount
 
 function TkwCfFoldersChildZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D0B699F2B747_var*
-//#UC END# *5617F4D00243_D0B699F2B747_var*
 begin
-//#UC START# *5617F4D00243_D0B699F2B747_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D0B699F2B747_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfFoldersChildZone.ParamsTypes
 
 initialization

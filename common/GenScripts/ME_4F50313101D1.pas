@@ -552,8 +552,8 @@ end;//TkwArrayItem.GetWordNameForRegister
 
 procedure TkwArrayItem.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Array: ItfwValueList;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwArrayItem.SetValuePrim
 
 function TkwArrayItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -177,12 +177,8 @@ end;//TkwEfProgressIndicatorProgressBar.GetWordNameForRegister
 
 procedure TkwEfProgressIndicatorProgressBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_048590F2C0A3_var*
-//#UC END# *52D00B00031A_048590F2C0A3_var*
 begin
-//#UC START# *52D00B00031A_048590F2C0A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_048590F2C0A3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfProgressIndicatorProgressBar.SetValuePrim
 
 function TkwEfProgressIndicatorProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -196,12 +192,8 @@ begin
 end;//TkwEfProgressIndicatorProgressBar.GetAllParamsCount
 
 function TkwEfProgressIndicatorProgressBar.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_048590F2C0A3_var*
-//#UC END# *5617F4D00243_048590F2C0A3_var*
 begin
-//#UC START# *5617F4D00243_048590F2C0A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_048590F2C0A3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfProgressIndicatorProgressBar.ParamsTypes
 
 initialization

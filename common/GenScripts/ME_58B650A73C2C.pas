@@ -783,12 +783,8 @@ end;//TkwLongProcessFormClientPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormClientPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_486A220C7922_var*
-//#UC END# *52D00B00031A_486A220C7922_var*
 begin
-//#UC START# *52D00B00031A_486A220C7922_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_486A220C7922_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLongProcessFormClientPanel.SetValuePrim
 
 function TkwLongProcessFormClientPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -802,12 +798,8 @@ begin
 end;//TkwLongProcessFormClientPanel.GetAllParamsCount
 
 function TkwLongProcessFormClientPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_486A220C7922_var*
-//#UC END# *5617F4D00243_486A220C7922_var*
 begin
-//#UC START# *5617F4D00243_486A220C7922_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_486A220C7922_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLongProcessFormClientPanel.ParamsTypes
 
 function TkwLongProcessFormMessageLabel.MessageLabel(const aCtx: TtfwContext;
@@ -837,12 +829,8 @@ end;//TkwLongProcessFormMessageLabel.GetWordNameForRegister
 
 procedure TkwLongProcessFormMessageLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_70AD8C304A76_var*
-//#UC END# *52D00B00031A_70AD8C304A76_var*
 begin
-//#UC START# *52D00B00031A_70AD8C304A76_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_70AD8C304A76_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLongProcessFormMessageLabel.SetValuePrim
 
 function TkwLongProcessFormMessageLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -856,12 +844,8 @@ begin
 end;//TkwLongProcessFormMessageLabel.GetAllParamsCount
 
 function TkwLongProcessFormMessageLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_70AD8C304A76_var*
-//#UC END# *5617F4D00243_70AD8C304A76_var*
 begin
-//#UC START# *5617F4D00243_70AD8C304A76_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_70AD8C304A76_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLongProcessFormMessageLabel.ParamsTypes
 
 function TkwLongProcessFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
@@ -891,12 +875,8 @@ end;//TkwLongProcessFormBottomPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7257AAEDA827_var*
-//#UC END# *52D00B00031A_7257AAEDA827_var*
 begin
-//#UC START# *52D00B00031A_7257AAEDA827_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7257AAEDA827_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLongProcessFormBottomPanel.SetValuePrim
 
 function TkwLongProcessFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -910,12 +890,8 @@ begin
 end;//TkwLongProcessFormBottomPanel.GetAllParamsCount
 
 function TkwLongProcessFormBottomPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7257AAEDA827_var*
-//#UC END# *5617F4D00243_7257AAEDA827_var*
 begin
-//#UC START# *5617F4D00243_7257AAEDA827_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7257AAEDA827_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLongProcessFormBottomPanel.ParamsTypes
 
 function TkwLongProcessFormProgressBar.ProgressBar(const aCtx: TtfwContext;
@@ -945,12 +921,8 @@ end;//TkwLongProcessFormProgressBar.GetWordNameForRegister
 
 procedure TkwLongProcessFormProgressBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B362DE4317E9_var*
-//#UC END# *52D00B00031A_B362DE4317E9_var*
 begin
-//#UC START# *52D00B00031A_B362DE4317E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B362DE4317E9_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLongProcessFormProgressBar.SetValuePrim
 
 function TkwLongProcessFormProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -964,12 +936,8 @@ begin
 end;//TkwLongProcessFormProgressBar.GetAllParamsCount
 
 function TkwLongProcessFormProgressBar.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B362DE4317E9_var*
-//#UC END# *5617F4D00243_B362DE4317E9_var*
 begin
-//#UC START# *5617F4D00243_B362DE4317E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B362DE4317E9_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLongProcessFormProgressBar.ParamsTypes
 
 function TkwLongProcessFormLeftPanel.LeftPanel(const aCtx: TtfwContext;
@@ -999,12 +967,8 @@ end;//TkwLongProcessFormLeftPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormLeftPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_763DFD3968B4_var*
-//#UC END# *52D00B00031A_763DFD3968B4_var*
 begin
-//#UC START# *52D00B00031A_763DFD3968B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_763DFD3968B4_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLongProcessFormLeftPanel.SetValuePrim
 
 function TkwLongProcessFormLeftPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1018,12 +982,8 @@ begin
 end;//TkwLongProcessFormLeftPanel.GetAllParamsCount
 
 function TkwLongProcessFormLeftPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_763DFD3968B4_var*
-//#UC END# *5617F4D00243_763DFD3968B4_var*
 begin
-//#UC START# *5617F4D00243_763DFD3968B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_763DFD3968B4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLongProcessFormLeftPanel.ParamsTypes
 
 function TkwLongProcessFormImage.Image(const aCtx: TtfwContext;
@@ -1053,12 +1013,8 @@ end;//TkwLongProcessFormImage.GetWordNameForRegister
 
 procedure TkwLongProcessFormImage.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E257BCDBC2B9_var*
-//#UC END# *52D00B00031A_E257BCDBC2B9_var*
 begin
-//#UC START# *52D00B00031A_E257BCDBC2B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E257BCDBC2B9_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLongProcessFormImage.SetValuePrim
 
 function TkwLongProcessFormImage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1072,12 +1028,8 @@ begin
 end;//TkwLongProcessFormImage.GetAllParamsCount
 
 function TkwLongProcessFormImage.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E257BCDBC2B9_var*
-//#UC END# *5617F4D00243_E257BCDBC2B9_var*
 begin
-//#UC START# *5617F4D00243_E257BCDBC2B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E257BCDBC2B9_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLongProcessFormImage.ParamsTypes
 
 function TkwLongProcessFormButtonPanel.ButtonPanel(const aCtx: TtfwContext;
@@ -1107,12 +1059,8 @@ end;//TkwLongProcessFormButtonPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormButtonPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_372A17FE3DFD_var*
-//#UC END# *52D00B00031A_372A17FE3DFD_var*
 begin
-//#UC START# *52D00B00031A_372A17FE3DFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_372A17FE3DFD_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLongProcessFormButtonPanel.SetValuePrim
 
 function TkwLongProcessFormButtonPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1126,12 +1074,8 @@ begin
 end;//TkwLongProcessFormButtonPanel.GetAllParamsCount
 
 function TkwLongProcessFormButtonPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_372A17FE3DFD_var*
-//#UC END# *5617F4D00243_372A17FE3DFD_var*
 begin
-//#UC START# *5617F4D00243_372A17FE3DFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_372A17FE3DFD_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLongProcessFormButtonPanel.ParamsTypes
 
 function TkwLongProcessFormBtnExit.btnExit(const aCtx: TtfwContext;
@@ -1161,12 +1105,8 @@ end;//TkwLongProcessFormBtnExit.GetWordNameForRegister
 
 procedure TkwLongProcessFormBtnExit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ECD55A49EDCE_var*
-//#UC END# *52D00B00031A_ECD55A49EDCE_var*
 begin
-//#UC START# *52D00B00031A_ECD55A49EDCE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ECD55A49EDCE_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLongProcessFormBtnExit.SetValuePrim
 
 function TkwLongProcessFormBtnExit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1180,12 +1120,8 @@ begin
 end;//TkwLongProcessFormBtnExit.GetAllParamsCount
 
 function TkwLongProcessFormBtnExit.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_ECD55A49EDCE_var*
-//#UC END# *5617F4D00243_ECD55A49EDCE_var*
 begin
-//#UC START# *5617F4D00243_ECD55A49EDCE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_ECD55A49EDCE_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLongProcessFormBtnExit.ParamsTypes
 
 initialization

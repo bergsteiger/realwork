@@ -790,12 +790,8 @@ end;//TkwEfListRemindersLine.GetWordNameForRegister
 
 procedure TkwEfListRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4B02DC799E8A_var*
-//#UC END# *52D00B00031A_4B02DC799E8A_var*
 begin
-//#UC START# *52D00B00031A_4B02DC799E8A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4B02DC799E8A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListRemindersLine.SetValuePrim
 
 function TkwEfListRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -809,12 +805,8 @@ begin
 end;//TkwEfListRemindersLine.GetAllParamsCount
 
 function TkwEfListRemindersLine.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4B02DC799E8A_var*
-//#UC END# *5617F4D00243_4B02DC799E8A_var*
 begin
-//#UC START# *5617F4D00243_4B02DC799E8A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4B02DC799E8A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListRemindersLine.ParamsTypes
 
 function TkwEfListRemListFiltered.remListFiltered(const aCtx: TtfwContext;
@@ -844,12 +836,8 @@ end;//TkwEfListRemListFiltered.GetWordNameForRegister
 
 procedure TkwEfListRemListFiltered.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9EDC79448FB0_var*
-//#UC END# *52D00B00031A_9EDC79448FB0_var*
 begin
-//#UC START# *52D00B00031A_9EDC79448FB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9EDC79448FB0_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListRemListFiltered.SetValuePrim
 
 function TkwEfListRemListFiltered.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -863,12 +851,8 @@ begin
 end;//TkwEfListRemListFiltered.GetAllParamsCount
 
 function TkwEfListRemListFiltered.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9EDC79448FB0_var*
-//#UC END# *5617F4D00243_9EDC79448FB0_var*
 begin
-//#UC START# *5617F4D00243_9EDC79448FB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9EDC79448FB0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListRemListFiltered.ParamsTypes
 
 function TkwEfListRemListModified.remListModified(const aCtx: TtfwContext;
@@ -898,12 +882,8 @@ end;//TkwEfListRemListModified.GetWordNameForRegister
 
 procedure TkwEfListRemListModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_715456D52720_var*
-//#UC END# *52D00B00031A_715456D52720_var*
 begin
-//#UC START# *52D00B00031A_715456D52720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_715456D52720_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListRemListModified.SetValuePrim
 
 function TkwEfListRemListModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -917,12 +897,8 @@ begin
 end;//TkwEfListRemListModified.GetAllParamsCount
 
 function TkwEfListRemListModified.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_715456D52720_var*
-//#UC END# *5617F4D00243_715456D52720_var*
 begin
-//#UC START# *5617F4D00243_715456D52720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_715456D52720_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListRemListModified.ParamsTypes
 
 function TkwEfListRemTimeMachineWarning.remTimeMachineWarning(const aCtx: TtfwContext;
@@ -952,12 +928,8 @@ end;//TkwEfListRemTimeMachineWarning.GetWordNameForRegister
 
 procedure TkwEfListRemTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_914FC12132E1_var*
-//#UC END# *52D00B00031A_914FC12132E1_var*
 begin
-//#UC START# *52D00B00031A_914FC12132E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_914FC12132E1_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListRemTimeMachineWarning.SetValuePrim
 
 function TkwEfListRemTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -971,12 +943,8 @@ begin
 end;//TkwEfListRemTimeMachineWarning.GetAllParamsCount
 
 function TkwEfListRemTimeMachineWarning.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_914FC12132E1_var*
-//#UC END# *5617F4D00243_914FC12132E1_var*
 begin
-//#UC START# *5617F4D00243_914FC12132E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_914FC12132E1_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListRemTimeMachineWarning.ParamsTypes
 
 function TkwEfListEmptyListEditor.EmptyListEditor(const aCtx: TtfwContext;
@@ -1006,12 +974,8 @@ end;//TkwEfListEmptyListEditor.GetWordNameForRegister
 
 procedure TkwEfListEmptyListEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4926301346C5_var*
-//#UC END# *52D00B00031A_4926301346C5_var*
 begin
-//#UC START# *52D00B00031A_4926301346C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4926301346C5_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListEmptyListEditor.SetValuePrim
 
 function TkwEfListEmptyListEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1025,12 +989,8 @@ begin
 end;//TkwEfListEmptyListEditor.GetAllParamsCount
 
 function TkwEfListEmptyListEditor.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4926301346C5_var*
-//#UC END# *5617F4D00243_4926301346C5_var*
 begin
-//#UC START# *5617F4D00243_4926301346C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4926301346C5_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListEmptyListEditor.ParamsTypes
 
 function TkwEfListListPanel.ListPanel(const aCtx: TtfwContext;
@@ -1060,12 +1020,8 @@ end;//TkwEfListListPanel.GetWordNameForRegister
 
 procedure TkwEfListListPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_27A65BB46620_var*
-//#UC END# *52D00B00031A_27A65BB46620_var*
 begin
-//#UC START# *52D00B00031A_27A65BB46620_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_27A65BB46620_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListListPanel.SetValuePrim
 
 function TkwEfListListPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1079,12 +1035,8 @@ begin
 end;//TkwEfListListPanel.GetAllParamsCount
 
 function TkwEfListListPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_27A65BB46620_var*
-//#UC END# *5617F4D00243_27A65BB46620_var*
 begin
-//#UC START# *5617F4D00243_27A65BB46620_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_27A65BB46620_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListListPanel.ParamsTypes
 
 function TkwEfListTvList.tvList(const aCtx: TtfwContext;
@@ -1114,12 +1066,8 @@ end;//TkwEfListTvList.GetWordNameForRegister
 
 procedure TkwEfListTvList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8A0E3F8249F5_var*
-//#UC END# *52D00B00031A_8A0E3F8249F5_var*
 begin
-//#UC START# *52D00B00031A_8A0E3F8249F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8A0E3F8249F5_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListTvList.SetValuePrim
 
 function TkwEfListTvList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1133,12 +1081,8 @@ begin
 end;//TkwEfListTvList.GetAllParamsCount
 
 function TkwEfListTvList.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8A0E3F8249F5_var*
-//#UC END# *5617F4D00243_8A0E3F8249F5_var*
 begin
-//#UC START# *5617F4D00243_8A0E3F8249F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8A0E3F8249F5_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListTvList.ParamsTypes
 
 function TkwEfListCfList.cfList(const aCtx: TtfwContext;
@@ -1168,12 +1112,8 @@ end;//TkwEfListCfList.GetWordNameForRegister
 
 procedure TkwEfListCfList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E2E83C1BEE9F_var*
-//#UC END# *52D00B00031A_E2E83C1BEE9F_var*
 begin
-//#UC START# *52D00B00031A_E2E83C1BEE9F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E2E83C1BEE9F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListCfList.SetValuePrim
 
 function TkwEfListCfList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1187,12 +1127,8 @@ begin
 end;//TkwEfListCfList.GetAllParamsCount
 
 function TkwEfListCfList.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E2E83C1BEE9F_var*
-//#UC END# *5617F4D00243_E2E83C1BEE9F_var*
 begin
-//#UC START# *5617F4D00243_E2E83C1BEE9F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E2E83C1BEE9F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListCfList.ParamsTypes
 
 initialization

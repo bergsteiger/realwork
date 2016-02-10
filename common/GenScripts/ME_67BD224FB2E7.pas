@@ -240,12 +240,8 @@ end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
 
 procedure TkwEfListInfoListInfoViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6C1002171F6A_var*
-//#UC END# *52D00B00031A_6C1002171F6A_var*
 begin
-//#UC START# *52D00B00031A_6C1002171F6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6C1002171F6A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListInfoListInfoViewer.SetValuePrim
 
 function TkwEfListInfoListInfoViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -259,12 +255,8 @@ begin
 end;//TkwEfListInfoListInfoViewer.GetAllParamsCount
 
 function TkwEfListInfoListInfoViewer.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6C1002171F6A_var*
-//#UC END# *5617F4D00243_6C1002171F6A_var*
 begin
-//#UC START# *5617F4D00243_6C1002171F6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6C1002171F6A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListInfoListInfoViewer.ParamsTypes
 
 function TkwEfListInfoTextSource.TextSource(const aCtx: TtfwContext;
@@ -294,12 +286,8 @@ end;//TkwEfListInfoTextSource.GetWordNameForRegister
 
 procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_288FE0C200C7_var*
-//#UC END# *52D00B00031A_288FE0C200C7_var*
 begin
-//#UC START# *52D00B00031A_288FE0C200C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_288FE0C200C7_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfListInfoTextSource.SetValuePrim
 
 function TkwEfListInfoTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -313,12 +301,8 @@ begin
 end;//TkwEfListInfoTextSource.GetAllParamsCount
 
 function TkwEfListInfoTextSource.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_288FE0C200C7_var*
-//#UC END# *5617F4D00243_288FE0C200C7_var*
 begin
-//#UC START# *5617F4D00243_288FE0C200C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_288FE0C200C7_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfListInfoTextSource.ParamsTypes
 
 initialization

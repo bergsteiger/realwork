@@ -783,12 +783,8 @@ end;//TkwEnTurnOffTimeMachineRbTotmChangeDate.GetWordNameForRegister
 
 procedure TkwEnTurnOffTimeMachineRbTotmChangeDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1868E4F82544_var*
-//#UC END# *52D00B00031A_1868E4F82544_var*
 begin
-//#UC START# *52D00B00031A_1868E4F82544_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1868E4F82544_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnTurnOffTimeMachineRbTotmChangeDate.SetValuePrim
 
 function TkwEnTurnOffTimeMachineRbTotmChangeDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -802,12 +798,8 @@ begin
 end;//TkwEnTurnOffTimeMachineRbTotmChangeDate.GetAllParamsCount
 
 function TkwEnTurnOffTimeMachineRbTotmChangeDate.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1868E4F82544_var*
-//#UC END# *5617F4D00243_1868E4F82544_var*
 begin
-//#UC START# *5617F4D00243_1868E4F82544_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1868E4F82544_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnTurnOffTimeMachineRbTotmChangeDate.ParamsTypes
 
 function TkwEnTurnOffTimeMachineRbTotmStayInCurrentRedaction.rb_totmStayInCurrentRedaction(const aCtx: TtfwContext;
@@ -837,12 +829,8 @@ end;//TkwEnTurnOffTimeMachineRbTotmStayInCurrentRedaction.GetWordNameForRegister
 
 procedure TkwEnTurnOffTimeMachineRbTotmStayInCurrentRedaction.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F59F378BD196_var*
-//#UC END# *52D00B00031A_F59F378BD196_var*
 begin
-//#UC START# *52D00B00031A_F59F378BD196_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F59F378BD196_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnTurnOffTimeMachineRbTotmStayInCurrentRedaction.SetValuePrim
 
 function TkwEnTurnOffTimeMachineRbTotmStayInCurrentRedaction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -856,12 +844,8 @@ begin
 end;//TkwEnTurnOffTimeMachineRbTotmStayInCurrentRedaction.GetAllParamsCount
 
 function TkwEnTurnOffTimeMachineRbTotmStayInCurrentRedaction.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F59F378BD196_var*
-//#UC END# *5617F4D00243_F59F378BD196_var*
 begin
-//#UC START# *5617F4D00243_F59F378BD196_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F59F378BD196_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnTurnOffTimeMachineRbTotmStayInCurrentRedaction.ParamsTypes
 
 function TkwEnTurnOffTimeMachineRbTotmGotoActualRedaction.rb_totmGotoActualRedaction(const aCtx: TtfwContext;
@@ -891,12 +875,8 @@ end;//TkwEnTurnOffTimeMachineRbTotmGotoActualRedaction.GetWordNameForRegister
 
 procedure TkwEnTurnOffTimeMachineRbTotmGotoActualRedaction.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2A6564384E23_var*
-//#UC END# *52D00B00031A_2A6564384E23_var*
 begin
-//#UC START# *52D00B00031A_2A6564384E23_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2A6564384E23_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnTurnOffTimeMachineRbTotmGotoActualRedaction.SetValuePrim
 
 function TkwEnTurnOffTimeMachineRbTotmGotoActualRedaction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -910,12 +890,8 @@ begin
 end;//TkwEnTurnOffTimeMachineRbTotmGotoActualRedaction.GetAllParamsCount
 
 function TkwEnTurnOffTimeMachineRbTotmGotoActualRedaction.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2A6564384E23_var*
-//#UC END# *5617F4D00243_2A6564384E23_var*
 begin
-//#UC START# *5617F4D00243_2A6564384E23_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2A6564384E23_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnTurnOffTimeMachineRbTotmGotoActualRedaction.ParamsTypes
 
 function TkwEnTurnOffTimeMachineDeChangeDate.deChangeDate(const aCtx: TtfwContext;
@@ -945,12 +921,8 @@ end;//TkwEnTurnOffTimeMachineDeChangeDate.GetWordNameForRegister
 
 procedure TkwEnTurnOffTimeMachineDeChangeDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F661DF4EA2C1_var*
-//#UC END# *52D00B00031A_F661DF4EA2C1_var*
 begin
-//#UC START# *52D00B00031A_F661DF4EA2C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F661DF4EA2C1_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnTurnOffTimeMachineDeChangeDate.SetValuePrim
 
 function TkwEnTurnOffTimeMachineDeChangeDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -964,12 +936,8 @@ begin
 end;//TkwEnTurnOffTimeMachineDeChangeDate.GetAllParamsCount
 
 function TkwEnTurnOffTimeMachineDeChangeDate.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F661DF4EA2C1_var*
-//#UC END# *5617F4D00243_F661DF4EA2C1_var*
 begin
-//#UC START# *5617F4D00243_F661DF4EA2C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F661DF4EA2C1_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnTurnOffTimeMachineDeChangeDate.ParamsTypes
 
 function TkwEnTurnOffTimeMachinePbDialogIcon.pbDialogIcon(const aCtx: TtfwContext;
@@ -999,12 +967,8 @@ end;//TkwEnTurnOffTimeMachinePbDialogIcon.GetWordNameForRegister
 
 procedure TkwEnTurnOffTimeMachinePbDialogIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A0F488D95317_var*
-//#UC END# *52D00B00031A_A0F488D95317_var*
 begin
-//#UC START# *52D00B00031A_A0F488D95317_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A0F488D95317_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnTurnOffTimeMachinePbDialogIcon.SetValuePrim
 
 function TkwEnTurnOffTimeMachinePbDialogIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1018,12 +982,8 @@ begin
 end;//TkwEnTurnOffTimeMachinePbDialogIcon.GetAllParamsCount
 
 function TkwEnTurnOffTimeMachinePbDialogIcon.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A0F488D95317_var*
-//#UC END# *5617F4D00243_A0F488D95317_var*
 begin
-//#UC START# *5617F4D00243_A0F488D95317_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A0F488D95317_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnTurnOffTimeMachinePbDialogIcon.ParamsTypes
 
 function TkwEnTurnOffTimeMachineLblTurnOnTimeMachineInfo.lblTurnOnTimeMachineInfo(const aCtx: TtfwContext;
@@ -1053,12 +1013,8 @@ end;//TkwEnTurnOffTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister
 
 procedure TkwEnTurnOffTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BA15E8037522_var*
-//#UC END# *52D00B00031A_BA15E8037522_var*
 begin
-//#UC START# *52D00B00031A_BA15E8037522_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BA15E8037522_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnTurnOffTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim
 
 function TkwEnTurnOffTimeMachineLblTurnOnTimeMachineInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1072,12 +1028,8 @@ begin
 end;//TkwEnTurnOffTimeMachineLblTurnOnTimeMachineInfo.GetAllParamsCount
 
 function TkwEnTurnOffTimeMachineLblTurnOnTimeMachineInfo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BA15E8037522_var*
-//#UC END# *5617F4D00243_BA15E8037522_var*
 begin
-//#UC START# *5617F4D00243_BA15E8037522_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BA15E8037522_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnTurnOffTimeMachineLblTurnOnTimeMachineInfo.ParamsTypes
 
 function TkwEnTurnOffTimeMachineBtnOk.btnOk(const aCtx: TtfwContext;
@@ -1107,12 +1059,8 @@ end;//TkwEnTurnOffTimeMachineBtnOk.GetWordNameForRegister
 
 procedure TkwEnTurnOffTimeMachineBtnOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_39ED602876E3_var*
-//#UC END# *52D00B00031A_39ED602876E3_var*
 begin
-//#UC START# *52D00B00031A_39ED602876E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_39ED602876E3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnTurnOffTimeMachineBtnOk.SetValuePrim
 
 function TkwEnTurnOffTimeMachineBtnOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1126,12 +1074,8 @@ begin
 end;//TkwEnTurnOffTimeMachineBtnOk.GetAllParamsCount
 
 function TkwEnTurnOffTimeMachineBtnOk.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_39ED602876E3_var*
-//#UC END# *5617F4D00243_39ED602876E3_var*
 begin
-//#UC START# *5617F4D00243_39ED602876E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_39ED602876E3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnTurnOffTimeMachineBtnOk.ParamsTypes
 
 function TkwEnTurnOffTimeMachineBtnCancel.btnCancel(const aCtx: TtfwContext;
@@ -1161,12 +1105,8 @@ end;//TkwEnTurnOffTimeMachineBtnCancel.GetWordNameForRegister
 
 procedure TkwEnTurnOffTimeMachineBtnCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D14C3EA641C3_var*
-//#UC END# *52D00B00031A_D14C3EA641C3_var*
 begin
-//#UC START# *52D00B00031A_D14C3EA641C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D14C3EA641C3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnTurnOffTimeMachineBtnCancel.SetValuePrim
 
 function TkwEnTurnOffTimeMachineBtnCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1180,12 +1120,8 @@ begin
 end;//TkwEnTurnOffTimeMachineBtnCancel.GetAllParamsCount
 
 function TkwEnTurnOffTimeMachineBtnCancel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D14C3EA641C3_var*
-//#UC END# *5617F4D00243_D14C3EA641C3_var*
 begin
-//#UC START# *5617F4D00243_D14C3EA641C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D14C3EA641C3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnTurnOffTimeMachineBtnCancel.ParamsTypes
 
 initialization

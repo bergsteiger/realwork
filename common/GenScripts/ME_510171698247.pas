@@ -1479,12 +1479,8 @@ end;//TkwLoginFormRegisteredGroupBox.GetWordNameForRegister
 
 procedure TkwLoginFormRegisteredGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9B4F211D4C21_var*
-//#UC END# *52D00B00031A_9B4F211D4C21_var*
 begin
-//#UC START# *52D00B00031A_9B4F211D4C21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9B4F211D4C21_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormRegisteredGroupBox.SetValuePrim
 
 function TkwLoginFormRegisteredGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1498,12 +1494,8 @@ begin
 end;//TkwLoginFormRegisteredGroupBox.GetAllParamsCount
 
 function TkwLoginFormRegisteredGroupBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9B4F211D4C21_var*
-//#UC END# *5617F4D00243_9B4F211D4C21_var*
 begin
-//#UC START# *5617F4D00243_9B4F211D4C21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9B4F211D4C21_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormRegisteredGroupBox.ParamsTypes
 
 function TkwLoginFormLblLogin.lblLogin(const aCtx: TtfwContext;
@@ -1533,12 +1525,8 @@ end;//TkwLoginFormLblLogin.GetWordNameForRegister
 
 procedure TkwLoginFormLblLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FFD5E9C273CA_var*
-//#UC END# *52D00B00031A_FFD5E9C273CA_var*
 begin
-//#UC START# *52D00B00031A_FFD5E9C273CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FFD5E9C273CA_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormLblLogin.SetValuePrim
 
 function TkwLoginFormLblLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1552,12 +1540,8 @@ begin
 end;//TkwLoginFormLblLogin.GetAllParamsCount
 
 function TkwLoginFormLblLogin.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FFD5E9C273CA_var*
-//#UC END# *5617F4D00243_FFD5E9C273CA_var*
 begin
-//#UC START# *5617F4D00243_FFD5E9C273CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FFD5E9C273CA_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormLblLogin.ParamsTypes
 
 function TkwLoginFormLblPassword.lblPassword(const aCtx: TtfwContext;
@@ -1587,12 +1571,8 @@ end;//TkwLoginFormLblPassword.GetWordNameForRegister
 
 procedure TkwLoginFormLblPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ADC1F68E0487_var*
-//#UC END# *52D00B00031A_ADC1F68E0487_var*
 begin
-//#UC START# *52D00B00031A_ADC1F68E0487_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ADC1F68E0487_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormLblPassword.SetValuePrim
 
 function TkwLoginFormLblPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1606,12 +1586,8 @@ begin
 end;//TkwLoginFormLblPassword.GetAllParamsCount
 
 function TkwLoginFormLblPassword.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_ADC1F68E0487_var*
-//#UC END# *5617F4D00243_ADC1F68E0487_var*
 begin
-//#UC START# *5617F4D00243_ADC1F68E0487_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_ADC1F68E0487_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormLblPassword.ParamsTypes
 
 function TkwLoginFormEnterPaintBox.EnterPaintBox(const aCtx: TtfwContext;
@@ -1641,12 +1617,8 @@ end;//TkwLoginFormEnterPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormEnterPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_75E9BCD66298_var*
-//#UC END# *52D00B00031A_75E9BCD66298_var*
 begin
-//#UC START# *52D00B00031A_75E9BCD66298_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_75E9BCD66298_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormEnterPaintBox.SetValuePrim
 
 function TkwLoginFormEnterPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1660,12 +1632,8 @@ begin
 end;//TkwLoginFormEnterPaintBox.GetAllParamsCount
 
 function TkwLoginFormEnterPaintBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_75E9BCD66298_var*
-//#UC END# *5617F4D00243_75E9BCD66298_var*
 begin
-//#UC START# *5617F4D00243_75E9BCD66298_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_75E9BCD66298_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormEnterPaintBox.ParamsTypes
 
 function TkwLoginFormEdUserName.edUserName(const aCtx: TtfwContext;
@@ -1695,12 +1663,8 @@ end;//TkwLoginFormEdUserName.GetWordNameForRegister
 
 procedure TkwLoginFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C550F6E48B7D_var*
-//#UC END# *52D00B00031A_C550F6E48B7D_var*
 begin
-//#UC START# *52D00B00031A_C550F6E48B7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C550F6E48B7D_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormEdUserName.SetValuePrim
 
 function TkwLoginFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1714,12 +1678,8 @@ begin
 end;//TkwLoginFormEdUserName.GetAllParamsCount
 
 function TkwLoginFormEdUserName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C550F6E48B7D_var*
-//#UC END# *5617F4D00243_C550F6E48B7D_var*
 begin
-//#UC START# *5617F4D00243_C550F6E48B7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C550F6E48B7D_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormEdUserName.ParamsTypes
 
 function TkwLoginFormEdPassword.edPassword(const aCtx: TtfwContext;
@@ -1749,12 +1709,8 @@ end;//TkwLoginFormEdPassword.GetWordNameForRegister
 
 procedure TkwLoginFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7BF42C20181F_var*
-//#UC END# *52D00B00031A_7BF42C20181F_var*
 begin
-//#UC START# *52D00B00031A_7BF42C20181F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7BF42C20181F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormEdPassword.SetValuePrim
 
 function TkwLoginFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1768,12 +1724,8 @@ begin
 end;//TkwLoginFormEdPassword.GetAllParamsCount
 
 function TkwLoginFormEdPassword.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7BF42C20181F_var*
-//#UC END# *5617F4D00243_7BF42C20181F_var*
 begin
-//#UC START# *5617F4D00243_7BF42C20181F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7BF42C20181F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormEdPassword.ParamsTypes
 
 function TkwLoginFormLblForgetPassword.lblForgetPassword(const aCtx: TtfwContext;
@@ -1803,12 +1755,8 @@ end;//TkwLoginFormLblForgetPassword.GetWordNameForRegister
 
 procedure TkwLoginFormLblForgetPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1E431A639AC6_var*
-//#UC END# *52D00B00031A_1E431A639AC6_var*
 begin
-//#UC START# *52D00B00031A_1E431A639AC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1E431A639AC6_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormLblForgetPassword.SetValuePrim
 
 function TkwLoginFormLblForgetPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1822,12 +1770,8 @@ begin
 end;//TkwLoginFormLblForgetPassword.GetAllParamsCount
 
 function TkwLoginFormLblForgetPassword.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1E431A639AC6_var*
-//#UC END# *5617F4D00243_1E431A639AC6_var*
 begin
-//#UC START# *5617F4D00243_1E431A639AC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1E431A639AC6_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormLblForgetPassword.ParamsTypes
 
 function TkwLoginFormCbAutoLogin.cbAutoLogin(const aCtx: TtfwContext;
@@ -1857,12 +1801,8 @@ end;//TkwLoginFormCbAutoLogin.GetWordNameForRegister
 
 procedure TkwLoginFormCbAutoLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7240CBBD5078_var*
-//#UC END# *52D00B00031A_7240CBBD5078_var*
 begin
-//#UC START# *52D00B00031A_7240CBBD5078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7240CBBD5078_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormCbAutoLogin.SetValuePrim
 
 function TkwLoginFormCbAutoLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1876,12 +1816,8 @@ begin
 end;//TkwLoginFormCbAutoLogin.GetAllParamsCount
 
 function TkwLoginFormCbAutoLogin.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7240CBBD5078_var*
-//#UC END# *5617F4D00243_7240CBBD5078_var*
 begin
-//#UC START# *5617F4D00243_7240CBBD5078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7240CBBD5078_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormCbAutoLogin.ParamsTypes
 
 function TkwLoginFormBtnOk.btnOk(const aCtx: TtfwContext;
@@ -1911,12 +1847,8 @@ end;//TkwLoginFormBtnOk.GetWordNameForRegister
 
 procedure TkwLoginFormBtnOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_82596223B513_var*
-//#UC END# *52D00B00031A_82596223B513_var*
 begin
-//#UC START# *52D00B00031A_82596223B513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_82596223B513_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormBtnOk.SetValuePrim
 
 function TkwLoginFormBtnOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1930,12 +1862,8 @@ begin
 end;//TkwLoginFormBtnOk.GetAllParamsCount
 
 function TkwLoginFormBtnOk.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_82596223B513_var*
-//#UC END# *5617F4D00243_82596223B513_var*
 begin
-//#UC START# *5617F4D00243_82596223B513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_82596223B513_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormBtnOk.ParamsTypes
 
 function TkwLoginFormNewUserGroupBox.NewUserGroupBox(const aCtx: TtfwContext;
@@ -1965,12 +1893,8 @@ end;//TkwLoginFormNewUserGroupBox.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_03381F46504D_var*
-//#UC END# *52D00B00031A_03381F46504D_var*
 begin
-//#UC START# *52D00B00031A_03381F46504D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_03381F46504D_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormNewUserGroupBox.SetValuePrim
 
 function TkwLoginFormNewUserGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1984,12 +1908,8 @@ begin
 end;//TkwLoginFormNewUserGroupBox.GetAllParamsCount
 
 function TkwLoginFormNewUserGroupBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_03381F46504D_var*
-//#UC END# *5617F4D00243_03381F46504D_var*
 begin
-//#UC START# *5617F4D00243_03381F46504D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_03381F46504D_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormNewUserGroupBox.ParamsTypes
 
 function TkwLoginFormNewUserLabel.NewUserLabel(const aCtx: TtfwContext;
@@ -2019,12 +1939,8 @@ end;//TkwLoginFormNewUserLabel.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FEA3248A13D0_var*
-//#UC END# *52D00B00031A_FEA3248A13D0_var*
 begin
-//#UC START# *52D00B00031A_FEA3248A13D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FEA3248A13D0_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormNewUserLabel.SetValuePrim
 
 function TkwLoginFormNewUserLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2038,12 +1954,8 @@ begin
 end;//TkwLoginFormNewUserLabel.GetAllParamsCount
 
 function TkwLoginFormNewUserLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FEA3248A13D0_var*
-//#UC END# *5617F4D00243_FEA3248A13D0_var*
 begin
-//#UC START# *5617F4D00243_FEA3248A13D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FEA3248A13D0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormNewUserLabel.ParamsTypes
 
 function TkwLoginFormNewUserPaintBox.NewUserPaintBox(const aCtx: TtfwContext;
@@ -2073,12 +1985,8 @@ end;//TkwLoginFormNewUserPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_545C2415CF4A_var*
-//#UC END# *52D00B00031A_545C2415CF4A_var*
 begin
-//#UC START# *52D00B00031A_545C2415CF4A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_545C2415CF4A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormNewUserPaintBox.SetValuePrim
 
 function TkwLoginFormNewUserPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2092,12 +2000,8 @@ begin
 end;//TkwLoginFormNewUserPaintBox.GetAllParamsCount
 
 function TkwLoginFormNewUserPaintBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_545C2415CF4A_var*
-//#UC END# *5617F4D00243_545C2415CF4A_var*
 begin
-//#UC START# *5617F4D00243_545C2415CF4A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_545C2415CF4A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormNewUserPaintBox.ParamsTypes
 
 function TkwLoginFormLblNewUser.lblNewUser(const aCtx: TtfwContext;
@@ -2127,12 +2031,8 @@ end;//TkwLoginFormLblNewUser.GetWordNameForRegister
 
 procedure TkwLoginFormLblNewUser.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BD193B22974F_var*
-//#UC END# *52D00B00031A_BD193B22974F_var*
 begin
-//#UC START# *52D00B00031A_BD193B22974F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BD193B22974F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormLblNewUser.SetValuePrim
 
 function TkwLoginFormLblNewUser.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2146,12 +2046,8 @@ begin
 end;//TkwLoginFormLblNewUser.GetAllParamsCount
 
 function TkwLoginFormLblNewUser.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BD193B22974F_var*
-//#UC END# *5617F4D00243_BD193B22974F_var*
 begin
-//#UC START# *5617F4D00243_BD193B22974F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BD193B22974F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormLblNewUser.ParamsTypes
 
 function TkwLoginFormHelpPanel.HelpPanel(const aCtx: TtfwContext;
@@ -2181,12 +2077,8 @@ end;//TkwLoginFormHelpPanel.GetWordNameForRegister
 
 procedure TkwLoginFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1EF3C1D6EB3F_var*
-//#UC END# *52D00B00031A_1EF3C1D6EB3F_var*
 begin
-//#UC START# *52D00B00031A_1EF3C1D6EB3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1EF3C1D6EB3F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormHelpPanel.SetValuePrim
 
 function TkwLoginFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2200,12 +2092,8 @@ begin
 end;//TkwLoginFormHelpPanel.GetAllParamsCount
 
 function TkwLoginFormHelpPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1EF3C1D6EB3F_var*
-//#UC END# *5617F4D00243_1EF3C1D6EB3F_var*
 begin
-//#UC START# *5617F4D00243_1EF3C1D6EB3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1EF3C1D6EB3F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormHelpPanel.ParamsTypes
 
 function TkwLoginFormHelpPaintBox.HelpPaintBox(const aCtx: TtfwContext;
@@ -2235,12 +2123,8 @@ end;//TkwLoginFormHelpPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0D089B690A42_var*
-//#UC END# *52D00B00031A_0D089B690A42_var*
 begin
-//#UC START# *52D00B00031A_0D089B690A42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0D089B690A42_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormHelpPaintBox.SetValuePrim
 
 function TkwLoginFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2254,12 +2138,8 @@ begin
 end;//TkwLoginFormHelpPaintBox.GetAllParamsCount
 
 function TkwLoginFormHelpPaintBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0D089B690A42_var*
-//#UC END# *5617F4D00243_0D089B690A42_var*
 begin
-//#UC START# *5617F4D00243_0D089B690A42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0D089B690A42_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormHelpPaintBox.ParamsTypes
 
 function TkwLoginFormHelpLabel.HelpLabel(const aCtx: TtfwContext;
@@ -2289,12 +2169,8 @@ end;//TkwLoginFormHelpLabel.GetWordNameForRegister
 
 procedure TkwLoginFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_61075CCC4E17_var*
-//#UC END# *52D00B00031A_61075CCC4E17_var*
 begin
-//#UC START# *52D00B00031A_61075CCC4E17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_61075CCC4E17_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwLoginFormHelpLabel.SetValuePrim
 
 function TkwLoginFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2308,12 +2184,8 @@ begin
 end;//TkwLoginFormHelpLabel.GetAllParamsCount
 
 function TkwLoginFormHelpLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_61075CCC4E17_var*
-//#UC END# *5617F4D00243_61075CCC4E17_var*
 begin
-//#UC START# *5617F4D00243_61075CCC4E17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_61075CCC4E17_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwLoginFormHelpLabel.ParamsTypes
 
 initialization

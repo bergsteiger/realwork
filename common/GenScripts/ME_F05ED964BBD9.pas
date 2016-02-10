@@ -262,12 +262,8 @@ end;//TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwListAnalizerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B5BF39070BB2_var*
-//#UC END# *52D00B00031A_B5BF39070BB2_var*
 begin
-//#UC START# *52D00B00031A_B5BF39070BB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B5BF39070BB2_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwListAnalizerFormBackgroundPanel.SetValuePrim
 
 function TkwListAnalizerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -281,12 +277,8 @@ begin
 end;//TkwListAnalizerFormBackgroundPanel.GetAllParamsCount
 
 function TkwListAnalizerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B5BF39070BB2_var*
-//#UC END# *5617F4D00243_B5BF39070BB2_var*
 begin
-//#UC START# *5617F4D00243_B5BF39070BB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B5BF39070BB2_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwListAnalizerFormBackgroundPanel.ParamsTypes
 
 function TkwListAnalizerFormListTree.ListTree(const aCtx: TtfwContext;
@@ -316,12 +308,8 @@ end;//TkwListAnalizerFormListTree.GetWordNameForRegister
 
 procedure TkwListAnalizerFormListTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4AAC0AE9EF9E_var*
-//#UC END# *52D00B00031A_4AAC0AE9EF9E_var*
 begin
-//#UC START# *52D00B00031A_4AAC0AE9EF9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4AAC0AE9EF9E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwListAnalizerFormListTree.SetValuePrim
 
 function TkwListAnalizerFormListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -335,12 +323,8 @@ begin
 end;//TkwListAnalizerFormListTree.GetAllParamsCount
 
 function TkwListAnalizerFormListTree.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4AAC0AE9EF9E_var*
-//#UC END# *5617F4D00243_4AAC0AE9EF9E_var*
 begin
-//#UC START# *5617F4D00243_4AAC0AE9EF9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4AAC0AE9EF9E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwListAnalizerFormListTree.ParamsTypes
 
 initialization

@@ -1642,12 +1642,8 @@ end;//TkwEfAboutPbLogo.GetWordNameForRegister
 
 procedure TkwEfAboutPbLogo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BA168D6B0575_var*
-//#UC END# *52D00B00031A_BA168D6B0575_var*
 begin
-//#UC START# *52D00B00031A_BA168D6B0575_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BA168D6B0575_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutPbLogo.SetValuePrim
 
 function TkwEfAboutPbLogo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1661,12 +1657,8 @@ begin
 end;//TkwEfAboutPbLogo.GetAllParamsCount
 
 function TkwEfAboutPbLogo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BA168D6B0575_var*
-//#UC END# *5617F4D00243_BA168D6B0575_var*
 begin
-//#UC START# *5617F4D00243_BA168D6B0575_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BA168D6B0575_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutPbLogo.ParamsTypes
 
 function TkwEfAboutShellInfoLabel.ShellInfoLabel(const aCtx: TtfwContext;
@@ -1696,12 +1688,8 @@ end;//TkwEfAboutShellInfoLabel.GetWordNameForRegister
 
 procedure TkwEfAboutShellInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C14EDD2990CA_var*
-//#UC END# *52D00B00031A_C14EDD2990CA_var*
 begin
-//#UC START# *52D00B00031A_C14EDD2990CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C14EDD2990CA_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutShellInfoLabel.SetValuePrim
 
 function TkwEfAboutShellInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1715,12 +1703,8 @@ begin
 end;//TkwEfAboutShellInfoLabel.GetAllParamsCount
 
 function TkwEfAboutShellInfoLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C14EDD2990CA_var*
-//#UC END# *5617F4D00243_C14EDD2990CA_var*
 begin
-//#UC START# *5617F4D00243_C14EDD2990CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C14EDD2990CA_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutShellInfoLabel.ParamsTypes
 
 function TkwEfAboutAdapterInfoLabel.AdapterInfoLabel(const aCtx: TtfwContext;
@@ -1750,12 +1734,8 @@ end;//TkwEfAboutAdapterInfoLabel.GetWordNameForRegister
 
 procedure TkwEfAboutAdapterInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_08EB409FF384_var*
-//#UC END# *52D00B00031A_08EB409FF384_var*
 begin
-//#UC START# *52D00B00031A_08EB409FF384_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_08EB409FF384_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutAdapterInfoLabel.SetValuePrim
 
 function TkwEfAboutAdapterInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1769,12 +1749,8 @@ begin
 end;//TkwEfAboutAdapterInfoLabel.GetAllParamsCount
 
 function TkwEfAboutAdapterInfoLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_08EB409FF384_var*
-//#UC END# *5617F4D00243_08EB409FF384_var*
 begin
-//#UC START# *5617F4D00243_08EB409FF384_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_08EB409FF384_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutAdapterInfoLabel.ParamsTypes
 
 function TkwEfAboutUserCountLabel.UserCountLabel(const aCtx: TtfwContext;
@@ -1804,12 +1780,8 @@ end;//TkwEfAboutUserCountLabel.GetWordNameForRegister
 
 procedure TkwEfAboutUserCountLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4975D1047CB0_var*
-//#UC END# *52D00B00031A_4975D1047CB0_var*
 begin
-//#UC START# *52D00B00031A_4975D1047CB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4975D1047CB0_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutUserCountLabel.SetValuePrim
 
 function TkwEfAboutUserCountLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1823,12 +1795,8 @@ begin
 end;//TkwEfAboutUserCountLabel.GetAllParamsCount
 
 function TkwEfAboutUserCountLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4975D1047CB0_var*
-//#UC END# *5617F4D00243_4975D1047CB0_var*
 begin
-//#UC START# *5617F4D00243_4975D1047CB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4975D1047CB0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutUserCountLabel.ParamsTypes
 
 function TkwEfAboutOwnerLabel.OwnerLabel(const aCtx: TtfwContext;
@@ -1858,12 +1826,8 @@ end;//TkwEfAboutOwnerLabel.GetWordNameForRegister
 
 procedure TkwEfAboutOwnerLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8C700A8841B1_var*
-//#UC END# *52D00B00031A_8C700A8841B1_var*
 begin
-//#UC START# *52D00B00031A_8C700A8841B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8C700A8841B1_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutOwnerLabel.SetValuePrim
 
 function TkwEfAboutOwnerLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1877,12 +1841,8 @@ begin
 end;//TkwEfAboutOwnerLabel.GetAllParamsCount
 
 function TkwEfAboutOwnerLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8C700A8841B1_var*
-//#UC END# *5617F4D00243_8C700A8841B1_var*
 begin
-//#UC START# *5617F4D00243_8C700A8841B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8C700A8841B1_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutOwnerLabel.ParamsTypes
 
 function TkwEfAboutShellCaptionLabel.ShellCaptionLabel(const aCtx: TtfwContext;
@@ -1912,12 +1872,8 @@ end;//TkwEfAboutShellCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfAboutShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_5AD880C5E318_var*
-//#UC END# *52D00B00031A_5AD880C5E318_var*
 begin
-//#UC START# *52D00B00031A_5AD880C5E318_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_5AD880C5E318_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutShellCaptionLabel.SetValuePrim
 
 function TkwEfAboutShellCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1931,12 +1887,8 @@ begin
 end;//TkwEfAboutShellCaptionLabel.GetAllParamsCount
 
 function TkwEfAboutShellCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5AD880C5E318_var*
-//#UC END# *5617F4D00243_5AD880C5E318_var*
 begin
-//#UC START# *5617F4D00243_5AD880C5E318_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5AD880C5E318_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutShellCaptionLabel.ParamsTypes
 
 function TkwEfAboutOwnerCaptionLabel.OwnerCaptionLabel(const aCtx: TtfwContext;
@@ -1966,12 +1918,8 @@ end;//TkwEfAboutOwnerCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfAboutOwnerCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_04020439363A_var*
-//#UC END# *52D00B00031A_04020439363A_var*
 begin
-//#UC START# *52D00B00031A_04020439363A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_04020439363A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutOwnerCaptionLabel.SetValuePrim
 
 function TkwEfAboutOwnerCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1985,12 +1933,8 @@ begin
 end;//TkwEfAboutOwnerCaptionLabel.GetAllParamsCount
 
 function TkwEfAboutOwnerCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_04020439363A_var*
-//#UC END# *5617F4D00243_04020439363A_var*
 begin
-//#UC START# *5617F4D00243_04020439363A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_04020439363A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutOwnerCaptionLabel.ParamsTypes
 
 function TkwEfAboutUserInfoGroupBox.UserInfoGroupBox(const aCtx: TtfwContext;
@@ -2020,12 +1964,8 @@ end;//TkwEfAboutUserInfoGroupBox.GetWordNameForRegister
 
 procedure TkwEfAboutUserInfoGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D3622857C598_var*
-//#UC END# *52D00B00031A_D3622857C598_var*
 begin
-//#UC START# *52D00B00031A_D3622857C598_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D3622857C598_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutUserInfoGroupBox.SetValuePrim
 
 function TkwEfAboutUserInfoGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2039,12 +1979,8 @@ begin
 end;//TkwEfAboutUserInfoGroupBox.GetAllParamsCount
 
 function TkwEfAboutUserInfoGroupBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D3622857C598_var*
-//#UC END# *5617F4D00243_D3622857C598_var*
 begin
-//#UC START# *5617F4D00243_D3622857C598_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D3622857C598_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutUserInfoGroupBox.ParamsTypes
 
 function TkwEfAboutEMailCaptionLabel.EMailCaptionLabel(const aCtx: TtfwContext;
@@ -2074,12 +2010,8 @@ end;//TkwEfAboutEMailCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfAboutEMailCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AD8A765A7EA3_var*
-//#UC END# *52D00B00031A_AD8A765A7EA3_var*
 begin
-//#UC START# *52D00B00031A_AD8A765A7EA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AD8A765A7EA3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutEMailCaptionLabel.SetValuePrim
 
 function TkwEfAboutEMailCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2093,12 +2025,8 @@ begin
 end;//TkwEfAboutEMailCaptionLabel.GetAllParamsCount
 
 function TkwEfAboutEMailCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AD8A765A7EA3_var*
-//#UC END# *5617F4D00243_AD8A765A7EA3_var*
 begin
-//#UC START# *5617F4D00243_AD8A765A7EA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AD8A765A7EA3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutEMailCaptionLabel.ParamsTypes
 
 function TkwEfAboutEMailLabel.EMailLabel(const aCtx: TtfwContext;
@@ -2128,12 +2056,8 @@ end;//TkwEfAboutEMailLabel.GetWordNameForRegister
 
 procedure TkwEfAboutEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C8304E87CD06_var*
-//#UC END# *52D00B00031A_C8304E87CD06_var*
 begin
-//#UC START# *52D00B00031A_C8304E87CD06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C8304E87CD06_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutEMailLabel.SetValuePrim
 
 function TkwEfAboutEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2147,12 +2071,8 @@ begin
 end;//TkwEfAboutEMailLabel.GetAllParamsCount
 
 function TkwEfAboutEMailLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C8304E87CD06_var*
-//#UC END# *5617F4D00243_C8304E87CD06_var*
 begin
-//#UC START# *5617F4D00243_C8304E87CD06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C8304E87CD06_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutEMailLabel.ParamsTypes
 
 function TkwEfAboutLoginCaptionLabel.LoginCaptionLabel(const aCtx: TtfwContext;
@@ -2182,12 +2102,8 @@ end;//TkwEfAboutLoginCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfAboutLoginCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_68FECD6C3C89_var*
-//#UC END# *52D00B00031A_68FECD6C3C89_var*
 begin
-//#UC START# *52D00B00031A_68FECD6C3C89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_68FECD6C3C89_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutLoginCaptionLabel.SetValuePrim
 
 function TkwEfAboutLoginCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2201,12 +2117,8 @@ begin
 end;//TkwEfAboutLoginCaptionLabel.GetAllParamsCount
 
 function TkwEfAboutLoginCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_68FECD6C3C89_var*
-//#UC END# *5617F4D00243_68FECD6C3C89_var*
 begin
-//#UC START# *5617F4D00243_68FECD6C3C89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_68FECD6C3C89_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutLoginCaptionLabel.ParamsTypes
 
 function TkwEfAboutUserCaptionLabel.UserCaptionLabel(const aCtx: TtfwContext;
@@ -2236,12 +2148,8 @@ end;//TkwEfAboutUserCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfAboutUserCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_70B4D3EC22BA_var*
-//#UC END# *52D00B00031A_70B4D3EC22BA_var*
 begin
-//#UC START# *52D00B00031A_70B4D3EC22BA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_70B4D3EC22BA_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutUserCaptionLabel.SetValuePrim
 
 function TkwEfAboutUserCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2255,12 +2163,8 @@ begin
 end;//TkwEfAboutUserCaptionLabel.GetAllParamsCount
 
 function TkwEfAboutUserCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_70B4D3EC22BA_var*
-//#UC END# *5617F4D00243_70B4D3EC22BA_var*
 begin
-//#UC START# *5617F4D00243_70B4D3EC22BA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_70B4D3EC22BA_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutUserCaptionLabel.ParamsTypes
 
 function TkwEfAboutUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
@@ -2290,12 +2194,8 @@ end;//TkwEfAboutUserNameLabel.GetWordNameForRegister
 
 procedure TkwEfAboutUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8AA9DAD252E0_var*
-//#UC END# *52D00B00031A_8AA9DAD252E0_var*
 begin
-//#UC START# *52D00B00031A_8AA9DAD252E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8AA9DAD252E0_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutUserNameLabel.SetValuePrim
 
 function TkwEfAboutUserNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2309,12 +2209,8 @@ begin
 end;//TkwEfAboutUserNameLabel.GetAllParamsCount
 
 function TkwEfAboutUserNameLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8AA9DAD252E0_var*
-//#UC END# *5617F4D00243_8AA9DAD252E0_var*
 begin
-//#UC START# *5617F4D00243_8AA9DAD252E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8AA9DAD252E0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutUserNameLabel.ParamsTypes
 
 function TkwEfAboutLoginLabel.LoginLabel(const aCtx: TtfwContext;
@@ -2344,12 +2240,8 @@ end;//TkwEfAboutLoginLabel.GetWordNameForRegister
 
 procedure TkwEfAboutLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BC9641B4F920_var*
-//#UC END# *52D00B00031A_BC9641B4F920_var*
 begin
-//#UC START# *52D00B00031A_BC9641B4F920_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BC9641B4F920_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutLoginLabel.SetValuePrim
 
 function TkwEfAboutLoginLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2363,12 +2255,8 @@ begin
 end;//TkwEfAboutLoginLabel.GetAllParamsCount
 
 function TkwEfAboutLoginLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BC9641B4F920_var*
-//#UC END# *5617F4D00243_BC9641B4F920_var*
 begin
-//#UC START# *5617F4D00243_BC9641B4F920_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BC9641B4F920_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutLoginLabel.ParamsTypes
 
 function TkwEfAboutCopyrightCaptionLabel.CopyrightCaptionLabel(const aCtx: TtfwContext;
@@ -2398,12 +2286,8 @@ end;//TkwEfAboutCopyrightCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfAboutCopyrightCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_91C366B98815_var*
-//#UC END# *52D00B00031A_91C366B98815_var*
 begin
-//#UC START# *52D00B00031A_91C366B98815_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_91C366B98815_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutCopyrightCaptionLabel.SetValuePrim
 
 function TkwEfAboutCopyrightCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2417,12 +2301,8 @@ begin
 end;//TkwEfAboutCopyrightCaptionLabel.GetAllParamsCount
 
 function TkwEfAboutCopyrightCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_91C366B98815_var*
-//#UC END# *5617F4D00243_91C366B98815_var*
 begin
-//#UC START# *5617F4D00243_91C366B98815_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_91C366B98815_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutCopyrightCaptionLabel.ParamsTypes
 
 function TkwEfAboutOkButton.OkButton(const aCtx: TtfwContext;
@@ -2452,12 +2332,8 @@ end;//TkwEfAboutOkButton.GetWordNameForRegister
 
 procedure TkwEfAboutOkButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_72DDD635F225_var*
-//#UC END# *52D00B00031A_72DDD635F225_var*
 begin
-//#UC START# *52D00B00031A_72DDD635F225_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_72DDD635F225_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutOkButton.SetValuePrim
 
 function TkwEfAboutOkButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2471,12 +2347,8 @@ begin
 end;//TkwEfAboutOkButton.GetAllParamsCount
 
 function TkwEfAboutOkButton.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_72DDD635F225_var*
-//#UC END# *5617F4D00243_72DDD635F225_var*
 begin
-//#UC START# *5617F4D00243_72DDD635F225_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_72DDD635F225_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutOkButton.ParamsTypes
 
 function TkwEfAboutUserCountCaptionLabel.UserCountCaptionLabel(const aCtx: TtfwContext;
@@ -2506,12 +2378,8 @@ end;//TkwEfAboutUserCountCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfAboutUserCountCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1780B267DD02_var*
-//#UC END# *52D00B00031A_1780B267DD02_var*
 begin
-//#UC START# *52D00B00031A_1780B267DD02_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1780B267DD02_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutUserCountCaptionLabel.SetValuePrim
 
 function TkwEfAboutUserCountCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2525,12 +2393,8 @@ begin
 end;//TkwEfAboutUserCountCaptionLabel.GetAllParamsCount
 
 function TkwEfAboutUserCountCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1780B267DD02_var*
-//#UC END# *5617F4D00243_1780B267DD02_var*
 begin
-//#UC START# *5617F4D00243_1780B267DD02_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1780B267DD02_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutUserCountCaptionLabel.ParamsTypes
 
 function TkwEfAboutAdapterCaptionLabel.AdapterCaptionLabel(const aCtx: TtfwContext;
@@ -2560,12 +2424,8 @@ end;//TkwEfAboutAdapterCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfAboutAdapterCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_46F6BDD709BF_var*
-//#UC END# *52D00B00031A_46F6BDD709BF_var*
 begin
-//#UC START# *52D00B00031A_46F6BDD709BF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_46F6BDD709BF_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfAboutAdapterCaptionLabel.SetValuePrim
 
 function TkwEfAboutAdapterCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2579,12 +2439,8 @@ begin
 end;//TkwEfAboutAdapterCaptionLabel.GetAllParamsCount
 
 function TkwEfAboutAdapterCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_46F6BDD709BF_var*
-//#UC END# *5617F4D00243_46F6BDD709BF_var*
 begin
-//#UC START# *5617F4D00243_46F6BDD709BF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_46F6BDD709BF_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfAboutAdapterCaptionLabel.ParamsTypes
 
 initialization

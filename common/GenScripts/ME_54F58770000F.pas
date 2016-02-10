@@ -86,8 +86,8 @@ end;//TkwPopRadioGroupItemIndex.GetWordNameForRegister
 
 procedure TkwPopRadioGroupItemIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RadioGroup: TRadioGroup;
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ItemIndex', aCtx);
 end;//TkwPopRadioGroupItemIndex.SetValuePrim
 
 function TkwPopRadioGroupItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

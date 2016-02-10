@@ -349,12 +349,8 @@ end;//TkwEfEULAShellCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfEULAShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_58C15386A400_var*
-//#UC END# *52D00B00031A_58C15386A400_var*
 begin
-//#UC START# *52D00B00031A_58C15386A400_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_58C15386A400_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfEULAShellCaptionLabel.SetValuePrim
 
 function TkwEfEULAShellCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -368,12 +364,8 @@ begin
 end;//TkwEfEULAShellCaptionLabel.GetAllParamsCount
 
 function TkwEfEULAShellCaptionLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_58C15386A400_var*
-//#UC END# *5617F4D00243_58C15386A400_var*
 begin
-//#UC START# *5617F4D00243_58C15386A400_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_58C15386A400_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfEULAShellCaptionLabel.ParamsTypes
 
 function TkwEfEULAOkButton.OkButton(const aCtx: TtfwContext;
@@ -403,12 +395,8 @@ end;//TkwEfEULAOkButton.GetWordNameForRegister
 
 procedure TkwEfEULAOkButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_84B2391A0258_var*
-//#UC END# *52D00B00031A_84B2391A0258_var*
 begin
-//#UC START# *52D00B00031A_84B2391A0258_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_84B2391A0258_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfEULAOkButton.SetValuePrim
 
 function TkwEfEULAOkButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -422,12 +410,8 @@ begin
 end;//TkwEfEULAOkButton.GetAllParamsCount
 
 function TkwEfEULAOkButton.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_84B2391A0258_var*
-//#UC END# *5617F4D00243_84B2391A0258_var*
 begin
-//#UC START# *5617F4D00243_84B2391A0258_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_84B2391A0258_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfEULAOkButton.ParamsTypes
 
 function TkwEfEULAEeMemoWithEditOperations1.eeMemoWithEditOperations1(const aCtx: TtfwContext;
@@ -457,12 +441,8 @@ end;//TkwEfEULAEeMemoWithEditOperations1.GetWordNameForRegister
 
 procedure TkwEfEULAEeMemoWithEditOperations1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ACE4A3A50395_var*
-//#UC END# *52D00B00031A_ACE4A3A50395_var*
 begin
-//#UC START# *52D00B00031A_ACE4A3A50395_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ACE4A3A50395_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfEULAEeMemoWithEditOperations1.SetValuePrim
 
 function TkwEfEULAEeMemoWithEditOperations1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -476,12 +456,8 @@ begin
 end;//TkwEfEULAEeMemoWithEditOperations1.GetAllParamsCount
 
 function TkwEfEULAEeMemoWithEditOperations1.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_ACE4A3A50395_var*
-//#UC END# *5617F4D00243_ACE4A3A50395_var*
 begin
-//#UC START# *5617F4D00243_ACE4A3A50395_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_ACE4A3A50395_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfEULAEeMemoWithEditOperations1.ParamsTypes
 
 initialization
