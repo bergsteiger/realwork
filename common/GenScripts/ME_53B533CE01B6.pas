@@ -171,12 +171,8 @@ end;//TkwFilterNodeAutoApplied.GetWordNameForRegister
 
 procedure TkwFilterNodeAutoApplied.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_81D0AC689E19_var*
-//#UC END# *52D00B00031A_81D0AC689E19_var*
 begin
-//#UC START# *52D00B00031A_81D0AC689E19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_81D0AC689E19_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwFilterNodeAutoApplied.SetValuePrim
 
 function TkwFilterNodeAutoApplied.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -190,12 +186,8 @@ begin
 end;//TkwFilterNodeAutoApplied.GetAllParamsCount
 
 function TkwFilterNodeAutoApplied.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_81D0AC689E19_var*
-//#UC END# *5617F4D00243_81D0AC689E19_var*
 begin
-//#UC START# *5617F4D00243_81D0AC689E19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_81D0AC689E19_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwFilterNodeAutoApplied.ParamsTypes
 
 function TkwFilterNodeIsUsed.IsUsed(const aCtx: TtfwContext;
@@ -225,12 +217,8 @@ end;//TkwFilterNodeIsUsed.GetWordNameForRegister
 
 procedure TkwFilterNodeIsUsed.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3EAB6B490CA4_var*
-//#UC END# *52D00B00031A_3EAB6B490CA4_var*
 begin
-//#UC START# *52D00B00031A_3EAB6B490CA4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3EAB6B490CA4_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwFilterNodeIsUsed.SetValuePrim
 
 function TkwFilterNodeIsUsed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -244,12 +232,8 @@ begin
 end;//TkwFilterNodeIsUsed.GetAllParamsCount
 
 function TkwFilterNodeIsUsed.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3EAB6B490CA4_var*
-//#UC END# *5617F4D00243_3EAB6B490CA4_var*
 begin
-//#UC START# *5617F4D00243_3EAB6B490CA4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3EAB6B490CA4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwFilterNodeIsUsed.ParamsTypes
 
 function TkwFilterNodeIsDeleted.IsDeleted(const aCtx: TtfwContext;
@@ -279,12 +263,8 @@ end;//TkwFilterNodeIsDeleted.GetWordNameForRegister
 
 procedure TkwFilterNodeIsDeleted.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2F875C7C1CA3_var*
-//#UC END# *52D00B00031A_2F875C7C1CA3_var*
 begin
-//#UC START# *52D00B00031A_2F875C7C1CA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2F875C7C1CA3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwFilterNodeIsDeleted.SetValuePrim
 
 function TkwFilterNodeIsDeleted.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -298,12 +278,8 @@ begin
 end;//TkwFilterNodeIsDeleted.GetAllParamsCount
 
 function TkwFilterNodeIsDeleted.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2F875C7C1CA3_var*
-//#UC END# *5617F4D00243_2F875C7C1CA3_var*
 begin
-//#UC START# *5617F4D00243_2F875C7C1CA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2F875C7C1CA3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwFilterNodeIsDeleted.ParamsTypes
 
 function TkwFilterNodeIsChangeable.IsChangeable(const aCtx: TtfwContext;
@@ -341,12 +317,8 @@ end;//TkwFilterNodeIsChangeable.GetWordNameForRegister
 
 procedure TkwFilterNodeIsChangeable.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_008D699CFE74_var*
-//#UC END# *52D00B00031A_008D699CFE74_var*
 begin
-//#UC START# *52D00B00031A_008D699CFE74_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_008D699CFE74_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwFilterNodeIsChangeable.SetValuePrim
 
 function TkwFilterNodeIsChangeable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -360,12 +332,8 @@ begin
 end;//TkwFilterNodeIsChangeable.GetAllParamsCount
 
 function TkwFilterNodeIsChangeable.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_008D699CFE74_var*
-//#UC END# *5617F4D00243_008D699CFE74_var*
 begin
-//#UC START# *5617F4D00243_008D699CFE74_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_008D699CFE74_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwFilterNodeIsChangeable.ParamsTypes
 
 initialization

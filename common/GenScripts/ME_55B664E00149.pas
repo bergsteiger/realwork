@@ -107,12 +107,8 @@ begin
 end;//TkwDocEditorWindowIsNeedSaveDocument.GetAllParamsCount
 
 function TkwDocEditorWindowIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1E0CF5C9A3AF_var*
-//#UC END# *5617F4D00243_1E0CF5C9A3AF_var*
 begin
-//#UC START# *5617F4D00243_1E0CF5C9A3AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1E0CF5C9A3AF_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwDocEditorWindowIsNeedSaveDocument.ParamsTypes
 
 initialization

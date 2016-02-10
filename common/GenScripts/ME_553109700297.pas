@@ -112,12 +112,8 @@ begin
 end;//TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount
 
 function TkwAttrExplorerGotoOnAttrNode.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_50112451BECA_var*
-//#UC END# *5617F4D00243_50112451BECA_var*
 begin
-//#UC START# *5617F4D00243_50112451BECA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_50112451BECA_impl*
+ Result := OpenTypesToTypes([TypeInfo(TdtAttribute)]);
 end;//TkwAttrExplorerGotoOnAttrNode.ParamsTypes
 
 initialization

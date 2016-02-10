@@ -122,12 +122,8 @@ begin
 end;//TkwBrowse.GetAllParamsCount
 
 function TkwBrowse.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3223F9BFFE72_var*
-//#UC END# *5617F4D00243_3223F9BFFE72_var*
 begin
-//#UC START# *5617F4D00243_3223F9BFFE72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3223F9BFFE72_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwBrowse.ParamsTypes
 
 function TkwF1_WasBeep.f1_WasBeep(const aCtx: TtfwContext): Boolean;
@@ -170,12 +166,8 @@ begin
 end;//TkwF1_WasBeep.GetAllParamsCount
 
 function TkwF1_WasBeep.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5888E53B751F_var*
-//#UC END# *5617F4D00243_5888E53B751F_var*
 begin
-//#UC START# *5617F4D00243_5888E53B751F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5888E53B751F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwF1_WasBeep.ParamsTypes
 
 initialization
