@@ -24,10 +24,6 @@ type
    f_HTFactory: ThtDataProviderFactory;
    f_PGFactory: TpgDataProviderFactory;
   protected
-   function DoMakeProvider(aParams: TdaDataProviderParams;
-    ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean): IdaDataProvider; override;
-   procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -47,6 +43,10 @@ type
     const aProviderKey: AnsiString = '';
     ForInfoOnly: Boolean = False); override;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
+   function DoMakeProvider(aParams: TdaDataProviderParams;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean): IdaDataProvider; override;
+   procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
  end;//TcaDataProviderFactory
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
@@ -58,6 +58,11 @@ uses
  , caDataProviderParams
  , caDataProvider
  , SysUtils
+ , htDataProviderParams
+ , pgDataProviderParams
+ , ddAppConfigTypes
+ , l3Base
+ , pgInterfaces
 ;
 
 constructor TcaDataProviderFactory.Create(aHTFactory: ThtDataProviderFactory;

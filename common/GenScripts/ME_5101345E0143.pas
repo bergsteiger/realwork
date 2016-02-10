@@ -90,12 +90,28 @@ begin
 end;//TkwPopTaskPanelGetHideField.GetHideField
 
 procedure TkwPopTaskPanelGetHideField.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C357835C3D1B_var*
-//#UC END# *4DAEEDE10285_C357835C3D1B_var*
+var l_aTaskPanel: TnscTasksPanelView;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_C357835C3D1B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C357835C3D1B_impl*
+ try
+  l_aTaskPanel := TnscTasksPanelView(aCtx.rEngine.PopObjAs(TnscTasksPanelView));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTaskPanel: TnscTasksPanelView : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetHideField(aCtx, l_aTaskPanel, l_anIndex));
 end;//TkwPopTaskPanelGetHideField.DoDoIt
 
 class function TkwPopTaskPanelGetHideField.GetWordNameForRegister: AnsiString;
@@ -114,12 +130,8 @@ begin
 end;//TkwPopTaskPanelGetHideField.GetAllParamsCount
 
 function TkwPopTaskPanelGetHideField.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C357835C3D1B_var*
-//#UC END# *5617F4D00243_C357835C3D1B_var*
 begin
-//#UC START# *5617F4D00243_C357835C3D1B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C357835C3D1B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TnscTasksPanelView), TypeInfo(Integer)]);
 end;//TkwPopTaskPanelGetHideField.ParamsTypes
 
 function TkwPopTaskPanelCount.Count(const aCtx: TtfwContext;
@@ -134,12 +146,18 @@ begin
 end;//TkwPopTaskPanelCount.Count
 
 procedure TkwPopTaskPanelCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C2B2EE13F5CE_var*
-//#UC END# *4DAEEDE10285_C2B2EE13F5CE_var*
+var l_aTaskPanel: TnscTasksPanelView;
 begin
-//#UC START# *4DAEEDE10285_C2B2EE13F5CE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C2B2EE13F5CE_impl*
+ try
+  l_aTaskPanel := TnscTasksPanelView(aCtx.rEngine.PopObjAs(TnscTasksPanelView));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTaskPanel: TnscTasksPanelView : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Count(aCtx, l_aTaskPanel));
 end;//TkwPopTaskPanelCount.DoDoIt
 
 class function TkwPopTaskPanelCount.GetWordNameForRegister: AnsiString;
@@ -149,12 +167,8 @@ end;//TkwPopTaskPanelCount.GetWordNameForRegister
 
 procedure TkwPopTaskPanelCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C2B2EE13F5CE_var*
-//#UC END# *52D00B00031A_C2B2EE13F5CE_var*
 begin
-//#UC START# *52D00B00031A_C2B2EE13F5CE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C2B2EE13F5CE_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwPopTaskPanelCount.SetValuePrim
 
 function TkwPopTaskPanelCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -168,12 +182,8 @@ begin
 end;//TkwPopTaskPanelCount.GetAllParamsCount
 
 function TkwPopTaskPanelCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C2B2EE13F5CE_var*
-//#UC END# *5617F4D00243_C2B2EE13F5CE_var*
 begin
-//#UC START# *5617F4D00243_C2B2EE13F5CE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C2B2EE13F5CE_impl*
+ Result := OpenTypesToTypes([TypeInfo(TnscTasksPanelView)]);
 end;//TkwPopTaskPanelCount.ParamsTypes
 
 initialization

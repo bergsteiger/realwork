@@ -17,11 +17,6 @@ uses
 
 type
  ThtDataProviderFactory = class(TdaDataProviderFactory)
-  protected
-   function DoMakeProvider(aParams: TdaDataProviderParams;
-    ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean): IdaDataProvider; override;
-   procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
   public
    class function Key: AnsiString; override;
    function MakeFromConfig: TdaDataProviderParams; override;
@@ -37,6 +32,10 @@ type
     const aProviderKey: AnsiString = '';
     ForInfoOnly: Boolean = False); override;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
+   function DoMakeProvider(aParams: TdaDataProviderParams;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean): IdaDataProvider; override;
+   procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
    procedure CorrectByClient(aParams: TdaDataProviderParams); override;
    function IsParamsValid(aParams: TdaDataProviderParams;
     Quiet: Boolean = False): Boolean; override;

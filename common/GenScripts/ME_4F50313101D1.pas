@@ -553,6 +553,7 @@ end;//TkwArrayItem.GetWordNameForRegister
 procedure TkwArrayItem.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Array: ItfwValueList;
+var l_anIndex: Integer;
 begin
 end;//TkwArrayItem.SetValuePrim
 

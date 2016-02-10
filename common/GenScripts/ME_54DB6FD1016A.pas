@@ -61,12 +61,18 @@ begin
 end;//TkwPopStatusBarButtonIsDown.IsDown
 
 procedure TkwPopStatusBarButtonIsDown.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_33C559B72437_var*
-//#UC END# *4DAEEDE10285_33C559B72437_var*
+var l_aStatusBarButton: TnscStatusBarButton;
 begin
-//#UC START# *4DAEEDE10285_33C559B72437_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_33C559B72437_impl*
+ try
+  l_aStatusBarButton := TnscStatusBarButton(aCtx.rEngine.PopObjAs(TnscStatusBarButton));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusBarButton: TnscStatusBarButton : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsDown(aCtx, l_aStatusBarButton));
 end;//TkwPopStatusBarButtonIsDown.DoDoIt
 
 class function TkwPopStatusBarButtonIsDown.GetWordNameForRegister: AnsiString;
@@ -85,12 +91,8 @@ begin
 end;//TkwPopStatusBarButtonIsDown.GetAllParamsCount
 
 function TkwPopStatusBarButtonIsDown.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_33C559B72437_var*
-//#UC END# *5617F4D00243_33C559B72437_var*
 begin
-//#UC START# *5617F4D00243_33C559B72437_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_33C559B72437_impl*
+ Result := OpenTypesToTypes([TypeInfo(TnscStatusBarButton)]);
 end;//TkwPopStatusBarButtonIsDown.ParamsTypes
 
 initialization

@@ -24,10 +24,6 @@ type
   protected
    procedure LoadCommonParams(aParams: TdaDataProviderParams);
    procedure SaveCommonParams(aParams: TdaDataProviderParams);
-   function DoMakeProvider(aParams: TdaDataProviderParams;
-    ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean): IdaDataProvider; virtual; abstract;
-   procedure LoginCheckSucceed(aParams: TdaDataProviderParams); virtual; abstract;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -54,6 +50,10 @@ type
     const aLogin: AnsiString;
     const aPassword: AnsiString;
     IsRequireAdminRights: Boolean): TdaLoginError;
+   function DoMakeProvider(aParams: TdaDataProviderParams;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean): IdaDataProvider; virtual; abstract;
+   procedure LoginCheckSucceed(aParams: TdaDataProviderParams); virtual; abstract;
    class function Key: AnsiString; virtual; abstract;
    function ParamKey: AnsiString;
   public

@@ -22,6 +22,8 @@ type
  TcaDataProvider = class(Tl3ProtoObject, IdaDataProvider)
   private
    f_Params: TcaDataProviderParams;
+   f_HTProvider: IdaDataProvider;
+   f_PGProvider: IdaDataProvider;
   protected
    function Get_UserID: TdaUserID;
    function Get_RegionID: TdaRegionID;
@@ -61,6 +63,19 @@ type
    procedure BeginImpersonate(anUserID: TdaUserID);
    procedure EndImpersonate;
    function Get_UserManager: IdaUserManager;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
+   constructor Create(aParams: TcaDataProviderParams;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    const aHTProvider: IdaDataProvider;
+    const aPGProvider: IdaDataProvider); reintroduce;
+   class function Make(aParams: TcaDataProviderParams;
+    ForCheckLogin: Boolean;
+    AllowClearLocks: Boolean;
+    const aHTProvider: IdaDataProvider;
+    const aPGProvider: IdaDataProvider): IdaDataProvider; reintroduce;
  end;//TcaDataProvider
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
@@ -69,7 +84,37 @@ implementation
 {$If Defined(UsePostgres) AND Defined(TestComboAccess)}
 uses
  l3ImplUses
+ , SysUtils
 ;
+
+constructor TcaDataProvider.Create(aParams: TcaDataProviderParams;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ const aHTProvider: IdaDataProvider;
+ const aPGProvider: IdaDataProvider);
+//#UC START# *56BB1FC50359_56A86BCE01EE_var*
+//#UC END# *56BB1FC50359_56A86BCE01EE_var*
+begin
+//#UC START# *56BB1FC50359_56A86BCE01EE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56BB1FC50359_56A86BCE01EE_impl*
+end;//TcaDataProvider.Create
+
+class function TcaDataProvider.Make(aParams: TcaDataProviderParams;
+ ForCheckLogin: Boolean;
+ AllowClearLocks: Boolean;
+ const aHTProvider: IdaDataProvider;
+ const aPGProvider: IdaDataProvider): IdaDataProvider;
+var
+ l_Inst : TcaDataProvider;
+begin
+ l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks, aHTProvider, aPGProvider);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TcaDataProvider.Make
 
 function TcaDataProvider.Get_UserID: TdaUserID;
 //#UC START# *551A929E02D5_56A86BCE01EEget_var*
@@ -445,6 +490,16 @@ begin
 //!! !!! Needs to be implemented !!!
 //#UC END# *5628D25600E6_56A86BCE01EEget_impl*
 end;//TcaDataProvider.Get_UserManager
+
+procedure TcaDataProvider.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_56A86BCE01EE_var*
+//#UC END# *479731C50290_56A86BCE01EE_var*
+begin
+//#UC START# *479731C50290_56A86BCE01EE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *479731C50290_56A86BCE01EE_impl*
+end;//TcaDataProvider.Cleanup
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)
 
 end.

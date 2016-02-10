@@ -129,12 +129,28 @@ begin
 end;//TkwStatusBarOrderedControl.OrderedControl
 
 procedure TkwStatusBarOrderedControl.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6A3FD2C52DF9_var*
-//#UC END# *4DAEEDE10285_6A3FD2C52DF9_var*
+var l_aStatusBar: TnscStatusBar;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_6A3FD2C52DF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6A3FD2C52DF9_impl*
+ try
+  l_aStatusBar := TnscStatusBar(aCtx.rEngine.PopObjAs(TnscStatusBar));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusBar: TnscStatusBar : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(OrderedControl(aCtx, l_aStatusBar, l_anIndex));
 end;//TkwStatusBarOrderedControl.DoDoIt
 
 class function TkwStatusBarOrderedControl.GetWordNameForRegister: AnsiString;
@@ -153,12 +169,8 @@ begin
 end;//TkwStatusBarOrderedControl.GetAllParamsCount
 
 function TkwStatusBarOrderedControl.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6A3FD2C52DF9_var*
-//#UC END# *5617F4D00243_6A3FD2C52DF9_var*
 begin
-//#UC START# *5617F4D00243_6A3FD2C52DF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6A3FD2C52DF9_impl*
+ Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(Integer)]);
 end;//TkwStatusBarOrderedControl.ParamsTypes
 
 function TkwStatusBarOrderedControlsCount.OrderedControlsCount(const aCtx: TtfwContext;
@@ -173,12 +185,18 @@ begin
 end;//TkwStatusBarOrderedControlsCount.OrderedControlsCount
 
 procedure TkwStatusBarOrderedControlsCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C8B065596342_var*
-//#UC END# *4DAEEDE10285_C8B065596342_var*
+var l_aStatusBar: TnscStatusBar;
 begin
-//#UC START# *4DAEEDE10285_C8B065596342_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C8B065596342_impl*
+ try
+  l_aStatusBar := TnscStatusBar(aCtx.rEngine.PopObjAs(TnscStatusBar));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusBar: TnscStatusBar : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(OrderedControlsCount(aCtx, l_aStatusBar));
 end;//TkwStatusBarOrderedControlsCount.DoDoIt
 
 class function TkwStatusBarOrderedControlsCount.GetWordNameForRegister: AnsiString;
@@ -197,12 +215,8 @@ begin
 end;//TkwStatusBarOrderedControlsCount.GetAllParamsCount
 
 function TkwStatusBarOrderedControlsCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C8B065596342_var*
-//#UC END# *5617F4D00243_C8B065596342_var*
 begin
-//#UC START# *5617F4D00243_C8B065596342_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C8B065596342_impl*
+ Result := OpenTypesToTypes([TypeInfo(TnscStatusBar)]);
 end;//TkwStatusBarOrderedControlsCount.ParamsTypes
 
 function TkwStatusBarOrderIndex.OrderIndex(const aCtx: TtfwContext;
@@ -218,12 +232,28 @@ begin
 end;//TkwStatusBarOrderIndex.OrderIndex
 
 procedure TkwStatusBarOrderIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F7D061E9FD6E_var*
-//#UC END# *4DAEEDE10285_F7D061E9FD6E_var*
+var l_aStatusBar: TnscStatusBar;
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_F7D061E9FD6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F7D061E9FD6E_impl*
+ try
+  l_aStatusBar := TnscStatusBar(aCtx.rEngine.PopObjAs(TnscStatusBar));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStatusBar: TnscStatusBar : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(OrderIndex(aCtx, l_aStatusBar, l_aControl));
 end;//TkwStatusBarOrderIndex.DoDoIt
 
 class function TkwStatusBarOrderIndex.GetWordNameForRegister: AnsiString;
@@ -242,12 +272,8 @@ begin
 end;//TkwStatusBarOrderIndex.GetAllParamsCount
 
 function TkwStatusBarOrderIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F7D061E9FD6E_var*
-//#UC END# *5617F4D00243_F7D061E9FD6E_var*
 begin
-//#UC START# *5617F4D00243_F7D061E9FD6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F7D061E9FD6E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TnscStatusBar), TypeInfo(TControl)]);
 end;//TkwStatusBarOrderIndex.ParamsTypes
 
 initialization
