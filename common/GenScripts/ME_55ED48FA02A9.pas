@@ -61,12 +61,18 @@ begin
 end;//TkwPopMainDictionaryCompiledCode.CompiledCode
 
 procedure TkwPopMainDictionaryCompiledCode.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FA2C6FCB48FD_var*
-//#UC END# *4DAEEDE10285_FA2C6FCB48FD_var*
+var l_aMainDictionary: TtfwMainDictionary;
 begin
-//#UC START# *4DAEEDE10285_FA2C6FCB48FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FA2C6FCB48FD_impl*
+ try
+  l_aMainDictionary := TtfwMainDictionary(aCtx.rEngine.PopObjAs(TtfwMainDictionary));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainDictionary: TtfwMainDictionary : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CompiledCode(aCtx, l_aMainDictionary));
 end;//TkwPopMainDictionaryCompiledCode.DoDoIt
 
 class function TkwPopMainDictionaryCompiledCode.GetWordNameForRegister: AnsiString;
@@ -85,12 +91,8 @@ begin
 end;//TkwPopMainDictionaryCompiledCode.GetAllParamsCount
 
 function TkwPopMainDictionaryCompiledCode.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FA2C6FCB48FD_var*
-//#UC END# *5617F4D00243_FA2C6FCB48FD_var*
 begin
-//#UC START# *5617F4D00243_FA2C6FCB48FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FA2C6FCB48FD_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwMainDictionary)]);
 end;//TkwPopMainDictionaryCompiledCode.ParamsTypes
 
 initialization

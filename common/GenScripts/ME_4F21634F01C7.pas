@@ -111,12 +111,28 @@ begin
 end;//TkwMODAL.RightParamsCount
 
 procedure TkwMODAL.DoRun(const aCtx: TtfwContext);
-//#UC START# *5512949D0048_05ABA7975E25_var*
-//#UC END# *5512949D0048_05ABA7975E25_var*
+var l_aWord: TtfwWord;
+var l_aBeforeModal: TtfwWord;
 begin
-//#UC START# *5512949D0048_05ABA7975E25_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5512949D0048_05ABA7975E25_impl*
+ try
+  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aBeforeModal := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aBeforeModal: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MODAL(aCtx, l_aWord, l_aBeforeModal);
 end;//TkwMODAL.DoRun
 
 function TkwMODAL.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -130,12 +146,8 @@ begin
 end;//TkwMODAL.GetAllParamsCount
 
 function TkwMODAL.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_05ABA7975E25_var*
-//#UC END# *5617F4D00243_05ABA7975E25_var*
 begin
-//#UC START# *5617F4D00243_05ABA7975E25_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_05ABA7975E25_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
 end;//TkwMODAL.ParamsTypes
 
 procedure TkwTHREAD.THREAD(const aCtx: TtfwContext;
@@ -160,12 +172,18 @@ begin
 end;//TkwTHREAD.RightParamsCount
 
 procedure TkwTHREAD.DoRun(const aCtx: TtfwContext);
-//#UC START# *5512949D0048_44C318D8896A_var*
-//#UC END# *5512949D0048_44C318D8896A_var*
+var l_aWord: TtfwWord;
 begin
-//#UC START# *5512949D0048_44C318D8896A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5512949D0048_44C318D8896A_impl*
+ try
+  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ THREAD(aCtx, l_aWord);
 end;//TkwTHREAD.DoRun
 
 function TkwTHREAD.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -179,12 +197,8 @@ begin
 end;//TkwTHREAD.GetAllParamsCount
 
 function TkwTHREAD.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_44C318D8896A_var*
-//#UC END# *5617F4D00243_44C318D8896A_var*
 begin
-//#UC START# *5617F4D00243_44C318D8896A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_44C318D8896A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwTHREAD.ParamsTypes
 
 initialization

@@ -167,12 +167,18 @@ begin
 end;//TkwPopParserNextToken.NextToken
 
 procedure TkwPopParserNextToken.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9FCC7CEF0219_var*
-//#UC END# *4DAEEDE10285_9FCC7CEF0219_var*
+var l_aParser: ItfwParser;
 begin
-//#UC START# *4DAEEDE10285_9FCC7CEF0219_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9FCC7CEF0219_impl*
+ try
+  l_aParser := ItfwParser(aCtx.rEngine.PopIntf(ItfwParser));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParser: ItfwParser : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ NextToken(aCtx, l_aParser);
 end;//TkwPopParserNextToken.DoDoIt
 
 class function TkwPopParserNextToken.GetWordNameForRegister: AnsiString;
@@ -191,12 +197,8 @@ begin
 end;//TkwPopParserNextToken.GetAllParamsCount
 
 function TkwPopParserNextToken.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9FCC7CEF0219_var*
-//#UC END# *5617F4D00243_9FCC7CEF0219_var*
 begin
-//#UC START# *5617F4D00243_9FCC7CEF0219_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9FCC7CEF0219_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserNextToken.ParamsTypes
 
 function TkwPopParserTokenLongString.TokenLongString(const aCtx: TtfwContext;
@@ -211,12 +213,18 @@ begin
 end;//TkwPopParserTokenLongString.TokenLongString
 
 procedure TkwPopParserTokenLongString.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_391DC30DE773_var*
-//#UC END# *4DAEEDE10285_391DC30DE773_var*
+var l_aParser: ItfwParser;
 begin
-//#UC START# *4DAEEDE10285_391DC30DE773_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_391DC30DE773_impl*
+ try
+  l_aParser := ItfwParser(aCtx.rEngine.PopIntf(ItfwParser));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParser: ItfwParser : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(TokenLongString(aCtx, l_aParser));
 end;//TkwPopParserTokenLongString.DoDoIt
 
 class function TkwPopParserTokenLongString.GetWordNameForRegister: AnsiString;
@@ -235,12 +243,8 @@ begin
 end;//TkwPopParserTokenLongString.GetAllParamsCount
 
 function TkwPopParserTokenLongString.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_391DC30DE773_var*
-//#UC END# *5617F4D00243_391DC30DE773_var*
 begin
-//#UC START# *5617F4D00243_391DC30DE773_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_391DC30DE773_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserTokenLongString.ParamsTypes
 
 function TkwPopParserTokenInt.TokenInt(const aCtx: TtfwContext;
@@ -255,12 +259,18 @@ begin
 end;//TkwPopParserTokenInt.TokenInt
 
 procedure TkwPopParserTokenInt.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_37FA824BDEEE_var*
-//#UC END# *4DAEEDE10285_37FA824BDEEE_var*
+var l_aParser: ItfwParser;
 begin
-//#UC START# *4DAEEDE10285_37FA824BDEEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_37FA824BDEEE_impl*
+ try
+  l_aParser := ItfwParser(aCtx.rEngine.PopIntf(ItfwParser));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParser: ItfwParser : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(TokenInt(aCtx, l_aParser));
 end;//TkwPopParserTokenInt.DoDoIt
 
 class function TkwPopParserTokenInt.GetWordNameForRegister: AnsiString;
@@ -279,12 +289,8 @@ begin
 end;//TkwPopParserTokenInt.GetAllParamsCount
 
 function TkwPopParserTokenInt.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_37FA824BDEEE_var*
-//#UC END# *5617F4D00243_37FA824BDEEE_var*
 begin
-//#UC START# *5617F4D00243_37FA824BDEEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_37FA824BDEEE_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserTokenInt.ParamsTypes
 
 function TkwPopParserFileName.FileName(const aCtx: TtfwContext;
@@ -299,12 +305,18 @@ begin
 end;//TkwPopParserFileName.FileName
 
 procedure TkwPopParserFileName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_77621D03947E_var*
-//#UC END# *4DAEEDE10285_77621D03947E_var*
+var l_aParser: ItfwParser;
 begin
-//#UC START# *4DAEEDE10285_77621D03947E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_77621D03947E_impl*
+ try
+  l_aParser := ItfwParser(aCtx.rEngine.PopIntf(ItfwParser));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParser: ItfwParser : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(FileName(aCtx, l_aParser));
 end;//TkwPopParserFileName.DoDoIt
 
 class function TkwPopParserFileName.GetWordNameForRegister: AnsiString;
@@ -323,12 +335,8 @@ begin
 end;//TkwPopParserFileName.GetAllParamsCount
 
 function TkwPopParserFileName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_77621D03947E_var*
-//#UC END# *5617F4D00243_77621D03947E_var*
 begin
-//#UC START# *5617F4D00243_77621D03947E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_77621D03947E_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserFileName.ParamsTypes
 
 function TkwPopParserTokenType.TokenType(const aCtx: TtfwContext;
@@ -343,12 +351,18 @@ begin
 end;//TkwPopParserTokenType.TokenType
 
 procedure TkwPopParserTokenType.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5CF115AC9203_var*
-//#UC END# *4DAEEDE10285_5CF115AC9203_var*
+var l_aParser: ItfwParser;
 begin
-//#UC START# *4DAEEDE10285_5CF115AC9203_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5CF115AC9203_impl*
+ try
+  l_aParser := ItfwParser(aCtx.rEngine.PopIntf(ItfwParser));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParser: ItfwParser : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Ord(TokenType(aCtx, l_aParser)));
 end;//TkwPopParserTokenType.DoDoIt
 
 class function TkwPopParserTokenType.GetWordNameForRegister: AnsiString;
@@ -367,12 +381,8 @@ begin
 end;//TkwPopParserTokenType.GetAllParamsCount
 
 function TkwPopParserTokenType.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5CF115AC9203_var*
-//#UC END# *5617F4D00243_5CF115AC9203_var*
 begin
-//#UC START# *5617F4D00243_5CF115AC9203_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5CF115AC9203_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserTokenType.ParamsTypes
 
 function TkwPopParserSourceLine.SourceLine(const aCtx: TtfwContext;
@@ -387,12 +397,18 @@ begin
 end;//TkwPopParserSourceLine.SourceLine
 
 procedure TkwPopParserSourceLine.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F99E43E0E32C_var*
-//#UC END# *4DAEEDE10285_F99E43E0E32C_var*
+var l_aParser: ItfwParser;
 begin
-//#UC START# *4DAEEDE10285_F99E43E0E32C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F99E43E0E32C_impl*
+ try
+  l_aParser := ItfwParser(aCtx.rEngine.PopIntf(ItfwParser));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParser: ItfwParser : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(SourceLine(aCtx, l_aParser));
 end;//TkwPopParserSourceLine.DoDoIt
 
 class function TkwPopParserSourceLine.GetWordNameForRegister: AnsiString;
@@ -411,12 +427,8 @@ begin
 end;//TkwPopParserSourceLine.GetAllParamsCount
 
 function TkwPopParserSourceLine.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F99E43E0E32C_var*
-//#UC END# *5617F4D00243_F99E43E0E32C_var*
 begin
-//#UC START# *5617F4D00243_F99E43E0E32C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F99E43E0E32C_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParser)]);
 end;//TkwPopParserSourceLine.ParamsTypes
 
 initialization

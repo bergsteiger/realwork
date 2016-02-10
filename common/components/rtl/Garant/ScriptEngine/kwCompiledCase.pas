@@ -1,47 +1,33 @@
 unit kwCompiledCase;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwCompiledCase.pas"
-// Начат: 29.04.2011 21:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::TkwCompiledCase
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledCase.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwRuntimeWordWithCode,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwRuntimeWordWithCode
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledCase = class(TkwRuntimeWordWithCode)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCompiledCase
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClassRef
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledCase
+ l3ImplUses
+ , tfwClassRef
+;
 
 procedure TkwCompiledCase.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DBAEEEC00CF_var*
@@ -76,12 +62,9 @@ begin
 //#UC END# *4DAEEDE10285_4DBAEEEC00CF_impl*
 end;//TkwCompiledCase.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledCase
  TkwCompiledCase.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledCase }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

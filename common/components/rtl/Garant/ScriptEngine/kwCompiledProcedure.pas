@@ -1,62 +1,49 @@
 unit kwCompiledProcedure;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledProcedure.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledProcedure
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedure.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwCompiledWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledProcedure = class(TkwCompiledWord)
- protected
- // overridden property methods
-   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- protected
- // overridden protected methods
+  protected
+   f_Modifiers: TtfwWordInfo;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
+  public
    function IsImmediate(const aCtx: TtfwContext): Boolean; override;
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
-     const aCtx: TtfwContext); override;
- protected
- // protected fields
-   f_Modifiers : TtfwWordInfo;
+    const aCtx: TtfwContext); override;
  end;//TkwCompiledProcedure
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClassRef,
-  tfwScriptingTypes,
-  l3String
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledProcedure
+ l3ImplUses
+ , tfwClassRef
+ , tfwScriptingTypes
+ , l3String
+ , kwKeyValuesPack
+ , kwCompiledProcedureWordsPack
+;
 
 procedure TkwCompiledProcedure.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F216D8D01A0_var*
 //#UC END# *479731C50290_4F216D8D01A0_var*
 begin
@@ -104,7 +91,7 @@ begin
 end;//TkwCompiledProcedure.pm_GetResultTypeInfo
 
 procedure TkwCompiledProcedure.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_4F216D8D01A0_var*
 //#UC END# *52EA6A2C0111_4F216D8D01A0_var*
 begin
@@ -116,12 +103,9 @@ begin
 //#UC END# *52EA6A2C0111_4F216D8D01A0_impl*
 end;//TkwCompiledProcedure.SetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledProcedure
  TkwCompiledProcedure.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledProcedure }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

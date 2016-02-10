@@ -317,12 +317,18 @@ begin
 end;//TkwPopFormActiveMDIChild.pop_form_ActiveMDIChild
 
 procedure TkwPopFormActiveMDIChild.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_90DD5B736D00_var*
-//#UC END# *4DAEEDE10285_90DD5B736D00_var*
+var l_aForm: TForm;
 begin
-//#UC START# *4DAEEDE10285_90DD5B736D00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_90DD5B736D00_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pop_form_ActiveMDIChild(aCtx, l_aForm));
 end;//TkwPopFormActiveMDIChild.DoDoIt
 
 class function TkwPopFormActiveMDIChild.GetWordNameForRegister: AnsiString;
@@ -341,12 +347,8 @@ begin
 end;//TkwPopFormActiveMDIChild.GetAllParamsCount
 
 function TkwPopFormActiveMDIChild.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_90DD5B736D00_var*
-//#UC END# *5617F4D00243_90DD5B736D00_var*
 begin
-//#UC START# *5617F4D00243_90DD5B736D00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_90DD5B736D00_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormActiveMDIChild.ParamsTypes
 
 procedure TkwPopFormClose.pop_form_Close(const aCtx: TtfwContext;
@@ -361,12 +363,18 @@ begin
 end;//TkwPopFormClose.pop_form_Close
 
 procedure TkwPopFormClose.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EF68563BBDE0_var*
-//#UC END# *4DAEEDE10285_EF68563BBDE0_var*
+var l_aForm: TForm;
 begin
-//#UC START# *4DAEEDE10285_EF68563BBDE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EF68563BBDE0_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ pop_form_Close(aCtx, l_aForm);
 end;//TkwPopFormClose.DoDoIt
 
 class function TkwPopFormClose.GetWordNameForRegister: AnsiString;
@@ -385,12 +393,8 @@ begin
 end;//TkwPopFormClose.GetAllParamsCount
 
 function TkwPopFormClose.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EF68563BBDE0_var*
-//#UC END# *5617F4D00243_EF68563BBDE0_var*
 begin
-//#UC START# *5617F4D00243_EF68563BBDE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EF68563BBDE0_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormClose.ParamsTypes
 
 function TkwPopFormFindMenuItem.pop_form_FindMenuItem(const aCtx: TtfwContext;
@@ -468,12 +472,28 @@ begin
 end;//TkwPopFormFindMenuItem.pop_form_FindMenuItem
 
 procedure TkwPopFormFindMenuItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CCC0609B3BF5_var*
-//#UC END# *4DAEEDE10285_CCC0609B3BF5_var*
+var l_aForm: TForm;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_CCC0609B3BF5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CCC0609B3BF5_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pop_form_FindMenuItem(aCtx, l_aForm, l_aName));
 end;//TkwPopFormFindMenuItem.DoDoIt
 
 class function TkwPopFormFindMenuItem.GetWordNameForRegister: AnsiString;
@@ -492,12 +512,8 @@ begin
 end;//TkwPopFormFindMenuItem.GetAllParamsCount
 
 function TkwPopFormFindMenuItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CCC0609B3BF5_var*
-//#UC END# *5617F4D00243_CCC0609B3BF5_var*
 begin
-//#UC START# *5617F4D00243_CCC0609B3BF5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CCC0609B3BF5_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormFindMenuItem.ParamsTypes
 
 function TkwPopFormGetWindowState.pop_form_GetWindowState(const aCtx: TtfwContext;
@@ -512,12 +528,18 @@ begin
 end;//TkwPopFormGetWindowState.pop_form_GetWindowState
 
 procedure TkwPopFormGetWindowState.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DA5ACD40FDF6_var*
-//#UC END# *4DAEEDE10285_DA5ACD40FDF6_var*
+var l_aForm: TForm;
 begin
-//#UC START# *4DAEEDE10285_DA5ACD40FDF6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DA5ACD40FDF6_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Ord(pop_form_GetWindowState(aCtx, l_aForm)));
 end;//TkwPopFormGetWindowState.DoDoIt
 
 class function TkwPopFormGetWindowState.GetWordNameForRegister: AnsiString;
@@ -536,12 +558,8 @@ begin
 end;//TkwPopFormGetWindowState.GetAllParamsCount
 
 function TkwPopFormGetWindowState.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DA5ACD40FDF6_var*
-//#UC END# *5617F4D00243_DA5ACD40FDF6_var*
 begin
-//#UC START# *5617F4D00243_DA5ACD40FDF6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DA5ACD40FDF6_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormGetWindowState.ParamsTypes
 
 function TkwPopFormHasControl.pop_form_HasControl(const aCtx: TtfwContext;
@@ -557,12 +575,28 @@ begin
 end;//TkwPopFormHasControl.pop_form_HasControl
 
 procedure TkwPopFormHasControl.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AF277B657685_var*
-//#UC END# *4DAEEDE10285_AF277B657685_var*
+var l_aForm: TForm;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_AF277B657685_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AF277B657685_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(pop_form_HasControl(aCtx, l_aForm, l_aName));
 end;//TkwPopFormHasControl.DoDoIt
 
 class function TkwPopFormHasControl.GetWordNameForRegister: AnsiString;
@@ -581,12 +615,8 @@ begin
 end;//TkwPopFormHasControl.GetAllParamsCount
 
 function TkwPopFormHasControl.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AF277B657685_var*
-//#UC END# *5617F4D00243_AF277B657685_var*
 begin
-//#UC START# *5617F4D00243_AF277B657685_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AF277B657685_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormHasControl.ParamsTypes
 
 function TkwPopFormMDIChildCount.pop_form_MDIChildCount(const aCtx: TtfwContext;
@@ -601,12 +631,18 @@ begin
 end;//TkwPopFormMDIChildCount.pop_form_MDIChildCount
 
 procedure TkwPopFormMDIChildCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2C52284D1B9B_var*
-//#UC END# *4DAEEDE10285_2C52284D1B9B_var*
+var l_aForm: TForm;
 begin
-//#UC START# *4DAEEDE10285_2C52284D1B9B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2C52284D1B9B_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(pop_form_MDIChildCount(aCtx, l_aForm));
 end;//TkwPopFormMDIChildCount.DoDoIt
 
 class function TkwPopFormMDIChildCount.GetWordNameForRegister: AnsiString;
@@ -625,12 +661,8 @@ begin
 end;//TkwPopFormMDIChildCount.GetAllParamsCount
 
 function TkwPopFormMDIChildCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2C52284D1B9B_var*
-//#UC END# *5617F4D00243_2C52284D1B9B_var*
 begin
-//#UC START# *5617F4D00243_2C52284D1B9B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2C52284D1B9B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormMDIChildCount.ParamsTypes
 
 function TkwPopFormMDIChildren.pop_form_MDIChildren(const aCtx: TtfwContext;
@@ -646,12 +678,28 @@ begin
 end;//TkwPopFormMDIChildren.pop_form_MDIChildren
 
 procedure TkwPopFormMDIChildren.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8D30B82D3D31_var*
-//#UC END# *4DAEEDE10285_8D30B82D3D31_var*
+var l_aForm: TForm;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_8D30B82D3D31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8D30B82D3D31_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pop_form_MDIChildren(aCtx, l_aForm, l_anIndex));
 end;//TkwPopFormMDIChildren.DoDoIt
 
 class function TkwPopFormMDIChildren.GetWordNameForRegister: AnsiString;
@@ -670,12 +718,8 @@ begin
 end;//TkwPopFormMDIChildren.GetAllParamsCount
 
 function TkwPopFormMDIChildren.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8D30B82D3D31_var*
-//#UC END# *5617F4D00243_8D30B82D3D31_var*
 begin
-//#UC START# *5617F4D00243_8D30B82D3D31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8D30B82D3D31_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(Integer)]);
 end;//TkwPopFormMDIChildren.ParamsTypes
 
 function TkwPopFormModalResult.pop_form_ModalResult(const aCtx: TtfwContext;
@@ -691,12 +735,18 @@ begin
 end;//TkwPopFormModalResult.pop_form_ModalResult
 
 procedure TkwPopFormModalResult.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_320C0D058217_var*
-//#UC END# *4DAEEDE10285_320C0D058217_var*
+var l_aForm: TForm;
 begin
-//#UC START# *4DAEEDE10285_320C0D058217_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_320C0D058217_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(pop_form_ModalResult(aCtx, l_aForm));
 end;//TkwPopFormModalResult.DoDoIt
 
 class function TkwPopFormModalResult.GetWordNameForRegister: AnsiString;
@@ -715,12 +765,8 @@ begin
 end;//TkwPopFormModalResult.GetAllParamsCount
 
 function TkwPopFormModalResult.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_320C0D058217_var*
-//#UC END# *5617F4D00243_320C0D058217_var*
 begin
-//#UC START# *5617F4D00243_320C0D058217_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_320C0D058217_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormModalResult.ParamsTypes
 
 procedure TkwPopFormNext.pop_form_Next(const aCtx: TtfwContext;
@@ -735,12 +781,18 @@ begin
 end;//TkwPopFormNext.pop_form_Next
 
 procedure TkwPopFormNext.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_12E2A5A1963A_var*
-//#UC END# *4DAEEDE10285_12E2A5A1963A_var*
+var l_aForm: TForm;
 begin
-//#UC START# *4DAEEDE10285_12E2A5A1963A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_12E2A5A1963A_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ pop_form_Next(aCtx, l_aForm);
 end;//TkwPopFormNext.DoDoIt
 
 class function TkwPopFormNext.GetWordNameForRegister: AnsiString;
@@ -759,12 +811,8 @@ begin
 end;//TkwPopFormNext.GetAllParamsCount
 
 function TkwPopFormNext.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_12E2A5A1963A_var*
-//#UC END# *5617F4D00243_12E2A5A1963A_var*
 begin
-//#UC START# *5617F4D00243_12E2A5A1963A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_12E2A5A1963A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm)]);
 end;//TkwPopFormNext.ParamsTypes
 
 procedure TkwPopFormSetWindowState.pop_form_SetWindowState(const aCtx: TtfwContext;
@@ -780,12 +828,28 @@ begin
 end;//TkwPopFormSetWindowState.pop_form_SetWindowState
 
 procedure TkwPopFormSetWindowState.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_062C119864B2_var*
-//#UC END# *4DAEEDE10285_062C119864B2_var*
+var l_aForm: TForm;
+var l_aValue: TWindowState;
 begin
-//#UC START# *4DAEEDE10285_062C119864B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_062C119864B2_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := TWindowState(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: TWindowState : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ pop_form_SetWindowState(aCtx, l_aForm, l_aValue);
 end;//TkwPopFormSetWindowState.DoDoIt
 
 class function TkwPopFormSetWindowState.GetWordNameForRegister: AnsiString;
@@ -804,12 +868,8 @@ begin
 end;//TkwPopFormSetWindowState.GetAllParamsCount
 
 function TkwPopFormSetWindowState.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_062C119864B2_var*
-//#UC END# *5617F4D00243_062C119864B2_var*
 begin
-//#UC START# *5617F4D00243_062C119864B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_062C119864B2_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm), TypeInfo(TWindowState)]);
 end;//TkwPopFormSetWindowState.ParamsTypes
 
 function TkwPopFormFindActionList.pop_form_FindActionList(const aCtx: TtfwContext;
@@ -845,12 +905,28 @@ begin
 end;//TkwPopFormFindActionList.pop_form_FindActionList
 
 procedure TkwPopFormFindActionList.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_76B7945239DF_var*
-//#UC END# *4DAEEDE10285_76B7945239DF_var*
+var l_aForm: TForm;
+var l_aListName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_76B7945239DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_76B7945239DF_impl*
+ try
+  l_aForm := TForm(aCtx.rEngine.PopObjAs(TForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aListName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aListName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pop_form_FindActionList(aCtx, l_aForm, l_aListName));
 end;//TkwPopFormFindActionList.DoDoIt
 
 class function TkwPopFormFindActionList.GetWordNameForRegister: AnsiString;
@@ -869,12 +945,8 @@ begin
 end;//TkwPopFormFindActionList.GetAllParamsCount
 
 function TkwPopFormFindActionList.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_76B7945239DF_var*
-//#UC END# *5617F4D00243_76B7945239DF_var*
 begin
-//#UC START# *5617F4D00243_76B7945239DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_76B7945239DF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TForm), @tfw_tiString]);
 end;//TkwPopFormFindActionList.ParamsTypes
 
 procedure TkwIterateForms.IterateForms(const aCtx: TtfwContext;
@@ -908,12 +980,18 @@ begin
 end;//TkwIterateForms.IterateForms
 
 procedure TkwIterateForms.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DBFEA799BB20_var*
-//#UC END# *4DAEEDE10285_DBFEA799BB20_var*
+var l_aLambda: TtfwWord;
 begin
-//#UC START# *4DAEEDE10285_DBFEA799BB20_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DBFEA799BB20_impl*
+ try
+  l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLambda: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ IterateForms(aCtx, l_aLambda);
 end;//TkwIterateForms.DoDoIt
 
 class function TkwIterateForms.GetWordNameForRegister: AnsiString;
@@ -932,12 +1010,8 @@ begin
 end;//TkwIterateForms.GetAllParamsCount
 
 function TkwIterateForms.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DBFEA799BB20_var*
-//#UC END# *5617F4D00243_DBFEA799BB20_var*
 begin
-//#UC START# *5617F4D00243_DBFEA799BB20_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DBFEA799BB20_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
 end;//TkwIterateForms.ParamsTypes
 
 initialization

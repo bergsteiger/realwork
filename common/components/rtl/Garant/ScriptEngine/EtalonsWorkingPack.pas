@@ -1,59 +1,90 @@
 unit EtalonsWorkingPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "EtalonsWorkingPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine::EtalonsWorking::EtalonsWorkingPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\EtalonsWorkingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwGlobalKeyWord
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCheckOutputWithInput,
-  kwCheckEtalon,
-  kwTestResolveInputFilePath,
-  l3EtalonsService,
-  tfwScriptingTypes,
-  tfwScriptingInterfaces,
-  TypInfo,
-  SysUtils
-  ;
+ l3ImplUses
+ , kwCheckOutputWithInput
+ , kwCheckEtalon
+ , kwTestResolveInputFilePath
+ , l3EtalonsService
+ , tfwScriptingTypes
+ , SysUtils
+;
 
 type
- TkwEtalonNeeds64 = {final scriptword} class(TtfwGlobalKeyWord)
+ TkwEtalonNeeds64 = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта EtalonNeeds64
 *Пример:*
 [code]
  EtalonNeeds64
 [code]  }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
  end;//TkwEtalonNeeds64
 
-// start class TkwEtalonNeeds64
+ TkwEtalonNeedsComputerName = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта EtalonNeedsComputerName
+*Пример:*
+[code]
+ EtalonNeedsComputerName
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwEtalonNeedsComputerName
+
+ TkwEtalonNeedsOSName = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта EtalonNeedsOSName
+*Пример:*
+[code]
+ EtalonNeedsOSName
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwEtalonNeedsOSName
+
+ TkwEtalonNeedsXE = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта EtalonNeedsXE
+*Пример:*
+[code]
+ EtalonNeedsXE
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwEtalonNeedsXE
 
 procedure TkwEtalonNeeds64.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_60A242C872F7_var*
@@ -65,43 +96,19 @@ begin
 end;//TkwEtalonNeeds64.DoDoIt
 
 class function TkwEtalonNeeds64.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'EtalonNeeds64';
 end;//TkwEtalonNeeds64.GetWordNameForRegister
 
 function TkwEtalonNeeds64.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwEtalonNeeds64.GetResultTypeInfo
 
 function TkwEtalonNeeds64.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwEtalonNeeds64.GetAllParamsCount
-
-type
- TkwEtalonNeedsComputerName = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта EtalonNeedsComputerName
-*Пример:*
-[code]
- EtalonNeedsComputerName
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwEtalonNeedsComputerName
-
-// start class TkwEtalonNeedsComputerName
 
 procedure TkwEtalonNeedsComputerName.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_116A432ADCB1_var*
@@ -113,43 +120,19 @@ begin
 end;//TkwEtalonNeedsComputerName.DoDoIt
 
 class function TkwEtalonNeedsComputerName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'EtalonNeedsComputerName';
 end;//TkwEtalonNeedsComputerName.GetWordNameForRegister
 
 function TkwEtalonNeedsComputerName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwEtalonNeedsComputerName.GetResultTypeInfo
 
 function TkwEtalonNeedsComputerName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwEtalonNeedsComputerName.GetAllParamsCount
-
-type
- TkwEtalonNeedsOSName = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта EtalonNeedsOSName
-*Пример:*
-[code]
- EtalonNeedsOSName
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwEtalonNeedsOSName
-
-// start class TkwEtalonNeedsOSName
 
 procedure TkwEtalonNeedsOSName.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4A371D758055_var*
@@ -161,43 +144,19 @@ begin
 end;//TkwEtalonNeedsOSName.DoDoIt
 
 class function TkwEtalonNeedsOSName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'EtalonNeedsOSName';
 end;//TkwEtalonNeedsOSName.GetWordNameForRegister
 
 function TkwEtalonNeedsOSName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwEtalonNeedsOSName.GetResultTypeInfo
 
 function TkwEtalonNeedsOSName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwEtalonNeedsOSName.GetAllParamsCount
-
-type
- TkwEtalonNeedsXE = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта EtalonNeedsXE
-*Пример:*
-[code]
- EtalonNeedsXE
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwEtalonNeedsXE
-
-// start class TkwEtalonNeedsXE
 
 procedure TkwEtalonNeedsXE.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_DECF86D5A261_var*
@@ -211,40 +170,29 @@ begin
 end;//TkwEtalonNeedsXE.DoDoIt
 
 class function TkwEtalonNeedsXE.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'EtalonNeedsXE';
 end;//TkwEtalonNeedsXE.GetWordNameForRegister
 
 function TkwEtalonNeedsXE.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwEtalonNeedsXE.GetResultTypeInfo
 
 function TkwEtalonNeedsXE.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwEtalonNeedsXE.GetAllParamsCount
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация EtalonNeeds64
  TkwEtalonNeeds64.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация EtalonNeedsComputerName
+ {* Регистрация EtalonNeeds64 }
  TkwEtalonNeedsComputerName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация EtalonNeedsOSName
+ {* Регистрация EtalonNeedsComputerName }
  TkwEtalonNeedsOSName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация EtalonNeedsXE
+ {* Регистрация EtalonNeedsOSName }
  TkwEtalonNeedsXE.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация EtalonNeedsXE }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

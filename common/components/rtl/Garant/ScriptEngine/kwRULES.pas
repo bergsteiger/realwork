@@ -1,59 +1,43 @@
 unit kwRULES;
+ {* Аналог CASE и трансформаторов в MDP. Если условие выполняется, то выполняется следующий за ним оператор и осуществляется выход }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwRULES.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::CodeBranchingPack::RULES
-//
-// Аналог CASE и трансформаторов в MDP. Если условие выполняется, то выполняется следующий за ним
-// оператор и осуществляется выход
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRULES.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwBeginLikeWord,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwBeginLikeWord
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
- TkwRULES = {final scriptword} class(TtfwBeginLikeWord)
+ TkwRULES = {final} class(TtfwBeginLikeWord)
   {* Аналог CASE и трансформаторов в MDP. Если условие выполняется, то выполняется следующий за ним оператор и осуществляется выход }
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    class function GetWordNameForRegister: AnsiString; override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
  end;//TkwRULES
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledRules,
-  kwStandardProcedureCloseBracket
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwRULES
+ l3ImplUses
+ , kwCompiledRules
+ , kwStandardProcedureCloseBracket
+;
 
 function TkwRULES.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4F51EC180118_var*
 //#UC END# *4DB6C99F026E_4F51EC180118_var*
 begin
@@ -63,7 +47,6 @@ begin
 end;//TkwRULES.EndBracket
 
 class function TkwRULES.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'RULES';
 end;//TkwRULES.GetWordNameForRegister
@@ -77,12 +60,9 @@ begin
 //#UC END# *4DBAEE0D028D_4F51EC180118_impl*
 end;//TkwRULES.CompiledWordClass
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация RULES
  TkwRULES.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация RULES }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

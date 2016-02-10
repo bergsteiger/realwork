@@ -1,47 +1,33 @@
 unit kwCompiledTryFinally;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwCompiledTryFinally.pas"
-// Начат: 29.04.2011 18:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledTryFinally
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledTryFinally.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwDualCompiledWordContainer,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwDualCompiledWordContainer
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledTryFinally = class(TkwDualCompiledWordContainer)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCompiledTryFinally
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClassRef
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledTryFinally
+ l3ImplUses
+ , tfwClassRef
+;
 
 procedure TkwCompiledTryFinally.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DBAC56C017C_var*
@@ -56,12 +42,9 @@ begin
 //#UC END# *4DAEEDE10285_4DBAC56C017C_impl*
 end;//TkwCompiledTryFinally.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledTryFinally
  TkwCompiledTryFinally.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledTryFinally }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

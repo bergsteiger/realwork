@@ -1,51 +1,37 @@
 unit kwDEFAULT;
+ {* Внутреннее слово для определения ветки по умолчанию в скомпилированном Case. Не предназначено для прямого вызова. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwDEFAULT.pas"
-// Начат: 29.04.2011 21:23
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::DEFAULT
-//
-// Внутреннее слово для определения ветки по умолчанию в скомпилированном Case. Не предназначено
-// для прямого вызова.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwDEFAULT.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwDEFAULT = {scriptword} class(TtfwRegisterableWord)
+ TkwDEFAULT = class(TtfwRegisterableWord)
   {* Внутреннее слово для определения ветки по умолчанию в скомпилированном Case. Не предназначено для прямого вызова. }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function IsDefaultBranch: Boolean; override;
  end;//TkwDEFAULT
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwDEFAULT
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwDEFAULT.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DBAF3D60039_var*
@@ -57,7 +43,6 @@ begin
 end;//TkwDEFAULT.DoDoIt
 
 class function TkwDEFAULT.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'DEFAULT';
 end;//TkwDEFAULT.GetWordNameForRegister
@@ -71,12 +56,9 @@ begin
 //#UC END# *4DBAF4630154_4DBAF3D60039_impl*
 end;//TkwDEFAULT.IsDefaultBranch
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация DEFAULT
  TkwDEFAULT.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация DEFAULT }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

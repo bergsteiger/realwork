@@ -1,64 +1,47 @@
 unit tfwDualWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "tfwDualWord.pas"
-// Начат: 29.04.2011 17:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TtfwDualWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDualWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwAnonimousWord,
-  kwDualCompiledWordContainer,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwAnonimousWord
+ , tfwScriptingInterfaces
+ , kwDualCompiledWordContainer
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwDualWord = {abstract} class(TtfwAnonimousWord)
- protected
- // overridden protected methods
-   procedure AfterCompile(var theNewContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim); override;
- public
- // overridden public methods
-   function AcceptMedianBracket(aBracket: TtfwWord;
-     var aCtx: TtfwContext): Boolean; override;
- protected
- // protected methods
+  protected
    function MedianBracket: RtfwWord; virtual; abstract;
    function MakeDualCompiled(const aContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim;
-     aCompiled2: TkwCompiledWordPrim): TkwDualCompiledWordContainer; virtual; abstract;
+    aCompiled: TkwCompiledWordPrim;
+    aCompiled2: TkwCompiledWordPrim): TkwDualCompiledWordContainer; virtual; abstract;
    function MedianBracket2: RtfwWord; virtual; abstract;
+   procedure AfterCompile(var theNewContext: TtfwContext;
+    aCompiled: TkwCompiledWordPrim); override;
+  public
+   function AcceptMedianBracket(aBracket: TtfwWord;
+    var aCtx: TtfwContext): Boolean; override;
  end;//TtfwDualWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwDualWord
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TtfwDualWord.AfterCompile(var theNewContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim);
+ aCompiled: TkwCompiledWordPrim);
 //#UC START# *4DB6CE2302C9_4DBAC32F02B5_var*
 var
  l_CI : TkwDualCompiledWordContainer;
@@ -80,7 +63,7 @@ begin
 end;//TtfwDualWord.AfterCompile
 
 function TtfwDualWord.AcceptMedianBracket(aBracket: TtfwWord;
-  var aCtx: TtfwContext): Boolean;
+ var aCtx: TtfwContext): Boolean;
 //#UC START# *52D7DC84019E_4DBAC32F02B5_var*
 //#UC END# *52D7DC84019E_4DBAC32F02B5_var*
 begin
@@ -103,12 +86,9 @@ begin
 //#UC END# *52D7DC84019E_4DBAC32F02B5_impl*
 end;//TtfwDualWord.AcceptMedianBracket
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwDualWord
  TtfwDualWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwDualWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

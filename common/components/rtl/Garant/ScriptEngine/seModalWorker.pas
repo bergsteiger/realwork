@@ -1,40 +1,49 @@
 unit seModalWorker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "seModalWorker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: UtilityPack::Class Shared Delphi Low Level::ScriptEngine::CodeFlowWords::seModalWorker
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seModalWorker.pas"
+// Стереотип: "UtilityPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces
-  ;
+ l3IntfUses
+ , tfwScriptingInterfaces
+;
 
 type
- TseModalWorker = {$IfDef XE4}record{$Else}object{$EndIf}
- public
-   rWord : TtfwWord;
-   rContext : PtfwContext;
- public
-    procedure Free;
+ TseModalWorker = object
+  public
+   rWord: TtfwWord;
+   rContext: PtfwContext;
+  public
+   procedure Free;
  end;//TseModalWorker
 
 function TseModalWorker_C(aWord: TtfwWord;
-     const aContext: TtfwContext): TseModalWorker;
-{$IfEnd} //not NoScripts
+ const aContext: TtfwContext): TseModalWorker;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-// start class TseModalWorker
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
+
+function TseModalWorker_C(aWord: TtfwWord;
+ const aContext: TtfwContext): TseModalWorker;
+//#UC START# *4FC755E000C9_4FC7557C0082_var*
+//#UC END# *4FC755E000C9_4FC7557C0082_var*
+begin
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *4FC755E000C9_4FC7557C0082_impl*
+ Result.rWord := aWord;
+ Result.rContext := @aContext;
+//#UC END# *4FC755E000C9_4FC7557C0082_impl*
+end;//TseModalWorker_C
 
 procedure TseModalWorker.Free;
 //#UC START# *4FC755BA022E_4FC7557C0082_var*
@@ -44,18 +53,6 @@ begin
  // - ничего не делаем пока
 //#UC END# *4FC755BA022E_4FC7557C0082_impl*
 end;//TseModalWorker.Free
+{$IfEnd} // NOT Defined(NoScripts)
 
-function TseModalWorker_C(aWord: TtfwWord;
-        const aContext: TtfwContext): TseModalWorker;
-//#UC START# *4FC755E000C9_4FC7557C0082_var*
-//#UC END# *4FC755E000C9_4FC7557C0082_var*
-begin
- System.FillChar(Result, SizeOf(Result), 0);
-//#UC START# *4FC755E000C9_4FC7557C0082_impl*
- Result.rWord := aWord;
- Result.rContext := @aContext;
-//#UC END# *4FC755E000C9_4FC7557C0082_impl*
-end;//TseModalWorker.C
-
-{$IfEnd} //not NoScripts
 end.

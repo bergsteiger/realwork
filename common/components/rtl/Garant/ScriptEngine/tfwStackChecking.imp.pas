@@ -1,36 +1,29 @@
 {$IfNDef tfwStackChecking_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "tfwStackChecking.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::tfwStackChecking
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStackChecking.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define tfwStackChecking_imp}
-{$If not defined(NoScripts)}
- _tfwStackChecking_ = {mixin} class(_tfwStackChecking_Parent_)
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // protected methods
+
+{$If NOT Defined(NoScripts)}
+ _tfwStackChecking_ = class(_tfwStackChecking_Parent_)
+  protected
    function StackCheckingMessage: AnsiString; virtual;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//_tfwStackChecking_
-{$Else}
 
- _tfwStackChecking_ = _tfwStackChecking_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_tfwStackChecking_ = _tfwStackChecking_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else tfwStackChecking_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef tfwStackChecking_imp_impl}
 
-// start class _tfwStackChecking_
+{$Define tfwStackChecking_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 function _tfwStackChecking_.StackCheckingMessage: AnsiString;
 //#UC START# *528F7301033E_528F7DDA02BF_var*
 //#UC END# *528F7301033E_528F7DDA02BF_var*
@@ -69,7 +62,9 @@ begin
  end;//l_StackCount < 0
 //#UC END# *4DAEEDE10285_528F7DDA02BF_impl*
 end;//_tfwStackChecking_.DoDoIt
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf tfwStackChecking_imp_impl}
 
 {$EndIf tfwStackChecking_imp}
+

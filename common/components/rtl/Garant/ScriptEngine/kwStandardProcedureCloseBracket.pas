@@ -1,51 +1,40 @@
 unit kwStandardProcedureCloseBracket;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwStandardProcedureCloseBracket.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::StandardProcedureCloseBracket
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStandardProcedureCloseBracket.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCloseBracket
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCloseBracket
+;
 
-{$If not defined(NoScripts)}
 type
- TkwStandardProcedureCloseBracket = {final scriptword} class(TkwCloseBracket)
- protected
- // overridden protected methods
+ TkwStandardProcedureCloseBracket = {final} class(TkwCloseBracket)
+  protected
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwStandardProcedureCloseBracket
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwStandardProcedureCloseBracket
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 class function TkwStandardProcedureCloseBracket.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := ';';
 end;//TkwStandardProcedureCloseBracket.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация StandardProcedureCloseBracket
  TkwStandardProcedureCloseBracket.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация StandardProcedureCloseBracket }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

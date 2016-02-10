@@ -630,12 +630,18 @@ begin
 end;//TkwWndIsVisible.wnd_IsVisible
 
 procedure TkwWndIsVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CB65D7FF1E6C_var*
-//#UC END# *4DAEEDE10285_CB65D7FF1E6C_var*
+var l_aWnd: THandle;
 begin
-//#UC START# *4DAEEDE10285_CB65D7FF1E6C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CB65D7FF1E6C_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(wnd_IsVisible(aCtx, l_aWnd));
 end;//TkwWndIsVisible.DoDoIt
 
 class function TkwWndIsVisible.GetWordNameForRegister: AnsiString;
@@ -654,12 +660,8 @@ begin
 end;//TkwWndIsVisible.GetAllParamsCount
 
 function TkwWndIsVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CB65D7FF1E6C_var*
-//#UC END# *5617F4D00243_CB65D7FF1E6C_var*
 begin
-//#UC START# *5617F4D00243_CB65D7FF1E6C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CB65D7FF1E6C_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndIsVisible.ParamsTypes
 
 function TkwWndGetClassName.wnd_GetClassName(const aCtx: TtfwContext;
@@ -677,12 +679,18 @@ begin
 end;//TkwWndGetClassName.wnd_GetClassName
 
 procedure TkwWndGetClassName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_455E9214E4B7_var*
-//#UC END# *4DAEEDE10285_455E9214E4B7_var*
+var l_aWnd: THandle;
 begin
-//#UC START# *4DAEEDE10285_455E9214E4B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_455E9214E4B7_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(wnd_GetClassName(aCtx, l_aWnd));
 end;//TkwWndGetClassName.DoDoIt
 
 class function TkwWndGetClassName.GetWordNameForRegister: AnsiString;
@@ -701,12 +709,8 @@ begin
 end;//TkwWndGetClassName.GetAllParamsCount
 
 function TkwWndGetClassName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_455E9214E4B7_var*
-//#UC END# *5617F4D00243_455E9214E4B7_var*
 begin
-//#UC START# *5617F4D00243_455E9214E4B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_455E9214E4B7_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndGetClassName.ParamsTypes
 
 function TkwWndGetWindowText.wnd_GetWindowText(const aCtx: TtfwContext;
@@ -724,12 +728,18 @@ begin
 end;//TkwWndGetWindowText.wnd_GetWindowText
 
 procedure TkwWndGetWindowText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6ECBEE6894B8_var*
-//#UC END# *4DAEEDE10285_6ECBEE6894B8_var*
+var l_aWnd: THandle;
 begin
-//#UC START# *4DAEEDE10285_6ECBEE6894B8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6ECBEE6894B8_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(wnd_GetWindowText(aCtx, l_aWnd));
 end;//TkwWndGetWindowText.DoDoIt
 
 class function TkwWndGetWindowText.GetWordNameForRegister: AnsiString;
@@ -748,12 +758,8 @@ begin
 end;//TkwWndGetWindowText.GetAllParamsCount
 
 function TkwWndGetWindowText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6ECBEE6894B8_var*
-//#UC END# *5617F4D00243_6ECBEE6894B8_var*
 begin
-//#UC START# *5617F4D00243_6ECBEE6894B8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6ECBEE6894B8_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndGetWindowText.ParamsTypes
 
 procedure TkwWndCloseWindow.wnd_CloseWindow(const aCtx: TtfwContext;
@@ -768,12 +774,18 @@ begin
 end;//TkwWndCloseWindow.wnd_CloseWindow
 
 procedure TkwWndCloseWindow.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B3B5EA3F1514_var*
-//#UC END# *4DAEEDE10285_B3B5EA3F1514_var*
+var l_aWnd: THandle;
 begin
-//#UC START# *4DAEEDE10285_B3B5EA3F1514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B3B5EA3F1514_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ wnd_CloseWindow(aCtx, l_aWnd);
 end;//TkwWndCloseWindow.DoDoIt
 
 class function TkwWndCloseWindow.GetWordNameForRegister: AnsiString;
@@ -792,12 +804,8 @@ begin
 end;//TkwWndCloseWindow.GetAllParamsCount
 
 function TkwWndCloseWindow.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B3B5EA3F1514_var*
-//#UC END# *5617F4D00243_B3B5EA3F1514_var*
 begin
-//#UC START# *5617F4D00243_B3B5EA3F1514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B3B5EA3F1514_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndCloseWindow.ParamsTypes
 
 function TkwWndWindowIsMine.wnd_WindowIsMine(const aCtx: TtfwContext;
@@ -815,12 +823,18 @@ begin
 end;//TkwWndWindowIsMine.wnd_WindowIsMine
 
 procedure TkwWndWindowIsMine.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C09FEECC1053_var*
-//#UC END# *4DAEEDE10285_C09FEECC1053_var*
+var l_aWnd: THandle;
 begin
-//#UC START# *4DAEEDE10285_C09FEECC1053_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C09FEECC1053_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(wnd_WindowIsMine(aCtx, l_aWnd));
 end;//TkwWndWindowIsMine.DoDoIt
 
 class function TkwWndWindowIsMine.GetWordNameForRegister: AnsiString;
@@ -839,12 +853,8 @@ begin
 end;//TkwWndWindowIsMine.GetAllParamsCount
 
 function TkwWndWindowIsMine.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C09FEECC1053_var*
-//#UC END# *5617F4D00243_C09FEECC1053_var*
 begin
-//#UC START# *5617F4D00243_C09FEECC1053_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C09FEECC1053_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndWindowIsMine.ParamsTypes
 
 procedure TkwWndSetForeground.wnd_SetForeground(const aCtx: TtfwContext;
@@ -859,12 +869,18 @@ begin
 end;//TkwWndSetForeground.wnd_SetForeground
 
 procedure TkwWndSetForeground.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1C5511E4225D_var*
-//#UC END# *4DAEEDE10285_1C5511E4225D_var*
+var l_aWnd: THandle;
 begin
-//#UC START# *4DAEEDE10285_1C5511E4225D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1C5511E4225D_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ wnd_SetForeground(aCtx, l_aWnd);
 end;//TkwWndSetForeground.DoDoIt
 
 class function TkwWndSetForeground.GetWordNameForRegister: AnsiString;
@@ -883,12 +899,8 @@ begin
 end;//TkwWndSetForeground.GetAllParamsCount
 
 function TkwWndSetForeground.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1C5511E4225D_var*
-//#UC END# *5617F4D00243_1C5511E4225D_var*
 begin
-//#UC START# *5617F4D00243_1C5511E4225D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1C5511E4225D_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWndSetForeground.ParamsTypes
 
 function TkwWinTreeGetCurrentText.WinTreeGetCurrentText(const aCtx: TtfwContext;
@@ -917,12 +929,18 @@ begin
 end;//TkwWinTreeGetCurrentText.WinTreeGetCurrentText
 
 procedure TkwWinTreeGetCurrentText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A893626FB9A5_var*
-//#UC END# *4DAEEDE10285_A893626FB9A5_var*
+var l_aWnd: THandle;
 begin
-//#UC START# *4DAEEDE10285_A893626FB9A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A893626FB9A5_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(WinTreeGetCurrentText(aCtx, l_aWnd));
 end;//TkwWinTreeGetCurrentText.DoDoIt
 
 class function TkwWinTreeGetCurrentText.GetWordNameForRegister: AnsiString;
@@ -941,12 +959,8 @@ begin
 end;//TkwWinTreeGetCurrentText.GetAllParamsCount
 
 function TkwWinTreeGetCurrentText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A893626FB9A5_var*
-//#UC END# *5617F4D00243_A893626FB9A5_var*
 begin
-//#UC START# *5617F4D00243_A893626FB9A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A893626FB9A5_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle)]);
 end;//TkwWinTreeGetCurrentText.ParamsTypes
 
 procedure TkwIterateChildWindows.IterateChildWindows(const aCtx: TtfwContext;
@@ -967,12 +981,28 @@ begin
 end;//TkwIterateChildWindows.IterateChildWindows
 
 procedure TkwIterateChildWindows.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BB2233135443_var*
-//#UC END# *4DAEEDE10285_BB2233135443_var*
+var l_aWnd: THandle;
+var l_aLambda: TtfwWord;
 begin
-//#UC START# *4DAEEDE10285_BB2233135443_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BB2233135443_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLambda: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ IterateChildWindows(aCtx, l_aWnd, l_aLambda);
 end;//TkwIterateChildWindows.DoDoIt
 
 class function TkwIterateChildWindows.GetWordNameForRegister: AnsiString;
@@ -991,12 +1021,8 @@ begin
 end;//TkwIterateChildWindows.GetAllParamsCount
 
 function TkwIterateChildWindows.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BB2233135443_var*
-//#UC END# *5617F4D00243_BB2233135443_var*
 begin
-//#UC START# *5617F4D00243_BB2233135443_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BB2233135443_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(TtfwWord)]);
 end;//TkwIterateChildWindows.ParamsTypes
 
 procedure TkwIterateWindows.IterateWindows(const aCtx: TtfwContext;
@@ -1016,12 +1042,18 @@ begin
 end;//TkwIterateWindows.IterateWindows
 
 procedure TkwIterateWindows.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2EB6B5E4913F_var*
-//#UC END# *4DAEEDE10285_2EB6B5E4913F_var*
+var l_aLambda: TtfwWord;
 begin
-//#UC START# *4DAEEDE10285_2EB6B5E4913F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2EB6B5E4913F_impl*
+ try
+  l_aLambda := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLambda: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ IterateWindows(aCtx, l_aLambda);
 end;//TkwIterateWindows.DoDoIt
 
 class function TkwIterateWindows.GetWordNameForRegister: AnsiString;
@@ -1040,12 +1072,8 @@ begin
 end;//TkwIterateWindows.GetAllParamsCount
 
 function TkwIterateWindows.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2EB6B5E4913F_var*
-//#UC END# *5617F4D00243_2EB6B5E4913F_var*
 begin
-//#UC START# *5617F4D00243_2EB6B5E4913F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2EB6B5E4913F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
 end;//TkwIterateWindows.ParamsTypes
 
 function TkwWindowFromPoint.WindowFromPoint(const aCtx: TtfwContext;
@@ -1060,12 +1088,18 @@ begin
 end;//TkwWindowFromPoint.WindowFromPoint
 
 procedure TkwWindowFromPoint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2D01DE64792B_var*
-//#UC END# *4DAEEDE10285_2D01DE64792B_var*
+var l_aPoint: TPoint;
 begin
-//#UC START# *4DAEEDE10285_2D01DE64792B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2D01DE64792B_impl*
+ try
+  l_aPoint := aCtx.rEngine.PopPoint;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPoint: TPoint : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Integer(WindowFromPoint(aCtx, l_aPoint)));
 end;//TkwWindowFromPoint.DoDoIt
 
 class function TkwWindowFromPoint.GetWordNameForRegister: AnsiString;
@@ -1084,12 +1118,8 @@ begin
 end;//TkwWindowFromPoint.GetAllParamsCount
 
 function TkwWindowFromPoint.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2D01DE64792B_var*
-//#UC END# *5617F4D00243_2D01DE64792B_var*
 begin
-//#UC START# *5617F4D00243_2D01DE64792B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2D01DE64792B_impl*
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
 end;//TkwWindowFromPoint.ParamsTypes
 
 function TkwGetForegroundWindow.GetForegroundWindow(const aCtx: TtfwContext): THandle;
@@ -1103,12 +1133,8 @@ begin
 end;//TkwGetForegroundWindow.GetForegroundWindow
 
 procedure TkwGetForegroundWindow.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CB29543BBB60_var*
-//#UC END# *4DAEEDE10285_CB29543BBB60_var*
 begin
-//#UC START# *4DAEEDE10285_CB29543BBB60_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CB29543BBB60_impl*
+ aCtx.rEngine.PushInt(Integer(GetForegroundWindow(aCtx)));
 end;//TkwGetForegroundWindow.DoDoIt
 
 class function TkwGetForegroundWindow.GetWordNameForRegister: AnsiString;
@@ -1127,12 +1153,8 @@ begin
 end;//TkwGetForegroundWindow.GetAllParamsCount
 
 function TkwGetForegroundWindow.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CB29543BBB60_var*
-//#UC END# *5617F4D00243_CB29543BBB60_var*
 begin
-//#UC START# *5617F4D00243_CB29543BBB60_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CB29543BBB60_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwGetForegroundWindow.ParamsTypes
 
 function TkwFindWindowByCaption.FindWindowByCaption(const aCtx: TtfwContext;
@@ -1147,12 +1169,18 @@ begin
 end;//TkwFindWindowByCaption.FindWindowByCaption
 
 procedure TkwFindWindowByCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0FB930B944B8_var*
-//#UC END# *4DAEEDE10285_0FB930B944B8_var*
+var l_aCaption: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_0FB930B944B8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0FB930B944B8_impl*
+ try
+  l_aCaption := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCaption: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Integer(FindWindowByCaption(aCtx, l_aCaption)));
 end;//TkwFindWindowByCaption.DoDoIt
 
 class function TkwFindWindowByCaption.GetWordNameForRegister: AnsiString;
@@ -1171,12 +1199,8 @@ begin
 end;//TkwFindWindowByCaption.GetAllParamsCount
 
 function TkwFindWindowByCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0FB930B944B8_var*
-//#UC END# *5617F4D00243_0FB930B944B8_var*
 begin
-//#UC START# *5617F4D00243_0FB930B944B8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0FB930B944B8_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwFindWindowByCaption.ParamsTypes
 
 procedure TkwSetFuzzInPercent.SetFuzzInPercent(const aCtx: TtfwContext;
@@ -1191,12 +1215,18 @@ begin
 end;//TkwSetFuzzInPercent.SetFuzzInPercent
 
 procedure TkwSetFuzzInPercent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DDDEEE94C045_var*
-//#UC END# *4DAEEDE10285_DDDEEE94C045_var*
+var l_aValue: Integer;
 begin
-//#UC START# *4DAEEDE10285_DDDEEE94C045_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DDDEEE94C045_impl*
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetFuzzInPercent(aCtx, l_aValue);
 end;//TkwSetFuzzInPercent.DoDoIt
 
 class function TkwSetFuzzInPercent.GetWordNameForRegister: AnsiString;
@@ -1215,12 +1245,8 @@ begin
 end;//TkwSetFuzzInPercent.GetAllParamsCount
 
 function TkwSetFuzzInPercent.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DDDEEE94C045_var*
-//#UC END# *5617F4D00243_DDDEEE94C045_var*
 begin
-//#UC START# *5617F4D00243_DDDEEE94C045_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DDDEEE94C045_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwSetFuzzInPercent.ParamsTypes
 
 function TkwDesktopHeight.desktop_Height(const aCtx: TtfwContext): Integer;
@@ -1238,12 +1264,8 @@ begin
 end;//TkwDesktopHeight.desktop_Height
 
 procedure TkwDesktopHeight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F5071C676120_var*
-//#UC END# *4DAEEDE10285_F5071C676120_var*
 begin
-//#UC START# *4DAEEDE10285_F5071C676120_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F5071C676120_impl*
+ aCtx.rEngine.PushInt(desktop_Height(aCtx));
 end;//TkwDesktopHeight.DoDoIt
 
 class function TkwDesktopHeight.GetWordNameForRegister: AnsiString;
@@ -1262,12 +1284,8 @@ begin
 end;//TkwDesktopHeight.GetAllParamsCount
 
 function TkwDesktopHeight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F5071C676120_var*
-//#UC END# *5617F4D00243_F5071C676120_var*
 begin
-//#UC START# *5617F4D00243_F5071C676120_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F5071C676120_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwDesktopHeight.ParamsTypes
 
 function TkwDesktopWidth.desktop_Width(const aCtx: TtfwContext): Integer;
@@ -1285,12 +1303,8 @@ begin
 end;//TkwDesktopWidth.desktop_Width
 
 procedure TkwDesktopWidth.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F2D32D266DD0_var*
-//#UC END# *4DAEEDE10285_F2D32D266DD0_var*
 begin
-//#UC START# *4DAEEDE10285_F2D32D266DD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F2D32D266DD0_impl*
+ aCtx.rEngine.PushInt(desktop_Width(aCtx));
 end;//TkwDesktopWidth.DoDoIt
 
 class function TkwDesktopWidth.GetWordNameForRegister: AnsiString;
@@ -1309,12 +1323,8 @@ begin
 end;//TkwDesktopWidth.GetAllParamsCount
 
 function TkwDesktopWidth.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F2D32D266DD0_var*
-//#UC END# *5617F4D00243_F2D32D266DD0_var*
 begin
-//#UC START# *5617F4D00243_F2D32D266DD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F2D32D266DD0_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwDesktopWidth.ParamsTypes
 
 function TkwScreenWidth.screen_Width(const aCtx: TtfwContext;
@@ -1333,12 +1343,18 @@ begin
 end;//TkwScreenWidth.screen_Width
 
 procedure TkwScreenWidth.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_44BBDAE720F0_var*
-//#UC END# *4DAEEDE10285_44BBDAE720F0_var*
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_44BBDAE720F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_44BBDAE720F0_impl*
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(screen_Width(aCtx, l_anIndex));
 end;//TkwScreenWidth.DoDoIt
 
 class function TkwScreenWidth.GetWordNameForRegister: AnsiString;
@@ -1357,12 +1373,8 @@ begin
 end;//TkwScreenWidth.GetAllParamsCount
 
 function TkwScreenWidth.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_44BBDAE720F0_var*
-//#UC END# *5617F4D00243_44BBDAE720F0_var*
 begin
-//#UC START# *5617F4D00243_44BBDAE720F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_44BBDAE720F0_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwScreenWidth.ParamsTypes
 
 function TkwScreenHeight.screen_Height(const aCtx: TtfwContext;
@@ -1381,12 +1393,18 @@ begin
 end;//TkwScreenHeight.screen_Height
 
 procedure TkwScreenHeight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_91E516864416_var*
-//#UC END# *4DAEEDE10285_91E516864416_var*
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_91E516864416_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_91E516864416_impl*
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(screen_Height(aCtx, l_anIndex));
 end;//TkwScreenHeight.DoDoIt
 
 class function TkwScreenHeight.GetWordNameForRegister: AnsiString;
@@ -1405,12 +1423,8 @@ begin
 end;//TkwScreenHeight.GetAllParamsCount
 
 function TkwScreenHeight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_91E516864416_var*
-//#UC END# *5617F4D00243_91E516864416_var*
 begin
-//#UC START# *5617F4D00243_91E516864416_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_91E516864416_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwScreenHeight.ParamsTypes
 
 function TkwMainScreenWidth.MainScreen_Width(const aCtx: TtfwContext): Integer;
@@ -1428,12 +1442,8 @@ begin
 end;//TkwMainScreenWidth.MainScreen_Width
 
 procedure TkwMainScreenWidth.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3832249557A1_var*
-//#UC END# *4DAEEDE10285_3832249557A1_var*
 begin
-//#UC START# *4DAEEDE10285_3832249557A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3832249557A1_impl*
+ aCtx.rEngine.PushInt(MainScreen_Width(aCtx));
 end;//TkwMainScreenWidth.DoDoIt
 
 class function TkwMainScreenWidth.GetWordNameForRegister: AnsiString;
@@ -1452,12 +1462,8 @@ begin
 end;//TkwMainScreenWidth.GetAllParamsCount
 
 function TkwMainScreenWidth.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3832249557A1_var*
-//#UC END# *5617F4D00243_3832249557A1_var*
 begin
-//#UC START# *5617F4D00243_3832249557A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3832249557A1_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwMainScreenWidth.ParamsTypes
 
 function TkwMainScreenHeight.MainScreen_Height(const aCtx: TtfwContext): Integer;
@@ -1475,12 +1481,8 @@ begin
 end;//TkwMainScreenHeight.MainScreen_Height
 
 procedure TkwMainScreenHeight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8022C1F2B088_var*
-//#UC END# *4DAEEDE10285_8022C1F2B088_var*
 begin
-//#UC START# *4DAEEDE10285_8022C1F2B088_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8022C1F2B088_impl*
+ aCtx.rEngine.PushInt(MainScreen_Height(aCtx));
 end;//TkwMainScreenHeight.DoDoIt
 
 class function TkwMainScreenHeight.GetWordNameForRegister: AnsiString;
@@ -1499,12 +1501,8 @@ begin
 end;//TkwMainScreenHeight.GetAllParamsCount
 
 function TkwMainScreenHeight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8022C1F2B088_var*
-//#UC END# *5617F4D00243_8022C1F2B088_var*
 begin
-//#UC START# *5617F4D00243_8022C1F2B088_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8022C1F2B088_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwMainScreenHeight.ParamsTypes
 
 function TkwScreenCount.ScreenCount(const aCtx: TtfwContext): Integer;
@@ -1522,12 +1520,8 @@ begin
 end;//TkwScreenCount.ScreenCount
 
 procedure TkwScreenCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4C862EA2F8C6_var*
-//#UC END# *4DAEEDE10285_4C862EA2F8C6_var*
 begin
-//#UC START# *4DAEEDE10285_4C862EA2F8C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4C862EA2F8C6_impl*
+ aCtx.rEngine.PushInt(ScreenCount(aCtx));
 end;//TkwScreenCount.DoDoIt
 
 class function TkwScreenCount.GetWordNameForRegister: AnsiString;
@@ -1546,12 +1540,8 @@ begin
 end;//TkwScreenCount.GetAllParamsCount
 
 function TkwScreenCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4C862EA2F8C6_var*
-//#UC END# *5617F4D00243_4C862EA2F8C6_var*
 begin
-//#UC START# *5617F4D00243_4C862EA2F8C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4C862EA2F8C6_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwScreenCount.ParamsTypes
 
 procedure TkwAskWindowToCloseItself.AskWindowToCloseItself(const aCtx: TtfwContext;
@@ -1596,12 +1586,18 @@ begin
 end;//TkwAskWindowToCloseItself.AskWindowToCloseItself
 
 procedure TkwAskWindowToCloseItself.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_22E2D41E5FCD_var*
-//#UC END# *4DAEEDE10285_22E2D41E5FCD_var*
+var l_aWnd: TtfwStackValue;
 begin
-//#UC START# *4DAEEDE10285_22E2D41E5FCD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_22E2D41E5FCD_impl*
+ try
+  l_aWnd := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ AskWindowToCloseItself(aCtx, l_aWnd);
 end;//TkwAskWindowToCloseItself.DoDoIt
 
 class function TkwAskWindowToCloseItself.GetWordNameForRegister: AnsiString;
@@ -1620,12 +1616,8 @@ begin
 end;//TkwAskWindowToCloseItself.GetAllParamsCount
 
 function TkwAskWindowToCloseItself.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_22E2D41E5FCD_var*
-//#UC END# *5617F4D00243_22E2D41E5FCD_var*
 begin
-//#UC START# *5617F4D00243_22E2D41E5FCD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_22E2D41E5FCD_impl*
+ Result := OpenTypesToTypes([@tfw_tiStruct]);
 end;//TkwAskWindowToCloseItself.ParamsTypes
 
 procedure TkwScreenShot2File.ScreenShot2File(const aCtx: TtfwContext;
@@ -1645,12 +1637,68 @@ begin
 end;//TkwScreenShot2File.ScreenShot2File
 
 procedure TkwScreenShot2File.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D7673935EC18_var*
-//#UC END# *4DAEEDE10285_D7673935EC18_var*
+var l_aWnd: THandle;
+var l_aLeft: Integer;
+var l_aTop: Integer;
+var l_aWidth: Integer;
+var l_aHeight: Integer;
+var l_aFileName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_D7673935EC18_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D7673935EC18_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aLeft := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLeft: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTop := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTop: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aWidth := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWidth: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aHeight := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHeight: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFileName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ScreenShot2File(aCtx, l_aWnd, l_aLeft, l_aTop, l_aWidth, l_aHeight, l_aFileName);
 end;//TkwScreenShot2File.DoDoIt
 
 class function TkwScreenShot2File.GetWordNameForRegister: AnsiString;
@@ -1669,12 +1717,8 @@ begin
 end;//TkwScreenShot2File.GetAllParamsCount
 
 function TkwScreenShot2File.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D7673935EC18_var*
-//#UC END# *5617F4D00243_D7673935EC18_var*
 begin
-//#UC START# *5617F4D00243_D7673935EC18_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D7673935EC18_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), @tfw_tiString]);
 end;//TkwScreenShot2File.ParamsTypes
 
 procedure TkwScreenShot2FileWithCheck.ScreenShot2FileWithCheck(const aCtx: TtfwContext;
@@ -1694,12 +1738,68 @@ begin
 end;//TkwScreenShot2FileWithCheck.ScreenShot2FileWithCheck
 
 procedure TkwScreenShot2FileWithCheck.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_13CADBEDE41C_var*
-//#UC END# *4DAEEDE10285_13CADBEDE41C_var*
+var l_aWnd: THandle;
+var l_aLeft: Integer;
+var l_aTop: Integer;
+var l_aWidth: Integer;
+var l_aHeight: Integer;
+var l_aFileName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_13CADBEDE41C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_13CADBEDE41C_impl*
+ try
+  l_aWnd := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWnd: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aLeft := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLeft: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aTop := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTop: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aWidth := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWidth: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aHeight := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHeight: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFileName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ScreenShot2FileWithCheck(aCtx, l_aWnd, l_aLeft, l_aTop, l_aWidth, l_aHeight, l_aFileName);
 end;//TkwScreenShot2FileWithCheck.DoDoIt
 
 class function TkwScreenShot2FileWithCheck.GetWordNameForRegister: AnsiString;
@@ -1718,12 +1818,8 @@ begin
 end;//TkwScreenShot2FileWithCheck.GetAllParamsCount
 
 function TkwScreenShot2FileWithCheck.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_13CADBEDE41C_var*
-//#UC END# *5617F4D00243_13CADBEDE41C_var*
 begin
-//#UC START# *5617F4D00243_13CADBEDE41C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_13CADBEDE41C_impl*
+ Result := OpenTypesToTypes([TypeInfo(THandle), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), @tfw_tiString]);
 end;//TkwScreenShot2FileWithCheck.ParamsTypes
 
 initialization

@@ -1,68 +1,50 @@
 unit kwIncludedPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwIncludedPrim.pas"
-// Начат: 15.07.2011 21:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwIncludedPrim
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIncludedPrim.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwCompilingWord,
-  tfwStreamFactory,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwCompilingWord
+ , tfwStreamFactory
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TkwIncludedPrim = {abstract} class(TtfwCompilingWord)
- protected
- // realized methods
+  protected
+   procedure DoFiler(aFiler: TtfwStreamFactory;
+    const aCtx: TtfwContext);
+   procedure FillContext(const anOldContext: TtfwContext;
+    var theNewContext: TtfwContext); virtual;
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    procedure AfterCompile(var theNewContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim); override;
+    aCompiled: TkwCompiledWordPrim); override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
    function AcceptsEOF: Boolean; override;
    class function ReallyNeedRegister: Boolean; override;
- protected
- // protected methods
-   procedure DoFiler(aFiler: TtfwStreamFactory;
-     const aCtx: TtfwContext);
-   procedure FillContext(const anOldContext: TtfwContext;
-     var theNewContext: TtfwContext); virtual;
  end;//TkwIncludedPrim
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledIncluded,
-  tfwParser,
-  tfwParserInterfaces
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwIncludedPrim
+ l3ImplUses
+ , kwCompiledIncluded
+ , tfwParser
+ , tfwParserInterfaces
+;
 
 procedure TkwIncludedPrim.DoFiler(aFiler: TtfwStreamFactory;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4E207ACF02D5_4E207A0002B2_var*
 var
  l_P : ItfwParserEx;
@@ -103,7 +85,7 @@ begin
 end;//TkwIncludedPrim.DoFiler
 
 procedure TkwIncludedPrim.FillContext(const anOldContext: TtfwContext;
-  var theNewContext: TtfwContext);
+ var theNewContext: TtfwContext);
 //#UC START# *4F3AA59B025A_4E207A0002B2_var*
 //#UC END# *4F3AA59B025A_4E207A0002B2_var*
 begin
@@ -113,7 +95,7 @@ begin
 end;//TkwIncludedPrim.FillContext
 
 function TkwIncludedPrim.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4E207A0002B2_var*
 //#UC END# *4DB6C99F026E_4E207A0002B2_var*
 begin
@@ -123,7 +105,7 @@ begin
 end;//TkwIncludedPrim.EndBracket
 
 procedure TkwIncludedPrim.AfterCompile(var theNewContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim);
+ aCompiled: TkwCompiledWordPrim);
 //#UC START# *4DB6CE2302C9_4E207A0002B2_var*
 //#UC END# *4DB6CE2302C9_4E207A0002B2_var*
 begin
@@ -161,12 +143,9 @@ begin
 //#UC END# *4DC2E05B03DD_4E207A0002B2_impl*
 end;//TkwIncludedPrim.ReallyNeedRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwIncludedPrim
  TkwIncludedPrim.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwIncludedPrim }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

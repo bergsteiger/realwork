@@ -666,12 +666,28 @@ begin
 end;//TkwPopControlClientToScreen.ClientToScreen
 
 procedure TkwPopControlClientToScreen.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D7ECBE257199_var*
-//#UC END# *4DAEEDE10285_D7ECBE257199_var*
+var l_aControl: TControl;
+var l_aPoint: TPoint;
 begin
-//#UC START# *4DAEEDE10285_D7ECBE257199_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D7ECBE257199_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aPoint := aCtx.rEngine.PopPoint;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPoint: TPoint : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushPoint(ClientToScreen(aCtx, l_aControl, l_aPoint));
 end;//TkwPopControlClientToScreen.DoDoIt
 
 class function TkwPopControlClientToScreen.GetWordNameForRegister: AnsiString;
@@ -690,12 +706,8 @@ begin
 end;//TkwPopControlClientToScreen.GetAllParamsCount
 
 function TkwPopControlClientToScreen.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D7ECBE257199_var*
-//#UC END# *5617F4D00243_D7ECBE257199_var*
 begin
-//#UC START# *5617F4D00243_D7ECBE257199_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D7ECBE257199_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl), @tfw_tiStruct]);
 end;//TkwPopControlClientToScreen.ParamsTypes
 
 function TkwPopControlScreenToClient.ScreenToClient(const aCtx: TtfwContext;
@@ -711,12 +723,28 @@ begin
 end;//TkwPopControlScreenToClient.ScreenToClient
 
 procedure TkwPopControlScreenToClient.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_856C40E22773_var*
-//#UC END# *4DAEEDE10285_856C40E22773_var*
+var l_aControl: TControl;
+var l_aPoint: TPoint;
 begin
-//#UC START# *4DAEEDE10285_856C40E22773_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_856C40E22773_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aPoint := aCtx.rEngine.PopPoint;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPoint: TPoint : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushPoint(ScreenToClient(aCtx, l_aControl, l_aPoint));
 end;//TkwPopControlScreenToClient.DoDoIt
 
 class function TkwPopControlScreenToClient.GetWordNameForRegister: AnsiString;
@@ -735,12 +763,8 @@ begin
 end;//TkwPopControlScreenToClient.GetAllParamsCount
 
 function TkwPopControlScreenToClient.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_856C40E22773_var*
-//#UC END# *5617F4D00243_856C40E22773_var*
 begin
-//#UC START# *5617F4D00243_856C40E22773_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_856C40E22773_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl), @tfw_tiStruct]);
 end;//TkwPopControlScreenToClient.ParamsTypes
 
 procedure TkwPopControlInvalidate.Invalidate(const aCtx: TtfwContext;
@@ -755,12 +779,18 @@ begin
 end;//TkwPopControlInvalidate.Invalidate
 
 procedure TkwPopControlInvalidate.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_084D24347CB6_var*
-//#UC END# *4DAEEDE10285_084D24347CB6_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_084D24347CB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_084D24347CB6_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Invalidate(aCtx, l_aControl);
 end;//TkwPopControlInvalidate.DoDoIt
 
 class function TkwPopControlInvalidate.GetWordNameForRegister: AnsiString;
@@ -779,12 +809,8 @@ begin
 end;//TkwPopControlInvalidate.GetAllParamsCount
 
 function TkwPopControlInvalidate.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_084D24347CB6_var*
-//#UC END# *5617F4D00243_084D24347CB6_var*
 begin
-//#UC START# *5617F4D00243_084D24347CB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_084D24347CB6_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlInvalidate.ParamsTypes
 
 procedure TkwPopControlRepaint.Repaint(const aCtx: TtfwContext;
@@ -799,12 +825,18 @@ begin
 end;//TkwPopControlRepaint.Repaint
 
 procedure TkwPopControlRepaint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7D2AE156F001_var*
-//#UC END# *4DAEEDE10285_7D2AE156F001_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_7D2AE156F001_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7D2AE156F001_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Repaint(aCtx, l_aControl);
 end;//TkwPopControlRepaint.DoDoIt
 
 class function TkwPopControlRepaint.GetWordNameForRegister: AnsiString;
@@ -823,12 +855,8 @@ begin
 end;//TkwPopControlRepaint.GetAllParamsCount
 
 function TkwPopControlRepaint.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7D2AE156F001_var*
-//#UC END# *5617F4D00243_7D2AE156F001_var*
 begin
-//#UC START# *5617F4D00243_7D2AE156F001_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7D2AE156F001_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlRepaint.ParamsTypes
 
 procedure TkwPopControlClick.Click(const aCtx: TtfwContext;
@@ -843,12 +871,18 @@ begin
 end;//TkwPopControlClick.Click
 
 procedure TkwPopControlClick.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F8C716BBBC31_var*
-//#UC END# *4DAEEDE10285_F8C716BBBC31_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_F8C716BBBC31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F8C716BBBC31_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Click(aCtx, l_aControl);
 end;//TkwPopControlClick.DoDoIt
 
 class function TkwPopControlClick.GetWordNameForRegister: AnsiString;
@@ -867,12 +901,8 @@ begin
 end;//TkwPopControlClick.GetAllParamsCount
 
 function TkwPopControlClick.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F8C716BBBC31_var*
-//#UC END# *5617F4D00243_F8C716BBBC31_var*
 begin
-//#UC START# *5617F4D00243_F8C716BBBC31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F8C716BBBC31_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlClick.ParamsTypes
 
 procedure TkwPopControlShow.Show(const aCtx: TtfwContext;
@@ -887,12 +917,18 @@ begin
 end;//TkwPopControlShow.Show
 
 procedure TkwPopControlShow.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0D58233E83D8_var*
-//#UC END# *4DAEEDE10285_0D58233E83D8_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_0D58233E83D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0D58233E83D8_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Show(aCtx, l_aControl);
 end;//TkwPopControlShow.DoDoIt
 
 class function TkwPopControlShow.GetWordNameForRegister: AnsiString;
@@ -911,12 +947,8 @@ begin
 end;//TkwPopControlShow.GetAllParamsCount
 
 function TkwPopControlShow.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0D58233E83D8_var*
-//#UC END# *5617F4D00243_0D58233E83D8_var*
 begin
-//#UC START# *5617F4D00243_0D58233E83D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0D58233E83D8_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlShow.ParamsTypes
 
 procedure TkwPopControlHide.Hide(const aCtx: TtfwContext;
@@ -931,12 +963,18 @@ begin
 end;//TkwPopControlHide.Hide
 
 procedure TkwPopControlHide.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9D867B7EC0B0_var*
-//#UC END# *4DAEEDE10285_9D867B7EC0B0_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_9D867B7EC0B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9D867B7EC0B0_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Hide(aCtx, l_aControl);
 end;//TkwPopControlHide.DoDoIt
 
 class function TkwPopControlHide.GetWordNameForRegister: AnsiString;
@@ -955,12 +993,8 @@ begin
 end;//TkwPopControlHide.GetAllParamsCount
 
 function TkwPopControlHide.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9D867B7EC0B0_var*
-//#UC END# *5617F4D00243_9D867B7EC0B0_var*
 begin
-//#UC START# *5617F4D00243_9D867B7EC0B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9D867B7EC0B0_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlHide.ParamsTypes
 
 procedure TkwPopControlUndock.Undock(const aCtx: TtfwContext;
@@ -975,12 +1009,18 @@ begin
 end;//TkwPopControlUndock.Undock
 
 procedure TkwPopControlUndock.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6BAE007A323D_var*
-//#UC END# *4DAEEDE10285_6BAE007A323D_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_6BAE007A323D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6BAE007A323D_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Undock(aCtx, l_aControl);
 end;//TkwPopControlUndock.DoDoIt
 
 class function TkwPopControlUndock.GetWordNameForRegister: AnsiString;
@@ -999,12 +1039,8 @@ begin
 end;//TkwPopControlUndock.GetAllParamsCount
 
 function TkwPopControlUndock.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6BAE007A323D_var*
-//#UC END# *5617F4D00243_6BAE007A323D_var*
 begin
-//#UC START# *5617F4D00243_6BAE007A323D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6BAE007A323D_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlUndock.ParamsTypes
 
 function TkwPopControlGetPopupMenu.GetPopupMenu(const aCtx: TtfwContext;
@@ -1020,12 +1056,28 @@ begin
 end;//TkwPopControlGetPopupMenu.GetPopupMenu
 
 procedure TkwPopControlGetPopupMenu.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_42A7FAEADBD6_var*
-//#UC END# *4DAEEDE10285_42A7FAEADBD6_var*
+var l_aControl: TControl;
+var l_aPoint: TPoint;
 begin
-//#UC START# *4DAEEDE10285_42A7FAEADBD6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_42A7FAEADBD6_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aPoint := aCtx.rEngine.PopPoint;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPoint: TPoint : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetPopupMenu(aCtx, l_aControl, l_aPoint));
 end;//TkwPopControlGetPopupMenu.DoDoIt
 
 class function TkwPopControlGetPopupMenu.GetWordNameForRegister: AnsiString;
@@ -1044,12 +1096,8 @@ begin
 end;//TkwPopControlGetPopupMenu.GetAllParamsCount
 
 function TkwPopControlGetPopupMenu.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_42A7FAEADBD6_var*
-//#UC END# *5617F4D00243_42A7FAEADBD6_var*
 begin
-//#UC START# *5617F4D00243_42A7FAEADBD6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_42A7FAEADBD6_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl), @tfw_tiStruct]);
 end;//TkwPopControlGetPopupMenu.ParamsTypes
 
 function TkwPopControlGetTopParentForm.GetTopParentForm(const aCtx: TtfwContext;
@@ -1064,12 +1112,18 @@ begin
 end;//TkwPopControlGetTopParentForm.GetTopParentForm
 
 procedure TkwPopControlGetTopParentForm.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_801293AEE662_var*
-//#UC END# *4DAEEDE10285_801293AEE662_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_801293AEE662_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_801293AEE662_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetTopParentForm(aCtx, l_aControl));
 end;//TkwPopControlGetTopParentForm.DoDoIt
 
 class function TkwPopControlGetTopParentForm.GetWordNameForRegister: AnsiString;
@@ -1088,12 +1142,8 @@ begin
 end;//TkwPopControlGetTopParentForm.GetAllParamsCount
 
 function TkwPopControlGetTopParentForm.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_801293AEE662_var*
-//#UC END# *5617F4D00243_801293AEE662_var*
 begin
-//#UC START# *5617F4D00243_801293AEE662_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_801293AEE662_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlGetTopParentForm.ParamsTypes
 
 function TkwPopControlGetMainForm.GetMainForm(const aCtx: TtfwContext;
@@ -1108,12 +1158,18 @@ begin
 end;//TkwPopControlGetMainForm.GetMainForm
 
 procedure TkwPopControlGetMainForm.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_19DF01986BE7_var*
-//#UC END# *4DAEEDE10285_19DF01986BE7_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_19DF01986BE7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_19DF01986BE7_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetMainForm(aCtx, l_aControl));
 end;//TkwPopControlGetMainForm.DoDoIt
 
 class function TkwPopControlGetMainForm.GetWordNameForRegister: AnsiString;
@@ -1132,12 +1188,8 @@ begin
 end;//TkwPopControlGetMainForm.GetAllParamsCount
 
 function TkwPopControlGetMainForm.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_19DF01986BE7_var*
-//#UC END# *5617F4D00243_19DF01986BE7_var*
 begin
-//#UC START# *5617F4D00243_19DF01986BE7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_19DF01986BE7_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlGetMainForm.ParamsTypes
 
 function TkwPopControlGetParentForm.GetParentForm(const aCtx: TtfwContext;
@@ -1152,12 +1204,18 @@ begin
 end;//TkwPopControlGetParentForm.GetParentForm
 
 procedure TkwPopControlGetParentForm.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BC5B460C7FEA_var*
-//#UC END# *4DAEEDE10285_BC5B460C7FEA_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_BC5B460C7FEA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BC5B460C7FEA_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetParentForm(aCtx, l_aControl));
 end;//TkwPopControlGetParentForm.DoDoIt
 
 class function TkwPopControlGetParentForm.GetWordNameForRegister: AnsiString;
@@ -1176,12 +1234,8 @@ begin
 end;//TkwPopControlGetParentForm.GetAllParamsCount
 
 function TkwPopControlGetParentForm.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BC5B460C7FEA_var*
-//#UC END# *5617F4D00243_BC5B460C7FEA_var*
 begin
-//#UC START# *5617F4D00243_BC5B460C7FEA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BC5B460C7FEA_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlGetParentForm.ParamsTypes
 
 function TkwPopControlGetAnotherParentForm.GetAnotherParentForm(const aCtx: TtfwContext;
@@ -1196,12 +1250,18 @@ begin
 end;//TkwPopControlGetAnotherParentForm.GetAnotherParentForm
 
 procedure TkwPopControlGetAnotherParentForm.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8A00B7773D0C_var*
-//#UC END# *4DAEEDE10285_8A00B7773D0C_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_8A00B7773D0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8A00B7773D0C_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetAnotherParentForm(aCtx, l_aControl));
 end;//TkwPopControlGetAnotherParentForm.DoDoIt
 
 class function TkwPopControlGetAnotherParentForm.GetWordNameForRegister: AnsiString;
@@ -1220,12 +1280,8 @@ begin
 end;//TkwPopControlGetAnotherParentForm.GetAllParamsCount
 
 function TkwPopControlGetAnotherParentForm.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8A00B7773D0C_var*
-//#UC END# *5617F4D00243_8A00B7773D0C_var*
 begin
-//#UC START# *5617F4D00243_8A00B7773D0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8A00B7773D0C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlGetAnotherParentForm.ParamsTypes
 
 function TkwControlByHandle.ByHandle(const aCtx: TtfwContext;
@@ -1241,12 +1297,18 @@ begin
 end;//TkwControlByHandle.ByHandle
 
 procedure TkwControlByHandle.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0241DA0F487D_var*
-//#UC END# *4DAEEDE10285_0241DA0F487D_var*
+var l_aHandle: THandle;
 begin
-//#UC START# *4DAEEDE10285_0241DA0F487D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0241DA0F487D_impl*
+ try
+  l_aHandle := THandle(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aHandle: THandle : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ByHandle(aCtx, l_aHandle));
 end;//TkwControlByHandle.DoDoIt
 
 class function TkwControlByHandle.GetWordNameForRegister: AnsiString;
@@ -1256,7 +1318,7 @@ end;//TkwControlByHandle.GetWordNameForRegister
 
 function TkwControlByHandle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := !!!;
+ Result := TypeInfo(TControl);
 end;//TkwControlByHandle.GetResultTypeInfo
 
 function TkwControlByHandle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1265,12 +1327,8 @@ begin
 end;//TkwControlByHandle.GetAllParamsCount
 
 function TkwControlByHandle.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0241DA0F487D_var*
-//#UC END# *5617F4D00243_0241DA0F487D_var*
 begin
-//#UC START# *5617F4D00243_0241DA0F487D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0241DA0F487D_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl), TypeInfo(THandle)]);
 end;//TkwControlByHandle.ParamsTypes
 
 function TkwControlFocusedControlPush.focused_control_push(const aCtx: TtfwContext): TControl;
@@ -1294,12 +1352,8 @@ begin
 end;//TkwControlFocusedControlPush.focused_control_push
 
 procedure TkwControlFocusedControlPush.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DDB6E934DC7B_var*
-//#UC END# *4DAEEDE10285_DDB6E934DC7B_var*
 begin
-//#UC START# *4DAEEDE10285_DDB6E934DC7B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DDB6E934DC7B_impl*
+ aCtx.rEngine.PushObj(focused_control_push(aCtx));
 end;//TkwControlFocusedControlPush.DoDoIt
 
 class function TkwControlFocusedControlPush.GetWordNameForRegister: AnsiString;
@@ -1309,7 +1363,7 @@ end;//TkwControlFocusedControlPush.GetWordNameForRegister
 
 function TkwControlFocusedControlPush.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := !!!;
+ Result := TypeInfo(TControl);
 end;//TkwControlFocusedControlPush.GetResultTypeInfo
 
 function TkwControlFocusedControlPush.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1318,12 +1372,8 @@ begin
 end;//TkwControlFocusedControlPush.GetAllParamsCount
 
 function TkwControlFocusedControlPush.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DDB6E934DC7B_var*
-//#UC END# *5617F4D00243_DDB6E934DC7B_var*
 begin
-//#UC START# *5617F4D00243_DDB6E934DC7B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DDB6E934DC7B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwControlFocusedControlPush.ParamsTypes
 
 function TkwPopControlColor.Color(const aCtx: TtfwContext;
@@ -1349,12 +1399,18 @@ begin
 end;//TkwPopControlColor.DoSetValue
 
 procedure TkwPopControlColor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EBE4B9074377_var*
-//#UC END# *4DAEEDE10285_EBE4B9074377_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_EBE4B9074377_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EBE4B9074377_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Integer(Color(aCtx, l_aControl)));
 end;//TkwPopControlColor.DoDoIt
 
 class function TkwPopControlColor.GetWordNameForRegister: AnsiString;
@@ -1364,12 +1420,8 @@ end;//TkwPopControlColor.GetWordNameForRegister
 
 procedure TkwPopControlColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EBE4B9074377_var*
-//#UC END# *52D00B00031A_EBE4B9074377_var*
 begin
-//#UC START# *52D00B00031A_EBE4B9074377_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EBE4B9074377_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Color', aCtx);
 end;//TkwPopControlColor.SetValuePrim
 
 function TkwPopControlColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1383,12 +1435,8 @@ begin
 end;//TkwPopControlColor.GetAllParamsCount
 
 function TkwPopControlColor.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EBE4B9074377_var*
-//#UC END# *5617F4D00243_EBE4B9074377_var*
 begin
-//#UC START# *5617F4D00243_EBE4B9074377_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EBE4B9074377_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlColor.ParamsTypes
 
 function TkwPopControlEnabled.Enabled(const aCtx: TtfwContext;
@@ -1403,12 +1451,18 @@ begin
 end;//TkwPopControlEnabled.Enabled
 
 procedure TkwPopControlEnabled.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ACE5425C329D_var*
-//#UC END# *4DAEEDE10285_ACE5425C329D_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_ACE5425C329D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ACE5425C329D_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Enabled(aCtx, l_aControl));
 end;//TkwPopControlEnabled.DoDoIt
 
 class function TkwPopControlEnabled.GetWordNameForRegister: AnsiString;
@@ -1418,12 +1472,8 @@ end;//TkwPopControlEnabled.GetWordNameForRegister
 
 procedure TkwPopControlEnabled.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ACE5425C329D_var*
-//#UC END# *52D00B00031A_ACE5425C329D_var*
 begin
-//#UC START# *52D00B00031A_ACE5425C329D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ACE5425C329D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Enabled', aCtx);
 end;//TkwPopControlEnabled.SetValuePrim
 
 function TkwPopControlEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1437,12 +1487,8 @@ begin
 end;//TkwPopControlEnabled.GetAllParamsCount
 
 function TkwPopControlEnabled.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_ACE5425C329D_var*
-//#UC END# *5617F4D00243_ACE5425C329D_var*
 begin
-//#UC START# *5617F4D00243_ACE5425C329D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_ACE5425C329D_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlEnabled.ParamsTypes
 
 function TkwPopControlVisible.Visible(const aCtx: TtfwContext;
@@ -1457,12 +1503,18 @@ begin
 end;//TkwPopControlVisible.Visible
 
 procedure TkwPopControlVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5C3AF1C3D79A_var*
-//#UC END# *4DAEEDE10285_5C3AF1C3D79A_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_5C3AF1C3D79A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5C3AF1C3D79A_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Visible(aCtx, l_aControl));
 end;//TkwPopControlVisible.DoDoIt
 
 class function TkwPopControlVisible.GetWordNameForRegister: AnsiString;
@@ -1472,12 +1524,8 @@ end;//TkwPopControlVisible.GetWordNameForRegister
 
 procedure TkwPopControlVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_5C3AF1C3D79A_var*
-//#UC END# *52D00B00031A_5C3AF1C3D79A_var*
 begin
-//#UC START# *52D00B00031A_5C3AF1C3D79A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_5C3AF1C3D79A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
 end;//TkwPopControlVisible.SetValuePrim
 
 function TkwPopControlVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1491,12 +1539,8 @@ begin
 end;//TkwPopControlVisible.GetAllParamsCount
 
 function TkwPopControlVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5C3AF1C3D79A_var*
-//#UC END# *5617F4D00243_5C3AF1C3D79A_var*
 begin
-//#UC START# *5617F4D00243_5C3AF1C3D79A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5C3AF1C3D79A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlVisible.ParamsTypes
 
 function TkwPopControlName.Name(const aCtx: TtfwContext;
@@ -1511,12 +1555,18 @@ begin
 end;//TkwPopControlName.Name
 
 procedure TkwPopControlName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F53819E00314_var*
-//#UC END# *4DAEEDE10285_F53819E00314_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_F53819E00314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F53819E00314_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Name(aCtx, l_aControl));
 end;//TkwPopControlName.DoDoIt
 
 class function TkwPopControlName.GetWordNameForRegister: AnsiString;
@@ -1526,12 +1576,8 @@ end;//TkwPopControlName.GetWordNameForRegister
 
 procedure TkwPopControlName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F53819E00314_var*
-//#UC END# *52D00B00031A_F53819E00314_var*
 begin
-//#UC START# *52D00B00031A_F53819E00314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F53819E00314_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
 end;//TkwPopControlName.SetValuePrim
 
 function TkwPopControlName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1545,12 +1591,8 @@ begin
 end;//TkwPopControlName.GetAllParamsCount
 
 function TkwPopControlName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F53819E00314_var*
-//#UC END# *5617F4D00243_F53819E00314_var*
 begin
-//#UC START# *5617F4D00243_F53819E00314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F53819E00314_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlName.ParamsTypes
 
 function TkwPopControlHint.Hint(const aCtx: TtfwContext;
@@ -1565,12 +1607,18 @@ begin
 end;//TkwPopControlHint.Hint
 
 procedure TkwPopControlHint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7EEF2F285EA8_var*
-//#UC END# *4DAEEDE10285_7EEF2F285EA8_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_7EEF2F285EA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7EEF2F285EA8_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Hint(aCtx, l_aControl));
 end;//TkwPopControlHint.DoDoIt
 
 class function TkwPopControlHint.GetWordNameForRegister: AnsiString;
@@ -1580,12 +1628,8 @@ end;//TkwPopControlHint.GetWordNameForRegister
 
 procedure TkwPopControlHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7EEF2F285EA8_var*
-//#UC END# *52D00B00031A_7EEF2F285EA8_var*
 begin
-//#UC START# *52D00B00031A_7EEF2F285EA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7EEF2F285EA8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Hint', aCtx);
 end;//TkwPopControlHint.SetValuePrim
 
 function TkwPopControlHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1599,12 +1643,8 @@ begin
 end;//TkwPopControlHint.GetAllParamsCount
 
 function TkwPopControlHint.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7EEF2F285EA8_var*
-//#UC END# *5617F4D00243_7EEF2F285EA8_var*
 begin
-//#UC START# *5617F4D00243_7EEF2F285EA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7EEF2F285EA8_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlHint.ParamsTypes
 
 function TkwPopControlShowHint.ShowHint(const aCtx: TtfwContext;
@@ -1619,12 +1659,18 @@ begin
 end;//TkwPopControlShowHint.ShowHint
 
 procedure TkwPopControlShowHint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B165FF488B6E_var*
-//#UC END# *4DAEEDE10285_B165FF488B6E_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_B165FF488B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B165FF488B6E_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(ShowHint(aCtx, l_aControl));
 end;//TkwPopControlShowHint.DoDoIt
 
 class function TkwPopControlShowHint.GetWordNameForRegister: AnsiString;
@@ -1634,12 +1680,8 @@ end;//TkwPopControlShowHint.GetWordNameForRegister
 
 procedure TkwPopControlShowHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B165FF488B6E_var*
-//#UC END# *52D00B00031A_B165FF488B6E_var*
 begin
-//#UC START# *52D00B00031A_B165FF488B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B165FF488B6E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ShowHint', aCtx);
 end;//TkwPopControlShowHint.SetValuePrim
 
 function TkwPopControlShowHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1653,12 +1695,8 @@ begin
 end;//TkwPopControlShowHint.GetAllParamsCount
 
 function TkwPopControlShowHint.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B165FF488B6E_var*
-//#UC END# *5617F4D00243_B165FF488B6E_var*
 begin
-//#UC START# *5617F4D00243_B165FF488B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B165FF488B6E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlShowHint.ParamsTypes
 
 function TkwPopControlCaption.Caption(const aCtx: TtfwContext;
@@ -1673,12 +1711,18 @@ begin
 end;//TkwPopControlCaption.Caption
 
 procedure TkwPopControlCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6ED40CDED494_var*
-//#UC END# *4DAEEDE10285_6ED40CDED494_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_6ED40CDED494_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6ED40CDED494_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Caption(aCtx, l_aControl));
 end;//TkwPopControlCaption.DoDoIt
 
 class function TkwPopControlCaption.GetWordNameForRegister: AnsiString;
@@ -1688,12 +1732,8 @@ end;//TkwPopControlCaption.GetWordNameForRegister
 
 procedure TkwPopControlCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6ED40CDED494_var*
-//#UC END# *52D00B00031A_6ED40CDED494_var*
 begin
-//#UC START# *52D00B00031A_6ED40CDED494_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6ED40CDED494_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
 end;//TkwPopControlCaption.SetValuePrim
 
 function TkwPopControlCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1707,12 +1747,8 @@ begin
 end;//TkwPopControlCaption.GetAllParamsCount
 
 function TkwPopControlCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6ED40CDED494_var*
-//#UC END# *5617F4D00243_6ED40CDED494_var*
 begin
-//#UC START# *5617F4D00243_6ED40CDED494_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6ED40CDED494_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlCaption.ParamsTypes
 
 function TkwPopControlTop.Top(const aCtx: TtfwContext;
@@ -1727,12 +1763,18 @@ begin
 end;//TkwPopControlTop.Top
 
 procedure TkwPopControlTop.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_531AEAE3EB2E_var*
-//#UC END# *4DAEEDE10285_531AEAE3EB2E_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_531AEAE3EB2E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_531AEAE3EB2E_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Top(aCtx, l_aControl));
 end;//TkwPopControlTop.DoDoIt
 
 class function TkwPopControlTop.GetWordNameForRegister: AnsiString;
@@ -1742,12 +1784,8 @@ end;//TkwPopControlTop.GetWordNameForRegister
 
 procedure TkwPopControlTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_531AEAE3EB2E_var*
-//#UC END# *52D00B00031A_531AEAE3EB2E_var*
 begin
-//#UC START# *52D00B00031A_531AEAE3EB2E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_531AEAE3EB2E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Top', aCtx);
 end;//TkwPopControlTop.SetValuePrim
 
 function TkwPopControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1761,12 +1799,8 @@ begin
 end;//TkwPopControlTop.GetAllParamsCount
 
 function TkwPopControlTop.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_531AEAE3EB2E_var*
-//#UC END# *5617F4D00243_531AEAE3EB2E_var*
 begin
-//#UC START# *5617F4D00243_531AEAE3EB2E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_531AEAE3EB2E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlTop.ParamsTypes
 
 function TkwPopControlLeft.Left(const aCtx: TtfwContext;
@@ -1781,12 +1815,18 @@ begin
 end;//TkwPopControlLeft.Left
 
 procedure TkwPopControlLeft.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_43ADF087E3E7_var*
-//#UC END# *4DAEEDE10285_43ADF087E3E7_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_43ADF087E3E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_43ADF087E3E7_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Left(aCtx, l_aControl));
 end;//TkwPopControlLeft.DoDoIt
 
 class function TkwPopControlLeft.GetWordNameForRegister: AnsiString;
@@ -1796,12 +1836,8 @@ end;//TkwPopControlLeft.GetWordNameForRegister
 
 procedure TkwPopControlLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_43ADF087E3E7_var*
-//#UC END# *52D00B00031A_43ADF087E3E7_var*
 begin
-//#UC START# *52D00B00031A_43ADF087E3E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_43ADF087E3E7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Left', aCtx);
 end;//TkwPopControlLeft.SetValuePrim
 
 function TkwPopControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1815,12 +1851,8 @@ begin
 end;//TkwPopControlLeft.GetAllParamsCount
 
 function TkwPopControlLeft.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_43ADF087E3E7_var*
-//#UC END# *5617F4D00243_43ADF087E3E7_var*
 begin
-//#UC START# *5617F4D00243_43ADF087E3E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_43ADF087E3E7_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlLeft.ParamsTypes
 
 function TkwPopControlHeight.Height(const aCtx: TtfwContext;
@@ -1835,12 +1867,18 @@ begin
 end;//TkwPopControlHeight.Height
 
 procedure TkwPopControlHeight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AA5F37A792A3_var*
-//#UC END# *4DAEEDE10285_AA5F37A792A3_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_AA5F37A792A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AA5F37A792A3_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Height(aCtx, l_aControl));
 end;//TkwPopControlHeight.DoDoIt
 
 class function TkwPopControlHeight.GetWordNameForRegister: AnsiString;
@@ -1850,12 +1888,8 @@ end;//TkwPopControlHeight.GetWordNameForRegister
 
 procedure TkwPopControlHeight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AA5F37A792A3_var*
-//#UC END# *52D00B00031A_AA5F37A792A3_var*
 begin
-//#UC START# *52D00B00031A_AA5F37A792A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AA5F37A792A3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Height', aCtx);
 end;//TkwPopControlHeight.SetValuePrim
 
 function TkwPopControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1869,12 +1903,8 @@ begin
 end;//TkwPopControlHeight.GetAllParamsCount
 
 function TkwPopControlHeight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AA5F37A792A3_var*
-//#UC END# *5617F4D00243_AA5F37A792A3_var*
 begin
-//#UC START# *5617F4D00243_AA5F37A792A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AA5F37A792A3_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlHeight.ParamsTypes
 
 function TkwPopControlWidth.Width(const aCtx: TtfwContext;
@@ -1889,12 +1919,18 @@ begin
 end;//TkwPopControlWidth.Width
 
 procedure TkwPopControlWidth.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_50D37A00C710_var*
-//#UC END# *4DAEEDE10285_50D37A00C710_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_50D37A00C710_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_50D37A00C710_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Width(aCtx, l_aControl));
 end;//TkwPopControlWidth.DoDoIt
 
 class function TkwPopControlWidth.GetWordNameForRegister: AnsiString;
@@ -1904,12 +1940,8 @@ end;//TkwPopControlWidth.GetWordNameForRegister
 
 procedure TkwPopControlWidth.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_50D37A00C710_var*
-//#UC END# *52D00B00031A_50D37A00C710_var*
 begin
-//#UC START# *52D00B00031A_50D37A00C710_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_50D37A00C710_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Width', aCtx);
 end;//TkwPopControlWidth.SetValuePrim
 
 function TkwPopControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1923,12 +1955,8 @@ begin
 end;//TkwPopControlWidth.GetAllParamsCount
 
 function TkwPopControlWidth.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_50D37A00C710_var*
-//#UC END# *5617F4D00243_50D37A00C710_var*
 begin
-//#UC START# *5617F4D00243_50D37A00C710_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_50D37A00C710_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlWidth.ParamsTypes
 
 function TkwPopControlParent.Parent(const aCtx: TtfwContext;
@@ -1943,12 +1971,18 @@ begin
 end;//TkwPopControlParent.Parent
 
 procedure TkwPopControlParent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B324E2362907_var*
-//#UC END# *4DAEEDE10285_B324E2362907_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_B324E2362907_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B324E2362907_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Parent(aCtx, l_aControl));
 end;//TkwPopControlParent.DoDoIt
 
 class function TkwPopControlParent.GetWordNameForRegister: AnsiString;
@@ -1958,12 +1992,8 @@ end;//TkwPopControlParent.GetWordNameForRegister
 
 procedure TkwPopControlParent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B324E2362907_var*
-//#UC END# *52D00B00031A_B324E2362907_var*
 begin
-//#UC START# *52D00B00031A_B324E2362907_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B324E2362907_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Parent', aCtx);
 end;//TkwPopControlParent.SetValuePrim
 
 function TkwPopControlParent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1977,12 +2007,8 @@ begin
 end;//TkwPopControlParent.GetAllParamsCount
 
 function TkwPopControlParent.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B324E2362907_var*
-//#UC END# *5617F4D00243_B324E2362907_var*
 begin
-//#UC START# *5617F4D00243_B324E2362907_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B324E2362907_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlParent.ParamsTypes
 
 function TkwPopControlFont.Font(const aCtx: TtfwContext;
@@ -1997,12 +2023,18 @@ begin
 end;//TkwPopControlFont.Font
 
 procedure TkwPopControlFont.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_520187343F71_var*
-//#UC END# *4DAEEDE10285_520187343F71_var*
+var l_aControl: TControl;
 begin
-//#UC START# *4DAEEDE10285_520187343F71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_520187343F71_impl*
+ try
+  l_aControl := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(Font(aCtx, l_aControl),Il3FontInfo);
 end;//TkwPopControlFont.DoDoIt
 
 class function TkwPopControlFont.GetWordNameForRegister: AnsiString;
@@ -2012,12 +2044,8 @@ end;//TkwPopControlFont.GetWordNameForRegister
 
 procedure TkwPopControlFont.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_520187343F71_var*
-//#UC END# *52D00B00031A_520187343F71_var*
 begin
-//#UC START# *52D00B00031A_520187343F71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_520187343F71_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Font', aCtx);
 end;//TkwPopControlFont.SetValuePrim
 
 function TkwPopControlFont.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2031,12 +2059,8 @@ begin
 end;//TkwPopControlFont.GetAllParamsCount
 
 function TkwPopControlFont.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_520187343F71_var*
-//#UC END# *5617F4D00243_520187343F71_var*
 begin
-//#UC START# *5617F4D00243_520187343F71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_520187343F71_impl*
+ Result := OpenTypesToTypes([TypeInfo(TControl)]);
 end;//TkwPopControlFont.ParamsTypes
 
 initialization

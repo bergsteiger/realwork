@@ -1,71 +1,56 @@
 unit tfwScriptEngine;
+ {* Машина для исполнения скриптов. Базовый класс. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "tfwScriptEngine.pas"
-// Начат: 20.04.2011 18:16
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TtfwScriptEngine
-//
-// Машина для исполнения скриптов. Базовый класс.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngine.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwStreamFactory,
-  tfwFileStreamFactory,
-  tfwStringStreamFactory
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwStreamFactory
+ , tfwScriptingInterfaces
+ , tfwStringStreamFactory
+ , tfwFileStreamFactory
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwScriptEngine = class
   {* Машина для исполнения скриптов. Базовый класс. }
- public
- // public methods
+  public
    class procedure Script(aStream: TtfwStreamFactory;
-     const aCaller: ItfwScriptCaller); overload; 
+    const aCaller: ItfwScriptCaller); overload;
    class procedure Script(const aString: AnsiString;
-     const aCaller: ItfwScriptCaller); overload; 
+    const aCaller: ItfwScriptCaller); overload;
    class procedure ScriptFromFile(const aFileName: AnsiString;
-     const aCaller: ItfwScriptCaller);
+    const aCaller: ItfwScriptCaller);
  end;//TtfwScriptEngine
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Chars,
-  TypInfo,
-  l3String,
-  l3Types,
-  kwEmitString,
-  kwTryFinally,
-  kwMain,
-  kwCompiledWord,
-  l3Base,
-  tfwAutoregisteredDiction,
-  tfwParser
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwScriptEngine
+ l3ImplUses
+ , l3String
+ , kwEmitString
+ , kwTryFinally
+ , kwMain
+ , kwCompiledWord
+ , l3Base
+ , tfwAutoregisteredDiction
+ , tfwParser
+ , SysUtils
+ , l3Chars
+ , TypInfo
+ , l3Types
+;
 
 class procedure TtfwScriptEngine.Script(aStream: TtfwStreamFactory;
-  const aCaller: ItfwScriptCaller);
+ const aCaller: ItfwScriptCaller);
 //#UC START# *4DAEEB9602CF_4DAEEA9E0049_var*
 var
  l_Main : TkwMain;
@@ -82,11 +67,10 @@ begin
 end;//TtfwScriptEngine.Script
 
 class procedure TtfwScriptEngine.Script(const aString: AnsiString;
-  const aCaller: ItfwScriptCaller);
+ const aCaller: ItfwScriptCaller);
+var l_SS: TtfwStringStreamFactory;
 //#UC START# *4DAEEBC90028_4DAEEA9E0049_var*
 //#UC END# *4DAEEBC90028_4DAEEA9E0049_var*
-var
- l_SS : TtfwStringStreamFactory;
 begin
 //#UC START# *4DAEEBC90028_4DAEEA9E0049_impl*
  l_SS := TtfwStringStreamFactory.Create(aString);
@@ -99,11 +83,10 @@ begin
 end;//TtfwScriptEngine.Script
 
 class procedure TtfwScriptEngine.ScriptFromFile(const aFileName: AnsiString;
-  const aCaller: ItfwScriptCaller);
+ const aCaller: ItfwScriptCaller);
+var l_FS: TtfwFileStreamFactory;
 //#UC START# *4DB02B590048_4DAEEA9E0049_var*
 //#UC END# *4DB02B590048_4DAEEA9E0049_var*
-var
- l_FS : TtfwFileStreamFactory;
 begin
 //#UC START# *4DB02B590048_4DAEEA9E0049_impl*
  //l_FS := Tl3FileStream.Create(aFileName, l3_fmRead);
@@ -115,7 +98,6 @@ begin
  end;//try..finally
 //#UC END# *4DB02B590048_4DAEEA9E0049_impl*
 end;//TtfwScriptEngine.ScriptFromFile
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

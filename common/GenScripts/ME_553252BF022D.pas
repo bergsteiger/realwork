@@ -81,12 +81,18 @@ begin
 end;//TkwPopFormFormStyle.pop_form_FormStyle
 
 procedure TkwPopFormFormStyle.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3ADE91F9FA16_var*
-//#UC END# *4DAEEDE10285_3ADE91F9FA16_var*
+var l_aForm: TCustomForm;
 begin
-//#UC START# *4DAEEDE10285_3ADE91F9FA16_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3ADE91F9FA16_impl*
+ try
+  l_aForm := TCustomForm(aCtx.rEngine.PopObjAs(TCustomForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aForm: TCustomForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Ord(pop_form_FormStyle(aCtx, l_aForm)));
 end;//TkwPopFormFormStyle.DoDoIt
 
 class function TkwPopFormFormStyle.GetWordNameForRegister: AnsiString;
@@ -105,12 +111,8 @@ begin
 end;//TkwPopFormFormStyle.GetAllParamsCount
 
 function TkwPopFormFormStyle.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3ADE91F9FA16_var*
-//#UC END# *5617F4D00243_3ADE91F9FA16_var*
 begin
-//#UC START# *5617F4D00243_3ADE91F9FA16_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3ADE91F9FA16_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomForm)]);
 end;//TkwPopFormFormStyle.ParamsTypes
 
 initialization

@@ -1,55 +1,39 @@
 unit kwTypedBeginLikeCompiledCode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwTypedBeginLikeCompiledCode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::TkwTypedBeginLikeCompiledCode
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTypedBeginLikeCompiledCode.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwBeginLikeCompiledCode
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwBeginLikeCompiledCode
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwTypedBeginLikeCompiledCode = class(TkwBeginLikeCompiledCode)
- private
- // private fields
-   f_WordInfo : TtfwWordInfo;
- protected
- // overridden property methods
-   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- protected
- // overridden protected methods
+  private
+   f_WordInfo: TtfwWordInfo;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
+  public
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
  end;//TkwTypedBeginLikeCompiledCode
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwTypedBeginLikeCompiledCode
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TkwTypedBeginLikeCompiledCode.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_560937350073_var*
@@ -103,7 +87,7 @@ begin
 end;//TkwTypedBeginLikeCompiledCode.pm_GetResultTypeInfo
 
 procedure TkwTypedBeginLikeCompiledCode.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_560937350073_var*
 //#UC END# *52EA6A2C0111_560937350073_var*
 begin
@@ -112,12 +96,9 @@ begin
 //#UC END# *52EA6A2C0111_560937350073_impl*
 end;//TkwTypedBeginLikeCompiledCode.SetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwTypedBeginLikeCompiledCode
  TkwTypedBeginLikeCompiledCode.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwTypedBeginLikeCompiledCode }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,41 +1,33 @@
 unit CodeBranchingPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "CodeBranchingPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::CodeBranchingPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CodeBranchingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwBeginLikeWord,
-  kwRULES
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledRules,
-  kwStandardProcedureCloseBracket,
-  kwIfElse,
-  kwElse,
-  kwCASE,
-  kwDEFAULT,
-  kwRAISE,
-  kwBracketBegin,
-  kwBEGIN,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwIfElse
+ , kwElse
+ , kwCASE
+ , kwDEFAULT
+ , kwRAISE
+ , kwBracketBegin
+ , kwBEGIN
+ , tfwScriptingTypes
+ , kwRULES
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
 end.

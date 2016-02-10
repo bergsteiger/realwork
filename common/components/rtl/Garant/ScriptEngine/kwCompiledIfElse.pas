@@ -1,67 +1,52 @@
 unit kwCompiledIfElse;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledIfElse.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::TkwCompiledIfElse
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledIfElse.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwCompiledIF
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledIF
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledIfElse = class(TkwCompiledIF)
- private
- // private fields
-   f_Condition : TtfwWord;
-    {* Поле для свойства Condition}
- protected
- // overridden protected methods
+  private
+   f_Condition: TtfwWord;
+    {* Поле для свойства Condition }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // public methods
+  public
    constructor Create(aCondition: TtfwWord;
-     anIf: TtfwWord;
-     anElse: TtfwWord;
-     const aCtx: TtfwContext); reintroduce;
+    anIf: TtfwWord;
+    anElse: TtfwWord;
+    const aCtx: TtfwContext); reintroduce;
    procedure SetElse(anElse: TtfwWord);
- public
- // public properties
+  public
    property Condition: TtfwWord
-     read f_Condition;
+    read f_Condition;
  end;//TkwCompiledIfElse
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledIfElse
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TkwCompiledIfElse.Create(aCondition: TtfwWord;
-  anIf: TtfwWord;
-  anElse: TtfwWord;
-  const aCtx: TtfwContext);
+ anIf: TtfwWord;
+ anElse: TtfwWord;
+ const aCtx: TtfwContext);
 //#UC START# *5284EED900B6_5284E9510053_var*
 //#UC END# *5284EED900B6_5284E9510053_var*
 begin
@@ -87,6 +72,7 @@ begin
 end;//TkwCompiledIfElse.SetElse
 
 procedure TkwCompiledIfElse.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_5284E9510053_var*
 //#UC END# *479731C50290_5284E9510053_var*
 begin
@@ -106,12 +92,9 @@ begin
 //#UC END# *4DAEEDE10285_5284E9510053_impl*
 end;//TkwCompiledIfElse.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledIfElse
  TkwCompiledIfElse.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledIfElse }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

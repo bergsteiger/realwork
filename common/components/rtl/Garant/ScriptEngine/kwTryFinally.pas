@@ -1,68 +1,51 @@
 unit kwTryFinally;
+ {* Полный аналог try finally Delphi }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwTryFinally.pas"
-// Начат: 29.04.2011 18:04
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TryFinally
-//
-// Полный аналог try finally Delphi
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTryFinally.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwDualWord,
-  tfwScriptingInterfaces,
-  kwDualCompiledWordContainer,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwDualWord
+ , tfwScriptingInterfaces
+ , kwDualCompiledWordContainer
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
- TkwTryFinally = {scriptword} class(TtfwDualWord)
+ TkwTryFinally = class(TtfwDualWord)
   {* Полный аналог try finally Delphi }
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
+    aSilent: Boolean): RtfwWord; override;
    function MedianBracket: RtfwWord; override;
    function MakeDualCompiled(const aContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim;
-     aCompiled2: TkwCompiledWordPrim): TkwDualCompiledWordContainer; override;
+    aCompiled: TkwCompiledWordPrim;
+    aCompiled2: TkwCompiledWordPrim): TkwDualCompiledWordContainer; override;
    function MedianBracket2: RtfwWord; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwTryFinally
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledTryFinally,
-  kwCompiledTryExcept,
-  kwEND,
-  kwFINALLY,
-  kwEXCEPT
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwTryFinally
+ l3ImplUses
+ , kwCompiledTryFinally
+ , kwCompiledTryExcept
+ , kwEND
+ , kwFINALLY
+ , kwEXCEPT
+;
 
 function TkwTryFinally.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4DBAC542005F_var*
 //#UC END# *4DB6C99F026E_4DBAC542005F_var*
 begin
@@ -81,8 +64,8 @@ begin
 end;//TkwTryFinally.MedianBracket
 
 function TkwTryFinally.MakeDualCompiled(const aContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim;
-  aCompiled2: TkwCompiledWordPrim): TkwDualCompiledWordContainer;
+ aCompiled: TkwCompiledWordPrim;
+ aCompiled2: TkwCompiledWordPrim): TkwDualCompiledWordContainer;
 //#UC START# *4DBAC44D02CC_4DBAC542005F_var*
 //#UC END# *4DBAC44D02CC_4DBAC542005F_var*
 begin
@@ -124,17 +107,13 @@ begin
 end;//TkwTryFinally.MedianBracket2
 
 class function TkwTryFinally.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'TRY';
 end;//TkwTryFinally.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TryFinally
  TkwTryFinally.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TryFinally }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

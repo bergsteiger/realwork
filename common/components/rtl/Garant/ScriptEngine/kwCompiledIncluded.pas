@@ -1,45 +1,33 @@
 unit kwCompiledIncluded;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledIncluded.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledIncluded
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledIncluded.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledWordPrim,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordPrim
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledIncluded = class(TkwCompiledWordPrim)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCompiledIncluded
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledIncluded
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TkwCompiledIncluded.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DC98AAC0395_var*
@@ -50,12 +38,9 @@ begin
 //#UC END# *4DAEEDE10285_4DC98AAC0395_impl*
 end;//TkwCompiledIncluded.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledIncluded
  TkwCompiledIncluded.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledIncluded }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

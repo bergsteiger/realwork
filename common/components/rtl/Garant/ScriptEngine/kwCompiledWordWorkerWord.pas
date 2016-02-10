@@ -1,114 +1,100 @@
 unit kwCompiledWordWorkerWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledWordWorkerWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledWordWorkerWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwWordWorker,
-  kwCompiledWordWorkerWordRunner,
-  kwTemporaryCompiledCode,
-  tfwScriptingTypes,
-  kwCompiledWordPrim,
-  tfwDictionaryPrim,
-  kwCompiledWordWorker
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwWordWorker
+ , tfwScriptingInterfaces
+ , kwCompiledWordWorkerWordRunner
+ , tfwScriptingTypes
+ , kwCompiledWordWorker
+ , tfwDictionaryPrim
+ , kwCompiledWordPrim
+ , kwTemporaryCompiledCode
+;
 
-{$If not defined(NoScripts)}
 type
  RkwCompiledWordWorkerWord = class of TkwCompiledWordWorkerWord;
 
  TkwImmediateTemporaryCompiledCode = class(TkwTemporaryCompiledCode)
- public
- // overridden public methods
+  public
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
     const aCtx: TtfwContext); override;
  end;//TkwImmediateTemporaryCompiledCode
 
  TkwCompiledWordWorkerWord = class(TtfwWordWorker)
- private
- // private fields
-   f_Compiled : TtfwWord;
-    {* Поле для свойства Compiled}
- protected
- // realized methods
+  private
+   f_Compiled: TtfwWord;
+    {* Поле для свойства Compiled }
+  protected
+   function RunnerClass(const aCtx: TtfwContext): RkwCompiledWordWorkerWordRunner;
+   function TreatUnknownAsStringInParam(const aContext: TtfwContext;
+    aParamNumber: Integer): Boolean;
+   function ParamHasModifer(const aContext: TtfwContext;
+    aParamNumber: Integer;
+    aModifier: TtfwWordModifier): Boolean; overload;
+   function ParamHasModifer(const aContext: TtfwContext;
+    aParamNumber: Integer;
+    aModifier: TtfwLinkType): Boolean; overload;
    function CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker; override;
- protected
- // overridden property methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   procedure UnknownWord(var aContext: TtfwContext;
+    aWordNumber: Integer); override;
+   function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
+   function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
+   class function ReallyNeedRegister: Boolean; override;
+   procedure FillCompiledWorker(aWorker: TtfwWord;
+    const aContext: TtfwContext); override;
+   function SuppressNextImmediate(const aContext: TtfwContext;
+    aWordNumber: Integer): TtfwSuppressNextImmediate; override;
    function pm_GetWordProducer: TtfwWord; override;
    procedure pm_SetWordProducer(aValue: TtfwWord); override;
    function pm_GetInnerDictionary: TtfwDictionaryPrim; override;
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
    function pm_GetParentWord: TtfwWord; override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   procedure UnknownWord(var aContext: TtfwContext;
-     aWordNumber: Integer); override;
-   function AfterWordMaxCount(const aCtx: TtfwContext): Integer; override;
-   function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
-   class function ReallyNeedRegister: Boolean; override;
-   procedure FillCompiledWorker(aWorker: TtfwWord;
-     const aContext: TtfwContext); override;
-   function SuppressNextImmediate(const aContext: TtfwContext;
-     aWordNumber: Integer): TtfwSuppressNextImmediate; override;
    procedure DoKeyword(var aContext: TtfwContext;
-     aWord: TtfwWord;
-     aFinder: TtfwWord;
-     aWordNumber: Integer); override;
- public
- // overridden public methods
+    aWord: TtfwWord;
+    aFinder: TtfwWord;
+    aWordNumber: Integer); override;
+  public
+   constructor Create(aCompiled: TtfwWord); reintroduce;
    function IsAnonimous(const aCtx: TtfwContext): Boolean; override;
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
-   function RunnerClass(const aCtx: TtfwContext): RkwCompiledWordWorkerWordRunner;
-   function TreatUnknownAsStringInParam(const aContext: TtfwContext;
-     aParamNumber: Integer): Boolean;
-   function ParamHasModifer(const aContext: TtfwContext;
-     aParamNumber: Integer;
-     aModifier: TtfwWordModifier): Boolean; overload; 
-   function ParamHasModifer(const aContext: TtfwContext;
-     aParamNumber: Integer;
-     aModifier: TtfwLinkType): Boolean; overload; 
- public
- // public methods
-   constructor Create(aCompiled: TtfwWord); reintroduce;
- public
- // public properties
+    const aCtx: TtfwContext); override;
+  public
    property Compiled: TtfwWord
-     read f_Compiled;
+    read f_Compiled;
  end;//TkwCompiledWordWorkerWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  tfwWordRefList,
-  kwCompiledWordWorkerWordPack
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , tfwWordRefList
+ , kwCompiledWordWorkerWordPack
+;
 
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledWordWorkerWord
+procedure TkwImmediateTemporaryCompiledCode.SetResultTypeInfo(aValue: TtfwWordInfo;
+ const aCtx: TtfwContext);
+//#UC START# *52EA6A2C0111_557562DF00B8_var*
+//#UC END# *52EA6A2C0111_557562DF00B8_var*
+begin
+//#UC START# *52EA6A2C0111_557562DF00B8_impl*
+ // - ничего не делаем. СПЕЦИАЛЬНО
+//#UC END# *52EA6A2C0111_557562DF00B8_impl*
+end;//TkwImmediateTemporaryCompiledCode.SetResultTypeInfo
 
 constructor TkwCompiledWordWorkerWord.Create(aCompiled: TtfwWord);
 //#UC START# *4F219F0F0176_4F21976E01C2_var*
@@ -130,7 +116,7 @@ begin
 end;//TkwCompiledWordWorkerWord.RunnerClass
 
 function TkwCompiledWordWorkerWord.TreatUnknownAsStringInParam(const aContext: TtfwContext;
-  aParamNumber: Integer): Boolean;
+ aParamNumber: Integer): Boolean;
 //#UC START# *55893819034D_4F21976E01C2_var*
 //#UC END# *55893819034D_4F21976E01C2_var*
 begin
@@ -140,8 +126,8 @@ begin
 end;//TkwCompiledWordWorkerWord.TreatUnknownAsStringInParam
 
 function TkwCompiledWordWorkerWord.ParamHasModifer(const aContext: TtfwContext;
-  aParamNumber: Integer;
-  aModifier: TtfwWordModifier): Boolean;
+ aParamNumber: Integer;
+ aModifier: TtfwWordModifier): Boolean;
 //#UC START# *5589721B0279_4F21976E01C2_var*
 var
  l_P : TtfwWord;
@@ -157,8 +143,8 @@ begin
 end;//TkwCompiledWordWorkerWord.ParamHasModifer
 
 function TkwCompiledWordWorkerWord.ParamHasModifer(const aContext: TtfwContext;
-  aParamNumber: Integer;
-  aModifier: TtfwLinkType): Boolean;
+ aParamNumber: Integer;
+ aModifier: TtfwLinkType): Boolean;
 //#UC START# *55C23E4D0305_4F21976E01C2_var*
 var
  l_P : TtfwWord;
@@ -172,17 +158,6 @@ begin
   Result := l_P.ResultTypeInfo[aContext].Has(aModifier);
 //#UC END# *55C23E4D0305_4F21976E01C2_impl*
 end;//TkwCompiledWordWorkerWord.ParamHasModifer
-// start class TkwImmediateTemporaryCompiledCode
-
-procedure TkwImmediateTemporaryCompiledCode.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
-//#UC START# *52EA6A2C0111_557562DF00B8_var*
-//#UC END# *52EA6A2C0111_557562DF00B8_var*
-begin
-//#UC START# *52EA6A2C0111_557562DF00B8_impl*
- // - ничего не делаем. СПЕЦИАЛЬНО
-//#UC END# *52EA6A2C0111_557562DF00B8_impl*
-end;//TkwImmediateTemporaryCompiledCode.SetResultTypeInfo
 
 function TkwCompiledWordWorkerWord.CompiledWorkerClass(const aCtx: TtfwContext): RkwCompiledWordWorker;
 //#UC START# *4DCBD67C0362_4F21976E01C2_var*
@@ -194,6 +169,7 @@ begin
 end;//TkwCompiledWordWorkerWord.CompiledWorkerClass
 
 procedure TkwCompiledWordWorkerWord.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F21976E01C2_var*
 //#UC END# *479731C50290_4F21976E01C2_var*
 begin
@@ -225,7 +201,7 @@ begin
 end;//TkwCompiledWordWorkerWord.DoDoIt
 
 procedure TkwCompiledWordWorkerWord.UnknownWord(var aContext: TtfwContext;
-  aWordNumber: Integer);
+ aWordNumber: Integer);
 //#UC START# *4DB6F2760023_4F21976E01C2_var*
 //#UC END# *4DB6F2760023_4F21976E01C2_var*
 begin
@@ -268,7 +244,7 @@ begin
 end;//TkwCompiledWordWorkerWord.ReallyNeedRegister
 
 procedure TkwCompiledWordWorkerWord.FillCompiledWorker(aWorker: TtfwWord;
-  const aContext: TtfwContext);
+ const aContext: TtfwContext);
 //#UC START# *4F219FA10268_4F21976E01C2_var*
 var
  l_LeftWordRefCount : Integer;
@@ -320,7 +296,7 @@ begin
 end;//TkwCompiledWordWorkerWord.IsAnonimous
 
 function TkwCompiledWordWorkerWord.SuppressNextImmediate(const aContext: TtfwContext;
-  aWordNumber: Integer): TtfwSuppressNextImmediate;
+ aWordNumber: Integer): TtfwSuppressNextImmediate;
 //#UC START# *4F3AB3B101FC_4F21976E01C2_var*
 //#UC END# *4F3AB3B101FC_4F21976E01C2_var*
 begin
@@ -397,7 +373,7 @@ begin
 end;//TkwCompiledWordWorkerWord.pm_GetParentWord
 
 procedure TkwCompiledWordWorkerWord.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_4F21976E01C2_var*
 //#UC END# *52EA6A2C0111_4F21976E01C2_var*
 begin
@@ -409,9 +385,9 @@ begin
 end;//TkwCompiledWordWorkerWord.SetResultTypeInfo
 
 procedure TkwCompiledWordWorkerWord.DoKeyword(var aContext: TtfwContext;
-  aWord: TtfwWord;
-  aFinder: TtfwWord;
-  aWordNumber: Integer);
+ aWord: TtfwWord;
+ aFinder: TtfwWord;
+ aWordNumber: Integer);
 //#UC START# *53E21481021D_4F21976E01C2_var*
 //#UC END# *53E21481021D_4F21976E01C2_var*
 begin
@@ -423,16 +399,11 @@ begin
 //#UC END# *53E21481021D_4F21976E01C2_impl*
 end;//TkwCompiledWordWorkerWord.DoKeyword
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwImmediateTemporaryCompiledCode
  TkwImmediateTemporaryCompiledCode.RegisterClass;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledWordWorkerWord
+ {* Регистрация TkwImmediateTemporaryCompiledCode }
  TkwCompiledWordWorkerWord.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledWordWorkerWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

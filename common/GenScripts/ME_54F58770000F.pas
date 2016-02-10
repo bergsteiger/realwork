@@ -65,12 +65,18 @@ begin
 end;//TkwPopRadioGroupItemIndex.ItemIndex
 
 procedure TkwPopRadioGroupItemIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8E50130D7478_var*
-//#UC END# *4DAEEDE10285_8E50130D7478_var*
+var l_aRadioGroup: TRadioGroup;
 begin
-//#UC START# *4DAEEDE10285_8E50130D7478_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8E50130D7478_impl*
+ try
+  l_aRadioGroup := TRadioGroup(aCtx.rEngine.PopObjAs(TRadioGroup));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRadioGroup: TRadioGroup : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(ItemIndex(aCtx, l_aRadioGroup));
 end;//TkwPopRadioGroupItemIndex.DoDoIt
 
 class function TkwPopRadioGroupItemIndex.GetWordNameForRegister: AnsiString;
@@ -80,12 +86,8 @@ end;//TkwPopRadioGroupItemIndex.GetWordNameForRegister
 
 procedure TkwPopRadioGroupItemIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8E50130D7478_var*
-//#UC END# *52D00B00031A_8E50130D7478_var*
 begin
-//#UC START# *52D00B00031A_8E50130D7478_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8E50130D7478_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ItemIndex', aCtx);
 end;//TkwPopRadioGroupItemIndex.SetValuePrim
 
 function TkwPopRadioGroupItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -99,12 +101,8 @@ begin
 end;//TkwPopRadioGroupItemIndex.GetAllParamsCount
 
 function TkwPopRadioGroupItemIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8E50130D7478_var*
-//#UC END# *5617F4D00243_8E50130D7478_var*
 begin
-//#UC START# *5617F4D00243_8E50130D7478_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8E50130D7478_impl*
+ Result := OpenTypesToTypes([TypeInfo(TRadioGroup)]);
 end;//TkwPopRadioGroupItemIndex.ParamsTypes
 
 initialization

@@ -1,42 +1,33 @@
 unit kwCheckOutputWithInput;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCheckOutputWithInput.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::EtalonsWorking::CheckOutputWithInput
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCheckOutputWithInput.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwCheckOutputWithInput = {final scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwCheckOutputWithInput = {final} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwCheckOutputWithInput
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwCheckOutputWithInput
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwCheckOutputWithInput.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F5F490D030B_var*
@@ -63,17 +54,13 @@ begin
 end;//TkwCheckOutputWithInput.DoDoIt
 
 class function TkwCheckOutputWithInput.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tests:CheckOutputWithInput';
 end;//TkwCheckOutputWithInput.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация CheckOutputWithInput
  TkwCheckOutputWithInput.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация CheckOutputWithInput }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

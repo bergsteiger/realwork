@@ -156,12 +156,28 @@ begin
 end;//TkwPopComponentGetComponent.GetComponent
 
 procedure TkwPopComponentGetComponent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D0FE9D22441B_var*
-//#UC END# *4DAEEDE10285_D0FE9D22441B_var*
+var l_aComponent: TComponent;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_D0FE9D22441B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D0FE9D22441B_impl*
+ try
+  l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComponent: TComponent : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetComponent(aCtx, l_aComponent, l_anIndex));
 end;//TkwPopComponentGetComponent.DoDoIt
 
 class function TkwPopComponentGetComponent.GetWordNameForRegister: AnsiString;
@@ -180,12 +196,8 @@ begin
 end;//TkwPopComponentGetComponent.GetAllParamsCount
 
 function TkwPopComponentGetComponent.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D0FE9D22441B_var*
-//#UC END# *5617F4D00243_D0FE9D22441B_var*
 begin
-//#UC START# *5617F4D00243_D0FE9D22441B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D0FE9D22441B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TComponent), TypeInfo(Integer)]);
 end;//TkwPopComponentGetComponent.ParamsTypes
 
 function TkwPopComponentFindComponent.FindComponent(const aCtx: TtfwContext;
@@ -201,12 +213,28 @@ begin
 end;//TkwPopComponentFindComponent.FindComponent
 
 procedure TkwPopComponentFindComponent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4F10E1D50761_var*
-//#UC END# *4DAEEDE10285_4F10E1D50761_var*
+var l_aComponent: TComponent;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_4F10E1D50761_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4F10E1D50761_impl*
+ try
+  l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComponent: TComponent : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FindComponent(aCtx, l_aComponent, l_aName));
 end;//TkwPopComponentFindComponent.DoDoIt
 
 class function TkwPopComponentFindComponent.GetWordNameForRegister: AnsiString;
@@ -225,12 +253,8 @@ begin
 end;//TkwPopComponentFindComponent.GetAllParamsCount
 
 function TkwPopComponentFindComponent.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4F10E1D50761_var*
-//#UC END# *5617F4D00243_4F10E1D50761_var*
 begin
-//#UC START# *5617F4D00243_4F10E1D50761_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4F10E1D50761_impl*
+ Result := OpenTypesToTypes([TypeInfo(TComponent), @tfw_tiString]);
 end;//TkwPopComponentFindComponent.ParamsTypes
 
 function TkwPopComponentComponentCount.ComponentCount(const aCtx: TtfwContext;
@@ -245,12 +269,18 @@ begin
 end;//TkwPopComponentComponentCount.ComponentCount
 
 procedure TkwPopComponentComponentCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3B829E298F09_var*
-//#UC END# *4DAEEDE10285_3B829E298F09_var*
+var l_aComponent: TComponent;
 begin
-//#UC START# *4DAEEDE10285_3B829E298F09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3B829E298F09_impl*
+ try
+  l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComponent: TComponent : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(ComponentCount(aCtx, l_aComponent));
 end;//TkwPopComponentComponentCount.DoDoIt
 
 class function TkwPopComponentComponentCount.GetWordNameForRegister: AnsiString;
@@ -260,12 +290,8 @@ end;//TkwPopComponentComponentCount.GetWordNameForRegister
 
 procedure TkwPopComponentComponentCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3B829E298F09_var*
-//#UC END# *52D00B00031A_3B829E298F09_var*
 begin
-//#UC START# *52D00B00031A_3B829E298F09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3B829E298F09_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ComponentCount', aCtx);
 end;//TkwPopComponentComponentCount.SetValuePrim
 
 function TkwPopComponentComponentCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -279,12 +305,8 @@ begin
 end;//TkwPopComponentComponentCount.GetAllParamsCount
 
 function TkwPopComponentComponentCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3B829E298F09_var*
-//#UC END# *5617F4D00243_3B829E298F09_var*
 begin
-//#UC START# *5617F4D00243_3B829E298F09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3B829E298F09_impl*
+ Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentComponentCount.ParamsTypes
 
 function TkwPopComponentOwner.Owner(const aCtx: TtfwContext;
@@ -299,12 +321,18 @@ begin
 end;//TkwPopComponentOwner.Owner
 
 procedure TkwPopComponentOwner.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_722F6A69957B_var*
-//#UC END# *4DAEEDE10285_722F6A69957B_var*
+var l_aComponent: TComponent;
 begin
-//#UC START# *4DAEEDE10285_722F6A69957B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_722F6A69957B_impl*
+ try
+  l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComponent: TComponent : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Owner(aCtx, l_aComponent));
 end;//TkwPopComponentOwner.DoDoIt
 
 class function TkwPopComponentOwner.GetWordNameForRegister: AnsiString;
@@ -314,12 +342,8 @@ end;//TkwPopComponentOwner.GetWordNameForRegister
 
 procedure TkwPopComponentOwner.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_722F6A69957B_var*
-//#UC END# *52D00B00031A_722F6A69957B_var*
 begin
-//#UC START# *52D00B00031A_722F6A69957B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_722F6A69957B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Owner', aCtx);
 end;//TkwPopComponentOwner.SetValuePrim
 
 function TkwPopComponentOwner.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -333,12 +357,8 @@ begin
 end;//TkwPopComponentOwner.GetAllParamsCount
 
 function TkwPopComponentOwner.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_722F6A69957B_var*
-//#UC END# *5617F4D00243_722F6A69957B_var*
 begin
-//#UC START# *5617F4D00243_722F6A69957B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_722F6A69957B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentOwner.ParamsTypes
 
 function TkwPopComponentName.Name(const aCtx: TtfwContext;
@@ -353,12 +373,18 @@ begin
 end;//TkwPopComponentName.Name
 
 procedure TkwPopComponentName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4DE6AA14F838_var*
-//#UC END# *4DAEEDE10285_4DE6AA14F838_var*
+var l_aComponent: TComponent;
 begin
-//#UC START# *4DAEEDE10285_4DE6AA14F838_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4DE6AA14F838_impl*
+ try
+  l_aComponent := TComponent(aCtx.rEngine.PopObjAs(TComponent));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aComponent: TComponent : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Name(aCtx, l_aComponent));
 end;//TkwPopComponentName.DoDoIt
 
 class function TkwPopComponentName.GetWordNameForRegister: AnsiString;
@@ -368,12 +394,8 @@ end;//TkwPopComponentName.GetWordNameForRegister
 
 procedure TkwPopComponentName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4DE6AA14F838_var*
-//#UC END# *52D00B00031A_4DE6AA14F838_var*
 begin
-//#UC START# *52D00B00031A_4DE6AA14F838_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4DE6AA14F838_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Name', aCtx);
 end;//TkwPopComponentName.SetValuePrim
 
 function TkwPopComponentName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -387,12 +409,8 @@ begin
 end;//TkwPopComponentName.GetAllParamsCount
 
 function TkwPopComponentName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4DE6AA14F838_var*
-//#UC END# *5617F4D00243_4DE6AA14F838_var*
 begin
-//#UC START# *5617F4D00243_4DE6AA14F838_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4DE6AA14F838_impl*
+ Result := OpenTypesToTypes([TypeInfo(TComponent)]);
 end;//TkwPopComponentName.ParamsTypes
 
 initialization

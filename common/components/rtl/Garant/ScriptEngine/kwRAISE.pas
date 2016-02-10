@@ -1,41 +1,30 @@
 unit kwRAISE;
+ {* Зарезервированное слово RAISE. Аналогично raise из Delphi. Если не было исключения, то генерируется EtfwScriptException.
+Пример:
+[code]
+TRY
+ 'Тестовое исключение' RAISE
+EXCEPT
+ true >>> WasException
+END
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwRAISE.pas"
-// Начат: 29.04.2011 20:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::RAISE
-//
-// Зарезервированное слово RAISE. Аналогично raise из Delphi. Если не было исключения, то
-// генерируется EtfwScriptException.
-// Пример:
-// {code}
-// TRY
-// 'Тестовое исключение' RAISE
-// EXCEPT
-// true >>> WasException
-// END
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRAISE.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwRAISE = {scriptword} class(TtfwRegisterableWord)
+ TkwRAISE = class(TtfwRegisterableWord)
   {* Зарезервированное слово RAISE. Аналогично raise из Delphi. Если не было исключения, то генерируется EtfwScriptException.
 Пример:
 [code]
@@ -45,26 +34,19 @@ EXCEPT
  true >>> WasException
 END
 [code] }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwRAISE
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwRAISE
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TkwRAISE.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DBAE64F02F7_var*
@@ -81,17 +63,13 @@ begin
 end;//TkwRAISE.DoDoIt
 
 class function TkwRAISE.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'RAISE';
 end;//TkwRAISE.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация RAISE
  TkwRAISE.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация RAISE }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

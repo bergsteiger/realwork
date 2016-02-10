@@ -1,45 +1,33 @@
 unit kwCompiledRules;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledRules.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::TkwCompiledRules
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledRules.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwRuntimeWordWithCode,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwRuntimeWordWithCode
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledRules = class(TkwRuntimeWordWithCode)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCompiledRules
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClassRef
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledRules
+ l3ImplUses
+ , tfwClassRef
+;
 
 procedure TkwCompiledRules.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F51EC380222_var*
@@ -79,12 +67,9 @@ begin
 //#UC END# *4DAEEDE10285_4F51EC380222_impl*
 end;//TkwCompiledRules.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledRules
  TkwCompiledRules.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledRules }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

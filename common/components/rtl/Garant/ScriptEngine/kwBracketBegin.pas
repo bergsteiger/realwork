@@ -1,69 +1,52 @@
 unit kwBracketBegin;
+ {* Поддержка скобок. 
+Пример:
+[code]
+ 10 LOOP ( 'Hello' . )
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwBracketBegin.pas"
-// Начат: 03.05.2011 12:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::BracketBegin
-//
-// Поддержка скобок.
-// Пример:
-// {code}
-// 10 LOOP ( 'Hello' . )
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBracketBegin.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwBeginLikeWord,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwBeginLikeWord
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
- TkwBracketBegin = {scriptword} class(TtfwBeginLikeWord)
+ TkwBracketBegin = class(TtfwBeginLikeWord)
   {* Поддержка скобок. 
 Пример:
 [code]
  10 LOOP ( 'Hello' . )
 [code] }
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    class function GetWordNameForRegister: AnsiString; override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
    procedure CheckWordInfoOnCompile(const aCtx: TtfwContext); override;
  end;//TkwBracketBegin
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwBracketEnd,
-  kwTypedBeginLikeCompiledCode
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwBracketBegin
+ l3ImplUses
+ , kwBracketEnd
+ , kwTypedBeginLikeCompiledCode
+;
 
 function TkwBracketBegin.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4DBFBBE603E5_var*
 //#UC END# *4DB6C99F026E_4DBFBBE603E5_var*
 begin
@@ -73,7 +56,6 @@ begin
 end;//TkwBracketBegin.EndBracket
 
 class function TkwBracketBegin.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := '(';
 end;//TkwBracketBegin.GetWordNameForRegister
@@ -99,12 +81,9 @@ begin
 //#UC END# *560941240035_4DBFBBE603E5_impl*
 end;//TkwBracketBegin.CheckWordInfoOnCompile
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация BracketBegin
  TkwBracketBegin.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация BracketBegin }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

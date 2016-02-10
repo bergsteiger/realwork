@@ -1,70 +1,53 @@
 unit tfwProcedure;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "tfwProcedure.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TtfwProcedure
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwProcedure.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwNewWord,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwNewWord
+ , l3Interfaces
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwProcedure = {abstract} class(TtfwNewWord)
- protected
- // realized methods
+  protected
+   function AddedParameters: Tl3CStringArray; virtual;
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
    procedure FinishDefinitionOfNewWord(aWordToFinish: TtfwKeyWord;
-     aCompiled: TkwCompiledWordPrim;
-     const aContext: TtfwContext); override;
-     {* Завершает определение вновь созданного слова }
+    aCompiled: TkwCompiledWordPrim;
+    const aContext: TtfwContext); override;
+    {* Завершает определение вновь созданного слова }
    procedure FillCompiledWord(aCompiled: TtfwWord;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
-   function AddedParameters: Tl3CStringArray; virtual;
+    const aCtx: TtfwContext); override;
  end;//TtfwProcedure
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwStandardProcedureCloseBracket,
-  kwCompiledWordWorkerWord,
-  SysUtils,
-  kwCompiledProcedure,
-  kwCompiledFunction,
-  kwCompiledProcedureWithStackChecking,
-  kwInlinedWord
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , kwStandardProcedureCloseBracket
+ , kwCompiledWordWorkerWord
+ , SysUtils
+ , kwCompiledProcedure
+ , kwCompiledFunction
+ , kwCompiledProcedureWithStackChecking
+ , kwInlinedWord
+;
 
 const
-   { Inner }
-  cCaller = 'Caller';
-
-// start class TtfwProcedure
+ cCaller = 'Caller';
 
 function TtfwProcedure.AddedParameters: Tl3CStringArray;
 //#UC START# *4F3FF55403AB_4F37B27502EE_var*
@@ -76,7 +59,7 @@ begin
 end;//TtfwProcedure.AddedParameters
 
 function TtfwProcedure.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4F37B27502EE_var*
 //#UC END# *4DB6C99F026E_4F37B27502EE_var*
 begin
@@ -106,8 +89,9 @@ begin
 end;//TtfwProcedure.CompiledWordClass
 
 procedure TtfwProcedure.FinishDefinitionOfNewWord(aWordToFinish: TtfwKeyWord;
-  aCompiled: TkwCompiledWordPrim;
-  const aContext: TtfwContext);
+ aCompiled: TkwCompiledWordPrim;
+ const aContext: TtfwContext);
+ {* Завершает определение вновь созданного слова }
 //#UC START# *4F219629036A_4F37B27502EE_var*
 var
  l_Worker : TkwCompiledWordWorkerWord;
@@ -151,7 +135,7 @@ begin
 end;//TtfwProcedure.FinishDefinitionOfNewWord
 
 procedure TtfwProcedure.FillCompiledWord(aCompiled: TtfwWord;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F21A4F60049_4F37B27502EE_var*
 var
  l_S : Tl3CStringArray;
@@ -170,12 +154,9 @@ begin
 //#UC END# *4F21A4F60049_4F37B27502EE_impl*
 end;//TtfwProcedure.FillCompiledWord
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwProcedure
  TtfwProcedure.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwProcedure }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

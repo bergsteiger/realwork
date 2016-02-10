@@ -1,57 +1,40 @@
 unit kwBEGIN;
+ {* Поддержка скобок BEGIN END в стиле Паскаля. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwBEGIN.pas"
-// Начат: 28.04.2011 23:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::BEGIN
-//
-// Поддержка скобок BEGIN END в стиле Паскаля.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBEGIN.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwBeginLikeWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwBeginLikeWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwBEGIN = {scriptword} class(TtfwBeginLikeWord)
+ TkwBEGIN = class(TtfwBeginLikeWord)
   {* Поддержка скобок BEGIN END в стиле Паскаля. }
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwBEGIN
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEND
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwBEGIN
+ l3ImplUses
+ , kwEND
+;
 
 function TkwBEGIN.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4DB9BB8D0388_var*
 //#UC END# *4DB6C99F026E_4DB9BB8D0388_var*
 begin
@@ -61,17 +44,13 @@ begin
 end;//TkwBEGIN.EndBracket
 
 class function TkwBEGIN.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'BEGIN';
 end;//TkwBEGIN.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация BEGIN
  TkwBEGIN.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация BEGIN }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

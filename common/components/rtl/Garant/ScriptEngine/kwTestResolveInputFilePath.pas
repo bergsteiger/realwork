@@ -1,36 +1,28 @@
 unit kwTestResolveInputFilePath;
+ {* *Описание:* добавляет к имени файла путь к директории TestSet, где хранятся исходные файлы.
+*Формат*
+[code]
+aFileName test:ResolveInputFilePath
+[code]
+где aFileName - имя файля без пути (!).
+Результат помещается в стек. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwTestResolveInputFilePath.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::EtalonsWorking::test_ResolveInputFilePath
-//
-// *Описание:* добавляет к имени файла путь к директории TestSet, где хранятся исходные файлы.
-// *Формат*
-// {code}
-// aFileName test:ResolveInputFilePath
-// {code}
-// где aFileName - имя файля без пути (!).
-// Результат помещается в стек.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwTestResolveInputFilePath = {final scriptword} class(TtfwRegisterableWord)
+ TkwTestResolveInputFilePath = {final} class(TtfwRegisterableWord)
   {* *Описание:* добавляет к имени файла путь к директории TestSet, где хранятся исходные файлы.
 *Формат*
 [code]
@@ -38,20 +30,18 @@ aFileName test:ResolveInputFilePath
 [code]
 где aFileName - имя файля без пути (!).
 Результат помещается в стек. }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwTestResolveInputFilePath
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwTestResolveInputFilePath
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwTestResolveInputFilePath.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53FC3551023F_var*
@@ -64,17 +54,13 @@ begin
 end;//TkwTestResolveInputFilePath.DoDoIt
 
 class function TkwTestResolveInputFilePath.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'test:ResolveInputFilePath';
 end;//TkwTestResolveInputFilePath.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация test_ResolveInputFilePath
  TkwTestResolveInputFilePath.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация test_ResolveInputFilePath }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

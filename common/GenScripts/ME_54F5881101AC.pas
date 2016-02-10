@@ -163,12 +163,18 @@ begin
 end;//TkwPopControlVScrollerVisible.VScrollerVisible
 
 procedure TkwPopControlVScrollerVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D64D3C18264A_var*
-//#UC END# *4DAEEDE10285_D64D3C18264A_var*
+var l_aControl: TWinControl;
 begin
-//#UC START# *4DAEEDE10285_D64D3C18264A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D64D3C18264A_impl*
+ try
+  l_aControl := TWinControl(aCtx.rEngine.PopObjAs(TWinControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TWinControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(VScrollerVisible(aCtx, l_aControl));
 end;//TkwPopControlVScrollerVisible.DoDoIt
 
 class function TkwPopControlVScrollerVisible.GetWordNameForRegister: AnsiString;
@@ -178,12 +184,8 @@ end;//TkwPopControlVScrollerVisible.GetWordNameForRegister
 
 procedure TkwPopControlVScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D64D3C18264A_var*
-//#UC END# *52D00B00031A_D64D3C18264A_var*
 begin
-//#UC START# *52D00B00031A_D64D3C18264A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D64D3C18264A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству VScrollerVisible', aCtx);
 end;//TkwPopControlVScrollerVisible.SetValuePrim
 
 function TkwPopControlVScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,12 +199,8 @@ begin
 end;//TkwPopControlVScrollerVisible.GetAllParamsCount
 
 function TkwPopControlVScrollerVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D64D3C18264A_var*
-//#UC END# *5617F4D00243_D64D3C18264A_var*
 begin
-//#UC START# *5617F4D00243_D64D3C18264A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D64D3C18264A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TWinControl)]);
 end;//TkwPopControlVScrollerVisible.ParamsTypes
 
 function TkwPopControlHScrollerVisible.HScrollerVisible(const aCtx: TtfwContext;
@@ -245,12 +243,18 @@ begin
 end;//TkwPopControlHScrollerVisible.HScrollerVisible
 
 procedure TkwPopControlHScrollerVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F808620CE3AB_var*
-//#UC END# *4DAEEDE10285_F808620CE3AB_var*
+var l_aControl: TWinControl;
 begin
-//#UC START# *4DAEEDE10285_F808620CE3AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F808620CE3AB_impl*
+ try
+  l_aControl := TWinControl(aCtx.rEngine.PopObjAs(TWinControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aControl: TWinControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(HScrollerVisible(aCtx, l_aControl));
 end;//TkwPopControlHScrollerVisible.DoDoIt
 
 class function TkwPopControlHScrollerVisible.GetWordNameForRegister: AnsiString;
@@ -260,12 +264,8 @@ end;//TkwPopControlHScrollerVisible.GetWordNameForRegister
 
 procedure TkwPopControlHScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F808620CE3AB_var*
-//#UC END# *52D00B00031A_F808620CE3AB_var*
 begin
-//#UC START# *52D00B00031A_F808620CE3AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F808620CE3AB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HScrollerVisible', aCtx);
 end;//TkwPopControlHScrollerVisible.SetValuePrim
 
 function TkwPopControlHScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -279,12 +279,8 @@ begin
 end;//TkwPopControlHScrollerVisible.GetAllParamsCount
 
 function TkwPopControlHScrollerVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F808620CE3AB_var*
-//#UC END# *5617F4D00243_F808620CE3AB_var*
 begin
-//#UC START# *5617F4D00243_F808620CE3AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F808620CE3AB_impl*
+ Result := OpenTypesToTypes([TypeInfo(TWinControl)]);
 end;//TkwPopControlHScrollerVisible.ParamsTypes
 
 function TkwPopScrollingWinControlVScrollerVisible.VScrollerVisible(const aCtx: TtfwContext;
@@ -299,12 +295,18 @@ begin
 end;//TkwPopScrollingWinControlVScrollerVisible.VScrollerVisible
 
 procedure TkwPopScrollingWinControlVScrollerVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0E188022DACF_var*
-//#UC END# *4DAEEDE10285_0E188022DACF_var*
+var l_aScrollingWinControl: TScrollingWinControl;
 begin
-//#UC START# *4DAEEDE10285_0E188022DACF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0E188022DACF_impl*
+ try
+  l_aScrollingWinControl := TScrollingWinControl(aCtx.rEngine.PopObjAs(TScrollingWinControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aScrollingWinControl: TScrollingWinControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(VScrollerVisible(aCtx, l_aScrollingWinControl));
 end;//TkwPopScrollingWinControlVScrollerVisible.DoDoIt
 
 class function TkwPopScrollingWinControlVScrollerVisible.GetWordNameForRegister: AnsiString;
@@ -314,12 +316,8 @@ end;//TkwPopScrollingWinControlVScrollerVisible.GetWordNameForRegister
 
 procedure TkwPopScrollingWinControlVScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0E188022DACF_var*
-//#UC END# *52D00B00031A_0E188022DACF_var*
 begin
-//#UC START# *52D00B00031A_0E188022DACF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0E188022DACF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству VScrollerVisible', aCtx);
 end;//TkwPopScrollingWinControlVScrollerVisible.SetValuePrim
 
 function TkwPopScrollingWinControlVScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -333,12 +331,8 @@ begin
 end;//TkwPopScrollingWinControlVScrollerVisible.GetAllParamsCount
 
 function TkwPopScrollingWinControlVScrollerVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0E188022DACF_var*
-//#UC END# *5617F4D00243_0E188022DACF_var*
 begin
-//#UC START# *5617F4D00243_0E188022DACF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0E188022DACF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TScrollingWinControl)]);
 end;//TkwPopScrollingWinControlVScrollerVisible.ParamsTypes
 
 function TkwPopScrollingWinControlHScrollerVisible.HScrollerVisible(const aCtx: TtfwContext;
@@ -353,12 +347,18 @@ begin
 end;//TkwPopScrollingWinControlHScrollerVisible.HScrollerVisible
 
 procedure TkwPopScrollingWinControlHScrollerVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B46C6A433AAC_var*
-//#UC END# *4DAEEDE10285_B46C6A433AAC_var*
+var l_aScrollingWinControl: TScrollingWinControl;
 begin
-//#UC START# *4DAEEDE10285_B46C6A433AAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B46C6A433AAC_impl*
+ try
+  l_aScrollingWinControl := TScrollingWinControl(aCtx.rEngine.PopObjAs(TScrollingWinControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aScrollingWinControl: TScrollingWinControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(HScrollerVisible(aCtx, l_aScrollingWinControl));
 end;//TkwPopScrollingWinControlHScrollerVisible.DoDoIt
 
 class function TkwPopScrollingWinControlHScrollerVisible.GetWordNameForRegister: AnsiString;
@@ -368,12 +368,8 @@ end;//TkwPopScrollingWinControlHScrollerVisible.GetWordNameForRegister
 
 procedure TkwPopScrollingWinControlHScrollerVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B46C6A433AAC_var*
-//#UC END# *52D00B00031A_B46C6A433AAC_var*
 begin
-//#UC START# *52D00B00031A_B46C6A433AAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B46C6A433AAC_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HScrollerVisible', aCtx);
 end;//TkwPopScrollingWinControlHScrollerVisible.SetValuePrim
 
 function TkwPopScrollingWinControlHScrollerVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -387,12 +383,8 @@ begin
 end;//TkwPopScrollingWinControlHScrollerVisible.GetAllParamsCount
 
 function TkwPopScrollingWinControlHScrollerVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B46C6A433AAC_var*
-//#UC END# *5617F4D00243_B46C6A433AAC_var*
 begin
-//#UC START# *5617F4D00243_B46C6A433AAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B46C6A433AAC_impl*
+ Result := OpenTypesToTypes([TypeInfo(TScrollingWinControl)]);
 end;//TkwPopScrollingWinControlHScrollerVisible.ParamsTypes
 
 initialization

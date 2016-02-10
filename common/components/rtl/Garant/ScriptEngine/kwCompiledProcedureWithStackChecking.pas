@@ -1,46 +1,38 @@
 unit kwCompiledProcedureWithStackChecking;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledProcedureWithStackChecking.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledProcedureWithStackChecking
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWithStackChecking.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledProcedure,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledProcedure
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _tfwStackChecking_Parent_ = TkwCompiledProcedure;
- {$Include ..\ScriptEngine\tfwStackChecking.imp.pas}
+ {$Include tfwStackChecking.imp.pas}
  TkwCompiledProcedureWithStackChecking = class(_tfwStackChecking_)
  end;//TkwCompiledProcedureWithStackChecking
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
-{$Include ..\ScriptEngine\tfwStackChecking.imp.pas}
-
-
-{$IfEnd} //not NoScripts
+{$Include tfwStackChecking.imp.pas}
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledProcedureWithStackChecking
  TkwCompiledProcedureWithStackChecking.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledProcedureWithStackChecking }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

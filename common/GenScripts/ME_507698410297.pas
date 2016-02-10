@@ -349,12 +349,28 @@ begin
 end;//TkwPopObjectInherits.Inherits
 
 procedure TkwPopObjectInherits.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C6231F1FCA26_var*
-//#UC END# *4DAEEDE10285_C6231F1FCA26_var*
+var l_aObject: TObject;
+var l_aClass: TtfwStackValue;
 begin
-//#UC START# *4DAEEDE10285_C6231F1FCA26_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C6231F1FCA26_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aClass := aCtx.rEngine.Pop;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aClass: TtfwStackValue : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Inherits(aCtx, l_aObject, l_aClass));
 end;//TkwPopObjectInherits.DoDoIt
 
 class function TkwPopObjectInherits.GetWordNameForRegister: AnsiString;
@@ -373,12 +389,8 @@ begin
 end;//TkwPopObjectInherits.GetAllParamsCount
 
 function TkwPopObjectInherits.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C6231F1FCA26_var*
-//#UC END# *5617F4D00243_C6231F1FCA26_var*
 begin
-//#UC START# *5617F4D00243_C6231F1FCA26_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C6231F1FCA26_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiStruct]);
 end;//TkwPopObjectInherits.ParamsTypes
 
 function TkwPopObjectClassName.ClassName(const aCtx: TtfwContext;
@@ -396,12 +408,18 @@ begin
 end;//TkwPopObjectClassName.ClassName
 
 procedure TkwPopObjectClassName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7B6D4B0B5715_var*
-//#UC END# *4DAEEDE10285_7B6D4B0B5715_var*
+var l_aObject: TObject;
 begin
-//#UC START# *4DAEEDE10285_7B6D4B0B5715_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7B6D4B0B5715_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(ClassName(aCtx, l_aObject));
 end;//TkwPopObjectClassName.DoDoIt
 
 class function TkwPopObjectClassName.GetWordNameForRegister: AnsiString;
@@ -420,12 +438,8 @@ begin
 end;//TkwPopObjectClassName.GetAllParamsCount
 
 function TkwPopObjectClassName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7B6D4B0B5715_var*
-//#UC END# *5617F4D00243_7B6D4B0B5715_var*
 begin
-//#UC START# *5617F4D00243_7B6D4B0B5715_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7B6D4B0B5715_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject)]);
 end;//TkwPopObjectClassName.ParamsTypes
 
 function TkwPopObjectGetFloatProp.GetFloatProp(const aCtx: TtfwContext;
@@ -441,12 +455,28 @@ begin
 end;//TkwPopObjectGetFloatProp.GetFloatProp
 
 procedure TkwPopObjectGetFloatProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EDA57987A3B6_var*
-//#UC END# *4DAEEDE10285_EDA57987A3B6_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_EDA57987A3B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EDA57987A3B6_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(GetFloatProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectGetFloatProp.DoDoIt
 
 class function TkwPopObjectGetFloatProp.GetWordNameForRegister: AnsiString;
@@ -465,12 +495,8 @@ begin
 end;//TkwPopObjectGetFloatProp.GetAllParamsCount
 
 function TkwPopObjectGetFloatProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EDA57987A3B6_var*
-//#UC END# *5617F4D00243_EDA57987A3B6_var*
 begin
-//#UC START# *5617F4D00243_EDA57987A3B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EDA57987A3B6_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetFloatProp.ParamsTypes
 
 function TkwPopObjectGetInterfaceProp.GetInterfaceProp(const aCtx: TtfwContext;
@@ -486,12 +512,28 @@ begin
 end;//TkwPopObjectGetInterfaceProp.GetInterfaceProp
 
 procedure TkwPopObjectGetInterfaceProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AB78BA187455_var*
-//#UC END# *4DAEEDE10285_AB78BA187455_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_AB78BA187455_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AB78BA187455_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushIntf(GetInterfaceProp(aCtx, l_aObject, l_aName),IUnknown);
 end;//TkwPopObjectGetInterfaceProp.DoDoIt
 
 class function TkwPopObjectGetInterfaceProp.GetWordNameForRegister: AnsiString;
@@ -510,12 +552,8 @@ begin
 end;//TkwPopObjectGetInterfaceProp.GetAllParamsCount
 
 function TkwPopObjectGetInterfaceProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AB78BA187455_var*
-//#UC END# *5617F4D00243_AB78BA187455_var*
 begin
-//#UC START# *5617F4D00243_AB78BA187455_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AB78BA187455_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetInterfaceProp.ParamsTypes
 
 function TkwPopObjectGetObjProp.GetObjProp(const aCtx: TtfwContext;
@@ -531,12 +569,28 @@ begin
 end;//TkwPopObjectGetObjProp.GetObjProp
 
 procedure TkwPopObjectGetObjProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BA0E0748BC5D_var*
-//#UC END# *4DAEEDE10285_BA0E0748BC5D_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_BA0E0748BC5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BA0E0748BC5D_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetObjProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectGetObjProp.DoDoIt
 
 class function TkwPopObjectGetObjProp.GetWordNameForRegister: AnsiString;
@@ -555,12 +609,8 @@ begin
 end;//TkwPopObjectGetObjProp.GetAllParamsCount
 
 function TkwPopObjectGetObjProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BA0E0748BC5D_var*
-//#UC END# *5617F4D00243_BA0E0748BC5D_var*
 begin
-//#UC START# *5617F4D00243_BA0E0748BC5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BA0E0748BC5D_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetObjProp.ParamsTypes
 
 function TkwPopObjectGetOrdProp.GetOrdProp(const aCtx: TtfwContext;
@@ -576,12 +626,28 @@ begin
 end;//TkwPopObjectGetOrdProp.GetOrdProp
 
 procedure TkwPopObjectGetOrdProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AB11F1E6DB9D_var*
-//#UC END# *4DAEEDE10285_AB11F1E6DB9D_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_AB11F1E6DB9D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AB11F1E6DB9D_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(GetOrdProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectGetOrdProp.DoDoIt
 
 class function TkwPopObjectGetOrdProp.GetWordNameForRegister: AnsiString;
@@ -600,12 +666,8 @@ begin
 end;//TkwPopObjectGetOrdProp.GetAllParamsCount
 
 function TkwPopObjectGetOrdProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AB11F1E6DB9D_var*
-//#UC END# *5617F4D00243_AB11F1E6DB9D_var*
 begin
-//#UC START# *5617F4D00243_AB11F1E6DB9D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AB11F1E6DB9D_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetOrdProp.ParamsTypes
 
 function TkwPopObjectGetStrProp.GetStrProp(const aCtx: TtfwContext;
@@ -621,12 +683,28 @@ begin
 end;//TkwPopObjectGetStrProp.GetStrProp
 
 procedure TkwPopObjectGetStrProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B3D2E54183FE_var*
-//#UC END# *4DAEEDE10285_B3D2E54183FE_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_B3D2E54183FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B3D2E54183FE_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(GetStrProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectGetStrProp.DoDoIt
 
 class function TkwPopObjectGetStrProp.GetWordNameForRegister: AnsiString;
@@ -645,12 +723,8 @@ begin
 end;//TkwPopObjectGetStrProp.GetAllParamsCount
 
 function TkwPopObjectGetStrProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B3D2E54183FE_var*
-//#UC END# *5617F4D00243_B3D2E54183FE_var*
 begin
-//#UC START# *5617F4D00243_B3D2E54183FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B3D2E54183FE_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectGetStrProp.ParamsTypes
 
 function TkwPopObjectHasProp.HasProp(const aCtx: TtfwContext;
@@ -666,12 +740,28 @@ begin
 end;//TkwPopObjectHasProp.HasProp
 
 procedure TkwPopObjectHasProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6EBCA1F985F5_var*
-//#UC END# *4DAEEDE10285_6EBCA1F985F5_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_6EBCA1F985F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6EBCA1F985F5_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(HasProp(aCtx, l_aObject, l_aName));
 end;//TkwPopObjectHasProp.DoDoIt
 
 class function TkwPopObjectHasProp.GetWordNameForRegister: AnsiString;
@@ -690,12 +780,8 @@ begin
 end;//TkwPopObjectHasProp.GetAllParamsCount
 
 function TkwPopObjectHasProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6EBCA1F985F5_var*
-//#UC END# *5617F4D00243_6EBCA1F985F5_var*
 begin
-//#UC START# *5617F4D00243_6EBCA1F985F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6EBCA1F985F5_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString]);
 end;//TkwPopObjectHasProp.ParamsTypes
 
 function TkwPopObjectRTTIInfo.RTTIInfo(const aCtx: TtfwContext;
@@ -710,12 +796,18 @@ begin
 end;//TkwPopObjectRTTIInfo.RTTIInfo
 
 procedure TkwPopObjectRTTIInfo.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0725EE68AD3B_var*
-//#UC END# *4DAEEDE10285_0725EE68AD3B_var*
+var l_aObject: TObject;
 begin
-//#UC START# *4DAEEDE10285_0725EE68AD3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0725EE68AD3B_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(RTTIInfo(aCtx, l_aObject));
 end;//TkwPopObjectRTTIInfo.DoDoIt
 
 class function TkwPopObjectRTTIInfo.GetWordNameForRegister: AnsiString;
@@ -734,12 +826,8 @@ begin
 end;//TkwPopObjectRTTIInfo.GetAllParamsCount
 
 function TkwPopObjectRTTIInfo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0725EE68AD3B_var*
-//#UC END# *5617F4D00243_0725EE68AD3B_var*
 begin
-//#UC START# *5617F4D00243_0725EE68AD3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0725EE68AD3B_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject)]);
 end;//TkwPopObjectRTTIInfo.ParamsTypes
 
 procedure TkwPopObjectSetFloatProp.SetFloatProp(const aCtx: TtfwContext;
@@ -756,12 +844,38 @@ begin
 end;//TkwPopObjectSetFloatProp.SetFloatProp
 
 procedure TkwPopObjectSetFloatProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_529CD18EA056_var*
-//#UC END# *4DAEEDE10285_529CD18EA056_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
+var l_aValue: Integer;
 begin
-//#UC START# *4DAEEDE10285_529CD18EA056_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_529CD18EA056_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetFloatProp(aCtx, l_aObject, l_aName, l_aValue);
 end;//TkwPopObjectSetFloatProp.DoDoIt
 
 class function TkwPopObjectSetFloatProp.GetWordNameForRegister: AnsiString;
@@ -780,12 +894,8 @@ begin
 end;//TkwPopObjectSetFloatProp.GetAllParamsCount
 
 function TkwPopObjectSetFloatProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_529CD18EA056_var*
-//#UC END# *5617F4D00243_529CD18EA056_var*
 begin
-//#UC START# *5617F4D00243_529CD18EA056_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_529CD18EA056_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwPopObjectSetFloatProp.ParamsTypes
 
 procedure TkwPopObjectSetOrdProp.SetOrdProp(const aCtx: TtfwContext;
@@ -802,12 +912,38 @@ begin
 end;//TkwPopObjectSetOrdProp.SetOrdProp
 
 procedure TkwPopObjectSetOrdProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A2938530A58A_var*
-//#UC END# *4DAEEDE10285_A2938530A58A_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
+var l_aValue: Integer;
 begin
-//#UC START# *4DAEEDE10285_A2938530A58A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A2938530A58A_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetOrdProp(aCtx, l_aObject, l_aName, l_aValue);
 end;//TkwPopObjectSetOrdProp.DoDoIt
 
 class function TkwPopObjectSetOrdProp.GetWordNameForRegister: AnsiString;
@@ -826,12 +962,8 @@ begin
 end;//TkwPopObjectSetOrdProp.GetAllParamsCount
 
 function TkwPopObjectSetOrdProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A2938530A58A_var*
-//#UC END# *5617F4D00243_A2938530A58A_var*
 begin
-//#UC START# *5617F4D00243_A2938530A58A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A2938530A58A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwPopObjectSetOrdProp.ParamsTypes
 
 procedure TkwPopObjectSetStrProp.SetStrProp(const aCtx: TtfwContext;
@@ -848,12 +980,38 @@ begin
 end;//TkwPopObjectSetStrProp.SetStrProp
 
 procedure TkwPopObjectSetStrProp.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_798893499F18_var*
-//#UC END# *4DAEEDE10285_798893499F18_var*
+var l_aObject: TObject;
+var l_aName: AnsiString;
+var l_aValue: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_798893499F18_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_798893499F18_impl*
+ try
+  l_aObject := TObject(aCtx.rEngine.PopObjAs(TObject));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aObject: TObject : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ SetStrProp(aCtx, l_aObject, l_aName, l_aValue);
 end;//TkwPopObjectSetStrProp.DoDoIt
 
 class function TkwPopObjectSetStrProp.GetWordNameForRegister: AnsiString;
@@ -872,12 +1030,8 @@ begin
 end;//TkwPopObjectSetStrProp.GetAllParamsCount
 
 function TkwPopObjectSetStrProp.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_798893499F18_var*
-//#UC END# *5617F4D00243_798893499F18_var*
 begin
-//#UC START# *5617F4D00243_798893499F18_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_798893499F18_impl*
+ Result := OpenTypesToTypes([TypeInfo(TObject), @tfw_tiString, @tfw_tiString]);
 end;//TkwPopObjectSetStrProp.ParamsTypes
 
 initialization

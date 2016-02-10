@@ -130,12 +130,18 @@ begin
 end;//TkwPopDictionaryWordsIterator.WordsIterator
 
 procedure TkwPopDictionaryWordsIterator.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D1DB0CBA0A4E_var*
-//#UC END# *4DAEEDE10285_D1DB0CBA0A4E_var*
+var l_aDictionary: TtfwDictionary;
 begin
-//#UC START# *4DAEEDE10285_D1DB0CBA0A4E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D1DB0CBA0A4E_impl*
+ try
+  l_aDictionary := TtfwDictionary(aCtx.rEngine.PopObjAs(TtfwDictionary));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDictionary: TtfwDictionary : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushList(WordsIterator(aCtx, l_aDictionary));
 end;//TkwPopDictionaryWordsIterator.DoDoIt
 
 class function TkwPopDictionaryWordsIterator.GetWordNameForRegister: AnsiString;
@@ -154,12 +160,8 @@ begin
 end;//TkwPopDictionaryWordsIterator.GetAllParamsCount
 
 function TkwPopDictionaryWordsIterator.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D1DB0CBA0A4E_var*
-//#UC END# *5617F4D00243_D1DB0CBA0A4E_var*
 begin
-//#UC START# *5617F4D00243_D1DB0CBA0A4E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D1DB0CBA0A4E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionary)]);
 end;//TkwPopDictionaryWordsIterator.ParamsTypes
 
 function TkwPopDictionaryKeywordByName.KeywordByName(const aCtx: TtfwContext;
@@ -175,12 +177,28 @@ begin
 end;//TkwPopDictionaryKeywordByName.KeywordByName
 
 procedure TkwPopDictionaryKeywordByName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9E811BEE054C_var*
-//#UC END# *4DAEEDE10285_9E811BEE054C_var*
+var l_aDictionary: TtfwDictionary;
+var l_aName: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_9E811BEE054C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9E811BEE054C_impl*
+ try
+  l_aDictionary := TtfwDictionary(aCtx.rEngine.PopObjAs(TtfwDictionary));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDictionary: TtfwDictionary : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(KeywordByName(aCtx, l_aDictionary, l_aName));
 end;//TkwPopDictionaryKeywordByName.DoDoIt
 
 class function TkwPopDictionaryKeywordByName.GetWordNameForRegister: AnsiString;
@@ -199,12 +217,8 @@ begin
 end;//TkwPopDictionaryKeywordByName.GetAllParamsCount
 
 function TkwPopDictionaryKeywordByName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9E811BEE054C_var*
-//#UC END# *5617F4D00243_9E811BEE054C_var*
 begin
-//#UC START# *5617F4D00243_9E811BEE054C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9E811BEE054C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionary), @tfw_tiString]);
 end;//TkwPopDictionaryKeywordByName.ParamsTypes
 
 function TkwPopDictionaryKeyWordsIterator.KeyWordsIterator(const aCtx: TtfwContext;
@@ -219,12 +233,18 @@ begin
 end;//TkwPopDictionaryKeyWordsIterator.KeyWordsIterator
 
 procedure TkwPopDictionaryKeyWordsIterator.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7A25B6D5DC06_var*
-//#UC END# *4DAEEDE10285_7A25B6D5DC06_var*
+var l_aDictionary: TtfwDictionary;
 begin
-//#UC START# *4DAEEDE10285_7A25B6D5DC06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7A25B6D5DC06_impl*
+ try
+  l_aDictionary := TtfwDictionary(aCtx.rEngine.PopObjAs(TtfwDictionary));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDictionary: TtfwDictionary : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushList(KeyWordsIterator(aCtx, l_aDictionary));
 end;//TkwPopDictionaryKeyWordsIterator.DoDoIt
 
 class function TkwPopDictionaryKeyWordsIterator.GetWordNameForRegister: AnsiString;
@@ -243,12 +263,8 @@ begin
 end;//TkwPopDictionaryKeyWordsIterator.GetAllParamsCount
 
 function TkwPopDictionaryKeyWordsIterator.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7A25B6D5DC06_var*
-//#UC END# *5617F4D00243_7A25B6D5DC06_var*
 begin
-//#UC START# *5617F4D00243_7A25B6D5DC06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7A25B6D5DC06_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionary)]);
 end;//TkwPopDictionaryKeyWordsIterator.ParamsTypes
 
 function TkwPopDictionaryOwnKeywordByName.OwnKeywordByName(const aCtx: TtfwContext;
@@ -264,12 +280,28 @@ begin
 end;//TkwPopDictionaryOwnKeywordByName.OwnKeywordByName
 
 procedure TkwPopDictionaryOwnKeywordByName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5D0B14C07C4C_var*
-//#UC END# *4DAEEDE10285_5D0B14C07C4C_var*
+var l_aDictionary: TtfwDictionary;
+var l_aName: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_5D0B14C07C4C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5D0B14C07C4C_impl*
+ try
+  l_aDictionary := TtfwDictionary(aCtx.rEngine.PopObjAs(TtfwDictionary));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDictionary: TtfwDictionary : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(OwnKeywordByName(aCtx, l_aDictionary, l_aName));
 end;//TkwPopDictionaryOwnKeywordByName.DoDoIt
 
 class function TkwPopDictionaryOwnKeywordByName.GetWordNameForRegister: AnsiString;
@@ -288,12 +320,8 @@ begin
 end;//TkwPopDictionaryOwnKeywordByName.GetAllParamsCount
 
 function TkwPopDictionaryOwnKeywordByName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5D0B14C07C4C_var*
-//#UC END# *5617F4D00243_5D0B14C07C4C_var*
 begin
-//#UC START# *5617F4D00243_5D0B14C07C4C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5D0B14C07C4C_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionary), @tfw_tiString]);
 end;//TkwPopDictionaryOwnKeywordByName.ParamsTypes
 
 initialization

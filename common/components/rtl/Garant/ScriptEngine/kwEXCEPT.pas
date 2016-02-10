@@ -1,51 +1,40 @@
 unit kwEXCEPT;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwEXCEPT.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::EXCEPT
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEXCEPT.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwMedianBacket
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwMedianBacket
+;
 
-{$If not defined(NoScripts)}
 type
- TkwEXCEPT = {final scriptword} class(TkwMedianBacket)
- protected
- // overridden protected methods
+ TkwEXCEPT = {final} class(TkwMedianBacket)
+  protected
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwEXCEPT
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwEXCEPT
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 class function TkwEXCEPT.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'EXCEPT';
 end;//TkwEXCEPT.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация EXCEPT
  TkwEXCEPT.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация EXCEPT }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

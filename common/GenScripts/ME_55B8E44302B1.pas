@@ -74,12 +74,28 @@ begin
 end;//TkwPopActionListFindAction.FindAction
 
 procedure TkwPopActionListFindAction.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E7F049DA4A74_var*
-//#UC END# *4DAEEDE10285_E7F049DA4A74_var*
+var l_aActionList: TActionList;
+var l_anActionName: AnsiString;
 begin
-//#UC START# *4DAEEDE10285_E7F049DA4A74_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E7F049DA4A74_impl*
+ try
+  l_aActionList := TActionList(aCtx.rEngine.PopObjAs(TActionList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aActionList: TActionList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anActionName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anActionName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FindAction(aCtx, l_aActionList, l_anActionName));
 end;//TkwPopActionListFindAction.DoDoIt
 
 class function TkwPopActionListFindAction.GetWordNameForRegister: AnsiString;
@@ -98,12 +114,8 @@ begin
 end;//TkwPopActionListFindAction.GetAllParamsCount
 
 function TkwPopActionListFindAction.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E7F049DA4A74_var*
-//#UC END# *5617F4D00243_E7F049DA4A74_var*
 begin
-//#UC START# *5617F4D00243_E7F049DA4A74_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E7F049DA4A74_impl*
+ Result := OpenTypesToTypes([TypeInfo(TActionList), @tfw_tiString]);
 end;//TkwPopActionListFindAction.ParamsTypes
 
 initialization

@@ -1,60 +1,60 @@
 unit seModalSupport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "seModalSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: UtilityPack::Class Shared Delphi Low Level::ScriptEngine::CodeFlowWords::seModalSupport
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seModalSupport.pas"
+// Стереотип: "UtilityPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3ProtoObject,
-  tfwScriptingInterfaces,
-  l3ModalService
-  ;
+ l3IntfUses
+ , tfwScriptingInterfaces
+ , l3ModalService
+ , l3ProtoObject
+;
 
 type
  TseModalService = {final} class(Tl3ProtoObject, Il3ModalService)
- public
- // realized methods
+  public
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
    function HasModalWorker: Boolean;
    function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
    class function Instance: TseModalService;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TseModalService }
  end;//TseModalService
-function SeAddModalWorker(aWorker: TtfwWord;
-  const aCtx: TtfwContext): Integer;
-function SeIsValidModalWorkersCount(aCount: Integer): Boolean;
-{$IfEnd} //not NoScripts
+
+function seAddModalWorker(aWorker: TtfwWord;
+ const aCtx: TtfwContext): Integer;
+function seIsValidModalWorkersCount(aCount: Integer): Boolean;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3MessagesService,
-  l3Base {a},
-  seModalWorkerList,
-  seModalWorker,
-  l3AFWExceptions,
-  l3BatchService
-  ;
+ l3ImplUses
+ , seModalWorkerList
+ , seModalWorker
+ , l3AFWExceptions
+ , l3BatchService
+ , l3MessagesService
+ , SysUtils
+ , l3Base
+;
 
-// unit methods
+var g_TseModalService: TseModalService = nil;
+ {* Экземпляр синглетона TseModalService }
 
-function SeExecuteCurrentModalWorker(aModalExecute: TseModalExecute): Boolean;
+procedure TseModalServiceFree;
+ {* Метод освобождения экземпляра синглетона TseModalService }
+begin
+ l3Free(g_TseModalService);
+end;//TseModalServiceFree
+
+function seExecuteCurrentModalWorker(aModalExecute: TseModalExecute): Boolean;
 //#UC START# *4FC754C20096_4FC7541C02BA_var*
 var
  l_W : TseModalWorker;
@@ -76,19 +76,19 @@ begin
  Tl3MessagesService.Instance.ProcessMessages;
  Result := true;
 //#UC END# *4FC754C20096_4FC7541C02BA_impl*
-end;//SeExecuteCurrentModalWorker
+end;//seExecuteCurrentModalWorker
 
-function SeHasModalWorker: Boolean;
+function seHasModalWorker: Boolean;
 //#UC START# *4FC7749201E0_4FC7541C02BA_var*
 //#UC END# *4FC7749201E0_4FC7541C02BA_var*
 begin
 //#UC START# *4FC7749201E0_4FC7541C02BA_impl*
  Result := not TseModalWorkerList.Instance.Empty;
 //#UC END# *4FC7749201E0_4FC7541C02BA_impl*
-end;//SeHasModalWorker
+end;//seHasModalWorker
 
-function SeAddModalWorker(aWorker: TtfwWord;
-  const aCtx: TtfwContext): Integer;
+function seAddModalWorker(aWorker: TtfwWord;
+ const aCtx: TtfwContext): Integer;
 //#UC START# *4FC7549A03B6_4FC7541C02BA_var*
 //#UC END# *4FC7549A03B6_4FC7541C02BA_var*
 begin
@@ -96,9 +96,9 @@ begin
  TseModalWorkerList.Instance.Add(TseModalWorker_C(aWorker, aCtx));
  Result := TseModalWorkerList.Instance.Count;
 //#UC END# *4FC7549A03B6_4FC7541C02BA_impl*
-end;//SeAddModalWorker
+end;//seAddModalWorker
 
-function SeIsValidModalWorkersCount(aCount: Integer): Boolean;
+function seIsValidModalWorkersCount(aCount: Integer): Boolean;
 //#UC START# *5193915002D8_4FC7541C02BA_var*
 //#UC END# *5193915002D8_4FC7541C02BA_var*
 begin
@@ -109,30 +109,10 @@ begin
   TseModalWorkerList.Instance.Delete(Pred(TseModalWorkerList.Instance.Count));
   // - снимаем этот код со стека, если он не выполнился
 //#UC END# *5193915002D8_4FC7541C02BA_impl*
-end;//SeIsValidModalWorkersCount
-
-// start class TseModalService
-
-var g_TseModalService : TseModalService = nil;
-
-procedure TseModalServiceFree;
-begin
- l3Free(g_TseModalService);
-end;
-
-class function TseModalService.Instance: TseModalService;
-begin
- if (g_TseModalService = nil) then
- begin
-  l3System.AddExitProc(TseModalServiceFree);
-  g_TseModalService := Create;
- end;
- Result := g_TseModalService;
-end;
-
+end;//seIsValidModalWorkersCount
 
 class function TseModalService.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TseModalService <> nil;
 end;//TseModalService.Exists
@@ -154,12 +134,21 @@ begin
  Result := SeExecuteCurrentModalWorker(aModalExecute);
 //#UC END# *553F8EA30300_553F737A02D6_impl*
 end;//TseModalService.ExecuteCurrentModalWorker
-{$IfEnd} //not NoScripts
+
+class function TseModalService.Instance: TseModalService;
+ {* Метод получения экземпляра синглетона TseModalService }
+begin
+ if (g_TseModalService = nil) then
+ begin
+  l3System.AddExitProc(TseModalServiceFree);
+  g_TseModalService := Create;
+ end;
+ Result := g_TseModalService;
+end;//TseModalService.Instance
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TseModalService
  Tl3ModalService.Instance.Alien := TseModalService.Instance;
-{$IfEnd} //not NoScripts
+ {* Регистрация TseModalService }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

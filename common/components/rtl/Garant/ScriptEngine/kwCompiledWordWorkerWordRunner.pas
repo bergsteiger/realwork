@@ -1,119 +1,83 @@
 unit kwCompiledWordWorkerWordRunner;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledWordWorkerWordRunner.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledWordWorkerWordRunner
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordWorkerWordRunner.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwWordRefList,
-  kwCompiledWordWorker,
-  tfwTypeInfo
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordWorker
+ , tfwScriptingInterfaces
+ , tfwWordRefList
+ , tfwTypeInfo
+;
 
-{$If not defined(NoScripts)}
 type
  RkwCompiledWordWorkerWordRunner = class of TkwCompiledWordWorkerWordRunner;
 
  TkwCompiledWordWorkerWordRunner = class(TkwCompiledWordWorker)
- private
- // private fields
-   f_LeftWordRefs : TtfwWordRefList;
-   f_WordToRun : TtfwWord;
-    {* Поле для свойства WordToRun}
-   f_Caller : TtfwWord;
-    {* Поле для свойства Caller}
- private
- // private methods
+  private
+   f_LeftWordRefs: TtfwWordRefList;
+   f_WordToRun: TtfwWord;
+    {* Поле для свойства WordToRun }
+   f_Caller: TtfwWord;
+    {* Поле для свойства Caller }
+  private
    procedure DoCode(const aCtx: TtfwContext);
    function ReturnsRef(const aCtx: TtfwContext): Boolean;
- protected
- // property methods
+  protected
    procedure pm_SetWordToRun(aValue: TtfwWord);
- protected
- // realized methods
+   procedure PushState(const aCtx: TtfwContext);
+   procedure PushWordToWork(const aCtx: TtfwContext);
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden property methods
-   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
+  public
    function IsImmediate(const aCtx: TtfwContext): Boolean; override;
    procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function LeftWordRefParamsCount(const aCtx: TtfwContext): Integer; override;
    procedure AddLeftWordRefValue(const aCtx: TtfwContext;
-     aValue: TtfwWord); override;
+    aValue: TtfwWord); override;
    function GetLeftWordRefValue(const aCtx: TtfwContext;
-     anIndex: Integer): TtfwWord; override;
+    anIndex: Integer): TtfwWord; override;
    function LeftWordRefValuesCount(const aCtx: TtfwContext): Integer; override;
    function GetRef(const aCtx: TtfwContext): TtfwWord; override;
    procedure SetValue(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
-   procedure PushState(const aCtx: TtfwContext);
-   procedure PushWordToWork(const aCtx: TtfwContext);
- public
- // public properties
+    const aCtx: TtfwContext); override;
+  public
    property WordToRun: TtfwWord
-     read f_WordToRun
-     write pm_SetWordToRun;
+    read f_WordToRun
+    write pm_SetWordToRun;
    property Caller: TtfwWord
-     read f_Caller
-     write f_Caller;
+    read f_Caller
+    write f_Caller;
  end;//TkwCompiledWordWorkerWordRunner
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  kwRuntimeWordWithCode,
-  tfwClassRef
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , kwRuntimeWordWithCode
+ , tfwClassRef
+;
 
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledWordWorkerWordRunner
-
-procedure TkwCompiledWordWorkerWordRunner.DoCode(const aCtx: TtfwContext);
-//#UC START# *558C303A01A1_4F2198430108_var*
-//#UC END# *558C303A01A1_4F2198430108_var*
+procedure TkwCompiledWordWorkerWordRunner.pm_SetWordToRun(aValue: TtfwWord);
+//#UC START# *4F219F4E03CB_4F2198430108set_var*
+//#UC END# *4F219F4E03CB_4F2198430108set_var*
 begin
-//#UC START# *558C303A01A1_4F2198430108_impl*
- PushState(aCtx);
- // - кладём параметры справа и слева на стек
- WordToRun.DoIt(aCtx);
- // - выполняем собственно определённое слово
-//#UC END# *558C303A01A1_4F2198430108_impl*
-end;//TkwCompiledWordWorkerWordRunner.DoCode
-
-function TkwCompiledWordWorkerWordRunner.ReturnsRef(const aCtx: TtfwContext): Boolean;
-//#UC START# *558C30D10043_4F2198430108_var*
-//#UC END# *558C30D10043_4F2198430108_var*
-begin
-//#UC START# *558C30D10043_4F2198430108_impl*
- Result := f_WordToRun.ResultTypeInfo[aCtx].Has(tfw_wmLeftWordRef);
-//#UC END# *558C30D10043_4F2198430108_impl*
-end;//TkwCompiledWordWorkerWordRunner.ReturnsRef
+//#UC START# *4F219F4E03CB_4F2198430108set_impl*
+ aValue.SetRefTo(f_WordToRun);
+//#UC END# *4F219F4E03CB_4F2198430108set_impl*
+end;//TkwCompiledWordWorkerWordRunner.pm_SetWordToRun
 
 procedure TkwCompiledWordWorkerWordRunner.PushState(const aCtx: TtfwContext);
 //#UC START# *4F3FF6C20122_4F2198430108_var*
@@ -149,14 +113,26 @@ begin
 //#UC END# *4F414A1A0247_4F2198430108_impl*
 end;//TkwCompiledWordWorkerWordRunner.PushWordToWork
 
-procedure TkwCompiledWordWorkerWordRunner.pm_SetWordToRun(aValue: TtfwWord);
-//#UC START# *4F219F4E03CB_4F2198430108set_var*
-//#UC END# *4F219F4E03CB_4F2198430108set_var*
+procedure TkwCompiledWordWorkerWordRunner.DoCode(const aCtx: TtfwContext);
+//#UC START# *558C303A01A1_4F2198430108_var*
+//#UC END# *558C303A01A1_4F2198430108_var*
 begin
-//#UC START# *4F219F4E03CB_4F2198430108set_impl*
- aValue.SetRefTo(f_WordToRun);
-//#UC END# *4F219F4E03CB_4F2198430108set_impl*
-end;//TkwCompiledWordWorkerWordRunner.pm_SetWordToRun
+//#UC START# *558C303A01A1_4F2198430108_impl*
+ PushState(aCtx);
+ // - кладём параметры справа и слева на стек
+ WordToRun.DoIt(aCtx);
+ // - выполняем собственно определённое слово
+//#UC END# *558C303A01A1_4F2198430108_impl*
+end;//TkwCompiledWordWorkerWordRunner.DoCode
+
+function TkwCompiledWordWorkerWordRunner.ReturnsRef(const aCtx: TtfwContext): Boolean;
+//#UC START# *558C30D10043_4F2198430108_var*
+//#UC END# *558C30D10043_4F2198430108_var*
+begin
+//#UC START# *558C30D10043_4F2198430108_impl*
+ Result := f_WordToRun.ResultTypeInfo[aCtx].Has(tfw_wmLeftWordRef);
+//#UC END# *558C30D10043_4F2198430108_impl*
+end;//TkwCompiledWordWorkerWordRunner.ReturnsRef
 
 procedure TkwCompiledWordWorkerWordRunner.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F2198430108_var*
@@ -171,6 +147,7 @@ begin
 end;//TkwCompiledWordWorkerWordRunner.DoDoIt
 
 procedure TkwCompiledWordWorkerWordRunner.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F2198430108_var*
 //#UC END# *479731C50290_4F2198430108_var*
 begin
@@ -204,7 +181,7 @@ begin
 end;//TkwCompiledWordWorkerWordRunner.pm_GetResultTypeInfo
 
 procedure TkwCompiledWordWorkerWordRunner.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D00B00031A_4F2198430108_var*
 //#UC END# *52D00B00031A_4F2198430108_var*
 begin
@@ -226,7 +203,7 @@ begin
 end;//TkwCompiledWordWorkerWordRunner.LeftWordRefParamsCount
 
 procedure TkwCompiledWordWorkerWordRunner.AddLeftWordRefValue(const aCtx: TtfwContext;
-  aValue: TtfwWord);
+ aValue: TtfwWord);
 //#UC START# *53E49B2F01E4_4F2198430108_var*
 //#UC END# *53E49B2F01E4_4F2198430108_var*
 begin
@@ -238,7 +215,7 @@ begin
 end;//TkwCompiledWordWorkerWordRunner.AddLeftWordRefValue
 
 function TkwCompiledWordWorkerWordRunner.GetLeftWordRefValue(const aCtx: TtfwContext;
-  anIndex: Integer): TtfwWord;
+ anIndex: Integer): TtfwWord;
 //#UC START# *53E4A3C100AB_4F2198430108_var*
 //#UC END# *53E4A3C100AB_4F2198430108_var*
 begin
@@ -281,7 +258,7 @@ begin
 end;//TkwCompiledWordWorkerWordRunner.GetRef
 
 procedure TkwCompiledWordWorkerWordRunner.SetValue(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *56096688024A_4F2198430108_var*
 //#UC END# *56096688024A_4F2198430108_var*
 begin
@@ -293,12 +270,9 @@ begin
 //#UC END# *56096688024A_4F2198430108_impl*
 end;//TkwCompiledWordWorkerWordRunner.SetValue
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledWordWorkerWordRunner
  TkwCompiledWordWorkerWordRunner.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledWordWorkerWordRunner }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

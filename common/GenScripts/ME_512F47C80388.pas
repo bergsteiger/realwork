@@ -64,12 +64,28 @@ begin
 end;//TkwPopTreeViewGetItem.GetItem
 
 procedure TkwPopTreeViewGetItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F4C36DEF11AB_var*
-//#UC END# *4DAEEDE10285_F4C36DEF11AB_var*
+var l_aTreeView: TTreeView;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_F4C36DEF11AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F4C36DEF11AB_impl*
+ try
+  l_aTreeView := TTreeView(aCtx.rEngine.PopObjAs(TTreeView));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeView: TTreeView : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetItem(aCtx, l_aTreeView, l_anIndex));
 end;//TkwPopTreeViewGetItem.DoDoIt
 
 class function TkwPopTreeViewGetItem.GetWordNameForRegister: AnsiString;
@@ -88,12 +104,8 @@ begin
 end;//TkwPopTreeViewGetItem.GetAllParamsCount
 
 function TkwPopTreeViewGetItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F4C36DEF11AB_var*
-//#UC END# *5617F4D00243_F4C36DEF11AB_var*
 begin
-//#UC START# *5617F4D00243_F4C36DEF11AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F4C36DEF11AB_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeView), TypeInfo(Integer)]);
 end;//TkwPopTreeViewGetItem.ParamsTypes
 
 initialization

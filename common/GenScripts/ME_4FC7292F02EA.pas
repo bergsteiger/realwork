@@ -223,12 +223,18 @@ begin
 end;//TkwMenuItemClick.Click
 
 procedure TkwMenuItemClick.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_639406FE8331_var*
-//#UC END# *4DAEEDE10285_639406FE8331_var*
+var l_aMenuItem: TMenuItem;
 begin
-//#UC START# *4DAEEDE10285_639406FE8331_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_639406FE8331_impl*
+ try
+  l_aMenuItem := TMenuItem(aCtx.rEngine.PopObjAs(TMenuItem));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuItem: TMenuItem : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Click(aCtx, l_aMenuItem);
 end;//TkwMenuItemClick.DoDoIt
 
 class function TkwMenuItemClick.GetWordNameForRegister: AnsiString;
@@ -247,12 +253,8 @@ begin
 end;//TkwMenuItemClick.GetAllParamsCount
 
 function TkwMenuItemClick.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_639406FE8331_var*
-//#UC END# *5617F4D00243_639406FE8331_var*
 begin
-//#UC START# *5617F4D00243_639406FE8331_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_639406FE8331_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemClick.ParamsTypes
 
 function TkwMenuItemGetItem.GetItem(const aCtx: TtfwContext;
@@ -269,12 +271,28 @@ begin
 end;//TkwMenuItemGetItem.GetItem
 
 procedure TkwMenuItemGetItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_89C28B4155A9_var*
-//#UC END# *4DAEEDE10285_89C28B4155A9_var*
+var l_aMenuItem: TMenuItem;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_89C28B4155A9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_89C28B4155A9_impl*
+ try
+  l_aMenuItem := TMenuItem(aCtx.rEngine.PopObjAs(TMenuItem));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuItem: TMenuItem : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetItem(aCtx, l_aMenuItem, l_anIndex));
 end;//TkwMenuItemGetItem.DoDoIt
 
 class function TkwMenuItemGetItem.GetWordNameForRegister: AnsiString;
@@ -293,12 +311,8 @@ begin
 end;//TkwMenuItemGetItem.GetAllParamsCount
 
 function TkwMenuItemGetItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_89C28B4155A9_var*
-//#UC END# *5617F4D00243_89C28B4155A9_var*
 begin
-//#UC START# *5617F4D00243_89C28B4155A9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_89C28B4155A9_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMenuItem), TypeInfo(Integer)]);
 end;//TkwMenuItemGetItem.ParamsTypes
 
 function TkwMenuItemGetMenuHeight.GetMenuHeight(const aCtx: TtfwContext;
@@ -331,12 +345,18 @@ begin
 end;//TkwMenuItemGetMenuHeight.GetMenuHeight
 
 procedure TkwMenuItemGetMenuHeight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F44EDB26B480_var*
-//#UC END# *4DAEEDE10285_F44EDB26B480_var*
+var l_aMenuItem: TMenuItem;
 begin
-//#UC START# *4DAEEDE10285_F44EDB26B480_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F44EDB26B480_impl*
+ try
+  l_aMenuItem := TMenuItem(aCtx.rEngine.PopObjAs(TMenuItem));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuItem: TMenuItem : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(GetMenuHeight(aCtx, l_aMenuItem));
 end;//TkwMenuItemGetMenuHeight.DoDoIt
 
 class function TkwMenuItemGetMenuHeight.GetWordNameForRegister: AnsiString;
@@ -355,12 +375,8 @@ begin
 end;//TkwMenuItemGetMenuHeight.GetAllParamsCount
 
 function TkwMenuItemGetMenuHeight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F44EDB26B480_var*
-//#UC END# *5617F4D00243_F44EDB26B480_var*
 begin
-//#UC START# *5617F4D00243_F44EDB26B480_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F44EDB26B480_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemGetMenuHeight.ParamsTypes
 
 function TkwMenuItemCaption.Caption(const aCtx: TtfwContext;
@@ -375,12 +391,18 @@ begin
 end;//TkwMenuItemCaption.Caption
 
 procedure TkwMenuItemCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8BC1AB992E7A_var*
-//#UC END# *4DAEEDE10285_8BC1AB992E7A_var*
+var l_aMenuItem: TMenuItem;
 begin
-//#UC START# *4DAEEDE10285_8BC1AB992E7A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8BC1AB992E7A_impl*
+ try
+  l_aMenuItem := TMenuItem(aCtx.rEngine.PopObjAs(TMenuItem));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuItem: TMenuItem : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Caption(aCtx, l_aMenuItem));
 end;//TkwMenuItemCaption.DoDoIt
 
 class function TkwMenuItemCaption.GetWordNameForRegister: AnsiString;
@@ -390,12 +412,8 @@ end;//TkwMenuItemCaption.GetWordNameForRegister
 
 procedure TkwMenuItemCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8BC1AB992E7A_var*
-//#UC END# *52D00B00031A_8BC1AB992E7A_var*
 begin
-//#UC START# *52D00B00031A_8BC1AB992E7A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8BC1AB992E7A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
 end;//TkwMenuItemCaption.SetValuePrim
 
 function TkwMenuItemCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -409,12 +427,8 @@ begin
 end;//TkwMenuItemCaption.GetAllParamsCount
 
 function TkwMenuItemCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8BC1AB992E7A_var*
-//#UC END# *5617F4D00243_8BC1AB992E7A_var*
 begin
-//#UC START# *5617F4D00243_8BC1AB992E7A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8BC1AB992E7A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemCaption.ParamsTypes
 
 function TkwMenuItemCount.Count(const aCtx: TtfwContext;
@@ -429,12 +443,18 @@ begin
 end;//TkwMenuItemCount.Count
 
 procedure TkwMenuItemCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E34D149B8718_var*
-//#UC END# *4DAEEDE10285_E34D149B8718_var*
+var l_aMenuItem: TMenuItem;
 begin
-//#UC START# *4DAEEDE10285_E34D149B8718_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E34D149B8718_impl*
+ try
+  l_aMenuItem := TMenuItem(aCtx.rEngine.PopObjAs(TMenuItem));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuItem: TMenuItem : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(Count(aCtx, l_aMenuItem));
 end;//TkwMenuItemCount.DoDoIt
 
 class function TkwMenuItemCount.GetWordNameForRegister: AnsiString;
@@ -444,12 +464,8 @@ end;//TkwMenuItemCount.GetWordNameForRegister
 
 procedure TkwMenuItemCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E34D149B8718_var*
-//#UC END# *52D00B00031A_E34D149B8718_var*
 begin
-//#UC START# *52D00B00031A_E34D149B8718_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E34D149B8718_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Count', aCtx);
 end;//TkwMenuItemCount.SetValuePrim
 
 function TkwMenuItemCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -463,12 +479,8 @@ begin
 end;//TkwMenuItemCount.GetAllParamsCount
 
 function TkwMenuItemCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E34D149B8718_var*
-//#UC END# *5617F4D00243_E34D149B8718_var*
 begin
-//#UC START# *5617F4D00243_E34D149B8718_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E34D149B8718_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemCount.ParamsTypes
 
 function TkwMenuItemEnabled.Enabled(const aCtx: TtfwContext;
@@ -483,12 +495,18 @@ begin
 end;//TkwMenuItemEnabled.Enabled
 
 procedure TkwMenuItemEnabled.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BDC4E91C886F_var*
-//#UC END# *4DAEEDE10285_BDC4E91C886F_var*
+var l_aMenuItem: TMenuItem;
 begin
-//#UC START# *4DAEEDE10285_BDC4E91C886F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BDC4E91C886F_impl*
+ try
+  l_aMenuItem := TMenuItem(aCtx.rEngine.PopObjAs(TMenuItem));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuItem: TMenuItem : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Enabled(aCtx, l_aMenuItem));
 end;//TkwMenuItemEnabled.DoDoIt
 
 class function TkwMenuItemEnabled.GetWordNameForRegister: AnsiString;
@@ -498,12 +516,8 @@ end;//TkwMenuItemEnabled.GetWordNameForRegister
 
 procedure TkwMenuItemEnabled.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BDC4E91C886F_var*
-//#UC END# *52D00B00031A_BDC4E91C886F_var*
 begin
-//#UC START# *52D00B00031A_BDC4E91C886F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BDC4E91C886F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Enabled', aCtx);
 end;//TkwMenuItemEnabled.SetValuePrim
 
 function TkwMenuItemEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -517,12 +531,8 @@ begin
 end;//TkwMenuItemEnabled.GetAllParamsCount
 
 function TkwMenuItemEnabled.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BDC4E91C886F_var*
-//#UC END# *5617F4D00243_BDC4E91C886F_var*
 begin
-//#UC START# *5617F4D00243_BDC4E91C886F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BDC4E91C886F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemEnabled.ParamsTypes
 
 function TkwMenuItemVisible.Visible(const aCtx: TtfwContext;
@@ -537,12 +547,18 @@ begin
 end;//TkwMenuItemVisible.Visible
 
 procedure TkwMenuItemVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5633D99495D3_var*
-//#UC END# *4DAEEDE10285_5633D99495D3_var*
+var l_aMenuItem: TMenuItem;
 begin
-//#UC START# *4DAEEDE10285_5633D99495D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5633D99495D3_impl*
+ try
+  l_aMenuItem := TMenuItem(aCtx.rEngine.PopObjAs(TMenuItem));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuItem: TMenuItem : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(Visible(aCtx, l_aMenuItem));
 end;//TkwMenuItemVisible.DoDoIt
 
 class function TkwMenuItemVisible.GetWordNameForRegister: AnsiString;
@@ -552,12 +568,8 @@ end;//TkwMenuItemVisible.GetWordNameForRegister
 
 procedure TkwMenuItemVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_5633D99495D3_var*
-//#UC END# *52D00B00031A_5633D99495D3_var*
 begin
-//#UC START# *52D00B00031A_5633D99495D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_5633D99495D3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Visible', aCtx);
 end;//TkwMenuItemVisible.SetValuePrim
 
 function TkwMenuItemVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -571,12 +583,8 @@ begin
 end;//TkwMenuItemVisible.GetAllParamsCount
 
 function TkwMenuItemVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5633D99495D3_var*
-//#UC END# *5617F4D00243_5633D99495D3_var*
 begin
-//#UC START# *5617F4D00243_5633D99495D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5633D99495D3_impl*
+ Result := OpenTypesToTypes([TypeInfo(TMenuItem)]);
 end;//TkwMenuItemVisible.ParamsTypes
 
 initialization

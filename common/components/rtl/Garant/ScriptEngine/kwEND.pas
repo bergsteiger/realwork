@@ -1,51 +1,40 @@
 unit kwEND;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwEND.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::END
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEND.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCloseBracket
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCloseBracket
+;
 
-{$If not defined(NoScripts)}
 type
- TkwEND = {final scriptword} class(TkwCloseBracket)
- protected
- // overridden protected methods
+ TkwEND = {final} class(TkwCloseBracket)
+  protected
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwEND
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwEND
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 class function TkwEND.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'END';
 end;//TkwEND.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация END
  TkwEND.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация END }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

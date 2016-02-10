@@ -1,44 +1,33 @@
 unit kwCheckEtalon;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwCheckEtalon.pas"
-// Начат: 19.05.2011 20:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::EtalonsWorking::CheckEtalon
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCheckEtalon.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwCheckEtalon = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwCheckEtalon = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwCheckEtalon
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwCheckEtalon
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwCheckEtalon.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DD547B70001_var*
@@ -61,17 +50,13 @@ begin
 end;//TkwCheckEtalon.DoDoIt
 
 class function TkwCheckEtalon.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tests:CheckEtalon';
 end;//TkwCheckEtalon.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация CheckEtalon
  TkwCheckEtalon.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация CheckEtalon }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

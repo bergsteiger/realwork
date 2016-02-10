@@ -1,51 +1,36 @@
 unit kwCompiledTryExcept;
+ {* Скомпилированная версия try except }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwCompiledTryExcept.pas"
-// Начат: 29.04.2011 19:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledTryExcept
-//
-// Скомпилированная версия try except
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledTryExcept.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwDualCompiledWordContainer,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwDualCompiledWordContainer
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledTryExcept = class(TkwDualCompiledWordContainer)
   {* Скомпилированная версия try except }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCompiledTryExcept
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  StrUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledTryExcept
+ l3ImplUses
+ , SysUtils
+ , StrUtils
+;
 
 procedure TkwCompiledTryExcept.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DBADEE702A8_var*
@@ -82,12 +67,9 @@ begin
 //#UC END# *4DAEEDE10285_4DBADEE702A8_impl*
 end;//TkwCompiledTryExcept.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledTryExcept
  TkwCompiledTryExcept.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledTryExcept }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

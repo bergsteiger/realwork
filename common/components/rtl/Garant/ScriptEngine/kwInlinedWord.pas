@@ -1,43 +1,35 @@
 unit kwInlinedWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwInlinedWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwInlinedWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInlinedWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwInlinedWord = class(TkwCompiledWord)
- protected
- // overridden property methods
+  protected
    function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- public
- // overridden public methods
+  public
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
  end;//TkwInlinedWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwInlinedWord
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TkwInlinedWord.pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo;
 //#UC START# *52CFC11603C8_53ED9C3B01F3get_var*
@@ -49,7 +41,7 @@ begin
 end;//TkwInlinedWord.pm_GetResultTypeInfo
 
 procedure TkwInlinedWord.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_53ED9C3B01F3_var*
 //#UC END# *52EA6A2C0111_53ED9C3B01F3_var*
 begin
@@ -58,12 +50,9 @@ begin
 //#UC END# *52EA6A2C0111_53ED9C3B01F3_impl*
 end;//TkwInlinedWord.SetResultTypeInfo
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwInlinedWord
  TkwInlinedWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwInlinedWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -103,12 +103,28 @@ begin
 end;//TkwPopParserExPushString.PushString
 
 procedure TkwPopParserExPushString.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_98DC2F9223CD_var*
-//#UC END# *4DAEEDE10285_98DC2F9223CD_var*
+var l_aParserEx: ItfwParserEx;
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_98DC2F9223CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_98DC2F9223CD_impl*
+ try
+  l_aParserEx := ItfwParserEx(aCtx.rEngine.PopIntf(ItfwParserEx));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParserEx: ItfwParserEx : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ PushString(aCtx, l_aParserEx, l_aString);
 end;//TkwPopParserExPushString.DoDoIt
 
 class function TkwPopParserExPushString.GetWordNameForRegister: AnsiString;
@@ -127,12 +143,8 @@ begin
 end;//TkwPopParserExPushString.GetAllParamsCount
 
 function TkwPopParserExPushString.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_98DC2F9223CD_var*
-//#UC END# *5617F4D00243_98DC2F9223CD_var*
 begin
-//#UC START# *5617F4D00243_98DC2F9223CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_98DC2F9223CD_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), @tfw_tiString]);
 end;//TkwPopParserExPushString.ParamsTypes
 
 procedure TkwPopParserExPushSymbol.PushSymbol(const aCtx: TtfwContext;
@@ -148,12 +160,28 @@ begin
 end;//TkwPopParserExPushSymbol.PushSymbol
 
 procedure TkwPopParserExPushSymbol.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1C7124538968_var*
-//#UC END# *4DAEEDE10285_1C7124538968_var*
+var l_aParserEx: ItfwParserEx;
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_1C7124538968_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1C7124538968_impl*
+ try
+  l_aParserEx := ItfwParserEx(aCtx.rEngine.PopIntf(ItfwParserEx));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParserEx: ItfwParserEx : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ PushSymbol(aCtx, l_aParserEx, l_aString);
 end;//TkwPopParserExPushSymbol.DoDoIt
 
 class function TkwPopParserExPushSymbol.GetWordNameForRegister: AnsiString;
@@ -172,12 +200,8 @@ begin
 end;//TkwPopParserExPushSymbol.GetAllParamsCount
 
 function TkwPopParserExPushSymbol.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1C7124538968_var*
-//#UC END# *5617F4D00243_1C7124538968_var*
 begin
-//#UC START# *5617F4D00243_1C7124538968_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1C7124538968_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), @tfw_tiString]);
 end;//TkwPopParserExPushSymbol.ParamsTypes
 
 procedure TkwPopParserExPushInt.PushInt(const aCtx: TtfwContext;
@@ -193,12 +217,28 @@ begin
 end;//TkwPopParserExPushInt.PushInt
 
 procedure TkwPopParserExPushInt.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E0E6B9391680_var*
-//#UC END# *4DAEEDE10285_E0E6B9391680_var*
+var l_aParserEx: ItfwParserEx;
+var l_aValue: Integer;
 begin
-//#UC START# *4DAEEDE10285_E0E6B9391680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E0E6B9391680_impl*
+ try
+  l_aParserEx := ItfwParserEx(aCtx.rEngine.PopIntf(ItfwParserEx));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aParserEx: ItfwParserEx : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ PushInt(aCtx, l_aParserEx, l_aValue);
 end;//TkwPopParserExPushInt.DoDoIt
 
 class function TkwPopParserExPushInt.GetWordNameForRegister: AnsiString;
@@ -217,12 +257,8 @@ begin
 end;//TkwPopParserExPushInt.GetAllParamsCount
 
 function TkwPopParserExPushInt.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E0E6B9391680_var*
-//#UC END# *5617F4D00243_E0E6B9391680_var*
 begin
-//#UC START# *5617F4D00243_E0E6B9391680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E0E6B9391680_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwParserEx), TypeInfo(Integer)]);
 end;//TkwPopParserExPushInt.ParamsTypes
 
 initialization

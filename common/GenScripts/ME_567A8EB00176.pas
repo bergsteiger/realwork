@@ -61,12 +61,18 @@ begin
 end;//TkwPopWordBoxBoxed.Boxed
 
 procedure TkwPopWordBoxBoxed.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_72ECED106E06_var*
-//#UC END# *4DAEEDE10285_72ECED106E06_var*
+var l_aWordBox: ItfwWordBox;
 begin
-//#UC START# *4DAEEDE10285_72ECED106E06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_72ECED106E06_impl*
+ try
+  l_aWordBox := ItfwWordBox(aCtx.rEngine.PopIntf(ItfwWordBox));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWordBox: ItfwWordBox : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Boxed(aCtx, l_aWordBox));
 end;//TkwPopWordBoxBoxed.DoDoIt
 
 class function TkwPopWordBoxBoxed.GetWordNameForRegister: AnsiString;
@@ -85,12 +91,8 @@ begin
 end;//TkwPopWordBoxBoxed.GetAllParamsCount
 
 function TkwPopWordBoxBoxed.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_72ECED106E06_var*
-//#UC END# *5617F4D00243_72ECED106E06_var*
 begin
-//#UC START# *5617F4D00243_72ECED106E06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_72ECED106E06_impl*
+ Result := OpenTypesToTypes([TypeInfo(ItfwWordBox)]);
 end;//TkwPopWordBoxBoxed.ParamsTypes
 
 initialization

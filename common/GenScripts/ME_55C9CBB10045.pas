@@ -249,12 +249,18 @@ begin
 end;//TkwPopTreeNodeGetNext.GetNext
 
 procedure TkwPopTreeNodeGetNext.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A78303612230_var*
-//#UC END# *4DAEEDE10285_A78303612230_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_A78303612230_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A78303612230_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetNext(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeGetNext.DoDoIt
 
 class function TkwPopTreeNodeGetNext.GetWordNameForRegister: AnsiString;
@@ -273,12 +279,8 @@ begin
 end;//TkwPopTreeNodeGetNext.GetAllParamsCount
 
 function TkwPopTreeNodeGetNext.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A78303612230_var*
-//#UC END# *5617F4D00243_A78303612230_var*
 begin
-//#UC START# *5617F4D00243_A78303612230_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A78303612230_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeGetNext.ParamsTypes
 
 function TkwPopTreeNodeHasChildren.HasChildren(const aCtx: TtfwContext;
@@ -293,12 +295,18 @@ begin
 end;//TkwPopTreeNodeHasChildren.HasChildren
 
 procedure TkwPopTreeNodeHasChildren.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5E7363490ED0_var*
-//#UC END# *4DAEEDE10285_5E7363490ED0_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_5E7363490ED0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5E7363490ED0_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(HasChildren(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeHasChildren.DoDoIt
 
 class function TkwPopTreeNodeHasChildren.GetWordNameForRegister: AnsiString;
@@ -317,12 +325,8 @@ begin
 end;//TkwPopTreeNodeHasChildren.GetAllParamsCount
 
 function TkwPopTreeNodeHasChildren.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5E7363490ED0_var*
-//#UC END# *5617F4D00243_5E7363490ED0_var*
 begin
-//#UC START# *5617F4D00243_5E7363490ED0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5E7363490ED0_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeHasChildren.ParamsTypes
 
 function TkwPopTreeNodeGetPrev.GetPrev(const aCtx: TtfwContext;
@@ -337,12 +341,18 @@ begin
 end;//TkwPopTreeNodeGetPrev.GetPrev
 
 procedure TkwPopTreeNodeGetPrev.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_55B024C23EBF_var*
-//#UC END# *4DAEEDE10285_55B024C23EBF_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_55B024C23EBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_55B024C23EBF_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetPrev(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeGetPrev.DoDoIt
 
 class function TkwPopTreeNodeGetPrev.GetWordNameForRegister: AnsiString;
@@ -361,12 +371,8 @@ begin
 end;//TkwPopTreeNodeGetPrev.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrev.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_55B024C23EBF_var*
-//#UC END# *5617F4D00243_55B024C23EBF_var*
 begin
-//#UC START# *5617F4D00243_55B024C23EBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_55B024C23EBF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeGetPrev.ParamsTypes
 
 function TkwPopTreeNodeGetFirstChild.GetFirstChild(const aCtx: TtfwContext;
@@ -381,12 +387,18 @@ begin
 end;//TkwPopTreeNodeGetFirstChild.GetFirstChild
 
 procedure TkwPopTreeNodeGetFirstChild.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5EA990C4D795_var*
-//#UC END# *4DAEEDE10285_5EA990C4D795_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_5EA990C4D795_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5EA990C4D795_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetFirstChild(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeGetFirstChild.DoDoIt
 
 class function TkwPopTreeNodeGetFirstChild.GetWordNameForRegister: AnsiString;
@@ -405,12 +417,8 @@ begin
 end;//TkwPopTreeNodeGetFirstChild.GetAllParamsCount
 
 function TkwPopTreeNodeGetFirstChild.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5EA990C4D795_var*
-//#UC END# *5617F4D00243_5EA990C4D795_var*
 begin
-//#UC START# *5617F4D00243_5EA990C4D795_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5EA990C4D795_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeGetFirstChild.ParamsTypes
 
 function TkwPopTreeNodeGetLastChild.GetLastChild(const aCtx: TtfwContext;
@@ -425,12 +433,18 @@ begin
 end;//TkwPopTreeNodeGetLastChild.GetLastChild
 
 procedure TkwPopTreeNodeGetLastChild.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C6C1AF6914F1_var*
-//#UC END# *4DAEEDE10285_C6C1AF6914F1_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_C6C1AF6914F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C6C1AF6914F1_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetLastChild(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeGetLastChild.DoDoIt
 
 class function TkwPopTreeNodeGetLastChild.GetWordNameForRegister: AnsiString;
@@ -449,12 +463,8 @@ begin
 end;//TkwPopTreeNodeGetLastChild.GetAllParamsCount
 
 function TkwPopTreeNodeGetLastChild.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C6C1AF6914F1_var*
-//#UC END# *5617F4D00243_C6C1AF6914F1_var*
 begin
-//#UC START# *5617F4D00243_C6C1AF6914F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C6C1AF6914F1_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeGetLastChild.ParamsTypes
 
 function TkwPopTreeNodeGetNextSibling.GetNextSibling(const aCtx: TtfwContext;
@@ -469,12 +479,18 @@ begin
 end;//TkwPopTreeNodeGetNextSibling.GetNextSibling
 
 procedure TkwPopTreeNodeGetNextSibling.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D75C1EAFB29F_var*
-//#UC END# *4DAEEDE10285_D75C1EAFB29F_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_D75C1EAFB29F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D75C1EAFB29F_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetNextSibling(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeGetNextSibling.DoDoIt
 
 class function TkwPopTreeNodeGetNextSibling.GetWordNameForRegister: AnsiString;
@@ -493,12 +509,8 @@ begin
 end;//TkwPopTreeNodeGetNextSibling.GetAllParamsCount
 
 function TkwPopTreeNodeGetNextSibling.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D75C1EAFB29F_var*
-//#UC END# *5617F4D00243_D75C1EAFB29F_var*
 begin
-//#UC START# *5617F4D00243_D75C1EAFB29F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D75C1EAFB29F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeGetNextSibling.ParamsTypes
 
 function TkwPopTreeNodeGetPrevSibling.GetPrevSibling(const aCtx: TtfwContext;
@@ -513,12 +525,18 @@ begin
 end;//TkwPopTreeNodeGetPrevSibling.GetPrevSibling
 
 procedure TkwPopTreeNodeGetPrevSibling.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_35C934477819_var*
-//#UC END# *4DAEEDE10285_35C934477819_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_35C934477819_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_35C934477819_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetPrevSibling(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeGetPrevSibling.DoDoIt
 
 class function TkwPopTreeNodeGetPrevSibling.GetWordNameForRegister: AnsiString;
@@ -537,12 +555,8 @@ begin
 end;//TkwPopTreeNodeGetPrevSibling.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrevSibling.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_35C934477819_var*
-//#UC END# *5617F4D00243_35C934477819_var*
 begin
-//#UC START# *5617F4D00243_35C934477819_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_35C934477819_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeGetPrevSibling.ParamsTypes
 
 function TkwPopTreeNodeGetNextVisible.GetNextVisible(const aCtx: TtfwContext;
@@ -557,12 +571,18 @@ begin
 end;//TkwPopTreeNodeGetNextVisible.GetNextVisible
 
 procedure TkwPopTreeNodeGetNextVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4D009DB53D61_var*
-//#UC END# *4DAEEDE10285_4D009DB53D61_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_4D009DB53D61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4D009DB53D61_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetNextVisible(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeGetNextVisible.DoDoIt
 
 class function TkwPopTreeNodeGetNextVisible.GetWordNameForRegister: AnsiString;
@@ -581,12 +601,8 @@ begin
 end;//TkwPopTreeNodeGetNextVisible.GetAllParamsCount
 
 function TkwPopTreeNodeGetNextVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4D009DB53D61_var*
-//#UC END# *5617F4D00243_4D009DB53D61_var*
 begin
-//#UC START# *5617F4D00243_4D009DB53D61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4D009DB53D61_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeGetNextVisible.ParamsTypes
 
 function TkwPopTreeNodeGetPrevVisible.GetPrevVisible(const aCtx: TtfwContext;
@@ -601,12 +617,18 @@ begin
 end;//TkwPopTreeNodeGetPrevVisible.GetPrevVisible
 
 procedure TkwPopTreeNodeGetPrevVisible.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CA039569FA58_var*
-//#UC END# *4DAEEDE10285_CA039569FA58_var*
+var l_aTreeNode: TTreeNode;
 begin
-//#UC START# *4DAEEDE10285_CA039569FA58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CA039569FA58_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GetPrevVisible(aCtx, l_aTreeNode));
 end;//TkwPopTreeNodeGetPrevVisible.DoDoIt
 
 class function TkwPopTreeNodeGetPrevVisible.GetWordNameForRegister: AnsiString;
@@ -625,12 +647,8 @@ begin
 end;//TkwPopTreeNodeGetPrevVisible.GetAllParamsCount
 
 function TkwPopTreeNodeGetPrevVisible.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CA039569FA58_var*
-//#UC END# *5617F4D00243_CA039569FA58_var*
 begin
-//#UC START# *5617F4D00243_CA039569FA58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CA039569FA58_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode)]);
 end;//TkwPopTreeNodeGetPrevVisible.ParamsTypes
 
 procedure TkwPopTreeNodeExpand.Expand(const aCtx: TtfwContext;
@@ -646,12 +664,28 @@ begin
 end;//TkwPopTreeNodeExpand.Expand
 
 procedure TkwPopTreeNodeExpand.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_53AEF2794BFD_var*
-//#UC END# *4DAEEDE10285_53AEF2794BFD_var*
+var l_aTreeNode: TTreeNode;
+var l_aRecurse: Boolean;
 begin
-//#UC START# *4DAEEDE10285_53AEF2794BFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_53AEF2794BFD_impl*
+ try
+  l_aTreeNode := TTreeNode(aCtx.rEngine.PopObjAs(TTreeNode));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTreeNode: TTreeNode : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aRecurse := aCtx.rEngine.PopBool;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRecurse: Boolean : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Expand(aCtx, l_aTreeNode, l_aRecurse);
 end;//TkwPopTreeNodeExpand.DoDoIt
 
 class function TkwPopTreeNodeExpand.GetWordNameForRegister: AnsiString;
@@ -670,12 +704,8 @@ begin
 end;//TkwPopTreeNodeExpand.GetAllParamsCount
 
 function TkwPopTreeNodeExpand.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_53AEF2794BFD_var*
-//#UC END# *5617F4D00243_53AEF2794BFD_var*
 begin
-//#UC START# *5617F4D00243_53AEF2794BFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_53AEF2794BFD_impl*
+ Result := OpenTypesToTypes([TypeInfo(TTreeNode), TypeInfo(Boolean)]);
 end;//TkwPopTreeNodeExpand.ParamsTypes
 
 initialization

@@ -1,38 +1,28 @@
 unit kwEmitString;
+ {* Позволяет ввести строку.
+Пример:
+[code]
+: "Ввести строку" STRING IN aString
+ aString emitstring
+;
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwEmitString.pas"
-// Начат: 22.04.2011 19:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::EmitString
-//
-// Позволяет ввести строку.
-// Пример:
-// {code}
-// : "Ввести строку" STRING IN aString
-// aString emitstring
-// ;
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEmitString.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwEmitString = {scriptword} class(TtfwRegisterableWord)
+ TkwEmitString = class(TtfwRegisterableWord)
   {* Позволяет ввести строку.
 Пример:
 [code]
@@ -40,30 +30,23 @@ type
  aString emitstring
 ;
 [code] }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwEmitString
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  Windows,
-  Messages,
-  l3Chars,
-  l3Interfaces
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwEmitString
+ l3ImplUses
+ , l3String
+ , Windows
+ , Messages
+ , l3Chars
+ , l3Interfaces
+;
 
 procedure TkwEmitString.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB19F7802E3_var*
@@ -101,17 +84,13 @@ begin
 end;//TkwEmitString.DoDoIt
 
 class function TkwEmitString.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'emitstring';
 end;//TkwEmitString.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация EmitString
  TkwEmitString.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация EmitString }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

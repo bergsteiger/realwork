@@ -1,51 +1,40 @@
 unit kwBracketEnd;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwBracketEnd.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::BracketEnd
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBracketEnd.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCloseBracket
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCloseBracket
+;
 
-{$If not defined(NoScripts)}
 type
- TkwBracketEnd = {final scriptword} class(TkwCloseBracket)
- protected
- // overridden protected methods
+ TkwBracketEnd = {final} class(TkwCloseBracket)
+  protected
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwBracketEnd
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwBracketEnd
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 class function TkwBracketEnd.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := ')';
 end;//TkwBracketEnd.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация BracketEnd
  TkwBracketEnd.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация BracketEnd }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

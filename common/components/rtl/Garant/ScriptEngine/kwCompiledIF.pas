@@ -1,49 +1,36 @@
 unit kwCompiledIF;
+ {* Внутренняя скомпилированная версия IF. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledIF.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledIF
-//
-// Внутренняя скомпилированная версия IF.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledIF.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwDualCompiledWordContainer,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwDualCompiledWordContainer
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledIF = class(TkwDualCompiledWordContainer)
   {* Внутренняя скомпилированная версия IF. }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TkwCompiledIF
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledIF
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
 procedure TkwCompiledIF.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DB6EE250251_var*
@@ -58,12 +45,9 @@ begin
 //#UC END# *4DAEEDE10285_4DB6EE250251_impl*
 end;//TkwCompiledIF.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledIF
  TkwCompiledIF.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledIF }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

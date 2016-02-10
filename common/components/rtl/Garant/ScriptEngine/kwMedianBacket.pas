@@ -1,42 +1,34 @@
 unit kwMedianBacket;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwMedianBacket.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::MedianBacket
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMedianBacket.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwMedianBacket = {abstract scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwMedianBacket = {abstract} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // overridden public methods
+  public
    function IsImmediate(const aCtx: TtfwContext): Boolean; override;
  end;//TkwMedianBacket
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwMedianBacket
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwMedianBacket.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52D7DD7A0120_var*
@@ -49,11 +41,9 @@ begin
 end;//TkwMedianBacket.DoDoIt
 
 function TkwMedianBacket.IsImmediate(const aCtx: TtfwContext): Boolean;
- {-}
 begin
- Result := true;
+ Result := True;
 end;//TkwMedianBacket.IsImmediate
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

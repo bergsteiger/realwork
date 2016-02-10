@@ -1,57 +1,41 @@
 unit kwSystemIncluded;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwSystemIncluded.pas"
-// Начат: 15.07.2011 21:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwSystemIncluded
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSystemIncluded.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwIncludedPrim,
-  tfwStreamFactory,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwIncludedPrim
+ , tfwStreamFactory
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwSystemIncluded = class(TkwIncludedPrim)
- private
- // private fields
-   f_Stream : TtfwStreamFactory;
- protected
- // overridden protected methods
+  private
+   f_Stream: TtfwStreamFactory;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoDoIt(const aCtx: TtfwContext); override;
- public
- // public methods
+  public
    constructor Create(aStream: TtfwStreamFactory); reintroduce;
  end;//TkwSystemIncluded
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwCOMStreamFactory,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwSystemIncluded
+ l3ImplUses
+ , tfwCOMStreamFactory
+ , SysUtils
+;
 
 constructor TkwSystemIncluded.Create(aStream: TtfwStreamFactory);
 //#UC START# *4E207B920217_4E207A9201A5_var*
@@ -65,6 +49,7 @@ begin
 end;//TkwSystemIncluded.Create
 
 procedure TkwSystemIncluded.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E207A9201A5_var*
 //#UC END# *479731C50290_4E207A9201A5_var*
 begin
@@ -87,12 +72,9 @@ begin
 //#UC END# *4DAEEDE10285_4E207A9201A5_impl*
 end;//TkwSystemIncluded.DoDoIt
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwSystemIncluded
  TkwSystemIncluded.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwSystemIncluded }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

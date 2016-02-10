@@ -1,51 +1,40 @@
 unit kwFINALLY;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwFINALLY.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::FINALLY
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwFINALLY.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwMedianBacket
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwMedianBacket
+;
 
-{$If not defined(NoScripts)}
 type
- TkwFINALLY = {final scriptword} class(TkwMedianBacket)
- protected
- // overridden protected methods
+ TkwFINALLY = {final} class(TkwMedianBacket)
+  protected
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwFINALLY
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwFINALLY
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 class function TkwFINALLY.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'FINALLY';
 end;//TkwFINALLY.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация FINALLY
  TkwFINALLY.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация FINALLY }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

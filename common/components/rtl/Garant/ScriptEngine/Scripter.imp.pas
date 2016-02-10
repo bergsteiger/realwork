@@ -1,40 +1,31 @@
 {$IfNDef Scripter_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "Scripter.imp.pas"
-// Начат: 20.04.2011 18:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::Scripter
-//
-// Парень умеющий выполнять скрипты
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\Scripter.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define Scripter_imp}
-{$If not defined(NoScripts)}
- _Scripter_ = {abstract mixin} class(_Scripter_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _Scripter_ = {abstract} class(_Scripter_Parent_)
   {* Парень умеющий выполнять скрипты }
- protected
- // protected methods
+  protected
    procedure Script(const aString: AnsiString);
    procedure ScriptFromFile(const aFileName: AnsiString);
    function ResolveScriptFilePath(const aFileName: AnsiString): AnsiString; virtual;
  end;//_Scripter_
-{$Else}
 
- _Scripter_ = _Scripter_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_Scripter_ = _Scripter_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else Scripter_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef Scripter_imp_impl}
 
-// start class _Scripter_
+{$Define Scripter_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _Scripter_.Script(const aString: AnsiString);
 //#UC START# *4DAEEE87019A_4DAEEA2B029A_var*
 //#UC END# *4DAEEE87019A_4DAEEA2B029A_var*
@@ -61,7 +52,9 @@ begin
  Result := aFileName;
 //#UC END# *4DB03121022B_4DAEEA2B029A_impl*
 end;//_Scripter_.ResolveScriptFilePath
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf Scripter_imp_impl}
 
 {$EndIf Scripter_imp}
+

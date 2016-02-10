@@ -1,125 +1,104 @@
 unit kwMain;
+ {* Поддержка основного кода скрипта. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwMain.pas"
-// Начат: 10.05.2011 13:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwMain
-//
-// Поддержка основного кода скрипта.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMain.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwScriptEnginePrim,
-  tfwAxiomaticsResNameGetter,
-  kwCompiledWordPrim,
-  tfwStreamFactory
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptEnginePrim
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+ , tfwStreamFactory
+ , tfwAxiomaticsResNameGetter
+;
 
-{$If not defined(NoScripts)}
 type
  TkwMain = class(TtfwScriptEnginePrim)
   {* Поддержка основного кода скрипта. }
- private
- // private methods
+  private
    class procedure CompileScriptToAxiomatics(const aContext: TtfwContext;
-     const aScriptCode: array of AnsiString);
-     {* Компилируем скипт в аксиоматику }
+    const aScriptCode: array of AnsiString);
+    {* Компилируем скипт в аксиоматику }
    class procedure CompileScriptToAxiomaticsIfDefined(const aContext: TtfwContext;
-     const aDefined: array of AnsiString;
-     const aScriptCode: array of AnsiString);
+    const aDefined: array of AnsiString;
+    const aScriptCode: array of AnsiString);
    class procedure CompileResScriptToAxiomatics(const aContext: TtfwContext;
-     const aResName: AnsiString);
- protected
- // overridden protected methods
+    const aResName: AnsiString);
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
+    aSilent: Boolean): RtfwWord; override;
    procedure BeforeCompile(var theNewContext: TtfwContext); override;
    procedure AfterCompile(var theNewContext: TtfwContext;
-     aCompiled: TkwCompiledWordPrim); override;
+    aCompiled: TkwCompiledWordPrim); override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
    function AcceptsEOF: Boolean; override;
    class function ReallyNeedRegister: Boolean; override;
- public
- // overridden public methods
+  public
    procedure RunCompiled(const aContext: TtfwContext); override;
    procedure Script(aStream: TtfwStreamFactory;
-     const aCaller: ItfwScriptCaller); override;
+    const aCaller: ItfwScriptCaller); override;
  end;//TkwMain
-{$IfEnd} //not NoScripts
 
-  {$If not defined(NoScripts)}
-var
-   g_ScriptEngine : TkwMain;
-  {$IfEnd} //not NoScripts
+var g_ScriptEngine: TkwMain;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSystemIncluded,
-  l3Memory,
-  l3_String,
-  SysUtils,
-  l3String,
-  l3Chars,
-  l3Base,
-  l3Stream,
-  l3Types,
-  kwCompiledMain,
-  seThreadSupport,
-  tfwFileStreamFactory,
-  tfwCOMStreamFactory,
-  tfwStringStreamFactory,
-  l3EtalonsService,
-  tfwResourceStreamFactory,
-  tfwAutoregisteredDiction,
-  tfwAxiomaticsResNameGetters,
-  tfwCompiledAxiomaticsRes
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , kwSystemIncluded
+ , l3Stream
+ , l3Types
+ , kwCompiledMain
+ , seThreadSupport
+ , tfwFileStreamFactory
+ , tfwCOMStreamFactory
+ , tfwStringStreamFactory
+ , l3EtalonsService
+ , tfwResourceStreamFactory
+ , tfwAutoregisteredDiction
+ , tfwAxiomaticsResNameGetters
+ , tfwCompiledAxiomaticsRes
+ , l3Memory
+ , l3_String
+ , l3String
+ , l3Chars
+;
 
 type
-//#UC START# *5F598AAE50EEci*
-//#UC END# *5F598AAE50EEci*
-//#UC START# *5F598AAE50EEcit*
-//#UC END# *5F598AAE50EEcit*
-  TkwMainResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
-   {* Регистрация скриптованой аксиоматики }
+ //#UC START# *5F598AAE50EEci*
+ //#UC END# *5F598AAE50EEci*
+ //#UC START# *5F598AAE50EEcit*
+ //#UC END# *5F598AAE50EEcit*
+ TkwMainResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
+  {* Регистрация скриптованой аксиоматики }
   public
-  // realized methods
    class function ResName: AnsiString; override;
-//#UC START# *5F598AAE50EEpubl*
-//#UC END# *5F598AAE50EEpubl*
-  end;//TkwMainResNameGetter
-
-// start class TkwMainResNameGetter
+ //#UC START# *5F598AAE50EEpubl*
+ //#UC END# *5F598AAE50EEpubl*
+ end;//TkwMainResNameGetter
 
 class function TkwMainResNameGetter.ResName: AnsiString;
- {-}
 begin
- Result := 'kwMain';
+  Result := 'kwMain';
 end;//TkwMainResNameGetter.ResName
 
  {$R kwMain.res}
 
 class procedure TkwMain.CompileScriptToAxiomatics(const aContext: TtfwContext;
-  const aScriptCode: array of AnsiString);
+ const aScriptCode: array of AnsiString);
+ {* Компилируем скипт в аксиоматику }
 //#UC START# *5282326A0233_4DC90A1E03C2_var*
 var
  l_String : Tl3_String;
@@ -154,8 +133,8 @@ begin
 end;//TkwMain.CompileScriptToAxiomatics
 
 class procedure TkwMain.CompileScriptToAxiomaticsIfDefined(const aContext: TtfwContext;
-  const aDefined: array of AnsiString;
-  const aScriptCode: array of AnsiString);
+ const aDefined: array of AnsiString;
+ const aScriptCode: array of AnsiString);
 //#UC START# *5293232E0291_4DC90A1E03C2_var*
 var
  l_Index : Integer;
@@ -172,7 +151,7 @@ begin
 end;//TkwMain.CompileScriptToAxiomaticsIfDefined
 
 class procedure TkwMain.CompileResScriptToAxiomatics(const aContext: TtfwContext;
-  const aResName: AnsiString);
+ const aResName: AnsiString);
 //#UC START# *55795E7700D1_4DC90A1E03C2_var*
 var
  l_Stream : TtfwResourceStreamFactory;
@@ -203,6 +182,7 @@ begin
 end;//TkwMain.CompileResScriptToAxiomatics
 
 procedure TkwMain.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4DC90A1E03C2_var*
 //#UC END# *479731C50290_4DC90A1E03C2_var*
 begin
@@ -212,7 +192,7 @@ begin
 end;//TkwMain.Cleanup
 
 function TkwMain.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4DC90A1E03C2_var*
 //#UC END# *4DB6C99F026E_4DC90A1E03C2_var*
 begin
@@ -474,7 +454,7 @@ begin
 end;//TkwMain.BeforeCompile
 
 procedure TkwMain.AfterCompile(var theNewContext: TtfwContext;
-  aCompiled: TkwCompiledWordPrim);
+ aCompiled: TkwCompiledWordPrim);
 //#UC START# *4DB6CE2302C9_4DC90A1E03C2_var*
 //#UC END# *4DB6CE2302C9_4DC90A1E03C2_var*
 begin
@@ -526,7 +506,7 @@ begin
 end;//TkwMain.RunCompiled
 
 procedure TkwMain.Script(aStream: TtfwStreamFactory;
-  const aCaller: ItfwScriptCaller);
+ const aCaller: ItfwScriptCaller);
 //#UC START# *4F733B9C0064_4DC90A1E03C2_var*
 var
  l_PrevScriptEngine : TkwMain;
@@ -543,16 +523,11 @@ begin
 //#UC END# *4F733B9C0064_4DC90A1E03C2_impl*
 end;//TkwMain.Script
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwMain
- TkwMain.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TkwMainResNameGetter.Register;
-{$IfEnd} //not NoScripts
+ {* Регистрация скриптованой аксиоматики }
+ TkwMain.RegisterInEngine;
+ {* Регистрация TkwMain }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

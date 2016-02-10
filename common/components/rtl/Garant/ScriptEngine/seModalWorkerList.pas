@@ -1,59 +1,54 @@
 unit seModalWorkerList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "seModalWorkerList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::CodeFlowWords::TseModalWorkerList
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seModalWorkerList.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  seModalWorkerListPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , seModalWorkerListPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TseModalWorkerList = class(TseModalWorkerListPrim)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TseModalWorkerList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TseModalWorkerList }
  end;//TseModalWorkerList
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base {a}
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoScripts)}
-
-
-// start class TseModalWorkerList
-
-var g_TseModalWorkerList : TseModalWorkerList = nil;
+var g_TseModalWorkerList: TseModalWorkerList = nil;
+ {* Экземпляр синглетона TseModalWorkerList }
 
 procedure TseModalWorkerListFree;
+ {* Метод освобождения экземпляра синглетона TseModalWorkerList }
 begin
  l3Free(g_TseModalWorkerList);
-end;
+end;//TseModalWorkerListFree
+
+class function TseModalWorkerList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TseModalWorkerList <> nil;
+end;//TseModalWorkerList.Exists
 
 class function TseModalWorkerList.Instance: TseModalWorkerList;
+ {* Метод получения экземпляра синглетона TseModalWorkerList }
 begin
  if (g_TseModalWorkerList = nil) then
  begin
@@ -61,15 +56,7 @@ begin
   g_TseModalWorkerList := Create;
  end;
  Result := g_TseModalWorkerList;
-end;
-
-
-class function TseModalWorkerList.Exists: Boolean;
- {-}
-begin
- Result := g_TseModalWorkerList <> nil;
-end;//TseModalWorkerList.Exists
-
-{$IfEnd} //not NoScripts
+end;//TseModalWorkerList.Instance
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

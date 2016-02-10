@@ -1,79 +1,62 @@
 unit kwCompiledFunction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Модуль: "kwCompiledFunction.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledFunction
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledFunction.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledVar,
-  kwCompiledProcedureWithStackChecking,
-  tfwScriptingInterfaces,
-  tfwKeyWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledProcedureWithStackChecking
+ , kwCompiledVar
+ , tfwScriptingInterfaces
+ , tfwKeyWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledFunction = class(TkwCompiledProcedureWithStackChecking)
- private
- // private fields
-   f_ResultVar : TkwCompiledVar;
-    {* Поле для свойства ResultVar}
- protected
- // overridden property methods
-   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
- protected
- // overridden protected methods
+  private
+   f_ResultVar: TkwCompiledVar;
+    {* Поле для свойства ResultVar }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoDoIt(const aCtx: TtfwContext); override;
    function StackCheckingMessage: AnsiString; override;
- public
- // overridden public methods
+   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
+  public
    constructor Create(aWordProducer: TtfwWord;
-     aPrevFinder: TtfwWord;
-     aTypeInfo: TtfwWordInfo;
-     const aCtx: TtfwContext;
-     aKey: TtfwKeyWordPrim); override;
+    aPrevFinder: TtfwWord;
+    aTypeInfo: TtfwWordInfo;
+    const aCtx: TtfwContext;
+    aKey: TtfwKeyWordPrim); override;
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function GetResultVar(const aCtx: TtfwContext): TtfwWord; override;
- private
- // private properties
+  private
    property ResultVar: TkwCompiledVar
-     read f_ResultVar;
+    read f_ResultVar;
  end;//TkwCompiledFunction
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  SysUtils,
-  tfwClassRef
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , tfwClassRef
+;
 
 const
-   { Local }
-  cResult = 'Result';
-
-// start class TkwCompiledFunction
+ cResult = 'Result';
 
 procedure TkwCompiledFunction.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F3BEDFE0051_var*
 //#UC END# *479731C50290_4F3BEDFE0051_var*
 begin
@@ -118,10 +101,10 @@ begin
 end;//TkwCompiledFunction.DoDoIt
 
 constructor TkwCompiledFunction.Create(aWordProducer: TtfwWord;
-  aPrevFinder: TtfwWord;
-  aTypeInfo: TtfwWordInfo;
-  const aCtx: TtfwContext;
-  aKey: TtfwKeyWordPrim);
+ aPrevFinder: TtfwWord;
+ aTypeInfo: TtfwWordInfo;
+ const aCtx: TtfwContext;
+ aKey: TtfwKeyWordPrim);
 //#UC START# *4DC9723702F5_4F3BEDFE0051_var*
 var
  l_Var : TkwCompiledVar;
@@ -166,7 +149,7 @@ begin
 end;//TkwCompiledFunction.pm_GetResultTypeInfo
 
 procedure TkwCompiledFunction.SetResultTypeInfo(aValue: TtfwWordInfo;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52EA6A2C0111_4F3BEDFE0051_var*
 //#UC END# *52EA6A2C0111_4F3BEDFE0051_var*
 begin
@@ -187,12 +170,9 @@ begin
 //#UC END# *558D1A4C0082_4F3BEDFE0051_impl*
 end;//TkwCompiledFunction.GetResultVar
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledFunction
  TkwCompiledFunction.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledFunction }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

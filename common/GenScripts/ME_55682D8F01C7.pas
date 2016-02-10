@@ -996,12 +996,28 @@ begin
 end;//TkwStartsStr.StartsStr
 
 procedure TkwStartsStr.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0093B3082714_var*
-//#UC END# *4DAEEDE10285_0093B3082714_var*
+var l_aString: Il3CString;
+var l_aSubStr: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_0093B3082714_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0093B3082714_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aSubStr := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSubStr: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(StartsStr(aCtx, l_aString, l_aSubStr));
 end;//TkwStartsStr.DoDoIt
 
 class function TkwStartsStr.GetWordNameForRegister: AnsiString;
@@ -1020,12 +1036,8 @@ begin
 end;//TkwStartsStr.GetAllParamsCount
 
 function TkwStartsStr.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0093B3082714_var*
-//#UC END# *5617F4D00243_0093B3082714_var*
 begin
-//#UC START# *5617F4D00243_0093B3082714_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0093B3082714_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStartsStr.ParamsTypes
 
 function TkwStartsText.StartsText(const aCtx: TtfwContext;
@@ -1041,12 +1053,28 @@ begin
 end;//TkwStartsText.StartsText
 
 procedure TkwStartsText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9996D7566EDE_var*
-//#UC END# *4DAEEDE10285_9996D7566EDE_var*
+var l_aString: Il3CString;
+var l_aSubStr: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_9996D7566EDE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9996D7566EDE_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aSubStr := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSubStr: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(StartsText(aCtx, l_aString, l_aSubStr));
 end;//TkwStartsText.DoDoIt
 
 class function TkwStartsText.GetWordNameForRegister: AnsiString;
@@ -1065,12 +1093,8 @@ begin
 end;//TkwStartsText.GetAllParamsCount
 
 function TkwStartsText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9996D7566EDE_var*
-//#UC END# *5617F4D00243_9996D7566EDE_var*
 begin
-//#UC START# *5617F4D00243_9996D7566EDE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9996D7566EDE_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStartsText.ParamsTypes
 
 function TkwEndsStr.EndsStr(const aCtx: TtfwContext;
@@ -1086,12 +1110,28 @@ begin
 end;//TkwEndsStr.EndsStr
 
 procedure TkwEndsStr.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_397C461D6C30_var*
-//#UC END# *4DAEEDE10285_397C461D6C30_var*
+var l_aString: Il3CString;
+var l_aSubStr: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_397C461D6C30_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_397C461D6C30_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aSubStr := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSubStr: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(EndsStr(aCtx, l_aString, l_aSubStr));
 end;//TkwEndsStr.DoDoIt
 
 class function TkwEndsStr.GetWordNameForRegister: AnsiString;
@@ -1110,12 +1150,8 @@ begin
 end;//TkwEndsStr.GetAllParamsCount
 
 function TkwEndsStr.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_397C461D6C30_var*
-//#UC END# *5617F4D00243_397C461D6C30_var*
 begin
-//#UC START# *5617F4D00243_397C461D6C30_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_397C461D6C30_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwEndsStr.ParamsTypes
 
 function TkwEndsText.EndsText(const aCtx: TtfwContext;
@@ -1131,12 +1167,28 @@ begin
 end;//TkwEndsText.EndsText
 
 procedure TkwEndsText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8997C15C6CA8_var*
-//#UC END# *4DAEEDE10285_8997C15C6CA8_var*
+var l_aString: Il3CString;
+var l_aSubStr: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_8997C15C6CA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8997C15C6CA8_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aSubStr := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSubStr: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(EndsText(aCtx, l_aString, l_aSubStr));
 end;//TkwEndsText.DoDoIt
 
 class function TkwEndsText.GetWordNameForRegister: AnsiString;
@@ -1155,12 +1207,8 @@ begin
 end;//TkwEndsText.GetAllParamsCount
 
 function TkwEndsText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8997C15C6CA8_var*
-//#UC END# *5617F4D00243_8997C15C6CA8_var*
 begin
-//#UC START# *5617F4D00243_8997C15C6CA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8997C15C6CA8_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwEndsText.ParamsTypes
 
 function TkwSameStr.SameStr(const aCtx: TtfwContext;
@@ -1176,12 +1224,28 @@ begin
 end;//TkwSameStr.SameStr
 
 procedure TkwSameStr.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2309401B7CC1_var*
-//#UC END# *4DAEEDE10285_2309401B7CC1_var*
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_2309401B7CC1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2309401B7CC1_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(SameStr(aCtx, l_aString, l_anOther));
 end;//TkwSameStr.DoDoIt
 
 class function TkwSameStr.GetWordNameForRegister: AnsiString;
@@ -1200,12 +1264,8 @@ begin
 end;//TkwSameStr.GetAllParamsCount
 
 function TkwSameStr.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2309401B7CC1_var*
-//#UC END# *5617F4D00243_2309401B7CC1_var*
 begin
-//#UC START# *5617F4D00243_2309401B7CC1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2309401B7CC1_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSameStr.ParamsTypes
 
 function TkwSameText.SameText(const aCtx: TtfwContext;
@@ -1221,12 +1281,28 @@ begin
 end;//TkwSameText.SameText
 
 procedure TkwSameText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9FC28ACB9AA1_var*
-//#UC END# *4DAEEDE10285_9FC28ACB9AA1_var*
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_9FC28ACB9AA1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9FC28ACB9AA1_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(SameText(aCtx, l_aString, l_anOther));
 end;//TkwSameText.DoDoIt
 
 class function TkwSameText.GetWordNameForRegister: AnsiString;
@@ -1245,12 +1321,8 @@ begin
 end;//TkwSameText.GetAllParamsCount
 
 function TkwSameText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9FC28ACB9AA1_var*
-//#UC END# *5617F4D00243_9FC28ACB9AA1_var*
 begin
-//#UC START# *5617F4D00243_9FC28ACB9AA1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9FC28ACB9AA1_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSameText.ParamsTypes
 
 function TkwCompareStr.CompareStr(const aCtx: TtfwContext;
@@ -1266,12 +1338,28 @@ begin
 end;//TkwCompareStr.CompareStr
 
 procedure TkwCompareStr.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C670925F6482_var*
-//#UC END# *4DAEEDE10285_C670925F6482_var*
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_C670925F6482_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C670925F6482_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(CompareStr(aCtx, l_aString, l_anOther));
 end;//TkwCompareStr.DoDoIt
 
 class function TkwCompareStr.GetWordNameForRegister: AnsiString;
@@ -1290,12 +1378,8 @@ begin
 end;//TkwCompareStr.GetAllParamsCount
 
 function TkwCompareStr.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C670925F6482_var*
-//#UC END# *5617F4D00243_C670925F6482_var*
 begin
-//#UC START# *5617F4D00243_C670925F6482_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C670925F6482_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCompareStr.ParamsTypes
 
 function TkwCompareText.CompareText(const aCtx: TtfwContext;
@@ -1311,12 +1395,28 @@ begin
 end;//TkwCompareText.CompareText
 
 procedure TkwCompareText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0E02A0729BA6_var*
-//#UC END# *4DAEEDE10285_0E02A0729BA6_var*
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_0E02A0729BA6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0E02A0729BA6_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(CompareText(aCtx, l_aString, l_anOther));
 end;//TkwCompareText.DoDoIt
 
 class function TkwCompareText.GetWordNameForRegister: AnsiString;
@@ -1335,12 +1435,8 @@ begin
 end;//TkwCompareText.GetAllParamsCount
 
 function TkwCompareText.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0E02A0729BA6_var*
-//#UC END# *5617F4D00243_0E02A0729BA6_var*
 begin
-//#UC START# *5617F4D00243_0E02A0729BA6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0E02A0729BA6_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCompareText.ParamsTypes
 
 function TkwStrToInt.StrToInt(const aCtx: TtfwContext;
@@ -1355,12 +1451,18 @@ begin
 end;//TkwStrToInt.StrToInt
 
 procedure TkwStrToInt.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_09008856C703_var*
-//#UC END# *4DAEEDE10285_09008856C703_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_09008856C703_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_09008856C703_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(StrToInt(aCtx, l_aString));
 end;//TkwStrToInt.DoDoIt
 
 class function TkwStrToInt.GetWordNameForRegister: AnsiString;
@@ -1379,12 +1481,8 @@ begin
 end;//TkwStrToInt.GetAllParamsCount
 
 function TkwStrToInt.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_09008856C703_var*
-//#UC END# *5617F4D00243_09008856C703_var*
 begin
-//#UC START# *5617F4D00243_09008856C703_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_09008856C703_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStrToInt.ParamsTypes
 
 function TkwCat.Cat(const aCtx: TtfwContext;
@@ -1400,12 +1498,28 @@ begin
 end;//TkwCat.Cat
 
 procedure TkwCat.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DD57CECF347C_var*
-//#UC END# *4DAEEDE10285_DD57CECF347C_var*
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_DD57CECF347C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DD57CECF347C_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(Cat(aCtx, l_aString, l_anOther));
 end;//TkwCat.DoDoIt
 
 class function TkwCat.GetWordNameForRegister: AnsiString;
@@ -1424,12 +1538,8 @@ begin
 end;//TkwCat.GetAllParamsCount
 
 function TkwCat.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DD57CECF347C_var*
-//#UC END# *5617F4D00243_DD57CECF347C_var*
 begin
-//#UC START# *5617F4D00243_DD57CECF347C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DD57CECF347C_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCat.ParamsTypes
 
 function TkwStringConsistsOf.string_ConsistsOf(const aCtx: TtfwContext;
@@ -1464,12 +1574,28 @@ begin
 end;//TkwStringConsistsOf.string_ConsistsOf
 
 procedure TkwStringConsistsOf.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5F306006344B_var*
-//#UC END# *4DAEEDE10285_5F306006344B_var*
+var l_aString: Il3CString;
+var l_aDelims: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_5F306006344B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5F306006344B_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aDelims := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDelims: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(string_ConsistsOf(aCtx, l_aString, l_aDelims));
 end;//TkwStringConsistsOf.DoDoIt
 
 class function TkwStringConsistsOf.GetWordNameForRegister: AnsiString;
@@ -1488,12 +1614,8 @@ begin
 end;//TkwStringConsistsOf.GetAllParamsCount
 
 function TkwStringConsistsOf.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5F306006344B_var*
-//#UC END# *5617F4D00243_5F306006344B_var*
 begin
-//#UC START# *5617F4D00243_5F306006344B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5F306006344B_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringConsistsOf.ParamsTypes
 
 function TkwStringHasAnyOf.string_HasAnyOf(const aCtx: TtfwContext;
@@ -1528,12 +1650,28 @@ begin
 end;//TkwStringHasAnyOf.string_HasAnyOf
 
 procedure TkwStringHasAnyOf.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2256016890B3_var*
-//#UC END# *4DAEEDE10285_2256016890B3_var*
+var l_aString: Il3CString;
+var l_aDelims: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_2256016890B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2256016890B3_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aDelims := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDelims: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(string_HasAnyOf(aCtx, l_aString, l_aDelims));
 end;//TkwStringHasAnyOf.DoDoIt
 
 class function TkwStringHasAnyOf.GetWordNameForRegister: AnsiString;
@@ -1552,12 +1690,8 @@ begin
 end;//TkwStringHasAnyOf.GetAllParamsCount
 
 function TkwStringHasAnyOf.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2256016890B3_var*
-//#UC END# *5617F4D00243_2256016890B3_var*
 begin
-//#UC START# *5617F4D00243_2256016890B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2256016890B3_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringHasAnyOf.ParamsTypes
 
 function TkwStringPos.string_Pos(const aCtx: TtfwContext;
@@ -1573,12 +1707,28 @@ begin
 end;//TkwStringPos.string_Pos
 
 procedure TkwStringPos.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_851E99BEB53B_var*
-//#UC END# *4DAEEDE10285_851E99BEB53B_var*
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_851E99BEB53B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_851E99BEB53B_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(string_Pos(aCtx, l_aString, l_anOther));
 end;//TkwStringPos.DoDoIt
 
 class function TkwStringPos.GetWordNameForRegister: AnsiString;
@@ -1597,12 +1747,8 @@ begin
 end;//TkwStringPos.GetAllParamsCount
 
 function TkwStringPos.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_851E99BEB53B_var*
-//#UC END# *5617F4D00243_851E99BEB53B_var*
 begin
-//#UC START# *5617F4D00243_851E99BEB53B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_851E99BEB53B_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringPos.ParamsTypes
 
 function TkwStringPosEx.string_PosEx(const aCtx: TtfwContext;
@@ -1619,12 +1765,38 @@ begin
 end;//TkwStringPosEx.string_PosEx
 
 procedure TkwStringPosEx.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_24901BF384F4_var*
-//#UC END# *4DAEEDE10285_24901BF384F4_var*
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
+var l_aPos: Integer;
 begin
-//#UC START# *4DAEEDE10285_24901BF384F4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_24901BF384F4_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aPos := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPos: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(string_PosEx(aCtx, l_aString, l_anOther, l_aPos));
 end;//TkwStringPosEx.DoDoIt
 
 class function TkwStringPosEx.GetWordNameForRegister: AnsiString;
@@ -1643,12 +1815,8 @@ begin
 end;//TkwStringPosEx.GetAllParamsCount
 
 function TkwStringPosEx.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_24901BF384F4_var*
-//#UC END# *5617F4D00243_24901BF384F4_var*
 begin
-//#UC START# *5617F4D00243_24901BF384F4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_24901BF384F4_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringPosEx.ParamsTypes
 
 function TkwStringSplit.string_Split(const aCtx: TtfwContext;
@@ -1679,12 +1847,30 @@ begin
 end;//TkwStringSplit.string_Split
 
 procedure TkwStringSplit.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AA63BC1F51EC_var*
-//#UC END# *4DAEEDE10285_AA63BC1F51EC_var*
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
+var l_theTail: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_AA63BC1F51EC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AA63BC1F51EC_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anOther: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Split(aCtx, l_aString, l_anOther, l_theTail));
+ aCtx.rEngine.PushString(l_theTail);
 end;//TkwStringSplit.DoDoIt
 
 class function TkwStringSplit.GetWordNameForRegister: AnsiString;
@@ -1703,12 +1889,8 @@ begin
 end;//TkwStringSplit.GetAllParamsCount
 
 function TkwStringSplit.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AA63BC1F51EC_var*
-//#UC END# *5617F4D00243_AA63BC1F51EC_var*
 begin
-//#UC START# *5617F4D00243_AA63BC1F51EC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AA63BC1F51EC_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringSplit.ParamsTypes
 
 function TkwStringReplace.string_Replace(const aCtx: TtfwContext;
@@ -1727,12 +1909,38 @@ begin
 end;//TkwStringReplace.string_Replace
 
 procedure TkwStringReplace.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8CA688C2805E_var*
-//#UC END# *4DAEEDE10285_8CA688C2805E_var*
+var l_aString: Il3CString;
+var l_aFrom: Il3CString;
+var l_aMain: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_8CA688C2805E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8CA688C2805E_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFrom := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFrom: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aMain := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMain: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Replace(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwStringReplace.DoDoIt
 
 class function TkwStringReplace.GetWordNameForRegister: AnsiString;
@@ -1751,12 +1959,8 @@ begin
 end;//TkwStringReplace.GetAllParamsCount
 
 function TkwStringReplace.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8CA688C2805E_var*
-//#UC END# *5617F4D00243_8CA688C2805E_var*
 begin
-//#UC START# *5617F4D00243_8CA688C2805E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8CA688C2805E_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwStringReplace.ParamsTypes
 
 function TkwStringReplaceFirst.string_ReplaceFirst(const aCtx: TtfwContext;
@@ -1775,12 +1979,38 @@ begin
 end;//TkwStringReplaceFirst.string_ReplaceFirst
 
 procedure TkwStringReplaceFirst.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FF1E0A42BBEF_var*
-//#UC END# *4DAEEDE10285_FF1E0A42BBEF_var*
+var l_aString: Il3CString;
+var l_aFrom: Il3CString;
+var l_aMain: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_FF1E0A42BBEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FF1E0A42BBEF_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFrom := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFrom: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aMain := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMain: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_ReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwStringReplaceFirst.DoDoIt
 
 class function TkwStringReplaceFirst.GetWordNameForRegister: AnsiString;
@@ -1799,12 +2029,8 @@ begin
 end;//TkwStringReplaceFirst.GetAllParamsCount
 
 function TkwStringReplaceFirst.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FF1E0A42BBEF_var*
-//#UC END# *5617F4D00243_FF1E0A42BBEF_var*
 begin
-//#UC START# *5617F4D00243_FF1E0A42BBEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FF1E0A42BBEF_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwStringReplaceFirst.ParamsTypes
 
 function TkwTextReplace.text_Replace(const aCtx: TtfwContext;
@@ -1823,12 +2049,38 @@ begin
 end;//TkwTextReplace.text_Replace
 
 procedure TkwTextReplace.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6F240EDBC3AE_var*
-//#UC END# *4DAEEDE10285_6F240EDBC3AE_var*
+var l_aString: Il3CString;
+var l_aFrom: Il3CString;
+var l_aMain: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_6F240EDBC3AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6F240EDBC3AE_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFrom := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFrom: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aMain := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMain: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(text_Replace(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwTextReplace.DoDoIt
 
 class function TkwTextReplace.GetWordNameForRegister: AnsiString;
@@ -1847,12 +2099,8 @@ begin
 end;//TkwTextReplace.GetAllParamsCount
 
 function TkwTextReplace.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6F240EDBC3AE_var*
-//#UC END# *5617F4D00243_6F240EDBC3AE_var*
 begin
-//#UC START# *5617F4D00243_6F240EDBC3AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6F240EDBC3AE_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwTextReplace.ParamsTypes
 
 function TkwTextReplaceFirst.text_ReplaceFirst(const aCtx: TtfwContext;
@@ -1871,12 +2119,38 @@ begin
 end;//TkwTextReplaceFirst.text_ReplaceFirst
 
 procedure TkwTextReplaceFirst.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0527F8C9DF24_var*
-//#UC END# *4DAEEDE10285_0527F8C9DF24_var*
+var l_aString: Il3CString;
+var l_aFrom: Il3CString;
+var l_aMain: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_0527F8C9DF24_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0527F8C9DF24_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aFrom := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFrom: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aMain := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMain: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(text_ReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwTextReplaceFirst.DoDoIt
 
 class function TkwTextReplaceFirst.GetWordNameForRegister: AnsiString;
@@ -1895,12 +2169,8 @@ begin
 end;//TkwTextReplaceFirst.GetAllParamsCount
 
 function TkwTextReplaceFirst.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0527F8C9DF24_var*
-//#UC END# *5617F4D00243_0527F8C9DF24_var*
 begin
-//#UC START# *5617F4D00243_0527F8C9DF24_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0527F8C9DF24_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwTextReplaceFirst.ParamsTypes
 
 function TkwStringChar.string_Char(const aCtx: TtfwContext;
@@ -1916,12 +2186,28 @@ begin
 end;//TkwStringChar.string_Char
 
 procedure TkwStringChar.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9597582C9BD4_var*
-//#UC END# *4DAEEDE10285_9597582C9BD4_var*
+var l_aString: Il3CString;
+var l_anIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_9597582C9BD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9597582C9BD4_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushChar(string_Char(aCtx, l_aString, l_anIndex));
 end;//TkwStringChar.DoDoIt
 
 class function TkwStringChar.GetWordNameForRegister: AnsiString;
@@ -1940,12 +2226,8 @@ begin
 end;//TkwStringChar.GetAllParamsCount
 
 function TkwStringChar.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9597582C9BD4_var*
-//#UC END# *5617F4D00243_9597582C9BD4_var*
 begin
-//#UC START# *5617F4D00243_9597582C9BD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9597582C9BD4_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringChar.ParamsTypes
 
 function TkwStringCodePage.string_CodePage(const aCtx: TtfwContext;
@@ -1960,12 +2242,18 @@ begin
 end;//TkwStringCodePage.string_CodePage
 
 procedure TkwStringCodePage.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6CAF85926E0C_var*
-//#UC END# *4DAEEDE10285_6CAF85926E0C_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_6CAF85926E0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6CAF85926E0C_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(string_CodePage(aCtx, l_aString));
 end;//TkwStringCodePage.DoDoIt
 
 class function TkwStringCodePage.GetWordNameForRegister: AnsiString;
@@ -1984,12 +2272,8 @@ begin
 end;//TkwStringCodePage.GetAllParamsCount
 
 function TkwStringCodePage.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6CAF85926E0C_var*
-//#UC END# *5617F4D00243_6CAF85926E0C_var*
 begin
-//#UC START# *5617F4D00243_6CAF85926E0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6CAF85926E0C_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringCodePage.ParamsTypes
 
 function TkwStringLen.string_Len(const aCtx: TtfwContext;
@@ -2007,12 +2291,18 @@ begin
 end;//TkwStringLen.string_Len
 
 procedure TkwStringLen.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0BA6E62BEF84_var*
-//#UC END# *4DAEEDE10285_0BA6E62BEF84_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_0BA6E62BEF84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0BA6E62BEF84_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(string_Len(aCtx, l_aString));
 end;//TkwStringLen.DoDoIt
 
 class function TkwStringLen.GetWordNameForRegister: AnsiString;
@@ -2031,12 +2321,8 @@ begin
 end;//TkwStringLen.GetAllParamsCount
 
 function TkwStringLen.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0BA6E62BEF84_var*
-//#UC END# *5617F4D00243_0BA6E62BEF84_var*
 begin
-//#UC START# *5617F4D00243_0BA6E62BEF84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0BA6E62BEF84_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringLen.ParamsTypes
 
 function TkwStringToChar.string_ToChar(const aCtx: TtfwContext;
@@ -2052,12 +2338,18 @@ begin
 end;//TkwStringToChar.string_ToChar
 
 procedure TkwStringToChar.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CA33F456975C_var*
-//#UC END# *4DAEEDE10285_CA33F456975C_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_CA33F456975C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CA33F456975C_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushChar(string_ToChar(aCtx, l_aString));
 end;//TkwStringToChar.DoDoIt
 
 class function TkwStringToChar.GetWordNameForRegister: AnsiString;
@@ -2076,12 +2368,8 @@ begin
 end;//TkwStringToChar.GetAllParamsCount
 
 function TkwStringToChar.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_CA33F456975C_var*
-//#UC END# *5617F4D00243_CA33F456975C_var*
 begin
-//#UC START# *5617F4D00243_CA33F456975C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_CA33F456975C_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringToChar.ParamsTypes
 
 function TkwCharToString.char_ToString(const aCtx: TtfwContext;
@@ -2096,12 +2384,18 @@ begin
 end;//TkwCharToString.char_ToString
 
 procedure TkwCharToString.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4C3CAF64FEF3_var*
-//#UC END# *4DAEEDE10285_4C3CAF64FEF3_var*
+var l_aChar: AnsiChar;
 begin
-//#UC START# *4DAEEDE10285_4C3CAF64FEF3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4C3CAF64FEF3_impl*
+ try
+  l_aChar := aCtx.rEngine.PopChar;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChar: AnsiChar : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(char_ToString(aCtx, l_aChar));
 end;//TkwCharToString.DoDoIt
 
 class function TkwCharToString.GetWordNameForRegister: AnsiString;
@@ -2111,7 +2405,7 @@ end;//TkwCharToString.GetWordNameForRegister
 
 function TkwCharToString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := !!!;
+ Result := @tfw_tiString;
 end;//TkwCharToString.GetResultTypeInfo
 
 function TkwCharToString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2120,12 +2414,8 @@ begin
 end;//TkwCharToString.GetAllParamsCount
 
 function TkwCharToString.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4C3CAF64FEF3_var*
-//#UC END# *5617F4D00243_4C3CAF64FEF3_var*
 begin
-//#UC START# *5617F4D00243_4C3CAF64FEF3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4C3CAF64FEF3_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(AnsiChar)]);
 end;//TkwCharToString.ParamsTypes
 
 function TkwCharDupe.char_Dupe(const aCtx: TtfwContext;
@@ -2141,12 +2431,28 @@ begin
 end;//TkwCharDupe.char_Dupe
 
 procedure TkwCharDupe.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_355A8C3D70FA_var*
-//#UC END# *4DAEEDE10285_355A8C3D70FA_var*
+var l_aString: Il3CString;
+var l_aCount: Integer;
 begin
-//#UC START# *4DAEEDE10285_355A8C3D70FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_355A8C3D70FA_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aCount := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCount: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(char_Dupe(aCtx, l_aString, l_aCount));
 end;//TkwCharDupe.DoDoIt
 
 class function TkwCharDupe.GetWordNameForRegister: AnsiString;
@@ -2165,12 +2471,8 @@ begin
 end;//TkwCharDupe.GetAllParamsCount
 
 function TkwCharDupe.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_355A8C3D70FA_var*
-//#UC END# *5617F4D00243_355A8C3D70FA_var*
 begin
-//#UC START# *5617F4D00243_355A8C3D70FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_355A8C3D70FA_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwCharDupe.ParamsTypes
 
 function TkwStringInc.string_Inc(const aCtx: TtfwContext;
@@ -2189,12 +2491,18 @@ begin
 end;//TkwStringInc.string_Inc
 
 procedure TkwStringInc.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F3116B965978_var*
-//#UC END# *4DAEEDE10285_F3116B965978_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_F3116B965978_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F3116B965978_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Inc(aCtx, l_aString));
 end;//TkwStringInc.DoDoIt
 
 class function TkwStringInc.GetWordNameForRegister: AnsiString;
@@ -2213,12 +2521,8 @@ begin
 end;//TkwStringInc.GetAllParamsCount
 
 function TkwStringInc.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F3116B965978_var*
-//#UC END# *5617F4D00243_F3116B965978_var*
 begin
-//#UC START# *5617F4D00243_F3116B965978_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F3116B965978_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringInc.ParamsTypes
 
 function TkwStringShift.string_Shift(const aCtx: TtfwContext;
@@ -2238,12 +2542,28 @@ begin
 end;//TkwStringShift.string_Shift
 
 procedure TkwStringShift.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EFB7A59A9041_var*
-//#UC END# *4DAEEDE10285_EFB7A59A9041_var*
+var l_aString: Il3CString;
+var l_aDelta: Integer;
 begin
-//#UC START# *4DAEEDE10285_EFB7A59A9041_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EFB7A59A9041_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aDelta := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDelta: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Shift(aCtx, l_aString, l_aDelta));
 end;//TkwStringShift.DoDoIt
 
 class function TkwStringShift.GetWordNameForRegister: AnsiString;
@@ -2262,12 +2582,8 @@ begin
 end;//TkwStringShift.GetAllParamsCount
 
 function TkwStringShift.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EFB7A59A9041_var*
-//#UC END# *5617F4D00243_EFB7A59A9041_var*
 begin
-//#UC START# *5617F4D00243_EFB7A59A9041_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EFB7A59A9041_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringShift.ParamsTypes
 
 function TkwStringFirstChar.string_FirstChar(const aCtx: TtfwContext;
@@ -2285,12 +2601,18 @@ begin
 end;//TkwStringFirstChar.string_FirstChar
 
 procedure TkwStringFirstChar.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E9A5EC5FAC6_var*
-//#UC END# *4DAEEDE10285_4E9A5EC5FAC6_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_4E9A5EC5FAC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E9A5EC5FAC6_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushChar(string_FirstChar(aCtx, l_aString));
 end;//TkwStringFirstChar.DoDoIt
 
 class function TkwStringFirstChar.GetWordNameForRegister: AnsiString;
@@ -2309,12 +2631,8 @@ begin
 end;//TkwStringFirstChar.GetAllParamsCount
 
 function TkwStringFirstChar.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_4E9A5EC5FAC6_var*
-//#UC END# *5617F4D00243_4E9A5EC5FAC6_var*
 begin
-//#UC START# *5617F4D00243_4E9A5EC5FAC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_4E9A5EC5FAC6_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringFirstChar.ParamsTypes
 
 function TkwStringTrim.string_Trim(const aCtx: TtfwContext;
@@ -2329,12 +2647,18 @@ begin
 end;//TkwStringTrim.string_Trim
 
 procedure TkwStringTrim.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_95D9D233CD72_var*
-//#UC END# *4DAEEDE10285_95D9D233CD72_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_95D9D233CD72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_95D9D233CD72_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Trim(aCtx, l_aString));
 end;//TkwStringTrim.DoDoIt
 
 class function TkwStringTrim.GetWordNameForRegister: AnsiString;
@@ -2353,12 +2677,8 @@ begin
 end;//TkwStringTrim.GetAllParamsCount
 
 function TkwStringTrim.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_95D9D233CD72_var*
-//#UC END# *5617F4D00243_95D9D233CD72_var*
 begin
-//#UC START# *5617F4D00243_95D9D233CD72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_95D9D233CD72_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrim.ParamsTypes
 
 function TkwStringTrimLeft.string_TrimLeft(const aCtx: TtfwContext;
@@ -2373,12 +2693,18 @@ begin
 end;//TkwStringTrimLeft.string_TrimLeft
 
 procedure TkwStringTrimLeft.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2D2FC66E49DD_var*
-//#UC END# *4DAEEDE10285_2D2FC66E49DD_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_2D2FC66E49DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2D2FC66E49DD_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_TrimLeft(aCtx, l_aString));
 end;//TkwStringTrimLeft.DoDoIt
 
 class function TkwStringTrimLeft.GetWordNameForRegister: AnsiString;
@@ -2397,12 +2723,8 @@ begin
 end;//TkwStringTrimLeft.GetAllParamsCount
 
 function TkwStringTrimLeft.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2D2FC66E49DD_var*
-//#UC END# *5617F4D00243_2D2FC66E49DD_var*
 begin
-//#UC START# *5617F4D00243_2D2FC66E49DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2D2FC66E49DD_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrimLeft.ParamsTypes
 
 function TkwStringTrimRight.string_TrimRight(const aCtx: TtfwContext;
@@ -2417,12 +2739,18 @@ begin
 end;//TkwStringTrimRight.string_TrimRight
 
 procedure TkwStringTrimRight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_807D7A8440DD_var*
-//#UC END# *4DAEEDE10285_807D7A8440DD_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_807D7A8440DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_807D7A8440DD_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_TrimRight(aCtx, l_aString));
 end;//TkwStringTrimRight.DoDoIt
 
 class function TkwStringTrimRight.GetWordNameForRegister: AnsiString;
@@ -2441,12 +2769,8 @@ begin
 end;//TkwStringTrimRight.GetAllParamsCount
 
 function TkwStringTrimRight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_807D7A8440DD_var*
-//#UC END# *5617F4D00243_807D7A8440DD_var*
 begin
-//#UC START# *5617F4D00243_807D7A8440DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_807D7A8440DD_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringTrimRight.ParamsTypes
 
 function TkwStringDeleteDoubleSpaces.string_DeleteDoubleSpaces(const aCtx: TtfwContext;
@@ -2461,12 +2785,18 @@ begin
 end;//TkwStringDeleteDoubleSpaces.string_DeleteDoubleSpaces
 
 procedure TkwStringDeleteDoubleSpaces.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D5F09D866A34_var*
-//#UC END# *4DAEEDE10285_D5F09D866A34_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_D5F09D866A34_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D5F09D866A34_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_DeleteDoubleSpaces(aCtx, l_aString));
 end;//TkwStringDeleteDoubleSpaces.DoDoIt
 
 class function TkwStringDeleteDoubleSpaces.GetWordNameForRegister: AnsiString;
@@ -2485,12 +2815,8 @@ begin
 end;//TkwStringDeleteDoubleSpaces.GetAllParamsCount
 
 function TkwStringDeleteDoubleSpaces.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D5F09D866A34_var*
-//#UC END# *5617F4D00243_D5F09D866A34_var*
 begin
-//#UC START# *5617F4D00243_D5F09D866A34_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D5F09D866A34_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringDeleteDoubleSpaces.ParamsTypes
 
 function TkwStringDeleteDoubleChars.string_DeleteDoubleChars(const aCtx: TtfwContext;
@@ -2506,12 +2832,28 @@ begin
 end;//TkwStringDeleteDoubleChars.string_DeleteDoubleChars
 
 procedure TkwStringDeleteDoubleChars.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_30A1EAD7A5D9_var*
-//#UC END# *4DAEEDE10285_30A1EAD7A5D9_var*
+var l_aString: Il3CString;
+var l_aChar: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_30A1EAD7A5D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_30A1EAD7A5D9_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aChar := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChar: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_DeleteDoubleChars(aCtx, l_aString, l_aChar));
 end;//TkwStringDeleteDoubleChars.DoDoIt
 
 class function TkwStringDeleteDoubleChars.GetWordNameForRegister: AnsiString;
@@ -2530,12 +2872,8 @@ begin
 end;//TkwStringDeleteDoubleChars.GetAllParamsCount
 
 function TkwStringDeleteDoubleChars.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_30A1EAD7A5D9_var*
-//#UC END# *5617F4D00243_30A1EAD7A5D9_var*
 begin
-//#UC START# *5617F4D00243_30A1EAD7A5D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_30A1EAD7A5D9_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringDeleteDoubleChars.ParamsTypes
 
 function TkwStringSubstring.string_Substring(const aCtx: TtfwContext;
@@ -2552,12 +2890,38 @@ begin
 end;//TkwStringSubstring.string_Substring
 
 procedure TkwStringSubstring.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2E3FD122E430_var*
-//#UC END# *4DAEEDE10285_2E3FD122E430_var*
+var l_aString: Il3CString;
+var l_aPos: Integer;
+var l_aLength: Integer;
 begin
-//#UC START# *4DAEEDE10285_2E3FD122E430_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2E3FD122E430_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aPos := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPos: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aLength := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLength: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Substring(aCtx, l_aString, l_aPos, l_aLength));
 end;//TkwStringSubstring.DoDoIt
 
 class function TkwStringSubstring.GetWordNameForRegister: AnsiString;
@@ -2576,12 +2940,8 @@ begin
 end;//TkwStringSubstring.GetAllParamsCount
 
 function TkwStringSubstring.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2E3FD122E430_var*
-//#UC END# *5617F4D00243_2E3FD122E430_var*
 begin
-//#UC START# *5617F4D00243_2E3FD122E430_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2E3FD122E430_impl*
+ Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwStringSubstring.ParamsTypes
 
 function TkwStringLower.string_Lower(const aCtx: TtfwContext;
@@ -2596,12 +2956,18 @@ begin
 end;//TkwStringLower.string_Lower
 
 procedure TkwStringLower.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B79BEA825961_var*
-//#UC END# *4DAEEDE10285_B79BEA825961_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_B79BEA825961_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B79BEA825961_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Lower(aCtx, l_aString));
 end;//TkwStringLower.DoDoIt
 
 class function TkwStringLower.GetWordNameForRegister: AnsiString;
@@ -2620,12 +2986,8 @@ begin
 end;//TkwStringLower.GetAllParamsCount
 
 function TkwStringLower.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B79BEA825961_var*
-//#UC END# *5617F4D00243_B79BEA825961_var*
 begin
-//#UC START# *5617F4D00243_B79BEA825961_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B79BEA825961_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringLower.ParamsTypes
 
 function TkwStringUpper.string_Upper(const aCtx: TtfwContext;
@@ -2640,12 +3002,18 @@ begin
 end;//TkwStringUpper.string_Upper
 
 procedure TkwStringUpper.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8BA4B632B802_var*
-//#UC END# *4DAEEDE10285_8BA4B632B802_var*
+var l_aString: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_8BA4B632B802_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8BA4B632B802_impl*
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Upper(aCtx, l_aString));
 end;//TkwStringUpper.DoDoIt
 
 class function TkwStringUpper.GetWordNameForRegister: AnsiString;
@@ -2664,12 +3032,8 @@ begin
 end;//TkwStringUpper.GetAllParamsCount
 
 function TkwStringUpper.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8BA4B632B802_var*
-//#UC END# *5617F4D00243_8BA4B632B802_var*
 begin
-//#UC START# *5617F4D00243_8BA4B632B802_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8BA4B632B802_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringUpper.ParamsTypes
 
 procedure TkwVarDecLen.VarDecLen(const aCtx: TtfwContext;
@@ -2699,12 +3063,18 @@ begin
 end;//TkwVarDecLen.RightParamsCount
 
 procedure TkwVarDecLen.DoRun(const aCtx: TtfwContext);
-//#UC START# *5512949D0048_5B249AD9723E_var*
-//#UC END# *5512949D0048_5B249AD9723E_var*
+var l_aVar: TtfwWord;
 begin
-//#UC START# *5512949D0048_5B249AD9723E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5512949D0048_5B249AD9723E_impl*
+ try
+  l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVar: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ VarDecLen(aCtx, l_aVar);
 end;//TkwVarDecLen.DoRun
 
 function TkwVarDecLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2718,12 +3088,8 @@ begin
 end;//TkwVarDecLen.GetAllParamsCount
 
 function TkwVarDecLen.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5B249AD9723E_var*
-//#UC END# *5617F4D00243_5B249AD9723E_var*
 begin
-//#UC START# *5617F4D00243_5B249AD9723E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5B249AD9723E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVarDecLen.ParamsTypes
 
 procedure TkwVarInc.VarInc(const aCtx: TtfwContext;
@@ -2752,12 +3118,18 @@ begin
 end;//TkwVarInc.RightParamsCount
 
 procedure TkwVarInc.DoRun(const aCtx: TtfwContext);
-//#UC START# *5512949D0048_FF4D82AA3241_var*
-//#UC END# *5512949D0048_FF4D82AA3241_var*
+var l_aVar: TtfwWord;
 begin
-//#UC START# *5512949D0048_FF4D82AA3241_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5512949D0048_FF4D82AA3241_impl*
+ try
+  l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVar: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ VarInc(aCtx, l_aVar);
 end;//TkwVarInc.DoRun
 
 function TkwVarInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2771,12 +3143,8 @@ begin
 end;//TkwVarInc.GetAllParamsCount
 
 function TkwVarInc.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FF4D82AA3241_var*
-//#UC END# *5617F4D00243_FF4D82AA3241_var*
 begin
-//#UC START# *5617F4D00243_FF4D82AA3241_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FF4D82AA3241_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVarInc.ParamsTypes
 
 function TkwRSplitTo.RSplitTo(const aCtx: TtfwContext;
@@ -2837,12 +3205,28 @@ begin
 end;//TkwRSplitTo.RightParamsCount
 
 procedure TkwRSplitTo.DoRun(const aCtx: TtfwContext);
-//#UC START# *5512949D0048_D442EF995DFF_var*
-//#UC END# *5512949D0048_D442EF995DFF_var*
+var l_aVar: TtfwWord;
+var l_aDelim: Il3CString;
 begin
-//#UC START# *5512949D0048_D442EF995DFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5512949D0048_D442EF995DFF_impl*
+ try
+  l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVar: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aDelim := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDelim: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(RSplitTo(aCtx, l_aVar, l_aDelim));
 end;//TkwRSplitTo.DoRun
 
 function TkwRSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2856,12 +3240,8 @@ begin
 end;//TkwRSplitTo.GetAllParamsCount
 
 function TkwRSplitTo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D442EF995DFF_var*
-//#UC END# *5617F4D00243_D442EF995DFF_var*
 begin
-//#UC START# *5617F4D00243_D442EF995DFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D442EF995DFF_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwRSplitTo.ParamsTypes
 
 procedure TkwVarShift.VarShift(const aCtx: TtfwContext;
@@ -2891,12 +3271,28 @@ begin
 end;//TkwVarShift.RightParamsCount
 
 procedure TkwVarShift.DoRun(const aCtx: TtfwContext);
-//#UC START# *5512949D0048_E1736F173AD3_var*
-//#UC END# *5512949D0048_E1736F173AD3_var*
+var l_aVar: TtfwWord;
+var l_aNum: Integer;
 begin
-//#UC START# *5512949D0048_E1736F173AD3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5512949D0048_E1736F173AD3_impl*
+ try
+  l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVar: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aNum := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNum: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ VarShift(aCtx, l_aVar, l_aNum);
 end;//TkwVarShift.DoRun
 
 function TkwVarShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2910,12 +3306,8 @@ begin
 end;//TkwVarShift.GetAllParamsCount
 
 function TkwVarShift.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E1736F173AD3_var*
-//#UC END# *5617F4D00243_E1736F173AD3_var*
 begin
-//#UC START# *5617F4D00243_E1736F173AD3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E1736F173AD3_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVarShift.ParamsTypes
 
 function TkwSplitTo.SplitTo(const aCtx: TtfwContext;
@@ -2969,12 +3361,28 @@ begin
 end;//TkwSplitTo.RightParamsCount
 
 procedure TkwSplitTo.DoRun(const aCtx: TtfwContext);
-//#UC START# *5512949D0048_BF0C6B892128_var*
-//#UC END# *5512949D0048_BF0C6B892128_var*
+var l_aVar: TtfwWord;
+var l_aDelim: Il3CString;
 begin
-//#UC START# *5512949D0048_BF0C6B892128_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5512949D0048_BF0C6B892128_impl*
+ try
+  l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVar: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aDelim := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDelim: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(SplitTo(aCtx, l_aVar, l_aDelim));
 end;//TkwSplitTo.DoRun
 
 function TkwSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2988,12 +3396,8 @@ begin
 end;//TkwSplitTo.GetAllParamsCount
 
 function TkwSplitTo.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BF0C6B892128_var*
-//#UC END# *5617F4D00243_BF0C6B892128_var*
 begin
-//#UC START# *5617F4D00243_BF0C6B892128_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BF0C6B892128_impl*
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSplitTo.ParamsTypes
 
 function TkwVarPushCharAndInc.VarPushCharAndInc(const aCtx: TtfwContext;
@@ -3023,12 +3427,18 @@ begin
 end;//TkwVarPushCharAndInc.RightParamsCount
 
 procedure TkwVarPushCharAndInc.DoRun(const aCtx: TtfwContext);
-//#UC START# *5512949D0048_6014F0D564E4_var*
-//#UC END# *5512949D0048_6014F0D564E4_var*
+var l_aVar: TtfwWord;
 begin
-//#UC START# *5512949D0048_6014F0D564E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5512949D0048_6014F0D564E4_impl*
+ try
+  l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aVar: TtfwWord : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushChar(VarPushCharAndInc(aCtx, l_aVar));
 end;//TkwVarPushCharAndInc.DoRun
 
 function TkwVarPushCharAndInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3042,12 +3452,8 @@ begin
 end;//TkwVarPushCharAndInc.GetAllParamsCount
 
 function TkwVarPushCharAndInc.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6014F0D564E4_var*
-//#UC END# *5617F4D00243_6014F0D564E4_var*
 begin
-//#UC START# *5617F4D00243_6014F0D564E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6014F0D564E4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVarPushCharAndInc.ParamsTypes
 
 initialization

@@ -1,40 +1,30 @@
 unit kwCASE;
+ {* Аналог Case из Delphi
+[code]
+ CASE
+  1 ( 1 . )
+  2 ( 2 . )
+  DEFAULT ( 'else' . )
+ ENDCASE
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwCASE.pas"
-// Начат: 29.04.2011 21:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi Low Level::ScriptEngine::CodeBranchingWords::CASE
-//
-// Аналог Case из Delphi
-// {code}
-// CASE
-// 1 ( 1 . )
-// 2 ( 2 . )
-// DEFAULT ( 'else' . )
-// ENDCASE
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCASE.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwBeginLikeWord,
-  tfwScriptingInterfaces,
-  kwCompiledWordPrim
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwBeginLikeWord
+ , tfwScriptingInterfaces
+ , kwCompiledWordPrim
+;
 
-{$If not defined(NoScripts)}
 type
- TkwCASE = {scriptword} class(TtfwBeginLikeWord)
+ TkwCASE = class(TtfwBeginLikeWord)
   {* Аналог Case из Delphi
 [code]
  CASE
@@ -43,32 +33,25 @@ type
   DEFAULT ( 'else' . )
  ENDCASE
 [code] }
- protected
- // realized methods
+  protected
    function EndBracket(const aContext: TtfwContext;
-     aSilent: Boolean): RtfwWord; override;
- protected
- // overridden protected methods
+    aSilent: Boolean): RtfwWord; override;
    class function GetWordNameForRegister: AnsiString; override;
    function CompiledWordClass(const aCtx: TtfwContext): RkwCompiledWordPrim; override;
  end;//TkwCASE
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEND,
-  kwCompiledCase
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCASE
+ l3ImplUses
+ , kwEND
+ , kwCompiledCase
+;
 
 function TkwCASE.EndBracket(const aContext: TtfwContext;
-  aSilent: Boolean): RtfwWord;
+ aSilent: Boolean): RtfwWord;
 //#UC START# *4DB6C99F026E_4DBAEE8103DB_var*
 //#UC END# *4DB6C99F026E_4DBAEE8103DB_var*
 begin
@@ -78,7 +61,6 @@ begin
 end;//TkwCASE.EndBracket
 
 class function TkwCASE.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'CASE';
 end;//TkwCASE.GetWordNameForRegister
@@ -92,12 +74,9 @@ begin
 //#UC END# *4DBAEE0D028D_4DBAEE8103DB_impl*
 end;//TkwCASE.CompiledWordClass
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация CASE
  TkwCASE.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация CASE }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

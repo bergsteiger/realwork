@@ -1,50 +1,35 @@
 unit kwCompiledMain;
+ {* Скомпилированный основной код скрипта }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine"
-// Автор: Люлин А.В.
-// Модуль: "kwCompiledMain.pas"
-// Начат: 12.02.2012 18:25
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine::Scripting Axiomatics::TkwCompiledMain
-//
-// Скомпилированный основной код скрипта
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledMain.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwCompiledMain = class(TkwCompiledWord)
   {* Скомпилированный основной код скрипта }
- protected
- // overridden property methods
+  protected
    function pm_GetParentWord: TtfwWord; override;
  end;//TkwCompiledMain
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClassRef
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwCompiledMain
+ l3ImplUses
+ , tfwClassRef
+;
 
 function TkwCompiledMain.pm_GetParentWord: TtfwWord;
 //#UC START# *52CFCF4B02C6_4F37CBBE015Aget_var*
@@ -55,12 +40,9 @@ begin
 //#UC END# *52CFCF4B02C6_4F37CBBE015Aget_impl*
 end;//TkwCompiledMain.pm_GetParentWord
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledMain
  TkwCompiledMain.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledMain }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -88,12 +88,28 @@ begin
 end;//TkwPopKeywordFinderKeywordByName.KeywordByName
 
 procedure TkwPopKeywordFinderKeywordByName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D73628563892_var*
-//#UC END# *4DAEEDE10285_D73628563892_var*
+var l_aKeywordFinder: TtfwKeywordFinder;
+var l_aName: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_D73628563892_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D73628563892_impl*
+ try
+  l_aKeywordFinder := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aKeywordFinder: TtfwKeywordFinder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(KeywordByName(aCtx, l_aKeywordFinder, l_aName));
 end;//TkwPopKeywordFinderKeywordByName.DoDoIt
 
 class function TkwPopKeywordFinderKeywordByName.GetWordNameForRegister: AnsiString;
@@ -112,12 +128,8 @@ begin
 end;//TkwPopKeywordFinderKeywordByName.GetAllParamsCount
 
 function TkwPopKeywordFinderKeywordByName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D73628563892_var*
-//#UC END# *5617F4D00243_D73628563892_var*
 begin
-//#UC START# *5617F4D00243_D73628563892_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D73628563892_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder), @tfw_tiString]);
 end;//TkwPopKeywordFinderKeywordByName.ParamsTypes
 
 function TkwPopKeywordFinderParentFinder.ParentFinder(const aCtx: TtfwContext;
@@ -132,12 +144,18 @@ begin
 end;//TkwPopKeywordFinderParentFinder.ParentFinder
 
 procedure TkwPopKeywordFinderParentFinder.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F60851FE16E3_var*
-//#UC END# *4DAEEDE10285_F60851FE16E3_var*
+var l_aKeywordFinder: TtfwKeywordFinder;
 begin
-//#UC START# *4DAEEDE10285_F60851FE16E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F60851FE16E3_impl*
+ try
+  l_aKeywordFinder := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aKeywordFinder: TtfwKeywordFinder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentFinder(aCtx, l_aKeywordFinder));
 end;//TkwPopKeywordFinderParentFinder.DoDoIt
 
 class function TkwPopKeywordFinderParentFinder.GetWordNameForRegister: AnsiString;
@@ -147,12 +165,8 @@ end;//TkwPopKeywordFinderParentFinder.GetWordNameForRegister
 
 procedure TkwPopKeywordFinderParentFinder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F60851FE16E3_var*
-//#UC END# *52D00B00031A_F60851FE16E3_var*
 begin
-//#UC START# *52D00B00031A_F60851FE16E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F60851FE16E3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ParentFinder', aCtx);
 end;//TkwPopKeywordFinderParentFinder.SetValuePrim
 
 function TkwPopKeywordFinderParentFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -166,12 +180,8 @@ begin
 end;//TkwPopKeywordFinderParentFinder.GetAllParamsCount
 
 function TkwPopKeywordFinderParentFinder.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F60851FE16E3_var*
-//#UC END# *5617F4D00243_F60851FE16E3_var*
 begin
-//#UC START# *5617F4D00243_F60851FE16E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F60851FE16E3_impl*
+ Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder)]);
 end;//TkwPopKeywordFinderParentFinder.ParamsTypes
 
 initialization
