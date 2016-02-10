@@ -155,12 +155,8 @@ begin
 end;//TkwElCustomEditFormEdit.SetValuePrim
 
 function TkwElCustomEditFormEdit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_713A666E50E1_var*
-//#UC END# *551544E2001A_713A666E50E1_var*
 begin
-//#UC START# *551544E2001A_713A666E50E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_713A666E50E1_impl*
+ Result := TypeInfo(TelCustomEdit);
 end;//TkwElCustomEditFormEdit.GetResultTypeInfo
 
 function TkwElCustomEditFormEdit.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -800,12 +800,8 @@ begin
 end;//TkwAdminMainFormStatusBar.SetValuePrim
 
 function TkwAdminMainFormStatusBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_89E614579362_var*
-//#UC END# *551544E2001A_89E614579362_var*
 begin
-//#UC START# *551544E2001A_89E614579362_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_89E614579362_impl*
+ Result := TypeInfo(TnscStatusBar);
 end;//TkwAdminMainFormStatusBar.GetResultTypeInfo
 
 function TkwAdminMainFormStatusBar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -858,12 +854,8 @@ begin
 end;//TkwAdminMainFormClientZone.SetValuePrim
 
 function TkwAdminMainFormClientZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E2B94D80617E_var*
-//#UC END# *551544E2001A_E2B94D80617E_var*
 begin
-//#UC START# *551544E2001A_E2B94D80617E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E2B94D80617E_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAdminMainFormClientZone.GetResultTypeInfo
 
 function TkwAdminMainFormClientZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -916,12 +908,8 @@ begin
 end;//TkwAdminMainFormMainZone.SetValuePrim
 
 function TkwAdminMainFormMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8D55CF0F60D9_var*
-//#UC END# *551544E2001A_8D55CF0F60D9_var*
 begin
-//#UC START# *551544E2001A_8D55CF0F60D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8D55CF0F60D9_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwAdminMainFormMainZone.GetResultTypeInfo
 
 function TkwAdminMainFormMainZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -974,12 +962,8 @@ begin
 end;//TkwAdminMainFormParentZonePanel.SetValuePrim
 
 function TkwAdminMainFormParentZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C5666F9F0C68_var*
-//#UC END# *551544E2001A_C5666F9F0C68_var*
 begin
-//#UC START# *551544E2001A_C5666F9F0C68_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C5666F9F0C68_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAdminMainFormParentZonePanel.GetResultTypeInfo
 
 function TkwAdminMainFormParentZonePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1032,12 +1016,8 @@ begin
 end;//TkwAdminMainFormChildZonePanel.SetValuePrim
 
 function TkwAdminMainFormChildZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FB1B50338E95_var*
-//#UC END# *551544E2001A_FB1B50338E95_var*
 begin
-//#UC START# *551544E2001A_FB1B50338E95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FB1B50338E95_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwAdminMainFormChildZonePanel.GetResultTypeInfo
 
 function TkwAdminMainFormChildZonePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1090,12 +1070,8 @@ begin
 end;//TkwAdminMainFormBaseSearchPanel.SetValuePrim
 
 function TkwAdminMainFormBaseSearchPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_89016C41C797_var*
-//#UC END# *551544E2001A_89016C41C797_var*
 begin
-//#UC START# *551544E2001A_89016C41C797_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_89016C41C797_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAdminMainFormBaseSearchPanel.GetResultTypeInfo
 
 function TkwAdminMainFormBaseSearchPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1148,12 +1124,8 @@ begin
 end;//TkwAdminMainFormLeftNavigator.SetValuePrim
 
 function TkwAdminMainFormLeftNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B57C2147F5C5_var*
-//#UC END# *551544E2001A_B57C2147F5C5_var*
 begin
-//#UC START# *551544E2001A_B57C2147F5C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B57C2147F5C5_impl*
+ Result := TypeInfo(TnscNavigator);
 end;//TkwAdminMainFormLeftNavigator.GetResultTypeInfo
 
 function TkwAdminMainFormLeftNavigator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1208,12 +1180,8 @@ begin
 end;//TkwAdminMainFormRightNavigator.SetValuePrim
 
 function TkwAdminMainFormRightNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6EAD1664D2EB_var*
-//#UC END# *551544E2001A_6EAD1664D2EB_var*
 begin
-//#UC START# *551544E2001A_6EAD1664D2EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6EAD1664D2EB_impl*
+ Result := TypeInfo(TnscNavigator);
 end;//TkwAdminMainFormRightNavigator.GetResultTypeInfo
 
 function TkwAdminMainFormRightNavigator.GetAllParamsCount(const aCtx: TtfwContext): Integer;

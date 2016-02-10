@@ -273,21 +273,13 @@ begin
 end;//TkwChildFormChildZone.SetValuePrim
 
 function TkwChildFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_310E6CF39C5E_var*
-//#UC END# *551544E2001A_310E6CF39C5E_var*
 begin
-//#UC START# *551544E2001A_310E6CF39C5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_310E6CF39C5E_impl*
+ Result := TypeInfo(TnscFormsPageControl);
 end;//TkwChildFormChildZone.GetResultTypeInfo
 
 function TkwChildFormChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_310E6CF39C5E_var*
-//#UC END# *559687E6025A_310E6CF39C5E_var*
 begin
-//#UC START# *559687E6025A_310E6CF39C5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_310E6CF39C5E_impl*
+ Result := 1;
 end;//TkwChildFormChildZone.GetAllParamsCount
 
 function TkwChildFormChildZone.ParamsTypes: PTypeInfoArray;
@@ -335,21 +327,13 @@ begin
 end;//TkwChildFormMainPageTab.SetValuePrim
 
 function TkwChildFormMainPageTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B752FF576E67_var*
-//#UC END# *551544E2001A_B752FF576E67_var*
 begin
-//#UC START# *551544E2001A_B752FF576E67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B752FF576E67_impl*
+ Result := TypeInfo(TElTabSheet);
 end;//TkwChildFormMainPageTab.GetResultTypeInfo
 
 function TkwChildFormMainPageTab.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_B752FF576E67_var*
-//#UC END# *559687E6025A_B752FF576E67_var*
 begin
-//#UC START# *559687E6025A_B752FF576E67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_B752FF576E67_impl*
+ Result := 1;
 end;//TkwChildFormMainPageTab.GetAllParamsCount
 
 function TkwChildFormMainPageTab.ParamsTypes: PTypeInfoArray;

@@ -180,12 +180,8 @@ begin
 end;//TkwFilterNodeAutoApplied.SetValuePrim
 
 function TkwFilterNodeAutoApplied.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_81D0AC689E19_var*
-//#UC END# *551544E2001A_81D0AC689E19_var*
 begin
-//#UC START# *551544E2001A_81D0AC689E19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_81D0AC689E19_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwFilterNodeAutoApplied.GetResultTypeInfo
 
 function TkwFilterNodeAutoApplied.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -238,12 +234,8 @@ begin
 end;//TkwFilterNodeIsUsed.SetValuePrim
 
 function TkwFilterNodeIsUsed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3EAB6B490CA4_var*
-//#UC END# *551544E2001A_3EAB6B490CA4_var*
 begin
-//#UC START# *551544E2001A_3EAB6B490CA4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3EAB6B490CA4_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwFilterNodeIsUsed.GetResultTypeInfo
 
 function TkwFilterNodeIsUsed.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -296,12 +288,8 @@ begin
 end;//TkwFilterNodeIsDeleted.SetValuePrim
 
 function TkwFilterNodeIsDeleted.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2F875C7C1CA3_var*
-//#UC END# *551544E2001A_2F875C7C1CA3_var*
 begin
-//#UC START# *551544E2001A_2F875C7C1CA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2F875C7C1CA3_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwFilterNodeIsDeleted.GetResultTypeInfo
 
 function TkwFilterNodeIsDeleted.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -362,12 +350,8 @@ begin
 end;//TkwFilterNodeIsChangeable.SetValuePrim
 
 function TkwFilterNodeIsChangeable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_008D699CFE74_var*
-//#UC END# *551544E2001A_008D699CFE74_var*
 begin
-//#UC START# *551544E2001A_008D699CFE74_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_008D699CFE74_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwFilterNodeIsChangeable.GetResultTypeInfo
 
 function TkwFilterNodeIsChangeable.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -334,12 +334,8 @@ begin
 end;//TkwPopEditorInsertTable.GetWordNameForRegister
 
 function TkwPopEditorInsertTable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A1BCB5D9397E_var*
-//#UC END# *551544E2001A_A1BCB5D9397E_var*
 begin
-//#UC START# *551544E2001A_A1BCB5D9397E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A1BCB5D9397E_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorInsertTable.GetResultTypeInfo
 
 function TkwPopEditorInsertTable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -382,12 +378,8 @@ begin
 end;//TkwPopEditorInsertRow.GetWordNameForRegister
 
 function TkwPopEditorInsertRow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FD58A4635AC9_var*
-//#UC END# *551544E2001A_FD58A4635AC9_var*
 begin
-//#UC START# *551544E2001A_FD58A4635AC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FD58A4635AC9_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorInsertRow.GetResultTypeInfo
 
 function TkwPopEditorInsertRow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -430,12 +422,8 @@ begin
 end;//TkwPopEditorDeleteRow.GetWordNameForRegister
 
 function TkwPopEditorDeleteRow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9A0327B85C97_var*
-//#UC END# *551544E2001A_9A0327B85C97_var*
 begin
-//#UC START# *551544E2001A_9A0327B85C97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9A0327B85C97_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorDeleteRow.GetResultTypeInfo
 
 function TkwPopEditorDeleteRow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -478,12 +466,8 @@ begin
 end;//TkwPopEditorInsertColumn.GetWordNameForRegister
 
 function TkwPopEditorInsertColumn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_16C269694050_var*
-//#UC END# *551544E2001A_16C269694050_var*
 begin
-//#UC START# *551544E2001A_16C269694050_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_16C269694050_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorInsertColumn.GetResultTypeInfo
 
 function TkwPopEditorInsertColumn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -526,12 +510,8 @@ begin
 end;//TkwPopEditorDeleteColumn.GetWordNameForRegister
 
 function TkwPopEditorDeleteColumn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2EA84891C677_var*
-//#UC END# *551544E2001A_2EA84891C677_var*
 begin
-//#UC START# *551544E2001A_2EA84891C677_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2EA84891C677_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorDeleteColumn.GetResultTypeInfo
 
 function TkwPopEditorDeleteColumn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -588,12 +568,8 @@ begin
 end;//TkwPopEditorMergeCells.GetWordNameForRegister
 
 function TkwPopEditorMergeCells.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A451D154F580_var*
-//#UC END# *551544E2001A_A451D154F580_var*
 begin
-//#UC START# *551544E2001A_A451D154F580_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A451D154F580_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorMergeCells.GetResultTypeInfo
 
 function TkwPopEditorMergeCells.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -651,12 +627,8 @@ begin
 end;//TkwPopEditorSplitCell.GetWordNameForRegister
 
 function TkwPopEditorSplitCell.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3AC5FB50949B_var*
-//#UC END# *551544E2001A_3AC5FB50949B_var*
 begin
-//#UC START# *551544E2001A_3AC5FB50949B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3AC5FB50949B_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorSplitCell.GetResultTypeInfo
 
 function TkwPopEditorSplitCell.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -705,12 +677,8 @@ begin
 end;//TkwPopEditorSplitTable.GetWordNameForRegister
 
 function TkwPopEditorSplitTable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AA4E45C58AA3_var*
-//#UC END# *551544E2001A_AA4E45C58AA3_var*
 begin
-//#UC START# *551544E2001A_AA4E45C58AA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AA4E45C58AA3_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorSplitTable.GetResultTypeInfo
 
 function TkwPopEditorSplitTable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -759,12 +727,8 @@ begin
 end;//TkwPopEditorMergeTables.GetWordNameForRegister
 
 function TkwPopEditorMergeTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E73997E799CF_var*
-//#UC END# *551544E2001A_E73997E799CF_var*
 begin
-//#UC START# *551544E2001A_E73997E799CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E73997E799CF_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorMergeTables.GetResultTypeInfo
 
 function TkwPopEditorMergeTables.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -808,12 +772,8 @@ begin
 end;//TkwPopEditorInsertSectionBreak.GetWordNameForRegister
 
 function TkwPopEditorInsertSectionBreak.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5C1388B33B3A_var*
-//#UC END# *551544E2001A_5C1388B33B3A_var*
 begin
-//#UC START# *551544E2001A_5C1388B33B3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5C1388B33B3A_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorInsertSectionBreak.GetResultTypeInfo
 
 function TkwPopEditorInsertSectionBreak.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -856,12 +816,8 @@ begin
 end;//TkwPopEditorPrevHyperlink.GetWordNameForRegister
 
 function TkwPopEditorPrevHyperlink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B77C574814C1_var*
-//#UC END# *551544E2001A_B77C574814C1_var*
 begin
-//#UC START# *551544E2001A_B77C574814C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B77C574814C1_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorPrevHyperlink.GetResultTypeInfo
 
 function TkwPopEditorPrevHyperlink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -904,12 +860,8 @@ begin
 end;//TkwPopEditorNextHyperlink.GetWordNameForRegister
 
 function TkwPopEditorNextHyperlink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F05E0D5E838A_var*
-//#UC END# *551544E2001A_F05E0D5E838A_var*
 begin
-//#UC START# *551544E2001A_F05E0D5E838A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F05E0D5E838A_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorNextHyperlink.GetResultTypeInfo
 
 function TkwPopEditorNextHyperlink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -952,12 +904,8 @@ begin
 end;//TkwPopEditorRange.GetWordNameForRegister
 
 function TkwPopEditorRange.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_47D4B4C536FD_var*
-//#UC END# *551544E2001A_47D4B4C536FD_var*
 begin
-//#UC START# *551544E2001A_47D4B4C536FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_47D4B4C536FD_impl*
+ Result := TypeInfo(IedRange);
 end;//TkwPopEditorRange.GetResultTypeInfo
 
 function TkwPopEditorRange.GetAllParamsCount(const aCtx: TtfwContext): Integer;

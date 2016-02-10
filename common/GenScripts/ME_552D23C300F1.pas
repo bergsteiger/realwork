@@ -129,12 +129,8 @@ begin
 end;//TkwPopCheckListBoxGetChecked.GetWordNameForRegister
 
 function TkwPopCheckListBoxGetChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_61EE94402745_var*
-//#UC END# *551544E2001A_61EE94402745_var*
 begin
-//#UC START# *551544E2001A_61EE94402745_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_61EE94402745_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopCheckListBoxGetChecked.GetResultTypeInfo
 
 function TkwPopCheckListBoxGetChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -179,12 +175,8 @@ begin
 end;//TkwPopCheckListBoxSetChecked.GetWordNameForRegister
 
 function TkwPopCheckListBoxSetChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CA2863D28A34_var*
-//#UC END# *551544E2001A_CA2863D28A34_var*
 begin
-//#UC START# *551544E2001A_CA2863D28A34_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CA2863D28A34_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopCheckListBoxSetChecked.GetResultTypeInfo
 
 function TkwPopCheckListBoxSetChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -230,12 +222,8 @@ begin
 end;//TkwPopCheckListBoxUncheckAll.GetWordNameForRegister
 
 function TkwPopCheckListBoxUncheckAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CC902BB857AE_var*
-//#UC END# *551544E2001A_CC902BB857AE_var*
 begin
-//#UC START# *551544E2001A_CC902BB857AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CC902BB857AE_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopCheckListBoxUncheckAll.GetResultTypeInfo
 
 function TkwPopCheckListBoxUncheckAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;

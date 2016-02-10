@@ -76,7 +76,7 @@ end;//TkwPopWordBoxBoxed.GetWordNameForRegister
 
 function TkwPopWordBoxBoxed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwWord);
 end;//TkwPopWordBoxBoxed.GetResultTypeInfo
 
 function TkwPopWordBoxBoxed.GetAllParamsCount(const aCtx: TtfwContext): Integer;

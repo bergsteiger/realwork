@@ -273,12 +273,8 @@ begin
 end;//TkwEfGroupPropertyEdName.SetValuePrim
 
 function TkwEfGroupPropertyEdName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4F99EBEBC67D_var*
-//#UC END# *551544E2001A_4F99EBEBC67D_var*
 begin
-//#UC START# *551544E2001A_4F99EBEBC67D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4F99EBEBC67D_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwEfGroupPropertyEdName.GetResultTypeInfo
 
 function TkwEfGroupPropertyEdName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -331,12 +327,8 @@ begin
 end;//TkwEfGroupPropertyLabel1.SetValuePrim
 
 function TkwEfGroupPropertyLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8DC84936A887_var*
-//#UC END# *551544E2001A_8DC84936A887_var*
 begin
-//#UC START# *551544E2001A_8DC84936A887_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8DC84936A887_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEfGroupPropertyLabel1.GetResultTypeInfo
 
 function TkwEfGroupPropertyLabel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;

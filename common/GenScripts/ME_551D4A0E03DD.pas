@@ -130,12 +130,8 @@ begin
 end;//TkwPopControlFindVGControlByName.GetWordNameForRegister
 
 function TkwPopControlFindVGControlByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BAFBA1D026AA_var*
-//#UC END# *551544E2001A_BAFBA1D026AA_var*
 begin
-//#UC START# *551544E2001A_BAFBA1D026AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BAFBA1D026AA_impl*
+ Result := TypeInfo(TvgObject);
 end;//TkwPopControlFindVGControlByName.GetResultTypeInfo
 
 function TkwPopControlFindVGControlByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;

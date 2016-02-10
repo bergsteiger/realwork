@@ -96,12 +96,8 @@ begin
 end;//TkwPopTreeNodeIsNodeFolder.GetWordNameForRegister
 
 function TkwPopTreeNodeIsNodeFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_565CDF98FF94_var*
-//#UC END# *551544E2001A_565CDF98FF94_var*
 begin
-//#UC START# *551544E2001A_565CDF98FF94_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_565CDF98FF94_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopTreeNodeIsNodeFolder.GetResultTypeInfo
 
 function TkwPopTreeNodeIsNodeFolder.GetAllParamsCount(const aCtx: TtfwContext): Integer;

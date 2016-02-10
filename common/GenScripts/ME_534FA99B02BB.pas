@@ -404,12 +404,8 @@ begin
 end;//TkwPopReminderClick.GetWordNameForRegister
 
 function TkwPopReminderClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1C5F9BBE1179_var*
-//#UC END# *551544E2001A_1C5F9BBE1179_var*
 begin
-//#UC START# *551544E2001A_1C5F9BBE1179_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1C5F9BBE1179_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopReminderClick.GetResultTypeInfo
 
 function TkwPopReminderClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -454,12 +450,8 @@ begin
 end;//TkwPopReminderMove.GetWordNameForRegister
 
 function TkwPopReminderMove.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0442CDEB32BC_var*
-//#UC END# *551544E2001A_0442CDEB32BC_var*
 begin
-//#UC START# *551544E2001A_0442CDEB32BC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0442CDEB32BC_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopReminderMove.GetResultTypeInfo
 
 function TkwPopReminderMove.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -512,12 +504,8 @@ begin
 end;//TkwPopReminderFindEditor.GetWordNameForRegister
 
 function TkwPopReminderFindEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_649B596A6C75_var*
-//#UC END# *551544E2001A_649B596A6C75_var*
 begin
-//#UC START# *551544E2001A_649B596A6C75_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_649B596A6C75_impl*
+ Result := TypeInfo(TComponent);
 end;//TkwPopReminderFindEditor.GetResultTypeInfo
 
 function TkwPopReminderFindEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -564,12 +552,8 @@ begin
 end;//TkwPopReminderGetPopupMenu.GetWordNameForRegister
 
 function TkwPopReminderGetPopupMenu.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C1FAEFF176B2_var*
-//#UC END# *551544E2001A_C1FAEFF176B2_var*
 begin
-//#UC START# *551544E2001A_C1FAEFF176B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C1FAEFF176B2_impl*
+ Result := TypeInfo(TMenuItem);
 end;//TkwPopReminderGetPopupMenu.GetResultTypeInfo
 
 function TkwPopReminderGetPopupMenu.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -622,12 +606,8 @@ begin
 end;//TkwPopReminderImageIndex.SetValuePrim
 
 function TkwPopReminderImageIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A580AA2892B6_var*
-//#UC END# *551544E2001A_A580AA2892B6_var*
 begin
-//#UC START# *551544E2001A_A580AA2892B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A580AA2892B6_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopReminderImageIndex.GetResultTypeInfo
 
 function TkwPopReminderImageIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -680,12 +660,8 @@ begin
 end;//TkwPopReminderUserType.SetValuePrim
 
 function TkwPopReminderUserType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_03823097F08B_var*
-//#UC END# *551544E2001A_03823097F08B_var*
 begin
-//#UC START# *551544E2001A_03823097F08B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_03823097F08B_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopReminderUserType.GetResultTypeInfo
 
 function TkwPopReminderUserType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -738,12 +714,8 @@ begin
 end;//TkwPopReminderIsBaloonVisible.SetValuePrim
 
 function TkwPopReminderIsBaloonVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B5B73476616C_var*
-//#UC END# *551544E2001A_B5B73476616C_var*
 begin
-//#UC START# *551544E2001A_B5B73476616C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B5B73476616C_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopReminderIsBaloonVisible.GetResultTypeInfo
 
 function TkwPopReminderIsBaloonVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -796,12 +768,8 @@ begin
 end;//TkwPopReminderVisible.SetValuePrim
 
 function TkwPopReminderVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_86556B367D77_var*
-//#UC END# *551544E2001A_86556B367D77_var*
 begin
-//#UC START# *551544E2001A_86556B367D77_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_86556B367D77_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopReminderVisible.GetResultTypeInfo
 
 function TkwPopReminderVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -854,12 +822,8 @@ begin
 end;//TkwPopReminderName.SetValuePrim
 
 function TkwPopReminderName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_53BA7E6BD35A_var*
-//#UC END# *551544E2001A_53BA7E6BD35A_var*
 begin
-//#UC START# *551544E2001A_53BA7E6BD35A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_53BA7E6BD35A_impl*
+ Result := @tfw_tiString;
 end;//TkwPopReminderName.GetResultTypeInfo
 
 function TkwPopReminderName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -912,12 +876,8 @@ begin
 end;//TkwPopReminderFlash.SetValuePrim
 
 function TkwPopReminderFlash.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_41F02D480F88_var*
-//#UC END# *551544E2001A_41F02D480F88_var*
 begin
-//#UC START# *551544E2001A_41F02D480F88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_41F02D480F88_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopReminderFlash.GetResultTypeInfo
 
 function TkwPopReminderFlash.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -970,12 +930,8 @@ begin
 end;//TkwPopReminderTextBackColor.SetValuePrim
 
 function TkwPopReminderTextBackColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4910B3AB2F0F_var*
-//#UC END# *551544E2001A_4910B3AB2F0F_var*
 begin
-//#UC START# *551544E2001A_4910B3AB2F0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4910B3AB2F0F_impl*
+ Result := @tfw_tiString;
 end;//TkwPopReminderTextBackColor.GetResultTypeInfo
 
 function TkwPopReminderTextBackColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1028,12 +984,8 @@ begin
 end;//TkwPopReminderShowHint.SetValuePrim
 
 function TkwPopReminderShowHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_01DFD9EDE9C7_var*
-//#UC END# *551544E2001A_01DFD9EDE9C7_var*
 begin
-//#UC START# *551544E2001A_01DFD9EDE9C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_01DFD9EDE9C7_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopReminderShowHint.GetResultTypeInfo
 
 function TkwPopReminderShowHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1086,12 +1038,8 @@ begin
 end;//TkwPopReminderCaption.SetValuePrim
 
 function TkwPopReminderCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D817B4A59BC2_var*
-//#UC END# *551544E2001A_D817B4A59BC2_var*
 begin
-//#UC START# *551544E2001A_D817B4A59BC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D817B4A59BC2_impl*
+ Result := @tfw_tiString;
 end;//TkwPopReminderCaption.GetResultTypeInfo
 
 function TkwPopReminderCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1144,12 +1092,8 @@ begin
 end;//TkwPopReminderHint.SetValuePrim
 
 function TkwPopReminderHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3D456BE889E3_var*
-//#UC END# *551544E2001A_3D456BE889E3_var*
 begin
-//#UC START# *551544E2001A_3D456BE889E3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3D456BE889E3_impl*
+ Result := @tfw_tiString;
 end;//TkwPopReminderHint.GetResultTypeInfo
 
 function TkwPopReminderHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1202,12 +1146,8 @@ begin
 end;//TkwPopReminderPopupForm.SetValuePrim
 
 function TkwPopReminderPopupForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_27F1AE8E8012_var*
-//#UC END# *551544E2001A_27F1AE8E8012_var*
 begin
-//#UC START# *551544E2001A_27F1AE8E8012_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_27F1AE8E8012_impl*
+ Result := TypeInfo(TvtPopupFormModelPart);
 end;//TkwPopReminderPopupForm.GetResultTypeInfo
 
 function TkwPopReminderPopupForm.GetAllParamsCount(const aCtx: TtfwContext): Integer;

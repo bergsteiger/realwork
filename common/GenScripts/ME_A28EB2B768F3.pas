@@ -312,12 +312,8 @@ begin
 end;//TkwPictureFormIeIO.SetValuePrim
 
 function TkwPictureFormIeIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_17635237745C_var*
-//#UC END# *551544E2001A_17635237745C_var*
 begin
-//#UC START# *551544E2001A_17635237745C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_17635237745C_impl*
+ Result := TypeInfo(TImageEnIO);
 end;//TkwPictureFormIeIO.GetResultTypeInfo
 
 function TkwPictureFormIeIO.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -370,12 +366,8 @@ begin
 end;//TkwPictureFormIeViewer.SetValuePrim
 
 function TkwPictureFormIeViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_101ACB961C5C_var*
-//#UC END# *551544E2001A_101ACB961C5C_var*
 begin
-//#UC START# *551544E2001A_101ACB961C5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_101ACB961C5C_impl*
+ Result := TypeInfo(TImageEnView);
 end;//TkwPictureFormIeViewer.GetResultTypeInfo
 
 function TkwPictureFormIeViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -428,12 +420,8 @@ begin
 end;//TkwPictureFormIeProc.SetValuePrim
 
 function TkwPictureFormIeProc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BF66EC4F24E9_var*
-//#UC END# *551544E2001A_BF66EC4F24E9_var*
 begin
-//#UC START# *551544E2001A_BF66EC4F24E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BF66EC4F24E9_impl*
+ Result := TypeInfo(TImageEnProc);
 end;//TkwPictureFormIeProc.GetResultTypeInfo
 
 function TkwPictureFormIeProc.GetAllParamsCount(const aCtx: TtfwContext): Integer;

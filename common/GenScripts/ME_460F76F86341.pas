@@ -358,12 +358,8 @@ begin
 end;//TkwCfAdminFormBackgroundPanel.SetValuePrim
 
 function TkwCfAdminFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C4515223E983_var*
-//#UC END# *551544E2001A_C4515223E983_var*
 begin
-//#UC START# *551544E2001A_C4515223E983_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C4515223E983_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwCfAdminFormBackgroundPanel.GetResultTypeInfo
 
 function TkwCfAdminFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -416,12 +412,8 @@ begin
 end;//TkwCfAdminFormPropertyZone.SetValuePrim
 
 function TkwCfAdminFormPropertyZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AFA25E6606C9_var*
-//#UC END# *551544E2001A_AFA25E6606C9_var*
 begin
-//#UC START# *551544E2001A_AFA25E6606C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AFA25E6606C9_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwCfAdminFormPropertyZone.GetResultTypeInfo
 
 function TkwCfAdminFormPropertyZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -474,12 +466,8 @@ begin
 end;//TkwCfAdminFormTreeZone.SetValuePrim
 
 function TkwCfAdminFormTreeZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CE662E9AFEBF_var*
-//#UC END# *551544E2001A_CE662E9AFEBF_var*
 begin
-//#UC START# *551544E2001A_CE662E9AFEBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CE662E9AFEBF_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfAdminFormTreeZone.GetResultTypeInfo
 
 function TkwCfAdminFormTreeZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;

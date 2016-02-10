@@ -1741,12 +1741,8 @@ begin
 end;//TkwSelfInfoFormPnMainData.SetValuePrim
 
 function TkwSelfInfoFormPnMainData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_228FEAAB7987_var*
-//#UC END# *551544E2001A_228FEAAB7987_var*
 begin
-//#UC START# *551544E2001A_228FEAAB7987_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_228FEAAB7987_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwSelfInfoFormPnMainData.GetResultTypeInfo
 
 function TkwSelfInfoFormPnMainData.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1799,12 +1795,8 @@ begin
 end;//TkwSelfInfoFormUserNameLabel.SetValuePrim
 
 function TkwSelfInfoFormUserNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EA0500776D1E_var*
-//#UC END# *551544E2001A_EA0500776D1E_var*
 begin
-//#UC START# *551544E2001A_EA0500776D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EA0500776D1E_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwSelfInfoFormUserNameLabel.GetResultTypeInfo
 
 function TkwSelfInfoFormUserNameLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1857,12 +1849,8 @@ begin
 end;//TkwSelfInfoFormPasswordLabel.SetValuePrim
 
 function TkwSelfInfoFormPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_75B02E501696_var*
-//#UC END# *551544E2001A_75B02E501696_var*
 begin
-//#UC START# *551544E2001A_75B02E501696_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_75B02E501696_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwSelfInfoFormPasswordLabel.GetResultTypeInfo
 
 function TkwSelfInfoFormPasswordLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1915,12 +1903,8 @@ begin
 end;//TkwSelfInfoFormLoginLabel.SetValuePrim
 
 function TkwSelfInfoFormLoginLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D666F64419BE_var*
-//#UC END# *551544E2001A_D666F64419BE_var*
 begin
-//#UC START# *551544E2001A_D666F64419BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D666F64419BE_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwSelfInfoFormLoginLabel.GetResultTypeInfo
 
 function TkwSelfInfoFormLoginLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1973,12 +1957,8 @@ begin
 end;//TkwSelfInfoFormInfoLabel.SetValuePrim
 
 function TkwSelfInfoFormInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1FE6B40FE2DF_var*
-//#UC END# *551544E2001A_1FE6B40FE2DF_var*
 begin
-//#UC START# *551544E2001A_1FE6B40FE2DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1FE6B40FE2DF_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwSelfInfoFormInfoLabel.GetResultTypeInfo
 
 function TkwSelfInfoFormInfoLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2031,12 +2011,8 @@ begin
 end;//TkwSelfInfoFormEMailLabel.SetValuePrim
 
 function TkwSelfInfoFormEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E047E7B1A49D_var*
-//#UC END# *551544E2001A_E047E7B1A49D_var*
 begin
-//#UC START# *551544E2001A_E047E7B1A49D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E047E7B1A49D_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwSelfInfoFormEMailLabel.GetResultTypeInfo
 
 function TkwSelfInfoFormEMailLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2089,12 +2065,8 @@ begin
 end;//TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim
 
 function TkwSelfInfoFormConfirmPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8C88B1445D54_var*
-//#UC END# *551544E2001A_8C88B1445D54_var*
 begin
-//#UC START# *551544E2001A_8C88B1445D54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8C88B1445D54_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwSelfInfoFormConfirmPasswordLabel.GetResultTypeInfo
 
 function TkwSelfInfoFormConfirmPasswordLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2147,12 +2119,8 @@ begin
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim
 
 function TkwSelfInfoFormVtAsteriskLabelLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7F6A65A32889_var*
-//#UC END# *551544E2001A_7F6A65A32889_var*
 begin
-//#UC START# *551544E2001A_7F6A65A32889_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7F6A65A32889_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.GetResultTypeInfo
 
 function TkwSelfInfoFormVtAsteriskLabelLogin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2205,12 +2173,8 @@ begin
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim
 
 function TkwSelfInfoFormVtAsteriskLabelFIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BEC210F63387_var*
-//#UC END# *551544E2001A_BEC210F63387_var*
 begin
-//#UC START# *551544E2001A_BEC210F63387_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BEC210F63387_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.GetResultTypeInfo
 
 function TkwSelfInfoFormVtAsteriskLabelFIO.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2263,12 +2227,8 @@ begin
 end;//TkwSelfInfoFormEdPassword.SetValuePrim
 
 function TkwSelfInfoFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0FBF6408C500_var*
-//#UC END# *551544E2001A_0FBF6408C500_var*
 begin
-//#UC START# *551544E2001A_0FBF6408C500_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0FBF6408C500_impl*
+ Result := TypeInfo(TnscComboBoxWithPwdChar);
 end;//TkwSelfInfoFormEdPassword.GetResultTypeInfo
 
 function TkwSelfInfoFormEdPassword.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2321,12 +2281,8 @@ begin
 end;//TkwSelfInfoFormEdUserName.SetValuePrim
 
 function TkwSelfInfoFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_780E2742FC3B_var*
-//#UC END# *551544E2001A_780E2742FC3B_var*
 begin
-//#UC START# *551544E2001A_780E2742FC3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_780E2742FC3B_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwSelfInfoFormEdUserName.GetResultTypeInfo
 
 function TkwSelfInfoFormEdUserName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2379,12 +2335,8 @@ begin
 end;//TkwSelfInfoFormEdLogin.SetValuePrim
 
 function TkwSelfInfoFormEdLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A7803EA671CA_var*
-//#UC END# *551544E2001A_A7803EA671CA_var*
 begin
-//#UC START# *551544E2001A_A7803EA671CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A7803EA671CA_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwSelfInfoFormEdLogin.GetResultTypeInfo
 
 function TkwSelfInfoFormEdLogin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2437,12 +2389,8 @@ begin
 end;//TkwSelfInfoFormEdEmail.SetValuePrim
 
 function TkwSelfInfoFormEdEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_64238C59B15B_var*
-//#UC END# *551544E2001A_64238C59B15B_var*
 begin
-//#UC START# *551544E2001A_64238C59B15B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_64238C59B15B_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwSelfInfoFormEdEmail.GetResultTypeInfo
 
 function TkwSelfInfoFormEdEmail.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2495,12 +2443,8 @@ begin
 end;//TkwSelfInfoFormEdConfirm.SetValuePrim
 
 function TkwSelfInfoFormEdConfirm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F13F65A2A049_var*
-//#UC END# *551544E2001A_F13F65A2A049_var*
 begin
-//#UC START# *551544E2001A_F13F65A2A049_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F13F65A2A049_impl*
+ Result := TypeInfo(TnscComboBoxWithPwdChar);
 end;//TkwSelfInfoFormEdConfirm.GetResultTypeInfo
 
 function TkwSelfInfoFormEdConfirm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2553,12 +2497,8 @@ begin
 end;//TkwSelfInfoFormBottomPanel.SetValuePrim
 
 function TkwSelfInfoFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B80ACB58E282_var*
-//#UC END# *551544E2001A_B80ACB58E282_var*
 begin
-//#UC START# *551544E2001A_B80ACB58E282_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B80ACB58E282_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwSelfInfoFormBottomPanel.GetResultTypeInfo
 
 function TkwSelfInfoFormBottomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2611,12 +2551,8 @@ begin
 end;//TkwSelfInfoFormRegisterButton.SetValuePrim
 
 function TkwSelfInfoFormRegisterButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FD3682257D32_var*
-//#UC END# *551544E2001A_FD3682257D32_var*
 begin
-//#UC START# *551544E2001A_FD3682257D32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FD3682257D32_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwSelfInfoFormRegisterButton.GetResultTypeInfo
 
 function TkwSelfInfoFormRegisterButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2669,12 +2605,8 @@ begin
 end;//TkwSelfInfoFormHelpPanel.SetValuePrim
 
 function TkwSelfInfoFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1C53869E7936_var*
-//#UC END# *551544E2001A_1C53869E7936_var*
 begin
-//#UC START# *551544E2001A_1C53869E7936_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1C53869E7936_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwSelfInfoFormHelpPanel.GetResultTypeInfo
 
 function TkwSelfInfoFormHelpPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2727,12 +2659,8 @@ begin
 end;//TkwSelfInfoFormHelpPaintBox.SetValuePrim
 
 function TkwSelfInfoFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5BDB34AE5EFB_var*
-//#UC END# *551544E2001A_5BDB34AE5EFB_var*
 begin
-//#UC START# *551544E2001A_5BDB34AE5EFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5BDB34AE5EFB_impl*
+ Result := TypeInfo(TPaintBox);
 end;//TkwSelfInfoFormHelpPaintBox.GetResultTypeInfo
 
 function TkwSelfInfoFormHelpPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2785,12 +2713,8 @@ begin
 end;//TkwSelfInfoFormHelpLabel.SetValuePrim
 
 function TkwSelfInfoFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2D128F2A8132_var*
-//#UC END# *551544E2001A_2D128F2A8132_var*
 begin
-//#UC START# *551544E2001A_2D128F2A8132_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2D128F2A8132_impl*
+ Result := TypeInfo(TvtFocusLabel);
 end;//TkwSelfInfoFormHelpLabel.GetResultTypeInfo
 
 function TkwSelfInfoFormHelpLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;

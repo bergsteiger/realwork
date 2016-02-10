@@ -363,12 +363,8 @@ begin
 end;//TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwEfTreeAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3C4C01C8C1CC_var*
-//#UC END# *551544E2001A_3C4C01C8C1CC_var*
 begin
-//#UC START# *551544E2001A_3C4C01C8C1CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3C4C01C8C1CC_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEfTreeAttributeSelectBackgroundPanel.GetResultTypeInfo
 
 function TkwEfTreeAttributeSelectBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -421,12 +417,8 @@ begin
 end;//TkwEfTreeAttributeSelectContextFilter.SetValuePrim
 
 function TkwEfTreeAttributeSelectContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3EBF063E3680_var*
-//#UC END# *551544E2001A_3EBF063E3680_var*
 begin
-//#UC START# *551544E2001A_3EBF063E3680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3EBF063E3680_impl*
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwEfTreeAttributeSelectContextFilter.GetResultTypeInfo
 
 function TkwEfTreeAttributeSelectContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -479,12 +471,8 @@ begin
 end;//TkwEfTreeAttributeSelectAttributeTree.SetValuePrim
 
 function TkwEfTreeAttributeSelectAttributeTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E3BEF01A8948_var*
-//#UC END# *551544E2001A_E3BEF01A8948_var*
 begin
-//#UC START# *551544E2001A_E3BEF01A8948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E3BEF01A8948_impl*
+ Result := TypeInfo(TnscTreeViewHotTruck);
 end;//TkwEfTreeAttributeSelectAttributeTree.GetResultTypeInfo
 
 function TkwEfTreeAttributeSelectAttributeTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;

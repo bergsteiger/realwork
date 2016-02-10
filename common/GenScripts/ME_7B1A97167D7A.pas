@@ -533,12 +533,8 @@ begin
 end;//TkwChatWindowFormBackgroundPanel.SetValuePrim
 
 function TkwChatWindowFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_82D5B8204902_var*
-//#UC END# *551544E2001A_82D5B8204902_var*
 begin
-//#UC START# *551544E2001A_82D5B8204902_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_82D5B8204902_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwChatWindowFormBackgroundPanel.GetResultTypeInfo
 
 function TkwChatWindowFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -591,12 +587,8 @@ begin
 end;//TkwChatWindowFormBottomPanel.SetValuePrim
 
 function TkwChatWindowFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D5379CFED623_var*
-//#UC END# *551544E2001A_D5379CFED623_var*
 begin
-//#UC START# *551544E2001A_D5379CFED623_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D5379CFED623_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwChatWindowFormBottomPanel.GetResultTypeInfo
 
 function TkwChatWindowFormBottomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -649,12 +641,8 @@ begin
 end;//TkwChatWindowFormBottomEditor.SetValuePrim
 
 function TkwChatWindowFormBottomEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3AAF433A3259_var*
-//#UC END# *551544E2001A_3AAF433A3259_var*
 begin
-//#UC START# *551544E2001A_3AAF433A3259_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3AAF433A3259_impl*
+ Result := TypeInfo(TnscChatMemo);
 end;//TkwChatWindowFormBottomEditor.GetResultTypeInfo
 
 function TkwChatWindowFormBottomEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -707,12 +695,8 @@ begin
 end;//TkwChatWindowFormTopPanel.SetValuePrim
 
 function TkwChatWindowFormTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D0DB504BE24E_var*
-//#UC END# *551544E2001A_D0DB504BE24E_var*
 begin
-//#UC START# *551544E2001A_D0DB504BE24E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D0DB504BE24E_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwChatWindowFormTopPanel.GetResultTypeInfo
 
 function TkwChatWindowFormTopPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -765,12 +749,8 @@ begin
 end;//TkwChatWindowFormHistoryEditor.SetValuePrim
 
 function TkwChatWindowFormHistoryEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_75D7C1A3BFCB_var*
-//#UC END# *551544E2001A_75D7C1A3BFCB_var*
 begin
-//#UC START# *551544E2001A_75D7C1A3BFCB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_75D7C1A3BFCB_impl*
+ Result := TypeInfo(TnscChatMemo);
 end;//TkwChatWindowFormHistoryEditor.GetResultTypeInfo
 
 function TkwChatWindowFormHistoryEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;

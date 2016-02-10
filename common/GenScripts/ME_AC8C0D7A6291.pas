@@ -186,12 +186,8 @@ begin
 end;//TkwWarningFormViewer.SetValuePrim
 
 function TkwWarningFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FF936140AA96_var*
-//#UC END# *551544E2001A_FF936140AA96_var*
 begin
-//#UC START# *551544E2001A_FF936140AA96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FF936140AA96_impl*
+ Result := TypeInfo(TnscEditor);
 end;//TkwWarningFormViewer.GetResultTypeInfo
 
 function TkwWarningFormViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;

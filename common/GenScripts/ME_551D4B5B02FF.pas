@@ -180,12 +180,8 @@ begin
 end;//TkwVgComboBoxGetText.GetWordNameForRegister
 
 function TkwVgComboBoxGetText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3D1B97A2F7D1_var*
-//#UC END# *551544E2001A_3D1B97A2F7D1_var*
 begin
-//#UC START# *551544E2001A_3D1B97A2F7D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3D1B97A2F7D1_impl*
+ Result := @tfw_tiString;
 end;//TkwVgComboBoxGetText.GetResultTypeInfo
 
 function TkwVgComboBoxGetText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -228,12 +224,8 @@ begin
 end;//TkwVgComboBoxItemHeight.GetWordNameForRegister
 
 function TkwVgComboBoxItemHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6AF76187796E_var*
-//#UC END# *551544E2001A_6AF76187796E_var*
 begin
-//#UC START# *551544E2001A_6AF76187796E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6AF76187796E_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgComboBoxItemHeight.GetResultTypeInfo
 
 function TkwVgComboBoxItemHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -276,12 +268,8 @@ begin
 end;//TkwVgComboBoxItemIndex.GetWordNameForRegister
 
 function TkwVgComboBoxItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E6401AA7CFD9_var*
-//#UC END# *551544E2001A_E6401AA7CFD9_var*
 begin
-//#UC START# *551544E2001A_E6401AA7CFD9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E6401AA7CFD9_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgComboBoxItemIndex.GetResultTypeInfo
 
 function TkwVgComboBoxItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -325,12 +313,8 @@ begin
 end;//TkwVgComboBoxGetItem.GetWordNameForRegister
 
 function TkwVgComboBoxGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F404139FE541_var*
-//#UC END# *551544E2001A_F404139FE541_var*
 begin
-//#UC START# *551544E2001A_F404139FE541_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F404139FE541_impl*
+ Result := @tfw_tiString;
 end;//TkwVgComboBoxGetItem.GetResultTypeInfo
 
 function TkwVgComboBoxGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -378,12 +362,8 @@ begin
 end;//TkwVgComboBoxGetHighLightItemIndex.GetWordNameForRegister
 
 function TkwVgComboBoxGetHighLightItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4E17F992CC09_var*
-//#UC END# *551544E2001A_4E17F992CC09_var*
 begin
-//#UC START# *551544E2001A_4E17F992CC09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4E17F992CC09_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgComboBoxGetHighLightItemIndex.GetResultTypeInfo
 
 function TkwVgComboBoxGetHighLightItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;

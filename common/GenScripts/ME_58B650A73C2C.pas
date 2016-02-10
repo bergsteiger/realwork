@@ -792,12 +792,8 @@ begin
 end;//TkwLongProcessFormClientPanel.SetValuePrim
 
 function TkwLongProcessFormClientPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_486A220C7922_var*
-//#UC END# *551544E2001A_486A220C7922_var*
 begin
-//#UC START# *551544E2001A_486A220C7922_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_486A220C7922_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwLongProcessFormClientPanel.GetResultTypeInfo
 
 function TkwLongProcessFormClientPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -850,12 +846,8 @@ begin
 end;//TkwLongProcessFormMessageLabel.SetValuePrim
 
 function TkwLongProcessFormMessageLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_70AD8C304A76_var*
-//#UC END# *551544E2001A_70AD8C304A76_var*
 begin
-//#UC START# *551544E2001A_70AD8C304A76_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_70AD8C304A76_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwLongProcessFormMessageLabel.GetResultTypeInfo
 
 function TkwLongProcessFormMessageLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -908,12 +900,8 @@ begin
 end;//TkwLongProcessFormBottomPanel.SetValuePrim
 
 function TkwLongProcessFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7257AAEDA827_var*
-//#UC END# *551544E2001A_7257AAEDA827_var*
 begin
-//#UC START# *551544E2001A_7257AAEDA827_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7257AAEDA827_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwLongProcessFormBottomPanel.GetResultTypeInfo
 
 function TkwLongProcessFormBottomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -966,12 +954,8 @@ begin
 end;//TkwLongProcessFormProgressBar.SetValuePrim
 
 function TkwLongProcessFormProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B362DE4317E9_var*
-//#UC END# *551544E2001A_B362DE4317E9_var*
 begin
-//#UC START# *551544E2001A_B362DE4317E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B362DE4317E9_impl*
+ Result := TypeInfo(TvtGradientWaitbar);
 end;//TkwLongProcessFormProgressBar.GetResultTypeInfo
 
 function TkwLongProcessFormProgressBar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1024,12 +1008,8 @@ begin
 end;//TkwLongProcessFormLeftPanel.SetValuePrim
 
 function TkwLongProcessFormLeftPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_763DFD3968B4_var*
-//#UC END# *551544E2001A_763DFD3968B4_var*
 begin
-//#UC START# *551544E2001A_763DFD3968B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_763DFD3968B4_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwLongProcessFormLeftPanel.GetResultTypeInfo
 
 function TkwLongProcessFormLeftPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1082,12 +1062,8 @@ begin
 end;//TkwLongProcessFormImage.SetValuePrim
 
 function TkwLongProcessFormImage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E257BCDBC2B9_var*
-//#UC END# *551544E2001A_E257BCDBC2B9_var*
 begin
-//#UC START# *551544E2001A_E257BCDBC2B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E257BCDBC2B9_impl*
+ Result := TypeInfo(TImage);
 end;//TkwLongProcessFormImage.GetResultTypeInfo
 
 function TkwLongProcessFormImage.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1140,12 +1116,8 @@ begin
 end;//TkwLongProcessFormButtonPanel.SetValuePrim
 
 function TkwLongProcessFormButtonPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_372A17FE3DFD_var*
-//#UC END# *551544E2001A_372A17FE3DFD_var*
 begin
-//#UC START# *551544E2001A_372A17FE3DFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_372A17FE3DFD_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwLongProcessFormButtonPanel.GetResultTypeInfo
 
 function TkwLongProcessFormButtonPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1198,12 +1170,8 @@ begin
 end;//TkwLongProcessFormBtnExit.SetValuePrim
 
 function TkwLongProcessFormBtnExit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_ECD55A49EDCE_var*
-//#UC END# *551544E2001A_ECD55A49EDCE_var*
 begin
-//#UC START# *551544E2001A_ECD55A49EDCE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_ECD55A49EDCE_impl*
+ Result := TypeInfo(TvtButton);
 end;//TkwLongProcessFormBtnExit.GetResultTypeInfo
 
 function TkwLongProcessFormBtnExit.GetAllParamsCount(const aCtx: TtfwContext): Integer;

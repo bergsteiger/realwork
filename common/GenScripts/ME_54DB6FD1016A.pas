@@ -75,12 +75,8 @@ begin
 end;//TkwPopStatusBarButtonIsDown.GetWordNameForRegister
 
 function TkwPopStatusBarButtonIsDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_33C559B72437_var*
-//#UC END# *551544E2001A_33C559B72437_var*
 begin
-//#UC START# *551544E2001A_33C559B72437_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_33C559B72437_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopStatusBarButtonIsDown.GetResultTypeInfo
 
 function TkwPopStatusBarButtonIsDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -360,12 +360,8 @@ begin
 end;//TkwEnMedicFirmListBackgroundPanel.SetValuePrim
 
 function TkwEnMedicFirmListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F45A6F3A6877_var*
-//#UC END# *551544E2001A_F45A6F3A6877_var*
 begin
-//#UC START# *551544E2001A_F45A6F3A6877_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F45A6F3A6877_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnMedicFirmListBackgroundPanel.GetResultTypeInfo
 
 function TkwEnMedicFirmListBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -418,12 +414,8 @@ begin
 end;//TkwEnMedicFirmListContextFilter.SetValuePrim
 
 function TkwEnMedicFirmListContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2F2BD8918036_var*
-//#UC END# *551544E2001A_2F2BD8918036_var*
 begin
-//#UC START# *551544E2001A_2F2BD8918036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2F2BD8918036_impl*
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwEnMedicFirmListContextFilter.GetResultTypeInfo
 
 function TkwEnMedicFirmListContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -476,12 +468,8 @@ begin
 end;//TkwEnMedicFirmListListTree.SetValuePrim
 
 function TkwEnMedicFirmListListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9D0DDC3CED67_var*
-//#UC END# *551544E2001A_9D0DDC3CED67_var*
 begin
-//#UC START# *551544E2001A_9D0DDC3CED67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9D0DDC3CED67_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnMedicFirmListListTree.GetResultTypeInfo
 
 function TkwEnMedicFirmListListTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;

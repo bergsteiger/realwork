@@ -360,12 +360,8 @@ begin
 end;//TkwEfUserListBackgroundPanel.SetValuePrim
 
 function TkwEfUserListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7D8AACEB42CB_var*
-//#UC END# *551544E2001A_7D8AACEB42CB_var*
 begin
-//#UC START# *551544E2001A_7D8AACEB42CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7D8AACEB42CB_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEfUserListBackgroundPanel.GetResultTypeInfo
 
 function TkwEfUserListBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -418,12 +414,8 @@ begin
 end;//TkwEfUserListContextFilter.SetValuePrim
 
 function TkwEfUserListContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_396FC976959E_var*
-//#UC END# *551544E2001A_396FC976959E_var*
 begin
-//#UC START# *551544E2001A_396FC976959E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_396FC976959E_impl*
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwEfUserListContextFilter.GetResultTypeInfo
 
 function TkwEfUserListContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -476,12 +468,8 @@ begin
 end;//TkwEfUserListTrUserList.SetValuePrim
 
 function TkwEfUserListTrUserList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4AE7B910728D_var*
-//#UC END# *551544E2001A_4AE7B910728D_var*
 begin
-//#UC START# *551544E2001A_4AE7B910728D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4AE7B910728D_impl*
+ Result := TypeInfo(TeeTreeView);
 end;//TkwEfUserListTrUserList.GetResultTypeInfo
 
 function TkwEfUserListTrUserList.GetAllParamsCount(const aCtx: TtfwContext): Integer;

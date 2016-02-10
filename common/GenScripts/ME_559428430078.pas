@@ -89,7 +89,7 @@ end;//TkwPopCompiledWordWorkerWordCompiled.SetValuePrim
 
 function TkwPopCompiledWordWorkerWordCompiled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwWord);
 end;//TkwPopCompiledWordWorkerWordCompiled.GetResultTypeInfo
 
 function TkwPopCompiledWordWorkerWordCompiled.GetAllParamsCount(const aCtx: TtfwContext): Integer;

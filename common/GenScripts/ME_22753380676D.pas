@@ -184,12 +184,8 @@ begin
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_33551677EC80_var*
-//#UC END# *551544E2001A_33551677EC80_var*
 begin
-//#UC START# *551544E2001A_33551677EC80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_33551677EC80_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetResultTypeInfo
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetAllParamsCount(const aCtx: TtfwContext): Integer;

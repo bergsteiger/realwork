@@ -152,12 +152,8 @@ begin
 end;//TkwPopListerSelectWithShift.GetWordNameForRegister
 
 function TkwPopListerSelectWithShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3601E7023043_var*
-//#UC END# *551544E2001A_3601E7023043_var*
 begin
-//#UC START# *551544E2001A_3601E7023043_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3601E7023043_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopListerSelectWithShift.GetResultTypeInfo
 
 function TkwPopListerSelectWithShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -201,12 +197,8 @@ begin
 end;//TkwPopListerGetSelected.GetWordNameForRegister
 
 function TkwPopListerGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_94BB02952F38_var*
-//#UC END# *551544E2001A_94BB02952F38_var*
 begin
-//#UC START# *551544E2001A_94BB02952F38_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_94BB02952F38_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopListerGetSelected.GetResultTypeInfo
 
 function TkwPopListerGetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -249,12 +241,8 @@ begin
 end;//TkwPopListerFooterCaption.GetWordNameForRegister
 
 function TkwPopListerFooterCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0BB474851F7E_var*
-//#UC END# *551544E2001A_0BB474851F7E_var*
 begin
-//#UC START# *551544E2001A_0BB474851F7E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0BB474851F7E_impl*
+ Result := @tfw_tiString;
 end;//TkwPopListerFooterCaption.GetResultTypeInfo
 
 function TkwPopListerFooterCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -307,12 +295,8 @@ begin
 end;//TkwPopListerCurrent.SetValuePrim
 
 function TkwPopListerCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AC4C8A615B0D_var*
-//#UC END# *551544E2001A_AC4C8A615B0D_var*
 begin
-//#UC START# *551544E2001A_AC4C8A615B0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AC4C8A615B0D_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopListerCurrent.GetResultTypeInfo
 
 function TkwPopListerCurrent.GetAllParamsCount(const aCtx: TtfwContext): Integer;

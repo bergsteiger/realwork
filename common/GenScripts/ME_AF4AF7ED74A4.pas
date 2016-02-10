@@ -184,12 +184,8 @@ begin
 end;//TkwOutlinerFormFormTreeControl.SetValuePrim
 
 function TkwOutlinerFormFormTreeControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B10A49D0279E_var*
-//#UC END# *551544E2001A_B10A49D0279E_var*
 begin
-//#UC START# *551544E2001A_B10A49D0279E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B10A49D0279E_impl*
+ Result := TypeInfo(TvtOutlinerControl);
 end;//TkwOutlinerFormFormTreeControl.GetResultTypeInfo
 
 function TkwOutlinerFormFormTreeControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;

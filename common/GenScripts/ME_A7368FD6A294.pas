@@ -184,21 +184,13 @@ begin
 end;//TkwParentFormParentZone.SetValuePrim
 
 function TkwParentFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E6FBE1D9F4EF_var*
-//#UC END# *551544E2001A_E6FBE1D9F4EF_var*
 begin
-//#UC START# *551544E2001A_E6FBE1D9F4EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E6FBE1D9F4EF_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwParentFormParentZone.GetResultTypeInfo
 
 function TkwParentFormParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E6FBE1D9F4EF_var*
-//#UC END# *559687E6025A_E6FBE1D9F4EF_var*
 begin
-//#UC START# *559687E6025A_E6FBE1D9F4EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E6FBE1D9F4EF_impl*
+ Result := 1;
 end;//TkwParentFormParentZone.GetAllParamsCount
 
 function TkwParentFormParentZone.ParamsTypes: PTypeInfoArray;

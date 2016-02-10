@@ -186,12 +186,8 @@ begin
 end;//TkwEfPreviewFormPreviewPanel.SetValuePrim
 
 function TkwEfPreviewFormPreviewPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BEE124DE58A4_var*
-//#UC END# *551544E2001A_BEE124DE58A4_var*
 begin
-//#UC START# *551544E2001A_BEE124DE58A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BEE124DE58A4_impl*
+ Result := TypeInfo(TnscPreviewPanel);
 end;//TkwEfPreviewFormPreviewPanel.GetResultTypeInfo
 
 function TkwEfPreviewFormPreviewPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;

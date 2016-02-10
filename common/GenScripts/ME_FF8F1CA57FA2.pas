@@ -449,12 +449,8 @@ begin
 end;//TkwEnBaseSearchCardPnlMain.SetValuePrim
 
 function TkwEnBaseSearchCardPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C1D4470B9513_var*
-//#UC END# *551544E2001A_C1D4470B9513_var*
 begin
-//#UC START# *551544E2001A_C1D4470B9513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C1D4470B9513_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnBaseSearchCardPnlMain.GetResultTypeInfo
 
 function TkwEnBaseSearchCardPnlMain.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -507,12 +503,8 @@ begin
 end;//TkwEnBaseSearchCardHfBaseSearch.SetValuePrim
 
 function TkwEnBaseSearchCardHfBaseSearch.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CAA6BD51B722_var*
-//#UC END# *551544E2001A_CAA6BD51B722_var*
 begin
-//#UC START# *551544E2001A_CAA6BD51B722_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CAA6BD51B722_impl*
+ Result := TypeInfo(TnscHideField);
 end;//TkwEnBaseSearchCardHfBaseSearch.GetResultTypeInfo
 
 function TkwEnBaseSearchCardHfBaseSearch.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -565,12 +557,8 @@ begin
 end;//TkwEnBaseSearchCardLrBaseSearch.SetValuePrim
 
 function TkwEnBaseSearchCardLrBaseSearch.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C952194702DA_var*
-//#UC END# *551544E2001A_C952194702DA_var*
 begin
-//#UC START# *551544E2001A_C952194702DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C952194702DA_impl*
+ Result := TypeInfo(TnscLister);
 end;//TkwEnBaseSearchCardLrBaseSearch.GetResultTypeInfo
 
 function TkwEnBaseSearchCardLrBaseSearch.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -623,12 +611,8 @@ begin
 end;//TkwEnBaseSearchCardCardTextLabel.SetValuePrim
 
 function TkwEnBaseSearchCardCardTextLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A6D5CED27A65_var*
-//#UC END# *551544E2001A_A6D5CED27A65_var*
 begin
-//#UC START# *551544E2001A_A6D5CED27A65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A6D5CED27A65_impl*
+ Result := TypeInfo(TnscSimpleEditor);
 end;//TkwEnBaseSearchCardCardTextLabel.GetResultTypeInfo
 
 function TkwEnBaseSearchCardCardTextLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;

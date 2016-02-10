@@ -308,12 +308,8 @@ begin
 end;//TkwF1LikeTextLoadFormText.SetValuePrim
 
 function TkwF1LikeTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_92E0CD11116C_var*
-//#UC END# *551544E2001A_92E0CD11116C_var*
 begin
-//#UC START# *551544E2001A_92E0CD11116C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_92E0CD11116C_impl*
+ Result := TypeInfo(TeeEditorExport);
 end;//TkwF1LikeTextLoadFormText.GetResultTypeInfo
 
 function TkwF1LikeTextLoadFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -366,12 +362,8 @@ begin
 end;//TkwF1LikeTextLoadFormTextSource.SetValuePrim
 
 function TkwF1LikeTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A1D2254061BE_var*
-//#UC END# *551544E2001A_A1D2254061BE_var*
 begin
-//#UC START# *551544E2001A_A1D2254061BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A1D2254061BE_impl*
+ Result := TypeInfo(TeeTextSourceExport);
 end;//TkwF1LikeTextLoadFormTextSource.GetResultTypeInfo
 
 function TkwF1LikeTextLoadFormTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -424,12 +416,8 @@ begin
 end;//TkwF1LikeTextLoadFormLoadManager.SetValuePrim
 
 function TkwF1LikeTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8DECEC4A4E9A_var*
-//#UC END# *551544E2001A_8DECEC4A4E9A_var*
 begin
-//#UC START# *551544E2001A_8DECEC4A4E9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8DECEC4A4E9A_impl*
+ Result := TypeInfo(TevLoadDocumentManager);
 end;//TkwF1LikeTextLoadFormLoadManager.GetResultTypeInfo
 
 function TkwF1LikeTextLoadFormLoadManager.GetAllParamsCount(const aCtx: TtfwContext): Integer;

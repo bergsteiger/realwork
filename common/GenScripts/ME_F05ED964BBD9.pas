@@ -272,7 +272,7 @@ end;//TkwListAnalizerFormBackgroundPanel.SetValuePrim
 
 function TkwListAnalizerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtPanel);
 end;//TkwListAnalizerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwListAnalizerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -326,7 +326,7 @@ end;//TkwListAnalizerFormListTree.SetValuePrim
 
 function TkwListAnalizerFormListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TeeTreeView);
 end;//TkwListAnalizerFormListTree.GetResultTypeInfo
 
 function TkwListAnalizerFormListTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;

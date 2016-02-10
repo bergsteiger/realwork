@@ -146,12 +146,8 @@ begin
 end;//TkwPopMenuForChromeLikeActive.GetWordNameForRegister
 
 function TkwPopMenuForChromeLikeActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0E751338C548_var*
-//#UC END# *551544E2001A_0E751338C548_var*
 begin
-//#UC START# *551544E2001A_0E751338C548_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0E751338C548_impl*
+ Result := TypeInfo(TvcmBaseMenuForChromeLike);
 end;//TkwPopMenuForChromeLikeActive.GetResultTypeInfo
 
 function TkwPopMenuForChromeLikeActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -194,12 +190,8 @@ begin
 end;//TkwPopMenuForChromeLikeHovered.GetWordNameForRegister
 
 function TkwPopMenuForChromeLikeHovered.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_82B96D3A5D58_var*
-//#UC END# *551544E2001A_82B96D3A5D58_var*
 begin
-//#UC START# *551544E2001A_82B96D3A5D58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_82B96D3A5D58_impl*
+ Result := TypeInfo(TMenuItem);
 end;//TkwPopMenuForChromeLikeHovered.GetResultTypeInfo
 
 function TkwPopMenuForChromeLikeHovered.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -242,12 +234,8 @@ begin
 end;//TkwPopMenuForChromeLikeMenuItem.GetWordNameForRegister
 
 function TkwPopMenuForChromeLikeMenuItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B39FBDC27B79_var*
-//#UC END# *551544E2001A_B39FBDC27B79_var*
 begin
-//#UC START# *551544E2001A_B39FBDC27B79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B39FBDC27B79_impl*
+ Result := TypeInfo(TMenuItem);
 end;//TkwPopMenuForChromeLikeMenuItem.GetResultTypeInfo
 
 function TkwPopMenuForChromeLikeMenuItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;

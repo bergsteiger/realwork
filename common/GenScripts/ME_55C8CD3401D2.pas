@@ -74,21 +74,13 @@ begin
 end;//TkwPopTextSearchDlgFake.GetWordNameForRegister
 
 function TkwPopTextSearchDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2975C5F7A803_var*
-//#UC END# *551544E2001A_2975C5F7A803_var*
 begin
-//#UC START# *551544E2001A_2975C5F7A803_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2975C5F7A803_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopTextSearchDlgFake.GetResultTypeInfo
 
 function TkwPopTextSearchDlgFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_2975C5F7A803_var*
-//#UC END# *559687E6025A_2975C5F7A803_var*
 begin
-//#UC START# *559687E6025A_2975C5F7A803_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_2975C5F7A803_impl*
+ Result := 1;
 end;//TkwPopTextSearchDlgFake.GetAllParamsCount
 
 function TkwPopTextSearchDlgFake.ParamsTypes: PTypeInfoArray;

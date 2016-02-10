@@ -334,12 +334,8 @@ begin
 end;//TkwStyleEditorExampleFormTextSource.SetValuePrim
 
 function TkwStyleEditorExampleFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_94CDC606065E_var*
-//#UC END# *551544E2001A_94CDC606065E_var*
 begin
-//#UC START# *551544E2001A_94CDC606065E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_94CDC606065E_impl*
+ Result := TypeInfo(TnscTextSource);
 end;//TkwStyleEditorExampleFormTextSource.GetResultTypeInfo
 
 function TkwStyleEditorExampleFormTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -392,12 +388,8 @@ begin
 end;//TkwStyleEditorExampleFormEditorPanel.SetValuePrim
 
 function TkwStyleEditorExampleFormEditorPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_42F01C50817A_var*
-//#UC END# *551544E2001A_42F01C50817A_var*
 begin
-//#UC START# *551544E2001A_42F01C50817A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_42F01C50817A_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwStyleEditorExampleFormEditorPanel.GetResultTypeInfo
 
 function TkwStyleEditorExampleFormEditorPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -450,12 +442,8 @@ begin
 end;//TkwStyleEditorExampleFormEditor.SetValuePrim
 
 function TkwStyleEditorExampleFormEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_32A323F849AD_var*
-//#UC END# *551544E2001A_32A323F849AD_var*
 begin
-//#UC START# *551544E2001A_32A323F849AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_32A323F849AD_impl*
+ Result := TypeInfo(TeeEditorWithoutOperations);
 end;//TkwStyleEditorExampleFormEditor.GetResultTypeInfo
 
 function TkwStyleEditorExampleFormEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -1265,12 +1265,8 @@ begin
 end;//TkwTextFormRemindersLine.SetValuePrim
 
 function TkwTextFormRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_90150A717339_var*
-//#UC END# *551544E2001A_90150A717339_var*
 begin
-//#UC START# *551544E2001A_90150A717339_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_90150A717339_impl*
+ Result := TypeInfo(TnscRemindersLine);
 end;//TkwTextFormRemindersLine.GetResultTypeInfo
 
 function TkwTextFormRemindersLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1323,12 +1319,8 @@ begin
 end;//TkwTextFormWarnTimeMachineException.SetValuePrim
 
 function TkwTextFormWarnTimeMachineException.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_727D705B6FA2_var*
-//#UC END# *551544E2001A_727D705B6FA2_var*
 begin
-//#UC START# *551544E2001A_727D705B6FA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_727D705B6FA2_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnTimeMachineException.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineException.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1381,12 +1373,8 @@ begin
 end;//TkwTextFormWarnIsAbolished.SetValuePrim
 
 function TkwTextFormWarnIsAbolished.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0289BC4D5C98_var*
-//#UC END# *551544E2001A_0289BC4D5C98_var*
 begin
-//#UC START# *551544E2001A_0289BC4D5C98_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0289BC4D5C98_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnIsAbolished.GetResultTypeInfo
 
 function TkwTextFormWarnIsAbolished.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1439,12 +1427,8 @@ begin
 end;//TkwTextFormWarnPreActive.SetValuePrim
 
 function TkwTextFormWarnPreActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_ACA021C09FCA_var*
-//#UC END# *551544E2001A_ACA021C09FCA_var*
 begin
-//#UC START# *551544E2001A_ACA021C09FCA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_ACA021C09FCA_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnPreActive.GetResultTypeInfo
 
 function TkwTextFormWarnPreActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1497,12 +1481,8 @@ begin
 end;//TkwTextFormWarnTimeMachineWarning.SetValuePrim
 
 function TkwTextFormWarnTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E6CBDC26628D_var*
-//#UC END# *551544E2001A_E6CBDC26628D_var*
 begin
-//#UC START# *551544E2001A_E6CBDC26628D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E6CBDC26628D_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnTimeMachineWarning.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1555,12 +1535,8 @@ begin
 end;//TkwTextFormWarnOnControl.SetValuePrim
 
 function TkwTextFormWarnOnControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9EC0F704660C_var*
-//#UC END# *551544E2001A_9EC0F704660C_var*
 begin
-//#UC START# *551544E2001A_9EC0F704660C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9EC0F704660C_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnOnControl.GetResultTypeInfo
 
 function TkwTextFormWarnOnControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1613,12 +1589,8 @@ begin
 end;//TkwTextFormWarnJuror.SetValuePrim
 
 function TkwTextFormWarnJuror.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FF3DC6808151_var*
-//#UC END# *551544E2001A_FF3DC6808151_var*
 begin
-//#UC START# *551544E2001A_FF3DC6808151_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FF3DC6808151_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnJuror.GetResultTypeInfo
 
 function TkwTextFormWarnJuror.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1671,12 +1643,8 @@ begin
 end;//TkwTextFormWarnRedaction.SetValuePrim
 
 function TkwTextFormWarnRedaction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C6F656F5F519_var*
-//#UC END# *551544E2001A_C6F656F5F519_var*
 begin
-//#UC START# *551544E2001A_C6F656F5F519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C6F656F5F519_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnRedaction.GetResultTypeInfo
 
 function TkwTextFormWarnRedaction.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1729,12 +1697,8 @@ begin
 end;//TkwTextFormWarnInactualDocument.SetValuePrim
 
 function TkwTextFormWarnInactualDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DFD5690970AB_var*
-//#UC END# *551544E2001A_DFD5690970AB_var*
 begin
-//#UC START# *551544E2001A_DFD5690970AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DFD5690970AB_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnInactualDocument.GetResultTypeInfo
 
 function TkwTextFormWarnInactualDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1787,12 +1751,8 @@ begin
 end;//TkwTextFormWarnTimeMachineOn.SetValuePrim
 
 function TkwTextFormWarnTimeMachineOn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3F2343F5CBC9_var*
-//#UC END# *551544E2001A_3F2343F5CBC9_var*
 begin
-//#UC START# *551544E2001A_3F2343F5CBC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3F2343F5CBC9_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwTextFormWarnTimeMachineOn.GetResultTypeInfo
 
 function TkwTextFormWarnTimeMachineOn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1845,12 +1805,8 @@ begin
 end;//TkwTextFormSubPanel.SetValuePrim
 
 function TkwTextFormSubPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F953CE4B1F89_var*
-//#UC END# *551544E2001A_F953CE4B1F89_var*
 begin
-//#UC START# *551544E2001A_F953CE4B1F89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F953CE4B1F89_impl*
+ Result := TypeInfo(TeeSubPanel);
 end;//TkwTextFormSubPanel.GetResultTypeInfo
 
 function TkwTextFormSubPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1903,12 +1859,8 @@ begin
 end;//TkwTextFormHScroll.SetValuePrim
 
 function TkwTextFormHScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_61746557FDD0_var*
-//#UC END# *551544E2001A_61746557FDD0_var*
 begin
-//#UC START# *551544E2001A_61746557FDD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_61746557FDD0_impl*
+ Result := TypeInfo(TvtScrollBar);
 end;//TkwTextFormHScroll.GetResultTypeInfo
 
 function TkwTextFormHScroll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1961,12 +1913,8 @@ begin
 end;//TkwTextFormText.SetValuePrim
 
 function TkwTextFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AFA1F527A874_var*
-//#UC END# *551544E2001A_AFA1F527A874_var*
 begin
-//#UC START# *551544E2001A_AFA1F527A874_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AFA1F527A874_impl*
+ Result := TypeInfo(TnscEditor);
 end;//TkwTextFormText.GetResultTypeInfo
 
 function TkwTextFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;

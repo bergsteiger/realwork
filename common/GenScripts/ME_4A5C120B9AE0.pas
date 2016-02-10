@@ -271,12 +271,8 @@ begin
 end;//TkwEfGroupListBackgroundPanel.SetValuePrim
 
 function TkwEfGroupListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6BCC2CEE5EC2_var*
-//#UC END# *551544E2001A_6BCC2CEE5EC2_var*
 begin
-//#UC START# *551544E2001A_6BCC2CEE5EC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6BCC2CEE5EC2_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEfGroupListBackgroundPanel.GetResultTypeInfo
 
 function TkwEfGroupListBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -329,12 +325,8 @@ begin
 end;//TkwEfGroupListGroupsTree.SetValuePrim
 
 function TkwEfGroupListGroupsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_682D3079A453_var*
-//#UC END# *551544E2001A_682D3079A453_var*
 begin
-//#UC START# *551544E2001A_682D3079A453_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_682D3079A453_impl*
+ Result := TypeInfo(TeeTreeView);
 end;//TkwEfGroupListGroupsTree.GetResultTypeInfo
 
 function TkwEfGroupListGroupsTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;

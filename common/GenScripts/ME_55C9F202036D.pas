@@ -198,12 +198,8 @@ begin
 end;//TkwPopTestName.SetValuePrim
 
 function TkwPopTestName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E6DE6CAD7EFE_var*
-//#UC END# *551544E2001A_E6DE6CAD7EFE_var*
 begin
-//#UC START# *551544E2001A_E6DE6CAD7EFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E6DE6CAD7EFE_impl*
+ Result := @tfw_tiString;
 end;//TkwPopTestName.GetResultTypeInfo
 
 function TkwPopTestName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -256,12 +252,8 @@ begin
 end;//TkwPopTestEnabled.SetValuePrim
 
 function TkwPopTestEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1CEB5B8AA2E5_var*
-//#UC END# *551544E2001A_1CEB5B8AA2E5_var*
 begin
-//#UC START# *551544E2001A_1CEB5B8AA2E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1CEB5B8AA2E5_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopTestEnabled.GetResultTypeInfo
 
 function TkwPopTestEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -314,12 +306,8 @@ begin
 end;//TkwPopTestSubFolder.SetValuePrim
 
 function TkwPopTestSubFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4638C704D78B_var*
-//#UC END# *551544E2001A_4638C704D78B_var*
 begin
-//#UC START# *551544E2001A_4638C704D78B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4638C704D78B_impl*
+ Result := @tfw_tiString;
 end;//TkwPopTestSubFolder.GetResultTypeInfo
 
 function TkwPopTestSubFolder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -372,12 +360,8 @@ begin
 end;//TkwPopTestHasScriptChildren.SetValuePrim
 
 function TkwPopTestHasScriptChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_719F0EEEAFD0_var*
-//#UC END# *551544E2001A_719F0EEEAFD0_var*
 begin
-//#UC START# *551544E2001A_719F0EEEAFD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_719F0EEEAFD0_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopTestHasScriptChildren.GetResultTypeInfo
 
 function TkwPopTestHasScriptChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -419,12 +403,8 @@ begin
 end;//TkwTestShouldStop.GetWordNameForRegister
 
 function TkwTestShouldStop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AFCC4A8F1DF4_var*
-//#UC END# *551544E2001A_AFCC4A8F1DF4_var*
 begin
-//#UC START# *551544E2001A_AFCC4A8F1DF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AFCC4A8F1DF4_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwTestShouldStop.GetResultTypeInfo
 
 function TkwTestShouldStop.GetAllParamsCount(const aCtx: TtfwContext): Integer;

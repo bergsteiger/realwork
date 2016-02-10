@@ -513,12 +513,8 @@ begin
 end;//TkwTreeCheckFlag.GetWordNameForRegister
 
 function TkwTreeCheckFlag.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3A8F612BD250_var*
-//#UC END# *551544E2001A_3A8F612BD250_var*
 begin
-//#UC START# *551544E2001A_3A8F612BD250_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3A8F612BD250_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwTreeCheckFlag.GetResultTypeInfo
 
 function TkwTreeCheckFlag.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -561,12 +557,8 @@ begin
 end;//TkwTreeCollapseAll.GetWordNameForRegister
 
 function TkwTreeCollapseAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DCC8D602858A_var*
-//#UC END# *551544E2001A_DCC8D602858A_var*
 begin
-//#UC START# *551544E2001A_DCC8D602858A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DCC8D602858A_impl*
+ Result := @tfw_tiVoid;
 end;//TkwTreeCollapseAll.GetResultTypeInfo
 
 function TkwTreeCollapseAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -609,12 +601,8 @@ begin
 end;//TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister
 
 function TkwTreeCurrentNodeIsExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_24EBB16818DB_var*
-//#UC END# *551544E2001A_24EBB16818DB_var*
 begin
-//#UC START# *551544E2001A_24EBB16818DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_24EBB16818DB_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwTreeCurrentNodeIsExpanded.GetResultTypeInfo
 
 function TkwTreeCurrentNodeIsExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -665,12 +653,8 @@ begin
 end;//TkwTreeDeleteAllChildren.GetWordNameForRegister
 
 function TkwTreeDeleteAllChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_88EA9B4D8249_var*
-//#UC END# *551544E2001A_88EA9B4D8249_var*
 begin
-//#UC START# *551544E2001A_88EA9B4D8249_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_88EA9B4D8249_impl*
+ Result := @tfw_tiVoid;
 end;//TkwTreeDeleteAllChildren.GetResultTypeInfo
 
 function TkwTreeDeleteAllChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -713,12 +697,8 @@ begin
 end;//TkwTreeExpandAll.GetWordNameForRegister
 
 function TkwTreeExpandAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_11D7E325A602_var*
-//#UC END# *551544E2001A_11D7E325A602_var*
 begin
-//#UC START# *551544E2001A_11D7E325A602_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_11D7E325A602_impl*
+ Result := @tfw_tiVoid;
 end;//TkwTreeExpandAll.GetResultTypeInfo
 
 function TkwTreeExpandAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -761,12 +741,8 @@ begin
 end;//TkwTreeCurrentNode.GetWordNameForRegister
 
 function TkwTreeCurrentNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6EB6AE69700F_var*
-//#UC END# *551544E2001A_6EB6AE69700F_var*
 begin
-//#UC START# *551544E2001A_6EB6AE69700F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6EB6AE69700F_impl*
+ Result := TypeInfo(Il3SimpleNode);
 end;//TkwTreeCurrentNode.GetResultTypeInfo
 
 function TkwTreeCurrentNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -810,12 +786,8 @@ begin
 end;//TkwTreeGetItem.GetWordNameForRegister
 
 function TkwTreeGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E66BB4447886_var*
-//#UC END# *551544E2001A_E66BB4447886_var*
 begin
-//#UC START# *551544E2001A_E66BB4447886_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E66BB4447886_impl*
+ Result := TypeInfo(Il3SimpleNode);
 end;//TkwTreeGetItem.GetResultTypeInfo
 
 function TkwTreeGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -858,12 +830,8 @@ begin
 end;//TkwTreeGetItemsCount.GetWordNameForRegister
 
 function TkwTreeGetItemsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6AA86FBC7A2F_var*
-//#UC END# *551544E2001A_6AA86FBC7A2F_var*
 begin
-//#UC START# *551544E2001A_6AA86FBC7A2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6AA86FBC7A2F_impl*
+ Result := TypeInfo(Integer);
 end;//TkwTreeGetItemsCount.GetResultTypeInfo
 
 function TkwTreeGetItemsCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -919,12 +887,8 @@ begin
 end;//TkwTreeIterateNodes.GetWordNameForRegister
 
 function TkwTreeIterateNodes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_57DF7C56BA33_var*
-//#UC END# *551544E2001A_57DF7C56BA33_var*
 begin
-//#UC START# *551544E2001A_57DF7C56BA33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_57DF7C56BA33_impl*
+ Result := @tfw_tiVoid;
 end;//TkwTreeIterateNodes.GetResultTypeInfo
 
 function TkwTreeIterateNodes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1005,12 +969,8 @@ begin
 end;//TkwTreeSaveState2File.GetWordNameForRegister
 
 function TkwTreeSaveState2File.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B4D43BCE4979_var*
-//#UC END# *551544E2001A_B4D43BCE4979_var*
 begin
-//#UC START# *551544E2001A_B4D43BCE4979_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B4D43BCE4979_impl*
+ Result := @tfw_tiVoid;
 end;//TkwTreeSaveState2File.GetResultTypeInfo
 
 function TkwTreeSaveState2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1054,12 +1014,8 @@ begin
 end;//TkwTreeChildrenCount.GetWordNameForRegister
 
 function TkwTreeChildrenCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_015D1248A6CF_var*
-//#UC END# *551544E2001A_015D1248A6CF_var*
 begin
-//#UC START# *551544E2001A_015D1248A6CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_015D1248A6CF_impl*
+ Result := TypeInfo(Integer);
 end;//TkwTreeChildrenCount.GetResultTypeInfo
 
 function TkwTreeChildrenCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1103,12 +1059,8 @@ begin
 end;//TkwTreeExpand.GetWordNameForRegister
 
 function TkwTreeExpand.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B776D637E7D3_var*
-//#UC END# *551544E2001A_B776D637E7D3_var*
 begin
-//#UC START# *551544E2001A_B776D637E7D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B776D637E7D3_impl*
+ Result := @tfw_tiVoid;
 end;//TkwTreeExpand.GetResultTypeInfo
 
 function TkwTreeExpand.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1153,12 +1105,8 @@ begin
 end;//TkwTreeGetItemHeight.GetWordNameForRegister
 
 function TkwTreeGetItemHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_62AE36AC72B7_var*
-//#UC END# *551544E2001A_62AE36AC72B7_var*
 begin
-//#UC START# *551544E2001A_62AE36AC72B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_62AE36AC72B7_impl*
+ Result := TypeInfo(Integer);
 end;//TkwTreeGetItemHeight.GetResultTypeInfo
 
 function TkwTreeGetItemHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1207,12 +1155,8 @@ begin
 end;//TkwTreeGetItemImageIndex.GetWordNameForRegister
 
 function TkwTreeGetItemImageIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A8F9DB23E07A_var*
-//#UC END# *551544E2001A_A8F9DB23E07A_var*
 begin
-//#UC START# *551544E2001A_A8F9DB23E07A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A8F9DB23E07A_impl*
+ Result := TypeInfo(Integer);
 end;//TkwTreeGetItemImageIndex.GetResultTypeInfo
 
 function TkwTreeGetItemImageIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1257,12 +1201,8 @@ begin
 end;//TkwTreeGetItemLeft.GetWordNameForRegister
 
 function TkwTreeGetItemLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6CAA56491F95_var*
-//#UC END# *551544E2001A_6CAA56491F95_var*
 begin
-//#UC START# *551544E2001A_6CAA56491F95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6CAA56491F95_impl*
+ Result := TypeInfo(Integer);
 end;//TkwTreeGetItemLeft.GetResultTypeInfo
 
 function TkwTreeGetItemLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1307,12 +1247,8 @@ begin
 end;//TkwTreeGetItemTop.GetWordNameForRegister
 
 function TkwTreeGetItemTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5F6D76A66CAD_var*
-//#UC END# *551544E2001A_5F6D76A66CAD_var*
 begin
-//#UC START# *551544E2001A_5F6D76A66CAD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5F6D76A66CAD_impl*
+ Result := TypeInfo(Integer);
 end;//TkwTreeGetItemTop.GetResultTypeInfo
 
 function TkwTreeGetItemTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1357,12 +1293,8 @@ begin
 end;//TkwTreeGetItemWidth.GetWordNameForRegister
 
 function TkwTreeGetItemWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_645DA96C0332_var*
-//#UC END# *551544E2001A_645DA96C0332_var*
 begin
-//#UC START# *551544E2001A_645DA96C0332_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_645DA96C0332_impl*
+ Result := TypeInfo(Integer);
 end;//TkwTreeGetItemWidth.GetResultTypeInfo
 
 function TkwTreeGetItemWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1406,12 +1338,8 @@ begin
 end;//TkwTreeGetSelected.GetWordNameForRegister
 
 function TkwTreeGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5AEA5F2D19AB_var*
-//#UC END# *551544E2001A_5AEA5F2D19AB_var*
 begin
-//#UC START# *551544E2001A_5AEA5F2D19AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5AEA5F2D19AB_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwTreeGetSelected.GetResultTypeInfo
 
 function TkwTreeGetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1456,12 +1384,8 @@ begin
 end;//TkwTreeSetSelected.GetWordNameForRegister
 
 function TkwTreeSetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_017A97801F00_var*
-//#UC END# *551544E2001A_017A97801F00_var*
 begin
-//#UC START# *551544E2001A_017A97801F00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_017A97801F00_impl*
+ Result := @tfw_tiVoid;
 end;//TkwTreeSetSelected.GetResultTypeInfo
 
 function TkwTreeSetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1505,12 +1429,8 @@ begin
 end;//TkwTreeCollapse.GetWordNameForRegister
 
 function TkwTreeCollapse.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9749EACE054F_var*
-//#UC END# *551544E2001A_9749EACE054F_var*
 begin
-//#UC START# *551544E2001A_9749EACE054F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9749EACE054F_impl*
+ Result := @tfw_tiVoid;
 end;//TkwTreeCollapse.GetResultTypeInfo
 
 function TkwTreeCollapse.GetAllParamsCount(const aCtx: TtfwContext): Integer;

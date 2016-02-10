@@ -97,7 +97,7 @@ end;//TkwFilterAutolinkFilter.GetWordNameForRegister
 
 function TkwFilterAutolinkFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Ik2TagGenerator);
 end;//TkwFilterAutolinkFilter.GetResultTypeInfo
 
 function TkwFilterAutolinkFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -130,7 +130,7 @@ end;//TkwFilterCleanAutolinkFilter.GetWordNameForRegister
 
 function TkwFilterCleanAutolinkFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwFilterCleanAutolinkFilter.GetResultTypeInfo
 
 function TkwFilterCleanAutolinkFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -84,7 +84,7 @@ end;//TkwEnabledSaveRTFPictures.GetWordNameForRegister
 
 function TkwEnabledSaveRTFPictures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwEnabledSaveRTFPictures.GetResultTypeInfo
 
 function TkwEnabledSaveRTFPictures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -119,7 +119,7 @@ end;//TkwGeneratePDFForEtalon.GetWordNameForRegister
 
 function TkwGeneratePDFForEtalon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwGeneratePDFForEtalon.GetResultTypeInfo
 
 function TkwGeneratePDFForEtalon.GetAllParamsCount(const aCtx: TtfwContext): Integer;

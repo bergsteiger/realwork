@@ -112,12 +112,8 @@ begin
 end;//TkwBrowse.GetWordNameForRegister
 
 function TkwBrowse.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3223F9BFFE72_var*
-//#UC END# *551544E2001A_3223F9BFFE72_var*
 begin
-//#UC START# *551544E2001A_3223F9BFFE72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3223F9BFFE72_impl*
+ Result := @tfw_tiVoid;
 end;//TkwBrowse.GetResultTypeInfo
 
 function TkwBrowse.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -164,12 +160,8 @@ begin
 end;//TkwF1_WasBeep.GetWordNameForRegister
 
 function TkwF1_WasBeep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5888E53B751F_var*
-//#UC END# *551544E2001A_5888E53B751F_var*
 begin
-//#UC START# *551544E2001A_5888E53B751F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5888E53B751F_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwF1_WasBeep.GetResultTypeInfo
 
 function TkwF1_WasBeep.GetAllParamsCount(const aCtx: TtfwContext): Integer;

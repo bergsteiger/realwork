@@ -853,7 +853,7 @@ end;//TkwFileEOF.GetWordNameForRegister
 
 function TkwFileEOF.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwFileEOF.GetResultTypeInfo
 
 function TkwFileEOF.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -897,7 +897,7 @@ end;//TkwFileReadLn.GetWordNameForRegister
 
 function TkwFileReadLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwFileReadLn.GetResultTypeInfo
 
 function TkwFileReadLn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -942,7 +942,7 @@ end;//TkwFileWriteLn.GetWordNameForRegister
 
 function TkwFileWriteLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwFileWriteLn.GetResultTypeInfo
 
 function TkwFileWriteLn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -987,7 +987,7 @@ end;//TkwFileWriteChar.GetWordNameForRegister
 
 function TkwFileWriteChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwFileWriteChar.GetResultTypeInfo
 
 function TkwFileWriteChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1032,7 +1032,7 @@ end;//TkwFileWriteStr.GetWordNameForRegister
 
 function TkwFileWriteStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwFileWriteStr.GetResultTypeInfo
 
 function TkwFileWriteStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1082,7 +1082,7 @@ end;//TkwFileReadLines.DoRun
 
 function TkwFileReadLines.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwFileReadLines.GetResultTypeInfo
 
 function TkwFileReadLines.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1134,7 +1134,7 @@ end;//TkwFileWriteWStr.GetWordNameForRegister
 
 function TkwFileWriteWStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwFileWriteWStr.GetResultTypeInfo
 
 function TkwFileWriteWStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1178,7 +1178,7 @@ end;//TkwFileReadWStrLn.GetWordNameForRegister
 
 function TkwFileReadWStrLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiWString;
 end;//TkwFileReadWStrLn.GetResultTypeInfo
 
 function TkwFileReadWStrLn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1230,7 +1230,7 @@ end;//TkwFileWriteWStrLn.GetWordNameForRegister
 
 function TkwFileWriteWStrLn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwFileWriteWStrLn.GetResultTypeInfo
 
 function TkwFileWriteWStrLn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1274,7 +1274,7 @@ end;//TkwDeleteFile.GetWordNameForRegister
 
 function TkwDeleteFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwDeleteFile.GetResultTypeInfo
 
 function TkwDeleteFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1319,7 +1319,7 @@ end;//TkwRenameFile.GetWordNameForRegister
 
 function TkwRenameFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwRenameFile.GetResultTypeInfo
 
 function TkwRenameFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1365,7 +1365,7 @@ end;//TkwCopyFilesByMask.GetWordNameForRegister
 
 function TkwCopyFilesByMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwCopyFilesByMask.GetResultTypeInfo
 
 function TkwCopyFilesByMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1411,7 +1411,7 @@ end;//TkwCopyFile.GetWordNameForRegister
 
 function TkwCopyFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwCopyFile.GetResultTypeInfo
 
 function TkwCopyFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1455,7 +1455,7 @@ end;//TkwPureDir.GetWordNameForRegister
 
 function TkwPureDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwPureDir.GetResultTypeInfo
 
 function TkwPureDir.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1500,7 +1500,7 @@ end;//TkwDeleteFilesByMask.GetWordNameForRegister
 
 function TkwDeleteFilesByMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwDeleteFilesByMask.GetResultTypeInfo
 
 function TkwDeleteFilesByMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1569,7 +1569,7 @@ end;//TkwProcessFilesWithMask.GetWordNameForRegister
 
 function TkwProcessFilesWithMask.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwProcessFilesWithMask.GetResultTypeInfo
 
 function TkwProcessFilesWithMask.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1637,7 +1637,7 @@ end;//TkwProcessSubDirs.GetWordNameForRegister
 
 function TkwProcessSubDirs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwProcessSubDirs.GetResultTypeInfo
 
 function TkwProcessSubDirs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1681,7 +1681,7 @@ end;//TkwFileSize.GetWordNameForRegister
 
 function TkwFileSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwFileSize.GetResultTypeInfo
 
 function TkwFileSize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1730,7 +1730,7 @@ end;//TkwCompareFiles.GetWordNameForRegister
 
 function TkwCompareFiles.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwCompareFiles.GetResultTypeInfo
 
 function TkwCompareFiles.GetAllParamsCount(const aCtx: TtfwContext): Integer;

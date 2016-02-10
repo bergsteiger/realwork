@@ -88,12 +88,8 @@ begin
 end;//TkwPopTB97ButtonDown.SetValuePrim
 
 function TkwPopTB97ButtonDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C746DA0CF72F_var*
-//#UC END# *551544E2001A_C746DA0CF72F_var*
 begin
-//#UC START# *551544E2001A_C746DA0CF72F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C746DA0CF72F_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopTB97ButtonDown.GetResultTypeInfo
 
 function TkwPopTB97ButtonDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;

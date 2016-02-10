@@ -3978,12 +3978,8 @@ begin
 end;//TkwStyleEditorFontFormFontScrollBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontScrollBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_954E69BCCC58_var*
-//#UC END# *551544E2001A_954E69BCCC58_var*
 begin
-//#UC START# *551544E2001A_954E69BCCC58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_954E69BCCC58_impl*
+ Result := TypeInfo(TScrollBox);
 end;//TkwStyleEditorFontFormFontScrollBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontScrollBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4036,12 +4032,8 @@ begin
 end;//TkwStyleEditorFontFormFontUnderlineLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9AE4A7FEB94E_var*
-//#UC END# *551544E2001A_9AE4A7FEB94E_var*
 begin
-//#UC START# *551544E2001A_9AE4A7FEB94E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9AE4A7FEB94E_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontUnderlineLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontUnderlineLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4094,12 +4086,8 @@ begin
 end;//TkwStyleEditorFontFormFontStrikeoutLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D1F4E42FF5EA_var*
-//#UC END# *551544E2001A_D1F4E42FF5EA_var*
 begin
-//#UC START# *551544E2001A_D1F4E42FF5EA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D1F4E42FF5EA_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontStrikeoutLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontStrikeoutLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4152,12 +4140,8 @@ begin
 end;//TkwStyleEditorFontFormFontSizeLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_63ABFB869758_var*
-//#UC END# *551544E2001A_63ABFB869758_var*
 begin
-//#UC START# *551544E2001A_63ABFB869758_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_63ABFB869758_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontSizeLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontSizeLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4210,12 +4194,8 @@ begin
 end;//TkwStyleEditorFontFormFontNameLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_02676F13E290_var*
-//#UC END# *551544E2001A_02676F13E290_var*
 begin
-//#UC START# *551544E2001A_02676F13E290_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_02676F13E290_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontNameLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontNameLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4268,12 +4248,8 @@ begin
 end;//TkwStyleEditorFontFormFontItalicLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_612141A18D21_var*
-//#UC END# *551544E2001A_612141A18D21_var*
 begin
-//#UC START# *551544E2001A_612141A18D21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_612141A18D21_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontItalicLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontItalicLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4326,12 +4302,8 @@ begin
 end;//TkwStyleEditorFontFormFontForeColorLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6035EB84A365_var*
-//#UC END# *551544E2001A_6035EB84A365_var*
 begin
-//#UC START# *551544E2001A_6035EB84A365_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6035EB84A365_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontForeColorLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontForeColorLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4384,12 +4356,8 @@ begin
 end;//TkwStyleEditorFontFormFontBoldLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3CFB1098B812_var*
-//#UC END# *551544E2001A_3CFB1098B812_var*
 begin
-//#UC START# *551544E2001A_3CFB1098B812_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3CFB1098B812_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontBoldLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontBoldLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4442,12 +4410,8 @@ begin
 end;//TkwStyleEditorFontFormFontBackColorLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A1144EFA0C0B_var*
-//#UC END# *551544E2001A_A1144EFA0C0B_var*
 begin
-//#UC START# *551544E2001A_A1144EFA0C0B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A1144EFA0C0B_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontBackColorLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontBackColorLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4500,12 +4464,8 @@ begin
 end;//TkwStyleEditorFontFormFontScalableLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_67FD049E4DDD_var*
-//#UC END# *551544E2001A_67FD049E4DDD_var*
 begin
-//#UC START# *551544E2001A_67FD049E4DDD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_67FD049E4DDD_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFontScalableLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontScalableLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4558,12 +4518,8 @@ begin
 end;//TkwStyleEditorFontFormFontScalableBevel.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableBevel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2D914FF67038_var*
-//#UC END# *551544E2001A_2D914FF67038_var*
 begin
-//#UC START# *551544E2001A_2D914FF67038_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2D914FF67038_impl*
+ Result := TypeInfo(TBevel);
 end;//TkwStyleEditorFontFormFontScalableBevel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontScalableBevel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4616,12 +4572,8 @@ begin
 end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E4C87096091A_var*
-//#UC END# *551544E2001A_E4C87096091A_var*
 begin
-//#UC START# *551544E2001A_E4C87096091A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E4C87096091A_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4674,12 +4626,8 @@ begin
 end;//TkwStyleEditorFontFormFontSizeInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2E4C3AD6D6E8_var*
-//#UC END# *551544E2001A_2E4C3AD6D6E8_var*
 begin
-//#UC START# *551544E2001A_2E4C3AD6D6E8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2E4C3AD6D6E8_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFontSizeInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontSizeInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4732,12 +4680,8 @@ begin
 end;//TkwStyleEditorFontFormFontNameInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4C650B53B504_var*
-//#UC END# *551544E2001A_4C650B53B504_var*
 begin
-//#UC START# *551544E2001A_4C650B53B504_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4C650B53B504_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFontNameInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontNameInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4790,12 +4734,8 @@ begin
 end;//TkwStyleEditorFontFormFontItalicInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3E8AD123B3F2_var*
-//#UC END# *551544E2001A_3E8AD123B3F2_var*
 begin
-//#UC START# *551544E2001A_3E8AD123B3F2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3E8AD123B3F2_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFontItalicInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontItalicInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4848,12 +4788,8 @@ begin
 end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DFA34DD9BC8B_var*
-//#UC END# *551544E2001A_DFA34DD9BC8B_var*
 begin
-//#UC START# *551544E2001A_DFA34DD9BC8B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DFA34DD9BC8B_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontForeColorInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4906,12 +4842,8 @@ begin
 end;//TkwStyleEditorFontFormFontBoldInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_75DB636DA3EF_var*
-//#UC END# *551544E2001A_75DB636DA3EF_var*
 begin
-//#UC START# *551544E2001A_75DB636DA3EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_75DB636DA3EF_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFontBoldInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontBoldInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -4964,12 +4896,8 @@ begin
 end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A347ACCF48E9_var*
-//#UC END# *551544E2001A_A347ACCF48E9_var*
 begin
-//#UC START# *551544E2001A_A347ACCF48E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A347ACCF48E9_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontBackColorInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5022,12 +4950,8 @@ begin
 end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1E11F258142A_var*
-//#UC END# *551544E2001A_1E11F258142A_var*
 begin
-//#UC START# *551544E2001A_1E11F258142A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1E11F258142A_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5080,12 +5004,8 @@ begin
 end;//TkwStyleEditorFontFormFontUnderlineCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BDF04ACC3DA2_var*
-//#UC END# *551544E2001A_BDF04ACC3DA2_var*
 begin
-//#UC START# *551544E2001A_BDF04ACC3DA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BDF04ACC3DA2_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwStyleEditorFontFormFontUnderlineCheckBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontUnderlineCheckBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5138,12 +5058,8 @@ begin
 end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_346BEF6511CF_var*
-//#UC END# *551544E2001A_346BEF6511CF_var*
 begin
-//#UC START# *551544E2001A_346BEF6511CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_346BEF6511CF_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontStrikeoutCheckBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5196,12 +5112,8 @@ begin
 end;//TkwStyleEditorFontFormFontSizeComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B7C3268A51AA_var*
-//#UC END# *551544E2001A_B7C3268A51AA_var*
 begin
-//#UC START# *551544E2001A_B7C3268A51AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B7C3268A51AA_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwStyleEditorFontFormFontSizeComboBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontSizeComboBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5254,12 +5166,8 @@ begin
 end;//TkwStyleEditorFontFormFontNameComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EC0410979EB7_var*
-//#UC END# *551544E2001A_EC0410979EB7_var*
 begin
-//#UC START# *551544E2001A_EC0410979EB7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EC0410979EB7_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwStyleEditorFontFormFontNameComboBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontNameComboBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5312,12 +5220,8 @@ begin
 end;//TkwStyleEditorFontFormFontItalicCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5B44D7F36F3A_var*
-//#UC END# *551544E2001A_5B44D7F36F3A_var*
 begin
-//#UC START# *551544E2001A_5B44D7F36F3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5B44D7F36F3A_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwStyleEditorFontFormFontItalicCheckBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontItalicCheckBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5370,12 +5274,8 @@ begin
 end;//TkwStyleEditorFontFormFontForeColorBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0834F2DF835D_var*
-//#UC END# *551544E2001A_0834F2DF835D_var*
 begin
-//#UC START# *551544E2001A_0834F2DF835D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0834F2DF835D_impl*
+ Result := TypeInfo(TvtColorBox);
 end;//TkwStyleEditorFontFormFontForeColorBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontForeColorBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5428,12 +5328,8 @@ begin
 end;//TkwStyleEditorFontFormFontBoldCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BDDBA2C31A71_var*
-//#UC END# *551544E2001A_BDDBA2C31A71_var*
 begin
-//#UC START# *551544E2001A_BDDBA2C31A71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BDDBA2C31A71_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwStyleEditorFontFormFontBoldCheckBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontBoldCheckBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5486,12 +5382,8 @@ begin
 end;//TkwStyleEditorFontFormFontBackColorBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4856B8474DD1_var*
-//#UC END# *551544E2001A_4856B8474DD1_var*
 begin
-//#UC START# *551544E2001A_4856B8474DD1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4856B8474DD1_impl*
+ Result := TypeInfo(TvtColorBox);
 end;//TkwStyleEditorFontFormFontBackColorBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontBackColorBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5544,12 +5436,8 @@ begin
 end;//TkwStyleEditorFontFormFontScalableCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C6C7C49E08D5_var*
-//#UC END# *551544E2001A_C6C7C49E08D5_var*
 begin
-//#UC START# *551544E2001A_C6C7C49E08D5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C6C7C49E08D5_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwStyleEditorFontFormFontScalableCheckBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFontScalableCheckBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5602,12 +5490,8 @@ begin
 end;//TkwStyleEditorFontFormLeftIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E019FF4C914D_var*
-//#UC END# *551544E2001A_E019FF4C914D_var*
 begin
-//#UC START# *551544E2001A_E019FF4C914D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E019FF4C914D_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormLeftIndentLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormLeftIndentLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5660,12 +5544,8 @@ begin
 end;//TkwStyleEditorFontFormLeftIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4A630E1D42AC_var*
-//#UC END# *551544E2001A_4A630E1D42AC_var*
 begin
-//#UC START# *551544E2001A_4A630E1D42AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4A630E1D42AC_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwStyleEditorFontFormLeftIndentComboBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormLeftIndentComboBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5718,12 +5598,8 @@ begin
 end;//TkwStyleEditorFontFormRightIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3E3554E6A89D_var*
-//#UC END# *551544E2001A_3E3554E6A89D_var*
 begin
-//#UC START# *551544E2001A_3E3554E6A89D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3E3554E6A89D_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormRightIndentLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormRightIndentLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5776,12 +5652,8 @@ begin
 end;//TkwStyleEditorFontFormRightIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5BE934BE0F08_var*
-//#UC END# *551544E2001A_5BE934BE0F08_var*
 begin
-//#UC START# *551544E2001A_5BE934BE0F08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5BE934BE0F08_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwStyleEditorFontFormRightIndentComboBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormRightIndentComboBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5834,12 +5706,8 @@ begin
 end;//TkwStyleEditorFontFormFirstIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E615B68194EF_var*
-//#UC END# *551544E2001A_E615B68194EF_var*
 begin
-//#UC START# *551544E2001A_E615B68194EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E615B68194EF_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormFirstIndentLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFirstIndentLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5892,12 +5760,8 @@ begin
 end;//TkwStyleEditorFontFormFirstIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FEA1B672155D_var*
-//#UC END# *551544E2001A_FEA1B672155D_var*
 begin
-//#UC START# *551544E2001A_FEA1B672155D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FEA1B672155D_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwStyleEditorFontFormFirstIndentComboBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFirstIndentComboBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -5950,12 +5814,8 @@ begin
 end;//TkwStyleEditorFontFormSpaceBeforeLabel.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A031CF88FA6A_var*
-//#UC END# *551544E2001A_A031CF88FA6A_var*
 begin
-//#UC START# *551544E2001A_A031CF88FA6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A031CF88FA6A_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormSpaceBeforeLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormSpaceBeforeLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6008,12 +5868,8 @@ begin
 end;//TkwStyleEditorFontFormSpaceBeforeComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D009BF86496A_var*
-//#UC END# *551544E2001A_D009BF86496A_var*
 begin
-//#UC START# *551544E2001A_D009BF86496A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D009BF86496A_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwStyleEditorFontFormSpaceBeforeComboBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormSpaceBeforeComboBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6066,12 +5922,8 @@ begin
 end;//TkwStyleEditorFontFormSpaceAfterLabel.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CF58F0DFE7C9_var*
-//#UC END# *551544E2001A_CF58F0DFE7C9_var*
 begin
-//#UC START# *551544E2001A_CF58F0DFE7C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CF58F0DFE7C9_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormSpaceAfterLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormSpaceAfterLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6124,12 +5976,8 @@ begin
 end;//TkwStyleEditorFontFormSpaceAfterComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C6D86EC88CE3_var*
-//#UC END# *551544E2001A_C6D86EC88CE3_var*
 begin
-//#UC START# *551544E2001A_C6D86EC88CE3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C6D86EC88CE3_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwStyleEditorFontFormSpaceAfterComboBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormSpaceAfterComboBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6182,12 +6030,8 @@ begin
 end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C28516B71127_var*
-//#UC END# *551544E2001A_C28516B71127_var*
 begin
-//#UC START# *551544E2001A_C28516B71127_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C28516B71127_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormLeftIndentInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6240,12 +6084,8 @@ begin
 end;//TkwStyleEditorFontFormRightIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8CD155DF44C9_var*
-//#UC END# *551544E2001A_8CD155DF44C9_var*
 begin
-//#UC START# *551544E2001A_8CD155DF44C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8CD155DF44C9_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormRightIndentInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormRightIndentInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6298,12 +6138,8 @@ begin
 end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C2221ABA41AB_var*
-//#UC END# *551544E2001A_C2221ABA41AB_var*
 begin
-//#UC START# *551544E2001A_C2221ABA41AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C2221ABA41AB_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormFirstIndentInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6356,12 +6192,8 @@ begin
 end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CBEC26484423_var*
-//#UC END# *551544E2001A_CBEC26484423_var*
 begin
-//#UC START# *551544E2001A_CBEC26484423_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CBEC26484423_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6414,12 +6246,8 @@ begin
 end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_06951EDD3ADA_var*
-//#UC END# *551544E2001A_06951EDD3ADA_var*
 begin
-//#UC START# *551544E2001A_06951EDD3ADA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_06951EDD3ADA_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetResultTypeInfo
 
 function TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6472,12 +6300,8 @@ begin
 end;//TkwStyleEditorFontFormStyleCaptionLabel.SetValuePrim
 
 function TkwStyleEditorFontFormStyleCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D81A105F7E2C_var*
-//#UC END# *551544E2001A_D81A105F7E2C_var*
 begin
-//#UC START# *551544E2001A_D81A105F7E2C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D81A105F7E2C_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwStyleEditorFontFormStyleCaptionLabel.GetResultTypeInfo
 
 function TkwStyleEditorFontFormStyleCaptionLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -6530,12 +6354,8 @@ begin
 end;//TkwStyleEditorFontFormStyleCaptionComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormStyleCaptionComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_11BE9A7BD28B_var*
-//#UC END# *551544E2001A_11BE9A7BD28B_var*
 begin
-//#UC START# *551544E2001A_11BE9A7BD28B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_11BE9A7BD28B_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwStyleEditorFontFormStyleCaptionComboBox.GetResultTypeInfo
 
 function TkwStyleEditorFontFormStyleCaptionComboBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;

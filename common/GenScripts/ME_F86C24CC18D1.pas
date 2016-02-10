@@ -706,12 +706,8 @@ begin
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.SetValuePrim
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_738D30BFC216_var*
-//#UC END# *551544E2001A_738D30BFC216_var*
 begin
-//#UC START# *551544E2001A_738D30BFC216_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_738D30BFC216_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -764,12 +760,8 @@ begin
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.SetValuePrim
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_410A0E5236E8_var*
-//#UC END# *551544E2001A_410A0E5236E8_var*
 begin
-//#UC START# *551544E2001A_410A0E5236E8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_410A0E5236E8_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -822,12 +814,8 @@ begin
 end;//TkwEnTurnOnTimeMachineDeDate.SetValuePrim
 
 function TkwEnTurnOnTimeMachineDeDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_34CF83AB09E2_var*
-//#UC END# *551544E2001A_34CF83AB09E2_var*
 begin
-//#UC START# *551544E2001A_34CF83AB09E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_34CF83AB09E2_impl*
+ Result := TypeInfo(TvtDblClickDateEdit);
 end;//TkwEnTurnOnTimeMachineDeDate.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineDeDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -880,12 +868,8 @@ begin
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.SetValuePrim
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D77A7DA792C7_var*
-//#UC END# *551544E2001A_D77A7DA792C7_var*
 begin
-//#UC START# *551544E2001A_D77A7DA792C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D77A7DA792C7_impl*
+ Result := TypeInfo(TPaintBox);
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -938,12 +922,8 @@ begin
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_47E2676FB408_var*
-//#UC END# *551544E2001A_47E2676FB408_var*
 begin
-//#UC START# *551544E2001A_47E2676FB408_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_47E2676FB408_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -996,12 +976,8 @@ begin
 end;//TkwEnTurnOnTimeMachineBtnOk.SetValuePrim
 
 function TkwEnTurnOnTimeMachineBtnOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E6A646BF492A_var*
-//#UC END# *551544E2001A_E6A646BF492A_var*
 begin
-//#UC START# *551544E2001A_E6A646BF492A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E6A646BF492A_impl*
+ Result := TypeInfo(TvtButton);
 end;//TkwEnTurnOnTimeMachineBtnOk.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineBtnOk.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1054,12 +1030,8 @@ begin
 end;//TkwEnTurnOnTimeMachineBtnCancel.SetValuePrim
 
 function TkwEnTurnOnTimeMachineBtnCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FEC8921670AD_var*
-//#UC END# *551544E2001A_FEC8921670AD_var*
 begin
-//#UC START# *551544E2001A_FEC8921670AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FEC8921670AD_impl*
+ Result := TypeInfo(TvtButton);
 end;//TkwEnTurnOnTimeMachineBtnCancel.GetResultTypeInfo
 
 function TkwEnTurnOnTimeMachineBtnCancel.GetAllParamsCount(const aCtx: TtfwContext): Integer;

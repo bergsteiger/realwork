@@ -186,12 +186,8 @@ begin
 end;//TkwChatHistoryFormHistoryEditor.SetValuePrim
 
 function TkwChatHistoryFormHistoryEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_07D7665942C7_var*
-//#UC END# *551544E2001A_07D7665942C7_var*
 begin
-//#UC START# *551544E2001A_07D7665942C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_07D7665942C7_impl*
+ Result := TypeInfo(TnscChatMemo);
 end;//TkwChatHistoryFormHistoryEditor.GetResultTypeInfo
 
 function TkwChatHistoryFormHistoryEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;

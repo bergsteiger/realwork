@@ -102,12 +102,8 @@ begin
 end;//TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister
 
 function TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_50112451BECA_var*
-//#UC END# *551544E2001A_50112451BECA_var*
 begin
-//#UC START# *551544E2001A_50112451BECA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_50112451BECA_impl*
+ Result := @tfw_tiVoid;
 end;//TkwAttrExplorerGotoOnAttrNode.GetResultTypeInfo
 
 function TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -348,12 +348,8 @@ begin
 end;//TkwPopComboBoxDropDown.GetWordNameForRegister
 
 function TkwPopComboBoxDropDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B7676CD1AAB3_var*
-//#UC END# *551544E2001A_B7676CD1AAB3_var*
 begin
-//#UC START# *551544E2001A_B7676CD1AAB3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B7676CD1AAB3_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopComboBoxDropDown.GetResultTypeInfo
 
 function TkwPopComboBoxDropDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -396,12 +392,8 @@ begin
 end;//TkwPopComboBoxGetItemIndex.GetWordNameForRegister
 
 function TkwPopComboBoxGetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_731890DC5F90_var*
-//#UC END# *551544E2001A_731890DC5F90_var*
 begin
-//#UC START# *551544E2001A_731890DC5F90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_731890DC5F90_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopComboBoxGetItemIndex.GetResultTypeInfo
 
 function TkwPopComboBoxGetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -445,12 +437,8 @@ begin
 end;//TkwPopComboBoxIndexOf.GetWordNameForRegister
 
 function TkwPopComboBoxIndexOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_697C86093610_var*
-//#UC END# *551544E2001A_697C86093610_var*
 begin
-//#UC START# *551544E2001A_697C86093610_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_697C86093610_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopComboBoxIndexOf.GetResultTypeInfo
 
 function TkwPopComboBoxIndexOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -494,12 +482,8 @@ begin
 end;//TkwPopComboBoxSelectItem.GetWordNameForRegister
 
 function TkwPopComboBoxSelectItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E94AE4FC3D32_var*
-//#UC END# *551544E2001A_E94AE4FC3D32_var*
 begin
-//#UC START# *551544E2001A_E94AE4FC3D32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E94AE4FC3D32_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopComboBoxSelectItem.GetResultTypeInfo
 
 function TkwPopComboBoxSelectItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -544,12 +528,8 @@ begin
 end;//TkwPopComboBoxSetItemIndex.GetWordNameForRegister
 
 function TkwPopComboBoxSetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DF10F6F55A61_var*
-//#UC END# *551544E2001A_DF10F6F55A61_var*
 begin
-//#UC START# *551544E2001A_DF10F6F55A61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DF10F6F55A61_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopComboBoxSetItemIndex.GetResultTypeInfo
 
 function TkwPopComboBoxSetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -612,12 +592,8 @@ begin
 end;//TkwPopComboBoxSaveItems.GetWordNameForRegister
 
 function TkwPopComboBoxSaveItems.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F4F78563FAA5_var*
-//#UC END# *551544E2001A_F4F78563FAA5_var*
 begin
-//#UC START# *551544E2001A_F4F78563FAA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F4F78563FAA5_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopComboBoxSaveItems.GetResultTypeInfo
 
 function TkwPopComboBoxSaveItems.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -661,12 +637,8 @@ begin
 end;//TkwPopComboTreeDropDown.GetWordNameForRegister
 
 function TkwPopComboTreeDropDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CBB40EABEDB6_var*
-//#UC END# *551544E2001A_CBB40EABEDB6_var*
 begin
-//#UC START# *551544E2001A_CBB40EABEDB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CBB40EABEDB6_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopComboTreeDropDown.GetResultTypeInfo
 
 function TkwPopComboTreeDropDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -712,12 +684,8 @@ begin
 end;//TkwPopComboTreeGetItemIndex.GetWordNameForRegister
 
 function TkwPopComboTreeGetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FDB2008A1DAA_var*
-//#UC END# *551544E2001A_FDB2008A1DAA_var*
 begin
-//#UC START# *551544E2001A_FDB2008A1DAA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FDB2008A1DAA_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopComboTreeGetItemIndex.GetResultTypeInfo
 
 function TkwPopComboTreeGetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -761,12 +729,8 @@ begin
 end;//TkwPopComboTreeIndexOf.GetWordNameForRegister
 
 function TkwPopComboTreeIndexOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C0C842FB1A8C_var*
-//#UC END# *551544E2001A_C0C842FB1A8C_var*
 begin
-//#UC START# *551544E2001A_C0C842FB1A8C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C0C842FB1A8C_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopComboTreeIndexOf.GetResultTypeInfo
 
 function TkwPopComboTreeIndexOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -810,12 +774,8 @@ begin
 end;//TkwPopComboTreeSelectItem.GetWordNameForRegister
 
 function TkwPopComboTreeSelectItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B5A21C7BEE37_var*
-//#UC END# *551544E2001A_B5A21C7BEE37_var*
 begin
-//#UC START# *551544E2001A_B5A21C7BEE37_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B5A21C7BEE37_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopComboTreeSelectItem.GetResultTypeInfo
 
 function TkwPopComboTreeSelectItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -868,12 +828,8 @@ begin
 end;//TkwPopComboTreeSetItemIndex.GetWordNameForRegister
 
 function TkwPopComboTreeSetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8C448529271A_var*
-//#UC END# *551544E2001A_8C448529271A_var*
 begin
-//#UC START# *551544E2001A_8C448529271A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8C448529271A_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopComboTreeSetItemIndex.GetResultTypeInfo
 
 function TkwPopComboTreeSetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -932,12 +888,8 @@ begin
 end;//TkwPopComboTreeSaveItems.GetWordNameForRegister
 
 function TkwPopComboTreeSaveItems.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_957FA5E0E3AB_var*
-//#UC END# *551544E2001A_957FA5E0E3AB_var*
 begin
-//#UC START# *551544E2001A_957FA5E0E3AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_957FA5E0E3AB_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopComboTreeSaveItems.GetResultTypeInfo
 
 function TkwPopComboTreeSaveItems.GetAllParamsCount(const aCtx: TtfwContext): Integer;

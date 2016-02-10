@@ -1408,21 +1408,13 @@ begin
 end;//TkwMainWindowRemOnlineDead.SetValuePrim
 
 function TkwMainWindowRemOnlineDead.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_82B2BCF3102B_var*
-//#UC END# *551544E2001A_82B2BCF3102B_var*
 begin
-//#UC START# *551544E2001A_82B2BCF3102B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_82B2BCF3102B_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwMainWindowRemOnlineDead.GetResultTypeInfo
 
 function TkwMainWindowRemOnlineDead.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_82B2BCF3102B_var*
-//#UC END# *559687E6025A_82B2BCF3102B_var*
 begin
-//#UC START# *559687E6025A_82B2BCF3102B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_82B2BCF3102B_impl*
+ Result := 1;
 end;//TkwMainWindowRemOnlineDead.GetAllParamsCount
 
 function TkwMainWindowRemOnlineDead.ParamsTypes: PTypeInfoArray;
@@ -1470,21 +1462,13 @@ begin
 end;//TkwMainWindowRemNewChatMessages.SetValuePrim
 
 function TkwMainWindowRemNewChatMessages.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F316F76D2AFC_var*
-//#UC END# *551544E2001A_F316F76D2AFC_var*
 begin
-//#UC START# *551544E2001A_F316F76D2AFC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F316F76D2AFC_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwMainWindowRemNewChatMessages.GetResultTypeInfo
 
 function TkwMainWindowRemNewChatMessages.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_F316F76D2AFC_var*
-//#UC END# *559687E6025A_F316F76D2AFC_var*
 begin
-//#UC START# *559687E6025A_F316F76D2AFC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_F316F76D2AFC_impl*
+ Result := 1;
 end;//TkwMainWindowRemNewChatMessages.GetAllParamsCount
 
 function TkwMainWindowRemNewChatMessages.ParamsTypes: PTypeInfoArray;
@@ -1532,21 +1516,13 @@ begin
 end;//TkwMainWindowTrialModeWarning.SetValuePrim
 
 function TkwMainWindowTrialModeWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_116178A120B3_var*
-//#UC END# *551544E2001A_116178A120B3_var*
 begin
-//#UC START# *551544E2001A_116178A120B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_116178A120B3_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwMainWindowTrialModeWarning.GetResultTypeInfo
 
 function TkwMainWindowTrialModeWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_116178A120B3_var*
-//#UC END# *559687E6025A_116178A120B3_var*
 begin
-//#UC START# *559687E6025A_116178A120B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_116178A120B3_impl*
+ Result := 1;
 end;//TkwMainWindowTrialModeWarning.GetAllParamsCount
 
 function TkwMainWindowTrialModeWarning.ParamsTypes: PTypeInfoArray;
@@ -1594,21 +1570,13 @@ begin
 end;//TkwMainWindowOldBaseWarning.SetValuePrim
 
 function TkwMainWindowOldBaseWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_59D50D49582B_var*
-//#UC END# *551544E2001A_59D50D49582B_var*
 begin
-//#UC START# *551544E2001A_59D50D49582B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_59D50D49582B_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwMainWindowOldBaseWarning.GetResultTypeInfo
 
 function TkwMainWindowOldBaseWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_59D50D49582B_var*
-//#UC END# *559687E6025A_59D50D49582B_var*
 begin
-//#UC START# *559687E6025A_59D50D49582B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_59D50D49582B_impl*
+ Result := 1;
 end;//TkwMainWindowOldBaseWarning.GetAllParamsCount
 
 function TkwMainWindowOldBaseWarning.ParamsTypes: PTypeInfoArray;
@@ -1656,21 +1624,13 @@ begin
 end;//TkwMainWindowRemindersLine.SetValuePrim
 
 function TkwMainWindowRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3F3A50436E8F_var*
-//#UC END# *551544E2001A_3F3A50436E8F_var*
 begin
-//#UC START# *551544E2001A_3F3A50436E8F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3F3A50436E8F_impl*
+ Result := TypeInfo(TnscRemindersLine);
 end;//TkwMainWindowRemindersLine.GetResultTypeInfo
 
 function TkwMainWindowRemindersLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_3F3A50436E8F_var*
-//#UC END# *559687E6025A_3F3A50436E8F_var*
 begin
-//#UC START# *559687E6025A_3F3A50436E8F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_3F3A50436E8F_impl*
+ Result := 1;
 end;//TkwMainWindowRemindersLine.GetAllParamsCount
 
 function TkwMainWindowRemindersLine.ParamsTypes: PTypeInfoArray;
@@ -1718,21 +1678,13 @@ begin
 end;//TkwMainWindowControlledChangingWarning.SetValuePrim
 
 function TkwMainWindowControlledChangingWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FCB9DBB9A96D_var*
-//#UC END# *551544E2001A_FCB9DBB9A96D_var*
 begin
-//#UC START# *551544E2001A_FCB9DBB9A96D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FCB9DBB9A96D_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwMainWindowControlledChangingWarning.GetResultTypeInfo
 
 function TkwMainWindowControlledChangingWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FCB9DBB9A96D_var*
-//#UC END# *559687E6025A_FCB9DBB9A96D_var*
 begin
-//#UC START# *559687E6025A_FCB9DBB9A96D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FCB9DBB9A96D_impl*
+ Result := 1;
 end;//TkwMainWindowControlledChangingWarning.GetAllParamsCount
 
 function TkwMainWindowControlledChangingWarning.ParamsTypes: PTypeInfoArray;
@@ -1780,21 +1732,13 @@ begin
 end;//TkwMainWindowRemUnreadConsultations.SetValuePrim
 
 function TkwMainWindowRemUnreadConsultations.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_797CD35061B7_var*
-//#UC END# *551544E2001A_797CD35061B7_var*
 begin
-//#UC START# *551544E2001A_797CD35061B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_797CD35061B7_impl*
+ Result := TypeInfo(TnscReminder);
 end;//TkwMainWindowRemUnreadConsultations.GetResultTypeInfo
 
 function TkwMainWindowRemUnreadConsultations.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_797CD35061B7_var*
-//#UC END# *559687E6025A_797CD35061B7_var*
 begin
-//#UC START# *559687E6025A_797CD35061B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_797CD35061B7_impl*
+ Result := 1;
 end;//TkwMainWindowRemUnreadConsultations.GetAllParamsCount
 
 function TkwMainWindowRemUnreadConsultations.ParamsTypes: PTypeInfoArray;
@@ -1842,21 +1786,13 @@ begin
 end;//TkwMainWindowStatusBar.SetValuePrim
 
 function TkwMainWindowStatusBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CE0BB644ECC0_var*
-//#UC END# *551544E2001A_CE0BB644ECC0_var*
 begin
-//#UC START# *551544E2001A_CE0BB644ECC0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CE0BB644ECC0_impl*
+ Result := TypeInfo(TnscStatusBar);
 end;//TkwMainWindowStatusBar.GetResultTypeInfo
 
 function TkwMainWindowStatusBar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_CE0BB644ECC0_var*
-//#UC END# *559687E6025A_CE0BB644ECC0_var*
 begin
-//#UC START# *559687E6025A_CE0BB644ECC0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_CE0BB644ECC0_impl*
+ Result := 1;
 end;//TkwMainWindowStatusBar.GetAllParamsCount
 
 function TkwMainWindowStatusBar.ParamsTypes: PTypeInfoArray;
@@ -1904,21 +1840,13 @@ begin
 end;//TkwMainWindowClientZone.SetValuePrim
 
 function TkwMainWindowClientZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FE6607BEAD6E_var*
-//#UC END# *551544E2001A_FE6607BEAD6E_var*
 begin
-//#UC START# *551544E2001A_FE6607BEAD6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FE6607BEAD6E_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwMainWindowClientZone.GetResultTypeInfo
 
 function TkwMainWindowClientZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_FE6607BEAD6E_var*
-//#UC END# *559687E6025A_FE6607BEAD6E_var*
 begin
-//#UC START# *559687E6025A_FE6607BEAD6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_FE6607BEAD6E_impl*
+ Result := 1;
 end;//TkwMainWindowClientZone.GetAllParamsCount
 
 function TkwMainWindowClientZone.ParamsTypes: PTypeInfoArray;
@@ -1966,21 +1894,13 @@ begin
 end;//TkwMainWindowMainZone.SetValuePrim
 
 function TkwMainWindowMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A864C41E05F1_var*
-//#UC END# *551544E2001A_A864C41E05F1_var*
 begin
-//#UC START# *551544E2001A_A864C41E05F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A864C41E05F1_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwMainWindowMainZone.GetResultTypeInfo
 
 function TkwMainWindowMainZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_A864C41E05F1_var*
-//#UC END# *559687E6025A_A864C41E05F1_var*
 begin
-//#UC START# *559687E6025A_A864C41E05F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_A864C41E05F1_impl*
+ Result := 1;
 end;//TkwMainWindowMainZone.GetAllParamsCount
 
 function TkwMainWindowMainZone.ParamsTypes: PTypeInfoArray;
@@ -2028,21 +1948,13 @@ begin
 end;//TkwMainWindowParentZonePanel.SetValuePrim
 
 function TkwMainWindowParentZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_42983EB4E606_var*
-//#UC END# *551544E2001A_42983EB4E606_var*
 begin
-//#UC START# *551544E2001A_42983EB4E606_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_42983EB4E606_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwMainWindowParentZonePanel.GetResultTypeInfo
 
 function TkwMainWindowParentZonePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_42983EB4E606_var*
-//#UC END# *559687E6025A_42983EB4E606_var*
 begin
-//#UC START# *559687E6025A_42983EB4E606_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_42983EB4E606_impl*
+ Result := 1;
 end;//TkwMainWindowParentZonePanel.GetAllParamsCount
 
 function TkwMainWindowParentZonePanel.ParamsTypes: PTypeInfoArray;
@@ -2090,21 +2002,13 @@ begin
 end;//TkwMainWindowChildZonePanel.SetValuePrim
 
 function TkwMainWindowChildZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_815BB0E77000_var*
-//#UC END# *551544E2001A_815BB0E77000_var*
 begin
-//#UC START# *551544E2001A_815BB0E77000_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_815BB0E77000_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwMainWindowChildZonePanel.GetResultTypeInfo
 
 function TkwMainWindowChildZonePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_815BB0E77000_var*
-//#UC END# *559687E6025A_815BB0E77000_var*
 begin
-//#UC START# *559687E6025A_815BB0E77000_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_815BB0E77000_impl*
+ Result := 1;
 end;//TkwMainWindowChildZonePanel.GetAllParamsCount
 
 function TkwMainWindowChildZonePanel.ParamsTypes: PTypeInfoArray;
@@ -2152,21 +2056,13 @@ begin
 end;//TkwMainWindowBaseSearchPanel.SetValuePrim
 
 function TkwMainWindowBaseSearchPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0BBD18013246_var*
-//#UC END# *551544E2001A_0BBD18013246_var*
 begin
-//#UC START# *551544E2001A_0BBD18013246_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0BBD18013246_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwMainWindowBaseSearchPanel.GetResultTypeInfo
 
 function TkwMainWindowBaseSearchPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0BBD18013246_var*
-//#UC END# *559687E6025A_0BBD18013246_var*
 begin
-//#UC START# *559687E6025A_0BBD18013246_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0BBD18013246_impl*
+ Result := 1;
 end;//TkwMainWindowBaseSearchPanel.GetAllParamsCount
 
 function TkwMainWindowBaseSearchPanel.ParamsTypes: PTypeInfoArray;
@@ -2214,21 +2110,13 @@ begin
 end;//TkwMainWindowLeftNavigator.SetValuePrim
 
 function TkwMainWindowLeftNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BDCC906B453B_var*
-//#UC END# *551544E2001A_BDCC906B453B_var*
 begin
-//#UC START# *551544E2001A_BDCC906B453B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BDCC906B453B_impl*
+ Result := TypeInfo(TnscNavigator);
 end;//TkwMainWindowLeftNavigator.GetResultTypeInfo
 
 function TkwMainWindowLeftNavigator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BDCC906B453B_var*
-//#UC END# *559687E6025A_BDCC906B453B_var*
 begin
-//#UC START# *559687E6025A_BDCC906B453B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BDCC906B453B_impl*
+ Result := 1;
 end;//TkwMainWindowLeftNavigator.GetAllParamsCount
 
 function TkwMainWindowLeftNavigator.ParamsTypes: PTypeInfoArray;
@@ -2278,21 +2166,13 @@ begin
 end;//TkwMainWindowRightNavigator.SetValuePrim
 
 function TkwMainWindowRightNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E38152ED8F57_var*
-//#UC END# *551544E2001A_E38152ED8F57_var*
 begin
-//#UC START# *551544E2001A_E38152ED8F57_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E38152ED8F57_impl*
+ Result := TypeInfo(TnscNavigator);
 end;//TkwMainWindowRightNavigator.GetResultTypeInfo
 
 function TkwMainWindowRightNavigator.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_E38152ED8F57_var*
-//#UC END# *559687E6025A_E38152ED8F57_var*
 begin
-//#UC START# *559687E6025A_E38152ED8F57_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_E38152ED8F57_impl*
+ Result := 1;
 end;//TkwMainWindowRightNavigator.GetAllParamsCount
 
 function TkwMainWindowRightNavigator.ParamsTypes: PTypeInfoArray;

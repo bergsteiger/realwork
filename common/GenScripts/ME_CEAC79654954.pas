@@ -358,12 +358,8 @@ begin
 end;//TkwCfFoldersBackgroundPanel.SetValuePrim
 
 function TkwCfFoldersBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5C9B2EC425D0_var*
-//#UC END# *551544E2001A_5C9B2EC425D0_var*
 begin
-//#UC START# *551544E2001A_5C9B2EC425D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5C9B2EC425D0_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwCfFoldersBackgroundPanel.GetResultTypeInfo
 
 function TkwCfFoldersBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -416,12 +412,8 @@ begin
 end;//TkwCfFoldersParentZone.SetValuePrim
 
 function TkwCfFoldersParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5C121167A7CC_var*
-//#UC END# *551544E2001A_5C121167A7CC_var*
 begin
-//#UC START# *551544E2001A_5C121167A7CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5C121167A7CC_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfFoldersParentZone.GetResultTypeInfo
 
 function TkwCfFoldersParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -474,12 +466,8 @@ begin
 end;//TkwCfFoldersChildZone.SetValuePrim
 
 function TkwCfFoldersChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D0B699F2B747_var*
-//#UC END# *551544E2001A_D0B699F2B747_var*
 begin
-//#UC START# *551544E2001A_D0B699F2B747_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D0B699F2B747_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwCfFoldersChildZone.GetResultTypeInfo
 
 function TkwCfFoldersChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;

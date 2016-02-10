@@ -102,12 +102,8 @@ begin
 end;//TkwPopSpinEditValue.SetValuePrim
 
 function TkwPopSpinEditValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0F40F0279E11_var*
-//#UC END# *551544E2001A_0F40F0279E11_var*
 begin
-//#UC START# *551544E2001A_0F40F0279E11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0F40F0279E11_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopSpinEditValue.GetResultTypeInfo
 
 function TkwPopSpinEditValue.GetAllParamsCount(const aCtx: TtfwContext): Integer;

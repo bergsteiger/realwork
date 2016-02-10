@@ -184,12 +184,8 @@ begin
 end;//TkwFcSynchroViewDocView.SetValuePrim
 
 function TkwFcSynchroViewDocView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4F94CC511B43_var*
-//#UC END# *551544E2001A_4F94CC511B43_var*
 begin
-//#UC START# *551544E2001A_4F94CC511B43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4F94CC511B43_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwFcSynchroViewDocView.GetResultTypeInfo
 
 function TkwFcSynchroViewDocView.GetAllParamsCount(const aCtx: TtfwContext): Integer;

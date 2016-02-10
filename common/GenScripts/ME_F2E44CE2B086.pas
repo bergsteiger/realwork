@@ -186,12 +186,8 @@ begin
 end;//TkwEfProgressIndicatorProgressBar.SetValuePrim
 
 function TkwEfProgressIndicatorProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_048590F2C0A3_var*
-//#UC END# *551544E2001A_048590F2C0A3_var*
 begin
-//#UC START# *551544E2001A_048590F2C0A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_048590F2C0A3_impl*
+ Result := TypeInfo(TProgressBar);
 end;//TkwEfProgressIndicatorProgressBar.GetResultTypeInfo
 
 function TkwEfProgressIndicatorProgressBar.GetAllParamsCount(const aCtx: TtfwContext): Integer;

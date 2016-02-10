@@ -358,12 +358,8 @@ begin
 end;//TkwEfEULAShellCaptionLabel.SetValuePrim
 
 function TkwEfEULAShellCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_58C15386A400_var*
-//#UC END# *551544E2001A_58C15386A400_var*
 begin
-//#UC START# *551544E2001A_58C15386A400_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_58C15386A400_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEfEULAShellCaptionLabel.GetResultTypeInfo
 
 function TkwEfEULAShellCaptionLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -416,12 +412,8 @@ begin
 end;//TkwEfEULAOkButton.SetValuePrim
 
 function TkwEfEULAOkButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_84B2391A0258_var*
-//#UC END# *551544E2001A_84B2391A0258_var*
 begin
-//#UC START# *551544E2001A_84B2391A0258_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_84B2391A0258_impl*
+ Result := TypeInfo(TvtButton);
 end;//TkwEfEULAOkButton.GetResultTypeInfo
 
 function TkwEfEULAOkButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -474,12 +466,8 @@ begin
 end;//TkwEfEULAEeMemoWithEditOperations1.SetValuePrim
 
 function TkwEfEULAEeMemoWithEditOperations1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_ACE4A3A50395_var*
-//#UC END# *551544E2001A_ACE4A3A50395_var*
 begin
-//#UC START# *551544E2001A_ACE4A3A50395_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_ACE4A3A50395_impl*
+ Result := TypeInfo(TeeMemoWithEditOperations);
 end;//TkwEfEULAEeMemoWithEditOperations1.GetResultTypeInfo
 
 function TkwEfEULAEeMemoWithEditOperations1.GetAllParamsCount(const aCtx: TtfwContext): Integer;

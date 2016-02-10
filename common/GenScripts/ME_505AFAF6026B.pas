@@ -147,12 +147,8 @@ begin
 end;//TkwGeneratorsExecute.GetWordNameForRegister
 
 function TkwGeneratorsExecute.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_825779F5AD08_var*
-//#UC END# *551544E2001A_825779F5AD08_var*
 begin
-//#UC START# *551544E2001A_825779F5AD08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_825779F5AD08_impl*
+ Result := @tfw_tiVoid;
 end;//TkwGeneratorsExecute.GetResultTypeInfo
 
 function TkwGeneratorsExecute.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -202,12 +198,8 @@ begin
 end;//TkwGeneratorsLink.GetWordNameForRegister
 
 function TkwGeneratorsLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E6DB290D23D7_var*
-//#UC END# *551544E2001A_E6DB290D23D7_var*
 begin
-//#UC START# *551544E2001A_E6DB290D23D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E6DB290D23D7_impl*
+ Result := TypeInfo(Ik2TagGenerator);
 end;//TkwGeneratorsLink.GetResultTypeInfo
 
 function TkwGeneratorsLink.GetAllParamsCount(const aCtx: TtfwContext): Integer;

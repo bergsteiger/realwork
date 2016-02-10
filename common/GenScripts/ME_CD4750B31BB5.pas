@@ -596,12 +596,8 @@ begin
 end;//TkwEfRubricatorRubricatorList.SetValuePrim
 
 function TkwEfRubricatorRubricatorList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_570087BEBDE5_var*
-//#UC END# *551544E2001A_570087BEBDE5_var*
 begin
-//#UC START# *551544E2001A_570087BEBDE5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_570087BEBDE5_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEfRubricatorRubricatorList.GetResultTypeInfo
 
 function TkwEfRubricatorRubricatorList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -654,12 +650,8 @@ begin
 end;//TkwEfRubricatorTopPanel.SetValuePrim
 
 function TkwEfRubricatorTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_64EE419069C8_var*
-//#UC END# *551544E2001A_64EE419069C8_var*
 begin
-//#UC START# *551544E2001A_64EE419069C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_64EE419069C8_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEfRubricatorTopPanel.GetResultTypeInfo
 
 function TkwEfRubricatorTopPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -712,12 +704,8 @@ begin
 end;//TkwEfRubricatorPaintBox.SetValuePrim
 
 function TkwEfRubricatorPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_741A23B47FE2_var*
-//#UC END# *551544E2001A_741A23B47FE2_var*
 begin
-//#UC START# *551544E2001A_741A23B47FE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_741A23B47FE2_impl*
+ Result := TypeInfo(TPaintBox);
 end;//TkwEfRubricatorPaintBox.GetResultTypeInfo
 
 function TkwEfRubricatorPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -770,12 +758,8 @@ begin
 end;//TkwEfRubricatorNewDocLabel.SetValuePrim
 
 function TkwEfRubricatorNewDocLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_88E2B9AA0F4C_var*
-//#UC END# *551544E2001A_88E2B9AA0F4C_var*
 begin
-//#UC START# *551544E2001A_88E2B9AA0F4C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_88E2B9AA0F4C_impl*
+ Result := TypeInfo(TnscSimpleEditor);
 end;//TkwEfRubricatorNewDocLabel.GetResultTypeInfo
 
 function TkwEfRubricatorNewDocLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -828,12 +812,8 @@ begin
 end;//TkwEfRubricatorDelimiterPanel.SetValuePrim
 
 function TkwEfRubricatorDelimiterPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_25E8A124FE5E_var*
-//#UC END# *551544E2001A_25E8A124FE5E_var*
 begin
-//#UC START# *551544E2001A_25E8A124FE5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_25E8A124FE5E_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEfRubricatorDelimiterPanel.GetResultTypeInfo
 
 function TkwEfRubricatorDelimiterPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -886,12 +866,8 @@ begin
 end;//TkwEfRubricatorExampleTextSource.SetValuePrim
 
 function TkwEfRubricatorExampleTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7906F7EBF729_var*
-//#UC END# *551544E2001A_7906F7EBF729_var*
 begin
-//#UC START# *551544E2001A_7906F7EBF729_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7906F7EBF729_impl*
+ Result := TypeInfo(TnscTextSource);
 end;//TkwEfRubricatorExampleTextSource.GetResultTypeInfo
 
 function TkwEfRubricatorExampleTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -358,12 +358,8 @@ begin
 end;//TkwCfAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwCfAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_89575F4DA07E_var*
-//#UC END# *551544E2001A_89575F4DA07E_var*
 begin
-//#UC START# *551544E2001A_89575F4DA07E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_89575F4DA07E_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwCfAttributeSelectBackgroundPanel.GetResultTypeInfo
 
 function TkwCfAttributeSelectBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -416,12 +412,8 @@ begin
 end;//TkwCfAttributeSelectSelectedZone.SetValuePrim
 
 function TkwCfAttributeSelectSelectedZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_74458A23E791_var*
-//#UC END# *551544E2001A_74458A23E791_var*
 begin
-//#UC START# *551544E2001A_74458A23E791_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_74458A23E791_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwCfAttributeSelectSelectedZone.GetResultTypeInfo
 
 function TkwCfAttributeSelectSelectedZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -474,12 +466,8 @@ begin
 end;//TkwCfAttributeSelectValuesZone.SetValuePrim
 
 function TkwCfAttributeSelectValuesZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_122E41686ED8_var*
-//#UC END# *551544E2001A_122E41686ED8_var*
 begin
-//#UC START# *551544E2001A_122E41686ED8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_122E41686ED8_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfAttributeSelectValuesZone.GetResultTypeInfo
 
 function TkwCfAttributeSelectValuesZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;

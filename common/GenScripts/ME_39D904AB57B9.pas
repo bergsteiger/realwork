@@ -708,12 +708,8 @@ begin
 end;//TkwContentsFormBackgroundPanel.SetValuePrim
 
 function TkwContentsFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4C8C363B5514_var*
-//#UC END# *551544E2001A_4C8C363B5514_var*
 begin
-//#UC START# *551544E2001A_4C8C363B5514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4C8C363B5514_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwContentsFormBackgroundPanel.GetResultTypeInfo
 
 function TkwContentsFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -766,12 +762,8 @@ begin
 end;//TkwContentsFormLstBookmarks.SetValuePrim
 
 function TkwContentsFormLstBookmarks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4490BAA2CF4F_var*
-//#UC END# *551544E2001A_4490BAA2CF4F_var*
 begin
-//#UC START# *551544E2001A_4490BAA2CF4F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4490BAA2CF4F_impl*
+ Result := TypeInfo(TvtLister);
 end;//TkwContentsFormLstBookmarks.GetResultTypeInfo
 
 function TkwContentsFormLstBookmarks.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -824,12 +816,8 @@ begin
 end;//TkwContentsFormLstComments.SetValuePrim
 
 function TkwContentsFormLstComments.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BB45F71CEF15_var*
-//#UC END# *551544E2001A_BB45F71CEF15_var*
 begin
-//#UC START# *551544E2001A_BB45F71CEF15_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BB45F71CEF15_impl*
+ Result := TypeInfo(TvtLister);
 end;//TkwContentsFormLstComments.GetResultTypeInfo
 
 function TkwContentsFormLstComments.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -882,12 +870,8 @@ begin
 end;//TkwContentsFormLstExternalObjects.SetValuePrim
 
 function TkwContentsFormLstExternalObjects.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BC07363209CB_var*
-//#UC END# *551544E2001A_BC07363209CB_var*
 begin
-//#UC START# *551544E2001A_BC07363209CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BC07363209CB_impl*
+ Result := TypeInfo(TvtLister);
 end;//TkwContentsFormLstExternalObjects.GetResultTypeInfo
 
 function TkwContentsFormLstExternalObjects.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -940,12 +924,8 @@ begin
 end;//TkwContentsFormContentsTree.SetValuePrim
 
 function TkwContentsFormContentsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_73822264D1F3_var*
-//#UC END# *551544E2001A_73822264D1F3_var*
 begin
-//#UC START# *551544E2001A_73822264D1F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_73822264D1F3_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwContentsFormContentsTree.GetResultTypeInfo
 
 function TkwContentsFormContentsTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -998,12 +978,8 @@ begin
 end;//TkwContentsFormContextFilter.SetValuePrim
 
 function TkwContentsFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1F49FC7EEC5A_var*
-//#UC END# *551544E2001A_1F49FC7EEC5A_var*
 begin
-//#UC START# *551544E2001A_1F49FC7EEC5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1F49FC7EEC5A_impl*
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwContentsFormContextFilter.GetResultTypeInfo
 
 function TkwContentsFormContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1056,12 +1032,8 @@ begin
 end;//TkwContentsFormTasks.SetValuePrim
 
 function TkwContentsFormTasks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7D17DDA72BEE_var*
-//#UC END# *551544E2001A_7D17DDA72BEE_var*
 begin
-//#UC START# *551544E2001A_7D17DDA72BEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7D17DDA72BEE_impl*
+ Result := TypeInfo(TnscTasksPanelView);
 end;//TkwContentsFormTasks.GetResultTypeInfo
 
 function TkwContentsFormTasks.GetAllParamsCount(const aCtx: TtfwContext): Integer;

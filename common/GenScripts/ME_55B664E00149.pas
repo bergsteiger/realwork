@@ -97,12 +97,8 @@ begin
 end;//TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister
 
 function TkwDocEditorWindowIsNeedSaveDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1E0CF5C9A3AF_var*
-//#UC END# *551544E2001A_1E0CF5C9A3AF_var*
 begin
-//#UC START# *551544E2001A_1E0CF5C9A3AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1E0CF5C9A3AF_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwDocEditorWindowIsNeedSaveDocument.GetResultTypeInfo
 
 function TkwDocEditorWindowIsNeedSaveDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -90,12 +90,8 @@ begin
 end;//TkwPopRadioButtonChecked.SetValuePrim
 
 function TkwPopRadioButtonChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_06BAC463482F_var*
-//#UC END# *551544E2001A_06BAC463482F_var*
 begin
-//#UC START# *551544E2001A_06BAC463482F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_06BAC463482F_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopRadioButtonChecked.GetResultTypeInfo
 
 function TkwPopRadioButtonChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;

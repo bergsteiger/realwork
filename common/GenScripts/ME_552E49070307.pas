@@ -158,12 +158,8 @@ begin
 end;//TkwPopPageControlFindPageByCaption.GetWordNameForRegister
 
 function TkwPopPageControlFindPageByCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_39ABBBDC9493_var*
-//#UC END# *551544E2001A_39ABBBDC9493_var*
 begin
-//#UC START# *551544E2001A_39ABBBDC9493_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_39ABBBDC9493_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopPageControlFindPageByCaption.GetResultTypeInfo
 
 function TkwPopPageControlFindPageByCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -220,12 +216,8 @@ begin
 end;//TkwPopPageControlPageCaptionByIndex.GetWordNameForRegister
 
 function TkwPopPageControlPageCaptionByIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1C7B18964322_var*
-//#UC END# *551544E2001A_1C7B18964322_var*
 begin
-//#UC START# *551544E2001A_1C7B18964322_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1C7B18964322_impl*
+ Result := @tfw_tiString;
 end;//TkwPopPageControlPageCaptionByIndex.GetResultTypeInfo
 
 function TkwPopPageControlPageCaptionByIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -271,12 +263,8 @@ begin
 end;//TkwPopPageControlPageByIndex.GetWordNameForRegister
 
 function TkwPopPageControlPageByIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CF3FBFFD21B3_var*
-//#UC END# *551544E2001A_CF3FBFFD21B3_var*
 begin
-//#UC START# *551544E2001A_CF3FBFFD21B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CF3FBFFD21B3_impl*
+ Result := TypeInfo(TElTabSheet);
 end;//TkwPopPageControlPageByIndex.GetResultTypeInfo
 
 function TkwPopPageControlPageByIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -330,12 +318,8 @@ begin
 end;//TkwPopPageControlGetAllPageCaptions.GetWordNameForRegister
 
 function TkwPopPageControlGetAllPageCaptions.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2A5E921BA82F_var*
-//#UC END# *551544E2001A_2A5E921BA82F_var*
 begin
-//#UC START# *551544E2001A_2A5E921BA82F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2A5E921BA82F_impl*
+ Result := @tfw_tiString;
 end;//TkwPopPageControlGetAllPageCaptions.GetResultTypeInfo
 
 function TkwPopPageControlGetAllPageCaptions.GetAllParamsCount(const aCtx: TtfwContext): Integer;

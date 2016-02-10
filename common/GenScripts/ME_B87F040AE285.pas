@@ -360,12 +360,8 @@ begin
 end;//TkwContactListFormBackgroundPanel.SetValuePrim
 
 function TkwContactListFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DAF37FC67167_var*
-//#UC END# *551544E2001A_DAF37FC67167_var*
 begin
-//#UC START# *551544E2001A_DAF37FC67167_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DAF37FC67167_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwContactListFormBackgroundPanel.GetResultTypeInfo
 
 function TkwContactListFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -418,12 +414,8 @@ begin
 end;//TkwContactListFormContextFilter.SetValuePrim
 
 function TkwContactListFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_141AC39E15DF_var*
-//#UC END# *551544E2001A_141AC39E15DF_var*
 begin
-//#UC START# *551544E2001A_141AC39E15DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_141AC39E15DF_impl*
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwContactListFormContextFilter.GetResultTypeInfo
 
 function TkwContactListFormContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -476,12 +468,8 @@ begin
 end;//TkwContactListFormTrContactList.SetValuePrim
 
 function TkwContactListFormTrContactList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3B0FB738C178_var*
-//#UC END# *551544E2001A_3B0FB738C178_var*
 begin
-//#UC START# *551544E2001A_3B0FB738C178_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3B0FB738C178_impl*
+ Result := TypeInfo(TeeTreeView);
 end;//TkwContactListFormTrContactList.GetResultTypeInfo
 
 function TkwContactListFormTrContactList.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -186,12 +186,8 @@ begin
 end;//TkwEnTasksPanelTpvMain.SetValuePrim
 
 function TkwEnTasksPanelTpvMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_934E9DB43F55_var*
-//#UC END# *551544E2001A_934E9DB43F55_var*
 begin
-//#UC START# *551544E2001A_934E9DB43F55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_934E9DB43F55_impl*
+ Result := TypeInfo(TnscTasksPanelView);
 end;//TkwEnTasksPanelTpvMain.GetResultTypeInfo
 
 function TkwEnTasksPanelTpvMain.GetAllParamsCount(const aCtx: TtfwContext): Integer;

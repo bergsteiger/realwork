@@ -792,12 +792,8 @@ begin
 end;//TkwDictionContainerFormPnBackground.SetValuePrim
 
 function TkwDictionContainerFormPnBackground.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5C1D4B47DA1C_var*
-//#UC END# *551544E2001A_5C1D4B47DA1C_var*
 begin
-//#UC START# *551544E2001A_5C1D4B47DA1C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5C1D4B47DA1C_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwDictionContainerFormPnBackground.GetResultTypeInfo
 
 function TkwDictionContainerFormPnBackground.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -850,12 +846,8 @@ begin
 end;//TkwDictionContainerFormNavigatorZone.SetValuePrim
 
 function TkwDictionContainerFormNavigatorZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B758545C6415_var*
-//#UC END# *551544E2001A_B758545C6415_var*
 begin
-//#UC START# *551544E2001A_B758545C6415_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B758545C6415_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwDictionContainerFormNavigatorZone.GetResultTypeInfo
 
 function TkwDictionContainerFormNavigatorZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -908,12 +900,8 @@ begin
 end;//TkwDictionContainerFormPnWorkArea.SetValuePrim
 
 function TkwDictionContainerFormPnWorkArea.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DA6459295537_var*
-//#UC END# *551544E2001A_DA6459295537_var*
 begin
-//#UC START# *551544E2001A_DA6459295537_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DA6459295537_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwDictionContainerFormPnWorkArea.GetResultTypeInfo
 
 function TkwDictionContainerFormPnWorkArea.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -966,12 +954,8 @@ begin
 end;//TkwDictionContainerFormChildZone.SetValuePrim
 
 function TkwDictionContainerFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_83F1D2A5B92D_var*
-//#UC END# *551544E2001A_83F1D2A5B92D_var*
 begin
-//#UC START# *551544E2001A_83F1D2A5B92D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_83F1D2A5B92D_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwDictionContainerFormChildZone.GetResultTypeInfo
 
 function TkwDictionContainerFormChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1024,12 +1008,8 @@ begin
 end;//TkwDictionContainerFormPnHeader.SetValuePrim
 
 function TkwDictionContainerFormPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_279A8001124C_var*
-//#UC END# *551544E2001A_279A8001124C_var*
 begin
-//#UC START# *551544E2001A_279A8001124C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_279A8001124C_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwDictionContainerFormPnHeader.GetResultTypeInfo
 
 function TkwDictionContainerFormPnHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1082,12 +1062,8 @@ begin
 end;//TkwDictionContainerFormLbHeader.SetValuePrim
 
 function TkwDictionContainerFormLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1C8B99EC88F7_var*
-//#UC END# *551544E2001A_1C8B99EC88F7_var*
 begin
-//#UC START# *551544E2001A_1C8B99EC88F7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1C8B99EC88F7_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwDictionContainerFormLbHeader.GetResultTypeInfo
 
 function TkwDictionContainerFormLbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1140,12 +1116,8 @@ begin
 end;//TkwDictionContainerFormPbHeader.SetValuePrim
 
 function TkwDictionContainerFormPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_78B0474AA39B_var*
-//#UC END# *551544E2001A_78B0474AA39B_var*
 begin
-//#UC START# *551544E2001A_78B0474AA39B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_78B0474AA39B_impl*
+ Result := TypeInfo(TPaintBox);
 end;//TkwDictionContainerFormPbHeader.GetResultTypeInfo
 
 function TkwDictionContainerFormPbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1198,12 +1170,8 @@ begin
 end;//TkwDictionContainerFormParentZone.SetValuePrim
 
 function TkwDictionContainerFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0F3761C98BE0_var*
-//#UC END# *551544E2001A_0F3761C98BE0_var*
 begin
-//#UC START# *551544E2001A_0F3761C98BE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0F3761C98BE0_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwDictionContainerFormParentZone.GetResultTypeInfo
 
 function TkwDictionContainerFormParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;

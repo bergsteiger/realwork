@@ -791,12 +791,8 @@ begin
 end;//TkwCfOldSituationSearchBackgroundPanel.SetValuePrim
 
 function TkwCfOldSituationSearchBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E6E04DA21252_var*
-//#UC END# *551544E2001A_E6E04DA21252_var*
 begin
-//#UC START# *551544E2001A_E6E04DA21252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E6E04DA21252_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfOldSituationSearchBackgroundPanel.GetResultTypeInfo
 
 function TkwCfOldSituationSearchBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -849,12 +845,8 @@ begin
 end;//TkwCfOldSituationSearchContextFilter.SetValuePrim
 
 function TkwCfOldSituationSearchContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A70ACD88A02D_var*
-//#UC END# *551544E2001A_A70ACD88A02D_var*
 begin
-//#UC START# *551544E2001A_A70ACD88A02D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A70ACD88A02D_impl*
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwCfOldSituationSearchContextFilter.GetResultTypeInfo
 
 function TkwCfOldSituationSearchContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -907,12 +899,8 @@ begin
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.SetValuePrim
 
 function TkwCfOldSituationSearchInnerBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3226F237B61F_var*
-//#UC END# *551544E2001A_3226F237B61F_var*
 begin
-//#UC START# *551544E2001A_3226F237B61F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3226F237B61F_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.GetResultTypeInfo
 
 function TkwCfOldSituationSearchInnerBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -965,12 +953,8 @@ begin
 end;//TkwCfOldSituationSearchBotomPanel.SetValuePrim
 
 function TkwCfOldSituationSearchBotomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F188CE819F7D_var*
-//#UC END# *551544E2001A_F188CE819F7D_var*
 begin
-//#UC START# *551544E2001A_F188CE819F7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F188CE819F7D_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwCfOldSituationSearchBotomPanel.GetResultTypeInfo
 
 function TkwCfOldSituationSearchBotomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1023,12 +1007,8 @@ begin
 end;//TkwCfOldSituationSearchParentZone.SetValuePrim
 
 function TkwCfOldSituationSearchParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9530C933E1D4_var*
-//#UC END# *551544E2001A_9530C933E1D4_var*
 begin
-//#UC START# *551544E2001A_9530C933E1D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9530C933E1D4_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfOldSituationSearchParentZone.GetResultTypeInfo
 
 function TkwCfOldSituationSearchParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1081,12 +1061,8 @@ begin
 end;//TkwCfOldSituationSearchZoneContainer.SetValuePrim
 
 function TkwCfOldSituationSearchZoneContainer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C9CB01FB6D8E_var*
-//#UC END# *551544E2001A_C9CB01FB6D8E_var*
 begin
-//#UC START# *551544E2001A_C9CB01FB6D8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C9CB01FB6D8E_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwCfOldSituationSearchZoneContainer.GetResultTypeInfo
 
 function TkwCfOldSituationSearchZoneContainer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1139,12 +1115,8 @@ begin
 end;//TkwCfOldSituationSearchChildZone.SetValuePrim
 
 function TkwCfOldSituationSearchChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6E6F2EE2FBD4_var*
-//#UC END# *551544E2001A_6E6F2EE2FBD4_var*
 begin
-//#UC START# *551544E2001A_6E6F2EE2FBD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6E6F2EE2FBD4_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfOldSituationSearchChildZone.GetResultTypeInfo
 
 function TkwCfOldSituationSearchChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1197,12 +1169,8 @@ begin
 end;//TkwCfOldSituationSearchMainZone.SetValuePrim
 
 function TkwCfOldSituationSearchMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6CD72A3FA477_var*
-//#UC END# *551544E2001A_6CD72A3FA477_var*
 begin
-//#UC START# *551544E2001A_6CD72A3FA477_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6CD72A3FA477_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwCfOldSituationSearchMainZone.GetResultTypeInfo
 
 function TkwCfOldSituationSearchMainZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;

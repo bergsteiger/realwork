@@ -184,12 +184,8 @@ begin
 end;//TkwAttributesFormTvAttributes.SetValuePrim
 
 function TkwAttributesFormTvAttributes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C2DA991E7351_var*
-//#UC END# *551544E2001A_C2DA991E7351_var*
 begin
-//#UC START# *551544E2001A_C2DA991E7351_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C2DA991E7351_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwAttributesFormTvAttributes.GetResultTypeInfo
 
 function TkwAttributesFormTvAttributes.GetAllParamsCount(const aCtx: TtfwContext): Integer;

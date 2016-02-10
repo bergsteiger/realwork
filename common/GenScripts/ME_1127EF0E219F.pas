@@ -1146,12 +1146,8 @@ begin
 end;//TkwEnPrintDialogPoDocumentNames.SetValuePrim
 
 function TkwEnPrintDialogPoDocumentNames.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_103A0129A2B3_var*
-//#UC END# *551544E2001A_103A0129A2B3_var*
 begin
-//#UC START# *551544E2001A_103A0129A2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_103A0129A2B3_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnPrintDialogPoDocumentNames.GetResultTypeInfo
 
 function TkwEnPrintDialogPoDocumentNames.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1204,12 +1200,8 @@ begin
 end;//TkwEnPrintDialogRbPrintSelected.SetValuePrim
 
 function TkwEnPrintDialogRbPrintSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_97819185B8B3_var*
-//#UC END# *551544E2001A_97819185B8B3_var*
 begin
-//#UC START# *551544E2001A_97819185B8B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_97819185B8B3_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnPrintDialogRbPrintSelected.GetResultTypeInfo
 
 function TkwEnPrintDialogRbPrintSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1262,12 +1254,8 @@ begin
 end;//TkwEnPrintDialogRbPrintCurrent.SetValuePrim
 
 function TkwEnPrintDialogRbPrintCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_23FF77EDE234_var*
-//#UC END# *551544E2001A_23FF77EDE234_var*
 begin
-//#UC START# *551544E2001A_23FF77EDE234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_23FF77EDE234_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnPrintDialogRbPrintCurrent.GetResultTypeInfo
 
 function TkwEnPrintDialogRbPrintCurrent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1320,12 +1308,8 @@ begin
 end;//TkwEnPrintDialogEdPrintInterval.SetValuePrim
 
 function TkwEnPrintDialogEdPrintInterval.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_72BD6982D75C_var*
-//#UC END# *551544E2001A_72BD6982D75C_var*
 begin
-//#UC START# *551544E2001A_72BD6982D75C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_72BD6982D75C_impl*
+ Result := TypeInfo(TnscEditWithoutPlusMinusShortcut);
 end;//TkwEnPrintDialogEdPrintInterval.GetResultTypeInfo
 
 function TkwEnPrintDialogEdPrintInterval.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1378,12 +1362,8 @@ begin
 end;//TkwEnPrintDialogEdCopyCount.SetValuePrim
 
 function TkwEnPrintDialogEdCopyCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F312A27E7E41_var*
-//#UC END# *551544E2001A_F312A27E7E41_var*
 begin
-//#UC START# *551544E2001A_F312A27E7E41_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F312A27E7E41_impl*
+ Result := TypeInfo(TvtSpinEdit);
 end;//TkwEnPrintDialogEdCopyCount.GetResultTypeInfo
 
 function TkwEnPrintDialogEdCopyCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1436,12 +1416,8 @@ begin
 end;//TkwEnPrintDialogCollateCheckBox.SetValuePrim
 
 function TkwEnPrintDialogCollateCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8A08E020034B_var*
-//#UC END# *551544E2001A_8A08E020034B_var*
 begin
-//#UC START# *551544E2001A_8A08E020034B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8A08E020034B_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwEnPrintDialogCollateCheckBox.GetResultTypeInfo
 
 function TkwEnPrintDialogCollateCheckBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1494,12 +1470,8 @@ begin
 end;//TkwEnPrintDialogCbOddEven.SetValuePrim
 
 function TkwEnPrintDialogCbOddEven.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D4AAEA04D37D_var*
-//#UC END# *551544E2001A_D4AAEA04D37D_var*
 begin
-//#UC START# *551544E2001A_D4AAEA04D37D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D4AAEA04D37D_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwEnPrintDialogCbOddEven.GetResultTypeInfo
 
 function TkwEnPrintDialogCbOddEven.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1552,12 +1524,8 @@ begin
 end;//TkwEnPrintDialogPoDocumentTexts.SetValuePrim
 
 function TkwEnPrintDialogPoDocumentTexts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7B77E6E2C7AF_var*
-//#UC END# *551544E2001A_7B77E6E2C7AF_var*
 begin
-//#UC START# *551544E2001A_7B77E6E2C7AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7B77E6E2C7AF_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnPrintDialogPoDocumentTexts.GetResultTypeInfo
 
 function TkwEnPrintDialogPoDocumentTexts.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1610,12 +1578,8 @@ begin
 end;//TkwEnPrintDialogRbPrintAll.SetValuePrim
 
 function TkwEnPrintDialogRbPrintAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_064862418464_var*
-//#UC END# *551544E2001A_064862418464_var*
 begin
-//#UC START# *551544E2001A_064862418464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_064862418464_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnPrintDialogRbPrintAll.GetResultTypeInfo
 
 function TkwEnPrintDialogRbPrintAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1668,12 +1632,8 @@ begin
 end;//TkwEnPrintDialogRbPrintInterval.SetValuePrim
 
 function TkwEnPrintDialogRbPrintInterval.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6A445E1BC728_var*
-//#UC END# *551544E2001A_6A445E1BC728_var*
 begin
-//#UC START# *551544E2001A_6A445E1BC728_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6A445E1BC728_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnPrintDialogRbPrintInterval.GetResultTypeInfo
 
 function TkwEnPrintDialogRbPrintInterval.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1726,12 +1686,8 @@ begin
 end;//TkwEnPrintDialogCbPrinter.SetValuePrim
 
 function TkwEnPrintDialogCbPrinter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2BD5B9B2560F_var*
-//#UC END# *551544E2001A_2BD5B9B2560F_var*
 begin
-//#UC START# *551544E2001A_2BD5B9B2560F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2BD5B9B2560F_impl*
+ Result := TypeInfo(TvtComboBoxQS);
 end;//TkwEnPrintDialogCbPrinter.GetResultTypeInfo
 
 function TkwEnPrintDialogCbPrinter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1784,12 +1740,8 @@ begin
 end;//TkwEnPrintDialogCbPrintInfo.SetValuePrim
 
 function TkwEnPrintDialogCbPrintInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D98C3DAD8DBF_var*
-//#UC END# *551544E2001A_D98C3DAD8DBF_var*
 begin
-//#UC START# *551544E2001A_D98C3DAD8DBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D98C3DAD8DBF_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwEnPrintDialogCbPrintInfo.GetResultTypeInfo
 
 function TkwEnPrintDialogCbPrintInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;

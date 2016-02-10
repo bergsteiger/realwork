@@ -143,12 +143,8 @@ begin
 end;//TkwStatusBarOrderedControl.GetWordNameForRegister
 
 function TkwStatusBarOrderedControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6A3FD2C52DF9_var*
-//#UC END# *551544E2001A_6A3FD2C52DF9_var*
 begin
-//#UC START# *551544E2001A_6A3FD2C52DF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6A3FD2C52DF9_impl*
+ Result := TypeInfo(TControl);
 end;//TkwStatusBarOrderedControl.GetResultTypeInfo
 
 function TkwStatusBarOrderedControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -191,12 +187,8 @@ begin
 end;//TkwStatusBarOrderedControlsCount.GetWordNameForRegister
 
 function TkwStatusBarOrderedControlsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C8B065596342_var*
-//#UC END# *551544E2001A_C8B065596342_var*
 begin
-//#UC START# *551544E2001A_C8B065596342_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C8B065596342_impl*
+ Result := TypeInfo(Integer);
 end;//TkwStatusBarOrderedControlsCount.GetResultTypeInfo
 
 function TkwStatusBarOrderedControlsCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -240,12 +232,8 @@ begin
 end;//TkwStatusBarOrderIndex.GetWordNameForRegister
 
 function TkwStatusBarOrderIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F7D061E9FD6E_var*
-//#UC END# *551544E2001A_F7D061E9FD6E_var*
 begin
-//#UC START# *551544E2001A_F7D061E9FD6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F7D061E9FD6E_impl*
+ Result := TypeInfo(Integer);
 end;//TkwStatusBarOrderIndex.GetResultTypeInfo
 
 function TkwStatusBarOrderIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;

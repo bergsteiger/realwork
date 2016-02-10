@@ -102,7 +102,7 @@ end;//TkwEtalonNeeds64.GetWordNameForRegister
 
 function TkwEtalonNeeds64.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwEtalonNeeds64.GetResultTypeInfo
 
 function TkwEtalonNeeds64.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -126,7 +126,7 @@ end;//TkwEtalonNeedsComputerName.GetWordNameForRegister
 
 function TkwEtalonNeedsComputerName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwEtalonNeedsComputerName.GetResultTypeInfo
 
 function TkwEtalonNeedsComputerName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -150,7 +150,7 @@ end;//TkwEtalonNeedsOSName.GetWordNameForRegister
 
 function TkwEtalonNeedsOSName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwEtalonNeedsOSName.GetResultTypeInfo
 
 function TkwEtalonNeedsOSName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -176,7 +176,7 @@ end;//TkwEtalonNeedsXE.GetWordNameForRegister
 
 function TkwEtalonNeedsXE.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwEtalonNeedsXE.GetResultTypeInfo
 
 function TkwEtalonNeedsXE.GetAllParamsCount(const aCtx: TtfwContext): Integer;

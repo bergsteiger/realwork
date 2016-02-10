@@ -800,7 +800,7 @@ end;//TkwEfListRemindersLine.SetValuePrim
 
 function TkwEfListRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscRemindersLine);
 end;//TkwEfListRemindersLine.GetResultTypeInfo
 
 function TkwEfListRemindersLine.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -854,7 +854,7 @@ end;//TkwEfListRemListFiltered.SetValuePrim
 
 function TkwEfListRemListFiltered.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscReminder);
 end;//TkwEfListRemListFiltered.GetResultTypeInfo
 
 function TkwEfListRemListFiltered.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -908,7 +908,7 @@ end;//TkwEfListRemListModified.SetValuePrim
 
 function TkwEfListRemListModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscReminder);
 end;//TkwEfListRemListModified.GetResultTypeInfo
 
 function TkwEfListRemListModified.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -962,7 +962,7 @@ end;//TkwEfListRemTimeMachineWarning.SetValuePrim
 
 function TkwEfListRemTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscReminder);
 end;//TkwEfListRemTimeMachineWarning.GetResultTypeInfo
 
 function TkwEfListRemTimeMachineWarning.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1016,7 +1016,7 @@ end;//TkwEfListEmptyListEditor.SetValuePrim
 
 function TkwEfListEmptyListEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscEditor);
 end;//TkwEfListEmptyListEditor.GetResultTypeInfo
 
 function TkwEfListEmptyListEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1070,7 +1070,7 @@ end;//TkwEfListListPanel.SetValuePrim
 
 function TkwEfListListPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtPanel);
 end;//TkwEfListListPanel.GetResultTypeInfo
 
 function TkwEfListListPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1124,7 +1124,7 @@ end;//TkwEfListTvList.SetValuePrim
 
 function TkwEfListTvList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscDocumentListTreeView);
 end;//TkwEfListTvList.GetResultTypeInfo
 
 function TkwEfListTvList.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1178,7 +1178,7 @@ end;//TkwEfListCfList.SetValuePrim
 
 function TkwEfListCfList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwEfListCfList.GetResultTypeInfo
 
 function TkwEfListCfList.GetAllParamsCount(const aCtx: TtfwContext): Integer;

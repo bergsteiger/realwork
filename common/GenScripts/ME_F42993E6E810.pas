@@ -964,12 +964,8 @@ begin
 end;//TkwEnFoldersElementInfoCommentPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoCommentPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FC246B9E60E7_var*
-//#UC END# *551544E2001A_FC246B9E60E7_var*
 begin
-//#UC START# *551544E2001A_FC246B9E60E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FC246B9E60E7_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnFoldersElementInfoCommentPanel.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoCommentPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1022,12 +1018,8 @@ begin
 end;//TkwEnFoldersElementInfoElementComment.SetValuePrim
 
 function TkwEnFoldersElementInfoElementComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4551FFBCF0C6_var*
-//#UC END# *551544E2001A_4551FFBCF0C6_var*
 begin
-//#UC START# *551544E2001A_4551FFBCF0C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4551FFBCF0C6_impl*
+ Result := TypeInfo(TeeMemoWithEditOperations);
 end;//TkwEnFoldersElementInfoElementComment.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoElementComment.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1080,12 +1072,8 @@ begin
 end;//TkwEnFoldersElementInfoCaptionPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoCaptionPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A0B79FE250B1_var*
-//#UC END# *551544E2001A_A0B79FE250B1_var*
 begin
-//#UC START# *551544E2001A_A0B79FE250B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A0B79FE250B1_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnFoldersElementInfoCaptionPanel.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoCaptionPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1138,12 +1126,8 @@ begin
 end;//TkwEnFoldersElementInfoLblComment.SetValuePrim
 
 function TkwEnFoldersElementInfoLblComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F4AFE53A600D_var*
-//#UC END# *551544E2001A_F4AFE53A600D_var*
 begin
-//#UC START# *551544E2001A_F4AFE53A600D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F4AFE53A600D_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnFoldersElementInfoLblComment.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoLblComment.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1196,12 +1180,8 @@ begin
 end;//TkwEnFoldersElementInfoTopPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0598428B8405_var*
-//#UC END# *551544E2001A_0598428B8405_var*
 begin
-//#UC START# *551544E2001A_0598428B8405_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0598428B8405_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnFoldersElementInfoTopPanel.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoTopPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1254,12 +1234,8 @@ begin
 end;//TkwEnFoldersElementInfoNamePanel.SetValuePrim
 
 function TkwEnFoldersElementInfoNamePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_52A5040B9075_var*
-//#UC END# *551544E2001A_52A5040B9075_var*
 begin
-//#UC START# *551544E2001A_52A5040B9075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_52A5040B9075_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnFoldersElementInfoNamePanel.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoNamePanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1312,12 +1288,8 @@ begin
 end;//TkwEnFoldersElementInfoLblElementName.SetValuePrim
 
 function TkwEnFoldersElementInfoLblElementName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D5C00B48FC3E_var*
-//#UC END# *551544E2001A_D5C00B48FC3E_var*
 begin
-//#UC START# *551544E2001A_D5C00B48FC3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D5C00B48FC3E_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnFoldersElementInfoLblElementName.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoLblElementName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1370,12 +1342,8 @@ begin
 end;//TkwEnFoldersElementInfoElementName.SetValuePrim
 
 function TkwEnFoldersElementInfoElementName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_267BC48F5895_var*
-//#UC END# *551544E2001A_267BC48F5895_var*
 begin
-//#UC START# *551544E2001A_267BC48F5895_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_267BC48F5895_impl*
+ Result := TypeInfo(TnscComboBoxWithReadOnly);
 end;//TkwEnFoldersElementInfoElementName.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoElementName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1428,12 +1396,8 @@ begin
 end;//TkwEnFoldersElementInfoCbShared.SetValuePrim
 
 function TkwEnFoldersElementInfoCbShared.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_11977A9AAA59_var*
-//#UC END# *551544E2001A_11977A9AAA59_var*
 begin
-//#UC START# *551544E2001A_11977A9AAA59_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_11977A9AAA59_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwEnFoldersElementInfoCbShared.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoCbShared.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1486,12 +1450,8 @@ begin
 end;//TkwEnFoldersElementInfoInfoName.SetValuePrim
 
 function TkwEnFoldersElementInfoInfoName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4CFE9C00804F_var*
-//#UC END# *551544E2001A_4CFE9C00804F_var*
 begin
-//#UC START# *551544E2001A_4CFE9C00804F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4CFE9C00804F_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnFoldersElementInfoInfoName.GetResultTypeInfo
 
 function TkwEnFoldersElementInfoInfoName.GetAllParamsCount(const aCtx: TtfwContext): Integer;

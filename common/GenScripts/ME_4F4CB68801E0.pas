@@ -498,12 +498,8 @@ begin
 end;//TkwPopEditorScrollBottom.GetWordNameForRegister
 
 function TkwPopEditorScrollBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_57E2F8D45E5B_var*
-//#UC END# *551544E2001A_57E2F8D45E5B_var*
 begin
-//#UC START# *551544E2001A_57E2F8D45E5B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_57E2F8D45E5B_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorScrollBottom.GetResultTypeInfo
 
 function TkwPopEditorScrollBottom.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -546,12 +542,8 @@ begin
 end;//TkwPopEditorScrollLineUp.GetWordNameForRegister
 
 function TkwPopEditorScrollLineUp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_984121B2A39C_var*
-//#UC END# *551544E2001A_984121B2A39C_var*
 begin
-//#UC START# *551544E2001A_984121B2A39C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_984121B2A39C_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorScrollLineUp.GetResultTypeInfo
 
 function TkwPopEditorScrollLineUp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -594,12 +586,8 @@ begin
 end;//TkwPopEditorScrollLineDown.GetWordNameForRegister
 
 function TkwPopEditorScrollLineDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6EFB94FBB9D0_var*
-//#UC END# *551544E2001A_6EFB94FBB9D0_var*
 begin
-//#UC START# *551544E2001A_6EFB94FBB9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6EFB94FBB9D0_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorScrollLineDown.GetResultTypeInfo
 
 function TkwPopEditorScrollLineDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -644,12 +632,8 @@ begin
 end;//TkwPopEditorScrollTo.GetWordNameForRegister
 
 function TkwPopEditorScrollTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C6DBF363488D_var*
-//#UC END# *551544E2001A_C6DBF363488D_var*
 begin
-//#UC START# *551544E2001A_C6DBF363488D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C6DBF363488D_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorScrollTo.GetResultTypeInfo
 
 function TkwPopEditorScrollTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -692,12 +676,8 @@ begin
 end;//TkwPopEditorPushParaFromCursor.GetWordNameForRegister
 
 function TkwPopEditorPushParaFromCursor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A463E79E2664_var*
-//#UC END# *551544E2001A_A463E79E2664_var*
 begin
-//#UC START# *551544E2001A_A463E79E2664_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A463E79E2664_impl*
+ Result := TypeInfo(InevPara);
 end;//TkwPopEditorPushParaFromCursor.GetResultTypeInfo
 
 function TkwPopEditorPushParaFromCursor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -740,12 +720,8 @@ begin
 end;//TkwPopEditorSelectAll.GetWordNameForRegister
 
 function TkwPopEditorSelectAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4E1035C3F4EA_var*
-//#UC END# *551544E2001A_4E1035C3F4EA_var*
 begin
-//#UC START# *551544E2001A_4E1035C3F4EA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4E1035C3F4EA_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorSelectAll.GetResultTypeInfo
 
 function TkwPopEditorSelectAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -788,12 +764,8 @@ begin
 end;//TkwPopEditorSelectPara.GetWordNameForRegister
 
 function TkwPopEditorSelectPara.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3286856E5FD0_var*
-//#UC END# *551544E2001A_3286856E5FD0_var*
 begin
-//#UC START# *551544E2001A_3286856E5FD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3286856E5FD0_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorSelectPara.GetResultTypeInfo
 
 function TkwPopEditorSelectPara.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -836,12 +808,8 @@ begin
 end;//TkwPopEditorAtTop.GetWordNameForRegister
 
 function TkwPopEditorAtTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7B4AFEA8148C_var*
-//#UC END# *551544E2001A_7B4AFEA8148C_var*
 begin
-//#UC START# *551544E2001A_7B4AFEA8148C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7B4AFEA8148C_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopEditorAtTop.GetResultTypeInfo
 
 function TkwPopEditorAtTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -884,12 +852,8 @@ begin
 end;//TkwPopEditorSelectWord.GetWordNameForRegister
 
 function TkwPopEditorSelectWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2C60D13844FA_var*
-//#UC END# *551544E2001A_2C60D13844FA_var*
 begin
-//#UC START# *551544E2001A_2C60D13844FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2C60D13844FA_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopEditorSelectWord.GetResultTypeInfo
 
 function TkwPopEditorSelectWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -953,12 +917,8 @@ begin
 end;//TkwPopEditorCaretVisible.SetValuePrim
 
 function TkwPopEditorCaretVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B38D1749E0D8_var*
-//#UC END# *551544E2001A_B38D1749E0D8_var*
 begin
-//#UC START# *551544E2001A_B38D1749E0D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B38D1749E0D8_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopEditorCaretVisible.GetResultTypeInfo
 
 function TkwPopEditorCaretVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1011,12 +971,8 @@ begin
 end;//TkwPopEditorShowDocumentParts.SetValuePrim
 
 function TkwPopEditorShowDocumentParts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A77B7AB26CFF_var*
-//#UC END# *551544E2001A_A77B7AB26CFF_var*
 begin
-//#UC START# *551544E2001A_A77B7AB26CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A77B7AB26CFF_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopEditorShowDocumentParts.GetResultTypeInfo
 
 function TkwPopEditorShowDocumentParts.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1069,12 +1025,8 @@ begin
 end;//TkwPopEditorWebStyle.SetValuePrim
 
 function TkwPopEditorWebStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_85D5F3815C6E_var*
-//#UC END# *551544E2001A_85D5F3815C6E_var*
 begin
-//#UC START# *551544E2001A_85D5F3815C6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_85D5F3815C6E_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopEditorWebStyle.GetResultTypeInfo
 
 function TkwPopEditorWebStyle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1127,12 +1079,8 @@ begin
 end;//TkwPopEditorDrawSpecial.SetValuePrim
 
 function TkwPopEditorDrawSpecial.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BB22FD3C71A4_var*
-//#UC END# *551544E2001A_BB22FD3C71A4_var*
 begin
-//#UC START# *551544E2001A_BB22FD3C71A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BB22FD3C71A4_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopEditorDrawSpecial.GetResultTypeInfo
 
 function TkwPopEditorDrawSpecial.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1185,12 +1133,8 @@ begin
 end;//TkwPopEditorDocumentTailVisible.SetValuePrim
 
 function TkwPopEditorDocumentTailVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EE3EA3E1113C_var*
-//#UC END# *551544E2001A_EE3EA3E1113C_var*
 begin
-//#UC START# *551544E2001A_EE3EA3E1113C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EE3EA3E1113C_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopEditorDocumentTailVisible.GetResultTypeInfo
 
 function TkwPopEditorDocumentTailVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1243,12 +1187,8 @@ begin
 end;//TkwPopEditorModified.SetValuePrim
 
 function TkwPopEditorModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C36C39E9CCC8_var*
-//#UC END# *551544E2001A_C36C39E9CCC8_var*
 begin
-//#UC START# *551544E2001A_C36C39E9CCC8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C36C39E9CCC8_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopEditorModified.GetResultTypeInfo
 
 function TkwPopEditorModified.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1312,12 +1252,8 @@ begin
 end;//TkwPopEditorDrawLines.SetValuePrim
 
 function TkwPopEditorDrawLines.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3928ECE1F34F_var*
-//#UC END# *551544E2001A_3928ECE1F34F_var*
 begin
-//#UC START# *551544E2001A_3928ECE1F34F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3928ECE1F34F_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopEditorDrawLines.GetResultTypeInfo
 
 function TkwPopEditorDrawLines.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1370,12 +1306,8 @@ begin
 end;//TkwPopEditorAllowRubberTables.SetValuePrim
 
 function TkwPopEditorAllowRubberTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1009897A0104_var*
-//#UC END# *551544E2001A_1009897A0104_var*
 begin
-//#UC START# *551544E2001A_1009897A0104_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1009897A0104_impl*
+ Result := TypeInfo(TnevRubberTablesMode);
 end;//TkwPopEditorAllowRubberTables.GetResultTypeInfo
 
 function TkwPopEditorAllowRubberTables.GetAllParamsCount(const aCtx: TtfwContext): Integer;

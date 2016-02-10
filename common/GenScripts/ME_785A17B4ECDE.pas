@@ -184,12 +184,8 @@ begin
 end;//TkwEnConfigurationListTvConfs.SetValuePrim
 
 function TkwEnConfigurationListTvConfs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_05D945CE3B09_var*
-//#UC END# *551544E2001A_05D945CE3B09_var*
 begin
-//#UC START# *551544E2001A_05D945CE3B09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_05D945CE3B09_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnConfigurationListTvConfs.GetResultTypeInfo
 
 function TkwEnConfigurationListTvConfs.GetAllParamsCount(const aCtx: TtfwContext): Integer;

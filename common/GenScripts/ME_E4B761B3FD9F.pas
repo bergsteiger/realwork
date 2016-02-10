@@ -704,12 +704,8 @@ begin
 end;//TkwEfForbidAutoregistrationLblReference.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblReference.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A8ED3F2A32F9_var*
-//#UC END# *551544E2001A_A8ED3F2A32F9_var*
 begin
-//#UC START# *551544E2001A_A8ED3F2A32F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A8ED3F2A32F9_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEfForbidAutoregistrationLblReference.GetResultTypeInfo
 
 function TkwEfForbidAutoregistrationLblReference.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -762,12 +758,8 @@ begin
 end;//TkwEfForbidAutoregistrationGbInfo.SetValuePrim
 
 function TkwEfForbidAutoregistrationGbInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B434E42C072E_var*
-//#UC END# *551544E2001A_B434E42C072E_var*
 begin
-//#UC START# *551544E2001A_B434E42C072E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B434E42C072E_impl*
+ Result := TypeInfo(TvtGroupBox);
 end;//TkwEfForbidAutoregistrationGbInfo.GetResultTypeInfo
 
 function TkwEfForbidAutoregistrationGbInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -820,12 +812,8 @@ begin
 end;//TkwEfForbidAutoregistrationLblPhone.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblPhone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_20A0A124DABA_var*
-//#UC END# *551544E2001A_20A0A124DABA_var*
 begin
-//#UC START# *551544E2001A_20A0A124DABA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_20A0A124DABA_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEfForbidAutoregistrationLblPhone.GetResultTypeInfo
 
 function TkwEfForbidAutoregistrationLblPhone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -878,12 +866,8 @@ begin
 end;//TkwEfForbidAutoregistrationLblEmail.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D03F48103D05_var*
-//#UC END# *551544E2001A_D03F48103D05_var*
 begin
-//#UC START# *551544E2001A_D03F48103D05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D03F48103D05_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEfForbidAutoregistrationLblEmail.GetResultTypeInfo
 
 function TkwEfForbidAutoregistrationLblEmail.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -936,12 +920,8 @@ begin
 end;//TkwEfForbidAutoregistrationLblHint.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D20CEB956674_var*
-//#UC END# *551544E2001A_D20CEB956674_var*
 begin
-//#UC START# *551544E2001A_D20CEB956674_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D20CEB956674_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEfForbidAutoregistrationLblHint.GetResultTypeInfo
 
 function TkwEfForbidAutoregistrationLblHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -994,12 +974,8 @@ begin
 end;//TkwEfForbidAutoregistrationCbPhone.SetValuePrim
 
 function TkwEfForbidAutoregistrationCbPhone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6AD1645F5DAC_var*
-//#UC END# *551544E2001A_6AD1645F5DAC_var*
 begin
-//#UC START# *551544E2001A_6AD1645F5DAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6AD1645F5DAC_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwEfForbidAutoregistrationCbPhone.GetResultTypeInfo
 
 function TkwEfForbidAutoregistrationCbPhone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1052,12 +1028,8 @@ begin
 end;//TkwEfForbidAutoregistrationCbEmail.SetValuePrim
 
 function TkwEfForbidAutoregistrationCbEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_444FFAC43ABB_var*
-//#UC END# *551544E2001A_444FFAC43ABB_var*
 begin
-//#UC START# *551544E2001A_444FFAC43ABB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_444FFAC43ABB_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwEfForbidAutoregistrationCbEmail.GetResultTypeInfo
 
 function TkwEfForbidAutoregistrationCbEmail.GetAllParamsCount(const aCtx: TtfwContext): Integer;

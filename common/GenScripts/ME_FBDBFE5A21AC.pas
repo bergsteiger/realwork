@@ -1822,12 +1822,8 @@ begin
 end;//TkwNewBaseSearchFormFindBtn.SetValuePrim
 
 function TkwNewBaseSearchFormFindBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8487F43B0D1E_var*
-//#UC END# *551544E2001A_8487F43B0D1E_var*
 begin
-//#UC START# *551544E2001A_8487F43B0D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8487F43B0D1E_impl*
+ Result := TypeInfo(TvgPathButton);
 end;//TkwNewBaseSearchFormFindBtn.GetResultTypeInfo
 
 function TkwNewBaseSearchFormFindBtn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1880,12 +1876,8 @@ begin
 end;//TkwNewBaseSearchFormFindBackBtn.SetValuePrim
 
 function TkwNewBaseSearchFormFindBackBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8FD4A0277CFF_var*
-//#UC END# *551544E2001A_8FD4A0277CFF_var*
 begin
-//#UC START# *551544E2001A_8FD4A0277CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8FD4A0277CFF_impl*
+ Result := TypeInfo(TvgPathButton);
 end;//TkwNewBaseSearchFormFindBackBtn.GetResultTypeInfo
 
 function TkwNewBaseSearchFormFindBackBtn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1938,12 +1930,8 @@ begin
 end;//TkwNewBaseSearchFormCloseBtn.SetValuePrim
 
 function TkwNewBaseSearchFormCloseBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_90CDA41F40D2_var*
-//#UC END# *551544E2001A_90CDA41F40D2_var*
 begin
-//#UC START# *551544E2001A_90CDA41F40D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_90CDA41F40D2_impl*
+ Result := TypeInfo(TvgCloseButton);
 end;//TkwNewBaseSearchFormCloseBtn.GetResultTypeInfo
 
 function TkwNewBaseSearchFormCloseBtn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1996,12 +1984,8 @@ begin
 end;//TkwNewBaseSearchFormAreaCombo.SetValuePrim
 
 function TkwNewBaseSearchFormAreaCombo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4D85E5711038_var*
-//#UC END# *551544E2001A_4D85E5711038_var*
 begin
-//#UC START# *551544E2001A_4D85E5711038_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4D85E5711038_impl*
+ Result := TypeInfo(TvgComboBox);
 end;//TkwNewBaseSearchFormAreaCombo.GetResultTypeInfo
 
 function TkwNewBaseSearchFormAreaCombo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2054,12 +2038,8 @@ begin
 end;//TkwNewBaseSearchFormQueryExampleLabel.SetValuePrim
 
 function TkwNewBaseSearchFormQueryExampleLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_505ADAD50252_var*
-//#UC END# *551544E2001A_505ADAD50252_var*
 begin
-//#UC START# *551544E2001A_505ADAD50252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_505ADAD50252_impl*
+ Result := TypeInfo(TvgText);
 end;//TkwNewBaseSearchFormQueryExampleLabel.GetResultTypeInfo
 
 function TkwNewBaseSearchFormQueryExampleLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2112,12 +2092,8 @@ begin
 end;//TkwNewBaseSearchFormDropButton.SetValuePrim
 
 function TkwNewBaseSearchFormDropButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A991331821D4_var*
-//#UC END# *551544E2001A_A991331821D4_var*
 begin
-//#UC START# *551544E2001A_A991331821D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A991331821D4_impl*
+ Result := TypeInfo(TvgButton);
 end;//TkwNewBaseSearchFormDropButton.GetResultTypeInfo
 
 function TkwNewBaseSearchFormDropButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2170,12 +2146,8 @@ begin
 end;//TkwNewBaseSearchFormFoundCountLabel.SetValuePrim
 
 function TkwNewBaseSearchFormFoundCountLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6C75E19A9417_var*
-//#UC END# *551544E2001A_6C75E19A9417_var*
 begin
-//#UC START# *551544E2001A_6C75E19A9417_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6C75E19A9417_impl*
+ Result := TypeInfo(TvgText);
 end;//TkwNewBaseSearchFormFoundCountLabel.GetResultTypeInfo
 
 function TkwNewBaseSearchFormFoundCountLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2228,12 +2200,8 @@ begin
 end;//TkwNewBaseSearchFormExampleLabel.SetValuePrim
 
 function TkwNewBaseSearchFormExampleLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EB6013B55CA8_var*
-//#UC END# *551544E2001A_EB6013B55CA8_var*
 begin
-//#UC START# *551544E2001A_EB6013B55CA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EB6013B55CA8_impl*
+ Result := TypeInfo(TvgText);
 end;//TkwNewBaseSearchFormExampleLabel.GetResultTypeInfo
 
 function TkwNewBaseSearchFormExampleLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2286,12 +2254,8 @@ begin
 end;//TkwNewBaseSearchFormContextEditPanel.SetValuePrim
 
 function TkwNewBaseSearchFormContextEditPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BC18F8F57D3A_var*
-//#UC END# *551544E2001A_BC18F8F57D3A_var*
 begin
-//#UC START# *551544E2001A_BC18F8F57D3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BC18F8F57D3A_impl*
+ Result := TypeInfo(TvgNonVGLayout);
 end;//TkwNewBaseSearchFormContextEditPanel.GetResultTypeInfo
 
 function TkwNewBaseSearchFormContextEditPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2344,12 +2308,8 @@ begin
 end;//TkwNewBaseSearchFormLayout1.SetValuePrim
 
 function TkwNewBaseSearchFormLayout1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2824E7848D0C_var*
-//#UC END# *551544E2001A_2824E7848D0C_var*
 begin
-//#UC START# *551544E2001A_2824E7848D0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2824E7848D0C_impl*
+ Result := TypeInfo(TvgLayout);
 end;//TkwNewBaseSearchFormLayout1.GetResultTypeInfo
 
 function TkwNewBaseSearchFormLayout1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2402,12 +2362,8 @@ begin
 end;//TkwNewBaseSearchFormLayout2.SetValuePrim
 
 function TkwNewBaseSearchFormLayout2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_57D5D6C99B6B_var*
-//#UC END# *551544E2001A_57D5D6C99B6B_var*
 begin
-//#UC START# *551544E2001A_57D5D6C99B6B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_57D5D6C99B6B_impl*
+ Result := TypeInfo(TvgLayout);
 end;//TkwNewBaseSearchFormLayout2.GetResultTypeInfo
 
 function TkwNewBaseSearchFormLayout2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2460,12 +2416,8 @@ begin
 end;//TkwNewBaseSearchFormLayout3.SetValuePrim
 
 function TkwNewBaseSearchFormLayout3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DC70024F6763_var*
-//#UC END# *551544E2001A_DC70024F6763_var*
 begin
-//#UC START# *551544E2001A_DC70024F6763_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DC70024F6763_impl*
+ Result := TypeInfo(TvgLayout);
 end;//TkwNewBaseSearchFormLayout3.GetResultTypeInfo
 
 function TkwNewBaseSearchFormLayout3.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2518,12 +2470,8 @@ begin
 end;//TkwNewBaseSearchFormVgScene1.SetValuePrim
 
 function TkwNewBaseSearchFormVgScene1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B13A4A98049B_var*
-//#UC END# *551544E2001A_B13A4A98049B_var*
 begin
-//#UC START# *551544E2001A_B13A4A98049B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B13A4A98049B_impl*
+ Result := TypeInfo(TvgScene);
 end;//TkwNewBaseSearchFormVgScene1.GetResultTypeInfo
 
 function TkwNewBaseSearchFormVgScene1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2576,12 +2524,8 @@ begin
 end;//TkwNewBaseSearchFormMoreTab.SetValuePrim
 
 function TkwNewBaseSearchFormMoreTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FF59636CB724_var*
-//#UC END# *551544E2001A_FF59636CB724_var*
 begin
-//#UC START# *551544E2001A_FF59636CB724_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FF59636CB724_impl*
+ Result := TypeInfo(TvgComboBox);
 end;//TkwNewBaseSearchFormMoreTab.GetResultTypeInfo
 
 function TkwNewBaseSearchFormMoreTab.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2634,12 +2578,8 @@ begin
 end;//TkwNewBaseSearchFormBorder.SetValuePrim
 
 function TkwNewBaseSearchFormBorder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_02D50A1E8F6D_var*
-//#UC END# *551544E2001A_02D50A1E8F6D_var*
 begin
-//#UC START# *551544E2001A_02D50A1E8F6D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_02D50A1E8F6D_impl*
+ Result := TypeInfo(TvgRectangle);
 end;//TkwNewBaseSearchFormBorder.GetResultTypeInfo
 
 function TkwNewBaseSearchFormBorder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2692,12 +2632,8 @@ begin
 end;//TkwNewBaseSearchFormInnerBorder.SetValuePrim
 
 function TkwNewBaseSearchFormInnerBorder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_85C7A7A826B7_var*
-//#UC END# *551544E2001A_85C7A7A826B7_var*
 begin
-//#UC START# *551544E2001A_85C7A7A826B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_85C7A7A826B7_impl*
+ Result := TypeInfo(TvgRectangle);
 end;//TkwNewBaseSearchFormInnerBorder.GetResultTypeInfo
 
 function TkwNewBaseSearchFormInnerBorder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2750,12 +2686,8 @@ begin
 end;//TkwNewBaseSearchFormMostOuterRectangle.SetValuePrim
 
 function TkwNewBaseSearchFormMostOuterRectangle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B8CD8BF7C9B3_var*
-//#UC END# *551544E2001A_B8CD8BF7C9B3_var*
 begin
-//#UC START# *551544E2001A_B8CD8BF7C9B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B8CD8BF7C9B3_impl*
+ Result := TypeInfo(TvgRectangle);
 end;//TkwNewBaseSearchFormMostOuterRectangle.GetResultTypeInfo
 
 function TkwNewBaseSearchFormMostOuterRectangle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2808,12 +2740,8 @@ begin
 end;//TkwNewBaseSearchFormRectangle1.SetValuePrim
 
 function TkwNewBaseSearchFormRectangle1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CB750FEEA0A4_var*
-//#UC END# *551544E2001A_CB750FEEA0A4_var*
 begin
-//#UC START# *551544E2001A_CB750FEEA0A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CB750FEEA0A4_impl*
+ Result := TypeInfo(TvgRectangle);
 end;//TkwNewBaseSearchFormRectangle1.GetResultTypeInfo
 
 function TkwNewBaseSearchFormRectangle1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2866,12 +2794,8 @@ begin
 end;//TkwNewBaseSearchFormContextEdit.SetValuePrim
 
 function TkwNewBaseSearchFormContextEdit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C6AE29665243_var*
-//#UC END# *551544E2001A_C6AE29665243_var*
 begin
-//#UC START# *551544E2001A_C6AE29665243_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C6AE29665243_impl*
+ Result := TypeInfo(TnscTreeComboWithHistoryAndOperations);
 end;//TkwNewBaseSearchFormContextEdit.GetResultTypeInfo
 
 function TkwNewBaseSearchFormContextEdit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2924,12 +2848,8 @@ begin
 end;//TkwNewBaseSearchFormFlashTimer.SetValuePrim
 
 function TkwNewBaseSearchFormFlashTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_52CA7BEB5C5D_var*
-//#UC END# *551544E2001A_52CA7BEB5C5D_var*
 begin
-//#UC START# *551544E2001A_52CA7BEB5C5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_52CA7BEB5C5D_impl*
+ Result := TypeInfo(TTimer);
 end;//TkwNewBaseSearchFormFlashTimer.GetResultTypeInfo
 
 function TkwNewBaseSearchFormFlashTimer.GetAllParamsCount(const aCtx: TtfwContext): Integer;

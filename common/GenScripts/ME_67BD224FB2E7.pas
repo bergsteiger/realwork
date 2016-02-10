@@ -250,7 +250,7 @@ end;//TkwEfListInfoListInfoViewer.SetValuePrim
 
 function TkwEfListInfoListInfoViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscEditor);
 end;//TkwEfListInfoListInfoViewer.GetResultTypeInfo
 
 function TkwEfListInfoListInfoViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -304,7 +304,7 @@ end;//TkwEfListInfoTextSource.SetValuePrim
 
 function TkwEfListInfoTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscTextSource);
 end;//TkwEfListInfoTextSource.GetResultTypeInfo
 
 function TkwEfListInfoTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;

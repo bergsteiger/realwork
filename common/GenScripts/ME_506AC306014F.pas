@@ -399,12 +399,8 @@ begin
 end;//TkwVgControlVisible.GetWordNameForRegister
 
 function TkwVgControlVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_89C786B088C6_var*
-//#UC END# *551544E2001A_89C786B088C6_var*
 begin
-//#UC START# *551544E2001A_89C786B088C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_89C786B088C6_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwVgControlVisible.GetResultTypeInfo
 
 function TkwVgControlVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -447,12 +443,8 @@ begin
 end;//TkwVgControlHeight.GetWordNameForRegister
 
 function TkwVgControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_05A703B5907E_var*
-//#UC END# *551544E2001A_05A703B5907E_var*
 begin
-//#UC START# *551544E2001A_05A703B5907E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_05A703B5907E_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgControlHeight.GetResultTypeInfo
 
 function TkwVgControlHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -495,12 +487,8 @@ begin
 end;//TkwVgControlWidth.GetWordNameForRegister
 
 function TkwVgControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6D438B9C5A14_var*
-//#UC END# *551544E2001A_6D438B9C5A14_var*
 begin
-//#UC START# *551544E2001A_6D438B9C5A14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6D438B9C5A14_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgControlWidth.GetResultTypeInfo
 
 function TkwVgControlWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -543,12 +531,8 @@ begin
 end;//TkwVgControlLeft.GetWordNameForRegister
 
 function TkwVgControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0ED393F18084_var*
-//#UC END# *551544E2001A_0ED393F18084_var*
 begin
-//#UC START# *551544E2001A_0ED393F18084_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0ED393F18084_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgControlLeft.GetResultTypeInfo
 
 function TkwVgControlLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -591,12 +575,8 @@ begin
 end;//TkwVgControlTop.GetWordNameForRegister
 
 function TkwVgControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E4BF70016043_var*
-//#UC END# *551544E2001A_E4BF70016043_var*
 begin
-//#UC START# *551544E2001A_E4BF70016043_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E4BF70016043_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgControlTop.GetResultTypeInfo
 
 function TkwVgControlTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -639,12 +619,8 @@ begin
 end;//TkwVgControlEnabled.GetWordNameForRegister
 
 function TkwVgControlEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_20CB200689C7_var*
-//#UC END# *551544E2001A_20CB200689C7_var*
 begin
-//#UC START# *551544E2001A_20CB200689C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_20CB200689C7_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwVgControlEnabled.GetResultTypeInfo
 
 function TkwVgControlEnabled.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -687,12 +663,8 @@ begin
 end;//TkwVgControlName.GetWordNameForRegister
 
 function TkwVgControlName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F80A519316B5_var*
-//#UC END# *551544E2001A_F80A519316B5_var*
 begin
-//#UC START# *551544E2001A_F80A519316B5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F80A519316B5_impl*
+ Result := @tfw_tiString;
 end;//TkwVgControlName.GetResultTypeInfo
 
 function TkwVgControlName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -739,12 +711,8 @@ begin
 end;//TkwVgControlClick.GetWordNameForRegister
 
 function TkwVgControlClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E94B273F03D9_var*
-//#UC END# *551544E2001A_E94B273F03D9_var*
 begin
-//#UC START# *551544E2001A_E94B273F03D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E94B273F03D9_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVgControlClick.GetResultTypeInfo
 
 function TkwVgControlClick.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -800,12 +768,8 @@ begin
 end;//TkwVgControlCountSiblingLikeMe.GetWordNameForRegister
 
 function TkwVgControlCountSiblingLikeMe.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8969D4FAAB14_var*
-//#UC END# *551544E2001A_8969D4FAAB14_var*
 begin
-//#UC START# *551544E2001A_8969D4FAAB14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8969D4FAAB14_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgControlCountSiblingLikeMe.GetResultTypeInfo
 
 function TkwVgControlCountSiblingLikeMe.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -848,12 +812,8 @@ begin
 end;//TkwVgControlGetIsChecked.GetWordNameForRegister
 
 function TkwVgControlGetIsChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D3F9471133D7_var*
-//#UC END# *551544E2001A_D3F9471133D7_var*
 begin
-//#UC START# *551544E2001A_D3F9471133D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D3F9471133D7_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwVgControlGetIsChecked.GetResultTypeInfo
 
 function TkwVgControlGetIsChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -897,12 +857,8 @@ begin
 end;//TkwVgControlSetIsChecked.GetWordNameForRegister
 
 function TkwVgControlSetIsChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5389853B1E01_var*
-//#UC END# *551544E2001A_5389853B1E01_var*
 begin
-//#UC START# *551544E2001A_5389853B1E01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5389853B1E01_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVgControlSetIsChecked.GetResultTypeInfo
 
 function TkwVgControlSetIsChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -956,12 +912,8 @@ begin
 end;//TkwVgControlLeftInScene.GetWordNameForRegister
 
 function TkwVgControlLeftInScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0B0F33EAEBDF_var*
-//#UC END# *551544E2001A_0B0F33EAEBDF_var*
 begin
-//#UC START# *551544E2001A_0B0F33EAEBDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0B0F33EAEBDF_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgControlLeftInScene.GetResultTypeInfo
 
 function TkwVgControlLeftInScene.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1015,12 +967,8 @@ begin
 end;//TkwVgControlTopInScene.GetWordNameForRegister
 
 function TkwVgControlTopInScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FFE6E88470A5_var*
-//#UC END# *551544E2001A_FFE6E88470A5_var*
 begin
-//#UC START# *551544E2001A_FFE6E88470A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FFE6E88470A5_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVgControlTopInScene.GetResultTypeInfo
 
 function TkwVgControlTopInScene.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1063,12 +1011,8 @@ begin
 end;//TkwVgControlScene.GetWordNameForRegister
 
 function TkwVgControlScene.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E3230FB2D73B_var*
-//#UC END# *551544E2001A_E3230FB2D73B_var*
 begin
-//#UC START# *551544E2001A_E3230FB2D73B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E3230FB2D73B_impl*
+ Result := TypeInfo(TControl);
 end;//TkwVgControlScene.GetResultTypeInfo
 
 function TkwVgControlScene.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1117,12 +1061,8 @@ begin
 end;//TkwVgControlText.GetWordNameForRegister
 
 function TkwVgControlText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BD648FBA9D21_var*
-//#UC END# *551544E2001A_BD648FBA9D21_var*
 begin
-//#UC START# *551544E2001A_BD648FBA9D21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BD648FBA9D21_impl*
+ Result := @tfw_tiString;
 end;//TkwVgControlText.GetResultTypeInfo
 
 function TkwVgControlText.GetAllParamsCount(const aCtx: TtfwContext): Integer;

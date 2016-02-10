@@ -104,12 +104,8 @@ begin
 end;//TkwPopTaskPanelGetHideField.GetWordNameForRegister
 
 function TkwPopTaskPanelGetHideField.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C357835C3D1B_var*
-//#UC END# *551544E2001A_C357835C3D1B_var*
 begin
-//#UC START# *551544E2001A_C357835C3D1B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C357835C3D1B_impl*
+ Result := TypeInfo(TnscTasksPanelHideField);
 end;//TkwPopTaskPanelGetHideField.GetResultTypeInfo
 
 function TkwPopTaskPanelGetHideField.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -162,12 +158,8 @@ begin
 end;//TkwPopTaskPanelCount.SetValuePrim
 
 function TkwPopTaskPanelCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C2B2EE13F5CE_var*
-//#UC END# *551544E2001A_C2B2EE13F5CE_var*
 begin
-//#UC START# *551544E2001A_C2B2EE13F5CE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C2B2EE13F5CE_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopTaskPanelCount.GetResultTypeInfo
 
 function TkwPopTaskPanelCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;

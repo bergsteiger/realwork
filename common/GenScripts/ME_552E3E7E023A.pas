@@ -85,12 +85,8 @@ begin
 end;//TkwPopStatusBarGetPanel.GetWordNameForRegister
 
 function TkwPopStatusBarGetPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0B36D9E86F88_var*
-//#UC END# *551544E2001A_0B36D9E86F88_var*
 begin
-//#UC START# *551544E2001A_0B36D9E86F88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0B36D9E86F88_impl*
+ Result := TypeInfo(TvtStatusPanel);
 end;//TkwPopStatusBarGetPanel.GetResultTypeInfo
 
 function TkwPopStatusBarGetPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;

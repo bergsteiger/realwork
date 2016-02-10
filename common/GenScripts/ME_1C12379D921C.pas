@@ -184,12 +184,8 @@ begin
 end;//TkwEnPostingsListTvPostings.SetValuePrim
 
 function TkwEnPostingsListTvPostings.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_901756EC93AA_var*
-//#UC END# *551544E2001A_901756EC93AA_var*
 begin
-//#UC START# *551544E2001A_901756EC93AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_901756EC93AA_impl*
+ Result := TypeInfo(TeeTreeView);
 end;//TkwEnPostingsListTvPostings.GetResultTypeInfo
 
 function TkwEnPostingsListTvPostings.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -530,12 +530,8 @@ begin
 end;//TkwStyleEditorContainerFormBackgroundPanel.SetValuePrim
 
 function TkwStyleEditorContainerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EBEA0AF6DB49_var*
-//#UC END# *551544E2001A_EBEA0AF6DB49_var*
 begin
-//#UC START# *551544E2001A_EBEA0AF6DB49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EBEA0AF6DB49_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwStyleEditorContainerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -588,12 +584,8 @@ begin
 end;//TkwStyleEditorContainerFormMainZone.SetValuePrim
 
 function TkwStyleEditorContainerFormMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_FAE31F4C0B42_var*
-//#UC END# *551544E2001A_FAE31F4C0B42_var*
 begin
-//#UC START# *551544E2001A_FAE31F4C0B42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_FAE31F4C0B42_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwStyleEditorContainerFormMainZone.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormMainZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -646,12 +638,8 @@ begin
 end;//TkwStyleEditorContainerFormParentZone.SetValuePrim
 
 function TkwStyleEditorContainerFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_489405F97345_var*
-//#UC END# *551544E2001A_489405F97345_var*
 begin
-//#UC START# *551544E2001A_489405F97345_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_489405F97345_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwStyleEditorContainerFormParentZone.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -704,12 +692,8 @@ begin
 end;//TkwStyleEditorContainerFormChildZone.SetValuePrim
 
 function TkwStyleEditorContainerFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_940A5D9F84B6_var*
-//#UC END# *551544E2001A_940A5D9F84B6_var*
 begin
-//#UC START# *551544E2001A_940A5D9F84B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_940A5D9F84B6_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwStyleEditorContainerFormChildZone.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -762,12 +746,8 @@ begin
 end;//TkwStyleEditorContainerFormNavigatorZone.SetValuePrim
 
 function TkwStyleEditorContainerFormNavigatorZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7EBE25C04E3C_var*
-//#UC END# *551544E2001A_7EBE25C04E3C_var*
 begin
-//#UC START# *551544E2001A_7EBE25C04E3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7EBE25C04E3C_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwStyleEditorContainerFormNavigatorZone.GetResultTypeInfo
 
 function TkwStyleEditorContainerFormNavigatorZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;

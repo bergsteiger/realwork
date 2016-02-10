@@ -184,12 +184,8 @@ begin
 end;//TkwWorkJournalFormJournalTree.SetValuePrim
 
 function TkwWorkJournalFormJournalTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2FB40EF219EB_var*
-//#UC END# *551544E2001A_2FB40EF219EB_var*
 begin
-//#UC START# *551544E2001A_2FB40EF219EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2FB40EF219EB_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwWorkJournalFormJournalTree.GetResultTypeInfo
 
 function TkwWorkJournalFormJournalTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;

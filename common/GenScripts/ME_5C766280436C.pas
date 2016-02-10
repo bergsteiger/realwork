@@ -1047,12 +1047,8 @@ begin
 end;//TkwAACContentsContainerFormPnBack.SetValuePrim
 
 function TkwAACContentsContainerFormPnBack.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_263DE971DEE2_var*
-//#UC END# *551544E2001A_263DE971DEE2_var*
 begin
-//#UC START# *551544E2001A_263DE971DEE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_263DE971DEE2_impl*
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwAACContentsContainerFormPnBack.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnBack.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1105,12 +1101,8 @@ begin
 end;//TkwAACContentsContainerFormPnRightEx.SetValuePrim
 
 function TkwAACContentsContainerFormPnRightEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AEF24D4E3600_var*
-//#UC END# *551544E2001A_AEF24D4E3600_var*
 begin
-//#UC START# *551544E2001A_AEF24D4E3600_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AEF24D4E3600_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAACContentsContainerFormPnRightEx.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnRightEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1163,12 +1155,8 @@ begin
 end;//TkwAACContentsContainerFormPnRightForScroll.SetValuePrim
 
 function TkwAACContentsContainerFormPnRightForScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_237FDDF0A879_var*
-//#UC END# *551544E2001A_237FDDF0A879_var*
 begin
-//#UC START# *551544E2001A_237FDDF0A879_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_237FDDF0A879_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAACContentsContainerFormPnRightForScroll.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnRightForScroll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1221,12 +1209,8 @@ begin
 end;//TkwAACContentsContainerFormPnRight.SetValuePrim
 
 function TkwAACContentsContainerFormPnRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_751A50BCF486_var*
-//#UC END# *551544E2001A_751A50BCF486_var*
 begin
-//#UC START# *551544E2001A_751A50BCF486_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_751A50BCF486_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAACContentsContainerFormPnRight.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1279,12 +1263,8 @@ begin
 end;//TkwAACContentsContainerFormPnlRightTop.SetValuePrim
 
 function TkwAACContentsContainerFormPnlRightTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9B01FD076314_var*
-//#UC END# *551544E2001A_9B01FD076314_var*
 begin
-//#UC START# *551544E2001A_9B01FD076314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9B01FD076314_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAACContentsContainerFormPnlRightTop.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnlRightTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1337,12 +1317,8 @@ begin
 end;//TkwAACContentsContainerFormScrRight.SetValuePrim
 
 function TkwAACContentsContainerFormScrRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1C783FC526FD_var*
-//#UC END# *551544E2001A_1C783FC526FD_var*
 begin
-//#UC START# *551544E2001A_1C783FC526FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1C783FC526FD_impl*
+ Result := TypeInfo(TvtScrollBar);
 end;//TkwAACContentsContainerFormScrRight.GetResultTypeInfo
 
 function TkwAACContentsContainerFormScrRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1395,12 +1371,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeftEx.SetValuePrim
 
 function TkwAACContentsContainerFormPnLeftEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D8CD8423C7D6_var*
-//#UC END# *551544E2001A_D8CD8423C7D6_var*
 begin
-//#UC START# *551544E2001A_D8CD8423C7D6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D8CD8423C7D6_impl*
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwAACContentsContainerFormPnLeftEx.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnLeftEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1453,12 +1425,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeftForScroll.SetValuePrim
 
 function TkwAACContentsContainerFormPnLeftForScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_92C6BC5BF215_var*
-//#UC END# *551544E2001A_92C6BC5BF215_var*
 begin
-//#UC START# *551544E2001A_92C6BC5BF215_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_92C6BC5BF215_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAACContentsContainerFormPnLeftForScroll.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnLeftForScroll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1511,12 +1479,8 @@ begin
 end;//TkwAACContentsContainerFormPnlLeftTop.SetValuePrim
 
 function TkwAACContentsContainerFormPnlLeftTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6C790E5B3DE3_var*
-//#UC END# *551544E2001A_6C790E5B3DE3_var*
 begin
-//#UC START# *551544E2001A_6C790E5B3DE3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6C790E5B3DE3_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAACContentsContainerFormPnlLeftTop.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnlLeftTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1569,12 +1533,8 @@ begin
 end;//TkwAACContentsContainerFormPnLeft.SetValuePrim
 
 function TkwAACContentsContainerFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8D6BA41415C4_var*
-//#UC END# *551544E2001A_8D6BA41415C4_var*
 begin
-//#UC START# *551544E2001A_8D6BA41415C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8D6BA41415C4_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwAACContentsContainerFormPnLeft.GetResultTypeInfo
 
 function TkwAACContentsContainerFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1627,12 +1587,8 @@ begin
 end;//TkwAACContentsContainerFormScrLeft.SetValuePrim
 
 function TkwAACContentsContainerFormScrLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F1BCB862CA6F_var*
-//#UC END# *551544E2001A_F1BCB862CA6F_var*
 begin
-//#UC START# *551544E2001A_F1BCB862CA6F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F1BCB862CA6F_impl*
+ Result := TypeInfo(TvtScrollBar);
 end;//TkwAACContentsContainerFormScrLeft.GetResultTypeInfo
 
 function TkwAACContentsContainerFormScrLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;

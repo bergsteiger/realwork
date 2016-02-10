@@ -446,12 +446,8 @@ begin
 end;//TkwCfSaveLoadPnHeader.SetValuePrim
 
 function TkwCfSaveLoadPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2440EB34C9D0_var*
-//#UC END# *551544E2001A_2440EB34C9D0_var*
 begin
-//#UC START# *551544E2001A_2440EB34C9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2440EB34C9D0_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfSaveLoadPnHeader.GetResultTypeInfo
 
 function TkwCfSaveLoadPnHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -504,12 +500,8 @@ begin
 end;//TkwCfSaveLoadLbHeader.SetValuePrim
 
 function TkwCfSaveLoadLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E675708F6BD5_var*
-//#UC END# *551544E2001A_E675708F6BD5_var*
 begin
-//#UC START# *551544E2001A_E675708F6BD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E675708F6BD5_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwCfSaveLoadLbHeader.GetResultTypeInfo
 
 function TkwCfSaveLoadLbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -562,12 +554,8 @@ begin
 end;//TkwCfSaveLoadPbHeader.SetValuePrim
 
 function TkwCfSaveLoadPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_26C9E1BE48F1_var*
-//#UC END# *551544E2001A_26C9E1BE48F1_var*
 begin
-//#UC START# *551544E2001A_26C9E1BE48F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_26C9E1BE48F1_impl*
+ Result := TypeInfo(TPaintBox);
 end;//TkwCfSaveLoadPbHeader.GetResultTypeInfo
 
 function TkwCfSaveLoadPbHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -620,12 +608,8 @@ begin
 end;//TkwCfSaveLoadParentZone.SetValuePrim
 
 function TkwCfSaveLoadParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_27482DAD1D6E_var*
-//#UC END# *551544E2001A_27482DAD1D6E_var*
 begin
-//#UC START# *551544E2001A_27482DAD1D6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_27482DAD1D6E_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfSaveLoadParentZone.GetResultTypeInfo
 
 function TkwCfSaveLoadParentZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;

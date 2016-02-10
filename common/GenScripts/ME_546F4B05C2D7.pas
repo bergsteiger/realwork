@@ -273,12 +273,8 @@ begin
 end;//TkwCreateFilterFormNameLabel.SetValuePrim
 
 function TkwCreateFilterFormNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8D84CCE36454_var*
-//#UC END# *551544E2001A_8D84CCE36454_var*
 begin
-//#UC START# *551544E2001A_8D84CCE36454_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8D84CCE36454_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwCreateFilterFormNameLabel.GetResultTypeInfo
 
 function TkwCreateFilterFormNameLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -331,12 +327,8 @@ begin
 end;//TkwCreateFilterFormFilterName.SetValuePrim
 
 function TkwCreateFilterFormFilterName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E0C49BDE3F5C_var*
-//#UC END# *551544E2001A_E0C49BDE3F5C_var*
 begin
-//#UC START# *551544E2001A_E0C49BDE3F5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E0C49BDE3F5C_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwCreateFilterFormFilterName.GetResultTypeInfo
 
 function TkwCreateFilterFormFilterName.GetAllParamsCount(const aCtx: TtfwContext): Integer;

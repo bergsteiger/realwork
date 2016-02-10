@@ -157,7 +157,7 @@ end;//TkwNodeCaption.SetValuePrim
 
 function TkwNodeCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwNodeCaption.GetResultTypeInfo
 
 function TkwNodeCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -211,7 +211,7 @@ end;//TkwNodeIndex.SetValuePrim
 
 function TkwNodeIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwNodeIndex.GetResultTypeInfo
 
 function TkwNodeIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -279,7 +279,7 @@ end;//TkwNodeIndexInTree.SetValuePrim
 
 function TkwNodeIndexInTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwNodeIndexInTree.GetResultTypeInfo
 
 function TkwNodeIndexInTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;

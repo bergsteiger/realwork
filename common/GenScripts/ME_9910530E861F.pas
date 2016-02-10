@@ -184,12 +184,8 @@ begin
 end;//TkwCfFoldersInfoChildZone.SetValuePrim
 
 function TkwCfFoldersInfoChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_7EB92774F605_var*
-//#UC END# *551544E2001A_7EB92774F605_var*
 begin
-//#UC START# *551544E2001A_7EB92774F605_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_7EB92774F605_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwCfFoldersInfoChildZone.GetResultTypeInfo
 
 function TkwCfFoldersInfoChildZone.GetAllParamsCount(const aCtx: TtfwContext): Integer;

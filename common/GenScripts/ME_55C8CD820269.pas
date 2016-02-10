@@ -73,21 +73,13 @@ begin
 end;//TkwPopTableConvParamDialogFake.GetWordNameForRegister
 
 function TkwPopTableConvParamDialogFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0BE0E0D34519_var*
-//#UC END# *551544E2001A_0BE0E0D34519_var*
 begin
-//#UC START# *551544E2001A_0BE0E0D34519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0BE0E0D34519_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopTableConvParamDialogFake.GetResultTypeInfo
 
 function TkwPopTableConvParamDialogFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_0BE0E0D34519_var*
-//#UC END# *559687E6025A_0BE0E0D34519_var*
 begin
-//#UC START# *559687E6025A_0BE0E0D34519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_0BE0E0D34519_impl*
+ Result := 1;
 end;//TkwPopTableConvParamDialogFake.GetAllParamsCount
 
 function TkwPopTableConvParamDialogFake.ParamsTypes: PTypeInfoArray;

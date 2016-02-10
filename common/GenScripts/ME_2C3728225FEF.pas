@@ -184,12 +184,8 @@ begin
 end;//TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim
 
 function TkwStyleEditorNavigatorFormStyleTreeView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B10F98691ABD_var*
-//#UC END# *551544E2001A_B10F98691ABD_var*
 begin
-//#UC START# *551544E2001A_B10F98691ABD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B10F98691ABD_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwStyleEditorNavigatorFormStyleTreeView.GetResultTypeInfo
 
 function TkwStyleEditorNavigatorFormStyleTreeView.GetAllParamsCount(const aCtx: TtfwContext): Integer;

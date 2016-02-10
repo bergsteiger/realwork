@@ -184,12 +184,8 @@ begin
 end;//TkwEnNewsLineDateList.SetValuePrim
 
 function TkwEnNewsLineDateList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A7F619520F52_var*
-//#UC END# *551544E2001A_A7F619520F52_var*
 begin
-//#UC START# *551544E2001A_A7F619520F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A7F619520F52_impl*
+ Result := TypeInfo(TnscTreeViewForNewsLine);
 end;//TkwEnNewsLineDateList.GetResultTypeInfo
 
 function TkwEnNewsLineDateList.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -530,12 +530,8 @@ begin
 end;//TkwEnCompInfoTvComplectInfo.SetValuePrim
 
 function TkwEnCompInfoTvComplectInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CA0E729726DA_var*
-//#UC END# *551544E2001A_CA0E729726DA_var*
 begin
-//#UC START# *551544E2001A_CA0E729726DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CA0E729726DA_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnCompInfoTvComplectInfo.GetResultTypeInfo
 
 function TkwEnCompInfoTvComplectInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -588,12 +584,8 @@ begin
 end;//TkwEnCompInfoPnBottom.SetValuePrim
 
 function TkwEnCompInfoPnBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BB03EE607F17_var*
-//#UC END# *551544E2001A_BB03EE607F17_var*
 begin
-//#UC START# *551544E2001A_BB03EE607F17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BB03EE607F17_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnCompInfoPnBottom.GetResultTypeInfo
 
 function TkwEnCompInfoPnBottom.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -646,12 +638,8 @@ begin
 end;//TkwEnCompInfoPnVisualRepresentationData.SetValuePrim
 
 function TkwEnCompInfoPnVisualRepresentationData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_ED2685ED0E01_var*
-//#UC END# *551544E2001A_ED2685ED0E01_var*
 begin
-//#UC START# *551544E2001A_ED2685ED0E01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_ED2685ED0E01_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnCompInfoPnVisualRepresentationData.GetResultTypeInfo
 
 function TkwEnCompInfoPnVisualRepresentationData.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -704,12 +692,8 @@ begin
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.SetValuePrim
 
 function TkwEnCompInfoPnVisualRepresentationDataCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_12AEC3D1A33C_var*
-//#UC END# *551544E2001A_12AEC3D1A33C_var*
 begin
-//#UC START# *551544E2001A_12AEC3D1A33C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_12AEC3D1A33C_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.GetResultTypeInfo
 
 function TkwEnCompInfoPnVisualRepresentationDataCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -762,12 +746,8 @@ begin
 end;//TkwEnCompInfoLblVisualRepresentationData.SetValuePrim
 
 function TkwEnCompInfoLblVisualRepresentationData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_317E9A769DAB_var*
-//#UC END# *551544E2001A_317E9A769DAB_var*
 begin
-//#UC START# *551544E2001A_317E9A769DAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_317E9A769DAB_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnCompInfoLblVisualRepresentationData.GetResultTypeInfo
 
 function TkwEnCompInfoLblVisualRepresentationData.GetAllParamsCount(const aCtx: TtfwContext): Integer;

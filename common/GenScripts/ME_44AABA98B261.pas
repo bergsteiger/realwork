@@ -184,12 +184,8 @@ begin
 end;//TkwEnPictureInfoInfo.SetValuePrim
 
 function TkwEnPictureInfoInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9B1531781ADE_var*
-//#UC END# *551544E2001A_9B1531781ADE_var*
 begin
-//#UC START# *551544E2001A_9B1531781ADE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9B1531781ADE_impl*
+ Result := TypeInfo(TeeMemoWithEditOperations);
 end;//TkwEnPictureInfoInfo.GetResultTypeInfo
 
 function TkwEnPictureInfoInfo.GetAllParamsCount(const aCtx: TtfwContext): Integer;

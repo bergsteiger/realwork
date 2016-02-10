@@ -183,7 +183,7 @@ end;//TkwNodeIsFirst.SetValuePrim
 
 function TkwNodeIsFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwNodeIsFirst.GetResultTypeInfo
 
 function TkwNodeIsFirst.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -237,7 +237,7 @@ end;//TkwNodeIsLast.SetValuePrim
 
 function TkwNodeIsLast.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwNodeIsLast.GetResultTypeInfo
 
 function TkwNodeIsLast.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -291,7 +291,7 @@ end;//TkwNodeFlags.SetValuePrim
 
 function TkwNodeFlags.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwNodeFlags.GetResultTypeInfo
 
 function TkwNodeFlags.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -345,7 +345,7 @@ end;//TkwNodeText.SetValuePrim
 
 function TkwNodeText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwNodeText.GetResultTypeInfo
 
 function TkwNodeText.GetAllParamsCount(const aCtx: TtfwContext): Integer;

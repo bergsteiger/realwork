@@ -317,7 +317,7 @@ end;//TkwPopNewWordDefinitorCheckWord.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwKeyWord);
 end;//TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorCheckWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -390,7 +390,7 @@ end;//TkwPopNewWordDefinitorCheckVar.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwWord);
 end;//TkwPopNewWordDefinitorCheckVar.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorCheckVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -436,7 +436,7 @@ end;//TkwPopNewWordDefinitorDefineInParameter.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwWord);
 end;//TkwPopNewWordDefinitorDefineInParameter.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorDefineInParameter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -509,7 +509,7 @@ end;//TkwPopNewWordDefinitorCheckRefcountVar.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwWord);
 end;//TkwPopNewWordDefinitorCheckRefcountVar.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorCheckRefcountVar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -563,7 +563,7 @@ end;//TkwPopNewWordDefinitorKeywordFinder.SetValuePrim
 
 function TkwPopNewWordDefinitorKeywordFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TtfwKeywordFinder);
 end;//TkwPopNewWordDefinitorKeywordFinder.GetResultTypeInfo
 
 function TkwPopNewWordDefinitorKeywordFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -116,12 +116,8 @@ begin
 end;//TkwPopHideFieldIsExpanded.GetWordNameForRegister
 
 function TkwPopHideFieldIsExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A0AE99A180FB_var*
-//#UC END# *551544E2001A_A0AE99A180FB_var*
 begin
-//#UC START# *551544E2001A_A0AE99A180FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A0AE99A180FB_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopHideFieldIsExpanded.GetResultTypeInfo
 
 function TkwPopHideFieldIsExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -168,12 +164,8 @@ begin
 end;//TkwPopHideFieldSetExpanded.GetWordNameForRegister
 
 function TkwPopHideFieldSetExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D92EF59DAD00_var*
-//#UC END# *551544E2001A_D92EF59DAD00_var*
 begin
-//#UC START# *551544E2001A_D92EF59DAD00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D92EF59DAD00_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopHideFieldSetExpanded.GetResultTypeInfo
 
 function TkwPopHideFieldSetExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -216,12 +208,8 @@ begin
 end;//TkwPopHideFieldGetCaption.GetWordNameForRegister
 
 function TkwPopHideFieldGetCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D34E3A240E95_var*
-//#UC END# *551544E2001A_D34E3A240E95_var*
 begin
-//#UC START# *551544E2001A_D34E3A240E95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D34E3A240E95_impl*
+ Result := @tfw_tiString;
 end;//TkwPopHideFieldGetCaption.GetResultTypeInfo
 
 function TkwPopHideFieldGetCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;

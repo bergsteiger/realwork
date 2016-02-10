@@ -360,12 +360,8 @@ begin
 end;//TkwDocNumberQueryFormLabel1.SetValuePrim
 
 function TkwDocNumberQueryFormLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B6936A6E2063_var*
-//#UC END# *551544E2001A_B6936A6E2063_var*
 begin
-//#UC START# *551544E2001A_B6936A6E2063_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B6936A6E2063_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwDocNumberQueryFormLabel1.GetResultTypeInfo
 
 function TkwDocNumberQueryFormLabel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -418,12 +414,8 @@ begin
 end;//TkwDocNumberQueryFormEdNumber.SetValuePrim
 
 function TkwDocNumberQueryFormEdNumber.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6B90A4F929E2_var*
-//#UC END# *551544E2001A_6B90A4F929E2_var*
 begin
-//#UC START# *551544E2001A_6B90A4F929E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6B90A4F929E2_impl*
+ Result := TypeInfo(TnscComboBox);
 end;//TkwDocNumberQueryFormEdNumber.GetResultTypeInfo
 
 function TkwDocNumberQueryFormEdNumber.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -476,12 +468,8 @@ begin
 end;//TkwDocNumberQueryFormCbInternal.SetValuePrim
 
 function TkwDocNumberQueryFormCbInternal.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DC4D2CCC9C8D_var*
-//#UC END# *551544E2001A_DC4D2CCC9C8D_var*
 begin
-//#UC START# *551544E2001A_DC4D2CCC9C8D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DC4D2CCC9C8D_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwDocNumberQueryFormCbInternal.GetResultTypeInfo
 
 function TkwDocNumberQueryFormCbInternal.GetAllParamsCount(const aCtx: TtfwContext): Integer;

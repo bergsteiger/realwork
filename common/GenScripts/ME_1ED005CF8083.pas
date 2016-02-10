@@ -184,12 +184,8 @@ begin
 end;//TkwEnFoldersTreeFoldersTree.SetValuePrim
 
 function TkwEnFoldersTreeFoldersTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6BEE06997D28_var*
-//#UC END# *551544E2001A_6BEE06997D28_var*
 begin
-//#UC START# *551544E2001A_6BEE06997D28_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6BEE06997D28_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnFoldersTreeFoldersTree.GetResultTypeInfo
 
 function TkwEnFoldersTreeFoldersTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -351,12 +351,8 @@ begin
 end;//TkwVcmTabsCloseCurrent.GetWordNameForRegister
 
 function TkwVcmTabsCloseCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_137FD631C8A7_var*
-//#UC END# *551544E2001A_137FD631C8A7_var*
 begin
-//#UC START# *551544E2001A_137FD631C8A7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_137FD631C8A7_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmTabsCloseCurrent.GetResultTypeInfo
 
 function TkwVcmTabsCloseCurrent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -391,12 +387,8 @@ begin
 end;//TkwVcmTabsClose.GetWordNameForRegister
 
 function TkwVcmTabsClose.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_12F6A6736B71_var*
-//#UC END# *551544E2001A_12F6A6736B71_var*
 begin
-//#UC START# *551544E2001A_12F6A6736B71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_12F6A6736B71_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmTabsClose.GetResultTypeInfo
 
 function TkwVcmTabsClose.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -428,12 +420,8 @@ begin
 end;//TkwVcmTabsCloseAllButCurrent.GetWordNameForRegister
 
 function TkwVcmTabsCloseAllButCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_91294BF70EF7_var*
-//#UC END# *551544E2001A_91294BF70EF7_var*
 begin
-//#UC START# *551544E2001A_91294BF70EF7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_91294BF70EF7_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmTabsCloseAllButCurrent.GetResultTypeInfo
 
 function TkwVcmTabsCloseAllButCurrent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -466,12 +454,8 @@ begin
 end;//TkwVcmTabsActive.GetWordNameForRegister
 
 function TkwVcmTabsActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EA6F3BD4A5CA_var*
-//#UC END# *551544E2001A_EA6F3BD4A5CA_var*
 begin
-//#UC START# *551544E2001A_EA6F3BD4A5CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EA6F3BD4A5CA_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVcmTabsActive.GetResultTypeInfo
 
 function TkwVcmTabsActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -515,12 +499,8 @@ begin
 end;//TkwVcmTabsSetActive.GetWordNameForRegister
 
 function TkwVcmTabsSetActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_36E868893B0A_var*
-//#UC END# *551544E2001A_36E868893B0A_var*
 begin
-//#UC START# *551544E2001A_36E868893B0A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_36E868893B0A_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmTabsSetActive.GetResultTypeInfo
 
 function TkwVcmTabsSetActive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -562,12 +542,8 @@ begin
 end;//TkwVcmTabsCount.GetWordNameForRegister
 
 function TkwVcmTabsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D1C0BD993D2F_var*
-//#UC END# *551544E2001A_D1C0BD993D2F_var*
 begin
-//#UC START# *551544E2001A_D1C0BD993D2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D1C0BD993D2F_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVcmTabsCount.GetResultTypeInfo
 
 function TkwVcmTabsCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -599,12 +575,8 @@ begin
 end;//TkwVcmTabsOpenNewTab.GetWordNameForRegister
 
 function TkwVcmTabsOpenNewTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_76B187B4575B_var*
-//#UC END# *551544E2001A_76B187B4575B_var*
 begin
-//#UC START# *551544E2001A_76B187B4575B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_76B187B4575B_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmTabsOpenNewTab.GetResultTypeInfo
 
 function TkwVcmTabsOpenNewTab.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -637,12 +609,8 @@ begin
 end;//TkwVcmTabsCanOpenNewTab.GetWordNameForRegister
 
 function TkwVcmTabsCanOpenNewTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D42D3E4F7AC2_var*
-//#UC END# *551544E2001A_D42D3E4F7AC2_var*
 begin
-//#UC START# *551544E2001A_D42D3E4F7AC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D42D3E4F7AC2_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwVcmTabsCanOpenNewTab.GetResultTypeInfo
 
 function TkwVcmTabsCanOpenNewTab.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -686,12 +654,8 @@ begin
 end;//TkwVcmTabsDuplicate.GetWordNameForRegister
 
 function TkwVcmTabsDuplicate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_25BDB3DFEC33_var*
-//#UC END# *551544E2001A_25BDB3DFEC33_var*
 begin
-//#UC START# *551544E2001A_25BDB3DFEC33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_25BDB3DFEC33_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmTabsDuplicate.GetResultTypeInfo
 
 function TkwVcmTabsDuplicate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -735,12 +699,8 @@ begin
 end;//TkwVcmTabsCanDuplicate.GetWordNameForRegister
 
 function TkwVcmTabsCanDuplicate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_43C0563688C9_var*
-//#UC END# *551544E2001A_43C0563688C9_var*
 begin
-//#UC START# *551544E2001A_43C0563688C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_43C0563688C9_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwVcmTabsCanDuplicate.GetResultTypeInfo
 
 function TkwVcmTabsCanDuplicate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -773,12 +733,8 @@ begin
 end;//TkwVcmTabsReopen.GetWordNameForRegister
 
 function TkwVcmTabsReopen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C449AC698640_var*
-//#UC END# *551544E2001A_C449AC698640_var*
 begin
-//#UC START# *551544E2001A_C449AC698640_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C449AC698640_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmTabsReopen.GetResultTypeInfo
 
 function TkwVcmTabsReopen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -812,12 +768,8 @@ begin
 end;//TkwVcmTabsCanReopen.GetWordNameForRegister
 
 function TkwVcmTabsCanReopen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B8D479345CBE_var*
-//#UC END# *551544E2001A_B8D479345CBE_var*
 begin
-//#UC START# *551544E2001A_B8D479345CBE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B8D479345CBE_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwVcmTabsCanReopen.GetResultTypeInfo
 
 function TkwVcmTabsCanReopen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -861,12 +813,8 @@ begin
 end;//TkwVcmTabsGetIconIndex.GetWordNameForRegister
 
 function TkwVcmTabsGetIconIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1F0AD0312C05_var*
-//#UC END# *551544E2001A_1F0AD0312C05_var*
 begin
-//#UC START# *551544E2001A_1F0AD0312C05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1F0AD0312C05_impl*
+ Result := TypeInfo(Integer);
 end;//TkwVcmTabsGetIconIndex.GetResultTypeInfo
 
 function TkwVcmTabsGetIconIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -910,12 +858,8 @@ begin
 end;//TkwVcmTabsGetCaption.GetWordNameForRegister
 
 function TkwVcmTabsGetCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_27CA2643776F_var*
-//#UC END# *551544E2001A_27CA2643776F_var*
 begin
-//#UC START# *551544E2001A_27CA2643776F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_27CA2643776F_impl*
+ Result := @tfw_tiString;
 end;//TkwVcmTabsGetCaption.GetResultTypeInfo
 
 function TkwVcmTabsGetCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -959,12 +903,8 @@ begin
 end;//TkwVcmTabsCanUndock.GetWordNameForRegister
 
 function TkwVcmTabsCanUndock.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C1A0F850A859_var*
-//#UC END# *551544E2001A_C1A0F850A859_var*
 begin
-//#UC START# *551544E2001A_C1A0F850A859_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C1A0F850A859_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwVcmTabsCanUndock.GetResultTypeInfo
 
 function TkwVcmTabsCanUndock.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1008,12 +948,8 @@ begin
 end;//TkwVcmTabsUndock.GetWordNameForRegister
 
 function TkwVcmTabsUndock.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DB5208478590_var*
-//#UC END# *551544E2001A_DB5208478590_var*
 begin
-//#UC START# *551544E2001A_DB5208478590_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DB5208478590_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmTabsUndock.GetResultTypeInfo
 
 function TkwVcmTabsUndock.GetAllParamsCount(const aCtx: TtfwContext): Integer;

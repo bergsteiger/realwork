@@ -121,7 +121,7 @@ end;//TkwMODAL.DoRun
 
 function TkwMODAL.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwMODAL.GetResultTypeInfo
 
 function TkwMODAL.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -170,7 +170,7 @@ end;//TkwTHREAD.DoRun
 
 function TkwTHREAD.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiVoid;
 end;//TkwTHREAD.GetResultTypeInfo
 
 function TkwTHREAD.GetAllParamsCount(const aCtx: TtfwContext): Integer;

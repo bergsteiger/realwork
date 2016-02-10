@@ -271,7 +271,7 @@ end;//TkwFontColor.SetValuePrim
 
 function TkwFontColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Tl3Color);
 end;//TkwFontColor.GetResultTypeInfo
 
 function TkwFontColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -325,7 +325,7 @@ end;//TkwFontBackColor.SetValuePrim
 
 function TkwFontBackColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Tl3Color);
 end;//TkwFontBackColor.GetResultTypeInfo
 
 function TkwFontBackColor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -379,7 +379,7 @@ end;//TkwFontIsBold.SetValuePrim
 
 function TkwFontIsBold.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwFontIsBold.GetResultTypeInfo
 
 function TkwFontIsBold.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -433,7 +433,7 @@ end;//TkwFontIsItalic.SetValuePrim
 
 function TkwFontIsItalic.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwFontIsItalic.GetResultTypeInfo
 
 function TkwFontIsItalic.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -487,7 +487,7 @@ end;//TkwFontIsUnderline.SetValuePrim
 
 function TkwFontIsUnderline.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwFontIsUnderline.GetResultTypeInfo
 
 function TkwFontIsUnderline.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -541,7 +541,7 @@ end;//TkwFontIsStrikeOut.SetValuePrim
 
 function TkwFontIsStrikeOut.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Boolean);
 end;//TkwFontIsStrikeOut.GetResultTypeInfo
 
 function TkwFontIsStrikeOut.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -595,7 +595,7 @@ end;//TkwFontName.SetValuePrim
 
 function TkwFontName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := @tfw_tiString;
 end;//TkwFontName.GetResultTypeInfo
 
 function TkwFontName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -649,7 +649,7 @@ end;//TkwFontSize.SetValuePrim
 
 function TkwFontSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(Integer);
 end;//TkwFontSize.GetResultTypeInfo
 
 function TkwFontSize.GetAllParamsCount(const aCtx: TtfwContext): Integer;

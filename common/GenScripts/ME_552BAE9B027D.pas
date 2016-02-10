@@ -133,12 +133,8 @@ begin
 end;//TkwVcmToolbarSetGlyphSize.GetWordNameForRegister
 
 function TkwVcmToolbarSetGlyphSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4463E51B5CE8_var*
-//#UC END# *551544E2001A_4463E51B5CE8_var*
 begin
-//#UC START# *551544E2001A_4463E51B5CE8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4463E51B5CE8_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmToolbarSetGlyphSize.GetResultTypeInfo
 
 function TkwVcmToolbarSetGlyphSize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -180,12 +176,8 @@ begin
 end;//TkwVcmToolbarGetGlyphSize.GetWordNameForRegister
 
 function TkwVcmToolbarGetGlyphSize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CB878D8D1F92_var*
-//#UC END# *551544E2001A_CB878D8D1F92_var*
 begin
-//#UC START# *551544E2001A_CB878D8D1F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CB878D8D1F92_impl*
+ Result := TypeInfo(TvcmGlyphSize);
 end;//TkwVcmToolbarGetGlyphSize.GetResultTypeInfo
 
 function TkwVcmToolbarGetGlyphSize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -227,12 +219,8 @@ begin
 end;//TkwVcmToolbarGetGlyphColorDepth.GetWordNameForRegister
 
 function TkwVcmToolbarGetGlyphColorDepth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_8FA6E0CDB066_var*
-//#UC END# *551544E2001A_8FA6E0CDB066_var*
 begin
-//#UC START# *551544E2001A_8FA6E0CDB066_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_8FA6E0CDB066_impl*
+ Result := TypeInfo(TvcmGlyphColordepth);
 end;//TkwVcmToolbarGetGlyphColorDepth.GetResultTypeInfo
 
 function TkwVcmToolbarGetGlyphColorDepth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -275,12 +263,8 @@ begin
 end;//TkwVcmToolbarSetGlyphColorDepth.GetWordNameForRegister
 
 function TkwVcmToolbarSetGlyphColorDepth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2E579942A814_var*
-//#UC END# *551544E2001A_2E579942A814_var*
 begin
-//#UC START# *551544E2001A_2E579942A814_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2E579942A814_impl*
+ Result := @tfw_tiVoid;
 end;//TkwVcmToolbarSetGlyphColorDepth.GetResultTypeInfo
 
 function TkwVcmToolbarSetGlyphColorDepth.GetAllParamsCount(const aCtx: TtfwContext): Integer;

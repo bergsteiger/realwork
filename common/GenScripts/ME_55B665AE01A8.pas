@@ -93,21 +93,13 @@ begin
 end;//TkwIsNeedSaveDocument.GetWordNameForRegister
 
 function TkwIsNeedSaveDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BB6D8477DC61_var*
-//#UC END# *551544E2001A_BB6D8477DC61_var*
 begin
-//#UC START# *551544E2001A_BB6D8477DC61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BB6D8477DC61_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwIsNeedSaveDocument.GetResultTypeInfo
 
 function TkwIsNeedSaveDocument.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_BB6D8477DC61_var*
-//#UC END# *559687E6025A_BB6D8477DC61_var*
 begin
-//#UC START# *559687E6025A_BB6D8477DC61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_BB6D8477DC61_impl*
+ Result := 1;
 end;//TkwIsNeedSaveDocument.GetAllParamsCount
 
 function TkwIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;

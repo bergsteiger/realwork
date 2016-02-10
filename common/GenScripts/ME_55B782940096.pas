@@ -76,12 +76,8 @@ begin
 end;//TkwPopComboTreeCurrentNode.GetWordNameForRegister
 
 function TkwPopComboTreeCurrentNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_9F9FF0616B3E_var*
-//#UC END# *551544E2001A_9F9FF0616B3E_var*
 begin
-//#UC START# *551544E2001A_9F9FF0616B3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_9F9FF0616B3E_impl*
+ Result := TypeInfo(Il3SimpleNode);
 end;//TkwPopComboTreeCurrentNode.GetResultTypeInfo
 
 function TkwPopComboTreeCurrentNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;

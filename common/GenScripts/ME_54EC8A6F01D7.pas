@@ -102,12 +102,8 @@ begin
 end;//TkwApplicationCancelHint.GetWordNameForRegister
 
 function TkwApplicationCancelHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_602888D14BF8_var*
-//#UC END# *551544E2001A_602888D14BF8_var*
 begin
-//#UC START# *551544E2001A_602888D14BF8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_602888D14BF8_impl*
+ Result := @tfw_tiVoid;
 end;//TkwApplicationCancelHint.GetResultTypeInfo
 
 function TkwApplicationCancelHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -141,12 +137,8 @@ begin
 end;//TkwApplicationIsHintVisible.GetWordNameForRegister
 
 function TkwApplicationIsHintVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0EF7A152CBB4_var*
-//#UC END# *551544E2001A_0EF7A152CBB4_var*
 begin
-//#UC START# *551544E2001A_0EF7A152CBB4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0EF7A152CBB4_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwApplicationIsHintVisible.GetResultTypeInfo
 
 function TkwApplicationIsHintVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -192,12 +184,8 @@ begin
 end;//TkwApplicationGetLastHint.GetWordNameForRegister
 
 function TkwApplicationGetLastHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_64C2DF1C9241_var*
-//#UC END# *551544E2001A_64C2DF1C9241_var*
 begin
-//#UC START# *551544E2001A_64C2DF1C9241_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_64C2DF1C9241_impl*
+ Result := @tfw_tiString;
 end;//TkwApplicationGetLastHint.GetResultTypeInfo
 
 function TkwApplicationGetLastHint.GetAllParamsCount(const aCtx: TtfwContext): Integer;

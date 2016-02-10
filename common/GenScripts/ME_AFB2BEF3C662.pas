@@ -360,12 +360,8 @@ begin
 end;//TkwEnDictionBackgroundPanel.SetValuePrim
 
 function TkwEnDictionBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B2258800EAED_var*
-//#UC END# *551544E2001A_B2258800EAED_var*
 begin
-//#UC START# *551544E2001A_B2258800EAED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B2258800EAED_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnDictionBackgroundPanel.GetResultTypeInfo
 
 function TkwEnDictionBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -418,12 +414,8 @@ begin
 end;//TkwEnDictionContextFilter.SetValuePrim
 
 function TkwEnDictionContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B4EC4D5AF267_var*
-//#UC END# *551544E2001A_B4EC4D5AF267_var*
 begin
-//#UC START# *551544E2001A_B4EC4D5AF267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B4EC4D5AF267_impl*
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwEnDictionContextFilter.GetResultTypeInfo
 
 function TkwEnDictionContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -476,12 +468,8 @@ begin
 end;//TkwEnDictionWordsTree.SetValuePrim
 
 function TkwEnDictionWordsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_ED3545E875CA_var*
-//#UC END# *551544E2001A_ED3545E875CA_var*
 begin
-//#UC START# *551544E2001A_ED3545E875CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_ED3545E875CA_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnDictionWordsTree.GetResultTypeInfo
 
 function TkwEnDictionWordsTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;

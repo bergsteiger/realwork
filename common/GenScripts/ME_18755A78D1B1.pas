@@ -962,12 +962,8 @@ begin
 end;//TkwEnConsultationMarkGbMark.SetValuePrim
 
 function TkwEnConsultationMarkGbMark.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_08E015178ADF_var*
-//#UC END# *551544E2001A_08E015178ADF_var*
 begin
-//#UC START# *551544E2001A_08E015178ADF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_08E015178ADF_impl*
+ Result := TypeInfo(TvtGroupBox);
 end;//TkwEnConsultationMarkGbMark.GetResultTypeInfo
 
 function TkwEnConsultationMarkGbMark.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1020,12 +1016,8 @@ begin
 end;//TkwEnConsultationMarkRbNotSure.SetValuePrim
 
 function TkwEnConsultationMarkRbNotSure.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_102A22C548B7_var*
-//#UC END# *551544E2001A_102A22C548B7_var*
 begin
-//#UC START# *551544E2001A_102A22C548B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_102A22C548B7_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnConsultationMarkRbNotSure.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbNotSure.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1078,12 +1070,8 @@ begin
 end;//TkwEnConsultationMarkRbTwo.SetValuePrim
 
 function TkwEnConsultationMarkRbTwo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1361F312A549_var*
-//#UC END# *551544E2001A_1361F312A549_var*
 begin
-//#UC START# *551544E2001A_1361F312A549_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1361F312A549_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnConsultationMarkRbTwo.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbTwo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1136,12 +1124,8 @@ begin
 end;//TkwEnConsultationMarkRbThree.SetValuePrim
 
 function TkwEnConsultationMarkRbThree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DCFA687F0AB6_var*
-//#UC END# *551544E2001A_DCFA687F0AB6_var*
 begin
-//#UC START# *551544E2001A_DCFA687F0AB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DCFA687F0AB6_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnConsultationMarkRbThree.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbThree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1194,12 +1178,8 @@ begin
 end;//TkwEnConsultationMarkRbFour.SetValuePrim
 
 function TkwEnConsultationMarkRbFour.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_017B75B3B73E_var*
-//#UC END# *551544E2001A_017B75B3B73E_var*
 begin
-//#UC START# *551544E2001A_017B75B3B73E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_017B75B3B73E_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnConsultationMarkRbFour.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbFour.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1252,12 +1232,8 @@ begin
 end;//TkwEnConsultationMarkRbFive.SetValuePrim
 
 function TkwEnConsultationMarkRbFive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B408A9A1DAB5_var*
-//#UC END# *551544E2001A_B408A9A1DAB5_var*
 begin
-//#UC START# *551544E2001A_B408A9A1DAB5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B408A9A1DAB5_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnConsultationMarkRbFive.GetResultTypeInfo
 
 function TkwEnConsultationMarkRbFive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1310,12 +1286,8 @@ begin
 end;//TkwEnConsultationMarkPnlHelp.SetValuePrim
 
 function TkwEnConsultationMarkPnlHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_85E1FBE51015_var*
-//#UC END# *551544E2001A_85E1FBE51015_var*
 begin
-//#UC START# *551544E2001A_85E1FBE51015_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_85E1FBE51015_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnConsultationMarkPnlHelp.GetResultTypeInfo
 
 function TkwEnConsultationMarkPnlHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1368,12 +1340,8 @@ begin
 end;//TkwEnConsultationMarkLblHelp.SetValuePrim
 
 function TkwEnConsultationMarkLblHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BD995E557E53_var*
-//#UC END# *551544E2001A_BD995E557E53_var*
 begin
-//#UC START# *551544E2001A_BD995E557E53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BD995E557E53_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnConsultationMarkLblHelp.GetResultTypeInfo
 
 function TkwEnConsultationMarkLblHelp.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1426,12 +1394,8 @@ begin
 end;//TkwEnConsultationMarkGbComment.SetValuePrim
 
 function TkwEnConsultationMarkGbComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5E131FAEC04F_var*
-//#UC END# *551544E2001A_5E131FAEC04F_var*
 begin
-//#UC START# *551544E2001A_5E131FAEC04F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5E131FAEC04F_impl*
+ Result := TypeInfo(TvtGroupBox);
 end;//TkwEnConsultationMarkGbComment.GetResultTypeInfo
 
 function TkwEnConsultationMarkGbComment.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1484,12 +1448,8 @@ begin
 end;//TkwEnConsultationMarkMComment.SetValuePrim
 
 function TkwEnConsultationMarkMComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_780807DC0F9A_var*
-//#UC END# *551544E2001A_780807DC0F9A_var*
 begin
-//#UC START# *551544E2001A_780807DC0F9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_780807DC0F9A_impl*
+ Result := TypeInfo(TeeMemoWithEditOperations);
 end;//TkwEnConsultationMarkMComment.GetResultTypeInfo
 
 function TkwEnConsultationMarkMComment.GetAllParamsCount(const aCtx: TtfwContext): Integer;

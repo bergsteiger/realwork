@@ -77,12 +77,8 @@ begin
 end;//TkwPopFlashGetFrame.GetWordNameForRegister
 
 function TkwPopFlashGetFrame.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4E9CC5473030_var*
-//#UC END# *551544E2001A_4E9CC5473030_var*
 begin
-//#UC START# *551544E2001A_4E9CC5473030_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4E9CC5473030_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopFlashGetFrame.GetResultTypeInfo
 
 function TkwPopFlashGetFrame.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -1219,12 +1219,8 @@ begin
 end;//TkwEnDefineSearchDatePanel1.SetValuePrim
 
 function TkwEnDefineSearchDatePanel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EF233F6425B4_var*
-//#UC END# *551544E2001A_EF233F6425B4_var*
 begin
-//#UC START# *551544E2001A_EF233F6425B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EF233F6425B4_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnDefineSearchDatePanel1.GetResultTypeInfo
 
 function TkwEnDefineSearchDatePanel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1277,12 +1273,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel1.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DE36FA6549B3_var*
-//#UC END# *551544E2001A_DE36FA6549B3_var*
 begin
-//#UC START# *551544E2001A_DE36FA6549B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DE36FA6549B3_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnDefineSearchDateElLabel1.GetResultTypeInfo
 
 function TkwEnDefineSearchDateElLabel1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1335,12 +1327,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel2.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_AAF6259B7DA9_var*
-//#UC END# *551544E2001A_AAF6259B7DA9_var*
 begin
-//#UC START# *551544E2001A_AAF6259B7DA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_AAF6259B7DA9_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnDefineSearchDateElLabel2.GetResultTypeInfo
 
 function TkwEnDefineSearchDateElLabel2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1393,12 +1381,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel3.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_955555D1ED6A_var*
-//#UC END# *551544E2001A_955555D1ED6A_var*
 begin
-//#UC START# *551544E2001A_955555D1ED6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_955555D1ED6A_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwEnDefineSearchDateElLabel3.GetResultTypeInfo
 
 function TkwEnDefineSearchDateElLabel3.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1451,12 +1435,8 @@ begin
 end;//TkwEnDefineSearchDateDD1EqD2.SetValuePrim
 
 function TkwEnDefineSearchDateDD1EqD2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B7C6C7A4A9BF_var*
-//#UC END# *551544E2001A_B7C6C7A4A9BF_var*
 begin
-//#UC START# *551544E2001A_B7C6C7A4A9BF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B7C6C7A4A9BF_impl*
+ Result := TypeInfo(TvtDblClickDateEdit);
 end;//TkwEnDefineSearchDateDD1EqD2.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD1EqD2.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1509,12 +1489,8 @@ begin
 end;//TkwEnDefineSearchDateRbEq.SetValuePrim
 
 function TkwEnDefineSearchDateRbEq.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_5012D1B98349_var*
-//#UC END# *551544E2001A_5012D1B98349_var*
 begin
-//#UC START# *551544E2001A_5012D1B98349_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_5012D1B98349_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnDefineSearchDateRbEq.GetResultTypeInfo
 
 function TkwEnDefineSearchDateRbEq.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1567,12 +1543,8 @@ begin
 end;//TkwEnDefineSearchDateRbInt.SetValuePrim
 
 function TkwEnDefineSearchDateRbInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C42773E14E1A_var*
-//#UC END# *551544E2001A_C42773E14E1A_var*
 begin
-//#UC START# *551544E2001A_C42773E14E1A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C42773E14E1A_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnDefineSearchDateRbInt.GetResultTypeInfo
 
 function TkwEnDefineSearchDateRbInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1625,12 +1597,8 @@ begin
 end;//TkwEnDefineSearchDateRbD2Only.SetValuePrim
 
 function TkwEnDefineSearchDateRbD2Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D9C07BFDD553_var*
-//#UC END# *551544E2001A_D9C07BFDD553_var*
 begin
-//#UC START# *551544E2001A_D9C07BFDD553_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D9C07BFDD553_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnDefineSearchDateRbD2Only.GetResultTypeInfo
 
 function TkwEnDefineSearchDateRbD2Only.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1683,12 +1651,8 @@ begin
 end;//TkwEnDefineSearchDateDD1Only.SetValuePrim
 
 function TkwEnDefineSearchDateDD1Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B8D252A3188F_var*
-//#UC END# *551544E2001A_B8D252A3188F_var*
 begin
-//#UC START# *551544E2001A_B8D252A3188F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B8D252A3188F_impl*
+ Result := TypeInfo(TvtDblClickDateEdit);
 end;//TkwEnDefineSearchDateDD1Only.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD1Only.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1741,12 +1705,8 @@ begin
 end;//TkwEnDefineSearchDateDD2Only.SetValuePrim
 
 function TkwEnDefineSearchDateDD2Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_EF82DE42CA45_var*
-//#UC END# *551544E2001A_EF82DE42CA45_var*
 begin
-//#UC START# *551544E2001A_EF82DE42CA45_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_EF82DE42CA45_impl*
+ Result := TypeInfo(TvtDblClickDateEdit);
 end;//TkwEnDefineSearchDateDD2Only.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD2Only.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1799,12 +1759,8 @@ begin
 end;//TkwEnDefineSearchDateDD1.SetValuePrim
 
 function TkwEnDefineSearchDateDD1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DC21835A6044_var*
-//#UC END# *551544E2001A_DC21835A6044_var*
 begin
-//#UC START# *551544E2001A_DC21835A6044_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DC21835A6044_impl*
+ Result := TypeInfo(TvtDblClickDateEdit);
 end;//TkwEnDefineSearchDateDD1.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD1.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1857,12 +1813,8 @@ begin
 end;//TkwEnDefineSearchDateRbD1Only.SetValuePrim
 
 function TkwEnDefineSearchDateRbD1Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_2ACC0213635E_var*
-//#UC END# *551544E2001A_2ACC0213635E_var*
 begin
-//#UC START# *551544E2001A_2ACC0213635E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_2ACC0213635E_impl*
+ Result := TypeInfo(TvtRadioButton);
 end;//TkwEnDefineSearchDateRbD1Only.GetResultTypeInfo
 
 function TkwEnDefineSearchDateRbD1Only.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1915,12 +1867,8 @@ begin
 end;//TkwEnDefineSearchDateDD2.SetValuePrim
 
 function TkwEnDefineSearchDateDD2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_06117A43FF72_var*
-//#UC END# *551544E2001A_06117A43FF72_var*
 begin
-//#UC START# *551544E2001A_06117A43FF72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_06117A43FF72_impl*
+ Result := TypeInfo(TvtDblClickDateEdit);
 end;//TkwEnDefineSearchDateDD2.GetResultTypeInfo
 
 function TkwEnDefineSearchDateDD2.GetAllParamsCount(const aCtx: TtfwContext): Integer;

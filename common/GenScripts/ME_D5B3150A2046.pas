@@ -359,7 +359,7 @@ end;//TkwEditionsContainerFormBackgroundPanel.SetValuePrim
 
 function TkwEditionsContainerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtProportionalPanel);
 end;//TkwEditionsContainerFormBackgroundPanel.GetResultTypeInfo
 
 function TkwEditionsContainerFormBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -413,7 +413,7 @@ end;//TkwEditionsContainerFormPnLeft.SetValuePrim
 
 function TkwEditionsContainerFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtSizeablePanel);
 end;//TkwEditionsContainerFormPnLeft.GetResultTypeInfo
 
 function TkwEditionsContainerFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -467,7 +467,7 @@ end;//TkwEditionsContainerFormPnRight.SetValuePrim
 
 function TkwEditionsContainerFormPnRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtPanel);
 end;//TkwEditionsContainerFormPnRight.GetResultTypeInfo
 
 function TkwEditionsContainerFormPnRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;

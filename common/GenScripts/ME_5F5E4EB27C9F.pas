@@ -184,12 +184,8 @@ begin
 end;//TkwEnMedicListSynchroViewZtChild.SetValuePrim
 
 function TkwEnMedicListSynchroViewZtChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B2A1FE850B9A_var*
-//#UC END# *551544E2001A_B2A1FE850B9A_var*
 begin
-//#UC START# *551544E2001A_B2A1FE850B9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B2A1FE850B9A_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnMedicListSynchroViewZtChild.GetResultTypeInfo
 
 function TkwEnMedicListSynchroViewZtChild.GetAllParamsCount(const aCtx: TtfwContext): Integer;

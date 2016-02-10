@@ -397,12 +397,8 @@ begin
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.SetValuePrim
 
 function TkwF1LikeFormWithBSFormBaseSearchControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_136DA0DCC3CD_var*
-//#UC END# *551544E2001A_136DA0DCC3CD_var*
 begin
-//#UC START# *551544E2001A_136DA0DCC3CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_136DA0DCC3CD_impl*
+ Result := TypeInfo(TnscTreeComboWithHistoryAndOperations);
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.GetResultTypeInfo
 
 function TkwF1LikeFormWithBSFormBaseSearchControl.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -455,12 +451,8 @@ begin
 end;//TkwF1LikeFormWithBSFormText.SetValuePrim
 
 function TkwF1LikeFormWithBSFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0261BE97F6D3_var*
-//#UC END# *551544E2001A_0261BE97F6D3_var*
 begin
-//#UC START# *551544E2001A_0261BE97F6D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0261BE97F6D3_impl*
+ Result := TypeInfo(TeeEditorExport);
 end;//TkwF1LikeFormWithBSFormText.GetResultTypeInfo
 
 function TkwF1LikeFormWithBSFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -513,12 +505,8 @@ begin
 end;//TkwF1LikeFormWithBSFormTextSource.SetValuePrim
 
 function TkwF1LikeFormWithBSFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F2D78F0C5EE9_var*
-//#UC END# *551544E2001A_F2D78F0C5EE9_var*
 begin
-//#UC START# *551544E2001A_F2D78F0C5EE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F2D78F0C5EE9_impl*
+ Result := TypeInfo(TeeTextSourceExport);
 end;//TkwF1LikeFormWithBSFormTextSource.GetResultTypeInfo
 
 function TkwF1LikeFormWithBSFormTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -571,12 +559,8 @@ begin
 end;//TkwF1LikeFormWithBSFormLoadManager.SetValuePrim
 
 function TkwF1LikeFormWithBSFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0296E955C9A5_var*
-//#UC END# *551544E2001A_0296E955C9A5_var*
 begin
-//#UC START# *551544E2001A_0296E955C9A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0296E955C9A5_impl*
+ Result := TypeInfo(TevLoadDocumentManager);
 end;//TkwF1LikeFormWithBSFormLoadManager.GetResultTypeInfo
 
 function TkwF1LikeFormWithBSFormLoadManager.GetAllParamsCount(const aCtx: TtfwContext): Integer;

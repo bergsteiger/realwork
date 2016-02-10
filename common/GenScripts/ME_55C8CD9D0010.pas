@@ -73,21 +73,13 @@ begin
 end;//TkwPopNewSubDlgFake.GetWordNameForRegister
 
 function TkwPopNewSubDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_744BF601F735_var*
-//#UC END# *551544E2001A_744BF601F735_var*
 begin
-//#UC START# *551544E2001A_744BF601F735_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_744BF601F735_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopNewSubDlgFake.GetResultTypeInfo
 
 function TkwPopNewSubDlgFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_744BF601F735_var*
-//#UC END# *559687E6025A_744BF601F735_var*
 begin
-//#UC START# *559687E6025A_744BF601F735_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_744BF601F735_impl*
+ Result := 1;
 end;//TkwPopNewSubDlgFake.GetAllParamsCount
 
 function TkwPopNewSubDlgFake.ParamsTypes: PTypeInfoArray;

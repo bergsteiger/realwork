@@ -73,21 +73,13 @@ begin
 end;//TkwPopPicSizeEditDlgFake.GetWordNameForRegister
 
 function TkwPopPicSizeEditDlgFake.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_DF6A0ECD8244_var*
-//#UC END# *551544E2001A_DF6A0ECD8244_var*
 begin
-//#UC START# *551544E2001A_DF6A0ECD8244_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_DF6A0ECD8244_impl*
+ Result := @tfw_tiVoid;
 end;//TkwPopPicSizeEditDlgFake.GetResultTypeInfo
 
 function TkwPopPicSizeEditDlgFake.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-//#UC START# *559687E6025A_DF6A0ECD8244_var*
-//#UC END# *559687E6025A_DF6A0ECD8244_var*
 begin
-//#UC START# *559687E6025A_DF6A0ECD8244_impl*
- !!! Needs to be implemented !!!
-//#UC END# *559687E6025A_DF6A0ECD8244_impl*
+ Result := 1;
 end;//TkwPopPicSizeEditDlgFake.GetAllParamsCount
 
 function TkwPopPicSizeEditDlgFake.ParamsTypes: PTypeInfoArray;

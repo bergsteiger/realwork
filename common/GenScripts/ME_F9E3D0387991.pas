@@ -724,7 +724,7 @@ end;//TkwLeftEditionFormHeader.SetValuePrim
 
 function TkwLeftEditionFormHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtPanel);
 end;//TkwLeftEditionFormHeader.GetResultTypeInfo
 
 function TkwLeftEditionFormHeader.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -778,7 +778,7 @@ end;//TkwLeftEditionFormPnLeft.SetValuePrim
 
 function TkwLeftEditionFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtPanel);
 end;//TkwLeftEditionFormPnLeft.GetResultTypeInfo
 
 function TkwLeftEditionFormPnLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -832,7 +832,7 @@ end;//TkwLeftEditionFormEditionLink.SetValuePrim
 
 function TkwLeftEditionFormEditionLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtFocusLabel);
 end;//TkwLeftEditionFormEditionLink.GetResultTypeInfo
 
 function TkwLeftEditionFormEditionLink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -886,7 +886,7 @@ end;//TkwLeftEditionFormPbIcon.SetValuePrim
 
 function TkwLeftEditionFormPbIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TPaintBox);
 end;//TkwLeftEditionFormPbIcon.GetResultTypeInfo
 
 function TkwLeftEditionFormPbIcon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -940,7 +940,7 @@ end;//TkwLeftEditionFormPnCaption.SetValuePrim
 
 function TkwLeftEditionFormPnCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TvtPanel);
 end;//TkwLeftEditionFormPnCaption.GetResultTypeInfo
 
 function TkwLeftEditionFormPnCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -994,7 +994,7 @@ end;//TkwLeftEditionFormText.SetValuePrim
 
 function TkwLeftEditionFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
 begin
- Result := ;
+ Result := TypeInfo(TnscEditor);
 end;//TkwLeftEditionFormText.GetResultTypeInfo
 
 function TkwLeftEditionFormText.GetAllParamsCount(const aCtx: TtfwContext): Integer;

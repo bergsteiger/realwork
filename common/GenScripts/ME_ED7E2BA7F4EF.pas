@@ -245,12 +245,8 @@ begin
 end;//TkwEnQueryCardEditor.SetValuePrim
 
 function TkwEnQueryCardEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C531EBC72793_var*
-//#UC END# *551544E2001A_C531EBC72793_var*
 begin
-//#UC START# *551544E2001A_C531EBC72793_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C531EBC72793_impl*
+ Result := TypeInfo(TevQueryCardEditor);
 end;//TkwEnQueryCardEditor.GetResultTypeInfo
 
 function TkwEnQueryCardEditor.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -303,12 +299,8 @@ begin
 end;//TkwEnQueryCardTextSource.SetValuePrim
 
 function TkwEnQueryCardTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_88CF64489AF4_var*
-//#UC END# *551544E2001A_88CF64489AF4_var*
 begin
-//#UC START# *551544E2001A_88CF64489AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_88CF64489AF4_impl*
+ Result := TypeInfo(TevTextSource);
 end;//TkwEnQueryCardTextSource.GetResultTypeInfo
 
 function TkwEnQueryCardTextSource.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -157,12 +157,8 @@ begin
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B6E9E8EFCE95_var*
-//#UC END# *551544E2001A_B6E9E8EFCE95_var*
 begin
-//#UC START# *551544E2001A_B6E9E8EFCE95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B6E9E8EFCE95_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetResultTypeInfo
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -215,12 +211,8 @@ begin
 end;//TkwPopFormIsFloatingState.SetValuePrim
 
 function TkwPopFormIsFloatingState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E5D04ADC6C87_var*
-//#UC END# *551544E2001A_E5D04ADC6C87_var*
 begin
-//#UC START# *551544E2001A_E5D04ADC6C87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E5D04ADC6C87_impl*
+ Result := TypeInfo(Boolean);
 end;//TkwPopFormIsFloatingState.GetResultTypeInfo
 
 function TkwPopFormIsFloatingState.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -273,12 +265,8 @@ begin
 end;//TkwPopFormUserType.SetValuePrim
 
 function TkwPopFormUserType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_F96A7A339D27_var*
-//#UC END# *551544E2001A_F96A7A339D27_var*
 begin
-//#UC START# *551544E2001A_F96A7A339D27_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_F96A7A339D27_impl*
+ Result := TypeInfo(Integer);
 end;//TkwPopFormUserType.GetResultTypeInfo
 
 function TkwPopFormUserType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -331,12 +319,8 @@ begin
 end;//TkwPopFormFormID.SetValuePrim
 
 function TkwPopFormFormID.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B0B047C68F92_var*
-//#UC END# *551544E2001A_B0B047C68F92_var*
 begin
-//#UC START# *551544E2001A_B0B047C68F92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B0B047C68F92_impl*
+ Result := @tfw_tiString;
 end;//TkwPopFormFormID.GetResultTypeInfo
 
 function TkwPopFormFormID.GetAllParamsCount(const aCtx: TtfwContext): Integer;

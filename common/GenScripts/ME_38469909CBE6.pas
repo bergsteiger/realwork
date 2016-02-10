@@ -1051,12 +1051,8 @@ begin
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.SetValuePrim
 
 function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C91AEE657109_var*
-//#UC END# *551544E2001A_C91AEE657109_var*
 begin
-//#UC START# *551544E2001A_C91AEE657109_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C91AEE657109_impl*
+ Result := TypeInfo(TnscHideField);
 end;//TkwEnMedicMainMenuHfReferencesAndDictionaries.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfReferencesAndDictionaries.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1109,12 +1105,8 @@ begin
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.SetValuePrim
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_437CE9A2D1E0_var*
-//#UC END# *551544E2001A_437CE9A2D1E0_var*
 begin
-//#UC START# *551544E2001A_437CE9A2D1E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_437CE9A2D1E0_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnMedicMainMenuTvReferencesAndDictionaries.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvReferencesAndDictionaries.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1167,12 +1159,8 @@ begin
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.SetValuePrim
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_0B5AD3386AA9_var*
-//#UC END# *551544E2001A_0B5AD3386AA9_var*
 begin
-//#UC START# *551544E2001A_0B5AD3386AA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_0B5AD3386AA9_impl*
+ Result := TypeInfo(TnscHideField);
 end;//TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfReferencePharmaceuticalInformation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1225,12 +1213,8 @@ begin
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.SetValuePrim
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_723F1F7F4BC5_var*
-//#UC END# *551544E2001A_723F1F7F4BC5_var*
 begin
-//#UC START# *551544E2001A_723F1F7F4BC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_723F1F7F4BC5_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvReferencePharmaceuticalInformation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1283,12 +1267,8 @@ begin
 end;//TkwEnMedicMainMenuHfMainFeatures.SetValuePrim
 
 function TkwEnMedicMainMenuHfMainFeatures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6BE515CCE9E4_var*
-//#UC END# *551544E2001A_6BE515CCE9E4_var*
 begin
-//#UC START# *551544E2001A_6BE515CCE9E4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6BE515CCE9E4_impl*
+ Result := TypeInfo(TnscHideField);
 end;//TkwEnMedicMainMenuHfMainFeatures.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfMainFeatures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1341,12 +1321,8 @@ begin
 end;//TkwEnMedicMainMenuTvMainFeatures.SetValuePrim
 
 function TkwEnMedicMainMenuTvMainFeatures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_794F6F0CBB14_var*
-//#UC END# *551544E2001A_794F6F0CBB14_var*
 begin
-//#UC START# *551544E2001A_794F6F0CBB14_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_794F6F0CBB14_impl*
+ Result := TypeInfo(TnscTreeViewHotTruck);
 end;//TkwEnMedicMainMenuTvMainFeatures.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvMainFeatures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1399,12 +1375,8 @@ begin
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.SetValuePrim
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_10352C98F383_var*
-//#UC END# *551544E2001A_10352C98F383_var*
 begin
-//#UC START# *551544E2001A_10352C98F383_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_10352C98F383_impl*
+ Result := TypeInfo(TnscHideField);
 end;//TkwEnMedicMainMenuHfRegulatoryInformation.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfRegulatoryInformation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1457,12 +1429,8 @@ begin
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.SetValuePrim
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_88E38EE631AC_var*
-//#UC END# *551544E2001A_88E38EE631AC_var*
 begin
-//#UC START# *551544E2001A_88E38EE631AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_88E38EE631AC_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnMedicMainMenuTvRegulatoryInformation.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvRegulatoryInformation.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1515,12 +1483,8 @@ begin
 end;//TkwEnMedicMainMenuPnlMain.SetValuePrim
 
 function TkwEnMedicMainMenuPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3053DF0D7F26_var*
-//#UC END# *551544E2001A_3053DF0D7F26_var*
 begin
-//#UC START# *551544E2001A_3053DF0D7F26_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3053DF0D7F26_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnMedicMainMenuPnlMain.GetResultTypeInfo
 
 function TkwEnMedicMainMenuPnlMain.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1573,12 +1537,8 @@ begin
 end;//TkwEnMedicMainMenuHfLastOpenDocs.SetValuePrim
 
 function TkwEnMedicMainMenuHfLastOpenDocs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_56226AEAD4AE_var*
-//#UC END# *551544E2001A_56226AEAD4AE_var*
 begin
-//#UC START# *551544E2001A_56226AEAD4AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_56226AEAD4AE_impl*
+ Result := TypeInfo(TnscHideField);
 end;//TkwEnMedicMainMenuHfLastOpenDocs.GetResultTypeInfo
 
 function TkwEnMedicMainMenuHfLastOpenDocs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -1631,12 +1591,8 @@ begin
 end;//TkwEnMedicMainMenuTvLastOpenDocs.SetValuePrim
 
 function TkwEnMedicMainMenuTvLastOpenDocs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A599BAA66CFE_var*
-//#UC END# *551544E2001A_A599BAA66CFE_var*
 begin
-//#UC START# *551544E2001A_A599BAA66CFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A599BAA66CFE_impl*
+ Result := TypeInfo(TnscTreeViewHotTruck);
 end;//TkwEnMedicMainMenuTvLastOpenDocs.GetResultTypeInfo
 
 function TkwEnMedicMainMenuTvLastOpenDocs.GetAllParamsCount(const aCtx: TtfwContext): Integer;

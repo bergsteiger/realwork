@@ -360,12 +360,8 @@ begin
 end;//TkwEnCommonDictionBackgroundPanel.SetValuePrim
 
 function TkwEnCommonDictionBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_4988BB9A5265_var*
-//#UC END# *551544E2001A_4988BB9A5265_var*
 begin
-//#UC START# *551544E2001A_4988BB9A5265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_4988BB9A5265_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwEnCommonDictionBackgroundPanel.GetResultTypeInfo
 
 function TkwEnCommonDictionBackgroundPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -418,12 +414,8 @@ begin
 end;//TkwEnCommonDictionWordsTree.SetValuePrim
 
 function TkwEnCommonDictionWordsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_71793BC09F4D_var*
-//#UC END# *551544E2001A_71793BC09F4D_var*
 begin
-//#UC START# *551544E2001A_71793BC09F4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_71793BC09F4D_impl*
+ Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEnCommonDictionWordsTree.GetResultTypeInfo
 
 function TkwEnCommonDictionWordsTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -476,12 +468,8 @@ begin
 end;//TkwEnCommonDictionContextFilter.SetValuePrim
 
 function TkwEnCommonDictionContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_308467DC9822_var*
-//#UC END# *551544E2001A_308467DC9822_var*
 begin
-//#UC START# *551544E2001A_308467DC9822_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_308467DC9822_impl*
+ Result := TypeInfo(TnscContextFilter);
 end;//TkwEnCommonDictionContextFilter.GetResultTypeInfo
 
 function TkwEnCommonDictionContextFilter.GetAllParamsCount(const aCtx: TtfwContext): Integer;

@@ -186,12 +186,8 @@ begin
 end;//TkwWarningBaloonFormViewer.SetValuePrim
 
 function TkwWarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6B8C8DEE7B25_var*
-//#UC END# *551544E2001A_6B8C8DEE7B25_var*
 begin
-//#UC START# *551544E2001A_6B8C8DEE7B25_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6B8C8DEE7B25_impl*
+ Result := TypeInfo(TnscEditor);
 end;//TkwWarningBaloonFormViewer.GetResultTypeInfo
 
 function TkwWarningBaloonFormViewer.GetAllParamsCount(const aCtx: TtfwContext): Integer;

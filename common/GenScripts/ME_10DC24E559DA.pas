@@ -2087,12 +2087,8 @@ begin
 end;//TkwRegistrationFormPnMainData.SetValuePrim
 
 function TkwRegistrationFormPnMainData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1A10E9AEBA43_var*
-//#UC END# *551544E2001A_1A10E9AEBA43_var*
 begin
-//#UC START# *551544E2001A_1A10E9AEBA43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1A10E9AEBA43_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwRegistrationFormPnMainData.GetResultTypeInfo
 
 function TkwRegistrationFormPnMainData.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2145,12 +2141,8 @@ begin
 end;//TkwRegistrationFormUserNameLabel.SetValuePrim
 
 function TkwRegistrationFormUserNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A5B5D52669F4_var*
-//#UC END# *551544E2001A_A5B5D52669F4_var*
 begin
-//#UC START# *551544E2001A_A5B5D52669F4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A5B5D52669F4_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormUserNameLabel.GetResultTypeInfo
 
 function TkwRegistrationFormUserNameLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2203,12 +2195,8 @@ begin
 end;//TkwRegistrationFormPasswordLabel.SetValuePrim
 
 function TkwRegistrationFormPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_58A09B866C78_var*
-//#UC END# *551544E2001A_58A09B866C78_var*
 begin
-//#UC START# *551544E2001A_58A09B866C78_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_58A09B866C78_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormPasswordLabel.GetResultTypeInfo
 
 function TkwRegistrationFormPasswordLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2261,12 +2249,8 @@ begin
 end;//TkwRegistrationFormLoginLabel.SetValuePrim
 
 function TkwRegistrationFormLoginLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_451BDD615ADC_var*
-//#UC END# *551544E2001A_451BDD615ADC_var*
 begin
-//#UC START# *551544E2001A_451BDD615ADC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_451BDD615ADC_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormLoginLabel.GetResultTypeInfo
 
 function TkwRegistrationFormLoginLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2319,12 +2303,8 @@ begin
 end;//TkwRegistrationFormInfoLabel.SetValuePrim
 
 function TkwRegistrationFormInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_13CCC005A251_var*
-//#UC END# *551544E2001A_13CCC005A251_var*
 begin
-//#UC START# *551544E2001A_13CCC005A251_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_13CCC005A251_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormInfoLabel.GetResultTypeInfo
 
 function TkwRegistrationFormInfoLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2377,12 +2357,8 @@ begin
 end;//TkwRegistrationFormEMailLabel.SetValuePrim
 
 function TkwRegistrationFormEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_41F2E81350F8_var*
-//#UC END# *551544E2001A_41F2E81350F8_var*
 begin
-//#UC START# *551544E2001A_41F2E81350F8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_41F2E81350F8_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormEMailLabel.GetResultTypeInfo
 
 function TkwRegistrationFormEMailLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2435,12 +2411,8 @@ begin
 end;//TkwRegistrationFormConfirmPasswordLabel.SetValuePrim
 
 function TkwRegistrationFormConfirmPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_6D0F70C75AAF_var*
-//#UC END# *551544E2001A_6D0F70C75AAF_var*
 begin
-//#UC START# *551544E2001A_6D0F70C75AAF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_6D0F70C75AAF_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormConfirmPasswordLabel.GetResultTypeInfo
 
 function TkwRegistrationFormConfirmPasswordLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2493,12 +2465,8 @@ begin
 end;//TkwRegistrationFormVtAsteriskLabelLogin.SetValuePrim
 
 function TkwRegistrationFormVtAsteriskLabelLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E95C0F6A14A4_var*
-//#UC END# *551544E2001A_E95C0F6A14A4_var*
 begin
-//#UC START# *551544E2001A_E95C0F6A14A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E95C0F6A14A4_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormVtAsteriskLabelLogin.GetResultTypeInfo
 
 function TkwRegistrationFormVtAsteriskLabelLogin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2551,12 +2519,8 @@ begin
 end;//TkwRegistrationFormVtAsteriskLabelFIO.SetValuePrim
 
 function TkwRegistrationFormVtAsteriskLabelFIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E542C70674BF_var*
-//#UC END# *551544E2001A_E542C70674BF_var*
 begin
-//#UC START# *551544E2001A_E542C70674BF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E542C70674BF_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormVtAsteriskLabelFIO.GetResultTypeInfo
 
 function TkwRegistrationFormVtAsteriskLabelFIO.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2609,12 +2573,8 @@ begin
 end;//TkwRegistrationFormEdPassword.SetValuePrim
 
 function TkwRegistrationFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D63659BBAC99_var*
-//#UC END# *551544E2001A_D63659BBAC99_var*
 begin
-//#UC START# *551544E2001A_D63659BBAC99_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D63659BBAC99_impl*
+ Result := TypeInfo(TnscComboBoxWithPwdChar);
 end;//TkwRegistrationFormEdPassword.GetResultTypeInfo
 
 function TkwRegistrationFormEdPassword.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2667,12 +2627,8 @@ begin
 end;//TkwRegistrationFormEdUserName.SetValuePrim
 
 function TkwRegistrationFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_BDC847382D3B_var*
-//#UC END# *551544E2001A_BDC847382D3B_var*
 begin
-//#UC START# *551544E2001A_BDC847382D3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_BDC847382D3B_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwRegistrationFormEdUserName.GetResultTypeInfo
 
 function TkwRegistrationFormEdUserName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2725,12 +2681,8 @@ begin
 end;//TkwRegistrationFormEdLogin.SetValuePrim
 
 function TkwRegistrationFormEdLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_1308A99D2F27_var*
-//#UC END# *551544E2001A_1308A99D2F27_var*
 begin
-//#UC START# *551544E2001A_1308A99D2F27_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_1308A99D2F27_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwRegistrationFormEdLogin.GetResultTypeInfo
 
 function TkwRegistrationFormEdLogin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2783,12 +2735,8 @@ begin
 end;//TkwRegistrationFormEdEmail.SetValuePrim
 
 function TkwRegistrationFormEdEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_3A1034C7BFF8_var*
-//#UC END# *551544E2001A_3A1034C7BFF8_var*
 begin
-//#UC START# *551544E2001A_3A1034C7BFF8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_3A1034C7BFF8_impl*
+ Result := TypeInfo(TnscEdit);
 end;//TkwRegistrationFormEdEmail.GetResultTypeInfo
 
 function TkwRegistrationFormEdEmail.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2841,12 +2789,8 @@ begin
 end;//TkwRegistrationFormEdConfirm.SetValuePrim
 
 function TkwRegistrationFormEdConfirm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_307461130AED_var*
-//#UC END# *551544E2001A_307461130AED_var*
 begin
-//#UC START# *551544E2001A_307461130AED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_307461130AED_impl*
+ Result := TypeInfo(TnscComboBoxWithPwdChar);
 end;//TkwRegistrationFormEdConfirm.GetResultTypeInfo
 
 function TkwRegistrationFormEdConfirm.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2899,12 +2843,8 @@ begin
 end;//TkwRegistrationFormCbAutoLogin.SetValuePrim
 
 function TkwRegistrationFormCbAutoLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_A30C60824FC6_var*
-//#UC END# *551544E2001A_A30C60824FC6_var*
 begin
-//#UC START# *551544E2001A_A30C60824FC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_A30C60824FC6_impl*
+ Result := TypeInfo(TvtCheckBox);
 end;//TkwRegistrationFormCbAutoLogin.GetResultTypeInfo
 
 function TkwRegistrationFormCbAutoLogin.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -2957,12 +2897,8 @@ begin
 end;//TkwRegistrationFormNewUserGroupBox.SetValuePrim
 
 function TkwRegistrationFormNewUserGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_100B5EC5070E_var*
-//#UC END# *551544E2001A_100B5EC5070E_var*
 begin
-//#UC START# *551544E2001A_100B5EC5070E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_100B5EC5070E_impl*
+ Result := TypeInfo(TvtGroupBox);
 end;//TkwRegistrationFormNewUserGroupBox.GetResultTypeInfo
 
 function TkwRegistrationFormNewUserGroupBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3015,12 +2951,8 @@ begin
 end;//TkwRegistrationFormNewUserLabel.SetValuePrim
 
 function TkwRegistrationFormNewUserLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D6BA44D1C565_var*
-//#UC END# *551544E2001A_D6BA44D1C565_var*
 begin
-//#UC START# *551544E2001A_D6BA44D1C565_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D6BA44D1C565_impl*
+ Result := TypeInfo(TvtLabel);
 end;//TkwRegistrationFormNewUserLabel.GetResultTypeInfo
 
 function TkwRegistrationFormNewUserLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3073,12 +3005,8 @@ begin
 end;//TkwRegistrationFormNewUserPaintBox.SetValuePrim
 
 function TkwRegistrationFormNewUserPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_C04BD905F27B_var*
-//#UC END# *551544E2001A_C04BD905F27B_var*
 begin
-//#UC START# *551544E2001A_C04BD905F27B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_C04BD905F27B_impl*
+ Result := TypeInfo(TPaintBox);
 end;//TkwRegistrationFormNewUserPaintBox.GetResultTypeInfo
 
 function TkwRegistrationFormNewUserPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3131,12 +3059,8 @@ begin
 end;//TkwRegistrationFormBottomPanel.SetValuePrim
 
 function TkwRegistrationFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_833F89A1CEF3_var*
-//#UC END# *551544E2001A_833F89A1CEF3_var*
 begin
-//#UC START# *551544E2001A_833F89A1CEF3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_833F89A1CEF3_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwRegistrationFormBottomPanel.GetResultTypeInfo
 
 function TkwRegistrationFormBottomPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3189,12 +3113,8 @@ begin
 end;//TkwRegistrationFormRegisterButton.SetValuePrim
 
 function TkwRegistrationFormRegisterButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_CAEB8DB12C19_var*
-//#UC END# *551544E2001A_CAEB8DB12C19_var*
 begin
-//#UC START# *551544E2001A_CAEB8DB12C19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_CAEB8DB12C19_impl*
+ Result := TypeInfo(TElPopupButton);
 end;//TkwRegistrationFormRegisterButton.GetResultTypeInfo
 
 function TkwRegistrationFormRegisterButton.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3247,12 +3167,8 @@ begin
 end;//TkwRegistrationFormHelpPanel.SetValuePrim
 
 function TkwRegistrationFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_D7BEB7B1134E_var*
-//#UC END# *551544E2001A_D7BEB7B1134E_var*
 begin
-//#UC START# *551544E2001A_D7BEB7B1134E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_D7BEB7B1134E_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwRegistrationFormHelpPanel.GetResultTypeInfo
 
 function TkwRegistrationFormHelpPanel.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3305,12 +3221,8 @@ begin
 end;//TkwRegistrationFormHelpPaintBox.SetValuePrim
 
 function TkwRegistrationFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_B206BCC8759E_var*
-//#UC END# *551544E2001A_B206BCC8759E_var*
 begin
-//#UC START# *551544E2001A_B206BCC8759E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_B206BCC8759E_impl*
+ Result := TypeInfo(TPaintBox);
 end;//TkwRegistrationFormHelpPaintBox.GetResultTypeInfo
 
 function TkwRegistrationFormHelpPaintBox.GetAllParamsCount(const aCtx: TtfwContext): Integer;
@@ -3363,12 +3275,8 @@ begin
 end;//TkwRegistrationFormHelpLabel.SetValuePrim
 
 function TkwRegistrationFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_53C3571FB563_var*
-//#UC END# *551544E2001A_53C3571FB563_var*
 begin
-//#UC START# *551544E2001A_53C3571FB563_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_53C3571FB563_impl*
+ Result := TypeInfo(TvtFocusLabel);
 end;//TkwRegistrationFormHelpLabel.GetResultTypeInfo
 
 function TkwRegistrationFormHelpLabel.GetAllParamsCount(const aCtx: TtfwContext): Integer;

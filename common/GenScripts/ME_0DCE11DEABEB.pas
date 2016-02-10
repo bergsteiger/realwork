@@ -184,12 +184,8 @@ begin
 end;//TkwFromWithPanelFormWorkSpace.SetValuePrim
 
 function TkwFromWithPanelFormWorkSpace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-//#UC START# *551544E2001A_E583E346F779_var*
-//#UC END# *551544E2001A_E583E346F779_var*
 begin
-//#UC START# *551544E2001A_E583E346F779_impl*
- !!! Needs to be implemented !!!
-//#UC END# *551544E2001A_E583E346F779_impl*
+ Result := TypeInfo(TvtPanel);
 end;//TkwFromWithPanelFormWorkSpace.GetResultTypeInfo
 
 function TkwFromWithPanelFormWorkSpace.GetAllParamsCount(const aCtx: TtfwContext): Integer;
