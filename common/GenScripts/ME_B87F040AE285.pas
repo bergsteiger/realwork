@@ -351,12 +351,8 @@ end;//TkwContactListFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwContactListFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DAF37FC67167_var*
-//#UC END# *52D00B00031A_DAF37FC67167_var*
 begin
-//#UC START# *52D00B00031A_DAF37FC67167_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DAF37FC67167_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContactListFormBackgroundPanel.SetValuePrim
 
 function TkwContactListFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -370,12 +366,8 @@ begin
 end;//TkwContactListFormBackgroundPanel.GetAllParamsCount
 
 function TkwContactListFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DAF37FC67167_var*
-//#UC END# *5617F4D00243_DAF37FC67167_var*
 begin
-//#UC START# *5617F4D00243_DAF37FC67167_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DAF37FC67167_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContactListFormBackgroundPanel.ParamsTypes
 
 function TkwContactListFormContextFilter.ContextFilter(const aCtx: TtfwContext;
@@ -405,12 +397,8 @@ end;//TkwContactListFormContextFilter.GetWordNameForRegister
 
 procedure TkwContactListFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_141AC39E15DF_var*
-//#UC END# *52D00B00031A_141AC39E15DF_var*
 begin
-//#UC START# *52D00B00031A_141AC39E15DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_141AC39E15DF_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContactListFormContextFilter.SetValuePrim
 
 function TkwContactListFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -424,12 +412,8 @@ begin
 end;//TkwContactListFormContextFilter.GetAllParamsCount
 
 function TkwContactListFormContextFilter.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_141AC39E15DF_var*
-//#UC END# *5617F4D00243_141AC39E15DF_var*
 begin
-//#UC START# *5617F4D00243_141AC39E15DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_141AC39E15DF_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContactListFormContextFilter.ParamsTypes
 
 function TkwContactListFormTrContactList.trContactList(const aCtx: TtfwContext;
@@ -459,12 +443,8 @@ end;//TkwContactListFormTrContactList.GetWordNameForRegister
 
 procedure TkwContactListFormTrContactList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3B0FB738C178_var*
-//#UC END# *52D00B00031A_3B0FB738C178_var*
 begin
-//#UC START# *52D00B00031A_3B0FB738C178_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3B0FB738C178_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwContactListFormTrContactList.SetValuePrim
 
 function TkwContactListFormTrContactList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -478,12 +458,8 @@ begin
 end;//TkwContactListFormTrContactList.GetAllParamsCount
 
 function TkwContactListFormTrContactList.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3B0FB738C178_var*
-//#UC END# *5617F4D00243_3B0FB738C178_var*
 begin
-//#UC START# *5617F4D00243_3B0FB738C178_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3B0FB738C178_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwContactListFormTrContactList.ParamsTypes
 
 initialization

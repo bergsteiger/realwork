@@ -61,7 +61,7 @@ type
    procedure LoadSettings;
     {* загружает настройки для дерева. }
    function MakeCurrentPrimeName: IString;
-   procedure ChangeCaption;
+   procedure CheckAndChangeCaption(aCheckOnly: Boolean);
     {* передает дереву новое значение _Caption редактируемого узла. }
   protected
    function pm_GetRoot: Il3Node;
@@ -388,7 +388,7 @@ begin
 //#UC END# *52F9FD21020E_4ADEF93B0159_impl*
 end;//TnsPostingsTree.SaveXMLForServer
 
-procedure TnsPostingsTree.ChangeCaption;
+procedure TnsPostingsTree.CheckAndChangeCaption(aCheckOnly: Boolean);
  {* передает дереву новое значение _Caption редактируемого узла. }
 //#UC START# *52F9FD4D014F_4ADEF93B0159_var*
  function lp_GetNameIndex(const aName: Il3CString): Integer;
@@ -444,7 +444,7 @@ begin
   l_List := nil;
  end;//try..finally
 //#UC END# *52F9FD4D014F_4ADEF93B0159_impl*
-end;//TnsPostingsTree.ChangeCaption
+end;//TnsPostingsTree.CheckAndChangeCaption
 
 procedure TnsPostingsTree.DeletePosting(const aNode: IeeNode);
  {* удаляет рассылку из списка рассылок (одновременно на адаптере и дереве в оболочке). }

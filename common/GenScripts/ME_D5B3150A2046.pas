@@ -349,8 +349,8 @@ end;//TkwEditionsContainerFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEditionsContainerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEditionsContainerFormBackgroundPanel.SetValuePrim
 
 function TkwEditionsContainerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -395,8 +395,8 @@ end;//TkwEditionsContainerFormPnLeft.GetWordNameForRegister
 
 procedure TkwEditionsContainerFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEditionsContainerFormPnLeft.SetValuePrim
 
 function TkwEditionsContainerFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -441,8 +441,8 @@ end;//TkwEditionsContainerFormPnRight.GetWordNameForRegister
 
 procedure TkwEditionsContainerFormPnRight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_: ;
 begin
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEditionsContainerFormPnRight.SetValuePrim
 
 function TkwEditionsContainerFormPnRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
