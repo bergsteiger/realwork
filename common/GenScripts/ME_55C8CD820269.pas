@@ -83,12 +83,8 @@ begin
 end;//TkwPopTableConvParamDialogFake.GetAllParamsCount
 
 function TkwPopTableConvParamDialogFake.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0BE0E0D34519_var*
-//#UC END# *5617F4D00243_0BE0E0D34519_var*
 begin
-//#UC START# *5617F4D00243_0BE0E0D34519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0BE0E0D34519_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPopTableConvParamDialogFake.ParamsTypes
 
 initialization

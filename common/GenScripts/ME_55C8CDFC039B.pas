@@ -83,12 +83,8 @@ begin
 end;//TkwPopExprEditorFake.GetAllParamsCount
 
 function TkwPopExprEditorFake.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1C9135EF778B_var*
-//#UC END# *5617F4D00243_1C9135EF778B_var*
 begin
-//#UC START# *5617F4D00243_1C9135EF778B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1C9135EF778B_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPopExprEditorFake.ParamsTypes
 
 initialization

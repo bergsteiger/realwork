@@ -83,12 +83,8 @@ begin
 end;//TkwPopNewSubDlgFake.GetAllParamsCount
 
 function TkwPopNewSubDlgFake.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_744BF601F735_var*
-//#UC END# *5617F4D00243_744BF601F735_var*
 begin
-//#UC START# *5617F4D00243_744BF601F735_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_744BF601F735_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPopNewSubDlgFake.ParamsTypes
 
 initialization

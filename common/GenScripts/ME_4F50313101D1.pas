@@ -552,8 +552,28 @@ end;//TkwArrayItem.GetWordNameForRegister
 
 procedure TkwArrayItem.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Array: ItfwValueList;
+var l_anIndex: Integer;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+try
+ l_Array := aCtx.rEngine.PopList;
+except
+ on E: Exception do
+ begin
+  RunnerError('Ошибка при получении параметра Array: ItfwValueList : ' + E.Message, aCtx);
+  Exit;
+ end;//on E: Exception
+end;//try..except
+try
+ l_anIndex := aCtx.rEngine.PopInt;
+except
+ on E: Exception do
+ begin
+  RunnerError('Ошибка при получении параметра anIndex: Integer : ' + E.Message, aCtx);
+  Exit;
+ end;//on E: Exception
+end;//try..except
+DoSetValue(Array, l_anIndex, aValue);
 end;//TkwArrayItem.SetValuePrim
 
 function TkwArrayItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

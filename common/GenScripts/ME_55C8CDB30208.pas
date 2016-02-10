@@ -83,12 +83,8 @@ begin
 end;//TkwPopSpellCheckDlgFake.GetAllParamsCount
 
 function TkwPopSpellCheckDlgFake.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B3D7A1E7CA69_var*
-//#UC END# *5617F4D00243_B3D7A1E7CA69_var*
 begin
-//#UC START# *5617F4D00243_B3D7A1E7CA69_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B3D7A1E7CA69_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPopSpellCheckDlgFake.ParamsTypes
 
 initialization

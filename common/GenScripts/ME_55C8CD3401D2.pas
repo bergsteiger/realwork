@@ -84,12 +84,8 @@ begin
 end;//TkwPopTextSearchDlgFake.GetAllParamsCount
 
 function TkwPopTextSearchDlgFake.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2975C5F7A803_var*
-//#UC END# *5617F4D00243_2975C5F7A803_var*
 begin
-//#UC START# *5617F4D00243_2975C5F7A803_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2975C5F7A803_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPopTextSearchDlgFake.ParamsTypes
 
 initialization

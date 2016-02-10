@@ -86,8 +86,18 @@ end;//TkwPopRadioGroupItemIndex.GetWordNameForRegister
 
 procedure TkwPopRadioGroupItemIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RadioGroup: TRadioGroup;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ItemIndex', aCtx);
+try
+ l_RadioGroup := TRadioGroup(aCtx.rEngine.PopObjAs(TRadioGroup));
+except
+ on E: Exception do
+ begin
+  RunnerError('Ошибка при получении параметра RadioGroup: TRadioGroup : ' + E.Message, aCtx);
+  Exit;
+ end;//on E: Exception
+end;//try..except
+DoSetValue(RadioGroup, aValue);
 end;//TkwPopRadioGroupItemIndex.SetValuePrim
 
 function TkwPopRadioGroupItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

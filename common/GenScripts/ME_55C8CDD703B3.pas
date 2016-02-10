@@ -83,12 +83,8 @@ begin
 end;//TkwPopPicSizeEditDlgFake.GetAllParamsCount
 
 function TkwPopPicSizeEditDlgFake.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DF6A0ECD8244_var*
-//#UC END# *5617F4D00243_DF6A0ECD8244_var*
 begin
-//#UC START# *5617F4D00243_DF6A0ECD8244_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DF6A0ECD8244_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwPopPicSizeEditDlgFake.ParamsTypes
 
 initialization

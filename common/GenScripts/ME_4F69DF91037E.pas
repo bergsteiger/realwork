@@ -1420,8 +1420,18 @@ end;//TkwPopControlColor.GetWordNameForRegister
 
 procedure TkwPopControlColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Color', aCtx);
+try
+ l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+except
+ on E: Exception do
+ begin
+  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+  Exit;
+ end;//on E: Exception
+end;//try..except
+DoSetValue(Control, aValue);
 end;//TkwPopControlColor.SetValuePrim
 
 function TkwPopControlColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1784,8 +1794,18 @@ end;//TkwPopControlTop.GetWordNameForRegister
 
 procedure TkwPopControlTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Top', aCtx);
+try
+ l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+except
+ on E: Exception do
+ begin
+  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+  Exit;
+ end;//on E: Exception
+end;//try..except
+DoSetValue(Control, aValue);
 end;//TkwPopControlTop.SetValuePrim
 
 function TkwPopControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1836,8 +1856,18 @@ end;//TkwPopControlLeft.GetWordNameForRegister
 
 procedure TkwPopControlLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Left', aCtx);
+try
+ l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+except
+ on E: Exception do
+ begin
+  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+  Exit;
+ end;//on E: Exception
+end;//try..except
+DoSetValue(Control, aValue);
 end;//TkwPopControlLeft.SetValuePrim
 
 function TkwPopControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1888,8 +1918,18 @@ end;//TkwPopControlHeight.GetWordNameForRegister
 
 procedure TkwPopControlHeight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Height', aCtx);
+try
+ l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+except
+ on E: Exception do
+ begin
+  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+  Exit;
+ end;//on E: Exception
+end;//try..except
+DoSetValue(Control, aValue);
 end;//TkwPopControlHeight.SetValuePrim
 
 function TkwPopControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1940,8 +1980,18 @@ end;//TkwPopControlWidth.GetWordNameForRegister
 
 procedure TkwPopControlWidth.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Control: TControl;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству Width', aCtx);
+try
+ l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+except
+ on E: Exception do
+ begin
+  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+  Exit;
+ end;//on E: Exception
+end;//try..except
+DoSetValue(Control, aValue);
 end;//TkwPopControlWidth.SetValuePrim
 
 function TkwPopControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
