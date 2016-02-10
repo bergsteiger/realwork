@@ -1422,16 +1422,16 @@ procedure TkwPopControlColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Control: TControl;
 begin
-try
- l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
-except
- on E: Exception do
- begin
-  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-  Exit;
- end;//on E: Exception
-end;//try..except
-DoSetValue(Control, aValue);
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Control, aValue);
 end;//TkwPopControlColor.SetValuePrim
 
 function TkwPopControlColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1796,16 +1796,16 @@ procedure TkwPopControlTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Control: TControl;
 begin
-try
- l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
-except
- on E: Exception do
- begin
-  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-  Exit;
- end;//on E: Exception
-end;//try..except
-DoSetValue(Control, aValue);
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Control, aValue);
 end;//TkwPopControlTop.SetValuePrim
 
 function TkwPopControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1858,16 +1858,16 @@ procedure TkwPopControlLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Control: TControl;
 begin
-try
- l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
-except
- on E: Exception do
- begin
-  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-  Exit;
- end;//on E: Exception
-end;//try..except
-DoSetValue(Control, aValue);
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Control, aValue);
 end;//TkwPopControlLeft.SetValuePrim
 
 function TkwPopControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1920,16 +1920,16 @@ procedure TkwPopControlHeight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Control: TControl;
 begin
-try
- l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
-except
- on E: Exception do
- begin
-  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-  Exit;
- end;//on E: Exception
-end;//try..except
-DoSetValue(Control, aValue);
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Control, aValue);
 end;//TkwPopControlHeight.SetValuePrim
 
 function TkwPopControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1982,16 +1982,16 @@ procedure TkwPopControlWidth.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
 var l_Control: TControl;
 begin
-try
- l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
-except
- on E: Exception do
- begin
-  RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
-  Exit;
- end;//on E: Exception
-end;//try..except
-DoSetValue(Control, aValue);
+ try
+  l_Control := TControl(aCtx.rEngine.PopObjAs(TControl));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Control: TControl : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Control, aValue);
 end;//TkwPopControlWidth.SetValuePrim
 
 function TkwPopControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
