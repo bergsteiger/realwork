@@ -3365,12 +3365,18 @@ begin
 end;//TkwCustomizeTasksPanelFormSpRight.spRight
 
 procedure TkwCustomizeTasksPanelFormSpRight.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F7EFDD0A0622_var*
-//#UC END# *4DAEEDE10285_F7EFDD0A0622_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_F7EFDD0A0622_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F7EFDD0A0622_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(spRight(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormSpRight.DoDoIt
 
 class function TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister: AnsiString;
@@ -3380,12 +3386,8 @@ end;//TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormSpRight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F7EFDD0A0622_var*
-//#UC END# *52D00B00031A_F7EFDD0A0622_var*
 begin
-//#UC START# *52D00B00031A_F7EFDD0A0622_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F7EFDD0A0622_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormSpRight.SetValuePrim
 
 function TkwCustomizeTasksPanelFormSpRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3399,12 +3401,8 @@ begin
 end;//TkwCustomizeTasksPanelFormSpRight.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormSpRight.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F7EFDD0A0622_var*
-//#UC END# *5617F4D00243_F7EFDD0A0622_var*
 begin
-//#UC START# *5617F4D00243_F7EFDD0A0622_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F7EFDD0A0622_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormSpRight.ParamsTypes
 
 function TkwCustomizeTasksPanelFormPnlBottom.pnlBottom(const aCtx: TtfwContext;
@@ -3419,12 +3417,18 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlBottom.pnlBottom
 
 procedure TkwCustomizeTasksPanelFormPnlBottom.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_30A77B945B54_var*
-//#UC END# *4DAEEDE10285_30A77B945B54_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_30A77B945B54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_30A77B945B54_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlBottom(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlBottom.DoDoIt
 
 class function TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister: AnsiString;
@@ -3434,12 +3438,8 @@ end;//TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_30A77B945B54_var*
-//#UC END# *52D00B00031A_30A77B945B54_var*
 begin
-//#UC START# *52D00B00031A_30A77B945B54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_30A77B945B54_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3453,12 +3453,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlBottom.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlBottom.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_30A77B945B54_var*
-//#UC END# *5617F4D00243_30A77B945B54_var*
 begin
-//#UC START# *5617F4D00243_30A77B945B54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_30A77B945B54_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlBottom.ParamsTypes
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.lblConfirmSave(const aCtx: TtfwContext;
@@ -3473,12 +3469,18 @@ begin
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.lblConfirmSave
 
 procedure TkwCustomizeTasksPanelFormLblConfirmSave.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_830FC77EF285_var*
-//#UC END# *4DAEEDE10285_830FC77EF285_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_830FC77EF285_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_830FC77EF285_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblConfirmSave(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.DoDoIt
 
 class function TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister: AnsiString;
@@ -3488,12 +3490,8 @@ end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_830FC77EF285_var*
-//#UC END# *52D00B00031A_830FC77EF285_var*
 begin
-//#UC START# *52D00B00031A_830FC77EF285_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_830FC77EF285_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3507,12 +3505,8 @@ begin
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_830FC77EF285_var*
-//#UC END# *5617F4D00243_830FC77EF285_var*
 begin
-//#UC START# *5617F4D00243_830FC77EF285_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_830FC77EF285_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.ParamsTypes
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.lblAvailableOpsCaption(const aCtx: TtfwContext;
@@ -3527,12 +3521,18 @@ begin
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.lblAvailableOpsCaption
 
 procedure TkwCustomizeTasksPanelFormLblAvailableOpsCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C6FF95C2A3CB_var*
-//#UC END# *4DAEEDE10285_C6FF95C2A3CB_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_C6FF95C2A3CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C6FF95C2A3CB_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblAvailableOpsCaption(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.DoDoIt
 
 class function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister: AnsiString;
@@ -3542,12 +3542,8 @@ end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C6FF95C2A3CB_var*
-//#UC END# *52D00B00031A_C6FF95C2A3CB_var*
 begin
-//#UC START# *52D00B00031A_C6FF95C2A3CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C6FF95C2A3CB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3561,12 +3557,8 @@ begin
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C6FF95C2A3CB_var*
-//#UC END# *5617F4D00243_C6FF95C2A3CB_var*
 begin
-//#UC START# *5617F4D00243_C6FF95C2A3CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C6FF95C2A3CB_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtOk.btOk(const aCtx: TtfwContext;
@@ -3581,12 +3573,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtOk.btOk
 
 procedure TkwCustomizeTasksPanelFormBtOk.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F707F1CC5E90_var*
-//#UC END# *4DAEEDE10285_F707F1CC5E90_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_F707F1CC5E90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F707F1CC5E90_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btOk(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtOk.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister: AnsiString;
@@ -3596,12 +3594,8 @@ end;//TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F707F1CC5E90_var*
-//#UC END# *52D00B00031A_F707F1CC5E90_var*
 begin
-//#UC START# *52D00B00031A_F707F1CC5E90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F707F1CC5E90_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtOk.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3615,12 +3609,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtOk.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtOk.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F707F1CC5E90_var*
-//#UC END# *5617F4D00243_F707F1CC5E90_var*
 begin
-//#UC START# *5617F4D00243_F707F1CC5E90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F707F1CC5E90_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtOk.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtCancel.btCancel(const aCtx: TtfwContext;
@@ -3635,12 +3625,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtCancel.btCancel
 
 procedure TkwCustomizeTasksPanelFormBtCancel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8EDCD0E495D1_var*
-//#UC END# *4DAEEDE10285_8EDCD0E495D1_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_8EDCD0E495D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8EDCD0E495D1_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btCancel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtCancel.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister: AnsiString;
@@ -3650,12 +3646,8 @@ end;//TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8EDCD0E495D1_var*
-//#UC END# *52D00B00031A_8EDCD0E495D1_var*
 begin
-//#UC START# *52D00B00031A_8EDCD0E495D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8EDCD0E495D1_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtCancel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3669,12 +3661,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtCancel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtCancel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8EDCD0E495D1_var*
-//#UC END# *5617F4D00243_8EDCD0E495D1_var*
 begin
-//#UC START# *5617F4D00243_8EDCD0E495D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8EDCD0E495D1_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtCancel.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtApply.btApply(const aCtx: TtfwContext;
@@ -3689,12 +3677,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtApply.btApply
 
 procedure TkwCustomizeTasksPanelFormBtApply.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BDD28480233F_var*
-//#UC END# *4DAEEDE10285_BDD28480233F_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_BDD28480233F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BDD28480233F_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btApply(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtApply.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister: AnsiString;
@@ -3704,12 +3698,8 @@ end;//TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtApply.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BDD28480233F_var*
-//#UC END# *52D00B00031A_BDD28480233F_var*
 begin
-//#UC START# *52D00B00031A_BDD28480233F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BDD28480233F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtApply.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtApply.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3723,12 +3713,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtApply.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtApply.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_BDD28480233F_var*
-//#UC END# *5617F4D00243_BDD28480233F_var*
 begin
-//#UC START# *5617F4D00243_BDD28480233F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_BDD28480233F_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtApply.ParamsTypes
 
 function TkwCustomizeTasksPanelFormPnlRep.pnlRep(const aCtx: TtfwContext;
@@ -3743,12 +3729,18 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlRep.pnlRep
 
 procedure TkwCustomizeTasksPanelFormPnlRep.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3A63DD696AA2_var*
-//#UC END# *4DAEEDE10285_3A63DD696AA2_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_3A63DD696AA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3A63DD696AA2_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlRep.DoDoIt
 
 class function TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister: AnsiString;
@@ -3758,12 +3750,8 @@ end;//TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3A63DD696AA2_var*
-//#UC END# *52D00B00031A_3A63DD696AA2_var*
 begin
-//#UC START# *52D00B00031A_3A63DD696AA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3A63DD696AA2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormPnlRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3777,12 +3765,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlRep.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlRep.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3A63DD696AA2_var*
-//#UC END# *5617F4D00243_3A63DD696AA2_var*
 begin
-//#UC START# *5617F4D00243_3A63DD696AA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3A63DD696AA2_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlRep.ParamsTypes
 
 function TkwCustomizeTasksPanelFormSplRep.splRep(const aCtx: TtfwContext;
@@ -3797,12 +3781,18 @@ begin
 end;//TkwCustomizeTasksPanelFormSplRep.splRep
 
 procedure TkwCustomizeTasksPanelFormSplRep.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_32B42EEEDDA8_var*
-//#UC END# *4DAEEDE10285_32B42EEEDDA8_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_32B42EEEDDA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_32B42EEEDDA8_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(splRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormSplRep.DoDoIt
 
 class function TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister: AnsiString;
@@ -3812,12 +3802,8 @@ end;//TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormSplRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_32B42EEEDDA8_var*
-//#UC END# *52D00B00031A_32B42EEEDDA8_var*
 begin
-//#UC START# *52D00B00031A_32B42EEEDDA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_32B42EEEDDA8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormSplRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormSplRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3831,12 +3817,8 @@ begin
 end;//TkwCustomizeTasksPanelFormSplRep.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormSplRep.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_32B42EEEDDA8_var*
-//#UC END# *5617F4D00243_32B42EEEDDA8_var*
 begin
-//#UC START# *5617F4D00243_32B42EEEDDA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_32B42EEEDDA8_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormSplRep.ParamsTypes
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.gbAvailableGroups(const aCtx: TtfwContext;
@@ -3851,12 +3833,18 @@ begin
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.gbAvailableGroups
 
 procedure TkwCustomizeTasksPanelFormGbAvailableGroups.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_69860393305E_var*
-//#UC END# *4DAEEDE10285_69860393305E_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_69860393305E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_69860393305E_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(gbAvailableGroups(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.DoDoIt
 
 class function TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister: AnsiString;
@@ -3866,12 +3854,8 @@ end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_69860393305E_var*
-//#UC END# *52D00B00031A_69860393305E_var*
 begin
-//#UC START# *52D00B00031A_69860393305E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_69860393305E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3885,12 +3869,8 @@ begin
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_69860393305E_var*
-//#UC END# *5617F4D00243_69860393305E_var*
 begin
-//#UC START# *5617F4D00243_69860393305E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_69860393305E_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.ParamsTypes
 
 function TkwCustomizeTasksPanelFormTvRepGroups.tvRepGroups(const aCtx: TtfwContext;
@@ -3905,12 +3885,18 @@ begin
 end;//TkwCustomizeTasksPanelFormTvRepGroups.tvRepGroups
 
 procedure TkwCustomizeTasksPanelFormTvRepGroups.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_986ABA2A8C16_var*
-//#UC END# *4DAEEDE10285_986ABA2A8C16_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_986ABA2A8C16_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_986ABA2A8C16_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvRepGroups(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvRepGroups.DoDoIt
 
 class function TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister: AnsiString;
@@ -3920,12 +3906,8 @@ end;//TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_986ABA2A8C16_var*
-//#UC END# *52D00B00031A_986ABA2A8C16_var*
 begin
-//#UC START# *52D00B00031A_986ABA2A8C16_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_986ABA2A8C16_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvRepGroups.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3939,12 +3921,8 @@ begin
 end;//TkwCustomizeTasksPanelFormTvRepGroups.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormTvRepGroups.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_986ABA2A8C16_var*
-//#UC END# *5617F4D00243_986ABA2A8C16_var*
 begin
-//#UC START# *5617F4D00243_986ABA2A8C16_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_986ABA2A8C16_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvRepGroups.ParamsTypes
 
 function TkwCustomizeTasksPanelFormVtPanel1.vtPanel1(const aCtx: TtfwContext;
@@ -3959,12 +3937,18 @@ begin
 end;//TkwCustomizeTasksPanelFormVtPanel1.vtPanel1
 
 procedure TkwCustomizeTasksPanelFormVtPanel1.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_30C7717A0A01_var*
-//#UC END# *4DAEEDE10285_30C7717A0A01_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_30C7717A0A01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_30C7717A0A01_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(vtPanel1(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormVtPanel1.DoDoIt
 
 class function TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister: AnsiString;
@@ -3974,12 +3958,8 @@ end;//TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_30C7717A0A01_var*
-//#UC END# *52D00B00031A_30C7717A0A01_var*
 begin
-//#UC START# *52D00B00031A_30C7717A0A01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_30C7717A0A01_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim
 
 function TkwCustomizeTasksPanelFormVtPanel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3993,12 +3973,8 @@ begin
 end;//TkwCustomizeTasksPanelFormVtPanel1.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormVtPanel1.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_30C7717A0A01_var*
-//#UC END# *5617F4D00243_30C7717A0A01_var*
 begin
-//#UC START# *5617F4D00243_30C7717A0A01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_30C7717A0A01_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormVtPanel1.ParamsTypes
 
 function TkwCustomizeTasksPanelFormCbGroupName.cbGroupName(const aCtx: TtfwContext;
@@ -4013,12 +3989,18 @@ begin
 end;//TkwCustomizeTasksPanelFormCbGroupName.cbGroupName
 
 procedure TkwCustomizeTasksPanelFormCbGroupName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9949328605B2_var*
-//#UC END# *4DAEEDE10285_9949328605B2_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_9949328605B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9949328605B2_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbGroupName(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbGroupName.DoDoIt
 
 class function TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister: AnsiString;
@@ -4028,12 +4010,8 @@ end;//TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9949328605B2_var*
-//#UC END# *52D00B00031A_9949328605B2_var*
 begin
-//#UC START# *52D00B00031A_9949328605B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9949328605B2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbGroupName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4047,12 +4025,8 @@ begin
 end;//TkwCustomizeTasksPanelFormCbGroupName.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormCbGroupName.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9949328605B2_var*
-//#UC END# *5617F4D00243_9949328605B2_var*
 begin
-//#UC START# *5617F4D00243_9949328605B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9949328605B2_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbGroupName.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.btnAddGroup(const aCtx: TtfwContext;
@@ -4067,12 +4041,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.btnAddGroup
 
 procedure TkwCustomizeTasksPanelFormBtnAddGroup.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C2C53273FCEF_var*
-//#UC END# *4DAEEDE10285_C2C53273FCEF_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_C2C53273FCEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C2C53273FCEF_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnAddGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister: AnsiString;
@@ -4082,12 +4062,8 @@ end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C2C53273FCEF_var*
-//#UC END# *52D00B00031A_C2C53273FCEF_var*
 begin
-//#UC START# *52D00B00031A_C2C53273FCEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C2C53273FCEF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4101,12 +4077,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C2C53273FCEF_var*
-//#UC END# *5617F4D00243_C2C53273FCEF_var*
 begin
-//#UC START# *5617F4D00243_C2C53273FCEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C2C53273FCEF_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.btnChangeGroup(const aCtx: TtfwContext;
@@ -4121,12 +4093,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.btnChangeGroup
 
 procedure TkwCustomizeTasksPanelFormBtnChangeGroup.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_10B158D87985_var*
-//#UC END# *4DAEEDE10285_10B158D87985_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_10B158D87985_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_10B158D87985_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnChangeGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister: AnsiString;
@@ -4136,12 +4114,8 @@ end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_10B158D87985_var*
-//#UC END# *52D00B00031A_10B158D87985_var*
 begin
-//#UC START# *52D00B00031A_10B158D87985_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_10B158D87985_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4155,12 +4129,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_10B158D87985_var*
-//#UC END# *5617F4D00243_10B158D87985_var*
 begin
-//#UC START# *5617F4D00243_10B158D87985_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_10B158D87985_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.btnDeleteGroup(const aCtx: TtfwContext;
@@ -4175,12 +4145,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.btnDeleteGroup
 
 procedure TkwCustomizeTasksPanelFormBtnDeleteGroup.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_96E949C9C123_var*
-//#UC END# *4DAEEDE10285_96E949C9C123_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_96E949C9C123_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_96E949C9C123_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnDeleteGroup(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister: AnsiString;
@@ -4190,12 +4166,8 @@ end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_96E949C9C123_var*
-//#UC END# *52D00B00031A_96E949C9C123_var*
 begin
-//#UC START# *52D00B00031A_96E949C9C123_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_96E949C9C123_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4209,12 +4181,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_96E949C9C123_var*
-//#UC END# *5617F4D00243_96E949C9C123_var*
 begin
-//#UC START# *5617F4D00243_96E949C9C123_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_96E949C9C123_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.ParamsTypes
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.gbAvailableOperations(const aCtx: TtfwContext;
@@ -4229,12 +4197,18 @@ begin
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.gbAvailableOperations
 
 procedure TkwCustomizeTasksPanelFormGbAvailableOperations.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6FC654DB8656_var*
-//#UC END# *4DAEEDE10285_6FC654DB8656_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_6FC654DB8656_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6FC654DB8656_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(gbAvailableOperations(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.DoDoIt
 
 class function TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister: AnsiString;
@@ -4244,12 +4218,8 @@ end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6FC654DB8656_var*
-//#UC END# *52D00B00031A_6FC654DB8656_var*
 begin
-//#UC START# *52D00B00031A_6FC654DB8656_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6FC654DB8656_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4263,12 +4233,8 @@ begin
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6FC654DB8656_var*
-//#UC END# *5617F4D00243_6FC654DB8656_var*
 begin
-//#UC START# *5617F4D00243_6FC654DB8656_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6FC654DB8656_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.ParamsTypes
 
 function TkwCustomizeTasksPanelFormTvRepOps.tvRepOps(const aCtx: TtfwContext;
@@ -4283,12 +4249,18 @@ begin
 end;//TkwCustomizeTasksPanelFormTvRepOps.tvRepOps
 
 procedure TkwCustomizeTasksPanelFormTvRepOps.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A38BA9C74BE4_var*
-//#UC END# *4DAEEDE10285_A38BA9C74BE4_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_A38BA9C74BE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A38BA9C74BE4_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvRepOps(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvRepOps.DoDoIt
 
 class function TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister: AnsiString;
@@ -4298,12 +4270,8 @@ end;//TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A38BA9C74BE4_var*
-//#UC END# *52D00B00031A_A38BA9C74BE4_var*
 begin
-//#UC START# *52D00B00031A_A38BA9C74BE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A38BA9C74BE4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvRepOps.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4317,12 +4285,8 @@ begin
 end;//TkwCustomizeTasksPanelFormTvRepOps.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormTvRepOps.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A38BA9C74BE4_var*
-//#UC END# *5617F4D00243_A38BA9C74BE4_var*
 begin
-//#UC START# *5617F4D00243_A38BA9C74BE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A38BA9C74BE4_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvRepOps.ParamsTypes
 
 function TkwCustomizeTasksPanelFormPnlForms.pnlForms(const aCtx: TtfwContext;
@@ -4337,12 +4301,18 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlForms.pnlForms
 
 procedure TkwCustomizeTasksPanelFormPnlForms.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_98A522EB9B72_var*
-//#UC END# *4DAEEDE10285_98A522EB9B72_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_98A522EB9B72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_98A522EB9B72_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlForms.DoDoIt
 
 class function TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister: AnsiString;
@@ -4352,12 +4322,8 @@ end;//TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_98A522EB9B72_var*
-//#UC END# *52D00B00031A_98A522EB9B72_var*
 begin
-//#UC START# *52D00B00031A_98A522EB9B72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_98A522EB9B72_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormPnlForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4371,12 +4337,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlForms.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlForms.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_98A522EB9B72_var*
-//#UC END# *5617F4D00243_98A522EB9B72_var*
 begin
-//#UC START# *5617F4D00243_98A522EB9B72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_98A522EB9B72_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlForms.ParamsTypes
 
 function TkwCustomizeTasksPanelFormLblForms.lblForms(const aCtx: TtfwContext;
@@ -4391,12 +4353,18 @@ begin
 end;//TkwCustomizeTasksPanelFormLblForms.lblForms
 
 procedure TkwCustomizeTasksPanelFormLblForms.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7897D9940B95_var*
-//#UC END# *4DAEEDE10285_7897D9940B95_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_7897D9940B95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7897D9940B95_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblForms.DoDoIt
 
 class function TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister: AnsiString;
@@ -4406,12 +4374,8 @@ end;//TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormLblForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7897D9940B95_var*
-//#UC END# *52D00B00031A_7897D9940B95_var*
 begin
-//#UC START# *52D00B00031A_7897D9940B95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7897D9940B95_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormLblForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4425,12 +4389,8 @@ begin
 end;//TkwCustomizeTasksPanelFormLblForms.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormLblForms.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7897D9940B95_var*
-//#UC END# *5617F4D00243_7897D9940B95_var*
 begin
-//#UC START# *5617F4D00243_7897D9940B95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7897D9940B95_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblForms.ParamsTypes
 
 function TkwCustomizeTasksPanelFormCbForms.cbForms(const aCtx: TtfwContext;
@@ -4445,12 +4405,18 @@ begin
 end;//TkwCustomizeTasksPanelFormCbForms.cbForms
 
 procedure TkwCustomizeTasksPanelFormCbForms.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1A3E1FD39C35_var*
-//#UC END# *4DAEEDE10285_1A3E1FD39C35_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_1A3E1FD39C35_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1A3E1FD39C35_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbForms(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbForms.DoDoIt
 
 class function TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister: AnsiString;
@@ -4460,12 +4426,8 @@ end;//TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormCbForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1A3E1FD39C35_var*
-//#UC END# *52D00B00031A_1A3E1FD39C35_var*
 begin
-//#UC START# *52D00B00031A_1A3E1FD39C35_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1A3E1FD39C35_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormCbForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4479,12 +4441,8 @@ begin
 end;//TkwCustomizeTasksPanelFormCbForms.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormCbForms.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1A3E1FD39C35_var*
-//#UC END# *5617F4D00243_1A3E1FD39C35_var*
 begin
-//#UC START# *5617F4D00243_1A3E1FD39C35_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1A3E1FD39C35_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbForms.ParamsTypes
 
 function TkwCustomizeTasksPanelFormPnlMain.pnlMain(const aCtx: TtfwContext;
@@ -4499,12 +4457,18 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlMain.pnlMain
 
 procedure TkwCustomizeTasksPanelFormPnlMain.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0C210ABBA2B3_var*
-//#UC END# *4DAEEDE10285_0C210ABBA2B3_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_0C210ABBA2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0C210ABBA2B3_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlMain(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlMain.DoDoIt
 
 class function TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister: AnsiString;
@@ -4514,12 +4478,8 @@ end;//TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0C210ABBA2B3_var*
-//#UC END# *52D00B00031A_0C210ABBA2B3_var*
 begin
-//#UC START# *52D00B00031A_0C210ABBA2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0C210ABBA2B3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormPnlMain.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4533,12 +4493,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlMain.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlMain.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0C210ABBA2B3_var*
-//#UC END# *5617F4D00243_0C210ABBA2B3_var*
 begin
-//#UC START# *5617F4D00243_0C210ABBA2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0C210ABBA2B3_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlMain.ParamsTypes
 
 function TkwCustomizeTasksPanelFormPnlLeft.pnlLeft(const aCtx: TtfwContext;
@@ -4553,12 +4509,18 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlLeft.pnlLeft
 
 procedure TkwCustomizeTasksPanelFormPnlLeft.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7437A67D8F04_var*
-//#UC END# *4DAEEDE10285_7437A67D8F04_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_7437A67D8F04_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7437A67D8F04_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlLeft(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlLeft.DoDoIt
 
 class function TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister: AnsiString;
@@ -4568,12 +4530,8 @@ end;//TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7437A67D8F04_var*
-//#UC END# *52D00B00031A_7437A67D8F04_var*
 begin
-//#UC START# *52D00B00031A_7437A67D8F04_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7437A67D8F04_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4587,12 +4545,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlLeft.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlLeft.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7437A67D8F04_var*
-//#UC END# *5617F4D00243_7437A67D8F04_var*
 begin
-//#UC START# *5617F4D00243_7437A67D8F04_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7437A67D8F04_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlLeft.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.btnMoveOpToPanel(const aCtx: TtfwContext;
@@ -4607,12 +4561,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.btnMoveOpToPanel
 
 procedure TkwCustomizeTasksPanelFormBtnMoveOpToPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_18FC0FBEC908_var*
-//#UC END# *4DAEEDE10285_18FC0FBEC908_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_18FC0FBEC908_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_18FC0FBEC908_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnMoveOpToPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister: AnsiString;
@@ -4622,12 +4582,8 @@ end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_18FC0FBEC908_var*
-//#UC END# *52D00B00031A_18FC0FBEC908_var*
 begin
-//#UC START# *52D00B00031A_18FC0FBEC908_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_18FC0FBEC908_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4641,12 +4597,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_18FC0FBEC908_var*
-//#UC END# *5617F4D00243_18FC0FBEC908_var*
 begin
-//#UC START# *5617F4D00243_18FC0FBEC908_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_18FC0FBEC908_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.btnMoveOpToRep(const aCtx: TtfwContext;
@@ -4661,12 +4613,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.btnMoveOpToRep
 
 procedure TkwCustomizeTasksPanelFormBtnMoveOpToRep.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_43465A2C4EA5_var*
-//#UC END# *4DAEEDE10285_43465A2C4EA5_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_43465A2C4EA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_43465A2C4EA5_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnMoveOpToRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister: AnsiString;
@@ -4676,12 +4634,8 @@ end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_43465A2C4EA5_var*
-//#UC END# *52D00B00031A_43465A2C4EA5_var*
 begin
-//#UC START# *52D00B00031A_43465A2C4EA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_43465A2C4EA5_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4695,12 +4649,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_43465A2C4EA5_var*
-//#UC END# *5617F4D00243_43465A2C4EA5_var*
 begin
-//#UC START# *5617F4D00243_43465A2C4EA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_43465A2C4EA5_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.btnMoveGroupToPanel(const aCtx: TtfwContext;
@@ -4715,12 +4665,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.btnMoveGroupToPanel
 
 procedure TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AFBC0E97D4D0_var*
-//#UC END# *4DAEEDE10285_AFBC0E97D4D0_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_AFBC0E97D4D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AFBC0E97D4D0_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnMoveGroupToPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister: AnsiString;
@@ -4730,12 +4686,8 @@ end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AFBC0E97D4D0_var*
-//#UC END# *52D00B00031A_AFBC0E97D4D0_var*
 begin
-//#UC START# *52D00B00031A_AFBC0E97D4D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AFBC0E97D4D0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4749,12 +4701,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AFBC0E97D4D0_var*
-//#UC END# *5617F4D00243_AFBC0E97D4D0_var*
 begin
-//#UC START# *5617F4D00243_AFBC0E97D4D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AFBC0E97D4D0_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.btnMoveGroupToRep(const aCtx: TtfwContext;
@@ -4769,12 +4717,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.btnMoveGroupToRep
 
 procedure TkwCustomizeTasksPanelFormBtnMoveGroupToRep.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EF74613C5669_var*
-//#UC END# *4DAEEDE10285_EF74613C5669_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_EF74613C5669_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EF74613C5669_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnMoveGroupToRep(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister: AnsiString;
@@ -4784,12 +4738,8 @@ end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EF74613C5669_var*
-//#UC END# *52D00B00031A_EF74613C5669_var*
 begin
-//#UC START# *52D00B00031A_EF74613C5669_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EF74613C5669_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4803,12 +4753,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EF74613C5669_var*
-//#UC END# *5617F4D00243_EF74613C5669_var*
 begin
-//#UC START# *5617F4D00243_EF74613C5669_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EF74613C5669_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.ParamsTypes
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.pnlTasksPanel(const aCtx: TtfwContext;
@@ -4823,12 +4769,18 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.pnlTasksPanel
 
 procedure TkwCustomizeTasksPanelFormPnlTasksPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D7EB4AB84AE4_var*
-//#UC END# *4DAEEDE10285_D7EB4AB84AE4_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_D7EB4AB84AE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D7EB4AB84AE4_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.DoDoIt
 
 class function TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister: AnsiString;
@@ -4838,12 +4790,8 @@ end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D7EB4AB84AE4_var*
-//#UC END# *52D00B00031A_D7EB4AB84AE4_var*
 begin
-//#UC START# *52D00B00031A_D7EB4AB84AE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D7EB4AB84AE4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4857,12 +4805,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D7EB4AB84AE4_var*
-//#UC END# *5617F4D00243_D7EB4AB84AE4_var*
 begin
-//#UC START# *5617F4D00243_D7EB4AB84AE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D7EB4AB84AE4_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.ParamsTypes
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.gbTasksPanel(const aCtx: TtfwContext;
@@ -4877,12 +4821,18 @@ begin
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.gbTasksPanel
 
 procedure TkwCustomizeTasksPanelFormGbTasksPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8CF041C165C6_var*
-//#UC END# *4DAEEDE10285_8CF041C165C6_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_8CF041C165C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8CF041C165C6_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(gbTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.DoDoIt
 
 class function TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister: AnsiString;
@@ -4892,12 +4842,8 @@ end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8CF041C165C6_var*
-//#UC END# *52D00B00031A_8CF041C165C6_var*
 begin
-//#UC START# *52D00B00031A_8CF041C165C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8CF041C165C6_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4911,12 +4857,8 @@ begin
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8CF041C165C6_var*
-//#UC END# *5617F4D00243_8CF041C165C6_var*
 begin
-//#UC START# *5617F4D00243_8CF041C165C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8CF041C165C6_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.ParamsTypes
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.tvTasksPanel(const aCtx: TtfwContext;
@@ -4931,12 +4873,18 @@ begin
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.tvTasksPanel
 
 procedure TkwCustomizeTasksPanelFormTvTasksPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8B03628B7726_var*
-//#UC END# *4DAEEDE10285_8B03628B7726_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_8B03628B7726_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8B03628B7726_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvTasksPanel(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.DoDoIt
 
 class function TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister: AnsiString;
@@ -4946,12 +4894,8 @@ end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8B03628B7726_var*
-//#UC END# *52D00B00031A_8B03628B7726_var*
 begin
-//#UC START# *52D00B00031A_8B03628B7726_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8B03628B7726_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4965,12 +4909,8 @@ begin
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_8B03628B7726_var*
-//#UC END# *5617F4D00243_8B03628B7726_var*
 begin
-//#UC START# *5617F4D00243_8B03628B7726_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_8B03628B7726_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.ParamsTypes
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.vtGroupBox3(const aCtx: TtfwContext;
@@ -4985,12 +4925,18 @@ begin
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.vtGroupBox3
 
 procedure TkwCustomizeTasksPanelFormVtGroupBox3.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6980CE14D559_var*
-//#UC END# *4DAEEDE10285_6980CE14D559_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_6980CE14D559_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6980CE14D559_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(vtGroupBox3(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.DoDoIt
 
 class function TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister: AnsiString;
@@ -5000,12 +4946,8 @@ end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6980CE14D559_var*
-//#UC END# *52D00B00031A_6980CE14D559_var*
 begin
-//#UC START# *52D00B00031A_6980CE14D559_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6980CE14D559_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5019,12 +4961,8 @@ begin
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6980CE14D559_var*
-//#UC END# *5617F4D00243_6980CE14D559_var*
 begin
-//#UC START# *5617F4D00243_6980CE14D559_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6980CE14D559_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.ParamsTypes
 
 function TkwCustomizeTasksPanelFormLblCaption.lblCaption(const aCtx: TtfwContext;
@@ -5039,12 +4977,18 @@ begin
 end;//TkwCustomizeTasksPanelFormLblCaption.lblCaption
 
 procedure TkwCustomizeTasksPanelFormLblCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_602A6F187FAB_var*
-//#UC END# *4DAEEDE10285_602A6F187FAB_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_602A6F187FAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_602A6F187FAB_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblCaption(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormLblCaption.DoDoIt
 
 class function TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister: AnsiString;
@@ -5054,12 +4998,8 @@ end;//TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormLblCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_602A6F187FAB_var*
-//#UC END# *52D00B00031A_602A6F187FAB_var*
 begin
-//#UC START# *52D00B00031A_602A6F187FAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_602A6F187FAB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormLblCaption.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5073,12 +5013,8 @@ begin
 end;//TkwCustomizeTasksPanelFormLblCaption.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormLblCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_602A6F187FAB_var*
-//#UC END# *5617F4D00243_602A6F187FAB_var*
 begin
-//#UC START# *5617F4D00243_602A6F187FAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_602A6F187FAB_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormLblCaption.ParamsTypes
 
 function TkwCustomizeTasksPanelFormEdChange.edChange(const aCtx: TtfwContext;
@@ -5093,12 +5029,18 @@ begin
 end;//TkwCustomizeTasksPanelFormEdChange.edChange
 
 procedure TkwCustomizeTasksPanelFormEdChange.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1C9E311E45DD_var*
-//#UC END# *4DAEEDE10285_1C9E311E45DD_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_1C9E311E45DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1C9E311E45DD_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edChange(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormEdChange.DoDoIt
 
 class function TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister: AnsiString;
@@ -5108,12 +5050,8 @@ end;//TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormEdChange.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1C9E311E45DD_var*
-//#UC END# *52D00B00031A_1C9E311E45DD_var*
 begin
-//#UC START# *52D00B00031A_1C9E311E45DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1C9E311E45DD_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormEdChange.SetValuePrim
 
 function TkwCustomizeTasksPanelFormEdChange.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5127,12 +5065,8 @@ begin
 end;//TkwCustomizeTasksPanelFormEdChange.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormEdChange.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1C9E311E45DD_var*
-//#UC END# *5617F4D00243_1C9E311E45DD_var*
 begin
-//#UC START# *5617F4D00243_1C9E311E45DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1C9E311E45DD_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormEdChange.ParamsTypes
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.cbForAllUseCases(const aCtx: TtfwContext;
@@ -5147,12 +5081,18 @@ begin
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.cbForAllUseCases
 
 procedure TkwCustomizeTasksPanelFormCbForAllUseCases.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D09D41A6B747_var*
-//#UC END# *4DAEEDE10285_D09D41A6B747_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_D09D41A6B747_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D09D41A6B747_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbForAllUseCases(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.DoDoIt
 
 class function TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister: AnsiString;
@@ -5162,12 +5102,8 @@ end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D09D41A6B747_var*
-//#UC END# *52D00B00031A_D09D41A6B747_var*
 begin
-//#UC START# *52D00B00031A_D09D41A6B747_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D09D41A6B747_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5181,12 +5117,8 @@ begin
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D09D41A6B747_var*
-//#UC END# *5617F4D00243_D09D41A6B747_var*
 begin
-//#UC START# *5617F4D00243_D09D41A6B747_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D09D41A6B747_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.ParamsTypes
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.btnChangeItem(const aCtx: TtfwContext;
@@ -5201,12 +5133,18 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.btnChangeItem
 
 procedure TkwCustomizeTasksPanelFormBtnChangeItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EC814F34DB5A_var*
-//#UC END# *4DAEEDE10285_EC814F34DB5A_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_EC814F34DB5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EC814F34DB5A_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnChangeItem(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.DoDoIt
 
 class function TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister: AnsiString;
@@ -5216,12 +5154,8 @@ end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EC814F34DB5A_var*
-//#UC END# *52D00B00031A_EC814F34DB5A_var*
 begin
-//#UC START# *52D00B00031A_EC814F34DB5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EC814F34DB5A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5235,12 +5169,8 @@ begin
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EC814F34DB5A_var*
-//#UC END# *5617F4D00243_EC814F34DB5A_var*
 begin
-//#UC START# *5617F4D00243_EC814F34DB5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EC814F34DB5A_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.ParamsTypes
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.pnlOperationPos(const aCtx: TtfwContext;
@@ -5255,12 +5185,18 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.pnlOperationPos
 
 procedure TkwCustomizeTasksPanelFormPnlOperationPos.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D2DE7F6F9FC5_var*
-//#UC END# *4DAEEDE10285_D2DE7F6F9FC5_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_D2DE7F6F9FC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D2DE7F6F9FC5_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlOperationPos(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.DoDoIt
 
 class function TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister: AnsiString;
@@ -5270,12 +5206,8 @@ end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D2DE7F6F9FC5_var*
-//#UC END# *52D00B00031A_D2DE7F6F9FC5_var*
 begin
-//#UC START# *52D00B00031A_D2DE7F6F9FC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D2DE7F6F9FC5_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5289,12 +5221,8 @@ begin
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D2DE7F6F9FC5_var*
-//#UC END# *5617F4D00243_D2DE7F6F9FC5_var*
 begin
-//#UC START# *5617F4D00243_D2DE7F6F9FC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D2DE7F6F9FC5_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.ParamsTypes
 
 function TkwCustomizeTasksPanelFormUpBitBtn.UpBitBtn(const aCtx: TtfwContext;
@@ -5309,12 +5237,18 @@ begin
 end;//TkwCustomizeTasksPanelFormUpBitBtn.UpBitBtn
 
 procedure TkwCustomizeTasksPanelFormUpBitBtn.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E1CA9B7A6AB2_var*
-//#UC END# *4DAEEDE10285_E1CA9B7A6AB2_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_E1CA9B7A6AB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E1CA9B7A6AB2_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(UpBitBtn(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormUpBitBtn.DoDoIt
 
 class function TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister: AnsiString;
@@ -5324,12 +5258,8 @@ end;//TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E1CA9B7A6AB2_var*
-//#UC END# *52D00B00031A_E1CA9B7A6AB2_var*
 begin
-//#UC START# *52D00B00031A_E1CA9B7A6AB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E1CA9B7A6AB2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim
 
 function TkwCustomizeTasksPanelFormUpBitBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5343,12 +5273,8 @@ begin
 end;//TkwCustomizeTasksPanelFormUpBitBtn.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormUpBitBtn.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E1CA9B7A6AB2_var*
-//#UC END# *5617F4D00243_E1CA9B7A6AB2_var*
 begin
-//#UC START# *5617F4D00243_E1CA9B7A6AB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E1CA9B7A6AB2_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormUpBitBtn.ParamsTypes
 
 function TkwCustomizeTasksPanelFormDownBitBtn.DownBitBtn(const aCtx: TtfwContext;
@@ -5363,12 +5289,18 @@ begin
 end;//TkwCustomizeTasksPanelFormDownBitBtn.DownBitBtn
 
 procedure TkwCustomizeTasksPanelFormDownBitBtn.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0A40E3797513_var*
-//#UC END# *4DAEEDE10285_0A40E3797513_var*
+var l_aCustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
-//#UC START# *4DAEEDE10285_0A40E3797513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0A40E3797513_impl*
+ try
+  l_aCustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(DownBitBtn(aCtx, l_aCustomizeTasksPanelForm));
 end;//TkwCustomizeTasksPanelFormDownBitBtn.DoDoIt
 
 class function TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister: AnsiString;
@@ -5378,12 +5310,8 @@ end;//TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0A40E3797513_var*
-//#UC END# *52D00B00031A_0A40E3797513_var*
 begin
-//#UC START# *52D00B00031A_0A40E3797513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0A40E3797513_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
 end;//TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim
 
 function TkwCustomizeTasksPanelFormDownBitBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5397,12 +5325,8 @@ begin
 end;//TkwCustomizeTasksPanelFormDownBitBtn.GetAllParamsCount
 
 function TkwCustomizeTasksPanelFormDownBitBtn.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0A40E3797513_var*
-//#UC END# *5617F4D00243_0A40E3797513_var*
 begin
-//#UC START# *5617F4D00243_0A40E3797513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0A40E3797513_impl*
+ Result := OpenTypesToTypes([TypeInfo(TCustomizeTasksPanelForm)]);
 end;//TkwCustomizeTasksPanelFormDownBitBtn.ParamsTypes
 
 initialization
