@@ -587,12 +587,8 @@ end;//TkwEfRubricatorRubricatorList.GetWordNameForRegister
 
 procedure TkwEfRubricatorRubricatorList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_570087BEBDE5_var*
-//#UC END# *52D00B00031A_570087BEBDE5_var*
 begin
-//#UC START# *52D00B00031A_570087BEBDE5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_570087BEBDE5_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfRubricatorRubricatorList.SetValuePrim
 
 function TkwEfRubricatorRubricatorList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -606,12 +602,8 @@ begin
 end;//TkwEfRubricatorRubricatorList.GetAllParamsCount
 
 function TkwEfRubricatorRubricatorList.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_570087BEBDE5_var*
-//#UC END# *5617F4D00243_570087BEBDE5_var*
 begin
-//#UC START# *5617F4D00243_570087BEBDE5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_570087BEBDE5_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfRubricatorRubricatorList.ParamsTypes
 
 function TkwEfRubricatorTopPanel.TopPanel(const aCtx: TtfwContext;
@@ -641,12 +633,8 @@ end;//TkwEfRubricatorTopPanel.GetWordNameForRegister
 
 procedure TkwEfRubricatorTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_64EE419069C8_var*
-//#UC END# *52D00B00031A_64EE419069C8_var*
 begin
-//#UC START# *52D00B00031A_64EE419069C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_64EE419069C8_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfRubricatorTopPanel.SetValuePrim
 
 function TkwEfRubricatorTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -660,12 +648,8 @@ begin
 end;//TkwEfRubricatorTopPanel.GetAllParamsCount
 
 function TkwEfRubricatorTopPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_64EE419069C8_var*
-//#UC END# *5617F4D00243_64EE419069C8_var*
 begin
-//#UC START# *5617F4D00243_64EE419069C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_64EE419069C8_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfRubricatorTopPanel.ParamsTypes
 
 function TkwEfRubricatorPaintBox.PaintBox(const aCtx: TtfwContext;
@@ -695,12 +679,8 @@ end;//TkwEfRubricatorPaintBox.GetWordNameForRegister
 
 procedure TkwEfRubricatorPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_741A23B47FE2_var*
-//#UC END# *52D00B00031A_741A23B47FE2_var*
 begin
-//#UC START# *52D00B00031A_741A23B47FE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_741A23B47FE2_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfRubricatorPaintBox.SetValuePrim
 
 function TkwEfRubricatorPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -714,12 +694,8 @@ begin
 end;//TkwEfRubricatorPaintBox.GetAllParamsCount
 
 function TkwEfRubricatorPaintBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_741A23B47FE2_var*
-//#UC END# *5617F4D00243_741A23B47FE2_var*
 begin
-//#UC START# *5617F4D00243_741A23B47FE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_741A23B47FE2_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfRubricatorPaintBox.ParamsTypes
 
 function TkwEfRubricatorNewDocLabel.NewDocLabel(const aCtx: TtfwContext;
@@ -749,12 +725,8 @@ end;//TkwEfRubricatorNewDocLabel.GetWordNameForRegister
 
 procedure TkwEfRubricatorNewDocLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_88E2B9AA0F4C_var*
-//#UC END# *52D00B00031A_88E2B9AA0F4C_var*
 begin
-//#UC START# *52D00B00031A_88E2B9AA0F4C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_88E2B9AA0F4C_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfRubricatorNewDocLabel.SetValuePrim
 
 function TkwEfRubricatorNewDocLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -768,12 +740,8 @@ begin
 end;//TkwEfRubricatorNewDocLabel.GetAllParamsCount
 
 function TkwEfRubricatorNewDocLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_88E2B9AA0F4C_var*
-//#UC END# *5617F4D00243_88E2B9AA0F4C_var*
 begin
-//#UC START# *5617F4D00243_88E2B9AA0F4C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_88E2B9AA0F4C_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfRubricatorNewDocLabel.ParamsTypes
 
 function TkwEfRubricatorDelimiterPanel.DelimiterPanel(const aCtx: TtfwContext;
@@ -803,12 +771,8 @@ end;//TkwEfRubricatorDelimiterPanel.GetWordNameForRegister
 
 procedure TkwEfRubricatorDelimiterPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_25E8A124FE5E_var*
-//#UC END# *52D00B00031A_25E8A124FE5E_var*
 begin
-//#UC START# *52D00B00031A_25E8A124FE5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_25E8A124FE5E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfRubricatorDelimiterPanel.SetValuePrim
 
 function TkwEfRubricatorDelimiterPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -822,12 +786,8 @@ begin
 end;//TkwEfRubricatorDelimiterPanel.GetAllParamsCount
 
 function TkwEfRubricatorDelimiterPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_25E8A124FE5E_var*
-//#UC END# *5617F4D00243_25E8A124FE5E_var*
 begin
-//#UC START# *5617F4D00243_25E8A124FE5E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_25E8A124FE5E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfRubricatorDelimiterPanel.ParamsTypes
 
 function TkwEfRubricatorExampleTextSource.ExampleTextSource(const aCtx: TtfwContext;
@@ -857,12 +817,8 @@ end;//TkwEfRubricatorExampleTextSource.GetWordNameForRegister
 
 procedure TkwEfRubricatorExampleTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7906F7EBF729_var*
-//#UC END# *52D00B00031A_7906F7EBF729_var*
 begin
-//#UC START# *52D00B00031A_7906F7EBF729_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7906F7EBF729_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfRubricatorExampleTextSource.SetValuePrim
 
 function TkwEfRubricatorExampleTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -876,12 +832,8 @@ begin
 end;//TkwEfRubricatorExampleTextSource.GetAllParamsCount
 
 function TkwEfRubricatorExampleTextSource.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7906F7EBF729_var*
-//#UC END# *5617F4D00243_7906F7EBF729_var*
 begin
-//#UC START# *5617F4D00243_7906F7EBF729_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7906F7EBF729_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfRubricatorExampleTextSource.ParamsTypes
 
 initialization

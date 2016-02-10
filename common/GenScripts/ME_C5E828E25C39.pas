@@ -1300,12 +1300,8 @@ end;//TkwEfStartupTipsTopPanel.GetWordNameForRegister
 
 procedure TkwEfStartupTipsTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EE12A0E102A6_var*
-//#UC END# *52D00B00031A_EE12A0E102A6_var*
 begin
-//#UC START# *52D00B00031A_EE12A0E102A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EE12A0E102A6_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsTopPanel.SetValuePrim
 
 function TkwEfStartupTipsTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1319,12 +1315,8 @@ begin
 end;//TkwEfStartupTipsTopPanel.GetAllParamsCount
 
 function TkwEfStartupTipsTopPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EE12A0E102A6_var*
-//#UC END# *5617F4D00243_EE12A0E102A6_var*
 begin
-//#UC START# *5617F4D00243_EE12A0E102A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EE12A0E102A6_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsTopPanel.ParamsTypes
 
 function TkwEfStartupTipsTitlePaintBox.TitlePaintBox(const aCtx: TtfwContext;
@@ -1354,12 +1346,8 @@ end;//TkwEfStartupTipsTitlePaintBox.GetWordNameForRegister
 
 procedure TkwEfStartupTipsTitlePaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_11DD36D2649A_var*
-//#UC END# *52D00B00031A_11DD36D2649A_var*
 begin
-//#UC START# *52D00B00031A_11DD36D2649A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_11DD36D2649A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsTitlePaintBox.SetValuePrim
 
 function TkwEfStartupTipsTitlePaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1373,12 +1361,8 @@ begin
 end;//TkwEfStartupTipsTitlePaintBox.GetAllParamsCount
 
 function TkwEfStartupTipsTitlePaintBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_11DD36D2649A_var*
-//#UC END# *5617F4D00243_11DD36D2649A_var*
 begin
-//#UC START# *5617F4D00243_11DD36D2649A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_11DD36D2649A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsTitlePaintBox.ParamsTypes
 
 function TkwEfStartupTipsTitleLabel.TitleLabel(const aCtx: TtfwContext;
@@ -1408,12 +1392,8 @@ end;//TkwEfStartupTipsTitleLabel.GetWordNameForRegister
 
 procedure TkwEfStartupTipsTitleLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6C5C35701670_var*
-//#UC END# *52D00B00031A_6C5C35701670_var*
 begin
-//#UC START# *52D00B00031A_6C5C35701670_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6C5C35701670_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsTitleLabel.SetValuePrim
 
 function TkwEfStartupTipsTitleLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1427,12 +1407,8 @@ begin
 end;//TkwEfStartupTipsTitleLabel.GetAllParamsCount
 
 function TkwEfStartupTipsTitleLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6C5C35701670_var*
-//#UC END# *5617F4D00243_6C5C35701670_var*
 begin
-//#UC START# *5617F4D00243_6C5C35701670_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6C5C35701670_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsTitleLabel.ParamsTypes
 
 function TkwEfStartupTipsBottomPanel.BottomPanel(const aCtx: TtfwContext;
@@ -1462,12 +1438,8 @@ end;//TkwEfStartupTipsBottomPanel.GetWordNameForRegister
 
 procedure TkwEfStartupTipsBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_598F59526313_var*
-//#UC END# *52D00B00031A_598F59526313_var*
 begin
-//#UC START# *52D00B00031A_598F59526313_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_598F59526313_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsBottomPanel.SetValuePrim
 
 function TkwEfStartupTipsBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1481,12 +1453,8 @@ begin
 end;//TkwEfStartupTipsBottomPanel.GetAllParamsCount
 
 function TkwEfStartupTipsBottomPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_598F59526313_var*
-//#UC END# *5617F4D00243_598F59526313_var*
 begin
-//#UC START# *5617F4D00243_598F59526313_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_598F59526313_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsBottomPanel.ParamsTypes
 
 function TkwEfStartupTipsHintPanel.HintPanel(const aCtx: TtfwContext;
@@ -1516,12 +1484,8 @@ end;//TkwEfStartupTipsHintPanel.GetWordNameForRegister
 
 procedure TkwEfStartupTipsHintPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EBF9C26AA60F_var*
-//#UC END# *52D00B00031A_EBF9C26AA60F_var*
 begin
-//#UC START# *52D00B00031A_EBF9C26AA60F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EBF9C26AA60F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsHintPanel.SetValuePrim
 
 function TkwEfStartupTipsHintPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1535,12 +1499,8 @@ begin
 end;//TkwEfStartupTipsHintPanel.GetAllParamsCount
 
 function TkwEfStartupTipsHintPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EBF9C26AA60F_var*
-//#UC END# *5617F4D00243_EBF9C26AA60F_var*
 begin
-//#UC START# *5617F4D00243_EBF9C26AA60F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EBF9C26AA60F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsHintPanel.ParamsTypes
 
 function TkwEfStartupTipsTipLabel.TipLabel(const aCtx: TtfwContext;
@@ -1570,12 +1530,8 @@ end;//TkwEfStartupTipsTipLabel.GetWordNameForRegister
 
 procedure TkwEfStartupTipsTipLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_248F46EBCD73_var*
-//#UC END# *52D00B00031A_248F46EBCD73_var*
 begin
-//#UC START# *52D00B00031A_248F46EBCD73_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_248F46EBCD73_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsTipLabel.SetValuePrim
 
 function TkwEfStartupTipsTipLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1589,12 +1545,8 @@ begin
 end;//TkwEfStartupTipsTipLabel.GetAllParamsCount
 
 function TkwEfStartupTipsTipLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_248F46EBCD73_var*
-//#UC END# *5617F4D00243_248F46EBCD73_var*
 begin
-//#UC START# *5617F4D00243_248F46EBCD73_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_248F46EBCD73_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsTipLabel.ParamsTypes
 
 function TkwEfStartupTipsDetailLabel.DetailLabel(const aCtx: TtfwContext;
@@ -1624,12 +1576,8 @@ end;//TkwEfStartupTipsDetailLabel.GetWordNameForRegister
 
 procedure TkwEfStartupTipsDetailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_61D8D00BE8C2_var*
-//#UC END# *52D00B00031A_61D8D00BE8C2_var*
 begin
-//#UC START# *52D00B00031A_61D8D00BE8C2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_61D8D00BE8C2_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsDetailLabel.SetValuePrim
 
 function TkwEfStartupTipsDetailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1643,12 +1591,8 @@ begin
 end;//TkwEfStartupTipsDetailLabel.GetAllParamsCount
 
 function TkwEfStartupTipsDetailLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_61D8D00BE8C2_var*
-//#UC END# *5617F4D00243_61D8D00BE8C2_var*
 begin
-//#UC START# *5617F4D00243_61D8D00BE8C2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_61D8D00BE8C2_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsDetailLabel.ParamsTypes
 
 function TkwEfStartupTipsShowCheckBox.ShowCheckBox(const aCtx: TtfwContext;
@@ -1678,12 +1622,8 @@ end;//TkwEfStartupTipsShowCheckBox.GetWordNameForRegister
 
 procedure TkwEfStartupTipsShowCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E9BE84B24F36_var*
-//#UC END# *52D00B00031A_E9BE84B24F36_var*
 begin
-//#UC START# *52D00B00031A_E9BE84B24F36_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E9BE84B24F36_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsShowCheckBox.SetValuePrim
 
 function TkwEfStartupTipsShowCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1697,12 +1637,8 @@ begin
 end;//TkwEfStartupTipsShowCheckBox.GetAllParamsCount
 
 function TkwEfStartupTipsShowCheckBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E9BE84B24F36_var*
-//#UC END# *5617F4D00243_E9BE84B24F36_var*
 begin
-//#UC START# *5617F4D00243_E9BE84B24F36_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E9BE84B24F36_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsShowCheckBox.ParamsTypes
 
 function TkwEfStartupTipsWwwPanel.wwwPanel(const aCtx: TtfwContext;
@@ -1732,12 +1668,8 @@ end;//TkwEfStartupTipsWwwPanel.GetWordNameForRegister
 
 procedure TkwEfStartupTipsWwwPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_493A43BD43E6_var*
-//#UC END# *52D00B00031A_493A43BD43E6_var*
 begin
-//#UC START# *52D00B00031A_493A43BD43E6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_493A43BD43E6_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsWwwPanel.SetValuePrim
 
 function TkwEfStartupTipsWwwPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1751,12 +1683,8 @@ begin
 end;//TkwEfStartupTipsWwwPanel.GetAllParamsCount
 
 function TkwEfStartupTipsWwwPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_493A43BD43E6_var*
-//#UC END# *5617F4D00243_493A43BD43E6_var*
 begin
-//#UC START# *5617F4D00243_493A43BD43E6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_493A43BD43E6_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsWwwPanel.ParamsTypes
 
 function TkwEfStartupTipsWwwPaintBox.wwwPaintBox(const aCtx: TtfwContext;
@@ -1786,12 +1714,8 @@ end;//TkwEfStartupTipsWwwPaintBox.GetWordNameForRegister
 
 procedure TkwEfStartupTipsWwwPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FDE4342F213E_var*
-//#UC END# *52D00B00031A_FDE4342F213E_var*
 begin
-//#UC START# *52D00B00031A_FDE4342F213E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FDE4342F213E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsWwwPaintBox.SetValuePrim
 
 function TkwEfStartupTipsWwwPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1805,12 +1729,8 @@ begin
 end;//TkwEfStartupTipsWwwPaintBox.GetAllParamsCount
 
 function TkwEfStartupTipsWwwPaintBox.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FDE4342F213E_var*
-//#UC END# *5617F4D00243_FDE4342F213E_var*
 begin
-//#UC START# *5617F4D00243_FDE4342F213E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FDE4342F213E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsWwwPaintBox.ParamsTypes
 
 function TkwEfStartupTipsWwwLabel.wwwLabel(const aCtx: TtfwContext;
@@ -1840,12 +1760,8 @@ end;//TkwEfStartupTipsWwwLabel.GetWordNameForRegister
 
 procedure TkwEfStartupTipsWwwLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E19827E4AB44_var*
-//#UC END# *52D00B00031A_E19827E4AB44_var*
 begin
-//#UC START# *52D00B00031A_E19827E4AB44_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E19827E4AB44_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsWwwLabel.SetValuePrim
 
 function TkwEfStartupTipsWwwLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1859,12 +1775,8 @@ begin
 end;//TkwEfStartupTipsWwwLabel.GetAllParamsCount
 
 function TkwEfStartupTipsWwwLabel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E19827E4AB44_var*
-//#UC END# *5617F4D00243_E19827E4AB44_var*
 begin
-//#UC START# *5617F4D00243_E19827E4AB44_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E19827E4AB44_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsWwwLabel.ParamsTypes
 
 function TkwEfStartupTipsNextButton.NextButton(const aCtx: TtfwContext;
@@ -1894,12 +1806,8 @@ end;//TkwEfStartupTipsNextButton.GetWordNameForRegister
 
 procedure TkwEfStartupTipsNextButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_017E5F40C5E1_var*
-//#UC END# *52D00B00031A_017E5F40C5E1_var*
 begin
-//#UC START# *52D00B00031A_017E5F40C5E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_017E5F40C5E1_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsNextButton.SetValuePrim
 
 function TkwEfStartupTipsNextButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1913,12 +1821,8 @@ begin
 end;//TkwEfStartupTipsNextButton.GetAllParamsCount
 
 function TkwEfStartupTipsNextButton.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_017E5F40C5E1_var*
-//#UC END# *5617F4D00243_017E5F40C5E1_var*
 begin
-//#UC START# *5617F4D00243_017E5F40C5E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_017E5F40C5E1_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsNextButton.ParamsTypes
 
 function TkwEfStartupTipsPrevButton.PrevButton(const aCtx: TtfwContext;
@@ -1948,12 +1852,8 @@ end;//TkwEfStartupTipsPrevButton.GetWordNameForRegister
 
 procedure TkwEfStartupTipsPrevButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FCA8BAEFEB0E_var*
-//#UC END# *52D00B00031A_FCA8BAEFEB0E_var*
 begin
-//#UC START# *52D00B00031A_FCA8BAEFEB0E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FCA8BAEFEB0E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsPrevButton.SetValuePrim
 
 function TkwEfStartupTipsPrevButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1967,12 +1867,8 @@ begin
 end;//TkwEfStartupTipsPrevButton.GetAllParamsCount
 
 function TkwEfStartupTipsPrevButton.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FCA8BAEFEB0E_var*
-//#UC END# *5617F4D00243_FCA8BAEFEB0E_var*
 begin
-//#UC START# *5617F4D00243_FCA8BAEFEB0E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FCA8BAEFEB0E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsPrevButton.ParamsTypes
 
 function TkwEfStartupTipsCloseButton.CloseButton(const aCtx: TtfwContext;
@@ -2002,12 +1898,8 @@ end;//TkwEfStartupTipsCloseButton.GetWordNameForRegister
 
 procedure TkwEfStartupTipsCloseButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_95F72E34E5A5_var*
-//#UC END# *52D00B00031A_95F72E34E5A5_var*
 begin
-//#UC START# *52D00B00031A_95F72E34E5A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_95F72E34E5A5_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEfStartupTipsCloseButton.SetValuePrim
 
 function TkwEfStartupTipsCloseButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2021,12 +1913,8 @@ begin
 end;//TkwEfStartupTipsCloseButton.GetAllParamsCount
 
 function TkwEfStartupTipsCloseButton.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_95F72E34E5A5_var*
-//#UC END# *5617F4D00243_95F72E34E5A5_var*
 begin
-//#UC START# *5617F4D00243_95F72E34E5A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_95F72E34E5A5_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEfStartupTipsCloseButton.ParamsTypes
 
 initialization

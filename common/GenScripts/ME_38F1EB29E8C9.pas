@@ -521,12 +521,8 @@ end;//TkwStyleEditorContainerFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EBEA0AF6DB49_var*
-//#UC END# *52D00B00031A_EBEA0AF6DB49_var*
 begin
-//#UC START# *52D00B00031A_EBEA0AF6DB49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EBEA0AF6DB49_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwStyleEditorContainerFormBackgroundPanel.SetValuePrim
 
 function TkwStyleEditorContainerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -540,12 +536,8 @@ begin
 end;//TkwStyleEditorContainerFormBackgroundPanel.GetAllParamsCount
 
 function TkwStyleEditorContainerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EBEA0AF6DB49_var*
-//#UC END# *5617F4D00243_EBEA0AF6DB49_var*
 begin
-//#UC START# *5617F4D00243_EBEA0AF6DB49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EBEA0AF6DB49_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwStyleEditorContainerFormBackgroundPanel.ParamsTypes
 
 function TkwStyleEditorContainerFormMainZone.MainZone(const aCtx: TtfwContext;
@@ -575,12 +567,8 @@ end;//TkwStyleEditorContainerFormMainZone.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormMainZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FAE31F4C0B42_var*
-//#UC END# *52D00B00031A_FAE31F4C0B42_var*
 begin
-//#UC START# *52D00B00031A_FAE31F4C0B42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FAE31F4C0B42_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwStyleEditorContainerFormMainZone.SetValuePrim
 
 function TkwStyleEditorContainerFormMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -594,12 +582,8 @@ begin
 end;//TkwStyleEditorContainerFormMainZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormMainZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_FAE31F4C0B42_var*
-//#UC END# *5617F4D00243_FAE31F4C0B42_var*
 begin
-//#UC START# *5617F4D00243_FAE31F4C0B42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_FAE31F4C0B42_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwStyleEditorContainerFormMainZone.ParamsTypes
 
 function TkwStyleEditorContainerFormParentZone.ParentZone(const aCtx: TtfwContext;
@@ -629,12 +613,8 @@ end;//TkwStyleEditorContainerFormParentZone.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_489405F97345_var*
-//#UC END# *52D00B00031A_489405F97345_var*
 begin
-//#UC START# *52D00B00031A_489405F97345_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_489405F97345_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwStyleEditorContainerFormParentZone.SetValuePrim
 
 function TkwStyleEditorContainerFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -648,12 +628,8 @@ begin
 end;//TkwStyleEditorContainerFormParentZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormParentZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_489405F97345_var*
-//#UC END# *5617F4D00243_489405F97345_var*
 begin
-//#UC START# *5617F4D00243_489405F97345_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_489405F97345_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwStyleEditorContainerFormParentZone.ParamsTypes
 
 function TkwStyleEditorContainerFormChildZone.ChildZone(const aCtx: TtfwContext;
@@ -683,12 +659,8 @@ end;//TkwStyleEditorContainerFormChildZone.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_940A5D9F84B6_var*
-//#UC END# *52D00B00031A_940A5D9F84B6_var*
 begin
-//#UC START# *52D00B00031A_940A5D9F84B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_940A5D9F84B6_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwStyleEditorContainerFormChildZone.SetValuePrim
 
 function TkwStyleEditorContainerFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -702,12 +674,8 @@ begin
 end;//TkwStyleEditorContainerFormChildZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormChildZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_940A5D9F84B6_var*
-//#UC END# *5617F4D00243_940A5D9F84B6_var*
 begin
-//#UC START# *5617F4D00243_940A5D9F84B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_940A5D9F84B6_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwStyleEditorContainerFormChildZone.ParamsTypes
 
 function TkwStyleEditorContainerFormNavigatorZone.NavigatorZone(const aCtx: TtfwContext;
@@ -737,12 +705,8 @@ end;//TkwStyleEditorContainerFormNavigatorZone.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormNavigatorZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7EBE25C04E3C_var*
-//#UC END# *52D00B00031A_7EBE25C04E3C_var*
 begin
-//#UC START# *52D00B00031A_7EBE25C04E3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7EBE25C04E3C_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwStyleEditorContainerFormNavigatorZone.SetValuePrim
 
 function TkwStyleEditorContainerFormNavigatorZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -756,12 +720,8 @@ begin
 end;//TkwStyleEditorContainerFormNavigatorZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormNavigatorZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_7EBE25C04E3C_var*
-//#UC END# *5617F4D00243_7EBE25C04E3C_var*
 begin
-//#UC START# *5617F4D00243_7EBE25C04E3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_7EBE25C04E3C_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwStyleEditorContainerFormNavigatorZone.ParamsTypes
 
 initialization

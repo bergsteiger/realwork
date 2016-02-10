@@ -782,12 +782,8 @@ end;//TkwCfOldSituationSearchBackgroundPanel.GetWordNameForRegister
 
 procedure TkwCfOldSituationSearchBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E6E04DA21252_var*
-//#UC END# *52D00B00031A_E6E04DA21252_var*
 begin
-//#UC START# *52D00B00031A_E6E04DA21252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E6E04DA21252_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfOldSituationSearchBackgroundPanel.SetValuePrim
 
 function TkwCfOldSituationSearchBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -801,12 +797,8 @@ begin
 end;//TkwCfOldSituationSearchBackgroundPanel.GetAllParamsCount
 
 function TkwCfOldSituationSearchBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_E6E04DA21252_var*
-//#UC END# *5617F4D00243_E6E04DA21252_var*
 begin
-//#UC START# *5617F4D00243_E6E04DA21252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_E6E04DA21252_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfOldSituationSearchBackgroundPanel.ParamsTypes
 
 function TkwCfOldSituationSearchContextFilter.ContextFilter(const aCtx: TtfwContext;
@@ -836,12 +828,8 @@ end;//TkwCfOldSituationSearchContextFilter.GetWordNameForRegister
 
 procedure TkwCfOldSituationSearchContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A70ACD88A02D_var*
-//#UC END# *52D00B00031A_A70ACD88A02D_var*
 begin
-//#UC START# *52D00B00031A_A70ACD88A02D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A70ACD88A02D_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfOldSituationSearchContextFilter.SetValuePrim
 
 function TkwCfOldSituationSearchContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -855,12 +843,8 @@ begin
 end;//TkwCfOldSituationSearchContextFilter.GetAllParamsCount
 
 function TkwCfOldSituationSearchContextFilter.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_A70ACD88A02D_var*
-//#UC END# *5617F4D00243_A70ACD88A02D_var*
 begin
-//#UC START# *5617F4D00243_A70ACD88A02D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_A70ACD88A02D_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfOldSituationSearchContextFilter.ParamsTypes
 
 function TkwCfOldSituationSearchInnerBackgroundPanel.InnerBackgroundPanel(const aCtx: TtfwContext;
@@ -890,12 +874,8 @@ end;//TkwCfOldSituationSearchInnerBackgroundPanel.GetWordNameForRegister
 
 procedure TkwCfOldSituationSearchInnerBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3226F237B61F_var*
-//#UC END# *52D00B00031A_3226F237B61F_var*
 begin
-//#UC START# *52D00B00031A_3226F237B61F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3226F237B61F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.SetValuePrim
 
 function TkwCfOldSituationSearchInnerBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -909,12 +889,8 @@ begin
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.GetAllParamsCount
 
 function TkwCfOldSituationSearchInnerBackgroundPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_3226F237B61F_var*
-//#UC END# *5617F4D00243_3226F237B61F_var*
 begin
-//#UC START# *5617F4D00243_3226F237B61F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_3226F237B61F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfOldSituationSearchInnerBackgroundPanel.ParamsTypes
 
 function TkwCfOldSituationSearchBotomPanel.BotomPanel(const aCtx: TtfwContext;
@@ -944,12 +920,8 @@ end;//TkwCfOldSituationSearchBotomPanel.GetWordNameForRegister
 
 procedure TkwCfOldSituationSearchBotomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F188CE819F7D_var*
-//#UC END# *52D00B00031A_F188CE819F7D_var*
 begin
-//#UC START# *52D00B00031A_F188CE819F7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F188CE819F7D_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfOldSituationSearchBotomPanel.SetValuePrim
 
 function TkwCfOldSituationSearchBotomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -963,12 +935,8 @@ begin
 end;//TkwCfOldSituationSearchBotomPanel.GetAllParamsCount
 
 function TkwCfOldSituationSearchBotomPanel.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_F188CE819F7D_var*
-//#UC END# *5617F4D00243_F188CE819F7D_var*
 begin
-//#UC START# *5617F4D00243_F188CE819F7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_F188CE819F7D_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfOldSituationSearchBotomPanel.ParamsTypes
 
 function TkwCfOldSituationSearchParentZone.ParentZone(const aCtx: TtfwContext;
@@ -998,12 +966,8 @@ end;//TkwCfOldSituationSearchParentZone.GetWordNameForRegister
 
 procedure TkwCfOldSituationSearchParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9530C933E1D4_var*
-//#UC END# *52D00B00031A_9530C933E1D4_var*
 begin
-//#UC START# *52D00B00031A_9530C933E1D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9530C933E1D4_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfOldSituationSearchParentZone.SetValuePrim
 
 function TkwCfOldSituationSearchParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1017,12 +981,8 @@ begin
 end;//TkwCfOldSituationSearchParentZone.GetAllParamsCount
 
 function TkwCfOldSituationSearchParentZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_9530C933E1D4_var*
-//#UC END# *5617F4D00243_9530C933E1D4_var*
 begin
-//#UC START# *5617F4D00243_9530C933E1D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_9530C933E1D4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfOldSituationSearchParentZone.ParamsTypes
 
 function TkwCfOldSituationSearchZoneContainer.ZoneContainer(const aCtx: TtfwContext;
@@ -1052,12 +1012,8 @@ end;//TkwCfOldSituationSearchZoneContainer.GetWordNameForRegister
 
 procedure TkwCfOldSituationSearchZoneContainer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C9CB01FB6D8E_var*
-//#UC END# *52D00B00031A_C9CB01FB6D8E_var*
 begin
-//#UC START# *52D00B00031A_C9CB01FB6D8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C9CB01FB6D8E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfOldSituationSearchZoneContainer.SetValuePrim
 
 function TkwCfOldSituationSearchZoneContainer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1071,12 +1027,8 @@ begin
 end;//TkwCfOldSituationSearchZoneContainer.GetAllParamsCount
 
 function TkwCfOldSituationSearchZoneContainer.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C9CB01FB6D8E_var*
-//#UC END# *5617F4D00243_C9CB01FB6D8E_var*
 begin
-//#UC START# *5617F4D00243_C9CB01FB6D8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C9CB01FB6D8E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfOldSituationSearchZoneContainer.ParamsTypes
 
 function TkwCfOldSituationSearchChildZone.ChildZone(const aCtx: TtfwContext;
@@ -1106,12 +1058,8 @@ end;//TkwCfOldSituationSearchChildZone.GetWordNameForRegister
 
 procedure TkwCfOldSituationSearchChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6E6F2EE2FBD4_var*
-//#UC END# *52D00B00031A_6E6F2EE2FBD4_var*
 begin
-//#UC START# *52D00B00031A_6E6F2EE2FBD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6E6F2EE2FBD4_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfOldSituationSearchChildZone.SetValuePrim
 
 function TkwCfOldSituationSearchChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1125,12 +1073,8 @@ begin
 end;//TkwCfOldSituationSearchChildZone.GetAllParamsCount
 
 function TkwCfOldSituationSearchChildZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6E6F2EE2FBD4_var*
-//#UC END# *5617F4D00243_6E6F2EE2FBD4_var*
 begin
-//#UC START# *5617F4D00243_6E6F2EE2FBD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6E6F2EE2FBD4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfOldSituationSearchChildZone.ParamsTypes
 
 function TkwCfOldSituationSearchMainZone.MainZone(const aCtx: TtfwContext;
@@ -1160,12 +1104,8 @@ end;//TkwCfOldSituationSearchMainZone.GetWordNameForRegister
 
 procedure TkwCfOldSituationSearchMainZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6CD72A3FA477_var*
-//#UC END# *52D00B00031A_6CD72A3FA477_var*
 begin
-//#UC START# *52D00B00031A_6CD72A3FA477_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6CD72A3FA477_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwCfOldSituationSearchMainZone.SetValuePrim
 
 function TkwCfOldSituationSearchMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1179,12 +1119,8 @@ begin
 end;//TkwCfOldSituationSearchMainZone.GetAllParamsCount
 
 function TkwCfOldSituationSearchMainZone.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_6CD72A3FA477_var*
-//#UC END# *5617F4D00243_6CD72A3FA477_var*
 begin
-//#UC START# *5617F4D00243_6CD72A3FA477_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_6CD72A3FA477_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwCfOldSituationSearchMainZone.ParamsTypes
 
 initialization

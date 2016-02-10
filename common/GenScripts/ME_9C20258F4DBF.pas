@@ -1210,12 +1210,8 @@ end;//TkwEnDefineSearchDatePanel1.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDatePanel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EF233F6425B4_var*
-//#UC END# *52D00B00031A_EF233F6425B4_var*
 begin
-//#UC START# *52D00B00031A_EF233F6425B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EF233F6425B4_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDatePanel1.SetValuePrim
 
 function TkwEnDefineSearchDatePanel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1229,12 +1225,8 @@ begin
 end;//TkwEnDefineSearchDatePanel1.GetAllParamsCount
 
 function TkwEnDefineSearchDatePanel1.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EF233F6425B4_var*
-//#UC END# *5617F4D00243_EF233F6425B4_var*
 begin
-//#UC START# *5617F4D00243_EF233F6425B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EF233F6425B4_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDatePanel1.ParamsTypes
 
 function TkwEnDefineSearchDateElLabel1.ElLabel1(const aCtx: TtfwContext;
@@ -1264,12 +1256,8 @@ end;//TkwEnDefineSearchDateElLabel1.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateElLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DE36FA6549B3_var*
-//#UC END# *52D00B00031A_DE36FA6549B3_var*
 begin
-//#UC START# *52D00B00031A_DE36FA6549B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DE36FA6549B3_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateElLabel1.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1283,12 +1271,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel1.GetAllParamsCount
 
 function TkwEnDefineSearchDateElLabel1.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DE36FA6549B3_var*
-//#UC END# *5617F4D00243_DE36FA6549B3_var*
 begin
-//#UC START# *5617F4D00243_DE36FA6549B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DE36FA6549B3_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateElLabel1.ParamsTypes
 
 function TkwEnDefineSearchDateElLabel2.ElLabel2(const aCtx: TtfwContext;
@@ -1318,12 +1302,8 @@ end;//TkwEnDefineSearchDateElLabel2.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateElLabel2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AAF6259B7DA9_var*
-//#UC END# *52D00B00031A_AAF6259B7DA9_var*
 begin
-//#UC START# *52D00B00031A_AAF6259B7DA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AAF6259B7DA9_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateElLabel2.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1337,12 +1317,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel2.GetAllParamsCount
 
 function TkwEnDefineSearchDateElLabel2.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_AAF6259B7DA9_var*
-//#UC END# *5617F4D00243_AAF6259B7DA9_var*
 begin
-//#UC START# *5617F4D00243_AAF6259B7DA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_AAF6259B7DA9_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateElLabel2.ParamsTypes
 
 function TkwEnDefineSearchDateElLabel3.ElLabel3(const aCtx: TtfwContext;
@@ -1372,12 +1348,8 @@ end;//TkwEnDefineSearchDateElLabel3.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateElLabel3.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_955555D1ED6A_var*
-//#UC END# *52D00B00031A_955555D1ED6A_var*
 begin
-//#UC START# *52D00B00031A_955555D1ED6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_955555D1ED6A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateElLabel3.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1391,12 +1363,8 @@ begin
 end;//TkwEnDefineSearchDateElLabel3.GetAllParamsCount
 
 function TkwEnDefineSearchDateElLabel3.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_955555D1ED6A_var*
-//#UC END# *5617F4D00243_955555D1ED6A_var*
 begin
-//#UC START# *5617F4D00243_955555D1ED6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_955555D1ED6A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateElLabel3.ParamsTypes
 
 function TkwEnDefineSearchDateDD1EqD2.dD1EqD2(const aCtx: TtfwContext;
@@ -1426,12 +1394,8 @@ end;//TkwEnDefineSearchDateDD1EqD2.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD1EqD2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B7C6C7A4A9BF_var*
-//#UC END# *52D00B00031A_B7C6C7A4A9BF_var*
 begin
-//#UC START# *52D00B00031A_B7C6C7A4A9BF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B7C6C7A4A9BF_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateDD1EqD2.SetValuePrim
 
 function TkwEnDefineSearchDateDD1EqD2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1445,12 +1409,8 @@ begin
 end;//TkwEnDefineSearchDateDD1EqD2.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD1EqD2.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B7C6C7A4A9BF_var*
-//#UC END# *5617F4D00243_B7C6C7A4A9BF_var*
 begin
-//#UC START# *5617F4D00243_B7C6C7A4A9BF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B7C6C7A4A9BF_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateDD1EqD2.ParamsTypes
 
 function TkwEnDefineSearchDateRbEq.rbEq(const aCtx: TtfwContext;
@@ -1480,12 +1440,8 @@ end;//TkwEnDefineSearchDateRbEq.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateRbEq.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_5012D1B98349_var*
-//#UC END# *52D00B00031A_5012D1B98349_var*
 begin
-//#UC START# *52D00B00031A_5012D1B98349_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_5012D1B98349_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateRbEq.SetValuePrim
 
 function TkwEnDefineSearchDateRbEq.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1499,12 +1455,8 @@ begin
 end;//TkwEnDefineSearchDateRbEq.GetAllParamsCount
 
 function TkwEnDefineSearchDateRbEq.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_5012D1B98349_var*
-//#UC END# *5617F4D00243_5012D1B98349_var*
 begin
-//#UC START# *5617F4D00243_5012D1B98349_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_5012D1B98349_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateRbEq.ParamsTypes
 
 function TkwEnDefineSearchDateRbInt.rbInt(const aCtx: TtfwContext;
@@ -1534,12 +1486,8 @@ end;//TkwEnDefineSearchDateRbInt.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateRbInt.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C42773E14E1A_var*
-//#UC END# *52D00B00031A_C42773E14E1A_var*
 begin
-//#UC START# *52D00B00031A_C42773E14E1A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C42773E14E1A_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateRbInt.SetValuePrim
 
 function TkwEnDefineSearchDateRbInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1553,12 +1501,8 @@ begin
 end;//TkwEnDefineSearchDateRbInt.GetAllParamsCount
 
 function TkwEnDefineSearchDateRbInt.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C42773E14E1A_var*
-//#UC END# *5617F4D00243_C42773E14E1A_var*
 begin
-//#UC START# *5617F4D00243_C42773E14E1A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C42773E14E1A_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateRbInt.ParamsTypes
 
 function TkwEnDefineSearchDateRbD2Only.rbD2Only(const aCtx: TtfwContext;
@@ -1588,12 +1532,8 @@ end;//TkwEnDefineSearchDateRbD2Only.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateRbD2Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D9C07BFDD553_var*
-//#UC END# *52D00B00031A_D9C07BFDD553_var*
 begin
-//#UC START# *52D00B00031A_D9C07BFDD553_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D9C07BFDD553_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateRbD2Only.SetValuePrim
 
 function TkwEnDefineSearchDateRbD2Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1607,12 +1547,8 @@ begin
 end;//TkwEnDefineSearchDateRbD2Only.GetAllParamsCount
 
 function TkwEnDefineSearchDateRbD2Only.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D9C07BFDD553_var*
-//#UC END# *5617F4D00243_D9C07BFDD553_var*
 begin
-//#UC START# *5617F4D00243_D9C07BFDD553_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D9C07BFDD553_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateRbD2Only.ParamsTypes
 
 function TkwEnDefineSearchDateDD1Only.dD1Only(const aCtx: TtfwContext;
@@ -1642,12 +1578,8 @@ end;//TkwEnDefineSearchDateDD1Only.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD1Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B8D252A3188F_var*
-//#UC END# *52D00B00031A_B8D252A3188F_var*
 begin
-//#UC START# *52D00B00031A_B8D252A3188F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B8D252A3188F_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateDD1Only.SetValuePrim
 
 function TkwEnDefineSearchDateDD1Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1661,12 +1593,8 @@ begin
 end;//TkwEnDefineSearchDateDD1Only.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD1Only.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B8D252A3188F_var*
-//#UC END# *5617F4D00243_B8D252A3188F_var*
 begin
-//#UC START# *5617F4D00243_B8D252A3188F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B8D252A3188F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateDD1Only.ParamsTypes
 
 function TkwEnDefineSearchDateDD2Only.dD2Only(const aCtx: TtfwContext;
@@ -1696,12 +1624,8 @@ end;//TkwEnDefineSearchDateDD2Only.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD2Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EF82DE42CA45_var*
-//#UC END# *52D00B00031A_EF82DE42CA45_var*
 begin
-//#UC START# *52D00B00031A_EF82DE42CA45_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EF82DE42CA45_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateDD2Only.SetValuePrim
 
 function TkwEnDefineSearchDateDD2Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1715,12 +1639,8 @@ begin
 end;//TkwEnDefineSearchDateDD2Only.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD2Only.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EF82DE42CA45_var*
-//#UC END# *5617F4D00243_EF82DE42CA45_var*
 begin
-//#UC START# *5617F4D00243_EF82DE42CA45_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EF82DE42CA45_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateDD2Only.ParamsTypes
 
 function TkwEnDefineSearchDateDD1.dD1(const aCtx: TtfwContext;
@@ -1750,12 +1670,8 @@ end;//TkwEnDefineSearchDateDD1.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DC21835A6044_var*
-//#UC END# *52D00B00031A_DC21835A6044_var*
 begin
-//#UC START# *52D00B00031A_DC21835A6044_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DC21835A6044_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateDD1.SetValuePrim
 
 function TkwEnDefineSearchDateDD1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1769,12 +1685,8 @@ begin
 end;//TkwEnDefineSearchDateDD1.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD1.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DC21835A6044_var*
-//#UC END# *5617F4D00243_DC21835A6044_var*
 begin
-//#UC START# *5617F4D00243_DC21835A6044_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DC21835A6044_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateDD1.ParamsTypes
 
 function TkwEnDefineSearchDateRbD1Only.rbD1Only(const aCtx: TtfwContext;
@@ -1804,12 +1716,8 @@ end;//TkwEnDefineSearchDateRbD1Only.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateRbD1Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2ACC0213635E_var*
-//#UC END# *52D00B00031A_2ACC0213635E_var*
 begin
-//#UC START# *52D00B00031A_2ACC0213635E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2ACC0213635E_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateRbD1Only.SetValuePrim
 
 function TkwEnDefineSearchDateRbD1Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1823,12 +1731,8 @@ begin
 end;//TkwEnDefineSearchDateRbD1Only.GetAllParamsCount
 
 function TkwEnDefineSearchDateRbD1Only.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_2ACC0213635E_var*
-//#UC END# *5617F4D00243_2ACC0213635E_var*
 begin
-//#UC START# *5617F4D00243_2ACC0213635E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_2ACC0213635E_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateRbD1Only.ParamsTypes
 
 function TkwEnDefineSearchDateDD2.dD2(const aCtx: TtfwContext;
@@ -1858,12 +1762,8 @@ end;//TkwEnDefineSearchDateDD2.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_06117A43FF72_var*
-//#UC END# *52D00B00031A_06117A43FF72_var*
 begin
-//#UC START# *52D00B00031A_06117A43FF72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_06117A43FF72_impl*
+ RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
 end;//TkwEnDefineSearchDateDD2.SetValuePrim
 
 function TkwEnDefineSearchDateDD2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1877,12 +1777,8 @@ begin
 end;//TkwEnDefineSearchDateDD2.GetAllParamsCount
 
 function TkwEnDefineSearchDateDD2.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_06117A43FF72_var*
-//#UC END# *5617F4D00243_06117A43FF72_var*
 begin
-//#UC START# *5617F4D00243_06117A43FF72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_06117A43FF72_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwEnDefineSearchDateDD2.ParamsTypes
 
 initialization
