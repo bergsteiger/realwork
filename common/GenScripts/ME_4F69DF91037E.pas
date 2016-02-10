@@ -1805,7 +1805,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Control, aValueInteger);
+ Control.Top := aValueInteger;
 end;//TkwPopControlTop.SetValuePrim
 
 function TkwPopControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1867,7 +1867,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Control, aValueInteger);
+ Control.Left := aValueInteger;
 end;//TkwPopControlLeft.SetValuePrim
 
 function TkwPopControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1929,7 +1929,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Control, aValueInteger);
+ Control.Height := aValueInteger;
 end;//TkwPopControlHeight.SetValuePrim
 
 function TkwPopControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1991,7 +1991,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Control, aValueInteger);
+ Control.Width := aValueInteger;
 end;//TkwPopControlWidth.SetValuePrim
 
 function TkwPopControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
