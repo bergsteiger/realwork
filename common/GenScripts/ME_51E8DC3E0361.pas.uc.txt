@@ -303,30 +303,30 @@ var
    if f_NeedWMFHeader then
     f_Stream.Write(f_WMFHeader, SizeOf(f_WMFHeader));
    f_Stream.Write(l_BinBuf^, l_Size);
-   if f_Format = pictWMF then // Старый WMF, конвертируем в EMF
-   begin
-    l_WMF := Tl3Metafile.Create;
-    try
-     f_Stream.Seek(0, soBeginning);
-     if f_NeedWMFHeader then
-     begin
-      l_WMF.LoadWMFFromStream(Stream);
-      f_NeedWMFHeader := False;
-     end // if f_NeedWMFHeader then
-     else
-      l_WMF.LoadFromStream(f_Stream);
-     l_WMF.Enhanced := True;
-     f_Stream.Seek(0, soBeginning);
-     f_Stream.Size := 0;
-     l_WMF.SaveToStream(f_Stream);
-     l_Size := f_Stream.Size;
-    finally
-     l3Free(l_WMF);
-    end;
-   end; // if f_NeedWMFHeader then
   finally
    l3System.FreeLocalMem(l_BinBuf);
   end;
+  if f_Format = pictWMF then // Старый WMF, конвертируем в EMF
+  begin
+   l_WMF := Tl3Metafile.Create;
+   try
+    f_Stream.Seek(0, soBeginning);
+    if f_NeedWMFHeader then
+    begin
+     l_WMF.LoadWMFFromStream(Stream);
+     f_NeedWMFHeader := False;
+    end // if f_NeedWMFHeader then
+    else
+     l_WMF.LoadFromStream(f_Stream);
+    l_WMF.Enhanced := True;
+    f_Stream.Seek(0, soBeginning);
+    f_Stream.Size := 0;
+    l_WMF.SaveToStream(f_Stream);
+    l_Size := f_Stream.Size;
+   finally
+    l3Free(l_WMF);
+   end;
+  end; // if f_NeedWMFHeader then
   f_IsBinary := True;
   {$IFDEF InsiderTest}
   if f_Format > pictNONE then

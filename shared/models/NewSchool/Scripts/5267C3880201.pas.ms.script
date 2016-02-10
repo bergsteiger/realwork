@@ -777,22 +777,34 @@ ref; // ME_52F9FD21020E SaveXMLForServer
 
 FORWARD ME_52F9FD4D014F
 
-: ME_FE892A7F9791
- CONST UID 'FE892A7F9791'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода ChangeCaption' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52F9FD4D014F // ChangeCaption
+: ME_56BA0A2D0340
+ CONST UID '56BA0A2D0340'
+ CONST Name 'aCheckOnly'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_FE892A7F9791 DoIt
+ref; // ME_56BA0A2D0340 aCheckOnly
+
+: ME_56BA0A250138
+ CONST UID '56BA0A250138'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_52F9FD4D014F // CheckAndChangeCaption
+ ;
+ : Parameters
+   Seq: ( ME_56BA0A2D0340 // aCheckOnly
+ )
+ ; // Parameters
+
+ref; // ME_56BA0A250138 DoIt
 
 : ME_52F9FD4D014F
  CONST UID '52F9FD4D014F'
- CONST Name 'ChangeCaption'
+ CONST Name 'CheckAndChangeCaption'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -802,11 +814,11 @@ ref; // ME_FE892A7F9791 DoIt
  : Parent ME_4ADEF93B0159 // TnsPostingsTree
  ;
  : Operations
-   Seq: ( ME_FE892A7F9791 // DoIt
+   Seq: ( ME_56BA0A250138 // DoIt
  )
  ; // Operations
 
-ref; // ME_52F9FD4D014F ChangeCaption
+ref; // ME_52F9FD4D014F CheckAndChangeCaption
 
 FORWARD ME_52F9FD68005A
 
@@ -1112,7 +1124,7 @@ ref; // ME_5000565C019C_ME_4ADEF93B0159 ClearFields
  ME_52F9FCAF0340 // Create
  ME_52F9FCCE016F // SaveQuery2Adapter
  ME_52F9FD21020E // SaveXMLForServer
- ME_52F9FD4D014F // ChangeCaption
+ ME_52F9FD4D014F // CheckAndChangeCaption
  ME_52F9FD68005A // DeletePosting
  ME_52F9FDC0007C // DeleteSelectedPostings
  ME_52F9FDDA019A // ExportSelected

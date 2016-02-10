@@ -198,6 +198,7 @@ f _SpellWordByOp
 	Class_Inst)\
 	%1%f_set_var(Speller,{Class_Inst})\
 	%{Class_Inst}%f_set_var(SpelledFor,1)\
+	%{Class_Inst}%f_set_var(Speller,{GEN})\
 
 	%{Class_Inst}%f_set_up(is immediate,%1{is immediate})\
 	%{Class_Inst}%f_set_up(ifdef,%1{ifdef})\
@@ -341,6 +342,9 @@ f _SpellWordByOp
 	 : %{GEN}U\
 	]\
 	,Op_Instance)\
+
+	%{Op_Instance}%f_set_var(SpelledFor,1)\
+	%{Class_Inst}%f_set_var(Stub,{Op_Instance})\
 
 	%{Op_Instance}%f_set_documentation(Реализация слова скрипта %f_loc_GetNameForScript(%{Class_Inst}))\
 	%{Op_Instance}%f_set_abstraction_type(final)\

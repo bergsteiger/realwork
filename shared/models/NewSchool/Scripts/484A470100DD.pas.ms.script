@@ -3545,6 +3545,27 @@ ref; // ME_54042C030095 Stages
 
 ref; // ME_5566F4AD0133 ExpandEditions
 
+: ME_56BAF51F0190
+ CONST UID '56BAF51F0190'
+ CONST Name 'InfoDocsIncludedOnly'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_53B6A5C200FA // AutoExportTask
+ ;
+ : Target WL 'ME_48492A7A0255' '52669BFC024E.pas.ms.script' // Bool
+ ;
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_56BAF51F0190 InfoDocsIncludedOnly
+
 : ME_53B6A5C200FA
  CONST UID '53B6A5C200FA'
  CONST Name 'AutoExportTask'
@@ -3591,6 +3612,7 @@ ref; // ME_5566F4AD0133 ExpandEditions
  ME_540023F20366 // MaxExportCount
  ME_54042C030095 // Stages
  ME_5566F4AD0133 // ExpandEditions
+ ME_56BAF51F0190 // InfoDocsIncludedOnly
  )
  ; // Attributes
  CONST "Defines CompareTagWithInt" false
@@ -9288,6 +9310,50 @@ ref; // ME_55EFE1A501A2 MaxCount
 
 ref; // ME_55EEBECD01B5 mdpImportDocs
 
+FORWARD ME_56A86C8401FD
+
+: ME_56B998300115
+ CONST UID '56B998300115'
+ CONST Name 'DataServerHostName'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56A86C8401FD // ComboAccessProviderParams
+ ;
+ : Target WL 'ME_48492AC1023B' '52669BFC024E.pas.ms.script' // String
+ ;
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_56B998300115 DataServerHostName
+
+: ME_56B998460047
+ CONST UID '56B998460047'
+ CONST Name 'DataServerPort'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ CONST LinkType lt_agr
+ : Parent ME_56A86C8401FD // ComboAccessProviderParams
+ ;
+ : Target WL 'ME_48492A0C00ED' '52669BFC024E.pas.ms.script' // Long
+ ;
+ CONST "HasAfterChangeTrigger" 'undefined'
+ CONST "HasBeforeChangeTrigger" false
+ CONST "HasStoredTrigger" false
+ CONST "NeedMarkModified" 'undefined'
+ CONST "ReadOnly" 'undefined'
+ CONST "stored" 'undefined'
+ CONST extprop:evd:NeedsOwnType 'false'
+
+ref; // ME_56B998460047 DataServerPort
+
 : ME_56A86C8401FD
  CONST UID '56A86C8401FD'
  CONST Name 'ComboAccessProviderParams'
@@ -9302,6 +9368,11 @@ ref; // ME_55EEBECD01B5 mdpImportDocs
    Seq: ( ME_5432829E0143 // HyTechProviderParams
  )
  ; // Inherits
+ : Attributes
+   Seq: ( ME_56B998300115 // DataServerHostName
+ ME_56B998460047 // DataServerPort
+ )
+ ; // Attributes
  CONST "Defines CompareTagWithInt" false
  CONST "Defines CompareTags" false
  CONST "Implementation" 'undef'

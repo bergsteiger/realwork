@@ -229,3 +229,48 @@ var
 //#UC END# *54B4DE1700CA_53FF077501B7_impl*
 //#UC START# *54B4DE1700CA_53FF077501B7_var*
 //#UC END# *54B4DE1700CA_53FF077501B7_var*
+//#UC START# *56B0B9790320_53FF077501B7_impl*
+ Result := True;
+//#UC END# *56B0B9790320_53FF077501B7_impl*
+//#UC START# *56B0B9790320_53FF077501B7_var*
+//#UC END# *56B0B9790320_53FF077501B7_var*
+//#UC START# *56B4B5EF019F_53FF077501B7_impl*
+ f_PDFDoc.NewPage(TPrinterOrientation(PageOrientation));
+ WindowOrg := l3Point0;
+ ClipRect := l3RectBnd(l3Point0,
+                       DP2LP(l3SPoint(DeviceCaps(HORZRES),
+                                      DeviceCaps(VERTRES))));
+ Printed := true;
+ l_BottomHeight := pm_GetMargins.Bottom;
+ l_WO := WindowOrg;
+ WindowOrg := l_WO;
+ MoveWindowOrg(l3PointX(-WindowOrg.X));
+ l_NeedCorrect := DeviceCaps(PHYSICALOFFSETY) = 0;
+ MoveWindowOrg(l3PointY(-l_BottomHeight));
+ l_Rect := ClipRect;
+ if (l_Rect.Left < 0) then l_Rect.Left := 0;
+ if (l_Rect.Top < 0) then l_Rect.Top := 0;
+ if l_NeedCorrect then
+  l_Rect.BottomRight := l_Rect.BottomRight.Sub(l3PointY(l_BottomHeight));
+ ClipRect := l_Rect;
+//#UC END# *56B4B5EF019F_53FF077501B7_impl*
+//#UC START# *56B4B5EF019F_53FF077501B7_var*
+var
+ l_CR          : Tl3Rect;
+ l_WO          : Tl3Point;
+ l_Rect        : Tl3Rect;
+ l_Canvas      : Il3Canvas;
+ l_NeedCorrect : Boolean;
+ l_BottomHeight: Integer;
+//#UC END# *56B4B5EF019F_53FF077501B7_var*
+//#UC START# *56B4BDA30301_53FF077501B7_impl*
+ inherited;
+ SetCanvas(nil, false);
+ if not Drawing then
+ begin
+  f_PDFDoc.EndDoc;
+  f_PDFDoc := nil;
+ end; // if not Drawing then
+//#UC END# *56B4BDA30301_53FF077501B7_impl*
+//#UC START# *56B4BDA30301_53FF077501B7_var*
+//#UC END# *56B4BDA30301_53FF077501B7_var*
