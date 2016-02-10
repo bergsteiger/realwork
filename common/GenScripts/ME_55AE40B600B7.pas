@@ -373,12 +373,18 @@ begin
 end;//TkwVcmTabsClose.vcm_tabs_Close
 
 procedure TkwVcmTabsClose.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_12F6A6736B71_var*
-//#UC END# *4DAEEDE10285_12F6A6736B71_var*
+var l_aTabIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_12F6A6736B71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_12F6A6736B71_impl*
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_tabs_Close(aCtx, l_aTabIndex);
 end;//TkwVcmTabsClose.DoDoIt
 
 class function TkwVcmTabsClose.GetWordNameForRegister: AnsiString;
@@ -397,12 +403,8 @@ begin
 end;//TkwVcmTabsClose.GetAllParamsCount
 
 function TkwVcmTabsClose.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_12F6A6736B71_var*
-//#UC END# *5617F4D00243_12F6A6736B71_var*
 begin
-//#UC START# *5617F4D00243_12F6A6736B71_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_12F6A6736B71_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsClose.ParamsTypes
 
 procedure TkwVcmTabsCloseAllButCurrent.DoDoIt(const aCtx: TtfwContext);
@@ -440,12 +442,8 @@ begin
 end;//TkwVcmTabsActive.vcm_tabs_Active
 
 procedure TkwVcmTabsActive.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EA6F3BD4A5CA_var*
-//#UC END# *4DAEEDE10285_EA6F3BD4A5CA_var*
 begin
-//#UC START# *4DAEEDE10285_EA6F3BD4A5CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EA6F3BD4A5CA_impl*
+ aCtx.rEngine.PushInt(vcm_tabs_Active(aCtx));
 end;//TkwVcmTabsActive.DoDoIt
 
 class function TkwVcmTabsActive.GetWordNameForRegister: AnsiString;
@@ -464,12 +462,8 @@ begin
 end;//TkwVcmTabsActive.GetAllParamsCount
 
 function TkwVcmTabsActive.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_EA6F3BD4A5CA_var*
-//#UC END# *5617F4D00243_EA6F3BD4A5CA_var*
 begin
-//#UC START# *5617F4D00243_EA6F3BD4A5CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_EA6F3BD4A5CA_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVcmTabsActive.ParamsTypes
 
 procedure TkwVcmTabsSetActive.vcm_tabs_SetActive(const aCtx: TtfwContext;
@@ -485,12 +479,18 @@ begin
 end;//TkwVcmTabsSetActive.vcm_tabs_SetActive
 
 procedure TkwVcmTabsSetActive.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_36E868893B0A_var*
-//#UC END# *4DAEEDE10285_36E868893B0A_var*
+var l_aValue: Integer;
 begin
-//#UC START# *4DAEEDE10285_36E868893B0A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_36E868893B0A_impl*
+ try
+  l_aValue := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aValue: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_tabs_SetActive(aCtx, l_aValue);
 end;//TkwVcmTabsSetActive.DoDoIt
 
 class function TkwVcmTabsSetActive.GetWordNameForRegister: AnsiString;
@@ -509,12 +509,8 @@ begin
 end;//TkwVcmTabsSetActive.GetAllParamsCount
 
 function TkwVcmTabsSetActive.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_36E868893B0A_var*
-//#UC END# *5617F4D00243_36E868893B0A_var*
 begin
-//#UC START# *5617F4D00243_36E868893B0A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_36E868893B0A_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsSetActive.ParamsTypes
 
 function TkwVcmTabsCount.vcm_tabs_Count(const aCtx: TtfwContext): Integer;
@@ -528,12 +524,8 @@ begin
 end;//TkwVcmTabsCount.vcm_tabs_Count
 
 procedure TkwVcmTabsCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D1C0BD993D2F_var*
-//#UC END# *4DAEEDE10285_D1C0BD993D2F_var*
 begin
-//#UC START# *4DAEEDE10285_D1C0BD993D2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D1C0BD993D2F_impl*
+ aCtx.rEngine.PushInt(vcm_tabs_Count(aCtx));
 end;//TkwVcmTabsCount.DoDoIt
 
 class function TkwVcmTabsCount.GetWordNameForRegister: AnsiString;
@@ -552,12 +544,8 @@ begin
 end;//TkwVcmTabsCount.GetAllParamsCount
 
 function TkwVcmTabsCount.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D1C0BD993D2F_var*
-//#UC END# *5617F4D00243_D1C0BD993D2F_var*
 begin
-//#UC START# *5617F4D00243_D1C0BD993D2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D1C0BD993D2F_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVcmTabsCount.ParamsTypes
 
 procedure TkwVcmTabsOpenNewTab.DoDoIt(const aCtx: TtfwContext);
@@ -595,12 +583,8 @@ begin
 end;//TkwVcmTabsCanOpenNewTab.vcm_tabs_CanOpenNewTab
 
 procedure TkwVcmTabsCanOpenNewTab.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D42D3E4F7AC2_var*
-//#UC END# *4DAEEDE10285_D42D3E4F7AC2_var*
 begin
-//#UC START# *4DAEEDE10285_D42D3E4F7AC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D42D3E4F7AC2_impl*
+ aCtx.rEngine.PushBool(vcm_tabs_CanOpenNewTab(aCtx));
 end;//TkwVcmTabsCanOpenNewTab.DoDoIt
 
 class function TkwVcmTabsCanOpenNewTab.GetWordNameForRegister: AnsiString;
@@ -619,12 +603,8 @@ begin
 end;//TkwVcmTabsCanOpenNewTab.GetAllParamsCount
 
 function TkwVcmTabsCanOpenNewTab.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_D42D3E4F7AC2_var*
-//#UC END# *5617F4D00243_D42D3E4F7AC2_var*
 begin
-//#UC START# *5617F4D00243_D42D3E4F7AC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_D42D3E4F7AC2_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVcmTabsCanOpenNewTab.ParamsTypes
 
 procedure TkwVcmTabsDuplicate.vcm_tabs_Duplicate(const aCtx: TtfwContext;
@@ -640,12 +620,18 @@ begin
 end;//TkwVcmTabsDuplicate.vcm_tabs_Duplicate
 
 procedure TkwVcmTabsDuplicate.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_25BDB3DFEC33_var*
-//#UC END# *4DAEEDE10285_25BDB3DFEC33_var*
+var l_aTabIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_25BDB3DFEC33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_25BDB3DFEC33_impl*
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_tabs_Duplicate(aCtx, l_aTabIndex);
 end;//TkwVcmTabsDuplicate.DoDoIt
 
 class function TkwVcmTabsDuplicate.GetWordNameForRegister: AnsiString;
@@ -664,12 +650,8 @@ begin
 end;//TkwVcmTabsDuplicate.GetAllParamsCount
 
 function TkwVcmTabsDuplicate.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_25BDB3DFEC33_var*
-//#UC END# *5617F4D00243_25BDB3DFEC33_var*
 begin
-//#UC START# *5617F4D00243_25BDB3DFEC33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_25BDB3DFEC33_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsDuplicate.ParamsTypes
 
 function TkwVcmTabsCanDuplicate.vcm_tabs_CanDuplicate(const aCtx: TtfwContext;
@@ -685,12 +667,18 @@ begin
 end;//TkwVcmTabsCanDuplicate.vcm_tabs_CanDuplicate
 
 procedure TkwVcmTabsCanDuplicate.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_43C0563688C9_var*
-//#UC END# *4DAEEDE10285_43C0563688C9_var*
+var l_aTabIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_43C0563688C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_43C0563688C9_impl*
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(vcm_tabs_CanDuplicate(aCtx, l_aTabIndex));
 end;//TkwVcmTabsCanDuplicate.DoDoIt
 
 class function TkwVcmTabsCanDuplicate.GetWordNameForRegister: AnsiString;
@@ -709,12 +697,8 @@ begin
 end;//TkwVcmTabsCanDuplicate.GetAllParamsCount
 
 function TkwVcmTabsCanDuplicate.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_43C0563688C9_var*
-//#UC END# *5617F4D00243_43C0563688C9_var*
 begin
-//#UC START# *5617F4D00243_43C0563688C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_43C0563688C9_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsCanDuplicate.ParamsTypes
 
 procedure TkwVcmTabsReopen.DoDoIt(const aCtx: TtfwContext);
@@ -754,12 +738,8 @@ begin
 end;//TkwVcmTabsCanReopen.vcm_tabs_CanReopen
 
 procedure TkwVcmTabsCanReopen.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B8D479345CBE_var*
-//#UC END# *4DAEEDE10285_B8D479345CBE_var*
 begin
-//#UC START# *4DAEEDE10285_B8D479345CBE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B8D479345CBE_impl*
+ aCtx.rEngine.PushBool(vcm_tabs_CanReopen(aCtx));
 end;//TkwVcmTabsCanReopen.DoDoIt
 
 class function TkwVcmTabsCanReopen.GetWordNameForRegister: AnsiString;
@@ -778,12 +758,8 @@ begin
 end;//TkwVcmTabsCanReopen.GetAllParamsCount
 
 function TkwVcmTabsCanReopen.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B8D479345CBE_var*
-//#UC END# *5617F4D00243_B8D479345CBE_var*
 begin
-//#UC START# *5617F4D00243_B8D479345CBE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B8D479345CBE_impl*
+ Result := OpenTypesToTypes([]);
 end;//TkwVcmTabsCanReopen.ParamsTypes
 
 function TkwVcmTabsGetIconIndex.vcm_tabs_GetIconIndex(const aCtx: TtfwContext;
@@ -799,12 +775,18 @@ begin
 end;//TkwVcmTabsGetIconIndex.vcm_tabs_GetIconIndex
 
 procedure TkwVcmTabsGetIconIndex.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1F0AD0312C05_var*
-//#UC END# *4DAEEDE10285_1F0AD0312C05_var*
+var l_aTabIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_1F0AD0312C05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1F0AD0312C05_impl*
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushInt(vcm_tabs_GetIconIndex(aCtx, l_aTabIndex));
 end;//TkwVcmTabsGetIconIndex.DoDoIt
 
 class function TkwVcmTabsGetIconIndex.GetWordNameForRegister: AnsiString;
@@ -823,12 +805,8 @@ begin
 end;//TkwVcmTabsGetIconIndex.GetAllParamsCount
 
 function TkwVcmTabsGetIconIndex.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_1F0AD0312C05_var*
-//#UC END# *5617F4D00243_1F0AD0312C05_var*
 begin
-//#UC START# *5617F4D00243_1F0AD0312C05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_1F0AD0312C05_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsGetIconIndex.ParamsTypes
 
 function TkwVcmTabsGetCaption.vcm_tabs_GetCaption(const aCtx: TtfwContext;
@@ -844,12 +822,18 @@ begin
 end;//TkwVcmTabsGetCaption.vcm_tabs_GetCaption
 
 procedure TkwVcmTabsGetCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_27CA2643776F_var*
-//#UC END# *4DAEEDE10285_27CA2643776F_var*
+var l_aTabIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_27CA2643776F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_27CA2643776F_impl*
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(vcm_tabs_GetCaption(aCtx, l_aTabIndex));
 end;//TkwVcmTabsGetCaption.DoDoIt
 
 class function TkwVcmTabsGetCaption.GetWordNameForRegister: AnsiString;
@@ -868,12 +852,8 @@ begin
 end;//TkwVcmTabsGetCaption.GetAllParamsCount
 
 function TkwVcmTabsGetCaption.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_27CA2643776F_var*
-//#UC END# *5617F4D00243_27CA2643776F_var*
 begin
-//#UC START# *5617F4D00243_27CA2643776F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_27CA2643776F_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsGetCaption.ParamsTypes
 
 function TkwVcmTabsCanUndock.vcm_tabs_CanUndock(const aCtx: TtfwContext;
@@ -889,12 +869,18 @@ begin
 end;//TkwVcmTabsCanUndock.vcm_tabs_CanUndock
 
 procedure TkwVcmTabsCanUndock.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C1A0F850A859_var*
-//#UC END# *4DAEEDE10285_C1A0F850A859_var*
+var l_aTabIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_C1A0F850A859_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C1A0F850A859_impl*
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(vcm_tabs_CanUndock(aCtx, l_aTabIndex));
 end;//TkwVcmTabsCanUndock.DoDoIt
 
 class function TkwVcmTabsCanUndock.GetWordNameForRegister: AnsiString;
@@ -913,12 +899,8 @@ begin
 end;//TkwVcmTabsCanUndock.GetAllParamsCount
 
 function TkwVcmTabsCanUndock.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_C1A0F850A859_var*
-//#UC END# *5617F4D00243_C1A0F850A859_var*
 begin
-//#UC START# *5617F4D00243_C1A0F850A859_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_C1A0F850A859_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsCanUndock.ParamsTypes
 
 procedure TkwVcmTabsUndock.vcm_tabs_Undock(const aCtx: TtfwContext;
@@ -934,12 +916,18 @@ begin
 end;//TkwVcmTabsUndock.vcm_tabs_Undock
 
 procedure TkwVcmTabsUndock.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DB5208478590_var*
-//#UC END# *4DAEEDE10285_DB5208478590_var*
+var l_aTabIndex: Integer;
 begin
-//#UC START# *4DAEEDE10285_DB5208478590_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DB5208478590_impl*
+ try
+  l_aTabIndex := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTabIndex: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ vcm_tabs_Undock(aCtx, l_aTabIndex);
 end;//TkwVcmTabsUndock.DoDoIt
 
 class function TkwVcmTabsUndock.GetWordNameForRegister: AnsiString;
@@ -958,12 +946,8 @@ begin
 end;//TkwVcmTabsUndock.GetAllParamsCount
 
 function TkwVcmTabsUndock.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_DB5208478590_var*
-//#UC END# *5617F4D00243_DB5208478590_var*
 begin
-//#UC START# *5617F4D00243_DB5208478590_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_DB5208478590_impl*
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVcmTabsUndock.ParamsTypes
 
 initialization

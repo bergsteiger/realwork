@@ -132,12 +132,18 @@ begin
 end;//TkwPopMenuForChromeLikeActive.Active
 
 procedure TkwPopMenuForChromeLikeActive.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0E751338C548_var*
-//#UC END# *4DAEEDE10285_0E751338C548_var*
+var l_aMenuForChromeLike: TvcmBaseMenuForChromeLike;
 begin
-//#UC START# *4DAEEDE10285_0E751338C548_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0E751338C548_impl*
+ try
+  l_aMenuForChromeLike := TvcmBaseMenuForChromeLike(aCtx.rEngine.PopObjAs(TvcmBaseMenuForChromeLike));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuForChromeLike: TvcmBaseMenuForChromeLike : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Active(aCtx, l_aMenuForChromeLike));
 end;//TkwPopMenuForChromeLikeActive.DoDoIt
 
 class function TkwPopMenuForChromeLikeActive.GetWordNameForRegister: AnsiString;
@@ -156,12 +162,8 @@ begin
 end;//TkwPopMenuForChromeLikeActive.GetAllParamsCount
 
 function TkwPopMenuForChromeLikeActive.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_0E751338C548_var*
-//#UC END# *5617F4D00243_0E751338C548_var*
 begin
-//#UC START# *5617F4D00243_0E751338C548_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_0E751338C548_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeActive.ParamsTypes
 
 function TkwPopMenuForChromeLikeHovered.Hovered(const aCtx: TtfwContext;
@@ -176,12 +178,18 @@ begin
 end;//TkwPopMenuForChromeLikeHovered.Hovered
 
 procedure TkwPopMenuForChromeLikeHovered.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82B96D3A5D58_var*
-//#UC END# *4DAEEDE10285_82B96D3A5D58_var*
+var l_aMenuForChromeLike: TvcmBaseMenuForChromeLike;
 begin
-//#UC START# *4DAEEDE10285_82B96D3A5D58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82B96D3A5D58_impl*
+ try
+  l_aMenuForChromeLike := TvcmBaseMenuForChromeLike(aCtx.rEngine.PopObjAs(TvcmBaseMenuForChromeLike));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuForChromeLike: TvcmBaseMenuForChromeLike : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Hovered(aCtx, l_aMenuForChromeLike));
 end;//TkwPopMenuForChromeLikeHovered.DoDoIt
 
 class function TkwPopMenuForChromeLikeHovered.GetWordNameForRegister: AnsiString;
@@ -200,12 +208,8 @@ begin
 end;//TkwPopMenuForChromeLikeHovered.GetAllParamsCount
 
 function TkwPopMenuForChromeLikeHovered.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_82B96D3A5D58_var*
-//#UC END# *5617F4D00243_82B96D3A5D58_var*
 begin
-//#UC START# *5617F4D00243_82B96D3A5D58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_82B96D3A5D58_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeHovered.ParamsTypes
 
 function TkwPopMenuForChromeLikeMenuItem.MenuItem(const aCtx: TtfwContext;
@@ -220,12 +224,18 @@ begin
 end;//TkwPopMenuForChromeLikeMenuItem.MenuItem
 
 procedure TkwPopMenuForChromeLikeMenuItem.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B39FBDC27B79_var*
-//#UC END# *4DAEEDE10285_B39FBDC27B79_var*
+var l_aMenuForChromeLike: TvcmBaseMenuForChromeLike;
 begin
-//#UC START# *4DAEEDE10285_B39FBDC27B79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B39FBDC27B79_impl*
+ try
+  l_aMenuForChromeLike := TvcmBaseMenuForChromeLike(aCtx.rEngine.PopObjAs(TvcmBaseMenuForChromeLike));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMenuForChromeLike: TvcmBaseMenuForChromeLike : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MenuItem(aCtx, l_aMenuForChromeLike));
 end;//TkwPopMenuForChromeLikeMenuItem.DoDoIt
 
 class function TkwPopMenuForChromeLikeMenuItem.GetWordNameForRegister: AnsiString;
@@ -244,12 +254,8 @@ begin
 end;//TkwPopMenuForChromeLikeMenuItem.GetAllParamsCount
 
 function TkwPopMenuForChromeLikeMenuItem.ParamsTypes: PTypeInfoArray;
-//#UC START# *5617F4D00243_B39FBDC27B79_var*
-//#UC END# *5617F4D00243_B39FBDC27B79_var*
 begin
-//#UC START# *5617F4D00243_B39FBDC27B79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5617F4D00243_B39FBDC27B79_impl*
+ Result := OpenTypesToTypes([TypeInfo(TvcmBaseMenuForChromeLike)]);
 end;//TkwPopMenuForChromeLikeMenuItem.ParamsTypes
 
 initialization

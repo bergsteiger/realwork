@@ -2675,6 +2675,16 @@ elem_proc UserCode:
    >>> Result
   ; // ParametersWithoutContext
   
+  : .AsVar
+    STRING IN aName
+    ModelElement IN aType
+   'var' cSpace 'l_' aName ': ' aType .TypeName ';' 
+  ; // .AsVar
+  
+  elem: ParamAsVar
+   Self .Name Self .Target AsVar
+  ; // ParamAsVar
+  
   RULES
    (
     ( l_Op IsNil ! )
@@ -2702,7 +2712,7 @@ elem_proc UserCode:
         l_Call .ParametersWithoutContext
         .for> (
           IN aParam
-         [ 'var' cSpace 'l_' aParam .Name ': ' aParam .Target .TypeName ';' ] .Out
+         [ aParam .AsVar ] .Out
         ) // .for>
        )
        (
