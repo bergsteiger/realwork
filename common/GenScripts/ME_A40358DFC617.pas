@@ -351,7 +351,12 @@ end;//TkwDocNumberQueryFormLabel1.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B6936A6E2063_var*
+//#UC END# *52D00B00031A_B6936A6E2063_var*
 begin
+//#UC START# *52D00B00031A_B6936A6E2063_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B6936A6E2063_impl*
 end;//TkwDocNumberQueryFormLabel1.SetValuePrim
 
 function TkwDocNumberQueryFormLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -396,7 +401,12 @@ end;//TkwDocNumberQueryFormEdNumber.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormEdNumber.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6B90A4F929E2_var*
+//#UC END# *52D00B00031A_6B90A4F929E2_var*
 begin
+//#UC START# *52D00B00031A_6B90A4F929E2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6B90A4F929E2_impl*
 end;//TkwDocNumberQueryFormEdNumber.SetValuePrim
 
 function TkwDocNumberQueryFormEdNumber.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -441,7 +451,12 @@ end;//TkwDocNumberQueryFormCbInternal.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormCbInternal.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_DC4D2CCC9C8D_var*
+//#UC END# *52D00B00031A_DC4D2CCC9C8D_var*
 begin
+//#UC START# *52D00B00031A_DC4D2CCC9C8D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_DC4D2CCC9C8D_impl*
 end;//TkwDocNumberQueryFormCbInternal.SetValuePrim
 
 function TkwDocNumberQueryFormCbInternal.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

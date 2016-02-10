@@ -697,7 +697,12 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineRbTotmOnDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_738D30BFC216_var*
+//#UC END# *52D00B00031A_738D30BFC216_var*
 begin
+//#UC START# *52D00B00031A_738D30BFC216_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_738D30BFC216_impl*
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.SetValuePrim
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -742,7 +747,12 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_410A0E5236E8_var*
+//#UC END# *52D00B00031A_410A0E5236E8_var*
 begin
+//#UC START# *52D00B00031A_410A0E5236E8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_410A0E5236E8_impl*
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.SetValuePrim
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -787,7 +797,12 @@ end;//TkwEnTurnOnTimeMachineDeDate.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineDeDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_34CF83AB09E2_var*
+//#UC END# *52D00B00031A_34CF83AB09E2_var*
 begin
+//#UC START# *52D00B00031A_34CF83AB09E2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_34CF83AB09E2_impl*
 end;//TkwEnTurnOnTimeMachineDeDate.SetValuePrim
 
 function TkwEnTurnOnTimeMachineDeDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -832,7 +847,12 @@ end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachinePbDialogIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D77A7DA792C7_var*
+//#UC END# *52D00B00031A_D77A7DA792C7_var*
 begin
+//#UC START# *52D00B00031A_D77A7DA792C7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D77A7DA792C7_impl*
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.SetValuePrim
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -877,7 +897,12 @@ end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_47E2676FB408_var*
+//#UC END# *52D00B00031A_47E2676FB408_var*
 begin
+//#UC START# *52D00B00031A_47E2676FB408_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_47E2676FB408_impl*
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -922,7 +947,12 @@ end;//TkwEnTurnOnTimeMachineBtnOk.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineBtnOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E6A646BF492A_var*
+//#UC END# *52D00B00031A_E6A646BF492A_var*
 begin
+//#UC START# *52D00B00031A_E6A646BF492A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E6A646BF492A_impl*
 end;//TkwEnTurnOnTimeMachineBtnOk.SetValuePrim
 
 function TkwEnTurnOnTimeMachineBtnOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -967,7 +997,12 @@ end;//TkwEnTurnOnTimeMachineBtnCancel.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineBtnCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_FEC8921670AD_var*
+//#UC END# *52D00B00031A_FEC8921670AD_var*
 begin
+//#UC START# *52D00B00031A_FEC8921670AD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_FEC8921670AD_impl*
 end;//TkwEnTurnOnTimeMachineBtnCancel.SetValuePrim
 
 function TkwEnTurnOnTimeMachineBtnCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

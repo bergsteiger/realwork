@@ -699,7 +699,12 @@ end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwContentsFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4C8C363B5514_var*
+//#UC END# *52D00B00031A_4C8C363B5514_var*
 begin
+//#UC START# *52D00B00031A_4C8C363B5514_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4C8C363B5514_impl*
 end;//TkwContentsFormBackgroundPanel.SetValuePrim
 
 function TkwContentsFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -744,7 +749,12 @@ end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
 
 procedure TkwContentsFormLstBookmarks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4490BAA2CF4F_var*
+//#UC END# *52D00B00031A_4490BAA2CF4F_var*
 begin
+//#UC START# *52D00B00031A_4490BAA2CF4F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4490BAA2CF4F_impl*
 end;//TkwContentsFormLstBookmarks.SetValuePrim
 
 function TkwContentsFormLstBookmarks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -789,7 +799,12 @@ end;//TkwContentsFormLstComments.GetWordNameForRegister
 
 procedure TkwContentsFormLstComments.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BB45F71CEF15_var*
+//#UC END# *52D00B00031A_BB45F71CEF15_var*
 begin
+//#UC START# *52D00B00031A_BB45F71CEF15_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BB45F71CEF15_impl*
 end;//TkwContentsFormLstComments.SetValuePrim
 
 function TkwContentsFormLstComments.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -834,7 +849,12 @@ end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
 
 procedure TkwContentsFormLstExternalObjects.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BC07363209CB_var*
+//#UC END# *52D00B00031A_BC07363209CB_var*
 begin
+//#UC START# *52D00B00031A_BC07363209CB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BC07363209CB_impl*
 end;//TkwContentsFormLstExternalObjects.SetValuePrim
 
 function TkwContentsFormLstExternalObjects.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -879,7 +899,12 @@ end;//TkwContentsFormContentsTree.GetWordNameForRegister
 
 procedure TkwContentsFormContentsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_73822264D1F3_var*
+//#UC END# *52D00B00031A_73822264D1F3_var*
 begin
+//#UC START# *52D00B00031A_73822264D1F3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_73822264D1F3_impl*
 end;//TkwContentsFormContentsTree.SetValuePrim
 
 function TkwContentsFormContentsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -924,7 +949,12 @@ end;//TkwContentsFormContextFilter.GetWordNameForRegister
 
 procedure TkwContentsFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1F49FC7EEC5A_var*
+//#UC END# *52D00B00031A_1F49FC7EEC5A_var*
 begin
+//#UC START# *52D00B00031A_1F49FC7EEC5A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1F49FC7EEC5A_impl*
 end;//TkwContentsFormContextFilter.SetValuePrim
 
 function TkwContentsFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -969,7 +999,12 @@ end;//TkwContentsFormTasks.GetWordNameForRegister
 
 procedure TkwContentsFormTasks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_7D17DDA72BEE_var*
+//#UC END# *52D00B00031A_7D17DDA72BEE_var*
 begin
+//#UC START# *52D00B00031A_7D17DDA72BEE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_7D17DDA72BEE_impl*
 end;//TkwContentsFormTasks.SetValuePrim
 
 function TkwContentsFormTasks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

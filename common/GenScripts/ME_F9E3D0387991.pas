@@ -714,7 +714,12 @@ end;//TkwLeftEditionFormHeader.GetWordNameForRegister
 
 procedure TkwLeftEditionFormHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_14C765452AB6_var*
+//#UC END# *52D00B00031A_14C765452AB6_var*
 begin
+//#UC START# *52D00B00031A_14C765452AB6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_14C765452AB6_impl*
 end;//TkwLeftEditionFormHeader.SetValuePrim
 
 function TkwLeftEditionFormHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -759,7 +764,12 @@ end;//TkwLeftEditionFormPnLeft.GetWordNameForRegister
 
 procedure TkwLeftEditionFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A71E5CCD0855_var*
+//#UC END# *52D00B00031A_A71E5CCD0855_var*
 begin
+//#UC START# *52D00B00031A_A71E5CCD0855_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A71E5CCD0855_impl*
 end;//TkwLeftEditionFormPnLeft.SetValuePrim
 
 function TkwLeftEditionFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -804,7 +814,12 @@ end;//TkwLeftEditionFormEditionLink.GetWordNameForRegister
 
 procedure TkwLeftEditionFormEditionLink.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_AE6668D2A312_var*
+//#UC END# *52D00B00031A_AE6668D2A312_var*
 begin
+//#UC START# *52D00B00031A_AE6668D2A312_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_AE6668D2A312_impl*
 end;//TkwLeftEditionFormEditionLink.SetValuePrim
 
 function TkwLeftEditionFormEditionLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -849,7 +864,12 @@ end;//TkwLeftEditionFormPbIcon.GetWordNameForRegister
 
 procedure TkwLeftEditionFormPbIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_9B250C322986_var*
+//#UC END# *52D00B00031A_9B250C322986_var*
 begin
+//#UC START# *52D00B00031A_9B250C322986_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_9B250C322986_impl*
 end;//TkwLeftEditionFormPbIcon.SetValuePrim
 
 function TkwLeftEditionFormPbIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -894,7 +914,12 @@ end;//TkwLeftEditionFormPnCaption.GetWordNameForRegister
 
 procedure TkwLeftEditionFormPnCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D45540FF7F22_var*
+//#UC END# *52D00B00031A_D45540FF7F22_var*
 begin
+//#UC START# *52D00B00031A_D45540FF7F22_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D45540FF7F22_impl*
 end;//TkwLeftEditionFormPnCaption.SetValuePrim
 
 function TkwLeftEditionFormPnCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -939,7 +964,12 @@ end;//TkwLeftEditionFormText.GetWordNameForRegister
 
 procedure TkwLeftEditionFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_43D7FA358290_var*
+//#UC END# *52D00B00031A_43D7FA358290_var*
 begin
+//#UC START# *52D00B00031A_43D7FA358290_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_43D7FA358290_impl*
 end;//TkwLeftEditionFormText.SetValuePrim
 
 function TkwLeftEditionFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

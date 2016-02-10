@@ -177,7 +177,12 @@ end;//TkwUserCR2WarningBaloonFormViewer.GetWordNameForRegister
 
 procedure TkwUserCR2WarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A8A947A902C4_var*
+//#UC END# *52D00B00031A_A8A947A902C4_var*
 begin
+//#UC START# *52D00B00031A_A8A947A902C4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A8A947A902C4_impl*
 end;//TkwUserCR2WarningBaloonFormViewer.SetValuePrim
 
 function TkwUserCR2WarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

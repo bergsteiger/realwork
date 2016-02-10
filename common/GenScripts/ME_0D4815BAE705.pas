@@ -175,7 +175,12 @@ end;//TkwFcSynchroViewDocView.GetWordNameForRegister
 
 procedure TkwFcSynchroViewDocView.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4F94CC511B43_var*
+//#UC END# *52D00B00031A_4F94CC511B43_var*
 begin
+//#UC START# *52D00B00031A_4F94CC511B43_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4F94CC511B43_impl*
 end;//TkwFcSynchroViewDocView.SetValuePrim
 
 function TkwFcSynchroViewDocView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

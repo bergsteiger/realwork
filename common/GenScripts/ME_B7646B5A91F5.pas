@@ -175,7 +175,12 @@ end;//TkwRedactionsFormRedactionTree.GetWordNameForRegister
 
 procedure TkwRedactionsFormRedactionTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A2E39CF13C2B_var*
+//#UC END# *52D00B00031A_A2E39CF13C2B_var*
 begin
+//#UC START# *52D00B00031A_A2E39CF13C2B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A2E39CF13C2B_impl*
 end;//TkwRedactionsFormRedactionTree.SetValuePrim
 
 function TkwRedactionsFormRedactionTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
