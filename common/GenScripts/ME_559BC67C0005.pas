@@ -129,7 +129,7 @@ end;//TkwPopParserExPushString.DoDoIt
 
 class function TkwPopParserExPushString.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedPushString
+ Result := 'pop:ParserEx:PushString';
 end;//TkwPopParserExPushString.GetWordNameForRegister
 
 function TkwPopParserExPushString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -186,7 +186,7 @@ end;//TkwPopParserExPushSymbol.DoDoIt
 
 class function TkwPopParserExPushSymbol.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedPushSymbol
+ Result := 'pop:ParserEx:PushSymbol';
 end;//TkwPopParserExPushSymbol.GetWordNameForRegister
 
 function TkwPopParserExPushSymbol.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -243,7 +243,7 @@ end;//TkwPopParserExPushInt.DoDoIt
 
 class function TkwPopParserExPushInt.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedPushInt
+ Result := 'pop:ParserEx:PushInt';
 end;//TkwPopParserExPushInt.GetWordNameForRegister
 
 function TkwPopParserExPushInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -262,8 +262,12 @@ end;//TkwEfGroupListBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEfGroupListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6BCC2CEE5EC2_var*
+//#UC END# *52D00B00031A_6BCC2CEE5EC2_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_6BCC2CEE5EC2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6BCC2CEE5EC2_impl*
 end;//TkwEfGroupListBackgroundPanel.SetValuePrim
 
 function TkwEfGroupListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -308,8 +312,12 @@ end;//TkwEfGroupListGroupsTree.GetWordNameForRegister
 
 procedure TkwEfGroupListGroupsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_682D3079A453_var*
+//#UC END# *52D00B00031A_682D3079A453_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_682D3079A453_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_682D3079A453_impl*
 end;//TkwEfGroupListGroupsTree.SetValuePrim
 
 function TkwEfGroupListGroupsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -695,8 +695,12 @@ end;//TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblReference.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A8ED3F2A32F9_var*
+//#UC END# *52D00B00031A_A8ED3F2A32F9_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_A8ED3F2A32F9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A8ED3F2A32F9_impl*
 end;//TkwEfForbidAutoregistrationLblReference.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblReference.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -741,8 +745,12 @@ end;//TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationGbInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B434E42C072E_var*
+//#UC END# *52D00B00031A_B434E42C072E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B434E42C072E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B434E42C072E_impl*
 end;//TkwEfForbidAutoregistrationGbInfo.SetValuePrim
 
 function TkwEfForbidAutoregistrationGbInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -787,8 +795,12 @@ end;//TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblPhone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_20A0A124DABA_var*
+//#UC END# *52D00B00031A_20A0A124DABA_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_20A0A124DABA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_20A0A124DABA_impl*
 end;//TkwEfForbidAutoregistrationLblPhone.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblPhone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -833,8 +845,12 @@ end;//TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D03F48103D05_var*
+//#UC END# *52D00B00031A_D03F48103D05_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D03F48103D05_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D03F48103D05_impl*
 end;//TkwEfForbidAutoregistrationLblEmail.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -879,8 +895,12 @@ end;//TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D20CEB956674_var*
+//#UC END# *52D00B00031A_D20CEB956674_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D20CEB956674_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D20CEB956674_impl*
 end;//TkwEfForbidAutoregistrationLblHint.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -925,8 +945,12 @@ end;//TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationCbPhone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6AD1645F5DAC_var*
+//#UC END# *52D00B00031A_6AD1645F5DAC_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_6AD1645F5DAC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6AD1645F5DAC_impl*
 end;//TkwEfForbidAutoregistrationCbPhone.SetValuePrim
 
 function TkwEfForbidAutoregistrationCbPhone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -971,8 +995,12 @@ end;//TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationCbEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_444FFAC43ABB_var*
+//#UC END# *52D00B00031A_444FFAC43ABB_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_444FFAC43ABB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_444FFAC43ABB_impl*
 end;//TkwEfForbidAutoregistrationCbEmail.SetValuePrim
 
 function TkwEfForbidAutoregistrationCbEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

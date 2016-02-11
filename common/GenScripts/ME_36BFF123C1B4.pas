@@ -264,8 +264,12 @@ end;//TkwEfGroupPropertyEdName.GetWordNameForRegister
 
 procedure TkwEfGroupPropertyEdName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4F99EBEBC67D_var*
+//#UC END# *52D00B00031A_4F99EBEBC67D_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_4F99EBEBC67D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4F99EBEBC67D_impl*
 end;//TkwEfGroupPropertyEdName.SetValuePrim
 
 function TkwEfGroupPropertyEdName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -310,8 +314,12 @@ end;//TkwEfGroupPropertyLabel1.GetWordNameForRegister
 
 procedure TkwEfGroupPropertyLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8DC84936A887_var*
+//#UC END# *52D00B00031A_8DC84936A887_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_8DC84936A887_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8DC84936A887_impl*
 end;//TkwEfGroupPropertyLabel1.SetValuePrim
 
 function TkwEfGroupPropertyLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

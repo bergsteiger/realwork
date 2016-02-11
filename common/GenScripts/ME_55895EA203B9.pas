@@ -328,7 +328,7 @@ end;//TkwPopNewWordDefinitorCheckWord.DoDoIt
 
 class function TkwPopNewWordDefinitorCheckWord.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedCheckWord
+ Result := 'pop:NewWordDefinitor:CheckWord';
 end;//TkwPopNewWordDefinitorCheckWord.GetWordNameForRegister
 
 function TkwPopNewWordDefinitorCheckWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

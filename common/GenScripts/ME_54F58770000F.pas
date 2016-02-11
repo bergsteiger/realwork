@@ -81,7 +81,7 @@ end;//TkwPopRadioGroupItemIndex.DoDoIt
 
 class function TkwPopRadioGroupItemIndex.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedItemIndex
+ Result := 'pop:RadioGroup:ItemIndex';
 end;//TkwPopRadioGroupItemIndex.GetWordNameForRegister
 
 procedure TkwPopRadioGroupItemIndex.SetValuePrim(const aValue: TtfwStackValue;

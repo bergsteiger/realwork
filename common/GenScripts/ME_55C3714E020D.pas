@@ -268,7 +268,7 @@ end;//TkwPopValueTypesCompare.DoDoIt
 
 class function TkwPopValueTypesCompare.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedCompare
+ Result := 'pop:ValueTypes:Compare';
 end;//TkwPopValueTypesCompare.GetWordNameForRegister
 
 function TkwPopValueTypesCompare.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -325,7 +325,7 @@ end;//TkwPopValueTypesAcceptsValue.DoDoIt
 
 class function TkwPopValueTypesAcceptsValue.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedAcceptsValue
+ Result := 'pop:ValueTypes:AcceptsValue';
 end;//TkwPopValueTypesAcceptsValue.GetWordNameForRegister
 
 function TkwPopValueTypesAcceptsValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -382,7 +382,7 @@ end;//TkwPopValueTypesAdd.DoDoIt
 
 class function TkwPopValueTypesAdd.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedAdd
+ Result := 'pop:ValueTypes:Add';
 end;//TkwPopValueTypesAdd.GetWordNameForRegister
 
 function TkwPopValueTypesAdd.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -439,7 +439,7 @@ end;//TkwPopValueTypesHas.DoDoIt
 
 class function TkwPopValueTypesHas.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedHas
+ Result := 'pop:ValueTypes:Has';
 end;//TkwPopValueTypesHas.GetWordNameForRegister
 
 function TkwPopValueTypesHas.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -496,7 +496,7 @@ end;//TkwPopValueTypesEQ.DoDoIt
 
 class function TkwPopValueTypesEQ.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedEQ
+ Result := 'pop:ValueTypes:EQ';
 end;//TkwPopValueTypesEQ.GetWordNameForRegister
 
 function TkwPopValueTypesEQ.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -542,7 +542,7 @@ end;//TkwPopValueTypesDefaultValue.DoDoIt
 
 class function TkwPopValueTypesDefaultValue.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedDefaultValue
+ Result := 'pop:ValueTypes:DefaultValue';
 end;//TkwPopValueTypesDefaultValue.GetWordNameForRegister
 
 function TkwPopValueTypesDefaultValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -702,7 +702,7 @@ end;//TkwPopValueTypesName.DoDoIt
 
 class function TkwPopValueTypesName.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedName
+ Result := 'pop:ValueTypes:Name';
 end;//TkwPopValueTypesName.GetWordNameForRegister
 
 procedure TkwPopValueTypesName.SetValuePrim(const aValue: TtfwStackValue;

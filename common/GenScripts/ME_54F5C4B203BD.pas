@@ -926,7 +926,7 @@ end;//TkwPopControlControlCount.DoDoIt
 
 class function TkwPopControlControlCount.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedControlCount
+ Result := 'pop:Control:ControlCount';
 end;//TkwPopControlControlCount.GetWordNameForRegister
 
 procedure TkwPopControlControlCount.SetValuePrim(const aValue: TtfwStackValue;
@@ -978,7 +978,7 @@ end;//TkwPopControlHandle.DoDoIt
 
 class function TkwPopControlHandle.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedHandle
+ Result := 'pop:Control:Handle';
 end;//TkwPopControlHandle.GetWordNameForRegister
 
 procedure TkwPopControlHandle.SetValuePrim(const aValue: TtfwStackValue;
@@ -1030,7 +1030,7 @@ end;//TkwPopControlFocused.DoDoIt
 
 class function TkwPopControlFocused.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedFocused
+ Result := 'pop:Control:Focused';
 end;//TkwPopControlFocused.GetWordNameForRegister
 
 procedure TkwPopControlFocused.SetValuePrim(const aValue: TtfwStackValue;
@@ -1082,7 +1082,7 @@ end;//TkwPopControlCanFocus.DoDoIt
 
 class function TkwPopControlCanFocus.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedCanFocus
+ Result := 'pop:Control:CanFocus';
 end;//TkwPopControlCanFocus.GetWordNameForRegister
 
 procedure TkwPopControlCanFocus.SetValuePrim(const aValue: TtfwStackValue;

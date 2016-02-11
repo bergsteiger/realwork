@@ -239,7 +239,7 @@ end;//TkwMenuItemClick.DoDoIt
 
 class function TkwMenuItemClick.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedClick
+ Result := 'menuitem:Click';
 end;//TkwMenuItemClick.GetWordNameForRegister
 
 function TkwMenuItemClick.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -407,7 +407,7 @@ end;//TkwMenuItemCaption.DoDoIt
 
 class function TkwMenuItemCaption.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedCaption
+ Result := 'menuitem:GetCaption';
 end;//TkwMenuItemCaption.GetWordNameForRegister
 
 procedure TkwMenuItemCaption.SetValuePrim(const aValue: TtfwStackValue;
@@ -459,7 +459,7 @@ end;//TkwMenuItemCount.DoDoIt
 
 class function TkwMenuItemCount.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedCount
+ Result := 'menuitem:GetCount';
 end;//TkwMenuItemCount.GetWordNameForRegister
 
 procedure TkwMenuItemCount.SetValuePrim(const aValue: TtfwStackValue;
@@ -511,7 +511,7 @@ end;//TkwMenuItemEnabled.DoDoIt
 
 class function TkwMenuItemEnabled.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedEnabled
+ Result := 'menuitem:IsEnabled';
 end;//TkwMenuItemEnabled.GetWordNameForRegister
 
 procedure TkwMenuItemEnabled.SetValuePrim(const aValue: TtfwStackValue;
@@ -563,7 +563,7 @@ end;//TkwMenuItemVisible.DoDoIt
 
 class function TkwMenuItemVisible.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedVisible
+ Result := 'menuitem:IsVisible';
 end;//TkwMenuItemVisible.GetWordNameForRegister
 
 procedure TkwMenuItemVisible.SetValuePrim(const aValue: TtfwStackValue;
