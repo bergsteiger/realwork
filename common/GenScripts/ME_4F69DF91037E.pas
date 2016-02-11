@@ -1431,7 +1431,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Control, aValue.AsInt);
+ DoSetValue(Control, TColor(aValue.AsInt));
 end;//TkwPopControlColor.SetValuePrim
 
 function TkwPopControlColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
