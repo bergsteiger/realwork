@@ -174,7 +174,7 @@ end;//TkwNodeIsFirst.DoDoIt
 
 class function TkwNodeIsFirst.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedIsFirst
+ Result := 'Node:IsFirst';
 end;//TkwNodeIsFirst.GetWordNameForRegister
 
 procedure TkwNodeIsFirst.SetValuePrim(const aValue: TtfwStackValue;
@@ -226,7 +226,7 @@ end;//TkwNodeIsLast.DoDoIt
 
 class function TkwNodeIsLast.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedIsLast
+ Result := 'Node:IsLast';
 end;//TkwNodeIsLast.GetWordNameForRegister
 
 procedure TkwNodeIsLast.SetValuePrim(const aValue: TtfwStackValue;
@@ -278,7 +278,7 @@ end;//TkwNodeFlags.DoDoIt
 
 class function TkwNodeFlags.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedFlags
+ Result := 'Node:Flags';
 end;//TkwNodeFlags.GetWordNameForRegister
 
 procedure TkwNodeFlags.SetValuePrim(const aValue: TtfwStackValue;
@@ -330,7 +330,7 @@ end;//TkwNodeText.DoDoIt
 
 class function TkwNodeText.GetWordNameForRegister: AnsiString;
 begin
-!!! mappedText
+ Result := 'Node:Text';
 end;//TkwNodeText.GetWordNameForRegister
 
 procedure TkwNodeText.SetValuePrim(const aValue: TtfwStackValue;
