@@ -97,7 +97,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- RadioGroup.ItemIndex := aValueInteger;
+ RadioGroup.ItemIndex := aValue.AsInt;
 end;//TkwPopRadioGroupItemIndex.SetValuePrim
 
 function TkwPopRadioGroupItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

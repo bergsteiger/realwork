@@ -573,7 +573,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Array, l_anIndex, aValueTtfwStackValue);
+ DoSetValue(Array, l_anIndex, aValue);
 end;//TkwArrayItem.SetValuePrim
 
 function TkwArrayItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
