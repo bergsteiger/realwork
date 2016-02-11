@@ -3097,6 +3097,16 @@ elem_proc UserCode:
        end // ( Self .Parent .IsSingleton )
       ) 
     end // ( Self .IsFactory )
+    
+   (
+    ( l_Op IsNil ! )
+    AND ( l_Self IsNil ! )
+    AND ( l_Implementor .IsSummoned )
+    AND ( l_Op .UPisTrue "mapped" )
+   )
+     Code:
+       ( [ '!!! mapped' l_Op .Name ] .Out )
+    
    ( 
     'ResNameGetter' Self .Name EndsStr 
     AND ( l_Key 'impl' == )
