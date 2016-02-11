@@ -412,8 +412,18 @@ end;//TkwPopRemindersLineAbsLeft.GetWordNameForRegister
 
 procedure TkwPopRemindersLineAbsLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RemindersLine: TvgRemindersLine;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RemindersLine. := aValue.AsInt;
 end;//TkwPopRemindersLineAbsLeft.SetValuePrim
 
 function TkwPopRemindersLineAbsLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -464,8 +474,18 @@ end;//TkwPopRemindersLineAbsTop.GetWordNameForRegister
 
 procedure TkwPopRemindersLineAbsTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RemindersLine: TvgRemindersLine;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RemindersLine. := aValue.AsInt;
 end;//TkwPopRemindersLineAbsTop.SetValuePrim
 
 function TkwPopRemindersLineAbsTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -516,8 +536,18 @@ end;//TkwPopRemindersLineCount.GetWordNameForRegister
 
 procedure TkwPopRemindersLineCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RemindersLine: TvgRemindersLine;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RemindersLine. := aValue.AsInt;
 end;//TkwPopRemindersLineCount.SetValuePrim
 
 function TkwPopRemindersLineCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -568,8 +598,18 @@ end;//TkwPopRemindersLineHeight.GetWordNameForRegister
 
 procedure TkwPopRemindersLineHeight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RemindersLine: TvgRemindersLine;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RemindersLine. := aValue.AsInt;
 end;//TkwPopRemindersLineHeight.SetValuePrim
 
 function TkwPopRemindersLineHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -620,8 +660,18 @@ end;//TkwPopRemindersLineLeft.GetWordNameForRegister
 
 procedure TkwPopRemindersLineLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RemindersLine: TvgRemindersLine;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RemindersLine. := aValue.AsInt;
 end;//TkwPopRemindersLineLeft.SetValuePrim
 
 function TkwPopRemindersLineLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -672,8 +722,18 @@ end;//TkwPopRemindersLineTop.GetWordNameForRegister
 
 procedure TkwPopRemindersLineTop.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RemindersLine: TvgRemindersLine;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RemindersLine. := aValue.AsInt;
 end;//TkwPopRemindersLineTop.SetValuePrim
 
 function TkwPopRemindersLineTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -724,8 +784,18 @@ end;//TkwPopRemindersLineVisible.GetWordNameForRegister
 
 procedure TkwPopRemindersLineVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RemindersLine: TvgRemindersLine;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(RemindersLine, aValue.AsBoolean);
 end;//TkwPopRemindersLineVisible.SetValuePrim
 
 function TkwPopRemindersLineVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -776,8 +846,18 @@ end;//TkwPopRemindersLineWidth.GetWordNameForRegister
 
 procedure TkwPopRemindersLineWidth.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RemindersLine: TvgRemindersLine;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RemindersLine := TvgRemindersLine(aCtx.rEngine.PopObjAs(TvgRemindersLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RemindersLine: TvgRemindersLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RemindersLine. := aValue.AsInt;
 end;//TkwPopRemindersLineWidth.SetValuePrim
 
 function TkwPopRemindersLineWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -99,8 +99,18 @@ end;//TkwPopSpinEditValue.GetWordNameForRegister
 
 procedure TkwPopSpinEditValue.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_SpinEdit: TvtSpinEdit;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_SpinEdit := TvtSpinEdit(aCtx.rEngine.PopObjAs(TvtSpinEdit));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра SpinEdit: TvtSpinEdit : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(SpinEdit, aValue.AsInt);
 end;//TkwPopSpinEditValue.SetValuePrim
 
 function TkwPopSpinEditValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

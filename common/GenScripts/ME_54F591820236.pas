@@ -85,8 +85,18 @@ end;//TkwPopTB97ButtonDown.GetWordNameForRegister
 
 procedure TkwPopTB97ButtonDown.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_TB97Button: TCustomToolbarButton97;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_TB97Button := TCustomToolbarButton97(aCtx.rEngine.PopObjAs(TCustomToolbarButton97));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра TB97Button: TCustomToolbarButton97 : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ TB97Button. := aValue.AsBoolean;
 end;//TkwPopTB97ButtonDown.SetValuePrim
 
 function TkwPopTB97ButtonDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -962,8 +962,18 @@ end;//TkwPopEditorCaretVisible.GetWordNameForRegister
 
 procedure TkwPopEditorCaretVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Editor, aValue.AsBoolean);
 end;//TkwPopEditorCaretVisible.SetValuePrim
 
 function TkwPopEditorCaretVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1014,8 +1024,18 @@ end;//TkwPopEditorShowDocumentParts.GetWordNameForRegister
 
 procedure TkwPopEditorShowDocumentParts.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Editor. := aValue.AsBoolean;
 end;//TkwPopEditorShowDocumentParts.SetValuePrim
 
 function TkwPopEditorShowDocumentParts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1066,8 +1086,18 @@ end;//TkwPopEditorWebStyle.GetWordNameForRegister
 
 procedure TkwPopEditorWebStyle.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Editor. := aValue.AsBoolean;
 end;//TkwPopEditorWebStyle.SetValuePrim
 
 function TkwPopEditorWebStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1118,8 +1148,18 @@ end;//TkwPopEditorDrawSpecial.GetWordNameForRegister
 
 procedure TkwPopEditorDrawSpecial.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Editor. := aValue.AsBoolean;
 end;//TkwPopEditorDrawSpecial.SetValuePrim
 
 function TkwPopEditorDrawSpecial.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1170,8 +1210,18 @@ end;//TkwPopEditorDocumentTailVisible.GetWordNameForRegister
 
 procedure TkwPopEditorDocumentTailVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Editor, aValue.AsBoolean);
 end;//TkwPopEditorDocumentTailVisible.SetValuePrim
 
 function TkwPopEditorDocumentTailVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1222,8 +1272,18 @@ end;//TkwPopEditorModified.GetWordNameForRegister
 
 procedure TkwPopEditorModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Editor. := aValue.AsBoolean;
 end;//TkwPopEditorModified.SetValuePrim
 
 function TkwPopEditorModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1285,8 +1345,18 @@ end;//TkwPopEditorDrawLines.GetWordNameForRegister
 
 procedure TkwPopEditorDrawLines.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Editor, aValue.AsBoolean);
 end;//TkwPopEditorDrawLines.SetValuePrim
 
 function TkwPopEditorDrawLines.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1337,8 +1407,18 @@ end;//TkwPopEditorAllowRubberTables.GetWordNameForRegister
 
 procedure TkwPopEditorAllowRubberTables.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Editor: TevCustomEditorWindow;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Editor. := aValue.AsInt;
 end;//TkwPopEditorAllowRubberTables.SetValuePrim
 
 function TkwPopEditorAllowRubberTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

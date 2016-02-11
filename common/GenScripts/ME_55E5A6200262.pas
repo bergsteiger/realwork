@@ -786,8 +786,18 @@ end;//TkwPopTableOldNSRC.GetWordNameForRegister
 
 procedure TkwPopTableOldNSRC.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Table: IedTable;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Table := IedTable(aCtx.rEngine.PopIntf(IedTable));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Table: IedTable : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Table, aValue.AsBoolean);
 end;//TkwPopTableOldNSRC.SetValuePrim
 
 function TkwPopTableOldNSRC.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

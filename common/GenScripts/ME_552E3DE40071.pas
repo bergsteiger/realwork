@@ -87,8 +87,18 @@ end;//TkwPopRadioButtonChecked.GetWordNameForRegister
 
 procedure TkwPopRadioButtonChecked.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_RadioButton: TRadioButton;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_RadioButton := TRadioButton(aCtx.rEngine.PopObjAs(TRadioButton));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра RadioButton: TRadioButton : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ RadioButton. := aValue.AsBoolean;
 end;//TkwPopRadioButtonChecked.SetValuePrim
 
 function TkwPopRadioButtonChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

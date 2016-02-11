@@ -318,8 +318,18 @@ end;//TkwPopListerCurrent.GetWordNameForRegister
 
 procedure TkwPopListerCurrent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Lister: TvtCustomLister;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Lister := TvtCustomLister(aCtx.rEngine.PopObjAs(TvtCustomLister));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Lister: TvtCustomLister : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Lister. := aValue.AsInt;
 end;//TkwPopListerCurrent.SetValuePrim
 
 function TkwPopListerCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

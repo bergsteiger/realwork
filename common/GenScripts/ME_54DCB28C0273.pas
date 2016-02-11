@@ -154,8 +154,18 @@ end;//TkwPopFormIsFloatingStateAndParentNotVisible.GetWordNameForRegister
 
 procedure TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Form: TvcmEntityForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Form := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Form: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Form. := aValue.AsBoolean;
 end;//TkwPopFormIsFloatingStateAndParentNotVisible.SetValuePrim
 
 function TkwPopFormIsFloatingStateAndParentNotVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -206,8 +216,18 @@ end;//TkwPopFormIsFloatingState.GetWordNameForRegister
 
 procedure TkwPopFormIsFloatingState.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Form: TvcmEntityForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Form := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Form: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Form. := aValue.AsBoolean;
 end;//TkwPopFormIsFloatingState.SetValuePrim
 
 function TkwPopFormIsFloatingState.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -258,8 +278,18 @@ end;//TkwPopFormUserType.GetWordNameForRegister
 
 procedure TkwPopFormUserType.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Form: TvcmEntityForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Form := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Form: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Form. := aValue.AsInt;
 end;//TkwPopFormUserType.SetValuePrim
 
 function TkwPopFormUserType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -310,8 +340,18 @@ end;//TkwPopFormFormID.GetWordNameForRegister
 
 procedure TkwPopFormFormID.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Form: TvcmEntityForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Form := TvcmEntityForm(aCtx.rEngine.PopObjAs(TvcmEntityForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Form: TvcmEntityForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Form, aValue.AsDelphiString);
 end;//TkwPopFormFormID.SetValuePrim
 
 function TkwPopFormFormID.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

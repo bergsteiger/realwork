@@ -621,8 +621,18 @@ end;//TkwPopReminderImageIndex.GetWordNameForRegister
 
 procedure TkwPopReminderImageIndex.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValue.AsInt;
 end;//TkwPopReminderImageIndex.SetValuePrim
 
 function TkwPopReminderImageIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -673,8 +683,18 @@ end;//TkwPopReminderUserType.GetWordNameForRegister
 
 procedure TkwPopReminderUserType.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValue.AsInt;
 end;//TkwPopReminderUserType.SetValuePrim
 
 function TkwPopReminderUserType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -725,8 +745,18 @@ end;//TkwPopReminderIsBaloonVisible.GetWordNameForRegister
 
 procedure TkwPopReminderIsBaloonVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Reminder, aValue.AsBoolean);
 end;//TkwPopReminderIsBaloonVisible.SetValuePrim
 
 function TkwPopReminderIsBaloonVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -777,8 +807,18 @@ end;//TkwPopReminderVisible.GetWordNameForRegister
 
 procedure TkwPopReminderVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValue.AsBoolean;
 end;//TkwPopReminderVisible.SetValuePrim
 
 function TkwPopReminderVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -829,8 +869,18 @@ end;//TkwPopReminderName.GetWordNameForRegister
 
 procedure TkwPopReminderName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValue.AsDelphiString;
 end;//TkwPopReminderName.SetValuePrim
 
 function TkwPopReminderName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -881,8 +931,18 @@ end;//TkwPopReminderFlash.GetWordNameForRegister
 
 procedure TkwPopReminderFlash.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValue.AsBoolean;
 end;//TkwPopReminderFlash.SetValuePrim
 
 function TkwPopReminderFlash.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -933,8 +993,18 @@ end;//TkwPopReminderTextBackColor.GetWordNameForRegister
 
 procedure TkwPopReminderTextBackColor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Reminder, aValue.AsDelphiString);
 end;//TkwPopReminderTextBackColor.SetValuePrim
 
 function TkwPopReminderTextBackColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -985,8 +1055,18 @@ end;//TkwPopReminderShowHint.GetWordNameForRegister
 
 procedure TkwPopReminderShowHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValue.AsBoolean;
 end;//TkwPopReminderShowHint.SetValuePrim
 
 function TkwPopReminderShowHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1037,8 +1117,18 @@ end;//TkwPopReminderCaption.GetWordNameForRegister
 
 procedure TkwPopReminderCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValueНе знаем как приводить значение типа Il3CString;
 end;//TkwPopReminderCaption.SetValuePrim
 
 function TkwPopReminderCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1089,8 +1179,18 @@ end;//TkwPopReminderHint.GetWordNameForRegister
 
 procedure TkwPopReminderHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValueНе знаем как приводить значение типа Il3CString;
 end;//TkwPopReminderHint.SetValuePrim
 
 function TkwPopReminderHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1141,8 +1241,18 @@ end;//TkwPopReminderPopupForm.GetWordNameForRegister
 
 procedure TkwPopReminderPopupForm.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Reminder: TvgReminder;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Reminder := TvgReminder(aCtx.rEngine.PopObjAs(TvgReminder));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Reminder: TvgReminder : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Reminder. := aValue.AsObject(TvtPopupFormModelPart);
 end;//TkwPopReminderPopupForm.SetValuePrim
 
 function TkwPopReminderPopupForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
