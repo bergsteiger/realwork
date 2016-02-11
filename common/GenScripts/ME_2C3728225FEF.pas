@@ -175,8 +175,12 @@ end;//TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister
 
 procedure TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B10F98691ABD_var*
+//#UC END# *52D00B00031A_B10F98691ABD_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B10F98691ABD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B10F98691ABD_impl*
 end;//TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim
 
 function TkwStyleEditorNavigatorFormStyleTreeView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

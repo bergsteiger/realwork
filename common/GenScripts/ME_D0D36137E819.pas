@@ -349,8 +349,12 @@ end;//TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_89575F4DA07E_var*
+//#UC END# *52D00B00031A_89575F4DA07E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_89575F4DA07E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_89575F4DA07E_impl*
 end;//TkwCfAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwCfAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -395,8 +399,12 @@ end;//TkwCfAttributeSelectSelectedZone.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectSelectedZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_74458A23E791_var*
+//#UC END# *52D00B00031A_74458A23E791_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_74458A23E791_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_74458A23E791_impl*
 end;//TkwCfAttributeSelectSelectedZone.SetValuePrim
 
 function TkwCfAttributeSelectSelectedZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -441,8 +449,12 @@ end;//TkwCfAttributeSelectValuesZone.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectValuesZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_122E41686ED8_var*
+//#UC END# *52D00B00031A_122E41686ED8_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_122E41686ED8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_122E41686ED8_impl*
 end;//TkwCfAttributeSelectValuesZone.SetValuePrim
 
 function TkwCfAttributeSelectValuesZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

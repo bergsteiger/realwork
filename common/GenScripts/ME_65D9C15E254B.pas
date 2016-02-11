@@ -3969,8 +3969,12 @@ end;//TkwStyleEditorFontFormFontScrollBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontScrollBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_954E69BCCC58_var*
+//#UC END# *52D00B00031A_954E69BCCC58_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_954E69BCCC58_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_954E69BCCC58_impl*
 end;//TkwStyleEditorFontFormFontScrollBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontScrollBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4015,8 +4019,12 @@ end;//TkwStyleEditorFontFormFontUnderlineLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontUnderlineLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_9AE4A7FEB94E_var*
+//#UC END# *52D00B00031A_9AE4A7FEB94E_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_9AE4A7FEB94E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_9AE4A7FEB94E_impl*
 end;//TkwStyleEditorFontFormFontUnderlineLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4061,8 +4069,12 @@ end;//TkwStyleEditorFontFormFontStrikeoutLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontStrikeoutLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D1F4E42FF5EA_var*
+//#UC END# *52D00B00031A_D1F4E42FF5EA_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D1F4E42FF5EA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D1F4E42FF5EA_impl*
 end;//TkwStyleEditorFontFormFontStrikeoutLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4107,8 +4119,12 @@ end;//TkwStyleEditorFontFormFontSizeLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontSizeLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_63ABFB869758_var*
+//#UC END# *52D00B00031A_63ABFB869758_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_63ABFB869758_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_63ABFB869758_impl*
 end;//TkwStyleEditorFontFormFontSizeLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4153,8 +4169,12 @@ end;//TkwStyleEditorFontFormFontNameLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_02676F13E290_var*
+//#UC END# *52D00B00031A_02676F13E290_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_02676F13E290_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_02676F13E290_impl*
 end;//TkwStyleEditorFontFormFontNameLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4199,8 +4219,12 @@ end;//TkwStyleEditorFontFormFontItalicLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontItalicLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_612141A18D21_var*
+//#UC END# *52D00B00031A_612141A18D21_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_612141A18D21_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_612141A18D21_impl*
 end;//TkwStyleEditorFontFormFontItalicLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4245,8 +4269,12 @@ end;//TkwStyleEditorFontFormFontForeColorLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontForeColorLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6035EB84A365_var*
+//#UC END# *52D00B00031A_6035EB84A365_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_6035EB84A365_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6035EB84A365_impl*
 end;//TkwStyleEditorFontFormFontForeColorLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4291,8 +4319,12 @@ end;//TkwStyleEditorFontFormFontBoldLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontBoldLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_3CFB1098B812_var*
+//#UC END# *52D00B00031A_3CFB1098B812_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_3CFB1098B812_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_3CFB1098B812_impl*
 end;//TkwStyleEditorFontFormFontBoldLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4337,8 +4369,12 @@ end;//TkwStyleEditorFontFormFontBackColorLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontBackColorLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A1144EFA0C0B_var*
+//#UC END# *52D00B00031A_A1144EFA0C0B_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_A1144EFA0C0B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A1144EFA0C0B_impl*
 end;//TkwStyleEditorFontFormFontBackColorLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4383,8 +4419,12 @@ end;//TkwStyleEditorFontFormFontScalableLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontScalableLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_67FD049E4DDD_var*
+//#UC END# *52D00B00031A_67FD049E4DDD_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_67FD049E4DDD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_67FD049E4DDD_impl*
 end;//TkwStyleEditorFontFormFontScalableLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4429,8 +4469,12 @@ end;//TkwStyleEditorFontFormFontScalableBevel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontScalableBevel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2D914FF67038_var*
+//#UC END# *52D00B00031A_2D914FF67038_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2D914FF67038_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2D914FF67038_impl*
 end;//TkwStyleEditorFontFormFontScalableBevel.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableBevel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4475,8 +4519,12 @@ end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetWordNameForRegiste
 
 procedure TkwStyleEditorFontFormFontStrikeoutInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E4C87096091A_var*
+//#UC END# *52D00B00031A_E4C87096091A_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E4C87096091A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E4C87096091A_impl*
 end;//TkwStyleEditorFontFormFontStrikeoutInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4521,8 +4569,12 @@ end;//TkwStyleEditorFontFormFontSizeInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontSizeInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2E4C3AD6D6E8_var*
+//#UC END# *52D00B00031A_2E4C3AD6D6E8_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2E4C3AD6D6E8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2E4C3AD6D6E8_impl*
 end;//TkwStyleEditorFontFormFontSizeInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4567,8 +4619,12 @@ end;//TkwStyleEditorFontFormFontNameInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontNameInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4C650B53B504_var*
+//#UC END# *52D00B00031A_4C650B53B504_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_4C650B53B504_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4C650B53B504_impl*
 end;//TkwStyleEditorFontFormFontNameInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4613,8 +4669,12 @@ end;//TkwStyleEditorFontFormFontItalicInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontItalicInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_3E8AD123B3F2_var*
+//#UC END# *52D00B00031A_3E8AD123B3F2_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_3E8AD123B3F2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_3E8AD123B3F2_impl*
 end;//TkwStyleEditorFontFormFontItalicInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4659,8 +4719,12 @@ end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.GetWordNameForRegiste
 
 procedure TkwStyleEditorFontFormFontForeColorInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_DFA34DD9BC8B_var*
+//#UC END# *52D00B00031A_DFA34DD9BC8B_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_DFA34DD9BC8B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_DFA34DD9BC8B_impl*
 end;//TkwStyleEditorFontFormFontForeColorInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4705,8 +4769,12 @@ end;//TkwStyleEditorFontFormFontBoldInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontBoldInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_75DB636DA3EF_var*
+//#UC END# *52D00B00031A_75DB636DA3EF_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_75DB636DA3EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_75DB636DA3EF_impl*
 end;//TkwStyleEditorFontFormFontBoldInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4751,8 +4819,12 @@ end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.GetWordNameForRegiste
 
 procedure TkwStyleEditorFontFormFontBackColorInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A347ACCF48E9_var*
+//#UC END# *52D00B00031A_A347ACCF48E9_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_A347ACCF48E9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A347ACCF48E9_impl*
 end;//TkwStyleEditorFontFormFontBackColorInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4797,8 +4869,12 @@ end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetWordNameForRegiste
 
 procedure TkwStyleEditorFontFormFontUnderlineInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1E11F258142A_var*
+//#UC END# *52D00B00031A_1E11F258142A_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1E11F258142A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1E11F258142A_impl*
 end;//TkwStyleEditorFontFormFontUnderlineInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4843,8 +4919,12 @@ end;//TkwStyleEditorFontFormFontUnderlineCheckBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontUnderlineCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BDF04ACC3DA2_var*
+//#UC END# *52D00B00031A_BDF04ACC3DA2_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_BDF04ACC3DA2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BDF04ACC3DA2_impl*
 end;//TkwStyleEditorFontFormFontUnderlineCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontUnderlineCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4889,8 +4969,12 @@ end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontStrikeoutCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_346BEF6511CF_var*
+//#UC END# *52D00B00031A_346BEF6511CF_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_346BEF6511CF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_346BEF6511CF_impl*
 end;//TkwStyleEditorFontFormFontStrikeoutCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontStrikeoutCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4935,8 +5019,12 @@ end;//TkwStyleEditorFontFormFontSizeComboBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontSizeComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B7C3268A51AA_var*
+//#UC END# *52D00B00031A_B7C3268A51AA_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B7C3268A51AA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B7C3268A51AA_impl*
 end;//TkwStyleEditorFontFormFontSizeComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontSizeComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4981,8 +5069,12 @@ end;//TkwStyleEditorFontFormFontNameComboBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontNameComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_EC0410979EB7_var*
+//#UC END# *52D00B00031A_EC0410979EB7_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_EC0410979EB7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_EC0410979EB7_impl*
 end;//TkwStyleEditorFontFormFontNameComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontNameComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5027,8 +5119,12 @@ end;//TkwStyleEditorFontFormFontItalicCheckBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontItalicCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_5B44D7F36F3A_var*
+//#UC END# *52D00B00031A_5B44D7F36F3A_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_5B44D7F36F3A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_5B44D7F36F3A_impl*
 end;//TkwStyleEditorFontFormFontItalicCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontItalicCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5073,8 +5169,12 @@ end;//TkwStyleEditorFontFormFontForeColorBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontForeColorBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_0834F2DF835D_var*
+//#UC END# *52D00B00031A_0834F2DF835D_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_0834F2DF835D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_0834F2DF835D_impl*
 end;//TkwStyleEditorFontFormFontForeColorBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontForeColorBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5119,8 +5219,12 @@ end;//TkwStyleEditorFontFormFontBoldCheckBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontBoldCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BDDBA2C31A71_var*
+//#UC END# *52D00B00031A_BDDBA2C31A71_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_BDDBA2C31A71_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BDDBA2C31A71_impl*
 end;//TkwStyleEditorFontFormFontBoldCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontBoldCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5165,8 +5269,12 @@ end;//TkwStyleEditorFontFormFontBackColorBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontBackColorBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4856B8474DD1_var*
+//#UC END# *52D00B00031A_4856B8474DD1_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_4856B8474DD1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4856B8474DD1_impl*
 end;//TkwStyleEditorFontFormFontBackColorBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontBackColorBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5211,8 +5319,12 @@ end;//TkwStyleEditorFontFormFontScalableCheckBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFontScalableCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C6C7C49E08D5_var*
+//#UC END# *52D00B00031A_C6C7C49E08D5_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C6C7C49E08D5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C6C7C49E08D5_impl*
 end;//TkwStyleEditorFontFormFontScalableCheckBox.SetValuePrim
 
 function TkwStyleEditorFontFormFontScalableCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5257,8 +5369,12 @@ end;//TkwStyleEditorFontFormLeftIndentLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormLeftIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E019FF4C914D_var*
+//#UC END# *52D00B00031A_E019FF4C914D_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E019FF4C914D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E019FF4C914D_impl*
 end;//TkwStyleEditorFontFormLeftIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5303,8 +5419,12 @@ end;//TkwStyleEditorFontFormLeftIndentComboBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormLeftIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4A630E1D42AC_var*
+//#UC END# *52D00B00031A_4A630E1D42AC_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_4A630E1D42AC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4A630E1D42AC_impl*
 end;//TkwStyleEditorFontFormLeftIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5349,8 +5469,12 @@ end;//TkwStyleEditorFontFormRightIndentLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormRightIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_3E3554E6A89D_var*
+//#UC END# *52D00B00031A_3E3554E6A89D_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_3E3554E6A89D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_3E3554E6A89D_impl*
 end;//TkwStyleEditorFontFormRightIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5395,8 +5519,12 @@ end;//TkwStyleEditorFontFormRightIndentComboBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormRightIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_5BE934BE0F08_var*
+//#UC END# *52D00B00031A_5BE934BE0F08_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_5BE934BE0F08_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_5BE934BE0F08_impl*
 end;//TkwStyleEditorFontFormRightIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5441,8 +5569,12 @@ end;//TkwStyleEditorFontFormFirstIndentLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFirstIndentLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E615B68194EF_var*
+//#UC END# *52D00B00031A_E615B68194EF_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E615B68194EF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E615B68194EF_impl*
 end;//TkwStyleEditorFontFormFirstIndentLabel.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5487,8 +5619,12 @@ end;//TkwStyleEditorFontFormFirstIndentComboBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFirstIndentComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_FEA1B672155D_var*
+//#UC END# *52D00B00031A_FEA1B672155D_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_FEA1B672155D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_FEA1B672155D_impl*
 end;//TkwStyleEditorFontFormFirstIndentComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5533,8 +5669,12 @@ end;//TkwStyleEditorFontFormSpaceBeforeLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormSpaceBeforeLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A031CF88FA6A_var*
+//#UC END# *52D00B00031A_A031CF88FA6A_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_A031CF88FA6A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A031CF88FA6A_impl*
 end;//TkwStyleEditorFontFormSpaceBeforeLabel.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5579,8 +5719,12 @@ end;//TkwStyleEditorFontFormSpaceBeforeComboBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormSpaceBeforeComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D009BF86496A_var*
+//#UC END# *52D00B00031A_D009BF86496A_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D009BF86496A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D009BF86496A_impl*
 end;//TkwStyleEditorFontFormSpaceBeforeComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5625,8 +5769,12 @@ end;//TkwStyleEditorFontFormSpaceAfterLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormSpaceAfterLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_CF58F0DFE7C9_var*
+//#UC END# *52D00B00031A_CF58F0DFE7C9_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_CF58F0DFE7C9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_CF58F0DFE7C9_impl*
 end;//TkwStyleEditorFontFormSpaceAfterLabel.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5671,8 +5819,12 @@ end;//TkwStyleEditorFontFormSpaceAfterComboBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormSpaceAfterComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C6D86EC88CE3_var*
+//#UC END# *52D00B00031A_C6D86EC88CE3_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C6D86EC88CE3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C6D86EC88CE3_impl*
 end;//TkwStyleEditorFontFormSpaceAfterComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5717,8 +5869,12 @@ end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormLeftIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C28516B71127_var*
+//#UC END# *52D00B00031A_C28516B71127_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C28516B71127_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C28516B71127_impl*
 end;//TkwStyleEditorFontFormLeftIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormLeftIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5763,8 +5919,12 @@ end;//TkwStyleEditorFontFormRightIndentInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormRightIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8CD155DF44C9_var*
+//#UC END# *52D00B00031A_8CD155DF44C9_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_8CD155DF44C9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8CD155DF44C9_impl*
 end;//TkwStyleEditorFontFormRightIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormRightIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5809,8 +5969,12 @@ end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormFirstIndentInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C2221ABA41AB_var*
+//#UC END# *52D00B00031A_C2221ABA41AB_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C2221ABA41AB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C2221ABA41AB_impl*
 end;//TkwStyleEditorFontFormFirstIndentInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormFirstIndentInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5855,8 +6019,12 @@ end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_CBEC26484423_var*
+//#UC END# *52D00B00031A_CBEC26484423_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_CBEC26484423_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_CBEC26484423_impl*
 end;//TkwStyleEditorFontFormSpaceBeforeInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceBeforeInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5901,8 +6069,12 @@ end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormSpaceAfterInheritanceButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_06951EDD3ADA_var*
+//#UC END# *52D00B00031A_06951EDD3ADA_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_06951EDD3ADA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_06951EDD3ADA_impl*
 end;//TkwStyleEditorFontFormSpaceAfterInheritanceButton.SetValuePrim
 
 function TkwStyleEditorFontFormSpaceAfterInheritanceButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5947,8 +6119,12 @@ end;//TkwStyleEditorFontFormStyleCaptionLabel.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormStyleCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D81A105F7E2C_var*
+//#UC END# *52D00B00031A_D81A105F7E2C_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D81A105F7E2C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D81A105F7E2C_impl*
 end;//TkwStyleEditorFontFormStyleCaptionLabel.SetValuePrim
 
 function TkwStyleEditorFontFormStyleCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5993,8 +6169,12 @@ end;//TkwStyleEditorFontFormStyleCaptionComboBox.GetWordNameForRegister
 
 procedure TkwStyleEditorFontFormStyleCaptionComboBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_11BE9A7BD28B_var*
+//#UC END# *52D00B00031A_11BE9A7BD28B_var*
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_11BE9A7BD28B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_11BE9A7BD28B_impl*
 end;//TkwStyleEditorFontFormStyleCaptionComboBox.SetValuePrim
 
 function TkwStyleEditorFontFormStyleCaptionComboBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

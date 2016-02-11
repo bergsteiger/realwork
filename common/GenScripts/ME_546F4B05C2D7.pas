@@ -264,8 +264,12 @@ end;//TkwCreateFilterFormNameLabel.GetWordNameForRegister
 
 procedure TkwCreateFilterFormNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8D84CCE36454_var*
+//#UC END# *52D00B00031A_8D84CCE36454_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_8D84CCE36454_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8D84CCE36454_impl*
 end;//TkwCreateFilterFormNameLabel.SetValuePrim
 
 function TkwCreateFilterFormNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -310,8 +314,12 @@ end;//TkwCreateFilterFormFilterName.GetWordNameForRegister
 
 procedure TkwCreateFilterFormFilterName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E0C49BDE3F5C_var*
+//#UC END# *52D00B00031A_E0C49BDE3F5C_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E0C49BDE3F5C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E0C49BDE3F5C_impl*
 end;//TkwCreateFilterFormFilterName.SetValuePrim
 
 function TkwCreateFilterFormFilterName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

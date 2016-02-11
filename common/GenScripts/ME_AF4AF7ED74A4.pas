@@ -181,8 +181,18 @@ end;//TkwOutlinerFormFormTreeControl.GetWordNameForRegister
 
 procedure TkwOutlinerFormFormTreeControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_OutlinerFormForm: TOutlinerFormForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_OutlinerFormForm := TOutlinerFormForm(aCtx.rEngine.PopObjAs(TOutlinerFormForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра OutlinerFormForm: TOutlinerFormForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ OutlinerFormForm. := TvtOutlinerControl(aValue.AsObject(TvtOutlinerControl));
 end;//TkwOutlinerFormFormTreeControl.SetValuePrim
 
 function TkwOutlinerFormFormTreeControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

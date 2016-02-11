@@ -236,8 +236,12 @@ end;//TkwEnQueryCardEditor.GetWordNameForRegister
 
 procedure TkwEnQueryCardEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C531EBC72793_var*
+//#UC END# *52D00B00031A_C531EBC72793_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C531EBC72793_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C531EBC72793_impl*
 end;//TkwEnQueryCardEditor.SetValuePrim
 
 function TkwEnQueryCardEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -282,8 +286,12 @@ end;//TkwEnQueryCardTextSource.GetWordNameForRegister
 
 procedure TkwEnQueryCardTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_88CF64489AF4_var*
+//#UC END# *52D00B00031A_88CF64489AF4_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_88CF64489AF4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_88CF64489AF4_impl*
 end;//TkwEnQueryCardTextSource.SetValuePrim
 
 function TkwEnQueryCardTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

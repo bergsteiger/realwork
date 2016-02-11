@@ -274,8 +274,12 @@ end;//TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister
 
 procedure TkwEnPageSetupPreviewGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_56C42AEE3D11_var*
+//#UC END# *52D00B00031A_56C42AEE3D11_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_56C42AEE3D11_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_56C42AEE3D11_impl*
 end;//TkwEnPageSetupPreviewGroupBox.SetValuePrim
 
 function TkwEnPageSetupPreviewGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -320,8 +324,12 @@ end;//TkwEnPageSetupSettingsPageControl.GetWordNameForRegister
 
 procedure TkwEnPageSetupSettingsPageControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_82C3311120D2_var*
+//#UC END# *52D00B00031A_82C3311120D2_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_82C3311120D2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_82C3311120D2_impl*
 end;//TkwEnPageSetupSettingsPageControl.SetValuePrim
 
 function TkwEnPageSetupSettingsPageControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

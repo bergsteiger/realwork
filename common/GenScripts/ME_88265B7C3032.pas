@@ -1125,8 +1125,12 @@ end;//TkwMemoryUsageFormPnTagTree.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormPnTagTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_EB9FBD616CB1_var*
+//#UC END# *52D00B00031A_EB9FBD616CB1_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_EB9FBD616CB1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_EB9FBD616CB1_impl*
 end;//TkwMemoryUsageFormPnTagTree.SetValuePrim
 
 function TkwMemoryUsageFormPnTagTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1171,8 +1175,12 @@ end;//TkwMemoryUsageFormTagTree.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormTagTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6187FA2B989D_var*
+//#UC END# *52D00B00031A_6187FA2B989D_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_6187FA2B989D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6187FA2B989D_impl*
 end;//TkwMemoryUsageFormTagTree.SetValuePrim
 
 function TkwMemoryUsageFormTagTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1217,8 +1225,12 @@ end;//TkwMemoryUsageFormPnMemClasses.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormPnMemClasses.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_0A1F937A1E8B_var*
+//#UC END# *52D00B00031A_0A1F937A1E8B_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_0A1F937A1E8B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_0A1F937A1E8B_impl*
 end;//TkwMemoryUsageFormPnMemClasses.SetValuePrim
 
 function TkwMemoryUsageFormPnMemClasses.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1263,8 +1275,12 @@ end;//TkwMemoryUsageFormMemClasses.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormMemClasses.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C31096E13498_var*
+//#UC END# *52D00B00031A_C31096E13498_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C31096E13498_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C31096E13498_impl*
 end;//TkwMemoryUsageFormMemClasses.SetValuePrim
 
 function TkwMemoryUsageFormMemClasses.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1309,8 +1325,12 @@ end;//TkwMemoryUsageFormPnSummary.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormPnSummary.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_9F88B97A0726_var*
+//#UC END# *52D00B00031A_9F88B97A0726_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_9F88B97A0726_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_9F88B97A0726_impl*
 end;//TkwMemoryUsageFormPnSummary.SetValuePrim
 
 function TkwMemoryUsageFormPnSummary.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1355,8 +1375,12 @@ end;//TkwMemoryUsageFormLbLocalMemory.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormLbLocalMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_67E3D725FC3F_var*
+//#UC END# *52D00B00031A_67E3D725FC3F_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_67E3D725FC3F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_67E3D725FC3F_impl*
 end;//TkwMemoryUsageFormLbLocalMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbLocalMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1401,8 +1425,12 @@ end;//TkwMemoryUsageFormLbObjectMemory.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormLbObjectMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C36040A1C157_var*
+//#UC END# *52D00B00031A_C36040A1C157_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C36040A1C157_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C36040A1C157_impl*
 end;//TkwMemoryUsageFormLbObjectMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbObjectMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1447,8 +1475,12 @@ end;//TkwMemoryUsageFormLbObjectCount.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormLbObjectCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_DD2F688CA4C3_var*
+//#UC END# *52D00B00031A_DD2F688CA4C3_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_DD2F688CA4C3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_DD2F688CA4C3_impl*
 end;//TkwMemoryUsageFormLbObjectCount.SetValuePrim
 
 function TkwMemoryUsageFormLbObjectCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1493,8 +1525,12 @@ end;//TkwMemoryUsageFormLbGlobalMemory.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormLbGlobalMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E1C674926073_var*
+//#UC END# *52D00B00031A_E1C674926073_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E1C674926073_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E1C674926073_impl*
 end;//TkwMemoryUsageFormLbGlobalMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbGlobalMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1539,8 +1575,12 @@ end;//TkwMemoryUsageFormLbDocumentsInCacheCount.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormLbDocumentsInCacheCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_AF077E188BE6_var*
+//#UC END# *52D00B00031A_AF077E188BE6_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_AF077E188BE6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_AF077E188BE6_impl*
 end;//TkwMemoryUsageFormLbDocumentsInCacheCount.SetValuePrim
 
 function TkwMemoryUsageFormLbDocumentsInCacheCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1585,8 +1625,12 @@ end;//TkwMemoryUsageFormLbAllLocalMemory.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormLbAllLocalMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BCDCCCE325BD_var*
+//#UC END# *52D00B00031A_BCDCCCE325BD_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_BCDCCCE325BD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BCDCCCE325BD_impl*
 end;//TkwMemoryUsageFormLbAllLocalMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbAllLocalMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1631,8 +1675,12 @@ end;//TkwMemoryUsageFormLbTotalMemory.GetWordNameForRegister
 
 procedure TkwMemoryUsageFormLbTotalMemory.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E93F88B4464E_var*
+//#UC END# *52D00B00031A_E93F88B4464E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E93F88B4464E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E93F88B4464E_impl*
 end;//TkwMemoryUsageFormLbTotalMemory.SetValuePrim
 
 function TkwMemoryUsageFormLbTotalMemory.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

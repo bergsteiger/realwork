@@ -440,8 +440,12 @@ end;//TkwEnBaseSearchCardPnlMain.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C1D4470B9513_var*
+//#UC END# *52D00B00031A_C1D4470B9513_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C1D4470B9513_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C1D4470B9513_impl*
 end;//TkwEnBaseSearchCardPnlMain.SetValuePrim
 
 function TkwEnBaseSearchCardPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -486,8 +490,12 @@ end;//TkwEnBaseSearchCardHfBaseSearch.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardHfBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_CAA6BD51B722_var*
+//#UC END# *52D00B00031A_CAA6BD51B722_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_CAA6BD51B722_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_CAA6BD51B722_impl*
 end;//TkwEnBaseSearchCardHfBaseSearch.SetValuePrim
 
 function TkwEnBaseSearchCardHfBaseSearch.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -532,8 +540,12 @@ end;//TkwEnBaseSearchCardLrBaseSearch.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardLrBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C952194702DA_var*
+//#UC END# *52D00B00031A_C952194702DA_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C952194702DA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C952194702DA_impl*
 end;//TkwEnBaseSearchCardLrBaseSearch.SetValuePrim
 
 function TkwEnBaseSearchCardLrBaseSearch.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -578,8 +590,12 @@ end;//TkwEnBaseSearchCardCardTextLabel.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardCardTextLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A6D5CED27A65_var*
+//#UC END# *52D00B00031A_A6D5CED27A65_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_A6D5CED27A65_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A6D5CED27A65_impl*
 end;//TkwEnBaseSearchCardCardTextLabel.SetValuePrim
 
 function TkwEnBaseSearchCardCardTextLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

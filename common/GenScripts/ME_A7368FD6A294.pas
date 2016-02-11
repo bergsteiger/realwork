@@ -181,8 +181,18 @@ end;//TkwParentFormParentZone.GetWordNameForRegister
 
 procedure TkwParentFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_ParentForm: TParentForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_ParentForm := TParentForm(aCtx.rEngine.PopObjAs(TParentForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра ParentForm: TParentForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ParentForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwParentFormParentZone.SetValuePrim
 
 function TkwParentFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

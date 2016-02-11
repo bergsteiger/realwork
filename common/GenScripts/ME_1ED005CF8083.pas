@@ -175,8 +175,12 @@ end;//TkwEnFoldersTreeFoldersTree.GetWordNameForRegister
 
 procedure TkwEnFoldersTreeFoldersTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6BEE06997D28_var*
+//#UC END# *52D00B00031A_6BEE06997D28_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_6BEE06997D28_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6BEE06997D28_impl*
 end;//TkwEnFoldersTreeFoldersTree.SetValuePrim
 
 function TkwEnFoldersTreeFoldersTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

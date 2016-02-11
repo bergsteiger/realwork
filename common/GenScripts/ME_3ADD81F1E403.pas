@@ -351,8 +351,12 @@ end;//TkwEnNavigatorBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnNavigatorBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_70C417ED0B1C_var*
+//#UC END# *52D00B00031A_70C417ED0B1C_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_70C417ED0B1C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_70C417ED0B1C_impl*
 end;//TkwEnNavigatorBackgroundPanel.SetValuePrim
 
 function TkwEnNavigatorBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -397,8 +401,12 @@ end;//TkwEnNavigatorContextFilter.GetWordNameForRegister
 
 procedure TkwEnNavigatorContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6F24A35F9C81_var*
+//#UC END# *52D00B00031A_6F24A35F9C81_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_6F24A35F9C81_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6F24A35F9C81_impl*
 end;//TkwEnNavigatorContextFilter.SetValuePrim
 
 function TkwEnNavigatorContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -443,8 +451,12 @@ end;//TkwEnNavigatorNavigatorTree.GetWordNameForRegister
 
 procedure TkwEnNavigatorNavigatorTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_584619536FEF_var*
+//#UC END# *52D00B00031A_584619536FEF_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_584619536FEF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_584619536FEF_impl*
 end;//TkwEnNavigatorNavigatorTree.SetValuePrim
 
 function TkwEnNavigatorNavigatorTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

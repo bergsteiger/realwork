@@ -270,8 +270,18 @@ end;//TkwChildFormChildZone.GetWordNameForRegister
 
 procedure TkwChildFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_ChildForm: TChildForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_ChildForm := TChildForm(aCtx.rEngine.PopObjAs(TChildForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра ChildForm: TChildForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ChildForm. := TnscFormsPageControl(aValue.AsObject(TnscFormsPageControl));
 end;//TkwChildFormChildZone.SetValuePrim
 
 function TkwChildFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -322,8 +332,18 @@ end;//TkwChildFormMainPageTab.GetWordNameForRegister
 
 procedure TkwChildFormMainPageTab.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_ChildForm: TChildForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_ChildForm := TChildForm(aCtx.rEngine.PopObjAs(TChildForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра ChildForm: TChildForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ ChildForm. := TElTabSheet(aValue.AsObject(TElTabSheet));
 end;//TkwChildFormMainPageTab.SetValuePrim
 
 function TkwChildFormMainPageTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

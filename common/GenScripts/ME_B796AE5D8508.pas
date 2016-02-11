@@ -216,8 +216,12 @@ end;//TkwChangesBetweenEditonsFormText.GetWordNameForRegister
 
 procedure TkwChangesBetweenEditonsFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1945ED3EEC31_var*
+//#UC END# *52D00B00031A_1945ED3EEC31_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1945ED3EEC31_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1945ED3EEC31_impl*
 end;//TkwChangesBetweenEditonsFormText.SetValuePrim
 
 function TkwChangesBetweenEditonsFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

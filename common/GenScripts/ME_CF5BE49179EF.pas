@@ -394,8 +394,18 @@ end;//TkwF1LikeFormWithBSFormBaseSearchControl.GetWordNameForRegister
 
 procedure TkwF1LikeFormWithBSFormBaseSearchControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_F1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_F1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра F1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ F1LikeFormWithBSForm. := TnscTreeComboWithHistoryAndOperations(aValue.AsObject(TnscTreeComboWithHistoryAndOperations));
 end;//TkwF1LikeFormWithBSFormBaseSearchControl.SetValuePrim
 
 function TkwF1LikeFormWithBSFormBaseSearchControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -446,8 +456,18 @@ end;//TkwF1LikeFormWithBSFormText.GetWordNameForRegister
 
 procedure TkwF1LikeFormWithBSFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_F1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_F1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра F1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ F1LikeFormWithBSForm. := TeeEditorExport(aValue.AsObject(TeeEditorExport));
 end;//TkwF1LikeFormWithBSFormText.SetValuePrim
 
 function TkwF1LikeFormWithBSFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -498,8 +518,18 @@ end;//TkwF1LikeFormWithBSFormTextSource.GetWordNameForRegister
 
 procedure TkwF1LikeFormWithBSFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_F1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_F1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра F1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ F1LikeFormWithBSForm. := TeeTextSourceExport(aValue.AsObject(TeeTextSourceExport));
 end;//TkwF1LikeFormWithBSFormTextSource.SetValuePrim
 
 function TkwF1LikeFormWithBSFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -550,8 +580,18 @@ end;//TkwF1LikeFormWithBSFormLoadManager.GetWordNameForRegister
 
 procedure TkwF1LikeFormWithBSFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_F1LikeFormWithBSForm: TF1LikeFormWithBSForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_F1LikeFormWithBSForm := TF1LikeFormWithBSForm(aCtx.rEngine.PopObjAs(TF1LikeFormWithBSForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра F1LikeFormWithBSForm: TF1LikeFormWithBSForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ F1LikeFormWithBSForm. := TevLoadDocumentManager(aValue.AsObject(TevLoadDocumentManager));
 end;//TkwF1LikeFormWithBSFormLoadManager.SetValuePrim
 
 function TkwF1LikeFormWithBSFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

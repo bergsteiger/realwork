@@ -1418,7 +1418,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Editor. := aValue.AsInt;
+ Editor. := TnevRubberTablesMode(aValue.AsInt);
 end;//TkwPopEditorAllowRubberTables.SetValuePrim
 
 function TkwPopEditorAllowRubberTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

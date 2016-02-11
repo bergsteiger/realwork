@@ -167,8 +167,18 @@ end;//TkwPopTaskPanelCount.GetWordNameForRegister
 
 procedure TkwPopTaskPanelCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_TaskPanel: TnscTasksPanelView;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_TaskPanel := TnscTasksPanelView(aCtx.rEngine.PopObjAs(TnscTasksPanelView));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра TaskPanel: TnscTasksPanelView : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ TaskPanel. := aValue.AsInt;
 end;//TkwPopTaskPanelCount.SetValuePrim
 
 function TkwPopTaskPanelCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

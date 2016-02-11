@@ -349,8 +349,12 @@ end;//TkwEfEULAShellCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfEULAShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_58C15386A400_var*
+//#UC END# *52D00B00031A_58C15386A400_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_58C15386A400_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_58C15386A400_impl*
 end;//TkwEfEULAShellCaptionLabel.SetValuePrim
 
 function TkwEfEULAShellCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -395,8 +399,12 @@ end;//TkwEfEULAOkButton.GetWordNameForRegister
 
 procedure TkwEfEULAOkButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_84B2391A0258_var*
+//#UC END# *52D00B00031A_84B2391A0258_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_84B2391A0258_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_84B2391A0258_impl*
 end;//TkwEfEULAOkButton.SetValuePrim
 
 function TkwEfEULAOkButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -441,8 +449,12 @@ end;//TkwEfEULAEeMemoWithEditOperations1.GetWordNameForRegister
 
 procedure TkwEfEULAEeMemoWithEditOperations1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_ACE4A3A50395_var*
+//#UC END# *52D00B00031A_ACE4A3A50395_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_ACE4A3A50395_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_ACE4A3A50395_impl*
 end;//TkwEfEULAEeMemoWithEditOperations1.SetValuePrim
 
 function TkwEfEULAEeMemoWithEditOperations1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

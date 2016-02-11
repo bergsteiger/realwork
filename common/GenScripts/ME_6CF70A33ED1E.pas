@@ -354,8 +354,12 @@ end;//TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_3C4C01C8C1CC_var*
+//#UC END# *52D00B00031A_3C4C01C8C1CC_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_3C4C01C8C1CC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_3C4C01C8C1CC_impl*
 end;//TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwEfTreeAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -400,8 +404,12 @@ end;//TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_3EBF063E3680_var*
+//#UC END# *52D00B00031A_3EBF063E3680_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_3EBF063E3680_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_3EBF063E3680_impl*
 end;//TkwEfTreeAttributeSelectContextFilter.SetValuePrim
 
 function TkwEfTreeAttributeSelectContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -446,8 +454,12 @@ end;//TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectAttributeTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E3BEF01A8948_var*
+//#UC END# *52D00B00031A_E3BEF01A8948_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E3BEF01A8948_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E3BEF01A8948_impl*
 end;//TkwEfTreeAttributeSelectAttributeTree.SetValuePrim
 
 function TkwEfTreeAttributeSelectAttributeTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

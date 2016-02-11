@@ -171,8 +171,12 @@ end;//TkwFilterNodeAutoApplied.GetWordNameForRegister
 
 procedure TkwFilterNodeAutoApplied.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_81D0AC689E19_var*
+//#UC END# *52D00B00031A_81D0AC689E19_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_81D0AC689E19_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_81D0AC689E19_impl*
 end;//TkwFilterNodeAutoApplied.SetValuePrim
 
 function TkwFilterNodeAutoApplied.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -217,8 +221,12 @@ end;//TkwFilterNodeIsUsed.GetWordNameForRegister
 
 procedure TkwFilterNodeIsUsed.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_3EAB6B490CA4_var*
+//#UC END# *52D00B00031A_3EAB6B490CA4_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_3EAB6B490CA4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_3EAB6B490CA4_impl*
 end;//TkwFilterNodeIsUsed.SetValuePrim
 
 function TkwFilterNodeIsUsed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -263,8 +271,12 @@ end;//TkwFilterNodeIsDeleted.GetWordNameForRegister
 
 procedure TkwFilterNodeIsDeleted.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2F875C7C1CA3_var*
+//#UC END# *52D00B00031A_2F875C7C1CA3_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2F875C7C1CA3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2F875C7C1CA3_impl*
 end;//TkwFilterNodeIsDeleted.SetValuePrim
 
 function TkwFilterNodeIsDeleted.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -317,8 +329,12 @@ end;//TkwFilterNodeIsChangeable.GetWordNameForRegister
 
 procedure TkwFilterNodeIsChangeable.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_008D699CFE74_var*
+//#UC END# *52D00B00031A_008D699CFE74_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_008D699CFE74_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_008D699CFE74_impl*
 end;//TkwFilterNodeIsChangeable.SetValuePrim
 
 function TkwFilterNodeIsChangeable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -523,8 +523,12 @@ end;//TkwRememberPasswordFormEMailLabel.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8762FC4AA6B6_var*
+//#UC END# *52D00B00031A_8762FC4AA6B6_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_8762FC4AA6B6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8762FC4AA6B6_impl*
 end;//TkwRememberPasswordFormEMailLabel.SetValuePrim
 
 function TkwRememberPasswordFormEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -569,8 +573,12 @@ end;//TkwRememberPasswordFormHintLabel.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormHintLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E057630A6AF4_var*
+//#UC END# *52D00B00031A_E057630A6AF4_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E057630A6AF4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E057630A6AF4_impl*
 end;//TkwRememberPasswordFormHintLabel.SetValuePrim
 
 function TkwRememberPasswordFormHintLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -615,8 +623,12 @@ end;//TkwRememberPasswordFormBtnCancel.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormBtnCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1DAD0A24AD05_var*
+//#UC END# *52D00B00031A_1DAD0A24AD05_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1DAD0A24AD05_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1DAD0A24AD05_impl*
 end;//TkwRememberPasswordFormBtnCancel.SetValuePrim
 
 function TkwRememberPasswordFormBtnCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -661,8 +673,12 @@ end;//TkwRememberPasswordFormBtnSend.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormBtnSend.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_9D168AD23177_var*
+//#UC END# *52D00B00031A_9D168AD23177_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_9D168AD23177_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_9D168AD23177_impl*
 end;//TkwRememberPasswordFormBtnSend.SetValuePrim
 
 function TkwRememberPasswordFormBtnSend.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -707,8 +723,12 @@ end;//TkwRememberPasswordFormEdEmail.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormEdEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_AA3BE956D240_var*
+//#UC END# *52D00B00031A_AA3BE956D240_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_AA3BE956D240_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_AA3BE956D240_impl*
 end;//TkwRememberPasswordFormEdEmail.SetValuePrim
 
 function TkwRememberPasswordFormEdEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -1732,8 +1732,12 @@ end;//TkwSelfInfoFormPnMainData.GetWordNameForRegister
 
 procedure TkwSelfInfoFormPnMainData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_228FEAAB7987_var*
+//#UC END# *52D00B00031A_228FEAAB7987_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_228FEAAB7987_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_228FEAAB7987_impl*
 end;//TkwSelfInfoFormPnMainData.SetValuePrim
 
 function TkwSelfInfoFormPnMainData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1778,8 +1782,12 @@ end;//TkwSelfInfoFormUserNameLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_EA0500776D1E_var*
+//#UC END# *52D00B00031A_EA0500776D1E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_EA0500776D1E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_EA0500776D1E_impl*
 end;//TkwSelfInfoFormUserNameLabel.SetValuePrim
 
 function TkwSelfInfoFormUserNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1824,8 +1832,12 @@ end;//TkwSelfInfoFormPasswordLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_75B02E501696_var*
+//#UC END# *52D00B00031A_75B02E501696_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_75B02E501696_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_75B02E501696_impl*
 end;//TkwSelfInfoFormPasswordLabel.SetValuePrim
 
 function TkwSelfInfoFormPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1870,8 +1882,12 @@ end;//TkwSelfInfoFormLoginLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D666F64419BE_var*
+//#UC END# *52D00B00031A_D666F64419BE_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D666F64419BE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D666F64419BE_impl*
 end;//TkwSelfInfoFormLoginLabel.SetValuePrim
 
 function TkwSelfInfoFormLoginLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1916,8 +1932,12 @@ end;//TkwSelfInfoFormInfoLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1FE6B40FE2DF_var*
+//#UC END# *52D00B00031A_1FE6B40FE2DF_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1FE6B40FE2DF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1FE6B40FE2DF_impl*
 end;//TkwSelfInfoFormInfoLabel.SetValuePrim
 
 function TkwSelfInfoFormInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1962,8 +1982,12 @@ end;//TkwSelfInfoFormEMailLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E047E7B1A49D_var*
+//#UC END# *52D00B00031A_E047E7B1A49D_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E047E7B1A49D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E047E7B1A49D_impl*
 end;//TkwSelfInfoFormEMailLabel.SetValuePrim
 
 function TkwSelfInfoFormEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2008,8 +2032,12 @@ end;//TkwSelfInfoFormConfirmPasswordLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8C88B1445D54_var*
+//#UC END# *52D00B00031A_8C88B1445D54_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_8C88B1445D54_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8C88B1445D54_impl*
 end;//TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim
 
 function TkwSelfInfoFormConfirmPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2054,8 +2082,12 @@ end;//TkwSelfInfoFormVtAsteriskLabelLogin.GetWordNameForRegister
 
 procedure TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_7F6A65A32889_var*
+//#UC END# *52D00B00031A_7F6A65A32889_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_7F6A65A32889_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_7F6A65A32889_impl*
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim
 
 function TkwSelfInfoFormVtAsteriskLabelLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2100,8 +2132,12 @@ end;//TkwSelfInfoFormVtAsteriskLabelFIO.GetWordNameForRegister
 
 procedure TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BEC210F63387_var*
+//#UC END# *52D00B00031A_BEC210F63387_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_BEC210F63387_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BEC210F63387_impl*
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim
 
 function TkwSelfInfoFormVtAsteriskLabelFIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2146,8 +2182,12 @@ end;//TkwSelfInfoFormEdPassword.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_0FBF6408C500_var*
+//#UC END# *52D00B00031A_0FBF6408C500_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_0FBF6408C500_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_0FBF6408C500_impl*
 end;//TkwSelfInfoFormEdPassword.SetValuePrim
 
 function TkwSelfInfoFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2192,8 +2232,12 @@ end;//TkwSelfInfoFormEdUserName.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_780E2742FC3B_var*
+//#UC END# *52D00B00031A_780E2742FC3B_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_780E2742FC3B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_780E2742FC3B_impl*
 end;//TkwSelfInfoFormEdUserName.SetValuePrim
 
 function TkwSelfInfoFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2238,8 +2282,12 @@ end;//TkwSelfInfoFormEdLogin.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A7803EA671CA_var*
+//#UC END# *52D00B00031A_A7803EA671CA_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_A7803EA671CA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A7803EA671CA_impl*
 end;//TkwSelfInfoFormEdLogin.SetValuePrim
 
 function TkwSelfInfoFormEdLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2284,8 +2332,12 @@ end;//TkwSelfInfoFormEdEmail.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_64238C59B15B_var*
+//#UC END# *52D00B00031A_64238C59B15B_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_64238C59B15B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_64238C59B15B_impl*
 end;//TkwSelfInfoFormEdEmail.SetValuePrim
 
 function TkwSelfInfoFormEdEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2330,8 +2382,12 @@ end;//TkwSelfInfoFormEdConfirm.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdConfirm.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_F13F65A2A049_var*
+//#UC END# *52D00B00031A_F13F65A2A049_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_F13F65A2A049_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_F13F65A2A049_impl*
 end;//TkwSelfInfoFormEdConfirm.SetValuePrim
 
 function TkwSelfInfoFormEdConfirm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2376,8 +2432,12 @@ end;//TkwSelfInfoFormBottomPanel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B80ACB58E282_var*
+//#UC END# *52D00B00031A_B80ACB58E282_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B80ACB58E282_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B80ACB58E282_impl*
 end;//TkwSelfInfoFormBottomPanel.SetValuePrim
 
 function TkwSelfInfoFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2422,8 +2482,12 @@ end;//TkwSelfInfoFormRegisterButton.GetWordNameForRegister
 
 procedure TkwSelfInfoFormRegisterButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_FD3682257D32_var*
+//#UC END# *52D00B00031A_FD3682257D32_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_FD3682257D32_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_FD3682257D32_impl*
 end;//TkwSelfInfoFormRegisterButton.SetValuePrim
 
 function TkwSelfInfoFormRegisterButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2468,8 +2532,12 @@ end;//TkwSelfInfoFormHelpPanel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1C53869E7936_var*
+//#UC END# *52D00B00031A_1C53869E7936_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1C53869E7936_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1C53869E7936_impl*
 end;//TkwSelfInfoFormHelpPanel.SetValuePrim
 
 function TkwSelfInfoFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2514,8 +2582,12 @@ end;//TkwSelfInfoFormHelpPaintBox.GetWordNameForRegister
 
 procedure TkwSelfInfoFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_5BDB34AE5EFB_var*
+//#UC END# *52D00B00031A_5BDB34AE5EFB_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_5BDB34AE5EFB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_5BDB34AE5EFB_impl*
 end;//TkwSelfInfoFormHelpPaintBox.SetValuePrim
 
 function TkwSelfInfoFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2560,8 +2632,12 @@ end;//TkwSelfInfoFormHelpLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2D128F2A8132_var*
+//#UC END# *52D00B00031A_2D128F2A8132_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2D128F2A8132_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2D128F2A8132_impl*
 end;//TkwSelfInfoFormHelpLabel.SetValuePrim
 
 function TkwSelfInfoFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

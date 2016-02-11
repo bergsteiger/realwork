@@ -175,8 +175,12 @@ end;//TkwEnNewsLineDateList.GetWordNameForRegister
 
 procedure TkwEnNewsLineDateList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_A7F619520F52_var*
+//#UC END# *52D00B00031A_A7F619520F52_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_A7F619520F52_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_A7F619520F52_impl*
 end;//TkwEnNewsLineDateList.SetValuePrim
 
 function TkwEnNewsLineDateList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

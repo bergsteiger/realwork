@@ -797,8 +797,18 @@ end;//TkwMainFormStatusBar.GetWordNameForRegister
 
 procedure TkwMainFormStatusBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_MainForm: TMainForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_MainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра MainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MainForm. := TnscStatusBar(aValue.AsObject(TnscStatusBar));
 end;//TkwMainFormStatusBar.SetValuePrim
 
 function TkwMainFormStatusBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -849,8 +859,18 @@ end;//TkwMainFormClientZone.GetWordNameForRegister
 
 procedure TkwMainFormClientZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_MainForm: TMainForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_MainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра MainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MainForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwMainFormClientZone.SetValuePrim
 
 function TkwMainFormClientZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -901,8 +921,18 @@ end;//TkwMainFormMainZone.GetWordNameForRegister
 
 procedure TkwMainFormMainZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_MainForm: TMainForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_MainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра MainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MainForm. := TvtProportionalPanel(aValue.AsObject(TvtProportionalPanel));
 end;//TkwMainFormMainZone.SetValuePrim
 
 function TkwMainFormMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -953,8 +983,18 @@ end;//TkwMainFormParentZonePanel.GetWordNameForRegister
 
 procedure TkwMainFormParentZonePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_MainForm: TMainForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_MainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра MainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MainForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwMainFormParentZonePanel.SetValuePrim
 
 function TkwMainFormParentZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1005,8 +1045,18 @@ end;//TkwMainFormChildZonePanel.GetWordNameForRegister
 
 procedure TkwMainFormChildZonePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_MainForm: TMainForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_MainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра MainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MainForm. := TvtSizeablePanel(aValue.AsObject(TvtSizeablePanel));
 end;//TkwMainFormChildZonePanel.SetValuePrim
 
 function TkwMainFormChildZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1057,8 +1107,18 @@ end;//TkwMainFormBaseSearchPanel.GetWordNameForRegister
 
 procedure TkwMainFormBaseSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_MainForm: TMainForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_MainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра MainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MainForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwMainFormBaseSearchPanel.SetValuePrim
 
 function TkwMainFormBaseSearchPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1109,8 +1169,18 @@ end;//TkwMainFormLeftNavigator.GetWordNameForRegister
 
 procedure TkwMainFormLeftNavigator.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_MainForm: TMainForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_MainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра MainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MainForm. := TnscNavigator(aValue.AsObject(TnscNavigator));
 end;//TkwMainFormLeftNavigator.SetValuePrim
 
 function TkwMainFormLeftNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1163,8 +1233,18 @@ end;//TkwMainFormRightNavigator.GetWordNameForRegister
 
 procedure TkwMainFormRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_MainForm: TMainForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_MainForm := TMainForm(aCtx.rEngine.PopObjAs(TMainForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра MainForm: TMainForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ MainForm. := TnscNavigator(aValue.AsObject(TnscNavigator));
 end;//TkwMainFormRightNavigator.SetValuePrim
 
 function TkwMainFormRightNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

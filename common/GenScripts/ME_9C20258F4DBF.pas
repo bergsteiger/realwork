@@ -1210,8 +1210,12 @@ end;//TkwEnDefineSearchDatePanel1.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDatePanel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_EF233F6425B4_var*
+//#UC END# *52D00B00031A_EF233F6425B4_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_EF233F6425B4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_EF233F6425B4_impl*
 end;//TkwEnDefineSearchDatePanel1.SetValuePrim
 
 function TkwEnDefineSearchDatePanel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1256,8 +1260,12 @@ end;//TkwEnDefineSearchDateElLabel1.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateElLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_DE36FA6549B3_var*
+//#UC END# *52D00B00031A_DE36FA6549B3_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_DE36FA6549B3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_DE36FA6549B3_impl*
 end;//TkwEnDefineSearchDateElLabel1.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1302,8 +1310,12 @@ end;//TkwEnDefineSearchDateElLabel2.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateElLabel2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_AAF6259B7DA9_var*
+//#UC END# *52D00B00031A_AAF6259B7DA9_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_AAF6259B7DA9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_AAF6259B7DA9_impl*
 end;//TkwEnDefineSearchDateElLabel2.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1348,8 +1360,12 @@ end;//TkwEnDefineSearchDateElLabel3.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateElLabel3.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_955555D1ED6A_var*
+//#UC END# *52D00B00031A_955555D1ED6A_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_955555D1ED6A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_955555D1ED6A_impl*
 end;//TkwEnDefineSearchDateElLabel3.SetValuePrim
 
 function TkwEnDefineSearchDateElLabel3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1394,8 +1410,12 @@ end;//TkwEnDefineSearchDateDD1EqD2.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD1EqD2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B7C6C7A4A9BF_var*
+//#UC END# *52D00B00031A_B7C6C7A4A9BF_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B7C6C7A4A9BF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B7C6C7A4A9BF_impl*
 end;//TkwEnDefineSearchDateDD1EqD2.SetValuePrim
 
 function TkwEnDefineSearchDateDD1EqD2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1440,8 +1460,12 @@ end;//TkwEnDefineSearchDateRbEq.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateRbEq.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_5012D1B98349_var*
+//#UC END# *52D00B00031A_5012D1B98349_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_5012D1B98349_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_5012D1B98349_impl*
 end;//TkwEnDefineSearchDateRbEq.SetValuePrim
 
 function TkwEnDefineSearchDateRbEq.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1486,8 +1510,12 @@ end;//TkwEnDefineSearchDateRbInt.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateRbInt.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C42773E14E1A_var*
+//#UC END# *52D00B00031A_C42773E14E1A_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C42773E14E1A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C42773E14E1A_impl*
 end;//TkwEnDefineSearchDateRbInt.SetValuePrim
 
 function TkwEnDefineSearchDateRbInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1532,8 +1560,12 @@ end;//TkwEnDefineSearchDateRbD2Only.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateRbD2Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D9C07BFDD553_var*
+//#UC END# *52D00B00031A_D9C07BFDD553_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D9C07BFDD553_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D9C07BFDD553_impl*
 end;//TkwEnDefineSearchDateRbD2Only.SetValuePrim
 
 function TkwEnDefineSearchDateRbD2Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1578,8 +1610,12 @@ end;//TkwEnDefineSearchDateDD1Only.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD1Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B8D252A3188F_var*
+//#UC END# *52D00B00031A_B8D252A3188F_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B8D252A3188F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B8D252A3188F_impl*
 end;//TkwEnDefineSearchDateDD1Only.SetValuePrim
 
 function TkwEnDefineSearchDateDD1Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1624,8 +1660,12 @@ end;//TkwEnDefineSearchDateDD2Only.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD2Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_EF82DE42CA45_var*
+//#UC END# *52D00B00031A_EF82DE42CA45_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_EF82DE42CA45_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_EF82DE42CA45_impl*
 end;//TkwEnDefineSearchDateDD2Only.SetValuePrim
 
 function TkwEnDefineSearchDateDD2Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1670,8 +1710,12 @@ end;//TkwEnDefineSearchDateDD1.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_DC21835A6044_var*
+//#UC END# *52D00B00031A_DC21835A6044_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_DC21835A6044_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_DC21835A6044_impl*
 end;//TkwEnDefineSearchDateDD1.SetValuePrim
 
 function TkwEnDefineSearchDateDD1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1716,8 +1760,12 @@ end;//TkwEnDefineSearchDateRbD1Only.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateRbD1Only.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2ACC0213635E_var*
+//#UC END# *52D00B00031A_2ACC0213635E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2ACC0213635E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2ACC0213635E_impl*
 end;//TkwEnDefineSearchDateRbD1Only.SetValuePrim
 
 function TkwEnDefineSearchDateRbD1Only.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1762,8 +1810,12 @@ end;//TkwEnDefineSearchDateDD2.GetWordNameForRegister
 
 procedure TkwEnDefineSearchDateDD2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_06117A43FF72_var*
+//#UC END# *52D00B00031A_06117A43FF72_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_06117A43FF72_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_06117A43FF72_impl*
 end;//TkwEnDefineSearchDateDD2.SetValuePrim
 
 function TkwEnDefineSearchDateDD2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

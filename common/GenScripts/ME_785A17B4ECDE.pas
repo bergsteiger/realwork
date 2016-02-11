@@ -175,8 +175,12 @@ end;//TkwEnConfigurationListTvConfs.GetWordNameForRegister
 
 procedure TkwEnConfigurationListTvConfs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_05D945CE3B09_var*
+//#UC END# *52D00B00031A_05D945CE3B09_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_05D945CE3B09_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_05D945CE3B09_impl*
 end;//TkwEnConfigurationListTvConfs.SetValuePrim
 
 function TkwEnConfigurationListTvConfs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

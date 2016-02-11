@@ -305,8 +305,18 @@ end;//TkwF1LikeTextLoadFormText.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_F1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_F1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра F1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ F1LikeTextLoadForm. := TeeEditorExport(aValue.AsObject(TeeEditorExport));
 end;//TkwF1LikeTextLoadFormText.SetValuePrim
 
 function TkwF1LikeTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -357,8 +367,18 @@ end;//TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_F1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_F1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра F1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ F1LikeTextLoadForm. := TeeTextSourceExport(aValue.AsObject(TeeTextSourceExport));
 end;//TkwF1LikeTextLoadFormTextSource.SetValuePrim
 
 function TkwF1LikeTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -409,8 +429,18 @@ end;//TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_F1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_F1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра F1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ F1LikeTextLoadForm. := TevLoadDocumentManager(aValue.AsObject(TevLoadDocumentManager));
 end;//TkwF1LikeTextLoadFormLoadManager.SetValuePrim
 
 function TkwF1LikeTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

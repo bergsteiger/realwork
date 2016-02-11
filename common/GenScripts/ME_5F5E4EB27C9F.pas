@@ -175,8 +175,12 @@ end;//TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister
 
 procedure TkwEnMedicListSynchroViewZtChild.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B2A1FE850B9A_var*
+//#UC END# *52D00B00031A_B2A1FE850B9A_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B2A1FE850B9A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B2A1FE850B9A_impl*
 end;//TkwEnMedicListSynchroViewZtChild.SetValuePrim
 
 function TkwEnMedicListSynchroViewZtChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

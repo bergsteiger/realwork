@@ -152,8 +152,18 @@ end;//TkwElCustomEditFormEdit.GetWordNameForRegister
 
 procedure TkwElCustomEditFormEdit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_elCustomEditForm: TelCustomEditForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_elCustomEditForm := TelCustomEditForm(aCtx.rEngine.PopObjAs(TelCustomEditForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра elCustomEditForm: TelCustomEditForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ elCustomEditForm. := TelCustomEdit(aValue.AsObject(TelCustomEdit));
 end;//TkwElCustomEditFormEdit.SetValuePrim
 
 function TkwElCustomEditFormEdit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

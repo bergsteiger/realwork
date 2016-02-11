@@ -783,8 +783,12 @@ end;//TkwLongProcessFormClientPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormClientPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_486A220C7922_var*
+//#UC END# *52D00B00031A_486A220C7922_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_486A220C7922_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_486A220C7922_impl*
 end;//TkwLongProcessFormClientPanel.SetValuePrim
 
 function TkwLongProcessFormClientPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -829,8 +833,12 @@ end;//TkwLongProcessFormMessageLabel.GetWordNameForRegister
 
 procedure TkwLongProcessFormMessageLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_70AD8C304A76_var*
+//#UC END# *52D00B00031A_70AD8C304A76_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_70AD8C304A76_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_70AD8C304A76_impl*
 end;//TkwLongProcessFormMessageLabel.SetValuePrim
 
 function TkwLongProcessFormMessageLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -875,8 +883,12 @@ end;//TkwLongProcessFormBottomPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_7257AAEDA827_var*
+//#UC END# *52D00B00031A_7257AAEDA827_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_7257AAEDA827_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_7257AAEDA827_impl*
 end;//TkwLongProcessFormBottomPanel.SetValuePrim
 
 function TkwLongProcessFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -921,8 +933,12 @@ end;//TkwLongProcessFormProgressBar.GetWordNameForRegister
 
 procedure TkwLongProcessFormProgressBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B362DE4317E9_var*
+//#UC END# *52D00B00031A_B362DE4317E9_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B362DE4317E9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B362DE4317E9_impl*
 end;//TkwLongProcessFormProgressBar.SetValuePrim
 
 function TkwLongProcessFormProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -967,8 +983,12 @@ end;//TkwLongProcessFormLeftPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormLeftPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_763DFD3968B4_var*
+//#UC END# *52D00B00031A_763DFD3968B4_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_763DFD3968B4_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_763DFD3968B4_impl*
 end;//TkwLongProcessFormLeftPanel.SetValuePrim
 
 function TkwLongProcessFormLeftPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1013,8 +1033,12 @@ end;//TkwLongProcessFormImage.GetWordNameForRegister
 
 procedure TkwLongProcessFormImage.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E257BCDBC2B9_var*
+//#UC END# *52D00B00031A_E257BCDBC2B9_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E257BCDBC2B9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E257BCDBC2B9_impl*
 end;//TkwLongProcessFormImage.SetValuePrim
 
 function TkwLongProcessFormImage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1059,8 +1083,12 @@ end;//TkwLongProcessFormButtonPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormButtonPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_372A17FE3DFD_var*
+//#UC END# *52D00B00031A_372A17FE3DFD_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_372A17FE3DFD_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_372A17FE3DFD_impl*
 end;//TkwLongProcessFormButtonPanel.SetValuePrim
 
 function TkwLongProcessFormButtonPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1105,8 +1133,12 @@ end;//TkwLongProcessFormBtnExit.GetWordNameForRegister
 
 procedure TkwLongProcessFormBtnExit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_ECD55A49EDCE_var*
+//#UC END# *52D00B00031A_ECD55A49EDCE_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_ECD55A49EDCE_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_ECD55A49EDCE_impl*
 end;//TkwLongProcessFormBtnExit.SetValuePrim
 
 function TkwLongProcessFormBtnExit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

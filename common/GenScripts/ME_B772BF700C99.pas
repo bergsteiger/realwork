@@ -175,8 +175,12 @@ end;//TkwWorkJournalFormJournalTree.GetWordNameForRegister
 
 procedure TkwWorkJournalFormJournalTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2FB40EF219EB_var*
+//#UC END# *52D00B00031A_2FB40EF219EB_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2FB40EF219EB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2FB40EF219EB_impl*
 end;//TkwWorkJournalFormJournalTree.SetValuePrim
 
 function TkwWorkJournalFormJournalTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

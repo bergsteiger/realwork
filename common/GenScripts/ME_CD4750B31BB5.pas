@@ -587,8 +587,12 @@ end;//TkwEfRubricatorRubricatorList.GetWordNameForRegister
 
 procedure TkwEfRubricatorRubricatorList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_570087BEBDE5_var*
+//#UC END# *52D00B00031A_570087BEBDE5_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_570087BEBDE5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_570087BEBDE5_impl*
 end;//TkwEfRubricatorRubricatorList.SetValuePrim
 
 function TkwEfRubricatorRubricatorList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -633,8 +637,12 @@ end;//TkwEfRubricatorTopPanel.GetWordNameForRegister
 
 procedure TkwEfRubricatorTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_64EE419069C8_var*
+//#UC END# *52D00B00031A_64EE419069C8_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_64EE419069C8_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_64EE419069C8_impl*
 end;//TkwEfRubricatorTopPanel.SetValuePrim
 
 function TkwEfRubricatorTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -679,8 +687,12 @@ end;//TkwEfRubricatorPaintBox.GetWordNameForRegister
 
 procedure TkwEfRubricatorPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_741A23B47FE2_var*
+//#UC END# *52D00B00031A_741A23B47FE2_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_741A23B47FE2_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_741A23B47FE2_impl*
 end;//TkwEfRubricatorPaintBox.SetValuePrim
 
 function TkwEfRubricatorPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -725,8 +737,12 @@ end;//TkwEfRubricatorNewDocLabel.GetWordNameForRegister
 
 procedure TkwEfRubricatorNewDocLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_88E2B9AA0F4C_var*
+//#UC END# *52D00B00031A_88E2B9AA0F4C_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_88E2B9AA0F4C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_88E2B9AA0F4C_impl*
 end;//TkwEfRubricatorNewDocLabel.SetValuePrim
 
 function TkwEfRubricatorNewDocLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -771,8 +787,12 @@ end;//TkwEfRubricatorDelimiterPanel.GetWordNameForRegister
 
 procedure TkwEfRubricatorDelimiterPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_25E8A124FE5E_var*
+//#UC END# *52D00B00031A_25E8A124FE5E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_25E8A124FE5E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_25E8A124FE5E_impl*
 end;//TkwEfRubricatorDelimiterPanel.SetValuePrim
 
 function TkwEfRubricatorDelimiterPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -817,8 +837,12 @@ end;//TkwEfRubricatorExampleTextSource.GetWordNameForRegister
 
 procedure TkwEfRubricatorExampleTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_7906F7EBF729_var*
+//#UC END# *52D00B00031A_7906F7EBF729_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_7906F7EBF729_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_7906F7EBF729_impl*
 end;//TkwEfRubricatorExampleTextSource.SetValuePrim
 
 function TkwEfRubricatorExampleTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

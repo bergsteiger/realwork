@@ -303,8 +303,18 @@ end;//TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_QFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_QFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра QFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ QFLikeTextLoadForm. := TevTextSource(aValue.AsObject(TevTextSource));
 end;//TkwQFLikeTextLoadFormTextSource.SetValuePrim
 
 function TkwQFLikeTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -355,8 +365,18 @@ end;//TkwQFLikeTextLoadFormText.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_QFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_QFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра QFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ QFLikeTextLoadForm. := TevQueryCardEditor(aValue.AsObject(TevQueryCardEditor));
 end;//TkwQFLikeTextLoadFormText.SetValuePrim
 
 function TkwQFLikeTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -407,8 +427,18 @@ end;//TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_QFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_QFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра QFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ QFLikeTextLoadForm. := TevLoadDocumentManager(aValue.AsObject(TevLoadDocumentManager));
 end;//TkwQFLikeTextLoadFormLoadManager.SetValuePrim
 
 function TkwQFLikeTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

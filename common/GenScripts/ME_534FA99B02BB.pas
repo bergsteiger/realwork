@@ -1128,7 +1128,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Reminder. := aValueНе знаем как приводить значение типа Il3CString;
+ Reminder. := Il3CString(aValueНе знаем как приводить значение типа Il3CString);
 end;//TkwPopReminderCaption.SetValuePrim
 
 function TkwPopReminderCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1190,7 +1190,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Reminder. := aValueНе знаем как приводить значение типа Il3CString;
+ Reminder. := Il3CString(aValueНе знаем как приводить значение типа Il3CString);
 end;//TkwPopReminderHint.SetValuePrim
 
 function TkwPopReminderHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1252,7 +1252,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Reminder. := aValue.AsObject(TvtPopupFormModelPart);
+ Reminder. := TvtPopupFormModelPart(aValue.AsObject(TvtPopupFormModelPart));
 end;//TkwPopReminderPopupForm.SetValuePrim
 
 function TkwPopReminderPopupForm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

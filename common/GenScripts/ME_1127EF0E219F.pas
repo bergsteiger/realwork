@@ -1137,8 +1137,12 @@ end;//TkwEnPrintDialogPoDocumentNames.GetWordNameForRegister
 
 procedure TkwEnPrintDialogPoDocumentNames.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_103A0129A2B3_var*
+//#UC END# *52D00B00031A_103A0129A2B3_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_103A0129A2B3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_103A0129A2B3_impl*
 end;//TkwEnPrintDialogPoDocumentNames.SetValuePrim
 
 function TkwEnPrintDialogPoDocumentNames.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1183,8 +1187,12 @@ end;//TkwEnPrintDialogRbPrintSelected.GetWordNameForRegister
 
 procedure TkwEnPrintDialogRbPrintSelected.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_97819185B8B3_var*
+//#UC END# *52D00B00031A_97819185B8B3_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_97819185B8B3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_97819185B8B3_impl*
 end;//TkwEnPrintDialogRbPrintSelected.SetValuePrim
 
 function TkwEnPrintDialogRbPrintSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1229,8 +1237,12 @@ end;//TkwEnPrintDialogRbPrintCurrent.GetWordNameForRegister
 
 procedure TkwEnPrintDialogRbPrintCurrent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_23FF77EDE234_var*
+//#UC END# *52D00B00031A_23FF77EDE234_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_23FF77EDE234_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_23FF77EDE234_impl*
 end;//TkwEnPrintDialogRbPrintCurrent.SetValuePrim
 
 function TkwEnPrintDialogRbPrintCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1275,8 +1287,12 @@ end;//TkwEnPrintDialogEdPrintInterval.GetWordNameForRegister
 
 procedure TkwEnPrintDialogEdPrintInterval.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_72BD6982D75C_var*
+//#UC END# *52D00B00031A_72BD6982D75C_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_72BD6982D75C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_72BD6982D75C_impl*
 end;//TkwEnPrintDialogEdPrintInterval.SetValuePrim
 
 function TkwEnPrintDialogEdPrintInterval.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1321,8 +1337,12 @@ end;//TkwEnPrintDialogEdCopyCount.GetWordNameForRegister
 
 procedure TkwEnPrintDialogEdCopyCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_F312A27E7E41_var*
+//#UC END# *52D00B00031A_F312A27E7E41_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_F312A27E7E41_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_F312A27E7E41_impl*
 end;//TkwEnPrintDialogEdCopyCount.SetValuePrim
 
 function TkwEnPrintDialogEdCopyCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1367,8 +1387,12 @@ end;//TkwEnPrintDialogCollateCheckBox.GetWordNameForRegister
 
 procedure TkwEnPrintDialogCollateCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_8A08E020034B_var*
+//#UC END# *52D00B00031A_8A08E020034B_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_8A08E020034B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_8A08E020034B_impl*
 end;//TkwEnPrintDialogCollateCheckBox.SetValuePrim
 
 function TkwEnPrintDialogCollateCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1413,8 +1437,12 @@ end;//TkwEnPrintDialogCbOddEven.GetWordNameForRegister
 
 procedure TkwEnPrintDialogCbOddEven.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D4AAEA04D37D_var*
+//#UC END# *52D00B00031A_D4AAEA04D37D_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D4AAEA04D37D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D4AAEA04D37D_impl*
 end;//TkwEnPrintDialogCbOddEven.SetValuePrim
 
 function TkwEnPrintDialogCbOddEven.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1459,8 +1487,12 @@ end;//TkwEnPrintDialogPoDocumentTexts.GetWordNameForRegister
 
 procedure TkwEnPrintDialogPoDocumentTexts.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_7B77E6E2C7AF_var*
+//#UC END# *52D00B00031A_7B77E6E2C7AF_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_7B77E6E2C7AF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_7B77E6E2C7AF_impl*
 end;//TkwEnPrintDialogPoDocumentTexts.SetValuePrim
 
 function TkwEnPrintDialogPoDocumentTexts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1505,8 +1537,12 @@ end;//TkwEnPrintDialogRbPrintAll.GetWordNameForRegister
 
 procedure TkwEnPrintDialogRbPrintAll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_064862418464_var*
+//#UC END# *52D00B00031A_064862418464_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_064862418464_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_064862418464_impl*
 end;//TkwEnPrintDialogRbPrintAll.SetValuePrim
 
 function TkwEnPrintDialogRbPrintAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1551,8 +1587,12 @@ end;//TkwEnPrintDialogRbPrintInterval.GetWordNameForRegister
 
 procedure TkwEnPrintDialogRbPrintInterval.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_6A445E1BC728_var*
+//#UC END# *52D00B00031A_6A445E1BC728_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_6A445E1BC728_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_6A445E1BC728_impl*
 end;//TkwEnPrintDialogRbPrintInterval.SetValuePrim
 
 function TkwEnPrintDialogRbPrintInterval.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1597,8 +1637,12 @@ end;//TkwEnPrintDialogCbPrinter.GetWordNameForRegister
 
 procedure TkwEnPrintDialogCbPrinter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2BD5B9B2560F_var*
+//#UC END# *52D00B00031A_2BD5B9B2560F_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2BD5B9B2560F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2BD5B9B2560F_impl*
 end;//TkwEnPrintDialogCbPrinter.SetValuePrim
 
 function TkwEnPrintDialogCbPrinter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1643,8 +1687,12 @@ end;//TkwEnPrintDialogCbPrintInfo.GetWordNameForRegister
 
 procedure TkwEnPrintDialogCbPrintInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D98C3DAD8DBF_var*
+//#UC END# *52D00B00031A_D98C3DAD8DBF_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D98C3DAD8DBF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D98C3DAD8DBF_impl*
 end;//TkwEnPrintDialogCbPrintInfo.SetValuePrim
 
 function TkwEnPrintDialogCbPrintInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

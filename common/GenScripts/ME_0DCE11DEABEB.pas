@@ -181,8 +181,18 @@ end;//TkwFromWithPanelFormWorkSpace.GetWordNameForRegister
 
 procedure TkwFromWithPanelFormWorkSpace.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_FromWithPanelForm: TFromWithPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_FromWithPanelForm := TFromWithPanelForm(aCtx.rEngine.PopObjAs(TFromWithPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра FromWithPanelForm: TFromWithPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ FromWithPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwFromWithPanelFormWorkSpace.SetValuePrim
 
 function TkwFromWithPanelFormWorkSpace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

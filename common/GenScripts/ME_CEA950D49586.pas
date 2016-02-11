@@ -437,8 +437,12 @@ end;//TkwCfSaveLoadPnHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadPnHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2440EB34C9D0_var*
+//#UC END# *52D00B00031A_2440EB34C9D0_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2440EB34C9D0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2440EB34C9D0_impl*
 end;//TkwCfSaveLoadPnHeader.SetValuePrim
 
 function TkwCfSaveLoadPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -483,8 +487,12 @@ end;//TkwCfSaveLoadLbHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadLbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E675708F6BD5_var*
+//#UC END# *52D00B00031A_E675708F6BD5_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E675708F6BD5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E675708F6BD5_impl*
 end;//TkwCfSaveLoadLbHeader.SetValuePrim
 
 function TkwCfSaveLoadLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -529,8 +537,12 @@ end;//TkwCfSaveLoadPbHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadPbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_26C9E1BE48F1_var*
+//#UC END# *52D00B00031A_26C9E1BE48F1_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_26C9E1BE48F1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_26C9E1BE48F1_impl*
 end;//TkwCfSaveLoadPbHeader.SetValuePrim
 
 function TkwCfSaveLoadPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -575,8 +587,12 @@ end;//TkwCfSaveLoadParentZone.GetWordNameForRegister
 
 procedure TkwCfSaveLoadParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_27482DAD1D6E_var*
+//#UC END# *52D00B00031A_27482DAD1D6E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_27482DAD1D6E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_27482DAD1D6E_impl*
 end;//TkwCfSaveLoadParentZone.SetValuePrim
 
 function TkwCfSaveLoadParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

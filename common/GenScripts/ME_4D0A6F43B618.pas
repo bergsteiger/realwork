@@ -3386,8 +3386,18 @@ end;//TkwCustomizeTasksPanelFormSpRight.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormSpRight.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtSplitter(aValue.AsObject(TvtSplitter));
 end;//TkwCustomizeTasksPanelFormSpRight.SetValuePrim
 
 function TkwCustomizeTasksPanelFormSpRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3438,8 +3448,18 @@ end;//TkwCustomizeTasksPanelFormPnlBottom.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwCustomizeTasksPanelFormPnlBottom.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3490,8 +3510,18 @@ end;//TkwCustomizeTasksPanelFormLblConfirmSave.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtLabel(aValue.AsObject(TvtLabel));
 end;//TkwCustomizeTasksPanelFormLblConfirmSave.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblConfirmSave.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3542,8 +3572,18 @@ end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtLabel(aValue.AsObject(TvtLabel));
 end;//TkwCustomizeTasksPanelFormLblAvailableOpsCaption.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblAvailableOpsCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3594,8 +3634,18 @@ end;//TkwCustomizeTasksPanelFormBtOk.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtButton(aValue.AsObject(TvtButton));
 end;//TkwCustomizeTasksPanelFormBtOk.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3646,8 +3696,18 @@ end;//TkwCustomizeTasksPanelFormBtCancel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtButton(aValue.AsObject(TvtButton));
 end;//TkwCustomizeTasksPanelFormBtCancel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3698,8 +3758,18 @@ end;//TkwCustomizeTasksPanelFormBtApply.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtApply.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtButton(aValue.AsObject(TvtButton));
 end;//TkwCustomizeTasksPanelFormBtApply.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtApply.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3750,8 +3820,18 @@ end;//TkwCustomizeTasksPanelFormPnlRep.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwCustomizeTasksPanelFormPnlRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3802,8 +3882,18 @@ end;//TkwCustomizeTasksPanelFormSplRep.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormSplRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtSplitter(aValue.AsObject(TvtSplitter));
 end;//TkwCustomizeTasksPanelFormSplRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormSplRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3854,8 +3944,18 @@ end;//TkwCustomizeTasksPanelFormGbAvailableGroups.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtGroupBox(aValue.AsObject(TvtGroupBox));
 end;//TkwCustomizeTasksPanelFormGbAvailableGroups.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbAvailableGroups.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3906,8 +4006,18 @@ end;//TkwCustomizeTasksPanelFormTvRepGroups.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TeeTreeView(aValue.AsObject(TeeTreeView));
 end;//TkwCustomizeTasksPanelFormTvRepGroups.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvRepGroups.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -3958,8 +4068,18 @@ end;//TkwCustomizeTasksPanelFormVtPanel1.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwCustomizeTasksPanelFormVtPanel1.SetValuePrim
 
 function TkwCustomizeTasksPanelFormVtPanel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4010,8 +4130,18 @@ end;//TkwCustomizeTasksPanelFormCbGroupName.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtComboBox(aValue.AsObject(TvtComboBox));
 end;//TkwCustomizeTasksPanelFormCbGroupName.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbGroupName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4062,8 +4192,18 @@ end;//TkwCustomizeTasksPanelFormBtnAddGroup.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TeeButton(aValue.AsObject(TeeButton));
 end;//TkwCustomizeTasksPanelFormBtnAddGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnAddGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4114,8 +4254,18 @@ end;//TkwCustomizeTasksPanelFormBtnChangeGroup.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TeeButton(aValue.AsObject(TeeButton));
 end;//TkwCustomizeTasksPanelFormBtnChangeGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnChangeGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4166,8 +4316,18 @@ end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TeeButton(aValue.AsObject(TeeButton));
 end;//TkwCustomizeTasksPanelFormBtnDeleteGroup.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnDeleteGroup.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4218,8 +4378,18 @@ end;//TkwCustomizeTasksPanelFormGbAvailableOperations.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtGroupBox(aValue.AsObject(TvtGroupBox));
 end;//TkwCustomizeTasksPanelFormGbAvailableOperations.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbAvailableOperations.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4270,8 +4440,18 @@ end;//TkwCustomizeTasksPanelFormTvRepOps.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TeeTreeView(aValue.AsObject(TeeTreeView));
 end;//TkwCustomizeTasksPanelFormTvRepOps.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvRepOps.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4322,8 +4502,18 @@ end;//TkwCustomizeTasksPanelFormPnlForms.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwCustomizeTasksPanelFormPnlForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4374,8 +4564,18 @@ end;//TkwCustomizeTasksPanelFormLblForms.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormLblForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtLabel(aValue.AsObject(TvtLabel));
 end;//TkwCustomizeTasksPanelFormLblForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4426,8 +4626,18 @@ end;//TkwCustomizeTasksPanelFormCbForms.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormCbForms.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TComboBox(aValue.AsObject(TComboBox));
 end;//TkwCustomizeTasksPanelFormCbForms.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbForms.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4478,8 +4688,18 @@ end;//TkwCustomizeTasksPanelFormPnlMain.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwCustomizeTasksPanelFormPnlMain.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4530,8 +4750,18 @@ end;//TkwCustomizeTasksPanelFormPnlLeft.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwCustomizeTasksPanelFormPnlLeft.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4582,8 +4812,18 @@ end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TBitBtn(aValue.AsObject(TBitBtn));
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4634,8 +4874,18 @@ end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TBitBtn(aValue.AsObject(TBitBtn));
 end;//TkwCustomizeTasksPanelFormBtnMoveOpToRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveOpToRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4686,8 +4936,18 @@ end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TBitBtn(aValue.AsObject(TBitBtn));
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4738,8 +4998,18 @@ end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TBitBtn(aValue.AsObject(TBitBtn));
 end;//TkwCustomizeTasksPanelFormBtnMoveGroupToRep.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnMoveGroupToRep.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4790,8 +5060,18 @@ end;//TkwCustomizeTasksPanelFormPnlTasksPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwCustomizeTasksPanelFormPnlTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4842,8 +5122,18 @@ end;//TkwCustomizeTasksPanelFormGbTasksPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtGroupBox(aValue.AsObject(TvtGroupBox));
 end;//TkwCustomizeTasksPanelFormGbTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormGbTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4894,8 +5184,18 @@ end;//TkwCustomizeTasksPanelFormTvTasksPanel.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TeeTreeView(aValue.AsObject(TeeTreeView));
 end;//TkwCustomizeTasksPanelFormTvTasksPanel.SetValuePrim
 
 function TkwCustomizeTasksPanelFormTvTasksPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4946,8 +5246,18 @@ end;//TkwCustomizeTasksPanelFormVtGroupBox3.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtGroupBox(aValue.AsObject(TvtGroupBox));
 end;//TkwCustomizeTasksPanelFormVtGroupBox3.SetValuePrim
 
 function TkwCustomizeTasksPanelFormVtGroupBox3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -4998,8 +5308,18 @@ end;//TkwCustomizeTasksPanelFormLblCaption.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormLblCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtLabel(aValue.AsObject(TvtLabel));
 end;//TkwCustomizeTasksPanelFormLblCaption.SetValuePrim
 
 function TkwCustomizeTasksPanelFormLblCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5050,8 +5370,18 @@ end;//TkwCustomizeTasksPanelFormEdChange.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormEdChange.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtComboBox(aValue.AsObject(TvtComboBox));
 end;//TkwCustomizeTasksPanelFormEdChange.SetValuePrim
 
 function TkwCustomizeTasksPanelFormEdChange.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5102,8 +5432,18 @@ end;//TkwCustomizeTasksPanelFormCbForAllUseCases.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TeeCheckBox(aValue.AsObject(TeeCheckBox));
 end;//TkwCustomizeTasksPanelFormCbForAllUseCases.SetValuePrim
 
 function TkwCustomizeTasksPanelFormCbForAllUseCases.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5154,8 +5494,18 @@ end;//TkwCustomizeTasksPanelFormBtnChangeItem.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TeeButton(aValue.AsObject(TeeButton));
 end;//TkwCustomizeTasksPanelFormBtnChangeItem.SetValuePrim
 
 function TkwCustomizeTasksPanelFormBtnChangeItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5206,8 +5556,18 @@ end;//TkwCustomizeTasksPanelFormPnlOperationPos.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
 end;//TkwCustomizeTasksPanelFormPnlOperationPos.SetValuePrim
 
 function TkwCustomizeTasksPanelFormPnlOperationPos.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5258,8 +5618,18 @@ end;//TkwCustomizeTasksPanelFormUpBitBtn.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TBitBtn(aValue.AsObject(TBitBtn));
 end;//TkwCustomizeTasksPanelFormUpBitBtn.SetValuePrim
 
 function TkwCustomizeTasksPanelFormUpBitBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -5310,8 +5680,18 @@ end;//TkwCustomizeTasksPanelFormDownBitBtn.GetWordNameForRegister
 
 procedure TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_CustomizeTasksPanelForm: TCustomizeTasksPanelForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_CustomizeTasksPanelForm := TCustomizeTasksPanelForm(aCtx.rEngine.PopObjAs(TCustomizeTasksPanelForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра CustomizeTasksPanelForm: TCustomizeTasksPanelForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ CustomizeTasksPanelForm. := TBitBtn(aValue.AsObject(TBitBtn));
 end;//TkwCustomizeTasksPanelFormDownBitBtn.SetValuePrim
 
 function TkwCustomizeTasksPanelFormDownBitBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -953,8 +953,12 @@ end;//TkwEnConsultationMarkGbMark.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkGbMark.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_08E015178ADF_var*
+//#UC END# *52D00B00031A_08E015178ADF_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_08E015178ADF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_08E015178ADF_impl*
 end;//TkwEnConsultationMarkGbMark.SetValuePrim
 
 function TkwEnConsultationMarkGbMark.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -999,8 +1003,12 @@ end;//TkwEnConsultationMarkRbNotSure.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbNotSure.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_102A22C548B7_var*
+//#UC END# *52D00B00031A_102A22C548B7_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_102A22C548B7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_102A22C548B7_impl*
 end;//TkwEnConsultationMarkRbNotSure.SetValuePrim
 
 function TkwEnConsultationMarkRbNotSure.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1045,8 +1053,12 @@ end;//TkwEnConsultationMarkRbTwo.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbTwo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1361F312A549_var*
+//#UC END# *52D00B00031A_1361F312A549_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1361F312A549_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1361F312A549_impl*
 end;//TkwEnConsultationMarkRbTwo.SetValuePrim
 
 function TkwEnConsultationMarkRbTwo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1091,8 +1103,12 @@ end;//TkwEnConsultationMarkRbThree.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbThree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_DCFA687F0AB6_var*
+//#UC END# *52D00B00031A_DCFA687F0AB6_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_DCFA687F0AB6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_DCFA687F0AB6_impl*
 end;//TkwEnConsultationMarkRbThree.SetValuePrim
 
 function TkwEnConsultationMarkRbThree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1137,8 +1153,12 @@ end;//TkwEnConsultationMarkRbFour.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbFour.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_017B75B3B73E_var*
+//#UC END# *52D00B00031A_017B75B3B73E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_017B75B3B73E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_017B75B3B73E_impl*
 end;//TkwEnConsultationMarkRbFour.SetValuePrim
 
 function TkwEnConsultationMarkRbFour.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1183,8 +1203,12 @@ end;//TkwEnConsultationMarkRbFive.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkRbFive.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_B408A9A1DAB5_var*
+//#UC END# *52D00B00031A_B408A9A1DAB5_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_B408A9A1DAB5_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_B408A9A1DAB5_impl*
 end;//TkwEnConsultationMarkRbFive.SetValuePrim
 
 function TkwEnConsultationMarkRbFive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1229,8 +1253,12 @@ end;//TkwEnConsultationMarkPnlHelp.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkPnlHelp.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_85E1FBE51015_var*
+//#UC END# *52D00B00031A_85E1FBE51015_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_85E1FBE51015_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_85E1FBE51015_impl*
 end;//TkwEnConsultationMarkPnlHelp.SetValuePrim
 
 function TkwEnConsultationMarkPnlHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1275,8 +1303,12 @@ end;//TkwEnConsultationMarkLblHelp.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkLblHelp.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BD995E557E53_var*
+//#UC END# *52D00B00031A_BD995E557E53_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_BD995E557E53_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BD995E557E53_impl*
 end;//TkwEnConsultationMarkLblHelp.SetValuePrim
 
 function TkwEnConsultationMarkLblHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1321,8 +1353,12 @@ end;//TkwEnConsultationMarkGbComment.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkGbComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_5E131FAEC04F_var*
+//#UC END# *52D00B00031A_5E131FAEC04F_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_5E131FAEC04F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_5E131FAEC04F_impl*
 end;//TkwEnConsultationMarkGbComment.SetValuePrim
 
 function TkwEnConsultationMarkGbComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1367,8 +1403,12 @@ end;//TkwEnConsultationMarkMComment.GetWordNameForRegister
 
 procedure TkwEnConsultationMarkMComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_780807DC0F9A_var*
+//#UC END# *52D00B00031A_780807DC0F9A_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_780807DC0F9A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_780807DC0F9A_impl*
 end;//TkwEnConsultationMarkMComment.SetValuePrim
 
 function TkwEnConsultationMarkMComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -351,8 +351,12 @@ end;//TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnMedicFirmListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_F45A6F3A6877_var*
+//#UC END# *52D00B00031A_F45A6F3A6877_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_F45A6F3A6877_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_F45A6F3A6877_impl*
 end;//TkwEnMedicFirmListBackgroundPanel.SetValuePrim
 
 function TkwEnMedicFirmListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -397,8 +401,12 @@ end;//TkwEnMedicFirmListContextFilter.GetWordNameForRegister
 
 procedure TkwEnMedicFirmListContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2F2BD8918036_var*
+//#UC END# *52D00B00031A_2F2BD8918036_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2F2BD8918036_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2F2BD8918036_impl*
 end;//TkwEnMedicFirmListContextFilter.SetValuePrim
 
 function TkwEnMedicFirmListContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -443,8 +451,12 @@ end;//TkwEnMedicFirmListListTree.GetWordNameForRegister
 
 procedure TkwEnMedicFirmListListTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_9D0DDC3CED67_var*
+//#UC END# *52D00B00031A_9D0DDC3CED67_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_9D0DDC3CED67_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_9D0DDC3CED67_impl*
 end;//TkwEnMedicFirmListListTree.SetValuePrim
 
 function TkwEnMedicFirmListListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

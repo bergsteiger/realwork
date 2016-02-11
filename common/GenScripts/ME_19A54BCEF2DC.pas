@@ -175,8 +175,12 @@ end;//TkwEnFiltersFiltersList.GetWordNameForRegister
 
 procedure TkwEnFiltersFiltersList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_F040B0369BA3_var*
+//#UC END# *52D00B00031A_F040B0369BA3_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_F040B0369BA3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_F040B0369BA3_impl*
 end;//TkwEnFiltersFiltersList.SetValuePrim
 
 function TkwEnFiltersFiltersList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

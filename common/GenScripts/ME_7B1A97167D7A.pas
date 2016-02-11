@@ -524,8 +524,12 @@ end;//TkwChatWindowFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwChatWindowFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_82D5B8204902_var*
+//#UC END# *52D00B00031A_82D5B8204902_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_82D5B8204902_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_82D5B8204902_impl*
 end;//TkwChatWindowFormBackgroundPanel.SetValuePrim
 
 function TkwChatWindowFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -570,8 +574,12 @@ end;//TkwChatWindowFormBottomPanel.GetWordNameForRegister
 
 procedure TkwChatWindowFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D5379CFED623_var*
+//#UC END# *52D00B00031A_D5379CFED623_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D5379CFED623_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D5379CFED623_impl*
 end;//TkwChatWindowFormBottomPanel.SetValuePrim
 
 function TkwChatWindowFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -616,8 +624,12 @@ end;//TkwChatWindowFormBottomEditor.GetWordNameForRegister
 
 procedure TkwChatWindowFormBottomEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_3AAF433A3259_var*
+//#UC END# *52D00B00031A_3AAF433A3259_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_3AAF433A3259_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_3AAF433A3259_impl*
 end;//TkwChatWindowFormBottomEditor.SetValuePrim
 
 function TkwChatWindowFormBottomEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -662,8 +674,12 @@ end;//TkwChatWindowFormTopPanel.GetWordNameForRegister
 
 procedure TkwChatWindowFormTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D0DB504BE24E_var*
+//#UC END# *52D00B00031A_D0DB504BE24E_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D0DB504BE24E_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D0DB504BE24E_impl*
 end;//TkwChatWindowFormTopPanel.SetValuePrim
 
 function TkwChatWindowFormTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -708,8 +724,12 @@ end;//TkwChatWindowFormHistoryEditor.GetWordNameForRegister
 
 procedure TkwChatWindowFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_75D7C1A3BFCB_var*
+//#UC END# *52D00B00031A_75D7C1A3BFCB_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_75D7C1A3BFCB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_75D7C1A3BFCB_impl*
 end;//TkwChatWindowFormHistoryEditor.SetValuePrim
 
 function TkwChatWindowFormHistoryEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

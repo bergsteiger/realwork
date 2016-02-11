@@ -177,8 +177,12 @@ end;//TkwChatHistoryFormHistoryEditor.GetWordNameForRegister
 
 procedure TkwChatHistoryFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_07D7665942C7_var*
+//#UC END# *52D00B00031A_07D7665942C7_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_07D7665942C7_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_07D7665942C7_impl*
 end;//TkwChatHistoryFormHistoryEditor.SetValuePrim
 
 function TkwChatHistoryFormHistoryEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

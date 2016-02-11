@@ -177,8 +177,12 @@ end;//TkwEfProgressIndicatorProgressBar.GetWordNameForRegister
 
 procedure TkwEfProgressIndicatorProgressBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_048590F2C0A3_var*
+//#UC END# *52D00B00031A_048590F2C0A3_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_048590F2C0A3_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_048590F2C0A3_impl*
 end;//TkwEfProgressIndicatorProgressBar.SetValuePrim
 
 function TkwEfProgressIndicatorProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

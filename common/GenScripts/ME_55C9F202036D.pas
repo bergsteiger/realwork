@@ -195,8 +195,18 @@ end;//TkwPopTestName.GetWordNameForRegister
 
 procedure TkwPopTestName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Test: ITest;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Test := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Test: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Test. := aValue.AsDelphiString;
 end;//TkwPopTestName.SetValuePrim
 
 function TkwPopTestName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -247,8 +257,18 @@ end;//TkwPopTestEnabled.GetWordNameForRegister
 
 procedure TkwPopTestEnabled.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Test: ITest;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Test := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Test: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Test. := aValue.AsBoolean;
 end;//TkwPopTestEnabled.SetValuePrim
 
 function TkwPopTestEnabled.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -299,8 +319,18 @@ end;//TkwPopTestSubFolder.GetWordNameForRegister
 
 procedure TkwPopTestSubFolder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Test: ITest;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Test := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Test: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ DoSetValue(Test, aValue.AsDelphiString);
 end;//TkwPopTestSubFolder.SetValuePrim
 
 function TkwPopTestSubFolder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -351,8 +381,18 @@ end;//TkwPopTestHasScriptChildren.GetWordNameForRegister
 
 procedure TkwPopTestHasScriptChildren.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_Test: ITest;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_Test := ITest(aCtx.rEngine.PopIntf(ITest));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра Test: ITest : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Test. := aValue.AsBoolean;
 end;//TkwPopTestHasScriptChildren.SetValuePrim
 
 function TkwPopTestHasScriptChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

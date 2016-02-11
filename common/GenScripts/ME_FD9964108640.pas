@@ -521,8 +521,12 @@ end;//TkwEnCompInfoTvComplectInfo.GetWordNameForRegister
 
 procedure TkwEnCompInfoTvComplectInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_CA0E729726DA_var*
+//#UC END# *52D00B00031A_CA0E729726DA_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_CA0E729726DA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_CA0E729726DA_impl*
 end;//TkwEnCompInfoTvComplectInfo.SetValuePrim
 
 function TkwEnCompInfoTvComplectInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -567,8 +571,12 @@ end;//TkwEnCompInfoPnBottom.GetWordNameForRegister
 
 procedure TkwEnCompInfoPnBottom.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BB03EE607F17_var*
+//#UC END# *52D00B00031A_BB03EE607F17_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_BB03EE607F17_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BB03EE607F17_impl*
 end;//TkwEnCompInfoPnBottom.SetValuePrim
 
 function TkwEnCompInfoPnBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -613,8 +621,12 @@ end;//TkwEnCompInfoPnVisualRepresentationData.GetWordNameForRegister
 
 procedure TkwEnCompInfoPnVisualRepresentationData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_ED2685ED0E01_var*
+//#UC END# *52D00B00031A_ED2685ED0E01_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_ED2685ED0E01_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_ED2685ED0E01_impl*
 end;//TkwEnCompInfoPnVisualRepresentationData.SetValuePrim
 
 function TkwEnCompInfoPnVisualRepresentationData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -659,8 +671,12 @@ end;//TkwEnCompInfoPnVisualRepresentationDataCaption.GetWordNameForRegister
 
 procedure TkwEnCompInfoPnVisualRepresentationDataCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_12AEC3D1A33C_var*
+//#UC END# *52D00B00031A_12AEC3D1A33C_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_12AEC3D1A33C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_12AEC3D1A33C_impl*
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.SetValuePrim
 
 function TkwEnCompInfoPnVisualRepresentationDataCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -705,8 +721,12 @@ end;//TkwEnCompInfoLblVisualRepresentationData.GetWordNameForRegister
 
 procedure TkwEnCompInfoLblVisualRepresentationData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_317E9A769DAB_var*
+//#UC END# *52D00B00031A_317E9A769DAB_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_317E9A769DAB_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_317E9A769DAB_impl*
 end;//TkwEnCompInfoLblVisualRepresentationData.SetValuePrim
 
 function TkwEnCompInfoLblVisualRepresentationData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

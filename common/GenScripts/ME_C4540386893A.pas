@@ -303,8 +303,18 @@ end;//TkwTextLoadFormText.GetWordNameForRegister
 
 procedure TkwTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_TextLoadForm: TTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_TextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра TextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ TextLoadForm. := TevEditor(aValue.AsObject(TevEditor));
 end;//TkwTextLoadFormText.SetValuePrim
 
 function TkwTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -355,8 +365,18 @@ end;//TkwTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_TextLoadForm: TTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_TextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра TextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ TextLoadForm. := TevTextSource(aValue.AsObject(TevTextSource));
 end;//TkwTextLoadFormTextSource.SetValuePrim
 
 function TkwTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -407,8 +427,18 @@ end;//TkwTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+var l_TextLoadForm: TTextLoadForm;
 begin
- RunnerError('Нельзя присваивать значение readonly свойству ', aCtx);
+ try
+  l_TextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра TextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ TextLoadForm. := TevLoadDocumentManager(aValue.AsObject(TevLoadDocumentManager));
 end;//TkwTextLoadFormLoadManager.SetValuePrim
 
 function TkwTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -1479,8 +1479,12 @@ end;//TkwLoginFormRegisteredGroupBox.GetWordNameForRegister
 
 procedure TkwLoginFormRegisteredGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_9B4F211D4C21_var*
+//#UC END# *52D00B00031A_9B4F211D4C21_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_9B4F211D4C21_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_9B4F211D4C21_impl*
 end;//TkwLoginFormRegisteredGroupBox.SetValuePrim
 
 function TkwLoginFormRegisteredGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1525,8 +1529,12 @@ end;//TkwLoginFormLblLogin.GetWordNameForRegister
 
 procedure TkwLoginFormLblLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_FFD5E9C273CA_var*
+//#UC END# *52D00B00031A_FFD5E9C273CA_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_FFD5E9C273CA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_FFD5E9C273CA_impl*
 end;//TkwLoginFormLblLogin.SetValuePrim
 
 function TkwLoginFormLblLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1571,8 +1579,12 @@ end;//TkwLoginFormLblPassword.GetWordNameForRegister
 
 procedure TkwLoginFormLblPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_ADC1F68E0487_var*
+//#UC END# *52D00B00031A_ADC1F68E0487_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_ADC1F68E0487_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_ADC1F68E0487_impl*
 end;//TkwLoginFormLblPassword.SetValuePrim
 
 function TkwLoginFormLblPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1617,8 +1629,12 @@ end;//TkwLoginFormEnterPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormEnterPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_75E9BCD66298_var*
+//#UC END# *52D00B00031A_75E9BCD66298_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_75E9BCD66298_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_75E9BCD66298_impl*
 end;//TkwLoginFormEnterPaintBox.SetValuePrim
 
 function TkwLoginFormEnterPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1663,8 +1679,12 @@ end;//TkwLoginFormEdUserName.GetWordNameForRegister
 
 procedure TkwLoginFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_C550F6E48B7D_var*
+//#UC END# *52D00B00031A_C550F6E48B7D_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_C550F6E48B7D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_C550F6E48B7D_impl*
 end;//TkwLoginFormEdUserName.SetValuePrim
 
 function TkwLoginFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1709,8 +1729,12 @@ end;//TkwLoginFormEdPassword.GetWordNameForRegister
 
 procedure TkwLoginFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_7BF42C20181F_var*
+//#UC END# *52D00B00031A_7BF42C20181F_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_7BF42C20181F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_7BF42C20181F_impl*
 end;//TkwLoginFormEdPassword.SetValuePrim
 
 function TkwLoginFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1755,8 +1779,12 @@ end;//TkwLoginFormLblForgetPassword.GetWordNameForRegister
 
 procedure TkwLoginFormLblForgetPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1E431A639AC6_var*
+//#UC END# *52D00B00031A_1E431A639AC6_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1E431A639AC6_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1E431A639AC6_impl*
 end;//TkwLoginFormLblForgetPassword.SetValuePrim
 
 function TkwLoginFormLblForgetPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1801,8 +1829,12 @@ end;//TkwLoginFormCbAutoLogin.GetWordNameForRegister
 
 procedure TkwLoginFormCbAutoLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_7240CBBD5078_var*
+//#UC END# *52D00B00031A_7240CBBD5078_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_7240CBBD5078_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_7240CBBD5078_impl*
 end;//TkwLoginFormCbAutoLogin.SetValuePrim
 
 function TkwLoginFormCbAutoLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1847,8 +1879,12 @@ end;//TkwLoginFormBtnOk.GetWordNameForRegister
 
 procedure TkwLoginFormBtnOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_82596223B513_var*
+//#UC END# *52D00B00031A_82596223B513_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_82596223B513_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_82596223B513_impl*
 end;//TkwLoginFormBtnOk.SetValuePrim
 
 function TkwLoginFormBtnOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1893,8 +1929,12 @@ end;//TkwLoginFormNewUserGroupBox.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_03381F46504D_var*
+//#UC END# *52D00B00031A_03381F46504D_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_03381F46504D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_03381F46504D_impl*
 end;//TkwLoginFormNewUserGroupBox.SetValuePrim
 
 function TkwLoginFormNewUserGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1939,8 +1979,12 @@ end;//TkwLoginFormNewUserLabel.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_FEA3248A13D0_var*
+//#UC END# *52D00B00031A_FEA3248A13D0_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_FEA3248A13D0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_FEA3248A13D0_impl*
 end;//TkwLoginFormNewUserLabel.SetValuePrim
 
 function TkwLoginFormNewUserLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1985,8 +2029,12 @@ end;//TkwLoginFormNewUserPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_545C2415CF4A_var*
+//#UC END# *52D00B00031A_545C2415CF4A_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_545C2415CF4A_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_545C2415CF4A_impl*
 end;//TkwLoginFormNewUserPaintBox.SetValuePrim
 
 function TkwLoginFormNewUserPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2031,8 +2079,12 @@ end;//TkwLoginFormLblNewUser.GetWordNameForRegister
 
 procedure TkwLoginFormLblNewUser.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_BD193B22974F_var*
+//#UC END# *52D00B00031A_BD193B22974F_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_BD193B22974F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_BD193B22974F_impl*
 end;//TkwLoginFormLblNewUser.SetValuePrim
 
 function TkwLoginFormLblNewUser.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2077,8 +2129,12 @@ end;//TkwLoginFormHelpPanel.GetWordNameForRegister
 
 procedure TkwLoginFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1EF3C1D6EB3F_var*
+//#UC END# *52D00B00031A_1EF3C1D6EB3F_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1EF3C1D6EB3F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1EF3C1D6EB3F_impl*
 end;//TkwLoginFormHelpPanel.SetValuePrim
 
 function TkwLoginFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2123,8 +2179,12 @@ end;//TkwLoginFormHelpPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_0D089B690A42_var*
+//#UC END# *52D00B00031A_0D089B690A42_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_0D089B690A42_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_0D089B690A42_impl*
 end;//TkwLoginFormHelpPaintBox.SetValuePrim
 
 function TkwLoginFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2169,8 +2229,12 @@ end;//TkwLoginFormHelpLabel.GetWordNameForRegister
 
 procedure TkwLoginFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_61075CCC4E17_var*
+//#UC END# *52D00B00031A_61075CCC4E17_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_61075CCC4E17_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_61075CCC4E17_impl*
 end;//TkwLoginFormHelpLabel.SetValuePrim
 
 function TkwLoginFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

@@ -523,8 +523,12 @@ end;//TkwBaseSearchContainerFormChildZone.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4369FA9D20E0_var*
+//#UC END# *52D00B00031A_4369FA9D20E0_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_4369FA9D20E0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4369FA9D20E0_impl*
 end;//TkwBaseSearchContainerFormChildZone.SetValuePrim
 
 function TkwBaseSearchContainerFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -569,8 +573,12 @@ end;//TkwBaseSearchContainerFormPnHeader.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormPnHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_9C462472CA0F_var*
+//#UC END# *52D00B00031A_9C462472CA0F_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_9C462472CA0F_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_9C462472CA0F_impl*
 end;//TkwBaseSearchContainerFormPnHeader.SetValuePrim
 
 function TkwBaseSearchContainerFormPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -615,8 +623,12 @@ end;//TkwBaseSearchContainerFormLbHeader.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormLbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_1A5A446A4230_var*
+//#UC END# *52D00B00031A_1A5A446A4230_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_1A5A446A4230_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_1A5A446A4230_impl*
 end;//TkwBaseSearchContainerFormLbHeader.SetValuePrim
 
 function TkwBaseSearchContainerFormLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -661,8 +673,12 @@ end;//TkwBaseSearchContainerFormPbHeader.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormPbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_2D9CD384ECE9_var*
+//#UC END# *52D00B00031A_2D9CD384ECE9_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_2D9CD384ECE9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_2D9CD384ECE9_impl*
 end;//TkwBaseSearchContainerFormPbHeader.SetValuePrim
 
 function TkwBaseSearchContainerFormPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -707,8 +723,12 @@ end;//TkwBaseSearchContainerFormParentZone.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_E4F0AA226464_var*
+//#UC END# *52D00B00031A_E4F0AA226464_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_E4F0AA226464_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_E4F0AA226464_impl*
 end;//TkwBaseSearchContainerFormParentZone.SetValuePrim
 
 function TkwBaseSearchContainerFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

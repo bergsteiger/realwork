@@ -349,8 +349,12 @@ end;//TkwCfFoldersBackgroundPanel.GetWordNameForRegister
 
 procedure TkwCfFoldersBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_5C9B2EC425D0_var*
+//#UC END# *52D00B00031A_5C9B2EC425D0_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_5C9B2EC425D0_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_5C9B2EC425D0_impl*
 end;//TkwCfFoldersBackgroundPanel.SetValuePrim
 
 function TkwCfFoldersBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -395,8 +399,12 @@ end;//TkwCfFoldersParentZone.GetWordNameForRegister
 
 procedure TkwCfFoldersParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_5C121167A7CC_var*
+//#UC END# *52D00B00031A_5C121167A7CC_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_5C121167A7CC_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_5C121167A7CC_impl*
 end;//TkwCfFoldersParentZone.SetValuePrim
 
 function TkwCfFoldersParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -441,8 +449,12 @@ end;//TkwCfFoldersChildZone.GetWordNameForRegister
 
 procedure TkwCfFoldersChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_D0B699F2B747_var*
+//#UC END# *52D00B00031A_D0B699F2B747_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_D0B699F2B747_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_D0B699F2B747_impl*
 end;//TkwCfFoldersChildZone.SetValuePrim
 
 function TkwCfFoldersChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

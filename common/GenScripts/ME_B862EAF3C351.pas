@@ -351,8 +351,12 @@ end;//TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnCommonDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_4988BB9A5265_var*
+//#UC END# *52D00B00031A_4988BB9A5265_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_4988BB9A5265_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_4988BB9A5265_impl*
 end;//TkwEnCommonDictionBackgroundPanel.SetValuePrim
 
 function TkwEnCommonDictionBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -397,8 +401,12 @@ end;//TkwEnCommonDictionWordsTree.GetWordNameForRegister
 
 procedure TkwEnCommonDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_71793BC09F4D_var*
+//#UC END# *52D00B00031A_71793BC09F4D_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_71793BC09F4D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_71793BC09F4D_impl*
 end;//TkwEnCommonDictionWordsTree.SetValuePrim
 
 function TkwEnCommonDictionWordsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -443,8 +451,12 @@ end;//TkwEnCommonDictionContextFilter.GetWordNameForRegister
 
 procedure TkwEnCommonDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
+//#UC START# *52D00B00031A_308467DC9822_var*
+//#UC END# *52D00B00031A_308467DC9822_var*
 begin
- RunnerError('Ќельз€ присваивать значение readonly свойству ', aCtx);
+//#UC START# *52D00B00031A_308467DC9822_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *52D00B00031A_308467DC9822_impl*
 end;//TkwEnCommonDictionContextFilter.SetValuePrim
 
 function TkwEnCommonDictionContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
