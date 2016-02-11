@@ -474,7 +474,7 @@ end;//TkwArrayClear.DoDoIt
 
 class function TkwArrayClear.GetWordNameForRegister: AnsiString;
 begin
- Result := 'Array:Clear';
+!!! mappedClear
 end;//TkwArrayClear.GetWordNameForRegister
 
 function TkwArrayClear.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -856,7 +856,7 @@ end;//TkwArrayAdd.DoDoIt
 
 class function TkwArrayAdd.GetWordNameForRegister: AnsiString;
 begin
- Result := 'Array:Add';
+!!! mappedAdd
 end;//TkwArrayAdd.GetWordNameForRegister
 
 function TkwArrayAdd.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1119,7 +1119,7 @@ end;//TkwArrayCount.DoDoIt
 
 class function TkwArrayCount.GetWordNameForRegister: AnsiString;
 begin
- Result := 'Array:Count';
+!!! mappedCount
 end;//TkwArrayCount.GetWordNameForRegister
 
 procedure TkwArrayCount.SetValuePrim(const aValue: TtfwStackValue;

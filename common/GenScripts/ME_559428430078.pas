@@ -80,7 +80,7 @@ end;//TkwPopCompiledWordWorkerWordCompiled.DoDoIt
 
 class function TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:CompiledWordWorkerWord:Compiled';
+!!! mappedCompiled
 end;//TkwPopCompiledWordWorkerWordCompiled.GetWordNameForRegister
 
 procedure TkwPopCompiledWordWorkerWordCompiled.SetValuePrim(const aValue: TtfwStackValue;

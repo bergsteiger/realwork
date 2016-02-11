@@ -239,7 +239,7 @@ end;//TkwPopComponentFindComponent.DoDoIt
 
 class function TkwPopComponentFindComponent.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Component:FindComponent';
+!!! mappedFindComponent
 end;//TkwPopComponentFindComponent.GetWordNameForRegister
 
 function TkwPopComponentFindComponent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -285,7 +285,7 @@ end;//TkwPopComponentComponentCount.DoDoIt
 
 class function TkwPopComponentComponentCount.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Component:ComponentCount';
+!!! mappedComponentCount
 end;//TkwPopComponentComponentCount.GetWordNameForRegister
 
 procedure TkwPopComponentComponentCount.SetValuePrim(const aValue: TtfwStackValue;
@@ -337,7 +337,7 @@ end;//TkwPopComponentOwner.DoDoIt
 
 class function TkwPopComponentOwner.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Component:Owner';
+!!! mappedOwner
 end;//TkwPopComponentOwner.GetWordNameForRegister
 
 procedure TkwPopComponentOwner.SetValuePrim(const aValue: TtfwStackValue;
@@ -389,7 +389,7 @@ end;//TkwPopComponentName.DoDoIt
 
 class function TkwPopComponentName.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Component:Name';
+!!! mappedName
 end;//TkwPopComponentName.GetWordNameForRegister
 
 procedure TkwPopComponentName.SetValuePrim(const aValue: TtfwStackValue;

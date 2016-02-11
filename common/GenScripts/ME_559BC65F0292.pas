@@ -183,7 +183,7 @@ end;//TkwPopParserNextToken.DoDoIt
 
 class function TkwPopParserNextToken.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Parser:NextToken';
+!!! mappedNextToken
 end;//TkwPopParserNextToken.GetWordNameForRegister
 
 function TkwPopParserNextToken.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -229,7 +229,7 @@ end;//TkwPopParserTokenLongString.DoDoIt
 
 class function TkwPopParserTokenLongString.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Parser:TokenLongString';
+!!! mappedTokenLongString
 end;//TkwPopParserTokenLongString.GetWordNameForRegister
 
 function TkwPopParserTokenLongString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -275,7 +275,7 @@ end;//TkwPopParserTokenInt.DoDoIt
 
 class function TkwPopParserTokenInt.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Parser:TokenInt';
+!!! mappedTokenInt
 end;//TkwPopParserTokenInt.GetWordNameForRegister
 
 function TkwPopParserTokenInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -321,7 +321,7 @@ end;//TkwPopParserFileName.DoDoIt
 
 class function TkwPopParserFileName.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Parser:FileName';
+!!! mappedFileName
 end;//TkwPopParserFileName.GetWordNameForRegister
 
 function TkwPopParserFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -367,7 +367,7 @@ end;//TkwPopParserTokenType.DoDoIt
 
 class function TkwPopParserTokenType.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Parser:TokenType';
+!!! mappedTokenType
 end;//TkwPopParserTokenType.GetWordNameForRegister
 
 function TkwPopParserTokenType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -413,7 +413,7 @@ end;//TkwPopParserSourceLine.DoDoIt
 
 class function TkwPopParserSourceLine.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Parser:SourceLine';
+!!! mappedSourceLine
 end;//TkwPopParserSourceLine.GetWordNameForRegister
 
 function TkwPopParserSourceLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

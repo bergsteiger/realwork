@@ -211,7 +211,7 @@ end;//TkwPopKeyWordWord.DoDoIt
 
 class function TkwPopKeyWordWord.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:KeyWord:Word';
+!!! mappedWord
 end;//TkwPopKeyWordWord.GetWordNameForRegister
 
 procedure TkwPopKeyWordWord.SetValuePrim(const aValue: TtfwStackValue;

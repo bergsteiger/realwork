@@ -1384,7 +1384,7 @@ end;//TkwPopWordIsForHelp.DoDoIt
 
 class function TkwPopWordIsForHelp.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Word:IsForHelp';
+!!! mappedIsForHelp
 end;//TkwPopWordIsForHelp.GetWordNameForRegister
 
 function TkwPopWordIsForHelp.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2400,7 +2400,7 @@ end;//TkwPopWordRedefines.DoDoIt
 
 class function TkwPopWordRedefines.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:Word:Redefines';
+!!! mappedRedefines
 end;//TkwPopWordRedefines.GetWordNameForRegister
 
 procedure TkwPopWordRedefines.SetValuePrim(const aValue: TtfwStackValue;

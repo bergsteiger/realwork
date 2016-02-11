@@ -422,7 +422,7 @@ end;//TkwPopWordInfoIncludeModifier.DoDoIt
 
 class function TkwPopWordInfoIncludeModifier.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:IncludeModifier';
+!!! mappedIncludeModifier
 end;//TkwPopWordInfoIncludeModifier.GetWordNameForRegister
 
 function TkwPopWordInfoIncludeModifier.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -468,7 +468,7 @@ end;//TkwPopWordInfoEmpty.DoDoIt
 
 class function TkwPopWordInfoEmpty.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:Empty';
+!!! mappedEmpty
 end;//TkwPopWordInfoEmpty.GetWordNameForRegister
 
 function TkwPopWordInfoEmpty.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -582,7 +582,7 @@ end;//TkwPopWordInfoIncludeTypeModifier.DoDoIt
 
 class function TkwPopWordInfoIncludeTypeModifier.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:IncludeTypeModifier';
+!!! mappedIncludeTypeModifier
 end;//TkwPopWordInfoIncludeTypeModifier.GetWordNameForRegister
 
 function TkwPopWordInfoIncludeTypeModifier.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -696,7 +696,7 @@ end;//TkwPopWordInfoAcceptsValue.DoDoIt
 
 class function TkwPopWordInfoAcceptsValue.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:AcceptsValue';
+!!! mappedAcceptsValue
 end;//TkwPopWordInfoAcceptsValue.GetWordNameForRegister
 
 function TkwPopWordInfoAcceptsValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -810,7 +810,7 @@ end;//TkwPopWordInfoIncludeAccesType.DoDoIt
 
 class function TkwPopWordInfoIncludeAccesType.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:IncludeAccesType';
+!!! mappedIncludeAccesType
 end;//TkwPopWordInfoIncludeAccesType.GetWordNameForRegister
 
 function TkwPopWordInfoIncludeAccesType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -856,7 +856,7 @@ end;//TkwPopWordInfoValueTypes.DoDoIt
 
 class function TkwPopWordInfoValueTypes.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:ValueTypes';
+!!! mappedValueTypes
 end;//TkwPopWordInfoValueTypes.GetWordNameForRegister
 
 function TkwPopWordInfoValueTypes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -913,7 +913,7 @@ end;//TkwPopWordInfoIncludeLinkType.DoDoIt
 
 class function TkwPopWordInfoIncludeLinkType.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:IncludeLinkType';
+!!! mappedIncludeLinkType
 end;//TkwPopWordInfoIncludeLinkType.GetWordNameForRegister
 
 function TkwPopWordInfoIncludeLinkType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1027,7 +1027,7 @@ end;//TkwPopWordInfoCompare.DoDoIt
 
 class function TkwPopWordInfoCompare.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:Compare';
+!!! mappedCompare
 end;//TkwPopWordInfoCompare.GetWordNameForRegister
 
 function TkwPopWordInfoCompare.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1073,7 +1073,7 @@ end;//TkwPopWordInfoToString.DoDoIt
 
 class function TkwPopWordInfoToString.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:ToString';
+!!! mappedToString
 end;//TkwPopWordInfoToString.GetWordNameForRegister
 
 function TkwPopWordInfoToString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1119,7 +1119,7 @@ end;//TkwPopWordInfoTypeName.DoDoIt
 
 class function TkwPopWordInfoTypeName.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:TypeName';
+!!! mappedTypeName
 end;//TkwPopWordInfoTypeName.GetWordNameForRegister
 
 procedure TkwPopWordInfoTypeName.SetValuePrim(const aValue: TtfwStackValue;
@@ -1171,7 +1171,7 @@ end;//TkwPopWordInfoLinkType.DoDoIt
 
 class function TkwPopWordInfoLinkType.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:LinkType';
+!!! mappedLinkType
 end;//TkwPopWordInfoLinkType.GetWordNameForRegister
 
 procedure TkwPopWordInfoLinkType.SetValuePrim(const aValue: TtfwStackValue;
@@ -1223,7 +1223,7 @@ end;//TkwPopWordInfoAccessType.DoDoIt
 
 class function TkwPopWordInfoAccessType.GetWordNameForRegister: AnsiString;
 begin
- Result := 'pop:WordInfo:AccessType';
+!!! mappedAccessType
 end;//TkwPopWordInfoAccessType.GetWordNameForRegister
 
 procedure TkwPopWordInfoAccessType.SetValuePrim(const aValue: TtfwStackValue;
