@@ -26,7 +26,7 @@ uses
 
 type
  _nsDocumentContainer_Parent_ = TnsF1DocumentContainerPrim;
- {$Include nsDocumentContainer.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  TnsF1DocumentContainer = class(_nsDocumentContainer_)
   private
    f_ContentsTree: Il3SimpleTree;
@@ -77,7 +77,7 @@ uses
  , afwFacade
 ;
 
-{$Include nsDocumentContainer.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
 procedure TnsF1DocumentContainer.TransformMadeDocument(var theDocument: Tl3Tag);
  {* Трансформирует документ к его подмножеству, например как в ААК или Толковом Словаре }

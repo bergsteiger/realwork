@@ -87,7 +87,7 @@ type
  TnsListForFiltering = array [TnsContentsListType] of TvtLister;
 
  _ContentsUserTypes_Parent_ = TvcmEntityForm;
- {$Include ContentsUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes.imp.pas}
  TPrimContentsForm = class(_ContentsUserTypes_, InsTreeDataListener)
   {* Оглавление }
   private
@@ -168,14 +168,14 @@ type
    procedure CheckActionElementMode;
    procedure StoreFloatingVisible(aValue: Boolean);
   protected
-   procedure FindSubByID;
+   function FindSubByID(anID: Integer): Il3SimpleNode;
    function IsMultiSelection: Boolean;
    procedure FillCRList(const aParams: IvcmTestParamsPrim);
    procedure enDocumentBlockTest(const aParams: IvcmTestParamsPrim;
     AllowMultiSelect: Boolean);
    function MakePositionList(const aNode: IeeNode = nil): IPositionList;
    function IsCurrentBlockOrSub: Boolean;
-   procedure IsNodeBlockOrSub;
+   function IsNodeBlockOrSub(const aNode: IeeNode): Boolean;
    function ContentItemType(const aNode: IeeNode = nil): TnsContentItem;
    function BuildSelectionList: InevFlatSubsList;
    function TextFormUserType: Byte;
@@ -361,9 +361,9 @@ begin
 //#UC END# *4B150E0B0174_4B150DFE035D_impl*
 end;//TnsGetDocumentStructureEvent.Log
 
-{$Include ContentsUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes.imp.pas}
 
-procedure TPrimContentsForm.FindSubByID;
+function TPrimContentsForm.FindSubByID(anID: Integer): Il3SimpleNode;
 var l_CurrentNode: Il3SimpleNode;
 var l_Tree: InsContentsTree;
 
@@ -486,7 +486,7 @@ begin
 //#UC END# *4C2AF7D60169_4979DFB700F8_impl*
 end;//TPrimContentsForm.IsCurrentBlockOrSub
 
-procedure TPrimContentsForm.IsNodeBlockOrSub;
+function TPrimContentsForm.IsNodeBlockOrSub(const aNode: IeeNode): Boolean;
 var l_Block: IevDocumentPart;
 var l_Sub: IevDocumentPart;
 

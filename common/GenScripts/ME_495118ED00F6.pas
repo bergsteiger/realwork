@@ -35,15 +35,15 @@ type
  end;//InsTextFormHistory
 
  _BaseDocumentForDocumentModule_Parent_ = _PrimText_Parent_;
- {$Include BaseDocumentForDocumentModule.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _afwSettingChanged_Parent_ = _BaseDocumentForDocumentModule_;
- {$Include afwSettingChanged.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  _nsUserSettingsListener_Parent_ = _afwSettingChanged_;
- {$Include nsUserSettingsListener.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
  _BaseTextOperations_Parent_ = _nsUserSettingsListener_;
- {$Include BaseTextOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
  _DocumentBaseSearcher_Parent_ = _BaseTextOperations_;
- {$Include DocumentBaseSearcher.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
  _PrimText_ = {abstract} class(_DocumentBaseSearcher_, Il3TabbedContainersListener)
   {* Форма для работы с текстом документа }
   private
@@ -125,15 +125,15 @@ type
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _BaseDocumentForDocumentModule_Parent_ = _PrimText_Parent_;
-{$Include BaseDocumentForDocumentModule.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
 _afwSettingChanged_Parent_ = _BaseDocumentForDocumentModule_;
-{$Include afwSettingChanged.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 _nsUserSettingsListener_Parent_ = _afwSettingChanged_;
-{$Include nsUserSettingsListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 _BaseTextOperations_Parent_ = _nsUserSettingsListener_;
-{$Include BaseTextOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
 _DocumentBaseSearcher_Parent_ = _BaseTextOperations_;
-{$Include DocumentBaseSearcher.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
 _PrimText_ = _DocumentBaseSearcher_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -303,15 +303,15 @@ begin
 //#UC END# *479731C50290_49539A5102F1_impl*
 end;//TnsTextFormHistory.Cleanup
 
-{$Include BaseDocumentForDocumentModule.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
 
-{$Include afwSettingChanged.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
-{$Include nsUserSettingsListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 
-{$Include BaseTextOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
 
-{$Include DocumentBaseSearcher.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
 
 function _PrimText_.pm_GetFormDataChangedInfo: InsDataSourceChangedInfo;
 //#UC START# *498069760104_495118ED00F6get_var*

@@ -19,7 +19,7 @@ uses
 
 type
  _BaloonWarningUserTypes_Parent_ = TPrimWarningOptionsForm;
- {$Include BaloonWarningUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes.imp.pas}
  TPrimWarningBaloonOptionsForm = class(_BaloonWarningUserTypes_)
   public
    procedure TimeMachineOffAndReset; override;
@@ -44,7 +44,7 @@ uses
 type
  // IncludePrint
 
-{$Include BaloonWarningUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaloonWarningUserTypes.imp.pas}
 
 procedure TPrimWarningBaloonOptionsForm.TimeMachineOffAndReset;
 //#UC START# *4C7F753E02BC_4EA599F501CF_var*

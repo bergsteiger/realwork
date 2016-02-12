@@ -74,7 +74,7 @@ type
  end;//TPrimNewsLineFormState
 
  _vcmChromeLikeTabCaptionProvider_Parent_ = TvcmEntityForm;
- {$Include vcmChromeLikeTabCaptionProvider.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  TPrimNewsLineForm = class(_vcmChromeLikeTabCaptionProvider_, InsNewsLineNotifier)
   {* ПРАЙМ. Моя новостная лента }
   private
@@ -238,7 +238,7 @@ end;//TPrimNewsLineFormState.pm_GetInnerState
 
 type _Instance_R_ = TPrimNewsLineForm;
 
-{$Include vcmChromeLikeTabCaptionProvider.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
 
 procedure TPrimNewsLineForm.ResetThemeList;
 //#UC START# *4C8DC50203CB_497EBEC4031D_var*

@@ -101,7 +101,7 @@ type
  end;//TPictureFormState
 
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimPictureForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Рисунок }
   private
@@ -337,7 +337,7 @@ end;//TPictureFormState.Cleanup
 
 type _Instance_R_ = TPrimPictureForm;
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 function TPrimPictureForm.Get_Scale: Integer;
 //#UC START# *4C87765001CE_4AAFCFB0014Bget_var*

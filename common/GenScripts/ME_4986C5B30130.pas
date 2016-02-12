@@ -7,13 +7,13 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _CommonForTextAndFlashAndMedicFirmList_Parent_ = _CommonForTextAndFlash_Parent_;
- {$Include CommonForTextAndFlashAndMedicFirmList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
  _StatusBarDocumentItems_Parent_ = _CommonForTextAndFlashAndMedicFirmList_;
- {$Include StatusBarDocumentItems.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarDocumentItems.imp.pas}
  _UnderControlResetter_Parent_ = _StatusBarDocumentItems_;
- {$Include UnderControlResetter.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
  _HyperlinkToDocumentProducer_Parent_ = _UnderControlResetter_;
- {$Include HyperlinkToDocumentProducer.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
  _CommonForTextAndFlash_ = {abstract} class(_HyperlinkToDocumentProducer_)
   {* Общее для документов и флеш-схем }
   protected
@@ -69,13 +69,13 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _CommonForTextAndFlashAndMedicFirmList_Parent_ = _CommonForTextAndFlash_Parent_;
-{$Include CommonForTextAndFlashAndMedicFirmList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
 _StatusBarDocumentItems_Parent_ = _CommonForTextAndFlashAndMedicFirmList_;
-{$Include StatusBarDocumentItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarDocumentItems.imp.pas}
 _UnderControlResetter_Parent_ = _StatusBarDocumentItems_;
-{$Include UnderControlResetter.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
 _HyperlinkToDocumentProducer_Parent_ = _UnderControlResetter_;
-{$Include HyperlinkToDocumentProducer.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
 _CommonForTextAndFlash_ = _HyperlinkToDocumentProducer_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -86,13 +86,13 @@ _CommonForTextAndFlash_ = _HyperlinkToDocumentProducer_;
 {$Define CommonForTextAndFlash_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include CommonForTextAndFlashAndMedicFirmList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
 
-{$Include StatusBarDocumentItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarDocumentItems.imp.pas}
 
-{$Include UnderControlResetter.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
 
-{$Include HyperlinkToDocumentProducer.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
 
 function _CommonForTextAndFlash_.GetControllable(var aDoc: IDocument): IControllable;
 //#UC START# *4A1FEF7C0243_4986C5B30130_var*

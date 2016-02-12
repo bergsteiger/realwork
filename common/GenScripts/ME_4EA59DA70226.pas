@@ -20,7 +20,7 @@ uses
 
 type
  _WarningUserTypes_Parent_ = TPrimWarningOptionsForm;
- {$Include WarningUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes.imp.pas}
  TPrimDockedWarningForm = class(_WarningUserTypes_)
   protected
    procedure WarningQueryClose(aSender: TObject); override;
@@ -51,7 +51,7 @@ uses
 type
  // PrintOperationsInclude
 
-{$Include WarningUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WarningUserTypes.imp.pas}
 
 procedure TPrimDockedWarningForm.WarningQueryClose(aSender: TObject);
  {* Обработчик события Warning.OnQueryClose }

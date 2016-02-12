@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _BaseDocument_Parent_ = _BaseDocumentForDocumentModule_Parent_;
- {$Include BaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
  _BaseDocumentForDocumentModule_ = {abstract} class(_BaseDocument_)
   {* Форма для работы с документом }
  end;//_BaseDocumentForDocumentModule_
@@ -15,7 +15,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _BaseDocument_Parent_ = _BaseDocumentForDocumentModule_Parent_;
-{$Include BaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
 _BaseDocumentForDocumentModule_ = _BaseDocument_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -26,7 +26,7 @@ _BaseDocumentForDocumentModule_ = _BaseDocument_;
 {$Define BaseDocumentForDocumentModule_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include BaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 {$EndIf BaseDocumentForDocumentModule_imp_impl}

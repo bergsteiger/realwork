@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_PostingsList.GetWordNameForRegister
 
 function Tkw_Form_PostingsList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B32E48C9C5F6_var*
-//#UC END# *4DDFD2EA0116_B32E48C9C5F6_var*
 begin
-//#UC START# *4DDFD2EA0116_B32E48C9C5F6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B32E48C9C5F6_impl*
+ Result := 'enPostingsList';
 end;//Tkw_Form_PostingsList.GetString
 
 class function Tkw_PostingsList_Control_tvPostings.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_PostingsList_Control_tvPostings.GetWordNameForRegister
 
 function Tkw_PostingsList_Control_tvPostings.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9246E180CAF0_var*
-//#UC END# *4DDFD2EA0116_9246E180CAF0_var*
 begin
-//#UC START# *4DDFD2EA0116_9246E180CAF0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9246E180CAF0_impl*
+ Result := 'tvPostings';
 end;//Tkw_PostingsList_Control_tvPostings.GetString
 
 class procedure Tkw_PostingsList_Control_tvPostings.RegisterInEngine;
-//#UC START# *52A086150180_9246E180CAF0_var*
-//#UC END# *52A086150180_9246E180CAF0_var*
 begin
-//#UC START# *52A086150180_9246E180CAF0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_9246E180CAF0_impl*
+ inherited;
+ TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_PostingsList_Control_tvPostings.RegisterInEngine
 
 procedure Tkw_PostingsList_Control_tvPostings_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_PostingsList_Control_tvPostings_Push.GetWordNameForRegister
 function TkwEnPostingsListTvPostings.tvPostings(const aCtx: TtfwContext;
  aenPostingsList: TenPostingsList): TeeTreeView;
  {* Реализация слова скрипта .TenPostingsList.tvPostings }
-//#UC START# *002683D39CEF_901756EC93AA_var*
-//#UC END# *002683D39CEF_901756EC93AA_var*
 begin
-//#UC START# *002683D39CEF_901756EC93AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *002683D39CEF_901756EC93AA_impl*
+ Result := aenPostingsList.tvPostings;
 end;//TkwEnPostingsListTvPostings.tvPostings
 
 procedure TkwEnPostingsListTvPostings.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_901756EC93AA_var*
-//#UC END# *4DAEEDE10285_901756EC93AA_var*
+var l_aenPostingsList: TenPostingsList;
 begin
-//#UC START# *4DAEEDE10285_901756EC93AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_901756EC93AA_impl*
+ try
+  l_aenPostingsList := TenPostingsList(aCtx.rEngine.PopObjAs(TenPostingsList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenPostingsList: TenPostingsList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvPostings(aCtx, l_aenPostingsList));
 end;//TkwEnPostingsListTvPostings.DoDoIt
 
 class function TkwEnPostingsListTvPostings.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEnPostingsListTvPostings.GetWordNameForRegister
 
 procedure TkwEnPostingsListTvPostings.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_901756EC93AA_var*
-//#UC END# *52D00B00031A_901756EC93AA_var*
 begin
-//#UC START# *52D00B00031A_901756EC93AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_901756EC93AA_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству tvPostings', aCtx);
 end;//TkwEnPostingsListTvPostings.SetValuePrim
 
 function TkwEnPostingsListTvPostings.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEnPostingsListTvPostings.GetAllParamsCount
 
 function TkwEnPostingsListTvPostings.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenPostingsList)]);
 end;//TkwEnPostingsListTvPostings.ParamsTypes
 
 initialization

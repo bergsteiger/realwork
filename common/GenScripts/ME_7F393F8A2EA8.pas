@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_NewsLine.GetWordNameForRegister
 
 function Tkw_Form_NewsLine.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_338085479364_var*
-//#UC END# *4DDFD2EA0116_338085479364_var*
 begin
-//#UC START# *4DDFD2EA0116_338085479364_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_338085479364_impl*
+ Result := 'enNewsLine';
 end;//Tkw_Form_NewsLine.GetString
 
 class function Tkw_NewsLine_Control_DateList.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_NewsLine_Control_DateList.GetWordNameForRegister
 
 function Tkw_NewsLine_Control_DateList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_94273552B114_var*
-//#UC END# *4DDFD2EA0116_94273552B114_var*
 begin
-//#UC START# *4DDFD2EA0116_94273552B114_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_94273552B114_impl*
+ Result := 'DateList';
 end;//Tkw_NewsLine_Control_DateList.GetString
 
 class procedure Tkw_NewsLine_Control_DateList.RegisterInEngine;
-//#UC START# *52A086150180_94273552B114_var*
-//#UC END# *52A086150180_94273552B114_var*
 begin
-//#UC START# *52A086150180_94273552B114_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_94273552B114_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewForNewsLine);
 end;//Tkw_NewsLine_Control_DateList.RegisterInEngine
 
 procedure Tkw_NewsLine_Control_DateList_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_NewsLine_Control_DateList_Push.GetWordNameForRegister
 function TkwEnNewsLineDateList.DateList(const aCtx: TtfwContext;
  aenNewsLine: TenNewsLine): TnscTreeViewForNewsLine;
  {* Реализация слова скрипта .TenNewsLine.DateList }
-//#UC START# *B7B4CDD07AC3_A7F619520F52_var*
-//#UC END# *B7B4CDD07AC3_A7F619520F52_var*
 begin
-//#UC START# *B7B4CDD07AC3_A7F619520F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B7B4CDD07AC3_A7F619520F52_impl*
+ Result := aenNewsLine.DateList;
 end;//TkwEnNewsLineDateList.DateList
 
 procedure TkwEnNewsLineDateList.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A7F619520F52_var*
-//#UC END# *4DAEEDE10285_A7F619520F52_var*
+var l_aenNewsLine: TenNewsLine;
 begin
-//#UC START# *4DAEEDE10285_A7F619520F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A7F619520F52_impl*
+ try
+  l_aenNewsLine := TenNewsLine(aCtx.rEngine.PopObjAs(TenNewsLine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenNewsLine: TenNewsLine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(DateList(aCtx, l_aenNewsLine));
 end;//TkwEnNewsLineDateList.DoDoIt
 
 class function TkwEnNewsLineDateList.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEnNewsLineDateList.GetWordNameForRegister
 
 procedure TkwEnNewsLineDateList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A7F619520F52_var*
-//#UC END# *52D00B00031A_A7F619520F52_var*
 begin
-//#UC START# *52D00B00031A_A7F619520F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A7F619520F52_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству DateList', aCtx);
 end;//TkwEnNewsLineDateList.SetValuePrim
 
 function TkwEnNewsLineDateList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEnNewsLineDateList.GetAllParamsCount
 
 function TkwEnNewsLineDateList.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenNewsLine)]);
 end;//TkwEnNewsLineDateList.ParamsTypes
 
 initialization

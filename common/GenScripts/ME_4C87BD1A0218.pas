@@ -33,12 +33,12 @@ type
  _ItemType_ = InsNewsLineNotifier;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnsNewsLineSubscribersList = class(_l3InterfacePtrList_)
  end;//TnsNewsLineSubscribersList
 
  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsNewsLinePrim = class(_afwApplicationDataUpdate_, InsNewsLine, InsNotificationListener)
   private
    f_Root: INodeBase;
@@ -119,9 +119,9 @@ end;//TnsNewsLineFree
 
 type _Instance_R_ = TnsNewsLineSubscribersList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 function TnsNewsLinePrim.pm_GetCurrentThemeNode: INodeBase;
 //#UC START# *524D3F740063_524D3E260036get_var*

@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _afwApplicationDataUpdate_Parent_ = _nsDocumentContainer_Parent_;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _nsDocumentContainer_ = class(_afwApplicationDataUpdate_, InsDocumentAdornments, IdeDocInfoProvider, InevCommentTextProvider)
   {* Контейнер документа, работающий с IdeDocInfo }
   private
@@ -58,7 +58,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _afwApplicationDataUpdate_Parent_ = _nsDocumentContainer_Parent_;
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 _nsDocumentContainer_ = _afwApplicationDataUpdate_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -69,7 +69,7 @@ _nsDocumentContainer_ = _afwApplicationDataUpdate_;
 {$Define nsDocumentContainer_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 procedure _nsDocumentContainer_.AfterCreate(const aDocInfo: IdeDocInfo);
 //#UC START# *4B1FBF87020C_4C6A955F00D6_var*

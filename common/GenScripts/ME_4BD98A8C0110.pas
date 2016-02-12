@@ -59,12 +59,8 @@ end;//Tkw_Form_PostingsList_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_PostingsList_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_90CA7495E0C6_var*
-//#UC END# *4DDFD2EA0116_90CA7495E0C6_var*
 begin
-//#UC START# *4DDFD2EA0116_90CA7495E0C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_90CA7495E0C6_impl*
+ Result := 'enPostingsList';
 end;//Tkw_Form_PostingsList_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 

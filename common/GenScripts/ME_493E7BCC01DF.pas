@@ -32,7 +32,7 @@ uses
 
 type
  _IvcmRealData_ = IdList;
- {$Include dDocInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas}
  TdList = class(_dDocInfo_, IdList)
   private
    f_UseDataProducer: Boolean;
@@ -96,7 +96,7 @@ uses
 
 type _Instance_R_ = TdList;
 
-{$Include dDocInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas}
 
 class function TdList.Make: IdList;
 var

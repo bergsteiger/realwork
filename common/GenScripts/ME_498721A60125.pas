@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _StatusBarItems_Parent_ = _StatusBarDocumentItems_Parent_;
- {$Include StatusBarItems.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
  _StatusBarDocumentItems_ = {abstract} class(_StatusBarItems_)
   {* Операции с документом, отображаемые в статусной строке }
   protected
@@ -43,7 +43,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _StatusBarItems_Parent_ = _StatusBarDocumentItems_Parent_;
-{$Include StatusBarItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
 _StatusBarDocumentItems_ = _StatusBarItems_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -54,7 +54,7 @@ _StatusBarDocumentItems_ = _StatusBarItems_;
 {$Define StatusBarDocumentItems_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include StatusBarItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
 
 procedure _StatusBarDocumentItems_.OpenDocumentInListOpExecute(aNext: Boolean);
  {* Предыдущий/следующий в списке. Выполнение }

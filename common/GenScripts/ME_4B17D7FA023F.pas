@@ -18,7 +18,7 @@ uses
 
 type
  _l3COMQueryInterface_Parent_ = Tl3ProtoObject;
- {$Include l3COMQueryInterface.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
  TbsBase = class(_l3COMQueryInterface_)
   {* Базовый класс бизнес слоя }
  end;//TbsBase
@@ -32,7 +32,7 @@ uses
  , l3InterfacesMisc
 ;
 
-{$Include l3COMQueryInterface.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

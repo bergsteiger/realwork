@@ -30,7 +30,7 @@ type
  _ItemType_ = IvcmToolbarsCustomizeListener;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TIvcmToolbarsCustomizeListenerPtrList = class(_l3InterfacePtrList_)
   {* Список указателей на IvcmToolbarsCustomizeListener }
  end;//TIvcmToolbarsCustomizeListenerPtrList
@@ -112,7 +112,7 @@ const
 
 type _Instance_R_ = TIvcmToolbarsCustomizeListenerPtrList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 procedure TPrimToolbarMenuModule.Customize;
  {* Настройка... }

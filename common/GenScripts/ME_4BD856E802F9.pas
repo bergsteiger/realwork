@@ -853,12 +853,8 @@ end;//Tkw_Form_Text_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Text_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A42C665003F3_var*
-//#UC END# *4DDFD2EA0116_A42C665003F3_var*
 begin
-//#UC START# *4DDFD2EA0116_A42C665003F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A42C665003F3_impl*
+ Result := 'TextForm';
 end;//Tkw_Form_Text_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -871,12 +867,8 @@ end;//Tkw_Form_UnderControl_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_UnderControl_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_98FBD18995D6_var*
-//#UC END# *4DDFD2EA0116_98FBD18995D6_var*
 begin
-//#UC START# *4DDFD2EA0116_98FBD18995D6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_98FBD18995D6_impl*
+ Result := 'enUnderControl';
 end;//Tkw_Form_UnderControl_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -889,12 +881,8 @@ end;//Tkw_Form_Folders_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Folders_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_34B8571751D0_var*
-//#UC END# *4DDFD2EA0116_34B8571751D0_var*
 begin
-//#UC START# *4DDFD2EA0116_34B8571751D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_34B8571751D0_impl*
+ Result := 'cfFolders';
 end;//Tkw_Form_Folders_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -907,12 +895,8 @@ end;//Tkw_Form_Navigator_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Navigator_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3DA8ABCE7ED3_var*
-//#UC END# *4DDFD2EA0116_3DA8ABCE7ED3_var*
 begin
-//#UC START# *4DDFD2EA0116_3DA8ABCE7ED3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3DA8ABCE7ED3_impl*
+ Result := 'en_Navigator';
 end;//Tkw_Form_Navigator_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -925,12 +909,8 @@ end;//Tkw_Form_TasksPanel_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_TasksPanel_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_BC564590CC3F_var*
-//#UC END# *4DDFD2EA0116_BC564590CC3F_var*
 begin
-//#UC START# *4DDFD2EA0116_BC564590CC3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_BC564590CC3F_impl*
+ Result := 'en_TasksPanel';
 end;//Tkw_Form_TasksPanel_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -943,12 +923,8 @@ end;//Tkw_Form_CompInfo_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_CompInfo_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_636B57B2F2C8_var*
-//#UC END# *4DDFD2EA0116_636B57B2F2C8_var*
 begin
-//#UC START# *4DDFD2EA0116_636B57B2F2C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_636B57B2F2C8_impl*
+ Result := 'enCompInfo';
 end;//Tkw_Form_CompInfo_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -961,12 +937,8 @@ end;//Tkw_Form_Rubricator_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Rubricator_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FCC56FBA3425_var*
-//#UC END# *4DDFD2EA0116_FCC56FBA3425_var*
 begin
-//#UC START# *4DDFD2EA0116_FCC56FBA3425_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FCC56FBA3425_impl*
+ Result := 'efRubricator';
 end;//Tkw_Form_Rubricator_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -979,12 +951,8 @@ end;//Tkw_Form_Diction_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Diction_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4B0AF429E272_var*
-//#UC END# *4DDFD2EA0116_4B0AF429E272_var*
 begin
-//#UC START# *4DDFD2EA0116_4B0AF429E272_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4B0AF429E272_impl*
+ Result := 'enDiction';
 end;//Tkw_Form_Diction_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -997,12 +965,8 @@ end;//Tkw_Form_Warning_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Warning_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_84B19D4995B2_var*
-//#UC END# *4DDFD2EA0116_84B19D4995B2_var*
 begin
-//#UC START# *4DDFD2EA0116_84B19D4995B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_84B19D4995B2_impl*
+ Result := 'WarningForm';
 end;//Tkw_Form_Warning_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1015,12 +979,8 @@ end;//Tkw_Form_ListInfo_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_ListInfo_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_284DB5DF3DEA_var*
-//#UC END# *4DDFD2EA0116_284DB5DF3DEA_var*
 begin
-//#UC START# *4DDFD2EA0116_284DB5DF3DEA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_284DB5DF3DEA_impl*
+ Result := 'efListInfo';
 end;//Tkw_Form_ListInfo_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1033,12 +993,8 @@ end;//Tkw_Form_CommonDiction_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_CommonDiction_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9FDE6CA34927_var*
-//#UC END# *4DDFD2EA0116_9FDE6CA34927_var*
 begin
-//#UC START# *4DDFD2EA0116_9FDE6CA34927_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9FDE6CA34927_impl*
+ Result := 'en_CommonDiction';
 end;//Tkw_Form_CommonDiction_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1051,12 +1007,8 @@ end;//Tkw_Form_MedicMainMenu_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_MedicMainMenu_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2BAEE698DABB_var*
-//#UC END# *4DDFD2EA0116_2BAEE698DABB_var*
 begin
-//#UC START# *4DDFD2EA0116_2BAEE698DABB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2BAEE698DABB_impl*
+ Result := 'en_MedicMainMenu';
 end;//Tkw_Form_MedicMainMenu_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1069,12 +1021,8 @@ end;//Tkw_Form_MedicFirmList_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_MedicFirmList_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D700A5678917_var*
-//#UC END# *4DDFD2EA0116_D700A5678917_var*
 begin
-//#UC START# *4DDFD2EA0116_D700A5678917_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D700A5678917_impl*
+ Result := 'en_MedicFirmList';
 end;//Tkw_Form_MedicFirmList_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1087,12 +1035,8 @@ end;//Tkw_Form_List_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_List_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F7031CE5A28E_var*
-//#UC END# *4DDFD2EA0116_F7031CE5A28E_var*
 begin
-//#UC START# *4DDFD2EA0116_F7031CE5A28E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F7031CE5A28E_impl*
+ Result := 'efList';
 end;//Tkw_Form_List_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1105,12 +1049,8 @@ end;//Tkw_Form_ConfigurationList_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_ConfigurationList_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7DCDB0F71B84_var*
-//#UC END# *4DDFD2EA0116_7DCDB0F71B84_var*
 begin
-//#UC START# *4DDFD2EA0116_7DCDB0F71B84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7DCDB0F71B84_impl*
+ Result := 'en_ConfigurationList';
 end;//Tkw_Form_ConfigurationList_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1123,12 +1063,8 @@ end;//Tkw_Form_MainMenuNew_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_MainMenuNew_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B97709B7DE7B_var*
-//#UC END# *4DDFD2EA0116_B97709B7DE7B_var*
 begin
-//#UC START# *4DDFD2EA0116_B97709B7DE7B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B97709B7DE7B_impl*
+ Result := 'en_MainMenuNew';
 end;//Tkw_Form_MainMenuNew_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1141,12 +1077,8 @@ end;//Tkw_Form_NewBaseSearch_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_NewBaseSearch_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F4AD8AAFE516_var*
-//#UC END# *4DDFD2EA0116_F4AD8AAFE516_var*
 begin
-//#UC START# *4DDFD2EA0116_F4AD8AAFE516_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F4AD8AAFE516_impl*
+ Result := 'NewBaseSearchForm';
 end;//Tkw_Form_NewBaseSearch_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1159,12 +1091,8 @@ end;//Tkw_Form_Attributes_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Attributes_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C3D52AC5FC2B_var*
-//#UC END# *4DDFD2EA0116_C3D52AC5FC2B_var*
 begin
-//#UC START# *4DDFD2EA0116_C3D52AC5FC2B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C3D52AC5FC2B_impl*
+ Result := 'AttributesForm';
 end;//Tkw_Form_Attributes_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1177,12 +1105,8 @@ end;//Tkw_Form_BaseSearchContainer_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_BaseSearchContainer_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C5EF79F395F4_var*
-//#UC END# *4DDFD2EA0116_C5EF79F395F4_var*
 begin
-//#UC START# *4DDFD2EA0116_C5EF79F395F4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C5EF79F395F4_impl*
+ Result := 'BaseSearchContainerForm';
 end;//Tkw_Form_BaseSearchContainer_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1195,12 +1119,8 @@ end;//Tkw_Form_DictionContainer_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_DictionContainer_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_54526023E864_var*
-//#UC END# *4DDFD2EA0116_54526023E864_var*
 begin
-//#UC START# *4DDFD2EA0116_54526023E864_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_54526023E864_impl*
+ Result := 'DictionContainerForm';
 end;//Tkw_Form_DictionContainer_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1213,12 +1133,8 @@ end;//Tkw_Form_Filters_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Filters_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_DD5D7F713A2A_var*
-//#UC END# *4DDFD2EA0116_DD5D7F713A2A_var*
 begin
-//#UC START# *4DDFD2EA0116_DD5D7F713A2A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_DD5D7F713A2A_impl*
+ Result := 'enFilters';
 end;//Tkw_Form_Filters_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1231,12 +1147,8 @@ end;//Tkw_Form_TreeAttributeFirstLevel_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_TreeAttributeFirstLevel_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5D9D756592A1_var*
-//#UC END# *4DDFD2EA0116_5D9D756592A1_var*
 begin
-//#UC START# *4DDFD2EA0116_5D9D756592A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5D9D756592A1_impl*
+ Result := 'efTreeAttributeFirstLevel';
 end;//Tkw_Form_TreeAttributeFirstLevel_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1249,12 +1161,8 @@ end;//Tkw_Form_WarningBaloon_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_WarningBaloon_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_30568683D7FC_var*
-//#UC END# *4DDFD2EA0116_30568683D7FC_var*
 begin
-//#UC START# *4DDFD2EA0116_30568683D7FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_30568683D7FC_impl*
+ Result := 'WarningBaloonForm';
 end;//Tkw_Form_WarningBaloon_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1267,12 +1175,8 @@ end;//Tkw_Form_NewsLine_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_NewsLine_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_DA0A2A7C913E_var*
-//#UC END# *4DDFD2EA0116_DA0A2A7C913E_var*
 begin
-//#UC START# *4DDFD2EA0116_DA0A2A7C913E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_DA0A2A7C913E_impl*
+ Result := 'enNewsLine';
 end;//Tkw_Form_NewsLine_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1285,12 +1189,8 @@ end;//Tkw_Form_Redactions_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Redactions_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_981902B59516_var*
-//#UC END# *4DDFD2EA0116_981902B59516_var*
 begin
-//#UC START# *4DDFD2EA0116_981902B59516_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_981902B59516_impl*
+ Result := 'RedactionsForm';
 end;//Tkw_Form_Redactions_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1303,12 +1203,8 @@ end;//Tkw_Form_SynchroView_WarningBaloon_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_SynchroView_WarningBaloon_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_92A15B4F9D60_var*
-//#UC END# *4DDFD2EA0116_92A15B4F9D60_var*
 begin
-//#UC START# *4DDFD2EA0116_92A15B4F9D60_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_92A15B4F9D60_impl*
+ Result := 'SynchroView_WarningBaloonForm';
 end;//Tkw_Form_SynchroView_WarningBaloon_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1321,12 +1217,8 @@ end;//Tkw_Form_Translation_WarningBaloon_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Translation_WarningBaloon_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_385035F9BA90_var*
-//#UC END# *4DDFD2EA0116_385035F9BA90_var*
 begin
-//#UC START# *4DDFD2EA0116_385035F9BA90_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_385035F9BA90_impl*
+ Result := 'Translation_WarningBaloonForm';
 end;//Tkw_Form_Translation_WarningBaloon_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1339,12 +1231,8 @@ end;//Tkw_Form_UserCR1_WarningBaloon_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_UserCR1_WarningBaloon_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5A35A14A7D6F_var*
-//#UC END# *4DDFD2EA0116_5A35A14A7D6F_var*
 begin
-//#UC START# *4DDFD2EA0116_5A35A14A7D6F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5A35A14A7D6F_impl*
+ Result := 'UserCR1_WarningBaloonForm';
 end;//Tkw_Form_UserCR1_WarningBaloon_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1357,12 +1245,8 @@ end;//Tkw_Form_UserCR2_WarningBaloon_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_UserCR2_WarningBaloon_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C9BCD0159660_var*
-//#UC END# *4DDFD2EA0116_C9BCD0159660_var*
 begin
-//#UC START# *4DDFD2EA0116_C9BCD0159660_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C9BCD0159660_impl*
+ Result := 'UserCR2_WarningBaloonForm';
 end;//Tkw_Form_UserCR2_WarningBaloon_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1375,12 +1259,8 @@ end;//Tkw_Form_Contents_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Contents_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3A84DD6AC4DE_var*
-//#UC END# *4DDFD2EA0116_3A84DD6AC4DE_var*
 begin
-//#UC START# *4DDFD2EA0116_3A84DD6AC4DE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3A84DD6AC4DE_impl*
+ Result := 'ContentsForm';
 end;//Tkw_Form_Contents_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1393,12 +1273,8 @@ end;//Tkw_Form_FoldersTree_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_FoldersTree_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_691C09A6F81A_var*
-//#UC END# *4DDFD2EA0116_691C09A6F81A_var*
 begin
-//#UC START# *4DDFD2EA0116_691C09A6F81A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_691C09A6F81A_impl*
+ Result := 'enFoldersTree';
 end;//Tkw_Form_FoldersTree_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1411,12 +1287,8 @@ end;//Tkw_Form_FoldersElementInfo_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_FoldersElementInfo_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_42643ECACF1D_var*
-//#UC END# *4DDFD2EA0116_42643ECACF1D_var*
 begin
-//#UC START# *4DDFD2EA0116_42643ECACF1D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_42643ECACF1D_impl*
+ Result := 'enFoldersElementInfo';
 end;//Tkw_Form_FoldersElementInfo_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1429,12 +1301,8 @@ end;//Tkw_Form_DocumentWithFlash_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_DocumentWithFlash_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EF51BB4B815E_var*
-//#UC END# *4DDFD2EA0116_EF51BB4B815E_var*
 begin
-//#UC START# *4DDFD2EA0116_EF51BB4B815E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EF51BB4B815E_impl*
+ Result := 'DocumentWithFlashForm';
 end;//Tkw_Form_DocumentWithFlash_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1447,12 +1315,8 @@ end;//Tkw_Form_ConsultationMark_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_ConsultationMark_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9BE9B4C0027C_var*
-//#UC END# *4DDFD2EA0116_9BE9B4C0027C_var*
 begin
-//#UC START# *4DDFD2EA0116_9BE9B4C0027C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9BE9B4C0027C_impl*
+ Result := 'en_ConsultationMark';
 end;//Tkw_Form_ConsultationMark_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1465,12 +1329,8 @@ end;//Tkw_Form_MedicListSynchroView_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_MedicListSynchroView_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_BCA467367971_var*
-//#UC END# *4DDFD2EA0116_BCA467367971_var*
 begin
-//#UC START# *4DDFD2EA0116_BCA467367971_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_BCA467367971_impl*
+ Result := 'en_MedicListSynchroView';
 end;//Tkw_Form_MedicListSynchroView_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1483,12 +1343,8 @@ end;//Tkw_Form_SynchroView_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_SynchroView_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_47F71A21EEDD_var*
-//#UC END# *4DDFD2EA0116_47F71A21EEDD_var*
 begin
-//#UC START# *4DDFD2EA0116_47F71A21EEDD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_47F71A21EEDD_impl*
+ Result := 'fcSynchroView';
 end;//Tkw_Form_SynchroView_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -1501,12 +1357,8 @@ end;//Tkw_Form_ListAnalize_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_ListAnalize_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_220FE6F108B4_var*
-//#UC END# *4DDFD2EA0116_220FE6F108B4_var*
 begin
-//#UC START# *4DDFD2EA0116_220FE6F108B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_220FE6F108B4_impl*
+ Result := 'ListAnalizeForm';
 end;//Tkw_Form_ListAnalize_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 

@@ -43,13 +43,13 @@ type
    class procedure Log(const aDoc: IDocument); virtual;
  end;//TnsViewDocumentEditionListEvent
 
- {$Include BaseDocumentForDocumentModule.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _PageControlNotification_Parent_ = _BaseDocumentForDocumentModule_;
- {$Include PageControlNotification.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _WorkWithRedactions_Parent_ = _PageControlNotification_;
- {$Include WorkWithRedactions.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
  _RedactionsUserTypes_Parent_ = _WorkWithRedactions_;
- {$Include RedactionsUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\RedactionsUserTypes.imp.pas}
  TPrimRedactionsForm = class(_RedactionsUserTypes_)
   {* Редакции документа }
   private
@@ -201,13 +201,13 @@ end;//TnsViewDocumentEditionListEvent.Log
 
 type _Instance_R_ = TPrimRedactionsForm;
 
-{$Include BaseDocumentForDocumentModule.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
 
-{$Include PageControlNotification.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
-{$Include WorkWithRedactions.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
 
-{$Include RedactionsUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\RedactionsUserTypes.imp.pas}
 
 function TPrimRedactionsForm.pm_GetDocument: IDocument;
 //#UC START# *4A7B029201C0_497A12850078get_var*

@@ -32,7 +32,7 @@ uses
 
 type
  _PrintableBitmap_Parent_ = TPrimPictureForm;
- {$Include PrintableBitmap.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
  TPrimPictureOptionsForm = class(_PrintableBitmap_)
   {* Рисунок }
   protected
@@ -101,7 +101,7 @@ uses
  , nsHAFPainter
 ;
 
-{$Include PrintableBitmap.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimPictureOptionsForm.Save;

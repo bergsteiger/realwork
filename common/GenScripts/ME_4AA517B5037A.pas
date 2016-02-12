@@ -29,7 +29,7 @@ const
 
 type
  _AdminAndMonitoringsMainForm_Parent_ = TPrimMainOptionsForm;
- {$Include AdminAndMonitoringsMainForm.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AdminAndMonitoringsMainForm.imp.pas}
  TPrimAdminMainForm = class(_AdminAndMonitoringsMainForm_)
   protected
    {$If NOT Defined(NoVCM)}
@@ -94,7 +94,7 @@ const
 
 type _Instance_R_ = TPrimAdminMainForm;
 
-{$Include AdminAndMonitoringsMainForm.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AdminAndMonitoringsMainForm.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TPrimAdminMainForm.DoInit(aFromHistory: Boolean);

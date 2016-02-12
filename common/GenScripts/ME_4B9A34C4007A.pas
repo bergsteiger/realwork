@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _afwApplicationDataUpdate_Parent_ = _UnderControlBehaviour_Parent_;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _UnderControlBehaviour_ = class(_afwApplicationDataUpdate_, IucpUnderControl)
   private
    f_HasControlStatus: Tl3Bool;
@@ -24,7 +24,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _afwApplicationDataUpdate_Parent_ = _UnderControlBehaviour_Parent_;
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 _UnderControlBehaviour_ = _afwApplicationDataUpdate_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -35,7 +35,7 @@ _UnderControlBehaviour_ = _afwApplicationDataUpdate_;
 {$Define UnderControlBehaviour_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 procedure _UnderControlBehaviour_.ClearControlStatus;
 //#UC START# *4B9A2F660115_4B9A34C4007A_var*

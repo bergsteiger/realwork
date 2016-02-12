@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_WorkJournal.GetWordNameForRegister
 
 function Tkw_Form_WorkJournal.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_228AAA176ABA_var*
-//#UC END# *4DDFD2EA0116_228AAA176ABA_var*
 begin
-//#UC START# *4DDFD2EA0116_228AAA176ABA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_228AAA176ABA_impl*
+ Result := 'WorkJournalForm';
 end;//Tkw_Form_WorkJournal.GetString
 
 class function Tkw_WorkJournal_Control_JournalTree.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_WorkJournal_Control_JournalTree.GetWordNameForRegister
 
 function Tkw_WorkJournal_Control_JournalTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E8E6940573D8_var*
-//#UC END# *4DDFD2EA0116_E8E6940573D8_var*
 begin
-//#UC START# *4DDFD2EA0116_E8E6940573D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E8E6940573D8_impl*
+ Result := 'JournalTree';
 end;//Tkw_WorkJournal_Control_JournalTree.GetString
 
 class procedure Tkw_WorkJournal_Control_JournalTree.RegisterInEngine;
-//#UC START# *52A086150180_E8E6940573D8_var*
-//#UC END# *52A086150180_E8E6940573D8_var*
 begin
-//#UC START# *52A086150180_E8E6940573D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_E8E6940573D8_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_WorkJournal_Control_JournalTree.RegisterInEngine
 
 procedure Tkw_WorkJournal_Control_JournalTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_WorkJournal_Control_JournalTree_Push.GetWordNameForRegister
 function TkwWorkJournalFormJournalTree.JournalTree(const aCtx: TtfwContext;
  aWorkJournalForm: TWorkJournalForm): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TWorkJournalForm.JournalTree }
-//#UC START# *0880E186193F_2FB40EF219EB_var*
-//#UC END# *0880E186193F_2FB40EF219EB_var*
 begin
-//#UC START# *0880E186193F_2FB40EF219EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0880E186193F_2FB40EF219EB_impl*
+ Result := aWorkJournalForm.JournalTree;
 end;//TkwWorkJournalFormJournalTree.JournalTree
 
 procedure TkwWorkJournalFormJournalTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2FB40EF219EB_var*
-//#UC END# *4DAEEDE10285_2FB40EF219EB_var*
+var l_aWorkJournalForm: TWorkJournalForm;
 begin
-//#UC START# *4DAEEDE10285_2FB40EF219EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2FB40EF219EB_impl*
+ try
+  l_aWorkJournalForm := TWorkJournalForm(aCtx.rEngine.PopObjAs(TWorkJournalForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWorkJournalForm: TWorkJournalForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(JournalTree(aCtx, l_aWorkJournalForm));
 end;//TkwWorkJournalFormJournalTree.DoDoIt
 
 class function TkwWorkJournalFormJournalTree.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwWorkJournalFormJournalTree.GetWordNameForRegister
 
 procedure TkwWorkJournalFormJournalTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2FB40EF219EB_var*
-//#UC END# *52D00B00031A_2FB40EF219EB_var*
 begin
-//#UC START# *52D00B00031A_2FB40EF219EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2FB40EF219EB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству JournalTree', aCtx);
 end;//TkwWorkJournalFormJournalTree.SetValuePrim
 
 function TkwWorkJournalFormJournalTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwWorkJournalFormJournalTree.GetAllParamsCount
 
 function TkwWorkJournalFormJournalTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TWorkJournalForm)]);
 end;//TkwWorkJournalFormJournalTree.ParamsTypes
 
 initialization

@@ -26,7 +26,7 @@ uses
 ;
 
 type
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsListAnalize = {final} class(_vcmFormDataSourcePrim_, IdsListAnalize)
  end;//TdsListAnalize
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -43,7 +43,7 @@ uses
 
 type _Instance_R_ = TdsListAnalize;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -45,21 +45,14 @@ begin
 end;//Tkw_Form_CustomizeTools.GetWordNameForRegister
 
 function Tkw_Form_CustomizeTools.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9A898DB9E71E_var*
-//#UC END# *4DDFD2EA0116_9A898DB9E71E_var*
 begin
-//#UC START# *4DDFD2EA0116_9A898DB9E71E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9A898DB9E71E_impl*
+ Result := 'CustomizeToolsForm';
 end;//Tkw_Form_CustomizeTools.GetString
 
 class procedure Tkw_Form_CustomizeTools.RegisterInEngine;
-//#UC START# *52A086150180_9A898DB9E71E_var*
-//#UC END# *52A086150180_9A898DB9E71E_var*
 begin
-//#UC START# *52A086150180_9A898DB9E71E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_9A898DB9E71E_impl*
+ inherited;
+ TtfwClassRef.Register(TCustomizeToolsForm);
 end;//Tkw_Form_CustomizeTools.RegisterInEngine
 
 initialization

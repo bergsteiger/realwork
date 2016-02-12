@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _CommonForTextAndFlash_Parent_ = _CommonForTextAndFlashOperations_Parent_;
- {$Include CommonForTextAndFlash.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas}
  _CommonForTextAndFlashOperations_ = {abstract} class(_CommonForTextAndFlash_)
   public
    procedure MakeHyperlinkToDocument; override;
@@ -17,7 +17,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _CommonForTextAndFlash_Parent_ = _CommonForTextAndFlashOperations_Parent_;
-{$Include CommonForTextAndFlash.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas}
 _CommonForTextAndFlashOperations_ = _CommonForTextAndFlash_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -28,7 +28,7 @@ _CommonForTextAndFlashOperations_ = _CommonForTextAndFlash_;
 {$Define CommonForTextAndFlashOperations_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include CommonForTextAndFlash.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlash.imp.pas}
 
 procedure _CommonForTextAndFlashOperations_.MakeHyperlinkToDocument;
  {* Создать ссылку на документ }

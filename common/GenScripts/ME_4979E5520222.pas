@@ -52,7 +52,7 @@ type
  {$EndIf D+}
  //#UC END# *4979E5520222ci*
  _HyperlinkProcessorWithOwnLocalLink_Parent_ = TvcmEntityForm;
- {$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
  //#UC START# *4979E5520222cit*
  //#UC END# *4979E5520222cit*
  TPrimWarningForm = class(_HyperlinkProcessorWithOwnLocalLink_, IafwFormView, IafwDockableControl)
@@ -152,7 +152,7 @@ uses
 
 type _Instance_R_ = TPrimWarningForm;
 
-{$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
 
 procedure TPrimWarningForm.PositionOnRequestedSub(aSubID: TnsWarningSub);
 var l_Sub: IeeSub;

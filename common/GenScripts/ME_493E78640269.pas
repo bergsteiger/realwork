@@ -58,9 +58,9 @@ type
  _InitDataType_ = IdeDocumentList;
  _SetDataType_ = IdList;
  _SetType_ = IsdsList;
- {$Include sdsDocInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas}
  _nsListWarningGenerator_Parent_ = _sdsDocInfo_;
- {$Include nsListWarningGenerator.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas}
  TsdsList = class(_nsListWarningGenerator_, IsdsList, IucpFilters, IucpNodeForPositioningHolder, IbsDataProducer, InsWarningGenerator, IucpBaseSearchSupportQuery, IsdsListPrim, IsdsListNameHolder)
   {* Список }
   private
@@ -261,9 +261,9 @@ uses
 
 type _Instance_R_ = TsdsList;
 
-{$Include sdsDocInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas}
 
-{$Include nsListWarningGenerator.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas}
 
 procedure TsdsList.NeedMakeForFullCR(aId: TnsUserCRListId);
  {* установить состояние для СКР }
