@@ -4,7 +4,7 @@ unit ItsLAW;
 // Модуль: "w:\common\components\DailyTest\ItsLAW.pas"
 // Стереотип: "TestResults"
 
-{$Include DailyTest.inc}
+{$Include w:\common\components\DailyTest\DailyTest.inc}
 
 interface
 

@@ -24,7 +24,7 @@ type
  _ItemType_ = IbsContactList;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnsContactListNotifiers = class(_l3InterfacePtrList_)
  end;//TnsContactListNotifiers
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TnsContactListNotifiers;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

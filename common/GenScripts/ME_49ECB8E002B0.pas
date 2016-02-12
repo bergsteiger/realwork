@@ -21,9 +21,9 @@ uses
 
 type
  _afwShortcutsHandler_Parent_ = TnsWebBrowserPrim;
- {$Include afwShortcutsHandler.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
  _evStyleTableListener_Parent_ = _afwShortcutsHandler_;
- {$Include evStyleTableListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  TnsWebBrowser = class(_evStyleTableListener_)
   {* Наследник от стандартного компонента, для заточек в F1 }
   private
@@ -100,9 +100,9 @@ uses
  , StrUtils
 ;
 
-{$Include afwShortcutsHandler.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
 
-{$Include evStyleTableListener.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
 procedure TnsWebBrowser.pm_SetScale(aValue: Integer);
 //#UC START# *4BB32FCD0157_49ECB8E002B0set_var*

@@ -24,7 +24,7 @@ type
  _ItemType_ = IbsChatWindow;
  _l3InterfacePtrListPrim_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrListPrim.imp.pas}
  TnsBaseChatWindowList = class(_l3InterfacePtrListPrim_)
  end;//TnsBaseChatWindowList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -86,7 +86,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TnsBaseChatWindowList;
 
-{$Include l3InterfacePtrListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrListPrim.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

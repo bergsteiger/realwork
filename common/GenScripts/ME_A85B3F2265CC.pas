@@ -43,12 +43,8 @@ begin
 end;//Tkw_Form_InternetAgent.GetWordNameForRegister
 
 function Tkw_Form_InternetAgent.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_688265610B11_var*
-//#UC END# *4DDFD2EA0116_688265610B11_var*
 begin
-//#UC START# *4DDFD2EA0116_688265610B11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_688265610B11_impl*
+ Result := 'InternetAgentForm';
 end;//Tkw_Form_InternetAgent.GetString
 
 initialization

@@ -24,7 +24,7 @@ type
  _ItemType_ = TbsUserID;
  _l3AtomicList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3AtomicList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
  TnsUserIDList = class(_l3AtomicList_)
  end;//TnsUserIDList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TnsUserIDList;
 
-{$Include l3AtomicList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

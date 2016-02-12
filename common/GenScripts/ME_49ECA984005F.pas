@@ -29,7 +29,7 @@ uses
 type
  _InitDataType_ = Il3CString;
  _SetType_ = IsdsInternetAgent;
- {$Include vcmFormSetDataSourceWithoutData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
  TsdsInternetAgent = class(_vcmFormSetDataSourceWithoutData_, IsdsInternetAgent)
   {* Реализация прецедента Интернет-агента }
   private
@@ -59,7 +59,7 @@ uses
 
 type _Instance_R_ = TsdsInternetAgent;
 
-{$Include vcmFormSetDataSourceWithoutData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
 function TsdsInternetAgent.pm_GetMainViewArea: IdsInternetAgent;
 //#UC START# *4A37A70E01DE_49ECA984005Fget_var*

@@ -21,7 +21,7 @@ uses
 
 type
  _AppConfigTestMixin_Parent_ = TEmptyFormTest;
- {$Include AppConfigTestMixin.imp.pas}
+ {$Include w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas}
  TAppConfigBaseTest = {abstract} class(_AppConfigTestMixin_)
   {* Тесты на работу конфигурации }
   protected
@@ -57,7 +57,7 @@ uses
  , ddAppConfig
 ;
 
-{$Include AppConfigTestMixin.imp.pas}
+{$Include w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 function TAppConfigBaseTest.FormExtent: TPoint;

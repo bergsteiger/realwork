@@ -4,7 +4,7 @@ unit toK;
 // Модуль: "w:\common\components\DailyTest\toK.pas"
 // Стереотип: "TestResults"
 
-{$Include DailyTest.inc}
+{$Include w:\common\components\DailyTest\DailyTest.inc}
 
 interface
 

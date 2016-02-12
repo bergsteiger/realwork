@@ -28,7 +28,7 @@ uses
 
 type
  _InitDataType_ = Il3CString;
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  TdsInternetAgent = {final} class(_vcmFormDataSource_, IdsInternetAgent)
   {* Реализация области вывода Интернет-агента }
   protected
@@ -49,7 +49,7 @@ uses
 
 type _Instance_R_ = TdsInternetAgent;
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 function TdsInternetAgent.Get_URL: WideString;
 //#UC START# *49EDE45A02EB_49ECA9AA0000get_var*

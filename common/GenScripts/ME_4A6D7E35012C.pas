@@ -17,7 +17,7 @@ uses
 
 type
  _AbstactChatWindowList_Parent_ = TnsBaseChatWindowList;
- {$Include AbstactChatWindowList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Chat\AbstactChatWindowList.imp.pas}
  TnsChatWindowList = class(_AbstactChatWindowList_)
  end;//TnsChatWindowList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -31,7 +31,7 @@ uses
 
 type _Instance_R_ = TnsChatWindowList;
 
-{$Include AbstactChatWindowList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Chat\AbstactChatWindowList.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

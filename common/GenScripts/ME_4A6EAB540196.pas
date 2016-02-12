@@ -8,7 +8,7 @@
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _FindDataType_ = TbsUserID;
  _l3Searcher_Parent_ = _AbstactChatWindowList_Parent_;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  _AbstactChatWindowList_ = class(_l3Searcher_)
   public
    function FindChatWindow(const anUserID: _FindDataType_): _ItemType_;
@@ -17,7 +17,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _l3Searcher_Parent_ = _AbstactChatWindowList_Parent_;
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 _AbstactChatWindowList_ = _l3Searcher_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -42,7 +42,7 @@ begin
 //#UC END# *47B9BAFD01F4_4A6EAB540196_impl*
 end;//CompareItemWithData
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 function _AbstactChatWindowList_.FindChatWindow(const anUserID: _FindDataType_): _ItemType_;
 //#UC START# *4A6EAC0F00A9_4A6EAB540196_var*

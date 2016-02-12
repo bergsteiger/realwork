@@ -20,7 +20,7 @@ uses
 
 type
  _AppConfigTestMixin_Parent_ = TEmptyFormTest;
- {$Include AppConfigTestMixin.imp.pas}
+ {$Include w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas}
  TLostNodeAppConfigTest = {abstract} class(_AppConfigTestMixin_)
   protected
    procedure Cleanup; override;
@@ -60,7 +60,7 @@ uses
  , ddAppConfig
 ;
 
-{$Include AppConfigTestMixin.imp.pas}
+{$Include w:\common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas}
 
 procedure TLostNodeAppConfigTest.Cleanup;
  {* Функция очистки полей объекта. }

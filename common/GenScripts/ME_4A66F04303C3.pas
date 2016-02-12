@@ -24,7 +24,7 @@ type
  _ItemType_ = InsChatMessage;
  _l3InterfaceRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnsChatMessages = class(_l3InterfaceRefList_, InsChatMessages)
   protected
    function Get_MessagesCount: Integer;
@@ -45,7 +45,7 @@ uses
 
 type _Instance_R_ = TnsChatMessages;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 function TnsChatMessages.Get_MessagesCount: Integer;
 //#UC START# *4A66DDD60130_4A66F04303C3get_var*

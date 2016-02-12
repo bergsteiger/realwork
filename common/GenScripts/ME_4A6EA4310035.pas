@@ -37,9 +37,9 @@ uses
 ;
 
 type
- {$Include TextWithComments.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
  _HyperlinkProcessorWithOwnLocalLink_Parent_ = _TextWithComments_;
- {$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
  TAbstractHistoryForm = class(_HyperlinkProcessorWithOwnLocalLink_, IbsAbstractChatWindow)
   {* Абстрактное окно истории }
   private
@@ -150,9 +150,9 @@ uses
 
 type _Instance_R_ = TAbstractHistoryForm;
 
-{$Include TextWithComments.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
 
-{$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
 
 procedure TAbstractHistoryForm.AddToHistory(const aMessage: InsChatMessage);
 //#UC START# *4A6EA62A0096_4A6EA4310035_var*

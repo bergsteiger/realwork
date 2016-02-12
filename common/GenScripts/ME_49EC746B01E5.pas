@@ -51,7 +51,7 @@ type
  end;//InsInternetAgentState
 
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimInternetAgentForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Базаовая форма для [Интернет-агента|$124453728] }
   private
@@ -337,7 +337,7 @@ end;//TnsInternetAgentState.SetParams
 
 type _Instance_R_ = TPrimInternetAgentForm;
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 {$If NOT Defined(XE)}
 procedure TPrimInternetAgentForm.BeforeNavigate(Sender: TObject;
