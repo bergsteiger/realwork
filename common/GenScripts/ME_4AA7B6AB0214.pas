@@ -84,10 +84,10 @@ type
     {* возвращает название одного шага истории }
    procedure BeforeFormDestroy(const aForm: IvcmEntityForm);
    function ForceSaveState(const aForm: IvcmEntityForm;
-    aStateType: TvcmStateType = vcmExternalInterfaces.vcm_stContent): Boolean;
+    aStateType: TvcmStateType = vcm_stContent): Boolean;
     {* сохранение без проверки необходимости сохранения формы }
    function SaveState(const aForm: IvcmEntityForm;
-    aStateType: TvcmStateType = vcmExternalInterfaces.vcm_stContent): Boolean; overload;
+    aStateType: TvcmStateType = vcm_stContent): Boolean; overload;
    procedure SaveClose(const aForm: IvcmEntityForm;
     const aFormID: TvcmFormID;
     aUserType: TvcmUserType;
@@ -95,7 +95,7 @@ type
     aSubUserType: TvcmUserType);
     {* форма которая должна быть закрыта при переходе по истории }
    function HasInPreviousStep(const aFormClass: TvcmFormID;
-    aUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
+    aUserType: TvcmUserType = vcm_utAny): Boolean;
    function Back(aTruncate: Boolean = False): Boolean; overload;
    function Forward: Boolean; overload;
    procedure Back(const aParams: IvcmExecuteParamsPrim;
@@ -304,9 +304,6 @@ type
    procedure ResetContainer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    constructor Create(const aForm: IvcmEntityForm;
     aStateType: TvcmStateType;
@@ -326,6 +323,9 @@ type
     aForClone: Boolean): IvcmFormHistoryItem; reintroduce; overload;
    class function Make(const aForm: IvcmEntityForm;
     aStateType: TvcmStateType): IvcmFormHistoryItem; overload;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   protected
    property SavingClone: Boolean
     read pm_GetSavingClone;
@@ -591,7 +591,7 @@ begin
 end;//TvcmHistory.BeforeFormDestroy
 
 function TvcmHistory.ForceSaveState(const aForm: IvcmEntityForm;
- aStateType: TvcmStateType = vcmExternalInterfaces.vcm_stContent): Boolean;
+ aStateType: TvcmStateType = vcm_stContent): Boolean;
  {* сохранение без проверки необходимости сохранения формы }
 //#UC START# *499559C900EE_5506D56E02FB_var*
 //#UC END# *499559C900EE_5506D56E02FB_var*
@@ -602,7 +602,7 @@ begin
 end;//TvcmHistory.ForceSaveState
 
 function TvcmHistory.SaveState(const aForm: IvcmEntityForm;
- aStateType: TvcmStateType = vcmExternalInterfaces.vcm_stContent): Boolean;
+ aStateType: TvcmStateType = vcm_stContent): Boolean;
 //#UC START# *499559DD00D6_5506D56E02FB_var*
 //#UC END# *499559DD00D6_5506D56E02FB_var*
 begin
@@ -631,7 +631,7 @@ begin
 end;//TvcmHistory.SaveClose
 
 function TvcmHistory.HasInPreviousStep(const aFormClass: TvcmFormID;
- aUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
+ aUserType: TvcmUserType = vcm_utAny): Boolean;
 //#UC START# *49955A0E01FD_5506D56E02FB_var*
  function Check(const aItem: IvcmHistoryItem): Boolean;
  var

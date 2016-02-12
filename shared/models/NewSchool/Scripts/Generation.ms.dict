@@ -3657,6 +3657,8 @@ STRING elem_func InPrefix
     RULES
      ( Self .IsPointer )
       cEmptyStr
+     ( Self .MainAncestor IsNil ) 
+      cEmptyStr
      DEFAULT
       ( Self .MainAncestor call.me )
     ; // RULES  

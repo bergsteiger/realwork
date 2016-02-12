@@ -121,10 +121,10 @@ type
 
 function vcmMessageDlgPrim(const aMsg: Tl3Message;
  out Checked: Boolean;
- aTextAlign: TAlignment = Classes.taCenter;
+ aTextAlign: TAlignment = taCenter;
  aWndParent: HWND = 0;
  aChoices: TPl3StringIDExList = nil;
- aJumpTo: TevJumpToEvent = evCustomEditorWindow.nil;
+ aJumpTo: TevJumpToEvent = nil;
  aNeedShowInTaskBar: Boolean = False): Integer;
 
 var ButtonWidths: TButtonWidths;
@@ -197,7 +197,7 @@ function vtCreateMessageDialog(const aMsg: Tl3Message;
  aWndParent: HWND;
  aAutoCloseInterval: Integer;
  aChoices: TPl3StringIDExList;
- aJumpTo: TevJumpToEvent = evCustomEditorWindow.nil): TMessageForm;
+ aJumpTo: TevJumpToEvent = nil): TMessageForm;
 //#UC START# *4F915A68031C_4B8E676500AD_var*
 const
   mcHorzMargin      = 8;
@@ -808,10 +808,10 @@ end;//vtCreateMessageDialog
 
 function vcmMessageDlgPrim(const aMsg: Tl3Message;
  out Checked: Boolean;
- aTextAlign: TAlignment = Classes.taCenter;
+ aTextAlign: TAlignment = taCenter;
  aWndParent: HWND = 0;
  aChoices: TPl3StringIDExList = nil;
- aJumpTo: TevJumpToEvent = evCustomEditorWindow.nil;
+ aJumpTo: TevJumpToEvent = nil;
  aNeedShowInTaskBar: Boolean = False): Integer;
 //#UC START# *4B8E6787035D_4B8E676500AD_var*
  function lp_GetChoiceIndex(aOwner: TForm): Integer;

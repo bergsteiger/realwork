@@ -317,9 +317,9 @@ type
    procedure EndOp; virtual;
    procedure FastenToolbars; virtual;
    function GetFastenMode: Boolean; virtual;
-   function BuildVirtualForm(aFormClass: RvcmEntityForm;
+   function BuildVirtualForm(const aFormClass: RvcmEntityForm;
     out NeedFreeForm: Boolean;
-    aUserType: TvcmUserType = vcmUserControls.vcm_utAny): TvcmEntityForm;
+    aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
    function ObjectByType(anObject: TvcmObject;
     const anObjectName: AnsiString;
     const aSubName: AnsiString = '';
@@ -2431,9 +2431,9 @@ begin
 //#UC END# *52A1FE730278_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.GetFastenMode
 
-function TvcmBaseMenuManagerPrim.BuildVirtualForm(aFormClass: RvcmEntityForm;
+function TvcmBaseMenuManagerPrim.BuildVirtualForm(const aFormClass: RvcmEntityForm;
  out NeedFreeForm: Boolean;
- aUserType: TvcmUserType = vcmUserControls.vcm_utAny): TvcmEntityForm;
+ aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
 //#UC START# *52A1FEC30321_4AD5DBBD0147_var*
 var
  l_Index : Integer;

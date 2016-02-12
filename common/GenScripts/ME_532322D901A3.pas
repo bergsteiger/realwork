@@ -278,8 +278,8 @@ type
     aCanMoveLine: Boolean); overload;
   protected
    procedure pm_SetParent(aValue: TWinControl);
-   procedure pm_SetHorzPos(aValue: single);
-   procedure pm_SetVertPos(aValue: single);
+   procedure pm_SetHorzPos(const aValue: single);
+   procedure pm_SetVertPos(const aValue: single);
    function pm_GetCount: Integer;
    function pm_GetVisible: Boolean;
    procedure pm_SetVisible(aValue: Boolean);
@@ -952,7 +952,7 @@ begin
 //#UC END# *532888BC0156_532322D901A3set_impl*
 end;//TvgRemindersLine.pm_SetParent
 
-procedure TvgRemindersLine.pm_SetHorzPos(aValue: single);
+procedure TvgRemindersLine.pm_SetHorzPos(const aValue: single);
 //#UC START# *532B391602B6_532322D901A3set_var*
 //#UC END# *532B391602B6_532322D901A3set_var*
 begin
@@ -962,7 +962,7 @@ begin
 //#UC END# *532B391602B6_532322D901A3set_impl*
 end;//TvgRemindersLine.pm_SetHorzPos
 
-procedure TvgRemindersLine.pm_SetVertPos(aValue: single);
+procedure TvgRemindersLine.pm_SetVertPos(const aValue: single);
 //#UC START# *532B391F02EB_532322D901A3set_var*
 //#UC END# *532B391F02EB_532322D901A3set_var*
 begin

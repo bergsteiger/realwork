@@ -72,25 +72,25 @@ type
  end;//TvcmHugeMessageDlgWithWikiImpl
 
 procedure Say(const aMsg: Tl3StringIDEx;
- aDlgType: TMsgDlgType = Dialogs.mtError); overload;
+ aDlgType: TMsgDlgType = mtError); overload;
 function ShowMessageDlg(const aMsg: Tl3Message;
  out theChecked: Boolean;
  aChoices: TPl3StringIDExList;
- aJumpTo: TevJumpToEvent = evCustomEditorWindow.nil): Integer; overload;
+ aJumpTo: TevJumpToEvent = nil): Integer; overload;
 function Ask(const aMsg: TvcmMessageID): Boolean; overload;
 function MessageDlg(const aMsg: TvcmMessageID): Integer; overload;
 function MessageDlg(const aMsg: TvcmMessageID;
  const aData: array of const): Integer; overload;
 procedure Say(const aMsg: Tl3StringIDEx;
  const aData: array of const;
- aDlgType: TMsgDlgType = Dialogs.mtError); overload;
+ aDlgType: TMsgDlgType = mtError); overload;
 procedure Say(const aMsg: TvcmMessageID); overload;
 procedure Say(const aMsg: TvcmMessageID;
  const aData: array of const); overload;
 function Ask(const aMsg: TvcmMessageID;
  const aData: array of const): Boolean; overload;
 function MessageDlg(const anItem: Tl3Message;
- aJumpTo: TevJumpToEvent = evCustomEditorWindow.nil): Integer; overload;
+ aJumpTo: TevJumpToEvent = nil): Integer; overload;
 function GetVisibleName(const aName: Il3CString;
  aChoices: TPl3StringIDExList;
  aDlgType: TMsgDlgType): Il3CString;
@@ -194,7 +194,7 @@ begin
 end;//AddMessageToQueue
 
 procedure Say(const aMsg: Tl3StringIDEx;
- aDlgType: TMsgDlgType = Dialogs.mtError);
+ aDlgType: TMsgDlgType = mtError);
 //#UC START# *4A9D129E00FA_4E01D696020C_var*
 //#UC END# *4A9D129E00FA_4E01D696020C_var*
 begin
@@ -206,7 +206,7 @@ end;//Say
 function ShowMessageDlg(const aMsg: Tl3Message;
  out theChecked: Boolean;
  aChoices: TPl3StringIDExList;
- aJumpTo: TevJumpToEvent = evCustomEditorWindow.nil): Integer;
+ aJumpTo: TevJumpToEvent = nil): Integer;
 //#UC START# *4A9D12BB00CC_4E01D696020C_var*
   
  function GetCurrentMainFormHWnd: HWnd;
@@ -344,7 +344,7 @@ end;//MessageDlg
 
 procedure Say(const aMsg: Tl3StringIDEx;
  const aData: array of const;
- aDlgType: TMsgDlgType = Dialogs.mtError);
+ aDlgType: TMsgDlgType = mtError);
 //#UC START# *4E01E11201EB_4E01D696020C_var*
 //#UC END# *4E01E11201EB_4E01D696020C_var*
 begin
@@ -388,7 +388,7 @@ begin
 end;//Ask
 
 function MessageDlg(const anItem: Tl3Message;
- aJumpTo: TevJumpToEvent = evCustomEditorWindow.nil): Integer;
+ aJumpTo: TevJumpToEvent = nil): Integer;
 //#UC START# *4E01E90202D0_4E01D696020C_var*
 
  function lp_GetDlgButtons(aModalResult: TModalResult): TMsgDlgButtons;

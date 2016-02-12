@@ -150,6 +150,10 @@ begin
 //#UC END# *479731C50290_55260AB7022B_impl*
 end;//TChromeLikeFormTabParamsItem.Cleanup
 
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 type _Instance_R_ = TChromeLikeFormTabParamsList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}

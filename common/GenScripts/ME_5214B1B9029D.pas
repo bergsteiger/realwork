@@ -297,6 +297,7 @@ begin
 //#UC END# *52172CA801E3_522F0FB3004F_impl*
 end;//TddDateTimeConfigItem.SaveValue
 
+{$If NOT Defined(Nemesis)}
 procedure TddTimeConfigItem.AfterConstruct(var aLeft: Integer;
  var aMaxLeft: Integer;
  var aTop: Integer;
@@ -319,6 +320,7 @@ begin
  Result := 40 + GetCanvas(aParent).TextWidth(TimeToStr(Time)) + c_ConfigItemLeft;
 //#UC END# *521B061A0387_522F0FC7007F_impl*
 end;//TddTimeConfigItem.MinWidth
+{$IfEnd} // NOT Defined(Nemesis)
 
 procedure TddDateConfigItem.AfterConstruct(var aLeft: Integer;
  var aMaxLeft: Integer;

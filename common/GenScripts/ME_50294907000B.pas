@@ -21,7 +21,6 @@ type
     {* Поле для свойства Handle }
    f_Stream: TStream;
     {* Поле для свойства Stream }
-  protected
   public
    function DupHandle: THandle; virtual;
    function TryInit: Boolean; virtual;

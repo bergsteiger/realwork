@@ -457,7 +457,6 @@ type
   private
    f_Item: TddVisualConfigItem;
     {* Поле для свойства Item }
-  protected
   public
    constructor CreateFmt(const aMsg: AnsiString;
     const Args: array of const;

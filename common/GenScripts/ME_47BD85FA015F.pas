@@ -17,7 +17,6 @@ type
   private
    f_ID: Integer;
     {* Поле для свойства ID }
-  protected
   public
    constructor Create(aHandle: Integer); reintroduce; virtual;
   public

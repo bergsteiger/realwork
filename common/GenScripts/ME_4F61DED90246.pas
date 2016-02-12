@@ -34,7 +34,6 @@ type
   private
    f_Navigator: TvtNavigatorPrim;
     {* Поле для свойства Navigator }
-  protected
   public
    function DeleteControl(aControl: TControl): Boolean;
    constructor Create(aNavigator: TvtNavigatorPrim); reintroduce;

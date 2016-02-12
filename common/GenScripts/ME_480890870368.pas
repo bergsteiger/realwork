@@ -17,7 +17,6 @@ type
     {* Поле для свойства Name }
    f_Description: AnsiString;
     {* Поле для свойства Description }
-  protected
   public
    constructor Create(const name: AnsiString;
     const description: AnsiString;

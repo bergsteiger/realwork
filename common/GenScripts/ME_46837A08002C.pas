@@ -198,7 +198,6 @@ type
   private
    f_ErrorControl: IevEditorControlField;
     {* Поле для свойства ErrorControl }
-  protected
   public
    constructor Create(const anErrorControl: IevEditorControlField;
     const Msg: AnsiString); reintroduce;

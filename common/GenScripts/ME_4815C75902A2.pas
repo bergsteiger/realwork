@@ -38,7 +38,6 @@ type
    procedure PushLayer(const aLayer: TatLayerContext); virtual;
    procedure PopLayer; virtual;
    procedure InitLayerStackByNIP(const aNIP: INodeIndexPath); virtual;
-  protected
   public
    constructor Create(const aDTP: IDocumentTextProvider); reintroduce; virtual;
    function GetNext: TEntryPoint; virtual;

@@ -10,8 +10,8 @@
   protected
    function MessageDlg(const aMsg: IvcmCString;
     const aKey: AnsiString;
-    aDlgType: TMsgDlgType = Dialogs.mtCustom;
-    aButtons: TMsgDlgButtons = Dialogs.[mbOK]): Integer; overload;
+    aDlgType: TMsgDlgType = mtCustom;
+    aButtons: TMsgDlgButtons = [mbOK]): Integer; overload;
    function MessageDlg(const aMsg: TvcmMessageID): Integer; overload;
    procedure Say(const aMsg: TvcmMessageID); overload;
    procedure Say(const aMsg: TvcmMessageID;
@@ -40,8 +40,8 @@ _vcmUserInteractiveForm_ = _vcmUserInteractiveForm_Parent_;
 {$If NOT Defined(NoVCM)}
 function _vcmUserInteractiveForm_.MessageDlg(const aMsg: IvcmCString;
  const aKey: AnsiString;
- aDlgType: TMsgDlgType = Dialogs.mtCustom;
- aButtons: TMsgDlgButtons = Dialogs.[mbOK]): Integer;
+ aDlgType: TMsgDlgType = mtCustom;
+ aButtons: TMsgDlgButtons = [mbOK]): Integer;
 //#UC START# *4993085402D8_4E01D5E50001_var*
 //#UC END# *4993085402D8_4E01D5E50001_var*
 begin
