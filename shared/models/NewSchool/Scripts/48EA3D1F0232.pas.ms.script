@@ -28,6 +28,38 @@ ref; // ME_48EA3D2E0054 TddHTMLReader
 
 FORWARD ME_4C971BD4031B
 
+FORWARD ME_56BB204702E6
+
+: ME_56BB20610303
+ CONST UID '56BB20610303'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB204702E6 // GetdestNormClass
+ ;
+ : Target WL 'ME_56BB200D01EE' '5190A3470397.pas.ms.script' // RdestNorm
+ ;
+
+ref; // ME_56BB20610303 DoIt
+
+: ME_56BB204702E6
+ CONST UID '56BB204702E6'
+ CONST Name 'GetdestNormClass'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_4C971BD4031B // TddRTFReader
+ ;
+ : Operations
+   Seq: ( ME_56BB20610303 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56BB204702E6 GetdestNormClass
+
 : ME_534F8F4D0317_ME_4C971BD4031B
  CONST UID '534F8F4D0317'
  CONST Name 'BeforeClosePara'
@@ -72,6 +104,10 @@ ref; // ME_562616AD01DF_ME_4C971BD4031B FootNoteSymbol
    Seq: ( WL 'ME_51E7BF4200C0' '5190A3470397.pas.ms.script' // TddCustomRTFReader
  )
  ; // Inherits
+ : Operations
+   Seq: ( ME_56BB204702E6 // GetdestNormClass
+ )
+ ; // Operations
  : Implemented
    Seq: ( ME_534F8F4D0317_ME_4C971BD4031B // BeforeClosePara
  ME_5624D5E80387_ME_4C971BD4031B // AddFooterHyperlink
@@ -195,6 +231,63 @@ ref; // ME_55DF02000346
 
 ref; // ME_4C9CD11901BD ddNSRC_r
 
+FORWARD ME_56BB14B90213
+
+: ME_56BB20BB024B
+ CONST UID '56BB20BB024B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56BB14B90213 // TddRTFReaderSpec
+ ;
+ : Target WL 'ME_56BB14F503A0' '5190A3470397.pas.ms.script' // TdestNormSpec
+ ;
+
+ref; // ME_56BB20BB024B 
+
+: ME_56BB204702E6_ME_56BB14B90213
+ CONST UID '56BB204702E6'
+ CONST Name 'GetdestNormClass'
+ : Original ME_56BB204702E6 // GetdestNormClass
+ ;
+ : Implementor ME_56BB14B90213 // TddRTFReaderSpec
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_56BB204702E6_ME_56BB14B90213 GetdestNormClass
+
+: ME_56BB14B90213
+ CONST UID '56BB14B90213'
+ CONST Name 'TddRTFReaderSpec'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ %SUMMARY 'Читалка со специальынми заточками.' ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_48EA3D1F0232 // Readers
+ ;
+ : Inherits
+   Seq: ( ME_4C971BD4031B // TddRTFReader
+ )
+ ; // Inherits
+ : Overridden
+   Seq: ( ME_56BB204702E6_ME_56BB14B90213 // GetdestNormClass
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_56BB20BB024B // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFReaderSpec.pas'
+ CONST extprop:rc:SelfName 'ddRTFReaderSpec'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'ddRTFReaderSpec'
+
+ref; // ME_56BB14B90213 TddRTFReaderSpec
+
 : ME_48EA3D1F0232
  CONST UID '48EA3D1F0232'
  CONST Name 'Readers'
@@ -208,6 +301,7 @@ ref; // ME_4C9CD11901BD ddNSRC_r
    Seq: ( ME_48EA3D2E0054 // TddHTMLReader
  ME_4C971BD4031B // TddRTFReader
  ME_4C9CD11901BD // ddNSRC_r
+ ME_56BB14B90213 // TddRTFReaderSpec
  )
  ; // Children
  : Depends

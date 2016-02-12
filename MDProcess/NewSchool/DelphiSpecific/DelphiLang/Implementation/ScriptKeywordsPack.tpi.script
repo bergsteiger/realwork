@@ -484,6 +484,8 @@ end. // <<ScriptKeywordsPack>>
  %1 %f set_var %( 'Speller' %, '{Class_Inst}' )% 
 //	%{Class_Inst}%f_set_var(SpelledFor,1)\
  ( get_global_var ( 'Class_Inst' ) %f set_var %( 'SpelledFor' %, 1 )% ) 
+//	%{Class_Inst}%f_set_var(Speller,{GEN})\
+ ( get_global_var ( 'Class_Inst' ) %f set_var %( 'Speller' %, '{GEN}' )% ) 
 
 //	%{Class_Inst}%f_set_up(is immediate,%1{is immediate})\
  ( get_global_var ( 'Class_Inst' ) %f set_up %( 'is immediate' %, %1 get_up ( 'is immediate' ) )% ) 
@@ -966,6 +968,11 @@ end. // <<ScriptKeywordsPack>>
   end // else
 //	,Op_Instance)\
 %,   'Op_Instance' )% ) 
+
+//	%{Op_Instance}%f_set_var(SpelledFor,1)\
+  ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SpelledFor' %, 1 )% ) 
+//	%{Class_Inst}%f_set_var(Stub,{Op_Instance})\
+  ( get_global_var ( 'Class_Inst' ) %f set_var %( 'Stub' %, '{Op_Instance}' )% ) 
 
 //	%{Op_Instance}%f_set_documentation(Реализация слова скрипта %f_loc_GetNameForScript(%{Class_Inst}))\
   ( get_global_var ( 'Op_Instance' ) %f set_documentation %( 'Реализация слова скрипта '

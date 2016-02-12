@@ -5294,6 +5294,79 @@ ref; // ME_5617961F0105 EndImpersonate
 
 ref; // ME_54EDC87C00B5 IdaDataProvider
 
+FORWARD ME_56BC63EF028D
+
+: ME_56BC64310348
+ CONST UID '56BC64310348'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
+ ;
+
+ref; // ME_56BC64310348 anID
+
+: ME_56BC642200D0
+ CONST UID '56BC642200D0'
+ CONST Name 'RegisterFreeExtObjID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
+ ;
+ : Parameters
+   Seq: ( ME_56BC64310348 // anID
+ )
+ ; // Parameters
+
+ref; // ME_56BC642200D0 RegisterFreeExtObjID
+
+: ME_56BC64410225
+ CONST UID '56BC64410225'
+ CONST Name 'anID'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_551E7DC1024B' '5432448401BC.pas.ms.script' // TdaDocID
+ ;
+
+ref; // ME_56BC64410225 anID
+
+: ME_56BC6437030F
+ CONST UID '56BC6437030F'
+ CONST Name 'RegisterFreeExtDocID'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56BC63EF028D // IdaComboAccessDataProviderHelper
+ ;
+ : Parameters
+   Seq: ( ME_56BC64410225 // anID
+ )
+ ; // Parameters
+
+ref; // ME_56BC6437030F RegisterFreeExtDocID
+
+: ME_56BC63EF028D
+ CONST UID '56BC63EF028D'
+ CONST GUID '603EDD09-200D-48A3-A7AC-E58665C5439E'
+ CONST Name 'IdaComboAccessDataProviderHelper'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_5432518A0316 // daInterfaces
+ ;
+ : Operations
+   Seq: ( ME_56BC642200D0 // RegisterFreeExtObjID
+ ME_56BC6437030F // RegisterFreeExtDocID
+ )
+ ; // Operations
+ CONST extprop:rc:SelfName 'daComboAccessDataProviderHelper'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56BC63EF028D IdaComboAccessDataProviderHelper
+
 : ME_5432518A0316
  CONST UID '5432518A0316'
  CONST Name 'daInterfaces'
@@ -5333,6 +5406,7 @@ ref; // ME_54EDC87C00B5 IdaDataProvider
  ME_554C78BD038C // IdaTableQueryFactory
  ME_5666D0D8031A // IdaFunction
  ME_54EDC87C00B5 // IdaDataProvider
+ ME_56BC63EF028D // IdaComboAccessDataProviderHelper
  )
  ; // Children
  : Constants

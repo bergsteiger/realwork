@@ -7263,6 +7263,36 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
+//	[{"%S{prop_stereo}"!=""}\
+ if ( ( %S get_up ( 'prop_stereo' ) ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:prop_stereo %f_out_val("%S{prop_stereo}")
+   ' CONST extprop:prop_stereo '
+   [%f] out_val %( %S get_up ( 'prop_stereo' ) )% 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
+//	[{"%S{prop_name}"!=""}\
+ if ( ( %S get_up ( 'prop_name' ) ) %!= '' ) then
+ begin
+//	[\
+  if NOT-EMPTY
+  begin
+//	 CONST extprop:prop_name %f_out_val("%S{prop_name}")
+   ' CONST extprop:prop_name '
+   [%f] out_val %( %S get_up ( 'prop_name' ) )% 
+//	]\
+  end // if
+  NOP
+//	]\
+ end // if
+
 //	[{"%S{isAsm}"!=""}\
  if ( ( %S get_up ( 'isAsm' ) ) %!= '' ) then
  begin

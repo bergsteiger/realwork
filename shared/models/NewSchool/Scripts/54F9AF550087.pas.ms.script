@@ -712,37 +712,65 @@ ref; // ME_56179E0C0195 f_ImpersonatedUserID
 
 ref; // ME_5629E397016A f_UserManager
 
+: ME_56BC71760219
+ CONST UID '56BC71760219'
+ CONST Name 'f_SetGlobalDataProvider'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_5519351D01BE // ThtDataProvider
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56BC71760219 f_SetGlobalDataProvider
+
 FORWARD ME_551938260196
 
-: ME_551D04D803B5
- CONST UID '551D04D803B5'
+: ME_56BC71A5028A
+ CONST UID '56BC71A5028A'
  CONST Name 'aParams'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_54F9AF6B00DD // ThtDataProviderParams
  ;
 
-ref; // ME_551D04D803B5 aParams
+ref; // ME_56BC71A5028A aParams
 
-: ME_551D04D803C4
- CONST UID '551D04D803C4'
+: ME_56BC71A5029A
+ CONST UID '56BC71A5029A'
  CONST Name 'ForCheckLogin'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_551D04D803C4 ForCheckLogin
+ref; // ME_56BC71A5029A ForCheckLogin
 
-: ME_556486BF0198
- CONST UID '556486BF0198'
+: ME_56BC71A502B9
+ CONST UID '56BC71A502B9'
  CONST Name 'AllowClearLocks'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_556486BF0198 AllowClearLocks
+ref; // ME_56BC71A502B9 AllowClearLocks
+
+: ME_56BC71A502D8
+ CONST UID '56BC71A502D8'
+ CONST Name 'SetGlobalDataProvider'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_56BC71A502D8 SetGlobalDataProvider
 
 : ME_55193830033B
  CONST UID '55193830033B'
@@ -753,9 +781,10 @@ ref; // ME_556486BF0198 AllowClearLocks
  : Parent ME_551938260196 // Create
  ;
  : Parameters
-   Seq: ( ME_551D04D803B5 // aParams
- ME_551D04D803C4 // ForCheckLogin
- ME_556486BF0198 // AllowClearLocks
+   Seq: ( ME_56BC71A5028A // aParams
+ ME_56BC71A5029A // ForCheckLogin
+ ME_56BC71A502B9 // AllowClearLocks
+ ME_56BC71A502D8 // SetGlobalDataProvider
  )
  ; // Parameters
 
@@ -780,8 +809,8 @@ ref; // ME_551938260196 Create
 
 FORWARD ME_551938550022
 
-: ME_A9EF711C4732
- CONST UID 'A9EF711C4732'
+: ME_E579FDB11E0A
+ CONST UID 'E579FDB11E0A'
  CONST Name 'aParams'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -789,10 +818,10 @@ FORWARD ME_551938550022
  : Target ME_54F9AF6B00DD // ThtDataProviderParams
  ;
 
-ref; // ME_A9EF711C4732 aParams
+ref; // ME_E579FDB11E0A aParams
 
-: ME_1E466A689B7C
- CONST UID '1E466A689B7C'
+: ME_732D8EE84D0F
+ CONST UID '732D8EE84D0F'
  CONST Name 'ForCheckLogin'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -800,10 +829,10 @@ ref; // ME_A9EF711C4732 aParams
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_1E466A689B7C ForCheckLogin
+ref; // ME_732D8EE84D0F ForCheckLogin
 
-: ME_F617EE09C011
- CONST UID 'F617EE09C011'
+: ME_E7F8AC1BDC8A
+ CONST UID 'E7F8AC1BDC8A'
  CONST Name 'AllowClearLocks'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -811,7 +840,22 @@ ref; // ME_1E466A689B7C ForCheckLogin
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_F617EE09C011 AllowClearLocks
+ref; // ME_E7F8AC1BDC8A AllowClearLocks
+
+: ME_3A3FAD5263D7
+ CONST UID '3A3FAD5263D7'
+ CONST Name 'SetGlobalDataProvider'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_3A3FAD5263D7 SetGlobalDataProvider
 
 : ME_0FE1F75F1C58
  CONST UID '0FE1F75F1C58'
@@ -826,9 +870,10 @@ ref; // ME_F617EE09C011 AllowClearLocks
  : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
  ;
  : Parameters
-   Seq: ( ME_A9EF711C4732 // aParams
- ME_1E466A689B7C // ForCheckLogin
- ME_F617EE09C011 // AllowClearLocks
+   Seq: ( ME_E579FDB11E0A // aParams
+ ME_732D8EE84D0F // ForCheckLogin
+ ME_E7F8AC1BDC8A // AllowClearLocks
+ ME_3A3FAD5263D7 // SetGlobalDataProvider
  )
  ; // Parameters
 
@@ -1519,6 +1564,7 @@ ref; // ME_479731C50290_ME_5519351D01BE Cleanup
  ME_5564866E03C6 // f_AllowClearLocks
  ME_56179E0C0195 // f_ImpersonatedUserID
  ME_5629E397016A // f_UserManager
+ ME_56BC71760219 // f_SetGlobalDataProvider
  )
  ; // Attributes
  : Operations

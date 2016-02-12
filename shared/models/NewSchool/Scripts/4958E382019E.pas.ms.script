@@ -17749,6 +17749,8 @@ ref; // ME_158EA2C9A2C9 Tkw_SaveLoad_Control_ParentZone_Push
 
 FORWARD ME_54F2571C262C
 
+FORWARD ME_59D7A2072AB7
+
 FORWARD ME_2440EB34C9D0
 
 : ME_D1176639CB6D
@@ -17790,6 +17792,8 @@ ref; // ME_D1176639CB6E acfSaveLoad
  ME_D1176639CB6E // acfSaveLoad
  )
  ; // Parameters
+ : SpelledFor ME_54F2571C262C // pnHeader
+ ;
 
 ref; // ME_59D7A2072AB7 pnHeader
 
@@ -17950,12 +17954,18 @@ ref; // ME_5617F4D00243_ME_2440EB34C9D0 ParamsTypes
  CONST extprop:pas:TypeName 'TkwCfSaveLoadPnHeader'
  CONST extprop:rc:SelfName 'CfSaveLoadPnHeader'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AA931BF023D // SaveLoad
+ ;
  : SpelledFor ME_54F2571C262C // pnHeader
+ ;
+ : Stub ME_59D7A2072AB7 // pnHeader
  ;
 
 ref; // ME_2440EB34C9D0 cfSaveLoad_pnHeader
 
 FORWARD ME_D85123D37409
+
+FORWARD ME_9F45CCDA8270
 
 FORWARD ME_E675708F6BD5
 
@@ -17998,6 +18008,8 @@ ref; // ME_D3D2DB3FF2E3 acfSaveLoad
  ME_D3D2DB3FF2E3 // acfSaveLoad
  )
  ; // Parameters
+ : SpelledFor ME_D85123D37409 // lbHeader
+ ;
 
 ref; // ME_9F45CCDA8270 lbHeader
 
@@ -18158,12 +18170,18 @@ ref; // ME_5617F4D00243_ME_E675708F6BD5 ParamsTypes
  CONST extprop:pas:TypeName 'TkwCfSaveLoadLbHeader'
  CONST extprop:rc:SelfName 'CfSaveLoadLbHeader'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AA931BF023D // SaveLoad
+ ;
  : SpelledFor ME_D85123D37409 // lbHeader
+ ;
+ : Stub ME_9F45CCDA8270 // lbHeader
  ;
 
 ref; // ME_E675708F6BD5 cfSaveLoad_lbHeader
 
 FORWARD ME_AB3E194FAA80
+
+FORWARD ME_083E1C6BCE60
 
 FORWARD ME_26C9E1BE48F1
 
@@ -18206,6 +18224,8 @@ ref; // ME_1CDAE417BC7A acfSaveLoad
  ME_1CDAE417BC7A // acfSaveLoad
  )
  ; // Parameters
+ : SpelledFor ME_AB3E194FAA80 // pbHeader
+ ;
 
 ref; // ME_083E1C6BCE60 pbHeader
 
@@ -18366,12 +18386,18 @@ ref; // ME_5617F4D00243_ME_26C9E1BE48F1 ParamsTypes
  CONST extprop:pas:TypeName 'TkwCfSaveLoadPbHeader'
  CONST extprop:rc:SelfName 'CfSaveLoadPbHeader'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AA931BF023D // SaveLoad
+ ;
  : SpelledFor ME_AB3E194FAA80 // pbHeader
+ ;
+ : Stub ME_083E1C6BCE60 // pbHeader
  ;
 
 ref; // ME_26C9E1BE48F1 cfSaveLoad_pbHeader
 
 FORWARD ME_C23E32EC8801
+
+FORWARD ME_EF9CFEE320EB
 
 FORWARD ME_27482DAD1D6E
 
@@ -18414,6 +18440,8 @@ ref; // ME_28EB591411D6 acfSaveLoad
  ME_28EB591411D6 // acfSaveLoad
  )
  ; // Parameters
+ : SpelledFor ME_C23E32EC8801 // ParentZone
+ ;
 
 ref; // ME_EF9CFEE320EB ParentZone
 
@@ -18574,7 +18602,11 @@ ref; // ME_5617F4D00243_ME_27482DAD1D6E ParamsTypes
  CONST extprop:pas:TypeName 'TkwCfSaveLoadParentZone'
  CONST extprop:rc:SelfName 'CfSaveLoadParentZone'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AA931BF023D // SaveLoad
+ ;
  : SpelledFor ME_C23E32EC8801 // ParentZone
+ ;
+ : Stub ME_EF9CFEE320EB // ParentZone
  ;
 
 ref; // ME_27482DAD1D6E cfSaveLoad_ParentZone
@@ -18672,6 +18704,8 @@ ref; // ME_2E21CEC9AF19 ParentZone
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'pnHeader'
  : Speller ME_2440EB34C9D0 // cfSaveLoad_pnHeader
  ;
 
@@ -18694,6 +18728,8 @@ ref; // ME_54F2571C262C pnHeader
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'lbHeader'
  : Speller ME_E675708F6BD5 // cfSaveLoad_lbHeader
  ;
 
@@ -18716,6 +18752,8 @@ ref; // ME_D85123D37409 lbHeader
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'pbHeader'
  : Speller ME_26C9E1BE48F1 // cfSaveLoad_pbHeader
  ;
 
@@ -18738,6 +18776,8 @@ ref; // ME_AB3E194FAA80 pbHeader
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'ParentZone'
  : Speller ME_27482DAD1D6E // cfSaveLoad_ParentZone
  ;
 
@@ -19318,6 +19358,8 @@ ref; // ME_55FA1BAB0123 Tkw_QueryCard_Component_TextSource
 
 FORWARD ME_9F522A2F970F
 
+FORWARD ME_0A4C485022C3
+
 FORWARD ME_C531EBC72793
 
 : ME_B10AEC2D37E1
@@ -19359,6 +19401,8 @@ ref; // ME_B10AEC2D37E2 aenQueryCard
  ME_B10AEC2D37E2 // aenQueryCard
  )
  ; // Parameters
+ : SpelledFor ME_9F522A2F970F // Editor
+ ;
 
 ref; // ME_0A4C485022C3 Editor
 
@@ -19519,12 +19563,18 @@ ref; // ME_5617F4D00243_ME_C531EBC72793 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnQueryCardEditor'
  CONST extprop:rc:SelfName 'EnQueryCardEditor'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AA9393C0164 // QueryCard
+ ;
  : SpelledFor ME_9F522A2F970F // Editor
+ ;
+ : Stub ME_0A4C485022C3 // Editor
  ;
 
 ref; // ME_C531EBC72793 enQueryCard_Editor
 
 FORWARD ME_CEE829907673
+
+FORWARD ME_C8E4304B9C34
 
 FORWARD ME_88CF64489AF4
 
@@ -19567,6 +19617,8 @@ ref; // ME_B731394C4F63 aenQueryCard
  ME_B731394C4F63 // aenQueryCard
  )
  ; // Parameters
+ : SpelledFor ME_CEE829907673 // TextSource
+ ;
 
 ref; // ME_C8E4304B9C34 TextSource
 
@@ -19727,7 +19779,11 @@ ref; // ME_5617F4D00243_ME_88CF64489AF4 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnQueryCardTextSource'
  CONST extprop:rc:SelfName 'EnQueryCardTextSource'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AA9393C0164 // QueryCard
+ ;
  : SpelledFor ME_CEE829907673 // TextSource
+ ;
+ : Stub ME_C8E4304B9C34 // TextSource
  ;
 
 ref; // ME_88CF64489AF4 enQueryCard_TextSource
@@ -19787,6 +19843,8 @@ ref; // ME_CCDB137BF862 TextSource
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'Editor'
  : Speller ME_C531EBC72793 // enQueryCard_Editor
  ;
 
@@ -19809,6 +19867,8 @@ ref; // ME_9F522A2F970F Editor
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'TextSource'
  : Speller ME_88CF64489AF4 // enQueryCard_TextSource
  ;
 
@@ -20450,6 +20510,8 @@ ref; // ME_679CF569D061 Tkw_PreviewForm_Control_PreviewPanel_Push
 
 FORWARD ME_45D229DB14C0
 
+FORWARD ME_44089CA7ADC0
+
 FORWARD ME_BEE124DE58A4
 
 : ME_5D8847FF590F
@@ -20491,6 +20553,8 @@ ref; // ME_5D8847FF5910 aefPreviewForm
  ME_5D8847FF5910 // aefPreviewForm
  )
  ; // Parameters
+ : SpelledFor ME_45D229DB14C0 // PreviewPanel
+ ;
 
 ref; // ME_44089CA7ADC0 PreviewPanel
 
@@ -20651,7 +20715,11 @@ ref; // ME_5617F4D00243_ME_BEE124DE58A4 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEfPreviewFormPreviewPanel'
  CONST extprop:rc:SelfName 'EfPreviewFormPreviewPanel'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF6F8100DB // PreviewForm
+ ;
  : SpelledFor ME_45D229DB14C0 // PreviewPanel
+ ;
+ : Stub ME_44089CA7ADC0 // PreviewPanel
  ;
 
 ref; // ME_BEE124DE58A4 efPreviewForm_PreviewPanel
@@ -20692,6 +20760,8 @@ ref; // ME_1212509B9E09 PreviewPanel
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'PreviewPanel'
  : Speller ME_BEE124DE58A4 // efPreviewForm_PreviewPanel
  ;
 
@@ -21394,6 +21464,8 @@ ref; // ME_E1F674501A77 Tkw_PageSetup_Control_SettingsPageControl_Push
 
 FORWARD ME_0208442F5781
 
+FORWARD ME_0629E4100124
+
 FORWARD ME_56C42AEE3D11
 
 : ME_4256EF8D7E66
@@ -21435,6 +21507,8 @@ ref; // ME_4256EF8D7E67 aen_PageSetup
  ME_4256EF8D7E67 // aen_PageSetup
  )
  ; // Parameters
+ : SpelledFor ME_0208442F5781 // PreviewGroupBox
+ ;
 
 ref; // ME_0629E4100124 PreviewGroupBox
 
@@ -21595,12 +21669,18 @@ ref; // ME_5617F4D00243_ME_56C42AEE3D11 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPageSetupPreviewGroupBox'
  CONST extprop:rc:SelfName 'EnPageSetupPreviewGroupBox'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF86650309 // PageSetup
+ ;
  : SpelledFor ME_0208442F5781 // PreviewGroupBox
+ ;
+ : Stub ME_0629E4100124 // PreviewGroupBox
  ;
 
 ref; // ME_56C42AEE3D11 en_PageSetup_PreviewGroupBox
 
 FORWARD ME_44013264ABD4
+
+FORWARD ME_5F075EA07FE3
 
 FORWARD ME_82C3311120D2
 
@@ -21643,6 +21723,8 @@ ref; // ME_02921209B3E5 aen_PageSetup
  ME_02921209B3E5 // aen_PageSetup
  )
  ; // Parameters
+ : SpelledFor ME_44013264ABD4 // SettingsPageControl
+ ;
 
 ref; // ME_5F075EA07FE3 SettingsPageControl
 
@@ -21803,7 +21885,11 @@ ref; // ME_5617F4D00243_ME_82C3311120D2 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPageSetupSettingsPageControl'
  CONST extprop:rc:SelfName 'EnPageSetupSettingsPageControl'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF86650309 // PageSetup
+ ;
  : SpelledFor ME_44013264ABD4 // SettingsPageControl
+ ;
+ : Stub ME_5F075EA07FE3 // SettingsPageControl
  ;
 
 ref; // ME_82C3311120D2 en_PageSetup_SettingsPageControl
@@ -21863,6 +21949,8 @@ ref; // ME_B56296E20247 SettingsPageControl
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'PreviewGroupBox'
  : Speller ME_56C42AEE3D11 // en_PageSetup_PreviewGroupBox
  ;
 
@@ -21885,6 +21973,8 @@ ref; // ME_0208442F5781 PreviewGroupBox
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'SettingsPageControl'
  : Speller ME_82C3311120D2 // en_PageSetup_SettingsPageControl
  ;
 
@@ -24576,6 +24666,8 @@ ref; // ME_D216CC1D7351 Tkw_PrintDialog_Control_cbPrintInfo_Push
 
 FORWARD ME_73C7EDE7148A
 
+FORWARD ME_76109A1F419E
+
 FORWARD ME_103A0129A2B3
 
 : ME_F6C546BF5A7A
@@ -24617,6 +24709,8 @@ ref; // ME_F6C546BF5A7B aen_PrintDialog
  ME_F6C546BF5A7B // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_73C7EDE7148A // poDocumentNames
+ ;
 
 ref; // ME_76109A1F419E poDocumentNames
 
@@ -24777,12 +24871,18 @@ ref; // ME_5617F4D00243_ME_103A0129A2B3 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogPoDocumentNames'
  CONST extprop:rc:SelfName 'EnPrintDialogPoDocumentNames'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_73C7EDE7148A // poDocumentNames
+ ;
+ : Stub ME_76109A1F419E // poDocumentNames
  ;
 
 ref; // ME_103A0129A2B3 en_PrintDialog_poDocumentNames
 
 FORWARD ME_246D0012FCAC
+
+FORWARD ME_90F4C4D195AB
 
 FORWARD ME_97819185B8B3
 
@@ -24825,6 +24925,8 @@ ref; // ME_70B071EFE477 aen_PrintDialog
  ME_70B071EFE477 // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_246D0012FCAC // rbPrintSelected
+ ;
 
 ref; // ME_90F4C4D195AB rbPrintSelected
 
@@ -24985,12 +25087,18 @@ ref; // ME_5617F4D00243_ME_97819185B8B3 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogRbPrintSelected'
  CONST extprop:rc:SelfName 'EnPrintDialogRbPrintSelected'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_246D0012FCAC // rbPrintSelected
+ ;
+ : Stub ME_90F4C4D195AB // rbPrintSelected
  ;
 
 ref; // ME_97819185B8B3 en_PrintDialog_rbPrintSelected
 
 FORWARD ME_C32D76B12B26
+
+FORWARD ME_4D947840F275
 
 FORWARD ME_23FF77EDE234
 
@@ -25033,6 +25141,8 @@ ref; // ME_DAE78D4E2A6D aen_PrintDialog
  ME_DAE78D4E2A6D // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_C32D76B12B26 // rbPrintCurrent
+ ;
 
 ref; // ME_4D947840F275 rbPrintCurrent
 
@@ -25193,12 +25303,18 @@ ref; // ME_5617F4D00243_ME_23FF77EDE234 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogRbPrintCurrent'
  CONST extprop:rc:SelfName 'EnPrintDialogRbPrintCurrent'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_C32D76B12B26 // rbPrintCurrent
+ ;
+ : Stub ME_4D947840F275 // rbPrintCurrent
  ;
 
 ref; // ME_23FF77EDE234 en_PrintDialog_rbPrintCurrent
 
 FORWARD ME_6E2E8B5616BC
+
+FORWARD ME_6D557F3DA586
 
 FORWARD ME_72BD6982D75C
 
@@ -25241,6 +25357,8 @@ ref; // ME_B84FD2431FB2 aen_PrintDialog
  ME_B84FD2431FB2 // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_6E2E8B5616BC // edPrintInterval
+ ;
 
 ref; // ME_6D557F3DA586 edPrintInterval
 
@@ -25401,12 +25519,18 @@ ref; // ME_5617F4D00243_ME_72BD6982D75C ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogEdPrintInterval'
  CONST extprop:rc:SelfName 'EnPrintDialogEdPrintInterval'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_6E2E8B5616BC // edPrintInterval
+ ;
+ : Stub ME_6D557F3DA586 // edPrintInterval
  ;
 
 ref; // ME_72BD6982D75C en_PrintDialog_edPrintInterval
 
 FORWARD ME_0C24E69FF03B
+
+FORWARD ME_AE32A6B5803F
 
 FORWARD ME_F312A27E7E41
 
@@ -25449,6 +25573,8 @@ ref; // ME_23D32AD82CBC aen_PrintDialog
  ME_23D32AD82CBC // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_0C24E69FF03B // edCopyCount
+ ;
 
 ref; // ME_AE32A6B5803F edCopyCount
 
@@ -25609,12 +25735,18 @@ ref; // ME_5617F4D00243_ME_F312A27E7E41 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogEdCopyCount'
  CONST extprop:rc:SelfName 'EnPrintDialogEdCopyCount'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_0C24E69FF03B // edCopyCount
+ ;
+ : Stub ME_AE32A6B5803F // edCopyCount
  ;
 
 ref; // ME_F312A27E7E41 en_PrintDialog_edCopyCount
 
 FORWARD ME_F03AA565A1A2
+
+FORWARD ME_5D8869DDDDD9
 
 FORWARD ME_8A08E020034B
 
@@ -25657,6 +25789,8 @@ ref; // ME_C5A1B9938F59 aen_PrintDialog
  ME_C5A1B9938F59 // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_F03AA565A1A2 // CollateCheckBox
+ ;
 
 ref; // ME_5D8869DDDDD9 CollateCheckBox
 
@@ -25817,12 +25951,18 @@ ref; // ME_5617F4D00243_ME_8A08E020034B ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogCollateCheckBox'
  CONST extprop:rc:SelfName 'EnPrintDialogCollateCheckBox'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_F03AA565A1A2 // CollateCheckBox
+ ;
+ : Stub ME_5D8869DDDDD9 // CollateCheckBox
  ;
 
 ref; // ME_8A08E020034B en_PrintDialog_CollateCheckBox
 
 FORWARD ME_7BF96794231A
+
+FORWARD ME_77EB611EC10B
 
 FORWARD ME_D4AAEA04D37D
 
@@ -25865,6 +26005,8 @@ ref; // ME_3CD18DBEEF0C aen_PrintDialog
  ME_3CD18DBEEF0C // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_7BF96794231A // cbOddEven
+ ;
 
 ref; // ME_77EB611EC10B cbOddEven
 
@@ -26025,12 +26167,18 @@ ref; // ME_5617F4D00243_ME_D4AAEA04D37D ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogCbOddEven'
  CONST extprop:rc:SelfName 'EnPrintDialogCbOddEven'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_7BF96794231A // cbOddEven
+ ;
+ : Stub ME_77EB611EC10B // cbOddEven
  ;
 
 ref; // ME_D4AAEA04D37D en_PrintDialog_cbOddEven
 
 FORWARD ME_5B8FB55F98A3
+
+FORWARD ME_C4C8DB29507F
 
 FORWARD ME_7B77E6E2C7AF
 
@@ -26073,6 +26221,8 @@ ref; // ME_4EBE7FA752EB aen_PrintDialog
  ME_4EBE7FA752EB // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_5B8FB55F98A3 // poDocumentTexts
+ ;
 
 ref; // ME_C4C8DB29507F poDocumentTexts
 
@@ -26233,12 +26383,18 @@ ref; // ME_5617F4D00243_ME_7B77E6E2C7AF ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogPoDocumentTexts'
  CONST extprop:rc:SelfName 'EnPrintDialogPoDocumentTexts'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_5B8FB55F98A3 // poDocumentTexts
+ ;
+ : Stub ME_C4C8DB29507F // poDocumentTexts
  ;
 
 ref; // ME_7B77E6E2C7AF en_PrintDialog_poDocumentTexts
 
 FORWARD ME_F7D60571A268
+
+FORWARD ME_BB2B51FBFD83
 
 FORWARD ME_064862418464
 
@@ -26281,6 +26437,8 @@ ref; // ME_AEBC6F9C7CE5 aen_PrintDialog
  ME_AEBC6F9C7CE5 // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_F7D60571A268 // rbPrintAll
+ ;
 
 ref; // ME_BB2B51FBFD83 rbPrintAll
 
@@ -26441,12 +26599,18 @@ ref; // ME_5617F4D00243_ME_064862418464 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogRbPrintAll'
  CONST extprop:rc:SelfName 'EnPrintDialogRbPrintAll'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_F7D60571A268 // rbPrintAll
+ ;
+ : Stub ME_BB2B51FBFD83 // rbPrintAll
  ;
 
 ref; // ME_064862418464 en_PrintDialog_rbPrintAll
 
 FORWARD ME_77407BE209F7
+
+FORWARD ME_9FAB611291C7
 
 FORWARD ME_6A445E1BC728
 
@@ -26489,6 +26653,8 @@ ref; // ME_07D5ED0C4FD3 aen_PrintDialog
  ME_07D5ED0C4FD3 // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_77407BE209F7 // rbPrintInterval
+ ;
 
 ref; // ME_9FAB611291C7 rbPrintInterval
 
@@ -26649,12 +26815,18 @@ ref; // ME_5617F4D00243_ME_6A445E1BC728 ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogRbPrintInterval'
  CONST extprop:rc:SelfName 'EnPrintDialogRbPrintInterval'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_77407BE209F7 // rbPrintInterval
+ ;
+ : Stub ME_9FAB611291C7 // rbPrintInterval
  ;
 
 ref; // ME_6A445E1BC728 en_PrintDialog_rbPrintInterval
 
 FORWARD ME_1492BE7E7D79
+
+FORWARD ME_2B9A1BD0C6CA
 
 FORWARD ME_2BD5B9B2560F
 
@@ -26697,6 +26869,8 @@ ref; // ME_F83EE04174AA aen_PrintDialog
  ME_F83EE04174AA // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_1492BE7E7D79 // cbPrinter
+ ;
 
 ref; // ME_2B9A1BD0C6CA cbPrinter
 
@@ -26857,12 +27031,18 @@ ref; // ME_5617F4D00243_ME_2BD5B9B2560F ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogCbPrinter'
  CONST extprop:rc:SelfName 'EnPrintDialogCbPrinter'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_1492BE7E7D79 // cbPrinter
+ ;
+ : Stub ME_2B9A1BD0C6CA // cbPrinter
  ;
 
 ref; // ME_2BD5B9B2560F en_PrintDialog_cbPrinter
 
 FORWARD ME_2D7F64F85C2B
+
+FORWARD ME_54E86D0B378E
 
 FORWARD ME_D98C3DAD8DBF
 
@@ -26905,6 +27085,8 @@ ref; // ME_5E161873B39F aen_PrintDialog
  ME_5E161873B39F // aen_PrintDialog
  )
  ; // Parameters
+ : SpelledFor ME_2D7F64F85C2B // cbPrintInfo
+ ;
 
 ref; // ME_54E86D0B378E cbPrintInfo
 
@@ -27065,7 +27247,11 @@ ref; // ME_5617F4D00243_ME_D98C3DAD8DBF ParamsTypes
  CONST extprop:pas:TypeName 'TkwEnPrintDialogCbPrintInfo'
  CONST extprop:rc:SelfName 'EnPrintDialogCbPrintInfo'
  CONST extprop:rc:isAcceptableForScripts true
+ : Speller ME_4AAF8EAC01FC // PrintDialog
+ ;
  : SpelledFor ME_2D7F64F85C2B // cbPrintInfo
+ ;
+ : Stub ME_54E86D0B378E // cbPrintInfo
  ;
 
 ref; // ME_D98C3DAD8DBF en_PrintDialog_cbPrintInfo
@@ -27315,6 +27501,8 @@ ref; // ME_986AA33E94DA cbPrintInfo
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'poDocumentNames'
  : Speller ME_103A0129A2B3 // en_PrintDialog_poDocumentNames
  ;
 
@@ -27337,6 +27525,8 @@ ref; // ME_73C7EDE7148A poDocumentNames
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'rbPrintSelected'
  : Speller ME_97819185B8B3 // en_PrintDialog_rbPrintSelected
  ;
 
@@ -27359,6 +27549,8 @@ ref; // ME_246D0012FCAC rbPrintSelected
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'rbPrintCurrent'
  : Speller ME_23FF77EDE234 // en_PrintDialog_rbPrintCurrent
  ;
 
@@ -27381,6 +27573,8 @@ ref; // ME_C32D76B12B26 rbPrintCurrent
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'edPrintInterval'
  : Speller ME_72BD6982D75C // en_PrintDialog_edPrintInterval
  ;
 
@@ -27403,6 +27597,8 @@ ref; // ME_6E2E8B5616BC edPrintInterval
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'edCopyCount'
  : Speller ME_F312A27E7E41 // en_PrintDialog_edCopyCount
  ;
 
@@ -27425,6 +27621,8 @@ ref; // ME_0C24E69FF03B edCopyCount
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'CollateCheckBox'
  : Speller ME_8A08E020034B // en_PrintDialog_CollateCheckBox
  ;
 
@@ -27447,6 +27645,8 @@ ref; // ME_F03AA565A1A2 CollateCheckBox
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'cbOddEven'
  : Speller ME_D4AAEA04D37D // en_PrintDialog_cbOddEven
  ;
 
@@ -27469,6 +27669,8 @@ ref; // ME_7BF96794231A cbOddEven
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'poDocumentTexts'
  : Speller ME_7B77E6E2C7AF // en_PrintDialog_poDocumentTexts
  ;
 
@@ -27491,6 +27693,8 @@ ref; // ME_5B8FB55F98A3 poDocumentTexts
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'rbPrintAll'
  : Speller ME_064862418464 // en_PrintDialog_rbPrintAll
  ;
 
@@ -27513,6 +27717,8 @@ ref; // ME_F7D60571A268 rbPrintAll
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'rbPrintInterval'
  : Speller ME_6A445E1BC728 // en_PrintDialog_rbPrintInterval
  ;
 
@@ -27535,6 +27741,8 @@ ref; // ME_77407BE209F7 rbPrintInterval
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'cbPrinter'
  : Speller ME_2BD5B9B2560F // en_PrintDialog_cbPrinter
  ;
 
@@ -27557,6 +27765,8 @@ ref; // ME_1492BE7E7D79 cbPrinter
  CONST "bind params" 'undefined'
  CONST "lvalue" 'undefined'
  CONST "mapped" true
+ CONST extprop:prop_stereo 'readonly'
+ CONST extprop:prop_name 'cbPrintInfo'
  : Speller ME_D98C3DAD8DBF // en_PrintDialog_cbPrintInfo
  ;
 

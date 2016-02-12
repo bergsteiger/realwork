@@ -222,6 +222,31 @@ f _collect_ifndefs
 	%f_unique_list(%{ID}N,"%SN")
 //#UC END# *4976EBCD03ABfor4976EB82018C*
 
+%f _UseNewGen
+// возвращаемый результат: boolean
+//#UC START# *56BCA508022Dfor4976EB82018C*
+	[{%S{UseNewGen}=true}{\
+	false\
+	}\
+	true\
+	]
+//#UC END# *56BCA508022Dfor4976EB82018C*
+
+%f _UseNewGenRec
+// возвращаемый результат: boolean
+//#UC START# *56BCA5310152for4976EB82018C*
+@ %SU
+	[{%S%f_UseNewGen()=true}{\
+	[{%P#f_UseNewGenRec()=true}{\
+	false\
+	}\
+	true\
+	]\
+	}\
+	true\
+	]
+//#UC END# *56BCA5310152for4976EB82018C*
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

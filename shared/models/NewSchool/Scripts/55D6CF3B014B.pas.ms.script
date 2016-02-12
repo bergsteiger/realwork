@@ -7802,54 +7802,83 @@ ref; // ME_56556F970005 f_CurrentFreeIDHelper
 
 ref; // ME_5661354103CE f_FunctionFactory
 
+: ME_56BC714C020E
+ CONST UID '56BC714C020E'
+ CONST Name 'f_SetGlobalDataProvider'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_55D6DA9E00BF // TpgDataProvider
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56BC714C020E f_SetGlobalDataProvider
+
 FORWARD ME_55E00D5A0297
 
-: ME_55E00D6E0351
- CONST UID '55E00D6E0351'
+: ME_56BC71B900B6
+ CONST UID '56BC71B900B6'
  CONST Name 'aParams'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_55D6CFA5009E // TpgDataProviderParams
  ;
 
-ref; // ME_55E00D6E0351 aParams
+ref; // ME_56BC71B900B6 aParams
 
-: ME_55E00D6E0361
- CONST UID '55E00D6E0361'
+: ME_56BC71B900D5
+ CONST UID '56BC71B900D5'
  CONST Name 'ForCheckLogin'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_55E00D6E0361 ForCheckLogin
+ref; // ME_56BC71B900D5 ForCheckLogin
 
-: ME_55E00D6E0380
- CONST UID '55E00D6E0380'
+: ME_56BC71B900F4
+ CONST UID '56BC71B900F4'
  CONST Name 'AllowClearLocks'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_55E00D6E0380 AllowClearLocks
+ref; // ME_56BC71B900F4 AllowClearLocks
+
+: ME_56BC71B90113
+ CONST UID '56BC71B90113'
+ CONST Name 'SetGlobalDataProvider'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_56BC71B90113 SetGlobalDataProvider
 
 : ME_55E00D6300C4
  CONST UID '55E00D6300C4'
- CONST Name 'DoIt DoIt'
+ CONST Name 'DoIt'
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
  : Parent ME_55E00D5A0297 // Create
  ;
  : Parameters
-   Seq: ( ME_55E00D6E0351 // aParams
- ME_55E00D6E0361 // ForCheckLogin
- ME_55E00D6E0380 // AllowClearLocks
+   Seq: ( ME_56BC71B900B6 // aParams
+ ME_56BC71B900D5 // ForCheckLogin
+ ME_56BC71B900F4 // AllowClearLocks
+ ME_56BC71B90113 // SetGlobalDataProvider
  )
  ; // Parameters
 
-ref; // ME_55E00D6300C4 DoIt DoIt
+ref; // ME_55E00D6300C4 DoIt
 
 : ME_55E00D5A0297
  CONST UID '55E00D5A0297'
@@ -7862,7 +7891,7 @@ ref; // ME_55E00D6300C4 DoIt DoIt
  : Parent ME_55D6DA9E00BF // TpgDataProvider
  ;
  : Operations
-   Seq: ( ME_55E00D6300C4 // DoIt DoIt
+   Seq: ( ME_55E00D6300C4 // DoIt
  )
  ; // Operations
 
@@ -7870,8 +7899,8 @@ ref; // ME_55E00D5A0297 Create
 
 FORWARD ME_55E00D7C03D7
 
-: ME_9647AE45EA00
- CONST UID '9647AE45EA00'
+: ME_61438CD3577C
+ CONST UID '61438CD3577C'
  CONST Name 'aParams'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -7879,10 +7908,10 @@ FORWARD ME_55E00D7C03D7
  : Target ME_55D6CFA5009E // TpgDataProviderParams
  ;
 
-ref; // ME_9647AE45EA00 aParams
+ref; // ME_61438CD3577C aParams
 
-: ME_40823275E143
- CONST UID '40823275E143'
+: ME_88D0E881A1E7
+ CONST UID '88D0E881A1E7'
  CONST Name 'ForCheckLogin'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -7890,10 +7919,10 @@ ref; // ME_9647AE45EA00 aParams
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_40823275E143 ForCheckLogin
+ref; // ME_88D0E881A1E7 ForCheckLogin
 
-: ME_36D6AD8EE06A
- CONST UID '36D6AD8EE06A'
+: ME_471FDA702B3D
+ CONST UID '471FDA702B3D'
  CONST Name 'AllowClearLocks'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -7901,11 +7930,26 @@ ref; // ME_40823275E143 ForCheckLogin
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_36D6AD8EE06A AllowClearLocks
+ref; // ME_471FDA702B3D AllowClearLocks
+
+: ME_3D6AD332FE21
+ CONST UID '3D6AD332FE21'
+ CONST Name 'SetGlobalDataProvider'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_3D6AD332FE21 SetGlobalDataProvider
 
 : ME_9341A3C2401E
  CONST UID '9341A3C2401E'
- CONST Name 'DoIt DoIt'
+ CONST Name 'DoIt'
  CONST IsSummoned true
  CONST Class class_Operation
  %SUMMARY 'Сигнатура фабрики TpgDataProvider.Make' ;
@@ -7916,13 +7960,14 @@ ref; // ME_36D6AD8EE06A AllowClearLocks
  : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
  ;
  : Parameters
-   Seq: ( ME_9647AE45EA00 // aParams
- ME_40823275E143 // ForCheckLogin
- ME_36D6AD8EE06A // AllowClearLocks
+   Seq: ( ME_61438CD3577C // aParams
+ ME_88D0E881A1E7 // ForCheckLogin
+ ME_471FDA702B3D // AllowClearLocks
+ ME_3D6AD332FE21 // SetGlobalDataProvider
  )
  ; // Parameters
 
-ref; // ME_9341A3C2401E DoIt DoIt
+ref; // ME_9341A3C2401E DoIt
 
 : ME_55E00D7C03D7
  CONST UID '55E00D7C03D7'
@@ -7943,7 +7988,7 @@ ref; // ME_9341A3C2401E DoIt DoIt
  )
  ; // Implements
  : Operations
-   Seq: ( ME_9341A3C2401E // DoIt DoIt
+   Seq: ( ME_9341A3C2401E // DoIt
  )
  ; // Operations
  CONST "check nil" false
@@ -8802,6 +8847,26 @@ ref; // ME_5617961F0105_ME_55D6DA9E00BF EndImpersonate
  CONST "pm" false
 ref; // ME_5628D25600E6_ME_55D6DA9E00BF UserManager
 
+: ME_56BC642200D0_ME_55D6DA9E00BF
+ CONST UID '56BC642200D0'
+ CONST Name 'RegisterFreeExtObjID'
+ : Original WL 'ME_56BC642200D0' '5432518A0316.pas.ms.script' // RegisterFreeExtObjID
+ ;
+ : Implementor ME_55D6DA9E00BF // TpgDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56BC642200D0_ME_55D6DA9E00BF RegisterFreeExtObjID
+
+: ME_56BC6437030F_ME_55D6DA9E00BF
+ CONST UID '56BC6437030F'
+ CONST Name 'RegisterFreeExtDocID'
+ : Original WL 'ME_56BC6437030F' '5432518A0316.pas.ms.script' // RegisterFreeExtDocID
+ ;
+ : Implementor ME_55D6DA9E00BF // TpgDataProvider
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56BC6437030F_ME_55D6DA9E00BF RegisterFreeExtDocID
+
 : ME_479731C50290_ME_55D6DA9E00BF
  CONST UID '479731C50290'
  CONST Name 'Cleanup'
@@ -8828,6 +8893,7 @@ ref; // ME_479731C50290_ME_55D6DA9E00BF Cleanup
  ; // Inherits
  : Implements
    Seq: ( WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
+ WL 'ME_56BC63EF028D' '5432518A0316.pas.ms.script' // IdaComboAccessDataProviderHelper
  )
  ; // Implements
  : Attributes
@@ -8857,6 +8923,7 @@ ref; // ME_479731C50290_ME_55D6DA9E00BF Cleanup
  ME_56556F830199 // f_MainFreeIDHelper
  ME_56556F970005 // f_CurrentFreeIDHelper
  ME_5661354103CE // f_FunctionFactory
+ ME_56BC714C020E // f_SetGlobalDataProvider
  )
  ; // Attributes
  : Operations
@@ -8908,6 +8975,8 @@ ref; // ME_479731C50290_ME_55D6DA9E00BF Cleanup
  ME_561796070253_ME_55D6DA9E00BF // BeginImpersonate
  ME_5617961F0105_ME_55D6DA9E00BF // EndImpersonate
  ME_5628D25600E6_ME_55D6DA9E00BF // UserManager
+ ME_56BC642200D0_ME_55D6DA9E00BF // RegisterFreeExtObjID
+ ME_56BC6437030F_ME_55D6DA9E00BF // RegisterFreeExtDocID
  )
  ; // Implemented
  : Overridden

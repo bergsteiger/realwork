@@ -885,10 +885,14 @@ BOOLEAN elem_func IsMethod
  Self .IsStereotype st_method >>> Result
 ; // IsMethod
 
+BOOLEAN elem_func IsLocalMethod
+ Self .IsStereotype st_localmethod >>> Result
+; // IsLocalMethod
+
 ModelElement elem_func FirstOperation
  Cached:
  (
-  Self .Operations .FirstElement
+  Self .Operations .filter> ( .IsLocalMethod ! ) .FirstElement
  )
  >>> Result
 ; // FirstOperation
@@ -1464,10 +1468,6 @@ INTERFACE elem_func InstanceField
  >>> Result
 ; // InstanceField
 
-BOOLEAN elem_func IsLocalMethod
- Self .IsStereotype st_localmethod >>> Result
-; // IsLocalMethod
-
 BOOLEAN elem_func IsLocalVar
  Self .IsStereotype st_var::Attribute >>> Result
 ; // IsLocalVar
@@ -1952,11 +1952,7 @@ elem_proc MethodUserCode
    AND ( l_Implementor .Parent .IsUserType )
   ) 
    WithoutVar: ( 'Result := ' l_Implementor .Parent .Name ';' )
-  (
-   ( Self .UID '4DB6D7F70155' == ) // IsImmediate
-   AND ( l_Implementor .GetUP "is immediate" IsBool )
-  ) 
-   WithoutVar: ( 'Result := ' l_Implementor .GetUP "is immediate" ';' )
+   
   ( Self .UID '55B7A3AF0359' == ) // ResName
    WithoutVar: ( ' Result := ' cQuote l_Implementor .EffectiveUnitName cQuote ';' )
   ( Self .Name 'GetWordNameForRegister' == )
@@ -2200,7 +2196,7 @@ STRING elem_func PushType
   ( Self .TypeName 'Il3CString' == )
    ''
   ( Self .IsInterface )
-   ( [ ',' Self .TypeName ] strings:Cat )
+   ( [ ', ' 'TypeInfo(' Self .TypeName ')' ] strings:Cat )
   DEFAULT
   ''
  ; // RULES
@@ -2684,7 +2680,7 @@ elem_proc UserCode:
   ; // AsMethod
   
   VAR l_Implementor
-  Self .Implementor >>> l_Implementor
+  Self .ImplementorOrParent >>> l_Implementor
   
   BOOLEAN FUNCTION IsUID
     STRING IN anUID
@@ -2775,6 +2771,34 @@ elem_proc UserCode:
   
   RULES
    (
+    ( Self .UID '4DB6D7F70155' == ) // IsImmediate
+    AND ( l_Implementor .GetUP "is immediate" IsBool )
+   ) 
+    Code: ( [ ' Result := ' l_Implementor .GetUP "is immediate" ';' ] .Out )
+    
+   ( 
+    ( l_Op IsNil ! )
+    AND ( '4F3AB3B101FC' IsUID ) // SuppressNextImmediate
+   ) 
+    Code: ( [ ' Result := ' 'tfw_sni' l_Op .GetUP "SupressNextImmediate" ';' ] .Out )
+    
+   ( 
+    ( l_Op IsNil ! )  
+    AND ( '4DDFD2EA0116' IsUID ) // GetString
+   )
+    Code: 
+      (
+       if ( 'Слово словаря для идентификатора контрола' l_Implementor .Documentation StartsStr ) then
+       begin
+        [ ' Result := ' cQuote l_Op .Name cQuote ';' ] .Out 
+       end
+       else
+       begin
+        [ ' Result := ' cQuote l_Op .TypeName .CutT cQuote ';' ] .Out 
+       end 
+      )
+    
+   (
     ( l_Op IsNil ! )
     AND ( l_Self IsNil ! )
     AND ( '52D00B00031A' IsUID ) // SetValuePrim
@@ -2826,7 +2850,7 @@ elem_proc UserCode:
            begin
             if ( l_Op .UPisTrue "mapped" ) then
             begin
-             l_Self .SelfName
+             'l_' l_Self .SelfName
              '.'
              l_Op .GetUP 'extprop:prop_name'
              ' := '
@@ -2848,7 +2872,7 @@ elem_proc UserCode:
             begin
              'DoSetValue' 
              '('
-             l_Self .SelfName
+             'l_' l_Self .SelfName
              
              l_Op .Parameters 
              .filterOutParam>
@@ -2966,6 +2990,40 @@ elem_proc UserCode:
             
          ] .Out
         ) // Indented:
+       )
+   
+   ( 
+    ( l_Op IsNil ! )
+    AND ( '52A086150180' IsUID ) // RegisterInEngine
+   ) 
+     Code:
+       (
+        [
+         ' inherited;' \n
+         ' TtfwClassRef.Register(' 
+         if ( l_Op .IsControlPrim ) then
+         begin
+          l_Op .MethodType .TypeName
+         end // ( l_Op .IsControlPrim )
+         else
+         begin
+          l_Op .TypeName
+         end // ( l_Op .IsControlPrim )
+         ')' ';'
+        ] .Out
+       )
+   
+   ( 
+    ( l_Op IsNil ! )
+    AND ( '4DAEEDE10285' IsUID ) // DoDoIt
+    AND ( l_Implementor 'TkwBynameControlPush' .InheritsFrom )
+   ) 
+     Code:
+       (
+        [
+         ' aCtx.rEngine.PushString(' cQuote l_Op .Name cQuote ')' ';' \n
+         ' inherited;'
+        ] .Out
        )
    
    ( '5617F4D00243' IsUID ) // ParamsTypes
@@ -3099,14 +3157,23 @@ elem_proc UserCode:
     end // ( Self .IsFactory )
     
    (
-    ( l_Op IsNil ! )
+    ( Self .Implementor IsNil ) // - метод новый, а не перекрытый
+    AND ( l_Op IsNil ! )
     AND ( l_Self IsNil ! )
     AND ( l_Implementor .IsSummoned )
     AND ( l_Op .UPisTrue "mapped" )
-    AND ( Self .Name 'GetWordNameForRegister' != )
    )
      Code:
-       ( [ '!!! mapped' l_Op .Name ] .Out )
+       ( 
+        [ 
+         ' '
+         if ( Self .Target IsNil ! ) then
+         begin
+          'Result := ' 
+         end
+         'a' l_Self .SelfName '.' l_Op .Name l_Op .ParametersList ';' 
+        ] .Out 
+       )
     
    ( 
     'ResNameGetter' Self .Name EndsStr 
@@ -4654,7 +4721,7 @@ f _OutInclude
 */
 
 elem_proc OutMixInInclude
- [ cOpenComment '$Include' ' ' Self .UnitName '.pas' cCloseComment ] .Out
+ [ cOpenComment '$Include' ' ' Self .FinalFileName sysutils:ExtractFilePath Self .UnitName '.pas' cCloseComment ] .Out
 ; // OutMixInInclude
 
 BOOLEAN elem_func HasNonMixInAncestor
@@ -4744,7 +4811,31 @@ ModelElement elem_func CalcParentAndInclude
  )
 ; // CalcParentAndInclude
         
+elem_proc DefineMixInValues
+ Self .MixInValues .for> (
+   IN aValue
+  g_MixInParamTypes ->^ ( aValue .Name ) ^:= ( aValue .Target )
+ ) // Self .MixInValues .for>
+; // DefineMixInValues
+
+elem_proc UndefineMixInValues
+ Self .MixInValues .for> (
+   IN aValue
+  g_MixInParamTypes ->^ ( aValue .Name ) ^:= nil
+ ) // Self .MixInValues .for>
+; // UndefineMixInValues
+
+elem_proc DefineImplementedMixInValues
+ Self .Implements .filter> .IsInterface .for> .DefineMixInValues
+; // DefineImplementedMixInValues
+
+elem_proc UndefineImplementedMixInValues
+ Self .Implements .filter> .IsInterface .for> .UndefineMixInValues
+; // DefineImplementedMixInValues
+
 elem_proc OutClass
+
+ Self .DefineImplementedMixInValues
 
  if ( Self .UPisTrue "need UC" ) then
  begin
@@ -4812,6 +4903,8 @@ elem_proc OutClass
  Self .OutClassInner
  
  [ 'end;//' Self .TypeName ] .Out
+ 
+ Self .UndefineImplementedMixInValues
 ; // OutClass
 
 elem_proc OutInterfaceBody
@@ -4827,9 +4920,10 @@ elem_proc OutInterfaceBody
 
 elem_proc OutInterface
 
+ Self .DefineMixInValues
+ 
  Self .MixInValues .for> (
    IN aValue
-  g_MixInParamTypes ->^ ( aValue .Name ) ^:= ( aValue .Target )
   [ '//' '_' aValue .Name '_' ' = ' aValue .Target .TypeName ';' ] .Out
  ) // Self .MixInValues .for>
  
@@ -4846,10 +4940,7 @@ elem_proc OutInterface
  Self .OutInterfaceBody
  [ 'end;//' Self .TypeName ] .Out
  
- Self .MixInValues .for> (
-   IN aValue
-  g_MixInParamTypes ->^ ( aValue .Name ) ^:= nil
- ) // Self .MixInValues .for>
+ Self .UndefineMixInValues
  
 ; // OutInterface
 
@@ -5793,6 +5884,8 @@ BOOLEAN elem_func NeedsInstanceR
 ; // NeedsInstanceR
 
 elem_proc OutClassImplementation
+ Self .DefineImplementedMixInValues
+ 
  BOOLEAN VAR l_WasFirst
  false >>> l_WasFirst
  TF g_EnableAutoEOL (
@@ -5861,6 +5954,8 @@ elem_proc OutClassImplementation
   OutLn
  end // ( Self .UPisTrue "need UC" ) 
 //      [\n\n%S%f_close_ifdef()]\
+
+ Self .UndefineImplementedMixInValues
 
 ; // OutClassImplementation
 
@@ -6067,6 +6162,10 @@ STRING elem_func Defines
   begin
    l_Parent call.me >>> Result
   end // ( l_Parent IsNil ! )
+ end // ( Result IsNil )
+ else
+ begin
+  Self .FinalFileName sysutils:ExtractFilePath Result Cat >>> Result
  end // ( Result IsNil )
 ; // Defines
 

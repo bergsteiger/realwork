@@ -1265,35 +1265,49 @@ ref; // ME_551BE3520031 CheckLogin
 
 FORWARD ME_551D06D402AF
 
-: ME_551D070A01AD
- CONST UID '551D070A01AD'
+: ME_56BC796502F0
+ CONST UID '56BC796502F0'
  CONST Name 'aParams'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target ME_54F9A60200A8 // TdaDataProviderParams
  ;
 
-ref; // ME_551D070A01AD aParams
+ref; // ME_56BC796502F0 aParams
 
-: ME_551D070A01BC
- CONST UID '551D070A01BC'
+: ME_56BC796502FF
+ CONST UID '56BC796502FF'
  CONST Name 'ForCheckLogin'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_551D070A01BC ForCheckLogin
+ref; // ME_56BC796502FF ForCheckLogin
 
-: ME_55648B2C0172
- CONST UID '55648B2C0172'
+: ME_56BC7965030F
+ CONST UID '56BC7965030F'
  CONST Name 'AllowClearLocks'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_55648B2C0172 AllowClearLocks
+ref; // ME_56BC7965030F AllowClearLocks
+
+: ME_56BC7965031E
+ CONST UID '56BC7965031E'
+ CONST Name 'SetGlobalProvider'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST Value true
+ : ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ CONST extprop:pas:Value true
+
+ref; // ME_56BC7965031E SetGlobalProvider
 
 : ME_551D06E20160
  CONST UID '551D06E20160'
@@ -1306,9 +1320,10 @@ ref; // ME_55648B2C0172 AllowClearLocks
  : Target WL 'ME_54EDC87C00B5' '5432518A0316.pas.ms.script' // IdaDataProvider
  ;
  : Parameters
-   Seq: ( ME_551D070A01AD // aParams
- ME_551D070A01BC // ForCheckLogin
- ME_55648B2C0172 // AllowClearLocks
+   Seq: ( ME_56BC796502F0 // aParams
+ ME_56BC796502FF // ForCheckLogin
+ ME_56BC7965030F // AllowClearLocks
+ ME_56BC7965031E // SetGlobalProvider
  )
  ; // Parameters
 

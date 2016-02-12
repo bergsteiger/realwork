@@ -401,6 +401,34 @@ ref; // ME_56BB204B0239 f_HTProvider
 
 ref; // ME_56BB20560341 f_PGProvider
 
+: ME_56BC71EA022D
+ CONST UID '56BC71EA022D'
+ CONST Name 'f_IsStarted'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56BC71EA022D f_IsStarted
+
+: ME_56BC71FD00B8
+ CONST UID '56BC71FD00B8'
+ CONST Name 'f_NeedClearGlobalDataProvider'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56BC71FD00B8 f_NeedClearGlobalDataProvider
+
 FORWARD ME_56BB1FC50359
 
 : ME_56BB1FEB02A1
@@ -608,6 +636,28 @@ ref; // ME_56BB20040289 Make
  ;
 
 ref; // ME_56BB2C07036D 
+
+: ME_56BC8BC302F9
+ CONST UID '56BC8BC302F9'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_551A7DB8018C' '54F85B2500FB.pas.ms.script' // SetGlobalDataProvider
+ ;
+
+ref; // ME_56BC8BC302F9 
+
+: ME_56BC8BCB028F
+ CONST UID '56BC8BCB028F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_551A7D9602DC' '54F85B2500FB.pas.ms.script' // GlobalDataProvider
+ ;
+
+ref; // ME_56BC8BCB028F 
 
 : ME_551A929E02D5_ME_56A86BCE01EE
  CONST UID '551A929E02D5'
@@ -1005,6 +1055,8 @@ ref; // ME_479731C50290_ME_56A86BCE01EE Cleanup
    Seq: ( ME_56A86BE9030C // f_Params
  ME_56BB204B0239 // f_HTProvider
  ME_56BB20560341 // f_PGProvider
+ ME_56BC71EA022D // f_IsStarted
+ ME_56BC71FD00B8 // f_NeedClearGlobalDataProvider
  )
  ; // Attributes
  : Operations
@@ -1056,6 +1108,8 @@ ref; // ME_479731C50290_ME_56A86BCE01EE Cleanup
  ; // Overridden
  : Dependencies
    Seq: ( ME_56BB2C07036D // 
+ ME_56BC8BC302F9 // 
+ ME_56BC8BCB028F // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
