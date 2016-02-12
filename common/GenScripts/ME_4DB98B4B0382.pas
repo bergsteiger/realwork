@@ -18,7 +18,7 @@ uses
 
 type
  _SystemWord_Parent_ = TtfwRegisterableWord;
- {$Include SystemWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas}
  TkwControlWord = {abstract} class(_SystemWord_)
   protected
    procedure DoControl(aControl: TControl;
@@ -42,7 +42,7 @@ uses
  , Forms
 ;
 
-{$Include SystemWord.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas}
 
 procedure TkwControlWord.DoComponent(aControl: TComponent;
  const aCtx: TtfwContext);

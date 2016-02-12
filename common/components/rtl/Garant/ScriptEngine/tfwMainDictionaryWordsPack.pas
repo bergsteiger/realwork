@@ -1,39 +1,34 @@
 unit tfwMainDictionaryWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwMainDictionaryWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::Basics::tfwMainDictionaryWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwMainDictionaryWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwMainDictionary,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwMainDictionary
+ , tfwScriptingInterfaces
+ , tfwClassLike
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopMainDictionaryCompiledCode = {final scriptword} class(TtfwClassLike)
+ TkwPopMainDictionaryCompiledCode = {final} class(TtfwClassLike)
   {* Слово скрипта pop:MainDictionary:CompiledCode
 *Тип результата:* TtfwWord
 *Пример:*
@@ -41,28 +36,22 @@ type
 OBJECT VAR l_TtfwWord
  aMainDictionary pop:MainDictionary:CompiledCode >>> l_TtfwWord
 [code]  }
- private
- // private methods
+  private
    function CompiledCode(const aCtx: TtfwContext;
     aMainDictionary: TtfwMainDictionary): TtfwWord;
-     {* Реализация слова скрипта pop:MainDictionary:CompiledCode }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:MainDictionary:CompiledCode }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopMainDictionaryCompiledCode
 
-// start class TkwPopMainDictionaryCompiledCode
-
 function TkwPopMainDictionaryCompiledCode.CompiledCode(const aCtx: TtfwContext;
-  aMainDictionary: TtfwMainDictionary): TtfwWord;
+ aMainDictionary: TtfwMainDictionary): TtfwWord;
+ {* Реализация слова скрипта pop:MainDictionary:CompiledCode }
 //#UC START# *E184DB3F75A6_FA2C6FCB48FD_var*
 //#UC END# *E184DB3F75A6_FA2C6FCB48FD_var*
 begin
@@ -72,9 +61,7 @@ begin
 end;//TkwPopMainDictionaryCompiledCode.CompiledCode
 
 procedure TkwPopMainDictionaryCompiledCode.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aMainDictionary : TtfwMainDictionary;
+var l_aMainDictionary: TtfwMainDictionary;
 begin
  try
   l_aMainDictionary := TtfwMainDictionary(aCtx.rEngine.PopObjAs(TtfwMainDictionary));
@@ -85,50 +72,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((CompiledCode(aCtx, l_aMainDictionary)));
+ aCtx.rEngine.PushObj(CompiledCode(aCtx, l_aMainDictionary));
 end;//TkwPopMainDictionaryCompiledCode.DoDoIt
 
 class function TkwPopMainDictionaryCompiledCode.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:MainDictionary:CompiledCode';
 end;//TkwPopMainDictionaryCompiledCode.GetWordNameForRegister
 
 function TkwPopMainDictionaryCompiledCode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TtfwWord);
 end;//TkwPopMainDictionaryCompiledCode.GetResultTypeInfo
 
 function TkwPopMainDictionaryCompiledCode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopMainDictionaryCompiledCode.GetAllParamsCount
 
 function TkwPopMainDictionaryCompiledCode.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwMainDictionary)]);
 end;//TkwPopMainDictionaryCompiledCode.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_MainDictionary_CompiledCode
  TkwPopMainDictionaryCompiledCode.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_MainDictionary_CompiledCode }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwMainDictionary
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwMainDictionary));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwWord
+ {* Регистрация типа TtfwMainDictionary }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TtfwWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

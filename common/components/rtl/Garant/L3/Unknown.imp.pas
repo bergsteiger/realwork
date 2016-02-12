@@ -6,7 +6,7 @@
 {$Define Unknown_imp}
 
  _UnknownImpl_Parent_ = _Unknown_Parent_;
- {$Include UnknownImpl.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\UnknownImpl.imp.pas}
  _Unknown_ = class(_UnknownImpl_, IUnknown)
  end;//_Unknown_
 
@@ -16,7 +16,7 @@
 
 {$Define Unknown_imp_impl}
 
-{$Include UnknownImpl.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\UnknownImpl.imp.pas}
 
 {$EndIf Unknown_imp_impl}
 

@@ -18,9 +18,9 @@ uses
 type
  TtfwArray = class(TtfwValueList, ItfwValueList)
   protected
-   function pm_GetFirst: _ItemType_;
-   function pm_GetLast: _ItemType_;
-   function pm_GetItems(anIndex: Integer): _ItemType_;
+   function pm_GetFirst: TtfwStackValue;
+   function pm_GetLast: TtfwStackValue;
+   function pm_GetItems(anIndex: Integer): TtfwStackValue;
    function pm_GetEmpty: Boolean;
    function pm_GetCount: Integer;
    procedure SetItem(anIndex: Integer;
@@ -29,8 +29,8 @@ type
   public
    constructor Create; reintroduce;
    class function Make: ItfwValueList; reintroduce;
-   function IndexOf(const anItem: _ItemType_): Integer;
-   function Add(const anItem: _ItemType_): Integer;
+   function IndexOf(const anItem: TtfwStackValue): Integer;
+   function Add(const anItem: TtfwStackValue): Integer;
    procedure Clear;
    procedure ForEach(aLambda: TtfwWordPrim;
     const aCtx: TtfwContext);
@@ -67,7 +67,7 @@ begin
  end;//try..finally
 end;//TtfwArray.Make
 
-function TtfwArray.pm_GetFirst: _ItemType_;
+function TtfwArray.pm_GetFirst: TtfwStackValue;
 //#UC START# *47D8233603DD_4DCC173A026Cget_var*
 //#UC END# *47D8233603DD_4DCC173A026Cget_var*
 begin
@@ -76,7 +76,7 @@ begin
 //#UC END# *47D8233603DD_4DCC173A026Cget_impl*
 end;//TtfwArray.pm_GetFirst
 
-function TtfwArray.pm_GetLast: _ItemType_;
+function TtfwArray.pm_GetLast: TtfwStackValue;
 //#UC START# *47D823570315_4DCC173A026Cget_var*
 //#UC END# *47D823570315_4DCC173A026Cget_var*
 begin
@@ -85,7 +85,7 @@ begin
 //#UC END# *47D823570315_4DCC173A026Cget_impl*
 end;//TtfwArray.pm_GetLast
 
-function TtfwArray.pm_GetItems(anIndex: Integer): _ItemType_;
+function TtfwArray.pm_GetItems(anIndex: Integer): TtfwStackValue;
 //#UC START# *47D8248802AD_4DCC173A026Cget_var*
 //#UC END# *47D8248802AD_4DCC173A026Cget_var*
 begin
@@ -103,7 +103,7 @@ begin
 //#UC END# *47E381E203D2_4DCC173A026Cget_impl*
 end;//TtfwArray.pm_GetEmpty
 
-function TtfwArray.IndexOf(const anItem: _ItemType_): Integer;
+function TtfwArray.IndexOf(const anItem: TtfwStackValue): Integer;
 //#UC START# *482955910076_4DCC173A026C_var*
 //#UC END# *482955910076_4DCC173A026C_var*
 begin
@@ -112,7 +112,7 @@ begin
 //#UC END# *482955910076_4DCC173A026C_impl*
 end;//TtfwArray.IndexOf
 
-function TtfwArray.Add(const anItem: _ItemType_): Integer;
+function TtfwArray.Add(const anItem: TtfwStackValue): Integer;
 //#UC START# *482958A203D0_4DCC173A026C_var*
 //#UC END# *482958A203D0_4DCC173A026C_var*
 begin

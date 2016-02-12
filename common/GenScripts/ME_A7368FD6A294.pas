@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_Parent.GetWordNameForRegister
 
 function Tkw_Form_Parent.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6975EF93CBDF_var*
-//#UC END# *4DDFD2EA0116_6975EF93CBDF_var*
 begin
-//#UC START# *4DDFD2EA0116_6975EF93CBDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6975EF93CBDF_impl*
+ Result := 'ParentForm';
 end;//Tkw_Form_Parent.GetString
 
 class function Tkw_Parent_Control_ParentZone.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_Parent_Control_ParentZone.GetWordNameForRegister
 
 function Tkw_Parent_Control_ParentZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B90C8FAA769A_var*
-//#UC END# *4DDFD2EA0116_B90C8FAA769A_var*
 begin
-//#UC START# *4DDFD2EA0116_B90C8FAA769A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B90C8FAA769A_impl*
+ Result := 'ParentZone';
 end;//Tkw_Parent_Control_ParentZone.GetString
 
 class procedure Tkw_Parent_Control_ParentZone.RegisterInEngine;
-//#UC START# *52A086150180_B90C8FAA769A_var*
-//#UC END# *52A086150180_B90C8FAA769A_var*
 begin
-//#UC START# *52A086150180_B90C8FAA769A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B90C8FAA769A_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Parent_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_Parent_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,12 +140,8 @@ end;//Tkw_Parent_Control_ParentZone_Push.GetWordNameForRegister
 function TkwParentFormParentZone.ParentZone(const aCtx: TtfwContext;
  aParentForm: TParentForm): TvtPanel;
  {* Реализация слова скрипта .TParentForm.ParentZone }
-//#UC START# *A91CC17C63F7_E6FBE1D9F4EF_var*
-//#UC END# *A91CC17C63F7_E6FBE1D9F4EF_var*
 begin
-//#UC START# *A91CC17C63F7_E6FBE1D9F4EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A91CC17C63F7_E6FBE1D9F4EF_impl*
+ Result := aParentForm.ParentZone;
 end;//TkwParentFormParentZone.ParentZone
 
 procedure TkwParentFormParentZone.DoDoIt(const aCtx: TtfwContext);
@@ -181,18 +166,8 @@ end;//TkwParentFormParentZone.GetWordNameForRegister
 
 procedure TkwParentFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_ParentForm: TParentForm;
 begin
- try
-  l_ParentForm := TParentForm(aCtx.rEngine.PopObjAs(TParentForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра ParentForm: TParentForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- ParentForm. := TvtPanel(aValue.AsObject(TvtPanel));
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
 end;//TkwParentFormParentZone.SetValuePrim
 
 function TkwParentFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

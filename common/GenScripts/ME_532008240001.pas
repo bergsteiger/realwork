@@ -21,7 +21,7 @@ uses
 
 type
  _TaskSaver_Parent_ = TBaseTest;
- {$Include TaskSaver.imp.pas}
+ {$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
  TK517772970_TCheckSaveToStream = {abstract} class(_TaskSaver_)
   {* [RequestLink:517772970] }
   private
@@ -72,7 +72,7 @@ uses
  {$IfEnd} // Defined(nsTest)
 ;
 
-{$Include TaskSaver.imp.pas}
+{$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
 
 procedure TK517772970_TCheckSaveToStream.DoIt;
 //#UC START# *5320084E020E_532008240001_var*

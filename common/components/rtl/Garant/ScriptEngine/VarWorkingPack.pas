@@ -1,58 +1,47 @@
 unit VarWorkingPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "VarWorkingPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::Basics::VarWorkingPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VarWorkingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwConst,
-  tfwTypeInfo
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwTypeInfo
+ , tfwConst
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+;
 
 type
- TkwCONST = {final scriptword} class(TtfwConst)
+ TkwCONST = {final} class(TtfwConst)
   {* Определяет константу.
 Пример:
 [code]
  CONST cFake1 5
 [code] }
- protected
- // overridden protected methods
+  protected
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwCONST
 
-// start class TkwCONST
-
 class function TkwCONST.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'CONST';
 end;//TkwCONST.GetWordNameForRegister
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация CONST
  TkwCONST.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация CONST }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

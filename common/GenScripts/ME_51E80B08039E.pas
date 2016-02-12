@@ -16,7 +16,7 @@ uses
 
 type
  _ListType_ = TIUnknownRefList;
- {$Include ListTest.imp.pas}
+ {$Include w:\common\components\SandBox\ListTest.imp.pas}
  TIUnknownRefListTest = class(_ListTest_)
   public
    procedure DoIt;
@@ -31,7 +31,7 @@ uses
  , SysUtils
 ;
 
-{$Include ListTest.imp.pas}
+{$Include w:\common\components\SandBox\ListTest.imp.pas}
 
 procedure TIUnknownRefListTest.DoIt;
 //#UC START# *51E80B2F02CF_51E80B08039E_var*

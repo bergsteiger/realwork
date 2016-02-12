@@ -27,7 +27,7 @@ type
  *)
 
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TddServerTaskList = class(_l3CriticalSectionHolder_)
   private
    f_Items: TddServerTaskListPrim;
@@ -60,7 +60,7 @@ asm
  jmp l3LocalStub
 end;//L2csProcessTaskWorkuperWorkupFAction
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 function TddServerTaskList.Pop: TddProcessTask;
 //#UC START# *53A1657F036D_52FA5F460142_var*

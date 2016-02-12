@@ -1,40 +1,36 @@
 unit ItfwKeywordFinderWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "ItfwKeywordFinderWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::Basics::ItfwKeywordFinderWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ItfwKeywordFinderWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwScriptingInterfaces,
-  tfwClassLike,
-  tfwPropertyLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwScriptingInterfaces
+ , l3Interfaces
+ , tfwClassLike
+ , TypInfo
+ , tfwPropertyLike
+ , tfwTypeInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopKeywordFinderKeywordByName = {final scriptword} class(TtfwClassLike)
+ TkwPopKeywordFinderKeywordByName = {final} class(TtfwClassLike)
   {* Слово скрипта pop:KeywordFinder:KeywordByName
 *Тип результата:* TtfwKeyWord
 *Пример:*
@@ -42,30 +38,47 @@ type
 OBJECT VAR l_TtfwKeyWord
  aName aKeywordFinder pop:KeywordFinder:KeywordByName >>> l_TtfwKeyWord
 [code]  }
- private
- // private methods
+  private
    function KeywordByName(const aCtx: TtfwContext;
     aKeywordFinder: TtfwKeywordFinder;
     const aName: Il3CString): TtfwKeyWord;
-     {* Реализация слова скрипта pop:KeywordFinder:KeywordByName }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:KeywordFinder:KeywordByName }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopKeywordFinderKeywordByName
 
-// start class TkwPopKeywordFinderKeywordByName
+ TkwPopKeywordFinderParentFinder = {final} class(TtfwPropertyLike)
+  {* Слово скрипта pop:KeywordFinder:ParentFinder
+*Тип результата:* TtfwKeywordFinder
+*Пример:*
+[code]
+OBJECT VAR l_TtfwKeywordFinder
+ aKeywordFinder pop:KeywordFinder:ParentFinder >>> l_TtfwKeywordFinder
+[code]  }
+  private
+   function ParentFinder(const aCtx: TtfwContext;
+    aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
+    {* Реализация слова скрипта pop:KeywordFinder:ParentFinder }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopKeywordFinderParentFinder
 
 function TkwPopKeywordFinderKeywordByName.KeywordByName(const aCtx: TtfwContext;
-  aKeywordFinder: TtfwKeywordFinder;
-  const aName: Il3CString): TtfwKeyWord;
+ aKeywordFinder: TtfwKeywordFinder;
+ const aName: Il3CString): TtfwKeyWord;
+ {* Реализация слова скрипта pop:KeywordFinder:KeywordByName }
 //#UC START# *4BB40DD9D18E_D73628563892_var*
 //#UC END# *4BB40DD9D18E_D73628563892_var*
 begin
@@ -75,13 +88,11 @@ begin
 end;//TkwPopKeywordFinderKeywordByName.KeywordByName
 
 procedure TkwPopKeywordFinderKeywordByName.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aKeywordFinder : TtfwKeywordFinder;
- l_aName : Il3CString;
+var l_aKeywordFinder: TtfwKeywordFinder;
+var l_aName: Il3CString;
 begin
  try
-  l_aKeywordFinder := TtfwKeywordFinder(aCtx.rEngine.PopObjAs(TtfwKeywordFinder));
+  l_aKeywordFinder := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
  except
   on E: Exception do
   begin
@@ -90,7 +101,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aName := aCtx.rEngine.PopString;
+  l_aName := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -98,66 +109,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((KeywordByName(aCtx, l_aKeywordFinder, l_aName)));
+ aCtx.rEngine.PushObj(KeywordByName(aCtx, l_aKeywordFinder, l_aName));
 end;//TkwPopKeywordFinderKeywordByName.DoDoIt
 
 class function TkwPopKeywordFinderKeywordByName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:KeywordFinder:KeywordByName';
 end;//TkwPopKeywordFinderKeywordByName.GetWordNameForRegister
 
 function TkwPopKeywordFinderKeywordByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TtfwKeyWord);
 end;//TkwPopKeywordFinderKeywordByName.GetResultTypeInfo
 
 function TkwPopKeywordFinderKeywordByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopKeywordFinderKeywordByName.GetAllParamsCount
 
 function TkwPopKeywordFinderKeywordByName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder), @tfw_tiString]);
 end;//TkwPopKeywordFinderKeywordByName.ParamsTypes
 
-type
- TkwPopKeywordFinderParentFinder = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта pop:KeywordFinder:ParentFinder
-*Тип результата:* TtfwKeywordFinder
-*Пример:*
-[code]
-OBJECT VAR l_TtfwKeywordFinder
- aKeywordFinder pop:KeywordFinder:ParentFinder >>> l_TtfwKeywordFinder
-[code]  }
- private
- // private methods
-   function ParentFinder(const aCtx: TtfwContext;
-    aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
-     {* Реализация слова скрипта pop:KeywordFinder:ParentFinder }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopKeywordFinderParentFinder
-
-// start class TkwPopKeywordFinderParentFinder
-
 function TkwPopKeywordFinderParentFinder.ParentFinder(const aCtx: TtfwContext;
-  aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
+ aKeywordFinder: TtfwKeywordFinder): TtfwKeywordFinder;
+ {* Реализация слова скрипта pop:KeywordFinder:ParentFinder }
 //#UC START# *3D8B4028DC71_F60851FE16E3_var*
 //#UC END# *3D8B4028DC71_F60851FE16E3_var*
 begin
@@ -167,12 +144,10 @@ begin
 end;//TkwPopKeywordFinderParentFinder.ParentFinder
 
 procedure TkwPopKeywordFinderParentFinder.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aKeywordFinder : TtfwKeywordFinder;
+var l_aKeywordFinder: TtfwKeywordFinder;
 begin
  try
-  l_aKeywordFinder := TtfwKeywordFinder(aCtx.rEngine.PopObjAs(TtfwKeywordFinder));
+  l_aKeywordFinder := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
  except
   on E: Exception do
   begin
@@ -180,65 +155,48 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((ParentFinder(aCtx, l_aKeywordFinder)));
+ aCtx.rEngine.PushObj(ParentFinder(aCtx, l_aKeywordFinder));
 end;//TkwPopKeywordFinderParentFinder.DoDoIt
 
 class function TkwPopKeywordFinderParentFinder.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:KeywordFinder:ParentFinder';
 end;//TkwPopKeywordFinderParentFinder.GetWordNameForRegister
 
 procedure TkwPopKeywordFinderParentFinder.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству ParentFinder', aCtx);
 end;//TkwPopKeywordFinderParentFinder.SetValuePrim
 
 function TkwPopKeywordFinderParentFinder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TtfwKeywordFinder);
 end;//TkwPopKeywordFinderParentFinder.GetResultTypeInfo
 
 function TkwPopKeywordFinderParentFinder.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopKeywordFinderParentFinder.GetAllParamsCount
 
 function TkwPopKeywordFinderParentFinder.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TtfwKeywordFinder)]);
 end;//TkwPopKeywordFinderParentFinder.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_KeywordFinder_KeywordByName
  TkwPopKeywordFinderKeywordByName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_KeywordFinder_ParentFinder
+ {* Регистрация pop_KeywordFinder_KeywordByName }
  TkwPopKeywordFinderParentFinder.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_KeywordFinder_ParentFinder }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwKeywordFinder
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwKeywordFinder));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Il3CString
+ {* Регистрация типа TtfwKeywordFinder }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwKeyWord
+ {* Регистрация типа Il3CString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwKeyWord));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TtfwKeyWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

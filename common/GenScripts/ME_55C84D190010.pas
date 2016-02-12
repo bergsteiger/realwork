@@ -16,7 +16,7 @@ uses
 type
  _FindDataType_ = AnsiString;
  _l3Searcher_Parent_ = TdaSelectFieldListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TdaSelectFieldList = class(_l3Searcher_)
  end;//TdaSelectFieldList
 
@@ -42,6 +42,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TdaSelectFieldList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

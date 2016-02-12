@@ -29,9 +29,9 @@ uses
 
 type
  _nsDocumentContainer_Parent_ = TeeDocumentContainer;
- {$Include nsDocumentContainer.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  _nsEditionsDecorationRules_Parent_ = _nsDocumentContainer_;
- {$Include nsEditionsDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
  TnsChangesBetweenEditionsDocumentContainer = class(_nsEditionsDecorationRules_)
   {* Контейнер документа для ОИД }
   private
@@ -102,9 +102,9 @@ uses
  , l3Types
 ;
 
-{$Include nsDocumentContainer.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
-{$Include nsEditionsDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
 
 constructor TnsChangesBetweenEditionsDocumentContainer.Create(const aData: InsChangesBetweenEditionsInfo);
 //#UC START# *4DDD0E080101_4DDD0D92039C_var*

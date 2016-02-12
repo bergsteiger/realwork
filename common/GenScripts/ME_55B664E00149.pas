@@ -83,12 +83,18 @@ begin
 end;//TkwDocEditorWindowIsNeedSaveDocument.IsNeedSaveDocument
 
 procedure TkwDocEditorWindowIsNeedSaveDocument.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1E0CF5C9A3AF_var*
-//#UC END# *4DAEEDE10285_1E0CF5C9A3AF_var*
+var l_aDocEditorWindow: TDocEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_1E0CF5C9A3AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1E0CF5C9A3AF_impl*
+ try
+  l_aDocEditorWindow := TDocEditorWindow(aCtx.rEngine.PopObjAs(TDocEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDocEditorWindow: TDocEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aDocEditorWindow));
 end;//TkwDocEditorWindowIsNeedSaveDocument.DoDoIt
 
 class function TkwDocEditorWindowIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
@@ -108,7 +114,7 @@ end;//TkwDocEditorWindowIsNeedSaveDocument.GetAllParamsCount
 
 function TkwDocEditorWindowIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TDocEditorWindow)]);
 end;//TkwDocEditorWindowIsNeedSaveDocument.ParamsTypes
 
 initialization

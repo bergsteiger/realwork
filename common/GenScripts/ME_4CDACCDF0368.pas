@@ -10,7 +10,7 @@ type
   {* Переопределение TBitmap, чтобы не нарваться на конфликт с Windows.TBitmap }
 
  _Printable_Parent_ = _PrintableBitmap_Parent_;
- {$Include Printable.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\Printable.imp.pas}
  _PrintableBitmap_ = {abstract} class(_Printable_)
   private
    f_Preview: IafwDocumentPreview;
@@ -34,7 +34,7 @@ type
 
 {$Define PrintableBitmap_imp_impl}
 
-{$Include Printable.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\Printable.imp.pas}
 
 function _PrintableBitmap_.DPI: Integer;
 //#UC START# *4CDAE15C035B_4CDACCDF0368_var*

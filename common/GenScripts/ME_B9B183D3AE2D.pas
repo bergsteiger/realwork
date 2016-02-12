@@ -994,12 +994,8 @@ begin
 end;//Tkw_Form_SelfInfo.GetWordNameForRegister
 
 function Tkw_Form_SelfInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_BCC0E231ADA3_var*
-//#UC END# *4DDFD2EA0116_BCC0E231ADA3_var*
 begin
-//#UC START# *4DDFD2EA0116_BCC0E231ADA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_BCC0E231ADA3_impl*
+ Result := 'SelfInfoForm';
 end;//Tkw_Form_SelfInfo.GetString
 
 class function Tkw_SelfInfo_Control_pnMainData.GetWordNameForRegister: AnsiString;
@@ -1008,21 +1004,14 @@ begin
 end;//Tkw_SelfInfo_Control_pnMainData.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_pnMainData.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8C0F71C5C616_var*
-//#UC END# *4DDFD2EA0116_8C0F71C5C616_var*
 begin
-//#UC START# *4DDFD2EA0116_8C0F71C5C616_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8C0F71C5C616_impl*
+ Result := 'pnMainData';
 end;//Tkw_SelfInfo_Control_pnMainData.GetString
 
 class procedure Tkw_SelfInfo_Control_pnMainData.RegisterInEngine;
-//#UC START# *52A086150180_8C0F71C5C616_var*
-//#UC END# *52A086150180_8C0F71C5C616_var*
 begin
-//#UC START# *52A086150180_8C0F71C5C616_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8C0F71C5C616_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SelfInfo_Control_pnMainData.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_pnMainData_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1045,21 +1034,14 @@ begin
 end;//Tkw_SelfInfo_Control_UserNameLabel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_UserNameLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_832C5468A954_var*
-//#UC END# *4DDFD2EA0116_832C5468A954_var*
 begin
-//#UC START# *4DDFD2EA0116_832C5468A954_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_832C5468A954_impl*
+ Result := 'UserNameLabel';
 end;//Tkw_SelfInfo_Control_UserNameLabel.GetString
 
 class procedure Tkw_SelfInfo_Control_UserNameLabel.RegisterInEngine;
-//#UC START# *52A086150180_832C5468A954_var*
-//#UC END# *52A086150180_832C5468A954_var*
 begin
-//#UC START# *52A086150180_832C5468A954_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_832C5468A954_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SelfInfo_Control_UserNameLabel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_UserNameLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1082,21 +1064,14 @@ begin
 end;//Tkw_SelfInfo_Control_PasswordLabel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_PasswordLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1D1DFA744C9A_var*
-//#UC END# *4DDFD2EA0116_1D1DFA744C9A_var*
 begin
-//#UC START# *4DDFD2EA0116_1D1DFA744C9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1D1DFA744C9A_impl*
+ Result := 'PasswordLabel';
 end;//Tkw_SelfInfo_Control_PasswordLabel.GetString
 
 class procedure Tkw_SelfInfo_Control_PasswordLabel.RegisterInEngine;
-//#UC START# *52A086150180_1D1DFA744C9A_var*
-//#UC END# *52A086150180_1D1DFA744C9A_var*
 begin
-//#UC START# *52A086150180_1D1DFA744C9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1D1DFA744C9A_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SelfInfo_Control_PasswordLabel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_PasswordLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1119,21 +1094,14 @@ begin
 end;//Tkw_SelfInfo_Control_LoginLabel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_LoginLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_DA16FF2F43F9_var*
-//#UC END# *4DDFD2EA0116_DA16FF2F43F9_var*
 begin
-//#UC START# *4DDFD2EA0116_DA16FF2F43F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_DA16FF2F43F9_impl*
+ Result := 'LoginLabel';
 end;//Tkw_SelfInfo_Control_LoginLabel.GetString
 
 class procedure Tkw_SelfInfo_Control_LoginLabel.RegisterInEngine;
-//#UC START# *52A086150180_DA16FF2F43F9_var*
-//#UC END# *52A086150180_DA16FF2F43F9_var*
 begin
-//#UC START# *52A086150180_DA16FF2F43F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_DA16FF2F43F9_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SelfInfo_Control_LoginLabel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_LoginLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1156,21 +1124,14 @@ begin
 end;//Tkw_SelfInfo_Control_InfoLabel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_InfoLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A9E603804883_var*
-//#UC END# *4DDFD2EA0116_A9E603804883_var*
 begin
-//#UC START# *4DDFD2EA0116_A9E603804883_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A9E603804883_impl*
+ Result := 'InfoLabel';
 end;//Tkw_SelfInfo_Control_InfoLabel.GetString
 
 class procedure Tkw_SelfInfo_Control_InfoLabel.RegisterInEngine;
-//#UC START# *52A086150180_A9E603804883_var*
-//#UC END# *52A086150180_A9E603804883_var*
 begin
-//#UC START# *52A086150180_A9E603804883_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_A9E603804883_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SelfInfo_Control_InfoLabel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_InfoLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1193,21 +1154,14 @@ begin
 end;//Tkw_SelfInfo_Control_EMailLabel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_EMailLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C2402D53B366_var*
-//#UC END# *4DDFD2EA0116_C2402D53B366_var*
 begin
-//#UC START# *4DDFD2EA0116_C2402D53B366_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C2402D53B366_impl*
+ Result := 'EMailLabel';
 end;//Tkw_SelfInfo_Control_EMailLabel.GetString
 
 class procedure Tkw_SelfInfo_Control_EMailLabel.RegisterInEngine;
-//#UC START# *52A086150180_C2402D53B366_var*
-//#UC END# *52A086150180_C2402D53B366_var*
 begin
-//#UC START# *52A086150180_C2402D53B366_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C2402D53B366_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SelfInfo_Control_EMailLabel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1230,21 +1184,14 @@ begin
 end;//Tkw_SelfInfo_Control_ConfirmPasswordLabel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_ConfirmPasswordLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_78E0A7B74076_var*
-//#UC END# *4DDFD2EA0116_78E0A7B74076_var*
 begin
-//#UC START# *4DDFD2EA0116_78E0A7B74076_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_78E0A7B74076_impl*
+ Result := 'ConfirmPasswordLabel';
 end;//Tkw_SelfInfo_Control_ConfirmPasswordLabel.GetString
 
 class procedure Tkw_SelfInfo_Control_ConfirmPasswordLabel.RegisterInEngine;
-//#UC START# *52A086150180_78E0A7B74076_var*
-//#UC END# *52A086150180_78E0A7B74076_var*
 begin
-//#UC START# *52A086150180_78E0A7B74076_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_78E0A7B74076_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SelfInfo_Control_ConfirmPasswordLabel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_ConfirmPasswordLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1267,21 +1214,14 @@ begin
 end;//Tkw_SelfInfo_Control_vtAsteriskLabelLogin.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_vtAsteriskLabelLogin.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6E6A5E595E1D_var*
-//#UC END# *4DDFD2EA0116_6E6A5E595E1D_var*
 begin
-//#UC START# *4DDFD2EA0116_6E6A5E595E1D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6E6A5E595E1D_impl*
+ Result := 'vtAsteriskLabelLogin';
 end;//Tkw_SelfInfo_Control_vtAsteriskLabelLogin.GetString
 
 class procedure Tkw_SelfInfo_Control_vtAsteriskLabelLogin.RegisterInEngine;
-//#UC START# *52A086150180_6E6A5E595E1D_var*
-//#UC END# *52A086150180_6E6A5E595E1D_var*
 begin
-//#UC START# *52A086150180_6E6A5E595E1D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6E6A5E595E1D_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SelfInfo_Control_vtAsteriskLabelLogin.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_vtAsteriskLabelLogin_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1304,21 +1244,14 @@ begin
 end;//Tkw_SelfInfo_Control_vtAsteriskLabelFIO.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_vtAsteriskLabelFIO.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9E1242F8430B_var*
-//#UC END# *4DDFD2EA0116_9E1242F8430B_var*
 begin
-//#UC START# *4DDFD2EA0116_9E1242F8430B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9E1242F8430B_impl*
+ Result := 'vtAsteriskLabelFIO';
 end;//Tkw_SelfInfo_Control_vtAsteriskLabelFIO.GetString
 
 class procedure Tkw_SelfInfo_Control_vtAsteriskLabelFIO.RegisterInEngine;
-//#UC START# *52A086150180_9E1242F8430B_var*
-//#UC END# *52A086150180_9E1242F8430B_var*
 begin
-//#UC START# *52A086150180_9E1242F8430B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_9E1242F8430B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SelfInfo_Control_vtAsteriskLabelFIO.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_vtAsteriskLabelFIO_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1341,21 +1274,14 @@ begin
 end;//Tkw_SelfInfo_Control_edPassword.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_edPassword.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1AEE19CD4A0D_var*
-//#UC END# *4DDFD2EA0116_1AEE19CD4A0D_var*
 begin
-//#UC START# *4DDFD2EA0116_1AEE19CD4A0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1AEE19CD4A0D_impl*
+ Result := 'edPassword';
 end;//Tkw_SelfInfo_Control_edPassword.GetString
 
 class procedure Tkw_SelfInfo_Control_edPassword.RegisterInEngine;
-//#UC START# *52A086150180_1AEE19CD4A0D_var*
-//#UC END# *52A086150180_1AEE19CD4A0D_var*
 begin
-//#UC START# *52A086150180_1AEE19CD4A0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1AEE19CD4A0D_impl*
+ inherited;
+ TtfwClassRef.Register(TnscComboBoxWithPwdChar);
 end;//Tkw_SelfInfo_Control_edPassword.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_edPassword_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1378,21 +1304,14 @@ begin
 end;//Tkw_SelfInfo_Control_edUserName.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_edUserName.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7519082F9E88_var*
-//#UC END# *4DDFD2EA0116_7519082F9E88_var*
 begin
-//#UC START# *4DDFD2EA0116_7519082F9E88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7519082F9E88_impl*
+ Result := 'edUserName';
 end;//Tkw_SelfInfo_Control_edUserName.GetString
 
 class procedure Tkw_SelfInfo_Control_edUserName.RegisterInEngine;
-//#UC START# *52A086150180_7519082F9E88_var*
-//#UC END# *52A086150180_7519082F9E88_var*
 begin
-//#UC START# *52A086150180_7519082F9E88_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7519082F9E88_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEdit);
 end;//Tkw_SelfInfo_Control_edUserName.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_edUserName_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1415,21 +1334,14 @@ begin
 end;//Tkw_SelfInfo_Control_edLogin.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_edLogin.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_60E34F78DD2F_var*
-//#UC END# *4DDFD2EA0116_60E34F78DD2F_var*
 begin
-//#UC START# *4DDFD2EA0116_60E34F78DD2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_60E34F78DD2F_impl*
+ Result := 'edLogin';
 end;//Tkw_SelfInfo_Control_edLogin.GetString
 
 class procedure Tkw_SelfInfo_Control_edLogin.RegisterInEngine;
-//#UC START# *52A086150180_60E34F78DD2F_var*
-//#UC END# *52A086150180_60E34F78DD2F_var*
 begin
-//#UC START# *52A086150180_60E34F78DD2F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_60E34F78DD2F_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEdit);
 end;//Tkw_SelfInfo_Control_edLogin.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_edLogin_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1452,21 +1364,14 @@ begin
 end;//Tkw_SelfInfo_Control_edEmail.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_edEmail.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B025C927FA7D_var*
-//#UC END# *4DDFD2EA0116_B025C927FA7D_var*
 begin
-//#UC START# *4DDFD2EA0116_B025C927FA7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B025C927FA7D_impl*
+ Result := 'edEmail';
 end;//Tkw_SelfInfo_Control_edEmail.GetString
 
 class procedure Tkw_SelfInfo_Control_edEmail.RegisterInEngine;
-//#UC START# *52A086150180_B025C927FA7D_var*
-//#UC END# *52A086150180_B025C927FA7D_var*
 begin
-//#UC START# *52A086150180_B025C927FA7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B025C927FA7D_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEdit);
 end;//Tkw_SelfInfo_Control_edEmail.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_edEmail_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1489,21 +1394,14 @@ begin
 end;//Tkw_SelfInfo_Control_edConfirm.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_edConfirm.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C0B6FA62032E_var*
-//#UC END# *4DDFD2EA0116_C0B6FA62032E_var*
 begin
-//#UC START# *4DDFD2EA0116_C0B6FA62032E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C0B6FA62032E_impl*
+ Result := 'edConfirm';
 end;//Tkw_SelfInfo_Control_edConfirm.GetString
 
 class procedure Tkw_SelfInfo_Control_edConfirm.RegisterInEngine;
-//#UC START# *52A086150180_C0B6FA62032E_var*
-//#UC END# *52A086150180_C0B6FA62032E_var*
 begin
-//#UC START# *52A086150180_C0B6FA62032E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C0B6FA62032E_impl*
+ inherited;
+ TtfwClassRef.Register(TnscComboBoxWithPwdChar);
 end;//Tkw_SelfInfo_Control_edConfirm.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_edConfirm_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1526,21 +1424,14 @@ begin
 end;//Tkw_SelfInfo_Control_BottomPanel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_BottomPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_53708590CE95_var*
-//#UC END# *4DDFD2EA0116_53708590CE95_var*
 begin
-//#UC START# *4DDFD2EA0116_53708590CE95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_53708590CE95_impl*
+ Result := 'BottomPanel';
 end;//Tkw_SelfInfo_Control_BottomPanel.GetString
 
 class procedure Tkw_SelfInfo_Control_BottomPanel.RegisterInEngine;
-//#UC START# *52A086150180_53708590CE95_var*
-//#UC END# *52A086150180_53708590CE95_var*
 begin
-//#UC START# *52A086150180_53708590CE95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_53708590CE95_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SelfInfo_Control_BottomPanel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1563,21 +1454,14 @@ begin
 end;//Tkw_SelfInfo_Control_RegisterButton.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_RegisterButton.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_73CA1DFEA986_var*
-//#UC END# *4DDFD2EA0116_73CA1DFEA986_var*
 begin
-//#UC START# *4DDFD2EA0116_73CA1DFEA986_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_73CA1DFEA986_impl*
+ Result := 'RegisterButton';
 end;//Tkw_SelfInfo_Control_RegisterButton.GetString
 
 class procedure Tkw_SelfInfo_Control_RegisterButton.RegisterInEngine;
-//#UC START# *52A086150180_73CA1DFEA986_var*
-//#UC END# *52A086150180_73CA1DFEA986_var*
 begin
-//#UC START# *52A086150180_73CA1DFEA986_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_73CA1DFEA986_impl*
+ inherited;
+ TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_SelfInfo_Control_RegisterButton.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_RegisterButton_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1600,21 +1484,14 @@ begin
 end;//Tkw_SelfInfo_Control_HelpPanel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_HelpPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_0EDDFBB0D72B_var*
-//#UC END# *4DDFD2EA0116_0EDDFBB0D72B_var*
 begin
-//#UC START# *4DDFD2EA0116_0EDDFBB0D72B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_0EDDFBB0D72B_impl*
+ Result := 'HelpPanel';
 end;//Tkw_SelfInfo_Control_HelpPanel.GetString
 
 class procedure Tkw_SelfInfo_Control_HelpPanel.RegisterInEngine;
-//#UC START# *52A086150180_0EDDFBB0D72B_var*
-//#UC END# *52A086150180_0EDDFBB0D72B_var*
 begin
-//#UC START# *52A086150180_0EDDFBB0D72B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_0EDDFBB0D72B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SelfInfo_Control_HelpPanel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_HelpPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1637,21 +1514,14 @@ begin
 end;//Tkw_SelfInfo_Control_HelpPaintBox.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_HelpPaintBox.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B118D62976BC_var*
-//#UC END# *4DDFD2EA0116_B118D62976BC_var*
 begin
-//#UC START# *4DDFD2EA0116_B118D62976BC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B118D62976BC_impl*
+ Result := 'HelpPaintBox';
 end;//Tkw_SelfInfo_Control_HelpPaintBox.GetString
 
 class procedure Tkw_SelfInfo_Control_HelpPaintBox.RegisterInEngine;
-//#UC START# *52A086150180_B118D62976BC_var*
-//#UC END# *52A086150180_B118D62976BC_var*
 begin
-//#UC START# *52A086150180_B118D62976BC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B118D62976BC_impl*
+ inherited;
+ TtfwClassRef.Register(TPaintBox);
 end;//Tkw_SelfInfo_Control_HelpPaintBox.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_HelpPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1674,21 +1544,14 @@ begin
 end;//Tkw_SelfInfo_Control_HelpLabel.GetWordNameForRegister
 
 function Tkw_SelfInfo_Control_HelpLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3926FF905AD3_var*
-//#UC END# *4DDFD2EA0116_3926FF905AD3_var*
 begin
-//#UC START# *4DDFD2EA0116_3926FF905AD3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3926FF905AD3_impl*
+ Result := 'HelpLabel';
 end;//Tkw_SelfInfo_Control_HelpLabel.GetString
 
 class procedure Tkw_SelfInfo_Control_HelpLabel.RegisterInEngine;
-//#UC START# *52A086150180_3926FF905AD3_var*
-//#UC END# *52A086150180_3926FF905AD3_var*
 begin
-//#UC START# *52A086150180_3926FF905AD3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_3926FF905AD3_impl*
+ inherited;
+ TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_SelfInfo_Control_HelpLabel.RegisterInEngine
 
 procedure Tkw_SelfInfo_Control_HelpLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1708,21 +1571,23 @@ end;//Tkw_SelfInfo_Control_HelpLabel_Push.GetWordNameForRegister
 function TkwSelfInfoFormPnMainData.pnMainData(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtPanel;
  {* Реализация слова скрипта .TSelfInfoForm.pnMainData }
-//#UC START# *F2A47E6040DA_228FEAAB7987_var*
-//#UC END# *F2A47E6040DA_228FEAAB7987_var*
 begin
-//#UC START# *F2A47E6040DA_228FEAAB7987_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F2A47E6040DA_228FEAAB7987_impl*
+ Result := aSelfInfoForm.pnMainData;
 end;//TkwSelfInfoFormPnMainData.pnMainData
 
 procedure TkwSelfInfoFormPnMainData.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_228FEAAB7987_var*
-//#UC END# *4DAEEDE10285_228FEAAB7987_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_228FEAAB7987_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_228FEAAB7987_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnMainData(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormPnMainData.DoDoIt
 
 class function TkwSelfInfoFormPnMainData.GetWordNameForRegister: AnsiString;
@@ -1732,12 +1597,8 @@ end;//TkwSelfInfoFormPnMainData.GetWordNameForRegister
 
 procedure TkwSelfInfoFormPnMainData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_228FEAAB7987_var*
-//#UC END# *52D00B00031A_228FEAAB7987_var*
 begin
-//#UC START# *52D00B00031A_228FEAAB7987_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_228FEAAB7987_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnMainData', aCtx);
 end;//TkwSelfInfoFormPnMainData.SetValuePrim
 
 function TkwSelfInfoFormPnMainData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1752,27 +1613,29 @@ end;//TkwSelfInfoFormPnMainData.GetAllParamsCount
 
 function TkwSelfInfoFormPnMainData.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormPnMainData.ParamsTypes
 
 function TkwSelfInfoFormUserNameLabel.UserNameLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
  {* Реализация слова скрипта .TSelfInfoForm.UserNameLabel }
-//#UC START# *F2D9EA9AAD2B_EA0500776D1E_var*
-//#UC END# *F2D9EA9AAD2B_EA0500776D1E_var*
 begin
-//#UC START# *F2D9EA9AAD2B_EA0500776D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F2D9EA9AAD2B_EA0500776D1E_impl*
+ Result := aSelfInfoForm.UserNameLabel;
 end;//TkwSelfInfoFormUserNameLabel.UserNameLabel
 
 procedure TkwSelfInfoFormUserNameLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EA0500776D1E_var*
-//#UC END# *4DAEEDE10285_EA0500776D1E_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_EA0500776D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EA0500776D1E_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(UserNameLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormUserNameLabel.DoDoIt
 
 class function TkwSelfInfoFormUserNameLabel.GetWordNameForRegister: AnsiString;
@@ -1782,12 +1645,8 @@ end;//TkwSelfInfoFormUserNameLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormUserNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EA0500776D1E_var*
-//#UC END# *52D00B00031A_EA0500776D1E_var*
 begin
-//#UC START# *52D00B00031A_EA0500776D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EA0500776D1E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству UserNameLabel', aCtx);
 end;//TkwSelfInfoFormUserNameLabel.SetValuePrim
 
 function TkwSelfInfoFormUserNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1802,27 +1661,29 @@ end;//TkwSelfInfoFormUserNameLabel.GetAllParamsCount
 
 function TkwSelfInfoFormUserNameLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormUserNameLabel.ParamsTypes
 
 function TkwSelfInfoFormPasswordLabel.PasswordLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
  {* Реализация слова скрипта .TSelfInfoForm.PasswordLabel }
-//#UC START# *C06C22D553AF_75B02E501696_var*
-//#UC END# *C06C22D553AF_75B02E501696_var*
 begin
-//#UC START# *C06C22D553AF_75B02E501696_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C06C22D553AF_75B02E501696_impl*
+ Result := aSelfInfoForm.PasswordLabel;
 end;//TkwSelfInfoFormPasswordLabel.PasswordLabel
 
 procedure TkwSelfInfoFormPasswordLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_75B02E501696_var*
-//#UC END# *4DAEEDE10285_75B02E501696_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_75B02E501696_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_75B02E501696_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(PasswordLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormPasswordLabel.DoDoIt
 
 class function TkwSelfInfoFormPasswordLabel.GetWordNameForRegister: AnsiString;
@@ -1832,12 +1693,8 @@ end;//TkwSelfInfoFormPasswordLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_75B02E501696_var*
-//#UC END# *52D00B00031A_75B02E501696_var*
 begin
-//#UC START# *52D00B00031A_75B02E501696_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_75B02E501696_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству PasswordLabel', aCtx);
 end;//TkwSelfInfoFormPasswordLabel.SetValuePrim
 
 function TkwSelfInfoFormPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1852,27 +1709,29 @@ end;//TkwSelfInfoFormPasswordLabel.GetAllParamsCount
 
 function TkwSelfInfoFormPasswordLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormPasswordLabel.ParamsTypes
 
 function TkwSelfInfoFormLoginLabel.LoginLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
  {* Реализация слова скрипта .TSelfInfoForm.LoginLabel }
-//#UC START# *AC6B4B62DF72_D666F64419BE_var*
-//#UC END# *AC6B4B62DF72_D666F64419BE_var*
 begin
-//#UC START# *AC6B4B62DF72_D666F64419BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AC6B4B62DF72_D666F64419BE_impl*
+ Result := aSelfInfoForm.LoginLabel;
 end;//TkwSelfInfoFormLoginLabel.LoginLabel
 
 procedure TkwSelfInfoFormLoginLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D666F64419BE_var*
-//#UC END# *4DAEEDE10285_D666F64419BE_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_D666F64419BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D666F64419BE_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LoginLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormLoginLabel.DoDoIt
 
 class function TkwSelfInfoFormLoginLabel.GetWordNameForRegister: AnsiString;
@@ -1882,12 +1741,8 @@ end;//TkwSelfInfoFormLoginLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormLoginLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D666F64419BE_var*
-//#UC END# *52D00B00031A_D666F64419BE_var*
 begin
-//#UC START# *52D00B00031A_D666F64419BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D666F64419BE_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству LoginLabel', aCtx);
 end;//TkwSelfInfoFormLoginLabel.SetValuePrim
 
 function TkwSelfInfoFormLoginLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1902,27 +1757,29 @@ end;//TkwSelfInfoFormLoginLabel.GetAllParamsCount
 
 function TkwSelfInfoFormLoginLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormLoginLabel.ParamsTypes
 
 function TkwSelfInfoFormInfoLabel.InfoLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
  {* Реализация слова скрипта .TSelfInfoForm.InfoLabel }
-//#UC START# *BF7F3D5B60C7_1FE6B40FE2DF_var*
-//#UC END# *BF7F3D5B60C7_1FE6B40FE2DF_var*
 begin
-//#UC START# *BF7F3D5B60C7_1FE6B40FE2DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BF7F3D5B60C7_1FE6B40FE2DF_impl*
+ Result := aSelfInfoForm.InfoLabel;
 end;//TkwSelfInfoFormInfoLabel.InfoLabel
 
 procedure TkwSelfInfoFormInfoLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1FE6B40FE2DF_var*
-//#UC END# *4DAEEDE10285_1FE6B40FE2DF_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_1FE6B40FE2DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1FE6B40FE2DF_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(InfoLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormInfoLabel.DoDoIt
 
 class function TkwSelfInfoFormInfoLabel.GetWordNameForRegister: AnsiString;
@@ -1932,12 +1789,8 @@ end;//TkwSelfInfoFormInfoLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormInfoLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1FE6B40FE2DF_var*
-//#UC END# *52D00B00031A_1FE6B40FE2DF_var*
 begin
-//#UC START# *52D00B00031A_1FE6B40FE2DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1FE6B40FE2DF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству InfoLabel', aCtx);
 end;//TkwSelfInfoFormInfoLabel.SetValuePrim
 
 function TkwSelfInfoFormInfoLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1952,27 +1805,29 @@ end;//TkwSelfInfoFormInfoLabel.GetAllParamsCount
 
 function TkwSelfInfoFormInfoLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormInfoLabel.ParamsTypes
 
 function TkwSelfInfoFormEMailLabel.EMailLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
  {* Реализация слова скрипта .TSelfInfoForm.EMailLabel }
-//#UC START# *05ACA86A5B9D_E047E7B1A49D_var*
-//#UC END# *05ACA86A5B9D_E047E7B1A49D_var*
 begin
-//#UC START# *05ACA86A5B9D_E047E7B1A49D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *05ACA86A5B9D_E047E7B1A49D_impl*
+ Result := aSelfInfoForm.EMailLabel;
 end;//TkwSelfInfoFormEMailLabel.EMailLabel
 
 procedure TkwSelfInfoFormEMailLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E047E7B1A49D_var*
-//#UC END# *4DAEEDE10285_E047E7B1A49D_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_E047E7B1A49D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E047E7B1A49D_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEMailLabel.DoDoIt
 
 class function TkwSelfInfoFormEMailLabel.GetWordNameForRegister: AnsiString;
@@ -1982,12 +1837,8 @@ end;//TkwSelfInfoFormEMailLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E047E7B1A49D_var*
-//#UC END# *52D00B00031A_E047E7B1A49D_var*
 begin
-//#UC START# *52D00B00031A_E047E7B1A49D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E047E7B1A49D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
 end;//TkwSelfInfoFormEMailLabel.SetValuePrim
 
 function TkwSelfInfoFormEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2002,27 +1853,29 @@ end;//TkwSelfInfoFormEMailLabel.GetAllParamsCount
 
 function TkwSelfInfoFormEMailLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEMailLabel.ParamsTypes
 
 function TkwSelfInfoFormConfirmPasswordLabel.ConfirmPasswordLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
  {* Реализация слова скрипта .TSelfInfoForm.ConfirmPasswordLabel }
-//#UC START# *078253DA2F28_8C88B1445D54_var*
-//#UC END# *078253DA2F28_8C88B1445D54_var*
 begin
-//#UC START# *078253DA2F28_8C88B1445D54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *078253DA2F28_8C88B1445D54_impl*
+ Result := aSelfInfoForm.ConfirmPasswordLabel;
 end;//TkwSelfInfoFormConfirmPasswordLabel.ConfirmPasswordLabel
 
 procedure TkwSelfInfoFormConfirmPasswordLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8C88B1445D54_var*
-//#UC END# *4DAEEDE10285_8C88B1445D54_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_8C88B1445D54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8C88B1445D54_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ConfirmPasswordLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormConfirmPasswordLabel.DoDoIt
 
 class function TkwSelfInfoFormConfirmPasswordLabel.GetWordNameForRegister: AnsiString;
@@ -2032,12 +1885,8 @@ end;//TkwSelfInfoFormConfirmPasswordLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8C88B1445D54_var*
-//#UC END# *52D00B00031A_8C88B1445D54_var*
 begin
-//#UC START# *52D00B00031A_8C88B1445D54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8C88B1445D54_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ConfirmPasswordLabel', aCtx);
 end;//TkwSelfInfoFormConfirmPasswordLabel.SetValuePrim
 
 function TkwSelfInfoFormConfirmPasswordLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2052,27 +1901,29 @@ end;//TkwSelfInfoFormConfirmPasswordLabel.GetAllParamsCount
 
 function TkwSelfInfoFormConfirmPasswordLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormConfirmPasswordLabel.ParamsTypes
 
 function TkwSelfInfoFormVtAsteriskLabelLogin.vtAsteriskLabelLogin(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
  {* Реализация слова скрипта .TSelfInfoForm.vtAsteriskLabelLogin }
-//#UC START# *3B0803EA8C9E_7F6A65A32889_var*
-//#UC END# *3B0803EA8C9E_7F6A65A32889_var*
 begin
-//#UC START# *3B0803EA8C9E_7F6A65A32889_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3B0803EA8C9E_7F6A65A32889_impl*
+ Result := aSelfInfoForm.vtAsteriskLabelLogin;
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.vtAsteriskLabelLogin
 
 procedure TkwSelfInfoFormVtAsteriskLabelLogin.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7F6A65A32889_var*
-//#UC END# *4DAEEDE10285_7F6A65A32889_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_7F6A65A32889_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7F6A65A32889_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(vtAsteriskLabelLogin(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.DoDoIt
 
 class function TkwSelfInfoFormVtAsteriskLabelLogin.GetWordNameForRegister: AnsiString;
@@ -2082,12 +1933,8 @@ end;//TkwSelfInfoFormVtAsteriskLabelLogin.GetWordNameForRegister
 
 procedure TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7F6A65A32889_var*
-//#UC END# *52D00B00031A_7F6A65A32889_var*
 begin
-//#UC START# *52D00B00031A_7F6A65A32889_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7F6A65A32889_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству vtAsteriskLabelLogin', aCtx);
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.SetValuePrim
 
 function TkwSelfInfoFormVtAsteriskLabelLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2102,27 +1949,29 @@ end;//TkwSelfInfoFormVtAsteriskLabelLogin.GetAllParamsCount
 
 function TkwSelfInfoFormVtAsteriskLabelLogin.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormVtAsteriskLabelLogin.ParamsTypes
 
 function TkwSelfInfoFormVtAsteriskLabelFIO.vtAsteriskLabelFIO(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtLabel;
  {* Реализация слова скрипта .TSelfInfoForm.vtAsteriskLabelFIO }
-//#UC START# *6291443782C4_BEC210F63387_var*
-//#UC END# *6291443782C4_BEC210F63387_var*
 begin
-//#UC START# *6291443782C4_BEC210F63387_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6291443782C4_BEC210F63387_impl*
+ Result := aSelfInfoForm.vtAsteriskLabelFIO;
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.vtAsteriskLabelFIO
 
 procedure TkwSelfInfoFormVtAsteriskLabelFIO.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BEC210F63387_var*
-//#UC END# *4DAEEDE10285_BEC210F63387_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_BEC210F63387_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BEC210F63387_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(vtAsteriskLabelFIO(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.DoDoIt
 
 class function TkwSelfInfoFormVtAsteriskLabelFIO.GetWordNameForRegister: AnsiString;
@@ -2132,12 +1981,8 @@ end;//TkwSelfInfoFormVtAsteriskLabelFIO.GetWordNameForRegister
 
 procedure TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BEC210F63387_var*
-//#UC END# *52D00B00031A_BEC210F63387_var*
 begin
-//#UC START# *52D00B00031A_BEC210F63387_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BEC210F63387_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству vtAsteriskLabelFIO', aCtx);
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.SetValuePrim
 
 function TkwSelfInfoFormVtAsteriskLabelFIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2152,27 +1997,29 @@ end;//TkwSelfInfoFormVtAsteriskLabelFIO.GetAllParamsCount
 
 function TkwSelfInfoFormVtAsteriskLabelFIO.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormVtAsteriskLabelFIO.ParamsTypes
 
 function TkwSelfInfoFormEdPassword.edPassword(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscComboBoxWithPwdChar;
  {* Реализация слова скрипта .TSelfInfoForm.edPassword }
-//#UC START# *06A4B700D261_0FBF6408C500_var*
-//#UC END# *06A4B700D261_0FBF6408C500_var*
 begin
-//#UC START# *06A4B700D261_0FBF6408C500_impl*
- !!! Needs to be implemented !!!
-//#UC END# *06A4B700D261_0FBF6408C500_impl*
+ Result := aSelfInfoForm.edPassword;
 end;//TkwSelfInfoFormEdPassword.edPassword
 
 procedure TkwSelfInfoFormEdPassword.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0FBF6408C500_var*
-//#UC END# *4DAEEDE10285_0FBF6408C500_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_0FBF6408C500_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0FBF6408C500_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edPassword(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdPassword.DoDoIt
 
 class function TkwSelfInfoFormEdPassword.GetWordNameForRegister: AnsiString;
@@ -2182,12 +2029,8 @@ end;//TkwSelfInfoFormEdPassword.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0FBF6408C500_var*
-//#UC END# *52D00B00031A_0FBF6408C500_var*
 begin
-//#UC START# *52D00B00031A_0FBF6408C500_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0FBF6408C500_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edPassword', aCtx);
 end;//TkwSelfInfoFormEdPassword.SetValuePrim
 
 function TkwSelfInfoFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2202,27 +2045,29 @@ end;//TkwSelfInfoFormEdPassword.GetAllParamsCount
 
 function TkwSelfInfoFormEdPassword.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdPassword.ParamsTypes
 
 function TkwSelfInfoFormEdUserName.edUserName(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscEdit;
  {* Реализация слова скрипта .TSelfInfoForm.edUserName }
-//#UC START# *04150BED36DA_780E2742FC3B_var*
-//#UC END# *04150BED36DA_780E2742FC3B_var*
 begin
-//#UC START# *04150BED36DA_780E2742FC3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *04150BED36DA_780E2742FC3B_impl*
+ Result := aSelfInfoForm.edUserName;
 end;//TkwSelfInfoFormEdUserName.edUserName
 
 procedure TkwSelfInfoFormEdUserName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_780E2742FC3B_var*
-//#UC END# *4DAEEDE10285_780E2742FC3B_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_780E2742FC3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_780E2742FC3B_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edUserName(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdUserName.DoDoIt
 
 class function TkwSelfInfoFormEdUserName.GetWordNameForRegister: AnsiString;
@@ -2232,12 +2077,8 @@ end;//TkwSelfInfoFormEdUserName.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_780E2742FC3B_var*
-//#UC END# *52D00B00031A_780E2742FC3B_var*
 begin
-//#UC START# *52D00B00031A_780E2742FC3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_780E2742FC3B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edUserName', aCtx);
 end;//TkwSelfInfoFormEdUserName.SetValuePrim
 
 function TkwSelfInfoFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2252,27 +2093,29 @@ end;//TkwSelfInfoFormEdUserName.GetAllParamsCount
 
 function TkwSelfInfoFormEdUserName.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdUserName.ParamsTypes
 
 function TkwSelfInfoFormEdLogin.edLogin(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscEdit;
  {* Реализация слова скрипта .TSelfInfoForm.edLogin }
-//#UC START# *D1FC09620485_A7803EA671CA_var*
-//#UC END# *D1FC09620485_A7803EA671CA_var*
 begin
-//#UC START# *D1FC09620485_A7803EA671CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D1FC09620485_A7803EA671CA_impl*
+ Result := aSelfInfoForm.edLogin;
 end;//TkwSelfInfoFormEdLogin.edLogin
 
 procedure TkwSelfInfoFormEdLogin.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A7803EA671CA_var*
-//#UC END# *4DAEEDE10285_A7803EA671CA_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_A7803EA671CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A7803EA671CA_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edLogin(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdLogin.DoDoIt
 
 class function TkwSelfInfoFormEdLogin.GetWordNameForRegister: AnsiString;
@@ -2282,12 +2125,8 @@ end;//TkwSelfInfoFormEdLogin.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A7803EA671CA_var*
-//#UC END# *52D00B00031A_A7803EA671CA_var*
 begin
-//#UC START# *52D00B00031A_A7803EA671CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A7803EA671CA_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edLogin', aCtx);
 end;//TkwSelfInfoFormEdLogin.SetValuePrim
 
 function TkwSelfInfoFormEdLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2302,27 +2141,29 @@ end;//TkwSelfInfoFormEdLogin.GetAllParamsCount
 
 function TkwSelfInfoFormEdLogin.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdLogin.ParamsTypes
 
 function TkwSelfInfoFormEdEmail.edEmail(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscEdit;
  {* Реализация слова скрипта .TSelfInfoForm.edEmail }
-//#UC START# *65629E1DAE6F_64238C59B15B_var*
-//#UC END# *65629E1DAE6F_64238C59B15B_var*
 begin
-//#UC START# *65629E1DAE6F_64238C59B15B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *65629E1DAE6F_64238C59B15B_impl*
+ Result := aSelfInfoForm.edEmail;
 end;//TkwSelfInfoFormEdEmail.edEmail
 
 procedure TkwSelfInfoFormEdEmail.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_64238C59B15B_var*
-//#UC END# *4DAEEDE10285_64238C59B15B_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_64238C59B15B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_64238C59B15B_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edEmail(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdEmail.DoDoIt
 
 class function TkwSelfInfoFormEdEmail.GetWordNameForRegister: AnsiString;
@@ -2332,12 +2173,8 @@ end;//TkwSelfInfoFormEdEmail.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_64238C59B15B_var*
-//#UC END# *52D00B00031A_64238C59B15B_var*
 begin
-//#UC START# *52D00B00031A_64238C59B15B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_64238C59B15B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edEmail', aCtx);
 end;//TkwSelfInfoFormEdEmail.SetValuePrim
 
 function TkwSelfInfoFormEdEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2352,27 +2189,29 @@ end;//TkwSelfInfoFormEdEmail.GetAllParamsCount
 
 function TkwSelfInfoFormEdEmail.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdEmail.ParamsTypes
 
 function TkwSelfInfoFormEdConfirm.edConfirm(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TnscComboBoxWithPwdChar;
  {* Реализация слова скрипта .TSelfInfoForm.edConfirm }
-//#UC START# *AB4D08E910C5_F13F65A2A049_var*
-//#UC END# *AB4D08E910C5_F13F65A2A049_var*
 begin
-//#UC START# *AB4D08E910C5_F13F65A2A049_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AB4D08E910C5_F13F65A2A049_impl*
+ Result := aSelfInfoForm.edConfirm;
 end;//TkwSelfInfoFormEdConfirm.edConfirm
 
 procedure TkwSelfInfoFormEdConfirm.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F13F65A2A049_var*
-//#UC END# *4DAEEDE10285_F13F65A2A049_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_F13F65A2A049_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F13F65A2A049_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edConfirm(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormEdConfirm.DoDoIt
 
 class function TkwSelfInfoFormEdConfirm.GetWordNameForRegister: AnsiString;
@@ -2382,12 +2221,8 @@ end;//TkwSelfInfoFormEdConfirm.GetWordNameForRegister
 
 procedure TkwSelfInfoFormEdConfirm.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F13F65A2A049_var*
-//#UC END# *52D00B00031A_F13F65A2A049_var*
 begin
-//#UC START# *52D00B00031A_F13F65A2A049_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F13F65A2A049_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edConfirm', aCtx);
 end;//TkwSelfInfoFormEdConfirm.SetValuePrim
 
 function TkwSelfInfoFormEdConfirm.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2402,27 +2237,29 @@ end;//TkwSelfInfoFormEdConfirm.GetAllParamsCount
 
 function TkwSelfInfoFormEdConfirm.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormEdConfirm.ParamsTypes
 
 function TkwSelfInfoFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtPanel;
  {* Реализация слова скрипта .TSelfInfoForm.BottomPanel }
-//#UC START# *B4AAE7AE965E_B80ACB58E282_var*
-//#UC END# *B4AAE7AE965E_B80ACB58E282_var*
 begin
-//#UC START# *B4AAE7AE965E_B80ACB58E282_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B4AAE7AE965E_B80ACB58E282_impl*
+ Result := aSelfInfoForm.BottomPanel;
 end;//TkwSelfInfoFormBottomPanel.BottomPanel
 
 procedure TkwSelfInfoFormBottomPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B80ACB58E282_var*
-//#UC END# *4DAEEDE10285_B80ACB58E282_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_B80ACB58E282_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B80ACB58E282_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormBottomPanel.DoDoIt
 
 class function TkwSelfInfoFormBottomPanel.GetWordNameForRegister: AnsiString;
@@ -2432,12 +2269,8 @@ end;//TkwSelfInfoFormBottomPanel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B80ACB58E282_var*
-//#UC END# *52D00B00031A_B80ACB58E282_var*
 begin
-//#UC START# *52D00B00031A_B80ACB58E282_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B80ACB58E282_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
 end;//TkwSelfInfoFormBottomPanel.SetValuePrim
 
 function TkwSelfInfoFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2452,27 +2285,29 @@ end;//TkwSelfInfoFormBottomPanel.GetAllParamsCount
 
 function TkwSelfInfoFormBottomPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormBottomPanel.ParamsTypes
 
 function TkwSelfInfoFormRegisterButton.RegisterButton(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TElPopupButton;
  {* Реализация слова скрипта .TSelfInfoForm.RegisterButton }
-//#UC START# *AC277BBC52D1_FD3682257D32_var*
-//#UC END# *AC277BBC52D1_FD3682257D32_var*
 begin
-//#UC START# *AC277BBC52D1_FD3682257D32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AC277BBC52D1_FD3682257D32_impl*
+ Result := aSelfInfoForm.RegisterButton;
 end;//TkwSelfInfoFormRegisterButton.RegisterButton
 
 procedure TkwSelfInfoFormRegisterButton.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FD3682257D32_var*
-//#UC END# *4DAEEDE10285_FD3682257D32_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_FD3682257D32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FD3682257D32_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RegisterButton(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormRegisterButton.DoDoIt
 
 class function TkwSelfInfoFormRegisterButton.GetWordNameForRegister: AnsiString;
@@ -2482,12 +2317,8 @@ end;//TkwSelfInfoFormRegisterButton.GetWordNameForRegister
 
 procedure TkwSelfInfoFormRegisterButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FD3682257D32_var*
-//#UC END# *52D00B00031A_FD3682257D32_var*
 begin
-//#UC START# *52D00B00031A_FD3682257D32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FD3682257D32_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству RegisterButton', aCtx);
 end;//TkwSelfInfoFormRegisterButton.SetValuePrim
 
 function TkwSelfInfoFormRegisterButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2502,27 +2333,29 @@ end;//TkwSelfInfoFormRegisterButton.GetAllParamsCount
 
 function TkwSelfInfoFormRegisterButton.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormRegisterButton.ParamsTypes
 
 function TkwSelfInfoFormHelpPanel.HelpPanel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtPanel;
  {* Реализация слова скрипта .TSelfInfoForm.HelpPanel }
-//#UC START# *FC13EEFAD1BA_1C53869E7936_var*
-//#UC END# *FC13EEFAD1BA_1C53869E7936_var*
 begin
-//#UC START# *FC13EEFAD1BA_1C53869E7936_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FC13EEFAD1BA_1C53869E7936_impl*
+ Result := aSelfInfoForm.HelpPanel;
 end;//TkwSelfInfoFormHelpPanel.HelpPanel
 
 procedure TkwSelfInfoFormHelpPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1C53869E7936_var*
-//#UC END# *4DAEEDE10285_1C53869E7936_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_1C53869E7936_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1C53869E7936_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HelpPanel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormHelpPanel.DoDoIt
 
 class function TkwSelfInfoFormHelpPanel.GetWordNameForRegister: AnsiString;
@@ -2532,12 +2365,8 @@ end;//TkwSelfInfoFormHelpPanel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1C53869E7936_var*
-//#UC END# *52D00B00031A_1C53869E7936_var*
 begin
-//#UC START# *52D00B00031A_1C53869E7936_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1C53869E7936_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HelpPanel', aCtx);
 end;//TkwSelfInfoFormHelpPanel.SetValuePrim
 
 function TkwSelfInfoFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2552,27 +2381,29 @@ end;//TkwSelfInfoFormHelpPanel.GetAllParamsCount
 
 function TkwSelfInfoFormHelpPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormHelpPanel.ParamsTypes
 
 function TkwSelfInfoFormHelpPaintBox.HelpPaintBox(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TPaintBox;
  {* Реализация слова скрипта .TSelfInfoForm.HelpPaintBox }
-//#UC START# *006E60EF257B_5BDB34AE5EFB_var*
-//#UC END# *006E60EF257B_5BDB34AE5EFB_var*
 begin
-//#UC START# *006E60EF257B_5BDB34AE5EFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *006E60EF257B_5BDB34AE5EFB_impl*
+ Result := aSelfInfoForm.HelpPaintBox;
 end;//TkwSelfInfoFormHelpPaintBox.HelpPaintBox
 
 procedure TkwSelfInfoFormHelpPaintBox.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5BDB34AE5EFB_var*
-//#UC END# *4DAEEDE10285_5BDB34AE5EFB_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_5BDB34AE5EFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5BDB34AE5EFB_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HelpPaintBox(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormHelpPaintBox.DoDoIt
 
 class function TkwSelfInfoFormHelpPaintBox.GetWordNameForRegister: AnsiString;
@@ -2582,12 +2413,8 @@ end;//TkwSelfInfoFormHelpPaintBox.GetWordNameForRegister
 
 procedure TkwSelfInfoFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_5BDB34AE5EFB_var*
-//#UC END# *52D00B00031A_5BDB34AE5EFB_var*
 begin
-//#UC START# *52D00B00031A_5BDB34AE5EFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_5BDB34AE5EFB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HelpPaintBox', aCtx);
 end;//TkwSelfInfoFormHelpPaintBox.SetValuePrim
 
 function TkwSelfInfoFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2602,27 +2429,29 @@ end;//TkwSelfInfoFormHelpPaintBox.GetAllParamsCount
 
 function TkwSelfInfoFormHelpPaintBox.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormHelpPaintBox.ParamsTypes
 
 function TkwSelfInfoFormHelpLabel.HelpLabel(const aCtx: TtfwContext;
  aSelfInfoForm: TSelfInfoForm): TvtFocusLabel;
  {* Реализация слова скрипта .TSelfInfoForm.HelpLabel }
-//#UC START# *C33FFAD9E88B_2D128F2A8132_var*
-//#UC END# *C33FFAD9E88B_2D128F2A8132_var*
 begin
-//#UC START# *C33FFAD9E88B_2D128F2A8132_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C33FFAD9E88B_2D128F2A8132_impl*
+ Result := aSelfInfoForm.HelpLabel;
 end;//TkwSelfInfoFormHelpLabel.HelpLabel
 
 procedure TkwSelfInfoFormHelpLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2D128F2A8132_var*
-//#UC END# *4DAEEDE10285_2D128F2A8132_var*
+var l_aSelfInfoForm: TSelfInfoForm;
 begin
-//#UC START# *4DAEEDE10285_2D128F2A8132_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2D128F2A8132_impl*
+ try
+  l_aSelfInfoForm := TSelfInfoForm(aCtx.rEngine.PopObjAs(TSelfInfoForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSelfInfoForm: TSelfInfoForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HelpLabel(aCtx, l_aSelfInfoForm));
 end;//TkwSelfInfoFormHelpLabel.DoDoIt
 
 class function TkwSelfInfoFormHelpLabel.GetWordNameForRegister: AnsiString;
@@ -2632,12 +2461,8 @@ end;//TkwSelfInfoFormHelpLabel.GetWordNameForRegister
 
 procedure TkwSelfInfoFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2D128F2A8132_var*
-//#UC END# *52D00B00031A_2D128F2A8132_var*
 begin
-//#UC START# *52D00B00031A_2D128F2A8132_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2D128F2A8132_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HelpLabel', aCtx);
 end;//TkwSelfInfoFormHelpLabel.SetValuePrim
 
 function TkwSelfInfoFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2652,7 +2477,7 @@ end;//TkwSelfInfoFormHelpLabel.GetAllParamsCount
 
 function TkwSelfInfoFormHelpLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSelfInfoForm)]);
 end;//TkwSelfInfoFormHelpLabel.ParamsTypes
 
 initialization

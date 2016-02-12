@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_OutlinerForm.GetWordNameForRegister
 
 function Tkw_Form_OutlinerForm.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_09DAEB2FD8D0_var*
-//#UC END# *4DDFD2EA0116_09DAEB2FD8D0_var*
 begin
-//#UC START# *4DDFD2EA0116_09DAEB2FD8D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_09DAEB2FD8D0_impl*
+ Result := 'OutlinerFormForm';
 end;//Tkw_Form_OutlinerForm.GetString
 
 class function Tkw_OutlinerForm_Control_TreeControl.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_OutlinerForm_Control_TreeControl.GetWordNameForRegister
 
 function Tkw_OutlinerForm_Control_TreeControl.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C286239A9B7E_var*
-//#UC END# *4DDFD2EA0116_C286239A9B7E_var*
 begin
-//#UC START# *4DDFD2EA0116_C286239A9B7E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C286239A9B7E_impl*
+ Result := 'TreeControl';
 end;//Tkw_OutlinerForm_Control_TreeControl.GetString
 
 class procedure Tkw_OutlinerForm_Control_TreeControl.RegisterInEngine;
-//#UC START# *52A086150180_C286239A9B7E_var*
-//#UC END# *52A086150180_C286239A9B7E_var*
 begin
-//#UC START# *52A086150180_C286239A9B7E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C286239A9B7E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtOutlinerControl);
 end;//Tkw_OutlinerForm_Control_TreeControl.RegisterInEngine
 
 procedure Tkw_OutlinerForm_Control_TreeControl_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,12 +140,8 @@ end;//Tkw_OutlinerForm_Control_TreeControl_Push.GetWordNameForRegister
 function TkwOutlinerFormFormTreeControl.TreeControl(const aCtx: TtfwContext;
  aOutlinerFormForm: TOutlinerFormForm): TvtOutlinerControl;
  {* Реализация слова скрипта .TOutlinerFormForm.TreeControl }
-//#UC START# *F29E9001A722_B10A49D0279E_var*
-//#UC END# *F29E9001A722_B10A49D0279E_var*
 begin
-//#UC START# *F29E9001A722_B10A49D0279E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F29E9001A722_B10A49D0279E_impl*
+ Result := aOutlinerFormForm.TreeControl;
 end;//TkwOutlinerFormFormTreeControl.TreeControl
 
 procedure TkwOutlinerFormFormTreeControl.DoDoIt(const aCtx: TtfwContext);
@@ -181,18 +166,8 @@ end;//TkwOutlinerFormFormTreeControl.GetWordNameForRegister
 
 procedure TkwOutlinerFormFormTreeControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_OutlinerFormForm: TOutlinerFormForm;
 begin
- try
-  l_OutlinerFormForm := TOutlinerFormForm(aCtx.rEngine.PopObjAs(TOutlinerFormForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра OutlinerFormForm: TOutlinerFormForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- OutlinerFormForm. := TvtOutlinerControl(aValue.AsObject(TvtOutlinerControl));
+ RunnerError('Нельзя присваивать значение readonly свойству TreeControl', aCtx);
 end;//TkwOutlinerFormFormTreeControl.SetValuePrim
 
 function TkwOutlinerFormFormTreeControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

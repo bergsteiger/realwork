@@ -29,7 +29,7 @@ type
  _ItemType_ = Tm3EndingReplaceItem;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  Tm3EndingReplaceListPrim = class(_l3RecordListPrim_)
   public
    class function CompareStrings(const aStr1: Tl3WString;
@@ -112,7 +112,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tm3EndingReplaceListPrim;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 class function Tm3EndingReplaceListPrim.CompareStrings(const aStr1: Tl3WString;
  const aStr2: Tl3WString): Integer;

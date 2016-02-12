@@ -809,12 +809,8 @@ begin
 end;//Tkw_Form_MainWindow.GetWordNameForRegister
 
 function Tkw_Form_MainWindow.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_72FE1DC0EE59_var*
-//#UC END# *4DDFD2EA0116_72FE1DC0EE59_var*
 begin
-//#UC START# *4DDFD2EA0116_72FE1DC0EE59_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_72FE1DC0EE59_impl*
+ Result := 'nsMainWindow';
 end;//Tkw_Form_MainWindow.GetString
 
 class function Tkw_MainWindow_Control_remOnlineDead.GetWordNameForRegister: AnsiString;
@@ -823,21 +819,14 @@ begin
 end;//Tkw_MainWindow_Control_remOnlineDead.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_remOnlineDead.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AB4A15F921A5_var*
-//#UC END# *4DDFD2EA0116_AB4A15F921A5_var*
 begin
-//#UC START# *4DDFD2EA0116_AB4A15F921A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AB4A15F921A5_impl*
+ Result := 'remOnlineDead';
 end;//Tkw_MainWindow_Control_remOnlineDead.GetString
 
 class procedure Tkw_MainWindow_Control_remOnlineDead.RegisterInEngine;
-//#UC START# *52A086150180_AB4A15F921A5_var*
-//#UC END# *52A086150180_AB4A15F921A5_var*
 begin
-//#UC START# *52A086150180_AB4A15F921A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_AB4A15F921A5_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_MainWindow_Control_remOnlineDead.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_remOnlineDead_Push.DoDoIt(const aCtx: TtfwContext);
@@ -860,21 +849,14 @@ begin
 end;//Tkw_MainWindow_Control_remNewChatMessages.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_remNewChatMessages.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AFC7A7C4233D_var*
-//#UC END# *4DDFD2EA0116_AFC7A7C4233D_var*
 begin
-//#UC START# *4DDFD2EA0116_AFC7A7C4233D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AFC7A7C4233D_impl*
+ Result := 'remNewChatMessages';
 end;//Tkw_MainWindow_Control_remNewChatMessages.GetString
 
 class procedure Tkw_MainWindow_Control_remNewChatMessages.RegisterInEngine;
-//#UC START# *52A086150180_AFC7A7C4233D_var*
-//#UC END# *52A086150180_AFC7A7C4233D_var*
 begin
-//#UC START# *52A086150180_AFC7A7C4233D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_AFC7A7C4233D_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_MainWindow_Control_remNewChatMessages.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_remNewChatMessages_Push.DoDoIt(const aCtx: TtfwContext);
@@ -897,21 +879,14 @@ begin
 end;//Tkw_MainWindow_Control_TrialModeWarning.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_TrialModeWarning.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B1737C5744CF_var*
-//#UC END# *4DDFD2EA0116_B1737C5744CF_var*
 begin
-//#UC START# *4DDFD2EA0116_B1737C5744CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B1737C5744CF_impl*
+ Result := 'TrialModeWarning';
 end;//Tkw_MainWindow_Control_TrialModeWarning.GetString
 
 class procedure Tkw_MainWindow_Control_TrialModeWarning.RegisterInEngine;
-//#UC START# *52A086150180_B1737C5744CF_var*
-//#UC END# *52A086150180_B1737C5744CF_var*
 begin
-//#UC START# *52A086150180_B1737C5744CF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B1737C5744CF_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_MainWindow_Control_TrialModeWarning.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_TrialModeWarning_Push.DoDoIt(const aCtx: TtfwContext);
@@ -934,21 +909,14 @@ begin
 end;//Tkw_MainWindow_Control_OldBaseWarning.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_OldBaseWarning.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1A8910E8C94E_var*
-//#UC END# *4DDFD2EA0116_1A8910E8C94E_var*
 begin
-//#UC START# *4DDFD2EA0116_1A8910E8C94E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1A8910E8C94E_impl*
+ Result := 'OldBaseWarning';
 end;//Tkw_MainWindow_Control_OldBaseWarning.GetString
 
 class procedure Tkw_MainWindow_Control_OldBaseWarning.RegisterInEngine;
-//#UC START# *52A086150180_1A8910E8C94E_var*
-//#UC END# *52A086150180_1A8910E8C94E_var*
 begin
-//#UC START# *52A086150180_1A8910E8C94E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1A8910E8C94E_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_MainWindow_Control_OldBaseWarning.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_OldBaseWarning_Push.DoDoIt(const aCtx: TtfwContext);
@@ -971,21 +939,14 @@ begin
 end;//Tkw_MainWindow_Control_RemindersLine.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_RemindersLine.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B9F3FE698E1F_var*
-//#UC END# *4DDFD2EA0116_B9F3FE698E1F_var*
 begin
-//#UC START# *4DDFD2EA0116_B9F3FE698E1F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B9F3FE698E1F_impl*
+ Result := 'RemindersLine';
 end;//Tkw_MainWindow_Control_RemindersLine.GetString
 
 class procedure Tkw_MainWindow_Control_RemindersLine.RegisterInEngine;
-//#UC START# *52A086150180_B9F3FE698E1F_var*
-//#UC END# *52A086150180_B9F3FE698E1F_var*
 begin
-//#UC START# *52A086150180_B9F3FE698E1F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B9F3FE698E1F_impl*
+ inherited;
+ TtfwClassRef.Register(TnscRemindersLine);
 end;//Tkw_MainWindow_Control_RemindersLine.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_RemindersLine_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1008,21 +969,14 @@ begin
 end;//Tkw_MainWindow_Control_ControlledChangingWarning.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_ControlledChangingWarning.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8F0A49D2D240_var*
-//#UC END# *4DDFD2EA0116_8F0A49D2D240_var*
 begin
-//#UC START# *4DDFD2EA0116_8F0A49D2D240_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8F0A49D2D240_impl*
+ Result := 'ControlledChangingWarning';
 end;//Tkw_MainWindow_Control_ControlledChangingWarning.GetString
 
 class procedure Tkw_MainWindow_Control_ControlledChangingWarning.RegisterInEngine;
-//#UC START# *52A086150180_8F0A49D2D240_var*
-//#UC END# *52A086150180_8F0A49D2D240_var*
 begin
-//#UC START# *52A086150180_8F0A49D2D240_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8F0A49D2D240_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_MainWindow_Control_ControlledChangingWarning.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_ControlledChangingWarning_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1045,21 +999,14 @@ begin
 end;//Tkw_MainWindow_Control_remUnreadConsultations.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_remUnreadConsultations.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_21221F006E08_var*
-//#UC END# *4DDFD2EA0116_21221F006E08_var*
 begin
-//#UC START# *4DDFD2EA0116_21221F006E08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_21221F006E08_impl*
+ Result := 'remUnreadConsultations';
 end;//Tkw_MainWindow_Control_remUnreadConsultations.GetString
 
 class procedure Tkw_MainWindow_Control_remUnreadConsultations.RegisterInEngine;
-//#UC START# *52A086150180_21221F006E08_var*
-//#UC END# *52A086150180_21221F006E08_var*
 begin
-//#UC START# *52A086150180_21221F006E08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_21221F006E08_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_MainWindow_Control_remUnreadConsultations.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_remUnreadConsultations_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1082,21 +1029,14 @@ begin
 end;//Tkw_MainWindow_Control_StatusBar.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_StatusBar.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7C7A033423DC_var*
-//#UC END# *4DDFD2EA0116_7C7A033423DC_var*
 begin
-//#UC START# *4DDFD2EA0116_7C7A033423DC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7C7A033423DC_impl*
+ Result := 'StatusBar';
 end;//Tkw_MainWindow_Control_StatusBar.GetString
 
 class procedure Tkw_MainWindow_Control_StatusBar.RegisterInEngine;
-//#UC START# *52A086150180_7C7A033423DC_var*
-//#UC END# *52A086150180_7C7A033423DC_var*
 begin
-//#UC START# *52A086150180_7C7A033423DC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7C7A033423DC_impl*
+ inherited;
+ TtfwClassRef.Register(TnscStatusBar);
 end;//Tkw_MainWindow_Control_StatusBar.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_StatusBar_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1119,21 +1059,14 @@ begin
 end;//Tkw_MainWindow_Control_ClientZone.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_ClientZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_0B37DDF00B84_var*
-//#UC END# *4DDFD2EA0116_0B37DDF00B84_var*
 begin
-//#UC START# *4DDFD2EA0116_0B37DDF00B84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_0B37DDF00B84_impl*
+ Result := 'ClientZone';
 end;//Tkw_MainWindow_Control_ClientZone.GetString
 
 class procedure Tkw_MainWindow_Control_ClientZone.RegisterInEngine;
-//#UC START# *52A086150180_0B37DDF00B84_var*
-//#UC END# *52A086150180_0B37DDF00B84_var*
 begin
-//#UC START# *52A086150180_0B37DDF00B84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_0B37DDF00B84_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainWindow_Control_ClientZone.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_ClientZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1156,21 +1089,14 @@ begin
 end;//Tkw_MainWindow_Control_MainZone.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_MainZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7D1BC65DEA30_var*
-//#UC END# *4DDFD2EA0116_7D1BC65DEA30_var*
 begin
-//#UC START# *4DDFD2EA0116_7D1BC65DEA30_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7D1BC65DEA30_impl*
+ Result := 'MainZone';
 end;//Tkw_MainWindow_Control_MainZone.GetString
 
 class procedure Tkw_MainWindow_Control_MainZone.RegisterInEngine;
-//#UC START# *52A086150180_7D1BC65DEA30_var*
-//#UC END# *52A086150180_7D1BC65DEA30_var*
 begin
-//#UC START# *52A086150180_7D1BC65DEA30_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7D1BC65DEA30_impl*
+ inherited;
+ TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_MainWindow_Control_MainZone.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_MainZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1193,21 +1119,14 @@ begin
 end;//Tkw_MainWindow_Control_ParentZonePanel.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_ParentZonePanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CA8695A16AEE_var*
-//#UC END# *4DDFD2EA0116_CA8695A16AEE_var*
 begin
-//#UC START# *4DDFD2EA0116_CA8695A16AEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CA8695A16AEE_impl*
+ Result := 'ParentZonePanel';
 end;//Tkw_MainWindow_Control_ParentZonePanel.GetString
 
 class procedure Tkw_MainWindow_Control_ParentZonePanel.RegisterInEngine;
-//#UC START# *52A086150180_CA8695A16AEE_var*
-//#UC END# *52A086150180_CA8695A16AEE_var*
 begin
-//#UC START# *52A086150180_CA8695A16AEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CA8695A16AEE_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainWindow_Control_ParentZonePanel.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_ParentZonePanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1230,21 +1149,14 @@ begin
 end;//Tkw_MainWindow_Control_ChildZonePanel.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_ChildZonePanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_BA7D0C360FE3_var*
-//#UC END# *4DDFD2EA0116_BA7D0C360FE3_var*
 begin
-//#UC START# *4DDFD2EA0116_BA7D0C360FE3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_BA7D0C360FE3_impl*
+ Result := 'ChildZonePanel';
 end;//Tkw_MainWindow_Control_ChildZonePanel.GetString
 
 class procedure Tkw_MainWindow_Control_ChildZonePanel.RegisterInEngine;
-//#UC START# *52A086150180_BA7D0C360FE3_var*
-//#UC END# *52A086150180_BA7D0C360FE3_var*
 begin
-//#UC START# *52A086150180_BA7D0C360FE3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_BA7D0C360FE3_impl*
+ inherited;
+ TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_MainWindow_Control_ChildZonePanel.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_ChildZonePanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1267,21 +1179,14 @@ begin
 end;//Tkw_MainWindow_Control_BaseSearchPanel.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_BaseSearchPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6B745C2439A7_var*
-//#UC END# *4DDFD2EA0116_6B745C2439A7_var*
 begin
-//#UC START# *4DDFD2EA0116_6B745C2439A7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6B745C2439A7_impl*
+ Result := 'BaseSearchPanel';
 end;//Tkw_MainWindow_Control_BaseSearchPanel.GetString
 
 class procedure Tkw_MainWindow_Control_BaseSearchPanel.RegisterInEngine;
-//#UC START# *52A086150180_6B745C2439A7_var*
-//#UC END# *52A086150180_6B745C2439A7_var*
 begin
-//#UC START# *52A086150180_6B745C2439A7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6B745C2439A7_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MainWindow_Control_BaseSearchPanel.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_BaseSearchPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1304,21 +1209,14 @@ begin
 end;//Tkw_MainWindow_Control_LeftNavigator.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_LeftNavigator.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_54302734B5CA_var*
-//#UC END# *4DDFD2EA0116_54302734B5CA_var*
 begin
-//#UC START# *4DDFD2EA0116_54302734B5CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_54302734B5CA_impl*
+ Result := 'LeftNavigator';
 end;//Tkw_MainWindow_Control_LeftNavigator.GetString
 
 class procedure Tkw_MainWindow_Control_LeftNavigator.RegisterInEngine;
-//#UC START# *52A086150180_54302734B5CA_var*
-//#UC END# *52A086150180_54302734B5CA_var*
 begin
-//#UC START# *52A086150180_54302734B5CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_54302734B5CA_impl*
+ inherited;
+ TtfwClassRef.Register(TnscNavigator);
 end;//Tkw_MainWindow_Control_LeftNavigator.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_LeftNavigator_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1341,21 +1239,14 @@ begin
 end;//Tkw_MainWindow_Control_RightNavigator.GetWordNameForRegister
 
 function Tkw_MainWindow_Control_RightNavigator.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9A4C6C4DD8BB_var*
-//#UC END# *4DDFD2EA0116_9A4C6C4DD8BB_var*
 begin
-//#UC START# *4DDFD2EA0116_9A4C6C4DD8BB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9A4C6C4DD8BB_impl*
+ Result := 'RightNavigator';
 end;//Tkw_MainWindow_Control_RightNavigator.GetString
 
 class procedure Tkw_MainWindow_Control_RightNavigator.RegisterInEngine;
-//#UC START# *52A086150180_9A4C6C4DD8BB_var*
-//#UC END# *52A086150180_9A4C6C4DD8BB_var*
 begin
-//#UC START# *52A086150180_9A4C6C4DD8BB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_9A4C6C4DD8BB_impl*
+ inherited;
+ TtfwClassRef.Register(TnscNavigator);
 end;//Tkw_MainWindow_Control_RightNavigator.RegisterInEngine
 
 procedure Tkw_MainWindow_Control_RightNavigator_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1375,21 +1266,23 @@ end;//Tkw_MainWindow_Control_RightNavigator_Push.GetWordNameForRegister
 function TkwMainWindowRemOnlineDead.remOnlineDead(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
  {* Реализация слова скрипта .TnsMainWindow.remOnlineDead }
-//#UC START# *1C5A33F09604_82B2BCF3102B_var*
-//#UC END# *1C5A33F09604_82B2BCF3102B_var*
 begin
-//#UC START# *1C5A33F09604_82B2BCF3102B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1C5A33F09604_82B2BCF3102B_impl*
+ Result := aMainWindow.remOnlineDead;
 end;//TkwMainWindowRemOnlineDead.remOnlineDead
 
 procedure TkwMainWindowRemOnlineDead.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82B2BCF3102B_var*
-//#UC END# *4DAEEDE10285_82B2BCF3102B_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_82B2BCF3102B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82B2BCF3102B_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(remOnlineDead(aCtx, l_aMainWindow));
 end;//TkwMainWindowRemOnlineDead.DoDoIt
 
 class function TkwMainWindowRemOnlineDead.GetWordNameForRegister: AnsiString;
@@ -1399,12 +1292,8 @@ end;//TkwMainWindowRemOnlineDead.GetWordNameForRegister
 
 procedure TkwMainWindowRemOnlineDead.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_82B2BCF3102B_var*
-//#UC END# *52D00B00031A_82B2BCF3102B_var*
 begin
-//#UC START# *52D00B00031A_82B2BCF3102B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_82B2BCF3102B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству remOnlineDead', aCtx);
 end;//TkwMainWindowRemOnlineDead.SetValuePrim
 
 function TkwMainWindowRemOnlineDead.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1419,27 +1308,29 @@ end;//TkwMainWindowRemOnlineDead.GetAllParamsCount
 
 function TkwMainWindowRemOnlineDead.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRemOnlineDead.ParamsTypes
 
 function TkwMainWindowRemNewChatMessages.remNewChatMessages(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
  {* Реализация слова скрипта .TnsMainWindow.remNewChatMessages }
-//#UC START# *F6B99AF78964_F316F76D2AFC_var*
-//#UC END# *F6B99AF78964_F316F76D2AFC_var*
 begin
-//#UC START# *F6B99AF78964_F316F76D2AFC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F6B99AF78964_F316F76D2AFC_impl*
+ Result := aMainWindow.remNewChatMessages;
 end;//TkwMainWindowRemNewChatMessages.remNewChatMessages
 
 procedure TkwMainWindowRemNewChatMessages.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F316F76D2AFC_var*
-//#UC END# *4DAEEDE10285_F316F76D2AFC_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_F316F76D2AFC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F316F76D2AFC_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(remNewChatMessages(aCtx, l_aMainWindow));
 end;//TkwMainWindowRemNewChatMessages.DoDoIt
 
 class function TkwMainWindowRemNewChatMessages.GetWordNameForRegister: AnsiString;
@@ -1449,12 +1340,8 @@ end;//TkwMainWindowRemNewChatMessages.GetWordNameForRegister
 
 procedure TkwMainWindowRemNewChatMessages.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F316F76D2AFC_var*
-//#UC END# *52D00B00031A_F316F76D2AFC_var*
 begin
-//#UC START# *52D00B00031A_F316F76D2AFC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F316F76D2AFC_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству remNewChatMessages', aCtx);
 end;//TkwMainWindowRemNewChatMessages.SetValuePrim
 
 function TkwMainWindowRemNewChatMessages.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1469,27 +1356,29 @@ end;//TkwMainWindowRemNewChatMessages.GetAllParamsCount
 
 function TkwMainWindowRemNewChatMessages.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRemNewChatMessages.ParamsTypes
 
 function TkwMainWindowTrialModeWarning.TrialModeWarning(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
  {* Реализация слова скрипта .TnsMainWindow.TrialModeWarning }
-//#UC START# *0B1B7A5F10C8_116178A120B3_var*
-//#UC END# *0B1B7A5F10C8_116178A120B3_var*
 begin
-//#UC START# *0B1B7A5F10C8_116178A120B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0B1B7A5F10C8_116178A120B3_impl*
+ Result := aMainWindow.TrialModeWarning;
 end;//TkwMainWindowTrialModeWarning.TrialModeWarning
 
 procedure TkwMainWindowTrialModeWarning.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_116178A120B3_var*
-//#UC END# *4DAEEDE10285_116178A120B3_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_116178A120B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_116178A120B3_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TrialModeWarning(aCtx, l_aMainWindow));
 end;//TkwMainWindowTrialModeWarning.DoDoIt
 
 class function TkwMainWindowTrialModeWarning.GetWordNameForRegister: AnsiString;
@@ -1499,12 +1388,8 @@ end;//TkwMainWindowTrialModeWarning.GetWordNameForRegister
 
 procedure TkwMainWindowTrialModeWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_116178A120B3_var*
-//#UC END# *52D00B00031A_116178A120B3_var*
 begin
-//#UC START# *52D00B00031A_116178A120B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_116178A120B3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству TrialModeWarning', aCtx);
 end;//TkwMainWindowTrialModeWarning.SetValuePrim
 
 function TkwMainWindowTrialModeWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1519,27 +1404,29 @@ end;//TkwMainWindowTrialModeWarning.GetAllParamsCount
 
 function TkwMainWindowTrialModeWarning.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowTrialModeWarning.ParamsTypes
 
 function TkwMainWindowOldBaseWarning.OldBaseWarning(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
  {* Реализация слова скрипта .TnsMainWindow.OldBaseWarning }
-//#UC START# *482F7F78FAC4_59D50D49582B_var*
-//#UC END# *482F7F78FAC4_59D50D49582B_var*
 begin
-//#UC START# *482F7F78FAC4_59D50D49582B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *482F7F78FAC4_59D50D49582B_impl*
+ Result := aMainWindow.OldBaseWarning;
 end;//TkwMainWindowOldBaseWarning.OldBaseWarning
 
 procedure TkwMainWindowOldBaseWarning.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_59D50D49582B_var*
-//#UC END# *4DAEEDE10285_59D50D49582B_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_59D50D49582B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_59D50D49582B_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(OldBaseWarning(aCtx, l_aMainWindow));
 end;//TkwMainWindowOldBaseWarning.DoDoIt
 
 class function TkwMainWindowOldBaseWarning.GetWordNameForRegister: AnsiString;
@@ -1549,12 +1436,8 @@ end;//TkwMainWindowOldBaseWarning.GetWordNameForRegister
 
 procedure TkwMainWindowOldBaseWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_59D50D49582B_var*
-//#UC END# *52D00B00031A_59D50D49582B_var*
 begin
-//#UC START# *52D00B00031A_59D50D49582B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_59D50D49582B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству OldBaseWarning', aCtx);
 end;//TkwMainWindowOldBaseWarning.SetValuePrim
 
 function TkwMainWindowOldBaseWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1569,27 +1452,29 @@ end;//TkwMainWindowOldBaseWarning.GetAllParamsCount
 
 function TkwMainWindowOldBaseWarning.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowOldBaseWarning.ParamsTypes
 
 function TkwMainWindowRemindersLine.RemindersLine(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscRemindersLine;
  {* Реализация слова скрипта .TnsMainWindow.RemindersLine }
-//#UC START# *F8AED6F6CFD7_3F3A50436E8F_var*
-//#UC END# *F8AED6F6CFD7_3F3A50436E8F_var*
 begin
-//#UC START# *F8AED6F6CFD7_3F3A50436E8F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F8AED6F6CFD7_3F3A50436E8F_impl*
+ Result := aMainWindow.RemindersLine;
 end;//TkwMainWindowRemindersLine.RemindersLine
 
 procedure TkwMainWindowRemindersLine.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3F3A50436E8F_var*
-//#UC END# *4DAEEDE10285_3F3A50436E8F_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_3F3A50436E8F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3F3A50436E8F_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RemindersLine(aCtx, l_aMainWindow));
 end;//TkwMainWindowRemindersLine.DoDoIt
 
 class function TkwMainWindowRemindersLine.GetWordNameForRegister: AnsiString;
@@ -1599,12 +1484,8 @@ end;//TkwMainWindowRemindersLine.GetWordNameForRegister
 
 procedure TkwMainWindowRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3F3A50436E8F_var*
-//#UC END# *52D00B00031A_3F3A50436E8F_var*
 begin
-//#UC START# *52D00B00031A_3F3A50436E8F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3F3A50436E8F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству RemindersLine', aCtx);
 end;//TkwMainWindowRemindersLine.SetValuePrim
 
 function TkwMainWindowRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1619,27 +1500,29 @@ end;//TkwMainWindowRemindersLine.GetAllParamsCount
 
 function TkwMainWindowRemindersLine.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRemindersLine.ParamsTypes
 
 function TkwMainWindowControlledChangingWarning.ControlledChangingWarning(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
  {* Реализация слова скрипта .TnsMainWindow.ControlledChangingWarning }
-//#UC START# *5A562B6AB425_FCB9DBB9A96D_var*
-//#UC END# *5A562B6AB425_FCB9DBB9A96D_var*
 begin
-//#UC START# *5A562B6AB425_FCB9DBB9A96D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5A562B6AB425_FCB9DBB9A96D_impl*
+ Result := aMainWindow.ControlledChangingWarning;
 end;//TkwMainWindowControlledChangingWarning.ControlledChangingWarning
 
 procedure TkwMainWindowControlledChangingWarning.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FCB9DBB9A96D_var*
-//#UC END# *4DAEEDE10285_FCB9DBB9A96D_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_FCB9DBB9A96D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FCB9DBB9A96D_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ControlledChangingWarning(aCtx, l_aMainWindow));
 end;//TkwMainWindowControlledChangingWarning.DoDoIt
 
 class function TkwMainWindowControlledChangingWarning.GetWordNameForRegister: AnsiString;
@@ -1649,12 +1532,8 @@ end;//TkwMainWindowControlledChangingWarning.GetWordNameForRegister
 
 procedure TkwMainWindowControlledChangingWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FCB9DBB9A96D_var*
-//#UC END# *52D00B00031A_FCB9DBB9A96D_var*
 begin
-//#UC START# *52D00B00031A_FCB9DBB9A96D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FCB9DBB9A96D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ControlledChangingWarning', aCtx);
 end;//TkwMainWindowControlledChangingWarning.SetValuePrim
 
 function TkwMainWindowControlledChangingWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1669,27 +1548,29 @@ end;//TkwMainWindowControlledChangingWarning.GetAllParamsCount
 
 function TkwMainWindowControlledChangingWarning.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowControlledChangingWarning.ParamsTypes
 
 function TkwMainWindowRemUnreadConsultations.remUnreadConsultations(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
  {* Реализация слова скрипта .TnsMainWindow.remUnreadConsultations }
-//#UC START# *5AC6608233EB_797CD35061B7_var*
-//#UC END# *5AC6608233EB_797CD35061B7_var*
 begin
-//#UC START# *5AC6608233EB_797CD35061B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5AC6608233EB_797CD35061B7_impl*
+ Result := aMainWindow.remUnreadConsultations;
 end;//TkwMainWindowRemUnreadConsultations.remUnreadConsultations
 
 procedure TkwMainWindowRemUnreadConsultations.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_797CD35061B7_var*
-//#UC END# *4DAEEDE10285_797CD35061B7_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_797CD35061B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_797CD35061B7_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(remUnreadConsultations(aCtx, l_aMainWindow));
 end;//TkwMainWindowRemUnreadConsultations.DoDoIt
 
 class function TkwMainWindowRemUnreadConsultations.GetWordNameForRegister: AnsiString;
@@ -1699,12 +1580,8 @@ end;//TkwMainWindowRemUnreadConsultations.GetWordNameForRegister
 
 procedure TkwMainWindowRemUnreadConsultations.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_797CD35061B7_var*
-//#UC END# *52D00B00031A_797CD35061B7_var*
 begin
-//#UC START# *52D00B00031A_797CD35061B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_797CD35061B7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству remUnreadConsultations', aCtx);
 end;//TkwMainWindowRemUnreadConsultations.SetValuePrim
 
 function TkwMainWindowRemUnreadConsultations.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1719,27 +1596,29 @@ end;//TkwMainWindowRemUnreadConsultations.GetAllParamsCount
 
 function TkwMainWindowRemUnreadConsultations.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRemUnreadConsultations.ParamsTypes
 
 function TkwMainWindowStatusBar.StatusBar(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscStatusBar;
  {* Реализация слова скрипта .TnsMainWindow.StatusBar }
-//#UC START# *7D34C7D8B1E6_CE0BB644ECC0_var*
-//#UC END# *7D34C7D8B1E6_CE0BB644ECC0_var*
 begin
-//#UC START# *7D34C7D8B1E6_CE0BB644ECC0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7D34C7D8B1E6_CE0BB644ECC0_impl*
+ Result := aMainWindow.StatusBar;
 end;//TkwMainWindowStatusBar.StatusBar
 
 procedure TkwMainWindowStatusBar.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CE0BB644ECC0_var*
-//#UC END# *4DAEEDE10285_CE0BB644ECC0_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_CE0BB644ECC0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CE0BB644ECC0_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(StatusBar(aCtx, l_aMainWindow));
 end;//TkwMainWindowStatusBar.DoDoIt
 
 class function TkwMainWindowStatusBar.GetWordNameForRegister: AnsiString;
@@ -1749,12 +1628,8 @@ end;//TkwMainWindowStatusBar.GetWordNameForRegister
 
 procedure TkwMainWindowStatusBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_CE0BB644ECC0_var*
-//#UC END# *52D00B00031A_CE0BB644ECC0_var*
 begin
-//#UC START# *52D00B00031A_CE0BB644ECC0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_CE0BB644ECC0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству StatusBar', aCtx);
 end;//TkwMainWindowStatusBar.SetValuePrim
 
 function TkwMainWindowStatusBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1769,27 +1644,29 @@ end;//TkwMainWindowStatusBar.GetAllParamsCount
 
 function TkwMainWindowStatusBar.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowStatusBar.ParamsTypes
 
 function TkwMainWindowClientZone.ClientZone(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtPanel;
  {* Реализация слова скрипта .TnsMainWindow.ClientZone }
-//#UC START# *94BE93BDD48E_FE6607BEAD6E_var*
-//#UC END# *94BE93BDD48E_FE6607BEAD6E_var*
 begin
-//#UC START# *94BE93BDD48E_FE6607BEAD6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *94BE93BDD48E_FE6607BEAD6E_impl*
+ Result := aMainWindow.ClientZone;
 end;//TkwMainWindowClientZone.ClientZone
 
 procedure TkwMainWindowClientZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FE6607BEAD6E_var*
-//#UC END# *4DAEEDE10285_FE6607BEAD6E_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_FE6607BEAD6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FE6607BEAD6E_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ClientZone(aCtx, l_aMainWindow));
 end;//TkwMainWindowClientZone.DoDoIt
 
 class function TkwMainWindowClientZone.GetWordNameForRegister: AnsiString;
@@ -1799,12 +1676,8 @@ end;//TkwMainWindowClientZone.GetWordNameForRegister
 
 procedure TkwMainWindowClientZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FE6607BEAD6E_var*
-//#UC END# *52D00B00031A_FE6607BEAD6E_var*
 begin
-//#UC START# *52D00B00031A_FE6607BEAD6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FE6607BEAD6E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ClientZone', aCtx);
 end;//TkwMainWindowClientZone.SetValuePrim
 
 function TkwMainWindowClientZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1819,27 +1692,29 @@ end;//TkwMainWindowClientZone.GetAllParamsCount
 
 function TkwMainWindowClientZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowClientZone.ParamsTypes
 
 function TkwMainWindowMainZone.MainZone(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtProportionalPanel;
  {* Реализация слова скрипта .TnsMainWindow.MainZone }
-//#UC START# *ABD85089DCD3_A864C41E05F1_var*
-//#UC END# *ABD85089DCD3_A864C41E05F1_var*
 begin
-//#UC START# *ABD85089DCD3_A864C41E05F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *ABD85089DCD3_A864C41E05F1_impl*
+ Result := aMainWindow.MainZone;
 end;//TkwMainWindowMainZone.MainZone
 
 procedure TkwMainWindowMainZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A864C41E05F1_var*
-//#UC END# *4DAEEDE10285_A864C41E05F1_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_A864C41E05F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A864C41E05F1_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MainZone(aCtx, l_aMainWindow));
 end;//TkwMainWindowMainZone.DoDoIt
 
 class function TkwMainWindowMainZone.GetWordNameForRegister: AnsiString;
@@ -1849,12 +1724,8 @@ end;//TkwMainWindowMainZone.GetWordNameForRegister
 
 procedure TkwMainWindowMainZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A864C41E05F1_var*
-//#UC END# *52D00B00031A_A864C41E05F1_var*
 begin
-//#UC START# *52D00B00031A_A864C41E05F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A864C41E05F1_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству MainZone', aCtx);
 end;//TkwMainWindowMainZone.SetValuePrim
 
 function TkwMainWindowMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1869,27 +1740,29 @@ end;//TkwMainWindowMainZone.GetAllParamsCount
 
 function TkwMainWindowMainZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowMainZone.ParamsTypes
 
 function TkwMainWindowParentZonePanel.ParentZonePanel(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtPanel;
  {* Реализация слова скрипта .TnsMainWindow.ParentZonePanel }
-//#UC START# *7FBB821426B4_42983EB4E606_var*
-//#UC END# *7FBB821426B4_42983EB4E606_var*
 begin
-//#UC START# *7FBB821426B4_42983EB4E606_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7FBB821426B4_42983EB4E606_impl*
+ Result := aMainWindow.ParentZonePanel;
 end;//TkwMainWindowParentZonePanel.ParentZonePanel
 
 procedure TkwMainWindowParentZonePanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_42983EB4E606_var*
-//#UC END# *4DAEEDE10285_42983EB4E606_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_42983EB4E606_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_42983EB4E606_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZonePanel(aCtx, l_aMainWindow));
 end;//TkwMainWindowParentZonePanel.DoDoIt
 
 class function TkwMainWindowParentZonePanel.GetWordNameForRegister: AnsiString;
@@ -1899,12 +1772,8 @@ end;//TkwMainWindowParentZonePanel.GetWordNameForRegister
 
 procedure TkwMainWindowParentZonePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_42983EB4E606_var*
-//#UC END# *52D00B00031A_42983EB4E606_var*
 begin
-//#UC START# *52D00B00031A_42983EB4E606_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_42983EB4E606_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZonePanel', aCtx);
 end;//TkwMainWindowParentZonePanel.SetValuePrim
 
 function TkwMainWindowParentZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1919,27 +1788,29 @@ end;//TkwMainWindowParentZonePanel.GetAllParamsCount
 
 function TkwMainWindowParentZonePanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowParentZonePanel.ParamsTypes
 
 function TkwMainWindowChildZonePanel.ChildZonePanel(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtSizeablePanel;
  {* Реализация слова скрипта .TnsMainWindow.ChildZonePanel }
-//#UC START# *35D0EA46C2E7_815BB0E77000_var*
-//#UC END# *35D0EA46C2E7_815BB0E77000_var*
 begin
-//#UC START# *35D0EA46C2E7_815BB0E77000_impl*
- !!! Needs to be implemented !!!
-//#UC END# *35D0EA46C2E7_815BB0E77000_impl*
+ Result := aMainWindow.ChildZonePanel;
 end;//TkwMainWindowChildZonePanel.ChildZonePanel
 
 procedure TkwMainWindowChildZonePanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_815BB0E77000_var*
-//#UC END# *4DAEEDE10285_815BB0E77000_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_815BB0E77000_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_815BB0E77000_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ChildZonePanel(aCtx, l_aMainWindow));
 end;//TkwMainWindowChildZonePanel.DoDoIt
 
 class function TkwMainWindowChildZonePanel.GetWordNameForRegister: AnsiString;
@@ -1949,12 +1820,8 @@ end;//TkwMainWindowChildZonePanel.GetWordNameForRegister
 
 procedure TkwMainWindowChildZonePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_815BB0E77000_var*
-//#UC END# *52D00B00031A_815BB0E77000_var*
 begin
-//#UC START# *52D00B00031A_815BB0E77000_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_815BB0E77000_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZonePanel', aCtx);
 end;//TkwMainWindowChildZonePanel.SetValuePrim
 
 function TkwMainWindowChildZonePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1969,27 +1836,29 @@ end;//TkwMainWindowChildZonePanel.GetAllParamsCount
 
 function TkwMainWindowChildZonePanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowChildZonePanel.ParamsTypes
 
 function TkwMainWindowBaseSearchPanel.BaseSearchPanel(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TvtPanel;
  {* Реализация слова скрипта .TnsMainWindow.BaseSearchPanel }
-//#UC START# *6C03BAF08409_0BBD18013246_var*
-//#UC END# *6C03BAF08409_0BBD18013246_var*
 begin
-//#UC START# *6C03BAF08409_0BBD18013246_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6C03BAF08409_0BBD18013246_impl*
+ Result := aMainWindow.BaseSearchPanel;
 end;//TkwMainWindowBaseSearchPanel.BaseSearchPanel
 
 procedure TkwMainWindowBaseSearchPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0BBD18013246_var*
-//#UC END# *4DAEEDE10285_0BBD18013246_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_0BBD18013246_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0BBD18013246_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BaseSearchPanel(aCtx, l_aMainWindow));
 end;//TkwMainWindowBaseSearchPanel.DoDoIt
 
 class function TkwMainWindowBaseSearchPanel.GetWordNameForRegister: AnsiString;
@@ -1999,12 +1868,8 @@ end;//TkwMainWindowBaseSearchPanel.GetWordNameForRegister
 
 procedure TkwMainWindowBaseSearchPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0BBD18013246_var*
-//#UC END# *52D00B00031A_0BBD18013246_var*
 begin
-//#UC START# *52D00B00031A_0BBD18013246_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0BBD18013246_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BaseSearchPanel', aCtx);
 end;//TkwMainWindowBaseSearchPanel.SetValuePrim
 
 function TkwMainWindowBaseSearchPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2019,27 +1884,29 @@ end;//TkwMainWindowBaseSearchPanel.GetAllParamsCount
 
 function TkwMainWindowBaseSearchPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowBaseSearchPanel.ParamsTypes
 
 function TkwMainWindowLeftNavigator.LeftNavigator(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscNavigator;
  {* Реализация слова скрипта .TnsMainWindow.LeftNavigator }
-//#UC START# *44132250FA6E_BDCC906B453B_var*
-//#UC END# *44132250FA6E_BDCC906B453B_var*
 begin
-//#UC START# *44132250FA6E_BDCC906B453B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *44132250FA6E_BDCC906B453B_impl*
+ Result := aMainWindow.LeftNavigator;
 end;//TkwMainWindowLeftNavigator.LeftNavigator
 
 procedure TkwMainWindowLeftNavigator.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BDCC906B453B_var*
-//#UC END# *4DAEEDE10285_BDCC906B453B_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_BDCC906B453B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BDCC906B453B_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LeftNavigator(aCtx, l_aMainWindow));
 end;//TkwMainWindowLeftNavigator.DoDoIt
 
 class function TkwMainWindowLeftNavigator.GetWordNameForRegister: AnsiString;
@@ -2049,12 +1916,8 @@ end;//TkwMainWindowLeftNavigator.GetWordNameForRegister
 
 procedure TkwMainWindowLeftNavigator.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BDCC906B453B_var*
-//#UC END# *52D00B00031A_BDCC906B453B_var*
 begin
-//#UC START# *52D00B00031A_BDCC906B453B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BDCC906B453B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству LeftNavigator', aCtx);
 end;//TkwMainWindowLeftNavigator.SetValuePrim
 
 function TkwMainWindowLeftNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2069,29 +1932,31 @@ end;//TkwMainWindowLeftNavigator.GetAllParamsCount
 
 function TkwMainWindowLeftNavigator.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowLeftNavigator.ParamsTypes
 
 {$If Defined(HasRightNavigator)}
 function TkwMainWindowRightNavigator.RightNavigator(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscNavigator;
  {* Реализация слова скрипта .TnsMainWindow.RightNavigator }
-//#UC START# *A3B067FF2276_E38152ED8F57_var*
-//#UC END# *A3B067FF2276_E38152ED8F57_var*
 begin
-//#UC START# *A3B067FF2276_E38152ED8F57_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A3B067FF2276_E38152ED8F57_impl*
+ Result := aMainWindow.RightNavigator;
 end;//TkwMainWindowRightNavigator.RightNavigator
 {$IfEnd} // Defined(HasRightNavigator)
 
 procedure TkwMainWindowRightNavigator.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E38152ED8F57_var*
-//#UC END# *4DAEEDE10285_E38152ED8F57_var*
+var l_aMainWindow: TnsMainWindow;
 begin
-//#UC START# *4DAEEDE10285_E38152ED8F57_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E38152ED8F57_impl*
+ try
+  l_aMainWindow := TnsMainWindow(aCtx.rEngine.PopObjAs(TnsMainWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aMainWindow: TnsMainWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RightNavigator(aCtx, l_aMainWindow));
 end;//TkwMainWindowRightNavigator.DoDoIt
 
 class function TkwMainWindowRightNavigator.GetWordNameForRegister: AnsiString;
@@ -2101,12 +1966,8 @@ end;//TkwMainWindowRightNavigator.GetWordNameForRegister
 
 procedure TkwMainWindowRightNavigator.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E38152ED8F57_var*
-//#UC END# *52D00B00031A_E38152ED8F57_var*
 begin
-//#UC START# *52D00B00031A_E38152ED8F57_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E38152ED8F57_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству RightNavigator', aCtx);
 end;//TkwMainWindowRightNavigator.SetValuePrim
 
 function TkwMainWindowRightNavigator.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2121,7 +1982,7 @@ end;//TkwMainWindowRightNavigator.GetAllParamsCount
 
 function TkwMainWindowRightNavigator.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRightNavigator.ParamsTypes
 
 initialization

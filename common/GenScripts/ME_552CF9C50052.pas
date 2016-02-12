@@ -83,7 +83,7 @@ end;//TkwFilterAutolinkFilter.filter_AutolinkFilter
 
 procedure TkwFilterAutolinkFilter.DoDoIt(const aCtx: TtfwContext);
 begin
- aCtx.rEngine.PushIntf(filter_AutolinkFilter(aCtx),Ik2TagGenerator);
+ aCtx.rEngine.PushIntf(filter_AutolinkFilter(aCtx), TypeInfo(Ik2TagGenerator));
 end;//TkwFilterAutolinkFilter.DoDoIt
 
 class function TkwFilterAutolinkFilter.GetWordNameForRegister: AnsiString;

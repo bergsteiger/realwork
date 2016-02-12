@@ -193,12 +193,8 @@ begin
 end;//Tkw_Form_StyleEditorExample.GetWordNameForRegister
 
 function Tkw_Form_StyleEditorExample.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B221D9CACD6B_var*
-//#UC END# *4DDFD2EA0116_B221D9CACD6B_var*
 begin
-//#UC START# *4DDFD2EA0116_B221D9CACD6B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B221D9CACD6B_impl*
+ Result := 'StyleEditorExampleForm';
 end;//Tkw_Form_StyleEditorExample.GetString
 
 class function Tkw_StyleEditorExample_Component_TextSource.GetWordNameForRegister: AnsiString;
@@ -207,21 +203,14 @@ begin
 end;//Tkw_StyleEditorExample_Component_TextSource.GetWordNameForRegister
 
 function Tkw_StyleEditorExample_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FA586B6A0B65_var*
-//#UC END# *4DDFD2EA0116_FA586B6A0B65_var*
 begin
-//#UC START# *4DDFD2EA0116_FA586B6A0B65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FA586B6A0B65_impl*
+ Result := 'TextSource';
 end;//Tkw_StyleEditorExample_Component_TextSource.GetString
 
 class procedure Tkw_StyleEditorExample_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_FA586B6A0B65_var*
-//#UC END# *52A086150180_FA586B6A0B65_var*
 begin
-//#UC START# *52A086150180_FA586B6A0B65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_FA586B6A0B65_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_StyleEditorExample_Component_TextSource.RegisterInEngine
 
 class function Tkw_StyleEditorExample_Control_EditorPanel.GetWordNameForRegister: AnsiString;
@@ -230,21 +219,14 @@ begin
 end;//Tkw_StyleEditorExample_Control_EditorPanel.GetWordNameForRegister
 
 function Tkw_StyleEditorExample_Control_EditorPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C2A8374FE1C1_var*
-//#UC END# *4DDFD2EA0116_C2A8374FE1C1_var*
 begin
-//#UC START# *4DDFD2EA0116_C2A8374FE1C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C2A8374FE1C1_impl*
+ Result := 'EditorPanel';
 end;//Tkw_StyleEditorExample_Control_EditorPanel.GetString
 
 class procedure Tkw_StyleEditorExample_Control_EditorPanel.RegisterInEngine;
-//#UC START# *52A086150180_C2A8374FE1C1_var*
-//#UC END# *52A086150180_C2A8374FE1C1_var*
 begin
-//#UC START# *52A086150180_C2A8374FE1C1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C2A8374FE1C1_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_StyleEditorExample_Control_EditorPanel.RegisterInEngine
 
 procedure Tkw_StyleEditorExample_Control_EditorPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -267,21 +249,14 @@ begin
 end;//Tkw_StyleEditorExample_Control_Editor.GetWordNameForRegister
 
 function Tkw_StyleEditorExample_Control_Editor.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2B72FEDAF18A_var*
-//#UC END# *4DDFD2EA0116_2B72FEDAF18A_var*
 begin
-//#UC START# *4DDFD2EA0116_2B72FEDAF18A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2B72FEDAF18A_impl*
+ Result := 'Editor';
 end;//Tkw_StyleEditorExample_Control_Editor.GetString
 
 class procedure Tkw_StyleEditorExample_Control_Editor.RegisterInEngine;
-//#UC START# *52A086150180_2B72FEDAF18A_var*
-//#UC END# *52A086150180_2B72FEDAF18A_var*
 begin
-//#UC START# *52A086150180_2B72FEDAF18A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_2B72FEDAF18A_impl*
+ inherited;
+ TtfwClassRef.Register(TeeEditorWithoutOperations);
 end;//Tkw_StyleEditorExample_Control_Editor.RegisterInEngine
 
 procedure Tkw_StyleEditorExample_Control_Editor_Push.DoDoIt(const aCtx: TtfwContext);
@@ -301,21 +276,23 @@ end;//Tkw_StyleEditorExample_Control_Editor_Push.GetWordNameForRegister
 function TkwStyleEditorExampleFormTextSource.TextSource(const aCtx: TtfwContext;
  aStyleEditorExampleForm: TStyleEditorExampleForm): TnscTextSource;
  {* Реализация слова скрипта .TStyleEditorExampleForm.TextSource }
-//#UC START# *B7F8B8429264_94CDC606065E_var*
-//#UC END# *B7F8B8429264_94CDC606065E_var*
 begin
-//#UC START# *B7F8B8429264_94CDC606065E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B7F8B8429264_94CDC606065E_impl*
+ Result := aStyleEditorExampleForm.TextSource;
 end;//TkwStyleEditorExampleFormTextSource.TextSource
 
 procedure TkwStyleEditorExampleFormTextSource.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_94CDC606065E_var*
-//#UC END# *4DAEEDE10285_94CDC606065E_var*
+var l_aStyleEditorExampleForm: TStyleEditorExampleForm;
 begin
-//#UC START# *4DAEEDE10285_94CDC606065E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_94CDC606065E_impl*
+ try
+  l_aStyleEditorExampleForm := TStyleEditorExampleForm(aCtx.rEngine.PopObjAs(TStyleEditorExampleForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorExampleForm: TStyleEditorExampleForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormTextSource.DoDoIt
 
 class function TkwStyleEditorExampleFormTextSource.GetWordNameForRegister: AnsiString;
@@ -325,12 +302,8 @@ end;//TkwStyleEditorExampleFormTextSource.GetWordNameForRegister
 
 procedure TkwStyleEditorExampleFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_94CDC606065E_var*
-//#UC END# *52D00B00031A_94CDC606065E_var*
 begin
-//#UC START# *52D00B00031A_94CDC606065E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_94CDC606065E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwStyleEditorExampleFormTextSource.SetValuePrim
 
 function TkwStyleEditorExampleFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -345,27 +318,29 @@ end;//TkwStyleEditorExampleFormTextSource.GetAllParamsCount
 
 function TkwStyleEditorExampleFormTextSource.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormTextSource.ParamsTypes
 
 function TkwStyleEditorExampleFormEditorPanel.EditorPanel(const aCtx: TtfwContext;
  aStyleEditorExampleForm: TStyleEditorExampleForm): TvtPanel;
  {* Реализация слова скрипта .TStyleEditorExampleForm.EditorPanel }
-//#UC START# *FEFA6CD2F33E_42F01C50817A_var*
-//#UC END# *FEFA6CD2F33E_42F01C50817A_var*
 begin
-//#UC START# *FEFA6CD2F33E_42F01C50817A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FEFA6CD2F33E_42F01C50817A_impl*
+ Result := aStyleEditorExampleForm.EditorPanel;
 end;//TkwStyleEditorExampleFormEditorPanel.EditorPanel
 
 procedure TkwStyleEditorExampleFormEditorPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_42F01C50817A_var*
-//#UC END# *4DAEEDE10285_42F01C50817A_var*
+var l_aStyleEditorExampleForm: TStyleEditorExampleForm;
 begin
-//#UC START# *4DAEEDE10285_42F01C50817A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_42F01C50817A_impl*
+ try
+  l_aStyleEditorExampleForm := TStyleEditorExampleForm(aCtx.rEngine.PopObjAs(TStyleEditorExampleForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorExampleForm: TStyleEditorExampleForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(EditorPanel(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormEditorPanel.DoDoIt
 
 class function TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister: AnsiString;
@@ -375,12 +350,8 @@ end;//TkwStyleEditorExampleFormEditorPanel.GetWordNameForRegister
 
 procedure TkwStyleEditorExampleFormEditorPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_42F01C50817A_var*
-//#UC END# *52D00B00031A_42F01C50817A_var*
 begin
-//#UC START# *52D00B00031A_42F01C50817A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_42F01C50817A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству EditorPanel', aCtx);
 end;//TkwStyleEditorExampleFormEditorPanel.SetValuePrim
 
 function TkwStyleEditorExampleFormEditorPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -395,27 +366,29 @@ end;//TkwStyleEditorExampleFormEditorPanel.GetAllParamsCount
 
 function TkwStyleEditorExampleFormEditorPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormEditorPanel.ParamsTypes
 
 function TkwStyleEditorExampleFormEditor.Editor(const aCtx: TtfwContext;
  aStyleEditorExampleForm: TStyleEditorExampleForm): TeeEditorWithoutOperations;
  {* Реализация слова скрипта .TStyleEditorExampleForm.Editor }
-//#UC START# *A7476DCB0195_32A323F849AD_var*
-//#UC END# *A7476DCB0195_32A323F849AD_var*
 begin
-//#UC START# *A7476DCB0195_32A323F849AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A7476DCB0195_32A323F849AD_impl*
+ Result := aStyleEditorExampleForm.Editor;
 end;//TkwStyleEditorExampleFormEditor.Editor
 
 procedure TkwStyleEditorExampleFormEditor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_32A323F849AD_var*
-//#UC END# *4DAEEDE10285_32A323F849AD_var*
+var l_aStyleEditorExampleForm: TStyleEditorExampleForm;
 begin
-//#UC START# *4DAEEDE10285_32A323F849AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_32A323F849AD_impl*
+ try
+  l_aStyleEditorExampleForm := TStyleEditorExampleForm(aCtx.rEngine.PopObjAs(TStyleEditorExampleForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorExampleForm: TStyleEditorExampleForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Editor(aCtx, l_aStyleEditorExampleForm));
 end;//TkwStyleEditorExampleFormEditor.DoDoIt
 
 class function TkwStyleEditorExampleFormEditor.GetWordNameForRegister: AnsiString;
@@ -425,12 +398,8 @@ end;//TkwStyleEditorExampleFormEditor.GetWordNameForRegister
 
 procedure TkwStyleEditorExampleFormEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_32A323F849AD_var*
-//#UC END# *52D00B00031A_32A323F849AD_var*
 begin
-//#UC START# *52D00B00031A_32A323F849AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_32A323F849AD_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Editor', aCtx);
 end;//TkwStyleEditorExampleFormEditor.SetValuePrim
 
 function TkwStyleEditorExampleFormEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -445,7 +414,7 @@ end;//TkwStyleEditorExampleFormEditor.GetAllParamsCount
 
 function TkwStyleEditorExampleFormEditor.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorExampleForm)]);
 end;//TkwStyleEditorExampleFormEditor.ParamsTypes
 
 initialization

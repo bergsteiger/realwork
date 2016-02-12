@@ -78,12 +78,8 @@ end;//Tkw_Form_Child_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Child_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_BBEB9821B6DA_var*
-//#UC END# *4DDFD2EA0116_BBEB9821B6DA_var*
 begin
-//#UC START# *4DDFD2EA0116_BBEB9821B6DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_BBEB9821B6DA_impl*
+ Result := 'ChildForm';
 end;//Tkw_Form_Child_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -96,12 +92,8 @@ end;//Tkw_Form_Parent_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Parent_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4D2D1B64FF3F_var*
-//#UC END# *4DDFD2EA0116_4D2D1B64FF3F_var*
 begin
-//#UC START# *4DDFD2EA0116_4D2D1B64FF3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4D2D1B64FF3F_impl*
+ Result := 'ParentForm';
 end;//Tkw_Form_Parent_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 

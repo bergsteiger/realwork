@@ -21,11 +21,11 @@ uses
 ;
 
 type
- {$Include BaseDocumentForDocumentModule.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _PageControlNotification_Parent_ = _BaseDocumentForDocumentModule_;
- {$Include PageControlNotification.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _AttributesUserTypes_Parent_ = _PageControlNotification_;
- {$Include AttributesUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes.imp.pas}
  TPrimAttributesForm = class(_AttributesUserTypes_)
   {* Атрибуты документа }
   private
@@ -85,11 +85,11 @@ end;//TnsViewDocumentAttributesEvent.Log
 
 type _Instance_R_ = TPrimAttributesForm;
 
-{$Include BaseDocumentForDocumentModule.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
 
-{$Include PageControlNotification.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
-{$Include AttributesUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes.imp.pas}
 
 procedure TPrimAttributesForm.fDocAttributeQueryClose(aSender: TObject);
  {* Обработчик события fDocAttribute.OnQueryClose }

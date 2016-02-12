@@ -3,7 +3,7 @@ program SandBoxTest;
 // Модуль: "w:\common\components\SandBoxTest\SandBoxTest.dpr"
 // Стереотип: "TestTarget"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBoxTest\sbtDefine.inc}
 
 interface
 

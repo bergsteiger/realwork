@@ -24,7 +24,7 @@ type
  _ItemType_ = TseModalWorker;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TseModalWorkerListPrim = class(_l3RecordListPrim_)
  end;//TseModalWorkerListPrim
 {$IfEnd} // NOT Defined(NoScripts)
@@ -85,7 +85,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TseModalWorkerListPrim;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

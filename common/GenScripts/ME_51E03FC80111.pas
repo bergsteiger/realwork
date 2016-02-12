@@ -8,7 +8,7 @@
 {$If Defined(nsTest)}
  // _ListType_
 
- {$Include ListTest.imp.pas}
+ {$Include w:\common\components\SandBox\ListTest.imp.pas}
  _AtomicListTest_ = class(_ListTest_)
   private
    function RandomItem: _ItemType_;
@@ -27,7 +27,7 @@
 
 {$Else Defined(nsTest)}
 
-{$Include ListTest.imp.pas}
+{$Include w:\common\components\SandBox\ListTest.imp.pas}
 _AtomicListTest_ = _ListTest_;
 
 {$IfEnd} // Defined(nsTest)
@@ -38,7 +38,7 @@ _AtomicListTest_ = _ListTest_;
 {$Define AtomicListTest_imp_impl}
 
 {$If Defined(nsTest)}
-{$Include ListTest.imp.pas}
+{$Include w:\common\components\SandBox\ListTest.imp.pas}
 
 procedure _AtomicListTest_.DoIt;
 //#UC START# *51DEB319037C_51E03FC80111_var*

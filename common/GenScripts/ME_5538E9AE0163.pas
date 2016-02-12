@@ -25,7 +25,7 @@ type
  _ItemType_ = IdaFieldDescription;
  _l3InterfaceRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  TdaFieldDescriptionListPrim = class(_l3InterfaceRefListPrim_)
   protected
    {$If Defined(l3Items_NeedsBeforeFreeItem)}
@@ -87,7 +87,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TdaFieldDescriptionListPrim;
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 {$If Defined(l3Items_NeedsBeforeFreeItem)}
 procedure TdaFieldDescriptionListPrim.BeforeFreeItem(var aPlace: _ItemType_);

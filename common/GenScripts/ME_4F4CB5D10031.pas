@@ -20,7 +20,7 @@ type
 
  _FindDataType_ = Tl3WString;
  _l3Searcher_Parent_ = Tm3EndingReplaceListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tm3EndingReplaceList = class(_l3Searcher_)
   public
    procedure Load(aStream: TStream);
@@ -81,7 +81,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tm3EndingReplaceList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 procedure Tm3EndingReplaceList.Load(aStream: TStream);
 //#UC START# *5089072C0220_4F4CB5D10031_var*

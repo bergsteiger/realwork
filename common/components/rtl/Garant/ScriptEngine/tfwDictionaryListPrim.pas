@@ -22,7 +22,7 @@ uses
 
 type
  _ItemType_ = TtfwDictionaryEx;
- {$Include tfwDictionaryList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryList.imp.pas}
  TtfwDictionaryListPrim = class(_tfwDictionaryList_)
  end;//TtfwDictionaryListPrim
 {$IfEnd} // NOT Defined(NoScripts)
@@ -40,7 +40,7 @@ uses
 
 type _Instance_R_ = TtfwDictionaryListPrim;
 
-{$Include tfwDictionaryList.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryList.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -17,7 +17,7 @@ uses
 
 type
  _kwConfigurationsWordUses_Parent_ = TtfwRegisterableWord;
- {$Include kwConfigurationsWordUses.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWordUses.imp.pas}
  TkwConfigurationsWord = {abstract} class(_kwConfigurationsWordUses_)
   private
    f_ConfigurationManager: IConfigurationManager;
@@ -40,7 +40,7 @@ uses
  , DataAdapter
 ;
 
-{$Include kwConfigurationsWordUses.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwConfigurationsWordUses.imp.pas}
 
 procedure TkwConfigurationsWord.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2E10F03C0_var*

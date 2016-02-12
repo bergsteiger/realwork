@@ -48,7 +48,7 @@ uses
 
 type
  _SetType_ = IsdsDocumentWithFlash;
- {$Include sdsDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
  TsdsDocumentWithFlash = class(_sdsDocument_, IsdsDocumentWithFlash)
   {* БОС документа-схемы }
   protected
@@ -133,7 +133,7 @@ uses
 
 type _Instance_R_ = TsdsDocumentWithFlash;
 
-{$Include sdsDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
 
 function TsdsDocumentWithFlash.DoCanRunBaseSearch: Boolean;
 //#UC START# *496F437400A6_493E754301C8_var*

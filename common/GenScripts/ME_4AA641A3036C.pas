@@ -181,7 +181,12 @@ type
    function DefineFilterForm(const aQuery: IQuery): TnsFilterForm;
     {* определить тип формы фильтры }
    procedure ShowList(aType: TnsSearchListType);
-   class procedure CreateSearchContainer;
+   class function CreateSearchContainer(const anAggregate: IvcmAggregate;
+    const aContainer: IvcmContainer;
+    aSearchType: TvcmUserType;
+    aSearchInList: Boolean;
+    const aList: IdeList;
+    aZoneType: TvcmZoneType): IvcmEntityForm;
    procedure OpenInpharm(anIndex: Integer;
     aZoneType: TvcmZoneType;
     aUserType: TvcmUserType;
@@ -723,7 +728,12 @@ begin
 //#UC END# *4AB7BFE700D2_4AA641A3036C_impl*
 end;//TSearchModule.MakeNewFilter
 
-class procedure TSearchModule.CreateSearchContainer;
+class function TSearchModule.CreateSearchContainer(const anAggregate: IvcmAggregate;
+ const aContainer: IvcmContainer;
+ aSearchType: TvcmUserType;
+ aSearchInList: Boolean;
+ const aList: IdeList;
+ aZoneType: TvcmZoneType): IvcmEntityForm;
 var l_SearchInList: Boolean;
 var l_List: IdeList;
 

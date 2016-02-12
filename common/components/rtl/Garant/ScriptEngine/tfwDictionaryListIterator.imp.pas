@@ -7,7 +7,7 @@
 
 {$If NOT Defined(NoScripts)}
  _tfwDictionaryListIteratorPrim_Parent_ = TtfwIteratableParent;
- {$Include tfwDictionaryListIteratorPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
  _tfwDictionaryListIterator_ = {abstract} class(_tfwDictionaryListIteratorPrim_)
   private
    f_ListToIterate: _ListType_;
@@ -23,7 +23,7 @@
 {$Else NOT Defined(NoScripts)}
 
 _tfwDictionaryListIteratorPrim_Parent_ = TtfwIteratableParent;
-{$Include tfwDictionaryListIteratorPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
 _tfwDictionaryListIterator_ = _tfwDictionaryListIteratorPrim_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -34,7 +34,7 @@ _tfwDictionaryListIterator_ = _tfwDictionaryListIteratorPrim_;
 {$Define tfwDictionaryListIterator_imp_impl}
 
 {$If NOT Defined(NoScripts)}
-{$Include tfwDictionaryListIteratorPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
 
 constructor _tfwDictionaryListIterator_.Create(const aListToIterate: _ListType_);
 //#UC START# *55E9ABC00239_55E9AB2C03C3_var*

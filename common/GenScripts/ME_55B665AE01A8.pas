@@ -79,12 +79,18 @@ begin
 end;//TkwIsNeedSaveDocument.IsNeedSaveDocument
 
 procedure TkwIsNeedSaveDocument.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BB6D8477DC61_var*
-//#UC END# *4DAEEDE10285_BB6D8477DC61_var*
+var l_aEditor: TEditorWindow;
 begin
-//#UC START# *4DAEEDE10285_BB6D8477DC61_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BB6D8477DC61_impl*
+ try
+  l_aEditor := TEditorWindow(aCtx.rEngine.PopObjAs(TEditorWindow));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aEditor: TEditorWindow : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(IsNeedSaveDocument(aCtx, l_aEditor));
 end;//TkwIsNeedSaveDocument.DoDoIt
 
 class function TkwIsNeedSaveDocument.GetWordNameForRegister: AnsiString;
@@ -104,7 +110,7 @@ end;//TkwIsNeedSaveDocument.GetAllParamsCount
 
 function TkwIsNeedSaveDocument.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TEditorWindow)]);
 end;//TkwIsNeedSaveDocument.ParamsTypes
 
 initialization

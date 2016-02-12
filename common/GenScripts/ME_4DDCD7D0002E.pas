@@ -31,7 +31,7 @@ type
  _InitDataType_ = InsChangesBetweenEditionsInfo;
  _SetDataType_ = IsdsChangesBetweenEditionsData;
  _SetType_ = IsdsChangesBetweenEditions;
- {$Include vcmFormSetDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
  TsdsChangesBetweenEditions = {final} class(_vcmFormSetDataSource_, IsdsChangesBetweenEditions, IsdsPrimDocument, IsdsEditionsHolder)
   {* Прецедент ОИД }
   private
@@ -80,7 +80,7 @@ uses
 
 type _Instance_R_ = TsdsChangesBetweenEditions;
 
-{$Include vcmFormSetDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
 function TsdsChangesBetweenEditions.As_IsdsPrimDocument: IsdsPrimDocument;
  {* Метод приведения нашего интерфейса к IsdsPrimDocument }

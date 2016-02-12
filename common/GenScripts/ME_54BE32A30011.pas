@@ -18,7 +18,7 @@ uses
 
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TalcuDetachedExecutorPool = class(_l3CriticalSectionHolder_)
   private
    f_Data: TalcuDetachedExecutorList;
@@ -40,7 +40,7 @@ uses
  , SysUtils
 ;
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 procedure TalcuDetachedExecutorPool.Launch(anExecutor: Tl3ThreadContainer);
 //#UC START# *54BE5EBC03D3_54BE32A30011_var*

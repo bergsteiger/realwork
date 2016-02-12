@@ -49,7 +49,7 @@ type
  _ItemType_ = TvgRadioButtonItem;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvgRadioButtonArray = class(_l3RecordWithEQList_)
  end;//TvgRadioButtonArray
 
@@ -309,7 +309,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvgRadioButtonArray;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
 function TNewBaseSearchForDFMForm.pm_GetFindBtn: TvgPathButton;
 //#UC START# *4CFCE561011D_4CFCBB3600E0get_var*

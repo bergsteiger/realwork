@@ -20,7 +20,7 @@ uses
 type
  _FormClass_ = TFromWithPanelForm;
  _FormProducer_Parent_ = TBaseTest;
- {$Include FormProducer.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
  TEmptyFormTest = {abstract} class(_FormProducer_)
   protected
    procedure CheckControl; virtual;
@@ -47,7 +47,7 @@ uses
  , l3Base
 ;
 
-{$Include FormProducer.imp.pas}
+{$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TEmptyFormTest.DoIt;
 //#UC START# *51D5290701CC_51D5285300B7_var*

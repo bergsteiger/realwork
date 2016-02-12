@@ -24,9 +24,9 @@ uses
 type
  // Child
 
- {$Include PageControlNotification.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _SynchroViewUserTypes_Parent_ = _PageControlNotification_;
- {$Include SynchroViewUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes.imp.pas}
  TPrimSynchroViewForm = class(_SynchroViewUserTypes_)
   {* Синхронный просмотр }
   private
@@ -95,9 +95,9 @@ begin
 //#UC END# *4B150F39031A_4B150F140142_impl*
 end;//TnsSynchroviewActivateEvent.Log
 
-{$Include PageControlNotification.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
-{$Include SynchroViewUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\SynchroViewUserTypes.imp.pas}
 
 procedure TPrimSynchroViewForm.DoTabActivate;
  {* Реакция на переключение вкладки }

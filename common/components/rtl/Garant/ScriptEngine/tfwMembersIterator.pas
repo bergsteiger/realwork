@@ -1,63 +1,44 @@
 unit tfwMembersIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwMembersIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwMembersIterator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwMembersIterator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwDictionaryPrim,
-  tfwMembersIteratorPrim,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwMembersIteratorPrim
+ , tfwScriptingInterfaces
+ , tfwDictionaryPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwMembersIterator = class(TtfwMembersIteratorPrim, ItfwValueList)
- protected
- // realized methods
+  protected
    procedure SetItem(anIndex: Integer;
-     const aValue: TtfwStackValue);
+    const aValue: TtfwStackValue);
    function ItemsCountInSlice: Integer;
- public
- // realized methods
-   procedure ForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
-   procedure ForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make(aDictionary: TtfwDictionaryPrim): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwMembersIterator.Make }
+   procedure ForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
+   procedure ForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
  end;//TtfwMembersIterator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwMembersIterator
+ l3ImplUses
+ , SysUtils
+;
 
 class function TtfwMembersIterator.Make(aDictionary: TtfwDictionaryPrim): ItfwValueList;
 var
@@ -69,10 +50,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TtfwMembersIterator.Make
 
 procedure TtfwMembersIterator.ForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23B7A00EC_52E29F1A037E_var*
 var
  l_I : Integer;
@@ -105,7 +86,7 @@ begin
 end;//TtfwMembersIterator.ForEach
 
 procedure TtfwMembersIterator.ForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23BB102FA_52E29F1A037E_var*
 var
  l_I : Integer;
@@ -138,7 +119,7 @@ begin
 end;//TtfwMembersIterator.ForEachBack
 
 procedure TtfwMembersIterator.SetItem(anIndex: Integer;
-  const aValue: TtfwStackValue);
+ const aValue: TtfwStackValue);
 //#UC START# *55CDF40C03D4_52E29F1A037E_var*
 //#UC END# *55CDF40C03D4_52E29F1A037E_var*
 begin
@@ -157,6 +138,7 @@ begin
 end;//TtfwMembersIterator.ItemsCountInSlice
 
 procedure TtfwMembersIterator.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52E29F1A037E_var*
 //#UC END# *479731C50290_52E29F1A037E_var*
 begin
@@ -164,7 +146,6 @@ begin
  inherited;
 //#UC END# *479731C50290_52E29F1A037E_impl*
 end;//TtfwMembersIterator.Cleanup
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

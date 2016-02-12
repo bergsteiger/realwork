@@ -1,87 +1,66 @@
 unit SysUtilsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "SysUtilsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::SysUtils::SysUtilsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwScriptingInterfaces,
-  tfwAxiomaticsResNameGetter,
-  tfwTypeInfo,
-  tfwGlobalKeyWord
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , l3Interfaces
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , tfwAxiomaticsResNameGetter
+ , tfwGlobalKeyWord
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3TabService,
-  l3SysUtils,
-  Windows,
-  JclSysInfo,
-  l3Base,
-  l3String,
-  SysUtils,
-  Classes,
-  DateUtils,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Clipbrd
-  {$IfEnd} //not NoVCL
-  ,
-  l3Utils,
-  l3CStringDataObject,
-  l3Chars,
-  tfwScriptingTypes,
-  TypInfo,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , l3TabService
+ , l3SysUtils
+ , Windows
+ , JclSysInfo
+ , l3Base
+ , l3String
+ , SysUtils
+ , Classes
+ , DateUtils
+ , Graphics
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Clipbrd
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Utils
+ , l3CStringDataObject
+ , l3Chars
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+;
 
 type
-//#UC START# *CA1C227465CDci*
-//#UC END# *CA1C227465CDci*
-//#UC START# *CA1C227465CDcit*
-//#UC END# *CA1C227465CDcit*
+ //#UC START# *CA1C227465CDci*
+ //#UC END# *CA1C227465CDci*
+ //#UC START# *CA1C227465CDcit*
+ //#UC END# *CA1C227465CDcit*
  TSysUtilsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *CA1C227465CDpubl*
-//#UC END# *CA1C227465CDpubl*
+ //#UC START# *CA1C227465CDpubl*
+ //#UC END# *CA1C227465CDpubl*
  end;//TSysUtilsPackResNameGetter
 
-// start class TSysUtilsPackResNameGetter
-
-class function TSysUtilsPackResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'SysUtilsPack';
-end;//TSysUtilsPackResNameGetter.ResName
-
- {$R SysUtilsPack.res}
-
-type
- TkwHasTabs = {final scriptword} class(TtfwGlobalKeyWord)
+ TkwHasTabs = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта HasTabs
 *Тип результата:* Boolean
 *Пример:*
@@ -89,26 +68,890 @@ type
 BOOLEAN VAR l_Boolean
  HasTabs >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function HasTabs(const aCtx: TtfwContext): Boolean;
-     {* Реализация слова скрипта HasTabs }
- protected
- // realized methods
+    {* Реализация слова скрипта HasTabs }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwHasTabs
 
-// start class TkwHasTabs
+ TkwIsUnder64 = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта IsUnder64
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ IsUnder64 >>> l_Boolean
+[code]  }
+  private
+   function IsUnder64(const aCtx: TtfwContext): Boolean;
+    {* Реализация слова скрипта IsUnder64 }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsUnder64
+
+ TkwComputerName = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта ComputerName
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ ComputerName >>> l_String
+[code]  }
+  private
+   function ComputerName(const aCtx: TtfwContext): AnsiString;
+    {* Реализация слова скрипта ComputerName }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwComputerName
+
+ TkwOSName = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта OSName
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ OSName >>> l_String
+[code]  }
+  private
+   function OSName(const aCtx: TtfwContext): AnsiString;
+    {* Реализация слова скрипта OSName }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwOSName
+
+ TkwRandom = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта Random
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aMax Random >>> l_Integer
+[code]  }
+  private
+   function Random(const aCtx: TtfwContext;
+    aMax: Integer): Integer;
+    {* Реализация слова скрипта Random }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwRandom
+
+ TkwRandomize = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта Randomize
+*Пример:*
+[code]
+ Randomize
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwRandomize
+
+ TkwSetRandSeed = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта SetRandSeed
+*Пример:*
+[code]
+ aValue SetRandSeed
+[code]  }
+  private
+   procedure SetRandSeed(const aCtx: TtfwContext;
+    aValue: Integer);
+    {* Реализация слова скрипта SetRandSeed }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSetRandSeed
+
+ TkwRGB2String = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта RGB2String
+[panel]Переводит представление R G B в шестнадцатиричное представление в виде строки:
+[code]
+151 40 30 RGB2String .
+[code][panel]
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aR aG aB RGB2String >>> l_String
+[code]  }
+  private
+   function RGB2String(const aCtx: TtfwContext;
+    aB: Integer;
+    aG: Integer;
+    aR: Integer): AnsiString;
+    {* Реализация слова скрипта RGB2String }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwRGB2String
+
+ TkwIntToStr = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта IntToStr
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aValue IntToStr >>> l_String
+[code]  }
+  private
+   function IntToStr(const aCtx: TtfwContext;
+    aValue: Integer): AnsiString;
+    {* Реализация слова скрипта IntToStr }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIntToStr
+
+ TkwIsXE = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта IsXE
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ IsXE >>> l_Boolean
+[code]  }
+  private
+   function IsXE(const aCtx: TtfwContext): Boolean;
+    {* Реализация слова скрипта IsXE }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwIsXE
+
+ TkwWinExec = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта WinExec
+*Пример:*
+[code]
+ aPath WinExec
+[code]  }
+  private
+   procedure WinExec(const aCtx: TtfwContext;
+    const aPath: AnsiString);
+    {* Реализация слова скрипта WinExec }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwWinExec
+
+ TkwScriptFileName = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта script:FileName
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ script:FileName >>> l_String
+[code]  }
+  private
+   function script_FileName(const aCtx: TtfwContext): AnsiString;
+    {* Реализация слова скрипта script:FileName }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwScriptFileName
+
+ TkwSysutilsChangeFileExt = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:ChangeFileExt
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aName anExt sysutils:ChangeFileExt >>> l_String
+[code]  }
+  private
+   function sysutils_ChangeFileExt(const aCtx: TtfwContext;
+    const anExt: AnsiString;
+    const aName: AnsiString): AnsiString;
+    {* Реализация слова скрипта sysutils:ChangeFileExt }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsChangeFileExt
+
+ TkwSysutilsExtractFileName = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:ExtractFileName
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aName sysutils:ExtractFileName >>> l_String
+[code]  }
+  private
+   function sysutils_ExtractFileName(const aCtx: TtfwContext;
+    const aName: AnsiString): AnsiString;
+    {* Реализация слова скрипта sysutils:ExtractFileName }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsExtractFileName
+
+ TkwSysutilsExtractFilePath = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:ExtractFilePath
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aName sysutils:ExtractFilePath >>> l_String
+[code]  }
+  private
+   function sysutils_ExtractFilePath(const aCtx: TtfwContext;
+    const aName: AnsiString): AnsiString;
+    {* Реализация слова скрипта sysutils:ExtractFilePath }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsExtractFilePath
+
+ TkwSysutilsExtractFileDrive = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:ExtractFileDrive
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aName sysutils:ExtractFileDrive >>> l_String
+[code]  }
+  private
+   function sysutils_ExtractFileDrive(const aCtx: TtfwContext;
+    const aName: AnsiString): AnsiString;
+    {* Реализация слова скрипта sysutils:ExtractFileDrive }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsExtractFileDrive
+
+ TkwSysutilsDirectoryExists = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:DirectoryExists
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aPath sysutils:DirectoryExists >>> l_Boolean
+[code]  }
+  private
+   function sysutils_DirectoryExists(const aCtx: TtfwContext;
+    const aPath: AnsiString): Boolean;
+    {* Реализация слова скрипта sysutils:DirectoryExists }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsDirectoryExists
+
+ TkwSysutilsFileExists = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:FileExists
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aPath sysutils:FileExists >>> l_Boolean
+[code]  }
+  private
+   function sysutils_FileExists(const aCtx: TtfwContext;
+    const aPath: AnsiString): Boolean;
+    {* Реализация слова скрипта sysutils:FileExists }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsFileExists
+
+ TkwSysutilsForceDirectories = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:ForceDirectories
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aPath sysutils:ForceDirectories >>> l_Boolean
+[code]  }
+  private
+   function sysutils_ForceDirectories(const aCtx: TtfwContext;
+    const aPath: AnsiString): Boolean;
+    {* Реализация слова скрипта sysutils:ForceDirectories }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsForceDirectories
+
+ TkwSetAppPath2CurrentDir = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта SetAppPath2CurrentDir
+*Пример:*
+[code]
+ SetAppPath2CurrentDir
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwSetAppPath2CurrentDir
+
+ TkwApplicationExeName = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта application:ExeName
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ application:ExeName >>> l_String
+[code]  }
+  private
+   function application_ExeName(const aCtx: TtfwContext): AnsiString;
+    {* Реализация слова скрипта application:ExeName }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwApplicationExeName
+
+ TkwGetTickCount = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта GetTickCount
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ GetTickCount >>> l_Integer
+[code]  }
+  private
+   function GetTickCount(const aCtx: TtfwContext): Integer;
+    {* Реализация слова скрипта GetTickCount }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwGetTickCount
+
+ TkwApplicationActionIdle = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта application:ActionIdle
+*Пример:*
+[code]
+ application:ActionIdle
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwApplicationActionIdle
+
+ TkwClipboardClear = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта clipboard:clear
+*Пример:*
+[code]
+ clipboard:clear
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwClipboardClear
+
+ TkwSetLocalDate = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта SetLocalDate
+*Пример:*
+[code]
+ anYear aMonth aDay SetLocalDate
+[code]  }
+  private
+   procedure SetLocalDate(const aCtx: TtfwContext;
+    aDay: Integer;
+    aMonth: Integer;
+    anYear: Integer);
+    {* Реализация слова скрипта SetLocalDate }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSetLocalDate
+
+ TkwSetLocalTime = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта SetLocalTime
+*Пример:*
+[code]
+ anHour aMinute aSecond aMilli SetLocalTime
+[code]  }
+  private
+   procedure SetLocalTime(const aCtx: TtfwContext;
+    aMilli: Integer;
+    aSecond: Integer;
+    aMinute: Integer;
+    anHour: Integer);
+    {* Реализация слова скрипта SetLocalTime }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSetLocalTime
+
+ TkwSetLocalDateTime = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта SetLocalDateTime
+*Пример:*
+[code]
+ anYear aMonth aDay anHour aMinute aSecond aMilli SetLocalDateTime
+[code]  }
+  private
+   procedure SetLocalDateTime(const aCtx: TtfwContext;
+    aMilli: Integer;
+    aSecond: Integer;
+    aMinute: Integer;
+    anHour: Integer;
+    aDay: Integer;
+    aMonth: Integer;
+    anYear: Integer);
+    {* Реализация слова скрипта SetLocalDateTime }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSetLocalDateTime
+
+ TkwGetLocalDate = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта GetLocalDate
+*Пример:*
+[code]
+ GetLocalDate
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwGetLocalDate
+
+ TkwGetLocalDateTime = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта GetLocalDateTime
+*Пример:*
+[code]
+ GetLocalDateTime
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwGetLocalDateTime
+
+ TkwGetLocalTime = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта GetLocalTime
+*Пример:*
+[code]
+ GetLocalTime
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwGetLocalTime
+
+ TkwStartTimer = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта StartTimer
+*Пример:*
+[code]
+ StartTimer
+[code]  }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+ end;//TkwStartTimer
+
+ TkwStopTimer = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта StopTimer
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aName StopTimer >>> l_Integer
+[code]  }
+  private
+   function StopTimer(const aCtx: TtfwContext;
+    const aName: AnsiString): Integer;
+    {* Реализация слова скрипта StopTimer }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStopTimer
+
+ TkwStopTimerEx = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта StopTimerEx
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aName aSubName StopTimerEx >>> l_Integer
+[code]  }
+  private
+   function StopTimerEx(const aCtx: TtfwContext;
+    const aSubName: AnsiString;
+    const aName: AnsiString): Integer;
+    {* Реализация слова скрипта StopTimerEx }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStopTimerEx
+
+ TkwTimeToLog = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта TimeToLog
+*Пример:*
+[code]
+ aName aSubName aValue TimeToLog
+[code]  }
+  private
+   procedure TimeToLog(const aCtx: TtfwContext;
+    aValue: Integer;
+    const aSubName: AnsiString;
+    const aName: AnsiString);
+    {* Реализация слова скрипта TimeToLog }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTimeToLog
+
+ TkwShiftDate = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта ShiftDate
+*Пример:*
+[code]
+ aDeltaY aDeltaM aDeltaD ShiftDate
+[code]  }
+  private
+   procedure ShiftDate(const aCtx: TtfwContext;
+    aDeltaD: Integer;
+    aDeltaM: Integer;
+    aDeltaY: Integer);
+    {* Реализация слова скрипта ShiftDate }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwShiftDate
+
+ TkwShiftTime = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта ShiftTime
+*Пример:*
+[code]
+ aDeltaMilli ShiftTime
+[code]  }
+  private
+   procedure ShiftTime(const aCtx: TtfwContext;
+    aDeltaMilli: Integer);
+    {* Реализация слова скрипта ShiftTime }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwShiftTime
+
+ TkwClipboardGetFormattedText = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта clipboard:GetFormattedText
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aFormat clipboard:GetFormattedText >>> l_Il3CString
+[code]  }
+  private
+   function clipboard_GetFormattedText(const aCtx: TtfwContext;
+    const aFormat: TtfwStackValue): Il3CString;
+    {* Реализация слова скрипта clipboard:GetFormattedText }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwClipboardGetFormattedText
+
+ TkwClipboardSetText = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта clipboard:SetText
+*Пример:*
+[code]
+ aValue clipboard:SetText
+[code]  }
+  private
+   procedure clipboard_SetText(const aCtx: TtfwContext;
+    const aValue: Il3CString);
+    {* Реализация слова скрипта clipboard:SetText }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwClipboardSetText
+
+ TkwScriptExceptionStack = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта script:ExceptionStack
+*Тип результата:* ItfwValueList
+*Пример:*
+[code]
+ARRAY VAR l_ItfwValueList
+ script:ExceptionStack >>> l_ItfwValueList
+[code]  }
+  private
+   function script_ExceptionStack(const aCtx: TtfwContext): ItfwValueList;
+    {* Реализация слова скрипта script:ExceptionStack }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwScriptExceptionStack
+
+ TkwSysutilsParamCount = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:ParamCount
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ sysutils:ParamCount >>> l_Integer
+[code]  }
+  private
+   function sysutils_ParamCount(const aCtx: TtfwContext): Integer;
+    {* Реализация слова скрипта sysutils:ParamCount }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsParamCount
+
+ TkwSysutilsParamStr = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:ParamStr
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ anIndex sysutils:ParamStr >>> l_String
+[code]  }
+  private
+   function sysutils_ParamStr(const aCtx: TtfwContext;
+    anIndex: Integer): AnsiString;
+    {* Реализация слова скрипта sysutils:ParamStr }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsParamStr
+
+ TkwSysutilsGetCurrentDir = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:GetCurrentDir
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ sysutils:GetCurrentDir >>> l_String
+[code]  }
+  private
+   function sysutils_GetCurrentDir(const aCtx: TtfwContext): AnsiString;
+    {* Реализация слова скрипта sysutils:GetCurrentDir }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsGetCurrentDir
+
+ TkwSysutilsSetCurrentDir = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:SetCurrentDir
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aDir sysutils:SetCurrentDir >>> l_Boolean
+[code]  }
+  private
+   function sysutils_SetCurrentDir(const aCtx: TtfwContext;
+    const aDir: AnsiString): Boolean;
+    {* Реализация слова скрипта sysutils:SetCurrentDir }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsSetCurrentDir
+
+ TkwSysutilsCreateDir = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:CreateDir
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aDir sysutils:CreateDir >>> l_Boolean
+[code]  }
+  private
+   function sysutils_CreateDir(const aCtx: TtfwContext;
+    const aDir: AnsiString): Boolean;
+    {* Реализация слова скрипта sysutils:CreateDir }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsCreateDir
+
+ TkwSysutilsRemoveDir = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта sysutils:RemoveDir
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aDir sysutils:RemoveDir >>> l_Boolean
+[code]  }
+  private
+   function sysutils_RemoveDir(const aCtx: TtfwContext;
+    const aDir: AnsiString): Boolean;
+    {* Реализация слова скрипта sysutils:RemoveDir }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSysutilsRemoveDir
+
+class function TSysUtilsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'SysUtilsPack';
+end;//TSysUtilsPackResNameGetter.ResName
+
+ {$R SysUtilsPack.res}
 
 function TkwHasTabs.HasTabs(const aCtx: TtfwContext): Boolean;
+ {* Реализация слова скрипта HasTabs }
 //#UC START# *8B165BF2764A_3FBA7C4F7F80_var*
 //#UC END# *8B165BF2764A_3FBA7C4F7F80_var*
 begin
@@ -118,64 +961,32 @@ begin
 end;//TkwHasTabs.HasTabs
 
 procedure TkwHasTabs.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushBool((HasTabs(aCtx)));
+ aCtx.rEngine.PushBool(HasTabs(aCtx));
 end;//TkwHasTabs.DoDoIt
 
 class function TkwHasTabs.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'HasTabs';
 end;//TkwHasTabs.GetWordNameForRegister
 
 function TkwHasTabs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwHasTabs.GetResultTypeInfo
 
 function TkwHasTabs.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwHasTabs.GetAllParamsCount
 
 function TkwHasTabs.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwHasTabs.ParamsTypes
 
-type
- TkwIsUnder64 = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта IsUnder64
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- IsUnder64 >>> l_Boolean
-[code]  }
- private
- // private methods
-   function IsUnder64(const aCtx: TtfwContext): Boolean;
-     {* Реализация слова скрипта IsUnder64 }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsUnder64
-
-// start class TkwIsUnder64
-
 function TkwIsUnder64.IsUnder64(const aCtx: TtfwContext): Boolean;
+ {* Реализация слова скрипта IsUnder64 }
 //#UC START# *E7960C7CE4B0_F9F8F376A6AB_var*
 //#UC END# *E7960C7CE4B0_F9F8F376A6AB_var*
 begin
@@ -185,64 +996,32 @@ begin
 end;//TkwIsUnder64.IsUnder64
 
 procedure TkwIsUnder64.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushBool((IsUnder64(aCtx)));
+ aCtx.rEngine.PushBool(IsUnder64(aCtx));
 end;//TkwIsUnder64.DoDoIt
 
 class function TkwIsUnder64.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IsUnder64';
 end;//TkwIsUnder64.GetWordNameForRegister
 
 function TkwIsUnder64.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwIsUnder64.GetResultTypeInfo
 
 function TkwIsUnder64.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwIsUnder64.GetAllParamsCount
 
 function TkwIsUnder64.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwIsUnder64.ParamsTypes
 
-type
- TkwComputerName = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта ComputerName
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- ComputerName >>> l_String
-[code]  }
- private
- // private methods
-   function ComputerName(const aCtx: TtfwContext): AnsiString;
-     {* Реализация слова скрипта ComputerName }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwComputerName
-
-// start class TkwComputerName
-
 function TkwComputerName.ComputerName(const aCtx: TtfwContext): AnsiString;
+ {* Реализация слова скрипта ComputerName }
 //#UC START# *67A0331D6030_0D7A9FAE3386_var*
 var
  l_CompSize : Integer;
@@ -260,64 +1039,32 @@ begin
 end;//TkwComputerName.ComputerName
 
 procedure TkwComputerName.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushString((ComputerName(aCtx)));
+ aCtx.rEngine.PushString(ComputerName(aCtx));
 end;//TkwComputerName.DoDoIt
 
 class function TkwComputerName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'ComputerName';
 end;//TkwComputerName.GetWordNameForRegister
 
 function TkwComputerName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwComputerName.GetResultTypeInfo
 
 function TkwComputerName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwComputerName.GetAllParamsCount
 
 function TkwComputerName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwComputerName.ParamsTypes
 
-type
- TkwOSName = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта OSName
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- OSName >>> l_String
-[code]  }
- private
- // private methods
-   function OSName(const aCtx: TtfwContext): AnsiString;
-     {* Реализация слова скрипта OSName }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwOSName
-
-// start class TkwOSName
-
 function TkwOSName.OSName(const aCtx: TtfwContext): AnsiString;
+ {* Реализация слова скрипта OSName }
 //#UC START# *FD0E945E9EFD_20F254F4B4BB_var*
 //#UC END# *FD0E945E9EFD_20F254F4B4BB_var*
 begin
@@ -327,66 +1074,33 @@ begin
 end;//TkwOSName.OSName
 
 procedure TkwOSName.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushString((OSName(aCtx)));
+ aCtx.rEngine.PushString(OSName(aCtx));
 end;//TkwOSName.DoDoIt
 
 class function TkwOSName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'OSName';
 end;//TkwOSName.GetWordNameForRegister
 
 function TkwOSName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwOSName.GetResultTypeInfo
 
 function TkwOSName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwOSName.GetAllParamsCount
 
 function TkwOSName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwOSName.ParamsTypes
 
-type
- TkwRandom = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта Random
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aMax Random >>> l_Integer
-[code]  }
- private
- // private methods
-   function Random(const aCtx: TtfwContext;
-    aMax: Integer): Integer;
-     {* Реализация слова скрипта Random }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwRandom
-
-// start class TkwRandom
-
 function TkwRandom.Random(const aCtx: TtfwContext;
-  aMax: Integer): Integer;
+ aMax: Integer): Integer;
+ {* Реализация слова скрипта Random }
 //#UC START# *20FE7F32818E_E438AFCDC08A_var*
 //#UC END# *20FE7F32818E_E438AFCDC08A_var*
 begin
@@ -396,9 +1110,7 @@ begin
 end;//TkwRandom.Random
 
 procedure TkwRandom.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aMax : Integer;
+var l_aMax: Integer;
 begin
  try
   l_aMax := aCtx.rEngine.PopInt;
@@ -409,53 +1121,28 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((Random(aCtx, l_aMax)));
+ aCtx.rEngine.PushInt(Random(aCtx, l_aMax));
 end;//TkwRandom.DoDoIt
 
 class function TkwRandom.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Random';
 end;//TkwRandom.GetWordNameForRegister
 
 function TkwRandom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwRandom.GetResultTypeInfo
 
 function TkwRandom.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwRandom.GetAllParamsCount
 
 function TkwRandom.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwRandom.ParamsTypes
-
-type
- TkwRandomize = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта Randomize
-*Пример:*
-[code]
- Randomize
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwRandomize
-
-// start class TkwRandomize
 
 procedure TkwRandomize.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_EA3D9826565B_var*
@@ -467,52 +1154,23 @@ begin
 end;//TkwRandomize.DoDoIt
 
 class function TkwRandomize.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Randomize';
 end;//TkwRandomize.GetWordNameForRegister
 
 function TkwRandomize.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwRandomize.GetResultTypeInfo
 
 function TkwRandomize.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwRandomize.GetAllParamsCount
 
-type
- TkwSetRandSeed = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта SetRandSeed
-*Пример:*
-[code]
- aValue SetRandSeed
-[code]  }
- private
- // private methods
-   procedure SetRandSeed(const aCtx: TtfwContext;
-    aValue: Integer);
-     {* Реализация слова скрипта SetRandSeed }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSetRandSeed
-
-// start class TkwSetRandSeed
-
 procedure TkwSetRandSeed.SetRandSeed(const aCtx: TtfwContext;
-  aValue: Integer);
+ aValue: Integer);
+ {* Реализация слова скрипта SetRandSeed }
 //#UC START# *61B70695D7A5_153639A6E4C3_var*
 //#UC END# *61B70695D7A5_153639A6E4C3_var*
 begin
@@ -522,9 +1180,7 @@ begin
 end;//TkwSetRandSeed.SetRandSeed
 
 procedure TkwSetRandSeed.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aValue : Integer;
+var l_aValue: Integer;
 begin
  try
   l_aValue := aCtx.rEngine.PopInt;
@@ -539,68 +1195,30 @@ begin
 end;//TkwSetRandSeed.DoDoIt
 
 class function TkwSetRandSeed.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SetRandSeed';
 end;//TkwSetRandSeed.GetWordNameForRegister
 
 function TkwSetRandSeed.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwSetRandSeed.GetResultTypeInfo
 
 function TkwSetRandSeed.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSetRandSeed.GetAllParamsCount
 
 function TkwSetRandSeed.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwSetRandSeed.ParamsTypes
 
-type
- TkwRGB2String = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта RGB2String
-[panel]Переводит представление R G B в шестнадцатиричное представление в виде строки:
-[code]
-151 40 30 RGB2String .
-[code][panel]
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aR aG aB RGB2String >>> l_String
-[code]  }
- private
- // private methods
-   function RGB2String(const aCtx: TtfwContext;
-    aB: Integer;
-    aG: Integer;
-    aR: Integer): AnsiString;
-     {* Реализация слова скрипта RGB2String }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwRGB2String
-
-// start class TkwRGB2String
-
 function TkwRGB2String.RGB2String(const aCtx: TtfwContext;
-  aB: Integer;
-  aG: Integer;
-  aR: Integer): AnsiString;
+ aB: Integer;
+ aG: Integer;
+ aR: Integer): AnsiString;
+ {* Реализация слова скрипта RGB2String }
 //#UC START# *3FC73A87B28A_1BF05B2801A2_var*
 var
  l_Color : TColor;
@@ -613,11 +1231,9 @@ begin
 end;//TkwRGB2String.RGB2String
 
 procedure TkwRGB2String.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aB : Integer;
- l_aG : Integer;
- l_aR : Integer;
+var l_aB: Integer;
+var l_aG: Integer;
+var l_aR: Integer;
 begin
  try
   l_aB := aCtx.rEngine.PopInt;
@@ -646,64 +1262,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((RGB2String(aCtx, l_aB, l_aG, l_aR)));
+ aCtx.rEngine.PushString(RGB2String(aCtx, l_aB, l_aG, l_aR));
 end;//TkwRGB2String.DoDoIt
 
 class function TkwRGB2String.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'RGB2String';
 end;//TkwRGB2String.GetWordNameForRegister
 
 function TkwRGB2String.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwRGB2String.GetResultTypeInfo
 
 function TkwRGB2String.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 3;
 end;//TkwRGB2String.GetAllParamsCount
 
 function TkwRGB2String.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwRGB2String.ParamsTypes
 
-type
- TkwIntToStr = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта IntToStr
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aValue IntToStr >>> l_String
-[code]  }
- private
- // private methods
-   function IntToStr(const aCtx: TtfwContext;
-    aValue: Integer): AnsiString;
-     {* Реализация слова скрипта IntToStr }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIntToStr
-
-// start class TkwIntToStr
-
 function TkwIntToStr.IntToStr(const aCtx: TtfwContext;
-  aValue: Integer): AnsiString;
+ aValue: Integer): AnsiString;
+ {* Реализация слова скрипта IntToStr }
 //#UC START# *75D135739708_117748A67531_var*
 //#UC END# *75D135739708_117748A67531_var*
 begin
@@ -713,9 +1297,7 @@ begin
 end;//TkwIntToStr.IntToStr
 
 procedure TkwIntToStr.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aValue : Integer;
+var l_aValue: Integer;
 begin
  try
   l_aValue := aCtx.rEngine.PopInt;
@@ -726,62 +1308,31 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((IntToStr(aCtx, l_aValue)));
+ aCtx.rEngine.PushString(IntToStr(aCtx, l_aValue));
 end;//TkwIntToStr.DoDoIt
 
 class function TkwIntToStr.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IntToStr';
 end;//TkwIntToStr.GetWordNameForRegister
 
 function TkwIntToStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwIntToStr.GetResultTypeInfo
 
 function TkwIntToStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwIntToStr.GetAllParamsCount
 
 function TkwIntToStr.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwIntToStr.ParamsTypes
 
-type
- TkwIsXE = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта IsXE
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- IsXE >>> l_Boolean
-[code]  }
- private
- // private methods
-   function IsXE(const aCtx: TtfwContext): Boolean;
-     {* Реализация слова скрипта IsXE }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwIsXE
-
-// start class TkwIsXE
-
 function TkwIsXE.IsXE(const aCtx: TtfwContext): Boolean;
+ {* Реализация слова скрипта IsXE }
 //#UC START# *59381C9832D8_8B86F9435925_var*
 //#UC END# *59381C9832D8_8B86F9435925_var*
 begin
@@ -795,64 +1346,33 @@ begin
 end;//TkwIsXE.IsXE
 
 procedure TkwIsXE.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushBool((IsXE(aCtx)));
+ aCtx.rEngine.PushBool(IsXE(aCtx));
 end;//TkwIsXE.DoDoIt
 
 class function TkwIsXE.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IsXE';
 end;//TkwIsXE.GetWordNameForRegister
 
 function TkwIsXE.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwIsXE.GetResultTypeInfo
 
 function TkwIsXE.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwIsXE.GetAllParamsCount
 
 function TkwIsXE.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwIsXE.ParamsTypes
 
-type
- TkwWinExec = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта WinExec
-*Пример:*
-[code]
- aPath WinExec
-[code]  }
- private
- // private methods
-   procedure WinExec(const aCtx: TtfwContext;
-    const aPath: AnsiString);
-     {* Реализация слова скрипта WinExec }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwWinExec
-
-// start class TkwWinExec
-
 procedure TkwWinExec.WinExec(const aCtx: TtfwContext;
-  const aPath: AnsiString);
+ const aPath: AnsiString);
+ {* Реализация слова скрипта WinExec }
 //#UC START# *F86B14A38365_7B3EE646F965_var*
 var
  l_S : AnsiString;
@@ -867,9 +1387,7 @@ begin
 end;//TkwWinExec.WinExec
 
 procedure TkwWinExec.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPath : AnsiString;
+var l_aPath: AnsiString;
 begin
  try
   l_aPath := aCtx.rEngine.PopDelphiString;
@@ -884,142 +1402,75 @@ begin
 end;//TkwWinExec.DoDoIt
 
 class function TkwWinExec.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'WinExec';
 end;//TkwWinExec.GetWordNameForRegister
 
 function TkwWinExec.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwWinExec.GetResultTypeInfo
 
 function TkwWinExec.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwWinExec.GetAllParamsCount
 
 function TkwWinExec.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwWinExec.ParamsTypes
 
-type
- TkwScriptFileName = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта script:FileName
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- script:FileName >>> l_String
-[code]  }
- private
- // private methods
-   function ScriptFileName(const aCtx: TtfwContext): AnsiString;
-     {* Реализация слова скрипта script:FileName }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwScriptFileName
-
-// start class TkwScriptFileName
-
-function TkwScriptFileName.ScriptFileName(const aCtx: TtfwContext): AnsiString;
+function TkwScriptFileName.script_FileName(const aCtx: TtfwContext): AnsiString;
+ {* Реализация слова скрипта script:FileName }
 //#UC START# *430363D4F3AC_C64998CA8748_var*
 //#UC END# *430363D4F3AC_C64998CA8748_var*
 begin
 //#UC START# *430363D4F3AC_C64998CA8748_impl*
  Result := aCtx.rStreamFactory.FileName;
 //#UC END# *430363D4F3AC_C64998CA8748_impl*
-end;//TkwScriptFileName.ScriptFileName
+end;//TkwScriptFileName.script_FileName
 
 procedure TkwScriptFileName.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushString((ScriptFileName(aCtx)));
+ aCtx.rEngine.PushString(script_FileName(aCtx));
 end;//TkwScriptFileName.DoDoIt
 
 class function TkwScriptFileName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'script:FileName';
 end;//TkwScriptFileName.GetWordNameForRegister
 
 function TkwScriptFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwScriptFileName.GetResultTypeInfo
 
 function TkwScriptFileName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwScriptFileName.GetAllParamsCount
 
 function TkwScriptFileName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwScriptFileName.ParamsTypes
 
-type
- TkwSysutilsChangeFileExt = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:ChangeFileExt
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aName anExt sysutils:ChangeFileExt >>> l_String
-[code]  }
- private
- // private methods
-   function SysutilsChangeFileExt(const aCtx: TtfwContext;
-    const anExt: AnsiString;
-    const aName: AnsiString): AnsiString;
-     {* Реализация слова скрипта sysutils:ChangeFileExt }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsChangeFileExt
-
-// start class TkwSysutilsChangeFileExt
-
-function TkwSysutilsChangeFileExt.SysutilsChangeFileExt(const aCtx: TtfwContext;
-  const anExt: AnsiString;
-  const aName: AnsiString): AnsiString;
+function TkwSysutilsChangeFileExt.sysutils_ChangeFileExt(const aCtx: TtfwContext;
+ const anExt: AnsiString;
+ const aName: AnsiString): AnsiString;
+ {* Реализация слова скрипта sysutils:ChangeFileExt }
 //#UC START# *5D9DF8E375F9_68C847BC1029_var*
 //#UC END# *5D9DF8E375F9_68C847BC1029_var*
 begin
 //#UC START# *5D9DF8E375F9_68C847BC1029_impl*
  Result := ChangeFileExt(aName, anExt);
 //#UC END# *5D9DF8E375F9_68C847BC1029_impl*
-end;//TkwSysutilsChangeFileExt.SysutilsChangeFileExt
+end;//TkwSysutilsChangeFileExt.sysutils_ChangeFileExt
 
 procedure TkwSysutilsChangeFileExt.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_anExt : AnsiString;
- l_aName : AnsiString;
+var l_anExt: AnsiString;
+var l_aName: AnsiString;
 begin
  try
   l_anExt := aCtx.rEngine.PopDelphiString;
@@ -1039,76 +1490,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((SysutilsChangeFileExt(aCtx, l_anExt, l_aName)));
+ aCtx.rEngine.PushString(sysutils_ChangeFileExt(aCtx, l_anExt, l_aName));
 end;//TkwSysutilsChangeFileExt.DoDoIt
 
 class function TkwSysutilsChangeFileExt.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:ChangeFileExt';
 end;//TkwSysutilsChangeFileExt.GetWordNameForRegister
 
 function TkwSysutilsChangeFileExt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwSysutilsChangeFileExt.GetResultTypeInfo
 
 function TkwSysutilsChangeFileExt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 2;
 end;//TkwSysutilsChangeFileExt.GetAllParamsCount
 
 function TkwSysutilsChangeFileExt.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSysutilsChangeFileExt.ParamsTypes
 
-type
- TkwSysutilsExtractFileName = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:ExtractFileName
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aName sysutils:ExtractFileName >>> l_String
-[code]  }
- private
- // private methods
-   function SysutilsExtractFileName(const aCtx: TtfwContext;
-    const aName: AnsiString): AnsiString;
-     {* Реализация слова скрипта sysutils:ExtractFileName }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsExtractFileName
-
-// start class TkwSysutilsExtractFileName
-
-function TkwSysutilsExtractFileName.SysutilsExtractFileName(const aCtx: TtfwContext;
-  const aName: AnsiString): AnsiString;
+function TkwSysutilsExtractFileName.sysutils_ExtractFileName(const aCtx: TtfwContext;
+ const aName: AnsiString): AnsiString;
+ {* Реализация слова скрипта sysutils:ExtractFileName }
 //#UC START# *48BEA5CAB9AB_35FFB5DF4CE1_var*
 //#UC END# *48BEA5CAB9AB_35FFB5DF4CE1_var*
 begin
 //#UC START# *48BEA5CAB9AB_35FFB5DF4CE1_impl*
  Result := ExtractFileName(aName);
 //#UC END# *48BEA5CAB9AB_35FFB5DF4CE1_impl*
-end;//TkwSysutilsExtractFileName.SysutilsExtractFileName
+end;//TkwSysutilsExtractFileName.sysutils_ExtractFileName
 
 procedure TkwSysutilsExtractFileName.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aName : AnsiString;
+var l_aName: AnsiString;
 begin
  try
   l_aName := aCtx.rEngine.PopDelphiString;
@@ -1119,76 +1536,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((SysutilsExtractFileName(aCtx, l_aName)));
+ aCtx.rEngine.PushString(sysutils_ExtractFileName(aCtx, l_aName));
 end;//TkwSysutilsExtractFileName.DoDoIt
 
 class function TkwSysutilsExtractFileName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:ExtractFileName';
 end;//TkwSysutilsExtractFileName.GetWordNameForRegister
 
 function TkwSysutilsExtractFileName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwSysutilsExtractFileName.GetResultTypeInfo
 
 function TkwSysutilsExtractFileName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsExtractFileName.GetAllParamsCount
 
 function TkwSysutilsExtractFileName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsExtractFileName.ParamsTypes
 
-type
- TkwSysutilsExtractFilePath = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:ExtractFilePath
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aName sysutils:ExtractFilePath >>> l_String
-[code]  }
- private
- // private methods
-   function SysutilsExtractFilePath(const aCtx: TtfwContext;
-    const aName: AnsiString): AnsiString;
-     {* Реализация слова скрипта sysutils:ExtractFilePath }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsExtractFilePath
-
-// start class TkwSysutilsExtractFilePath
-
-function TkwSysutilsExtractFilePath.SysutilsExtractFilePath(const aCtx: TtfwContext;
-  const aName: AnsiString): AnsiString;
+function TkwSysutilsExtractFilePath.sysutils_ExtractFilePath(const aCtx: TtfwContext;
+ const aName: AnsiString): AnsiString;
+ {* Реализация слова скрипта sysutils:ExtractFilePath }
 //#UC START# *80C1D574516D_E5B80654F1A7_var*
 //#UC END# *80C1D574516D_E5B80654F1A7_var*
 begin
 //#UC START# *80C1D574516D_E5B80654F1A7_impl*
  Result := ExtractFilePath(aName);
 //#UC END# *80C1D574516D_E5B80654F1A7_impl*
-end;//TkwSysutilsExtractFilePath.SysutilsExtractFilePath
+end;//TkwSysutilsExtractFilePath.sysutils_ExtractFilePath
 
 procedure TkwSysutilsExtractFilePath.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aName : AnsiString;
+var l_aName: AnsiString;
 begin
  try
   l_aName := aCtx.rEngine.PopDelphiString;
@@ -1199,76 +1582,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((SysutilsExtractFilePath(aCtx, l_aName)));
+ aCtx.rEngine.PushString(sysutils_ExtractFilePath(aCtx, l_aName));
 end;//TkwSysutilsExtractFilePath.DoDoIt
 
 class function TkwSysutilsExtractFilePath.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:ExtractFilePath';
 end;//TkwSysutilsExtractFilePath.GetWordNameForRegister
 
 function TkwSysutilsExtractFilePath.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwSysutilsExtractFilePath.GetResultTypeInfo
 
 function TkwSysutilsExtractFilePath.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsExtractFilePath.GetAllParamsCount
 
 function TkwSysutilsExtractFilePath.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsExtractFilePath.ParamsTypes
 
-type
- TkwSysutilsExtractFileDrive = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:ExtractFileDrive
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aName sysutils:ExtractFileDrive >>> l_String
-[code]  }
- private
- // private methods
-   function SysutilsExtractFileDrive(const aCtx: TtfwContext;
-    const aName: AnsiString): AnsiString;
-     {* Реализация слова скрипта sysutils:ExtractFileDrive }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsExtractFileDrive
-
-// start class TkwSysutilsExtractFileDrive
-
-function TkwSysutilsExtractFileDrive.SysutilsExtractFileDrive(const aCtx: TtfwContext;
-  const aName: AnsiString): AnsiString;
+function TkwSysutilsExtractFileDrive.sysutils_ExtractFileDrive(const aCtx: TtfwContext;
+ const aName: AnsiString): AnsiString;
+ {* Реализация слова скрипта sysutils:ExtractFileDrive }
 //#UC START# *7607F0C19FA3_968E4E29A5EA_var*
 //#UC END# *7607F0C19FA3_968E4E29A5EA_var*
 begin
 //#UC START# *7607F0C19FA3_968E4E29A5EA_impl*
  Result := ExtractFileDrive(aName);
 //#UC END# *7607F0C19FA3_968E4E29A5EA_impl*
-end;//TkwSysutilsExtractFileDrive.SysutilsExtractFileDrive
+end;//TkwSysutilsExtractFileDrive.sysutils_ExtractFileDrive
 
 procedure TkwSysutilsExtractFileDrive.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aName : AnsiString;
+var l_aName: AnsiString;
 begin
  try
   l_aName := aCtx.rEngine.PopDelphiString;
@@ -1279,76 +1628,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((SysutilsExtractFileDrive(aCtx, l_aName)));
+ aCtx.rEngine.PushString(sysutils_ExtractFileDrive(aCtx, l_aName));
 end;//TkwSysutilsExtractFileDrive.DoDoIt
 
 class function TkwSysutilsExtractFileDrive.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:ExtractFileDrive';
 end;//TkwSysutilsExtractFileDrive.GetWordNameForRegister
 
 function TkwSysutilsExtractFileDrive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwSysutilsExtractFileDrive.GetResultTypeInfo
 
 function TkwSysutilsExtractFileDrive.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsExtractFileDrive.GetAllParamsCount
 
 function TkwSysutilsExtractFileDrive.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsExtractFileDrive.ParamsTypes
 
-type
- TkwSysutilsDirectoryExists = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:DirectoryExists
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aPath sysutils:DirectoryExists >>> l_Boolean
-[code]  }
- private
- // private methods
-   function SysutilsDirectoryExists(const aCtx: TtfwContext;
-    const aPath: AnsiString): Boolean;
-     {* Реализация слова скрипта sysutils:DirectoryExists }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsDirectoryExists
-
-// start class TkwSysutilsDirectoryExists
-
-function TkwSysutilsDirectoryExists.SysutilsDirectoryExists(const aCtx: TtfwContext;
-  const aPath: AnsiString): Boolean;
+function TkwSysutilsDirectoryExists.sysutils_DirectoryExists(const aCtx: TtfwContext;
+ const aPath: AnsiString): Boolean;
+ {* Реализация слова скрипта sysutils:DirectoryExists }
 //#UC START# *A6E45D572442_ACB27923B254_var*
 //#UC END# *A6E45D572442_ACB27923B254_var*
 begin
 //#UC START# *A6E45D572442_ACB27923B254_impl*
  Result := DirectoryExists(aPath);
 //#UC END# *A6E45D572442_ACB27923B254_impl*
-end;//TkwSysutilsDirectoryExists.SysutilsDirectoryExists
+end;//TkwSysutilsDirectoryExists.sysutils_DirectoryExists
 
 procedure TkwSysutilsDirectoryExists.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPath : AnsiString;
+var l_aPath: AnsiString;
 begin
  try
   l_aPath := aCtx.rEngine.PopDelphiString;
@@ -1359,76 +1674,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((SysutilsDirectoryExists(aCtx, l_aPath)));
+ aCtx.rEngine.PushBool(sysutils_DirectoryExists(aCtx, l_aPath));
 end;//TkwSysutilsDirectoryExists.DoDoIt
 
 class function TkwSysutilsDirectoryExists.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:DirectoryExists';
 end;//TkwSysutilsDirectoryExists.GetWordNameForRegister
 
 function TkwSysutilsDirectoryExists.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwSysutilsDirectoryExists.GetResultTypeInfo
 
 function TkwSysutilsDirectoryExists.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsDirectoryExists.GetAllParamsCount
 
 function TkwSysutilsDirectoryExists.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsDirectoryExists.ParamsTypes
 
-type
- TkwSysutilsFileExists = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:FileExists
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aPath sysutils:FileExists >>> l_Boolean
-[code]  }
- private
- // private methods
-   function SysutilsFileExists(const aCtx: TtfwContext;
-    const aPath: AnsiString): Boolean;
-     {* Реализация слова скрипта sysutils:FileExists }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsFileExists
-
-// start class TkwSysutilsFileExists
-
-function TkwSysutilsFileExists.SysutilsFileExists(const aCtx: TtfwContext;
-  const aPath: AnsiString): Boolean;
+function TkwSysutilsFileExists.sysutils_FileExists(const aCtx: TtfwContext;
+ const aPath: AnsiString): Boolean;
+ {* Реализация слова скрипта sysutils:FileExists }
 //#UC START# *880D1E65813C_8709A220B763_var*
 //#UC END# *880D1E65813C_8709A220B763_var*
 begin
 //#UC START# *880D1E65813C_8709A220B763_impl*
  Result := FileExists(aPath);
 //#UC END# *880D1E65813C_8709A220B763_impl*
-end;//TkwSysutilsFileExists.SysutilsFileExists
+end;//TkwSysutilsFileExists.sysutils_FileExists
 
 procedure TkwSysutilsFileExists.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPath : AnsiString;
+var l_aPath: AnsiString;
 begin
  try
   l_aPath := aCtx.rEngine.PopDelphiString;
@@ -1439,76 +1720,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((SysutilsFileExists(aCtx, l_aPath)));
+ aCtx.rEngine.PushBool(sysutils_FileExists(aCtx, l_aPath));
 end;//TkwSysutilsFileExists.DoDoIt
 
 class function TkwSysutilsFileExists.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:FileExists';
 end;//TkwSysutilsFileExists.GetWordNameForRegister
 
 function TkwSysutilsFileExists.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwSysutilsFileExists.GetResultTypeInfo
 
 function TkwSysutilsFileExists.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsFileExists.GetAllParamsCount
 
 function TkwSysutilsFileExists.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsFileExists.ParamsTypes
 
-type
- TkwSysutilsForceDirectories = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:ForceDirectories
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aPath sysutils:ForceDirectories >>> l_Boolean
-[code]  }
- private
- // private methods
-   function SysutilsForceDirectories(const aCtx: TtfwContext;
-    const aPath: AnsiString): Boolean;
-     {* Реализация слова скрипта sysutils:ForceDirectories }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsForceDirectories
-
-// start class TkwSysutilsForceDirectories
-
-function TkwSysutilsForceDirectories.SysutilsForceDirectories(const aCtx: TtfwContext;
-  const aPath: AnsiString): Boolean;
+function TkwSysutilsForceDirectories.sysutils_ForceDirectories(const aCtx: TtfwContext;
+ const aPath: AnsiString): Boolean;
+ {* Реализация слова скрипта sysutils:ForceDirectories }
 //#UC START# *DF7BBEF65068_4F6F96722B37_var*
 //#UC END# *DF7BBEF65068_4F6F96722B37_var*
 begin
 //#UC START# *DF7BBEF65068_4F6F96722B37_impl*
  Result := ForceDirectories(aPath);
 //#UC END# *DF7BBEF65068_4F6F96722B37_impl*
-end;//TkwSysutilsForceDirectories.SysutilsForceDirectories
+end;//TkwSysutilsForceDirectories.sysutils_ForceDirectories
 
 procedure TkwSysutilsForceDirectories.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPath : AnsiString;
+var l_aPath: AnsiString;
 begin
  try
   l_aPath := aCtx.rEngine.PopDelphiString;
@@ -1519,53 +1766,28 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((SysutilsForceDirectories(aCtx, l_aPath)));
+ aCtx.rEngine.PushBool(sysutils_ForceDirectories(aCtx, l_aPath));
 end;//TkwSysutilsForceDirectories.DoDoIt
 
 class function TkwSysutilsForceDirectories.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:ForceDirectories';
 end;//TkwSysutilsForceDirectories.GetWordNameForRegister
 
 function TkwSysutilsForceDirectories.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwSysutilsForceDirectories.GetResultTypeInfo
 
 function TkwSysutilsForceDirectories.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsForceDirectories.GetAllParamsCount
 
 function TkwSysutilsForceDirectories.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsForceDirectories.ParamsTypes
-
-type
- TkwSetAppPath2CurrentDir = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта SetAppPath2CurrentDir
-*Пример:*
-[code]
- SetAppPath2CurrentDir
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwSetAppPath2CurrentDir
-
-// start class TkwSetAppPath2CurrentDir
 
 procedure TkwSetAppPath2CurrentDir.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_21D0FBE864A6_var*
@@ -1577,119 +1799,57 @@ begin
 end;//TkwSetAppPath2CurrentDir.DoDoIt
 
 class function TkwSetAppPath2CurrentDir.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SetAppPath2CurrentDir';
 end;//TkwSetAppPath2CurrentDir.GetWordNameForRegister
 
 function TkwSetAppPath2CurrentDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwSetAppPath2CurrentDir.GetResultTypeInfo
 
 function TkwSetAppPath2CurrentDir.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwSetAppPath2CurrentDir.GetAllParamsCount
 
-type
- TkwApplicationExeName = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта application:ExeName
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- application:ExeName >>> l_String
-[code]  }
- private
- // private methods
-   function ApplicationExeName(const aCtx: TtfwContext): AnsiString;
-     {* Реализация слова скрипта application:ExeName }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwApplicationExeName
-
-// start class TkwApplicationExeName
-
-function TkwApplicationExeName.ApplicationExeName(const aCtx: TtfwContext): AnsiString;
+function TkwApplicationExeName.application_ExeName(const aCtx: TtfwContext): AnsiString;
+ {* Реализация слова скрипта application:ExeName }
 //#UC START# *BBBD58864003_B3D96AECB8FC_var*
 //#UC END# *BBBD58864003_B3D96AECB8FC_var*
 begin
 //#UC START# *BBBD58864003_B3D96AECB8FC_impl*
  Result := ParamStr(0);
 //#UC END# *BBBD58864003_B3D96AECB8FC_impl*
-end;//TkwApplicationExeName.ApplicationExeName
+end;//TkwApplicationExeName.application_ExeName
 
 procedure TkwApplicationExeName.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushString((ApplicationExeName(aCtx)));
+ aCtx.rEngine.PushString(application_ExeName(aCtx));
 end;//TkwApplicationExeName.DoDoIt
 
 class function TkwApplicationExeName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'application:ExeName';
 end;//TkwApplicationExeName.GetWordNameForRegister
 
 function TkwApplicationExeName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwApplicationExeName.GetResultTypeInfo
 
 function TkwApplicationExeName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwApplicationExeName.GetAllParamsCount
 
 function TkwApplicationExeName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwApplicationExeName.ParamsTypes
 
-type
- TkwGetTickCount = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта GetTickCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- GetTickCount >>> l_Integer
-[code]  }
- private
- // private methods
-   function GetTickCount(const aCtx: TtfwContext): Integer;
-     {* Реализация слова скрипта GetTickCount }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwGetTickCount
-
-// start class TkwGetTickCount
-
 function TkwGetTickCount.GetTickCount(const aCtx: TtfwContext): Integer;
+ {* Реализация слова скрипта GetTickCount }
 //#UC START# *5DDD1E88CFCD_283A1C53257F_var*
 //#UC END# *5DDD1E88CFCD_283A1C53257F_var*
 begin
@@ -1699,55 +1859,29 @@ begin
 end;//TkwGetTickCount.GetTickCount
 
 procedure TkwGetTickCount.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushInt((GetTickCount(aCtx)));
+ aCtx.rEngine.PushInt(GetTickCount(aCtx));
 end;//TkwGetTickCount.DoDoIt
 
 class function TkwGetTickCount.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'GetTickCount';
 end;//TkwGetTickCount.GetWordNameForRegister
 
 function TkwGetTickCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwGetTickCount.GetResultTypeInfo
 
 function TkwGetTickCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwGetTickCount.GetAllParamsCount
 
 function TkwGetTickCount.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwGetTickCount.ParamsTypes
-
-type
- TkwApplicationActionIdle = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта application:ActionIdle
-*Пример:*
-[code]
- application:ActionIdle
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwApplicationActionIdle
-
-// start class TkwApplicationActionIdle
 
 procedure TkwApplicationActionIdle.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4321FF105F4A_var*
@@ -1769,43 +1903,19 @@ begin
 end;//TkwApplicationActionIdle.DoDoIt
 
 class function TkwApplicationActionIdle.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'application:ActionIdle';
 end;//TkwApplicationActionIdle.GetWordNameForRegister
 
 function TkwApplicationActionIdle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwApplicationActionIdle.GetResultTypeInfo
 
 function TkwApplicationActionIdle.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwApplicationActionIdle.GetAllParamsCount
-
-type
- TkwClipboardClear = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта clipboard:clear
-*Пример:*
-[code]
- clipboard:clear
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwClipboardClear
-
-// start class TkwClipboardClear
 
 procedure TkwClipboardClear.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_2761B617CA85_var*
@@ -1817,56 +1927,25 @@ begin
 end;//TkwClipboardClear.DoDoIt
 
 class function TkwClipboardClear.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'clipboard:clear';
 end;//TkwClipboardClear.GetWordNameForRegister
 
 function TkwClipboardClear.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwClipboardClear.GetResultTypeInfo
 
 function TkwClipboardClear.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwClipboardClear.GetAllParamsCount
 
-type
- TkwSetLocalDate = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта SetLocalDate
-*Пример:*
-[code]
- anYear aMonth aDay SetLocalDate
-[code]  }
- private
- // private methods
-   procedure SetLocalDate(const aCtx: TtfwContext;
-    aDay: Integer;
-    aMonth: Integer;
-    anYear: Integer);
-     {* Реализация слова скрипта SetLocalDate }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSetLocalDate
-
-// start class TkwSetLocalDate
-
 procedure TkwSetLocalDate.SetLocalDate(const aCtx: TtfwContext;
-  aDay: Integer;
-  aMonth: Integer;
-  anYear: Integer);
+ aDay: Integer;
+ aMonth: Integer;
+ anYear: Integer);
+ {* Реализация слова скрипта SetLocalDate }
 //#UC START# *FCCD09033538_8A50690C658A_var*
 var
  l_Time: TSystemTime;
@@ -1884,11 +1963,9 @@ begin
 end;//TkwSetLocalDate.SetLocalDate
 
 procedure TkwSetLocalDate.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aDay : Integer;
- l_aMonth : Integer;
- l_anYear : Integer;
+var l_aDay: Integer;
+var l_aMonth: Integer;
+var l_anYear: Integer;
 begin
  try
   l_aDay := aCtx.rEngine.PopInt;
@@ -1921,64 +1998,31 @@ begin
 end;//TkwSetLocalDate.DoDoIt
 
 class function TkwSetLocalDate.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SetLocalDate';
 end;//TkwSetLocalDate.GetWordNameForRegister
 
 function TkwSetLocalDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwSetLocalDate.GetResultTypeInfo
 
 function TkwSetLocalDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 3;
 end;//TkwSetLocalDate.GetAllParamsCount
 
 function TkwSetLocalDate.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwSetLocalDate.ParamsTypes
 
-type
- TkwSetLocalTime = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта SetLocalTime
-*Пример:*
-[code]
- anHour aMinute aSecond aMilli SetLocalTime
-[code]  }
- private
- // private methods
-   procedure SetLocalTime(const aCtx: TtfwContext;
-    aMilli: Integer;
-    aSecond: Integer;
-    aMinute: Integer;
-    anHour: Integer);
-     {* Реализация слова скрипта SetLocalTime }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSetLocalTime
-
-// start class TkwSetLocalTime
-
 procedure TkwSetLocalTime.SetLocalTime(const aCtx: TtfwContext;
-  aMilli: Integer;
-  aSecond: Integer;
-  aMinute: Integer;
-  anHour: Integer);
+ aMilli: Integer;
+ aSecond: Integer;
+ aMinute: Integer;
+ anHour: Integer);
+ {* Реализация слова скрипта SetLocalTime }
 //#UC START# *5AB6E7F355A8_453F93ACCEA3_var*
 var
  l_Time: TSystemTime;
@@ -1997,12 +2041,10 @@ begin
 end;//TkwSetLocalTime.SetLocalTime
 
 procedure TkwSetLocalTime.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aMilli : Integer;
- l_aSecond : Integer;
- l_aMinute : Integer;
- l_anHour : Integer;
+var l_aMilli: Integer;
+var l_aSecond: Integer;
+var l_aMinute: Integer;
+var l_anHour: Integer;
 begin
  try
   l_aMilli := aCtx.rEngine.PopInt;
@@ -2044,70 +2086,34 @@ begin
 end;//TkwSetLocalTime.DoDoIt
 
 class function TkwSetLocalTime.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SetLocalTime';
 end;//TkwSetLocalTime.GetWordNameForRegister
 
 function TkwSetLocalTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwSetLocalTime.GetResultTypeInfo
 
 function TkwSetLocalTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 4;
 end;//TkwSetLocalTime.GetAllParamsCount
 
 function TkwSetLocalTime.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwSetLocalTime.ParamsTypes
 
-type
- TkwSetLocalDateTime = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта SetLocalDateTime
-*Пример:*
-[code]
- anYear aMonth aDay anHour aMinute aSecond aMilli SetLocalDateTime
-[code]  }
- private
- // private methods
-   procedure SetLocalDateTime(const aCtx: TtfwContext;
-    aMilli: Integer;
-    aSecond: Integer;
-    aMinute: Integer;
-    anHour: Integer;
-    aDay: Integer;
-    aMonth: Integer;
-    anYear: Integer);
-     {* Реализация слова скрипта SetLocalDateTime }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSetLocalDateTime
-
-// start class TkwSetLocalDateTime
-
 procedure TkwSetLocalDateTime.SetLocalDateTime(const aCtx: TtfwContext;
-  aMilli: Integer;
-  aSecond: Integer;
-  aMinute: Integer;
-  anHour: Integer;
-  aDay: Integer;
-  aMonth: Integer;
-  anYear: Integer);
+ aMilli: Integer;
+ aSecond: Integer;
+ aMinute: Integer;
+ anHour: Integer;
+ aDay: Integer;
+ aMonth: Integer;
+ anYear: Integer);
+ {* Реализация слова скрипта SetLocalDateTime }
 //#UC START# *86288D38BB4F_CC86921D0E73_var*
 var
  l_Time: TSystemTime;
@@ -2129,15 +2135,13 @@ begin
 end;//TkwSetLocalDateTime.SetLocalDateTime
 
 procedure TkwSetLocalDateTime.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aMilli : Integer;
- l_aSecond : Integer;
- l_aMinute : Integer;
- l_anHour : Integer;
- l_aDay : Integer;
- l_aMonth : Integer;
- l_anYear : Integer;
+var l_aMilli: Integer;
+var l_aSecond: Integer;
+var l_aMinute: Integer;
+var l_anHour: Integer;
+var l_aDay: Integer;
+var l_aMonth: Integer;
+var l_anYear: Integer;
 begin
  try
   l_aMilli := aCtx.rEngine.PopInt;
@@ -2206,49 +2210,24 @@ begin
 end;//TkwSetLocalDateTime.DoDoIt
 
 class function TkwSetLocalDateTime.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SetLocalDateTime';
 end;//TkwSetLocalDateTime.GetWordNameForRegister
 
 function TkwSetLocalDateTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwSetLocalDateTime.GetResultTypeInfo
 
 function TkwSetLocalDateTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 7;
 end;//TkwSetLocalDateTime.GetAllParamsCount
 
 function TkwSetLocalDateTime.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwSetLocalDateTime.ParamsTypes
-
-type
- TkwGetLocalDate = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта GetLocalDate
-*Пример:*
-[code]
- GetLocalDate
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwGetLocalDate
-
-// start class TkwGetLocalDate
 
 procedure TkwGetLocalDate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_F6C5E61F680C_var*
@@ -2265,43 +2244,19 @@ begin
 end;//TkwGetLocalDate.DoDoIt
 
 class function TkwGetLocalDate.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'GetLocalDate';
 end;//TkwGetLocalDate.GetWordNameForRegister
 
 function TkwGetLocalDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwGetLocalDate.GetResultTypeInfo
 
 function TkwGetLocalDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwGetLocalDate.GetAllParamsCount
-
-type
- TkwGetLocalDateTime = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта GetLocalDateTime
-*Пример:*
-[code]
- GetLocalDateTime
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwGetLocalDateTime
-
-// start class TkwGetLocalDateTime
 
 procedure TkwGetLocalDateTime.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_1FE2F18F76F6_var*
@@ -2322,43 +2277,19 @@ begin
 end;//TkwGetLocalDateTime.DoDoIt
 
 class function TkwGetLocalDateTime.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'GetLocalDateTime';
 end;//TkwGetLocalDateTime.GetWordNameForRegister
 
 function TkwGetLocalDateTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwGetLocalDateTime.GetResultTypeInfo
 
 function TkwGetLocalDateTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwGetLocalDateTime.GetAllParamsCount
-
-type
- TkwGetLocalTime = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта GetLocalTime
-*Пример:*
-[code]
- GetLocalTime
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwGetLocalTime
-
-// start class TkwGetLocalTime
 
 procedure TkwGetLocalTime.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_47E01D1A49DA_var*
@@ -2376,43 +2307,19 @@ begin
 end;//TkwGetLocalTime.DoDoIt
 
 class function TkwGetLocalTime.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'GetLocalTime';
 end;//TkwGetLocalTime.GetWordNameForRegister
 
 function TkwGetLocalTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwGetLocalTime.GetResultTypeInfo
 
 function TkwGetLocalTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwGetLocalTime.GetAllParamsCount
-
-type
- TkwStartTimer = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта StartTimer
-*Пример:*
-[code]
- StartTimer
-[code]  }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
- end;//TkwStartTimer
-
-// start class TkwStartTimer
 
 procedure TkwStartTimer.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_084854089DF8_var*
@@ -2424,54 +2331,23 @@ begin
 end;//TkwStartTimer.DoDoIt
 
 class function TkwStartTimer.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StartTimer';
 end;//TkwStartTimer.GetWordNameForRegister
 
 function TkwStartTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwStartTimer.GetResultTypeInfo
 
 function TkwStartTimer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwStartTimer.GetAllParamsCount
 
-type
- TkwStopTimer = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта StopTimer
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aName StopTimer >>> l_Integer
-[code]  }
- private
- // private methods
-   function StopTimer(const aCtx: TtfwContext;
-    const aName: AnsiString): Integer;
-     {* Реализация слова скрипта StopTimer }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStopTimer
-
-// start class TkwStopTimer
-
 function TkwStopTimer.StopTimer(const aCtx: TtfwContext;
-  const aName: AnsiString): Integer;
+ const aName: AnsiString): Integer;
+ {* Реализация слова скрипта StopTimer }
 //#UC START# *D41B4A8BB159_E113BA65B398_var*
 //#UC END# *D41B4A8BB159_E113BA65B398_var*
 begin
@@ -2481,9 +2357,7 @@ begin
 end;//TkwStopTimer.StopTimer
 
 procedure TkwStopTimer.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aName : AnsiString;
+var l_aName: AnsiString;
 begin
  try
   l_aName := aCtx.rEngine.PopDelphiString;
@@ -2494,66 +2368,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((StopTimer(aCtx, l_aName)));
+ aCtx.rEngine.PushInt(StopTimer(aCtx, l_aName));
 end;//TkwStopTimer.DoDoIt
 
 class function TkwStopTimer.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StopTimer';
 end;//TkwStopTimer.GetWordNameForRegister
 
 function TkwStopTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStopTimer.GetResultTypeInfo
 
 function TkwStopTimer.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwStopTimer.GetAllParamsCount
 
 function TkwStopTimer.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStopTimer.ParamsTypes
 
-type
- TkwStopTimerEx = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта StopTimerEx
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aName aSubName StopTimerEx >>> l_Integer
-[code]  }
- private
- // private methods
-   function StopTimerEx(const aCtx: TtfwContext;
-    const aSubName: AnsiString;
-    const aName: AnsiString): Integer;
-     {* Реализация слова скрипта StopTimerEx }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStopTimerEx
-
-// start class TkwStopTimerEx
-
 function TkwStopTimerEx.StopTimerEx(const aCtx: TtfwContext;
-  const aSubName: AnsiString;
-  const aName: AnsiString): Integer;
+ const aSubName: AnsiString;
+ const aName: AnsiString): Integer;
+ {* Реализация слова скрипта StopTimerEx }
 //#UC START# *9630E77C53F3_861A2BB899E3_var*
 //#UC END# *9630E77C53F3_861A2BB899E3_var*
 begin
@@ -2563,10 +2404,8 @@ begin
 end;//TkwStopTimerEx.StopTimerEx
 
 procedure TkwStopTimerEx.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aSubName : AnsiString;
- l_aName : AnsiString;
+var l_aSubName: AnsiString;
+var l_aName: AnsiString;
 begin
  try
   l_aSubName := aCtx.rEngine.PopDelphiString;
@@ -2586,66 +2425,34 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((StopTimerEx(aCtx, l_aSubName, l_aName)));
+ aCtx.rEngine.PushInt(StopTimerEx(aCtx, l_aSubName, l_aName));
 end;//TkwStopTimerEx.DoDoIt
 
 class function TkwStopTimerEx.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StopTimerEx';
 end;//TkwStopTimerEx.GetWordNameForRegister
 
 function TkwStopTimerEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStopTimerEx.GetResultTypeInfo
 
 function TkwStopTimerEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 2;
 end;//TkwStopTimerEx.GetAllParamsCount
 
 function TkwStopTimerEx.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStopTimerEx.ParamsTypes
 
-type
- TkwTimeToLog = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта TimeToLog
-*Пример:*
-[code]
- aName aSubName aValue TimeToLog
-[code]  }
- private
- // private methods
-   procedure TimeToLog(const aCtx: TtfwContext;
-    aValue: Integer;
-    const aSubName: AnsiString;
-    const aName: AnsiString);
-     {* Реализация слова скрипта TimeToLog }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTimeToLog
-
-// start class TkwTimeToLog
-
 procedure TkwTimeToLog.TimeToLog(const aCtx: TtfwContext;
-  aValue: Integer;
-  const aSubName: AnsiString;
-  const aName: AnsiString);
+ aValue: Integer;
+ const aSubName: AnsiString;
+ const aName: AnsiString);
+ {* Реализация слова скрипта TimeToLog }
 //#UC START# *1CD228A2D1EA_1C56158F55E7_var*
 
  function Mangle(const aStr: AnsiString): AnsiString;
@@ -2676,11 +2483,9 @@ begin
 end;//TkwTimeToLog.TimeToLog
 
 procedure TkwTimeToLog.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aValue : Integer;
- l_aSubName : AnsiString;
- l_aName : AnsiString;
+var l_aValue: Integer;
+var l_aSubName: AnsiString;
+var l_aName: AnsiString;
 begin
  try
   l_aValue := aCtx.rEngine.PopInt;
@@ -2713,62 +2518,30 @@ begin
 end;//TkwTimeToLog.DoDoIt
 
 class function TkwTimeToLog.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'TimeToLog';
 end;//TkwTimeToLog.GetWordNameForRegister
 
 function TkwTimeToLog.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTimeToLog.GetResultTypeInfo
 
 function TkwTimeToLog.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 3;
 end;//TkwTimeToLog.GetAllParamsCount
 
 function TkwTimeToLog.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(AnsiString), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(Integer), @tfw_tiString, @tfw_tiString]);
 end;//TkwTimeToLog.ParamsTypes
 
-type
- TkwShiftDate = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта ShiftDate
-*Пример:*
-[code]
- aDeltaY aDeltaM aDeltaD ShiftDate
-[code]  }
- private
- // private methods
-   procedure ShiftDate(const aCtx: TtfwContext;
-    aDeltaD: Integer;
-    aDeltaM: Integer;
-    aDeltaY: Integer);
-     {* Реализация слова скрипта ShiftDate }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwShiftDate
-
-// start class TkwShiftDate
-
 procedure TkwShiftDate.ShiftDate(const aCtx: TtfwContext;
-  aDeltaD: Integer;
-  aDeltaM: Integer;
-  aDeltaY: Integer);
+ aDeltaD: Integer;
+ aDeltaM: Integer;
+ aDeltaY: Integer);
+ {* Реализация слова скрипта ShiftDate }
 //#UC START# *90D645BF4786_7411EFEEC0A2_var*
 var
  l_Time: TSystemTime;
@@ -2789,11 +2562,9 @@ begin
 end;//TkwShiftDate.ShiftDate
 
 procedure TkwShiftDate.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aDeltaD : Integer;
- l_aDeltaM : Integer;
- l_aDeltaY : Integer;
+var l_aDeltaD: Integer;
+var l_aDeltaM: Integer;
+var l_aDeltaY: Integer;
 begin
  try
   l_aDeltaD := aCtx.rEngine.PopInt;
@@ -2826,58 +2597,28 @@ begin
 end;//TkwShiftDate.DoDoIt
 
 class function TkwShiftDate.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'ShiftDate';
 end;//TkwShiftDate.GetWordNameForRegister
 
 function TkwShiftDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwShiftDate.GetResultTypeInfo
 
 function TkwShiftDate.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 3;
 end;//TkwShiftDate.GetAllParamsCount
 
 function TkwShiftDate.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwShiftDate.ParamsTypes
 
-type
- TkwShiftTime = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта ShiftTime
-*Пример:*
-[code]
- aDeltaMilli ShiftTime
-[code]  }
- private
- // private methods
-   procedure ShiftTime(const aCtx: TtfwContext;
-    aDeltaMilli: Integer);
-     {* Реализация слова скрипта ShiftTime }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwShiftTime
-
-// start class TkwShiftTime
-
 procedure TkwShiftTime.ShiftTime(const aCtx: TtfwContext;
-  aDeltaMilli: Integer);
+ aDeltaMilli: Integer);
+ {* Реализация слова скрипта ShiftTime }
 //#UC START# *1922D633B85B_9F4966698005_var*
 var
  l_Time: TSystemTime;
@@ -2896,9 +2637,7 @@ begin
 end;//TkwShiftTime.ShiftTime
 
 procedure TkwShiftTime.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aDeltaMilli : Integer;
+var l_aDeltaMilli: Integer;
 begin
  try
   l_aDeltaMilli := aCtx.rEngine.PopInt;
@@ -2913,60 +2652,28 @@ begin
 end;//TkwShiftTime.DoDoIt
 
 class function TkwShiftTime.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'ShiftTime';
 end;//TkwShiftTime.GetWordNameForRegister
 
 function TkwShiftTime.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwShiftTime.GetResultTypeInfo
 
 function TkwShiftTime.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwShiftTime.GetAllParamsCount
 
 function TkwShiftTime.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwShiftTime.ParamsTypes
 
-type
- TkwClipboardGetFormattedText = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта clipboard:GetFormattedText
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aFormat clipboard:GetFormattedText >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function ClipboardGetFormattedText(const aCtx: TtfwContext;
-    const aFormat: TtfwStackValue): Il3CString;
-     {* Реализация слова скрипта clipboard:GetFormattedText }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwClipboardGetFormattedText
-
-// start class TkwClipboardGetFormattedText
-
-function TkwClipboardGetFormattedText.ClipboardGetFormattedText(const aCtx: TtfwContext;
-  const aFormat: TtfwStackValue): Il3CString;
+function TkwClipboardGetFormattedText.clipboard_GetFormattedText(const aCtx: TtfwContext;
+ const aFormat: TtfwStackValue): Il3CString;
+ {* Реализация слова скрипта clipboard:GetFormattedText }
 //#UC START# *545B4C0C78E1_B4A35E44526B_var*
 var
  l_Format: Cardinal;
@@ -3009,12 +2716,10 @@ begin
  Assert(false);
  {$IfEnd}
 //#UC END# *545B4C0C78E1_B4A35E44526B_impl*
-end;//TkwClipboardGetFormattedText.ClipboardGetFormattedText
+end;//TkwClipboardGetFormattedText.clipboard_GetFormattedText
 
 procedure TkwClipboardGetFormattedText.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aFormat : TtfwStackValue;
+var l_aFormat: TtfwStackValue;
 begin
  try
   l_aFormat := aCtx.rEngine.Pop;
@@ -3025,62 +2730,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((ClipboardGetFormattedText(aCtx, l_aFormat)));
+ aCtx.rEngine.PushString(clipboard_GetFormattedText(aCtx, l_aFormat));
 end;//TkwClipboardGetFormattedText.DoDoIt
 
 class function TkwClipboardGetFormattedText.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'clipboard:GetFormattedText';
 end;//TkwClipboardGetFormattedText.GetWordNameForRegister
 
 function TkwClipboardGetFormattedText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwClipboardGetFormattedText.GetResultTypeInfo
 
 function TkwClipboardGetFormattedText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwClipboardGetFormattedText.GetAllParamsCount
 
 function TkwClipboardGetFormattedText.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiStruct]);
 end;//TkwClipboardGetFormattedText.ParamsTypes
 
-type
- TkwClipboardSetText = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта clipboard:SetText
-*Пример:*
-[code]
- aValue clipboard:SetText
-[code]  }
- private
- // private methods
-   procedure ClipboardSetText(const aCtx: TtfwContext;
-    const aValue: Il3CString);
-     {* Реализация слова скрипта clipboard:SetText }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwClipboardSetText
-
-// start class TkwClipboardSetText
-
-procedure TkwClipboardSetText.ClipboardSetText(const aCtx: TtfwContext;
-  const aValue: Il3CString);
+procedure TkwClipboardSetText.clipboard_SetText(const aCtx: TtfwContext;
+ const aValue: Il3CString);
+ {* Реализация слова скрипта clipboard:SetText }
 //#UC START# *3D183F3BE41C_F086F3387CB5_var*
 //#UC END# *3D183F3BE41C_F086F3387CB5_var*
 begin
@@ -3092,15 +2767,13 @@ begin
  Assert(false);
  {$IfEnd}
 //#UC END# *3D183F3BE41C_F086F3387CB5_impl*
-end;//TkwClipboardSetText.ClipboardSetText
+end;//TkwClipboardSetText.clipboard_SetText
 
 procedure TkwClipboardSetText.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aValue : Il3CString;
+var l_aValue: Il3CString;
 begin
  try
-  l_aValue := aCtx.rEngine.PopString;
+  l_aValue := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -3108,210 +2781,112 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- ClipboardSetText(aCtx, l_aValue);
+ clipboard_SetText(aCtx, l_aValue);
 end;//TkwClipboardSetText.DoDoIt
 
 class function TkwClipboardSetText.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'clipboard:SetText';
 end;//TkwClipboardSetText.GetWordNameForRegister
 
 function TkwClipboardSetText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwClipboardSetText.GetResultTypeInfo
 
 function TkwClipboardSetText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwClipboardSetText.GetAllParamsCount
 
 function TkwClipboardSetText.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwClipboardSetText.ParamsTypes
 
-type
- TkwScriptExceptionStack = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта script:ExceptionStack
-*Тип результата:* ItfwValueList
-*Пример:*
-[code]
-ARRAY VAR l_ItfwValueList
- script:ExceptionStack >>> l_ItfwValueList
-[code]  }
- private
- // private methods
-   function ScriptExceptionStack(const aCtx: TtfwContext): ItfwValueList;
-     {* Реализация слова скрипта script:ExceptionStack }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwScriptExceptionStack
-
-// start class TkwScriptExceptionStack
-
-function TkwScriptExceptionStack.ScriptExceptionStack(const aCtx: TtfwContext): ItfwValueList;
+function TkwScriptExceptionStack.script_ExceptionStack(const aCtx: TtfwContext): ItfwValueList;
+ {* Реализация слова скрипта script:ExceptionStack }
 //#UC START# *B7280416B2E0_E4DA6191960A_var*
 //#UC END# *B7280416B2E0_E4DA6191960A_var*
 begin
 //#UC START# *B7280416B2E0_E4DA6191960A_impl*
  Result := aCtx.rEngine.ExceptionStack;
 //#UC END# *B7280416B2E0_E4DA6191960A_impl*
-end;//TkwScriptExceptionStack.ScriptExceptionStack
+end;//TkwScriptExceptionStack.script_ExceptionStack
 
 procedure TkwScriptExceptionStack.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushList((ScriptExceptionStack(aCtx)));
+ aCtx.rEngine.PushList(script_ExceptionStack(aCtx));
 end;//TkwScriptExceptionStack.DoDoIt
 
 class function TkwScriptExceptionStack.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'script:ExceptionStack';
 end;//TkwScriptExceptionStack.GetWordNameForRegister
 
 function TkwScriptExceptionStack.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(ItfwValueList);
 end;//TkwScriptExceptionStack.GetResultTypeInfo
 
 function TkwScriptExceptionStack.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwScriptExceptionStack.GetAllParamsCount
 
 function TkwScriptExceptionStack.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwScriptExceptionStack.ParamsTypes
 
-type
- TkwSysutilsParamCount = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:ParamCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- sysutils:ParamCount >>> l_Integer
-[code]  }
- private
- // private methods
-   function SysutilsParamCount(const aCtx: TtfwContext): Integer;
-     {* Реализация слова скрипта sysutils:ParamCount }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsParamCount
-
-// start class TkwSysutilsParamCount
-
-function TkwSysutilsParamCount.SysutilsParamCount(const aCtx: TtfwContext): Integer;
+function TkwSysutilsParamCount.sysutils_ParamCount(const aCtx: TtfwContext): Integer;
+ {* Реализация слова скрипта sysutils:ParamCount }
 //#UC START# *FD31A8AD6225_DD119E13D005_var*
 //#UC END# *FD31A8AD6225_DD119E13D005_var*
 begin
 //#UC START# *FD31A8AD6225_DD119E13D005_impl*
  Result := ParamCount;
 //#UC END# *FD31A8AD6225_DD119E13D005_impl*
-end;//TkwSysutilsParamCount.SysutilsParamCount
+end;//TkwSysutilsParamCount.sysutils_ParamCount
 
 procedure TkwSysutilsParamCount.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushInt((SysutilsParamCount(aCtx)));
+ aCtx.rEngine.PushInt(sysutils_ParamCount(aCtx));
 end;//TkwSysutilsParamCount.DoDoIt
 
 class function TkwSysutilsParamCount.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:ParamCount';
 end;//TkwSysutilsParamCount.GetWordNameForRegister
 
 function TkwSysutilsParamCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwSysutilsParamCount.GetResultTypeInfo
 
 function TkwSysutilsParamCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwSysutilsParamCount.GetAllParamsCount
 
 function TkwSysutilsParamCount.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwSysutilsParamCount.ParamsTypes
 
-type
- TkwSysutilsParamStr = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:ParamStr
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- anIndex sysutils:ParamStr >>> l_String
-[code]  }
- private
- // private methods
-   function SysutilsParamStr(const aCtx: TtfwContext;
-    anIndex: Integer): AnsiString;
-     {* Реализация слова скрипта sysutils:ParamStr }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsParamStr
-
-// start class TkwSysutilsParamStr
-
-function TkwSysutilsParamStr.SysutilsParamStr(const aCtx: TtfwContext;
-  anIndex: Integer): AnsiString;
+function TkwSysutilsParamStr.sysutils_ParamStr(const aCtx: TtfwContext;
+ anIndex: Integer): AnsiString;
+ {* Реализация слова скрипта sysutils:ParamStr }
 //#UC START# *5E9E901ED18F_3606634B9E3C_var*
 //#UC END# *5E9E901ED18F_3606634B9E3C_var*
 begin
 //#UC START# *5E9E901ED18F_3606634B9E3C_impl*
  Result := ParamStr(anIndex);
 //#UC END# *5E9E901ED18F_3606634B9E3C_impl*
-end;//TkwSysutilsParamStr.SysutilsParamStr
+end;//TkwSysutilsParamStr.sysutils_ParamStr
 
 procedure TkwSysutilsParamStr.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_anIndex : Integer;
+var l_anIndex: Integer;
 begin
  try
   l_anIndex := aCtx.rEngine.PopInt;
@@ -3322,143 +2897,77 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((SysutilsParamStr(aCtx, l_anIndex)));
+ aCtx.rEngine.PushString(sysutils_ParamStr(aCtx, l_anIndex));
 end;//TkwSysutilsParamStr.DoDoIt
 
 class function TkwSysutilsParamStr.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:ParamStr';
 end;//TkwSysutilsParamStr.GetWordNameForRegister
 
 function TkwSysutilsParamStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwSysutilsParamStr.GetResultTypeInfo
 
 function TkwSysutilsParamStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsParamStr.GetAllParamsCount
 
 function TkwSysutilsParamStr.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwSysutilsParamStr.ParamsTypes
 
-type
- TkwSysutilsGetCurrentDir = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:GetCurrentDir
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- sysutils:GetCurrentDir >>> l_String
-[code]  }
- private
- // private methods
-   function SysutilsGetCurrentDir(const aCtx: TtfwContext): AnsiString;
-     {* Реализация слова скрипта sysutils:GetCurrentDir }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsGetCurrentDir
-
-// start class TkwSysutilsGetCurrentDir
-
-function TkwSysutilsGetCurrentDir.SysutilsGetCurrentDir(const aCtx: TtfwContext): AnsiString;
+function TkwSysutilsGetCurrentDir.sysutils_GetCurrentDir(const aCtx: TtfwContext): AnsiString;
+ {* Реализация слова скрипта sysutils:GetCurrentDir }
 //#UC START# *D00C735B4A0F_A28B96AFE5F4_var*
 //#UC END# *D00C735B4A0F_A28B96AFE5F4_var*
 begin
 //#UC START# *D00C735B4A0F_A28B96AFE5F4_impl*
  Result := SysUtils.GetCurrentDir;
 //#UC END# *D00C735B4A0F_A28B96AFE5F4_impl*
-end;//TkwSysutilsGetCurrentDir.SysutilsGetCurrentDir
+end;//TkwSysutilsGetCurrentDir.sysutils_GetCurrentDir
 
 procedure TkwSysutilsGetCurrentDir.DoDoIt(const aCtx: TtfwContext);
- {-}
 begin
- aCtx.rEngine.PushString((SysutilsGetCurrentDir(aCtx)));
+ aCtx.rEngine.PushString(sysutils_GetCurrentDir(aCtx));
 end;//TkwSysutilsGetCurrentDir.DoDoIt
 
 class function TkwSysutilsGetCurrentDir.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:GetCurrentDir';
 end;//TkwSysutilsGetCurrentDir.GetWordNameForRegister
 
 function TkwSysutilsGetCurrentDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwSysutilsGetCurrentDir.GetResultTypeInfo
 
 function TkwSysutilsGetCurrentDir.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 0;
 end;//TkwSysutilsGetCurrentDir.GetAllParamsCount
 
 function TkwSysutilsGetCurrentDir.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([]);
 end;//TkwSysutilsGetCurrentDir.ParamsTypes
 
-type
- TkwSysutilsSetCurrentDir = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:SetCurrentDir
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aDir sysutils:SetCurrentDir >>> l_Boolean
-[code]  }
- private
- // private methods
-   function SysutilsSetCurrentDir(const aCtx: TtfwContext;
-    const aDir: AnsiString): Boolean;
-     {* Реализация слова скрипта sysutils:SetCurrentDir }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsSetCurrentDir
-
-// start class TkwSysutilsSetCurrentDir
-
-function TkwSysutilsSetCurrentDir.SysutilsSetCurrentDir(const aCtx: TtfwContext;
-  const aDir: AnsiString): Boolean;
+function TkwSysutilsSetCurrentDir.sysutils_SetCurrentDir(const aCtx: TtfwContext;
+ const aDir: AnsiString): Boolean;
+ {* Реализация слова скрипта sysutils:SetCurrentDir }
 //#UC START# *025851A67EF2_46A105452BD6_var*
 //#UC END# *025851A67EF2_46A105452BD6_var*
 begin
 //#UC START# *025851A67EF2_46A105452BD6_impl*
  Result := SysUtils.SetCurrentDir(aDir); 
 //#UC END# *025851A67EF2_46A105452BD6_impl*
-end;//TkwSysutilsSetCurrentDir.SysutilsSetCurrentDir
+end;//TkwSysutilsSetCurrentDir.sysutils_SetCurrentDir
 
 procedure TkwSysutilsSetCurrentDir.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aDir : AnsiString;
+var l_aDir: AnsiString;
 begin
  try
   l_aDir := aCtx.rEngine.PopDelphiString;
@@ -3469,76 +2978,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((SysutilsSetCurrentDir(aCtx, l_aDir)));
+ aCtx.rEngine.PushBool(sysutils_SetCurrentDir(aCtx, l_aDir));
 end;//TkwSysutilsSetCurrentDir.DoDoIt
 
 class function TkwSysutilsSetCurrentDir.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:SetCurrentDir';
 end;//TkwSysutilsSetCurrentDir.GetWordNameForRegister
 
 function TkwSysutilsSetCurrentDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwSysutilsSetCurrentDir.GetResultTypeInfo
 
 function TkwSysutilsSetCurrentDir.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsSetCurrentDir.GetAllParamsCount
 
 function TkwSysutilsSetCurrentDir.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsSetCurrentDir.ParamsTypes
 
-type
- TkwSysutilsCreateDir = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:CreateDir
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aDir sysutils:CreateDir >>> l_Boolean
-[code]  }
- private
- // private methods
-   function SysutilsCreateDir(const aCtx: TtfwContext;
-    const aDir: AnsiString): Boolean;
-     {* Реализация слова скрипта sysutils:CreateDir }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsCreateDir
-
-// start class TkwSysutilsCreateDir
-
-function TkwSysutilsCreateDir.SysutilsCreateDir(const aCtx: TtfwContext;
-  const aDir: AnsiString): Boolean;
+function TkwSysutilsCreateDir.sysutils_CreateDir(const aCtx: TtfwContext;
+ const aDir: AnsiString): Boolean;
+ {* Реализация слова скрипта sysutils:CreateDir }
 //#UC START# *E0BDBA6E01AC_B3CBD7A00B4E_var*
 //#UC END# *E0BDBA6E01AC_B3CBD7A00B4E_var*
 begin
 //#UC START# *E0BDBA6E01AC_B3CBD7A00B4E_impl*
  Result := SysUtils.CreateDir(aDir);
 //#UC END# *E0BDBA6E01AC_B3CBD7A00B4E_impl*
-end;//TkwSysutilsCreateDir.SysutilsCreateDir
+end;//TkwSysutilsCreateDir.sysutils_CreateDir
 
 procedure TkwSysutilsCreateDir.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aDir : AnsiString;
+var l_aDir: AnsiString;
 begin
  try
   l_aDir := aCtx.rEngine.PopDelphiString;
@@ -3549,76 +3024,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((SysutilsCreateDir(aCtx, l_aDir)));
+ aCtx.rEngine.PushBool(sysutils_CreateDir(aCtx, l_aDir));
 end;//TkwSysutilsCreateDir.DoDoIt
 
 class function TkwSysutilsCreateDir.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:CreateDir';
 end;//TkwSysutilsCreateDir.GetWordNameForRegister
 
 function TkwSysutilsCreateDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwSysutilsCreateDir.GetResultTypeInfo
 
 function TkwSysutilsCreateDir.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsCreateDir.GetAllParamsCount
 
 function TkwSysutilsCreateDir.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsCreateDir.ParamsTypes
 
-type
- TkwSysutilsRemoveDir = {final scriptword} class(TtfwGlobalKeyWord)
-  {* Слово скрипта sysutils:RemoveDir
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aDir sysutils:RemoveDir >>> l_Boolean
-[code]  }
- private
- // private methods
-   function SysutilsRemoveDir(const aCtx: TtfwContext;
-    const aDir: AnsiString): Boolean;
-     {* Реализация слова скрипта sysutils:RemoveDir }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSysutilsRemoveDir
-
-// start class TkwSysutilsRemoveDir
-
-function TkwSysutilsRemoveDir.SysutilsRemoveDir(const aCtx: TtfwContext;
-  const aDir: AnsiString): Boolean;
+function TkwSysutilsRemoveDir.sysutils_RemoveDir(const aCtx: TtfwContext;
+ const aDir: AnsiString): Boolean;
+ {* Реализация слова скрипта sysutils:RemoveDir }
 //#UC START# *177FD19E027A_5C2417DB86EF_var*
 //#UC END# *177FD19E027A_5C2417DB86EF_var*
 begin
 //#UC START# *177FD19E027A_5C2417DB86EF_impl*
  Result := SysUtils.RemoveDir(aDir);
 //#UC END# *177FD19E027A_5C2417DB86EF_impl*
-end;//TkwSysutilsRemoveDir.SysutilsRemoveDir
+end;//TkwSysutilsRemoveDir.sysutils_RemoveDir
 
 procedure TkwSysutilsRemoveDir.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aDir : AnsiString;
+var l_aDir: AnsiString;
 begin
  try
   l_aDir := aCtx.rEngine.PopDelphiString;
@@ -3629,246 +3070,136 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((SysutilsRemoveDir(aCtx, l_aDir)));
+ aCtx.rEngine.PushBool(sysutils_RemoveDir(aCtx, l_aDir));
 end;//TkwSysutilsRemoveDir.DoDoIt
 
 class function TkwSysutilsRemoveDir.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'sysutils:RemoveDir';
 end;//TkwSysutilsRemoveDir.GetWordNameForRegister
 
 function TkwSysutilsRemoveDir.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwSysutilsRemoveDir.GetResultTypeInfo
 
 function TkwSysutilsRemoveDir.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSysutilsRemoveDir.GetAllParamsCount
 
 function TkwSysutilsRemoveDir.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSysutilsRemoveDir.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TSysUtilsPackResNameGetter.Register;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация HasTabs
+ {* Регистрация скриптованой аксиоматики }
  TkwHasTabs.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация IsUnder64
+ {* Регистрация HasTabs }
  TkwIsUnder64.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация ComputerName
+ {* Регистрация IsUnder64 }
  TkwComputerName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация OSName
+ {* Регистрация ComputerName }
  TkwOSName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Random
+ {* Регистрация OSName }
  TkwRandom.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Randomize
+ {* Регистрация Random }
  TkwRandomize.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация SetRandSeed
+ {* Регистрация Randomize }
  TkwSetRandSeed.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация RGB2String
+ {* Регистрация SetRandSeed }
  TkwRGB2String.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация IntToStr
+ {* Регистрация RGB2String }
  TkwIntToStr.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация IsXE
+ {* Регистрация IntToStr }
  TkwIsXE.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация WinExec
+ {* Регистрация IsXE }
  TkwWinExec.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация script_FileName
+ {* Регистрация WinExec }
  TkwScriptFileName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_ChangeFileExt
+ {* Регистрация script_FileName }
  TkwSysutilsChangeFileExt.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_ExtractFileName
+ {* Регистрация sysutils_ChangeFileExt }
  TkwSysutilsExtractFileName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_ExtractFilePath
+ {* Регистрация sysutils_ExtractFileName }
  TkwSysutilsExtractFilePath.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_ExtractFileDrive
+ {* Регистрация sysutils_ExtractFilePath }
  TkwSysutilsExtractFileDrive.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_DirectoryExists
+ {* Регистрация sysutils_ExtractFileDrive }
  TkwSysutilsDirectoryExists.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_FileExists
+ {* Регистрация sysutils_DirectoryExists }
  TkwSysutilsFileExists.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_ForceDirectories
+ {* Регистрация sysutils_FileExists }
  TkwSysutilsForceDirectories.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация SetAppPath2CurrentDir
+ {* Регистрация sysutils_ForceDirectories }
  TkwSetAppPath2CurrentDir.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация application_ExeName
+ {* Регистрация SetAppPath2CurrentDir }
  TkwApplicationExeName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация GetTickCount
+ {* Регистрация application_ExeName }
  TkwGetTickCount.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация application_ActionIdle
+ {* Регистрация GetTickCount }
  TkwApplicationActionIdle.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация clipboard_clear
+ {* Регистрация application_ActionIdle }
  TkwClipboardClear.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация SetLocalDate
+ {* Регистрация clipboard_clear }
  TkwSetLocalDate.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация SetLocalTime
+ {* Регистрация SetLocalDate }
  TkwSetLocalTime.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация SetLocalDateTime
+ {* Регистрация SetLocalTime }
  TkwSetLocalDateTime.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация GetLocalDate
+ {* Регистрация SetLocalDateTime }
  TkwGetLocalDate.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация GetLocalDateTime
+ {* Регистрация GetLocalDate }
  TkwGetLocalDateTime.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация GetLocalTime
+ {* Регистрация GetLocalDateTime }
  TkwGetLocalTime.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация StartTimer
+ {* Регистрация GetLocalTime }
  TkwStartTimer.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация StopTimer
+ {* Регистрация StartTimer }
  TkwStopTimer.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация StopTimerEx
+ {* Регистрация StopTimer }
  TkwStopTimerEx.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TimeToLog
+ {* Регистрация StopTimerEx }
  TkwTimeToLog.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация ShiftDate
+ {* Регистрация TimeToLog }
  TkwShiftDate.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация ShiftTime
+ {* Регистрация ShiftDate }
  TkwShiftTime.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация clipboard_GetFormattedText
+ {* Регистрация ShiftTime }
  TkwClipboardGetFormattedText.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация clipboard_SetText
+ {* Регистрация clipboard_GetFormattedText }
  TkwClipboardSetText.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация script_ExceptionStack
+ {* Регистрация clipboard_SetText }
  TkwScriptExceptionStack.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_ParamCount
+ {* Регистрация script_ExceptionStack }
  TkwSysutilsParamCount.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_ParamStr
+ {* Регистрация sysutils_ParamCount }
  TkwSysutilsParamStr.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_GetCurrentDir
+ {* Регистрация sysutils_ParamStr }
  TkwSysutilsGetCurrentDir.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_SetCurrentDir
+ {* Регистрация sysutils_GetCurrentDir }
  TkwSysutilsSetCurrentDir.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_CreateDir
+ {* Регистрация sysutils_SetCurrentDir }
  TkwSysutilsCreateDir.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация sysutils_RemoveDir
+ {* Регистрация sysutils_CreateDir }
  TkwSysutilsRemoveDir.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация sysutils_RemoveDir }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
- TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwStackValue
- TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Il3CString
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа ItfwValueList
+ {* Регистрация типа String }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
+ {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
+ {* Регистрация типа TtfwStackValue }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа Il3CString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwValueList));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа ItfwValueList }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

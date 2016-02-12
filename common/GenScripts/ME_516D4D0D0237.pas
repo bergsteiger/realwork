@@ -6,7 +6,7 @@
 {$Define UnknownImpl_imp}
 
  _RefCounted_Parent_ = _UnknownImpl_Parent_;
- {$Include RefCounted.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
  _UnknownImpl_ = class(_RefCounted_)
   public
    function _AddRef: Integer; stdcall;
@@ -24,7 +24,7 @@
 
 {$Define UnknownImpl_imp_impl}
 
-{$Include RefCounted.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
 function _UnknownImpl_._AddRef: Integer;
  {* Увеличивает счетчик ссылок. }

@@ -387,12 +387,8 @@ function TkwPopWordInfoIncludeModifier.IncludeModifier(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
  aModifier: TtfwWordModifier): TtfwWordInfo;
  {* Реализация слова скрипта pop:WordInfo:IncludeModifier }
-//#UC START# *196CCED78325_14934B24DEE4_var*
-//#UC END# *196CCED78325_14934B24DEE4_var*
 begin
-//#UC START# *196CCED78325_14934B24DEE4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *196CCED78325_14934B24DEE4_impl*
+ Result := aWordInfo.IncludeModifier(aModifier);
 end;//TkwPopWordInfoIncludeModifier.IncludeModifier
 
 procedure TkwPopWordInfoIncludeModifier.DoDoIt(const aCtx: TtfwContext);
@@ -443,12 +439,8 @@ end;//TkwPopWordInfoIncludeModifier.ParamsTypes
 function TkwPopWordInfoEmpty.Empty(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): Boolean;
  {* Реализация слова скрипта pop:WordInfo:Empty }
-//#UC START# *DE7D56B67062_9E29B763689D_var*
-//#UC END# *DE7D56B67062_9E29B763689D_var*
 begin
-//#UC START# *DE7D56B67062_9E29B763689D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DE7D56B67062_9E29B763689D_impl*
+ Result := aWordInfo.Empty;
 end;//TkwPopWordInfoEmpty.Empty
 
 procedure TkwPopWordInfoEmpty.DoDoIt(const aCtx: TtfwContext);
@@ -547,12 +539,8 @@ function TkwPopWordInfoIncludeTypeModifier.IncludeTypeModifier(const aCtx: TtfwC
  aWordInfo: TtfwWordInfo;
  aType: TtfwValueType): TtfwWordInfo;
  {* Реализация слова скрипта pop:WordInfo:IncludeTypeModifier }
-//#UC START# *DE1E3B21A195_D286CB4FCDB1_var*
-//#UC END# *DE1E3B21A195_D286CB4FCDB1_var*
 begin
-//#UC START# *DE1E3B21A195_D286CB4FCDB1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DE1E3B21A195_D286CB4FCDB1_impl*
+ Result := aWordInfo.IncludeTypeModifier(aType);
 end;//TkwPopWordInfoIncludeTypeModifier.IncludeTypeModifier
 
 procedure TkwPopWordInfoIncludeTypeModifier.DoDoIt(const aCtx: TtfwContext);
@@ -661,12 +649,8 @@ function TkwPopWordInfoAcceptsValue.AcceptsValue(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
  const aValue: TtfwStackValue): Boolean;
  {* Реализация слова скрипта pop:WordInfo:AcceptsValue }
-//#UC START# *0A2D02F701A4_FA9440B232C5_var*
-//#UC END# *0A2D02F701A4_FA9440B232C5_var*
 begin
-//#UC START# *0A2D02F701A4_FA9440B232C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0A2D02F701A4_FA9440B232C5_impl*
+ Result := aWordInfo.AcceptsValue(aValue);
 end;//TkwPopWordInfoAcceptsValue.AcceptsValue
 
 procedure TkwPopWordInfoAcceptsValue.DoDoIt(const aCtx: TtfwContext);
@@ -775,12 +759,8 @@ function TkwPopWordInfoIncludeAccesType.IncludeAccesType(const aCtx: TtfwContext
  aWordInfo: TtfwWordInfo;
  anAccess: TtfwAccessType): TtfwWordInfo;
  {* Реализация слова скрипта pop:WordInfo:IncludeAccesType }
-//#UC START# *D15A2C77F385_C7CED070DA03_var*
-//#UC END# *D15A2C77F385_C7CED070DA03_var*
 begin
-//#UC START# *D15A2C77F385_C7CED070DA03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D15A2C77F385_C7CED070DA03_impl*
+ Result := aWordInfo.IncludeAccesType(anAccess);
 end;//TkwPopWordInfoIncludeAccesType.IncludeAccesType
 
 procedure TkwPopWordInfoIncludeAccesType.DoDoIt(const aCtx: TtfwContext);
@@ -831,12 +811,8 @@ end;//TkwPopWordInfoIncludeAccesType.ParamsTypes
 function TkwPopWordInfoValueTypes.ValueTypes(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): TtfwValueTypes;
  {* Реализация слова скрипта pop:WordInfo:ValueTypes }
-//#UC START# *3716941F3DF2_2DC3823CA5CC_var*
-//#UC END# *3716941F3DF2_2DC3823CA5CC_var*
 begin
-//#UC START# *3716941F3DF2_2DC3823CA5CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3716941F3DF2_2DC3823CA5CC_impl*
+ Result := aWordInfo.ValueTypes;
 end;//TkwPopWordInfoValueTypes.ValueTypes
 
 procedure TkwPopWordInfoValueTypes.DoDoIt(const aCtx: TtfwContext);
@@ -878,12 +854,8 @@ function TkwPopWordInfoIncludeLinkType.IncludeLinkType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
  aLinkType: TtfwLinkType): TtfwWordInfo;
  {* Реализация слова скрипта pop:WordInfo:IncludeLinkType }
-//#UC START# *883B22654478_ECDA96443339_var*
-//#UC END# *883B22654478_ECDA96443339_var*
 begin
-//#UC START# *883B22654478_ECDA96443339_impl*
- !!! Needs to be implemented !!!
-//#UC END# *883B22654478_ECDA96443339_impl*
+ Result := aWordInfo.IncludeLinkType(aLinkType);
 end;//TkwPopWordInfoIncludeLinkType.IncludeLinkType
 
 procedure TkwPopWordInfoIncludeLinkType.DoDoIt(const aCtx: TtfwContext);
@@ -992,12 +964,8 @@ function TkwPopWordInfoCompare.Compare(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo;
  anOther: TtfwWordInfo): Integer;
  {* Реализация слова скрипта pop:WordInfo:Compare }
-//#UC START# *B3545BF94A1B_3A178A402C19_var*
-//#UC END# *B3545BF94A1B_3A178A402C19_var*
 begin
-//#UC START# *B3545BF94A1B_3A178A402C19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B3545BF94A1B_3A178A402C19_impl*
+ Result := aWordInfo.Compare(anOther);
 end;//TkwPopWordInfoCompare.Compare
 
 procedure TkwPopWordInfoCompare.DoDoIt(const aCtx: TtfwContext);
@@ -1048,12 +1016,8 @@ end;//TkwPopWordInfoCompare.ParamsTypes
 function TkwPopWordInfoToString.ToString(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): Il3CString;
  {* Реализация слова скрипта pop:WordInfo:ToString }
-//#UC START# *370E27C51EFF_507247595622_var*
-//#UC END# *370E27C51EFF_507247595622_var*
 begin
-//#UC START# *370E27C51EFF_507247595622_impl*
- !!! Needs to be implemented !!!
-//#UC END# *370E27C51EFF_507247595622_impl*
+ Result := aWordInfo.ToString;
 end;//TkwPopWordInfoToString.ToString
 
 procedure TkwPopWordInfoToString.DoDoIt(const aCtx: TtfwContext);
@@ -1094,12 +1058,8 @@ end;//TkwPopWordInfoToString.ParamsTypes
 function TkwPopWordInfoTypeName.TypeName(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): Il3CString;
  {* Реализация слова скрипта pop:WordInfo:TypeName }
-//#UC START# *21E60E61B55F_B1E1BB0DD574_var*
-//#UC END# *21E60E61B55F_B1E1BB0DD574_var*
 begin
-//#UC START# *21E60E61B55F_B1E1BB0DD574_impl*
- !!! Needs to be implemented !!!
-//#UC END# *21E60E61B55F_B1E1BB0DD574_impl*
+ Result := aWordInfo.TypeName;
 end;//TkwPopWordInfoTypeName.TypeName
 
 procedure TkwPopWordInfoTypeName.DoDoIt(const aCtx: TtfwContext);
@@ -1146,12 +1106,8 @@ end;//TkwPopWordInfoTypeName.ParamsTypes
 function TkwPopWordInfoLinkType.LinkType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): TtfwLinkType;
  {* Реализация слова скрипта pop:WordInfo:LinkType }
-//#UC START# *136782AFAE6C_CB22BA2EDEAC_var*
-//#UC END# *136782AFAE6C_CB22BA2EDEAC_var*
 begin
-//#UC START# *136782AFAE6C_CB22BA2EDEAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *136782AFAE6C_CB22BA2EDEAC_impl*
+ Result := aWordInfo.LinkType;
 end;//TkwPopWordInfoLinkType.LinkType
 
 procedure TkwPopWordInfoLinkType.DoDoIt(const aCtx: TtfwContext);
@@ -1198,12 +1154,8 @@ end;//TkwPopWordInfoLinkType.ParamsTypes
 function TkwPopWordInfoAccessType.AccessType(const aCtx: TtfwContext;
  aWordInfo: TtfwWordInfo): TtfwAccessType;
  {* Реализация слова скрипта pop:WordInfo:AccessType }
-//#UC START# *4AA112FDE63E_4F04BAA3E2A4_var*
-//#UC END# *4AA112FDE63E_4F04BAA3E2A4_var*
 begin
-//#UC START# *4AA112FDE63E_4F04BAA3E2A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AA112FDE63E_4F04BAA3E2A4_impl*
+ Result := aWordInfo.AccessType;
 end;//TkwPopWordInfoAccessType.AccessType
 
 procedure TkwPopWordInfoAccessType.DoDoIt(const aCtx: TtfwContext);

@@ -19,7 +19,7 @@ uses
 
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TncsMessageQueue = class(_l3CriticalSectionHolder_)
   private
    f_Data: TncsPriorityMessageList;
@@ -54,7 +54,7 @@ uses
  , l3Utils
 ;
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 procedure TncsMessageQueue.pm_SetProcessing(aValue: Boolean);
 //#UC START# *545A157B02C2_544E3C54031Dset_var*

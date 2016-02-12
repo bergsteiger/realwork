@@ -24,7 +24,7 @@ type
  _ItemType_ = InsBaseSearchClass;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnsBaseSearchClassList = class(_l3InterfaceRefList_)
  end;//TnsBaseSearchClassList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TnsBaseSearchClassList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

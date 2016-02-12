@@ -15,7 +15,7 @@ uses
 
 type
  _l3OpenArray_Parent_ = TkwIntegerList;
- {$Include l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  TkwIntegerArray = class(_l3OpenArray_)
  end;//TkwIntegerArray
 {$IfEnd} // NOT Defined(NoScripts)
@@ -30,7 +30,7 @@ uses
 
 type _Instance_R_ = TkwIntegerArray;
 
-{$Include l3OpenArray.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

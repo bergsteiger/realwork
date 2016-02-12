@@ -275,7 +275,7 @@ type
  TnsButtonCaptionArray = array [TMsgDlgBtn] of PvcmStringID;
 
  _afwSettingChanged_Parent_ = TnsEditSettingsInfo;
- {$Include afwSettingChanged.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  TnsConfigSettingsInfo = class(_afwSettingChanged_, InsConfigNotificationSource, InsConfigSettingsInfo)
   protected
    function DoSettingChanged(const aSettingId: TafwSettingId): Boolean; override;
@@ -959,7 +959,7 @@ begin
 //#UC END# *523183550370_523184C702AE_impl*
 end;//TstgFilterFormPosition.GetAliasName
 
-{$Include afwSettingChanged.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
 function TnsConfigSettingsInfo.DoSettingChanged(const aSettingId: TafwSettingId): Boolean;
  {* Обработчик изменения указанной настройки }

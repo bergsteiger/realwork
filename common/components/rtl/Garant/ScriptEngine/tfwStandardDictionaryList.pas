@@ -18,7 +18,7 @@ uses
 type
  _FindDataType_ = Tl3WString;
  _l3Searcher_Parent_ = TtfwStandardDictionaryListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TtfwStandardDictionaryList = class(_l3Searcher_)
  end;//TtfwStandardDictionaryList
 {$IfEnd} // NOT Defined(NoScripts)
@@ -46,7 +46,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TtfwStandardDictionaryList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

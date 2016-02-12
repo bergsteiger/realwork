@@ -15,7 +15,7 @@ uses
 
 type
  _F1Test_Parent_ = TCustomInsiderScripter;
- {$Include F1Test.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
  TInsiderOwnScripter = {abstract} class(_F1Test_)
   protected
    procedure Run; override;
@@ -49,7 +49,7 @@ uses
  , tfwScriptEngine
 ;
 
-{$Include F1Test.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
 
 procedure TInsiderOwnScripter.Run;
 //#UC START# *4DC3D2E00153_4DB03B1B0055_var*

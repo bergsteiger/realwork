@@ -8,9 +8,9 @@
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _SetDataType_ = IdDocument;
  _InitDataType_ = IdeDocInfo;
- {$Include sdsDocInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas}
  _nsOpenContents_Parent_ = _sdsDocInfo_;
- {$Include nsOpenContents.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas}
  _sdsDocument_ = {abstract} class(_nsOpenContents_, IsdsDocument, IucpDocumentWithContents, InsWarningGenerator, InsWarningLocker, IucpBaseSearchSupportQuery)
   {* Бизнес объект сборки "Документ" }
   private
@@ -117,9 +117,9 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include sdsDocInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas}
 _nsOpenContents_Parent_ = _sdsDocInfo_;
-{$Include nsOpenContents.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas}
 _sdsDocument_ = _nsOpenContents_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -130,9 +130,9 @@ _sdsDocument_ = _nsOpenContents_;
 {$Define sdsDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include sdsDocInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsDocInfo.imp.pas}
 
-{$Include nsOpenContents.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas}
 
 procedure _sdsDocument_.DoDoChangeDocument(const aDocInfo: IdeDocInfo;
  const aPos: TbsDocPos;

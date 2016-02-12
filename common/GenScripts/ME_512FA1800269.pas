@@ -22,7 +22,7 @@ uses
 ;
 
 type
- {$Include kwControlFromStackWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwNscTreeViewWord = {abstract} class(_kwControlFromStackWord_)
   protected
    procedure DoWithNscTreeView(aTreeView: TnscTreeView;
@@ -45,7 +45,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include kwControlFromStackWord.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
 {$If NOT Defined(NoVCL)}
 procedure TkwNscTreeViewWord.DoControl(aControl: TControl;

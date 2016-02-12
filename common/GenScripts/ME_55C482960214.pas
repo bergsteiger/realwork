@@ -4,7 +4,7 @@ program callMSS;
 // Модуль: "w:\common\components\callMSS\callMSS.dpr"
 // Стереотип: "ExeTarget"
 
-{$Include callMSS.inc}
+{$Include w:\common\components\callMSS\callMSS.inc}
 
 interface
 

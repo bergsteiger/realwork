@@ -6,7 +6,7 @@
 {$Define tfwSortedDictionaryList_imp}
 
 {$If NOT Defined(NoScripts)}
- {$Include tfwDictionaryListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.imp.pas}
  _tfwSortedDictionaryList_ = {abstract} class(_tfwDictionaryListPrim_)
   protected
    procedure InitFields; override;
@@ -14,7 +14,7 @@
 
 {$Else NOT Defined(NoScripts)}
 
-{$Include tfwDictionaryListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.imp.pas}
 _tfwSortedDictionaryList_ = _tfwDictionaryListPrim_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -35,7 +35,7 @@ begin
 //#UC END# *47B99D4503A2_55B0E773009A_impl*
 end;//CompareExistingItems
 
-{$Include tfwDictionaryListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.imp.pas}
 
 procedure _tfwSortedDictionaryList_.InitFields;
 //#UC START# *47A042E100E2_55B0E773009A_var*

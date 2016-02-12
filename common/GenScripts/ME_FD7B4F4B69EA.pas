@@ -181,12 +181,8 @@ begin
 end;//Tkw_Form_F1LikeTextLoad.GetWordNameForRegister
 
 function Tkw_Form_F1LikeTextLoad.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CC6531873D8E_var*
-//#UC END# *4DDFD2EA0116_CC6531873D8E_var*
 begin
-//#UC START# *4DDFD2EA0116_CC6531873D8E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CC6531873D8E_impl*
+ Result := 'F1LikeTextLoadForm';
 end;//Tkw_Form_F1LikeTextLoad.GetString
 
 class function Tkw_F1LikeTextLoad_Control_Text.GetWordNameForRegister: AnsiString;
@@ -195,21 +191,14 @@ begin
 end;//Tkw_F1LikeTextLoad_Control_Text.GetWordNameForRegister
 
 function Tkw_F1LikeTextLoad_Control_Text.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_02540828BFD4_var*
-//#UC END# *4DDFD2EA0116_02540828BFD4_var*
 begin
-//#UC START# *4DDFD2EA0116_02540828BFD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_02540828BFD4_impl*
+ Result := 'Text';
 end;//Tkw_F1LikeTextLoad_Control_Text.GetString
 
 class procedure Tkw_F1LikeTextLoad_Control_Text.RegisterInEngine;
-//#UC START# *52A086150180_02540828BFD4_var*
-//#UC END# *52A086150180_02540828BFD4_var*
 begin
-//#UC START# *52A086150180_02540828BFD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_02540828BFD4_impl*
+ inherited;
+ TtfwClassRef.Register(TeeEditorExport);
 end;//Tkw_F1LikeTextLoad_Control_Text.RegisterInEngine
 
 procedure Tkw_F1LikeTextLoad_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
@@ -232,21 +221,14 @@ begin
 end;//Tkw_F1LikeTextLoad_Component_TextSource.GetWordNameForRegister
 
 function Tkw_F1LikeTextLoad_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4540B5FFA739_var*
-//#UC END# *4DDFD2EA0116_4540B5FFA739_var*
 begin
-//#UC START# *4DDFD2EA0116_4540B5FFA739_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4540B5FFA739_impl*
+ Result := 'TextSource';
 end;//Tkw_F1LikeTextLoad_Component_TextSource.GetString
 
 class procedure Tkw_F1LikeTextLoad_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_4540B5FFA739_var*
-//#UC END# *52A086150180_4540B5FFA739_var*
 begin
-//#UC START# *52A086150180_4540B5FFA739_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_4540B5FFA739_impl*
+ inherited;
+ TtfwClassRef.Register(TeeTextSourceExport);
 end;//Tkw_F1LikeTextLoad_Component_TextSource.RegisterInEngine
 
 class function Tkw_F1LikeTextLoad_Component_LoadManager.GetWordNameForRegister: AnsiString;
@@ -255,32 +237,21 @@ begin
 end;//Tkw_F1LikeTextLoad_Component_LoadManager.GetWordNameForRegister
 
 function Tkw_F1LikeTextLoad_Component_LoadManager.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_0A06CF3EFC75_var*
-//#UC END# *4DDFD2EA0116_0A06CF3EFC75_var*
 begin
-//#UC START# *4DDFD2EA0116_0A06CF3EFC75_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_0A06CF3EFC75_impl*
+ Result := 'LoadManager';
 end;//Tkw_F1LikeTextLoad_Component_LoadManager.GetString
 
 class procedure Tkw_F1LikeTextLoad_Component_LoadManager.RegisterInEngine;
-//#UC START# *52A086150180_0A06CF3EFC75_var*
-//#UC END# *52A086150180_0A06CF3EFC75_var*
 begin
-//#UC START# *52A086150180_0A06CF3EFC75_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_0A06CF3EFC75_impl*
+ inherited;
+ TtfwClassRef.Register(TevLoadDocumentManager);
 end;//Tkw_F1LikeTextLoad_Component_LoadManager.RegisterInEngine
 
 function TkwF1LikeTextLoadFormText.Text(const aCtx: TtfwContext;
  aF1LikeTextLoadForm: TF1LikeTextLoadForm): TeeEditorExport;
  {* Реализация слова скрипта .TF1LikeTextLoadForm.Text }
-//#UC START# *5223D9508B48_92E0CD11116C_var*
-//#UC END# *5223D9508B48_92E0CD11116C_var*
 begin
-//#UC START# *5223D9508B48_92E0CD11116C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5223D9508B48_92E0CD11116C_impl*
+ Result := aF1LikeTextLoadForm.Text;
 end;//TkwF1LikeTextLoadFormText.Text
 
 procedure TkwF1LikeTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
@@ -305,18 +276,8 @@ end;//TkwF1LikeTextLoadFormText.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_F1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
- try
-  l_F1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра F1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- F1LikeTextLoadForm. := TeeEditorExport(aValue.AsObject(TeeEditorExport));
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwF1LikeTextLoadFormText.SetValuePrim
 
 function TkwF1LikeTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -337,12 +298,8 @@ end;//TkwF1LikeTextLoadFormText.ParamsTypes
 function TkwF1LikeTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
  aF1LikeTextLoadForm: TF1LikeTextLoadForm): TeeTextSourceExport;
  {* Реализация слова скрипта .TF1LikeTextLoadForm.TextSource }
-//#UC START# *A6C169041D2E_A1D2254061BE_var*
-//#UC END# *A6C169041D2E_A1D2254061BE_var*
 begin
-//#UC START# *A6C169041D2E_A1D2254061BE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A6C169041D2E_A1D2254061BE_impl*
+ Result := aF1LikeTextLoadForm.TextSource;
 end;//TkwF1LikeTextLoadFormTextSource.TextSource
 
 procedure TkwF1LikeTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
@@ -367,18 +324,8 @@ end;//TkwF1LikeTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_F1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
- try
-  l_F1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра F1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- F1LikeTextLoadForm. := TeeTextSourceExport(aValue.AsObject(TeeTextSourceExport));
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwF1LikeTextLoadFormTextSource.SetValuePrim
 
 function TkwF1LikeTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -399,12 +346,8 @@ end;//TkwF1LikeTextLoadFormTextSource.ParamsTypes
 function TkwF1LikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
  aF1LikeTextLoadForm: TF1LikeTextLoadForm): TevLoadDocumentManager;
  {* Реализация слова скрипта .TF1LikeTextLoadForm.LoadManager }
-//#UC START# *C0C210709146_8DECEC4A4E9A_var*
-//#UC END# *C0C210709146_8DECEC4A4E9A_var*
 begin
-//#UC START# *C0C210709146_8DECEC4A4E9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C0C210709146_8DECEC4A4E9A_impl*
+ Result := aF1LikeTextLoadForm.LoadManager;
 end;//TkwF1LikeTextLoadFormLoadManager.LoadManager
 
 procedure TkwF1LikeTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
@@ -429,18 +372,8 @@ end;//TkwF1LikeTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwF1LikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_F1LikeTextLoadForm: TF1LikeTextLoadForm;
 begin
- try
-  l_F1LikeTextLoadForm := TF1LikeTextLoadForm(aCtx.rEngine.PopObjAs(TF1LikeTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра F1LikeTextLoadForm: TF1LikeTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- F1LikeTextLoadForm. := TevLoadDocumentManager(aValue.AsObject(TevLoadDocumentManager));
+ RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
 end;//TkwF1LikeTextLoadFormLoadManager.SetValuePrim
 
 function TkwF1LikeTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

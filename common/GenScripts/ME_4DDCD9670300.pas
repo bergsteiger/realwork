@@ -18,7 +18,7 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsChangesBetweenEditionsInfo = class(_afwApplicationDataUpdate_, InsChangesBetweenEditionsInfo)
   private
    f_DiffProvider: IDiffDocDataProvider;
@@ -49,7 +49,7 @@ uses
  , afwFacade
 ;
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 constructor TnsChangesBetweenEditionsInfo.Create(const aLeft: IDocument;
  const aRight: IDocument;

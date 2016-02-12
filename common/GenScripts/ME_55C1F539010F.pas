@@ -3,7 +3,7 @@ unit MakeCORunner;
 // Модуль: "w:\common\components\MakeCO\MakeCORunner.pas"
 // Стереотип: "SimpleClass"
 
-{$Include MakeCO.inc}
+{$Include w:\common\components\MakeCO\MakeCO.inc}
 
 interface
 

@@ -28,7 +28,7 @@ type
  TncsIOHandlerArray = array [TncsSocketKind] of TcsIdIOHandlerAbstractAdapter;
 
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TncsTransporter = class(_l3CriticalSectionHolder_, IncsTransporter)
   private
    f_Connected: Boolean;
@@ -102,7 +102,7 @@ uses
  , evdNcsTypes
 ;
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 function TncsTransporter.pm_GetIOHandlers(SocketKind: TncsSocketKind): TcsIdIOHandlerAbstractAdapter;
 //#UC START# *545225640060_544A09EE005Fget_var*

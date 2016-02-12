@@ -1043,21 +1043,14 @@ begin
 end;//Tkw_Form_NewBaseSearch.GetWordNameForRegister
 
 function Tkw_Form_NewBaseSearch.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5707F39565D1_var*
-//#UC END# *4DDFD2EA0116_5707F39565D1_var*
 begin
-//#UC START# *4DDFD2EA0116_5707F39565D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5707F39565D1_impl*
+ Result := 'NewBaseSearchForm';
 end;//Tkw_Form_NewBaseSearch.GetString
 
 class procedure Tkw_Form_NewBaseSearch.RegisterInEngine;
-//#UC START# *52A086150180_5707F39565D1_var*
-//#UC END# *52A086150180_5707F39565D1_var*
 begin
-//#UC START# *52A086150180_5707F39565D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5707F39565D1_impl*
+ inherited;
+ TtfwClassRef.Register(TNewBaseSearchForm);
 end;//Tkw_Form_NewBaseSearch.RegisterInEngine
 
 class function Tkw_NewBaseSearch_Control_FindBtn.GetWordNameForRegister: AnsiString;
@@ -1066,21 +1059,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_FindBtn.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_FindBtn.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F88258025D19_var*
-//#UC END# *4DDFD2EA0116_F88258025D19_var*
 begin
-//#UC START# *4DDFD2EA0116_F88258025D19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F88258025D19_impl*
+ Result := 'FindBtn';
 end;//Tkw_NewBaseSearch_Control_FindBtn.GetString
 
 class procedure Tkw_NewBaseSearch_Control_FindBtn.RegisterInEngine;
-//#UC START# *52A086150180_F88258025D19_var*
-//#UC END# *52A086150180_F88258025D19_var*
 begin
-//#UC START# *52A086150180_F88258025D19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F88258025D19_impl*
+ inherited;
+ TtfwClassRef.Register(TvgPathButton);
 end;//Tkw_NewBaseSearch_Control_FindBtn.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_FindBtn_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1103,21 +1089,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_FindBackBtn.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_FindBackBtn.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2F99B63D2C04_var*
-//#UC END# *4DDFD2EA0116_2F99B63D2C04_var*
 begin
-//#UC START# *4DDFD2EA0116_2F99B63D2C04_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2F99B63D2C04_impl*
+ Result := 'FindBackBtn';
 end;//Tkw_NewBaseSearch_Control_FindBackBtn.GetString
 
 class procedure Tkw_NewBaseSearch_Control_FindBackBtn.RegisterInEngine;
-//#UC START# *52A086150180_2F99B63D2C04_var*
-//#UC END# *52A086150180_2F99B63D2C04_var*
 begin
-//#UC START# *52A086150180_2F99B63D2C04_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_2F99B63D2C04_impl*
+ inherited;
+ TtfwClassRef.Register(TvgPathButton);
 end;//Tkw_NewBaseSearch_Control_FindBackBtn.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_FindBackBtn_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1140,21 +1119,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_CloseBtn.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_CloseBtn.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F533BA194283_var*
-//#UC END# *4DDFD2EA0116_F533BA194283_var*
 begin
-//#UC START# *4DDFD2EA0116_F533BA194283_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F533BA194283_impl*
+ Result := 'CloseBtn';
 end;//Tkw_NewBaseSearch_Control_CloseBtn.GetString
 
 class procedure Tkw_NewBaseSearch_Control_CloseBtn.RegisterInEngine;
-//#UC START# *52A086150180_F533BA194283_var*
-//#UC END# *52A086150180_F533BA194283_var*
 begin
-//#UC START# *52A086150180_F533BA194283_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F533BA194283_impl*
+ inherited;
+ TtfwClassRef.Register(TvgCloseButton);
 end;//Tkw_NewBaseSearch_Control_CloseBtn.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_CloseBtn_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1177,21 +1149,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_AreaCombo.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_AreaCombo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FF7ECD6B4DDA_var*
-//#UC END# *4DDFD2EA0116_FF7ECD6B4DDA_var*
 begin
-//#UC START# *4DDFD2EA0116_FF7ECD6B4DDA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FF7ECD6B4DDA_impl*
+ Result := 'AreaCombo';
 end;//Tkw_NewBaseSearch_Control_AreaCombo.GetString
 
 class procedure Tkw_NewBaseSearch_Control_AreaCombo.RegisterInEngine;
-//#UC START# *52A086150180_FF7ECD6B4DDA_var*
-//#UC END# *52A086150180_FF7ECD6B4DDA_var*
 begin
-//#UC START# *52A086150180_FF7ECD6B4DDA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_FF7ECD6B4DDA_impl*
+ inherited;
+ TtfwClassRef.Register(TvgComboBox);
 end;//Tkw_NewBaseSearch_Control_AreaCombo.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_AreaCombo_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1214,21 +1179,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_QueryExampleLabel.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_QueryExampleLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4AD512F08EBF_var*
-//#UC END# *4DDFD2EA0116_4AD512F08EBF_var*
 begin
-//#UC START# *4DDFD2EA0116_4AD512F08EBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4AD512F08EBF_impl*
+ Result := 'QueryExampleLabel';
 end;//Tkw_NewBaseSearch_Control_QueryExampleLabel.GetString
 
 class procedure Tkw_NewBaseSearch_Control_QueryExampleLabel.RegisterInEngine;
-//#UC START# *52A086150180_4AD512F08EBF_var*
-//#UC END# *52A086150180_4AD512F08EBF_var*
 begin
-//#UC START# *52A086150180_4AD512F08EBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_4AD512F08EBF_impl*
+ inherited;
+ TtfwClassRef.Register(TvgText);
 end;//Tkw_NewBaseSearch_Control_QueryExampleLabel.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_QueryExampleLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1251,21 +1209,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_DropButton.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_DropButton.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B4C519AF5CA9_var*
-//#UC END# *4DDFD2EA0116_B4C519AF5CA9_var*
 begin
-//#UC START# *4DDFD2EA0116_B4C519AF5CA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B4C519AF5CA9_impl*
+ Result := 'DropButton';
 end;//Tkw_NewBaseSearch_Control_DropButton.GetString
 
 class procedure Tkw_NewBaseSearch_Control_DropButton.RegisterInEngine;
-//#UC START# *52A086150180_B4C519AF5CA9_var*
-//#UC END# *52A086150180_B4C519AF5CA9_var*
 begin
-//#UC START# *52A086150180_B4C519AF5CA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B4C519AF5CA9_impl*
+ inherited;
+ TtfwClassRef.Register(TvgButton);
 end;//Tkw_NewBaseSearch_Control_DropButton.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_DropButton_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1288,21 +1239,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_FoundCountLabel.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_FoundCountLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6A5423C6BEE1_var*
-//#UC END# *4DDFD2EA0116_6A5423C6BEE1_var*
 begin
-//#UC START# *4DDFD2EA0116_6A5423C6BEE1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6A5423C6BEE1_impl*
+ Result := 'FoundCountLabel';
 end;//Tkw_NewBaseSearch_Control_FoundCountLabel.GetString
 
 class procedure Tkw_NewBaseSearch_Control_FoundCountLabel.RegisterInEngine;
-//#UC START# *52A086150180_6A5423C6BEE1_var*
-//#UC END# *52A086150180_6A5423C6BEE1_var*
 begin
-//#UC START# *52A086150180_6A5423C6BEE1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6A5423C6BEE1_impl*
+ inherited;
+ TtfwClassRef.Register(TvgText);
 end;//Tkw_NewBaseSearch_Control_FoundCountLabel.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_FoundCountLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1325,21 +1269,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_ExampleLabel.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_ExampleLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2414CC50895B_var*
-//#UC END# *4DDFD2EA0116_2414CC50895B_var*
 begin
-//#UC START# *4DDFD2EA0116_2414CC50895B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2414CC50895B_impl*
+ Result := 'ExampleLabel';
 end;//Tkw_NewBaseSearch_Control_ExampleLabel.GetString
 
 class procedure Tkw_NewBaseSearch_Control_ExampleLabel.RegisterInEngine;
-//#UC START# *52A086150180_2414CC50895B_var*
-//#UC END# *52A086150180_2414CC50895B_var*
 begin
-//#UC START# *52A086150180_2414CC50895B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_2414CC50895B_impl*
+ inherited;
+ TtfwClassRef.Register(TvgText);
 end;//Tkw_NewBaseSearch_Control_ExampleLabel.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_ExampleLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1362,21 +1299,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_ContextEditPanel.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_ContextEditPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2B84D776B08C_var*
-//#UC END# *4DDFD2EA0116_2B84D776B08C_var*
 begin
-//#UC START# *4DDFD2EA0116_2B84D776B08C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2B84D776B08C_impl*
+ Result := 'ContextEditPanel';
 end;//Tkw_NewBaseSearch_Control_ContextEditPanel.GetString
 
 class procedure Tkw_NewBaseSearch_Control_ContextEditPanel.RegisterInEngine;
-//#UC START# *52A086150180_2B84D776B08C_var*
-//#UC END# *52A086150180_2B84D776B08C_var*
 begin
-//#UC START# *52A086150180_2B84D776B08C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_2B84D776B08C_impl*
+ inherited;
+ TtfwClassRef.Register(TvgNonVGLayout);
 end;//Tkw_NewBaseSearch_Control_ContextEditPanel.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_ContextEditPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1399,21 +1329,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_Layout1.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Layout1.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7111F74A2B08_var*
-//#UC END# *4DDFD2EA0116_7111F74A2B08_var*
 begin
-//#UC START# *4DDFD2EA0116_7111F74A2B08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7111F74A2B08_impl*
+ Result := 'Layout1';
 end;//Tkw_NewBaseSearch_Control_Layout1.GetString
 
 class procedure Tkw_NewBaseSearch_Control_Layout1.RegisterInEngine;
-//#UC START# *52A086150180_7111F74A2B08_var*
-//#UC END# *52A086150180_7111F74A2B08_var*
 begin
-//#UC START# *52A086150180_7111F74A2B08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7111F74A2B08_impl*
+ inherited;
+ TtfwClassRef.Register(TvgLayout);
 end;//Tkw_NewBaseSearch_Control_Layout1.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Layout1_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1436,21 +1359,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_Layout2.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Layout2.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6A6DEA72B701_var*
-//#UC END# *4DDFD2EA0116_6A6DEA72B701_var*
 begin
-//#UC START# *4DDFD2EA0116_6A6DEA72B701_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6A6DEA72B701_impl*
+ Result := 'Layout2';
 end;//Tkw_NewBaseSearch_Control_Layout2.GetString
 
 class procedure Tkw_NewBaseSearch_Control_Layout2.RegisterInEngine;
-//#UC START# *52A086150180_6A6DEA72B701_var*
-//#UC END# *52A086150180_6A6DEA72B701_var*
 begin
-//#UC START# *52A086150180_6A6DEA72B701_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6A6DEA72B701_impl*
+ inherited;
+ TtfwClassRef.Register(TvgLayout);
 end;//Tkw_NewBaseSearch_Control_Layout2.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Layout2_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1473,21 +1389,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_Layout3.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Layout3.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6EE6404D6ED3_var*
-//#UC END# *4DDFD2EA0116_6EE6404D6ED3_var*
 begin
-//#UC START# *4DDFD2EA0116_6EE6404D6ED3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6EE6404D6ED3_impl*
+ Result := 'Layout3';
 end;//Tkw_NewBaseSearch_Control_Layout3.GetString
 
 class procedure Tkw_NewBaseSearch_Control_Layout3.RegisterInEngine;
-//#UC START# *52A086150180_6EE6404D6ED3_var*
-//#UC END# *52A086150180_6EE6404D6ED3_var*
 begin
-//#UC START# *52A086150180_6EE6404D6ED3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6EE6404D6ED3_impl*
+ inherited;
+ TtfwClassRef.Register(TvgLayout);
 end;//Tkw_NewBaseSearch_Control_Layout3.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Layout3_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1510,21 +1419,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_vgScene1.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_vgScene1.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3C946C2DA0F4_var*
-//#UC END# *4DDFD2EA0116_3C946C2DA0F4_var*
 begin
-//#UC START# *4DDFD2EA0116_3C946C2DA0F4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3C946C2DA0F4_impl*
+ Result := 'vgScene1';
 end;//Tkw_NewBaseSearch_Control_vgScene1.GetString
 
 class procedure Tkw_NewBaseSearch_Control_vgScene1.RegisterInEngine;
-//#UC START# *52A086150180_3C946C2DA0F4_var*
-//#UC END# *52A086150180_3C946C2DA0F4_var*
 begin
-//#UC START# *52A086150180_3C946C2DA0F4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_3C946C2DA0F4_impl*
+ inherited;
+ TtfwClassRef.Register(TvgScene);
 end;//Tkw_NewBaseSearch_Control_vgScene1.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_vgScene1_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1547,21 +1449,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_MoreTab.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_MoreTab.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7EA42D88CD42_var*
-//#UC END# *4DDFD2EA0116_7EA42D88CD42_var*
 begin
-//#UC START# *4DDFD2EA0116_7EA42D88CD42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7EA42D88CD42_impl*
+ Result := 'MoreTab';
 end;//Tkw_NewBaseSearch_Control_MoreTab.GetString
 
 class procedure Tkw_NewBaseSearch_Control_MoreTab.RegisterInEngine;
-//#UC START# *52A086150180_7EA42D88CD42_var*
-//#UC END# *52A086150180_7EA42D88CD42_var*
 begin
-//#UC START# *52A086150180_7EA42D88CD42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7EA42D88CD42_impl*
+ inherited;
+ TtfwClassRef.Register(TvgComboBox);
 end;//Tkw_NewBaseSearch_Control_MoreTab.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_MoreTab_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1584,21 +1479,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_Border.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Border.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8A11BAC5EB1F_var*
-//#UC END# *4DDFD2EA0116_8A11BAC5EB1F_var*
 begin
-//#UC START# *4DDFD2EA0116_8A11BAC5EB1F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8A11BAC5EB1F_impl*
+ Result := 'Border';
 end;//Tkw_NewBaseSearch_Control_Border.GetString
 
 class procedure Tkw_NewBaseSearch_Control_Border.RegisterInEngine;
-//#UC START# *52A086150180_8A11BAC5EB1F_var*
-//#UC END# *52A086150180_8A11BAC5EB1F_var*
 begin
-//#UC START# *52A086150180_8A11BAC5EB1F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8A11BAC5EB1F_impl*
+ inherited;
+ TtfwClassRef.Register(TvgRectangle);
 end;//Tkw_NewBaseSearch_Control_Border.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Border_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1621,21 +1509,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_InnerBorder.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_InnerBorder.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_ECD2B6691BE0_var*
-//#UC END# *4DDFD2EA0116_ECD2B6691BE0_var*
 begin
-//#UC START# *4DDFD2EA0116_ECD2B6691BE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_ECD2B6691BE0_impl*
+ Result := 'InnerBorder';
 end;//Tkw_NewBaseSearch_Control_InnerBorder.GetString
 
 class procedure Tkw_NewBaseSearch_Control_InnerBorder.RegisterInEngine;
-//#UC START# *52A086150180_ECD2B6691BE0_var*
-//#UC END# *52A086150180_ECD2B6691BE0_var*
 begin
-//#UC START# *52A086150180_ECD2B6691BE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_ECD2B6691BE0_impl*
+ inherited;
+ TtfwClassRef.Register(TvgRectangle);
 end;//Tkw_NewBaseSearch_Control_InnerBorder.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_InnerBorder_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1658,21 +1539,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_MostOuterRectangle.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_MostOuterRectangle.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_24F9C8584DAC_var*
-//#UC END# *4DDFD2EA0116_24F9C8584DAC_var*
 begin
-//#UC START# *4DDFD2EA0116_24F9C8584DAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_24F9C8584DAC_impl*
+ Result := 'MostOuterRectangle';
 end;//Tkw_NewBaseSearch_Control_MostOuterRectangle.GetString
 
 class procedure Tkw_NewBaseSearch_Control_MostOuterRectangle.RegisterInEngine;
-//#UC START# *52A086150180_24F9C8584DAC_var*
-//#UC END# *52A086150180_24F9C8584DAC_var*
 begin
-//#UC START# *52A086150180_24F9C8584DAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_24F9C8584DAC_impl*
+ inherited;
+ TtfwClassRef.Register(TvgRectangle);
 end;//Tkw_NewBaseSearch_Control_MostOuterRectangle.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_MostOuterRectangle_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1695,21 +1569,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_Rectangle1.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_Rectangle1.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1A646FFE10AE_var*
-//#UC END# *4DDFD2EA0116_1A646FFE10AE_var*
 begin
-//#UC START# *4DDFD2EA0116_1A646FFE10AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1A646FFE10AE_impl*
+ Result := 'Rectangle1';
 end;//Tkw_NewBaseSearch_Control_Rectangle1.GetString
 
 class procedure Tkw_NewBaseSearch_Control_Rectangle1.RegisterInEngine;
-//#UC START# *52A086150180_1A646FFE10AE_var*
-//#UC END# *52A086150180_1A646FFE10AE_var*
 begin
-//#UC START# *52A086150180_1A646FFE10AE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1A646FFE10AE_impl*
+ inherited;
+ TtfwClassRef.Register(TvgRectangle);
 end;//Tkw_NewBaseSearch_Control_Rectangle1.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Rectangle1_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1732,21 +1599,14 @@ begin
 end;//Tkw_NewBaseSearch_Control_ContextEdit.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Control_ContextEdit.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_86D06303158B_var*
-//#UC END# *4DDFD2EA0116_86D06303158B_var*
 begin
-//#UC START# *4DDFD2EA0116_86D06303158B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_86D06303158B_impl*
+ Result := 'ContextEdit';
 end;//Tkw_NewBaseSearch_Control_ContextEdit.GetString
 
 class procedure Tkw_NewBaseSearch_Control_ContextEdit.RegisterInEngine;
-//#UC START# *52A086150180_86D06303158B_var*
-//#UC END# *52A086150180_86D06303158B_var*
 begin
-//#UC START# *52A086150180_86D06303158B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_86D06303158B_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeComboWithHistoryAndOperations);
 end;//Tkw_NewBaseSearch_Control_ContextEdit.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_ContextEdit_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1769,41 +1629,36 @@ begin
 end;//Tkw_NewBaseSearch_Component_FlashTimer.GetWordNameForRegister
 
 function Tkw_NewBaseSearch_Component_FlashTimer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3F3CCC588CDE_var*
-//#UC END# *4DDFD2EA0116_3F3CCC588CDE_var*
 begin
-//#UC START# *4DDFD2EA0116_3F3CCC588CDE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3F3CCC588CDE_impl*
+ Result := 'FlashTimer';
 end;//Tkw_NewBaseSearch_Component_FlashTimer.GetString
 
 class procedure Tkw_NewBaseSearch_Component_FlashTimer.RegisterInEngine;
-//#UC START# *52A086150180_3F3CCC588CDE_var*
-//#UC END# *52A086150180_3F3CCC588CDE_var*
 begin
-//#UC START# *52A086150180_3F3CCC588CDE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_3F3CCC588CDE_impl*
+ inherited;
+ TtfwClassRef.Register(TTimer);
 end;//Tkw_NewBaseSearch_Component_FlashTimer.RegisterInEngine
 
 function TkwNewBaseSearchFormFindBtn.FindBtn(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgPathButton;
  {* Реализация слова скрипта .TNewBaseSearchForm.FindBtn }
-//#UC START# *950274AE5B1A_8487F43B0D1E_var*
-//#UC END# *950274AE5B1A_8487F43B0D1E_var*
 begin
-//#UC START# *950274AE5B1A_8487F43B0D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *950274AE5B1A_8487F43B0D1E_impl*
+ Result := aNewBaseSearchForm.FindBtn;
 end;//TkwNewBaseSearchFormFindBtn.FindBtn
 
 procedure TkwNewBaseSearchFormFindBtn.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8487F43B0D1E_var*
-//#UC END# *4DAEEDE10285_8487F43B0D1E_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_8487F43B0D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8487F43B0D1E_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FindBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFindBtn.DoDoIt
 
 class function TkwNewBaseSearchFormFindBtn.GetWordNameForRegister: AnsiString;
@@ -1813,12 +1668,8 @@ end;//TkwNewBaseSearchFormFindBtn.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormFindBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8487F43B0D1E_var*
-//#UC END# *52D00B00031A_8487F43B0D1E_var*
 begin
-//#UC START# *52D00B00031A_8487F43B0D1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8487F43B0D1E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству FindBtn', aCtx);
 end;//TkwNewBaseSearchFormFindBtn.SetValuePrim
 
 function TkwNewBaseSearchFormFindBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1833,27 +1684,29 @@ end;//TkwNewBaseSearchFormFindBtn.GetAllParamsCount
 
 function TkwNewBaseSearchFormFindBtn.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFindBtn.ParamsTypes
 
 function TkwNewBaseSearchFormFindBackBtn.FindBackBtn(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgPathButton;
  {* Реализация слова скрипта .TNewBaseSearchForm.FindBackBtn }
-//#UC START# *A4408FAB31FE_8FD4A0277CFF_var*
-//#UC END# *A4408FAB31FE_8FD4A0277CFF_var*
 begin
-//#UC START# *A4408FAB31FE_8FD4A0277CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A4408FAB31FE_8FD4A0277CFF_impl*
+ Result := aNewBaseSearchForm.FindBackBtn;
 end;//TkwNewBaseSearchFormFindBackBtn.FindBackBtn
 
 procedure TkwNewBaseSearchFormFindBackBtn.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8FD4A0277CFF_var*
-//#UC END# *4DAEEDE10285_8FD4A0277CFF_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_8FD4A0277CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8FD4A0277CFF_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FindBackBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFindBackBtn.DoDoIt
 
 class function TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister: AnsiString;
@@ -1863,12 +1716,8 @@ end;//TkwNewBaseSearchFormFindBackBtn.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormFindBackBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8FD4A0277CFF_var*
-//#UC END# *52D00B00031A_8FD4A0277CFF_var*
 begin
-//#UC START# *52D00B00031A_8FD4A0277CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8FD4A0277CFF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству FindBackBtn', aCtx);
 end;//TkwNewBaseSearchFormFindBackBtn.SetValuePrim
 
 function TkwNewBaseSearchFormFindBackBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1883,27 +1732,29 @@ end;//TkwNewBaseSearchFormFindBackBtn.GetAllParamsCount
 
 function TkwNewBaseSearchFormFindBackBtn.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFindBackBtn.ParamsTypes
 
 function TkwNewBaseSearchFormCloseBtn.CloseBtn(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgCloseButton;
  {* Реализация слова скрипта .TNewBaseSearchForm.CloseBtn }
-//#UC START# *C58A06E15145_90CDA41F40D2_var*
-//#UC END# *C58A06E15145_90CDA41F40D2_var*
 begin
-//#UC START# *C58A06E15145_90CDA41F40D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C58A06E15145_90CDA41F40D2_impl*
+ Result := aNewBaseSearchForm.CloseBtn;
 end;//TkwNewBaseSearchFormCloseBtn.CloseBtn
 
 procedure TkwNewBaseSearchFormCloseBtn.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_90CDA41F40D2_var*
-//#UC END# *4DAEEDE10285_90CDA41F40D2_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_90CDA41F40D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_90CDA41F40D2_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CloseBtn(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormCloseBtn.DoDoIt
 
 class function TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister: AnsiString;
@@ -1913,12 +1764,8 @@ end;//TkwNewBaseSearchFormCloseBtn.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormCloseBtn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_90CDA41F40D2_var*
-//#UC END# *52D00B00031A_90CDA41F40D2_var*
 begin
-//#UC START# *52D00B00031A_90CDA41F40D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_90CDA41F40D2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству CloseBtn', aCtx);
 end;//TkwNewBaseSearchFormCloseBtn.SetValuePrim
 
 function TkwNewBaseSearchFormCloseBtn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1933,27 +1780,29 @@ end;//TkwNewBaseSearchFormCloseBtn.GetAllParamsCount
 
 function TkwNewBaseSearchFormCloseBtn.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormCloseBtn.ParamsTypes
 
 function TkwNewBaseSearchFormAreaCombo.AreaCombo(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgComboBox;
  {* Реализация слова скрипта .TNewBaseSearchForm.AreaCombo }
-//#UC START# *6FBAA7D9C90F_4D85E5711038_var*
-//#UC END# *6FBAA7D9C90F_4D85E5711038_var*
 begin
-//#UC START# *6FBAA7D9C90F_4D85E5711038_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6FBAA7D9C90F_4D85E5711038_impl*
+ Result := aNewBaseSearchForm.AreaCombo;
 end;//TkwNewBaseSearchFormAreaCombo.AreaCombo
 
 procedure TkwNewBaseSearchFormAreaCombo.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4D85E5711038_var*
-//#UC END# *4DAEEDE10285_4D85E5711038_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_4D85E5711038_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4D85E5711038_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(AreaCombo(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormAreaCombo.DoDoIt
 
 class function TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister: AnsiString;
@@ -1963,12 +1812,8 @@ end;//TkwNewBaseSearchFormAreaCombo.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormAreaCombo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4D85E5711038_var*
-//#UC END# *52D00B00031A_4D85E5711038_var*
 begin
-//#UC START# *52D00B00031A_4D85E5711038_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4D85E5711038_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству AreaCombo', aCtx);
 end;//TkwNewBaseSearchFormAreaCombo.SetValuePrim
 
 function TkwNewBaseSearchFormAreaCombo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1983,27 +1828,29 @@ end;//TkwNewBaseSearchFormAreaCombo.GetAllParamsCount
 
 function TkwNewBaseSearchFormAreaCombo.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormAreaCombo.ParamsTypes
 
 function TkwNewBaseSearchFormQueryExampleLabel.QueryExampleLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
  {* Реализация слова скрипта .TNewBaseSearchForm.QueryExampleLabel }
-//#UC START# *76A1048784E7_505ADAD50252_var*
-//#UC END# *76A1048784E7_505ADAD50252_var*
 begin
-//#UC START# *76A1048784E7_505ADAD50252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *76A1048784E7_505ADAD50252_impl*
+ Result := aNewBaseSearchForm.QueryExampleLabel;
 end;//TkwNewBaseSearchFormQueryExampleLabel.QueryExampleLabel
 
 procedure TkwNewBaseSearchFormQueryExampleLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_505ADAD50252_var*
-//#UC END# *4DAEEDE10285_505ADAD50252_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_505ADAD50252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_505ADAD50252_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(QueryExampleLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormQueryExampleLabel.DoDoIt
 
 class function TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister: AnsiString;
@@ -2013,12 +1860,8 @@ end;//TkwNewBaseSearchFormQueryExampleLabel.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormQueryExampleLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_505ADAD50252_var*
-//#UC END# *52D00B00031A_505ADAD50252_var*
 begin
-//#UC START# *52D00B00031A_505ADAD50252_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_505ADAD50252_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству QueryExampleLabel', aCtx);
 end;//TkwNewBaseSearchFormQueryExampleLabel.SetValuePrim
 
 function TkwNewBaseSearchFormQueryExampleLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2033,27 +1876,29 @@ end;//TkwNewBaseSearchFormQueryExampleLabel.GetAllParamsCount
 
 function TkwNewBaseSearchFormQueryExampleLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormQueryExampleLabel.ParamsTypes
 
 function TkwNewBaseSearchFormDropButton.DropButton(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgButton;
  {* Реализация слова скрипта .TNewBaseSearchForm.DropButton }
-//#UC START# *15B82C921510_A991331821D4_var*
-//#UC END# *15B82C921510_A991331821D4_var*
 begin
-//#UC START# *15B82C921510_A991331821D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *15B82C921510_A991331821D4_impl*
+ Result := aNewBaseSearchForm.DropButton;
 end;//TkwNewBaseSearchFormDropButton.DropButton
 
 procedure TkwNewBaseSearchFormDropButton.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A991331821D4_var*
-//#UC END# *4DAEEDE10285_A991331821D4_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_A991331821D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A991331821D4_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(DropButton(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormDropButton.DoDoIt
 
 class function TkwNewBaseSearchFormDropButton.GetWordNameForRegister: AnsiString;
@@ -2063,12 +1908,8 @@ end;//TkwNewBaseSearchFormDropButton.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormDropButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A991331821D4_var*
-//#UC END# *52D00B00031A_A991331821D4_var*
 begin
-//#UC START# *52D00B00031A_A991331821D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A991331821D4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству DropButton', aCtx);
 end;//TkwNewBaseSearchFormDropButton.SetValuePrim
 
 function TkwNewBaseSearchFormDropButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2083,27 +1924,29 @@ end;//TkwNewBaseSearchFormDropButton.GetAllParamsCount
 
 function TkwNewBaseSearchFormDropButton.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormDropButton.ParamsTypes
 
 function TkwNewBaseSearchFormFoundCountLabel.FoundCountLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
  {* Реализация слова скрипта .TNewBaseSearchForm.FoundCountLabel }
-//#UC START# *5BDAC45D8222_6C75E19A9417_var*
-//#UC END# *5BDAC45D8222_6C75E19A9417_var*
 begin
-//#UC START# *5BDAC45D8222_6C75E19A9417_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5BDAC45D8222_6C75E19A9417_impl*
+ Result := aNewBaseSearchForm.FoundCountLabel;
 end;//TkwNewBaseSearchFormFoundCountLabel.FoundCountLabel
 
 procedure TkwNewBaseSearchFormFoundCountLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6C75E19A9417_var*
-//#UC END# *4DAEEDE10285_6C75E19A9417_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_6C75E19A9417_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6C75E19A9417_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FoundCountLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFoundCountLabel.DoDoIt
 
 class function TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister: AnsiString;
@@ -2113,12 +1956,8 @@ end;//TkwNewBaseSearchFormFoundCountLabel.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormFoundCountLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6C75E19A9417_var*
-//#UC END# *52D00B00031A_6C75E19A9417_var*
 begin
-//#UC START# *52D00B00031A_6C75E19A9417_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6C75E19A9417_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству FoundCountLabel', aCtx);
 end;//TkwNewBaseSearchFormFoundCountLabel.SetValuePrim
 
 function TkwNewBaseSearchFormFoundCountLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2133,27 +1972,29 @@ end;//TkwNewBaseSearchFormFoundCountLabel.GetAllParamsCount
 
 function TkwNewBaseSearchFormFoundCountLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFoundCountLabel.ParamsTypes
 
 function TkwNewBaseSearchFormExampleLabel.ExampleLabel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgText;
  {* Реализация слова скрипта .TNewBaseSearchForm.ExampleLabel }
-//#UC START# *9BC365FC7E17_EB6013B55CA8_var*
-//#UC END# *9BC365FC7E17_EB6013B55CA8_var*
 begin
-//#UC START# *9BC365FC7E17_EB6013B55CA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9BC365FC7E17_EB6013B55CA8_impl*
+ Result := aNewBaseSearchForm.ExampleLabel;
 end;//TkwNewBaseSearchFormExampleLabel.ExampleLabel
 
 procedure TkwNewBaseSearchFormExampleLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EB6013B55CA8_var*
-//#UC END# *4DAEEDE10285_EB6013B55CA8_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_EB6013B55CA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EB6013B55CA8_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ExampleLabel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormExampleLabel.DoDoIt
 
 class function TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister: AnsiString;
@@ -2163,12 +2004,8 @@ end;//TkwNewBaseSearchFormExampleLabel.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormExampleLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EB6013B55CA8_var*
-//#UC END# *52D00B00031A_EB6013B55CA8_var*
 begin
-//#UC START# *52D00B00031A_EB6013B55CA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EB6013B55CA8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ExampleLabel', aCtx);
 end;//TkwNewBaseSearchFormExampleLabel.SetValuePrim
 
 function TkwNewBaseSearchFormExampleLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2183,27 +2020,29 @@ end;//TkwNewBaseSearchFormExampleLabel.GetAllParamsCount
 
 function TkwNewBaseSearchFormExampleLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormExampleLabel.ParamsTypes
 
 function TkwNewBaseSearchFormContextEditPanel.ContextEditPanel(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgNonVGLayout;
  {* Реализация слова скрипта .TNewBaseSearchForm.ContextEditPanel }
-//#UC START# *83BFA8B30125_BC18F8F57D3A_var*
-//#UC END# *83BFA8B30125_BC18F8F57D3A_var*
 begin
-//#UC START# *83BFA8B30125_BC18F8F57D3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *83BFA8B30125_BC18F8F57D3A_impl*
+ Result := aNewBaseSearchForm.ContextEditPanel;
 end;//TkwNewBaseSearchFormContextEditPanel.ContextEditPanel
 
 procedure TkwNewBaseSearchFormContextEditPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BC18F8F57D3A_var*
-//#UC END# *4DAEEDE10285_BC18F8F57D3A_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_BC18F8F57D3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BC18F8F57D3A_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextEditPanel(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormContextEditPanel.DoDoIt
 
 class function TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister: AnsiString;
@@ -2213,12 +2052,8 @@ end;//TkwNewBaseSearchFormContextEditPanel.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormContextEditPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BC18F8F57D3A_var*
-//#UC END# *52D00B00031A_BC18F8F57D3A_var*
 begin
-//#UC START# *52D00B00031A_BC18F8F57D3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BC18F8F57D3A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextEditPanel', aCtx);
 end;//TkwNewBaseSearchFormContextEditPanel.SetValuePrim
 
 function TkwNewBaseSearchFormContextEditPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2233,27 +2068,29 @@ end;//TkwNewBaseSearchFormContextEditPanel.GetAllParamsCount
 
 function TkwNewBaseSearchFormContextEditPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormContextEditPanel.ParamsTypes
 
 function TkwNewBaseSearchFormLayout1.Layout1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
  {* Реализация слова скрипта .TNewBaseSearchForm.Layout1 }
-//#UC START# *2877FB08CB3C_2824E7848D0C_var*
-//#UC END# *2877FB08CB3C_2824E7848D0C_var*
 begin
-//#UC START# *2877FB08CB3C_2824E7848D0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2877FB08CB3C_2824E7848D0C_impl*
+ Result := aNewBaseSearchForm.Layout1;
 end;//TkwNewBaseSearchFormLayout1.Layout1
 
 procedure TkwNewBaseSearchFormLayout1.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2824E7848D0C_var*
-//#UC END# *4DAEEDE10285_2824E7848D0C_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_2824E7848D0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2824E7848D0C_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Layout1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout1.DoDoIt
 
 class function TkwNewBaseSearchFormLayout1.GetWordNameForRegister: AnsiString;
@@ -2263,12 +2100,8 @@ end;//TkwNewBaseSearchFormLayout1.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormLayout1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2824E7848D0C_var*
-//#UC END# *52D00B00031A_2824E7848D0C_var*
 begin
-//#UC START# *52D00B00031A_2824E7848D0C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2824E7848D0C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Layout1', aCtx);
 end;//TkwNewBaseSearchFormLayout1.SetValuePrim
 
 function TkwNewBaseSearchFormLayout1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2283,27 +2116,29 @@ end;//TkwNewBaseSearchFormLayout1.GetAllParamsCount
 
 function TkwNewBaseSearchFormLayout1.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout1.ParamsTypes
 
 function TkwNewBaseSearchFormLayout2.Layout2(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
  {* Реализация слова скрипта .TNewBaseSearchForm.Layout2 }
-//#UC START# *C5319B3D34F0_57D5D6C99B6B_var*
-//#UC END# *C5319B3D34F0_57D5D6C99B6B_var*
 begin
-//#UC START# *C5319B3D34F0_57D5D6C99B6B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C5319B3D34F0_57D5D6C99B6B_impl*
+ Result := aNewBaseSearchForm.Layout2;
 end;//TkwNewBaseSearchFormLayout2.Layout2
 
 procedure TkwNewBaseSearchFormLayout2.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_57D5D6C99B6B_var*
-//#UC END# *4DAEEDE10285_57D5D6C99B6B_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_57D5D6C99B6B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_57D5D6C99B6B_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Layout2(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout2.DoDoIt
 
 class function TkwNewBaseSearchFormLayout2.GetWordNameForRegister: AnsiString;
@@ -2313,12 +2148,8 @@ end;//TkwNewBaseSearchFormLayout2.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormLayout2.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_57D5D6C99B6B_var*
-//#UC END# *52D00B00031A_57D5D6C99B6B_var*
 begin
-//#UC START# *52D00B00031A_57D5D6C99B6B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_57D5D6C99B6B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Layout2', aCtx);
 end;//TkwNewBaseSearchFormLayout2.SetValuePrim
 
 function TkwNewBaseSearchFormLayout2.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2333,27 +2164,29 @@ end;//TkwNewBaseSearchFormLayout2.GetAllParamsCount
 
 function TkwNewBaseSearchFormLayout2.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout2.ParamsTypes
 
 function TkwNewBaseSearchFormLayout3.Layout3(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgLayout;
  {* Реализация слова скрипта .TNewBaseSearchForm.Layout3 }
-//#UC START# *778118300E56_DC70024F6763_var*
-//#UC END# *778118300E56_DC70024F6763_var*
 begin
-//#UC START# *778118300E56_DC70024F6763_impl*
- !!! Needs to be implemented !!!
-//#UC END# *778118300E56_DC70024F6763_impl*
+ Result := aNewBaseSearchForm.Layout3;
 end;//TkwNewBaseSearchFormLayout3.Layout3
 
 procedure TkwNewBaseSearchFormLayout3.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DC70024F6763_var*
-//#UC END# *4DAEEDE10285_DC70024F6763_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_DC70024F6763_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DC70024F6763_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Layout3(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormLayout3.DoDoIt
 
 class function TkwNewBaseSearchFormLayout3.GetWordNameForRegister: AnsiString;
@@ -2363,12 +2196,8 @@ end;//TkwNewBaseSearchFormLayout3.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormLayout3.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DC70024F6763_var*
-//#UC END# *52D00B00031A_DC70024F6763_var*
 begin
-//#UC START# *52D00B00031A_DC70024F6763_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DC70024F6763_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Layout3', aCtx);
 end;//TkwNewBaseSearchFormLayout3.SetValuePrim
 
 function TkwNewBaseSearchFormLayout3.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2383,27 +2212,29 @@ end;//TkwNewBaseSearchFormLayout3.GetAllParamsCount
 
 function TkwNewBaseSearchFormLayout3.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormLayout3.ParamsTypes
 
 function TkwNewBaseSearchFormVgScene1.vgScene1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgScene;
  {* Реализация слова скрипта .TNewBaseSearchForm.vgScene1 }
-//#UC START# *88FC0BF68D8A_B13A4A98049B_var*
-//#UC END# *88FC0BF68D8A_B13A4A98049B_var*
 begin
-//#UC START# *88FC0BF68D8A_B13A4A98049B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *88FC0BF68D8A_B13A4A98049B_impl*
+ Result := aNewBaseSearchForm.vgScene1;
 end;//TkwNewBaseSearchFormVgScene1.vgScene1
 
 procedure TkwNewBaseSearchFormVgScene1.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B13A4A98049B_var*
-//#UC END# *4DAEEDE10285_B13A4A98049B_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_B13A4A98049B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B13A4A98049B_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(vgScene1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormVgScene1.DoDoIt
 
 class function TkwNewBaseSearchFormVgScene1.GetWordNameForRegister: AnsiString;
@@ -2413,12 +2244,8 @@ end;//TkwNewBaseSearchFormVgScene1.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormVgScene1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B13A4A98049B_var*
-//#UC END# *52D00B00031A_B13A4A98049B_var*
 begin
-//#UC START# *52D00B00031A_B13A4A98049B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B13A4A98049B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству vgScene1', aCtx);
 end;//TkwNewBaseSearchFormVgScene1.SetValuePrim
 
 function TkwNewBaseSearchFormVgScene1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2433,27 +2260,29 @@ end;//TkwNewBaseSearchFormVgScene1.GetAllParamsCount
 
 function TkwNewBaseSearchFormVgScene1.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormVgScene1.ParamsTypes
 
 function TkwNewBaseSearchFormMoreTab.MoreTab(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgComboBox;
  {* Реализация слова скрипта .TNewBaseSearchForm.MoreTab }
-//#UC START# *8AEBBA5A35C2_FF59636CB724_var*
-//#UC END# *8AEBBA5A35C2_FF59636CB724_var*
 begin
-//#UC START# *8AEBBA5A35C2_FF59636CB724_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8AEBBA5A35C2_FF59636CB724_impl*
+ Result := aNewBaseSearchForm.MoreTab;
 end;//TkwNewBaseSearchFormMoreTab.MoreTab
 
 procedure TkwNewBaseSearchFormMoreTab.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FF59636CB724_var*
-//#UC END# *4DAEEDE10285_FF59636CB724_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_FF59636CB724_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FF59636CB724_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MoreTab(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormMoreTab.DoDoIt
 
 class function TkwNewBaseSearchFormMoreTab.GetWordNameForRegister: AnsiString;
@@ -2463,12 +2292,8 @@ end;//TkwNewBaseSearchFormMoreTab.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormMoreTab.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FF59636CB724_var*
-//#UC END# *52D00B00031A_FF59636CB724_var*
 begin
-//#UC START# *52D00B00031A_FF59636CB724_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FF59636CB724_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству MoreTab', aCtx);
 end;//TkwNewBaseSearchFormMoreTab.SetValuePrim
 
 function TkwNewBaseSearchFormMoreTab.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2483,27 +2308,29 @@ end;//TkwNewBaseSearchFormMoreTab.GetAllParamsCount
 
 function TkwNewBaseSearchFormMoreTab.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormMoreTab.ParamsTypes
 
 function TkwNewBaseSearchFormBorder.Border(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
  {* Реализация слова скрипта .TNewBaseSearchForm.Border }
-//#UC START# *DC3F44F28F49_02D50A1E8F6D_var*
-//#UC END# *DC3F44F28F49_02D50A1E8F6D_var*
 begin
-//#UC START# *DC3F44F28F49_02D50A1E8F6D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DC3F44F28F49_02D50A1E8F6D_impl*
+ Result := aNewBaseSearchForm.Border;
 end;//TkwNewBaseSearchFormBorder.Border
 
 procedure TkwNewBaseSearchFormBorder.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_02D50A1E8F6D_var*
-//#UC END# *4DAEEDE10285_02D50A1E8F6D_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_02D50A1E8F6D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_02D50A1E8F6D_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Border(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormBorder.DoDoIt
 
 class function TkwNewBaseSearchFormBorder.GetWordNameForRegister: AnsiString;
@@ -2513,12 +2340,8 @@ end;//TkwNewBaseSearchFormBorder.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormBorder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_02D50A1E8F6D_var*
-//#UC END# *52D00B00031A_02D50A1E8F6D_var*
 begin
-//#UC START# *52D00B00031A_02D50A1E8F6D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_02D50A1E8F6D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Border', aCtx);
 end;//TkwNewBaseSearchFormBorder.SetValuePrim
 
 function TkwNewBaseSearchFormBorder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2533,27 +2356,29 @@ end;//TkwNewBaseSearchFormBorder.GetAllParamsCount
 
 function TkwNewBaseSearchFormBorder.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormBorder.ParamsTypes
 
 function TkwNewBaseSearchFormInnerBorder.InnerBorder(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
  {* Реализация слова скрипта .TNewBaseSearchForm.InnerBorder }
-//#UC START# *000E7CBB0C25_85C7A7A826B7_var*
-//#UC END# *000E7CBB0C25_85C7A7A826B7_var*
 begin
-//#UC START# *000E7CBB0C25_85C7A7A826B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *000E7CBB0C25_85C7A7A826B7_impl*
+ Result := aNewBaseSearchForm.InnerBorder;
 end;//TkwNewBaseSearchFormInnerBorder.InnerBorder
 
 procedure TkwNewBaseSearchFormInnerBorder.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_85C7A7A826B7_var*
-//#UC END# *4DAEEDE10285_85C7A7A826B7_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_85C7A7A826B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_85C7A7A826B7_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(InnerBorder(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormInnerBorder.DoDoIt
 
 class function TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister: AnsiString;
@@ -2563,12 +2388,8 @@ end;//TkwNewBaseSearchFormInnerBorder.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormInnerBorder.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_85C7A7A826B7_var*
-//#UC END# *52D00B00031A_85C7A7A826B7_var*
 begin
-//#UC START# *52D00B00031A_85C7A7A826B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_85C7A7A826B7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству InnerBorder', aCtx);
 end;//TkwNewBaseSearchFormInnerBorder.SetValuePrim
 
 function TkwNewBaseSearchFormInnerBorder.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2583,27 +2404,29 @@ end;//TkwNewBaseSearchFormInnerBorder.GetAllParamsCount
 
 function TkwNewBaseSearchFormInnerBorder.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormInnerBorder.ParamsTypes
 
 function TkwNewBaseSearchFormMostOuterRectangle.MostOuterRectangle(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
  {* Реализация слова скрипта .TNewBaseSearchForm.MostOuterRectangle }
-//#UC START# *1B90617F0BB2_B8CD8BF7C9B3_var*
-//#UC END# *1B90617F0BB2_B8CD8BF7C9B3_var*
 begin
-//#UC START# *1B90617F0BB2_B8CD8BF7C9B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1B90617F0BB2_B8CD8BF7C9B3_impl*
+ Result := aNewBaseSearchForm.MostOuterRectangle;
 end;//TkwNewBaseSearchFormMostOuterRectangle.MostOuterRectangle
 
 procedure TkwNewBaseSearchFormMostOuterRectangle.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B8CD8BF7C9B3_var*
-//#UC END# *4DAEEDE10285_B8CD8BF7C9B3_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_B8CD8BF7C9B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B8CD8BF7C9B3_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MostOuterRectangle(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormMostOuterRectangle.DoDoIt
 
 class function TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister: AnsiString;
@@ -2613,12 +2436,8 @@ end;//TkwNewBaseSearchFormMostOuterRectangle.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormMostOuterRectangle.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B8CD8BF7C9B3_var*
-//#UC END# *52D00B00031A_B8CD8BF7C9B3_var*
 begin
-//#UC START# *52D00B00031A_B8CD8BF7C9B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B8CD8BF7C9B3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству MostOuterRectangle', aCtx);
 end;//TkwNewBaseSearchFormMostOuterRectangle.SetValuePrim
 
 function TkwNewBaseSearchFormMostOuterRectangle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2633,27 +2452,29 @@ end;//TkwNewBaseSearchFormMostOuterRectangle.GetAllParamsCount
 
 function TkwNewBaseSearchFormMostOuterRectangle.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormMostOuterRectangle.ParamsTypes
 
 function TkwNewBaseSearchFormRectangle1.Rectangle1(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TvgRectangle;
  {* Реализация слова скрипта .TNewBaseSearchForm.Rectangle1 }
-//#UC START# *676533D22355_CB750FEEA0A4_var*
-//#UC END# *676533D22355_CB750FEEA0A4_var*
 begin
-//#UC START# *676533D22355_CB750FEEA0A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *676533D22355_CB750FEEA0A4_impl*
+ Result := aNewBaseSearchForm.Rectangle1;
 end;//TkwNewBaseSearchFormRectangle1.Rectangle1
 
 procedure TkwNewBaseSearchFormRectangle1.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CB750FEEA0A4_var*
-//#UC END# *4DAEEDE10285_CB750FEEA0A4_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_CB750FEEA0A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CB750FEEA0A4_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Rectangle1(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormRectangle1.DoDoIt
 
 class function TkwNewBaseSearchFormRectangle1.GetWordNameForRegister: AnsiString;
@@ -2663,12 +2484,8 @@ end;//TkwNewBaseSearchFormRectangle1.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormRectangle1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_CB750FEEA0A4_var*
-//#UC END# *52D00B00031A_CB750FEEA0A4_var*
 begin
-//#UC START# *52D00B00031A_CB750FEEA0A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_CB750FEEA0A4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Rectangle1', aCtx);
 end;//TkwNewBaseSearchFormRectangle1.SetValuePrim
 
 function TkwNewBaseSearchFormRectangle1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2683,27 +2500,29 @@ end;//TkwNewBaseSearchFormRectangle1.GetAllParamsCount
 
 function TkwNewBaseSearchFormRectangle1.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormRectangle1.ParamsTypes
 
 function TkwNewBaseSearchFormContextEdit.ContextEdit(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TnscTreeComboWithHistoryAndOperations;
  {* Реализация слова скрипта .TNewBaseSearchForm.ContextEdit }
-//#UC START# *42FBE2C33494_C6AE29665243_var*
-//#UC END# *42FBE2C33494_C6AE29665243_var*
 begin
-//#UC START# *42FBE2C33494_C6AE29665243_impl*
- !!! Needs to be implemented !!!
-//#UC END# *42FBE2C33494_C6AE29665243_impl*
+ Result := aNewBaseSearchForm.ContextEdit;
 end;//TkwNewBaseSearchFormContextEdit.ContextEdit
 
 procedure TkwNewBaseSearchFormContextEdit.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C6AE29665243_var*
-//#UC END# *4DAEEDE10285_C6AE29665243_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_C6AE29665243_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C6AE29665243_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextEdit(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormContextEdit.DoDoIt
 
 class function TkwNewBaseSearchFormContextEdit.GetWordNameForRegister: AnsiString;
@@ -2713,12 +2532,8 @@ end;//TkwNewBaseSearchFormContextEdit.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormContextEdit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C6AE29665243_var*
-//#UC END# *52D00B00031A_C6AE29665243_var*
 begin
-//#UC START# *52D00B00031A_C6AE29665243_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C6AE29665243_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextEdit', aCtx);
 end;//TkwNewBaseSearchFormContextEdit.SetValuePrim
 
 function TkwNewBaseSearchFormContextEdit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2733,27 +2548,29 @@ end;//TkwNewBaseSearchFormContextEdit.GetAllParamsCount
 
 function TkwNewBaseSearchFormContextEdit.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormContextEdit.ParamsTypes
 
 function TkwNewBaseSearchFormFlashTimer.FlashTimer(const aCtx: TtfwContext;
  aNewBaseSearchForm: TNewBaseSearchForm): TTimer;
  {* Реализация слова скрипта .TNewBaseSearchForm.FlashTimer }
-//#UC START# *7C6367EDDBBB_52CA7BEB5C5D_var*
-//#UC END# *7C6367EDDBBB_52CA7BEB5C5D_var*
 begin
-//#UC START# *7C6367EDDBBB_52CA7BEB5C5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7C6367EDDBBB_52CA7BEB5C5D_impl*
+ Result := aNewBaseSearchForm.FlashTimer;
 end;//TkwNewBaseSearchFormFlashTimer.FlashTimer
 
 procedure TkwNewBaseSearchFormFlashTimer.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_52CA7BEB5C5D_var*
-//#UC END# *4DAEEDE10285_52CA7BEB5C5D_var*
+var l_aNewBaseSearchForm: TNewBaseSearchForm;
 begin
-//#UC START# *4DAEEDE10285_52CA7BEB5C5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_52CA7BEB5C5D_impl*
+ try
+  l_aNewBaseSearchForm := TNewBaseSearchForm(aCtx.rEngine.PopObjAs(TNewBaseSearchForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewBaseSearchForm: TNewBaseSearchForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FlashTimer(aCtx, l_aNewBaseSearchForm));
 end;//TkwNewBaseSearchFormFlashTimer.DoDoIt
 
 class function TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister: AnsiString;
@@ -2763,12 +2580,8 @@ end;//TkwNewBaseSearchFormFlashTimer.GetWordNameForRegister
 
 procedure TkwNewBaseSearchFormFlashTimer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_52CA7BEB5C5D_var*
-//#UC END# *52D00B00031A_52CA7BEB5C5D_var*
 begin
-//#UC START# *52D00B00031A_52CA7BEB5C5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_52CA7BEB5C5D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству FlashTimer', aCtx);
 end;//TkwNewBaseSearchFormFlashTimer.SetValuePrim
 
 function TkwNewBaseSearchFormFlashTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2783,7 +2596,7 @@ end;//TkwNewBaseSearchFormFlashTimer.GetAllParamsCount
 
 function TkwNewBaseSearchFormFlashTimer.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewBaseSearchForm)]);
 end;//TkwNewBaseSearchFormFlashTimer.ParamsTypes
 
 initialization

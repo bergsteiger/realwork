@@ -25,7 +25,7 @@ type
  _ItemType_ = IFilterFromQuery;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnsIFilterFromQueryList = class(_l3InterfaceRefList_)
   {* Список ссылок на IFilterFromQuery }
  end;//TnsIFilterFromQueryList
@@ -44,7 +44,7 @@ uses
 
 type _Instance_R_ = TnsIFilterFromQueryList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

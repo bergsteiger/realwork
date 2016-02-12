@@ -23,9 +23,9 @@ uses
 
 type
  _ItemType_ = TtfwDictionaryEx;
- {$Include tfwSortedDictionaryList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwSortedDictionaryList.imp.pas}
  _tfwNamedDictionaryList_Parent_ = _tfwSortedDictionaryList_;
- {$Include tfwNamedDictionaryList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwNamedDictionaryList.imp.pas}
  TtfwDictionaryCachePrim = class(_tfwNamedDictionaryList_)
  end;//TtfwDictionaryCachePrim
 {$IfEnd} // NOT Defined(NoScripts)
@@ -44,9 +44,9 @@ uses
 
 type _Instance_R_ = TtfwDictionaryCachePrim;
 
-{$Include tfwSortedDictionaryList.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwSortedDictionaryList.imp.pas}
 
-{$Include tfwNamedDictionaryList.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwNamedDictionaryList.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -17,7 +17,7 @@ uses
 
 type
  _tfwCodeCompiler_Parent_ = TkwCompiledWordPrim;
- {$Include tfwCodeCompiler.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas}
  TkwRuntimeWordWithCode = {abstract} class(_tfwCodeCompiler_)
   protected
    procedure Cleanup; override;
@@ -41,7 +41,7 @@ uses
  , kwForwardDeclarationHolder
 ;
 
-{$Include tfwCodeCompiler.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas}
 
 procedure TkwRuntimeWordWithCode.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,66 +1,50 @@
 unit tfwJoinIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwJoinIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwJoinIterator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwJoinIterator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwIteratableParent,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwIteratableParent
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwJoinIterator = class(TtfwIteratableParent, ItfwValueList)
- private
- // private fields
-   f_Left : ItfwValueList;
-   f_Right : ItfwValueList;
- protected
- // realized methods
+  private
+   f_Left: ItfwValueList;
+   f_Right: ItfwValueList;
+  protected
    procedure SetItem(anIndex: Integer;
-     const aValue: TtfwStackValue);
+    const aValue: TtfwStackValue);
    function ItemsCountInSlice: Integer;
- public
- // realized methods
-   procedure ForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
-   procedure ForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aLeft: ItfwValueList;
-     const aRight: ItfwValueList); reintroduce;
+    const aRight: ItfwValueList); reintroduce;
    class function Make(const aLeft: ItfwValueList;
-     const aRight: ItfwValueList): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwJoinIterator.Make }
+    const aRight: ItfwValueList): ItfwValueList; reintroduce;
+   procedure ForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
+   procedure ForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
  end;//TtfwJoinIterator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwJoinIterator
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 constructor TtfwJoinIterator.Create(const aLeft: ItfwValueList;
-  const aRight: ItfwValueList);
+ const aRight: ItfwValueList);
 //#UC START# *55E02B8D02E1_55E02B5D0129_var*
 //#UC END# *55E02B8D02E1_55E02B5D0129_var*
 begin
@@ -72,7 +56,7 @@ begin
 end;//TtfwJoinIterator.Create
 
 class function TtfwJoinIterator.Make(const aLeft: ItfwValueList;
-  const aRight: ItfwValueList): ItfwValueList;
+ const aRight: ItfwValueList): ItfwValueList;
 var
  l_Inst : TtfwJoinIterator;
 begin
@@ -82,10 +66,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TtfwJoinIterator.Make
 
 procedure TtfwJoinIterator.ForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23B7A00EC_55E02B5D0129_var*
 //#UC END# *52E23B7A00EC_55E02B5D0129_var*
 begin
@@ -96,7 +80,7 @@ begin
 end;//TtfwJoinIterator.ForEach
 
 procedure TtfwJoinIterator.ForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23BB102FA_55E02B5D0129_var*
 //#UC END# *52E23BB102FA_55E02B5D0129_var*
 begin
@@ -107,7 +91,7 @@ begin
 end;//TtfwJoinIterator.ForEachBack
 
 procedure TtfwJoinIterator.SetItem(anIndex: Integer;
-  const aValue: TtfwStackValue);
+ const aValue: TtfwStackValue);
 //#UC START# *55CDF40C03D4_55E02B5D0129_var*
 //#UC END# *55CDF40C03D4_55E02B5D0129_var*
 begin
@@ -126,14 +110,10 @@ begin
 end;//TtfwJoinIterator.ItemsCountInSlice
 
 procedure TtfwJoinIterator.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_Left := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TtfwJoinIterator.ClearFields
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

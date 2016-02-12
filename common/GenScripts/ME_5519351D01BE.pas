@@ -36,6 +36,7 @@ type
    f_AllowClearLocks: Boolean;
    f_ImpersonatedUserID: TdaUserID;
    f_UserManager: IdaUserManager;
+   f_SetGlobalDataProvider: Boolean;
   private
    function DoLongProcessNotify(aState: TdaProcessState): Boolean;
    procedure DoProgressNotify(aState: Byte;
@@ -85,10 +86,12 @@ type
   public
    constructor Create(aParams: ThtDataProviderParams;
     ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean); reintroduce;
+    AllowClearLocks: Boolean;
+    SetGlobalDataProvider: Boolean = True); reintroduce;
    class function Make(aParams: ThtDataProviderParams;
     ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean): IdaDataProvider; reintroduce;
+    AllowClearLocks: Boolean;
+    SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
  end;//ThtDataProvider
 
 implementation
@@ -110,7 +113,8 @@ uses
 
 constructor ThtDataProvider.Create(aParams: ThtDataProviderParams;
  ForCheckLogin: Boolean;
- AllowClearLocks: Boolean);
+ AllowClearLocks: Boolean;
+ SetGlobalDataProvider: Boolean = True);
 //#UC START# *551938260196_5519351D01BE_var*
 //#UC END# *551938260196_5519351D01BE_var*
 begin
@@ -129,11 +133,12 @@ end;//ThtDataProvider.Create
 
 class function ThtDataProvider.Make(aParams: ThtDataProviderParams;
  ForCheckLogin: Boolean;
- AllowClearLocks: Boolean): IdaDataProvider;
+ AllowClearLocks: Boolean;
+ SetGlobalDataProvider: Boolean = True): IdaDataProvider;
 var
  l_Inst : ThtDataProvider;
 begin
- l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks);
+ l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks, SetGlobalDataProvider);
  try
   Result := l_Inst;
  finally

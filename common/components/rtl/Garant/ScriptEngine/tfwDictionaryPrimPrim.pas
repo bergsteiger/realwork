@@ -17,7 +17,7 @@ uses
 
 type
  _l3DelphiStringSearcher_Parent_ = TtfwDictionaryPrimPrimPrim;
- {$Include l3DelphiStringSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcher.imp.pas}
  TtfwDictionaryPrimPrim = {abstract} class(_l3DelphiStringSearcher_)
  end;//TtfwDictionaryPrimPrim
 {$IfEnd} // NOT Defined(NoScripts)
@@ -32,7 +32,7 @@ uses
 
 type _Instance_R_ = TtfwDictionaryPrimPrim;
 
-{$Include l3DelphiStringSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcher.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

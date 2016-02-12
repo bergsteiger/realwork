@@ -16,7 +16,7 @@ uses
 
 type
  _tfwSysUtilsWordUses_Parent_ = TtfwRegisterableWord;
- {$Include tfwSysUtilsWordUses.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwSysUtilsWordUses.imp.pas}
  TtfwSysUtilsWord = {abstract} class(_tfwSysUtilsWordUses_)
   {* Поддержка слов из SysUtils }
  end;//TtfwSysUtilsWord
@@ -32,7 +32,7 @@ uses
  , l3Base
 ;
 
-{$Include tfwSysUtilsWordUses.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwSysUtilsWordUses.imp.pas}
 
 initialization
  TtfwSysUtilsWord.RegisterClass;

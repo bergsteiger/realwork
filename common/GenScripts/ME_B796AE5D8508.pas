@@ -121,12 +121,8 @@ begin
 end;//Tkw_Form_ChangesBetweenEditons.GetWordNameForRegister
 
 function Tkw_Form_ChangesBetweenEditons.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_67948A4EBDB0_var*
-//#UC END# *4DDFD2EA0116_67948A4EBDB0_var*
 begin
-//#UC START# *4DDFD2EA0116_67948A4EBDB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_67948A4EBDB0_impl*
+ Result := 'ChangesBetweenEditonsForm';
 end;//Tkw_Form_ChangesBetweenEditons.GetString
 
 class function Tkw_ChangesBetweenEditons_Control_Text.GetWordNameForRegister: AnsiString;
@@ -135,21 +131,14 @@ begin
 end;//Tkw_ChangesBetweenEditons_Control_Text.GetWordNameForRegister
 
 function Tkw_ChangesBetweenEditons_Control_Text.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1BA38271BDB3_var*
-//#UC END# *4DDFD2EA0116_1BA38271BDB3_var*
 begin
-//#UC START# *4DDFD2EA0116_1BA38271BDB3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1BA38271BDB3_impl*
+ Result := 'Text';
 end;//Tkw_ChangesBetweenEditons_Control_Text.GetString
 
 class procedure Tkw_ChangesBetweenEditons_Control_Text.RegisterInEngine;
-//#UC START# *52A086150180_1BA38271BDB3_var*
-//#UC END# *52A086150180_1BA38271BDB3_var*
 begin
-//#UC START# *52A086150180_1BA38271BDB3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1BA38271BDB3_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_ChangesBetweenEditons_Control_Text.RegisterInEngine
 
 procedure Tkw_ChangesBetweenEditons_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
@@ -172,41 +161,36 @@ begin
 end;//Tkw_ChangesBetweenEditons_Component_TextSource.GetWordNameForRegister
 
 function Tkw_ChangesBetweenEditons_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_213CB8D54D9D_var*
-//#UC END# *4DDFD2EA0116_213CB8D54D9D_var*
 begin
-//#UC START# *4DDFD2EA0116_213CB8D54D9D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_213CB8D54D9D_impl*
+ Result := 'TextSource';
 end;//Tkw_ChangesBetweenEditons_Component_TextSource.GetString
 
 class procedure Tkw_ChangesBetweenEditons_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_213CB8D54D9D_var*
-//#UC END# *52A086150180_213CB8D54D9D_var*
 begin
-//#UC START# *52A086150180_213CB8D54D9D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_213CB8D54D9D_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_ChangesBetweenEditons_Component_TextSource.RegisterInEngine
 
 function TkwChangesBetweenEditonsFormText.Text(const aCtx: TtfwContext;
  aChangesBetweenEditonsForm: TChangesBetweenEditonsForm): TnscEditor;
  {* Реализация слова скрипта .TChangesBetweenEditonsForm.Text }
-//#UC START# *5B130D443290_1945ED3EEC31_var*
-//#UC END# *5B130D443290_1945ED3EEC31_var*
 begin
-//#UC START# *5B130D443290_1945ED3EEC31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5B130D443290_1945ED3EEC31_impl*
+ Result := aChangesBetweenEditonsForm.Text;
 end;//TkwChangesBetweenEditonsFormText.Text
 
 procedure TkwChangesBetweenEditonsFormText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1945ED3EEC31_var*
-//#UC END# *4DAEEDE10285_1945ED3EEC31_var*
+var l_aChangesBetweenEditonsForm: TChangesBetweenEditonsForm;
 begin
-//#UC START# *4DAEEDE10285_1945ED3EEC31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1945ED3EEC31_impl*
+ try
+  l_aChangesBetweenEditonsForm := TChangesBetweenEditonsForm(aCtx.rEngine.PopObjAs(TChangesBetweenEditonsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChangesBetweenEditonsForm: TChangesBetweenEditonsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aChangesBetweenEditonsForm));
 end;//TkwChangesBetweenEditonsFormText.DoDoIt
 
 class function TkwChangesBetweenEditonsFormText.GetWordNameForRegister: AnsiString;
@@ -216,12 +200,8 @@ end;//TkwChangesBetweenEditonsFormText.GetWordNameForRegister
 
 procedure TkwChangesBetweenEditonsFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1945ED3EEC31_var*
-//#UC END# *52D00B00031A_1945ED3EEC31_var*
 begin
-//#UC START# *52D00B00031A_1945ED3EEC31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1945ED3EEC31_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwChangesBetweenEditonsFormText.SetValuePrim
 
 function TkwChangesBetweenEditonsFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -236,7 +216,7 @@ end;//TkwChangesBetweenEditonsFormText.GetAllParamsCount
 
 function TkwChangesBetweenEditonsFormText.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TChangesBetweenEditonsForm)]);
 end;//TkwChangesBetweenEditonsFormText.ParamsTypes
 
 initialization

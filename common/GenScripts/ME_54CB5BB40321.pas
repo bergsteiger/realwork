@@ -16,7 +16,7 @@ uses
 
 type
  _l3Changing_Parent_ = Tl3ProtoObject;
- {$Include l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  TalcuTaskListBasePrim = class(_l3Changing_)
  end;//TalcuTaskListBasePrim
 {$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
@@ -28,7 +28,7 @@ uses
  l3ImplUses
 ;
 
-{$Include l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 {$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 end.

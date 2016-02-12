@@ -17,7 +17,7 @@ uses
 
 type
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TalcuFTPBrowserParams = class(_evdTagHolder_)
   protected
    function pm_GetServerName: AnsiString;
@@ -75,7 +75,7 @@ uses
  , k2DocumentBuffer
 ;
 
-{$Include evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TalcuFTPBrowserParams.pm_GetServerName: AnsiString;
 //#UC START# *202E75514D0E_54041EBF03C6get_var*

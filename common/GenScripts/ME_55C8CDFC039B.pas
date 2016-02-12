@@ -59,12 +59,18 @@ begin
 end;//TkwPopExprEditorFake.Fake
 
 procedure TkwPopExprEditorFake.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1C9135EF778B_var*
-//#UC END# *4DAEEDE10285_1C9135EF778B_var*
+var l_aExprEditor: TExprEditor;
 begin
-//#UC START# *4DAEEDE10285_1C9135EF778B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1C9135EF778B_impl*
+ try
+  l_aExprEditor := TExprEditor(aCtx.rEngine.PopObjAs(TExprEditor));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aExprEditor: TExprEditor : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aExprEditor);
 end;//TkwPopExprEditorFake.DoDoIt
 
 class function TkwPopExprEditorFake.GetWordNameForRegister: AnsiString;
@@ -84,7 +90,7 @@ end;//TkwPopExprEditorFake.GetAllParamsCount
 
 function TkwPopExprEditorFake.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TExprEditor)]);
 end;//TkwPopExprEditorFake.ParamsTypes
 
 initialization

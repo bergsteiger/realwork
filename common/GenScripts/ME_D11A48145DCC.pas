@@ -303,12 +303,8 @@ begin
 end;//Tkw_Form_BaseSearchContainer.GetWordNameForRegister
 
 function Tkw_Form_BaseSearchContainer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AA5100EA1801_var*
-//#UC END# *4DDFD2EA0116_AA5100EA1801_var*
 begin
-//#UC START# *4DDFD2EA0116_AA5100EA1801_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AA5100EA1801_impl*
+ Result := 'BaseSearchContainerForm';
 end;//Tkw_Form_BaseSearchContainer.GetString
 
 class function Tkw_BaseSearchContainer_Control_ChildZone.GetWordNameForRegister: AnsiString;
@@ -317,21 +313,14 @@ begin
 end;//Tkw_BaseSearchContainer_Control_ChildZone.GetWordNameForRegister
 
 function Tkw_BaseSearchContainer_Control_ChildZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_45049F216D5D_var*
-//#UC END# *4DDFD2EA0116_45049F216D5D_var*
 begin
-//#UC START# *4DDFD2EA0116_45049F216D5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_45049F216D5D_impl*
+ Result := 'ChildZone';
 end;//Tkw_BaseSearchContainer_Control_ChildZone.GetString
 
 class procedure Tkw_BaseSearchContainer_Control_ChildZone.RegisterInEngine;
-//#UC START# *52A086150180_45049F216D5D_var*
-//#UC END# *52A086150180_45049F216D5D_var*
 begin
-//#UC START# *52A086150180_45049F216D5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_45049F216D5D_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_BaseSearchContainer_Control_ChildZone.RegisterInEngine
 
 procedure Tkw_BaseSearchContainer_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -354,21 +343,14 @@ begin
 end;//Tkw_BaseSearchContainer_Control_pnHeader.GetWordNameForRegister
 
 function Tkw_BaseSearchContainer_Control_pnHeader.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_38D18A248F00_var*
-//#UC END# *4DDFD2EA0116_38D18A248F00_var*
 begin
-//#UC START# *4DDFD2EA0116_38D18A248F00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_38D18A248F00_impl*
+ Result := 'pnHeader';
 end;//Tkw_BaseSearchContainer_Control_pnHeader.GetString
 
 class procedure Tkw_BaseSearchContainer_Control_pnHeader.RegisterInEngine;
-//#UC START# *52A086150180_38D18A248F00_var*
-//#UC END# *52A086150180_38D18A248F00_var*
 begin
-//#UC START# *52A086150180_38D18A248F00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_38D18A248F00_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_BaseSearchContainer_Control_pnHeader.RegisterInEngine
 
 procedure Tkw_BaseSearchContainer_Control_pnHeader_Push.DoDoIt(const aCtx: TtfwContext);
@@ -391,21 +373,14 @@ begin
 end;//Tkw_BaseSearchContainer_Control_lbHeader.GetWordNameForRegister
 
 function Tkw_BaseSearchContainer_Control_lbHeader.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_274A67AD25A0_var*
-//#UC END# *4DDFD2EA0116_274A67AD25A0_var*
 begin
-//#UC START# *4DDFD2EA0116_274A67AD25A0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_274A67AD25A0_impl*
+ Result := 'lbHeader';
 end;//Tkw_BaseSearchContainer_Control_lbHeader.GetString
 
 class procedure Tkw_BaseSearchContainer_Control_lbHeader.RegisterInEngine;
-//#UC START# *52A086150180_274A67AD25A0_var*
-//#UC END# *52A086150180_274A67AD25A0_var*
 begin
-//#UC START# *52A086150180_274A67AD25A0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_274A67AD25A0_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_BaseSearchContainer_Control_lbHeader.RegisterInEngine
 
 procedure Tkw_BaseSearchContainer_Control_lbHeader_Push.DoDoIt(const aCtx: TtfwContext);
@@ -428,21 +403,14 @@ begin
 end;//Tkw_BaseSearchContainer_Control_pbHeader.GetWordNameForRegister
 
 function Tkw_BaseSearchContainer_Control_pbHeader.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D86029405CB4_var*
-//#UC END# *4DDFD2EA0116_D86029405CB4_var*
 begin
-//#UC START# *4DDFD2EA0116_D86029405CB4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D86029405CB4_impl*
+ Result := 'pbHeader';
 end;//Tkw_BaseSearchContainer_Control_pbHeader.GetString
 
 class procedure Tkw_BaseSearchContainer_Control_pbHeader.RegisterInEngine;
-//#UC START# *52A086150180_D86029405CB4_var*
-//#UC END# *52A086150180_D86029405CB4_var*
 begin
-//#UC START# *52A086150180_D86029405CB4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_D86029405CB4_impl*
+ inherited;
+ TtfwClassRef.Register(TPaintBox);
 end;//Tkw_BaseSearchContainer_Control_pbHeader.RegisterInEngine
 
 procedure Tkw_BaseSearchContainer_Control_pbHeader_Push.DoDoIt(const aCtx: TtfwContext);
@@ -465,21 +433,14 @@ begin
 end;//Tkw_BaseSearchContainer_Control_ParentZone.GetWordNameForRegister
 
 function Tkw_BaseSearchContainer_Control_ParentZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AB099B9F85CC_var*
-//#UC END# *4DDFD2EA0116_AB099B9F85CC_var*
 begin
-//#UC START# *4DDFD2EA0116_AB099B9F85CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AB099B9F85CC_impl*
+ Result := 'ParentZone';
 end;//Tkw_BaseSearchContainer_Control_ParentZone.GetString
 
 class procedure Tkw_BaseSearchContainer_Control_ParentZone.RegisterInEngine;
-//#UC START# *52A086150180_AB099B9F85CC_var*
-//#UC END# *52A086150180_AB099B9F85CC_var*
 begin
-//#UC START# *52A086150180_AB099B9F85CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_AB099B9F85CC_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_BaseSearchContainer_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_BaseSearchContainer_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -499,21 +460,23 @@ end;//Tkw_BaseSearchContainer_Control_ParentZone_Push.GetWordNameForRegister
 function TkwBaseSearchContainerFormChildZone.ChildZone(const aCtx: TtfwContext;
  aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
  {* Реализация слова скрипта .TBaseSearchContainerForm.ChildZone }
-//#UC START# *EE67BD516E7A_4369FA9D20E0_var*
-//#UC END# *EE67BD516E7A_4369FA9D20E0_var*
 begin
-//#UC START# *EE67BD516E7A_4369FA9D20E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EE67BD516E7A_4369FA9D20E0_impl*
+ Result := aBaseSearchContainerForm.ChildZone;
 end;//TkwBaseSearchContainerFormChildZone.ChildZone
 
 procedure TkwBaseSearchContainerFormChildZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4369FA9D20E0_var*
-//#UC END# *4DAEEDE10285_4369FA9D20E0_var*
+var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
-//#UC START# *4DAEEDE10285_4369FA9D20E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4369FA9D20E0_impl*
+ try
+  l_aBaseSearchContainerForm := TBaseSearchContainerForm(aCtx.rEngine.PopObjAs(TBaseSearchContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aBaseSearchContainerForm: TBaseSearchContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ChildZone(aCtx, l_aBaseSearchContainerForm));
 end;//TkwBaseSearchContainerFormChildZone.DoDoIt
 
 class function TkwBaseSearchContainerFormChildZone.GetWordNameForRegister: AnsiString;
@@ -523,12 +486,8 @@ end;//TkwBaseSearchContainerFormChildZone.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4369FA9D20E0_var*
-//#UC END# *52D00B00031A_4369FA9D20E0_var*
 begin
-//#UC START# *52D00B00031A_4369FA9D20E0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4369FA9D20E0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
 end;//TkwBaseSearchContainerFormChildZone.SetValuePrim
 
 function TkwBaseSearchContainerFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -543,27 +502,29 @@ end;//TkwBaseSearchContainerFormChildZone.GetAllParamsCount
 
 function TkwBaseSearchContainerFormChildZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TBaseSearchContainerForm)]);
 end;//TkwBaseSearchContainerFormChildZone.ParamsTypes
 
 function TkwBaseSearchContainerFormPnHeader.pnHeader(const aCtx: TtfwContext;
  aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
  {* Реализация слова скрипта .TBaseSearchContainerForm.pnHeader }
-//#UC START# *29B2623F8E83_9C462472CA0F_var*
-//#UC END# *29B2623F8E83_9C462472CA0F_var*
 begin
-//#UC START# *29B2623F8E83_9C462472CA0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *29B2623F8E83_9C462472CA0F_impl*
+ Result := aBaseSearchContainerForm.pnHeader;
 end;//TkwBaseSearchContainerFormPnHeader.pnHeader
 
 procedure TkwBaseSearchContainerFormPnHeader.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9C462472CA0F_var*
-//#UC END# *4DAEEDE10285_9C462472CA0F_var*
+var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
-//#UC START# *4DAEEDE10285_9C462472CA0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9C462472CA0F_impl*
+ try
+  l_aBaseSearchContainerForm := TBaseSearchContainerForm(aCtx.rEngine.PopObjAs(TBaseSearchContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aBaseSearchContainerForm: TBaseSearchContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnHeader(aCtx, l_aBaseSearchContainerForm));
 end;//TkwBaseSearchContainerFormPnHeader.DoDoIt
 
 class function TkwBaseSearchContainerFormPnHeader.GetWordNameForRegister: AnsiString;
@@ -573,12 +534,8 @@ end;//TkwBaseSearchContainerFormPnHeader.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormPnHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9C462472CA0F_var*
-//#UC END# *52D00B00031A_9C462472CA0F_var*
 begin
-//#UC START# *52D00B00031A_9C462472CA0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9C462472CA0F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnHeader', aCtx);
 end;//TkwBaseSearchContainerFormPnHeader.SetValuePrim
 
 function TkwBaseSearchContainerFormPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -593,27 +550,29 @@ end;//TkwBaseSearchContainerFormPnHeader.GetAllParamsCount
 
 function TkwBaseSearchContainerFormPnHeader.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TBaseSearchContainerForm)]);
 end;//TkwBaseSearchContainerFormPnHeader.ParamsTypes
 
 function TkwBaseSearchContainerFormLbHeader.lbHeader(const aCtx: TtfwContext;
  aBaseSearchContainerForm: TBaseSearchContainerForm): TvtLabel;
  {* Реализация слова скрипта .TBaseSearchContainerForm.lbHeader }
-//#UC START# *114D06C5DF55_1A5A446A4230_var*
-//#UC END# *114D06C5DF55_1A5A446A4230_var*
 begin
-//#UC START# *114D06C5DF55_1A5A446A4230_impl*
- !!! Needs to be implemented !!!
-//#UC END# *114D06C5DF55_1A5A446A4230_impl*
+ Result := aBaseSearchContainerForm.lbHeader;
 end;//TkwBaseSearchContainerFormLbHeader.lbHeader
 
 procedure TkwBaseSearchContainerFormLbHeader.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1A5A446A4230_var*
-//#UC END# *4DAEEDE10285_1A5A446A4230_var*
+var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
-//#UC START# *4DAEEDE10285_1A5A446A4230_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1A5A446A4230_impl*
+ try
+  l_aBaseSearchContainerForm := TBaseSearchContainerForm(aCtx.rEngine.PopObjAs(TBaseSearchContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aBaseSearchContainerForm: TBaseSearchContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lbHeader(aCtx, l_aBaseSearchContainerForm));
 end;//TkwBaseSearchContainerFormLbHeader.DoDoIt
 
 class function TkwBaseSearchContainerFormLbHeader.GetWordNameForRegister: AnsiString;
@@ -623,12 +582,8 @@ end;//TkwBaseSearchContainerFormLbHeader.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormLbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1A5A446A4230_var*
-//#UC END# *52D00B00031A_1A5A446A4230_var*
 begin
-//#UC START# *52D00B00031A_1A5A446A4230_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1A5A446A4230_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lbHeader', aCtx);
 end;//TkwBaseSearchContainerFormLbHeader.SetValuePrim
 
 function TkwBaseSearchContainerFormLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -643,27 +598,29 @@ end;//TkwBaseSearchContainerFormLbHeader.GetAllParamsCount
 
 function TkwBaseSearchContainerFormLbHeader.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TBaseSearchContainerForm)]);
 end;//TkwBaseSearchContainerFormLbHeader.ParamsTypes
 
 function TkwBaseSearchContainerFormPbHeader.pbHeader(const aCtx: TtfwContext;
  aBaseSearchContainerForm: TBaseSearchContainerForm): TPaintBox;
  {* Реализация слова скрипта .TBaseSearchContainerForm.pbHeader }
-//#UC START# *37DE407A0407_2D9CD384ECE9_var*
-//#UC END# *37DE407A0407_2D9CD384ECE9_var*
 begin
-//#UC START# *37DE407A0407_2D9CD384ECE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *37DE407A0407_2D9CD384ECE9_impl*
+ Result := aBaseSearchContainerForm.pbHeader;
 end;//TkwBaseSearchContainerFormPbHeader.pbHeader
 
 procedure TkwBaseSearchContainerFormPbHeader.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2D9CD384ECE9_var*
-//#UC END# *4DAEEDE10285_2D9CD384ECE9_var*
+var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
-//#UC START# *4DAEEDE10285_2D9CD384ECE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2D9CD384ECE9_impl*
+ try
+  l_aBaseSearchContainerForm := TBaseSearchContainerForm(aCtx.rEngine.PopObjAs(TBaseSearchContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aBaseSearchContainerForm: TBaseSearchContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pbHeader(aCtx, l_aBaseSearchContainerForm));
 end;//TkwBaseSearchContainerFormPbHeader.DoDoIt
 
 class function TkwBaseSearchContainerFormPbHeader.GetWordNameForRegister: AnsiString;
@@ -673,12 +630,8 @@ end;//TkwBaseSearchContainerFormPbHeader.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormPbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2D9CD384ECE9_var*
-//#UC END# *52D00B00031A_2D9CD384ECE9_var*
 begin
-//#UC START# *52D00B00031A_2D9CD384ECE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2D9CD384ECE9_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pbHeader', aCtx);
 end;//TkwBaseSearchContainerFormPbHeader.SetValuePrim
 
 function TkwBaseSearchContainerFormPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -693,27 +646,29 @@ end;//TkwBaseSearchContainerFormPbHeader.GetAllParamsCount
 
 function TkwBaseSearchContainerFormPbHeader.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TBaseSearchContainerForm)]);
 end;//TkwBaseSearchContainerFormPbHeader.ParamsTypes
 
 function TkwBaseSearchContainerFormParentZone.ParentZone(const aCtx: TtfwContext;
  aBaseSearchContainerForm: TBaseSearchContainerForm): TvtPanel;
  {* Реализация слова скрипта .TBaseSearchContainerForm.ParentZone }
-//#UC START# *5661AC027FFB_E4F0AA226464_var*
-//#UC END# *5661AC027FFB_E4F0AA226464_var*
 begin
-//#UC START# *5661AC027FFB_E4F0AA226464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5661AC027FFB_E4F0AA226464_impl*
+ Result := aBaseSearchContainerForm.ParentZone;
 end;//TkwBaseSearchContainerFormParentZone.ParentZone
 
 procedure TkwBaseSearchContainerFormParentZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E4F0AA226464_var*
-//#UC END# *4DAEEDE10285_E4F0AA226464_var*
+var l_aBaseSearchContainerForm: TBaseSearchContainerForm;
 begin
-//#UC START# *4DAEEDE10285_E4F0AA226464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E4F0AA226464_impl*
+ try
+  l_aBaseSearchContainerForm := TBaseSearchContainerForm(aCtx.rEngine.PopObjAs(TBaseSearchContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aBaseSearchContainerForm: TBaseSearchContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZone(aCtx, l_aBaseSearchContainerForm));
 end;//TkwBaseSearchContainerFormParentZone.DoDoIt
 
 class function TkwBaseSearchContainerFormParentZone.GetWordNameForRegister: AnsiString;
@@ -723,12 +678,8 @@ end;//TkwBaseSearchContainerFormParentZone.GetWordNameForRegister
 
 procedure TkwBaseSearchContainerFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E4F0AA226464_var*
-//#UC END# *52D00B00031A_E4F0AA226464_var*
 begin
-//#UC START# *52D00B00031A_E4F0AA226464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E4F0AA226464_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
 end;//TkwBaseSearchContainerFormParentZone.SetValuePrim
 
 function TkwBaseSearchContainerFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -743,7 +694,7 @@ end;//TkwBaseSearchContainerFormParentZone.GetAllParamsCount
 
 function TkwBaseSearchContainerFormParentZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TBaseSearchContainerForm)]);
 end;//TkwBaseSearchContainerFormParentZone.ParamsTypes
 
 initialization

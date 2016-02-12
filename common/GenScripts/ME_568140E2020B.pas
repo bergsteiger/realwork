@@ -3,7 +3,7 @@ unit scriptsListWatcherRunner;
 // Модуль: "w:\common\components\scriptsListWatcher\scriptsListWatcherRunner.pas"
 // Стереотип: "SimpleClass"
 
-{$Include scriptsListWatcher.inc}
+{$Include w:\common\components\scriptsListWatcher\scriptsListWatcher.inc}
 
 interface
 

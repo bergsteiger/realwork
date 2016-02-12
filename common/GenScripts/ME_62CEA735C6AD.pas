@@ -43,12 +43,8 @@ begin
 end;//Tkw_Form_Settings.GetWordNameForRegister
 
 function Tkw_Form_Settings.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_DBC85121A203_var*
-//#UC END# *4DDFD2EA0116_DBC85121A203_var*
 begin
-//#UC START# *4DDFD2EA0116_DBC85121A203_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_DBC85121A203_impl*
+ Result := 'cf_Settings';
 end;//Tkw_Form_Settings.GetString
 
 initialization

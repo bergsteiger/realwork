@@ -155,12 +155,8 @@ begin
 end;//Tkw_Form_CreateFilter.GetWordNameForRegister
 
 function Tkw_Form_CreateFilter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5D16DB1881EC_var*
-//#UC END# *4DDFD2EA0116_5D16DB1881EC_var*
 begin
-//#UC START# *4DDFD2EA0116_5D16DB1881EC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5D16DB1881EC_impl*
+ Result := 'CreateFilterForm';
 end;//Tkw_Form_CreateFilter.GetString
 
 class function Tkw_CreateFilter_Control_NameLabel.GetWordNameForRegister: AnsiString;
@@ -169,21 +165,14 @@ begin
 end;//Tkw_CreateFilter_Control_NameLabel.GetWordNameForRegister
 
 function Tkw_CreateFilter_Control_NameLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AD1738B646F9_var*
-//#UC END# *4DDFD2EA0116_AD1738B646F9_var*
 begin
-//#UC START# *4DDFD2EA0116_AD1738B646F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AD1738B646F9_impl*
+ Result := 'NameLabel';
 end;//Tkw_CreateFilter_Control_NameLabel.GetString
 
 class procedure Tkw_CreateFilter_Control_NameLabel.RegisterInEngine;
-//#UC START# *52A086150180_AD1738B646F9_var*
-//#UC END# *52A086150180_AD1738B646F9_var*
 begin
-//#UC START# *52A086150180_AD1738B646F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_AD1738B646F9_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_CreateFilter_Control_NameLabel.RegisterInEngine
 
 procedure Tkw_CreateFilter_Control_NameLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -206,21 +195,14 @@ begin
 end;//Tkw_CreateFilter_Control_FilterName.GetWordNameForRegister
 
 function Tkw_CreateFilter_Control_FilterName.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B0B6940E79AA_var*
-//#UC END# *4DDFD2EA0116_B0B6940E79AA_var*
 begin
-//#UC START# *4DDFD2EA0116_B0B6940E79AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B0B6940E79AA_impl*
+ Result := 'FilterName';
 end;//Tkw_CreateFilter_Control_FilterName.GetString
 
 class procedure Tkw_CreateFilter_Control_FilterName.RegisterInEngine;
-//#UC START# *52A086150180_B0B6940E79AA_var*
-//#UC END# *52A086150180_B0B6940E79AA_var*
 begin
-//#UC START# *52A086150180_B0B6940E79AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B0B6940E79AA_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEdit);
 end;//Tkw_CreateFilter_Control_FilterName.RegisterInEngine
 
 procedure Tkw_CreateFilter_Control_FilterName_Push.DoDoIt(const aCtx: TtfwContext);
@@ -240,21 +222,23 @@ end;//Tkw_CreateFilter_Control_FilterName_Push.GetWordNameForRegister
 function TkwCreateFilterFormNameLabel.NameLabel(const aCtx: TtfwContext;
  aCreateFilterForm: TCreateFilterForm): TvtLabel;
  {* Реализация слова скрипта .TCreateFilterForm.NameLabel }
-//#UC START# *C5517E6CB9C1_8D84CCE36454_var*
-//#UC END# *C5517E6CB9C1_8D84CCE36454_var*
 begin
-//#UC START# *C5517E6CB9C1_8D84CCE36454_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C5517E6CB9C1_8D84CCE36454_impl*
+ Result := aCreateFilterForm.NameLabel;
 end;//TkwCreateFilterFormNameLabel.NameLabel
 
 procedure TkwCreateFilterFormNameLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8D84CCE36454_var*
-//#UC END# *4DAEEDE10285_8D84CCE36454_var*
+var l_aCreateFilterForm: TCreateFilterForm;
 begin
-//#UC START# *4DAEEDE10285_8D84CCE36454_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8D84CCE36454_impl*
+ try
+  l_aCreateFilterForm := TCreateFilterForm(aCtx.rEngine.PopObjAs(TCreateFilterForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCreateFilterForm: TCreateFilterForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(NameLabel(aCtx, l_aCreateFilterForm));
 end;//TkwCreateFilterFormNameLabel.DoDoIt
 
 class function TkwCreateFilterFormNameLabel.GetWordNameForRegister: AnsiString;
@@ -264,12 +248,8 @@ end;//TkwCreateFilterFormNameLabel.GetWordNameForRegister
 
 procedure TkwCreateFilterFormNameLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8D84CCE36454_var*
-//#UC END# *52D00B00031A_8D84CCE36454_var*
 begin
-//#UC START# *52D00B00031A_8D84CCE36454_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8D84CCE36454_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству NameLabel', aCtx);
 end;//TkwCreateFilterFormNameLabel.SetValuePrim
 
 function TkwCreateFilterFormNameLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -284,27 +264,29 @@ end;//TkwCreateFilterFormNameLabel.GetAllParamsCount
 
 function TkwCreateFilterFormNameLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TCreateFilterForm)]);
 end;//TkwCreateFilterFormNameLabel.ParamsTypes
 
 function TkwCreateFilterFormFilterName.FilterName(const aCtx: TtfwContext;
  aCreateFilterForm: TCreateFilterForm): TnscEdit;
  {* Реализация слова скрипта .TCreateFilterForm.FilterName }
-//#UC START# *573263BE04D8_E0C49BDE3F5C_var*
-//#UC END# *573263BE04D8_E0C49BDE3F5C_var*
 begin
-//#UC START# *573263BE04D8_E0C49BDE3F5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *573263BE04D8_E0C49BDE3F5C_impl*
+ Result := aCreateFilterForm.FilterName;
 end;//TkwCreateFilterFormFilterName.FilterName
 
 procedure TkwCreateFilterFormFilterName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E0C49BDE3F5C_var*
-//#UC END# *4DAEEDE10285_E0C49BDE3F5C_var*
+var l_aCreateFilterForm: TCreateFilterForm;
 begin
-//#UC START# *4DAEEDE10285_E0C49BDE3F5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E0C49BDE3F5C_impl*
+ try
+  l_aCreateFilterForm := TCreateFilterForm(aCtx.rEngine.PopObjAs(TCreateFilterForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aCreateFilterForm: TCreateFilterForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FilterName(aCtx, l_aCreateFilterForm));
 end;//TkwCreateFilterFormFilterName.DoDoIt
 
 class function TkwCreateFilterFormFilterName.GetWordNameForRegister: AnsiString;
@@ -314,12 +296,8 @@ end;//TkwCreateFilterFormFilterName.GetWordNameForRegister
 
 procedure TkwCreateFilterFormFilterName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E0C49BDE3F5C_var*
-//#UC END# *52D00B00031A_E0C49BDE3F5C_var*
 begin
-//#UC START# *52D00B00031A_E0C49BDE3F5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E0C49BDE3F5C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству FilterName', aCtx);
 end;//TkwCreateFilterFormFilterName.SetValuePrim
 
 function TkwCreateFilterFormFilterName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -334,7 +312,7 @@ end;//TkwCreateFilterFormFilterName.GetAllParamsCount
 
 function TkwCreateFilterFormFilterName.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TCreateFilterForm)]);
 end;//TkwCreateFilterFormFilterName.ParamsTypes
 
 initialization

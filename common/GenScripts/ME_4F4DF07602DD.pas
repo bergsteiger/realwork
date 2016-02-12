@@ -29,7 +29,7 @@ uses
 type
  _l3StringList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3StringList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
  TtfwDictionaryPrimPrimPrim = {abstract} class(_l3StringList_)
  end;//TtfwDictionaryPrimPrimPrim
 {$IfEnd} // NOT Defined(NoScripts)
@@ -48,7 +48,7 @@ uses
 
 type _Instance_R_ = TtfwDictionaryPrimPrimPrim;
 
-{$Include l3StringList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -18,7 +18,7 @@ uses
 
 type
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TncsFileDesc = class(_evdTagHolder_)
   protected
    function pm_GetName: AnsiString;
@@ -61,7 +61,7 @@ uses
  , k2DocumentBuffer
 ;
 
-{$Include evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TncsFileDesc.pm_GetName: AnsiString;
 //#UC START# *253C8AC17454_546C52C001EDget_var*

@@ -24,7 +24,7 @@ type
  _ItemType_ = TtfwValueTypes;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TtfwValueTypesListPrim = {abstract} class(_l3UncomparabeObjectRefList_)
  end;//TtfwValueTypesListPrim
 {$IfEnd} // NOT Defined(NoScripts)
@@ -66,7 +66,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TtfwValueTypesListPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -21,7 +21,7 @@ uses
 
 type
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TncsMessage = class(_evdTagHolder_)
   protected
    function pm_GetKind: TncsMessageKind;
@@ -84,7 +84,7 @@ uses
  , k2DocumentBuffer
 ;
 
-{$Include evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TncsMessage.pm_GetKind: TncsMessageKind;
 //#UC START# *1D5377CCDA1F_544E079E0253get_var*

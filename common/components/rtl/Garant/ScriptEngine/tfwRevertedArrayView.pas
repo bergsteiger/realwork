@@ -1,45 +1,38 @@
 unit tfwRevertedArrayView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwRevertedArrayView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwRevertedArrayView
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwRevertedArrayView.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwArrayView,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwArrayView
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwRevertedArrayView = class(TtfwArrayView)
- public
- // overridden public methods
+  public
    procedure DoForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    procedure DoForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
  end;//TtfwRevertedArrayView
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwRevertedArrayView
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TtfwRevertedArrayView.DoForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E666E80335_52E271D60114_var*
 //#UC END# *52E666E80335_52E271D60114_var*
 begin
@@ -49,7 +42,7 @@ begin
 end;//TtfwRevertedArrayView.DoForEach
 
 procedure TtfwRevertedArrayView.DoForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E666F6036E_52E271D60114_var*
 //#UC END# *52E666F6036E_52E271D60114_var*
 begin
@@ -57,7 +50,6 @@ begin
  inherited DoForEach(aLambda, aCtx);
 //#UC END# *52E666F6036E_52E271D60114_impl*
 end;//TtfwRevertedArrayView.DoForEachBack
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

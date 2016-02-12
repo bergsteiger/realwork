@@ -20,7 +20,7 @@ uses
 
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TncsReplyWaiter = class(_l3CriticalSectionHolder_)
   private
    f_List: TncsReplyDecsriptionList;
@@ -49,7 +49,7 @@ uses
  , l3Base
 ;
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 function TncsReplyWaiter.FindDesc(aMessage: TncsMessage): TncsReplyDescription;
 //#UC START# *54633EAE039A_5461D9EE0244_var*

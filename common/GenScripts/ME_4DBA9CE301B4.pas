@@ -16,7 +16,7 @@ uses
 
 type
  _VCMWord_Parent_ = TtfwRegisterableWord;
- {$Include VCMWord.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwFiltersList = class(_VCMWord_)
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -44,7 +44,7 @@ uses
  , afwAnswer
 ;
 
-{$Include VCMWord.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
 procedure TkwFiltersList.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DBA9CE301B4_var*

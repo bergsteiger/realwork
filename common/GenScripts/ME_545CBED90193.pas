@@ -18,7 +18,7 @@ uses
 
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TncsServerTransporterPool = class(_l3CriticalSectionHolder_)
   private
    f_Data: TncsServerTransporterList;
@@ -41,7 +41,7 @@ uses
  , SysUtils
 ;
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 procedure TncsServerTransporterPool.Register(const aTransporter: IncsServerTransporter);
 //#UC START# *545CBF760027_545CBED90193_var*

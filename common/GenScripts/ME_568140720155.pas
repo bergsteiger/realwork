@@ -3,7 +3,7 @@ program scriptsListWatcher;
 // Модуль: "w:\common\components\scriptsListWatcher\scriptsListWatcher.dpr"
 // Стереотип: "ExeTarget"
 
-{$Include scriptsListWatcher.inc}
+{$Include w:\common\components\scriptsListWatcher\scriptsListWatcher.inc}
 
 interface
 

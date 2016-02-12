@@ -179,12 +179,8 @@ begin
 end;//Tkw_Form_TextLoad.GetWordNameForRegister
 
 function Tkw_Form_TextLoad.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B837DA74DBC9_var*
-//#UC END# *4DDFD2EA0116_B837DA74DBC9_var*
 begin
-//#UC START# *4DDFD2EA0116_B837DA74DBC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B837DA74DBC9_impl*
+ Result := 'TextLoadForm';
 end;//Tkw_Form_TextLoad.GetString
 
 class function Tkw_TextLoad_Control_Text.GetWordNameForRegister: AnsiString;
@@ -193,21 +189,14 @@ begin
 end;//Tkw_TextLoad_Control_Text.GetWordNameForRegister
 
 function Tkw_TextLoad_Control_Text.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F65C91769460_var*
-//#UC END# *4DDFD2EA0116_F65C91769460_var*
 begin
-//#UC START# *4DDFD2EA0116_F65C91769460_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F65C91769460_impl*
+ Result := 'Text';
 end;//Tkw_TextLoad_Control_Text.GetString
 
 class procedure Tkw_TextLoad_Control_Text.RegisterInEngine;
-//#UC START# *52A086150180_F65C91769460_var*
-//#UC END# *52A086150180_F65C91769460_var*
 begin
-//#UC START# *52A086150180_F65C91769460_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F65C91769460_impl*
+ inherited;
+ TtfwClassRef.Register(TevEditor);
 end;//Tkw_TextLoad_Control_Text.RegisterInEngine
 
 procedure Tkw_TextLoad_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
@@ -230,21 +219,14 @@ begin
 end;//Tkw_TextLoad_Component_TextSource.GetWordNameForRegister
 
 function Tkw_TextLoad_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B67F088B1D29_var*
-//#UC END# *4DDFD2EA0116_B67F088B1D29_var*
 begin
-//#UC START# *4DDFD2EA0116_B67F088B1D29_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B67F088B1D29_impl*
+ Result := 'TextSource';
 end;//Tkw_TextLoad_Component_TextSource.GetString
 
 class procedure Tkw_TextLoad_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_B67F088B1D29_var*
-//#UC END# *52A086150180_B67F088B1D29_var*
 begin
-//#UC START# *52A086150180_B67F088B1D29_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B67F088B1D29_impl*
+ inherited;
+ TtfwClassRef.Register(TevTextSource);
 end;//Tkw_TextLoad_Component_TextSource.RegisterInEngine
 
 class function Tkw_TextLoad_Component_LoadManager.GetWordNameForRegister: AnsiString;
@@ -253,32 +235,21 @@ begin
 end;//Tkw_TextLoad_Component_LoadManager.GetWordNameForRegister
 
 function Tkw_TextLoad_Component_LoadManager.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4B79DA077628_var*
-//#UC END# *4DDFD2EA0116_4B79DA077628_var*
 begin
-//#UC START# *4DDFD2EA0116_4B79DA077628_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4B79DA077628_impl*
+ Result := 'LoadManager';
 end;//Tkw_TextLoad_Component_LoadManager.GetString
 
 class procedure Tkw_TextLoad_Component_LoadManager.RegisterInEngine;
-//#UC START# *52A086150180_4B79DA077628_var*
-//#UC END# *52A086150180_4B79DA077628_var*
 begin
-//#UC START# *52A086150180_4B79DA077628_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_4B79DA077628_impl*
+ inherited;
+ TtfwClassRef.Register(TevLoadDocumentManager);
 end;//Tkw_TextLoad_Component_LoadManager.RegisterInEngine
 
 function TkwTextLoadFormText.Text(const aCtx: TtfwContext;
  aTextLoadForm: TTextLoadForm): TevEditor;
  {* Реализация слова скрипта .TTextLoadForm.Text }
-//#UC START# *A1D2F81F7E32_3A01E87E6153_var*
-//#UC END# *A1D2F81F7E32_3A01E87E6153_var*
 begin
-//#UC START# *A1D2F81F7E32_3A01E87E6153_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A1D2F81F7E32_3A01E87E6153_impl*
+ Result := aTextLoadForm.Text;
 end;//TkwTextLoadFormText.Text
 
 procedure TkwTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
@@ -303,18 +274,8 @@ end;//TkwTextLoadFormText.GetWordNameForRegister
 
 procedure TkwTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_TextLoadForm: TTextLoadForm;
 begin
- try
-  l_TextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра TextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- TextLoadForm. := TevEditor(aValue.AsObject(TevEditor));
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwTextLoadFormText.SetValuePrim
 
 function TkwTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -335,12 +296,8 @@ end;//TkwTextLoadFormText.ParamsTypes
 function TkwTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
  aTextLoadForm: TTextLoadForm): TevTextSource;
  {* Реализация слова скрипта .TTextLoadForm.TextSource }
-//#UC START# *4795B0E3B6F9_D6313D19545C_var*
-//#UC END# *4795B0E3B6F9_D6313D19545C_var*
 begin
-//#UC START# *4795B0E3B6F9_D6313D19545C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4795B0E3B6F9_D6313D19545C_impl*
+ Result := aTextLoadForm.TextSource;
 end;//TkwTextLoadFormTextSource.TextSource
 
 procedure TkwTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
@@ -365,18 +322,8 @@ end;//TkwTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_TextLoadForm: TTextLoadForm;
 begin
- try
-  l_TextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра TextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- TextLoadForm. := TevTextSource(aValue.AsObject(TevTextSource));
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwTextLoadFormTextSource.SetValuePrim
 
 function TkwTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -397,12 +344,8 @@ end;//TkwTextLoadFormTextSource.ParamsTypes
 function TkwTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
  aTextLoadForm: TTextLoadForm): TevLoadDocumentManager;
  {* Реализация слова скрипта .TTextLoadForm.LoadManager }
-//#UC START# *9D8356A1CD46_C123391CA040_var*
-//#UC END# *9D8356A1CD46_C123391CA040_var*
 begin
-//#UC START# *9D8356A1CD46_C123391CA040_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9D8356A1CD46_C123391CA040_impl*
+ Result := aTextLoadForm.LoadManager;
 end;//TkwTextLoadFormLoadManager.LoadManager
 
 procedure TkwTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
@@ -427,18 +370,8 @@ end;//TkwTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_TextLoadForm: TTextLoadForm;
 begin
- try
-  l_TextLoadForm := TTextLoadForm(aCtx.rEngine.PopObjAs(TTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра TextLoadForm: TTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- TextLoadForm. := TevLoadDocumentManager(aValue.AsObject(TevLoadDocumentManager));
+ RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
 end;//TkwTextLoadFormLoadManager.SetValuePrim
 
 function TkwTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

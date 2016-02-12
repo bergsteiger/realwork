@@ -24,7 +24,7 @@ type
  _ItemType_ = IncsMessageExecutorFactory;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TncsExecutorFactoryList = class(_l3InterfacePtrList_)
  end;//TncsExecutorFactoryList
 {$IfEnd} // NOT Defined(Nemesis)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TncsExecutorFactoryList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

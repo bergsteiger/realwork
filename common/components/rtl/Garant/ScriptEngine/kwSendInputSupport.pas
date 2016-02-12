@@ -17,7 +17,7 @@ uses
 
 type
  _kwSendInputSupportUses_Parent_ = TtfwRegisterableWord;
- {$Include kwSendInputSupportUses.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupportUses.imp.pas}
  TkwSendInputSupport = {abstract} class(_kwSendInputSupportUses_)
   protected
    function GetInputStruct(const aCtx: TtfwContext): TInput; virtual; abstract;
@@ -32,7 +32,7 @@ uses
  l3ImplUses
 ;
 
-{$Include kwSendInputSupportUses.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwSendInputSupportUses.imp.pas}
 
 procedure TkwSendInputSupport.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F71A8080094_var*

@@ -59,12 +59,18 @@ begin
 end;//TkwPopPicSizeEditDlgFake.Fake
 
 procedure TkwPopPicSizeEditDlgFake.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DF6A0ECD8244_var*
-//#UC END# *4DAEEDE10285_DF6A0ECD8244_var*
+var l_aPicSizeEditDlg: TPicSizeEditDlg;
 begin
-//#UC START# *4DAEEDE10285_DF6A0ECD8244_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DF6A0ECD8244_impl*
+ try
+  l_aPicSizeEditDlg := TPicSizeEditDlg(aCtx.rEngine.PopObjAs(TPicSizeEditDlg));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPicSizeEditDlg: TPicSizeEditDlg : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aPicSizeEditDlg);
 end;//TkwPopPicSizeEditDlgFake.DoDoIt
 
 class function TkwPopPicSizeEditDlgFake.GetWordNameForRegister: AnsiString;
@@ -84,7 +90,7 @@ end;//TkwPopPicSizeEditDlgFake.GetAllParamsCount
 
 function TkwPopPicSizeEditDlgFake.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TPicSizeEditDlg)]);
 end;//TkwPopPicSizeEditDlgFake.ParamsTypes
 
 initialization

@@ -13,7 +13,7 @@ uses
 
 type
  _RefCounted_Parent_ = TObject;
- {$Include RefCounted.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
  TRefcounted = class(_RefCounted_)
  end;//TRefcounted
 
@@ -24,6 +24,6 @@ uses
  , Windows
 ;
 
-{$Include RefCounted.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
 end.

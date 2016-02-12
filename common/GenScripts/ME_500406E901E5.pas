@@ -100,6 +100,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , nsUtils
  , bsTypesNew
+ , nsConst
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

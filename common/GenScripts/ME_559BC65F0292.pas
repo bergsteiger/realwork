@@ -158,12 +158,8 @@ INTEGER VAR l_Integer
 procedure TkwPopParserNextToken.NextToken(const aCtx: TtfwContext;
  const aParser: ItfwParser);
  {* Реализация слова скрипта pop:Parser:NextToken }
-//#UC START# *F35D5ECD9EFB_9FCC7CEF0219_var*
-//#UC END# *F35D5ECD9EFB_9FCC7CEF0219_var*
 begin
-//#UC START# *F35D5ECD9EFB_9FCC7CEF0219_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F35D5ECD9EFB_9FCC7CEF0219_impl*
+ aParser.NextToken;
 end;//TkwPopParserNextToken.NextToken
 
 procedure TkwPopParserNextToken.DoDoIt(const aCtx: TtfwContext);
@@ -204,12 +200,8 @@ end;//TkwPopParserNextToken.ParamsTypes
 function TkwPopParserTokenLongString.TokenLongString(const aCtx: TtfwContext;
  const aParser: ItfwParser): Il3CString;
  {* Реализация слова скрипта pop:Parser:TokenLongString }
-//#UC START# *B4F2C24959BB_391DC30DE773_var*
-//#UC END# *B4F2C24959BB_391DC30DE773_var*
 begin
-//#UC START# *B4F2C24959BB_391DC30DE773_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B4F2C24959BB_391DC30DE773_impl*
+ Result := aParser.TokenLongString;
 end;//TkwPopParserTokenLongString.TokenLongString
 
 procedure TkwPopParserTokenLongString.DoDoIt(const aCtx: TtfwContext);
@@ -250,12 +242,8 @@ end;//TkwPopParserTokenLongString.ParamsTypes
 function TkwPopParserTokenInt.TokenInt(const aCtx: TtfwContext;
  const aParser: ItfwParser): Integer;
  {* Реализация слова скрипта pop:Parser:TokenInt }
-//#UC START# *9C93DFBF7BED_37FA824BDEEE_var*
-//#UC END# *9C93DFBF7BED_37FA824BDEEE_var*
 begin
-//#UC START# *9C93DFBF7BED_37FA824BDEEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9C93DFBF7BED_37FA824BDEEE_impl*
+ Result := aParser.TokenInt;
 end;//TkwPopParserTokenInt.TokenInt
 
 procedure TkwPopParserTokenInt.DoDoIt(const aCtx: TtfwContext);
@@ -296,12 +284,8 @@ end;//TkwPopParserTokenInt.ParamsTypes
 function TkwPopParserFileName.FileName(const aCtx: TtfwContext;
  const aParser: ItfwParser): AnsiString;
  {* Реализация слова скрипта pop:Parser:FileName }
-//#UC START# *6F6E961268B2_77621D03947E_var*
-//#UC END# *6F6E961268B2_77621D03947E_var*
 begin
-//#UC START# *6F6E961268B2_77621D03947E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6F6E961268B2_77621D03947E_impl*
+ Result := aParser.FileName;
 end;//TkwPopParserFileName.FileName
 
 procedure TkwPopParserFileName.DoDoIt(const aCtx: TtfwContext);
@@ -342,12 +326,8 @@ end;//TkwPopParserFileName.ParamsTypes
 function TkwPopParserTokenType.TokenType(const aCtx: TtfwContext;
  const aParser: ItfwParser): Tl3TokenType;
  {* Реализация слова скрипта pop:Parser:TokenType }
-//#UC START# *31C292E4C39C_5CF115AC9203_var*
-//#UC END# *31C292E4C39C_5CF115AC9203_var*
 begin
-//#UC START# *31C292E4C39C_5CF115AC9203_impl*
- !!! Needs to be implemented !!!
-//#UC END# *31C292E4C39C_5CF115AC9203_impl*
+ Result := aParser.TokenType;
 end;//TkwPopParserTokenType.TokenType
 
 procedure TkwPopParserTokenType.DoDoIt(const aCtx: TtfwContext);
@@ -388,12 +368,8 @@ end;//TkwPopParserTokenType.ParamsTypes
 function TkwPopParserSourceLine.SourceLine(const aCtx: TtfwContext;
  const aParser: ItfwParser): Integer;
  {* Реализация слова скрипта pop:Parser:SourceLine }
-//#UC START# *3C60D351E591_F99E43E0E32C_var*
-//#UC END# *3C60D351E591_F99E43E0E32C_var*
 begin
-//#UC START# *3C60D351E591_F99E43E0E32C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3C60D351E591_F99E43E0E32C_impl*
+ Result := aParser.SourceLine;
 end;//TkwPopParserSourceLine.SourceLine
 
 procedure TkwPopParserSourceLine.DoDoIt(const aCtx: TtfwContext);

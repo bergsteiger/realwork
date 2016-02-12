@@ -52,7 +52,8 @@ type
     IsRequireAdminRights: Boolean): TdaLoginError;
    function DoMakeProvider(aParams: TdaDataProviderParams;
     ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean): IdaDataProvider; virtual; abstract;
+    AllowClearLocks: Boolean;
+    SetGlobalProvider: Boolean = True): IdaDataProvider; virtual; abstract;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); virtual; abstract;
    class function Key: AnsiString; virtual; abstract;
    function ParamKey: AnsiString;

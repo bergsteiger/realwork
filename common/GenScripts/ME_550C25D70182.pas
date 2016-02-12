@@ -1359,12 +1359,8 @@ end;//TkwPopWordInfo.ParamsTypes
 function TkwPopWordIsForHelp.IsForHelp(const aCtx: TtfwContext;
  aWord: TtfwWord): Boolean;
  {* Реализация слова скрипта pop:Word:IsForHelp }
-//#UC START# *83CFF18DA9B9_BD8751956DAF_var*
-//#UC END# *83CFF18DA9B9_BD8751956DAF_var*
 begin
-//#UC START# *83CFF18DA9B9_BD8751956DAF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *83CFF18DA9B9_BD8751956DAF_impl*
+ Result := aWord.IsForHelp;
 end;//TkwPopWordIsForHelp.IsForHelp
 
 procedure TkwPopWordIsForHelp.DoDoIt(const aCtx: TtfwContext);
@@ -2021,7 +2017,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Box(aCtx, l_aWord),ItfwWordBox);
+ aCtx.rEngine.PushIntf(Box(aCtx, l_aWord), TypeInfo(ItfwWordBox));
 end;//TkwPopWordBox.DoDoIt
 
 class function TkwPopWordBox.GetWordNameForRegister: AnsiString;
@@ -2375,12 +2371,8 @@ end;//TkwPopWordProducer.ParamsTypes
 function TkwPopWordRedefines.Redefines(const aCtx: TtfwContext;
  aWord: TtfwWord): TtfwWord;
  {* Реализация слова скрипта pop:Word:Redefines }
-//#UC START# *FFA0775C9845_90152F7BB588_var*
-//#UC END# *FFA0775C9845_90152F7BB588_var*
 begin
-//#UC START# *FFA0775C9845_90152F7BB588_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FFA0775C9845_90152F7BB588_impl*
+ Result := aWord.Redefines;
 end;//TkwPopWordRedefines.Redefines
 
 procedure TkwPopWordRedefines.DoDoIt(const aCtx: TtfwContext);

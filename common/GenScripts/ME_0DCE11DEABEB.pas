@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_FromWithPanel.GetWordNameForRegister
 
 function Tkw_Form_FromWithPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2B5A54A6E5EB_var*
-//#UC END# *4DDFD2EA0116_2B5A54A6E5EB_var*
 begin
-//#UC START# *4DDFD2EA0116_2B5A54A6E5EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2B5A54A6E5EB_impl*
+ Result := 'FromWithPanelForm';
 end;//Tkw_Form_FromWithPanel.GetString
 
 class function Tkw_FromWithPanel_Control_WorkSpace.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_FromWithPanel_Control_WorkSpace.GetWordNameForRegister
 
 function Tkw_FromWithPanel_Control_WorkSpace.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5BBF7B69BE1D_var*
-//#UC END# *4DDFD2EA0116_5BBF7B69BE1D_var*
 begin
-//#UC START# *4DDFD2EA0116_5BBF7B69BE1D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5BBF7B69BE1D_impl*
+ Result := 'WorkSpace';
 end;//Tkw_FromWithPanel_Control_WorkSpace.GetString
 
 class procedure Tkw_FromWithPanel_Control_WorkSpace.RegisterInEngine;
-//#UC START# *52A086150180_5BBF7B69BE1D_var*
-//#UC END# *52A086150180_5BBF7B69BE1D_var*
 begin
-//#UC START# *52A086150180_5BBF7B69BE1D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5BBF7B69BE1D_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FromWithPanel_Control_WorkSpace.RegisterInEngine
 
 procedure Tkw_FromWithPanel_Control_WorkSpace_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,12 +140,8 @@ end;//Tkw_FromWithPanel_Control_WorkSpace_Push.GetWordNameForRegister
 function TkwFromWithPanelFormWorkSpace.WorkSpace(const aCtx: TtfwContext;
  aFromWithPanelForm: TFromWithPanelForm): TvtPanel;
  {* Реализация слова скрипта .TFromWithPanelForm.WorkSpace }
-//#UC START# *73128B9B7C04_E583E346F779_var*
-//#UC END# *73128B9B7C04_E583E346F779_var*
 begin
-//#UC START# *73128B9B7C04_E583E346F779_impl*
- !!! Needs to be implemented !!!
-//#UC END# *73128B9B7C04_E583E346F779_impl*
+ Result := aFromWithPanelForm.WorkSpace;
 end;//TkwFromWithPanelFormWorkSpace.WorkSpace
 
 procedure TkwFromWithPanelFormWorkSpace.DoDoIt(const aCtx: TtfwContext);
@@ -181,18 +166,8 @@ end;//TkwFromWithPanelFormWorkSpace.GetWordNameForRegister
 
 procedure TkwFromWithPanelFormWorkSpace.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_FromWithPanelForm: TFromWithPanelForm;
 begin
- try
-  l_FromWithPanelForm := TFromWithPanelForm(aCtx.rEngine.PopObjAs(TFromWithPanelForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра FromWithPanelForm: TFromWithPanelForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- FromWithPanelForm. := TvtPanel(aValue.AsObject(TvtPanel));
+ RunnerError('Нельзя присваивать значение readonly свойству WorkSpace', aCtx);
 end;//TkwFromWithPanelFormWorkSpace.SetValuePrim
 
 function TkwFromWithPanelFormWorkSpace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

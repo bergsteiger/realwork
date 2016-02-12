@@ -27,7 +27,7 @@ type
  *)
 
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TddClientMessageSortableList = class(_l3CriticalSectionHolder_)
   private
    f_Items: TddClientMessageSortableListPrim;
@@ -68,7 +68,7 @@ asm
  jmp l3LocalStub
 end;//L2ddClientMessageIteratorForEachFAction
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 function TddClientMessageSortableList.pm_GetCount: Integer;
 //#UC START# *53A2FA8802B1_53A2EA3D0044get_var*

@@ -19,7 +19,7 @@ uses
 
 type
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TcsCourtDescription = class(_evdTagHolder_)
   protected
    function pm_GetName: AnsiString;
@@ -61,7 +61,7 @@ uses
  , k2DocumentBuffer
 ;
 
-{$Include evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TcsCourtDescription.pm_GetName: AnsiString;
 //#UC START# *1647FA5EBD4E_53EDB1000048get_var*

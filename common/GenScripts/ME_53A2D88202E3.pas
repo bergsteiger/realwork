@@ -27,7 +27,7 @@ type
  *)
 
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  TcsMessageRecepientList = class(_l3CriticalSectionHolder_)
   private
    f_Items: TcsMessageRecepientListPrim;
@@ -68,7 +68,7 @@ asm
  jmp l3LocalStub
 end;//L2csMessageRecepientIteratorForEachFAction
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 function TcsMessageRecepientList.pm_GetCount: Integer;
 //#UC START# *53A2DE24004A_53A2D3BC030Aget_var*

@@ -103,7 +103,9 @@ constructor TcaDataProviderParams.Create(aHTParams: ThtDataProviderParams;
 //#UC END# *56B9C44F02BE_56A86B450218_var*
 begin
 //#UC START# *56B9C44F02BE_56A86B450218_impl*
- !!! Needs to be implemented !!!
+ inherited Create;
+ aHTParams.SetRefTo(f_HTParams);
+ aPGParams.SetRefTo(f_PGParams);
 //#UC END# *56B9C44F02BE_56A86B450218_impl*
 end;//TcaDataProviderParams.Create
 
@@ -112,16 +114,51 @@ procedure TcaDataProviderParams.LoadFromAlienParams;
 //#UC END# *56B9D5D8017F_56A86B450218_var*
 begin
 //#UC START# *56B9D5D8017F_56A86B450218_impl*
- !!! Needs to be implemented !!!
+ Login := f_HTParams.Login;
+ Password := f_HTParams.Password;
+ DocStoragePath := f_HTParams.DocStoragePath;
+ DocImagePath := f_HTParams.DocImagePath;
+ HomeDirPath := f_HTParams.HomeDirPath;
+ DocBaseVersion := f_HTParams.DocBaseVersion;
+ AdminBaseVersion := f_HTParams.AdminBaseVersion;
+ UserID := f_HTParams.UserID;
+
+ StationName := f_HTParams.StationName;
+ TablePath := f_HTParams.TablePath;
+ LockPath := f_HTParams.LockPath;
+ TmpDirPath := f_HTParams.TmpDirPath;
+
+ DataServerHostName := f_PGParams.DataServerHostName;
+ DataServerPort := f_PGParams.DataServerPort;
 //#UC END# *56B9D5D8017F_56A86B450218_impl*
 end;//TcaDataProviderParams.LoadFromAlienParams
 
 procedure TcaDataProviderParams.SaveToAlienParams;
 //#UC START# *56B9E3810358_56A86B450218_var*
+ procedure lp_SaveCommon(const aTarget: TdaDataProviderParams);
+ begin
+  aTarget.Login := Login;
+  aTarget.Password := Password;
+  aTarget.DocStoragePath := DocStoragePath;
+  aTarget.DocImagePath := DocImagePath;
+  aTarget.HomeDirPath := HomeDirPath;
+  aTarget.DocBaseVersion := DocBaseVersion;
+  aTarget.AdminBaseVersion := AdminBaseVersion;
+  aTarget.UserID := UserID;
+ end;
 //#UC END# *56B9E3810358_56A86B450218_var*
 begin
 //#UC START# *56B9E3810358_56A86B450218_impl*
- !!! Needs to be implemented !!!
+ lp_SaveCommon(f_HTParams);
+ lp_SaveCommon(f_PGParams);
+
+ f_HTParams.StationName := StationName;
+ f_HTParams.TablePath := TablePath;
+ f_HTParams.LockPath := LockPath;
+ f_HTParams.TmpDirPath := TmpDirPath;
+
+ f_PGParams.DataServerHostName := DataServerHostName;
+ f_PGParams.DataServerPort := DataServerPort;
 //#UC END# *56B9E3810358_56A86B450218_impl*
 end;//TcaDataProviderParams.SaveToAlienParams
 
@@ -131,7 +168,9 @@ procedure TcaDataProviderParams.Cleanup;
 //#UC END# *479731C50290_56A86B450218_var*
 begin
 //#UC START# *479731C50290_56A86B450218_impl*
- !!! Needs to be implemented !!!
+ FreeAndNil(f_HTParams);
+ FreeAndNil(f_PGParams);
+ inherited;
 //#UC END# *479731C50290_56A86B450218_impl*
 end;//TcaDataProviderParams.Cleanup
 
@@ -149,7 +188,11 @@ procedure TcaDataProviderParams.ChangeBasePath(const aPath: AnsiString);
 //#UC END# *55195AE803E0_56A86B450218_var*
 begin
 //#UC START# *55195AE803E0_56A86B450218_impl*
- !!! Needs to be implemented !!!
+ SaveToAlienParams;
+ inherited;
+ HTParams.ChangeBasePath(aPath);
+ PGParams.ChangeBasePath(aPath);
+ LoadFromAlienParams;
 //#UC END# *55195AE803E0_56A86B450218_impl*
 end;//TcaDataProviderParams.ChangeBasePath
 
@@ -158,7 +201,14 @@ procedure TcaDataProviderParams.AssignParams(aParams: TdaDataProviderParams);
 //#UC END# *553A37E902C9_56A86B450218_var*
 begin
 //#UC START# *553A37E902C9_56A86B450218_impl*
- !!! Needs to be implemented !!!
+ inherited;
+ if aParams is TcaDataProviderParams then
+ begin
+  SaveToAlienParams;
+  HTParams.AssignParams(TcaDataProviderParams(aParams).HTParams);
+  PGParams.AssignParams(TcaDataProviderParams(aParams).PGParams);
+  LoadFromAlienParams;
+ end;
 //#UC END# *553A37E902C9_56A86B450218_impl*
 end;//TcaDataProviderParams.AssignParams
 {$IfEnd} // Defined(UsePostgres) AND Defined(TestComboAccess)

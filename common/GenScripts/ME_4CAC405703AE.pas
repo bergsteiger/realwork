@@ -20,7 +20,7 @@ uses
 
 type
  _DrawOutputSupport_Parent_ = TTextEditorVisitor;
- {$Include DrawOutputSupport.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
  TDrawTestPrim = {abstract} class(_DrawOutputSupport_)
   {* Базовый тест для отрисовки и сравнения. }
   private
@@ -65,7 +65,7 @@ uses
  , l3Base
 ;
 
-{$Include DrawOutputSupport.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
 
 procedure TDrawTestPrim.DoVisit(aForm: TPrimTextLoadForm);
  {* Обработать текст }

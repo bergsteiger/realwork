@@ -17,7 +17,7 @@ uses
 
 type
  _SystemWord_Parent_ = TkwObjectFromStackWord;
- {$Include SystemWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas}
  TkwComponentFromStackWord = {abstract} class(_SystemWord_)
   protected
    procedure DoComponent(aComponent: TComponent;
@@ -41,7 +41,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include SystemWord.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas}
 
 procedure TkwComponentFromStackWord.DoObject(anObject: TObject;
  const aCtx: TtfwContext);

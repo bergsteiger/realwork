@@ -26,7 +26,7 @@ type
  _ItemType_ = TcsMessageRecepient;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TcsMessageRecepientListPrim = class(_l3UncomparabeObjectRefList_)
  end;//TcsMessageRecepientListPrim
 {$IfEnd} // NOT Defined(Nemesis)
@@ -69,7 +69,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TcsMessageRecepientListPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

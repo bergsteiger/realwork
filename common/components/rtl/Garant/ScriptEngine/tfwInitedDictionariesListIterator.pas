@@ -17,7 +17,7 @@ uses
 
 type
  _ListType_ = TtfwInitedDictionariesList;
- {$Include tfwDictionaryListIterator.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIterator.imp.pas}
  TtfwInitedDictionariesListIterator = class(_tfwDictionaryListIterator_)
  end;//TtfwInitedDictionariesListIterator
 {$IfEnd} // NOT Defined(NoScripts)
@@ -31,7 +31,7 @@ uses
  , tfwDictionary
 ;
 
-{$Include tfwDictionaryListIterator.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIterator.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

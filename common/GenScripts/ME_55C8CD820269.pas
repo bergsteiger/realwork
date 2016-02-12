@@ -59,12 +59,18 @@ begin
 end;//TkwPopTableConvParamDialogFake.Fake
 
 procedure TkwPopTableConvParamDialogFake.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0BE0E0D34519_var*
-//#UC END# *4DAEEDE10285_0BE0E0D34519_var*
+var l_aTableConvParamDialog: TTableConvParamDialog;
 begin
-//#UC START# *4DAEEDE10285_0BE0E0D34519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0BE0E0D34519_impl*
+ try
+  l_aTableConvParamDialog := TTableConvParamDialog(aCtx.rEngine.PopObjAs(TTableConvParamDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTableConvParamDialog: TTableConvParamDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aTableConvParamDialog);
 end;//TkwPopTableConvParamDialogFake.DoDoIt
 
 class function TkwPopTableConvParamDialogFake.GetWordNameForRegister: AnsiString;
@@ -84,7 +90,7 @@ end;//TkwPopTableConvParamDialogFake.GetAllParamsCount
 
 function TkwPopTableConvParamDialogFake.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTableConvParamDialog)]);
 end;//TkwPopTableConvParamDialogFake.ParamsTypes
 
 initialization

@@ -98,12 +98,18 @@ begin
 end;//TkwBrowse.browse
 
 procedure TkwBrowse.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3223F9BFFE72_var*
-//#UC END# *4DAEEDE10285_3223F9BFFE72_var*
+var l_aStr: Il3CString;
 begin
-//#UC START# *4DAEEDE10285_3223F9BFFE72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3223F9BFFE72_impl*
+ try
+  l_aStr := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStr: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ browse(aCtx, l_aStr);
 end;//TkwBrowse.DoDoIt
 
 class function TkwBrowse.GetWordNameForRegister: AnsiString;
@@ -142,12 +148,8 @@ begin
 end;//TkwF1_WasBeep.f1_WasBeep
 
 procedure TkwF1_WasBeep.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5888E53B751F_var*
-//#UC END# *4DAEEDE10285_5888E53B751F_var*
 begin
-//#UC START# *4DAEEDE10285_5888E53B751F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5888E53B751F_impl*
+ aCtx.rEngine.PushBool(f1_WasBeep(aCtx));
 end;//TkwF1_WasBeep.DoDoIt
 
 class function TkwF1_WasBeep.GetWordNameForRegister: AnsiString;

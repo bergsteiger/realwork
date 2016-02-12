@@ -34,7 +34,7 @@ type
  _ItemType_ = TWordThread;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TseWorkThreadList = class(_l3ObjectPtrList_)
   public
    procedure WaitForAllThreads;
@@ -89,7 +89,7 @@ end;//TWordThread.Destroy
 
 type _Instance_R_ = TseWorkThreadList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 procedure TseWorkThreadList.WaitForAllThreads;
 //#UC START# *50BF1C6D0267_50BF049002DB_var*

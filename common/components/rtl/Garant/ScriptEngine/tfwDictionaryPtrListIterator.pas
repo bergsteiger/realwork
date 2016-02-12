@@ -19,7 +19,7 @@ uses
 type
  _ListType_ = TtfwDictionaryPtrList;
  _tfwDictionaryListIteratorPrim_Parent_ = TtfwDictionaryDataIteratorPrim;
- {$Include tfwDictionaryListIteratorPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
  TtfwDictionaryPtrListIterator = {abstract} class(_tfwDictionaryListIteratorPrim_)
   public
    class function Make(aDictionary: TtfwDictionaryEx): ItfwValueList; reintroduce;
@@ -34,7 +34,7 @@ uses
  , tfwDictionary
 ;
 
-{$Include tfwDictionaryListIteratorPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
 
 class function TtfwDictionaryPtrListIterator.Make(aDictionary: TtfwDictionaryEx): ItfwValueList;
 var

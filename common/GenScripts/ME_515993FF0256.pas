@@ -16,7 +16,7 @@ uses
 
 type
  _StackType_ = TIntStack;
- {$Include StackTest.imp.pas}
+ {$Include w:\common\components\SandBox\StackTest.imp.pas}
  TIntStackTestViaMixIn = class(_StackTest_)
   protected
    function GetEtalonData: TEtalonData; override;
@@ -31,7 +31,7 @@ uses
  , SysUtils
 ;
 
-{$Include StackTest.imp.pas}
+{$Include w:\common\components\SandBox\StackTest.imp.pas}
 
 function TIntStackTestViaMixIn.GetEtalonData: TEtalonData;
 //#UC START# *515993A0015B_515993FF0256_var*

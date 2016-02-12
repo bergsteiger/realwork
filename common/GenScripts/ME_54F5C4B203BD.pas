@@ -901,12 +901,8 @@ end;//TkwPopControlMouseLeftDragAndDrop.ParamsTypes
 function TkwPopControlControlCount.ControlCount(const aCtx: TtfwContext;
  aControl: TWinControl): Integer;
  {* Реализация слова скрипта pop:Control:ControlCount }
-//#UC START# *15126CA3381C_8E3044782C31_var*
-//#UC END# *15126CA3381C_8E3044782C31_var*
 begin
-//#UC START# *15126CA3381C_8E3044782C31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *15126CA3381C_8E3044782C31_impl*
+ Result := aControl.ControlCount;
 end;//TkwPopControlControlCount.ControlCount
 
 procedure TkwPopControlControlCount.DoDoIt(const aCtx: TtfwContext);
@@ -953,12 +949,8 @@ end;//TkwPopControlControlCount.ParamsTypes
 function TkwPopControlHandle.Handle(const aCtx: TtfwContext;
  aControl: TWinControl): Cardinal;
  {* Реализация слова скрипта pop:Control:Handle }
-//#UC START# *532C0148B0EB_3CF2D3C5A0DB_var*
-//#UC END# *532C0148B0EB_3CF2D3C5A0DB_var*
 begin
-//#UC START# *532C0148B0EB_3CF2D3C5A0DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *532C0148B0EB_3CF2D3C5A0DB_impl*
+ Result := aControl.Handle;
 end;//TkwPopControlHandle.Handle
 
 procedure TkwPopControlHandle.DoDoIt(const aCtx: TtfwContext);
@@ -1005,12 +997,8 @@ end;//TkwPopControlHandle.ParamsTypes
 function TkwPopControlFocused.Focused(const aCtx: TtfwContext;
  aControl: TWinControl): Boolean;
  {* Реализация слова скрипта pop:Control:Focused }
-//#UC START# *5F41D8EA1D19_171FB83EF557_var*
-//#UC END# *5F41D8EA1D19_171FB83EF557_var*
 begin
-//#UC START# *5F41D8EA1D19_171FB83EF557_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5F41D8EA1D19_171FB83EF557_impl*
+ Result := aControl.Focused;
 end;//TkwPopControlFocused.Focused
 
 procedure TkwPopControlFocused.DoDoIt(const aCtx: TtfwContext);
@@ -1057,12 +1045,8 @@ end;//TkwPopControlFocused.ParamsTypes
 function TkwPopControlCanFocus.CanFocus(const aCtx: TtfwContext;
  aControl: TWinControl): Boolean;
  {* Реализация слова скрипта pop:Control:CanFocus }
-//#UC START# *B0AD1D898340_8BEC198C8027_var*
-//#UC END# *B0AD1D898340_8BEC198C8027_var*
 begin
-//#UC START# *B0AD1D898340_8BEC198C8027_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B0AD1D898340_8BEC198C8027_impl*
+ Result := aControl.CanFocus;
 end;//TkwPopControlCanFocus.CanFocus
 
 procedure TkwPopControlCanFocus.DoDoIt(const aCtx: TtfwContext);

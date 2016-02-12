@@ -16,7 +16,7 @@ uses
 
 type
  _afwImpurity_Parent_ = TtfwRegisterableWord;
- {$Include afwImpurity.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas}
  TkwWaitChoice = {final} class(_afwImpurity_)
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -33,7 +33,7 @@ uses
  , Controls
 ;
 
-{$Include afwImpurity.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas}
 
 procedure TkwWaitChoice.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4FFFF8520204_var*

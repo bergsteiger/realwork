@@ -137,12 +137,8 @@ end;//TkwPopTaskPanelGetHideField.ParamsTypes
 function TkwPopTaskPanelCount.Count(const aCtx: TtfwContext;
  aTaskPanel: TnscTasksPanelView): Integer;
  {* Реализация слова скрипта pop:TaskPanel:Count }
-//#UC START# *6CDE88AB26F2_C2B2EE13F5CE_var*
-//#UC END# *6CDE88AB26F2_C2B2EE13F5CE_var*
 begin
-//#UC START# *6CDE88AB26F2_C2B2EE13F5CE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6CDE88AB26F2_C2B2EE13F5CE_impl*
+ Result := aTaskPanel.Count;
 end;//TkwPopTaskPanelCount.Count
 
 procedure TkwPopTaskPanelCount.DoDoIt(const aCtx: TtfwContext);
@@ -167,18 +163,8 @@ end;//TkwPopTaskPanelCount.GetWordNameForRegister
 
 procedure TkwPopTaskPanelCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_TaskPanel: TnscTasksPanelView;
 begin
- try
-  l_TaskPanel := TnscTasksPanelView(aCtx.rEngine.PopObjAs(TnscTasksPanelView));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра TaskPanel: TnscTasksPanelView : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- TaskPanel. := aValue.AsInt;
+ RunnerError('Нельзя присваивать значение readonly свойству Count', aCtx);
 end;//TkwPopTaskPanelCount.SetValuePrim
 
 function TkwPopTaskPanelCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

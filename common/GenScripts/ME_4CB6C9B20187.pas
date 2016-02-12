@@ -29,7 +29,7 @@ uses
 type
  _FormDataSourceType_ = IdsCreateFilter;
  _InitDataType_ = IdeFilter;
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  TdsCreateFilter = class(_vcmFormDataSource_, IdsCreateFilter)
   protected
    function Get_Name: Il3CString;
@@ -54,7 +54,7 @@ uses
 
 type _Instance_R_ = TdsCreateFilter;
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 function TdsCreateFilter.Get_Name: Il3CString;
 //#UC START# *4CB6C9330040_4CB6C9B20187get_var*

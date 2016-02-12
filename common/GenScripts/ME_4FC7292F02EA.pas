@@ -214,12 +214,8 @@ end;//TMenuWordsPackResNameGetter.ResName
 procedure TkwMenuItemClick.Click(const aCtx: TtfwContext;
  aMenuItem: TMenuItem);
  {* Реализация слова скрипта menuitem:Click }
-//#UC START# *FE880101357B_639406FE8331_var*
-//#UC END# *FE880101357B_639406FE8331_var*
 begin
-//#UC START# *FE880101357B_639406FE8331_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FE880101357B_639406FE8331_impl*
+ aMenuItem.Click;
 end;//TkwMenuItemClick.Click
 
 procedure TkwMenuItemClick.DoDoIt(const aCtx: TtfwContext);
@@ -382,12 +378,8 @@ end;//TkwMenuItemGetMenuHeight.ParamsTypes
 function TkwMenuItemCaption.Caption(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): AnsiString;
  {* Реализация слова скрипта menuitem:GetCaption }
-//#UC START# *03C94E0DC3DE_8BC1AB992E7A_var*
-//#UC END# *03C94E0DC3DE_8BC1AB992E7A_var*
 begin
-//#UC START# *03C94E0DC3DE_8BC1AB992E7A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *03C94E0DC3DE_8BC1AB992E7A_impl*
+ Result := aMenuItem.Caption;
 end;//TkwMenuItemCaption.Caption
 
 procedure TkwMenuItemCaption.DoDoIt(const aCtx: TtfwContext);
@@ -434,12 +426,8 @@ end;//TkwMenuItemCaption.ParamsTypes
 function TkwMenuItemCount.Count(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Integer;
  {* Реализация слова скрипта menuitem:GetCount }
-//#UC START# *CA20A0E7C888_E34D149B8718_var*
-//#UC END# *CA20A0E7C888_E34D149B8718_var*
 begin
-//#UC START# *CA20A0E7C888_E34D149B8718_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CA20A0E7C888_E34D149B8718_impl*
+ Result := aMenuItem.Count;
 end;//TkwMenuItemCount.Count
 
 procedure TkwMenuItemCount.DoDoIt(const aCtx: TtfwContext);
@@ -486,12 +474,8 @@ end;//TkwMenuItemCount.ParamsTypes
 function TkwMenuItemEnabled.Enabled(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Boolean;
  {* Реализация слова скрипта menuitem:IsEnabled }
-//#UC START# *D753B3DC40BE_BDC4E91C886F_var*
-//#UC END# *D753B3DC40BE_BDC4E91C886F_var*
 begin
-//#UC START# *D753B3DC40BE_BDC4E91C886F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D753B3DC40BE_BDC4E91C886F_impl*
+ Result := aMenuItem.Enabled;
 end;//TkwMenuItemEnabled.Enabled
 
 procedure TkwMenuItemEnabled.DoDoIt(const aCtx: TtfwContext);
@@ -538,12 +522,8 @@ end;//TkwMenuItemEnabled.ParamsTypes
 function TkwMenuItemVisible.Visible(const aCtx: TtfwContext;
  aMenuItem: TMenuItem): Boolean;
  {* Реализация слова скрипта menuitem:IsVisible }
-//#UC START# *D9ABAB31B79C_5633D99495D3_var*
-//#UC END# *D9ABAB31B79C_5633D99495D3_var*
 begin
-//#UC START# *D9ABAB31B79C_5633D99495D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D9ABAB31B79C_5633D99495D3_impl*
+ Result := aMenuItem.Visible;
 end;//TkwMenuItemVisible.Visible
 
 procedure TkwMenuItemVisible.DoDoIt(const aCtx: TtfwContext);

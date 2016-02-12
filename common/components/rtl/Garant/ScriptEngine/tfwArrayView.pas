@@ -1,79 +1,62 @@
 unit tfwArrayView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwArrayView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwArrayView
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3ProtoObject,
-  tfwScriptingInterfaces,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , l3ProtoObject
+ , tfwScriptingInterfaces
+ , l3PureMixIns
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwArrayView = class(Tl3ProtoObject, ItfwValueList)
- protected
- // realized methods
+  protected
+   f_Other: ItfwValueList;
+  protected
+   function GetItemsCountInSlice: Integer; virtual;
    function pm_GetFirst: TtfwStackValue;
    function pm_GetLast: TtfwStackValue;
    function pm_GetItems(anIndex: Integer): TtfwStackValue;
    function pm_GetEmpty: Boolean;
    function pm_GetCount: Integer;
    procedure SetItem(anIndex: Integer;
-     const aValue: TtfwStackValue);
+    const aValue: TtfwStackValue);
    function ItemsCountInSlice: Integer;
- public
- // realized methods
+   {$If NOT Defined(DesignTimeLibrary)}
+   class function IsCacheable: Boolean; override;
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+   procedure ClearFields; override;
+  public
+   constructor Create(const anOther: ItfwValueList); reintroduce;
+   class function Make(const anOther: ItfwValueList): ItfwValueList; reintroduce;
+   procedure DoForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext); virtual;
+   procedure DoForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext); virtual;
    function IndexOf(const anItem: TtfwStackValue): Integer;
    function Add(const anItem: TtfwStackValue): Integer;
    procedure Clear;
    procedure ForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
+    const aCtx: TtfwContext);
    procedure ForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
-   class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected fields
-   f_Other : ItfwValueList;
- protected
- // protected methods
-   function GetItemsCountInSlice: Integer; virtual;
- public
- // public methods
-   constructor Create(const anOther: ItfwValueList); reintroduce;
-   class function Make(const anOther: ItfwValueList): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwArrayView.Make }
-   procedure DoForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext); virtual;
-   procedure DoForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext); virtual;
+    const aCtx: TtfwContext);
  end;//TtfwArrayView
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwArrayView
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 constructor TtfwArrayView.Create(const anOther: ItfwValueList);
 //#UC START# *52E2710E03D9_52E270AE02EA_var*
@@ -95,10 +78,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TtfwArrayView.Make
 
 procedure TtfwArrayView.DoForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E666F6036E_52E270AE02EA_var*
 //#UC END# *52E666F6036E_52E270AE02EA_var*
 begin
@@ -108,7 +91,7 @@ begin
 end;//TtfwArrayView.DoForEachBack
 
 procedure TtfwArrayView.DoForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E666E80335_52E270AE02EA_var*
 //#UC END# *52E666E80335_52E270AE02EA_var*
 begin
@@ -199,7 +182,7 @@ begin
 end;//TtfwArrayView.Clear
 
 procedure TtfwArrayView.ForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23B7A00EC_52E270AE02EA_var*
 //#UC END# *52E23B7A00EC_52E270AE02EA_var*
 begin
@@ -209,7 +192,7 @@ begin
 end;//TtfwArrayView.ForEach
 
 procedure TtfwArrayView.ForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23BB102FA_52E270AE02EA_var*
 //#UC END# *52E23BB102FA_52E270AE02EA_var*
 begin
@@ -219,7 +202,7 @@ begin
 end;//TtfwArrayView.ForEachBack
 
 procedure TtfwArrayView.SetItem(anIndex: Integer;
-  const aValue: TtfwStackValue);
+ const aValue: TtfwStackValue);
 //#UC START# *55CDF40C03D4_52E270AE02EA_var*
 //#UC END# *55CDF40C03D4_52E270AE02EA_var*
 begin
@@ -237,8 +220,9 @@ begin
 //#UC END# *55E849210175_52E270AE02EA_impl*
 end;//TtfwArrayView.ItemsCountInSlice
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwArrayView.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_52E270AE02EA_var*
 //#UC END# *47A6FEE600FC_52E270AE02EA_var*
 begin
@@ -246,17 +230,13 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_52E270AE02EA_impl*
 end;//TtfwArrayView.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TtfwArrayView.ClearFields;
- {-}
 begin
- {$If not defined(NoScripts)}
  f_Other := nil;
- {$IfEnd} //not NoScripts
  inherited;
 end;//TtfwArrayView.ClearFields
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

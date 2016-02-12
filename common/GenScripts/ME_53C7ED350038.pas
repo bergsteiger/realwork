@@ -24,7 +24,7 @@ type
  _ItemType_ = PTypeInfo;
  _l3PtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3PtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
  TtfwRTTITypeInfoList = class(_l3PtrList_)
  end;//TtfwRTTITypeInfoList
 {$IfEnd} // NOT Defined(NoScripts)
@@ -84,7 +84,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TtfwRTTITypeInfoList;
 
-{$Include l3PtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

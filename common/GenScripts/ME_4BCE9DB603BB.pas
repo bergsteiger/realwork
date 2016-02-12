@@ -22,7 +22,7 @@ uses
 type
  _FormClass_ = TelCustomEditForm;
  _FormProducer_Parent_ = TVCMBaseTest;
- {$Include FormProducer.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
  TK204114253 = class(_FormProducer_)
   {* [$204114253] }
   protected
@@ -54,7 +54,7 @@ type
  TelCustomEditHack = class(TelCustomEdit)
  end;//TelCustomEditHack
 
-{$Include FormProducer.imp.pas}
+{$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TK204114253.DoIt;
 //#UC START# *4BCE9E6D027F_4BCE9DB603BB_var*

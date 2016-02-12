@@ -16,7 +16,7 @@ uses
 
 type
  _ListType_ = TByteList;
- {$Include AtomicListTest.imp.pas}
+ {$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
  TByteListTest = class(_AtomicListTest_)
  end;//TByteListTest
 {$IfEnd} // Defined(nsTest)
@@ -29,7 +29,7 @@ uses
  , SysUtils
 ;
 
-{$Include AtomicListTest.imp.pas}
+{$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
 
 initialization
  TestFramework.RegisterTest(TByteListTest.Suite);

@@ -67,7 +67,7 @@ type
    class function Make(const aTree: IeeTree): IvcmBase;
  end;//TnsSelectedFiltersState
 
- {$Include FiltersUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes.imp.pas}
  TPrimFiltersForm = class(_FiltersUserTypes_)
   {* Фильтры }
   private
@@ -273,7 +273,7 @@ begin
 //#UC END# *479731C50290_4D0B4E06037B_impl*
 end;//TnsSelectedFiltersState.Cleanup
 
-{$Include FiltersUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\FiltersUserTypes.imp.pas}
 
 procedure TPrimFiltersForm.FiltersListSelectChange(Sender: TObject;
  Index: LongInt;

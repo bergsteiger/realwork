@@ -149,12 +149,8 @@ end;//Tl3NodesKeyWordsPackResNameGetter.ResName
 function TkwNodeIsFirst.IsFirst(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Boolean;
  {* Реализация слова скрипта Node:IsFirst }
-//#UC START# *13DEAD421A35_45751BDD834B_var*
-//#UC END# *13DEAD421A35_45751BDD834B_var*
 begin
-//#UC START# *13DEAD421A35_45751BDD834B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *13DEAD421A35_45751BDD834B_impl*
+ Result := aNode.IsFirst;
 end;//TkwNodeIsFirst.IsFirst
 
 procedure TkwNodeIsFirst.DoDoIt(const aCtx: TtfwContext);
@@ -201,12 +197,8 @@ end;//TkwNodeIsFirst.ParamsTypes
 function TkwNodeIsLast.IsLast(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Boolean;
  {* Реализация слова скрипта Node:IsLast }
-//#UC START# *CED6FFACFE06_97BDCC1D1FFB_var*
-//#UC END# *CED6FFACFE06_97BDCC1D1FFB_var*
 begin
-//#UC START# *CED6FFACFE06_97BDCC1D1FFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CED6FFACFE06_97BDCC1D1FFB_impl*
+ Result := aNode.IsLast;
 end;//TkwNodeIsLast.IsLast
 
 procedure TkwNodeIsLast.DoDoIt(const aCtx: TtfwContext);
@@ -253,12 +245,8 @@ end;//TkwNodeIsLast.ParamsTypes
 function TkwNodeFlags.Flags(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Integer;
  {* Реализация слова скрипта Node:Flags }
-//#UC START# *5AC32421B6A5_DA2D728F699C_var*
-//#UC END# *5AC32421B6A5_DA2D728F699C_var*
 begin
-//#UC START# *5AC32421B6A5_DA2D728F699C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5AC32421B6A5_DA2D728F699C_impl*
+ Result := aNode.Flags;
 end;//TkwNodeFlags.Flags
 
 procedure TkwNodeFlags.DoDoIt(const aCtx: TtfwContext);
@@ -305,12 +293,8 @@ end;//TkwNodeFlags.ParamsTypes
 function TkwNodeText.Text(const aCtx: TtfwContext;
  const aNode: Il3SimpleNode): Tl3WString;
  {* Реализация слова скрипта Node:Text }
-//#UC START# *64ACB0166C73_70C4D26A03EF_var*
-//#UC END# *64ACB0166C73_70C4D26A03EF_var*
 begin
-//#UC START# *64ACB0166C73_70C4D26A03EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *64ACB0166C73_70C4D26A03EF_impl*
+ Result := aNode.Text;
 end;//TkwNodeText.Text
 
 procedure TkwNodeText.DoDoIt(const aCtx: TtfwContext);

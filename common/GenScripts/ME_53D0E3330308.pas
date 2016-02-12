@@ -24,7 +24,7 @@ type
  _ItemType_ = IalcuAsyncTaskFinishedNotifier;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TalcuAsyncTaskFinishedNotifierList = class(_l3InterfacePtrList_)
  end;//TalcuAsyncTaskFinishedNotifierList
 {$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TalcuAsyncTaskFinishedNotifierList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 {$IfEnd} // Defined(ServerTasks) AND Defined(AppServerSide)
 
 end.

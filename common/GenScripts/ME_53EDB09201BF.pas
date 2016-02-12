@@ -19,7 +19,7 @@ uses
 
 type
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TcsCourtDecisionSabCheckerParams = class(_evdTagHolder_)
   protected
    function pm_GetDocTypeID: Integer;
@@ -71,7 +71,7 @@ uses
  , k2DocumentBuffer
 ;
 
-{$Include evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TcsCourtDecisionSabCheckerParams.pm_GetDocTypeID: Integer;
 //#UC START# *4EEADA1C3DD0_53EDB09201BFget_var*

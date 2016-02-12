@@ -29,7 +29,7 @@ type
  _KeyType_ = Pointer;
  _ValueType_ = Pointer;
  _l3Map_Parent_ = Tl3ProtoDataContainer;
- {$Include l3Map.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
  TnsContainerToBaseSearcherMap = class(_l3Map_)
  end;//TnsContainerToBaseSearcherMap
 
@@ -85,7 +85,7 @@ end;//CompareKeys
 
 type _Instance_R_ = TnsContainerToBaseSearcherMap;
 
-{$Include l3Map.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
 
 class function TnsBaseSearchServiceImpl.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

@@ -27,7 +27,7 @@ type
  _ItemType_ = TtfwStackValue;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TtfwValueList = class(_l3RecordListPrim_)
   {* Список адаптированный для хранения переменных. }
   protected
@@ -96,7 +96,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TtfwValueList;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function TtfwValueList.IsCacheable: Boolean;

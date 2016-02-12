@@ -81,7 +81,7 @@ type
     aLinkType: TNavigatorMenuItemType): InsRubricatorState; reintroduce;
  end;//TnsRubricatorState
 
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimRubricatorForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Правовой навигатор }
   private
@@ -272,7 +272,7 @@ end;//TnsRubricatorState.Get_LinkType
 
 type _Instance_R_ = TPrimRubricatorForm;
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 procedure TPrimRubricatorForm.InternalInitRoot(const aNode: Il3SimpleNode;
  const aRootToKeep: INodeBase;

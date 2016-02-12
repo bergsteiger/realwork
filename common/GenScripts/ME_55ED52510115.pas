@@ -16,7 +16,7 @@ uses
 
 type
  _DTTypesUser_Parent_ = TarchiDBTest;
- {$Include DTTypesUser.imp.pas}
+ {$Include w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas}
  TExportPipeTestPrim = {abstract} class(_DTTypesUser_)
   private
    f_IsNSRC: Boolean;
@@ -87,7 +87,7 @@ uses
  , l3String
 ;
 
-{$Include DTTypesUser.imp.pas}
+{$Include w:\archi\source\projects\ImportExportTest\DTTypesUser.imp.pas}
 
 function TExportPipeTestPrim.pm_GetPipe: TExportPipe;
 //#UC START# *55ED54F10251_55ED52510115get_var*

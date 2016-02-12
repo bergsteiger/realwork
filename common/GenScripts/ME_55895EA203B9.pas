@@ -29,7 +29,7 @@ type
  end;//TkwGlobalVar
 
  _kwCompiledVar_Parent_ = TkwCompiledWordPrim;
- {$Include kwCompiledVar.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas}
  TkwRefcountVar = class(_kwCompiledVar_)
   protected
    procedure Cleanup; override;
@@ -205,7 +205,7 @@ begin
 //#UC END# *56456DDD037D_559A4C070092_impl*
 end;//TkwGlobalVar.IsGlobalVar
 
-{$Include kwCompiledVar.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas}
 
 procedure TkwRefcountVar.Cleanup;
  {* Функция очистки полей объекта. }
@@ -293,12 +293,8 @@ function TkwPopNewWordDefinitorCheckWord.CheckWord(const aCtx: TtfwContext;
  aNewWordDefinitor: TtfwNewWordDefinitor;
  const aName: Il3CString): TtfwKeyWord;
  {* Реализация слова скрипта pop:NewWordDefinitor:CheckWord }
-//#UC START# *49B168237E12_B46B312AFA96_var*
-//#UC END# *49B168237E12_B46B312AFA96_var*
 begin
-//#UC START# *49B168237E12_B46B312AFA96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49B168237E12_B46B312AFA96_impl*
+ Result := aNewWordDefinitor.CheckWord(aName);
 end;//TkwPopNewWordDefinitorCheckWord.CheckWord
 
 procedure TkwPopNewWordDefinitorCheckWord.DoDoIt(const aCtx: TtfwContext);

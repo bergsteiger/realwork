@@ -16,7 +16,7 @@ uses
 
 type
  _ListType_ = TInt64List;
- {$Include AtomicListTest.imp.pas}
+ {$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
  TInt64ListTest = class(_AtomicListTest_)
  end;//TInt64ListTest
 {$IfEnd} // Defined(nsTest)
@@ -29,7 +29,7 @@ uses
  , SysUtils
 ;
 
-{$Include AtomicListTest.imp.pas}
+{$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
 
 initialization
  TestFramework.RegisterTest(TInt64ListTest.Suite);

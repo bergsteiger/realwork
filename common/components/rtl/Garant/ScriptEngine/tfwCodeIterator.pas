@@ -1,47 +1,36 @@
 unit tfwCodeIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwCodeIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwCodeIterator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCodeIterator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwWordsIterator
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwWordsIterator
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwCodeIterator = class(TtfwWordsIterator)
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
  end;//TtfwCodeIterator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwCodeIterator
+ l3ImplUses
+ , SysUtils
+;
 
 procedure TtfwCodeIterator.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52E7D66E02FF_var*
 //#UC END# *479731C50290_52E7D66E02FF_var*
 begin
@@ -51,7 +40,6 @@ begin
  inherited;
 //#UC END# *479731C50290_52E7D66E02FF_impl*
 end;//TtfwCodeIterator.Cleanup
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

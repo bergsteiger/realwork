@@ -1,66 +1,50 @@
 unit InterfacedNodeWords;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$L3"
-// Модуль: "InterfacedNodeWords.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$L3::l3NodeWords::InterfacedNodeWords
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  l3Tree_TLB,
-  tfwScriptingInterfaces,
-  tfwAxiomaticsResNameGetter,
-  tfwPropertyLike,
-  l3TreeInterfaces
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , l3Tree_TLB
+ , l3Interfaces
+ , l3TreeInterfaces
+ , tfwAxiomaticsResNameGetter
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
-//#UC START# *609BA308C8F6ci*
-//#UC END# *609BA308C8F6ci*
-//#UC START# *609BA308C8F6cit*
-//#UC END# *609BA308C8F6cit*
+ //#UC START# *609BA308C8F6ci*
+ //#UC END# *609BA308C8F6ci*
+ //#UC START# *609BA308C8F6cit*
+ //#UC END# *609BA308C8F6cit*
  TInterfacedNodeWordsResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *609BA308C8F6publ*
-//#UC END# *609BA308C8F6publ*
+ //#UC START# *609BA308C8F6publ*
+ //#UC END# *609BA308C8F6publ*
  end;//TInterfacedNodeWordsResNameGetter
 
-// start class TInterfacedNodeWordsResNameGetter
-
-class function TInterfacedNodeWordsResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'InterfacedNodeWords';
-end;//TInterfacedNodeWordsResNameGetter.ResName
-
- {$R InterfacedNodeWords.res}
-
-type
- TkwNodeCaption = {final scriptword} class(TtfwPropertyLike)
+ TkwNodeCaption = {final} class(TtfwPropertyLike)
   {* Слово скрипта Node:Caption
 *Тип результата:* Tl3WString
 *Пример:*
@@ -68,30 +52,77 @@ type
 STRING VAR l_Tl3WString
  aNode Node:Caption >>> l_Tl3WString
 [code]  }
- private
- // private methods
+  private
    function Caption(const aCtx: TtfwContext;
     const aNode: Il3Node): Tl3WString;
-     {* Реализация слова скрипта Node:Caption }
- protected
- // realized methods
+    {* Реализация слова скрипта Node:Caption }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwNodeCaption
 
-// start class TkwNodeCaption
+ TkwNodeIndex = {final} class(TtfwPropertyLike)
+  {* Слово скрипта Node:Index
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aNode Node:Index >>> l_Integer
+[code]  }
+  private
+   function Index(const aCtx: TtfwContext;
+    const aNode: Il3Node): Integer;
+    {* Реализация слова скрипта Node:Index }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwNodeIndex
+
+ TkwNodeIndexInTree = {final} class(TtfwPropertyLike)
+  {* Слово скрипта Node:IndexInTree
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aNode Node:IndexInTree >>> l_Integer
+[code]  }
+  private
+   function IndexInTree(const aCtx: TtfwContext;
+    const aNode: Il3Node): Integer;
+    {* Реализация слова скрипта Node:IndexInTree }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   procedure SetValuePrim(const aValue: TtfwStackValue;
+    const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwNodeIndexInTree
+
+class function TInterfacedNodeWordsResNameGetter.ResName: AnsiString;
+begin
+  Result := 'InterfacedNodeWords';
+end;//TInterfacedNodeWordsResNameGetter.ResName
+
+ {$R InterfacedNodeWords.res}
 
 function TkwNodeCaption.Caption(const aCtx: TtfwContext;
-  const aNode: Il3Node): Tl3WString;
+ const aNode: Il3Node): Tl3WString;
+ {* Реализация слова скрипта Node:Caption }
 //#UC START# *EB2FE05C3FD8_925538F9D93F_var*
 //#UC END# *EB2FE05C3FD8_925538F9D93F_var*
 begin
@@ -101,9 +132,7 @@ begin
 end;//TkwNodeCaption.Caption
 
 procedure TkwNodeCaption.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aNode : Il3Node;
+var l_aNode: Il3Node;
 begin
  try
   l_aNode := Il3Node(aCtx.rEngine.PopIntf(Il3Node));
@@ -114,73 +143,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((Caption(aCtx, l_aNode)));
+ aCtx.rEngine.PushString(Caption(aCtx, l_aNode));
 end;//TkwNodeCaption.DoDoIt
 
 class function TkwNodeCaption.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Node:Caption';
 end;//TkwNodeCaption.GetWordNameForRegister
 
 procedure TkwNodeCaption.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Caption', aCtx);
 end;//TkwNodeCaption.SetValuePrim
 
 function TkwNodeCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwNodeCaption.GetResultTypeInfo
 
 function TkwNodeCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwNodeCaption.GetAllParamsCount
 
 function TkwNodeCaption.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeCaption.ParamsTypes
 
-type
- TkwNodeIndex = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта Node:Index
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aNode Node:Index >>> l_Integer
-[code]  }
- private
- // private methods
-   function Index(const aCtx: TtfwContext;
-    const aNode: Il3Node): Integer;
-     {* Реализация слова скрипта Node:Index }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwNodeIndex
-
-// start class TkwNodeIndex
-
 function TkwNodeIndex.Index(const aCtx: TtfwContext;
-  const aNode: Il3Node): Integer;
+ const aNode: Il3Node): Integer;
+ {* Реализация слова скрипта Node:Index }
 //#UC START# *5069AAF05422_34FBBF0F2ACD_var*
 //#UC END# *5069AAF05422_34FBBF0F2ACD_var*
 begin
@@ -190,9 +184,7 @@ begin
 end;//TkwNodeIndex.Index
 
 procedure TkwNodeIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aNode : Il3Node;
+var l_aNode: Il3Node;
 begin
  try
   l_aNode := Il3Node(aCtx.rEngine.PopIntf(Il3Node));
@@ -203,73 +195,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((Index(aCtx, l_aNode)));
+ aCtx.rEngine.PushInt(Index(aCtx, l_aNode));
 end;//TkwNodeIndex.DoDoIt
 
 class function TkwNodeIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Node:Index';
 end;//TkwNodeIndex.GetWordNameForRegister
 
 procedure TkwNodeIndex.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Index', aCtx);
 end;//TkwNodeIndex.SetValuePrim
 
 function TkwNodeIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwNodeIndex.GetResultTypeInfo
 
 function TkwNodeIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwNodeIndex.GetAllParamsCount
 
 function TkwNodeIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeIndex.ParamsTypes
 
-type
- TkwNodeIndexInTree = {final scriptword} class(TtfwPropertyLike)
-  {* Слово скрипта Node:IndexInTree
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aNode Node:IndexInTree >>> l_Integer
-[code]  }
- private
- // private methods
-   function IndexInTree(const aCtx: TtfwContext;
-    const aNode: Il3Node): Integer;
-     {* Реализация слова скрипта Node:IndexInTree }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwNodeIndexInTree
-
-// start class TkwNodeIndexInTree
-
 function TkwNodeIndexInTree.IndexInTree(const aCtx: TtfwContext;
-  const aNode: Il3Node): Integer;
+ const aNode: Il3Node): Integer;
+ {* Реализация слова скрипта Node:IndexInTree }
 //#UC START# *376583B5266F_1B9E11EA21FB_var*
 var
  l_Index: Integer;
@@ -293,9 +250,7 @@ begin
 end;//TkwNodeIndexInTree.IndexInTree
 
 procedure TkwNodeIndexInTree.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aNode : Il3Node;
+var l_aNode: Il3Node;
 begin
  try
   l_aNode := Il3Node(aCtx.rEngine.PopIntf(Il3Node));
@@ -306,73 +261,52 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((IndexInTree(aCtx, l_aNode)));
+ aCtx.rEngine.PushInt(IndexInTree(aCtx, l_aNode));
 end;//TkwNodeIndexInTree.DoDoIt
 
 class function TkwNodeIndexInTree.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Node:IndexInTree';
 end;//TkwNodeIndexInTree.GetWordNameForRegister
 
 procedure TkwNodeIndexInTree.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству IndexInTree', aCtx);
 end;//TkwNodeIndexInTree.SetValuePrim
 
 function TkwNodeIndexInTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwNodeIndexInTree.GetResultTypeInfo
 
 function TkwNodeIndexInTree.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwNodeIndexInTree.GetAllParamsCount
 
 function TkwNodeIndexInTree.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Il3Node)]);
 end;//TkwNodeIndexInTree.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TInterfacedNodeWordsResNameGetter.Register;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Node_Caption
+ {* Регистрация скриптованой аксиоматики }
  TkwNodeCaption.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Node_Index
+ {* Регистрация Node_Caption }
  TkwNodeIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Node_IndexInTree
+ {* Регистрация Node_Index }
  TkwNodeIndexInTree.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация Node_IndexInTree }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Il3Node
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3Node));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Tl3WString
+ {* Регистрация типа Il3Node }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа Tl3WString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Integer }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

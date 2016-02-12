@@ -179,12 +179,8 @@ begin
 end;//Tkw_Form_QFLikeTextLoad.GetWordNameForRegister
 
 function Tkw_Form_QFLikeTextLoad.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E39BF9B6C045_var*
-//#UC END# *4DDFD2EA0116_E39BF9B6C045_var*
 begin
-//#UC START# *4DDFD2EA0116_E39BF9B6C045_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E39BF9B6C045_impl*
+ Result := 'QFLikeTextLoadForm';
 end;//Tkw_Form_QFLikeTextLoad.GetString
 
 class function Tkw_QFLikeTextLoad_Component_TextSource.GetWordNameForRegister: AnsiString;
@@ -193,21 +189,14 @@ begin
 end;//Tkw_QFLikeTextLoad_Component_TextSource.GetWordNameForRegister
 
 function Tkw_QFLikeTextLoad_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E62599624393_var*
-//#UC END# *4DDFD2EA0116_E62599624393_var*
 begin
-//#UC START# *4DDFD2EA0116_E62599624393_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E62599624393_impl*
+ Result := 'TextSource';
 end;//Tkw_QFLikeTextLoad_Component_TextSource.GetString
 
 class procedure Tkw_QFLikeTextLoad_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_E62599624393_var*
-//#UC END# *52A086150180_E62599624393_var*
 begin
-//#UC START# *52A086150180_E62599624393_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_E62599624393_impl*
+ inherited;
+ TtfwClassRef.Register(TevTextSource);
 end;//Tkw_QFLikeTextLoad_Component_TextSource.RegisterInEngine
 
 class function Tkw_QFLikeTextLoad_Control_Text.GetWordNameForRegister: AnsiString;
@@ -216,21 +205,14 @@ begin
 end;//Tkw_QFLikeTextLoad_Control_Text.GetWordNameForRegister
 
 function Tkw_QFLikeTextLoad_Control_Text.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_298C6D41E304_var*
-//#UC END# *4DDFD2EA0116_298C6D41E304_var*
 begin
-//#UC START# *4DDFD2EA0116_298C6D41E304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_298C6D41E304_impl*
+ Result := 'Text';
 end;//Tkw_QFLikeTextLoad_Control_Text.GetString
 
 class procedure Tkw_QFLikeTextLoad_Control_Text.RegisterInEngine;
-//#UC START# *52A086150180_298C6D41E304_var*
-//#UC END# *52A086150180_298C6D41E304_var*
 begin
-//#UC START# *52A086150180_298C6D41E304_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_298C6D41E304_impl*
+ inherited;
+ TtfwClassRef.Register(TevQueryCardEditor);
 end;//Tkw_QFLikeTextLoad_Control_Text.RegisterInEngine
 
 procedure Tkw_QFLikeTextLoad_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
@@ -253,32 +235,21 @@ begin
 end;//Tkw_QFLikeTextLoad_Component_LoadManager.GetWordNameForRegister
 
 function Tkw_QFLikeTextLoad_Component_LoadManager.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_32A6F64B5E3D_var*
-//#UC END# *4DDFD2EA0116_32A6F64B5E3D_var*
 begin
-//#UC START# *4DDFD2EA0116_32A6F64B5E3D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_32A6F64B5E3D_impl*
+ Result := 'LoadManager';
 end;//Tkw_QFLikeTextLoad_Component_LoadManager.GetString
 
 class procedure Tkw_QFLikeTextLoad_Component_LoadManager.RegisterInEngine;
-//#UC START# *52A086150180_32A6F64B5E3D_var*
-//#UC END# *52A086150180_32A6F64B5E3D_var*
 begin
-//#UC START# *52A086150180_32A6F64B5E3D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_32A6F64B5E3D_impl*
+ inherited;
+ TtfwClassRef.Register(TevLoadDocumentManager);
 end;//Tkw_QFLikeTextLoad_Component_LoadManager.RegisterInEngine
 
 function TkwQFLikeTextLoadFormTextSource.TextSource(const aCtx: TtfwContext;
  aQFLikeTextLoadForm: TQFLikeTextLoadForm): TevTextSource;
  {* Реализация слова скрипта .TQFLikeTextLoadForm.TextSource }
-//#UC START# *341E9F921E0A_CB4B5413D1DF_var*
-//#UC END# *341E9F921E0A_CB4B5413D1DF_var*
 begin
-//#UC START# *341E9F921E0A_CB4B5413D1DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *341E9F921E0A_CB4B5413D1DF_impl*
+ Result := aQFLikeTextLoadForm.TextSource;
 end;//TkwQFLikeTextLoadFormTextSource.TextSource
 
 procedure TkwQFLikeTextLoadFormTextSource.DoDoIt(const aCtx: TtfwContext);
@@ -303,18 +274,8 @@ end;//TkwQFLikeTextLoadFormTextSource.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_QFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
- try
-  l_QFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра QFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- QFLikeTextLoadForm. := TevTextSource(aValue.AsObject(TevTextSource));
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwQFLikeTextLoadFormTextSource.SetValuePrim
 
 function TkwQFLikeTextLoadFormTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -335,12 +296,8 @@ end;//TkwQFLikeTextLoadFormTextSource.ParamsTypes
 function TkwQFLikeTextLoadFormText.Text(const aCtx: TtfwContext;
  aQFLikeTextLoadForm: TQFLikeTextLoadForm): TevQueryCardEditor;
  {* Реализация слова скрипта .TQFLikeTextLoadForm.Text }
-//#UC START# *D8DE141117F7_E29319DE781A_var*
-//#UC END# *D8DE141117F7_E29319DE781A_var*
 begin
-//#UC START# *D8DE141117F7_E29319DE781A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D8DE141117F7_E29319DE781A_impl*
+ Result := aQFLikeTextLoadForm.Text;
 end;//TkwQFLikeTextLoadFormText.Text
 
 procedure TkwQFLikeTextLoadFormText.DoDoIt(const aCtx: TtfwContext);
@@ -365,18 +322,8 @@ end;//TkwQFLikeTextLoadFormText.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_QFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
- try
-  l_QFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра QFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- QFLikeTextLoadForm. := TevQueryCardEditor(aValue.AsObject(TevQueryCardEditor));
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwQFLikeTextLoadFormText.SetValuePrim
 
 function TkwQFLikeTextLoadFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -397,12 +344,8 @@ end;//TkwQFLikeTextLoadFormText.ParamsTypes
 function TkwQFLikeTextLoadFormLoadManager.LoadManager(const aCtx: TtfwContext;
  aQFLikeTextLoadForm: TQFLikeTextLoadForm): TevLoadDocumentManager;
  {* Реализация слова скрипта .TQFLikeTextLoadForm.LoadManager }
-//#UC START# *4D151604282E_F3E17599DE55_var*
-//#UC END# *4D151604282E_F3E17599DE55_var*
 begin
-//#UC START# *4D151604282E_F3E17599DE55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D151604282E_F3E17599DE55_impl*
+ Result := aQFLikeTextLoadForm.LoadManager;
 end;//TkwQFLikeTextLoadFormLoadManager.LoadManager
 
 procedure TkwQFLikeTextLoadFormLoadManager.DoDoIt(const aCtx: TtfwContext);
@@ -427,18 +370,8 @@ end;//TkwQFLikeTextLoadFormLoadManager.GetWordNameForRegister
 
 procedure TkwQFLikeTextLoadFormLoadManager.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_QFLikeTextLoadForm: TQFLikeTextLoadForm;
 begin
- try
-  l_QFLikeTextLoadForm := TQFLikeTextLoadForm(aCtx.rEngine.PopObjAs(TQFLikeTextLoadForm));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра QFLikeTextLoadForm: TQFLikeTextLoadForm : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- QFLikeTextLoadForm. := TevLoadDocumentManager(aValue.AsObject(TevLoadDocumentManager));
+ RunnerError('Нельзя присваивать значение readonly свойству LoadManager', aCtx);
 end;//TkwQFLikeTextLoadFormLoadManager.SetValuePrim
 
 function TkwQFLikeTextLoadFormLoadManager.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

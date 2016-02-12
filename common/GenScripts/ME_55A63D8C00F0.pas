@@ -8,13 +8,13 @@
 {$If NOT Defined(NoScripts)}
  {$Define l3Items_NoSort}
 
- {$Include tfwDictionaryListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.imp.pas}
  _tfwDictionaryList_ = {abstract} class(_tfwDictionaryListPrim_)
  end;//_tfwDictionaryList_
 
 {$Else NOT Defined(NoScripts)}
 
-{$Include tfwDictionaryListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.imp.pas}
 _tfwDictionaryList_ = _tfwDictionaryListPrim_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -36,7 +36,7 @@ begin
 //#UC END# *47B99D4503A2_55A63D8C00F0_impl*
 end;//CompareExistingItems
 
-{$Include tfwDictionaryListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListPrim.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$EndIf tfwDictionaryList_imp_impl}

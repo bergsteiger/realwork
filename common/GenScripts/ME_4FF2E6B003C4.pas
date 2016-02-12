@@ -117,7 +117,7 @@ type
  end;//TdeAAC
 
  _SetType_ = IsdsAAC;
- {$Include sdsDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
  TsdsAAC = class(_sdsDocument_, IsdsAAC)
   {* Контроллер прецедента "Актуальная аналитика" }
   private
@@ -548,7 +548,7 @@ end;//TdeAAC.Cleanup
 
 type _Instance_R_ = TsdsAAC;
 
-{$Include sdsDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
 
 function TsdsAAC.MakeDocumentLikeStateHolder: InsDocumentLikeStateHolder;
 //#UC START# *51ED56B903D6_4FF2E6B003C4_var*

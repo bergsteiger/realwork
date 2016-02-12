@@ -22,7 +22,7 @@ type
  TResultsPlaces = array of RTestResultsPlace;
 
  _GUIAppTester_Parent_ = Tl3ProtoObject;
- {$Include GUIAppTester.imp.pas}
+ {$Include w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
  TGUIAppTester = {abstract} class(_GUIAppTester_)
   protected
    class function GetResultsPlaces: TResultsPlaces; virtual; abstract;
@@ -51,7 +51,7 @@ uses
  , l3BatchService
 ;
 
-{$Include GUIAppTester.imp.pas}
+{$Include w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
 
 class function TGUIAppTester.MakeResults(const aPlaces: array of RTestResultsPlace): TResultsPlaces;
 //#UC START# *52F2651C00F4_52F255E702F0_var*

@@ -449,12 +449,8 @@ end;//TArrayProcessingPackResNameGetter.ResName
 procedure TkwArrayClear.Clear(const aCtx: TtfwContext;
  const aArray: ItfwValueList);
  {* Реализация слова скрипта Array:Clear }
-//#UC START# *428D1CC30289_878FE88B604D_var*
-//#UC END# *428D1CC30289_878FE88B604D_var*
 begin
-//#UC START# *428D1CC30289_878FE88B604D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *428D1CC30289_878FE88B604D_impl*
+ aArray.Clear;
 end;//TkwArrayClear.Clear
 
 procedure TkwArrayClear.DoDoIt(const aCtx: TtfwContext);
@@ -573,7 +569,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Array, l_anIndex, aValue);
+ DoSetValue(l_Array, l_anIndex, aValue);
 end;//TkwArrayItem.SetValuePrim
 
 function TkwArrayItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -591,7 +587,7 @@ function TkwArrayItem.BindParams: Boolean;
 //#UC END# *5617C8A30023_E14E90E5EF2D_var*
 begin
 //#UC START# *5617C8A30023_E14E90E5EF2D_impl*
- !!! Needs to be implemented !!!
+ Result := true;
 //#UC END# *5617C8A30023_E14E90E5EF2D_impl*
 end;//TkwArrayItem.BindParams
 
@@ -821,12 +817,8 @@ procedure TkwArrayAdd.Add(const aCtx: TtfwContext;
  const aArray: ItfwValueList;
  const aValue: TtfwStackValue);
  {* Реализация слова скрипта Array:Add }
-//#UC START# *4A28BF387B4A_A57E4097FCC5_var*
-//#UC END# *4A28BF387B4A_A57E4097FCC5_var*
 begin
-//#UC START# *4A28BF387B4A_A57E4097FCC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A28BF387B4A_A57E4097FCC5_impl*
+ aArray.Add(aValue);
 end;//TkwArrayAdd.Add
 
 procedure TkwArrayAdd.DoDoIt(const aCtx: TtfwContext);
@@ -1094,12 +1086,8 @@ end;//TkwArraySlice.ParamsTypes
 function TkwArrayCount.Count(const aCtx: TtfwContext;
  const aArray: ItfwValueList): Integer;
  {* Реализация слова скрипта Array:Count }
-//#UC START# *87ED8662D31C_F4E1D8EB306A_var*
-//#UC END# *87ED8662D31C_F4E1D8EB306A_var*
 begin
-//#UC START# *87ED8662D31C_F4E1D8EB306A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *87ED8662D31C_F4E1D8EB306A_impl*
+ Result := aArray.Count;
 end;//TkwArrayCount.Count
 
 procedure TkwArrayCount.DoDoIt(const aCtx: TtfwContext);

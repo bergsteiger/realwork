@@ -19,7 +19,7 @@ uses
 
 type
  _Scripter_Parent_ = TBaseTest;
- {$Include Scripter.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\Scripter.imp.pas}
  TvcmInsiderTest = {abstract} class(_Scripter_, ItfwScriptCaller)
   {* Базовый тест запускающийся "внутри" тестируемого приложения }
   private
@@ -101,7 +101,7 @@ uses
 
 type _Instance_R_ = TvcmInsiderTest;
 
-{$Include Scripter.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\Scripter.imp.pas}
 
 procedure TvcmInsiderTest.OwnScriptFromFile;
  {* Запускает "собственный" тест из файла }

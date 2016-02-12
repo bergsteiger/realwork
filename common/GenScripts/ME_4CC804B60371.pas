@@ -11,9 +11,9 @@ const
  GradientEndColor = $E1B484;
 
  _RegionableForm_Parent_ = _BaseSearch2010_Parent_;
- {$Include RegionableForm.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\RegionableForm.imp.pas}
  _SkinnedForm_Parent_ = _RegionableForm_;
- {$Include SkinnedForm.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\SkinnedForm.imp.pas}
  _BaseSearch2010_ = {abstract} class(_SkinnedForm_)
   protected
    function BackColor1: TColor;
@@ -30,9 +30,9 @@ const
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _RegionableForm_Parent_ = _BaseSearch2010_Parent_;
-{$Include RegionableForm.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\RegionableForm.imp.pas}
 _SkinnedForm_Parent_ = _RegionableForm_;
-{$Include SkinnedForm.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\SkinnedForm.imp.pas}
 _BaseSearch2010_ = _SkinnedForm_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -43,9 +43,9 @@ _BaseSearch2010_ = _SkinnedForm_;
 {$Define BaseSearch2010_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include RegionableForm.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\RegionableForm.imp.pas}
 
-{$Include SkinnedForm.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\SkinnedForm.imp.pas}
 
 function _BaseSearch2010_.BackColor1: TColor;
  {* Начало градиента }

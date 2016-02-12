@@ -6,7 +6,7 @@
 {$Define PrintableFlashWithInfo_imp}
 
  _PrintableFlash_Parent_ = _PrintableFlashWithInfo_Parent_;
- {$Include PrintableFlash.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlash.imp.pas}
  _PrintableFlashWithInfo_ = {abstract} class(_PrintableFlash_)
   private
    f_InfoPreview: IafwDocumentPreview;
@@ -35,7 +35,7 @@
 
 {$Define PrintableFlashWithInfo_imp_impl}
 
-{$Include PrintableFlash.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlash.imp.pas}
 
 function _PrintableFlashWithInfo_.pm_GetInfoPreview: IafwDocumentPreview;
 //#UC START# *54D886BC0229_54D879C9030Cget_var*

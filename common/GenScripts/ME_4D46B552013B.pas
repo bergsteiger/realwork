@@ -20,7 +20,7 @@ uses
 type
  _FormClass_ = TOutlinerFormForm;
  _FormProducer_Parent_ = TBaseTest;
- {$Include FormProducer.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
  TOutlinerTest = {abstract} class(_FormProducer_)
   protected
    procedure Load(aForm: TOutlinerFormForm;
@@ -49,7 +49,7 @@ uses
  , l3Base
 ;
 
-{$Include FormProducer.imp.pas}
+{$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TOutlinerTest.DoIt();
 //#UC START# *4D46C7AE01E3_4D46B552013B_var*

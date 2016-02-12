@@ -94,12 +94,8 @@ procedure TkwPopParserExPushString.PushString(const aCtx: TtfwContext;
  const aParserEx: ItfwParserEx;
  const aString: Il3CString);
  {* Реализация слова скрипта pop:ParserEx:PushString }
-//#UC START# *3AD2F947D123_98DC2F9223CD_var*
-//#UC END# *3AD2F947D123_98DC2F9223CD_var*
 begin
-//#UC START# *3AD2F947D123_98DC2F9223CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3AD2F947D123_98DC2F9223CD_impl*
+ aParserEx.PushString(aString);
 end;//TkwPopParserExPushString.PushString
 
 procedure TkwPopParserExPushString.DoDoIt(const aCtx: TtfwContext);
@@ -151,12 +147,8 @@ procedure TkwPopParserExPushSymbol.PushSymbol(const aCtx: TtfwContext;
  const aParserEx: ItfwParserEx;
  const aString: Il3CString);
  {* Реализация слова скрипта pop:ParserEx:PushSymbol }
-//#UC START# *8CF8220B1149_1C7124538968_var*
-//#UC END# *8CF8220B1149_1C7124538968_var*
 begin
-//#UC START# *8CF8220B1149_1C7124538968_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8CF8220B1149_1C7124538968_impl*
+ aParserEx.PushSymbol(aString);
 end;//TkwPopParserExPushSymbol.PushSymbol
 
 procedure TkwPopParserExPushSymbol.DoDoIt(const aCtx: TtfwContext);
@@ -208,12 +200,8 @@ procedure TkwPopParserExPushInt.PushInt(const aCtx: TtfwContext;
  const aParserEx: ItfwParserEx;
  aValue: Integer);
  {* Реализация слова скрипта pop:ParserEx:PushInt }
-//#UC START# *1DDD13264747_E0E6B9391680_var*
-//#UC END# *1DDD13264747_E0E6B9391680_var*
 begin
-//#UC START# *1DDD13264747_E0E6B9391680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1DDD13264747_E0E6B9391680_impl*
+ aParserEx.PushInt(aValue);
 end;//TkwPopParserExPushInt.PushInt
 
 procedure TkwPopParserExPushInt.DoDoIt(const aCtx: TtfwContext);

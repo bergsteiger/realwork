@@ -59,12 +59,18 @@ begin
 end;//TkwPopSpellCheckDlgFake.Fake
 
 procedure TkwPopSpellCheckDlgFake.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B3D7A1E7CA69_var*
-//#UC END# *4DAEEDE10285_B3D7A1E7CA69_var*
+var l_aSpellCheckDlg: TSpellCheckDlg;
 begin
-//#UC START# *4DAEEDE10285_B3D7A1E7CA69_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B3D7A1E7CA69_impl*
+ try
+  l_aSpellCheckDlg := TSpellCheckDlg(aCtx.rEngine.PopObjAs(TSpellCheckDlg));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSpellCheckDlg: TSpellCheckDlg : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aSpellCheckDlg);
 end;//TkwPopSpellCheckDlgFake.DoDoIt
 
 class function TkwPopSpellCheckDlgFake.GetWordNameForRegister: AnsiString;
@@ -84,7 +90,7 @@ end;//TkwPopSpellCheckDlgFake.GetAllParamsCount
 
 function TkwPopSpellCheckDlgFake.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSpellCheckDlg)]);
 end;//TkwPopSpellCheckDlgFake.ParamsTypes
 
 initialization

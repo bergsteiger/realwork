@@ -1,106 +1,58 @@
 unit tfwIteratorFromFunctor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwIteratorFromFunctor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwIteratorFromFunctor
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIteratorFromFunctor.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwArray,
-  tfwIteratableParent,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwIteratableParent
+ , tfwScriptingInterfaces
+ , tfwArray
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwArrayCollector = class(TtfwWord)
- private
- // private fields
-   f_Array : TtfwArray;
- protected
- // realized methods
+  private
+   f_Array: TtfwArray;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(anArray: TtfwArray); reintroduce;
  end;//TtfwArrayCollector
 
  TtfwIteratorFromFunctor = class(TtfwIteratableParent, ItfwValueList)
- private
- // private fields
-   f_Functor : TtfwWord;
- protected
- // realized methods
+  private
+   f_Functor: TtfwWord;
+  protected
    procedure SetItem(anIndex: Integer;
-     const aValue: TtfwStackValue);
+    const aValue: TtfwStackValue);
    function ItemsCountInSlice: Integer;
- public
- // realized methods
-   procedure ForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
-   procedure ForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aFunctor: TtfwWord); reintroduce;
    class function Make(aFunctor: TtfwWord): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwIteratorFromFunctor.Make }
+   procedure ForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
+   procedure ForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
  end;//TtfwIteratorFromFunctor
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwIteratorFromFunctor
-
-constructor TtfwIteratorFromFunctor.Create(aFunctor: TtfwWord);
-//#UC START# *52EB870B01E6_52EB863801C3_var*
-//#UC END# *52EB870B01E6_52EB863801C3_var*
-begin
-//#UC START# *52EB870B01E6_52EB863801C3_impl*
- inherited Create;
- aFunctor.SetRefTo(f_Functor);
-//#UC END# *52EB870B01E6_52EB863801C3_impl*
-end;//TtfwIteratorFromFunctor.Create
-
-class function TtfwIteratorFromFunctor.Make(aFunctor: TtfwWord): ItfwValueList;
-var
- l_Inst : TtfwIteratorFromFunctor;
-begin
- l_Inst := Create(aFunctor);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-// start class TtfwArrayCollector
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TtfwArrayCollector.Create(anArray: TtfwArray);
 //#UC START# *52EB8CDA0033_52EB8C930076_var*
@@ -122,6 +74,7 @@ begin
 end;//TtfwArrayCollector.DoDoIt
 
 procedure TtfwArrayCollector.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52EB8C930076_var*
 //#UC END# *479731C50290_52EB8C930076_var*
 begin
@@ -131,8 +84,30 @@ begin
 //#UC END# *479731C50290_52EB8C930076_impl*
 end;//TtfwArrayCollector.Cleanup
 
+constructor TtfwIteratorFromFunctor.Create(aFunctor: TtfwWord);
+//#UC START# *52EB870B01E6_52EB863801C3_var*
+//#UC END# *52EB870B01E6_52EB863801C3_var*
+begin
+//#UC START# *52EB870B01E6_52EB863801C3_impl*
+ inherited Create;
+ aFunctor.SetRefTo(f_Functor);
+//#UC END# *52EB870B01E6_52EB863801C3_impl*
+end;//TtfwIteratorFromFunctor.Create
+
+class function TtfwIteratorFromFunctor.Make(aFunctor: TtfwWord): ItfwValueList;
+var
+ l_Inst : TtfwIteratorFromFunctor;
+begin
+ l_Inst := Create(aFunctor);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TtfwIteratorFromFunctor.Make
+
 procedure TtfwIteratorFromFunctor.ForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23B7A00EC_52EB863801C3_var*
 //#UC END# *52E23B7A00EC_52EB863801C3_var*
 begin
@@ -143,7 +118,7 @@ begin
 end;//TtfwIteratorFromFunctor.ForEach
 
 procedure TtfwIteratorFromFunctor.ForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23BB102FA_52EB863801C3_var*
 var
  l_Array : TtfwArray;
@@ -167,7 +142,7 @@ begin
 end;//TtfwIteratorFromFunctor.ForEachBack
 
 procedure TtfwIteratorFromFunctor.SetItem(anIndex: Integer;
-  const aValue: TtfwStackValue);
+ const aValue: TtfwStackValue);
 //#UC START# *55CDF40C03D4_52EB863801C3_var*
 //#UC END# *55CDF40C03D4_52EB863801C3_var*
 begin
@@ -186,6 +161,7 @@ begin
 end;//TtfwIteratorFromFunctor.ItemsCountInSlice
 
 procedure TtfwIteratorFromFunctor.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52EB863801C3_var*
 //#UC END# *479731C50290_52EB863801C3_var*
 begin
@@ -195,12 +171,9 @@ begin
 //#UC END# *479731C50290_52EB863801C3_impl*
 end;//TtfwIteratorFromFunctor.Cleanup
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwArrayCollector
  TtfwArrayCollector.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwArrayCollector }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

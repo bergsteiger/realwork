@@ -18,7 +18,7 @@ uses
 type
  _FindDataType_ = Il3CString;
  _l3Searcher_Parent_ = TkwStringListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TkwStringList = class(_l3Searcher_)
  end;//TkwStringList
 {$IfEnd} // NOT Defined(NoScripts)
@@ -47,7 +47,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TkwStringList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

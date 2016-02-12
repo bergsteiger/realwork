@@ -95,7 +95,7 @@ type
  end;//TnsUseBackSearchButtonEvent
 
  _BaseSearch2010_Parent_ = TvcmEntityForm;
- {$Include BaseSearch2010.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\BaseSearch2010.imp.pas}
  TPrimBaseSearchForm = class(_BaseSearch2010_, InsSearchWindow, InsContextSearchHistoryNotifier{$If NOT Defined(NoVCM)}
  , IvcmLockListener
  {$IfEnd} // NOT Defined(NoVCM)
@@ -317,7 +317,7 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsBaseSearchFormState = class(_afwApplicationDataUpdate_, InsBaseSearchFormState{$If NOT Defined(NoVCM)}
  , IvcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -373,7 +373,7 @@ begin
  l3Free(g_TnsUseBackSearchButtonEvent);
 end;//TnsUseBackSearchButtonEventFree
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 constructor TnsBaseSearchFormState.Create(const aData: InsBaseSearcherWindowData;
  const anActiveClass: InsBaseSearchClass);
@@ -535,7 +535,7 @@ end;//TnsUseBackSearchButtonEvent.Instance
 
 type _Instance_R_ = TPrimBaseSearchForm;
 
-{$Include BaseSearch2010.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Skins\BaseSearch2010.imp.pas}
 
 function TPrimBaseSearchForm.pm_GetContextEdit: TnscTreeComboWithHistoryAndOperations;
 //#UC START# *4CF4D1240072_4AB791130260get_var*

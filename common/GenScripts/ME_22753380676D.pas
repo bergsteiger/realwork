@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister
 
 function Tkw_Form_TreeAttributeFirstLevel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_62A2CC65156B_var*
-//#UC END# *4DDFD2EA0116_62A2CC65156B_var*
 begin
-//#UC START# *4DDFD2EA0116_62A2CC65156B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_62A2CC65156B_impl*
+ Result := 'efTreeAttributeFirstLevel';
 end;//Tkw_Form_TreeAttributeFirstLevel.GetString
 
 class function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister
 
 function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7E012EE25E53_var*
-//#UC END# *4DDFD2EA0116_7E012EE25E53_var*
 begin
-//#UC START# *4DDFD2EA0116_7E012EE25E53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7E012EE25E53_impl*
+ Result := 'FirstLevelContent';
 end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetString
 
 class procedure Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine;
-//#UC START# *52A086150180_7E012EE25E53_var*
-//#UC END# *52A086150180_7E012EE25E53_var*
 begin
-//#UC START# *52A086150180_7E012EE25E53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7E012EE25E53_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine
 
 procedure Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.GetWordNameForR
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.FirstLevelContent(const aCtx: TtfwContext;
  aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TefTreeAttributeFirstLevel.FirstLevelContent }
-//#UC START# *F118BC5C734D_33551677EC80_var*
-//#UC END# *F118BC5C734D_33551677EC80_var*
 begin
-//#UC START# *F118BC5C734D_33551677EC80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F118BC5C734D_33551677EC80_impl*
+ Result := aefTreeAttributeFirstLevel.FirstLevelContent;
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.FirstLevelContent
 
 procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_33551677EC80_var*
-//#UC END# *4DAEEDE10285_33551677EC80_var*
+var l_aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel;
 begin
-//#UC START# *4DAEEDE10285_33551677EC80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_33551677EC80_impl*
+ try
+  l_aefTreeAttributeFirstLevel := TefTreeAttributeFirstLevel(aCtx.rEngine.PopObjAs(TefTreeAttributeFirstLevel));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FirstLevelContent(aCtx, l_aefTreeAttributeFirstLevel));
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt
 
 class function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_33551677EC80_var*
-//#UC END# *52D00B00031A_33551677EC80_var*
 begin
-//#UC START# *52D00B00031A_33551677EC80_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_33551677EC80_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству FirstLevelContent', aCtx);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetAllParamsCount
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeFirstLevel)]);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.ParamsTypes
 
 initialization

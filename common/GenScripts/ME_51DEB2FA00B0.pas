@@ -16,7 +16,7 @@ uses
 
 type
  _ListType_ = TIntegerList;
- {$Include AtomicListTest.imp.pas}
+ {$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
  TIntegerListTest = class(_AtomicListTest_)
  end;//TIntegerListTest
 {$IfEnd} // Defined(nsTest)
@@ -29,7 +29,7 @@ uses
  , SysUtils
 ;
 
-{$Include AtomicListTest.imp.pas}
+{$Include w:\common\components\SandBox\AtomicListTest.imp.pas}
 
 initialization
  TestFramework.RegisterTest(TIntegerListTest.Suite);

@@ -257,12 +257,8 @@ begin
 end;//Tkw_Form_BaseSearchCard.GetWordNameForRegister
 
 function Tkw_Form_BaseSearchCard.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_66C44BA842AF_var*
-//#UC END# *4DDFD2EA0116_66C44BA842AF_var*
 begin
-//#UC START# *4DDFD2EA0116_66C44BA842AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_66C44BA842AF_impl*
+ Result := 'en_BaseSearchCard';
 end;//Tkw_Form_BaseSearchCard.GetString
 
 class function Tkw_BaseSearchCard_Control_pnlMain.GetWordNameForRegister: AnsiString;
@@ -271,21 +267,14 @@ begin
 end;//Tkw_BaseSearchCard_Control_pnlMain.GetWordNameForRegister
 
 function Tkw_BaseSearchCard_Control_pnlMain.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_381AC4FD9D93_var*
-//#UC END# *4DDFD2EA0116_381AC4FD9D93_var*
 begin
-//#UC START# *4DDFD2EA0116_381AC4FD9D93_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_381AC4FD9D93_impl*
+ Result := 'pnlMain';
 end;//Tkw_BaseSearchCard_Control_pnlMain.GetString
 
 class procedure Tkw_BaseSearchCard_Control_pnlMain.RegisterInEngine;
-//#UC START# *52A086150180_381AC4FD9D93_var*
-//#UC END# *52A086150180_381AC4FD9D93_var*
 begin
-//#UC START# *52A086150180_381AC4FD9D93_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_381AC4FD9D93_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_BaseSearchCard_Control_pnlMain.RegisterInEngine
 
 procedure Tkw_BaseSearchCard_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
@@ -308,21 +297,14 @@ begin
 end;//Tkw_BaseSearchCard_Control_hfBaseSearch.GetWordNameForRegister
 
 function Tkw_BaseSearchCard_Control_hfBaseSearch.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5DD7EC0BC050_var*
-//#UC END# *4DDFD2EA0116_5DD7EC0BC050_var*
 begin
-//#UC START# *4DDFD2EA0116_5DD7EC0BC050_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5DD7EC0BC050_impl*
+ Result := 'hfBaseSearch';
 end;//Tkw_BaseSearchCard_Control_hfBaseSearch.GetString
 
 class procedure Tkw_BaseSearchCard_Control_hfBaseSearch.RegisterInEngine;
-//#UC START# *52A086150180_5DD7EC0BC050_var*
-//#UC END# *52A086150180_5DD7EC0BC050_var*
 begin
-//#UC START# *52A086150180_5DD7EC0BC050_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5DD7EC0BC050_impl*
+ inherited;
+ TtfwClassRef.Register(TnscHideField);
 end;//Tkw_BaseSearchCard_Control_hfBaseSearch.RegisterInEngine
 
 procedure Tkw_BaseSearchCard_Control_hfBaseSearch_Push.DoDoIt(const aCtx: TtfwContext);
@@ -345,21 +327,14 @@ begin
 end;//Tkw_BaseSearchCard_Control_lrBaseSearch.GetWordNameForRegister
 
 function Tkw_BaseSearchCard_Control_lrBaseSearch.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D042842DC65F_var*
-//#UC END# *4DDFD2EA0116_D042842DC65F_var*
 begin
-//#UC START# *4DDFD2EA0116_D042842DC65F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D042842DC65F_impl*
+ Result := 'lrBaseSearch';
 end;//Tkw_BaseSearchCard_Control_lrBaseSearch.GetString
 
 class procedure Tkw_BaseSearchCard_Control_lrBaseSearch.RegisterInEngine;
-//#UC START# *52A086150180_D042842DC65F_var*
-//#UC END# *52A086150180_D042842DC65F_var*
 begin
-//#UC START# *52A086150180_D042842DC65F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_D042842DC65F_impl*
+ inherited;
+ TtfwClassRef.Register(TnscLister);
 end;//Tkw_BaseSearchCard_Control_lrBaseSearch.RegisterInEngine
 
 procedure Tkw_BaseSearchCard_Control_lrBaseSearch_Push.DoDoIt(const aCtx: TtfwContext);
@@ -382,21 +357,14 @@ begin
 end;//Tkw_BaseSearchCard_Control_CardTextLabel.GetWordNameForRegister
 
 function Tkw_BaseSearchCard_Control_CardTextLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C36B4FEB9127_var*
-//#UC END# *4DDFD2EA0116_C36B4FEB9127_var*
 begin
-//#UC START# *4DDFD2EA0116_C36B4FEB9127_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C36B4FEB9127_impl*
+ Result := 'CardTextLabel';
 end;//Tkw_BaseSearchCard_Control_CardTextLabel.GetString
 
 class procedure Tkw_BaseSearchCard_Control_CardTextLabel.RegisterInEngine;
-//#UC START# *52A086150180_C36B4FEB9127_var*
-//#UC END# *52A086150180_C36B4FEB9127_var*
 begin
-//#UC START# *52A086150180_C36B4FEB9127_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C36B4FEB9127_impl*
+ inherited;
+ TtfwClassRef.Register(TnscSimpleEditor);
 end;//Tkw_BaseSearchCard_Control_CardTextLabel.RegisterInEngine
 
 procedure Tkw_BaseSearchCard_Control_CardTextLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -416,21 +384,23 @@ end;//Tkw_BaseSearchCard_Control_CardTextLabel_Push.GetWordNameForRegister
 function TkwEnBaseSearchCardPnlMain.pnlMain(const aCtx: TtfwContext;
  aen_BaseSearchCard: Ten_BaseSearchCard): TvtPanel;
  {* Реализация слова скрипта .Ten_BaseSearchCard.pnlMain }
-//#UC START# *0A20442D75CC_C1D4470B9513_var*
-//#UC END# *0A20442D75CC_C1D4470B9513_var*
 begin
-//#UC START# *0A20442D75CC_C1D4470B9513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0A20442D75CC_C1D4470B9513_impl*
+ Result := aen_BaseSearchCard.pnlMain;
 end;//TkwEnBaseSearchCardPnlMain.pnlMain
 
 procedure TkwEnBaseSearchCardPnlMain.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C1D4470B9513_var*
-//#UC END# *4DAEEDE10285_C1D4470B9513_var*
+var l_aen_BaseSearchCard: Ten_BaseSearchCard;
 begin
-//#UC START# *4DAEEDE10285_C1D4470B9513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C1D4470B9513_impl*
+ try
+  l_aen_BaseSearchCard := Ten_BaseSearchCard(aCtx.rEngine.PopObjAs(Ten_BaseSearchCard));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_BaseSearchCard: Ten_BaseSearchCard : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlMain(aCtx, l_aen_BaseSearchCard));
 end;//TkwEnBaseSearchCardPnlMain.DoDoIt
 
 class function TkwEnBaseSearchCardPnlMain.GetWordNameForRegister: AnsiString;
@@ -440,12 +410,8 @@ end;//TkwEnBaseSearchCardPnlMain.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardPnlMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C1D4470B9513_var*
-//#UC END# *52D00B00031A_C1D4470B9513_var*
 begin
-//#UC START# *52D00B00031A_C1D4470B9513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C1D4470B9513_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnlMain', aCtx);
 end;//TkwEnBaseSearchCardPnlMain.SetValuePrim
 
 function TkwEnBaseSearchCardPnlMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -460,27 +426,29 @@ end;//TkwEnBaseSearchCardPnlMain.GetAllParamsCount
 
 function TkwEnBaseSearchCardPnlMain.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_BaseSearchCard)]);
 end;//TkwEnBaseSearchCardPnlMain.ParamsTypes
 
 function TkwEnBaseSearchCardHfBaseSearch.hfBaseSearch(const aCtx: TtfwContext;
  aen_BaseSearchCard: Ten_BaseSearchCard): TnscHideField;
  {* Реализация слова скрипта .Ten_BaseSearchCard.hfBaseSearch }
-//#UC START# *5EE2B67AC37A_CAA6BD51B722_var*
-//#UC END# *5EE2B67AC37A_CAA6BD51B722_var*
 begin
-//#UC START# *5EE2B67AC37A_CAA6BD51B722_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5EE2B67AC37A_CAA6BD51B722_impl*
+ Result := aen_BaseSearchCard.hfBaseSearch;
 end;//TkwEnBaseSearchCardHfBaseSearch.hfBaseSearch
 
 procedure TkwEnBaseSearchCardHfBaseSearch.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CAA6BD51B722_var*
-//#UC END# *4DAEEDE10285_CAA6BD51B722_var*
+var l_aen_BaseSearchCard: Ten_BaseSearchCard;
 begin
-//#UC START# *4DAEEDE10285_CAA6BD51B722_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CAA6BD51B722_impl*
+ try
+  l_aen_BaseSearchCard := Ten_BaseSearchCard(aCtx.rEngine.PopObjAs(Ten_BaseSearchCard));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_BaseSearchCard: Ten_BaseSearchCard : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(hfBaseSearch(aCtx, l_aen_BaseSearchCard));
 end;//TkwEnBaseSearchCardHfBaseSearch.DoDoIt
 
 class function TkwEnBaseSearchCardHfBaseSearch.GetWordNameForRegister: AnsiString;
@@ -490,12 +458,8 @@ end;//TkwEnBaseSearchCardHfBaseSearch.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardHfBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_CAA6BD51B722_var*
-//#UC END# *52D00B00031A_CAA6BD51B722_var*
 begin
-//#UC START# *52D00B00031A_CAA6BD51B722_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_CAA6BD51B722_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству hfBaseSearch', aCtx);
 end;//TkwEnBaseSearchCardHfBaseSearch.SetValuePrim
 
 function TkwEnBaseSearchCardHfBaseSearch.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -510,27 +474,29 @@ end;//TkwEnBaseSearchCardHfBaseSearch.GetAllParamsCount
 
 function TkwEnBaseSearchCardHfBaseSearch.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_BaseSearchCard)]);
 end;//TkwEnBaseSearchCardHfBaseSearch.ParamsTypes
 
 function TkwEnBaseSearchCardLrBaseSearch.lrBaseSearch(const aCtx: TtfwContext;
  aen_BaseSearchCard: Ten_BaseSearchCard): TnscLister;
  {* Реализация слова скрипта .Ten_BaseSearchCard.lrBaseSearch }
-//#UC START# *8BEB55BB73D6_C952194702DA_var*
-//#UC END# *8BEB55BB73D6_C952194702DA_var*
 begin
-//#UC START# *8BEB55BB73D6_C952194702DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8BEB55BB73D6_C952194702DA_impl*
+ Result := aen_BaseSearchCard.lrBaseSearch;
 end;//TkwEnBaseSearchCardLrBaseSearch.lrBaseSearch
 
 procedure TkwEnBaseSearchCardLrBaseSearch.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C952194702DA_var*
-//#UC END# *4DAEEDE10285_C952194702DA_var*
+var l_aen_BaseSearchCard: Ten_BaseSearchCard;
 begin
-//#UC START# *4DAEEDE10285_C952194702DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C952194702DA_impl*
+ try
+  l_aen_BaseSearchCard := Ten_BaseSearchCard(aCtx.rEngine.PopObjAs(Ten_BaseSearchCard));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_BaseSearchCard: Ten_BaseSearchCard : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lrBaseSearch(aCtx, l_aen_BaseSearchCard));
 end;//TkwEnBaseSearchCardLrBaseSearch.DoDoIt
 
 class function TkwEnBaseSearchCardLrBaseSearch.GetWordNameForRegister: AnsiString;
@@ -540,12 +506,8 @@ end;//TkwEnBaseSearchCardLrBaseSearch.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardLrBaseSearch.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C952194702DA_var*
-//#UC END# *52D00B00031A_C952194702DA_var*
 begin
-//#UC START# *52D00B00031A_C952194702DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C952194702DA_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lrBaseSearch', aCtx);
 end;//TkwEnBaseSearchCardLrBaseSearch.SetValuePrim
 
 function TkwEnBaseSearchCardLrBaseSearch.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -560,27 +522,29 @@ end;//TkwEnBaseSearchCardLrBaseSearch.GetAllParamsCount
 
 function TkwEnBaseSearchCardLrBaseSearch.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_BaseSearchCard)]);
 end;//TkwEnBaseSearchCardLrBaseSearch.ParamsTypes
 
 function TkwEnBaseSearchCardCardTextLabel.CardTextLabel(const aCtx: TtfwContext;
  aen_BaseSearchCard: Ten_BaseSearchCard): TnscSimpleEditor;
  {* Реализация слова скрипта .Ten_BaseSearchCard.CardTextLabel }
-//#UC START# *062C1AB7AABF_A6D5CED27A65_var*
-//#UC END# *062C1AB7AABF_A6D5CED27A65_var*
 begin
-//#UC START# *062C1AB7AABF_A6D5CED27A65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *062C1AB7AABF_A6D5CED27A65_impl*
+ Result := aen_BaseSearchCard.CardTextLabel;
 end;//TkwEnBaseSearchCardCardTextLabel.CardTextLabel
 
 procedure TkwEnBaseSearchCardCardTextLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A6D5CED27A65_var*
-//#UC END# *4DAEEDE10285_A6D5CED27A65_var*
+var l_aen_BaseSearchCard: Ten_BaseSearchCard;
 begin
-//#UC START# *4DAEEDE10285_A6D5CED27A65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A6D5CED27A65_impl*
+ try
+  l_aen_BaseSearchCard := Ten_BaseSearchCard(aCtx.rEngine.PopObjAs(Ten_BaseSearchCard));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_BaseSearchCard: Ten_BaseSearchCard : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CardTextLabel(aCtx, l_aen_BaseSearchCard));
 end;//TkwEnBaseSearchCardCardTextLabel.DoDoIt
 
 class function TkwEnBaseSearchCardCardTextLabel.GetWordNameForRegister: AnsiString;
@@ -590,12 +554,8 @@ end;//TkwEnBaseSearchCardCardTextLabel.GetWordNameForRegister
 
 procedure TkwEnBaseSearchCardCardTextLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A6D5CED27A65_var*
-//#UC END# *52D00B00031A_A6D5CED27A65_var*
 begin
-//#UC START# *52D00B00031A_A6D5CED27A65_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A6D5CED27A65_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству CardTextLabel', aCtx);
 end;//TkwEnBaseSearchCardCardTextLabel.SetValuePrim
 
 function TkwEnBaseSearchCardCardTextLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -610,7 +570,7 @@ end;//TkwEnBaseSearchCardCardTextLabel.GetAllParamsCount
 
 function TkwEnBaseSearchCardCardTextLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_BaseSearchCard)]);
 end;//TkwEnBaseSearchCardCardTextLabel.ParamsTypes
 
 initialization

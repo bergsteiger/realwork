@@ -1,45 +1,37 @@
 unit tfwMappedArrayView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwMappedArrayView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwMappedArrayView
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwMappedArrayView.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwLambdedArrayView,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwLambdedArrayView
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwMapLambda = class(TtfwTwoLambdas)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TtfwMapLambda
 
  TtfwMappedArrayView = class(TtfwLambdedArrayView)
- protected
- // realized methods
+  protected
    function TwoLabdasClass: RtfwTwoLambdas; override;
  end;//TtfwMappedArrayView
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwMapLambda
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TtfwMapLambda.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52EA87EA0325_var*
@@ -60,12 +52,9 @@ begin
 //#UC END# *52EA8EE702FA_52E6733C0163_impl*
 end;//TtfwMappedArrayView.TwoLabdasClass
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwMapLambda
  TtfwMapLambda.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwMapLambda }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

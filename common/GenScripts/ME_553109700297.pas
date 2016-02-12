@@ -88,12 +88,28 @@ begin
 end;//TkwAttrExplorerGotoOnAttrNode.GotoOnAttrNode
 
 procedure TkwAttrExplorerGotoOnAttrNode.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_50112451BECA_var*
-//#UC END# *4DAEEDE10285_50112451BECA_var*
+var l_aAttrExplorer: TAttrExplorer;
+var l_anAttrID: TdtAttribute;
 begin
-//#UC START# *4DAEEDE10285_50112451BECA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_50112451BECA_impl*
+ try
+  l_aAttrExplorer := TAttrExplorer(aCtx.rEngine.PopObjAs(TAttrExplorer));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aAttrExplorer: TAttrExplorer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_anAttrID := TdtAttribute(aCtx.rEngine.PopInt);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра anAttrID: TdtAttribute : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ GotoOnAttrNode(aCtx, l_aAttrExplorer, l_anAttrID);
 end;//TkwAttrExplorerGotoOnAttrNode.DoDoIt
 
 class function TkwAttrExplorerGotoOnAttrNode.GetWordNameForRegister: AnsiString;
@@ -113,7 +129,7 @@ end;//TkwAttrExplorerGotoOnAttrNode.GetAllParamsCount
 
 function TkwAttrExplorerGotoOnAttrNode.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([TypeInfo(TdtAttribute)]);
+ Result := OpenTypesToTypes([TypeInfo(TAttrExplorer), TypeInfo(TdtAttribute)]);
 end;//TkwAttrExplorerGotoOnAttrNode.ParamsTypes
 
 initialization

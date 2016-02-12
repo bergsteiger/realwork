@@ -39,7 +39,7 @@ type
    procedure Load;
    procedure RemoveTask(aTask: TddProcessTask);
    procedure Save;
-   procedure ActiveTaskCount;
+   function ActiveTaskCount(EnabledTypes: TcsTaskTypes): Integer;
    function FindTask(aTaskType: TcsTaskType): TddProcessTask;
    procedure Sort;
   public
@@ -323,7 +323,7 @@ begin
 //#UC END# *53A04D8B00D3_52FA3DB401BE_impl*
 end;//TalcuTaskList.TaskFileName
 
-procedure TalcuTaskList.ActiveTaskCount;
+function TalcuTaskList.ActiveTaskCount(EnabledTypes: TcsTaskTypes): Integer;
 var l_Result: Integer absolute Result;
 
  function DoIt(anItem: TddProcessTask): Boolean;

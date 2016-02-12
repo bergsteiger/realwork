@@ -24,7 +24,7 @@ type
  _ItemType_ = IncsServerTransporter;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TncsServerTransporterPtrList = class(_l3InterfacePtrList_)
  end;//TncsServerTransporterPtrList
 {$IfEnd} // NOT Defined(Nemesis)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TncsServerTransporterPtrList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

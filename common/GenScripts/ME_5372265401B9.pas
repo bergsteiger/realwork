@@ -20,7 +20,7 @@ uses
 
 type
  _TaskSaver_Parent_ = TBaseTest;
- {$Include TaskSaver.imp.pas}
+ {$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
  TalcuImportTest = {abstract} class(_TaskSaver_)
   protected
    {$If Defined(nsTest)}
@@ -64,7 +64,7 @@ uses
  , l3Filer
 ;
 
-{$Include TaskSaver.imp.pas}
+{$Include w:\archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas}
 
 procedure TalcuImportTest.DoIt;
 //#UC START# *537226BB0284_5372265401B9_var*

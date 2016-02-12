@@ -533,7 +533,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(GetInterfaceProp(aCtx, l_aObject, l_aName),IUnknown);
+ aCtx.rEngine.PushIntf(GetInterfaceProp(aCtx, l_aObject, l_aName), TypeInfo(IUnknown));
 end;//TkwPopObjectGetInterfaceProp.DoDoIt
 
 class function TkwPopObjectGetInterfaceProp.GetWordNameForRegister: AnsiString;

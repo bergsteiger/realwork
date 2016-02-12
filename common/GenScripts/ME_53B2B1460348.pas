@@ -17,7 +17,7 @@ uses
 
 type
  _kwPermanentFilterExistsUses_Parent_ = TtfwRegisterableWord;
- {$Include kwPermanentFilterExistsUses.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExistsUses.imp.pas}
  TkwPermanentFilterExists = {abstract} class(_kwPermanentFilterExistsUses_)
   protected
    function GetFilters: IFiltersFromQuery; virtual; abstract;
@@ -33,7 +33,7 @@ uses
  , DataAdapter
 ;
 
-{$Include kwPermanentFilterExistsUses.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExistsUses.imp.pas}
 
 procedure TkwPermanentFilterExists.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_53B2B1460348_var*

@@ -33,7 +33,7 @@ uses
 
 type
  _IvcmRealData_ = IdDocument;
- {$Include dDocInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas}
  TdDocument = class(_dDocInfo_, IdDocument)
   private
    f_ContentsTree: IdeSimpleTree;
@@ -104,7 +104,7 @@ uses
 
 type _Instance_R_ = TdDocument;
 
-{$Include dDocInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dDocInfo.imp.pas}
 
 class function TdDocument.Make: IdDocument;
 var

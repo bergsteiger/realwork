@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_Filters.GetWordNameForRegister
 
 function Tkw_Form_Filters.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D5CE8D7E34D4_var*
-//#UC END# *4DDFD2EA0116_D5CE8D7E34D4_var*
 begin
-//#UC START# *4DDFD2EA0116_D5CE8D7E34D4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D5CE8D7E34D4_impl*
+ Result := 'enFilters';
 end;//Tkw_Form_Filters.GetString
 
 class function Tkw_Filters_Control_FiltersList.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_Filters_Control_FiltersList.GetWordNameForRegister
 
 function Tkw_Filters_Control_FiltersList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B20CBB26D548_var*
-//#UC END# *4DDFD2EA0116_B20CBB26D548_var*
 begin
-//#UC START# *4DDFD2EA0116_B20CBB26D548_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B20CBB26D548_impl*
+ Result := 'FiltersList';
 end;//Tkw_Filters_Control_FiltersList.GetString
 
 class procedure Tkw_Filters_Control_FiltersList.RegisterInEngine;
-//#UC START# *52A086150180_B20CBB26D548_var*
-//#UC END# *52A086150180_B20CBB26D548_var*
 begin
-//#UC START# *52A086150180_B20CBB26D548_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B20CBB26D548_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Filters_Control_FiltersList.RegisterInEngine
 
 procedure Tkw_Filters_Control_FiltersList_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_Filters_Control_FiltersList_Push.GetWordNameForRegister
 function TkwEnFiltersFiltersList.FiltersList(const aCtx: TtfwContext;
  aenFilters: TenFilters): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TenFilters.FiltersList }
-//#UC START# *C66656F0D57B_F040B0369BA3_var*
-//#UC END# *C66656F0D57B_F040B0369BA3_var*
 begin
-//#UC START# *C66656F0D57B_F040B0369BA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C66656F0D57B_F040B0369BA3_impl*
+ Result := aenFilters.FiltersList;
 end;//TkwEnFiltersFiltersList.FiltersList
 
 procedure TkwEnFiltersFiltersList.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F040B0369BA3_var*
-//#UC END# *4DAEEDE10285_F040B0369BA3_var*
+var l_aenFilters: TenFilters;
 begin
-//#UC START# *4DAEEDE10285_F040B0369BA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F040B0369BA3_impl*
+ try
+  l_aenFilters := TenFilters(aCtx.rEngine.PopObjAs(TenFilters));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFilters: TenFilters : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FiltersList(aCtx, l_aenFilters));
 end;//TkwEnFiltersFiltersList.DoDoIt
 
 class function TkwEnFiltersFiltersList.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEnFiltersFiltersList.GetWordNameForRegister
 
 procedure TkwEnFiltersFiltersList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F040B0369BA3_var*
-//#UC END# *52D00B00031A_F040B0369BA3_var*
 begin
-//#UC START# *52D00B00031A_F040B0369BA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F040B0369BA3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству FiltersList', aCtx);
 end;//TkwEnFiltersFiltersList.SetValuePrim
 
 function TkwEnFiltersFiltersList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEnFiltersFiltersList.GetAllParamsCount
 
 function TkwEnFiltersFiltersList.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFilters)]);
 end;//TkwEnFiltersFiltersList.ParamsTypes
 
 initialization

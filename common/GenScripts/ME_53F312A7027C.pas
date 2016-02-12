@@ -3,7 +3,7 @@ unit toKT;
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\toKT.pas"
 // Стереотип: "TestResults"
 
-{$Include EverestLite.inc}
+{$Include w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLite.inc}
 
 interface
 

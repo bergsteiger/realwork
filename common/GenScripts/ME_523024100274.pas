@@ -23,7 +23,7 @@ type
   {* —сылка на приложение дл€ DesignTime редакторов }
 
  _VCMAppTester_Parent_ = TVCMSandBoxRes;
- {$Include VCMAppTester.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TVCMSandBoxTestRes = {final} class(_VCMAppTester_)
   public
    {$If Defined(nsTest)}
@@ -55,7 +55,7 @@ uses
  , l3BatchService
 ;
 
-{$Include VCMAppTester.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
 
 {$If Defined(nsTest)}
 class function TVCMSandBoxTestRes.CalcBatchMode: Boolean;

@@ -56,12 +56,8 @@ INTEGER VAR l_Integer
 function TkwPopRadioGroupItemIndex.ItemIndex(const aCtx: TtfwContext;
  aRadioGroup: TRadioGroup): Integer;
  {* Реализация слова скрипта pop:RadioGroup:ItemIndex }
-//#UC START# *E20F0AC32CE1_8E50130D7478_var*
-//#UC END# *E20F0AC32CE1_8E50130D7478_var*
 begin
-//#UC START# *E20F0AC32CE1_8E50130D7478_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E20F0AC32CE1_8E50130D7478_impl*
+ Result := aRadioGroup.ItemIndex;
 end;//TkwPopRadioGroupItemIndex.ItemIndex
 
 procedure TkwPopRadioGroupItemIndex.DoDoIt(const aCtx: TtfwContext);
@@ -97,7 +93,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- RadioGroup.ItemIndex := aValue.AsInt;
+ l_RadioGroup.ItemIndex := aValue.AsInt;
 end;//TkwPopRadioGroupItemIndex.SetValuePrim
 
 function TkwPopRadioGroupItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

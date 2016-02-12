@@ -22,7 +22,7 @@ type
   {* —сылка на приложение дл€ DesignTime редакторов }
 
  _VCMAppTester_Parent_ = TNemesisRes;
- {$Include VCMAppTester.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
  TNemesisTestRes = {final} class(_VCMAppTester_)
   public
    class function CalcBatchMode: Boolean; override;
@@ -68,7 +68,7 @@ uses
  , l3BatchService
 ;
 
-{$Include VCMAppTester.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas}
 
 class function TNemesisTestRes.CalcBatchMode: Boolean;
 //#UC START# *4F79BCC902C5_4D9F2DDA024D_var*

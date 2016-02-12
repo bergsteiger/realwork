@@ -71,27 +71,27 @@ uses
 
 type
  _WorkWithRedactions_Parent_ = TvcmEntityForm;
- {$Include WorkWithRedactions.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
  _DocumentPresentation_Parent_ = _WorkWithRedactions_;
- {$Include DocumentPresentation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
  _TextWithComments_Parent_ = _DocumentPresentation_;
- {$Include TextWithComments.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
  _HyperlinkProcessorWithOwnLocalLink_Parent_ = _TextWithComments_;
- {$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
  _StatusBarItems_Parent_ = _HyperlinkProcessorWithOwnLocalLink_;
- {$Include StatusBarItems.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
  _BaseSearchPresentation_Parent_ = _StatusBarItems_;
- {$Include BaseSearchPresentation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
  _BaseTextOperations_Parent_ = _BaseSearchPresentation_;
- {$Include BaseTextOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
  _DocumentBaseSearcher_Parent_ = _BaseTextOperations_;
- {$Include DocumentBaseSearcher.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
  _HyperlinkProcessorForDocumentCompare_Parent_ = _DocumentBaseSearcher_;
- {$Include HyperlinkProcessorForDocumentCompare.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas}
  _EditionsListCaller_Parent_ = _HyperlinkProcessorForDocumentCompare_;
- {$Include EditionsListCaller.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\EditionsListCaller.imp.pas}
  _HyperlinkOperations_Parent_ = _EditionsListCaller_;
- {$Include HyperlinkOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
  TPrimChangesBetweenEditonsForm = class(_HyperlinkOperations_, InsBaseSearchPresentation)
   {* Изменения в документе }
   private
@@ -268,27 +268,27 @@ const
 
 type _Instance_R_ = TPrimChangesBetweenEditonsForm;
 
-{$Include WorkWithRedactions.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
 
-{$Include DocumentPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
 
-{$Include TextWithComments.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
 
-{$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
 
-{$Include StatusBarItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
 
-{$Include BaseSearchPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 
-{$Include BaseTextOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
 
-{$Include DocumentBaseSearcher.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
 
-{$Include HyperlinkProcessorForDocumentCompare.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas}
 
-{$Include EditionsListCaller.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\EditionsListCaller.imp.pas}
 
-{$Include HyperlinkOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
 
 procedure TPrimChangesBetweenEditonsForm.MakeDocumentContainer(aSender: TObject;
  var aMade: InevDocumentContainer);

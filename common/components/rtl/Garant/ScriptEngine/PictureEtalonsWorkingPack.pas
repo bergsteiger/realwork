@@ -1,88 +1,49 @@
 unit PictureEtalonsWorkingPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$L3"
-// Модуль: "PictureEtalonsWorkingPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$L3::PictureEtalonsWorking::PictureEtalonsWorkingPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\PictureEtalonsWorkingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwGlobalKeyWord
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3PicturePathService,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , l3PicturePathService
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwEnabledSaveRTFPictures = {final scriptword} class(TtfwGlobalKeyWord)
+ TkwEnabledSaveRTFPictures = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта EnabledSaveRTFPictures
 [panel]Включить режим сохранения картинок при импорте из RTF/DOC/DOCX. Нужно вызывать перед каждой выливкой из RTF, т.к.флаг сбрасывается.[panel]
 *Пример:*
 [code]
  EnabledSaveRTFPictures
 [code]  }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
  end;//TkwEnabledSaveRTFPictures
 
-// start class TkwEnabledSaveRTFPictures
-
-procedure TkwEnabledSaveRTFPictures.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0624C398EE8C_var*
-//#UC END# *4DAEEDE10285_0624C398EE8C_var*
-begin
-//#UC START# *4DAEEDE10285_0624C398EE8C_impl*
- Tl3PicturePathService.Instance.SetEnableSave(true);
-//#UC END# *4DAEEDE10285_0624C398EE8C_impl*
-end;//TkwEnabledSaveRTFPictures.DoDoIt
-
-class function TkwEnabledSaveRTFPictures.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'EnabledSaveRTFPictures';
-end;//TkwEnabledSaveRTFPictures.GetWordNameForRegister
-
-function TkwEnabledSaveRTFPictures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
-begin
- Result := @tfw_tiVoid;
-end;//TkwEnabledSaveRTFPictures.GetResultTypeInfo
-
-function TkwEnabledSaveRTFPictures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
-begin
- Result := 0;
-end;//TkwEnabledSaveRTFPictures.GetAllParamsCount
-
-type
- TkwGeneratePDFForEtalon = {final scriptword} class(TtfwGlobalKeyWord)
+ TkwGeneratePDFForEtalon = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта GeneratePDFForEtalon
 [panel]*Формат*:
 [code]
@@ -94,28 +55,46 @@ aFlag GeneratePDFForEtalon
 [code]
  aValue GeneratePDFForEtalon
 [code]  }
- private
- // private methods
+  private
    procedure GeneratePDFForEtalon(const aCtx: TtfwContext;
     aValue: Boolean);
-     {* Реализация слова скрипта GeneratePDFForEtalon }
- protected
- // realized methods
+    {* Реализация слова скрипта GeneratePDFForEtalon }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwGeneratePDFForEtalon
 
-// start class TkwGeneratePDFForEtalon
+procedure TkwEnabledSaveRTFPictures.DoDoIt(const aCtx: TtfwContext);
+//#UC START# *4DAEEDE10285_0624C398EE8C_var*
+//#UC END# *4DAEEDE10285_0624C398EE8C_var*
+begin
+//#UC START# *4DAEEDE10285_0624C398EE8C_impl*
+ Tl3PicturePathService.Instance.SetEnableSave(true);
+//#UC END# *4DAEEDE10285_0624C398EE8C_impl*
+end;//TkwEnabledSaveRTFPictures.DoDoIt
+
+class function TkwEnabledSaveRTFPictures.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'EnabledSaveRTFPictures';
+end;//TkwEnabledSaveRTFPictures.GetWordNameForRegister
+
+function TkwEnabledSaveRTFPictures.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiVoid;
+end;//TkwEnabledSaveRTFPictures.GetResultTypeInfo
+
+function TkwEnabledSaveRTFPictures.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 0;
+end;//TkwEnabledSaveRTFPictures.GetAllParamsCount
 
 procedure TkwGeneratePDFForEtalon.GeneratePDFForEtalon(const aCtx: TtfwContext;
-  aValue: Boolean);
+ aValue: Boolean);
+ {* Реализация слова скрипта GeneratePDFForEtalon }
 //#UC START# *03229B3839D8_8682318410BD_var*
 //#UC END# *03229B3839D8_8682318410BD_var*
 begin
@@ -125,9 +104,7 @@ begin
 end;//TkwGeneratePDFForEtalon.GeneratePDFForEtalon
 
 procedure TkwGeneratePDFForEtalon.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aValue : Boolean;
+var l_aValue: Boolean;
 begin
  try
   l_aValue := aCtx.rEngine.PopBool;
@@ -142,46 +119,34 @@ begin
 end;//TkwGeneratePDFForEtalon.DoDoIt
 
 class function TkwGeneratePDFForEtalon.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'GeneratePDFForEtalon';
 end;//TkwGeneratePDFForEtalon.GetWordNameForRegister
 
 function TkwGeneratePDFForEtalon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwGeneratePDFForEtalon.GetResultTypeInfo
 
 function TkwGeneratePDFForEtalon.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwGeneratePDFForEtalon.GetAllParamsCount
 
 function TkwGeneratePDFForEtalon.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(Boolean)]);
 end;//TkwGeneratePDFForEtalon.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация EnabledSaveRTFPictures
  TkwEnabledSaveRTFPictures.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация GeneratePDFForEtalon
+ {* Регистрация EnabledSaveRTFPictures }
  TkwGeneratePDFForEtalon.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация GeneratePDFForEtalon }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Boolean }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

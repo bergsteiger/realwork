@@ -25,7 +25,7 @@ type
  _ItemType_ = TncsMessage;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TncsPriorityMessageList = class(_l3UncomparabeObjectRefList_)
   {* Список сортированый по приоритету и дате сообщения }
  end;//TncsPriorityMessageList
@@ -82,7 +82,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TncsPriorityMessageList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

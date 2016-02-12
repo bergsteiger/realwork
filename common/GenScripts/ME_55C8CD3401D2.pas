@@ -60,12 +60,18 @@ begin
 end;//TkwPopTextSearchDlgFake.Fake
 
 procedure TkwPopTextSearchDlgFake.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2975C5F7A803_var*
-//#UC END# *4DAEEDE10285_2975C5F7A803_var*
+var l_aTextSearchDlg: TTextSearchDlg;
 begin
-//#UC START# *4DAEEDE10285_2975C5F7A803_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2975C5F7A803_impl*
+ try
+  l_aTextSearchDlg := TTextSearchDlg(aCtx.rEngine.PopObjAs(TTextSearchDlg));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextSearchDlg: TTextSearchDlg : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aTextSearchDlg);
 end;//TkwPopTextSearchDlgFake.DoDoIt
 
 class function TkwPopTextSearchDlgFake.GetWordNameForRegister: AnsiString;
@@ -85,7 +91,7 @@ end;//TkwPopTextSearchDlgFake.GetAllParamsCount
 
 function TkwPopTextSearchDlgFake.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextSearchDlg)]);
 end;//TkwPopTextSearchDlgFake.ParamsTypes
 
 initialization

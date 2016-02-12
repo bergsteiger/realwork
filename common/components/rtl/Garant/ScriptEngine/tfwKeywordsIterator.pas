@@ -1,53 +1,41 @@
 unit tfwKeywordsIterator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwKeywordsIterator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwKeywordsIterator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwKeywordsIterator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  tfwDictionaryPrim,
-  tfwMembersIteratorPrim,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwMembersIteratorPrim
+ , tfwScriptingInterfaces
+ , tfwDictionaryPrim
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwKeywordsIterator = class(TtfwMembersIteratorPrim, ItfwValueList)
- protected
- // realized methods
+  protected
    procedure SetItem(anIndex: Integer;
-     const aValue: TtfwStackValue);
+    const aValue: TtfwStackValue);
    function ItemsCountInSlice: Integer;
- public
- // realized methods
-   procedure ForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
-   procedure ForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext);
- public
- // public methods
+  public
    class function Make(aDictionary: TtfwDictionaryPrim): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwKeywordsIterator.Make }
+   procedure ForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
+   procedure ForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext);
  end;//TtfwKeywordsIterator
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwKeywordsIterator
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 class function TtfwKeywordsIterator.Make(aDictionary: TtfwDictionaryPrim): ItfwValueList;
 var
@@ -59,10 +47,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//TtfwKeywordsIterator.Make
 
 procedure TtfwKeywordsIterator.ForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23B7A00EC_55ED4BC100BB_var*
 var
  l_I : Integer;
@@ -90,7 +78,7 @@ begin
 end;//TtfwKeywordsIterator.ForEach
 
 procedure TtfwKeywordsIterator.ForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E23BB102FA_55ED4BC100BB_var*
 var
  l_I : Integer;
@@ -118,7 +106,7 @@ begin
 end;//TtfwKeywordsIterator.ForEachBack
 
 procedure TtfwKeywordsIterator.SetItem(anIndex: Integer;
-  const aValue: TtfwStackValue);
+ const aValue: TtfwStackValue);
 //#UC START# *55CDF40C03D4_55ED4BC100BB_var*
 //#UC END# *55CDF40C03D4_55ED4BC100BB_var*
 begin
@@ -135,7 +123,6 @@ begin
  Result := 1;
 //#UC END# *55E849210175_55ED4BC100BB_impl*
 end;//TtfwKeywordsIterator.ItemsCountInSlice
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

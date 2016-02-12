@@ -35,7 +35,8 @@ type
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
     ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean): IdaDataProvider; override;
+    AllowClearLocks: Boolean;
+    SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
    procedure CorrectByClient(aParams: TdaDataProviderParams); override;
    function IsParamsValid(aParams: TdaDataProviderParams;
@@ -218,7 +219,8 @@ end;//TpgDataProviderFactory.LoadDBVersion
 
 function TpgDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
  ForCheckLogin: Boolean;
- AllowClearLocks: Boolean): IdaDataProvider;
+ AllowClearLocks: Boolean;
+ SetGlobalProvider: Boolean = True): IdaDataProvider;
 //#UC START# *551D06D402AF_55D6E2FB025D_var*
 //#UC END# *551D06D402AF_55D6E2FB025D_var*
 begin

@@ -657,12 +657,8 @@ function TkwPopControlClientToScreen.ClientToScreen(const aCtx: TtfwContext;
  aControl: TControl;
  const aPoint: TPoint): TPoint;
  {* Реализация слова скрипта pop:Control:ClientToScreen }
-//#UC START# *AD33435ADFB6_D7ECBE257199_var*
-//#UC END# *AD33435ADFB6_D7ECBE257199_var*
 begin
-//#UC START# *AD33435ADFB6_D7ECBE257199_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AD33435ADFB6_D7ECBE257199_impl*
+ Result := aControl.ClientToScreen(aPoint);
 end;//TkwPopControlClientToScreen.ClientToScreen
 
 procedure TkwPopControlClientToScreen.DoDoIt(const aCtx: TtfwContext);
@@ -714,12 +710,8 @@ function TkwPopControlScreenToClient.ScreenToClient(const aCtx: TtfwContext;
  aControl: TControl;
  const aPoint: TPoint): TPoint;
  {* Реализация слова скрипта pop:Control:ScreenToClient }
-//#UC START# *BD2CDDD5F1AA_856C40E22773_var*
-//#UC END# *BD2CDDD5F1AA_856C40E22773_var*
 begin
-//#UC START# *BD2CDDD5F1AA_856C40E22773_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BD2CDDD5F1AA_856C40E22773_impl*
+ Result := aControl.ScreenToClient(aPoint);
 end;//TkwPopControlScreenToClient.ScreenToClient
 
 procedure TkwPopControlScreenToClient.DoDoIt(const aCtx: TtfwContext);
@@ -770,12 +762,8 @@ end;//TkwPopControlScreenToClient.ParamsTypes
 procedure TkwPopControlInvalidate.Invalidate(const aCtx: TtfwContext;
  aControl: TControl);
  {* Реализация слова скрипта pop:Control:Invalidate }
-//#UC START# *AEDBA2810D44_084D24347CB6_var*
-//#UC END# *AEDBA2810D44_084D24347CB6_var*
 begin
-//#UC START# *AEDBA2810D44_084D24347CB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AEDBA2810D44_084D24347CB6_impl*
+ aControl.Invalidate;
 end;//TkwPopControlInvalidate.Invalidate
 
 procedure TkwPopControlInvalidate.DoDoIt(const aCtx: TtfwContext);
@@ -816,12 +804,8 @@ end;//TkwPopControlInvalidate.ParamsTypes
 procedure TkwPopControlRepaint.Repaint(const aCtx: TtfwContext;
  aControl: TControl);
  {* Реализация слова скрипта pop:Control:Repaint }
-//#UC START# *8B1BE2A99EEC_7D2AE156F001_var*
-//#UC END# *8B1BE2A99EEC_7D2AE156F001_var*
 begin
-//#UC START# *8B1BE2A99EEC_7D2AE156F001_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8B1BE2A99EEC_7D2AE156F001_impl*
+ aControl.Repaint;
 end;//TkwPopControlRepaint.Repaint
 
 procedure TkwPopControlRepaint.DoDoIt(const aCtx: TtfwContext);
@@ -908,12 +892,8 @@ end;//TkwPopControlClick.ParamsTypes
 procedure TkwPopControlShow.Show(const aCtx: TtfwContext;
  aControl: TControl);
  {* Реализация слова скрипта pop:Control:Show }
-//#UC START# *A66BD712D618_0D58233E83D8_var*
-//#UC END# *A66BD712D618_0D58233E83D8_var*
 begin
-//#UC START# *A66BD712D618_0D58233E83D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A66BD712D618_0D58233E83D8_impl*
+ aControl.Show;
 end;//TkwPopControlShow.Show
 
 procedure TkwPopControlShow.DoDoIt(const aCtx: TtfwContext);
@@ -954,12 +934,8 @@ end;//TkwPopControlShow.ParamsTypes
 procedure TkwPopControlHide.Hide(const aCtx: TtfwContext;
  aControl: TControl);
  {* Реализация слова скрипта pop:Control:Hide }
-//#UC START# *AA0E2FC1D31A_9D867B7EC0B0_var*
-//#UC END# *AA0E2FC1D31A_9D867B7EC0B0_var*
 begin
-//#UC START# *AA0E2FC1D31A_9D867B7EC0B0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AA0E2FC1D31A_9D867B7EC0B0_impl*
+ aControl.Hide;
 end;//TkwPopControlHide.Hide
 
 procedure TkwPopControlHide.DoDoIt(const aCtx: TtfwContext);
@@ -1431,7 +1407,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Control, TColor(aValue.AsInt));
+ DoSetValue(l_Control, TColor(aValue.AsInt));
 end;//TkwPopControlColor.SetValuePrim
 
 function TkwPopControlColor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1452,12 +1428,8 @@ end;//TkwPopControlColor.ParamsTypes
 function TkwPopControlEnabled.Enabled(const aCtx: TtfwContext;
  aControl: TControl): Boolean;
  {* Реализация слова скрипта pop:Control:Enabled }
-//#UC START# *881B1521CB8E_ACE5425C329D_var*
-//#UC END# *881B1521CB8E_ACE5425C329D_var*
 begin
-//#UC START# *881B1521CB8E_ACE5425C329D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *881B1521CB8E_ACE5425C329D_impl*
+ Result := aControl.Enabled;
 end;//TkwPopControlEnabled.Enabled
 
 procedure TkwPopControlEnabled.DoDoIt(const aCtx: TtfwContext);
@@ -1504,12 +1476,8 @@ end;//TkwPopControlEnabled.ParamsTypes
 function TkwPopControlVisible.Visible(const aCtx: TtfwContext;
  aControl: TControl): Boolean;
  {* Реализация слова скрипта pop:Control:Visible }
-//#UC START# *72FC754CCB47_5C3AF1C3D79A_var*
-//#UC END# *72FC754CCB47_5C3AF1C3D79A_var*
 begin
-//#UC START# *72FC754CCB47_5C3AF1C3D79A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *72FC754CCB47_5C3AF1C3D79A_impl*
+ Result := aControl.Visible;
 end;//TkwPopControlVisible.Visible
 
 procedure TkwPopControlVisible.DoDoIt(const aCtx: TtfwContext);
@@ -1556,12 +1524,8 @@ end;//TkwPopControlVisible.ParamsTypes
 function TkwPopControlName.Name(const aCtx: TtfwContext;
  aControl: TControl): AnsiString;
  {* Реализация слова скрипта pop:Control:Name }
-//#UC START# *FD1C57C9B52D_F53819E00314_var*
-//#UC END# *FD1C57C9B52D_F53819E00314_var*
 begin
-//#UC START# *FD1C57C9B52D_F53819E00314_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FD1C57C9B52D_F53819E00314_impl*
+ Result := aControl.Name;
 end;//TkwPopControlName.Name
 
 procedure TkwPopControlName.DoDoIt(const aCtx: TtfwContext);
@@ -1608,12 +1572,8 @@ end;//TkwPopControlName.ParamsTypes
 function TkwPopControlHint.Hint(const aCtx: TtfwContext;
  aControl: TControl): AnsiString;
  {* Реализация слова скрипта pop:Control:Hint }
-//#UC START# *BFC5BB99D590_7EEF2F285EA8_var*
-//#UC END# *BFC5BB99D590_7EEF2F285EA8_var*
 begin
-//#UC START# *BFC5BB99D590_7EEF2F285EA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BFC5BB99D590_7EEF2F285EA8_impl*
+ Result := aControl.Hint;
 end;//TkwPopControlHint.Hint
 
 procedure TkwPopControlHint.DoDoIt(const aCtx: TtfwContext);
@@ -1660,12 +1620,8 @@ end;//TkwPopControlHint.ParamsTypes
 function TkwPopControlShowHint.ShowHint(const aCtx: TtfwContext;
  aControl: TControl): Boolean;
  {* Реализация слова скрипта pop:Control:ShowHint }
-//#UC START# *0D147356E888_B165FF488B6E_var*
-//#UC END# *0D147356E888_B165FF488B6E_var*
 begin
-//#UC START# *0D147356E888_B165FF488B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0D147356E888_B165FF488B6E_impl*
+ Result := aControl.ShowHint;
 end;//TkwPopControlShowHint.ShowHint
 
 procedure TkwPopControlShowHint.DoDoIt(const aCtx: TtfwContext);
@@ -1764,12 +1720,8 @@ end;//TkwPopControlCaption.ParamsTypes
 function TkwPopControlTop.Top(const aCtx: TtfwContext;
  aControl: TControl): Integer;
  {* Реализация слова скрипта pop:Control:Top }
-//#UC START# *CACB8661C141_531AEAE3EB2E_var*
-//#UC END# *CACB8661C141_531AEAE3EB2E_var*
 begin
-//#UC START# *CACB8661C141_531AEAE3EB2E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CACB8661C141_531AEAE3EB2E_impl*
+ Result := aControl.Top;
 end;//TkwPopControlTop.Top
 
 procedure TkwPopControlTop.DoDoIt(const aCtx: TtfwContext);
@@ -1805,7 +1757,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Control.Top := aValue.AsInt;
+ l_Control.Top := aValue.AsInt;
 end;//TkwPopControlTop.SetValuePrim
 
 function TkwPopControlTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1826,12 +1778,8 @@ end;//TkwPopControlTop.ParamsTypes
 function TkwPopControlLeft.Left(const aCtx: TtfwContext;
  aControl: TControl): Integer;
  {* Реализация слова скрипта pop:Control:Left }
-//#UC START# *5FE004AA30D7_43ADF087E3E7_var*
-//#UC END# *5FE004AA30D7_43ADF087E3E7_var*
 begin
-//#UC START# *5FE004AA30D7_43ADF087E3E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5FE004AA30D7_43ADF087E3E7_impl*
+ Result := aControl.Left;
 end;//TkwPopControlLeft.Left
 
 procedure TkwPopControlLeft.DoDoIt(const aCtx: TtfwContext);
@@ -1867,7 +1815,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Control.Left := aValue.AsInt;
+ l_Control.Left := aValue.AsInt;
 end;//TkwPopControlLeft.SetValuePrim
 
 function TkwPopControlLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1888,12 +1836,8 @@ end;//TkwPopControlLeft.ParamsTypes
 function TkwPopControlHeight.Height(const aCtx: TtfwContext;
  aControl: TControl): Integer;
  {* Реализация слова скрипта pop:Control:Height }
-//#UC START# *DE0DB4F0B791_AA5F37A792A3_var*
-//#UC END# *DE0DB4F0B791_AA5F37A792A3_var*
 begin
-//#UC START# *DE0DB4F0B791_AA5F37A792A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DE0DB4F0B791_AA5F37A792A3_impl*
+ Result := aControl.Height;
 end;//TkwPopControlHeight.Height
 
 procedure TkwPopControlHeight.DoDoIt(const aCtx: TtfwContext);
@@ -1929,7 +1873,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Control.Height := aValue.AsInt;
+ l_Control.Height := aValue.AsInt;
 end;//TkwPopControlHeight.SetValuePrim
 
 function TkwPopControlHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1950,12 +1894,8 @@ end;//TkwPopControlHeight.ParamsTypes
 function TkwPopControlWidth.Width(const aCtx: TtfwContext;
  aControl: TControl): Integer;
  {* Реализация слова скрипта pop:Control:Width }
-//#UC START# *AE64B1A70E4C_50D37A00C710_var*
-//#UC END# *AE64B1A70E4C_50D37A00C710_var*
 begin
-//#UC START# *AE64B1A70E4C_50D37A00C710_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AE64B1A70E4C_50D37A00C710_impl*
+ Result := aControl.Width;
 end;//TkwPopControlWidth.Width
 
 procedure TkwPopControlWidth.DoDoIt(const aCtx: TtfwContext);
@@ -1991,7 +1931,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Control.Width := aValue.AsInt;
+ l_Control.Width := aValue.AsInt;
 end;//TkwPopControlWidth.SetValuePrim
 
 function TkwPopControlWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2012,12 +1952,8 @@ end;//TkwPopControlWidth.ParamsTypes
 function TkwPopControlParent.Parent(const aCtx: TtfwContext;
  aControl: TControl): TControl;
  {* Реализация слова скрипта pop:Control:Parent }
-//#UC START# *E3DE424443EE_B324E2362907_var*
-//#UC END# *E3DE424443EE_B324E2362907_var*
 begin
-//#UC START# *E3DE424443EE_B324E2362907_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E3DE424443EE_B324E2362907_impl*
+ Result := aControl.Parent;
 end;//TkwPopControlParent.Parent
 
 procedure TkwPopControlParent.DoDoIt(const aCtx: TtfwContext);
@@ -2084,7 +2020,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Font(aCtx, l_aControl),Il3FontInfo);
+ aCtx.rEngine.PushIntf(Font(aCtx, l_aControl), TypeInfo(Il3FontInfo));
 end;//TkwPopControlFont.DoDoIt
 
 class function TkwPopControlFont.GetWordNameForRegister: AnsiString;

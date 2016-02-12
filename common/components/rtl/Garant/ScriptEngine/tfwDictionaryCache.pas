@@ -18,7 +18,7 @@ uses
 type
  _FindDataType_ = Tl3WString;
  _l3Searcher_Parent_ = TtfwDictionaryCachePrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TtfwDictionaryCache = class(_l3Searcher_)
   public
    class function Exists: Boolean;
@@ -65,7 +65,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TtfwDictionaryCache;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 class function TtfwDictionaryCache.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

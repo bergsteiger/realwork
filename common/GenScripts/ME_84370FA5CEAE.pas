@@ -4,7 +4,7 @@ program ReleaseSandBoxTest;
 // Модуль: "w:\common\components\SandBoxTest\ReleaseSandBoxTest.dpr"
 // Стереотип: "TestTarget"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBoxTest\sbtDefine.inc}
 
 interface
 

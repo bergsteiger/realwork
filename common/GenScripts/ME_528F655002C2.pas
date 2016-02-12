@@ -16,7 +16,7 @@ uses
 
 type
  _tfwStackChecking_Parent_ = TkwCompiledProcedure;
- {$Include tfwStackChecking.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwStackChecking.imp.pas}
  TkwCompiledProcedureWithStackChecking = class(_tfwStackChecking_)
  end;//TkwCompiledProcedureWithStackChecking
 {$IfEnd} // NOT Defined(NoScripts)
@@ -28,7 +28,7 @@ uses
  l3ImplUses
 ;
 
-{$Include tfwStackChecking.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwStackChecking.imp.pas}
 
 initialization
  TkwCompiledProcedureWithStackChecking.RegisterClass;

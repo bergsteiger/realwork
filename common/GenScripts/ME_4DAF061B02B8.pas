@@ -15,7 +15,7 @@ uses
 
 type
  _F1WordsUser_Parent_ = TtfwScriptEngineEX;
- {$Include F1WordsUser.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1WordsUser.imp.pas}
  TF1ScriptEngine = class(_F1WordsUser_)
  end;//TF1ScriptEngine
 {$IfEnd} // NOT Defined(NoScripts)
@@ -37,7 +37,7 @@ uses
  , kwPopEditorDeleteUserComment
 ;
 
-{$Include F1WordsUser.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1WordsUser.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

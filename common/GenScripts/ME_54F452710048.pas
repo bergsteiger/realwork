@@ -204,12 +204,8 @@ function TkwPopComponentFindComponent.FindComponent(const aCtx: TtfwContext;
  aComponent: TComponent;
  const aName: AnsiString): TComponent;
  {* Реализация слова скрипта pop:Component:FindComponent }
-//#UC START# *61724DDB4B2B_4F10E1D50761_var*
-//#UC END# *61724DDB4B2B_4F10E1D50761_var*
 begin
-//#UC START# *61724DDB4B2B_4F10E1D50761_impl*
- !!! Needs to be implemented !!!
-//#UC END# *61724DDB4B2B_4F10E1D50761_impl*
+ Result := aComponent.FindComponent(aName);
 end;//TkwPopComponentFindComponent.FindComponent
 
 procedure TkwPopComponentFindComponent.DoDoIt(const aCtx: TtfwContext);
@@ -260,12 +256,8 @@ end;//TkwPopComponentFindComponent.ParamsTypes
 function TkwPopComponentComponentCount.ComponentCount(const aCtx: TtfwContext;
  aComponent: TComponent): Integer;
  {* Реализация слова скрипта pop:Component:ComponentCount }
-//#UC START# *A4B08EBFFC24_3B829E298F09_var*
-//#UC END# *A4B08EBFFC24_3B829E298F09_var*
 begin
-//#UC START# *A4B08EBFFC24_3B829E298F09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A4B08EBFFC24_3B829E298F09_impl*
+ Result := aComponent.ComponentCount;
 end;//TkwPopComponentComponentCount.ComponentCount
 
 procedure TkwPopComponentComponentCount.DoDoIt(const aCtx: TtfwContext);
@@ -312,12 +304,8 @@ end;//TkwPopComponentComponentCount.ParamsTypes
 function TkwPopComponentOwner.Owner(const aCtx: TtfwContext;
  aComponent: TComponent): TComponent;
  {* Реализация слова скрипта pop:Component:Owner }
-//#UC START# *9E2CF131AE8C_722F6A69957B_var*
-//#UC END# *9E2CF131AE8C_722F6A69957B_var*
 begin
-//#UC START# *9E2CF131AE8C_722F6A69957B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9E2CF131AE8C_722F6A69957B_impl*
+ Result := aComponent.Owner;
 end;//TkwPopComponentOwner.Owner
 
 procedure TkwPopComponentOwner.DoDoIt(const aCtx: TtfwContext);
@@ -364,12 +352,8 @@ end;//TkwPopComponentOwner.ParamsTypes
 function TkwPopComponentName.Name(const aCtx: TtfwContext;
  aComponent: TComponent): AnsiString;
  {* Реализация слова скрипта pop:Component:Name }
-//#UC START# *FDA0EFB1E431_4DE6AA14F838_var*
-//#UC END# *FDA0EFB1E431_4DE6AA14F838_var*
 begin
-//#UC START# *FDA0EFB1E431_4DE6AA14F838_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FDA0EFB1E431_4DE6AA14F838_impl*
+ Result := aComponent.Name;
 end;//TkwPopComponentName.Name
 
 procedure TkwPopComponentName.DoDoIt(const aCtx: TtfwContext);

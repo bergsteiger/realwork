@@ -3,7 +3,7 @@ unit callMSSRunner;
 // Модуль: "w:\common\components\callMSS\callMSSRunner.pas"
 // Стереотип: "SimpleClass"
 
-{$Include callMSS.inc}
+{$Include w:\common\components\callMSS\callMSS.inc}
 
 interface
 

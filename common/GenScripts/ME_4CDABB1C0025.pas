@@ -6,7 +6,7 @@
 {$Define PrintableFlash_imp}
 
  _PrintableBitmap_Parent_ = _PrintableFlash_Parent_;
- {$Include PrintableBitmap.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
  _PrintableFlash_ = {abstract} class(_PrintableBitmap_)
   {* Печать флеш-схем. [RequestLink:228689255] }
   private
@@ -28,7 +28,7 @@
 
 {$Define PrintableFlash_imp_impl}
 
-{$Include PrintableBitmap.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableBitmap.imp.pas}
 
 function _PrintableFlash_.pm_GetBitmapForPrint: Graphics_Bitmap;
 //#UC START# *4CDACD8302DD_4CDABB1C0025get_var*

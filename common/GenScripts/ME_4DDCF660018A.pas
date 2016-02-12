@@ -19,7 +19,7 @@ uses
 
 type
  _IvcmRealData_ = IsdsChangesBetweenEditionsData;
- {$Include vcmData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
  TsdsChangesBetweenEditionsData = class(_vcmData_, IsdsChangesBetweenEditionsData)
   private
    f_Info: InsChangesBetweenEditionsInfo;
@@ -44,7 +44,7 @@ uses
 
 type _Instance_R_ = TsdsChangesBetweenEditionsData;
 
-{$Include vcmData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
 
 constructor TsdsChangesBetweenEditionsData.Create(const anInfo: InsChangesBetweenEditionsInfo);
 //#UC START# *4DDCF6AB0206_4DDCF660018A_var*

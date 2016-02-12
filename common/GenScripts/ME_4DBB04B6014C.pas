@@ -18,7 +18,7 @@ uses
 
 type
  _kwCompiledVar_Parent_ = TkwCompiledWordPrim;
- {$Include kwCompiledVar.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas}
  TkwCompiledVar = class(_kwCompiledVar_)
   public
    constructor Create(aWordProducer: TtfwWord;
@@ -44,7 +44,7 @@ uses
  , l3String
 ;
 
-{$Include kwCompiledVar.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas}
 
 constructor TkwCompiledVar.Create(aWordProducer: TtfwWord;
  aPrevFinder: TtfwWord;

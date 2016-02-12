@@ -85,13 +85,13 @@ const
 
 type
  _nsUserSettingsListener_Parent_ = TShellAndMonitoringsMainForm;
- {$Include nsUserSettingsListener.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
  _nsUserSettingsEditListener_Parent_ = _nsUserSettingsListener_;
- {$Include nsUserSettingsEditListener.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsEditListener.imp.pas}
  _StatusBarItems_Parent_ = _nsUserSettingsEditListener_;
- {$Include StatusBarItems.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
  _vcmContainedForm_Parent_ = _StatusBarItems_;
- {$Include vcmContainedForm.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmContainedForm.imp.pas}
  TNemesisMainForm = class(_vcmContainedForm_, InsUnderControlNotificationListener)
   {* Главная форма }
   private
@@ -567,15 +567,15 @@ const
  str_utMainWindowSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMainWindowSettingsCaption'; rValue : 'Главная панель инструментов');
   {* Заголовок пользовательского типа "Главное окно" для настройки панелей инструментов }
 
-{$Include nsUserSettingsListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 
-{$Include nsUserSettingsEditListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsEditListener.imp.pas}
 
 type _Instance_R_ = TNemesisMainForm;
 
-{$Include StatusBarItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
 
-{$Include vcmContainedForm.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmContainedForm.imp.pas}
 
 procedure TNemesisMainForm.CheckConsultationConnection;
 //#UC START# *4A8E7A6E0379_4958D2EA00CC_var*

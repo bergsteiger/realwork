@@ -24,7 +24,7 @@ type
  _ItemType_ = TncsMessageClass;
  _l3PtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3PtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
  TncsMessageClassList = class(_l3PtrList_)
  end;//TncsMessageClassList
 {$IfEnd} // NOT Defined(Nemesis)
@@ -83,7 +83,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TncsMessageClassList;
 
-{$Include l3PtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

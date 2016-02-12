@@ -1,127 +1,77 @@
 unit tfwLambdedArrayView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwLambdedArrayView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwLambdedArrayView
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwLambdedArrayView.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwCompiledWordWorker,
-  tfwArrayView,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwArrayView
+ , tfwScriptingInterfaces
+ , kwCompiledWordWorker
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwTwoLambdas = {abstract} class(TkwCompiledWordWorker)
- private
- // private fields
-   f_ItemsCountInSlice : Integer;
-    {* Поле для свойства ItemsCountInSlice}
- protected
- // overridden protected methods
+  private
+   f_ItemsCountInSlice: Integer;
+    {* Поле для свойства ItemsCountInSlice }
+  protected
+   f_Lambda: TtfwWord;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-  {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-  {$IfEnd} //not DesignTimeLibrary
- protected
- // protected fields
-   f_Lambda : TtfwWord;
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(aLambda: TtfwWord;
-     aItemsCountInSlice: Integer;
-     aWord: TtfwWord;
-     const aCtx: TtfwContext); reintroduce;
- protected
- // protected properties
+    aItemsCountInSlice: Integer;
+    aWord: TtfwWord;
+    const aCtx: TtfwContext); reintroduce;
+  protected
    property ItemsCountInSlice: Integer
-     read f_ItemsCountInSlice;
+    read f_ItemsCountInSlice;
  end;//TtfwTwoLambdas
 
  RtfwTwoLambdas = class of TtfwTwoLambdas;
 
  TtfwLambdedArrayView = class(TtfwArrayView)
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
-   procedure DoForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext); override;
-   procedure DoForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext); override;
- protected
- // protected fields
-   f_Lambda : TtfwWord;
- protected
- // protected methods
+  protected
+   f_Lambda: TtfwWord;
+  protected
    function TwoLabdasClass: RtfwTwoLambdas; virtual; abstract;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const anOther: ItfwValueList;
-     aLambda: TtfwWord); reintroduce;
+    aLambda: TtfwWord); reintroduce;
    class function Make(const anOther: ItfwValueList;
-     aLambda: TtfwWord): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwLambdedArrayView.Make }
+    aLambda: TtfwWord): ItfwValueList; reintroduce;
+   procedure DoForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext); override;
+   procedure DoForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext); override;
  end;//TtfwLambdedArrayView
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwLambdedArrayView
-
-constructor TtfwLambdedArrayView.Create(const anOther: ItfwValueList;
-  aLambda: TtfwWord);
-//#UC START# *52E6671B033F_52E666BC0270_var*
-//#UC END# *52E6671B033F_52E666BC0270_var*
-begin
-//#UC START# *52E6671B033F_52E666BC0270_impl*
- inherited Create(anOther);
- aLambda.SetRefTo(f_Lambda);
-//#UC END# *52E6671B033F_52E666BC0270_impl*
-end;//TtfwLambdedArrayView.Create
-
-class function TtfwLambdedArrayView.Make(const anOther: ItfwValueList;
-  aLambda: TtfwWord): ItfwValueList;
-var
- l_Inst : TtfwLambdedArrayView;
-begin
- l_Inst := Create(anOther, aLambda);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-// start class TtfwTwoLambdas
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TtfwTwoLambdas.Create(aLambda: TtfwWord;
-  aItemsCountInSlice: Integer;
-  aWord: TtfwWord;
-  const aCtx: TtfwContext);
+ aItemsCountInSlice: Integer;
+ aWord: TtfwWord;
+ const aCtx: TtfwContext);
 //#UC START# *52EA8B2403DD_52EA8AD102B0_var*
 //#UC END# *52EA8B2403DD_52EA8AD102B0_var*
 begin
@@ -133,6 +83,7 @@ begin
 end;//TtfwTwoLambdas.Create
 
 procedure TtfwTwoLambdas.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52EA8AD102B0_var*
 //#UC END# *479731C50290_52EA8AD102B0_var*
 begin
@@ -142,8 +93,9 @@ begin
 //#UC END# *479731C50290_52EA8AD102B0_impl*
 end;//TtfwTwoLambdas.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwTwoLambdas.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_52EA8AD102B0_var*
 //#UC END# *47A6FEE600FC_52EA8AD102B0_var*
 begin
@@ -151,9 +103,34 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_52EA8AD102B0_impl*
 end;//TtfwTwoLambdas.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+constructor TtfwLambdedArrayView.Create(const anOther: ItfwValueList;
+ aLambda: TtfwWord);
+//#UC START# *52E6671B033F_52E666BC0270_var*
+//#UC END# *52E6671B033F_52E666BC0270_var*
+begin
+//#UC START# *52E6671B033F_52E666BC0270_impl*
+ inherited Create(anOther);
+ aLambda.SetRefTo(f_Lambda);
+//#UC END# *52E6671B033F_52E666BC0270_impl*
+end;//TtfwLambdedArrayView.Create
+
+class function TtfwLambdedArrayView.Make(const anOther: ItfwValueList;
+ aLambda: TtfwWord): ItfwValueList;
+var
+ l_Inst : TtfwLambdedArrayView;
+begin
+ l_Inst := Create(anOther, aLambda);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TtfwLambdedArrayView.Make
 
 procedure TtfwLambdedArrayView.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52E666BC0270_var*
 //#UC END# *479731C50290_52E666BC0270_var*
 begin
@@ -164,7 +141,7 @@ begin
 end;//TtfwLambdedArrayView.Cleanup
 
 procedure TtfwLambdedArrayView.DoForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E666E80335_52E666BC0270_var*
 var
  l_Lambda : TtfwWord;
@@ -181,7 +158,7 @@ begin
 end;//TtfwLambdedArrayView.DoForEach
 
 procedure TtfwLambdedArrayView.DoForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E666F6036E_52E666BC0270_var*
 var
  l_Lambda : TtfwWord;
@@ -197,12 +174,9 @@ begin
 //#UC END# *52E666F6036E_52E666BC0270_impl*
 end;//TtfwLambdedArrayView.DoForEachBack
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwTwoLambdas
  TtfwTwoLambdas.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwTwoLambdas }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

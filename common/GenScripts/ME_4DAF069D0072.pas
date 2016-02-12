@@ -16,7 +16,7 @@ uses
 
 type
  _F1Test_Parent_ = TtfwRegisterableWord;
- {$Include F1Test.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
  TkwAttributeSearch = class(_F1Test_)
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -43,7 +43,7 @@ uses
  , bsTypesNew
 ;
 
-{$Include F1Test.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\F1Test.imp.pas}
 
 procedure TkwAttributeSearch.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DAF069D0072_var*

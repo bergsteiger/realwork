@@ -23,7 +23,7 @@ type
  _ItemType_ = IdaSortField;
  _l3InterfaceRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  TdaSortFieldList = class(_l3InterfaceRefListPrim_)
  end;//TdaSortFieldList
 
@@ -81,6 +81,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TdaSortFieldList;
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 end.

@@ -16,7 +16,7 @@ uses
 type
  _ItemType_ = Il3CString;
  _l3OpenArray_Parent_ = TtfwCStringList;
- {$Include l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  TtfwCStringArray = class(_l3OpenArray_)
  end;//TtfwCStringArray
 
@@ -29,6 +29,6 @@ uses
 
 type _Instance_R_ = TtfwCStringArray;
 
-{$Include l3OpenArray.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
 
 end.

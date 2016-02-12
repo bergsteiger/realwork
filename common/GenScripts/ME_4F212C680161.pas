@@ -17,7 +17,7 @@ uses
 ;
 
 type
- {$Include kwControlFromStackWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwWinControlFromStackWord = {abstract} class(_kwControlFromStackWord_)
   protected
    procedure DoWinControl(aControl: TWinControl;
@@ -36,7 +36,7 @@ uses
  , Forms
 ;
 
-{$Include kwControlFromStackWord.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
 procedure TkwWinControlFromStackWord.DoControl(aControl: TControl;
  const aCtx: TtfwContext);

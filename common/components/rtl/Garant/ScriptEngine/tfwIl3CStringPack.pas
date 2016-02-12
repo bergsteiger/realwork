@@ -1,70 +1,53 @@
 unit tfwIl3CStringPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwIl3CStringPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::StringProcessing::tfwIl3CStringPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIl3CStringPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  tfwScriptingInterfaces,
-  tfwRegisterableWord,
-  tfwWordWorkerEx,
-  tfwAxiomaticsResNameGetter,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , l3Interfaces
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwRegisterableWord
+ , tfwWordWorkerEx
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  l3Types,
-  l3Chars,
-  l3Base,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , l3String
+ , l3Types
+ , l3Chars
+ , l3Base
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
-//#UC START# *1C3B459FC59Bci*
-//#UC END# *1C3B459FC59Bci*
-//#UC START# *1C3B459FC59Bcit*
-//#UC END# *1C3B459FC59Bcit*
+ //#UC START# *1C3B459FC59Bci*
+ //#UC END# *1C3B459FC59Bci*
+ //#UC START# *1C3B459FC59Bcit*
+ //#UC END# *1C3B459FC59Bcit*
  TtfwIl3CStringPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *1C3B459FC59Bpubl*
-//#UC END# *1C3B459FC59Bpubl*
+ //#UC START# *1C3B459FC59Bpubl*
+ //#UC END# *1C3B459FC59Bpubl*
  end;//TtfwIl3CStringPackResNameGetter
 
-// start class TtfwIl3CStringPackResNameGetter
-
-class function TtfwIl3CStringPackResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'tfwIl3CStringPack';
-end;//TtfwIl3CStringPackResNameGetter.ResName
-
- {$R tfwIl3CStringPack.res}
-
-type
- TkwStartsStr = {final scriptword} class(TtfwClassLike)
+ TkwStartsStr = {final} class(TtfwClassLike)
   {* Слово скрипта StartsStr
 *Тип результата:* Boolean
 *Пример:*
@@ -72,30 +55,938 @@ type
 BOOLEAN VAR l_Boolean
  aSubStr aString StartsStr >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function StartsStr(const aCtx: TtfwContext;
     const aString: Il3CString;
     const aSubStr: Il3CString): Boolean;
-     {* Реализация слова скрипта StartsStr }
- protected
- // realized methods
+    {* Реализация слова скрипта StartsStr }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwStartsStr
 
-// start class TkwStartsStr
+ TkwStartsText = {final} class(TtfwClassLike)
+  {* Слово скрипта StartsText
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aSubStr aString StartsText >>> l_Boolean
+[code]  }
+  private
+   function StartsText(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aSubStr: Il3CString): Boolean;
+    {* Реализация слова скрипта StartsText }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStartsText
+
+ TkwEndsStr = {final} class(TtfwClassLike)
+  {* Слово скрипта EndsStr
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aSubStr aString EndsStr >>> l_Boolean
+[code]  }
+  private
+   function EndsStr(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aSubStr: Il3CString): Boolean;
+    {* Реализация слова скрипта EndsStr }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEndsStr
+
+ TkwEndsText = {final} class(TtfwClassLike)
+  {* Слово скрипта EndsText
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aSubStr aString EndsText >>> l_Boolean
+[code]  }
+  private
+   function EndsText(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aSubStr: Il3CString): Boolean;
+    {* Реализация слова скрипта EndsText }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwEndsText
+
+ TkwSameStr = {final} class(TtfwClassLike)
+  {* Слово скрипта SameStr
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ anOther aString SameStr >>> l_Boolean
+[code]  }
+  private
+   function SameStr(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const anOther: Il3CString): Boolean;
+    {* Реализация слова скрипта SameStr }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSameStr
+
+ TkwSameText = {final} class(TtfwClassLike)
+  {* Слово скрипта SameText
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ anOther aString SameText >>> l_Boolean
+[code]  }
+  private
+   function SameText(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const anOther: Il3CString): Boolean;
+    {* Реализация слова скрипта SameText }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSameText
+
+ TkwCompareStr = {final} class(TtfwClassLike)
+  {* Слово скрипта CompareStr
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anOther aString CompareStr >>> l_Integer
+[code]  }
+  private
+   function CompareStr(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const anOther: Il3CString): Integer;
+    {* Реализация слова скрипта CompareStr }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwCompareStr
+
+ TkwCompareText = {final} class(TtfwClassLike)
+  {* Слово скрипта CompareText
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anOther aString CompareText >>> l_Integer
+[code]  }
+  private
+   function CompareText(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const anOther: Il3CString): Integer;
+    {* Реализация слова скрипта CompareText }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwCompareText
+
+ TkwStrToInt = {final} class(TtfwClassLike)
+  {* Слово скрипта StrToInt
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString StrToInt >>> l_Integer
+[code]  }
+  private
+   function StrToInt(const aCtx: TtfwContext;
+    const aString: Il3CString): Integer;
+    {* Реализация слова скрипта StrToInt }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStrToInt
+
+ TkwCat = {final} class(TtfwClassLike)
+  {* Слово скрипта Cat
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ anOther aString Cat >>> l_Il3CString
+[code]  }
+  private
+   function Cat(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const anOther: Il3CString): Il3CString;
+    {* Реализация слова скрипта Cat }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwCat
+
+ TkwStringConsistsOf = {final} class(TtfwClassLike)
+  {* Слово скрипта string:ConsistsOf
+[panel]Проверяет, что строка aString состоит ТОЛЬКО из символов строки aDelims[panel]
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aDelims aString string:ConsistsOf >>> l_Boolean
+[code]  }
+  private
+   function string_ConsistsOf(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aDelims: Il3CString): Boolean;
+    {* Реализация слова скрипта string:ConsistsOf }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringConsistsOf
+
+ TkwStringHasAnyOf = {final} class(TtfwClassLike)
+  {* Слово скрипта string:HasAnyOf
+[panel]Проверяет, что строка aString содержит хотя бы один символ из aDelims[panel]
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aDelims aString string:HasAnyOf >>> l_Boolean
+[code]  }
+  private
+   function string_HasAnyOf(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aDelims: Il3CString): Boolean;
+    {* Реализация слова скрипта string:HasAnyOf }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringHasAnyOf
+
+ TkwStringPos = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Pos
+[panel]'мама рыла яму' 'ры' string:Pos .[panel]
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anOther aString string:Pos >>> l_Integer
+[code]  }
+  private
+   function string_Pos(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const anOther: Il3CString): Integer;
+    {* Реализация слова скрипта string:Pos }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringPos
+
+ TkwStringPosEx = {final} class(TtfwClassLike)
+  {* Слово скрипта string:PosEx
+[panel]6 'мама рыла рыло' 'ры' string:PosEx .[panel]
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aPos anOther aString string:PosEx >>> l_Integer
+[code]  }
+  private
+   function string_PosEx(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const anOther: Il3CString;
+    aPos: Integer): Integer;
+    {* Реализация слова скрипта string:PosEx }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringPosEx
+
+ TkwStringSplit = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Split
+[panel]Разделяет строку на две по заданному разделителю.
+
+Пример:
+[code]
+'ABC:DEF' ':' string:Split
+[code]
+Получаем на стеке:
+'ABC' ':DEF'[panel]
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_theTail
+STRING VAR l_Il3CString
+ anOther aString string:Split >>> l_theTail >>> l_Il3CString
+[code]  }
+  private
+   function string_Split(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const anOther: Il3CString;
+    out theTail: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:Split }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringSplit
+
+ TkwStringReplace = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Replace
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aMain aFrom aString string:Replace >>> l_Il3CString
+[code]  }
+  private
+   function string_Replace(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aFrom: Il3CString;
+    const aMain: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:Replace }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringReplace
+
+ TkwStringReplaceFirst = {final} class(TtfwClassLike)
+  {* Слово скрипта string:ReplaceFirst
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aMain aFrom aString string:ReplaceFirst >>> l_Il3CString
+[code]  }
+  private
+   function string_ReplaceFirst(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aFrom: Il3CString;
+    const aMain: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:ReplaceFirst }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringReplaceFirst
+
+ TkwTextReplace = {final} class(TtfwClassLike)
+  {* Слово скрипта text:Replace
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aMain aFrom aString text:Replace >>> l_Il3CString
+[code]  }
+  private
+   function text_Replace(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aFrom: Il3CString;
+    const aMain: Il3CString): Il3CString;
+    {* Реализация слова скрипта text:Replace }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTextReplace
+
+ TkwTextReplaceFirst = {final} class(TtfwClassLike)
+  {* Слово скрипта text:ReplaceFirst
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aMain aFrom aString text:ReplaceFirst >>> l_Il3CString
+[code]  }
+  private
+   function text_ReplaceFirst(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aFrom: Il3CString;
+    const aMain: Il3CString): Il3CString;
+    {* Реализация слова скрипта text:ReplaceFirst }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTextReplaceFirst
+
+ TkwStringChar = {final} class(TtfwClassLike)
+  {* Слово скрипта string:[i]
+*Тип результата:* Char
+*Пример:*
+[code]
+CHAR VAR l_Char
+ anIndex aString string:[i] >>> l_Char
+[code]  }
+  private
+   function string_Char(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    anIndex: Integer): AnsiChar;
+    {* Реализация слова скрипта string:[i] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringChar
+
+ TkwStringCodePage = {final} class(TtfwClassLike)
+  {* Слово скрипта string:CodePage
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString string:CodePage >>> l_Integer
+[code]  }
+  private
+   function string_CodePage(const aCtx: TtfwContext;
+    const aString: Il3CString): Integer;
+    {* Реализация слова скрипта string:CodePage }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringCodePage
+
+ TkwStringLen = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Len
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString string:Len >>> l_Integer
+[code]  }
+  private
+   function string_Len(const aCtx: TtfwContext;
+    const aString: Il3CString): Integer;
+    {* Реализация слова скрипта string:Len }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringLen
+
+ TkwStringToChar = {final} class(TtfwClassLike)
+  {* Слово скрипта string:ToChar
+*Тип результата:* Char
+*Пример:*
+[code]
+CHAR VAR l_Char
+ aString string:ToChar >>> l_Char
+[code]  }
+  private
+   function string_ToChar(const aCtx: TtfwContext;
+    const aString: Il3CString): AnsiChar;
+    {* Реализация слова скрипта string:ToChar }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringToChar
+
+ TkwCharToString = {final} class(TtfwRegisterableWord)
+  {* Слово скрипта char:ToString
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aChar char:ToString >>> l_Il3CString
+[code]  }
+  private
+   function char_ToString(const aCtx: TtfwContext;
+    aChar: AnsiChar): Il3CString;
+    {* Реализация слова скрипта char:ToString }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwCharToString
+
+ TkwCharDupe = {final} class(TtfwClassLike)
+  {* Слово скрипта char:Dupe
+[panel]Размножаем символ столько раз, сколько указано[panel]
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aCount aString char:Dupe >>> l_Il3CString
+[code]  }
+  private
+   function char_Dupe(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    aCount: Integer): Il3CString;
+    {* Реализация слова скрипта char:Dupe }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwCharDupe
+
+ TkwStringInc = {final} class(TtfwClassLike)
+  {* Слово скрипта string:++
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aString string:++ >>> l_Il3CString
+[code]  }
+  private
+   function string_Inc(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:++ }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringInc
+
+ TkwStringShift = {final} class(TtfwClassLike)
+  {* Слово скрипта string:+
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aDelta aString string:+ >>> l_Il3CString
+[code]  }
+  private
+   function string_Shift(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    aDelta: Integer): Il3CString;
+    {* Реализация слова скрипта string:+ }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringShift
+
+ TkwStringFirstChar = {final} class(TtfwClassLike)
+  {* Слово скрипта string:[]
+*Тип результата:* Char
+*Пример:*
+[code]
+CHAR VAR l_Char
+ aString string:[] >>> l_Char
+[code]  }
+  private
+   function string_FirstChar(const aCtx: TtfwContext;
+    const aString: Il3CString): AnsiChar;
+    {* Реализация слова скрипта string:[] }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringFirstChar
+
+ TkwStringTrim = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Trim
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aString string:Trim >>> l_Il3CString
+[code]  }
+  private
+   function string_Trim(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:Trim }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringTrim
+
+ TkwStringTrimLeft = {final} class(TtfwClassLike)
+  {* Слово скрипта string:TrimLeft
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aString string:TrimLeft >>> l_Il3CString
+[code]  }
+  private
+   function string_TrimLeft(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:TrimLeft }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringTrimLeft
+
+ TkwStringTrimRight = {final} class(TtfwClassLike)
+  {* Слово скрипта string:TrimRight
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aString string:TrimRight >>> l_Il3CString
+[code]  }
+  private
+   function string_TrimRight(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:TrimRight }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringTrimRight
+
+ TkwStringDeleteDoubleSpaces = {final} class(TtfwClassLike)
+  {* Слово скрипта string:DeleteDoubleSpaces
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aString string:DeleteDoubleSpaces >>> l_Il3CString
+[code]  }
+  private
+   function string_DeleteDoubleSpaces(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:DeleteDoubleSpaces }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringDeleteDoubleSpaces
+
+ TkwStringDeleteDoubleChars = {final} class(TtfwClassLike)
+  {* Слово скрипта string:DeleteDoubleChars
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aChar aString string:DeleteDoubleChars >>> l_Il3CString
+[code]  }
+  private
+   function string_DeleteDoubleChars(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    const aChar: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:DeleteDoubleChars }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringDeleteDoubleChars
+
+ TkwStringSubstring = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Substring
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aLength aPos aString string:Substring >>> l_Il3CString
+[code]  }
+  private
+   function string_Substring(const aCtx: TtfwContext;
+    const aString: Il3CString;
+    aPos: Integer;
+    aLength: Integer): Il3CString;
+    {* Реализация слова скрипта string:Substring }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringSubstring
+
+ TkwStringLower = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Lower
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aString string:Lower >>> l_Il3CString
+[code]  }
+  private
+   function string_Lower(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:Lower }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringLower
+
+ TkwStringUpper = {final} class(TtfwClassLike)
+  {* Слово скрипта string:Upper
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aString string:Upper >>> l_Il3CString
+[code]  }
+  private
+   function string_Upper(const aCtx: TtfwContext;
+    const aString: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:Upper }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwStringUpper
+
+ TkwVarDecLen = {final} class(TtfwWordWorkerEx)
+  {* Слово скрипта string:--Len!
+*Пример:*
+[code]
+ string:--Len! aVar
+[code]  }
+  private
+   procedure VarDecLen(const aCtx: TtfwContext;
+    aVar: TtfwWord);
+    {* Реализация слова скрипта string:--Len! }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwVarDecLen
+
+ TkwVarInc = {final} class(TtfwWordWorkerEx)
+  {* Слово скрипта string:++!
+*Пример:*
+[code]
+ string:++! aVar
+[code]  }
+  private
+   procedure VarInc(const aCtx: TtfwContext;
+    aVar: TtfwWord);
+    {* Реализация слова скрипта string:++! }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwVarInc
+
+ TkwRSplitTo = {final} class(TtfwWordWorkerEx)
+  {* Слово скрипта string:RSplitTo!
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aDelim string:RSplitTo! aVar >>> l_Il3CString
+[code]  }
+  private
+   function RSplitTo(const aCtx: TtfwContext;
+    aVar: TtfwWord;
+    const aDelim: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:RSplitTo! }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwRSplitTo
+
+ TkwVarShift = {final} class(TtfwWordWorkerEx)
+  {* Слово скрипта string:+!
+*Пример:*
+[code]
+ aNum string:+! aVar
+[code]  }
+  private
+   procedure VarShift(const aCtx: TtfwContext;
+    aVar: TtfwWord;
+    aNum: Integer);
+    {* Реализация слова скрипта string:+! }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwVarShift
+
+ TkwSplitTo = {final} class(TtfwWordWorkerEx)
+  {* Слово скрипта string:SplitTo!
+*Тип результата:* Il3CString
+*Пример:*
+[code]
+STRING VAR l_Il3CString
+ aDelim string:SplitTo! aVar >>> l_Il3CString
+[code]  }
+  private
+   function SplitTo(const aCtx: TtfwContext;
+    aVar: TtfwWord;
+    const aDelim: Il3CString): Il3CString;
+    {* Реализация слова скрипта string:SplitTo! }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwSplitTo
+
+ TkwVarPushCharAndInc = {final} class(TtfwWordWorkerEx)
+  {* Слово скрипта string:[]++!
+*Тип результата:* Char
+*Пример:*
+[code]
+CHAR VAR l_Char
+ string:[]++! aVar >>> l_Char
+[code]  }
+  private
+   function VarPushCharAndInc(const aCtx: TtfwContext;
+    aVar: TtfwWord): AnsiChar;
+    {* Реализация слова скрипта string:[]++! }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
+   procedure DoRun(const aCtx: TtfwContext); override;
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwVarPushCharAndInc
+
+class function TtfwIl3CStringPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'tfwIl3CStringPack';
+end;//TtfwIl3CStringPackResNameGetter.ResName
+
+ {$R tfwIl3CStringPack.res}
 
 function TkwStartsStr.StartsStr(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aSubStr: Il3CString): Boolean;
+ const aString: Il3CString;
+ const aSubStr: Il3CString): Boolean;
+ {* Реализация слова скрипта StartsStr }
 //#UC START# *ADBAC1D0C450_0093B3082714_var*
 //#UC END# *ADBAC1D0C450_0093B3082714_var*
 begin
@@ -105,13 +996,11 @@ begin
 end;//TkwStartsStr.StartsStr
 
 procedure TkwStartsStr.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aSubStr : Il3CString;
+var l_aString: Il3CString;
+var l_aSubStr: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -120,7 +1009,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aSubStr := aCtx.rEngine.PopString;
+  l_aSubStr := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -128,66 +1017,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((StartsStr(aCtx, l_aString, l_aSubStr)));
+ aCtx.rEngine.PushBool(StartsStr(aCtx, l_aString, l_aSubStr));
 end;//TkwStartsStr.DoDoIt
 
 class function TkwStartsStr.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StartsStr';
 end;//TkwStartsStr.GetWordNameForRegister
 
 function TkwStartsStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwStartsStr.GetResultTypeInfo
 
 function TkwStartsStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStartsStr.GetAllParamsCount
 
 function TkwStartsStr.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStartsStr.ParamsTypes
 
-type
- TkwStartsText = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта StartsText
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aSubStr aString StartsText >>> l_Boolean
-[code]  }
- private
- // private methods
-   function StartsText(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aSubStr: Il3CString): Boolean;
-     {* Реализация слова скрипта StartsText }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStartsText
-
-// start class TkwStartsText
-
 function TkwStartsText.StartsText(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aSubStr: Il3CString): Boolean;
+ const aString: Il3CString;
+ const aSubStr: Il3CString): Boolean;
+ {* Реализация слова скрипта StartsText }
 //#UC START# *2B44D7EFA4A8_9996D7566EDE_var*
 //#UC END# *2B44D7EFA4A8_9996D7566EDE_var*
 begin
@@ -197,13 +1053,11 @@ begin
 end;//TkwStartsText.StartsText
 
 procedure TkwStartsText.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aSubStr : Il3CString;
+var l_aString: Il3CString;
+var l_aSubStr: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -212,7 +1066,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aSubStr := aCtx.rEngine.PopString;
+  l_aSubStr := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -220,66 +1074,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((StartsText(aCtx, l_aString, l_aSubStr)));
+ aCtx.rEngine.PushBool(StartsText(aCtx, l_aString, l_aSubStr));
 end;//TkwStartsText.DoDoIt
 
 class function TkwStartsText.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StartsText';
 end;//TkwStartsText.GetWordNameForRegister
 
 function TkwStartsText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwStartsText.GetResultTypeInfo
 
 function TkwStartsText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStartsText.GetAllParamsCount
 
 function TkwStartsText.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStartsText.ParamsTypes
 
-type
- TkwEndsStr = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта EndsStr
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aSubStr aString EndsStr >>> l_Boolean
-[code]  }
- private
- // private methods
-   function EndsStr(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aSubStr: Il3CString): Boolean;
-     {* Реализация слова скрипта EndsStr }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwEndsStr
-
-// start class TkwEndsStr
-
 function TkwEndsStr.EndsStr(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aSubStr: Il3CString): Boolean;
+ const aString: Il3CString;
+ const aSubStr: Il3CString): Boolean;
+ {* Реализация слова скрипта EndsStr }
 //#UC START# *E58966F67546_397C461D6C30_var*
 //#UC END# *E58966F67546_397C461D6C30_var*
 begin
@@ -289,13 +1110,11 @@ begin
 end;//TkwEndsStr.EndsStr
 
 procedure TkwEndsStr.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aSubStr : Il3CString;
+var l_aString: Il3CString;
+var l_aSubStr: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -304,7 +1123,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aSubStr := aCtx.rEngine.PopString;
+  l_aSubStr := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -312,66 +1131,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((EndsStr(aCtx, l_aString, l_aSubStr)));
+ aCtx.rEngine.PushBool(EndsStr(aCtx, l_aString, l_aSubStr));
 end;//TkwEndsStr.DoDoIt
 
 class function TkwEndsStr.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'EndsStr';
 end;//TkwEndsStr.GetWordNameForRegister
 
 function TkwEndsStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwEndsStr.GetResultTypeInfo
 
 function TkwEndsStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwEndsStr.GetAllParamsCount
 
 function TkwEndsStr.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwEndsStr.ParamsTypes
 
-type
- TkwEndsText = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта EndsText
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aSubStr aString EndsText >>> l_Boolean
-[code]  }
- private
- // private methods
-   function EndsText(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aSubStr: Il3CString): Boolean;
-     {* Реализация слова скрипта EndsText }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwEndsText
-
-// start class TkwEndsText
-
 function TkwEndsText.EndsText(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aSubStr: Il3CString): Boolean;
+ const aString: Il3CString;
+ const aSubStr: Il3CString): Boolean;
+ {* Реализация слова скрипта EndsText }
 //#UC START# *187F940B5F16_8997C15C6CA8_var*
 //#UC END# *187F940B5F16_8997C15C6CA8_var*
 begin
@@ -381,13 +1167,11 @@ begin
 end;//TkwEndsText.EndsText
 
 procedure TkwEndsText.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aSubStr : Il3CString;
+var l_aString: Il3CString;
+var l_aSubStr: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -396,7 +1180,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aSubStr := aCtx.rEngine.PopString;
+  l_aSubStr := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -404,66 +1188,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((EndsText(aCtx, l_aString, l_aSubStr)));
+ aCtx.rEngine.PushBool(EndsText(aCtx, l_aString, l_aSubStr));
 end;//TkwEndsText.DoDoIt
 
 class function TkwEndsText.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'EndsText';
 end;//TkwEndsText.GetWordNameForRegister
 
 function TkwEndsText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwEndsText.GetResultTypeInfo
 
 function TkwEndsText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwEndsText.GetAllParamsCount
 
 function TkwEndsText.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwEndsText.ParamsTypes
 
-type
- TkwSameStr = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта SameStr
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anOther aString SameStr >>> l_Boolean
-[code]  }
- private
- // private methods
-   function SameStr(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const anOther: Il3CString): Boolean;
-     {* Реализация слова скрипта SameStr }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSameStr
-
-// start class TkwSameStr
-
 function TkwSameStr.SameStr(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const anOther: Il3CString): Boolean;
+ const aString: Il3CString;
+ const anOther: Il3CString): Boolean;
+ {* Реализация слова скрипта SameStr }
 //#UC START# *4D25C99A6BEB_2309401B7CC1_var*
 //#UC END# *4D25C99A6BEB_2309401B7CC1_var*
 begin
@@ -473,13 +1224,11 @@ begin
 end;//TkwSameStr.SameStr
 
 procedure TkwSameStr.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anOther : Il3CString;
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -488,7 +1237,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anOther := aCtx.rEngine.PopString;
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -496,66 +1245,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((SameStr(aCtx, l_aString, l_anOther)));
+ aCtx.rEngine.PushBool(SameStr(aCtx, l_aString, l_anOther));
 end;//TkwSameStr.DoDoIt
 
 class function TkwSameStr.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SameStr';
 end;//TkwSameStr.GetWordNameForRegister
 
 function TkwSameStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwSameStr.GetResultTypeInfo
 
 function TkwSameStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwSameStr.GetAllParamsCount
 
 function TkwSameStr.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSameStr.ParamsTypes
 
-type
- TkwSameText = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта SameText
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anOther aString SameText >>> l_Boolean
-[code]  }
- private
- // private methods
-   function SameText(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const anOther: Il3CString): Boolean;
-     {* Реализация слова скрипта SameText }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSameText
-
-// start class TkwSameText
-
 function TkwSameText.SameText(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const anOther: Il3CString): Boolean;
+ const aString: Il3CString;
+ const anOther: Il3CString): Boolean;
+ {* Реализация слова скрипта SameText }
 //#UC START# *883992DDC504_9FC28ACB9AA1_var*
 //#UC END# *883992DDC504_9FC28ACB9AA1_var*
 begin
@@ -565,13 +1281,11 @@ begin
 end;//TkwSameText.SameText
 
 procedure TkwSameText.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anOther : Il3CString;
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -580,7 +1294,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anOther := aCtx.rEngine.PopString;
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -588,66 +1302,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((SameText(aCtx, l_aString, l_anOther)));
+ aCtx.rEngine.PushBool(SameText(aCtx, l_aString, l_anOther));
 end;//TkwSameText.DoDoIt
 
 class function TkwSameText.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SameText';
 end;//TkwSameText.GetWordNameForRegister
 
 function TkwSameText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwSameText.GetResultTypeInfo
 
 function TkwSameText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwSameText.GetAllParamsCount
 
 function TkwSameText.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwSameText.ParamsTypes
 
-type
- TkwCompareStr = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта CompareStr
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anOther aString CompareStr >>> l_Integer
-[code]  }
- private
- // private methods
-   function CompareStr(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const anOther: Il3CString): Integer;
-     {* Реализация слова скрипта CompareStr }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwCompareStr
-
-// start class TkwCompareStr
-
 function TkwCompareStr.CompareStr(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const anOther: Il3CString): Integer;
+ const aString: Il3CString;
+ const anOther: Il3CString): Integer;
+ {* Реализация слова скрипта CompareStr }
 //#UC START# *60E71D4C9014_C670925F6482_var*
 //#UC END# *60E71D4C9014_C670925F6482_var*
 begin
@@ -657,13 +1338,11 @@ begin
 end;//TkwCompareStr.CompareStr
 
 procedure TkwCompareStr.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anOther : Il3CString;
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -672,7 +1351,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anOther := aCtx.rEngine.PopString;
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -680,66 +1359,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((CompareStr(aCtx, l_aString, l_anOther)));
+ aCtx.rEngine.PushInt(CompareStr(aCtx, l_aString, l_anOther));
 end;//TkwCompareStr.DoDoIt
 
 class function TkwCompareStr.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'CompareStr';
 end;//TkwCompareStr.GetWordNameForRegister
 
 function TkwCompareStr.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwCompareStr.GetResultTypeInfo
 
 function TkwCompareStr.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwCompareStr.GetAllParamsCount
 
 function TkwCompareStr.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCompareStr.ParamsTypes
 
-type
- TkwCompareText = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта CompareText
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anOther aString CompareText >>> l_Integer
-[code]  }
- private
- // private methods
-   function CompareText(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const anOther: Il3CString): Integer;
-     {* Реализация слова скрипта CompareText }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwCompareText
-
-// start class TkwCompareText
-
 function TkwCompareText.CompareText(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const anOther: Il3CString): Integer;
+ const aString: Il3CString;
+ const anOther: Il3CString): Integer;
+ {* Реализация слова скрипта CompareText }
 //#UC START# *53DA3FC40405_0E02A0729BA6_var*
 //#UC END# *53DA3FC40405_0E02A0729BA6_var*
 begin
@@ -749,13 +1395,11 @@ begin
 end;//TkwCompareText.CompareText
 
 procedure TkwCompareText.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anOther : Il3CString;
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -764,7 +1408,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anOther := aCtx.rEngine.PopString;
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -772,64 +1416,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((CompareText(aCtx, l_aString, l_anOther)));
+ aCtx.rEngine.PushInt(CompareText(aCtx, l_aString, l_anOther));
 end;//TkwCompareText.DoDoIt
 
 class function TkwCompareText.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'CompareText';
 end;//TkwCompareText.GetWordNameForRegister
 
 function TkwCompareText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwCompareText.GetResultTypeInfo
 
 function TkwCompareText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwCompareText.GetAllParamsCount
 
 function TkwCompareText.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCompareText.ParamsTypes
 
-type
- TkwStrToInt = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта StrToInt
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString StrToInt >>> l_Integer
-[code]  }
- private
- // private methods
-   function StrToInt(const aCtx: TtfwContext;
-    const aString: Il3CString): Integer;
-     {* Реализация слова скрипта StrToInt }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStrToInt
-
-// start class TkwStrToInt
-
 function TkwStrToInt.StrToInt(const aCtx: TtfwContext;
-  const aString: Il3CString): Integer;
+ const aString: Il3CString): Integer;
+ {* Реализация слова скрипта StrToInt }
 //#UC START# *108F78D959BF_09008856C703_var*
 //#UC END# *108F78D959BF_09008856C703_var*
 begin
@@ -839,12 +1451,10 @@ begin
 end;//TkwStrToInt.StrToInt
 
 procedure TkwStrToInt.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
+var l_aString: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -852,66 +1462,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((StrToInt(aCtx, l_aString)));
+ aCtx.rEngine.PushInt(StrToInt(aCtx, l_aString));
 end;//TkwStrToInt.DoDoIt
 
 class function TkwStrToInt.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StrToInt';
 end;//TkwStrToInt.GetWordNameForRegister
 
 function TkwStrToInt.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStrToInt.GetResultTypeInfo
 
 function TkwStrToInt.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwStrToInt.GetAllParamsCount
 
 function TkwStrToInt.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStrToInt.ParamsTypes
 
-type
- TkwCat = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Cat
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- anOther aString Cat >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function Cat(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const anOther: Il3CString): Il3CString;
-     {* Реализация слова скрипта Cat }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwCat
-
-// start class TkwCat
-
 function TkwCat.Cat(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const anOther: Il3CString): Il3CString;
+ const aString: Il3CString;
+ const anOther: Il3CString): Il3CString;
+ {* Реализация слова скрипта Cat }
 //#UC START# *0AEEC1805BCE_DD57CECF347C_var*
 //#UC END# *0AEEC1805BCE_DD57CECF347C_var*
 begin
@@ -921,13 +1498,11 @@ begin
 end;//TkwCat.Cat
 
 procedure TkwCat.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anOther : Il3CString;
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -936,7 +1511,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anOther := aCtx.rEngine.PopString;
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -944,67 +1519,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((Cat(aCtx, l_aString, l_anOther)));
+ aCtx.rEngine.PushString(Cat(aCtx, l_aString, l_anOther));
 end;//TkwCat.DoDoIt
 
 class function TkwCat.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Cat';
 end;//TkwCat.GetWordNameForRegister
 
 function TkwCat.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwCat.GetResultTypeInfo
 
 function TkwCat.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwCat.GetAllParamsCount
 
 function TkwCat.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwCat.ParamsTypes
 
-type
- TkwStringConsistsOf = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:ConsistsOf
-[panel]Проверяет, что строка aString состоит ТОЛЬКО из символов строки aDelims[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aDelims aString string:ConsistsOf >>> l_Boolean
-[code]  }
- private
- // private methods
-   function StringConsistsOf(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aDelims: Il3CString): Boolean;
-     {* Реализация слова скрипта string:ConsistsOf }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringConsistsOf
-
-// start class TkwStringConsistsOf
-
-function TkwStringConsistsOf.StringConsistsOf(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aDelims: Il3CString): Boolean;
+function TkwStringConsistsOf.string_ConsistsOf(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const aDelims: Il3CString): Boolean;
+ {* Реализация слова скрипта string:ConsistsOf }
 //#UC START# *C17F9AF1604A_5F306006344B_var*
 var
  l_S1 : Tl3WString;
@@ -1030,16 +1571,14 @@ begin
   Result := l3AllCharsInCharSet(l_S2, l_C);
  end;//l_S1.SLen = 1
 //#UC END# *C17F9AF1604A_5F306006344B_impl*
-end;//TkwStringConsistsOf.StringConsistsOf
+end;//TkwStringConsistsOf.string_ConsistsOf
 
 procedure TkwStringConsistsOf.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aDelims : Il3CString;
+var l_aString: Il3CString;
+var l_aDelims: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1048,7 +1587,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aDelims := aCtx.rEngine.PopString;
+  l_aDelims := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1056,67 +1595,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((StringConsistsOf(aCtx, l_aString, l_aDelims)));
+ aCtx.rEngine.PushBool(string_ConsistsOf(aCtx, l_aString, l_aDelims));
 end;//TkwStringConsistsOf.DoDoIt
 
 class function TkwStringConsistsOf.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:ConsistsOf';
 end;//TkwStringConsistsOf.GetWordNameForRegister
 
 function TkwStringConsistsOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwStringConsistsOf.GetResultTypeInfo
 
 function TkwStringConsistsOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStringConsistsOf.GetAllParamsCount
 
 function TkwStringConsistsOf.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringConsistsOf.ParamsTypes
 
-type
- TkwStringHasAnyOf = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:HasAnyOf
-[panel]Проверяет, что строка aString содержит хотя бы один символ из aDelims[panel]
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aDelims aString string:HasAnyOf >>> l_Boolean
-[code]  }
- private
- // private methods
-   function StringHasAnyOf(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aDelims: Il3CString): Boolean;
-     {* Реализация слова скрипта string:HasAnyOf }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringHasAnyOf
-
-// start class TkwStringHasAnyOf
-
-function TkwStringHasAnyOf.StringHasAnyOf(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aDelims: Il3CString): Boolean;
+function TkwStringHasAnyOf.string_HasAnyOf(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const aDelims: Il3CString): Boolean;
+ {* Реализация слова скрипта string:HasAnyOf }
 //#UC START# *4E5E3C364C71_2256016890B3_var*
 var
  l_S1 : Tl3WString;
@@ -1142,16 +1647,14 @@ begin
   Result := l3CharSetPresent(l_S2, l_C);
  end;//l_S1.SLen = 1
 //#UC END# *4E5E3C364C71_2256016890B3_impl*
-end;//TkwStringHasAnyOf.StringHasAnyOf
+end;//TkwStringHasAnyOf.string_HasAnyOf
 
 procedure TkwStringHasAnyOf.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aDelims : Il3CString;
+var l_aString: Il3CString;
+var l_aDelims: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1160,7 +1663,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aDelims := aCtx.rEngine.PopString;
+  l_aDelims := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1168,83 +1671,47 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((StringHasAnyOf(aCtx, l_aString, l_aDelims)));
+ aCtx.rEngine.PushBool(string_HasAnyOf(aCtx, l_aString, l_aDelims));
 end;//TkwStringHasAnyOf.DoDoIt
 
 class function TkwStringHasAnyOf.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:HasAnyOf';
 end;//TkwStringHasAnyOf.GetWordNameForRegister
 
 function TkwStringHasAnyOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwStringHasAnyOf.GetResultTypeInfo
 
 function TkwStringHasAnyOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStringHasAnyOf.GetAllParamsCount
 
 function TkwStringHasAnyOf.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringHasAnyOf.ParamsTypes
 
-type
- TkwStringPos = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:Pos
-[panel]'мама рыла яму' 'ры' string:Pos .[panel]
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anOther aString string:Pos >>> l_Integer
-[code]  }
- private
- // private methods
-   function StringPos(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const anOther: Il3CString): Integer;
-     {* Реализация слова скрипта string:Pos }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringPos
-
-// start class TkwStringPos
-
-function TkwStringPos.StringPos(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const anOther: Il3CString): Integer;
+function TkwStringPos.string_Pos(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const anOther: Il3CString): Integer;
+ {* Реализация слова скрипта string:Pos }
 //#UC START# *A3206F78A2FD_851E99BEB53B_var*
 //#UC END# *A3206F78A2FD_851E99BEB53B_var*
 begin
 //#UC START# *A3206F78A2FD_851E99BEB53B_impl*
  Result := l3Pos(anOther, aString);
 //#UC END# *A3206F78A2FD_851E99BEB53B_impl*
-end;//TkwStringPos.StringPos
+end;//TkwStringPos.string_Pos
 
 procedure TkwStringPos.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anOther : Il3CString;
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1253,7 +1720,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anOther := aCtx.rEngine.PopString;
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1261,86 +1728,49 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((StringPos(aCtx, l_aString, l_anOther)));
+ aCtx.rEngine.PushInt(string_Pos(aCtx, l_aString, l_anOther));
 end;//TkwStringPos.DoDoIt
 
 class function TkwStringPos.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:Pos';
 end;//TkwStringPos.GetWordNameForRegister
 
 function TkwStringPos.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStringPos.GetResultTypeInfo
 
 function TkwStringPos.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStringPos.GetAllParamsCount
 
 function TkwStringPos.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringPos.ParamsTypes
 
-type
- TkwStringPosEx = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:PosEx
-[panel]6 'мама рыла рыло' 'ры' string:PosEx .[panel]
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aPos anOther aString string:PosEx >>> l_Integer
-[code]  }
- private
- // private methods
-   function StringPosEx(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const anOther: Il3CString;
-    aPos: Integer): Integer;
-     {* Реализация слова скрипта string:PosEx }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringPosEx
-
-// start class TkwStringPosEx
-
-function TkwStringPosEx.StringPosEx(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const anOther: Il3CString;
-  aPos: Integer): Integer;
+function TkwStringPosEx.string_PosEx(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const anOther: Il3CString;
+ aPos: Integer): Integer;
+ {* Реализация слова скрипта string:PosEx }
 //#UC START# *F7FE00F8B33E_24901BF384F4_var*
 //#UC END# *F7FE00F8B33E_24901BF384F4_var*
 begin
 //#UC START# *F7FE00F8B33E_24901BF384F4_impl*
  Result := l3PosEx(anOther, aString, aPos);
 //#UC END# *F7FE00F8B33E_24901BF384F4_impl*
-end;//TkwStringPosEx.StringPosEx
+end;//TkwStringPosEx.string_PosEx
 
 procedure TkwStringPosEx.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anOther : Il3CString;
- l_aPos : Integer;
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
+var l_aPos: Integer;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1349,7 +1779,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anOther := aCtx.rEngine.PopString;
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1366,77 +1796,34 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((StringPosEx(aCtx, l_aString, l_anOther, l_aPos)));
+ aCtx.rEngine.PushInt(string_PosEx(aCtx, l_aString, l_anOther, l_aPos));
 end;//TkwStringPosEx.DoDoIt
 
 class function TkwStringPosEx.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:PosEx';
 end;//TkwStringPosEx.GetWordNameForRegister
 
 function TkwStringPosEx.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStringPosEx.GetResultTypeInfo
 
 function TkwStringPosEx.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwStringPosEx.GetAllParamsCount
 
 function TkwStringPosEx.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringPosEx.ParamsTypes
 
-type
- TkwStringSplit = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:Split
-[panel]Разделяет строку на две по заданному разделителю.
-
-Пример:
-[code]
-'ABC:DEF' ':' string:Split
-[code]
-Получаем на стеке:
-'ABC' ':DEF'[panel]
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_theTail
-STRING VAR l_Il3CString
- anOther aString string:Split >>> l_theTail >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function StringSplit(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const anOther: Il3CString;
-    out theTail: Il3CString): Il3CString;
-     {* Реализация слова скрипта string:Split }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringSplit
-
-// start class TkwStringSplit
-
-function TkwStringSplit.StringSplit(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const anOther: Il3CString;
-  out theTail: Il3CString): Il3CString;
+function TkwStringSplit.string_Split(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const anOther: Il3CString;
+ out theTail: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:Split }
 //#UC START# *2D11D07B402C_AA63BC1F51EC_var*
 var
 (* l_P : Il3CString;
@@ -1457,17 +1844,15 @@ begin
  aCtx.rEngine.PushString(l_P);
  aCtx.rEngine.PushString(l_S);*)
 //#UC END# *2D11D07B402C_AA63BC1F51EC_impl*
-end;//TkwStringSplit.StringSplit
+end;//TkwStringSplit.string_Split
 
 procedure TkwStringSplit.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anOther : Il3CString;
- l_theTail : Il3CString;
+var l_aString: Il3CString;
+var l_anOther: Il3CString;
+var l_theTail: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1476,7 +1861,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anOther := aCtx.rEngine.PopString;
+  l_anOther := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1484,69 +1869,35 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((StringSplit(aCtx, l_aString, l_anOther, l_theTail)));
+ aCtx.rEngine.PushString(string_Split(aCtx, l_aString, l_anOther, l_theTail));
  aCtx.rEngine.PushString(l_theTail);
 end;//TkwStringSplit.DoDoIt
 
 class function TkwStringSplit.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:Split';
 end;//TkwStringSplit.GetWordNameForRegister
 
 function TkwStringSplit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwStringSplit.GetResultTypeInfo
 
 function TkwStringSplit.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStringSplit.GetAllParamsCount
 
 function TkwStringSplit.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
 end;//TkwStringSplit.ParamsTypes
 
-type
- TkwStringReplace = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:Replace
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aMain aFrom aString string:Replace >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function StringReplace(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aFrom: Il3CString;
-    const aMain: Il3CString): Il3CString;
-     {* Реализация слова скрипта string:Replace }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringReplace
-
-// start class TkwStringReplace
-
-function TkwStringReplace.StringReplace(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aFrom: Il3CString;
-  const aMain: Il3CString): Il3CString;
+function TkwStringReplace.string_Replace(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const aFrom: Il3CString;
+ const aMain: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:Replace }
 //#UC START# *DD442A0F03CD_8CA688C2805E_var*
 //#UC END# *DD442A0F03CD_8CA688C2805E_var*
 begin
@@ -1555,17 +1906,15 @@ begin
                            l3PCharLen(aFrom),
                            l3PCharLen(aString), [rfReplaceAll])
 //#UC END# *DD442A0F03CD_8CA688C2805E_impl*
-end;//TkwStringReplace.StringReplace
+end;//TkwStringReplace.string_Replace
 
 procedure TkwStringReplace.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aFrom : Il3CString;
- l_aMain : Il3CString;
+var l_aString: Il3CString;
+var l_aFrom: Il3CString;
+var l_aMain: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1574,7 +1923,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aFrom := aCtx.rEngine.PopString;
+  l_aFrom := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1583,7 +1932,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aMain := aCtx.rEngine.PopString;
+  l_aMain := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1591,68 +1940,34 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((StringReplace(aCtx, l_aString, l_aFrom, l_aMain)));
+ aCtx.rEngine.PushString(string_Replace(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwStringReplace.DoDoIt
 
 class function TkwStringReplace.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:Replace';
 end;//TkwStringReplace.GetWordNameForRegister
 
 function TkwStringReplace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwStringReplace.GetResultTypeInfo
 
 function TkwStringReplace.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwStringReplace.GetAllParamsCount
 
 function TkwStringReplace.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwStringReplace.ParamsTypes
 
-type
- TkwStringReplaceFirst = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:ReplaceFirst
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aMain aFrom aString string:ReplaceFirst >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function StringReplaceFirst(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aFrom: Il3CString;
-    const aMain: Il3CString): Il3CString;
-     {* Реализация слова скрипта string:ReplaceFirst }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringReplaceFirst
-
-// start class TkwStringReplaceFirst
-
-function TkwStringReplaceFirst.StringReplaceFirst(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aFrom: Il3CString;
-  const aMain: Il3CString): Il3CString;
+function TkwStringReplaceFirst.string_ReplaceFirst(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const aFrom: Il3CString;
+ const aMain: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:ReplaceFirst }
 //#UC START# *9B83E2E03D3D_FF1E0A42BBEF_var*
 //#UC END# *9B83E2E03D3D_FF1E0A42BBEF_var*
 begin
@@ -1661,17 +1976,15 @@ begin
                            l3PCharLen(aFrom),
                            l3PCharLen(aString), [{rfReplaceAll}])
 //#UC END# *9B83E2E03D3D_FF1E0A42BBEF_impl*
-end;//TkwStringReplaceFirst.StringReplaceFirst
+end;//TkwStringReplaceFirst.string_ReplaceFirst
 
 procedure TkwStringReplaceFirst.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aFrom : Il3CString;
- l_aMain : Il3CString;
+var l_aString: Il3CString;
+var l_aFrom: Il3CString;
+var l_aMain: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1680,7 +1993,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aFrom := aCtx.rEngine.PopString;
+  l_aFrom := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1689,7 +2002,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aMain := aCtx.rEngine.PopString;
+  l_aMain := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1697,68 +2010,34 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((StringReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain)));
+ aCtx.rEngine.PushString(string_ReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwStringReplaceFirst.DoDoIt
 
 class function TkwStringReplaceFirst.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:ReplaceFirst';
 end;//TkwStringReplaceFirst.GetWordNameForRegister
 
 function TkwStringReplaceFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwStringReplaceFirst.GetResultTypeInfo
 
 function TkwStringReplaceFirst.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwStringReplaceFirst.GetAllParamsCount
 
 function TkwStringReplaceFirst.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwStringReplaceFirst.ParamsTypes
 
-type
- TkwTextReplace = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта text:Replace
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aMain aFrom aString text:Replace >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function TextReplace(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aFrom: Il3CString;
-    const aMain: Il3CString): Il3CString;
-     {* Реализация слова скрипта text:Replace }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTextReplace
-
-// start class TkwTextReplace
-
-function TkwTextReplace.TextReplace(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aFrom: Il3CString;
-  const aMain: Il3CString): Il3CString;
+function TkwTextReplace.text_Replace(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const aFrom: Il3CString;
+ const aMain: Il3CString): Il3CString;
+ {* Реализация слова скрипта text:Replace }
 //#UC START# *77C319AE08A3_6F240EDBC3AE_var*
 //#UC END# *77C319AE08A3_6F240EDBC3AE_var*
 begin
@@ -1767,17 +2046,15 @@ begin
                            l3PCharLen(aFrom),
                            l3PCharLen(aString), [rfReplaceAll, rfIgnoreCase])
 //#UC END# *77C319AE08A3_6F240EDBC3AE_impl*
-end;//TkwTextReplace.TextReplace
+end;//TkwTextReplace.text_Replace
 
 procedure TkwTextReplace.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aFrom : Il3CString;
- l_aMain : Il3CString;
+var l_aString: Il3CString;
+var l_aFrom: Il3CString;
+var l_aMain: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1786,7 +2063,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aFrom := aCtx.rEngine.PopString;
+  l_aFrom := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1795,7 +2072,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aMain := aCtx.rEngine.PopString;
+  l_aMain := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1803,68 +2080,34 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((TextReplace(aCtx, l_aString, l_aFrom, l_aMain)));
+ aCtx.rEngine.PushString(text_Replace(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwTextReplace.DoDoIt
 
 class function TkwTextReplace.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'text:Replace';
 end;//TkwTextReplace.GetWordNameForRegister
 
 function TkwTextReplace.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwTextReplace.GetResultTypeInfo
 
 function TkwTextReplace.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwTextReplace.GetAllParamsCount
 
 function TkwTextReplace.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwTextReplace.ParamsTypes
 
-type
- TkwTextReplaceFirst = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта text:ReplaceFirst
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aMain aFrom aString text:ReplaceFirst >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function TextReplaceFirst(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    const aFrom: Il3CString;
-    const aMain: Il3CString): Il3CString;
-     {* Реализация слова скрипта text:ReplaceFirst }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTextReplaceFirst
-
-// start class TkwTextReplaceFirst
-
-function TkwTextReplaceFirst.TextReplaceFirst(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  const aFrom: Il3CString;
-  const aMain: Il3CString): Il3CString;
+function TkwTextReplaceFirst.text_ReplaceFirst(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const aFrom: Il3CString;
+ const aMain: Il3CString): Il3CString;
+ {* Реализация слова скрипта text:ReplaceFirst }
 //#UC START# *C0B325EEBDF3_0527F8C9DF24_var*
 //#UC END# *C0B325EEBDF3_0527F8C9DF24_var*
 begin
@@ -1873,17 +2116,15 @@ begin
                            l3PCharLen(aFrom),
                            l3PCharLen(aString), [{rfReplaceAll,} rfIgnoreCase])
 //#UC END# *C0B325EEBDF3_0527F8C9DF24_impl*
-end;//TkwTextReplaceFirst.TextReplaceFirst
+end;//TkwTextReplaceFirst.text_ReplaceFirst
 
 procedure TkwTextReplaceFirst.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aFrom : Il3CString;
- l_aMain : Il3CString;
+var l_aString: Il3CString;
+var l_aFrom: Il3CString;
+var l_aMain: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1892,7 +2133,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aFrom := aCtx.rEngine.PopString;
+  l_aFrom := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1901,7 +2142,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aMain := aCtx.rEngine.PopString;
+  l_aMain := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -1909,82 +2150,47 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((TextReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain)));
+ aCtx.rEngine.PushString(text_ReplaceFirst(aCtx, l_aString, l_aFrom, l_aMain));
 end;//TkwTextReplaceFirst.DoDoIt
 
 class function TkwTextReplaceFirst.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'text:ReplaceFirst';
 end;//TkwTextReplaceFirst.GetWordNameForRegister
 
 function TkwTextReplaceFirst.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwTextReplaceFirst.GetResultTypeInfo
 
 function TkwTextReplaceFirst.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwTextReplaceFirst.GetAllParamsCount
 
 function TkwTextReplaceFirst.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString, @tfw_tiString]);
 end;//TkwTextReplaceFirst.ParamsTypes
 
-type
- TkwStringChar = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:[i]
-*Тип результата:* Char
-*Пример:*
-[code]
-CHAR VAR l_Char
- anIndex aString string:[i] >>> l_Char
-[code]  }
- private
- // private methods
-   function StringChar(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    anIndex: Integer): AnsiChar;
-     {* Реализация слова скрипта string:[i] }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringChar
-
-// start class TkwStringChar
-
-function TkwStringChar.StringChar(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  anIndex: Integer): AnsiChar;
+function TkwStringChar.string_Char(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ anIndex: Integer): AnsiChar;
+ {* Реализация слова скрипта string:[i] }
 //#UC START# *46139320DD2A_9597582C9BD4_var*
 //#UC END# *46139320DD2A_9597582C9BD4_var*
 begin
 //#UC START# *46139320DD2A_9597582C9BD4_impl*
  Result := aString.AsWStr.S[anIndex];
 //#UC END# *46139320DD2A_9597582C9BD4_impl*
-end;//TkwStringChar.StringChar
+end;//TkwStringChar.string_Char
 
 procedure TkwStringChar.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_anIndex : Integer;
+var l_aString: Il3CString;
+var l_anIndex: Integer;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2001,79 +2207,45 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushChar((StringChar(aCtx, l_aString, l_anIndex)));
+ aCtx.rEngine.PushChar(string_Char(aCtx, l_aString, l_anIndex));
 end;//TkwStringChar.DoDoIt
 
 class function TkwStringChar.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:[i]';
 end;//TkwStringChar.GetWordNameForRegister
 
 function TkwStringChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(AnsiChar);
 end;//TkwStringChar.GetResultTypeInfo
 
 function TkwStringChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStringChar.GetAllParamsCount
 
 function TkwStringChar.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringChar.ParamsTypes
 
-type
- TkwStringCodePage = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:CodePage
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString string:CodePage >>> l_Integer
-[code]  }
- private
- // private methods
-   function StringCodePage(const aCtx: TtfwContext;
-    const aString: Il3CString): Integer;
-     {* Реализация слова скрипта string:CodePage }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringCodePage
-
-// start class TkwStringCodePage
-
-function TkwStringCodePage.StringCodePage(const aCtx: TtfwContext;
-  const aString: Il3CString): Integer;
+function TkwStringCodePage.string_CodePage(const aCtx: TtfwContext;
+ const aString: Il3CString): Integer;
+ {* Реализация слова скрипта string:CodePage }
 //#UC START# *6C0D8D8B8728_6CAF85926E0C_var*
 //#UC END# *6C0D8D8B8728_6CAF85926E0C_var*
 begin
 //#UC START# *6C0D8D8B8728_6CAF85926E0C_impl*
  Result := aString.AsWStr.SCodePage;
 //#UC END# *6C0D8D8B8728_6CAF85926E0C_impl*
-end;//TkwStringCodePage.StringCodePage
+end;//TkwStringCodePage.string_CodePage
 
 procedure TkwStringCodePage.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
+var l_aString: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2081,64 +2253,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((StringCodePage(aCtx, l_aString)));
+ aCtx.rEngine.PushInt(string_CodePage(aCtx, l_aString));
 end;//TkwStringCodePage.DoDoIt
 
 class function TkwStringCodePage.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:CodePage';
 end;//TkwStringCodePage.GetWordNameForRegister
 
 function TkwStringCodePage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStringCodePage.GetResultTypeInfo
 
 function TkwStringCodePage.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwStringCodePage.GetAllParamsCount
 
 function TkwStringCodePage.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringCodePage.ParamsTypes
 
-type
- TkwStringLen = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:Len
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString string:Len >>> l_Integer
-[code]  }
- private
- // private methods
-   function StringLen(const aCtx: TtfwContext;
-    const aString: Il3CString): Integer;
-     {* Реализация слова скрипта string:Len }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringLen
-
-// start class TkwStringLen
-
-function TkwStringLen.StringLen(const aCtx: TtfwContext;
-  const aString: Il3CString): Integer;
+function TkwStringLen.string_Len(const aCtx: TtfwContext;
+ const aString: Il3CString): Integer;
+ {* Реализация слова скрипта string:Len }
 //#UC START# *1D5A300A0055_0BA6E62BEF84_var*
 //#UC END# *1D5A300A0055_0BA6E62BEF84_var*
 begin
@@ -2148,15 +2288,13 @@ begin
  else
   Result := aString.AsWStr.SLen;
 //#UC END# *1D5A300A0055_0BA6E62BEF84_impl*
-end;//TkwStringLen.StringLen
+end;//TkwStringLen.string_Len
 
 procedure TkwStringLen.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
+var l_aString: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2164,64 +2302,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((StringLen(aCtx, l_aString)));
+ aCtx.rEngine.PushInt(string_Len(aCtx, l_aString));
 end;//TkwStringLen.DoDoIt
 
 class function TkwStringLen.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:Len';
 end;//TkwStringLen.GetWordNameForRegister
 
 function TkwStringLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwStringLen.GetResultTypeInfo
 
 function TkwStringLen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwStringLen.GetAllParamsCount
 
 function TkwStringLen.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringLen.ParamsTypes
 
-type
- TkwStringToChar = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:ToChar
-*Тип результата:* Char
-*Пример:*
-[code]
-CHAR VAR l_Char
- aString string:ToChar >>> l_Char
-[code]  }
- private
- // private methods
-   function StringToChar(const aCtx: TtfwContext;
-    const aString: Il3CString): AnsiChar;
-     {* Реализация слова скрипта string:ToChar }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringToChar
-
-// start class TkwStringToChar
-
-function TkwStringToChar.StringToChar(const aCtx: TtfwContext;
-  const aString: Il3CString): AnsiChar;
+function TkwStringToChar.string_ToChar(const aCtx: TtfwContext;
+ const aString: Il3CString): AnsiChar;
+ {* Реализация слова скрипта string:ToChar }
 //#UC START# *3F9E9C8EDF9E_CA33F456975C_var*
 //#UC END# *3F9E9C8EDF9E_CA33F456975C_var*
 begin
@@ -2229,15 +2335,13 @@ begin
  RunnerAssert(aString.AsWStr.SLen = 1, 'Длина строки должна равняться 1', aCtx);
  Result := aString.AsWStr.S[0];
 //#UC END# *3F9E9C8EDF9E_CA33F456975C_impl*
-end;//TkwStringToChar.StringToChar
+end;//TkwStringToChar.string_ToChar
 
 procedure TkwStringToChar.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
+var l_aString: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2245,76 +2349,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushChar((StringToChar(aCtx, l_aString)));
+ aCtx.rEngine.PushChar(string_ToChar(aCtx, l_aString));
 end;//TkwStringToChar.DoDoIt
 
 class function TkwStringToChar.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:ToChar';
 end;//TkwStringToChar.GetWordNameForRegister
 
 function TkwStringToChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(AnsiChar);
 end;//TkwStringToChar.GetResultTypeInfo
 
 function TkwStringToChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwStringToChar.GetAllParamsCount
 
 function TkwStringToChar.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringToChar.ParamsTypes
 
-type
- TkwCharToString = {final scriptword} class(TtfwRegisterableWord)
-  {* Слово скрипта char:ToString
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aChar char:ToString >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function CharToString(const aCtx: TtfwContext;
-    aChar: AnsiChar): Il3CString;
-     {* Реализация слова скрипта char:ToString }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwCharToString
-
-// start class TkwCharToString
-
-function TkwCharToString.CharToString(const aCtx: TtfwContext;
-  aChar: AnsiChar): Il3CString;
+function TkwCharToString.char_ToString(const aCtx: TtfwContext;
+ aChar: AnsiChar): Il3CString;
+ {* Реализация слова скрипта char:ToString }
 //#UC START# *E29B58F41653_4C3CAF64FEF3_var*
 //#UC END# *E29B58F41653_4C3CAF64FEF3_var*
 begin
 //#UC START# *E29B58F41653_4C3CAF64FEF3_impl*
  Result := TtfwCStringFactory.C(aChar);
 //#UC END# *E29B58F41653_4C3CAF64FEF3_impl*
-end;//TkwCharToString.CharToString
+end;//TkwCharToString.char_ToString
 
 procedure TkwCharToString.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aChar : AnsiChar;
+var l_aChar: AnsiChar;
 begin
  try
   l_aChar := aCtx.rEngine.PopChar;
@@ -2325,83 +2395,47 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((CharToString(aCtx, l_aChar)));
+ aCtx.rEngine.PushString(char_ToString(aCtx, l_aChar));
 end;//TkwCharToString.DoDoIt
 
 class function TkwCharToString.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'char:ToString';
 end;//TkwCharToString.GetWordNameForRegister
 
 function TkwCharToString.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwCharToString.GetResultTypeInfo
 
 function TkwCharToString.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 1;
 end;//TkwCharToString.GetAllParamsCount
 
 function TkwCharToString.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(AnsiChar)]);
+ Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(AnsiChar)]);
 end;//TkwCharToString.ParamsTypes
 
-type
- TkwCharDupe = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта char:Dupe
-[panel]Размножаем символ столько раз, сколько указано[panel]
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aCount aString char:Dupe >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function CharDupe(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    aCount: Integer): Il3CString;
-     {* Реализация слова скрипта char:Dupe }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwCharDupe
-
-// start class TkwCharDupe
-
-function TkwCharDupe.CharDupe(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  aCount: Integer): Il3CString;
+function TkwCharDupe.char_Dupe(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ aCount: Integer): Il3CString;
+ {* Реализация слова скрипта char:Dupe }
 //#UC START# *E230CFBF78A9_355A8C3D70FA_var*
 //#UC END# *E230CFBF78A9_355A8C3D70FA_var*
 begin
 //#UC START# *E230CFBF78A9_355A8C3D70FA_impl*
  Result := TtfwCStringFactory.C(ev_psFixLen('', aCount, l3Char(aString, 0)));
 //#UC END# *E230CFBF78A9_355A8C3D70FA_impl*
-end;//TkwCharDupe.CharDupe
+end;//TkwCharDupe.char_Dupe
 
 procedure TkwCharDupe.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aCount : Integer;
+var l_aString: Il3CString;
+var l_aCount: Integer;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2418,64 +2452,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((CharDupe(aCtx, l_aString, l_aCount)));
+ aCtx.rEngine.PushString(char_Dupe(aCtx, l_aString, l_aCount));
 end;//TkwCharDupe.DoDoIt
 
 class function TkwCharDupe.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'char:Dupe';
 end;//TkwCharDupe.GetWordNameForRegister
 
 function TkwCharDupe.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwCharDupe.GetResultTypeInfo
 
 function TkwCharDupe.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwCharDupe.GetAllParamsCount
 
 function TkwCharDupe.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwCharDupe.ParamsTypes
 
-type
- TkwStringInc = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:++
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aString string:++ >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function StringInc(const aCtx: TtfwContext;
-    const aString: Il3CString): Il3CString;
-     {* Реализация слова скрипта string:++ }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringInc
-
-// start class TkwStringInc
-
-function TkwStringInc.StringInc(const aCtx: TtfwContext;
-  const aString: Il3CString): Il3CString;
+function TkwStringInc.string_Inc(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:++ }
 //#UC START# *FF3E231E9FA3_F3116B965978_var*
 var
  l_P : Tl3PCharLen;
@@ -2486,15 +2488,13 @@ begin
  l_P.Shift(+1);
  Result := TtfwCStringFactory.ViewOf(l_P);
 //#UC END# *FF3E231E9FA3_F3116B965978_impl*
-end;//TkwStringInc.StringInc
+end;//TkwStringInc.string_Inc
 
 procedure TkwStringInc.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
+var l_aString: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2502,66 +2502,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((StringInc(aCtx, l_aString)));
+ aCtx.rEngine.PushString(string_Inc(aCtx, l_aString));
 end;//TkwStringInc.DoDoIt
 
 class function TkwStringInc.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:++';
 end;//TkwStringInc.GetWordNameForRegister
 
 function TkwStringInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwStringInc.GetResultTypeInfo
 
 function TkwStringInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwStringInc.GetAllParamsCount
 
 function TkwStringInc.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringInc.ParamsTypes
 
-type
- TkwStringShift = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:+
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aDelta aString string:+ >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function StringShift(const aCtx: TtfwContext;
-    const aString: Il3CString;
-    aDelta: Integer): Il3CString;
-     {* Реализация слова скрипта string:+ }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringShift
-
-// start class TkwStringShift
-
-function TkwStringShift.StringShift(const aCtx: TtfwContext;
-  const aString: Il3CString;
-  aDelta: Integer): Il3CString;
+function TkwStringShift.string_Shift(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ aDelta: Integer): Il3CString;
+ {* Реализация слова скрипта string:+ }
 //#UC START# *89A4BEF62C61_EFB7A59A9041_var*
 var
  l_P : Tl3PCharLen;
@@ -2572,16 +2539,14 @@ begin
  l_P.Shift(aDelta);
  Result := TtfwCStringFactory.ViewOf(l_P);
 //#UC END# *89A4BEF62C61_EFB7A59A9041_impl*
-end;//TkwStringShift.StringShift
+end;//TkwStringShift.string_Shift
 
 procedure TkwStringShift.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
- l_aDelta : Integer;
+var l_aString: Il3CString;
+var l_aDelta: Integer;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2598,64 +2563,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((StringShift(aCtx, l_aString, l_aDelta)));
+ aCtx.rEngine.PushString(string_Shift(aCtx, l_aString, l_aDelta));
 end;//TkwStringShift.DoDoIt
 
 class function TkwStringShift.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:+';
 end;//TkwStringShift.GetWordNameForRegister
 
 function TkwStringShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwStringShift.GetResultTypeInfo
 
 function TkwStringShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwStringShift.GetAllParamsCount
 
 function TkwStringShift.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer)]);
 end;//TkwStringShift.ParamsTypes
 
-type
- TkwStringFirstChar = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта string:[]
-*Тип результата:* Char
-*Пример:*
-[code]
-CHAR VAR l_Char
- aString string:[] >>> l_Char
-[code]  }
- private
- // private methods
-   function StringFirstChar(const aCtx: TtfwContext;
-    const aString: Il3CString): AnsiChar;
-     {* Реализация слова скрипта string:[] }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwStringFirstChar
-
-// start class TkwStringFirstChar
-
-function TkwStringFirstChar.StringFirstChar(const aCtx: TtfwContext;
-  const aString: Il3CString): AnsiChar;
+function TkwStringFirstChar.string_FirstChar(const aCtx: TtfwContext;
+ const aString: Il3CString): AnsiChar;
+ {* Реализация слова скрипта string:[] }
 //#UC START# *16E4F9B79ECC_4E9A5EC5FAC6_var*
 //#UC END# *16E4F9B79ECC_4E9A5EC5FAC6_var*
 begin
@@ -2665,15 +2598,13 @@ begin
  else
   Result := aString.AsWStr.S[0];
 //#UC END# *16E4F9B79ECC_4E9A5EC5FAC6_impl*
-end;//TkwStringFirstChar.StringFirstChar
+end;//TkwStringFirstChar.string_FirstChar
 
 procedure TkwStringFirstChar.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aString : Il3CString;
+var l_aString: Il3CString;
 begin
  try
-  l_aString := aCtx.rEngine.PopString;
+  l_aString := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2681,61 +2612,433 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushChar((StringFirstChar(aCtx, l_aString)));
+ aCtx.rEngine.PushChar(string_FirstChar(aCtx, l_aString));
 end;//TkwStringFirstChar.DoDoIt
 
 class function TkwStringFirstChar.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:[]';
 end;//TkwStringFirstChar.GetWordNameForRegister
 
 function TkwStringFirstChar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(AnsiChar);
 end;//TkwStringFirstChar.GetResultTypeInfo
 
 function TkwStringFirstChar.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwStringFirstChar.GetAllParamsCount
 
 function TkwStringFirstChar.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwStringFirstChar.ParamsTypes
 
-type
- TkwVarDecLen = {final scriptword} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:--Len!
-*Пример:*
-[code]
- string:--Len! aVar
-[code]  }
- private
- // private methods
-   procedure VarDecLen(const aCtx: TtfwContext;
-    aVar: TtfwWord);
-     {* Реализация слова скрипта string:--Len! }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwVarDecLen
+function TkwStringTrim.string_Trim(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:Trim }
+//#UC START# *62C91D29887A_95D9D233CD72_var*
+//#UC END# *62C91D29887A_95D9D233CD72_var*
+begin
+//#UC START# *62C91D29887A_95D9D233CD72_impl*
+ Result := TtfwCStringFactory.C(l3Trim(aString));
+//#UC END# *62C91D29887A_95D9D233CD72_impl*
+end;//TkwStringTrim.string_Trim
 
-// start class TkwVarDecLen
+procedure TkwStringTrim.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Trim(aCtx, l_aString));
+end;//TkwStringTrim.DoDoIt
+
+class function TkwStringTrim.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Trim';
+end;//TkwStringTrim.GetWordNameForRegister
+
+function TkwStringTrim.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringTrim.GetResultTypeInfo
+
+function TkwStringTrim.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringTrim.GetAllParamsCount
+
+function TkwStringTrim.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringTrim.ParamsTypes
+
+function TkwStringTrimLeft.string_TrimLeft(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:TrimLeft }
+//#UC START# *822EF8BD3C12_2D2FC66E49DD_var*
+//#UC END# *822EF8BD3C12_2D2FC66E49DD_var*
+begin
+//#UC START# *822EF8BD3C12_2D2FC66E49DD_impl*
+ Result := TtfwCStringFactory.C(l3LTrim(aString));
+//#UC END# *822EF8BD3C12_2D2FC66E49DD_impl*
+end;//TkwStringTrimLeft.string_TrimLeft
+
+procedure TkwStringTrimLeft.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_TrimLeft(aCtx, l_aString));
+end;//TkwStringTrimLeft.DoDoIt
+
+class function TkwStringTrimLeft.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:TrimLeft';
+end;//TkwStringTrimLeft.GetWordNameForRegister
+
+function TkwStringTrimLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringTrimLeft.GetResultTypeInfo
+
+function TkwStringTrimLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringTrimLeft.GetAllParamsCount
+
+function TkwStringTrimLeft.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringTrimLeft.ParamsTypes
+
+function TkwStringTrimRight.string_TrimRight(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:TrimRight }
+//#UC START# *357C9EA3B36D_807D7A8440DD_var*
+//#UC END# *357C9EA3B36D_807D7A8440DD_var*
+begin
+//#UC START# *357C9EA3B36D_807D7A8440DD_impl*
+ Result := TtfwCStringFactory.C(l3RTrim(aString, cc_WhiteSpace));
+//#UC END# *357C9EA3B36D_807D7A8440DD_impl*
+end;//TkwStringTrimRight.string_TrimRight
+
+procedure TkwStringTrimRight.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_TrimRight(aCtx, l_aString));
+end;//TkwStringTrimRight.DoDoIt
+
+class function TkwStringTrimRight.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:TrimRight';
+end;//TkwStringTrimRight.GetWordNameForRegister
+
+function TkwStringTrimRight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringTrimRight.GetResultTypeInfo
+
+function TkwStringTrimRight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringTrimRight.GetAllParamsCount
+
+function TkwStringTrimRight.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringTrimRight.ParamsTypes
+
+function TkwStringDeleteDoubleSpaces.string_DeleteDoubleSpaces(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:DeleteDoubleSpaces }
+//#UC START# *CDE072F795B4_D5F09D866A34_var*
+//#UC END# *CDE072F795B4_D5F09D866A34_var*
+begin
+//#UC START# *CDE072F795B4_D5F09D866A34_impl*
+ Result := TtfwCStringFactory.C(l3DeleteDoubleSpace(aString));
+//#UC END# *CDE072F795B4_D5F09D866A34_impl*
+end;//TkwStringDeleteDoubleSpaces.string_DeleteDoubleSpaces
+
+procedure TkwStringDeleteDoubleSpaces.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_DeleteDoubleSpaces(aCtx, l_aString));
+end;//TkwStringDeleteDoubleSpaces.DoDoIt
+
+class function TkwStringDeleteDoubleSpaces.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:DeleteDoubleSpaces';
+end;//TkwStringDeleteDoubleSpaces.GetWordNameForRegister
+
+function TkwStringDeleteDoubleSpaces.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringDeleteDoubleSpaces.GetResultTypeInfo
+
+function TkwStringDeleteDoubleSpaces.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringDeleteDoubleSpaces.GetAllParamsCount
+
+function TkwStringDeleteDoubleSpaces.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringDeleteDoubleSpaces.ParamsTypes
+
+function TkwStringDeleteDoubleChars.string_DeleteDoubleChars(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ const aChar: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:DeleteDoubleChars }
+//#UC START# *F02755D05DBC_30A1EAD7A5D9_var*
+//#UC END# *F02755D05DBC_30A1EAD7A5D9_var*
+begin
+//#UC START# *F02755D05DBC_30A1EAD7A5D9_impl*
+ Result := TtfwCStringFactory.C(l3DeleteSerias(aString, l3Char(aChar, 0))); 
+//#UC END# *F02755D05DBC_30A1EAD7A5D9_impl*
+end;//TkwStringDeleteDoubleChars.string_DeleteDoubleChars
+
+procedure TkwStringDeleteDoubleChars.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+var l_aChar: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aChar := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChar: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_DeleteDoubleChars(aCtx, l_aString, l_aChar));
+end;//TkwStringDeleteDoubleChars.DoDoIt
+
+class function TkwStringDeleteDoubleChars.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:DeleteDoubleChars';
+end;//TkwStringDeleteDoubleChars.GetWordNameForRegister
+
+function TkwStringDeleteDoubleChars.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringDeleteDoubleChars.GetResultTypeInfo
+
+function TkwStringDeleteDoubleChars.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwStringDeleteDoubleChars.GetAllParamsCount
+
+function TkwStringDeleteDoubleChars.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
+end;//TkwStringDeleteDoubleChars.ParamsTypes
+
+function TkwStringSubstring.string_Substring(const aCtx: TtfwContext;
+ const aString: Il3CString;
+ aPos: Integer;
+ aLength: Integer): Il3CString;
+ {* Реализация слова скрипта string:Substring }
+//#UC START# *05A68328CDCF_2E3FD122E430_var*
+//#UC END# *05A68328CDCF_2E3FD122E430_var*
+begin
+//#UC START# *05A68328CDCF_2E3FD122E430_impl*
+ Result := TtfwCStringFactory.C(l3Copy(aString, aPos, aLength));
+//#UC END# *05A68328CDCF_2E3FD122E430_impl*
+end;//TkwStringSubstring.string_Substring
+
+procedure TkwStringSubstring.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+var l_aPos: Integer;
+var l_aLength: Integer;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aPos := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPos: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aLength := aCtx.rEngine.PopInt;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLength: Integer : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Substring(aCtx, l_aString, l_aPos, l_aLength));
+end;//TkwStringSubstring.DoDoIt
+
+class function TkwStringSubstring.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Substring';
+end;//TkwStringSubstring.GetWordNameForRegister
+
+function TkwStringSubstring.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringSubstring.GetResultTypeInfo
+
+function TkwStringSubstring.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 3;
+end;//TkwStringSubstring.GetAllParamsCount
+
+function TkwStringSubstring.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, TypeInfo(Integer), TypeInfo(Integer)]);
+end;//TkwStringSubstring.ParamsTypes
+
+function TkwStringLower.string_Lower(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:Lower }
+//#UC START# *B1D7965F0E30_B79BEA825961_var*
+//#UC END# *B1D7965F0E30_B79BEA825961_var*
+begin
+//#UC START# *B1D7965F0E30_B79BEA825961_impl*
+ Result := l3Lower(aString);
+//#UC END# *B1D7965F0E30_B79BEA825961_impl*
+end;//TkwStringLower.string_Lower
+
+procedure TkwStringLower.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Lower(aCtx, l_aString));
+end;//TkwStringLower.DoDoIt
+
+class function TkwStringLower.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Lower';
+end;//TkwStringLower.GetWordNameForRegister
+
+function TkwStringLower.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringLower.GetResultTypeInfo
+
+function TkwStringLower.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringLower.GetAllParamsCount
+
+function TkwStringLower.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringLower.ParamsTypes
+
+function TkwStringUpper.string_Upper(const aCtx: TtfwContext;
+ const aString: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:Upper }
+//#UC START# *68E30DDD3D3E_8BA4B632B802_var*
+//#UC END# *68E30DDD3D3E_8BA4B632B802_var*
+begin
+//#UC START# *68E30DDD3D3E_8BA4B632B802_impl*
+ Result := l3Upper(aString);
+//#UC END# *68E30DDD3D3E_8BA4B632B802_impl*
+end;//TkwStringUpper.string_Upper
+
+procedure TkwStringUpper.DoDoIt(const aCtx: TtfwContext);
+var l_aString: Il3CString;
+begin
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushString(string_Upper(aCtx, l_aString));
+end;//TkwStringUpper.DoDoIt
+
+class function TkwStringUpper.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'string:Upper';
+end;//TkwStringUpper.GetWordNameForRegister
+
+function TkwStringUpper.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := @tfw_tiString;
+end;//TkwStringUpper.GetResultTypeInfo
+
+function TkwStringUpper.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 1;
+end;//TkwStringUpper.GetAllParamsCount
+
+function TkwStringUpper.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString]);
+end;//TkwStringUpper.ParamsTypes
 
 procedure TkwVarDecLen.VarDecLen(const aCtx: TtfwContext;
-  aVar: TtfwWord);
+ aVar: TtfwWord);
+ {* Реализация слова скрипта string:--Len! }
 //#UC START# *9CC163BCA241_5B249AD9723E_var*
 var
  l_P : Tl3PCharLen;
@@ -2750,21 +3053,17 @@ begin
 end;//TkwVarDecLen.VarDecLen
 
 class function TkwVarDecLen.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:--Len!';
 end;//TkwVarDecLen.GetWordNameForRegister
 
 function TkwVarDecLen.RightParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwVarDecLen.RightParamsCount
 
 procedure TkwVarDecLen.DoRun(const aCtx: TtfwContext);
- {-}
-var
- l_aVar : TtfwWord;
+var l_aVar: TtfwWord;
 begin
  try
   l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
@@ -2779,51 +3078,23 @@ begin
 end;//TkwVarDecLen.DoRun
 
 function TkwVarDecLen.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwVarDecLen.GetResultTypeInfo
 
 function TkwVarDecLen.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwVarDecLen.GetAllParamsCount
 
 function TkwVarDecLen.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
+ Result := OpenTypesToTypes([]);
 end;//TkwVarDecLen.ParamsTypes
 
-type
- TkwVarInc = {final scriptword} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:++!
-*Пример:*
-[code]
- string:++! aVar
-[code]  }
- private
- // private methods
-   procedure VarInc(const aCtx: TtfwContext;
-    aVar: TtfwWord);
-     {* Реализация слова скрипта string:++! }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwVarInc
-
-// start class TkwVarInc
-
 procedure TkwVarInc.VarInc(const aCtx: TtfwContext;
-  aVar: TtfwWord);
+ aVar: TtfwWord);
+ {* Реализация слова скрипта string:++! }
 //#UC START# *D3130F58366C_FF4D82AA3241_var*
 var
  l_P : Tl3PCharLen;
@@ -2837,21 +3108,17 @@ begin
 end;//TkwVarInc.VarInc
 
 class function TkwVarInc.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:++!';
 end;//TkwVarInc.GetWordNameForRegister
 
 function TkwVarInc.RightParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwVarInc.RightParamsCount
 
 procedure TkwVarInc.DoRun(const aCtx: TtfwContext);
- {-}
-var
- l_aVar : TtfwWord;
+var l_aVar: TtfwWord;
 begin
  try
   l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
@@ -2866,55 +3133,24 @@ begin
 end;//TkwVarInc.DoRun
 
 function TkwVarInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwVarInc.GetResultTypeInfo
 
 function TkwVarInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwVarInc.GetAllParamsCount
 
 function TkwVarInc.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
+ Result := OpenTypesToTypes([]);
 end;//TkwVarInc.ParamsTypes
 
-type
- TkwRSplitTo = {final scriptword} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:RSplitTo!
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aDelim string:RSplitTo! aVar >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function RSplitTo(const aCtx: TtfwContext;
-    aVar: TtfwWord;
-    const aDelim: Il3CString): Il3CString;
-     {* Реализация слова скрипта string:RSplitTo! }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwRSplitTo
-
-// start class TkwRSplitTo
-
 function TkwRSplitTo.RSplitTo(const aCtx: TtfwContext;
-  aVar: TtfwWord;
-  const aDelim: Il3CString): Il3CString;
+ aVar: TtfwWord;
+ const aDelim: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:RSplitTo! }
 //#UC START# *6BE7506C040A_D442EF995DFF_var*
 var
  l_V : Il3CString;
@@ -2959,22 +3195,18 @@ begin
 end;//TkwRSplitTo.RSplitTo
 
 class function TkwRSplitTo.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:RSplitTo!';
 end;//TkwRSplitTo.GetWordNameForRegister
 
 function TkwRSplitTo.RightParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwRSplitTo.RightParamsCount
 
 procedure TkwRSplitTo.DoRun(const aCtx: TtfwContext);
- {-}
-var
- l_aVar : TtfwWord;
- l_aDelim : Il3CString;
+var l_aVar: TtfwWord;
+var l_aDelim: Il3CString;
 begin
  try
   l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
@@ -2986,7 +3218,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aDelim := aCtx.rEngine.PopString;
+  l_aDelim := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -2994,57 +3226,28 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((RSplitTo(aCtx, l_aVar, l_aDelim)));
+ aCtx.rEngine.PushString(RSplitTo(aCtx, l_aVar, l_aDelim));
 end;//TkwRSplitTo.DoRun
 
 function TkwRSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwRSplitTo.GetResultTypeInfo
 
 function TkwRSplitTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwRSplitTo.GetAllParamsCount
 
 function TkwRSplitTo.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord), @tfw_tiString]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwRSplitTo.ParamsTypes
 
-type
- TkwVarShift = {final scriptword} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:+!
-*Пример:*
-[code]
- aNum string:+! aVar
-[code]  }
- private
- // private methods
-   procedure VarShift(const aCtx: TtfwContext;
-    aVar: TtfwWord;
-    aNum: Integer);
-     {* Реализация слова скрипта string:+! }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwVarShift
-
-// start class TkwVarShift
-
 procedure TkwVarShift.VarShift(const aCtx: TtfwContext;
-  aVar: TtfwWord;
-  aNum: Integer);
+ aVar: TtfwWord;
+ aNum: Integer);
+ {* Реализация слова скрипта string:+! }
 //#UC START# *9E35DCA8A090_E1736F173AD3_var*
 var
  l_P : Tl3PCharLen;
@@ -3058,22 +3261,18 @@ begin
 end;//TkwVarShift.VarShift
 
 class function TkwVarShift.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:+!';
 end;//TkwVarShift.GetWordNameForRegister
 
 function TkwVarShift.RightParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwVarShift.RightParamsCount
 
 procedure TkwVarShift.DoRun(const aCtx: TtfwContext);
- {-}
-var
- l_aVar : TtfwWord;
- l_aNum : Integer;
+var l_aVar: TtfwWord;
+var l_aNum: Integer;
 begin
  try
   l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
@@ -3097,55 +3296,24 @@ begin
 end;//TkwVarShift.DoRun
 
 function TkwVarShift.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwVarShift.GetResultTypeInfo
 
 function TkwVarShift.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwVarShift.GetAllParamsCount
 
 function TkwVarShift.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord), TypeInfo(Integer)]);
+ Result := OpenTypesToTypes([TypeInfo(Integer)]);
 end;//TkwVarShift.ParamsTypes
 
-type
- TkwSplitTo = {final scriptword} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:SplitTo!
-*Тип результата:* Il3CString
-*Пример:*
-[code]
-STRING VAR l_Il3CString
- aDelim string:SplitTo! aVar >>> l_Il3CString
-[code]  }
- private
- // private methods
-   function SplitTo(const aCtx: TtfwContext;
-    aVar: TtfwWord;
-    const aDelim: Il3CString): Il3CString;
-     {* Реализация слова скрипта string:SplitTo! }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwSplitTo
-
-// start class TkwSplitTo
-
 function TkwSplitTo.SplitTo(const aCtx: TtfwContext;
-  aVar: TtfwWord;
-  const aDelim: Il3CString): Il3CString;
+ aVar: TtfwWord;
+ const aDelim: Il3CString): Il3CString;
+ {* Реализация слова скрипта string:SplitTo! }
 //#UC START# *94300FB9FFA5_BF0C6B892128_var*
 var
  l_V : Il3CString;
@@ -3183,22 +3351,18 @@ begin
 end;//TkwSplitTo.SplitTo
 
 class function TkwSplitTo.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:SplitTo!';
 end;//TkwSplitTo.GetWordNameForRegister
 
 function TkwSplitTo.RightParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwSplitTo.RightParamsCount
 
 procedure TkwSplitTo.DoRun(const aCtx: TtfwContext);
- {-}
-var
- l_aVar : TtfwWord;
- l_aDelim : Il3CString;
+var l_aVar: TtfwWord;
+var l_aDelim: Il3CString;
 begin
  try
   l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
@@ -3210,7 +3374,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aDelim := aCtx.rEngine.PopString;
+  l_aDelim := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -3218,57 +3382,27 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((SplitTo(aCtx, l_aVar, l_aDelim)));
+ aCtx.rEngine.PushString(SplitTo(aCtx, l_aVar, l_aDelim));
 end;//TkwSplitTo.DoRun
 
 function TkwSplitTo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwSplitTo.GetResultTypeInfo
 
 function TkwSplitTo.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwSplitTo.GetAllParamsCount
 
 function TkwSplitTo.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord), @tfw_tiString]);
+ Result := OpenTypesToTypes([@tfw_tiString]);
 end;//TkwSplitTo.ParamsTypes
 
-type
- TkwVarPushCharAndInc = {final scriptword} class(TtfwWordWorkerEx)
-  {* Слово скрипта string:[]++!
-*Тип результата:* Char
-*Пример:*
-[code]
-CHAR VAR l_Char
- string:[]++! aVar >>> l_Char
-[code]  }
- private
- // private methods
-   function VarPushCharAndInc(const aCtx: TtfwContext;
-    aVar: TtfwWord): AnsiChar;
-     {* Реализация слова скрипта string:[]++! }
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function RightParamsCount(const aCtx: TtfwContext): Integer; override;
-   procedure DoRun(const aCtx: TtfwContext); override;
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwVarPushCharAndInc
-
-// start class TkwVarPushCharAndInc
-
 function TkwVarPushCharAndInc.VarPushCharAndInc(const aCtx: TtfwContext;
-  aVar: TtfwWord): AnsiChar;
+ aVar: TtfwWord): AnsiChar;
+ {* Реализация слова скрипта string:[]++! }
 //#UC START# *5123A135DDBC_6014F0D564E4_var*
 var
  l_P : Tl3PCharLen;
@@ -3283,21 +3417,17 @@ begin
 end;//TkwVarPushCharAndInc.VarPushCharAndInc
 
 class function TkwVarPushCharAndInc.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'string:[]++!';
 end;//TkwVarPushCharAndInc.GetWordNameForRegister
 
 function TkwVarPushCharAndInc.RightParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
  Result := 1;
 end;//TkwVarPushCharAndInc.RightParamsCount
 
 procedure TkwVarPushCharAndInc.DoRun(const aCtx: TtfwContext);
- {-}
-var
- l_aVar : TtfwWord;
+var l_aVar: TtfwWord;
 begin
  try
   l_aVar := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
@@ -3308,192 +3438,123 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushChar((VarPushCharAndInc(aCtx, l_aVar)));
+ aCtx.rEngine.PushChar(VarPushCharAndInc(aCtx, l_aVar));
 end;//TkwVarPushCharAndInc.DoRun
 
 function TkwVarPushCharAndInc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(AnsiChar);
 end;//TkwVarPushCharAndInc.GetResultTypeInfo
 
 function TkwVarPushCharAndInc.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwVarPushCharAndInc.GetAllParamsCount
 
 function TkwVarPushCharAndInc.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
+ Result := OpenTypesToTypes([]);
 end;//TkwVarPushCharAndInc.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TtfwIl3CStringPackResNameGetter.Register;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация StartsStr
+ {* Регистрация скриптованой аксиоматики }
  TkwStartsStr.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация StartsText
+ {* Регистрация StartsStr }
  TkwStartsText.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация EndsStr
+ {* Регистрация StartsText }
  TkwEndsStr.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация EndsText
+ {* Регистрация EndsStr }
  TkwEndsText.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация SameStr
+ {* Регистрация EndsText }
  TkwSameStr.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация SameText
+ {* Регистрация SameStr }
  TkwSameText.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация CompareStr
+ {* Регистрация SameText }
  TkwCompareStr.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация CompareText
+ {* Регистрация CompareStr }
  TkwCompareText.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация StrToInt
+ {* Регистрация CompareText }
  TkwStrToInt.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Cat
+ {* Регистрация StrToInt }
  TkwCat.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_ConsistsOf
+ {* Регистрация Cat }
  TkwStringConsistsOf.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_HasAnyOf
+ {* Регистрация string_ConsistsOf }
  TkwStringHasAnyOf.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_Pos
+ {* Регистрация string_HasAnyOf }
  TkwStringPos.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_PosEx
+ {* Регистрация string_Pos }
  TkwStringPosEx.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_Split
+ {* Регистрация string_PosEx }
  TkwStringSplit.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_Replace
+ {* Регистрация string_Split }
  TkwStringReplace.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_ReplaceFirst
+ {* Регистрация string_Replace }
  TkwStringReplaceFirst.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация text_Replace
+ {* Регистрация string_ReplaceFirst }
  TkwTextReplace.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация text_ReplaceFirst
+ {* Регистрация text_Replace }
  TkwTextReplaceFirst.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_Char
+ {* Регистрация text_ReplaceFirst }
  TkwStringChar.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_CodePage
+ {* Регистрация string_Char }
  TkwStringCodePage.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_Len
+ {* Регистрация string_CodePage }
  TkwStringLen.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_ToChar
+ {* Регистрация string_Len }
  TkwStringToChar.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация char_ToString
+ {* Регистрация string_ToChar }
  TkwCharToString.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация char_Dupe
+ {* Регистрация char_ToString }
  TkwCharDupe.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_Inc
+ {* Регистрация char_Dupe }
  TkwStringInc.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_Shift
+ {* Регистрация string_Inc }
  TkwStringShift.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация string_FirstChar
+ {* Регистрация string_Shift }
  TkwStringFirstChar.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация VarDecLen
+ {* Регистрация string_FirstChar }
+ TkwStringTrim.RegisterInEngine;
+ {* Регистрация string_Trim }
+ TkwStringTrimLeft.RegisterInEngine;
+ {* Регистрация string_TrimLeft }
+ TkwStringTrimRight.RegisterInEngine;
+ {* Регистрация string_TrimRight }
+ TkwStringDeleteDoubleSpaces.RegisterInEngine;
+ {* Регистрация string_DeleteDoubleSpaces }
+ TkwStringDeleteDoubleChars.RegisterInEngine;
+ {* Регистрация string_DeleteDoubleChars }
+ TkwStringSubstring.RegisterInEngine;
+ {* Регистрация string_Substring }
+ TkwStringLower.RegisterInEngine;
+ {* Регистрация string_Lower }
+ TkwStringUpper.RegisterInEngine;
+ {* Регистрация string_Upper }
  TkwVarDecLen.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация VarInc
+ {* Регистрация VarDecLen }
  TkwVarInc.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация RSplitTo
+ {* Регистрация VarInc }
  TkwRSplitTo.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация VarShift
+ {* Регистрация RSplitTo }
  TkwVarShift.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация SplitTo
+ {* Регистрация VarShift }
  TkwSplitTo.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация VarPushCharAndInc
+ {* Регистрация SplitTo }
  TkwVarPushCharAndInc.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация VarPushCharAndInc }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Il3CString
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа Il3CString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Char
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiChar));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwWord
+ {* Регистрация типа Char }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TtfwWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

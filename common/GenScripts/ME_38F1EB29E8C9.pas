@@ -301,12 +301,8 @@ begin
 end;//Tkw_Form_StyleEditorContainer.GetWordNameForRegister
 
 function Tkw_Form_StyleEditorContainer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D6AEB6164592_var*
-//#UC END# *4DDFD2EA0116_D6AEB6164592_var*
 begin
-//#UC START# *4DDFD2EA0116_D6AEB6164592_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D6AEB6164592_impl*
+ Result := 'StyleEditorContainerForm';
 end;//Tkw_Form_StyleEditorContainer.GetString
 
 class function Tkw_StyleEditorContainer_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -315,21 +311,14 @@ begin
 end;//Tkw_StyleEditorContainer_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_StyleEditorContainer_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AC437F22A7AC_var*
-//#UC END# *4DDFD2EA0116_AC437F22A7AC_var*
 begin
-//#UC START# *4DDFD2EA0116_AC437F22A7AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AC437F22A7AC_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_StyleEditorContainer_Control_BackgroundPanel.GetString
 
 class procedure Tkw_StyleEditorContainer_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_AC437F22A7AC_var*
-//#UC END# *52A086150180_AC437F22A7AC_var*
 begin
-//#UC START# *52A086150180_AC437F22A7AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_AC437F22A7AC_impl*
+ inherited;
+ TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_StyleEditorContainer_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -352,21 +341,14 @@ begin
 end;//Tkw_StyleEditorContainer_Control_MainZone.GetWordNameForRegister
 
 function Tkw_StyleEditorContainer_Control_MainZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F8174439ED60_var*
-//#UC END# *4DDFD2EA0116_F8174439ED60_var*
 begin
-//#UC START# *4DDFD2EA0116_F8174439ED60_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F8174439ED60_impl*
+ Result := 'MainZone';
 end;//Tkw_StyleEditorContainer_Control_MainZone.GetString
 
 class procedure Tkw_StyleEditorContainer_Control_MainZone.RegisterInEngine;
-//#UC START# *52A086150180_F8174439ED60_var*
-//#UC END# *52A086150180_F8174439ED60_var*
 begin
-//#UC START# *52A086150180_F8174439ED60_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F8174439ED60_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_StyleEditorContainer_Control_MainZone.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_MainZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -389,21 +371,14 @@ begin
 end;//Tkw_StyleEditorContainer_Control_ParentZone.GetWordNameForRegister
 
 function Tkw_StyleEditorContainer_Control_ParentZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F596DE2AED86_var*
-//#UC END# *4DDFD2EA0116_F596DE2AED86_var*
 begin
-//#UC START# *4DDFD2EA0116_F596DE2AED86_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F596DE2AED86_impl*
+ Result := 'ParentZone';
 end;//Tkw_StyleEditorContainer_Control_ParentZone.GetString
 
 class procedure Tkw_StyleEditorContainer_Control_ParentZone.RegisterInEngine;
-//#UC START# *52A086150180_F596DE2AED86_var*
-//#UC END# *52A086150180_F596DE2AED86_var*
 begin
-//#UC START# *52A086150180_F596DE2AED86_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F596DE2AED86_impl*
+ inherited;
+ TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_StyleEditorContainer_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -426,21 +401,14 @@ begin
 end;//Tkw_StyleEditorContainer_Control_ChildZone.GetWordNameForRegister
 
 function Tkw_StyleEditorContainer_Control_ChildZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CFE578562B89_var*
-//#UC END# *4DDFD2EA0116_CFE578562B89_var*
 begin
-//#UC START# *4DDFD2EA0116_CFE578562B89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CFE578562B89_impl*
+ Result := 'ChildZone';
 end;//Tkw_StyleEditorContainer_Control_ChildZone.GetString
 
 class procedure Tkw_StyleEditorContainer_Control_ChildZone.RegisterInEngine;
-//#UC START# *52A086150180_CFE578562B89_var*
-//#UC END# *52A086150180_CFE578562B89_var*
 begin
-//#UC START# *52A086150180_CFE578562B89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CFE578562B89_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_StyleEditorContainer_Control_ChildZone.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -463,21 +431,14 @@ begin
 end;//Tkw_StyleEditorContainer_Control_NavigatorZone.GetWordNameForRegister
 
 function Tkw_StyleEditorContainer_Control_NavigatorZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_660A29871516_var*
-//#UC END# *4DDFD2EA0116_660A29871516_var*
 begin
-//#UC START# *4DDFD2EA0116_660A29871516_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_660A29871516_impl*
+ Result := 'NavigatorZone';
 end;//Tkw_StyleEditorContainer_Control_NavigatorZone.GetString
 
 class procedure Tkw_StyleEditorContainer_Control_NavigatorZone.RegisterInEngine;
-//#UC START# *52A086150180_660A29871516_var*
-//#UC END# *52A086150180_660A29871516_var*
 begin
-//#UC START# *52A086150180_660A29871516_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_660A29871516_impl*
+ inherited;
+ TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_StyleEditorContainer_Control_NavigatorZone.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_NavigatorZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -497,21 +458,23 @@ end;//Tkw_StyleEditorContainer_Control_NavigatorZone_Push.GetWordNameForRegister
 function TkwStyleEditorContainerFormBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aStyleEditorContainerForm: TStyleEditorContainerForm): TvtProportionalPanel;
  {* Реализация слова скрипта .TStyleEditorContainerForm.BackgroundPanel }
-//#UC START# *0DF1BCF16B90_EBEA0AF6DB49_var*
-//#UC END# *0DF1BCF16B90_EBEA0AF6DB49_var*
 begin
-//#UC START# *0DF1BCF16B90_EBEA0AF6DB49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0DF1BCF16B90_EBEA0AF6DB49_impl*
+ Result := aStyleEditorContainerForm.BackgroundPanel;
 end;//TkwStyleEditorContainerFormBackgroundPanel.BackgroundPanel
 
 procedure TkwStyleEditorContainerFormBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EBEA0AF6DB49_var*
-//#UC END# *4DAEEDE10285_EBEA0AF6DB49_var*
+var l_aStyleEditorContainerForm: TStyleEditorContainerForm;
 begin
-//#UC START# *4DAEEDE10285_EBEA0AF6DB49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EBEA0AF6DB49_impl*
+ try
+  l_aStyleEditorContainerForm := TStyleEditorContainerForm(aCtx.rEngine.PopObjAs(TStyleEditorContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorContainerForm: TStyleEditorContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aStyleEditorContainerForm));
 end;//TkwStyleEditorContainerFormBackgroundPanel.DoDoIt
 
 class function TkwStyleEditorContainerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -521,12 +484,8 @@ end;//TkwStyleEditorContainerFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_EBEA0AF6DB49_var*
-//#UC END# *52D00B00031A_EBEA0AF6DB49_var*
 begin
-//#UC START# *52D00B00031A_EBEA0AF6DB49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_EBEA0AF6DB49_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwStyleEditorContainerFormBackgroundPanel.SetValuePrim
 
 function TkwStyleEditorContainerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -541,27 +500,29 @@ end;//TkwStyleEditorContainerFormBackgroundPanel.GetAllParamsCount
 
 function TkwStyleEditorContainerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorContainerForm)]);
 end;//TkwStyleEditorContainerFormBackgroundPanel.ParamsTypes
 
 function TkwStyleEditorContainerFormMainZone.MainZone(const aCtx: TtfwContext;
  aStyleEditorContainerForm: TStyleEditorContainerForm): TvtPanel;
  {* Реализация слова скрипта .TStyleEditorContainerForm.MainZone }
-//#UC START# *A3BD65DC9166_FAE31F4C0B42_var*
-//#UC END# *A3BD65DC9166_FAE31F4C0B42_var*
 begin
-//#UC START# *A3BD65DC9166_FAE31F4C0B42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A3BD65DC9166_FAE31F4C0B42_impl*
+ Result := aStyleEditorContainerForm.MainZone;
 end;//TkwStyleEditorContainerFormMainZone.MainZone
 
 procedure TkwStyleEditorContainerFormMainZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FAE31F4C0B42_var*
-//#UC END# *4DAEEDE10285_FAE31F4C0B42_var*
+var l_aStyleEditorContainerForm: TStyleEditorContainerForm;
 begin
-//#UC START# *4DAEEDE10285_FAE31F4C0B42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FAE31F4C0B42_impl*
+ try
+  l_aStyleEditorContainerForm := TStyleEditorContainerForm(aCtx.rEngine.PopObjAs(TStyleEditorContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorContainerForm: TStyleEditorContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MainZone(aCtx, l_aStyleEditorContainerForm));
 end;//TkwStyleEditorContainerFormMainZone.DoDoIt
 
 class function TkwStyleEditorContainerFormMainZone.GetWordNameForRegister: AnsiString;
@@ -571,12 +532,8 @@ end;//TkwStyleEditorContainerFormMainZone.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormMainZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FAE31F4C0B42_var*
-//#UC END# *52D00B00031A_FAE31F4C0B42_var*
 begin
-//#UC START# *52D00B00031A_FAE31F4C0B42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FAE31F4C0B42_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству MainZone', aCtx);
 end;//TkwStyleEditorContainerFormMainZone.SetValuePrim
 
 function TkwStyleEditorContainerFormMainZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -591,27 +548,29 @@ end;//TkwStyleEditorContainerFormMainZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormMainZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorContainerForm)]);
 end;//TkwStyleEditorContainerFormMainZone.ParamsTypes
 
 function TkwStyleEditorContainerFormParentZone.ParentZone(const aCtx: TtfwContext;
  aStyleEditorContainerForm: TStyleEditorContainerForm): TvtSizeablePanel;
  {* Реализация слова скрипта .TStyleEditorContainerForm.ParentZone }
-//#UC START# *91BA0AEC555C_489405F97345_var*
-//#UC END# *91BA0AEC555C_489405F97345_var*
 begin
-//#UC START# *91BA0AEC555C_489405F97345_impl*
- !!! Needs to be implemented !!!
-//#UC END# *91BA0AEC555C_489405F97345_impl*
+ Result := aStyleEditorContainerForm.ParentZone;
 end;//TkwStyleEditorContainerFormParentZone.ParentZone
 
 procedure TkwStyleEditorContainerFormParentZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_489405F97345_var*
-//#UC END# *4DAEEDE10285_489405F97345_var*
+var l_aStyleEditorContainerForm: TStyleEditorContainerForm;
 begin
-//#UC START# *4DAEEDE10285_489405F97345_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_489405F97345_impl*
+ try
+  l_aStyleEditorContainerForm := TStyleEditorContainerForm(aCtx.rEngine.PopObjAs(TStyleEditorContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorContainerForm: TStyleEditorContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZone(aCtx, l_aStyleEditorContainerForm));
 end;//TkwStyleEditorContainerFormParentZone.DoDoIt
 
 class function TkwStyleEditorContainerFormParentZone.GetWordNameForRegister: AnsiString;
@@ -621,12 +580,8 @@ end;//TkwStyleEditorContainerFormParentZone.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_489405F97345_var*
-//#UC END# *52D00B00031A_489405F97345_var*
 begin
-//#UC START# *52D00B00031A_489405F97345_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_489405F97345_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
 end;//TkwStyleEditorContainerFormParentZone.SetValuePrim
 
 function TkwStyleEditorContainerFormParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -641,27 +596,29 @@ end;//TkwStyleEditorContainerFormParentZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormParentZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorContainerForm)]);
 end;//TkwStyleEditorContainerFormParentZone.ParamsTypes
 
 function TkwStyleEditorContainerFormChildZone.ChildZone(const aCtx: TtfwContext;
  aStyleEditorContainerForm: TStyleEditorContainerForm): TvtPanel;
  {* Реализация слова скрипта .TStyleEditorContainerForm.ChildZone }
-//#UC START# *29B40E5B1C55_940A5D9F84B6_var*
-//#UC END# *29B40E5B1C55_940A5D9F84B6_var*
 begin
-//#UC START# *29B40E5B1C55_940A5D9F84B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *29B40E5B1C55_940A5D9F84B6_impl*
+ Result := aStyleEditorContainerForm.ChildZone;
 end;//TkwStyleEditorContainerFormChildZone.ChildZone
 
 procedure TkwStyleEditorContainerFormChildZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_940A5D9F84B6_var*
-//#UC END# *4DAEEDE10285_940A5D9F84B6_var*
+var l_aStyleEditorContainerForm: TStyleEditorContainerForm;
 begin
-//#UC START# *4DAEEDE10285_940A5D9F84B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_940A5D9F84B6_impl*
+ try
+  l_aStyleEditorContainerForm := TStyleEditorContainerForm(aCtx.rEngine.PopObjAs(TStyleEditorContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorContainerForm: TStyleEditorContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ChildZone(aCtx, l_aStyleEditorContainerForm));
 end;//TkwStyleEditorContainerFormChildZone.DoDoIt
 
 class function TkwStyleEditorContainerFormChildZone.GetWordNameForRegister: AnsiString;
@@ -671,12 +628,8 @@ end;//TkwStyleEditorContainerFormChildZone.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormChildZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_940A5D9F84B6_var*
-//#UC END# *52D00B00031A_940A5D9F84B6_var*
 begin
-//#UC START# *52D00B00031A_940A5D9F84B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_940A5D9F84B6_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ChildZone', aCtx);
 end;//TkwStyleEditorContainerFormChildZone.SetValuePrim
 
 function TkwStyleEditorContainerFormChildZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -691,27 +644,29 @@ end;//TkwStyleEditorContainerFormChildZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormChildZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorContainerForm)]);
 end;//TkwStyleEditorContainerFormChildZone.ParamsTypes
 
 function TkwStyleEditorContainerFormNavigatorZone.NavigatorZone(const aCtx: TtfwContext;
  aStyleEditorContainerForm: TStyleEditorContainerForm): TvtSizeablePanel;
  {* Реализация слова скрипта .TStyleEditorContainerForm.NavigatorZone }
-//#UC START# *2D2CF57B5DED_7EBE25C04E3C_var*
-//#UC END# *2D2CF57B5DED_7EBE25C04E3C_var*
 begin
-//#UC START# *2D2CF57B5DED_7EBE25C04E3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2D2CF57B5DED_7EBE25C04E3C_impl*
+ Result := aStyleEditorContainerForm.NavigatorZone;
 end;//TkwStyleEditorContainerFormNavigatorZone.NavigatorZone
 
 procedure TkwStyleEditorContainerFormNavigatorZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7EBE25C04E3C_var*
-//#UC END# *4DAEEDE10285_7EBE25C04E3C_var*
+var l_aStyleEditorContainerForm: TStyleEditorContainerForm;
 begin
-//#UC START# *4DAEEDE10285_7EBE25C04E3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7EBE25C04E3C_impl*
+ try
+  l_aStyleEditorContainerForm := TStyleEditorContainerForm(aCtx.rEngine.PopObjAs(TStyleEditorContainerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorContainerForm: TStyleEditorContainerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(NavigatorZone(aCtx, l_aStyleEditorContainerForm));
 end;//TkwStyleEditorContainerFormNavigatorZone.DoDoIt
 
 class function TkwStyleEditorContainerFormNavigatorZone.GetWordNameForRegister: AnsiString;
@@ -721,12 +676,8 @@ end;//TkwStyleEditorContainerFormNavigatorZone.GetWordNameForRegister
 
 procedure TkwStyleEditorContainerFormNavigatorZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7EBE25C04E3C_var*
-//#UC END# *52D00B00031A_7EBE25C04E3C_var*
 begin
-//#UC START# *52D00B00031A_7EBE25C04E3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7EBE25C04E3C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству NavigatorZone', aCtx);
 end;//TkwStyleEditorContainerFormNavigatorZone.SetValuePrim
 
 function TkwStyleEditorContainerFormNavigatorZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -741,7 +692,7 @@ end;//TkwStyleEditorContainerFormNavigatorZone.GetAllParamsCount
 
 function TkwStyleEditorContainerFormNavigatorZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorContainerForm)]);
 end;//TkwStyleEditorContainerFormNavigatorZone.ParamsTypes
 
 initialization

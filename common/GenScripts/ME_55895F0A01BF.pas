@@ -186,12 +186,8 @@ end;//TkwPopKeyWordSetWord.ParamsTypes
 function TkwPopKeyWordWord.Word(const aCtx: TtfwContext;
  aKeyWord: TtfwKeyWord): TtfwWord;
  {* Реализация слова скрипта pop:KeyWord:Word }
-//#UC START# *A55E297B02BE_909E3EF864CC_var*
-//#UC END# *A55E297B02BE_909E3EF864CC_var*
 begin
-//#UC START# *A55E297B02BE_909E3EF864CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A55E297B02BE_909E3EF864CC_impl*
+ Result := aKeyWord.Word;
 end;//TkwPopKeyWordWord.Word
 
 procedure TkwPopKeyWordWord.DoDoIt(const aCtx: TtfwContext);

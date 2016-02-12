@@ -540,6 +540,12 @@ type
    read Get_TextBase;
  end;//IdaDataProvider
 
+ IdaComboAccessDataProviderHelper = interface
+  ['{603EDD09-200D-48A3-A7AC-E58665C5439E}']
+  procedure RegisterFreeExtObjID(anID: TdaDocID);
+  procedure RegisterFreeExtDocID(anID: TdaDocID);
+ end;//IdaComboAccessDataProviderHelper
+
 function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }
 function L2daConditionIteratorIterateAction(anAction: pointer): daConditionIterator_Iterate_Action;

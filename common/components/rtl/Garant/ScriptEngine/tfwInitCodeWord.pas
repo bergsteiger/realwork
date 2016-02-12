@@ -20,7 +20,7 @@ uses
 
 type
  _tfwCodeCompiler_Parent_ = TtfwWord;
- {$Include tfwCodeCompiler.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas}
  TtfwInitCodeWord = class(_tfwCodeCompiler_)
   private
    f_Dictionary: TtfwDictionaryExPrim;
@@ -60,7 +60,7 @@ uses
  , SysUtils
 ;
 
-{$Include tfwCodeCompiler.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas}
 
 constructor TtfwInitCodeWord.Create(aDictionary: TtfwDictionaryExPrim);
 //#UC START# *55A7DB260310_55A7DA0200C0_var*

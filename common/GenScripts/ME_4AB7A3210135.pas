@@ -48,11 +48,11 @@ uses
 ;
 
 type
- {$Include BaseSearchPresentationFor296635421.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas}
  _vcmScrollableFormWithWheelSupport_Parent_ = _BaseSearchPresentationFor296635421_;
- {$Include vcmScrollableFormWithWheelSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
  _nscFormWithArrangeGrid_Parent_ = _vcmScrollableFormWithWheelSupport_;
- {$Include nscFormWithArrangeGrid.imp.pas}
+ {$Include w:\common\components\gui\Garant\Nemesis\nscFormWithArrangeGrid.imp.pas}
  TPrimBaseSearchCardForm = class(_nscFormWithArrangeGrid_, InsBaseSearchPresentation, InsWorkJournalListener, Il3WndProcRetListener, Il3Listener)
   {* Базовый поиск }
   private
@@ -201,11 +201,11 @@ const
 
 type _Instance_R_ = TPrimBaseSearchCardForm;
 
-{$Include BaseSearchPresentationFor296635421.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas}
 
-{$Include vcmScrollableFormWithWheelSupport.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
 
-{$Include nscFormWithArrangeGrid.imp.pas}
+{$Include w:\common\components\gui\Garant\Nemesis\nscFormWithArrangeGrid.imp.pas}
 
 procedure TPrimBaseSearchCardForm.LoadQueryHistory;
 //#UC START# *51237AB402B9_4AB7A3210135_var*

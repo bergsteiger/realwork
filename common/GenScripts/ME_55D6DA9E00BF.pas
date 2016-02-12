@@ -27,7 +27,7 @@ uses
 ;
 
 type
- TpgDataProvider = class(Tl3ProtoObject, IdaDataProvider)
+ TpgDataProvider = class(Tl3ProtoObject, IdaDataProvider, IdaComboAccessDataProviderHelper)
   private
    f_Params: TpgDataProviderParams;
    f_DataConverter: IpgDataConverter;
@@ -54,6 +54,7 @@ type
    f_MainFreeIDHelper: TpgFreeIDHelper;
    f_CurrentFreeIDHelper: TpgFreeIDHelper;
    f_FunctionFactory: TpgFunctionFactory;
+   f_SetGlobalDataProvider: Boolean;
   private
    procedure ReadIniFile;
    function RegionQuery: IdaTabledQuery;
@@ -104,15 +105,19 @@ type
    procedure BeginImpersonate(anUserID: TdaUserID);
    procedure EndImpersonate;
    function Get_UserManager: IdaUserManager;
+   procedure RegisterFreeExtObjID(anID: TdaDocID);
+   procedure RegisterFreeExtDocID(anID: TdaDocID);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
    constructor Create(aParams: TpgDataProviderParams;
     ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean); reintroduce;
+    AllowClearLocks: Boolean;
+    SetGlobalDataProvider: Boolean = True); reintroduce;
    class function Make(aParams: TpgDataProviderParams;
     ForCheckLogin: Boolean;
-    AllowClearLocks: Boolean): IdaDataProvider; reintroduce;
+    AllowClearLocks: Boolean;
+    SetGlobalDataProvider: Boolean = True): IdaDataProvider; reintroduce;
   private
    property FreeIDHelper[aFamilyID: TdaFamilyID]: TpgFreeIDHelper
     read pm_GetFreeIDHelper;
@@ -171,7 +176,8 @@ end;//TpgDataProvider.pm_GetFreeIDHelper
 
 constructor TpgDataProvider.Create(aParams: TpgDataProviderParams;
  ForCheckLogin: Boolean;
- AllowClearLocks: Boolean);
+ AllowClearLocks: Boolean;
+ SetGlobalDataProvider: Boolean = True);
 //#UC START# *55E00D5A0297_55D6DA9E00BF_var*
 //#UC END# *55E00D5A0297_55D6DA9E00BF_var*
 begin
@@ -191,11 +197,12 @@ end;//TpgDataProvider.Create
 
 class function TpgDataProvider.Make(aParams: TpgDataProviderParams;
  ForCheckLogin: Boolean;
- AllowClearLocks: Boolean): IdaDataProvider;
+ AllowClearLocks: Boolean;
+ SetGlobalDataProvider: Boolean = True): IdaDataProvider;
 var
  l_Inst : TpgDataProvider;
 begin
- l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks);
+ l_Inst := Create(aParams, ForCheckLogin, AllowClearLocks, SetGlobalDataProvider);
  try
   Result := l_Inst;
  finally
@@ -741,6 +748,26 @@ begin
  Result := f_UserManager;
 //#UC END# *5628D25600E6_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_UserManager
+
+procedure TpgDataProvider.RegisterFreeExtObjID(anID: TdaDocID);
+//#UC START# *56BC642200D0_55D6DA9E00BF_var*
+//#UC END# *56BC642200D0_55D6DA9E00BF_var*
+begin
+//#UC START# *56BC642200D0_55D6DA9E00BF_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *56BC642200D0_55D6DA9E00BF_impl*
+end;//TpgDataProvider.RegisterFreeExtObjID
+
+procedure TpgDataProvider.RegisterFreeExtDocID(anID: TdaDocID);
+//#UC START# *56BC6437030F_55D6DA9E00BF_var*
+//#UC END# *56BC6437030F_55D6DA9E00BF_var*
+begin
+//#UC START# *56BC6437030F_55D6DA9E00BF_impl*
+ Assert(False);
+//!! !!! Needs to be implemented !!!
+//#UC END# *56BC6437030F_55D6DA9E00BF_impl*
+end;//TpgDataProvider.RegisterFreeExtDocID
 
 procedure TpgDataProvider.Cleanup;
  {* Функция очистки полей объекта. }

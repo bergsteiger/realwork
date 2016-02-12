@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_ConfigurationList.GetWordNameForRegister
 
 function Tkw_Form_ConfigurationList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_36BF1866FE37_var*
-//#UC END# *4DDFD2EA0116_36BF1866FE37_var*
 begin
-//#UC START# *4DDFD2EA0116_36BF1866FE37_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_36BF1866FE37_impl*
+ Result := 'en_ConfigurationList';
 end;//Tkw_Form_ConfigurationList.GetString
 
 class function Tkw_ConfigurationList_Control_tvConfs.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_ConfigurationList_Control_tvConfs.GetWordNameForRegister
 
 function Tkw_ConfigurationList_Control_tvConfs.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C38331BD077F_var*
-//#UC END# *4DDFD2EA0116_C38331BD077F_var*
 begin
-//#UC START# *4DDFD2EA0116_C38331BD077F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C38331BD077F_impl*
+ Result := 'tvConfs';
 end;//Tkw_ConfigurationList_Control_tvConfs.GetString
 
 class procedure Tkw_ConfigurationList_Control_tvConfs.RegisterInEngine;
-//#UC START# *52A086150180_C38331BD077F_var*
-//#UC END# *52A086150180_C38331BD077F_var*
 begin
-//#UC START# *52A086150180_C38331BD077F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C38331BD077F_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_ConfigurationList_Control_tvConfs.RegisterInEngine
 
 procedure Tkw_ConfigurationList_Control_tvConfs_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_ConfigurationList_Control_tvConfs_Push.GetWordNameForRegister
 function TkwEnConfigurationListTvConfs.tvConfs(const aCtx: TtfwContext;
  aen_ConfigurationList: Ten_ConfigurationList): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .Ten_ConfigurationList.tvConfs }
-//#UC START# *B81DC20ABA44_05D945CE3B09_var*
-//#UC END# *B81DC20ABA44_05D945CE3B09_var*
 begin
-//#UC START# *B81DC20ABA44_05D945CE3B09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B81DC20ABA44_05D945CE3B09_impl*
+ Result := aen_ConfigurationList.tvConfs;
 end;//TkwEnConfigurationListTvConfs.tvConfs
 
 procedure TkwEnConfigurationListTvConfs.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_05D945CE3B09_var*
-//#UC END# *4DAEEDE10285_05D945CE3B09_var*
+var l_aen_ConfigurationList: Ten_ConfigurationList;
 begin
-//#UC START# *4DAEEDE10285_05D945CE3B09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_05D945CE3B09_impl*
+ try
+  l_aen_ConfigurationList := Ten_ConfigurationList(aCtx.rEngine.PopObjAs(Ten_ConfigurationList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_ConfigurationList: Ten_ConfigurationList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvConfs(aCtx, l_aen_ConfigurationList));
 end;//TkwEnConfigurationListTvConfs.DoDoIt
 
 class function TkwEnConfigurationListTvConfs.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEnConfigurationListTvConfs.GetWordNameForRegister
 
 procedure TkwEnConfigurationListTvConfs.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_05D945CE3B09_var*
-//#UC END# *52D00B00031A_05D945CE3B09_var*
 begin
-//#UC START# *52D00B00031A_05D945CE3B09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_05D945CE3B09_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству tvConfs', aCtx);
 end;//TkwEnConfigurationListTvConfs.SetValuePrim
 
 function TkwEnConfigurationListTvConfs.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEnConfigurationListTvConfs.GetAllParamsCount
 
 function TkwEnConfigurationListTvConfs.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_ConfigurationList)]);
 end;//TkwEnConfigurationListTvConfs.ParamsTypes
 
 initialization

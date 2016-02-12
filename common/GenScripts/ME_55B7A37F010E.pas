@@ -24,7 +24,7 @@ type
  _ItemType_ = RtfwAxiomaticsResNameGetter;
  _l3UnrefcountedList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UnrefcountedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
  TtfwAxiomaticsResNameGetterList = class(_l3UnrefcountedList_)
  end;//TtfwAxiomaticsResNameGetterList
 {$IfEnd} // NOT Defined(NoScripts)
@@ -53,7 +53,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TtfwAxiomaticsResNameGetterList;
 
-{$Include l3UnrefcountedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

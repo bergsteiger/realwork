@@ -1,45 +1,37 @@
 unit tfwFilteredArrayView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwFilteredArrayView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwFilteredArrayView
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwFilteredArrayView.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwLambdedArrayView,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwLambdedArrayView
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwFilterLambda = class(TtfwTwoLambdas)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
  end;//TtfwFilterLambda
 
  TtfwFilteredArrayView = class(TtfwLambdedArrayView)
- protected
- // realized methods
+  protected
    function TwoLabdasClass: RtfwTwoLambdas; override;
  end;//TtfwFilteredArrayView
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TtfwFilterLambda
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TtfwFilterLambda.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52EA87C200D8_var*
@@ -78,12 +70,9 @@ begin
 //#UC END# *52EA8EE702FA_52E6752A0047_impl*
 end;//TtfwFilteredArrayView.TwoLabdasClass
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwFilterLambda
  TtfwFilterLambda.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwFilterLambda }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

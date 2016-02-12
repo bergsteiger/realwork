@@ -190,7 +190,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(NodeToTest(aCtx, l_aGUITestRunner, l_aNode),ITest);
+ aCtx.rEngine.PushIntf(NodeToTest(aCtx, l_aGUITestRunner, l_aNode), TypeInfo(ITest));
 end;//TkwPopGUITestRunnerNodeToTest.DoDoIt
 
 class function TkwPopGUITestRunnerNodeToTest.GetWordNameForRegister: AnsiString;

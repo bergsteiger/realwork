@@ -24,7 +24,7 @@ uses
 
 type
  _l3CheckStamp_Parent_ = TTextEditorVisitor;
- {$Include l3CheckStamp.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas}
  TPreviewTestBefore235875079 = {abstract} class(_l3CheckStamp_, IafwPreviewPanel, InevShapesLogger, IafwPagesLogger)
   {* Тест построения Preview }
   private
@@ -115,7 +115,7 @@ uses
  , l3Base
 ;
 
-{$Include l3CheckStamp.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas}
 
 function TPreviewTestBefore235875079.PageFileName(aNumber: Integer;
  aWidthNumber: Integer;

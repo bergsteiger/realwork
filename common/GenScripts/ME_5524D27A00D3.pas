@@ -24,7 +24,7 @@ type
  _ItemType_ = IdaLongProcessSubscriber;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TdaLongProcessSubscriberList = class(_l3InterfacePtrList_)
   public
    function LongProcessNotify(aState: TdaProcessState): Boolean;
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TdaLongProcessSubscriberList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 function TdaLongProcessSubscriberList.LongProcessNotify(aState: TdaProcessState): Boolean;
 //#UC START# *565DA60503D9_5524D27A00D3_var*

@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _RegionableControl_Parent_ = _RegionableForm_Parent_;
- {$Include RegionableControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
  _RegionableForm_ = {abstract} class(_RegionableControl_)
   {* Форма с поддержкой региона }
  end;//_RegionableForm_
@@ -15,7 +15,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _RegionableControl_Parent_ = _RegionableForm_Parent_;
-{$Include RegionableControl.imp.pas}
+{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
 _RegionableForm_ = _RegionableControl_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -26,7 +26,7 @@ _RegionableForm_ = _RegionableControl_;
 {$Define RegionableForm_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include RegionableControl.imp.pas}
+{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 {$EndIf RegionableForm_imp_impl}

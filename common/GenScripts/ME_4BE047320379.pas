@@ -22,7 +22,7 @@ uses
 type
  _FormClass_ = TPrimTextLoadForm;
  _FormProducer_Parent_ = TVCMBaseTest;
- {$Include FormProducer.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
  TTextViaEditorProcessorPrim = {abstract} class(_FormProducer_)
   {* Обработчик текста через редактор }
   private
@@ -110,7 +110,7 @@ uses
  , Messages
 ;
 
-{$Include FormProducer.imp.pas}
+{$Include w:\common\components\gui\Garant\Daily\FormProducer.imp.pas}
 
 procedure TTextViaEditorProcessorPrim.Load(aForm: TPrimTextLoadForm;
  const aFileName: AnsiString;

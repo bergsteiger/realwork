@@ -2713,12 +2713,8 @@ end;//TkwPushWord.GetWordNameForRegister
 
 function TkwPushWord.SuppressNextImmediate(const aContext: TtfwContext;
  aWordNumber: Integer): TtfwSuppressNextImmediate;
-//#UC START# *4F3AB3B101FC_D110B4F78BD0_var*
-//#UC END# *4F3AB3B101FC_D110B4F78BD0_var*
 begin
-//#UC START# *4F3AB3B101FC_D110B4F78BD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F3AB3B101FC_D110B4F78BD0_impl*
+ Result := tfw_sniYes;
 end;//TkwPushWord.SuppressNextImmediate
 
 function TkwPushWord.RightParamsCount(const aCtx: TtfwContext): Integer;
@@ -4885,7 +4881,7 @@ end;//TkwCtxParser.Ctx_Parser
 
 procedure TkwCtxParser.DoDoIt(const aCtx: TtfwContext);
 begin
- aCtx.rEngine.PushIntf(Ctx_Parser(aCtx),ItfwParserEx);
+ aCtx.rEngine.PushIntf(Ctx_Parser(aCtx), TypeInfo(ItfwParserEx));
 end;//TkwCtxParser.DoDoIt
 
 class function TkwCtxParser.GetWordNameForRegister: AnsiString;
@@ -5069,7 +5065,7 @@ end;//TkwCtxScriptCaller.Ctx_ScriptCaller
 
 procedure TkwCtxScriptCaller.DoDoIt(const aCtx: TtfwContext);
 begin
- aCtx.rEngine.PushIntf(Ctx_ScriptCaller(aCtx),ItfwScriptCaller);
+ aCtx.rEngine.PushIntf(Ctx_ScriptCaller(aCtx), TypeInfo(ItfwScriptCaller));
 end;//TkwCtxScriptCaller.DoDoIt
 
 class function TkwCtxScriptCaller.GetWordNameForRegister: AnsiString;
@@ -5104,7 +5100,7 @@ end;//TkwCtxEngine.Ctx_Engine
 
 procedure TkwCtxEngine.DoDoIt(const aCtx: TtfwContext);
 begin
- aCtx.rEngine.PushIntf(Ctx_Engine(aCtx),ItfwScriptEngine);
+ aCtx.rEngine.PushIntf(Ctx_Engine(aCtx), TypeInfo(ItfwScriptEngine));
 end;//TkwCtxEngine.DoDoIt
 
 class function TkwCtxEngine.GetWordNameForRegister: AnsiString;
@@ -5139,7 +5135,7 @@ end;//TkwCtxStoredValuesStack.Ctx_StoredValuesStack
 
 procedure TkwCtxStoredValuesStack.DoDoIt(const aCtx: TtfwContext);
 begin
- aCtx.rEngine.PushIntf(Ctx_StoredValuesStack(aCtx),ItfwStoredValuesStack);
+ aCtx.rEngine.PushIntf(Ctx_StoredValuesStack(aCtx), TypeInfo(ItfwStoredValuesStack));
 end;//TkwCtxStoredValuesStack.DoDoIt
 
 class function TkwCtxStoredValuesStack.GetWordNameForRegister: AnsiString;

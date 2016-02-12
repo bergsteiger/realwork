@@ -24,7 +24,7 @@ type
  _ItemType_ = TddClientMessage;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddClientMessageSortableListPrim = class(_l3UncomparabeObjectRefList_)
  end;//TddClientMessageSortableListPrim
 {$IfEnd} // NOT Defined(Nemesis)
@@ -66,7 +66,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddClientMessageSortableListPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

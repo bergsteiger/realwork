@@ -21,7 +21,7 @@ type
  TdaDataProviderParamsClass = class of TdaDataProviderParams;
 
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TdaDataProviderParams = class(_evdTagHolder_)
   private
    f_UserID: TdaUserID;
@@ -101,7 +101,7 @@ uses
  , k2DocumentBuffer
 ;
 
-{$Include evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TdaDataProviderParams.pm_GetFullHomeDirPath: AnsiString;
 //#UC START# *55C1ECC40309_54F9A60200A8get_var*

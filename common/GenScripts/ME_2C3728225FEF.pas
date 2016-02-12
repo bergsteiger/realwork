@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_StyleEditorNavigator.GetWordNameForRegister
 
 function Tkw_Form_StyleEditorNavigator.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1993BF6BB475_var*
-//#UC END# *4DDFD2EA0116_1993BF6BB475_var*
 begin
-//#UC START# *4DDFD2EA0116_1993BF6BB475_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1993BF6BB475_impl*
+ Result := 'StyleEditorNavigatorForm';
 end;//Tkw_Form_StyleEditorNavigator.GetString
 
 class function Tkw_StyleEditorNavigator_Control_StyleTreeView.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_StyleEditorNavigator_Control_StyleTreeView.GetWordNameForRegister
 
 function Tkw_StyleEditorNavigator_Control_StyleTreeView.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A9C93D97DF1B_var*
-//#UC END# *4DDFD2EA0116_A9C93D97DF1B_var*
 begin
-//#UC START# *4DDFD2EA0116_A9C93D97DF1B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A9C93D97DF1B_impl*
+ Result := 'StyleTreeView';
 end;//Tkw_StyleEditorNavigator_Control_StyleTreeView.GetString
 
 class procedure Tkw_StyleEditorNavigator_Control_StyleTreeView.RegisterInEngine;
-//#UC START# *52A086150180_A9C93D97DF1B_var*
-//#UC END# *52A086150180_A9C93D97DF1B_var*
 begin
-//#UC START# *52A086150180_A9C93D97DF1B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_A9C93D97DF1B_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_StyleEditorNavigator_Control_StyleTreeView.RegisterInEngine
 
 procedure Tkw_StyleEditorNavigator_Control_StyleTreeView_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_StyleEditorNavigator_Control_StyleTreeView_Push.GetWordNameForRegister
 function TkwStyleEditorNavigatorFormStyleTreeView.StyleTreeView(const aCtx: TtfwContext;
  aStyleEditorNavigatorForm: TStyleEditorNavigatorForm): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TStyleEditorNavigatorForm.StyleTreeView }
-//#UC START# *35E131A62931_B10F98691ABD_var*
-//#UC END# *35E131A62931_B10F98691ABD_var*
 begin
-//#UC START# *35E131A62931_B10F98691ABD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *35E131A62931_B10F98691ABD_impl*
+ Result := aStyleEditorNavigatorForm.StyleTreeView;
 end;//TkwStyleEditorNavigatorFormStyleTreeView.StyleTreeView
 
 procedure TkwStyleEditorNavigatorFormStyleTreeView.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B10F98691ABD_var*
-//#UC END# *4DAEEDE10285_B10F98691ABD_var*
+var l_aStyleEditorNavigatorForm: TStyleEditorNavigatorForm;
 begin
-//#UC START# *4DAEEDE10285_B10F98691ABD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B10F98691ABD_impl*
+ try
+  l_aStyleEditorNavigatorForm := TStyleEditorNavigatorForm(aCtx.rEngine.PopObjAs(TStyleEditorNavigatorForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aStyleEditorNavigatorForm: TStyleEditorNavigatorForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(StyleTreeView(aCtx, l_aStyleEditorNavigatorForm));
 end;//TkwStyleEditorNavigatorFormStyleTreeView.DoDoIt
 
 class function TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwStyleEditorNavigatorFormStyleTreeView.GetWordNameForRegister
 
 procedure TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B10F98691ABD_var*
-//#UC END# *52D00B00031A_B10F98691ABD_var*
 begin
-//#UC START# *52D00B00031A_B10F98691ABD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B10F98691ABD_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству StyleTreeView', aCtx);
 end;//TkwStyleEditorNavigatorFormStyleTreeView.SetValuePrim
 
 function TkwStyleEditorNavigatorFormStyleTreeView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwStyleEditorNavigatorFormStyleTreeView.GetAllParamsCount
 
 function TkwStyleEditorNavigatorFormStyleTreeView.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TStyleEditorNavigatorForm)]);
 end;//TkwStyleEditorNavigatorFormStyleTreeView.ParamsTypes
 
 initialization

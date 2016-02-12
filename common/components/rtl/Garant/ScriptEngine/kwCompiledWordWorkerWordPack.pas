@@ -55,12 +55,8 @@ OBJECT VAR l_TtfwWord
 function TkwPopCompiledWordWorkerWordCompiled.Compiled(const aCtx: TtfwContext;
  aCompiledWordWorkerWord: TkwCompiledWordWorkerWord): TtfwWord;
  {* Реализация слова скрипта pop:CompiledWordWorkerWord:Compiled }
-//#UC START# *E207F0F6327C_9E9D700614C3_var*
-//#UC END# *E207F0F6327C_9E9D700614C3_var*
 begin
-//#UC START# *E207F0F6327C_9E9D700614C3_impl*
  Result := aCompiledWordWorkerWord.Compiled;
-//#UC END# *E207F0F6327C_9E9D700614C3_impl*
 end;//TkwPopCompiledWordWorkerWordCompiled.Compiled
 
 procedure TkwPopCompiledWordWorkerWordCompiled.DoDoIt(const aCtx: TtfwContext);

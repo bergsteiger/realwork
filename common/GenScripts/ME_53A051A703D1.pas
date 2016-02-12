@@ -41,9 +41,9 @@ type
  *)
 
  _l3CriticalSectionHolder_Parent_ = TalcuTaskListBasePrim;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  _l3ChangingWithLock_Parent_ = _l3CriticalSectionHolder_;
- {$Include l3ChangingWithLock.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ChangingWithLock.imp.pas}
  TalcuTaskListBase = class(_l3ChangingWithLock_)
   private
    f_Items: TalcuTaskListPrim;
@@ -105,9 +105,9 @@ asm
  jmp l3LocalStub
 end;//L2alcuTasksIteratorForOneByIDFAction
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
-{$Include l3ChangingWithLock.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ChangingWithLock.imp.pas}
 
 function TalcuTaskListBase.pm_GetCount: Integer;
 //#UC START# *53A064490063_53A038090050get_var*

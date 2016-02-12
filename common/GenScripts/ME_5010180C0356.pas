@@ -48,7 +48,7 @@ uses
 
 type
  _SetType_ = IsdsDocument;
- {$Include sdsDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
  TsdsDocument = class(_sdsDocument_)
   {* Контроллер прецедента "Просмотр документа" }
  end;//TsdsDocument
@@ -131,7 +131,7 @@ uses
 
 type _Instance_R_ = TsdsDocument;
 
-{$Include sdsDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

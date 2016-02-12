@@ -1,116 +1,68 @@
 unit tfwSliceView;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Axiomatics"
-// Модуль: "tfwSliceView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi Low Level::ScriptEngine$Axiomatics::ArrayProcessing::TtfwSliceView
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwSliceView.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwCompiledWordWorker,
-  tfwValueList,
-  tfwArrayView,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwArrayView
+ , tfwScriptingInterfaces
+ , kwCompiledWordWorker
+ , tfwValueList
+;
 
-{$If not defined(NoScripts)}
 type
  TtfwSliceLambda = class(TkwCompiledWordWorker)
- private
- // private fields
-   f_Count : Integer;
-   f_Values : TtfwValueList;
- protected
- // realized methods
+  private
+   f_Count: Integer;
+   f_Values: TtfwValueList;
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-  {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-  {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(aCount: Integer;
-     aWord: TtfwWord;
-     const aCtx: TtfwContext); reintroduce;
+    aWord: TtfwWord;
+    const aCtx: TtfwContext); reintroduce;
  end;//TtfwSliceLambda
 
  TtfwSliceView = class(TtfwArrayView)
- private
- // private fields
-   f_Count : Integer;
- protected
- // overridden protected methods
+  private
+   f_Count: Integer;
+  protected
    function GetItemsCountInSlice: Integer; override;
- public
- // overridden public methods
-   procedure DoForEach(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext); override;
-   procedure DoForEachBack(aLambda: TtfwWordPrim;
-     const aCtx: TtfwContext); override;
- public
- // public methods
+  public
    constructor Create(const anOther: ItfwValueList;
-     aCount: Integer); reintroduce;
+    aCount: Integer); reintroduce;
    class function Make(const anOther: ItfwValueList;
-     aCount: Integer): ItfwValueList; reintroduce;
-     {* Сигнатура фабрики TtfwSliceView.Make }
+    aCount: Integer): ItfwValueList; reintroduce;
+   procedure DoForEach(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext); override;
+   procedure DoForEachBack(aLambda: TtfwWordPrim;
+    const aCtx: TtfwContext); override;
  end;//TtfwSliceView
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TtfwSliceView
-
-constructor TtfwSliceView.Create(const anOther: ItfwValueList;
-  aCount: Integer);
-//#UC START# *55E590D1008A_55E5904F02A5_var*
-//#UC END# *55E590D1008A_55E5904F02A5_var*
-begin
-//#UC START# *55E590D1008A_55E5904F02A5_impl*
- inherited Create(anOther);
- f_Count := aCount;
-//#UC END# *55E590D1008A_55E5904F02A5_impl*
-end;//TtfwSliceView.Create
-
-class function TtfwSliceView.Make(const anOther: ItfwValueList;
-  aCount: Integer): ItfwValueList;
-var
- l_Inst : TtfwSliceView;
-begin
- l_Inst := Create(anOther, aCount);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;
-// start class TtfwSliceLambda
+ l3ImplUses
+ , SysUtils
+;
 
 constructor TtfwSliceLambda.Create(aCount: Integer;
-  aWord: TtfwWord;
-  const aCtx: TtfwContext);
+ aWord: TtfwWord;
+ const aCtx: TtfwContext);
 //#UC START# *55E591790250_55E59111027A_var*
 //#UC END# *55E591790250_55E59111027A_var*
 begin
@@ -147,6 +99,7 @@ begin
 end;//TtfwSliceLambda.DoDoIt
 
 procedure TtfwSliceLambda.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_55E59111027A_var*
 //#UC END# *479731C50290_55E59111027A_var*
 begin
@@ -156,8 +109,9 @@ begin
 //#UC END# *479731C50290_55E59111027A_impl*
 end;//TtfwSliceLambda.Cleanup
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function TtfwSliceLambda.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_55E59111027A_var*
 //#UC END# *47A6FEE600FC_55E59111027A_var*
 begin
@@ -165,10 +119,34 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_55E59111027A_impl*
 end;//TtfwSliceLambda.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
+
+constructor TtfwSliceView.Create(const anOther: ItfwValueList;
+ aCount: Integer);
+//#UC START# *55E590D1008A_55E5904F02A5_var*
+//#UC END# *55E590D1008A_55E5904F02A5_var*
+begin
+//#UC START# *55E590D1008A_55E5904F02A5_impl*
+ inherited Create(anOther);
+ f_Count := aCount;
+//#UC END# *55E590D1008A_55E5904F02A5_impl*
+end;//TtfwSliceView.Create
+
+class function TtfwSliceView.Make(const anOther: ItfwValueList;
+ aCount: Integer): ItfwValueList;
+var
+ l_Inst : TtfwSliceView;
+begin
+ l_Inst := Create(anOther, aCount);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TtfwSliceView.Make
 
 procedure TtfwSliceView.DoForEach(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E666E80335_55E5904F02A5_var*
 var
  l_Lambda : TtfwSliceLambda;
@@ -185,7 +163,7 @@ begin
 end;//TtfwSliceView.DoForEach
 
 procedure TtfwSliceView.DoForEachBack(aLambda: TtfwWordPrim;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E666F6036E_55E5904F02A5_var*
 var
  l_Lambda : TtfwSliceLambda;
@@ -210,12 +188,9 @@ begin
 //#UC END# *55E84F5F00ED_55E5904F02A5_impl*
 end;//TtfwSliceView.GetItemsCountInSlice
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TtfwSliceLambda
  TtfwSliceLambda.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TtfwSliceLambda }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

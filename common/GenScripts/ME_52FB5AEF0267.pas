@@ -26,7 +26,7 @@ type
  _ItemType_ = TddTaskItem;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddTaskItemList = class(_l3UncomparabeObjectRefList_)
   protected
    procedure InitFields; override;
@@ -71,7 +71,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddTaskItemList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 procedure TddTaskItemList.InitFields;
 //#UC START# *47A042E100E2_52FB5AEF0267_var*

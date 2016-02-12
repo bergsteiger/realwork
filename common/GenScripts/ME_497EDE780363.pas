@@ -86,15 +86,15 @@ type
    class function Make(aFrame: Integer): InsDocumentWithFlashState; reintroduce;
  end;//TnsDocumentWithFlashState
 
- {$Include BaseDocumentForDocumentModule.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
  _CommonForTextAndFlashOperations_Parent_ = _BaseDocumentForDocumentModule_;
- {$Include CommonForTextAndFlashOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}
  _DocumentWithFlashUserTypes_Parent_ = _CommonForTextAndFlashOperations_;
- {$Include DocumentWithFlashUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _DocumentWithFlashUserTypes_;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  _PrintableFlashWithInfo_Parent_ = _vcmChromeLikeTabIconUpdater_;
- {$Include PrintableFlashWithInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlashWithInfo.imp.pas}
  TPrimDocumentWithFlashForm = class(_PrintableFlashWithInfo_, Il3TabbedContainersListener)
   {* Документ-схема }
   private
@@ -373,15 +373,15 @@ end;//TnsDocumentWithFlashState.pm_GetFrame
 
 type _Instance_R_ = TPrimDocumentWithFlashForm;
 
-{$Include BaseDocumentForDocumentModule.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseDocumentForDocumentModule.imp.pas}
 
-{$Include CommonForTextAndFlashOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}
 
-{$Include DocumentWithFlashUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes.imp.pas}
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
-{$Include PrintableFlashWithInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Printing\PrintableFlashWithInfo.imp.pas}
 
 function TPrimDocumentWithFlashForm.pm_GetDocument: IDocument;
 //#UC START# *4988194E02F8_497EDE780363get_var*

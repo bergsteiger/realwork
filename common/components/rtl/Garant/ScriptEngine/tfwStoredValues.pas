@@ -24,7 +24,7 @@ type
  _ItemType_ = TtfwStoredValue;
  _l3RecordListPrimPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrimPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrimPrim.imp.pas}
  TtfwStoredValues = class(_l3RecordListPrimPrim_, ItfwStoredValues)
   protected
    procedure Restore(const aCtx: TtfwContext);
@@ -119,7 +119,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TtfwStoredValues;
 
-{$Include l3RecordListPrimPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrimPrim.imp.pas}
 
 constructor TtfwStoredValues.Create;
 //#UC START# *4F4947D50241_4F49408A03C0_var*

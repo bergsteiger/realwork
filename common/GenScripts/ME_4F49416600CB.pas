@@ -25,7 +25,7 @@ type
  _ItemType_ = ItfwStoredValues;
  _l3InterfaceRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  TtfwStoredValuesStack = class(_l3InterfaceRefListPrim_, ItfwStoredValuesStack)
   protected
    function pm_GetCount: Integer;
@@ -56,14 +56,14 @@ uses
 ;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
- const aFrom: _ItemType_); forward;
+procedure AssignItem(const aTo: ItfwStoredValues;
+ const aFrom: ItfwStoredValues); forward;
 {$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
 {$If NOT Defined(l3Items_IsAtomic)}
-function IsSameItems(const A: _ItemType_;
- const B: _ItemType_): Boolean;
+function IsSameItems(const A: ItfwStoredValues;
+ const B: ItfwStoredValues): Boolean;
  {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_4F49416600CB_var*
 //#UC END# *47B07CF403D0_4F49416600CB_var*
@@ -76,8 +76,8 @@ end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
- const aFrom: _ItemType_);
+procedure AssignItem(const aTo: ItfwStoredValues;
+ const aFrom: ItfwStoredValues);
 //#UC START# *47B2C42A0163_4F49416600CB_var*
 //#UC END# *47B2C42A0163_4F49416600CB_var*
 begin
@@ -100,7 +100,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TtfwStoredValuesStack;
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 constructor TtfwStoredValuesStack.Create;
 //#UC START# *4F49438E0354_4F49416600CB_var*

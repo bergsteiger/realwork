@@ -6,7 +6,7 @@
 {$Define ucpHAFMacroReplacerFactory_imp}
 
  _deDocInfoProvider_Parent_ = _ucpHAFMacroReplacerFactory_Parent_;
- {$Include deDocInfoProvider.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\deDocInfoProvider.imp.pas}
  _ucpHAFMacroReplacerFactory_ = class(_deDocInfoProvider_{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  , IucpHAFMacroReplacerFactory
  {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -23,7 +23,7 @@
 
 {$Define ucpHAFMacroReplacerFactory_imp_impl}
 
-{$Include deDocInfoProvider.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\deDocInfoProvider.imp.pas}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 function _ucpHAFMacroReplacerFactory_.MakeHAFMacroReplacer: IafwHAFMacroReplacer;

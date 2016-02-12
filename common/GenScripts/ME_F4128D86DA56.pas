@@ -74,12 +74,8 @@ begin
 end;//Tkw_Form_UnderControl.GetWordNameForRegister
 
 function Tkw_Form_UnderControl.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FB556AE39FAA_var*
-//#UC END# *4DDFD2EA0116_FB556AE39FAA_var*
 begin
-//#UC START# *4DDFD2EA0116_FB556AE39FAA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FB556AE39FAA_impl*
+ Result := 'enUnderControl';
 end;//Tkw_Form_UnderControl.GetString
 
 class function Tkw_UnderControl_Control_UnderControlList.GetWordNameForRegister: AnsiString;
@@ -88,21 +84,14 @@ begin
 end;//Tkw_UnderControl_Control_UnderControlList.GetWordNameForRegister
 
 function Tkw_UnderControl_Control_UnderControlList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1B916B997821_var*
-//#UC END# *4DDFD2EA0116_1B916B997821_var*
 begin
-//#UC START# *4DDFD2EA0116_1B916B997821_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1B916B997821_impl*
+ Result := 'UnderControlList';
 end;//Tkw_UnderControl_Control_UnderControlList.GetString
 
 class procedure Tkw_UnderControl_Control_UnderControlList.RegisterInEngine;
-//#UC START# *52A086150180_1B916B997821_var*
-//#UC END# *52A086150180_1B916B997821_var*
 begin
-//#UC START# *52A086150180_1B916B997821_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1B916B997821_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_UnderControl_Control_UnderControlList.RegisterInEngine
 
 procedure Tkw_UnderControl_Control_UnderControlList_Push.DoDoIt(const aCtx: TtfwContext);

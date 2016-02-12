@@ -48,7 +48,7 @@ type
  _ItemType_ = TalcuTaskExecutionCounter;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TalcuTaskExecutingList = class(_l3UncomparabeObjectRefList_)
  end;//TalcuTaskExecutingList
 {$IfEnd} // Defined(AppServerSide)
@@ -114,7 +114,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TalcuTaskExecutingList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // Defined(AppServerSide)
 
 end.

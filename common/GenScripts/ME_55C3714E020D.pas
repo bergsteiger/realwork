@@ -233,12 +233,8 @@ function TkwPopValueTypesCompare.Compare(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
  anOther: TtfwValueTypes): Integer;
  {* Реализация слова скрипта pop:ValueTypes:Compare }
-//#UC START# *C636771AEA7F_B6B378D787FB_var*
-//#UC END# *C636771AEA7F_B6B378D787FB_var*
 begin
-//#UC START# *C636771AEA7F_B6B378D787FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C636771AEA7F_B6B378D787FB_impl*
+ Result := aValueTypes.Compare(anOther);
 end;//TkwPopValueTypesCompare.Compare
 
 procedure TkwPopValueTypesCompare.DoDoIt(const aCtx: TtfwContext);
@@ -290,12 +286,8 @@ function TkwPopValueTypesAcceptsValue.AcceptsValue(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
  const aValue: TtfwStackValue): Boolean;
  {* Реализация слова скрипта pop:ValueTypes:AcceptsValue }
-//#UC START# *5536E76EB9C0_677C9B87E711_var*
-//#UC END# *5536E76EB9C0_677C9B87E711_var*
 begin
-//#UC START# *5536E76EB9C0_677C9B87E711_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5536E76EB9C0_677C9B87E711_impl*
+ Result := aValueTypes.AcceptsValue(aValue);
 end;//TkwPopValueTypesAcceptsValue.AcceptsValue
 
 procedure TkwPopValueTypesAcceptsValue.DoDoIt(const aCtx: TtfwContext);
@@ -347,12 +339,8 @@ function TkwPopValueTypesAdd.Add(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
  anOther: TtfwValueTypes): TtfwValueTypes;
  {* Реализация слова скрипта pop:ValueTypes:Add }
-//#UC START# *A69F1372BCB3_8B6319E2FC07_var*
-//#UC END# *A69F1372BCB3_8B6319E2FC07_var*
 begin
-//#UC START# *A69F1372BCB3_8B6319E2FC07_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A69F1372BCB3_8B6319E2FC07_impl*
+ Result := aValueTypes.Add(anOther);
 end;//TkwPopValueTypesAdd.Add
 
 procedure TkwPopValueTypesAdd.DoDoIt(const aCtx: TtfwContext);
@@ -404,12 +392,8 @@ function TkwPopValueTypesHas.Has(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
  aType: TtfwValueType): Boolean;
  {* Реализация слова скрипта pop:ValueTypes:Has }
-//#UC START# *C742B74FA29A_1C691DB5ECAC_var*
-//#UC END# *C742B74FA29A_1C691DB5ECAC_var*
 begin
-//#UC START# *C742B74FA29A_1C691DB5ECAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C742B74FA29A_1C691DB5ECAC_impl*
+ Result := aValueTypes.Has(aType);
 end;//TkwPopValueTypesHas.Has
 
 procedure TkwPopValueTypesHas.DoDoIt(const aCtx: TtfwContext);
@@ -461,12 +445,8 @@ function TkwPopValueTypesEQ.EQ(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes;
  anOther: TtfwValueTypes): Boolean;
  {* Реализация слова скрипта pop:ValueTypes:EQ }
-//#UC START# *3652BF1196D7_B4D5F2A5070B_var*
-//#UC END# *3652BF1196D7_B4D5F2A5070B_var*
 begin
-//#UC START# *3652BF1196D7_B4D5F2A5070B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3652BF1196D7_B4D5F2A5070B_impl*
+ Result := aValueTypes.EQ(anOther);
 end;//TkwPopValueTypesEQ.EQ
 
 procedure TkwPopValueTypesEQ.DoDoIt(const aCtx: TtfwContext);
@@ -517,12 +497,8 @@ end;//TkwPopValueTypesEQ.ParamsTypes
 function TkwPopValueTypesDefaultValue.DefaultValue(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes): TtfwStackValue;
  {* Реализация слова скрипта pop:ValueTypes:DefaultValue }
-//#UC START# *094C61557ACA_4F7AC71868E2_var*
-//#UC END# *094C61557ACA_4F7AC71868E2_var*
 begin
-//#UC START# *094C61557ACA_4F7AC71868E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *094C61557ACA_4F7AC71868E2_impl*
+ Result := aValueTypes.DefaultValue;
 end;//TkwPopValueTypesDefaultValue.DefaultValue
 
 procedure TkwPopValueTypesDefaultValue.DoDoIt(const aCtx: TtfwContext);
@@ -677,12 +653,8 @@ end;//TkwPopValueTypesAccepts.ParamsTypes
 function TkwPopValueTypesName.Name(const aCtx: TtfwContext;
  aValueTypes: TtfwValueTypes): Il3CString;
  {* Реализация слова скрипта pop:ValueTypes:Name }
-//#UC START# *A5FB98932E66_0180EF65E172_var*
-//#UC END# *A5FB98932E66_0180EF65E172_var*
 begin
-//#UC START# *A5FB98932E66_0180EF65E172_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A5FB98932E66_0180EF65E172_impl*
+ Result := aValueTypes.Name;
 end;//TkwPopValueTypesName.Name
 
 procedure TkwPopValueTypesName.DoDoIt(const aCtx: TtfwContext);

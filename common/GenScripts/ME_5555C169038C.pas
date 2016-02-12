@@ -17,7 +17,7 @@ uses
 type
  _FindDataType_ = AnsiString;
  _l3Searcher_Parent_ = TdaParamListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TdaParamList = class(_l3Searcher_, IdaParamListHelper)
   protected
    function DoGetParamName(anIndex: Integer): AnsiString; virtual;
@@ -46,7 +46,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TdaParamList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 function TdaParamList.DoGetParamName(anIndex: Integer): AnsiString;
 //#UC START# *5608FE9002D6_5555C169038C_var*

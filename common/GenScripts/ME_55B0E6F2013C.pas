@@ -12,7 +12,7 @@
 
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _tfwDictionaryListPrim_ = {abstract} class(_l3UncomparabeObjectRefList_)
  end;//_tfwDictionaryListPrim_
 
@@ -20,7 +20,7 @@
 
 _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
 {$Define l3Items_IsProto}
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 _tfwDictionaryListPrim_ = _l3UncomparabeObjectRefList_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -43,7 +43,7 @@ begin
 end;//AssignItem
 {$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 
 {$EndIf tfwDictionaryListPrim_imp_impl}

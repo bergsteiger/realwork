@@ -34,9 +34,9 @@ uses
 type
  _InitDataType_ = InsChangesBetweenEditionsInfo;
  _FormDataSourceType_ = IdsChangesBetweenEditions;
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _deDocInfoProvider_Parent_ = _vcmFormDataSource_;
- {$Include deDocInfoProvider.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\deDocInfoProvider.imp.pas}
  TdsChangesBetweenEditions = class(_deDocInfoProvider_, IucpHAFMacroReplacerFactory, IdsChangesBetweenEditions)
   private
    f_Cont: InevDocumentContainer;
@@ -75,9 +75,9 @@ const
 
 type _Instance_R_ = TdsChangesBetweenEditions;
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
-{$Include deDocInfoProvider.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\deDocInfoProvider.imp.pas}
 
 function TdsChangesBetweenEditions.MakeHAFMacroReplacer: IafwHAFMacroReplacer;
 //#UC START# *4AE56DE80093_4DDCDD68019E_var*

@@ -20,7 +20,7 @@ uses
 
 type
  _ClickOnCommentHeader_Parent_ = TarEditorControl;
- {$Include ClickOnCommentHeader.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas}
  TkwClickOnCommentHeader = class(_ClickOnCommentHeader_)
   private
    f_Engine: ItfwScriptEngine;
@@ -43,7 +43,7 @@ uses
  , l3Base
 ;
 
-{$Include ClickOnCommentHeader.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas}
 
 procedure TkwClickOnCommentHeader.DoWithEditor(const aCtx: TtfwContext;
  const anEditor: TevCustomEditorWindow);

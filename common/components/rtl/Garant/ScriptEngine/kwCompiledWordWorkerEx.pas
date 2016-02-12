@@ -17,7 +17,7 @@ uses
 
 type
  _tfwOtherWordRunner_Parent_ = TkwCompiledWordWorker;
- {$Include tfwOtherWordRunner.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwOtherWordRunner.imp.pas}
  TkwCompiledWordWorkerEx = class(_tfwOtherWordRunner_)
   private
    f_WordToRun: TtfwWord;
@@ -40,7 +40,7 @@ uses
  , tfwWordWorker
 ;
 
-{$Include tfwOtherWordRunner.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\tfwOtherWordRunner.imp.pas}
 
 procedure TkwCompiledWordWorkerEx.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_5512E3740036_var*

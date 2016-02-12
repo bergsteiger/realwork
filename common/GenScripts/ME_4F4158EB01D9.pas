@@ -127,7 +127,7 @@ type
  end;//TkwRightLiteralParamWordInfo
 
  _kwCompiledVar_Parent_ = TkwCompiledWordPrim;
- {$Include kwCompiledVar.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas}
  TkwLeftParam = class(_kwCompiledVar_)
   public
    class function ClassForCreate(aTypeInfo: TtfwWordInfo;
@@ -507,7 +507,7 @@ begin
  Result := g_TkwRightLiteralParamWordInfo;
 end;//TkwRightLiteralParamWordInfo.Instance
 
-{$Include kwCompiledVar.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.imp.pas}
 
 class function TkwLeftParam.ClassForCreate(aTypeInfo: TtfwWordInfo;
  const aCtx: TtfwContext): RkwCompiledWordPrim;

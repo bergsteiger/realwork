@@ -7,7 +7,7 @@
 
 {$If Defined(nsTest) AND Defined(InsiderTest)}
  _GUIAppTester_Parent_ = _VCMAppTester_Parent_;
- {$Include GUIAppTester.imp.pas}
+ {$Include w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
  _VCMAppTester_ = {abstract} class(_GUIAppTester_)
   {* Примесь для тестирования приложений, построенных на VCM }
   protected
@@ -19,7 +19,7 @@
 {$Else Defined(nsTest) AND Defined(InsiderTest)}
 
 _GUIAppTester_Parent_ = _VCMAppTester_Parent_;
-{$Include GUIAppTester.imp.pas}
+{$Include w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
 _VCMAppTester_ = _GUIAppTester_;
 
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)
@@ -30,7 +30,7 @@ _VCMAppTester_ = _GUIAppTester_;
 {$Define VCMAppTester_imp_impl}
 
 {$If Defined(nsTest) AND Defined(InsiderTest)}
-{$Include GUIAppTester.imp.pas}
+{$Include w:\common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 class procedure _VCMAppTester_.BeforeApplicationRun;

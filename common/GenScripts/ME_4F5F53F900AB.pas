@@ -3,7 +3,7 @@ unit ItsLAW;
 // Модуль: "w:\MDProcess\NewGenTest\ItsLAW.pas"
 // Стереотип: "TestResults"
 
-{$Include NewGenTest.inc}
+{$Include w:\MDProcess\NewGenTest\NewGenTest.inc}
 
 interface
 

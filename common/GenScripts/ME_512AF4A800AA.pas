@@ -4,7 +4,7 @@ program EverestLiteTest;
 // Модуль: "w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLiteTest.dpr"
 // Стереотип: "TestTarget"
 
-{$Include EverestLite.inc}
+{$Include w:\archi\source\projects\Everest\Lite\7.0\Express\EverestLite.inc}
 
 interface
 

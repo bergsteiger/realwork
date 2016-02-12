@@ -21,9 +21,9 @@ type
    f_Other: ItfwValueList;
   protected
    function GetItemsCountInSlice: Integer; virtual;
-   function pm_GetFirst: _ItemType_;
-   function pm_GetLast: _ItemType_;
-   function pm_GetItems(anIndex: Integer): _ItemType_;
+   function pm_GetFirst: TtfwStackValue;
+   function pm_GetLast: TtfwStackValue;
+   function pm_GetItems(anIndex: Integer): TtfwStackValue;
    function pm_GetEmpty: Boolean;
    function pm_GetCount: Integer;
    procedure SetItem(anIndex: Integer;
@@ -41,8 +41,8 @@ type
     const aCtx: TtfwContext); virtual;
    procedure DoForEach(aLambda: TtfwWordPrim;
     const aCtx: TtfwContext); virtual;
-   function IndexOf(const anItem: _ItemType_): Integer;
-   function Add(const anItem: _ItemType_): Integer;
+   function IndexOf(const anItem: TtfwStackValue): Integer;
+   function Add(const anItem: TtfwStackValue): Integer;
    procedure Clear;
    procedure ForEach(aLambda: TtfwWordPrim;
     const aCtx: TtfwContext);
@@ -109,7 +109,7 @@ begin
 //#UC END# *55E84F5F00ED_52E270AE02EA_impl*
 end;//TtfwArrayView.GetItemsCountInSlice
 
-function TtfwArrayView.pm_GetFirst: _ItemType_;
+function TtfwArrayView.pm_GetFirst: TtfwStackValue;
 //#UC START# *47D8233603DD_52E270AE02EAget_var*
 //#UC END# *47D8233603DD_52E270AE02EAget_var*
 begin
@@ -118,7 +118,7 @@ begin
 //#UC END# *47D8233603DD_52E270AE02EAget_impl*
 end;//TtfwArrayView.pm_GetFirst
 
-function TtfwArrayView.pm_GetLast: _ItemType_;
+function TtfwArrayView.pm_GetLast: TtfwStackValue;
 //#UC START# *47D823570315_52E270AE02EAget_var*
 //#UC END# *47D823570315_52E270AE02EAget_var*
 begin
@@ -127,7 +127,7 @@ begin
 //#UC END# *47D823570315_52E270AE02EAget_impl*
 end;//TtfwArrayView.pm_GetLast
 
-function TtfwArrayView.pm_GetItems(anIndex: Integer): _ItemType_;
+function TtfwArrayView.pm_GetItems(anIndex: Integer): TtfwStackValue;
 //#UC START# *47D8248802AD_52E270AE02EAget_var*
 //#UC END# *47D8248802AD_52E270AE02EAget_var*
 begin
@@ -145,7 +145,7 @@ begin
 //#UC END# *47E381E203D2_52E270AE02EAget_impl*
 end;//TtfwArrayView.pm_GetEmpty
 
-function TtfwArrayView.IndexOf(const anItem: _ItemType_): Integer;
+function TtfwArrayView.IndexOf(const anItem: TtfwStackValue): Integer;
 //#UC START# *482955910076_52E270AE02EA_var*
 //#UC END# *482955910076_52E270AE02EA_var*
 begin
@@ -154,7 +154,7 @@ begin
 //#UC END# *482955910076_52E270AE02EA_impl*
 end;//TtfwArrayView.IndexOf
 
-function TtfwArrayView.Add(const anItem: _ItemType_): Integer;
+function TtfwArrayView.Add(const anItem: TtfwStackValue): Integer;
 //#UC START# *482958A203D0_52E270AE02EA_var*
 //#UC END# *482958A203D0_52E270AE02EA_var*
 begin

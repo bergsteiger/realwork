@@ -39,7 +39,7 @@ type
  _ItemType_ = TarBelaPubInfo;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TarBelaPubList = class(_l3RecordListPrim_)
  end;//TarBelaPubList
 {$IfEnd} // NOT Defined(Nemesis)
@@ -110,7 +110,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TarBelaPubList;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

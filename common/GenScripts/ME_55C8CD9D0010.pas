@@ -59,12 +59,18 @@ begin
 end;//TkwPopNewSubDlgFake.Fake
 
 procedure TkwPopNewSubDlgFake.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_744BF601F735_var*
-//#UC END# *4DAEEDE10285_744BF601F735_var*
+var l_aNewSubDlg: TNewSubDlg;
 begin
-//#UC START# *4DAEEDE10285_744BF601F735_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_744BF601F735_impl*
+ try
+  l_aNewSubDlg := TNewSubDlg(aCtx.rEngine.PopObjAs(TNewSubDlg));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aNewSubDlg: TNewSubDlg : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ Fake(aCtx, l_aNewSubDlg);
 end;//TkwPopNewSubDlgFake.DoDoIt
 
 class function TkwPopNewSubDlgFake.GetWordNameForRegister: AnsiString;
@@ -84,7 +90,7 @@ end;//TkwPopNewSubDlgFake.GetAllParamsCount
 
 function TkwPopNewSubDlgFake.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TNewSubDlg)]);
 end;//TkwPopNewSubDlgFake.ParamsTypes
 
 initialization
