@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftAutoreferatAfterSearch.GetWordNameForRegister
 begin
  Result := 'тип_формы::dftAutoreferatAfterSearch';
 end;//Tkw_FormUserType_dftAutoreferatAfterSearch.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftAutoreferatAfterSearch.GetInteger: Integer;
 begin
  Result := dftAutoreferatAfterSearch;

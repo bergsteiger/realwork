@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftAnnotationSynchroView.GetWordNameForRegister:
 begin
  Result := 'тип_формы::dftAnnotationSynchroView';
 end;//Tkw_FormUserType_dftAnnotationSynchroView.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftAnnotationSynchroView.GetInteger: Integer;
 begin
  Result := dftAnnotationSynchroView;

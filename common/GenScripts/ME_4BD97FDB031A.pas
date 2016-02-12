@@ -99,9 +99,7 @@ class function Tkw_Form_QueryCard_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::QueryCard';
 end;//Tkw_Form_QueryCard_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_QueryCard_ID.GetString: AnsiString;
 begin
  Result := 'enQueryCard';
@@ -113,9 +111,7 @@ class function Tkw_Form_Preview_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::Preview';
 end;//Tkw_Form_Preview_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_Preview_ID.GetString: AnsiString;
 begin
  Result := 'efPreviewForm';
@@ -127,9 +123,7 @@ class function Tkw_Form_SaveLoad_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::SaveLoad';
 end;//Tkw_Form_SaveLoad_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_SaveLoad_ID.GetString: AnsiString;
 begin
  Result := 'cfSaveLoad';

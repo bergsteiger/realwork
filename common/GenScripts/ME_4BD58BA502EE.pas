@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftProducedDrugsSynchroForm.GetWordNameForRegist
 begin
  Result := 'тип_формы::lftProducedDrugsSynchroForm';
 end;//Tkw_FormUserType_lftProducedDrugsSynchroForm.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftProducedDrugsSynchroForm.GetInteger: Integer;
 begin
  Result := lftProducedDrugsSynchroForm;

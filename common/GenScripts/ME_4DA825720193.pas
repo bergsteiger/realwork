@@ -50,9 +50,7 @@ class function Tkw_FormUserType_WarnJuror.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::WarnJuror';
 end;//Tkw_FormUserType_WarnJuror.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnJuror.GetInteger: Integer;
 begin
  Result := WarnJuror;

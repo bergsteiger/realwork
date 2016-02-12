@@ -111,6 +111,10 @@ const
  str_mwControlledChangingWarning: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mwControlledChangingWarning'; rValue : 'Внимание! Документы на контроле изменились.');
   {* 'Внимание! Документы на контроле изменились.' }
 
+{$If not Declared(_InitDataType_)}type _InitDataType_ = IUnknown;{$IfEnd}
+
+{$If not Declared(_SetDataType_)}type _SetDataType_ = IvcmData;{$IfEnd}
+
 type _Instance_R_ = TsdsMainWindow;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}

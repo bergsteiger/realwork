@@ -46,9 +46,7 @@ class function Tkw_FormUserType_utHistory.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::utHistory';
 end;//Tkw_FormUserType_utHistory.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utHistory.GetInteger: Integer;
 begin
  Result := utHistory;

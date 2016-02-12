@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftAutoreferat.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::dftAutoreferat';
 end;//Tkw_FormUserType_dftAutoreferat.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftAutoreferat.GetInteger: Integer;
 begin
  Result := dftAutoreferat;

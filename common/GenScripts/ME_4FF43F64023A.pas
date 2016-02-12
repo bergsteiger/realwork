@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftAACContentsRight.GetWordNameForRegister: Ansi
 begin
  Result := 'тип_формы::dftAACContentsRight';
 end;//Tkw_FormUserType_dftAACContentsRight.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftAACContentsRight.GetInteger: Integer;
 begin
  Result := dftAACContentsRight;

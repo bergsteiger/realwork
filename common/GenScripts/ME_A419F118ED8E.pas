@@ -47,9 +47,7 @@ class function Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::ut_TextLoad';
 end;//Tkw_FormUserType_ut_TextLoad.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_TextLoad.GetInteger: Integer;
 begin
  Result := ut_TextLoad;

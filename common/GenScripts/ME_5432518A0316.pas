@@ -166,7 +166,7 @@ type
   procedure LogEditDoc(aFamilyID: TdaFamilyID;
    aDocID: TdaDocID;
    aEditType: TdaDocEditType;
-   anOperation: TdaEditOperation = daTypes.da_eoNone); overload;
+   anOperation: TdaEditOperation = da_eoNone); overload;
   procedure LogEditDoc(aFamilyID: TdaFamilyID;
    aDocID: TdaDocID;
    aEditType: TdaDocEditType;
@@ -175,7 +175,7 @@ type
    aDocID: TdaDocID);
   procedure LogEditDict(aFamilyID: TdaFamilyID;
    aDictType: TdaDictionaryType;
-   anOperation: TdaEditOperation = daTypes.da_eoNone);
+   anOperation: TdaEditOperation = da_eoNone);
   procedure LogCreateDoc(aFamilyID: TdaFamilyID;
    aDocID: TdaDocID);
   procedure LogAutoClass(aFamilyID: TdaFamilyID;
@@ -460,7 +460,7 @@ type
    const aField: IdaFieldDescription;
    const aQuery: IdaTabledQuery): IdaCondition;
   function MakeSortField(const aSelectField: IdaSelectField;
-   aSortOrder: TdaSortOrder = daTypes.da_soAscending): IdaSortField;
+   aSortOrder: TdaSortOrder = da_soAscending): IdaSortField;
   property DataConverter: IdaDataConverter
    read Get_DataConverter;
  end;//IdaTableQueryFactory

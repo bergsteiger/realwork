@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utRedaction.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::utRedaction';
 end;//Tkw_FormUserType_utRedaction.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utRedaction.GetInteger: Integer;
 begin
  Result := utRedaction;

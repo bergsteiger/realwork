@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftMedicFirmSynchroView.GetWordNameForRegister: 
 begin
  Result := 'тип_формы::dftMedicFirmSynchroView';
 end;//Tkw_FormUserType_dftMedicFirmSynchroView.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftMedicFirmSynchroView.GetInteger: Integer;
 begin
  Result := dftMedicFirmSynchroView;

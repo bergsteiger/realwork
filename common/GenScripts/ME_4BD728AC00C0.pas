@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utRubricatorList.GetWordNameForRegister: AnsiStr
 begin
  Result := 'тип_формы::utRubricatorList';
 end;//Tkw_FormUserType_utRubricatorList.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utRubricatorList.GetInteger: Integer;
 begin
  Result := utRubricatorList;

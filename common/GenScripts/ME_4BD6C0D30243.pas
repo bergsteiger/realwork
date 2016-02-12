@@ -49,9 +49,7 @@ class function Tkw_FormUserType_svSynchroView.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::svSynchroView';
 end;//Tkw_FormUserType_svSynchroView.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_svSynchroView.GetInteger: Integer;
 begin
  Result := svSynchroView;

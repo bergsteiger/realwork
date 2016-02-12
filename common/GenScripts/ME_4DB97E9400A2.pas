@@ -49,9 +49,7 @@ class function Tkw_FormUserType_remTimeMachineWarning.GetWordNameForRegister: An
 begin
  Result := 'тип_формы::remTimeMachineWarning';
 end;//Tkw_FormUserType_remTimeMachineWarning.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_remTimeMachineWarning.GetInteger: Integer;
 begin
  Result := remTimeMachineWarning;

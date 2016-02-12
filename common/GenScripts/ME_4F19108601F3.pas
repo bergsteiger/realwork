@@ -25,7 +25,6 @@ type
    f_PhaseStr: AnsiString;
     {* Поле для свойства PhaseStr }
    {$IfEnd} // NOT Defined(nsTest)
-  protected
   public
    procedure DoBuildIndex(aFilesMeter: Tl3ProgressProc);
    class function Exists: Boolean;

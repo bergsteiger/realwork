@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftProducedDrugs.GetWordNameForRegister: AnsiStr
 begin
  Result := 'тип_формы::lftProducedDrugs';
 end;//Tkw_FormUserType_lftProducedDrugs.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftProducedDrugs.GetInteger: Integer;
 begin
  Result := lftProducedDrugs;

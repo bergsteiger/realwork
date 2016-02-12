@@ -35,7 +35,7 @@
    function Get_RedactionName: Il3CString;
    procedure EditionChanged;
    function MakeFilterInfo(aType: TnsFolderFilter;
-    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
+    aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
    function Get_DocumentForReturn: TnsDocumentForReturnInfo;
    function DoGetControllable: IControllable; override;
    function DocumentForDocInfoProvider: IDocument; override;
@@ -61,6 +61,8 @@ _dsEditionDiff_ = _ucpHAFMacroReplacerFactory_;
 {$Define dsEditionDiff_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
+
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
@@ -178,7 +180,7 @@ begin
 end;//_dsEditionDiff_.EditionChanged
 
 function _dsEditionDiff_.MakeFilterInfo(aType: TnsFolderFilter;
- aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
+ aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
 //#UC START# *4AE575FA030B_4A7188E40294_var*
 //#UC END# *4AE575FA030B_4A7188E40294_var*
 begin

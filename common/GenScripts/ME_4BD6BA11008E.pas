@@ -49,9 +49,7 @@ class function Tkw_FormUserType_fDocAttribute.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::fDocAttribute';
 end;//Tkw_FormUserType_fDocAttribute.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_fDocAttribute.GetInteger: Integer;
 begin
  Result := fDocAttribute;

@@ -47,9 +47,7 @@ class function Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister: AnsiStri
 begin
  Result := 'тип_формы::ut_elCustomEdit';
 end;//Tkw_FormUserType_ut_elCustomEdit.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_elCustomEdit.GetInteger: Integer;
 begin
  Result := ut_elCustomEdit;

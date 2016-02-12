@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister: AnsiS
 begin
  Result := 'тип_формы::ut_StyleEditorFont';
 end;//Tkw_FormUserType_ut_StyleEditorFont.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_StyleEditorFont.GetInteger: Integer;
 begin
  Result := ut_StyleEditorFont;

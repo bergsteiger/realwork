@@ -115,7 +115,7 @@ type
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
   public
-   constructor Create(aOper: TLogicOperation = SearchDomainInterfaces.loNone;
+   constructor Create(aOper: TLogicOperation = loNone;
     const aNode: INodeBase = nil;
     const aMask: Il3CString = nil); reintroduce; virtual;
   public
@@ -1062,7 +1062,7 @@ begin
  inherited;
 end;//TqaReq.ClearFields
 
-constructor TqaAttrInfo.Create(aOper: TLogicOperation = SearchDomainInterfaces.loNone;
+constructor TqaAttrInfo.Create(aOper: TLogicOperation = loNone;
  const aNode: INodeBase = nil;
  const aMask: Il3CString = nil);
 //#UC START# *54EC8AD90376_46839CF3010E_var*

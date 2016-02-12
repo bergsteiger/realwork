@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftUserCR2.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::lftUserCR2';
 end;//Tkw_FormUserType_lftUserCR2.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftUserCR2.GetInteger: Integer;
 begin
  Result := lftUserCR2;

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_OldBaseWarning.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::OldBaseWarning';
 end;//Tkw_FormUserType_OldBaseWarning.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_OldBaseWarning.GetInteger: Integer;
 begin
  Result := OldBaseWarning;

@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetWordNameForR
 begin
  Result := 'тип_формы::lftDrugInternationalNameSynonyms';
 end;//Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftDrugInternationalNameSynonyms.GetInteger: Integer;
 begin
  Result := lftDrugInternationalNameSynonyms;

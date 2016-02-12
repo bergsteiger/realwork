@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utWorkJournal.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::utWorkJournal';
 end;//Tkw_FormUserType_utWorkJournal.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utWorkJournal.GetInteger: Integer;
 begin
  Result := utWorkJournal;

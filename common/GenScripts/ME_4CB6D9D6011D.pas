@@ -50,9 +50,7 @@ class function Tkw_FormUserType_cfRename.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::cfRename';
 end;//Tkw_FormUserType_cfRename.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_cfRename.GetInteger: Integer;
 begin
  Result := cfRename;

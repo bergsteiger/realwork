@@ -46,9 +46,9 @@ type
    procedure SetChecked(Value: Boolean); virtual;
    procedure SetEnabled(Value: Boolean); virtual;
    procedure SetGroupIndex(Value: Integer); virtual;
-   procedure SetHelpContext(const Value: THelpContext); virtual;
+   procedure SetHelpContext(Value: THelpContext); virtual;
    procedure SetHelpKeyword(const Value: AnsiString); virtual;
-   procedure SetHelpType(const Value: THelpType); virtual;
+   procedure SetHelpType(Value: THelpType); virtual;
    procedure SetHint(const Value: AnsiString); virtual;
    procedure SetImageIndex(Value: Integer); virtual;
    procedure SetShortCut(Value: TShortCut); virtual;
@@ -207,7 +207,7 @@ begin
 //#UC END# *508F993F026A_508F9823023D_impl*
 end;//TActionLink.SetGroupIndex
 
-procedure TActionLink.SetHelpContext(const Value: THelpContext);
+procedure TActionLink.SetHelpContext(Value: THelpContext);
 //#UC START# *508F994C023C_508F9823023D_var*
 //#UC END# *508F994C023C_508F9823023D_var*
 begin
@@ -225,7 +225,7 @@ begin
 //#UC END# *508F9958019E_508F9823023D_impl*
 end;//TActionLink.SetHelpKeyword
 
-procedure TActionLink.SetHelpType(const Value: THelpType);
+procedure TActionLink.SetHelpType(Value: THelpType);
 //#UC START# *508F99650101_508F9823023D_var*
 //#UC END# *508F99650101_508F9823023D_var*
 begin

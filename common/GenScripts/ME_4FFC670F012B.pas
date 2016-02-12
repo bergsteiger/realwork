@@ -99,9 +99,7 @@ class function Tkw_Form_LeftEdition_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::LeftEdition';
 end;//Tkw_Form_LeftEdition_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_LeftEdition_ID.GetString: AnsiString;
 begin
  Result := 'LeftEditionForm';
@@ -113,9 +111,7 @@ class function Tkw_Form_RightEdition_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::RightEdition';
 end;//Tkw_Form_RightEdition_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_RightEdition_ID.GetString: AnsiString;
 begin
  Result := 'RightEditionForm';
@@ -127,9 +123,7 @@ class function Tkw_Form_EditionsContainer_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::EditionsContainer';
 end;//Tkw_Form_EditionsContainer_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_EditionsContainer_ID.GetString: AnsiString;
 begin
  Result := 'EditionsContainerForm';

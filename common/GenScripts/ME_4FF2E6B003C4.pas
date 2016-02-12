@@ -546,6 +546,10 @@ begin
 //#UC END# *479731C50290_56A08533037E_impl*
 end;//TdeAAC.Cleanup
 
+{$If not Declared(_SetDataType_)}type _SetDataType_ = IdDocument;{$IfEnd}
+
+{$If not Declared(_InitDataType_)}type _InitDataType_ = IdeDocInfo;{$IfEnd}
+
 type _Instance_R_ = TsdsAAC;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.imp.pas}

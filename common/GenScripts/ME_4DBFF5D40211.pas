@@ -49,9 +49,7 @@ class function Tkw_FormUserType_remOnlineDead.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::remOnlineDead';
 end;//Tkw_FormUserType_remOnlineDead.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_remOnlineDead.GetInteger: Integer;
 begin
  Result := remOnlineDead;

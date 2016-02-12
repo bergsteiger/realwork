@@ -84,8 +84,6 @@ var
   aParams.AssignParams(aEtalon);
   with aConfig do
   begin
-   aParams.Login := AsString['Login'];
-   aParams.Password := AsString['Password'];
    TpgDataProviderParams(aParams).DataServerHostName := AsString['DataServerHostName'];
    TpgDataProviderParams(aParams).DataServerPort := AsInteger['DataServerPort'];
   end;
@@ -155,7 +153,7 @@ var
 //#UC END# *551904FC039A_55D6E2FB025D_var*
 //#UC START# *551D06D402AF_55D6E2FB025D_impl*
  Assert(aParams is TpgDataProviderParams);
- Result := TpgDataProvider.Make(TpgDataProviderParams(aParams), ForCheckLogin, AllowClearLocks, SetGlobalProvider);
+ Result := TpgDataProvider.Make(TpgDataProviderParams(aParams), ForCheckLogin, AllowClearLocks);
 //#UC END# *551D06D402AF_55D6E2FB025D_impl*
 //#UC START# *551D06D402AF_55D6E2FB025D_var*
 //#UC END# *551D06D402AF_55D6E2FB025D_var*

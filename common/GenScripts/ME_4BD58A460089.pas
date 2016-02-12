@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftCorrespondentsSynchroForm.GetWordNameForRegis
 begin
  Result := 'тип_формы::lftCorrespondentsSynchroForm';
 end;//Tkw_FormUserType_lftCorrespondentsSynchroForm.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftCorrespondentsSynchroForm.GetInteger: Integer;
 begin
  Result := lftCorrespondentsSynchroForm;

@@ -104,9 +104,6 @@ type
     {* http://mdp.garant.ru/pages/viewpage.action?pageId=124453871&focusedCommentId=173507098#comment-173507098 }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    constructor CreateCloned(const aDocInfo: IdeDocInfo); reintroduce;
@@ -119,7 +116,7 @@ type
     aLanguage: TbsLanguage); reintroduce; overload;
    class function Make(const aDoc: IDocument;
     const aPos: TbsDocPos;
-    aLanguage: TbsLanguage = bsTypes.LG_RUSSIAN): IdeDocInfo; overload;
+    aLanguage: TbsLanguage = LG_RUSSIAN): IdeDocInfo; overload;
    class function Make: IdeDocInfo; overload;
    class function Make(const aDoc: IbsDocumentContainer;
     const aPos: TbsDocPos;
@@ -131,6 +128,9 @@ type
     const aList: TnsListInfo;
     const aPos: TbsDocPos;
     aLanguage: TbsLanguage): IdeDocInfo; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   protected
    property DocContainer: IbsDocumentContainer
     read pm_GetDocContainer;
@@ -281,7 +281,7 @@ end;//TdeDocInfo.Create
 
 class function TdeDocInfo.Make(const aDoc: IDocument;
  const aPos: TbsDocPos;
- aLanguage: TbsLanguage = bsTypes.LG_RUSSIAN): IdeDocInfo;
+ aLanguage: TbsLanguage = LG_RUSSIAN): IdeDocInfo;
 //#UC START# *4B1E76F30227_491C0BE302FF_var*
 //#UC END# *4B1E76F30227_491C0BE302FF_var*
 begin

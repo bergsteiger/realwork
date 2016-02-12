@@ -49,9 +49,7 @@ class function Tkw_FormUserType_remUnreadConsultations.GetWordNameForRegister: A
 begin
  Result := 'тип_формы::remUnreadConsultations';
 end;//Tkw_FormUserType_remUnreadConsultations.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_remUnreadConsultations.GetInteger: Integer;
 begin
  Result := remUnreadConsultations;

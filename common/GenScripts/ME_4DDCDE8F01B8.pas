@@ -49,9 +49,7 @@ class function Tkw_FormUserType_DocumentChanges.GetWordNameForRegister: AnsiStri
 begin
  Result := 'тип_формы::DocumentChanges';
 end;//Tkw_FormUserType_DocumentChanges.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_DocumentChanges.GetInteger: Integer;
 begin
  Result := DocumentChanges;

@@ -55,9 +55,7 @@ class function Tkw_Form_PostingsList_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::PostingsList';
 end;//Tkw_Form_PostingsList_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_PostingsList_ID.GetString: AnsiString;
 begin
  Result := 'enPostingsList';

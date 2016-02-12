@@ -49,9 +49,7 @@ class function Tkw_FormUserType_BaseSearch.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::BaseSearch';
 end;//Tkw_FormUserType_BaseSearch.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_BaseSearch.GetInteger: Integer;
 begin
  Result := BaseSearch;

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_WarnIsAbolished.GetWordNameForRegister: AnsiStri
 begin
  Result := 'тип_формы::WarnIsAbolished';
 end;//Tkw_FormUserType_WarnIsAbolished.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnIsAbolished.GetInteger: Integer;
 begin
  Result := WarnIsAbolished;

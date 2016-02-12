@@ -47,9 +47,7 @@ class function Tkw_FormUserType_ut_OutlinerForm.GetWordNameForRegister: AnsiStri
 begin
  Result := 'тип_формы::ut_OutlinerForm';
 end;//Tkw_FormUserType_ut_OutlinerForm.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_OutlinerForm.GetInteger: Integer;
 begin
  Result := ut_OutlinerForm;

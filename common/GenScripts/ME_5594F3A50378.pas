@@ -51,9 +51,7 @@ class function Tkw_FormUserType_lftSimilarDocumentsToFragment.GetWordNameForRegi
 begin
  Result := 'тип_формы::lftSimilarDocumentsToFragment';
 end;//Tkw_FormUserType_lftSimilarDocumentsToFragment.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftSimilarDocumentsToFragment.GetInteger: Integer;
 begin
  Result := lftSimilarDocumentsToFragment;

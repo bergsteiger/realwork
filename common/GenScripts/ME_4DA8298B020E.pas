@@ -49,9 +49,7 @@ class function Tkw_FormUserType_WarnInactualDocument.GetWordNameForRegister: Ans
 begin
  Result := 'тип_формы::WarnInactualDocument';
 end;//Tkw_FormUserType_WarnInactualDocument.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnInactualDocument.GetInteger: Integer;
 begin
  Result := WarnInactualDocument;

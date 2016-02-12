@@ -64,22 +64,22 @@ type
   public
    class function Call(const aTarget: IvcmEntity;
     aPointID: Cardinal;
-    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+    aPointType: TDocumentPositionType = Sub;
     aUserType: Integer = 0): Boolean; overload;
     {* Вызов операции Document.SetPosition у сущности }
    class function Call(const aTarget: IvcmAggregate;
     aPointID: Cardinal;
-    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+    aPointType: TDocumentPositionType = Sub;
     aUserType: Integer = 0): Boolean; overload;
     {* Вызов операции Document.SetPosition у агрегации }
    class function Call(const aTarget: IvcmEntityForm;
     aPointID: Cardinal;
-    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+    aPointType: TDocumentPositionType = Sub;
     aUserType: Integer = 0): Boolean; overload;
     {* Вызов операции Document.SetPosition у формы }
    class function Call(const aTarget: IvcmContainer;
     aPointID: Cardinal;
-    aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+    aPointType: TDocumentPositionType = Sub;
     aUserType: Integer = 0): Boolean; overload;
     {* Вызов операции Document.SetPosition у контейнера }
  end;//Op_Document_SetPosition
@@ -229,7 +229,7 @@ end;//TDocument_SetPosition_Params.Get_PointID
 
 class function Op_Document_SetPosition.Call(const aTarget: IvcmEntity;
  aPointID: Cardinal;
- aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+ aPointType: TDocumentPositionType = Sub;
  aUserType: Integer = 0): Boolean;
  {* Вызов операции Document.SetPosition у сущности }
 //#UC START# *2DF9B19B191F_293DA96B22E7_var*
@@ -242,7 +242,7 @@ end;//Op_Document_SetPosition.Call
 
 class function Op_Document_SetPosition.Call(const aTarget: IvcmAggregate;
  aPointID: Cardinal;
- aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+ aPointType: TDocumentPositionType = Sub;
  aUserType: Integer = 0): Boolean;
  {* Вызов операции Document.SetPosition у агрегации }
 //#UC START# *5E397189A36F_293DA96B22E7_var*
@@ -255,7 +255,7 @@ end;//Op_Document_SetPosition.Call
 
 class function Op_Document_SetPosition.Call(const aTarget: IvcmEntityForm;
  aPointID: Cardinal;
- aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+ aPointType: TDocumentPositionType = Sub;
  aUserType: Integer = 0): Boolean;
  {* Вызов операции Document.SetPosition у формы }
 //#UC START# *8DE7FC7DDB65_293DA96B22E7_var*
@@ -268,7 +268,7 @@ end;//Op_Document_SetPosition.Call
 
 class function Op_Document_SetPosition.Call(const aTarget: IvcmContainer;
  aPointID: Cardinal;
- aPointType: TDocumentPositionType = bsTypesNew.dptSub;
+ aPointType: TDocumentPositionType = Sub;
  aUserType: Integer = 0): Boolean;
  {* Вызов операции Document.SetPosition у контейнера }
 //#UC START# *A6607DA320A0_293DA96B22E7_var*

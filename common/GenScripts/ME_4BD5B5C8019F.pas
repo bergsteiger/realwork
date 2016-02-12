@@ -50,9 +50,7 @@ class function Tkw_FormUserType_chatAddContact.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::chatAddContact';
 end;//Tkw_FormUserType_chatAddContact.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_chatAddContact.GetInteger: Integer;
 begin
  Result := chatAddContact;

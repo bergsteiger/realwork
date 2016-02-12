@@ -44,6 +44,9 @@ uses
  , evMsgCode
  , evOp
  {$If NOT Defined(NoVCM)}
+ , PrimTextLoad_Form
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
  , SysUtils
@@ -52,6 +55,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Base
 ;
+
+{$If not Declared(_FormClass_)}type _FormClass_ = TPrimTextLoadForm;{$IfEnd}
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 

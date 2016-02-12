@@ -49,9 +49,7 @@ class function Tkw_FormUserType_WarnPreActive.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::WarnPreActive';
 end;//Tkw_FormUserType_WarnPreActive.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnPreActive.GetInteger: Integer;
 begin
  Result := WarnPreActive;

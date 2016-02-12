@@ -47,9 +47,7 @@ class function Tkw_FormUserType_AACContainer.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::AACContainer';
 end;//Tkw_FormUserType_AACContainer.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_AACContainer.GetInteger: Integer;
 begin
  Result := AACContainer;

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_MemoryUsage.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::ut_MemoryUsage';
 end;//Tkw_FormUserType_ut_MemoryUsage.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_MemoryUsage.GetInteger: Integer;
 begin
  Result := ut_MemoryUsage;

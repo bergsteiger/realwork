@@ -47,9 +47,7 @@ class function Tkw_FormUserType_ut_F1LikeTextLoad.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::ut_F1LikeTextLoad';
 end;//Tkw_FormUserType_ut_F1LikeTextLoad.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_F1LikeTextLoad.GetInteger: Integer;
 begin
  Result := ut_F1LikeTextLoad;

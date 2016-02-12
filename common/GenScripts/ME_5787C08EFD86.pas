@@ -47,9 +47,7 @@ class function Tkw_FormUserType_ut_CustomizeTools.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::ut_CustomizeTools';
 end;//Tkw_FormUserType_ut_CustomizeTools.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_CustomizeTools.GetInteger: Integer;
 begin
  Result := ut_CustomizeTools;

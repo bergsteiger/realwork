@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister: AnsiS
 begin
  Result := 'тип_формы::dftDrugSynchroView';
 end;//Tkw_FormUserType_dftDrugSynchroView.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftDrugSynchroView.GetInteger: Integer;
 begin
  Result := dftDrugSynchroView;

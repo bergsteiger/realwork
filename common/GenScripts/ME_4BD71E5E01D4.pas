@@ -49,9 +49,7 @@ class function Tkw_FormUserType_MyPostingList.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::MyPostingList';
 end;//Tkw_FormUserType_MyPostingList.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_MyPostingList.GetInteger: Integer;
 begin
  Result := MyPostingList;

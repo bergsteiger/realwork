@@ -20,7 +20,6 @@ type
   private
    f_MaxCount: Integer;
     {* Поле для свойства MaxCount }
-  protected
   public
    constructor Create(aMaxCount: Integer); reintroduce;
   public

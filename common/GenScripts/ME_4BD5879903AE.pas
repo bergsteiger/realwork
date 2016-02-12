@@ -49,9 +49,7 @@ class function Tkw_FormUserType_lftNone.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::lftNone';
 end;//Tkw_FormUserType_lftNone.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftNone.GetInteger: Integer;
 begin
  Result := lftNone;

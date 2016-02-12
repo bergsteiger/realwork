@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftMedicFirm.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::dftMedicFirm';
 end;//Tkw_FormUserType_dftMedicFirm.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftMedicFirm.GetInteger: Integer;
 begin
  Result := dftMedicFirm;

@@ -35,12 +35,17 @@ uses
  , l3Chars
  , SysUtils
  , l3Parser
+ , l3Memory
 ;
 
 var cBuff: TByteArrayOfChar;
 
 const
  cNoTrunc = High(Byte);
+
+{$If not Declared(_ItemType_)}type _ItemType_ = Tm3EndingReplaceItem;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;

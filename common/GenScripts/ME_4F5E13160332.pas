@@ -49,9 +49,7 @@ class function Tkw_FormUserType_Fake.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::Fake';
 end;//Tkw_FormUserType_Fake.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_Fake.GetInteger: Integer;
 begin
  Result := Fake;

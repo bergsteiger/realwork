@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftDocument.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::dftDocument';
 end;//Tkw_FormUserType_dftDocument.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftDocument.GetInteger: Integer;
 begin
  Result := dftDocument;

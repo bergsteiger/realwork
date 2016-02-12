@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_BaseSearchCard.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::ut_BaseSearchCard';
 end;//Tkw_FormUserType_ut_BaseSearchCard.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_BaseSearchCard.GetInteger: Integer;
 begin
  Result := ut_BaseSearchCard;

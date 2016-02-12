@@ -49,9 +49,7 @@ class function Tkw_FormUserType_TrialModeWarning.GetWordNameForRegister: AnsiStr
 begin
  Result := 'тип_формы::TrialModeWarning';
 end;//Tkw_FormUserType_TrialModeWarning.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_TrialModeWarning.GetInteger: Integer;
 begin
  Result := TrialModeWarning;

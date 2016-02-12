@@ -45,9 +45,7 @@ class function Tkw_FormUserType_cutForDiction.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::cutForDiction';
 end;//Tkw_FormUserType_cutForDiction.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_cutForDiction.GetInteger: Integer;
 begin
  Result := cutForDiction;

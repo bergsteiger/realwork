@@ -106,11 +106,11 @@ type
    procedure MakeBMTable(var BT: Tl3BMTable);
     {* создает таблицу Boyer-Moore для строки }
    function BMSearch(S: Tl3CustomString;
-    const BT: Tl3BMTable;
+    BT: Tl3BMTable;
     var Pos: Cardinal): Boolean;
     {* ищет данную строку в строке S с учетом регистра }
    function BMSearchUC(S: Tl3CustomString;
-    const BT: Tl3BMTable;
+    BT: Tl3BMTable;
     var Pos: Cardinal): Boolean;
     {* ищет данную строку в строке S без учета регистра
 ВНИМАНИЕ! Для успешного поиска без учёта регистра подстрока (S) должна быть в ВЕРХНЕМ РЕГИСТРЕ!
@@ -762,7 +762,7 @@ begin
 end;//Tl3CustomString.MakeBMTable
 
 function Tl3CustomString.BMSearch(S: Tl3CustomString;
- const BT: Tl3BMTable;
+ BT: Tl3BMTable;
  var Pos: Cardinal): Boolean;
  {* ищет данную строку в строке S с учетом регистра }
 //#UC START# *54C63FB802C8_4773DEF0021B_var*
@@ -782,7 +782,7 @@ begin
 end;//Tl3CustomString.BMSearch
 
 function Tl3CustomString.BMSearchUC(S: Tl3CustomString;
- const BT: Tl3BMTable;
+ BT: Tl3BMTable;
  var Pos: Cardinal): Boolean;
  {* ищет данную строку в строке S без учета регистра
 ВНИМАНИЕ! Для успешного поиска без учёта регистра подстрока (S) должна быть в ВЕРХНЕМ РЕГИСТРЕ!

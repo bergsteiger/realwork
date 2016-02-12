@@ -47,9 +47,7 @@ class function Tkw_FormUserType_ut_FromWithPanel.GetWordNameForRegister: AnsiStr
 begin
  Result := 'тип_формы::ut_FromWithPanel';
 end;//Tkw_FormUserType_ut_FromWithPanel.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_FromWithPanel.GetInteger: Integer;
 begin
  Result := ut_FromWithPanel;

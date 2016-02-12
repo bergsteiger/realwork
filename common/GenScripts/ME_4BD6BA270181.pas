@@ -50,9 +50,7 @@ class function Tkw_FormUserType_fAttributeSynchroView.GetWordNameForRegister: An
 begin
  Result := 'тип_формы::fAttributeSynchroView';
 end;//Tkw_FormUserType_fAttributeSynchroView.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_fAttributeSynchroView.GetInteger: Integer;
 begin
  Result := fAttributeSynchroView;

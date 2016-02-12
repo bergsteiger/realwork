@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftSynchroView.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::lftSynchroView';
 end;//Tkw_FormUserType_lftSynchroView.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftSynchroView.GetInteger: Integer;
 begin
  Result := lftSynchroView;

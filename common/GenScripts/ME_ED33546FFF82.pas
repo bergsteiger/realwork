@@ -674,6 +674,7 @@ begin
  Result := 'контрол::LeftNavigator:push';
 end;//Tkw_MonitoringsMain_Control_LeftNavigator_Push.GetWordNameForRegister
 
+{$If Defined(HasRightNavigator)}
 class function Tkw_MonitoringsMain_Control_RightNavigator.GetWordNameForRegister: AnsiString;
 begin
  Result := 'контрол::RightNavigator';
@@ -689,7 +690,9 @@ begin
  inherited;
  TtfwClassRef.Register(TnscNavigator);
 end;//Tkw_MonitoringsMain_Control_RightNavigator.RegisterInEngine
+{$IfEnd} // Defined(HasRightNavigator)
 
+{$If Defined(HasRightNavigator)}
 procedure Tkw_MonitoringsMain_Control_RightNavigator_Push.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_A63382FBE37E_var*
 //#UC END# *4DAEEDE10285_A63382FBE37E_var*
@@ -703,6 +706,7 @@ class function Tkw_MonitoringsMain_Control_RightNavigator_Push.GetWordNameForReg
 begin
  Result := 'контрол::RightNavigator:push';
 end;//Tkw_MonitoringsMain_Control_RightNavigator_Push.GetWordNameForRegister
+{$IfEnd} // Defined(HasRightNavigator)
 
 function TkwMonitoringsMainFormStatusBar.StatusBar(const aCtx: TtfwContext;
  aMonitoringsMainForm: TMonitoringsMainForm): TnscStatusBar;
@@ -1047,7 +1051,6 @@ function TkwMonitoringsMainFormRightNavigator.RightNavigator(const aCtx: TtfwCon
 begin
  Result := aMonitoringsMainForm.RightNavigator;
 end;//TkwMonitoringsMainFormRightNavigator.RightNavigator
-{$IfEnd} // Defined(HasRightNavigator)
 
 procedure TkwMonitoringsMainFormRightNavigator.DoDoIt(const aCtx: TtfwContext);
 var l_aMonitoringsMainForm: TMonitoringsMainForm;
@@ -1089,6 +1092,7 @@ function TkwMonitoringsMainFormRightNavigator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMonitoringsMainForm)]);
 end;//TkwMonitoringsMainFormRightNavigator.ParamsTypes
+{$IfEnd} // Defined(HasRightNavigator)
 
 initialization
  Tkw_Form_MonitoringsMain.RegisterInEngine;

@@ -51,9 +51,7 @@ class function Tkw_FormUserType_dftRelatedSynchroView.GetWordNameForRegister: An
 begin
  Result := 'тип_формы::dftRelatedSynchroView';
 end;//Tkw_FormUserType_dftRelatedSynchroView.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftRelatedSynchroView.GetInteger: Integer;
 begin
  Result := dftRelatedSynchroView;

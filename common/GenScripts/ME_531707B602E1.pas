@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
 ;
-{$IfEnd} // NOT Defined(Nemesis)
 
+{$If Defined(RemoteDict)}
+{$IfEnd} // Defined(RemoteDict)
+{$IfEnd} // NOT Defined(Nemesis)
 end.

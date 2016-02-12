@@ -115,6 +115,8 @@ uses
  , l3Base
 ;
 
+{$If not Declared(_FormClass_)}type _FormClass_ = TPrimTextLoadForm;{$IfEnd}
+
 {$Include w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas}
 
 function TPreviewTestBefore235875079.PageFileName(aNumber: Integer;

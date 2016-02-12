@@ -49,9 +49,7 @@ class function Tkw_FormUserType_liListInfo.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::liListInfo';
 end;//Tkw_FormUserType_liListInfo.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_liListInfo.GetInteger: Integer;
 begin
  Result := liListInfo;

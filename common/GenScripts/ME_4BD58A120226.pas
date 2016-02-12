@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftSimilarDocumentsSynchroView.GetWordNameForReg
 begin
  Result := 'тип_формы::lftSimilarDocumentsSynchroView';
 end;//Tkw_FormUserType_lftSimilarDocumentsSynchroView.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftSimilarDocumentsSynchroView.GetInteger: Integer;
 begin
  Result := lftSimilarDocumentsSynchroView;

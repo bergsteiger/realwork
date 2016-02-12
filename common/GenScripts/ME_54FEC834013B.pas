@@ -19,7 +19,7 @@ type
  InsDataExchangeSubscriber = interface
   ['{20C77FB9-BA8F-42A3-8DA2-CA5B86F19816}']
   procedure MakeAndOpenList(const aList: IDynList;
-   aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
+   aOpenFrom: TbsListOpenFrom = lofNone);
  end;//InsDataExchangeSubscriber
 
  TnsDataExchangeProxy = class(Tl3ProtoDataContainer)
@@ -33,7 +33,7 @@ type
    procedure ClearFields; override;
   public
    procedure MakeAndOpenList(const aList: IDynList;
-    aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
+    aOpenFrom: TbsListOpenFrom = lofNone);
    class function Exists: Boolean;
     {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TnsDataExchangeProxy;
@@ -75,7 +75,7 @@ begin
 end;//TnsDataExchangeProxy.pm_SetSubscriber
 
 procedure TnsDataExchangeProxy.MakeAndOpenList(const aList: IDynList;
- aOpenFrom: TbsListOpenFrom = bsTypes.lofNone);
+ aOpenFrom: TbsListOpenFrom = lofNone);
 //#UC START# *54FEC90002B4_54FEC834013B_var*
 //#UC END# *54FEC90002B4_54FEC834013B_var*
 begin

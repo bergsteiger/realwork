@@ -115,7 +115,7 @@ type
    function RedactionCurrentPara: IeeLeafPara; override;
     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
+    aPointType: TDocumentPositionType = Sub); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -395,7 +395,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.RedactionCurrentPara
 
 procedure TPrimChangesBetweenEditonsForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = bsTypesNew.dptSub);
+ aPointType: TDocumentPositionType = Sub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4DDCD636016C_var*
 var

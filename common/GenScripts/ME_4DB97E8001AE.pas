@@ -49,9 +49,7 @@ class function Tkw_FormUserType_remListFiltered.GetWordNameForRegister: AnsiStri
 begin
  Result := 'тип_формы::remListFiltered';
 end;//Tkw_FormUserType_remListFiltered.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_remListFiltered.GetInteger: Integer;
 begin
  Result := remListFiltered;

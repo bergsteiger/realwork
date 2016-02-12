@@ -51,9 +51,7 @@ class function Tkw_FormUserType_dftRelatedDoc.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::dftRelatedDoc';
 end;//Tkw_FormUserType_dftRelatedDoc.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftRelatedDoc.GetInteger: Integer;
 begin
  Result := dftRelatedDoc;

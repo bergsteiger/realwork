@@ -248,9 +248,6 @@ type
    procedure DoSetPosition(aValue: Integer); override;
    procedure InitFields; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
    procedure DoSave; override;
   public
@@ -258,6 +255,9 @@ type
    constructor Create(const aRepOp: IvcmCustOpsRepOperation); reintroduce; overload;
    class function Make(const aOp: IvcmCustOpsGroupOperation): Il3Node; reintroduce; overload;
    class function Make(const aRepOp: IvcmCustOpsRepOperation): Il3Node; reintroduce; overload;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   protected
    property Op: IvcmCustOpsGroupOperation
     read f_Op

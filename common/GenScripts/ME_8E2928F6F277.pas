@@ -674,6 +674,7 @@ begin
  Result := 'контрол::LeftNavigator:push';
 end;//Tkw_Main_Control_LeftNavigator_Push.GetWordNameForRegister
 
+{$If Defined(HasRightNavigator)}
 class function Tkw_Main_Control_RightNavigator.GetWordNameForRegister: AnsiString;
 begin
  Result := 'контрол::RightNavigator';
@@ -689,7 +690,9 @@ begin
  inherited;
  TtfwClassRef.Register(TnscNavigator);
 end;//Tkw_Main_Control_RightNavigator.RegisterInEngine
+{$IfEnd} // Defined(HasRightNavigator)
 
+{$If Defined(HasRightNavigator)}
 procedure Tkw_Main_Control_RightNavigator_Push.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_67B2DC3359FC_var*
 //#UC END# *4DAEEDE10285_67B2DC3359FC_var*
@@ -703,6 +706,7 @@ class function Tkw_Main_Control_RightNavigator_Push.GetWordNameForRegister: Ansi
 begin
  Result := 'контрол::RightNavigator:push';
 end;//Tkw_Main_Control_RightNavigator_Push.GetWordNameForRegister
+{$IfEnd} // Defined(HasRightNavigator)
 
 function TkwMainFormStatusBar.StatusBar(const aCtx: TtfwContext;
  aMainForm: TMainForm): TnscStatusBar;
@@ -1047,7 +1051,6 @@ function TkwMainFormRightNavigator.RightNavigator(const aCtx: TtfwContext;
 begin
  Result := aMainForm.RightNavigator;
 end;//TkwMainFormRightNavigator.RightNavigator
-{$IfEnd} // Defined(HasRightNavigator)
 
 procedure TkwMainFormRightNavigator.DoDoIt(const aCtx: TtfwContext);
 var l_aMainForm: TMainForm;
@@ -1089,6 +1092,7 @@ function TkwMainFormRightNavigator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TMainForm)]);
 end;//TkwMainFormRightNavigator.ParamsTypes
+{$IfEnd} // Defined(HasRightNavigator)
 
 initialization
  Tkw_Form_Main.RegisterInEngine;

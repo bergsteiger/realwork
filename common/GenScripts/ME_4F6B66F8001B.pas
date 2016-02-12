@@ -74,9 +74,7 @@ class function Tkw_Form_Child_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::Child';
 end;//Tkw_Form_Child_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_Child_ID.GetString: AnsiString;
 begin
  Result := 'ChildForm';
@@ -88,9 +86,7 @@ class function Tkw_Form_Parent_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::Parent';
 end;//Tkw_Form_Parent_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_Parent_ID.GetString: AnsiString;
 begin
  Result := 'ParentForm';

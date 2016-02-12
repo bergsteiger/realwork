@@ -19,7 +19,6 @@ type
   private
    f_Messages: TddClientMessageSortableList;
     {* Поле для свойства Messages }
-  protected
   public
    property Messages: TddClientMessageSortableList
     read f_Messages;

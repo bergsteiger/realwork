@@ -49,9 +49,7 @@ class function Tkw_FormUserType_WarnTimeMachineOn.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::WarnTimeMachineOn';
 end;//Tkw_FormUserType_WarnTimeMachineOn.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnTimeMachineOn.GetInteger: Integer;
 begin
  Result := WarnTimeMachineOn;

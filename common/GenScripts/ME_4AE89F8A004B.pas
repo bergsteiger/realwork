@@ -1393,9 +1393,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *FD69D90EA0AA_FA17E90269B4_impl*
 end;//TFilters_GetSelected_Params.Create
-{$IfEnd} // NOT Defined(Monitorings)
 
-{$If NOT Defined(Monitorings)}
 class function TFilters_GetSelected_Params.Make: IFilters_GetSelected_Params;
  {* Фабрика TFilters_GetSelected_Params }
 var
@@ -1408,9 +1406,7 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TFilters_GetSelected_Params.Make
-{$IfEnd} // NOT Defined(Monitorings)
 
-{$If NOT Defined(Monitorings)}
 function TFilters_GetSelected_Params.Get_ResultValue: IFiltersFromQuery;
 //#UC START# *9E9C3B7101C7_FA17E90269B4get_var*
 //#UC END# *9E9C3B7101C7_FA17E90269B4get_var*
@@ -1419,9 +1415,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *9E9C3B7101C7_FA17E90269B4get_impl*
 end;//TFilters_GetSelected_Params.Get_ResultValue
-{$IfEnd} // NOT Defined(Monitorings)
 
-{$If NOT Defined(Monitorings)}
 procedure TFilters_GetSelected_Params.Set_ResultValue(const aValue: IFiltersFromQuery);
 //#UC START# *9E9C3B7101C7_FA17E90269B4set_var*
 //#UC END# *9E9C3B7101C7_FA17E90269B4set_var*
@@ -1430,15 +1424,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *9E9C3B7101C7_FA17E90269B4set_impl*
 end;//TFilters_GetSelected_Params.Set_ResultValue
-{$IfEnd} // NOT Defined(Monitorings)
 
 procedure TFilters_GetSelected_Params.ClearFields;
 begin
- {$If NOT Defined(Monitorings)}
  Finalize(f_ResultValue);
- {$IfEnd} // NOT Defined(Monitorings)
  inherited;
 end;//TFilters_GetSelected_Params.ClearFields
+{$IfEnd} // NOT Defined(Monitorings)
 
 {$If NOT Defined(Monitorings)}
 class function Op_Filters_GetSelected.Call(const aTarget: IvcmEntity): IFiltersFromQuery;
@@ -1450,9 +1442,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *2BFD88BD4C44_5412E29D88CA_impl*
 end;//Op_Filters_GetSelected.Call
-{$IfEnd} // NOT Defined(Monitorings)
 
-{$If NOT Defined(Monitorings)}
 class function Op_Filters_GetSelected.Call(const aTarget: IvcmAggregate): IFiltersFromQuery;
  {* Вызов операции Filters.GetSelected у агрегации }
 //#UC START# *5C3D48ABD694_5412E29D88CA_var*
@@ -1462,9 +1452,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5C3D48ABD694_5412E29D88CA_impl*
 end;//Op_Filters_GetSelected.Call
-{$IfEnd} // NOT Defined(Monitorings)
 
-{$If NOT Defined(Monitorings)}
 class function Op_Filters_GetSelected.Call(const aTarget: IvcmEntityForm): IFiltersFromQuery;
  {* Вызов операции Filters.GetSelected у формы }
 //#UC START# *4278F3FECAD6_5412E29D88CA_var*
@@ -1474,9 +1462,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4278F3FECAD6_5412E29D88CA_impl*
 end;//Op_Filters_GetSelected.Call
-{$IfEnd} // NOT Defined(Monitorings)
 
-{$If NOT Defined(Monitorings)}
 class function Op_Filters_GetSelected.Call(const aTarget: IvcmContainer): IFiltersFromQuery;
  {* Вызов операции Filters.GetSelected у контейнера }
 //#UC START# *411F034B11B9_5412E29D88CA_var*

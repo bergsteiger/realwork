@@ -49,9 +49,7 @@ class function Tkw_FormUserType_cfCreate.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::cfCreate';
 end;//Tkw_FormUserType_cfCreate.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_cfCreate.GetInteger: Integer;
 begin
  Result := cfCreate;

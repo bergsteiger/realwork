@@ -49,9 +49,7 @@ class function Tkw_FormUserType_cwChat.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::cwChat';
 end;//Tkw_FormUserType_cwChat.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_cwChat.GetInteger: Integer;
 begin
  Result := cwChat;

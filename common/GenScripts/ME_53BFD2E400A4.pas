@@ -51,9 +51,7 @@ class function Tkw_FormUserType_dftChronology.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::dftChronology';
 end;//Tkw_FormUserType_dftChronology.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftChronology.GetInteger: Integer;
 begin
  Result := dftChronology;

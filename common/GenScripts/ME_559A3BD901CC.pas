@@ -64,7 +64,7 @@ type
    procedure LogEditDoc(aFamilyID: TdaFamilyID;
     aDocID: TdaDocID;
     aEditType: TdaDocEditType;
-    anOperation: TdaEditOperation = daTypes.da_eoNone); overload;
+    anOperation: TdaEditOperation = da_eoNone); overload;
    procedure LogEditDoc(aFamilyID: TdaFamilyID;
     aDocID: TdaDocID;
     aEditType: TdaDocEditType;
@@ -73,7 +73,7 @@ type
     aDocID: TdaDocID);
    procedure LogEditDict(aFamilyID: TdaFamilyID;
     aDictType: TdaDictionaryType;
-    anOperation: TdaEditOperation = daTypes.da_eoNone);
+    anOperation: TdaEditOperation = da_eoNone);
    procedure LogCreateDoc(aFamilyID: TdaFamilyID;
     aDocID: TdaDocID);
    procedure LogAutoClass(aFamilyID: TdaFamilyID;
@@ -499,7 +499,7 @@ end;//TdaJournal.LogSaveDoc
 procedure TdaJournal.LogEditDoc(aFamilyID: TdaFamilyID;
  aDocID: TdaDocID;
  aEditType: TdaDocEditType;
- anOperation: TdaEditOperation = daTypes.da_eoNone);
+ anOperation: TdaEditOperation = da_eoNone);
 //#UC START# *554096B30178_559A3BD901CC_var*
 var
 // l_EditInfo2: TDocEditRec;
@@ -547,7 +547,7 @@ end;//TdaJournal.LogDeleteDoc
 
 procedure TdaJournal.LogEditDict(aFamilyID: TdaFamilyID;
  aDictType: TdaDictionaryType;
- anOperation: TdaEditOperation = daTypes.da_eoNone);
+ anOperation: TdaEditOperation = da_eoNone);
 //#UC START# *554097DC02FC_559A3BD901CC_var*
 var
 // l_Rec2: TDictEditRec;

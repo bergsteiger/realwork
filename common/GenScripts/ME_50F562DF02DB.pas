@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utStyleEditorNavigator.GetWordNameForRegister: A
 begin
  Result := 'тип_формы::utStyleEditorNavigator';
 end;//Tkw_FormUserType_utStyleEditorNavigator.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utStyleEditorNavigator.GetInteger: Integer;
 begin
  Result := utStyleEditorNavigator;

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_WarnRedaction.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::WarnRedaction';
 end;//Tkw_FormUserType_WarnRedaction.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnRedaction.GetInteger: Integer;
 begin
  Result := WarnRedaction;

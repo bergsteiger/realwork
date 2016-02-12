@@ -49,9 +49,7 @@ class function Tkw_FormUserType_dwftMain.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::dwftMain';
 end;//Tkw_FormUserType_dwftMain.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dwftMain.GetInteger: Integer;
 begin
  Result := dwftMain;

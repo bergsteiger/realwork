@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dwftSynchro.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::dwftSynchro';
 end;//Tkw_FormUserType_dwftSynchro.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dwftSynchro.GetInteger: Integer;
 begin
  Result := dwftSynchro;

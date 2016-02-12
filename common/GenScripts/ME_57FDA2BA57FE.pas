@@ -47,9 +47,7 @@ class function Tkw_FormUserType_ut_CustomizeTasksPanel.GetWordNameForRegister: A
 begin
  Result := 'тип_формы::ut_CustomizeTasksPanel';
 end;//Tkw_FormUserType_ut_CustomizeTasksPanel.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_CustomizeTasksPanel.GetInteger: Integer;
 begin
  Result := ut_CustomizeTasksPanel;

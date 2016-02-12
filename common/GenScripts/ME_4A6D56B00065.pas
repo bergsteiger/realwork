@@ -230,6 +230,8 @@ type
    read Get_ChangedParas;
  end;//IdsEditionsContainerData
 
+ InsDocumentTextProviderFactory = interface;
+
  TDocumentRoot = IDocumentTextProvider;
 
  InsDocumentTextProviderFactory = interface

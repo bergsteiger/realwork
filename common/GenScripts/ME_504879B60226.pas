@@ -48,9 +48,7 @@ class function Tkw_FormUserType_AACContentsContainer.GetWordNameForRegister: Ans
 begin
  Result := 'тип_формы::AACContentsContainer';
 end;//Tkw_FormUserType_AACContentsContainer.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_AACContentsContainer.GetInteger: Integer;
 begin
  Result := AACContentsContainer;

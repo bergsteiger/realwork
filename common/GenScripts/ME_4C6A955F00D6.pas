@@ -38,9 +38,6 @@
    function HAFPainterClass: RevHAFPainter; override;
    function DocumentPreviewClass: RevDocumentPreview; override;
    function Info: InevStorable; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure NotifySubReallyAdded(aParaID: Integer;
     aSubID: Integer;
     aLayerID: Integer;
@@ -53,6 +50,9 @@
   public
    constructor Create(const aDocInfo: IdeDocInfo); reintroduce;
    class function Make(const aDocInfo: IdeDocInfo): InevDocumentContainer; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//_nsDocumentContainer_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utcmMain.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::utcmMain';
 end;//Tkw_FormUserType_utcmMain.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utcmMain.GetInteger: Integer;
 begin
  Result := utcmMain;

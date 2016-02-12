@@ -49,9 +49,7 @@ class function Tkw_FormUserType_WarnTimeMachineException.GetWordNameForRegister:
 begin
  Result := 'тип_формы::WarnTimeMachineException';
 end;//Tkw_FormUserType_WarnTimeMachineException.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnTimeMachineException.GetInteger: Integer;
 begin
  Result := WarnTimeMachineException;

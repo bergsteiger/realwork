@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utInternetAgent.GetWordNameForRegister: AnsiStri
 begin
  Result := 'тип_формы::utInternetAgent';
 end;//Tkw_FormUserType_utInternetAgent.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utInternetAgent.GetInteger: Integer;
 begin
  Result := utInternetAgent;

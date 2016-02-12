@@ -1233,6 +1233,7 @@ begin
  Result := 'контрол::LeftNavigator:push';
 end;//Tkw_MainWindow_Control_LeftNavigator_Push.GetWordNameForRegister
 
+{$If Defined(HasRightNavigator)}
 class function Tkw_MainWindow_Control_RightNavigator.GetWordNameForRegister: AnsiString;
 begin
  Result := 'контрол::RightNavigator';
@@ -1248,7 +1249,9 @@ begin
  inherited;
  TtfwClassRef.Register(TnscNavigator);
 end;//Tkw_MainWindow_Control_RightNavigator.RegisterInEngine
+{$IfEnd} // Defined(HasRightNavigator)
 
+{$If Defined(HasRightNavigator)}
 procedure Tkw_MainWindow_Control_RightNavigator_Push.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_32A188482973_var*
 //#UC END# *4DAEEDE10285_32A188482973_var*
@@ -1262,6 +1265,7 @@ class function Tkw_MainWindow_Control_RightNavigator_Push.GetWordNameForRegister
 begin
  Result := 'контрол::RightNavigator:push';
 end;//Tkw_MainWindow_Control_RightNavigator_Push.GetWordNameForRegister
+{$IfEnd} // Defined(HasRightNavigator)
 
 function TkwMainWindowRemOnlineDead.remOnlineDead(const aCtx: TtfwContext;
  aMainWindow: TnsMainWindow): TnscReminder;
@@ -1942,7 +1946,6 @@ function TkwMainWindowRightNavigator.RightNavigator(const aCtx: TtfwContext;
 begin
  Result := aMainWindow.RightNavigator;
 end;//TkwMainWindowRightNavigator.RightNavigator
-{$IfEnd} // Defined(HasRightNavigator)
 
 procedure TkwMainWindowRightNavigator.DoDoIt(const aCtx: TtfwContext);
 var l_aMainWindow: TnsMainWindow;
@@ -1984,6 +1987,7 @@ function TkwMainWindowRightNavigator.ParamsTypes: PTypeInfoArray;
 begin
  Result := OpenTypesToTypes([TypeInfo(TnsMainWindow)]);
 end;//TkwMainWindowRightNavigator.ParamsTypes
+{$IfEnd} // Defined(HasRightNavigator)
 
 initialization
  Tkw_Form_MainWindow.RegisterInEngine;

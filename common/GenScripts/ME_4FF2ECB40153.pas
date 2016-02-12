@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftAACLeft.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::dftAACLeft';
 end;//Tkw_FormUserType_dftAACLeft.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftAACLeft.GetInteger: Integer;
 begin
  Result := dftAACLeft;

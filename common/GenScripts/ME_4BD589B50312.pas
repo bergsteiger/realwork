@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftConsultation.GetWordNameForRegister: AnsiStri
 begin
  Result := 'тип_формы::lftConsultation';
 end;//Tkw_FormUserType_lftConsultation.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftConsultation.GetInteger: Integer;
 begin
  Result := lftConsultation;

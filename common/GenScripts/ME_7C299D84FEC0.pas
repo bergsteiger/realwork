@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_DefineSearchDate.GetWordNameForRegister: Ansi
 begin
  Result := 'тип_формы::ut_DefineSearchDate';
 end;//Tkw_FormUserType_ut_DefineSearchDate.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_DefineSearchDate.GetInteger: Integer;
 begin
  Result := ut_DefineSearchDate;

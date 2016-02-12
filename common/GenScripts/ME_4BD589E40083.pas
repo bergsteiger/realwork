@@ -50,9 +50,7 @@ class function Tkw_FormUserType_lftSimilarDocuments.GetWordNameForRegister: Ansi
 begin
  Result := 'тип_формы::lftSimilarDocuments';
 end;//Tkw_FormUserType_lftSimilarDocuments.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftSimilarDocuments.GetInteger: Integer;
 begin
  Result := lftSimilarDocuments;

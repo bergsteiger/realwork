@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::utEmptyMainWindow';
 end;//Tkw_FormUserType_utEmptyMainWindow.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utEmptyMainWindow.GetInteger: Integer;
 begin
  Result := utEmptyMainWindow;

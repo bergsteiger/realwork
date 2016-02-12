@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister
 begin
  Result := 'тип_формы::ControlledChangingWarning';
 end;//Tkw_FormUserType_ControlledChangingWarning.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ControlledChangingWarning.GetInteger: Integer;
 begin
  Result := ControlledChangingWarning;

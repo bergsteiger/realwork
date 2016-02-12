@@ -50,9 +50,7 @@ class function Tkw_FormUserType_dftAnnotation.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::dftAnnotation';
 end;//Tkw_FormUserType_dftAnnotation.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_dftAnnotation.GetInteger: Integer;
 begin
  Result := dftAnnotation;

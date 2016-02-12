@@ -49,9 +49,7 @@ class function Tkw_FormUserType_WarnOnControl.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::WarnOnControl';
 end;//Tkw_FormUserType_WarnOnControl.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_WarnOnControl.GetInteger: Integer;
 begin
  Result := WarnOnControl;

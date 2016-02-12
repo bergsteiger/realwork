@@ -14,6 +14,8 @@ uses
 ;
 
 type
+ IsdsInternetAgent = interface;
+
  IdsInternetAgent = interface
   {* Область вывода Интернет-агента }
   ['{9CECE11A-2DD8-4A7E-B87C-77350FE9903C}']

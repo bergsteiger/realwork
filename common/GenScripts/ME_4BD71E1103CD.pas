@@ -49,9 +49,7 @@ class function Tkw_FormUserType_nltMain.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::nltMain';
 end;//Tkw_FormUserType_nltMain.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_nltMain.GetInteger: Integer;
 begin
  Result := nltMain;

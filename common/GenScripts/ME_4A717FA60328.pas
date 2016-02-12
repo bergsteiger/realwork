@@ -68,6 +68,10 @@ uses
  , afwFacade
 ;
 
+{$If not Declared(_InitDataType_)}type _InitDataType_ = InsEditionDiffData;{$IfEnd}
+
+{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
+
 type _Instance_R_ = TdsRightEdition;
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}

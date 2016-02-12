@@ -51,9 +51,7 @@ class function Tkw_FormUserType_lftRToPart.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::lftRToPart';
 end;//Tkw_FormUserType_lftRToPart.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_lftRToPart.GetInteger: Integer;
 begin
  Result := lftRToPart;
