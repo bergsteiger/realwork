@@ -13,7 +13,7 @@
  // _InitDataType_
 
  _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
- {$Include l3Notifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  _vcmFormSetDataSource_ = class(_l3Notifier_, IvcmFormSetDataSource, Il3ChangeNotifier)
   {* Бизнес объект сборки }
   private
@@ -99,7 +99,7 @@
 {$Else NOT Defined(NoVCM)}
 
 _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 _vcmFormSetDataSource_ = _l3Notifier_;
 
 {$IfEnd} // NOT Defined(NoVCM)
@@ -110,7 +110,7 @@ _vcmFormSetDataSource_ = _l3Notifier_;
 {$Define vcmFormSetDataSource_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
 function _vcmFormSetDataSource_.pm_GetSetData: _SetDataType_;
 //#UC START# *494163340251_47F37723017Aget_var*

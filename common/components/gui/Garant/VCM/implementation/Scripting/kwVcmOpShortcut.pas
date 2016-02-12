@@ -1,52 +1,38 @@
 unit kwVcmOpShortcut;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwVcmOpShortcut.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi::VCM$Scripting::VCMWords::vcm_op_Shortcut
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpShortcut.pas"
+// Стереотип: "ScriptKeyword"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  kwOperationParamWordPrim,
-  vcmInterfaces,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , kwOperationParamWordPrim
+ , vcmInterfaces
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
- TkwVcmOpShortcut = {final scriptword} class(TkwOperationParamWordPrim)
- protected
- // realized methods
+ TkwVcmOpShortcut = {final} class(TkwOperationParamWordPrim)
+  protected
    procedure DoParams(const aParams: IvcmTestParams;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwVcmOpShortcut
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TkwVcmOpShortcut
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 procedure TkwVcmOpShortcut.DoParams(const aParams: IvcmTestParams;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *5230185F0140_523018BE02F9_var*
 //#UC END# *5230185F0140_523018BE02F9_var*
 begin
@@ -56,17 +42,13 @@ begin
 end;//TkwVcmOpShortcut.DoParams
 
 class function TkwVcmOpShortcut.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'vcm:op:Shortcut';
 end;//TkwVcmOpShortcut.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация vcm_op_Shortcut
  TkwVcmOpShortcut.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация vcm_op_Shortcut }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

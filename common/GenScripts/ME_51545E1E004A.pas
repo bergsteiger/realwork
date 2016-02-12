@@ -13,7 +13,7 @@ uses
 
 type
  _ItemType_ = Integer;
- {$Include Stack.imp.pas}
+ {$Include w:\common\components\SandBox\Stack.imp.pas}
  TIntStack = class(_Stack_)
  end;//TIntStack
 
@@ -23,6 +23,6 @@ uses
  l3ImplUses
 ;
 
-{$Include Stack.imp.pas}
+{$Include w:\common\components\SandBox\Stack.imp.pas}
 
 end.

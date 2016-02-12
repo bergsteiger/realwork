@@ -22,7 +22,7 @@ type
  _ItemType_ = TLongArray;
  _l3RefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
  Tk2SortTagsListPrim = class(_l3RefList_)
  end;//Tk2SortTagsListPrim
 
@@ -123,6 +123,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2SortTagsListPrim;
 
-{$Include l3RefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
 
 end.

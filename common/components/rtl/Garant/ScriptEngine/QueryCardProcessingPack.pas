@@ -1,36 +1,34 @@
 unit QueryCardProcessingPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "QueryCardProcessingPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$Everest::QueryCardProcessing::QueryCardProcessingPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\QueryCardProcessingPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwPopQueryCardAttributeSetWithLogicOperation,
-  kwPopQueryCardSetAttribute,
-  kwPopQueryCardAttributeSetCollapsed,
-  kwPopQueryCardAttributeSetFocus,
-  kwPopQueryCardAttributeGetFocus,
-  kwPopQueryCardAttributeGetCollapsed,
-  kwPopQueryCardAttributeGetLogicOperation,
-  kwPopQueryCardAttributeIsLogicOperationEnabled,
-  kwPopQueryCardGetCurrentReqName,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwPopQueryCardAttributeSetWithLogicOperation
+ , kwPopQueryCardSetAttribute
+ , kwPopQueryCardAttributeSetCollapsed
+ , kwPopQueryCardAttributeSetFocus
+ , kwPopQueryCardAttributeGetFocus
+ , kwPopQueryCardAttributeGetCollapsed
+ , kwPopQueryCardAttributeGetLogicOperation
+ , kwPopQueryCardAttributeIsLogicOperationEnabled
+ , kwPopQueryCardGetCurrentReqName
+ , tfwScriptingTypes
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
 end.

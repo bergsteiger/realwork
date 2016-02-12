@@ -32,7 +32,7 @@ type
  _ItemType_ = Tk2Attribute;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  Tk2Attributes = class(_l3RecordListPrim_)
   private
    f_IDDelta: Integer;
@@ -183,7 +183,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2Attributes;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 function Tk2Attributes.IDByName(const aName: AnsiString): Integer;
 //#UC START# *53A9843302D9_53A963F700CD_var*

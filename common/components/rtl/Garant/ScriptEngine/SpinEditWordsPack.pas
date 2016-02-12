@@ -1,39 +1,35 @@
 unit SpinEditWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VT"
-// Модуль: "SpinEditWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VT::vtControlsFromStackWords::SpinEditWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SpinEditWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  vtSpinEdit,
-  tfwScriptingInterfaces,
-  tfwPropertyLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , vtSpinEdit
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopSpinEditValue = {final scriptword} class(TtfwPropertyLike)
+ TkwPopSpinEditValue = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:SpinEdit:Value
 *Тип результата:* Integer
 *Пример:*
@@ -41,35 +37,27 @@ type
 INTEGER VAR l_Integer
  aSpinEdit pop:SpinEdit:Value >>> l_Integer
 [code]  }
- private
- // private methods
+  private
    function Value(const aCtx: TtfwContext;
     aSpinEdit: TvtSpinEdit): Integer;
-     {* Реализация слова скрипта pop:SpinEdit:Value }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:SpinEdit:Value }
+  protected
+   class procedure DoSetValue(aSpinEdit: TvtSpinEdit;
+    aValue: Integer);
+    {* Метод установки значения свойства Value }
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
- protected
- // protected methods
-   class procedure DoSetValue(aSpinEdit: TvtSpinEdit;
-    aValue: Integer);
-     {* Метод установки значения свойства Value }
  end;//TkwPopSpinEditValue
 
-// start class TkwPopSpinEditValue
-
 function TkwPopSpinEditValue.Value(const aCtx: TtfwContext;
-  aSpinEdit: TvtSpinEdit): Integer;
+ aSpinEdit: TvtSpinEdit): Integer;
+ {* Реализация слова скрипта pop:SpinEdit:Value }
 //#UC START# *7366517D8188_0F40F0279E11_var*
 //#UC END# *7366517D8188_0F40F0279E11_var*
 begin
@@ -79,7 +67,8 @@ begin
 end;//TkwPopSpinEditValue.Value
 
 class procedure TkwPopSpinEditValue.DoSetValue(aSpinEdit: TvtSpinEdit;
-  aValue: Integer);
+ aValue: Integer);
+ {* Метод установки значения свойства Value }
 //#UC START# *A9BA2BCEA197_0F40F0279E11_var*
 //#UC END# *A9BA2BCEA197_0F40F0279E11_var*
 begin
@@ -89,9 +78,7 @@ begin
 end;//TkwPopSpinEditValue.DoSetValue
 
 procedure TkwPopSpinEditValue.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aSpinEdit : TvtSpinEdit;
+var l_aSpinEdit: TvtSpinEdit;
 begin
  try
   l_aSpinEdit := TvtSpinEdit(aCtx.rEngine.PopObjAs(TvtSpinEdit));
@@ -102,67 +89,54 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((Value(aCtx, l_aSpinEdit)));
+ aCtx.rEngine.PushInt(Value(aCtx, l_aSpinEdit));
 end;//TkwPopSpinEditValue.DoDoIt
 
 class function TkwPopSpinEditValue.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:SpinEdit:Value';
 end;//TkwPopSpinEditValue.GetWordNameForRegister
 
 procedure TkwPopSpinEditValue.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
-var
- l_SpinEdit: TvtSpinEdit;
+ const aCtx: TtfwContext);
+var l_SpinEdit: TvtSpinEdit;
 begin
  try
   l_SpinEdit := TvtSpinEdit(aCtx.rEngine.PopObjAs(TvtSpinEdit));
  except
   on E: Exception do
   begin
-   RunnerError('Ошибка при получении параметра l_SpinEdit: TvtSpinEdit : ' + E.Message, aCtx);
+   RunnerError('Ошибка при получении параметра SpinEdit: TvtSpinEdit : ' + E.Message, aCtx);
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(l_SpinEdit, (aValue.AsInt));
+ DoSetValue(l_SpinEdit, aValue.AsInt);
 end;//TkwPopSpinEditValue.SetValuePrim
 
 function TkwPopSpinEditValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopSpinEditValue.GetResultTypeInfo
 
 function TkwPopSpinEditValue.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopSpinEditValue.GetAllParamsCount
 
 function TkwPopSpinEditValue.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtSpinEdit)]);
 end;//TkwPopSpinEditValue.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_SpinEdit_Value
  TkwPopSpinEditValue.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_SpinEdit_Value }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TvtSpinEdit
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSpinEdit));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа TvtSpinEdit }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Integer }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -25,7 +25,7 @@ uses
 
 type
  _kwEditorGetTableFromCursor_Parent_ = TkwEditorFromStackWord;
- {$Include kwEditorGetTableFromCursor.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
  TkwPopEditorSelectColumn = {final} class(_kwEditorGetTableFromCursor_)
   {* *Формат:* aColID anEditorControl pop:editor:SelectCells
 *Описание:* Выделяет колонку таблицы. Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aColID - Integer
@@ -52,7 +52,7 @@ uses
  , Table_Const
 ;
 
-{$Include kwEditorGetTableFromCursor.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
 
 procedure TkwPopEditorSelectColumn.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

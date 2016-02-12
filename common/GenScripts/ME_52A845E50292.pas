@@ -21,7 +21,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TWinControlActionLink;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmWinControlActionLink = class(_l3Unknown_, IvcmActionLink)
   protected
    procedure DoParamsChanged(const anAction: IvcmAction); virtual;
@@ -50,7 +50,7 @@ type
  THackControl = class(TControl)
  end;//THackControl
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvcmWinControlActionLink.DoParamsChanged(const anAction: IvcmAction);
 //#UC START# *52A8469903AF_52A845E50292_var*

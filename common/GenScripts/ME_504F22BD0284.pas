@@ -10,7 +10,7 @@ type
 
  _SecondType_ = _BitMaskType_;
  _FirstType_ = _BitMaskValueType_;
- {$Include atConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
  _atBitMaskConverter_ = class(_atConverter_)
   public
    function ToValues(const aMask: _BitMaskType_): TBitMaskValues; virtual;
@@ -23,7 +23,7 @@ type
 
 {$Define atBitMaskConverter_imp_impl}
 
-{$Include atConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
 
 function _atBitMaskConverter_.ToValues(const aMask: _BitMaskType_): TBitMaskValues;
 //#UC START# *504F313903B0_504F22BD0284_var*

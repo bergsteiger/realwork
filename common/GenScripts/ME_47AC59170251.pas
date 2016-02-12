@@ -26,7 +26,7 @@ uses
 
 type
  _k2Tag_Parent_ = Tk2TagList;
- {$Include k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2List = class(_k2Tag_)
   protected
    {$If NOT Defined(k2TagIsAtomic)}
@@ -70,7 +70,7 @@ uses
 
 type _Instance_R_ = Tk2List;
 
-{$Include k2Tag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2List.Create(aTagType: Tk2Type);
 //#UC START# *5281F01E011D_47AC59170251_var*

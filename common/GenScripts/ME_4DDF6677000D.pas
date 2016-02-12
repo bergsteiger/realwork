@@ -25,7 +25,7 @@ uses
 
 type
  _ClickOnCommentHeader_Parent_ = TTextViaEditorProcessor;
- {$Include ClickOnCommentHeader.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas}
  TClickOnCommentTest = {abstract} class(_ClickOnCommentHeader_)
   {* Тестирование кликанья мышью на заголовке комментария. }
   protected
@@ -57,7 +57,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include ClickOnCommentHeader.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TClickOnCommentTest.Process(aForm: TPrimTextLoadForm);

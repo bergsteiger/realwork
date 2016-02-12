@@ -5,7 +5,7 @@
 
 {$Define dsTagSimpleTree_imp}
 
- {$Include dsSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _dsTagSimpleTree_ = {abstract} class(_dsSimpleTree_, IdsTagSimpleTree)
   {* Бизнес объекта для словарных атрибутов }
   private
@@ -33,7 +33,7 @@
 
 {$Define dsTagSimpleTree_imp_impl}
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 procedure _dsTagSimpleTree_.UpdateOperations;
 //#UC START# *492404C20046_4924015202CD_var*

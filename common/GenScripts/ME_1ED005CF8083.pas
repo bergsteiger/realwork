@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_FoldersTree.GetWordNameForRegister
 
 function Tkw_Form_FoldersTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C806163015DD_var*
-//#UC END# *4DDFD2EA0116_C806163015DD_var*
 begin
-//#UC START# *4DDFD2EA0116_C806163015DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C806163015DD_impl*
+ Result := 'enFoldersTree';
 end;//Tkw_Form_FoldersTree.GetString
 
 class function Tkw_FoldersTree_Control_FoldersTree.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_FoldersTree_Control_FoldersTree.GetWordNameForRegister
 
 function Tkw_FoldersTree_Control_FoldersTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_93FE3A926428_var*
-//#UC END# *4DDFD2EA0116_93FE3A926428_var*
 begin
-//#UC START# *4DDFD2EA0116_93FE3A926428_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_93FE3A926428_impl*
+ Result := 'FoldersTree';
 end;//Tkw_FoldersTree_Control_FoldersTree.GetString
 
 class procedure Tkw_FoldersTree_Control_FoldersTree.RegisterInEngine;
-//#UC START# *52A086150180_93FE3A926428_var*
-//#UC END# *52A086150180_93FE3A926428_var*
 begin
-//#UC START# *52A086150180_93FE3A926428_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_93FE3A926428_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_FoldersTree_Control_FoldersTree.RegisterInEngine
 
 procedure Tkw_FoldersTree_Control_FoldersTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_FoldersTree_Control_FoldersTree_Push.GetWordNameForRegister
 function TkwEnFoldersTreeFoldersTree.FoldersTree(const aCtx: TtfwContext;
  aenFoldersTree: TenFoldersTree): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TenFoldersTree.FoldersTree }
-//#UC START# *3DBC8AEEF2BE_6BEE06997D28_var*
-//#UC END# *3DBC8AEEF2BE_6BEE06997D28_var*
 begin
-//#UC START# *3DBC8AEEF2BE_6BEE06997D28_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3DBC8AEEF2BE_6BEE06997D28_impl*
+ Result := aenFoldersTree.FoldersTree;
 end;//TkwEnFoldersTreeFoldersTree.FoldersTree
 
 procedure TkwEnFoldersTreeFoldersTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6BEE06997D28_var*
-//#UC END# *4DAEEDE10285_6BEE06997D28_var*
+var l_aenFoldersTree: TenFoldersTree;
 begin
-//#UC START# *4DAEEDE10285_6BEE06997D28_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6BEE06997D28_impl*
+ try
+  l_aenFoldersTree := TenFoldersTree(aCtx.rEngine.PopObjAs(TenFoldersTree));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersTree: TenFoldersTree : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(FoldersTree(aCtx, l_aenFoldersTree));
 end;//TkwEnFoldersTreeFoldersTree.DoDoIt
 
 class function TkwEnFoldersTreeFoldersTree.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEnFoldersTreeFoldersTree.GetWordNameForRegister
 
 procedure TkwEnFoldersTreeFoldersTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6BEE06997D28_var*
-//#UC END# *52D00B00031A_6BEE06997D28_var*
 begin
-//#UC START# *52D00B00031A_6BEE06997D28_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6BEE06997D28_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству FoldersTree', aCtx);
 end;//TkwEnFoldersTreeFoldersTree.SetValuePrim
 
 function TkwEnFoldersTreeFoldersTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEnFoldersTreeFoldersTree.GetAllParamsCount
 
 function TkwEnFoldersTreeFoldersTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersTree)]);
 end;//TkwEnFoldersTreeFoldersTree.ParamsTypes
 
 initialization

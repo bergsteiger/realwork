@@ -23,9 +23,9 @@ uses
 type
  _SettingsClass_ = ISettingsManager;
  _l3COMQueryInterface_Parent_ = Tl3ProtoObject;
- {$Include l3COMQueryInterface.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
  _nsSettings_Parent_ = _l3COMQueryInterface_;
- {$Include nsSettings.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
  TnsSettings = class(_nsSettings_, IafwSettings, InsSettingsNotify, InsSettings)
   private
    f_SettingsListeners: TInsUserSettingsListenerPtrList;
@@ -97,9 +97,9 @@ uses
  , l3VCLStrings
 ;
 
-{$Include l3COMQueryInterface.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
 
-{$Include nsSettings.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
 
 constructor TnsSettings.Create(const aSettings: ISettingsManager;
  const aManager: IConfigurationManager);

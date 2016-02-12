@@ -38,7 +38,7 @@ type
  // Child
 
  _DictionContainerUserTypes_Parent_ = TPrimSaveLoadOptionsForm;
- {$Include DictionContainerUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas}
  TPrimDictionContainerForm = class(_DictionContainerUserTypes_)
   private
    f_pnBackground: TvtProportionalPanel;
@@ -101,7 +101,7 @@ uses
 type
  // ExcludeAll
 
-{$Include DictionContainerUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas}
 
 procedure TPrimDictionContainerForm.ChildZoneQueryResize(ALeft: Integer;
  ATop: Integer;

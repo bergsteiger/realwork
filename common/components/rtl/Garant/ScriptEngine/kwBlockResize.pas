@@ -1,65 +1,58 @@
 unit kwBlockResize;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwBlockResize.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TkwBlockResize
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBlockResize.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  tfwScriptingInterfaces,
-  kwEditorFromStackCursorWord,
-  evCustomEditorWindow
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackCursorWord
+ , tfwScriptingInterfaces
+ , nevTools
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
  TkwBlockResize = {abstract} class(TkwEditorFromStackCursorWord)
- protected
- // realized methods
-   procedure DoCursor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPoint: InevBasePoint); override;
- protected
- // protected methods
+  protected
    procedure CorrectBlockPoint(const aCtx: TtfwContext;
-     var aMap: InevMap;
-     var aCursor: InevBasePoint); virtual; abstract;
+    var aMap: InevMap;
+    var aCursor: InevBasePoint); virtual; abstract;
+   procedure DoCursor(const aCtx: TtfwContext;
+    anEditor: TevCustomEditorWindow;
+    const aPoint: InevBasePoint); override;
  end;//TkwBlockResize
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Units,
-  nevGUIInterfaces,
-  Classes,
-  l3Base,
-  Block_Const,
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwBlockResize
+ l3ImplUses
+ , l3Units
+ , nevGUIInterfaces
+ , Classes
+ , l3Base
+ , Block_Const
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwBlockResize.DoCursor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPoint: InevBasePoint);
+ anEditor: TevCustomEditorWindow;
+ const aPoint: InevBasePoint);
 //#UC START# *50B8BCDF0093_514BFB250118_var*
 var
  l_Map           : InevMap;
@@ -116,12 +109,9 @@ begin
 //#UC END# *50B8BCDF0093_514BFB250118_impl*
 end;//TkwBlockResize.DoCursor
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwBlockResize
  TkwBlockResize.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwBlockResize }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

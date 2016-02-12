@@ -23,7 +23,7 @@ type
  _ItemType_ = TJust;
  _l3EnumList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3EnumList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
  TddJustList = class(_l3EnumList_)
  end;//TddJustList
 
@@ -39,6 +39,6 @@ uses
 
 type _Instance_R_ = TddJustList;
 
-{$Include l3EnumList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
 
 end.

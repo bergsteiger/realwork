@@ -18,7 +18,7 @@ uses
 
 type
  _l3Notifier_Parent_ = Tl3SimpleObject;
- {$Include l3Notifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  TnsFolderFilterInfo = class(_l3Notifier_, InsFolderFilterInfo, Il3ChangeNotifier)
   private
    f_FilterType: TnsFolderFilter;
@@ -54,7 +54,7 @@ uses
  , SysUtils
 ;
 
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
 constructor TnsFolderFilterInfo.Create(aFilterType: TnsFolderFilter;
  aFilterFor: TnsFolderFilterFor;

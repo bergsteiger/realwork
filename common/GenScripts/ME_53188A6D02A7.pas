@@ -27,7 +27,7 @@ uses
 
 type
  _k2Tag_Parent_ = Tl3PrimString;
- {$Include k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2FontName = class(_k2Tag_, Il3TagRef)
   private
    f_LogFont: Tl3LogFont;
@@ -84,7 +84,7 @@ uses
 
 type _Instance_R_ = Tk2FontName;
 
-{$Include k2Tag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2FontName.Create(aLogFont: Tl3LogFont);
 //#UC START# *53189606008A_53188A6D02A7_var*

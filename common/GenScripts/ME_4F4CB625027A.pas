@@ -20,7 +20,7 @@ uses
 ;
 
 type
- {$Include kwControlFromStackWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwEditorFromStackWord = {abstract} class(_kwControlFromStackWord_)
   protected
    procedure DoWithEditor(const aCtx: TtfwContext;
@@ -43,7 +43,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include kwControlFromStackWord.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
 {$If NOT Defined(NoVCL)}
 procedure TkwEditorFromStackWord.DoControl(aControl: TControl;

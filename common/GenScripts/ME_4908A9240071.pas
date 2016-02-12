@@ -17,7 +17,7 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = Tl3Tree;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsDataResetTree = class(_afwApplicationDataUpdate_)
   private
    f_InGetRoot: Boolean;
@@ -43,7 +43,7 @@ uses
  , afwFacade
 ;
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 procedure TnsDataResetTree.BeforeReset;
 //#UC START# *4908AAED02BD_4908A9240071_var*

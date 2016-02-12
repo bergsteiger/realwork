@@ -40,9 +40,9 @@ uses
 
 type
  _InitDataType_ = IdeNode;
- {$Include dsSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _nsContextFilter_Parent_ = _dsSimpleTree_;
- {$Include nsContextFilter.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
  TdsUserList = {final} class(_nsContextFilter_, IdsUserList)
   {* бизнес объект формы efUserList }
   private
@@ -151,9 +151,9 @@ uses
 
 type _Instance_R_ = TdsUserList;
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
-{$Include nsContextFilter.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
 
 function TdsUserList.MakeSelectedList(const aTree: Il3SimpleTree): IadminUserNodeList;
 //#UC START# *49246C70028F_49246742002B_var*

@@ -1,70 +1,62 @@
 unit kwPopQueryCardAttributeGetLogicOperation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopQueryCardAttributeGetLogicOperation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::QueryCardProcessing::pop_QueryCard_Attribute_GetLogicOperation
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeGetLogicOperation.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  nevBase,
-  evQueryCardInt,
-  evQueryCardEditor,
-  tfwScriptingInterfaces,
-  kwQueryCardFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwQueryCardFromStackWord
+ , l3Interfaces
+ , nevBase
+ , tfwScriptingInterfaces
+ , evQueryCardEditor
+ , evQueryCardInt
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopQueryCardAttributeGetLogicOperation = {final scriptword} class(TkwQueryCardFromStackWord)
- private
- // private methods
+ TkwPopQueryCardAttributeGetLogicOperation = {final} class(TkwQueryCardFromStackWord)
+  private
    procedure DoModelImpl(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor);
- protected
- // realized methods
+    aCard: TevQueryCardEditor);
+  protected
    procedure DoCard(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor); override;
- protected
- // overridden protected methods
+    aCard: TevQueryCardEditor); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopQueryCardAttributeGetLogicOperation
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  l3Base,
-  evReqIterator
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopQueryCardAttributeGetLogicOperation
+ l3ImplUses
+ , l3String
+ , l3Base
+ , evReqIterator
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopQueryCardAttributeGetLogicOperation.DoModelImpl(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
-var
- l_Name : Il3CString;
- l_Op : InevOp;
- l_LogicOp : Integer;
+ aCard: TevQueryCardEditor);
+var l_Name: Il3CString;
+var l_Op: InevOp;
+var l_LogicOp: Integer;
 
  procedure CallIterator;
 
   function DoIt(const anItem: IevReq): Boolean;
+   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
   //#UC START# *2B70B2B2422D__var*
   var
    l_F : IevEditorControlField;
@@ -88,7 +80,7 @@ var
   //#UC START# *50EFE2330224iter*
   TevReqIterator.Make(aCard).
   //#UC END# *50EFE2330224iter*
-   DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+  DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
  end;//CallIterator
 
 //#UC START# *50EFE12701AD_50EFDD1802BC_var*
@@ -107,7 +99,7 @@ begin
 end;//TkwPopQueryCardAttributeGetLogicOperation.DoModelImpl
 
 procedure TkwPopQueryCardAttributeGetLogicOperation.DoCard(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
+ aCard: TevQueryCardEditor);
 //#UC START# *4E808E8B01BB_50EFDD1802BC_var*
 //#UC END# *4E808E8B01BB_50EFDD1802BC_var*
 begin
@@ -117,17 +109,13 @@ begin
 end;//TkwPopQueryCardAttributeGetLogicOperation.DoCard
 
 class function TkwPopQueryCardAttributeGetLogicOperation.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:QueryCard:Attribute:GetLogicOperation';
 end;//TkwPopQueryCardAttributeGetLogicOperation.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_QueryCard_Attribute_GetLogicOperation
  TkwPopQueryCardAttributeGetLogicOperation.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_QueryCard_Attribute_GetLogicOperation }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

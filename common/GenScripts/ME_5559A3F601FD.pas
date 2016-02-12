@@ -51,7 +51,7 @@ type
  _ItemType_ = TvcmFormSetContainerMapItem;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvcmFormSetContainerMap = class(_l3RecordWithEQList_)
   public
    procedure ForEachF(anAction: TvcmFormSetContainerMapIterator_ForEachF_Action;
@@ -174,7 +174,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmFormSetContainerMap;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
 procedure TvcmFormSetContainerMap.ForEachF(anAction: TvcmFormSetContainerMapIterator_ForEachF_Action;
  const aContainer: IvcmContainer);

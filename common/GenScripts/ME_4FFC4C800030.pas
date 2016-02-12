@@ -39,7 +39,7 @@ type
  end;//THackOwnedCollection
  //#UC END# *4FFC4C800030ci*
  _l3Unknown_Parent_ = TOwnedCollection;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *4FFC4C800030cit*
  //#UC END# *4FFC4C800030cit*
  TvcmBaseCollection = class(_l3Unknown_)
@@ -101,7 +101,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvcmBaseCollection.pm_SetSorted(aValue: Boolean);
 //#UC START# *5607EB150143_4FFC4C800030set_var*

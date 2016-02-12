@@ -23,7 +23,7 @@ type
  _ItemType_ = Tk2FontName;
  _l3UncomparabeObjectRefList_Parent_ = Tl3DataContainerWithoutIUnknownPrim;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tk2FontNameListPrim = class(_l3UncomparabeObjectRefList_)
  end;//Tk2FontNameListPrim
 
@@ -66,6 +66,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2FontNameListPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

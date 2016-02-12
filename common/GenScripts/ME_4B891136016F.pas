@@ -7,7 +7,7 @@
 
  _FindDataType_ = AnsiString;
  _l3Searcher_Parent_ = _l3DelphiStringSearcherPrim_Parent_;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  _l3DelphiStringSearcherPrim_ = {abstract} class(_l3Searcher_)
  end;//_l3DelphiStringSearcherPrim_
 
@@ -30,7 +30,7 @@ begin
 //#UC END# *47B9BAFD01F4_4B891136016F_impl*
 end;//CompareItemWithData
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 {$EndIf l3DelphiStringSearcherPrim_imp_impl}
 

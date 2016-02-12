@@ -535,7 +535,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Cell(aCtx, l_aTable),IedCell);
+ aCtx.rEngine.PushIntf(Cell(aCtx, l_aTable), TypeInfo(IedCell));
 end;//TkwPopTableCell.DoDoIt
 
 class function TkwPopTableCell.GetWordNameForRegister: AnsiString;
@@ -581,7 +581,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Cells(aCtx, l_aTable),IedCells);
+ aCtx.rEngine.PushIntf(Cells(aCtx, l_aTable), TypeInfo(IedCells));
 end;//TkwPopTableCells.DoDoIt
 
 class function TkwPopTableCells.GetWordNameForRegister: AnsiString;
@@ -627,7 +627,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Column(aCtx, l_aTable),IedColumn);
+ aCtx.rEngine.PushIntf(Column(aCtx, l_aTable), TypeInfo(IedColumn));
 end;//TkwPopTableColumn.DoDoIt
 
 class function TkwPopTableColumn.GetWordNameForRegister: AnsiString;
@@ -673,7 +673,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(ColumnsIterator(aCtx, l_aTable),IedColumnsIterator);
+ aCtx.rEngine.PushIntf(ColumnsIterator(aCtx, l_aTable), TypeInfo(IedColumnsIterator));
 end;//TkwPopTableColumnsIterator.DoDoIt
 
 class function TkwPopTableColumnsIterator.GetWordNameForRegister: AnsiString;
@@ -719,7 +719,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(RowsIterator(aCtx, l_aTable),IedRowsIterator);
+ aCtx.rEngine.PushIntf(RowsIterator(aCtx, l_aTable), TypeInfo(IedRowsIterator));
 end;//TkwPopTableRowsIterator.DoDoIt
 
 class function TkwPopTableRowsIterator.GetWordNameForRegister: AnsiString;
@@ -797,7 +797,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Table, aValue.AsBoolean);
+ DoSetValue(l_Table, aValue.AsBoolean);
 end;//TkwPopTableOldNSRC.SetValuePrim
 
 function TkwPopTableOldNSRC.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

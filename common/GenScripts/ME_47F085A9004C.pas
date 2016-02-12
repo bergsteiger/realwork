@@ -6,7 +6,7 @@
 {$Define dBaseDocumentWithAttributes_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include dBaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.imp.pas}
  _dBaseDocumentWithAttributes_ = class(_dBaseDocument_, IdBaseDocumentWithAttributes)
   {* Данные документа с атрибутами }
   private
@@ -29,7 +29,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.imp.pas}
 _dBaseDocumentWithAttributes_ = _dBaseDocument_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -40,7 +40,7 @@ _dBaseDocumentWithAttributes_ = _dBaseDocument_;
 {$Define dBaseDocumentWithAttributes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.imp.pas}
 
 procedure _dBaseDocumentWithAttributes_.DoResetBooleans;
 //#UC START# *4B18134E01F8_47F085A9004C_var*

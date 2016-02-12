@@ -30,7 +30,7 @@ uses
 
 type
  _UseCaseControllerType_ = IsdsList;
- {$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
  TdsSynchroView = {final} class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_, IdsSynchroView)
   {* Бизнес объект формы "fcSynchroView" }
   protected
@@ -78,7 +78,7 @@ uses
 
 type _Instance_R_ = TdsSynchroView;
 
-{$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 
 function TdsSynchroView.pm_GetIsAnnotationActive: Boolean;
 //#UC START# *29FB34EB69B7_4922B4F803ACget_var*

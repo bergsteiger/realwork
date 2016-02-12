@@ -1,61 +1,53 @@
 unit kwPopEditorParaHome;
+ {* В начало параграфа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorParaHome.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_ParaHome
-//
-// В начало параграфа
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaHome.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackCursorWord,
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackCursorWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorParaHome = {final scriptword} class(TkwEditorFromStackCursorWord)
+ TkwPopEditorParaHome = {final} class(TkwEditorFromStackCursorWord)
   {* В начало параграфа }
- protected
- // realized methods
+  protected
    procedure DoCursor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPoint: InevBasePoint); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow;
+    const aPoint: InevBasePoint); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorParaHome
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorParaHome
+ l3ImplUses
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorParaHome.DoCursor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPoint: InevBasePoint);
+ anEditor: TevCustomEditorWindow;
+ const aPoint: InevBasePoint);
 //#UC START# *50B8BCDF0093_4F73173A01D7_var*
 //#UC END# *50B8BCDF0093_4F73173A01D7_var*
 begin
@@ -65,17 +57,13 @@ begin
 end;//TkwPopEditorParaHome.DoCursor
 
 class function TkwPopEditorParaHome.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:ParaHome';
 end;//TkwPopEditorParaHome.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_ParaHome
  TkwPopEditorParaHome.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_ParaHome }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

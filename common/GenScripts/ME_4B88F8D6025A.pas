@@ -7,7 +7,7 @@
 
  _ItemType_ = Tl3PrimString;
  _l3UncomparabeObjectRefList_Parent_ = _l3StringList_Parent_;
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _l3StringList_ = class(_l3UncomparabeObjectRefList_)
  end;//_l3StringList_
 
@@ -61,7 +61,7 @@ begin
 //#UC END# *47B99D4503A2_4B88F8D6025A_impl*
 end;//CompareExistingItems
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 {$EndIf l3StringList_imp_impl}
 

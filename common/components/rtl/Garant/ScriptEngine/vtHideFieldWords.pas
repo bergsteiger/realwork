@@ -1,39 +1,34 @@
 unit vtHideFieldWords;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VT"
-// Модуль: "vtHideFieldWords.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VT::vtHideFieldWords::vtHideFieldWords
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtHideFieldWords.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  vtHideField,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , vtHideField
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopHideFieldIsExpanded = {final scriptword} class(TtfwClassLike)
+ TkwPopHideFieldIsExpanded = {final} class(TtfwClassLike)
   {* Слово скрипта pop:HideField:IsExpanded
 *Тип результата:* Boolean
 *Пример:*
@@ -41,28 +36,63 @@ type
 BOOLEAN VAR l_Boolean
  aHideField pop:HideField:IsExpanded >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function IsExpanded(const aCtx: TtfwContext;
     aHideField: TvtCustomHideField): Boolean;
-     {* Реализация слова скрипта pop:HideField:IsExpanded }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:HideField:IsExpanded }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopHideFieldIsExpanded
 
-// start class TkwPopHideFieldIsExpanded
+ TkwPopHideFieldSetExpanded = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:HideField:SetExpanded
+*Пример:*
+[code]
+ aValue aHideField pop:HideField:SetExpanded
+[code]  }
+  private
+   procedure SetExpanded(const aCtx: TtfwContext;
+    aHideField: TvtCustomHideField;
+    aValue: Boolean);
+    {* Реализация слова скрипта pop:HideField:SetExpanded }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopHideFieldSetExpanded
+
+ TkwPopHideFieldGetCaption = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:HideField:GetCaption
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aHideField pop:HideField:GetCaption >>> l_String
+[code]  }
+  private
+   function GetCaption(const aCtx: TtfwContext;
+    aHideField: TvtCustomHideField): AnsiString;
+    {* Реализация слова скрипта pop:HideField:GetCaption }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopHideFieldGetCaption
 
 function TkwPopHideFieldIsExpanded.IsExpanded(const aCtx: TtfwContext;
-  aHideField: TvtCustomHideField): Boolean;
+ aHideField: TvtCustomHideField): Boolean;
+ {* Реализация слова скрипта pop:HideField:IsExpanded }
 //#UC START# *4A3348F91BD7_A0AE99A180FB_var*
 //#UC END# *4A3348F91BD7_A0AE99A180FB_var*
 begin
@@ -72,9 +102,7 @@ begin
 end;//TkwPopHideFieldIsExpanded.IsExpanded
 
 procedure TkwPopHideFieldIsExpanded.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aHideField : TvtCustomHideField;
+var l_aHideField: TvtCustomHideField;
 begin
  try
   l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
@@ -85,64 +113,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((IsExpanded(aCtx, l_aHideField)));
+ aCtx.rEngine.PushBool(IsExpanded(aCtx, l_aHideField));
 end;//TkwPopHideFieldIsExpanded.DoDoIt
 
 class function TkwPopHideFieldIsExpanded.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:HideField:IsExpanded';
 end;//TkwPopHideFieldIsExpanded.GetWordNameForRegister
 
 function TkwPopHideFieldIsExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopHideFieldIsExpanded.GetResultTypeInfo
 
 function TkwPopHideFieldIsExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopHideFieldIsExpanded.GetAllParamsCount
 
 function TkwPopHideFieldIsExpanded.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField)]);
 end;//TkwPopHideFieldIsExpanded.ParamsTypes
 
-type
- TkwPopHideFieldSetExpanded = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:HideField:SetExpanded
-*Пример:*
-[code]
- aValue aHideField pop:HideField:SetExpanded
-[code]  }
- private
- // private methods
-   procedure SetExpanded(const aCtx: TtfwContext;
-    aHideField: TvtCustomHideField;
-    aValue: Boolean);
-     {* Реализация слова скрипта pop:HideField:SetExpanded }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopHideFieldSetExpanded
-
-// start class TkwPopHideFieldSetExpanded
-
 procedure TkwPopHideFieldSetExpanded.SetExpanded(const aCtx: TtfwContext;
-  aHideField: TvtCustomHideField;
-  aValue: Boolean);
+ aHideField: TvtCustomHideField;
+ aValue: Boolean);
+ {* Реализация слова скрипта pop:HideField:SetExpanded }
 //#UC START# *438029106CF0_D92EF59DAD00_var*
 //#UC END# *438029106CF0_D92EF59DAD00_var*
 begin
@@ -155,10 +152,8 @@ begin
 end;//TkwPopHideFieldSetExpanded.SetExpanded
 
 procedure TkwPopHideFieldSetExpanded.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aHideField : TvtCustomHideField;
- l_aValue : Boolean;
+var l_aHideField: TvtCustomHideField;
+var l_aValue: Boolean;
 begin
  try
   l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
@@ -182,60 +177,28 @@ begin
 end;//TkwPopHideFieldSetExpanded.DoDoIt
 
 class function TkwPopHideFieldSetExpanded.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:HideField:SetExpanded';
 end;//TkwPopHideFieldSetExpanded.GetWordNameForRegister
 
 function TkwPopHideFieldSetExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopHideFieldSetExpanded.GetResultTypeInfo
 
 function TkwPopHideFieldSetExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopHideFieldSetExpanded.GetAllParamsCount
 
 function TkwPopHideFieldSetExpanded.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField), TypeInfo(Boolean)]);
 end;//TkwPopHideFieldSetExpanded.ParamsTypes
 
-type
- TkwPopHideFieldGetCaption = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:HideField:GetCaption
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aHideField pop:HideField:GetCaption >>> l_String
-[code]  }
- private
- // private methods
-   function GetCaption(const aCtx: TtfwContext;
-    aHideField: TvtCustomHideField): AnsiString;
-     {* Реализация слова скрипта pop:HideField:GetCaption }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopHideFieldGetCaption
-
-// start class TkwPopHideFieldGetCaption
-
 function TkwPopHideFieldGetCaption.GetCaption(const aCtx: TtfwContext;
-  aHideField: TvtCustomHideField): AnsiString;
+ aHideField: TvtCustomHideField): AnsiString;
+ {* Реализация слова скрипта pop:HideField:GetCaption }
 //#UC START# *8FFF95B683E4_D34E3A240E95_var*
 //#UC END# *8FFF95B683E4_D34E3A240E95_var*
 begin
@@ -245,9 +208,7 @@ begin
 end;//TkwPopHideFieldGetCaption.GetCaption
 
 procedure TkwPopHideFieldGetCaption.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aHideField : TvtCustomHideField;
+var l_aHideField: TvtCustomHideField;
 begin
  try
   l_aHideField := TvtCustomHideField(aCtx.rEngine.PopObjAs(TvtCustomHideField));
@@ -258,62 +219,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((GetCaption(aCtx, l_aHideField)));
+ aCtx.rEngine.PushString(GetCaption(aCtx, l_aHideField));
 end;//TkwPopHideFieldGetCaption.DoDoIt
 
 class function TkwPopHideFieldGetCaption.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:HideField:GetCaption';
 end;//TkwPopHideFieldGetCaption.GetWordNameForRegister
 
 function TkwPopHideFieldGetCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwPopHideFieldGetCaption.GetResultTypeInfo
 
 function TkwPopHideFieldGetCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopHideFieldGetCaption.GetAllParamsCount
 
 function TkwPopHideFieldGetCaption.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomHideField)]);
 end;//TkwPopHideFieldGetCaption.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_HideField_IsExpanded
  TkwPopHideFieldIsExpanded.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_HideField_SetExpanded
+ {* Регистрация pop_HideField_IsExpanded }
  TkwPopHideFieldSetExpanded.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_HideField_GetCaption
+ {* Регистрация pop_HideField_SetExpanded }
  TkwPopHideFieldGetCaption.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_HideField_GetCaption }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TvtCustomHideField
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCustomHideField));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа TvtCustomHideField }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Boolean }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

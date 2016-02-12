@@ -1,58 +1,48 @@
 unit kwSubdescriptorGetBlockBitmapIndex;
+ {* Помещает в стек индекс иконки для отображения метки блока
+Формат:
+[code]
+aSubDescrObj subdescriptor:GetBlockBitmapIndex
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwSubdescriptorGetBlockBitmapIndex.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::subdescriptor_GetBlockBitmapIndex
-//
-// Помещает в стек индекс иконки для отображения метки блока
-// Формат:
-// {code}
-// aSubDescrObj subdescriptor:GetBlockBitmapIndex
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetBlockBitmapIndex.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSubDescriptorFromStackWord,
-  tfwScriptingInterfaces,
-  evSubPn
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSubDescriptorFromStackWord
+ , evSubPn
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwSubdescriptorGetBlockBitmapIndex = {final scriptword} class(TkwSubDescriptorFromStackWord)
+ TkwSubdescriptorGetBlockBitmapIndex = {final} class(TkwSubDescriptorFromStackWord)
   {* Помещает в стек индекс иконки для отображения метки блока
 Формат:
 [code]
 aSubDescrObj subdescriptor:GetBlockBitmapIndex
 [code] }
- protected
- // realized methods
+  protected
    procedure DoWithSubDescriptor(aControl: TevSubDescriptor;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwSubdescriptorGetBlockBitmapIndex
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwSubdescriptorGetBlockBitmapIndex
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwSubdescriptorGetBlockBitmapIndex.DoWithSubDescriptor(aControl: TevSubDescriptor;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D65E9502E1_52D660670205_var*
 //#UC END# *52D65E9502E1_52D660670205_var*
 begin
@@ -62,17 +52,13 @@ begin
 end;//TkwSubdescriptorGetBlockBitmapIndex.DoWithSubDescriptor
 
 class function TkwSubdescriptorGetBlockBitmapIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'subdescriptor:GetBlockBitmapIndex';
 end;//TkwSubdescriptorGetBlockBitmapIndex.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация subdescriptor_GetBlockBitmapIndex
  TkwSubdescriptorGetBlockBitmapIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация subdescriptor_GetBlockBitmapIndex }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -401,12 +401,8 @@ begin
 end;//Tkw_Form_ForbidAutoregistration.GetWordNameForRegister
 
 function Tkw_Form_ForbidAutoregistration.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_86D5B3CF0FCC_var*
-//#UC END# *4DDFD2EA0116_86D5B3CF0FCC_var*
 begin
-//#UC START# *4DDFD2EA0116_86D5B3CF0FCC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_86D5B3CF0FCC_impl*
+ Result := 'efForbidAutoregistration';
 end;//Tkw_Form_ForbidAutoregistration.GetString
 
 class function Tkw_ForbidAutoregistration_Control_lblReference.GetWordNameForRegister: AnsiString;
@@ -415,21 +411,14 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_lblReference.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_lblReference.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C10C17DD2367_var*
-//#UC END# *4DDFD2EA0116_C10C17DD2367_var*
 begin
-//#UC START# *4DDFD2EA0116_C10C17DD2367_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C10C17DD2367_impl*
+ Result := 'lblReference';
 end;//Tkw_ForbidAutoregistration_Control_lblReference.GetString
 
 class procedure Tkw_ForbidAutoregistration_Control_lblReference.RegisterInEngine;
-//#UC START# *52A086150180_C10C17DD2367_var*
-//#UC END# *52A086150180_C10C17DD2367_var*
 begin
-//#UC START# *52A086150180_C10C17DD2367_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C10C17DD2367_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ForbidAutoregistration_Control_lblReference.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_lblReference_Push.DoDoIt(const aCtx: TtfwContext);
@@ -452,21 +441,14 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_gbInfo.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_gbInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D4A823A3B21E_var*
-//#UC END# *4DDFD2EA0116_D4A823A3B21E_var*
 begin
-//#UC START# *4DDFD2EA0116_D4A823A3B21E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D4A823A3B21E_impl*
+ Result := 'gbInfo';
 end;//Tkw_ForbidAutoregistration_Control_gbInfo.GetString
 
 class procedure Tkw_ForbidAutoregistration_Control_gbInfo.RegisterInEngine;
-//#UC START# *52A086150180_D4A823A3B21E_var*
-//#UC END# *52A086150180_D4A823A3B21E_var*
 begin
-//#UC START# *52A086150180_D4A823A3B21E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_D4A823A3B21E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_ForbidAutoregistration_Control_gbInfo.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_gbInfo_Push.DoDoIt(const aCtx: TtfwContext);
@@ -489,21 +471,14 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_lblPhone.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_lblPhone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_103C29A6AD49_var*
-//#UC END# *4DDFD2EA0116_103C29A6AD49_var*
 begin
-//#UC START# *4DDFD2EA0116_103C29A6AD49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_103C29A6AD49_impl*
+ Result := 'lblPhone';
 end;//Tkw_ForbidAutoregistration_Control_lblPhone.GetString
 
 class procedure Tkw_ForbidAutoregistration_Control_lblPhone.RegisterInEngine;
-//#UC START# *52A086150180_103C29A6AD49_var*
-//#UC END# *52A086150180_103C29A6AD49_var*
 begin
-//#UC START# *52A086150180_103C29A6AD49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_103C29A6AD49_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ForbidAutoregistration_Control_lblPhone.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_lblPhone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -526,21 +501,14 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_lblEmail.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_lblEmail.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_922D0A952657_var*
-//#UC END# *4DDFD2EA0116_922D0A952657_var*
 begin
-//#UC START# *4DDFD2EA0116_922D0A952657_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_922D0A952657_impl*
+ Result := 'lblEmail';
 end;//Tkw_ForbidAutoregistration_Control_lblEmail.GetString
 
 class procedure Tkw_ForbidAutoregistration_Control_lblEmail.RegisterInEngine;
-//#UC START# *52A086150180_922D0A952657_var*
-//#UC END# *52A086150180_922D0A952657_var*
 begin
-//#UC START# *52A086150180_922D0A952657_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_922D0A952657_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ForbidAutoregistration_Control_lblEmail.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_lblEmail_Push.DoDoIt(const aCtx: TtfwContext);
@@ -563,21 +531,14 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_lblHint.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_lblHint.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5FF3712A469F_var*
-//#UC END# *4DDFD2EA0116_5FF3712A469F_var*
 begin
-//#UC START# *4DDFD2EA0116_5FF3712A469F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5FF3712A469F_impl*
+ Result := 'lblHint';
 end;//Tkw_ForbidAutoregistration_Control_lblHint.GetString
 
 class procedure Tkw_ForbidAutoregistration_Control_lblHint.RegisterInEngine;
-//#UC START# *52A086150180_5FF3712A469F_var*
-//#UC END# *52A086150180_5FF3712A469F_var*
 begin
-//#UC START# *52A086150180_5FF3712A469F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5FF3712A469F_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ForbidAutoregistration_Control_lblHint.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_lblHint_Push.DoDoIt(const aCtx: TtfwContext);
@@ -600,21 +561,14 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_cbPhone.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_cbPhone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F83D3B870D64_var*
-//#UC END# *4DDFD2EA0116_F83D3B870D64_var*
 begin
-//#UC START# *4DDFD2EA0116_F83D3B870D64_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F83D3B870D64_impl*
+ Result := 'cbPhone';
 end;//Tkw_ForbidAutoregistration_Control_cbPhone.GetString
 
 class procedure Tkw_ForbidAutoregistration_Control_cbPhone.RegisterInEngine;
-//#UC START# *52A086150180_F83D3B870D64_var*
-//#UC END# *52A086150180_F83D3B870D64_var*
 begin
-//#UC START# *52A086150180_F83D3B870D64_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F83D3B870D64_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEdit);
 end;//Tkw_ForbidAutoregistration_Control_cbPhone.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_cbPhone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -637,21 +591,14 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_cbEmail.GetWordNameForRegister
 
 function Tkw_ForbidAutoregistration_Control_cbEmail.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_211726275097_var*
-//#UC END# *4DDFD2EA0116_211726275097_var*
 begin
-//#UC START# *4DDFD2EA0116_211726275097_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_211726275097_impl*
+ Result := 'cbEmail';
 end;//Tkw_ForbidAutoregistration_Control_cbEmail.GetString
 
 class procedure Tkw_ForbidAutoregistration_Control_cbEmail.RegisterInEngine;
-//#UC START# *52A086150180_211726275097_var*
-//#UC END# *52A086150180_211726275097_var*
 begin
-//#UC START# *52A086150180_211726275097_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_211726275097_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEdit);
 end;//Tkw_ForbidAutoregistration_Control_cbEmail.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_cbEmail_Push.DoDoIt(const aCtx: TtfwContext);
@@ -671,21 +618,23 @@ end;//Tkw_ForbidAutoregistration_Control_cbEmail_Push.GetWordNameForRegister
 function TkwEfForbidAutoregistrationLblReference.lblReference(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
  {* Реализация слова скрипта .TefForbidAutoregistration.lblReference }
-//#UC START# *27EC676DE288_A8ED3F2A32F9_var*
-//#UC END# *27EC676DE288_A8ED3F2A32F9_var*
 begin
-//#UC START# *27EC676DE288_A8ED3F2A32F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *27EC676DE288_A8ED3F2A32F9_impl*
+ Result := aefForbidAutoregistration.lblReference;
 end;//TkwEfForbidAutoregistrationLblReference.lblReference
 
 procedure TkwEfForbidAutoregistrationLblReference.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A8ED3F2A32F9_var*
-//#UC END# *4DAEEDE10285_A8ED3F2A32F9_var*
+var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
-//#UC START# *4DAEEDE10285_A8ED3F2A32F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A8ED3F2A32F9_impl*
+ try
+  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblReference(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationLblReference.DoDoIt
 
 class function TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister: AnsiString;
@@ -695,12 +644,8 @@ end;//TkwEfForbidAutoregistrationLblReference.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblReference.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A8ED3F2A32F9_var*
-//#UC END# *52D00B00031A_A8ED3F2A32F9_var*
 begin
-//#UC START# *52D00B00031A_A8ED3F2A32F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A8ED3F2A32F9_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblReference', aCtx);
 end;//TkwEfForbidAutoregistrationLblReference.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblReference.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -715,27 +660,29 @@ end;//TkwEfForbidAutoregistrationLblReference.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationLblReference.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationLblReference.ParamsTypes
 
 function TkwEfForbidAutoregistrationGbInfo.gbInfo(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtGroupBox;
  {* Реализация слова скрипта .TefForbidAutoregistration.gbInfo }
-//#UC START# *BF7F25F4C374_B434E42C072E_var*
-//#UC END# *BF7F25F4C374_B434E42C072E_var*
 begin
-//#UC START# *BF7F25F4C374_B434E42C072E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BF7F25F4C374_B434E42C072E_impl*
+ Result := aefForbidAutoregistration.gbInfo;
 end;//TkwEfForbidAutoregistrationGbInfo.gbInfo
 
 procedure TkwEfForbidAutoregistrationGbInfo.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B434E42C072E_var*
-//#UC END# *4DAEEDE10285_B434E42C072E_var*
+var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
-//#UC START# *4DAEEDE10285_B434E42C072E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B434E42C072E_impl*
+ try
+  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(gbInfo(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationGbInfo.DoDoIt
 
 class function TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister: AnsiString;
@@ -745,12 +692,8 @@ end;//TkwEfForbidAutoregistrationGbInfo.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationGbInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B434E42C072E_var*
-//#UC END# *52D00B00031A_B434E42C072E_var*
 begin
-//#UC START# *52D00B00031A_B434E42C072E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B434E42C072E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству gbInfo', aCtx);
 end;//TkwEfForbidAutoregistrationGbInfo.SetValuePrim
 
 function TkwEfForbidAutoregistrationGbInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -765,27 +708,29 @@ end;//TkwEfForbidAutoregistrationGbInfo.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationGbInfo.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationGbInfo.ParamsTypes
 
 function TkwEfForbidAutoregistrationLblPhone.lblPhone(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
  {* Реализация слова скрипта .TefForbidAutoregistration.lblPhone }
-//#UC START# *E4F6FAAED1A7_20A0A124DABA_var*
-//#UC END# *E4F6FAAED1A7_20A0A124DABA_var*
 begin
-//#UC START# *E4F6FAAED1A7_20A0A124DABA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E4F6FAAED1A7_20A0A124DABA_impl*
+ Result := aefForbidAutoregistration.lblPhone;
 end;//TkwEfForbidAutoregistrationLblPhone.lblPhone
 
 procedure TkwEfForbidAutoregistrationLblPhone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_20A0A124DABA_var*
-//#UC END# *4DAEEDE10285_20A0A124DABA_var*
+var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
-//#UC START# *4DAEEDE10285_20A0A124DABA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_20A0A124DABA_impl*
+ try
+  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblPhone(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationLblPhone.DoDoIt
 
 class function TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister: AnsiString;
@@ -795,12 +740,8 @@ end;//TkwEfForbidAutoregistrationLblPhone.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblPhone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_20A0A124DABA_var*
-//#UC END# *52D00B00031A_20A0A124DABA_var*
 begin
-//#UC START# *52D00B00031A_20A0A124DABA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_20A0A124DABA_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblPhone', aCtx);
 end;//TkwEfForbidAutoregistrationLblPhone.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblPhone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -815,27 +756,29 @@ end;//TkwEfForbidAutoregistrationLblPhone.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationLblPhone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationLblPhone.ParamsTypes
 
 function TkwEfForbidAutoregistrationLblEmail.lblEmail(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
  {* Реализация слова скрипта .TefForbidAutoregistration.lblEmail }
-//#UC START# *3714B65D73E1_D03F48103D05_var*
-//#UC END# *3714B65D73E1_D03F48103D05_var*
 begin
-//#UC START# *3714B65D73E1_D03F48103D05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3714B65D73E1_D03F48103D05_impl*
+ Result := aefForbidAutoregistration.lblEmail;
 end;//TkwEfForbidAutoregistrationLblEmail.lblEmail
 
 procedure TkwEfForbidAutoregistrationLblEmail.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D03F48103D05_var*
-//#UC END# *4DAEEDE10285_D03F48103D05_var*
+var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
-//#UC START# *4DAEEDE10285_D03F48103D05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D03F48103D05_impl*
+ try
+  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblEmail(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationLblEmail.DoDoIt
 
 class function TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister: AnsiString;
@@ -845,12 +788,8 @@ end;//TkwEfForbidAutoregistrationLblEmail.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D03F48103D05_var*
-//#UC END# *52D00B00031A_D03F48103D05_var*
 begin
-//#UC START# *52D00B00031A_D03F48103D05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D03F48103D05_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblEmail', aCtx);
 end;//TkwEfForbidAutoregistrationLblEmail.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -865,27 +804,29 @@ end;//TkwEfForbidAutoregistrationLblEmail.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationLblEmail.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationLblEmail.ParamsTypes
 
 function TkwEfForbidAutoregistrationLblHint.lblHint(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TvtLabel;
  {* Реализация слова скрипта .TefForbidAutoregistration.lblHint }
-//#UC START# *77AE4C70FA73_D20CEB956674_var*
-//#UC END# *77AE4C70FA73_D20CEB956674_var*
 begin
-//#UC START# *77AE4C70FA73_D20CEB956674_impl*
- !!! Needs to be implemented !!!
-//#UC END# *77AE4C70FA73_D20CEB956674_impl*
+ Result := aefForbidAutoregistration.lblHint;
 end;//TkwEfForbidAutoregistrationLblHint.lblHint
 
 procedure TkwEfForbidAutoregistrationLblHint.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D20CEB956674_var*
-//#UC END# *4DAEEDE10285_D20CEB956674_var*
+var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
-//#UC START# *4DAEEDE10285_D20CEB956674_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D20CEB956674_impl*
+ try
+  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblHint(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationLblHint.DoDoIt
 
 class function TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister: AnsiString;
@@ -895,12 +836,8 @@ end;//TkwEfForbidAutoregistrationLblHint.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationLblHint.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D20CEB956674_var*
-//#UC END# *52D00B00031A_D20CEB956674_var*
 begin
-//#UC START# *52D00B00031A_D20CEB956674_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D20CEB956674_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblHint', aCtx);
 end;//TkwEfForbidAutoregistrationLblHint.SetValuePrim
 
 function TkwEfForbidAutoregistrationLblHint.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -915,27 +852,29 @@ end;//TkwEfForbidAutoregistrationLblHint.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationLblHint.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationLblHint.ParamsTypes
 
 function TkwEfForbidAutoregistrationCbPhone.cbPhone(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
  {* Реализация слова скрипта .TefForbidAutoregistration.cbPhone }
-//#UC START# *DA8753F80704_6AD1645F5DAC_var*
-//#UC END# *DA8753F80704_6AD1645F5DAC_var*
 begin
-//#UC START# *DA8753F80704_6AD1645F5DAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DA8753F80704_6AD1645F5DAC_impl*
+ Result := aefForbidAutoregistration.cbPhone;
 end;//TkwEfForbidAutoregistrationCbPhone.cbPhone
 
 procedure TkwEfForbidAutoregistrationCbPhone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6AD1645F5DAC_var*
-//#UC END# *4DAEEDE10285_6AD1645F5DAC_var*
+var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
-//#UC START# *4DAEEDE10285_6AD1645F5DAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6AD1645F5DAC_impl*
+ try
+  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbPhone(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationCbPhone.DoDoIt
 
 class function TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister: AnsiString;
@@ -945,12 +884,8 @@ end;//TkwEfForbidAutoregistrationCbPhone.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationCbPhone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6AD1645F5DAC_var*
-//#UC END# *52D00B00031A_6AD1645F5DAC_var*
 begin
-//#UC START# *52D00B00031A_6AD1645F5DAC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6AD1645F5DAC_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cbPhone', aCtx);
 end;//TkwEfForbidAutoregistrationCbPhone.SetValuePrim
 
 function TkwEfForbidAutoregistrationCbPhone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -965,27 +900,29 @@ end;//TkwEfForbidAutoregistrationCbPhone.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationCbPhone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationCbPhone.ParamsTypes
 
 function TkwEfForbidAutoregistrationCbEmail.cbEmail(const aCtx: TtfwContext;
  aefForbidAutoregistration: TefForbidAutoregistration): TnscEdit;
  {* Реализация слова скрипта .TefForbidAutoregistration.cbEmail }
-//#UC START# *EBD8824729C5_444FFAC43ABB_var*
-//#UC END# *EBD8824729C5_444FFAC43ABB_var*
 begin
-//#UC START# *EBD8824729C5_444FFAC43ABB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EBD8824729C5_444FFAC43ABB_impl*
+ Result := aefForbidAutoregistration.cbEmail;
 end;//TkwEfForbidAutoregistrationCbEmail.cbEmail
 
 procedure TkwEfForbidAutoregistrationCbEmail.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_444FFAC43ABB_var*
-//#UC END# *4DAEEDE10285_444FFAC43ABB_var*
+var l_aefForbidAutoregistration: TefForbidAutoregistration;
 begin
-//#UC START# *4DAEEDE10285_444FFAC43ABB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_444FFAC43ABB_impl*
+ try
+  l_aefForbidAutoregistration := TefForbidAutoregistration(aCtx.rEngine.PopObjAs(TefForbidAutoregistration));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefForbidAutoregistration: TefForbidAutoregistration : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbEmail(aCtx, l_aefForbidAutoregistration));
 end;//TkwEfForbidAutoregistrationCbEmail.DoDoIt
 
 class function TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister: AnsiString;
@@ -995,12 +932,8 @@ end;//TkwEfForbidAutoregistrationCbEmail.GetWordNameForRegister
 
 procedure TkwEfForbidAutoregistrationCbEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_444FFAC43ABB_var*
-//#UC END# *52D00B00031A_444FFAC43ABB_var*
 begin
-//#UC START# *52D00B00031A_444FFAC43ABB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_444FFAC43ABB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cbEmail', aCtx);
 end;//TkwEfForbidAutoregistrationCbEmail.SetValuePrim
 
 function TkwEfForbidAutoregistrationCbEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1015,7 +948,7 @@ end;//TkwEfForbidAutoregistrationCbEmail.GetAllParamsCount
 
 function TkwEfForbidAutoregistrationCbEmail.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefForbidAutoregistration)]);
 end;//TkwEfForbidAutoregistrationCbEmail.ParamsTypes
 
 initialization

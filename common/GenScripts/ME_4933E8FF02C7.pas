@@ -38,7 +38,7 @@ uses
 ;
 
 type
- {$Include dsBaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas}
  TdsDrugListDocument = class(_dsBaseDocument_)
   protected
    function MakeContainer: InevDocumentContainer; override;
@@ -72,7 +72,7 @@ uses
 
 type _Instance_R_ = TdsDrugListDocument;
 
-{$Include dsBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas}
 
 function TdsDrugListDocument.MakeContainer: InevDocumentContainer;
  {* Конструирует контейнер документа }

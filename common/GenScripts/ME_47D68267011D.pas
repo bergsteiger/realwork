@@ -24,7 +24,7 @@ type
 
  _FindDataType_ = TvtFormHandlerID;
  _l3Searcher_Parent_ = TvtNavigatorFormListPrimPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TvtNavigatorFormListPrim = class(_l3Searcher_)
   {* Список форм навигатора, который позволяет искать элемент в списка по ключу объект. }
  end;//TvtNavigatorFormListPrim
@@ -67,7 +67,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TvtNavigatorFormListPrim;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

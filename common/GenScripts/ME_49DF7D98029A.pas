@@ -22,11 +22,11 @@ uses
 
 type
  _nevTextParaTool_Parent_ = TevLeafParaCursor;
- {$Include nevTextParaTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas}
  _nevTextParaViewBounds_Parent_ = _nevTextParaTool_;
- {$Include nevTextParaViewBounds.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas}
  _nevTextParaAnchorModify_Parent_ = _nevTextParaViewBounds_;
- {$Include nevTextParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas}
  TevTextParaCursor = class(_nevTextParaAnchorModify_, IevTagLine)
   {* Реализация курсора для текстового параграфа }
   private
@@ -206,11 +206,11 @@ end;//GetLC
 
 type _Instance_R_ = TevTextParaCursor;
 
-{$Include nevTextParaTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas}
 
-{$Include nevTextParaViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas}
 
-{$Include nevTextParaAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas}
 
 function TevTextParaCursor.DoPrevCharForDelete(const aView: InevView;
  const anOp: InevOp): Boolean;

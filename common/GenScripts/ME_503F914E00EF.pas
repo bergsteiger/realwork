@@ -768,7 +768,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(tree_CurrentNode(aCtx, l_aTree),Il3SimpleNode);
+ aCtx.rEngine.PushIntf(tree_CurrentNode(aCtx, l_aTree), TypeInfo(Il3SimpleNode));
 end;//TkwTreeCurrentNode.DoDoIt
 
 class function TkwTreeCurrentNode.GetWordNameForRegister: AnsiString;
@@ -825,7 +825,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(tree_GetItem(aCtx, l_aTree, l_anIndex),Il3SimpleNode);
+ aCtx.rEngine.PushIntf(tree_GetItem(aCtx, l_aTree, l_anIndex), TypeInfo(Il3SimpleNode));
 end;//TkwTreeGetItem.DoDoIt
 
 class function TkwTreeGetItem.GetWordNameForRegister: AnsiString;

@@ -14,7 +14,7 @@ uses
 type
  _FirstType_ = Tl3WordOrder;
  _SecondType_ = TFindOrder;
- {$Include atEnumToEnumConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
  TatWordOrderConverter = class(_atEnumToEnumConverter_)
   protected
    procedure InitConvertMap; override;
@@ -43,7 +43,7 @@ begin
  l3Free(g_TatWordOrderConverter);
 end;//TatWordOrderConverterFree
 
-{$Include atEnumToEnumConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
 
 class function TatWordOrderConverter.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

@@ -22,7 +22,7 @@ uses
 
 type
  _SelectOperation_Parent_ = TTextViaEditorProcessor;
- {$Include SelectOperation.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
  TSelectCommentAndDelete = {abstract} class(_SelectOperation_)
   {* Выделить комментарий и удалить. }
   protected
@@ -54,7 +54,7 @@ uses
  , l3Base
 ;
 
-{$Include SelectOperation.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TSelectCommentAndDelete.Process(aForm: TPrimTextLoadForm);

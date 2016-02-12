@@ -8,7 +8,7 @@
  {$Define l3Items_IsUnrefcounted}
 
  _List_Parent_ = _UnrefcountedListPrim_Parent_;
- {$Include List.imp.pas}
+ {$Include w:\common\components\SandBox\List.imp.pas}
  _UnrefcountedListPrim_ = class(_List_)
   {* Список значений без какого то бы ни было подсчёта ссылок }
  end;//_UnrefcountedListPrim_
@@ -29,7 +29,7 @@ begin
 //#UC END# *51DECB820261_51DED02E0163_impl*
 end;//IsSame
 
-{$Include List.imp.pas}
+{$Include w:\common\components\SandBox\List.imp.pas}
 
 {$EndIf UnrefcountedListPrim_imp_impl}
 

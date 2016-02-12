@@ -19,7 +19,7 @@ uses
 type
  _ListType_ = Tl3Variant;
  _ItemType_ = Tl3Variant;
- {$Include l3OtherTypedListView.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OtherTypedListView.imp.pas}
  Tk2CustomTagView = {abstract} class(_l3OtherTypedListView_)
  end;//Tk2CustomTagView
 
@@ -31,6 +31,6 @@ uses
  , SysUtils
 ;
 
-{$Include l3OtherTypedListView.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OtherTypedListView.imp.pas}
 
 end.

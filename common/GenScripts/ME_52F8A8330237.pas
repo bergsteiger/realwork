@@ -8,7 +8,7 @@
 {$If NOT Defined(NoVCM)}
  // _FormSetType_
 
- {$Include vcmFormSetDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
  _vcmFormSetDataSourceWithFlexFormSetType_ = class(_vcmFormSetDataSource_)
   {* Бизнес-объект сборки, параметризуемый типом сборки }
   protected
@@ -20,7 +20,7 @@
 
 {$Else NOT Defined(NoVCM)}
 
-{$Include vcmFormSetDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 _vcmFormSetDataSourceWithFlexFormSetType_ = _vcmFormSetDataSource_;
 
 {$IfEnd} // NOT Defined(NoVCM)
@@ -31,7 +31,7 @@ _vcmFormSetDataSourceWithFlexFormSetType_ = _vcmFormSetDataSource_;
 {$Define vcmFormSetDataSourceWithFlexFormSetType_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$Include vcmFormSetDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
 function _vcmFormSetDataSourceWithFlexFormSetType_.pm_GetUCFormSet: _FormSetType_;
 //#UC START# *52F8A952021E_52F8A8330237get_var*

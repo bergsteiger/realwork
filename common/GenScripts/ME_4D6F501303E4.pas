@@ -27,7 +27,7 @@ uses
 
 type
  _SelectTablePart_Parent_ = TTextEditorVisitor;
- {$Include SelectTablePart.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TDrawSelectionInTableTest = {abstract} class(_SelectTablePart_{$If Defined(evNeedPainters)}
  , IevDelayedPainterLogger
  {$IfEnd} // Defined(evNeedPainters)
@@ -85,7 +85,7 @@ uses
  , l3Base
 ;
 
-{$Include SelectTablePart.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TDrawSelectionInTableTest.DoVisit(aForm: TPrimTextLoadForm);

@@ -185,12 +185,8 @@ begin
 end;//Tkw_Form_Picture.GetWordNameForRegister
 
 function Tkw_Form_Picture.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_25823CAD9046_var*
-//#UC END# *4DDFD2EA0116_25823CAD9046_var*
 begin
-//#UC START# *4DDFD2EA0116_25823CAD9046_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_25823CAD9046_impl*
+ Result := 'PictureForm';
 end;//Tkw_Form_Picture.GetString
 
 class function Tkw_Picture_Component_ieIO.GetWordNameForRegister: AnsiString;
@@ -199,21 +195,14 @@ begin
 end;//Tkw_Picture_Component_ieIO.GetWordNameForRegister
 
 function Tkw_Picture_Component_ieIO.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CF5B77DED83D_var*
-//#UC END# *4DDFD2EA0116_CF5B77DED83D_var*
 begin
-//#UC START# *4DDFD2EA0116_CF5B77DED83D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CF5B77DED83D_impl*
+ Result := 'ieIO';
 end;//Tkw_Picture_Component_ieIO.GetString
 
 class procedure Tkw_Picture_Component_ieIO.RegisterInEngine;
-//#UC START# *52A086150180_CF5B77DED83D_var*
-//#UC END# *52A086150180_CF5B77DED83D_var*
 begin
-//#UC START# *52A086150180_CF5B77DED83D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CF5B77DED83D_impl*
+ inherited;
+ TtfwClassRef.Register(TImageEnIO);
 end;//Tkw_Picture_Component_ieIO.RegisterInEngine
 
 class function Tkw_Picture_Control_ieViewer.GetWordNameForRegister: AnsiString;
@@ -222,21 +211,14 @@ begin
 end;//Tkw_Picture_Control_ieViewer.GetWordNameForRegister
 
 function Tkw_Picture_Control_ieViewer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2B6DC18AF36C_var*
-//#UC END# *4DDFD2EA0116_2B6DC18AF36C_var*
 begin
-//#UC START# *4DDFD2EA0116_2B6DC18AF36C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2B6DC18AF36C_impl*
+ Result := 'ieViewer';
 end;//Tkw_Picture_Control_ieViewer.GetString
 
 class procedure Tkw_Picture_Control_ieViewer.RegisterInEngine;
-//#UC START# *52A086150180_2B6DC18AF36C_var*
-//#UC END# *52A086150180_2B6DC18AF36C_var*
 begin
-//#UC START# *52A086150180_2B6DC18AF36C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_2B6DC18AF36C_impl*
+ inherited;
+ TtfwClassRef.Register(TImageEnView);
 end;//Tkw_Picture_Control_ieViewer.RegisterInEngine
 
 procedure Tkw_Picture_Control_ieViewer_Push.DoDoIt(const aCtx: TtfwContext);
@@ -259,41 +241,36 @@ begin
 end;//Tkw_Picture_Component_ieProc.GetWordNameForRegister
 
 function Tkw_Picture_Component_ieProc.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_133EA7CB3897_var*
-//#UC END# *4DDFD2EA0116_133EA7CB3897_var*
 begin
-//#UC START# *4DDFD2EA0116_133EA7CB3897_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_133EA7CB3897_impl*
+ Result := 'ieProc';
 end;//Tkw_Picture_Component_ieProc.GetString
 
 class procedure Tkw_Picture_Component_ieProc.RegisterInEngine;
-//#UC START# *52A086150180_133EA7CB3897_var*
-//#UC END# *52A086150180_133EA7CB3897_var*
 begin
-//#UC START# *52A086150180_133EA7CB3897_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_133EA7CB3897_impl*
+ inherited;
+ TtfwClassRef.Register(TImageEnProc);
 end;//Tkw_Picture_Component_ieProc.RegisterInEngine
 
 function TkwPictureFormIeIO.ieIO(const aCtx: TtfwContext;
  aPictureForm: TPictureForm): TImageEnIO;
  {* Реализация слова скрипта .TPictureForm.ieIO }
-//#UC START# *959CA2E81DBC_17635237745C_var*
-//#UC END# *959CA2E81DBC_17635237745C_var*
 begin
-//#UC START# *959CA2E81DBC_17635237745C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *959CA2E81DBC_17635237745C_impl*
+ Result := aPictureForm.ieIO;
 end;//TkwPictureFormIeIO.ieIO
 
 procedure TkwPictureFormIeIO.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_17635237745C_var*
-//#UC END# *4DAEEDE10285_17635237745C_var*
+var l_aPictureForm: TPictureForm;
 begin
-//#UC START# *4DAEEDE10285_17635237745C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_17635237745C_impl*
+ try
+  l_aPictureForm := TPictureForm(aCtx.rEngine.PopObjAs(TPictureForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPictureForm: TPictureForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ieIO(aCtx, l_aPictureForm));
 end;//TkwPictureFormIeIO.DoDoIt
 
 class function TkwPictureFormIeIO.GetWordNameForRegister: AnsiString;
@@ -303,12 +280,8 @@ end;//TkwPictureFormIeIO.GetWordNameForRegister
 
 procedure TkwPictureFormIeIO.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_17635237745C_var*
-//#UC END# *52D00B00031A_17635237745C_var*
 begin
-//#UC START# *52D00B00031A_17635237745C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_17635237745C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ieIO', aCtx);
 end;//TkwPictureFormIeIO.SetValuePrim
 
 function TkwPictureFormIeIO.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -323,27 +296,29 @@ end;//TkwPictureFormIeIO.GetAllParamsCount
 
 function TkwPictureFormIeIO.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TPictureForm)]);
 end;//TkwPictureFormIeIO.ParamsTypes
 
 function TkwPictureFormIeViewer.ieViewer(const aCtx: TtfwContext;
  aPictureForm: TPictureForm): TImageEnView;
  {* Реализация слова скрипта .TPictureForm.ieViewer }
-//#UC START# *BEA28E1526FC_101ACB961C5C_var*
-//#UC END# *BEA28E1526FC_101ACB961C5C_var*
 begin
-//#UC START# *BEA28E1526FC_101ACB961C5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BEA28E1526FC_101ACB961C5C_impl*
+ Result := aPictureForm.ieViewer;
 end;//TkwPictureFormIeViewer.ieViewer
 
 procedure TkwPictureFormIeViewer.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_101ACB961C5C_var*
-//#UC END# *4DAEEDE10285_101ACB961C5C_var*
+var l_aPictureForm: TPictureForm;
 begin
-//#UC START# *4DAEEDE10285_101ACB961C5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_101ACB961C5C_impl*
+ try
+  l_aPictureForm := TPictureForm(aCtx.rEngine.PopObjAs(TPictureForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPictureForm: TPictureForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ieViewer(aCtx, l_aPictureForm));
 end;//TkwPictureFormIeViewer.DoDoIt
 
 class function TkwPictureFormIeViewer.GetWordNameForRegister: AnsiString;
@@ -353,12 +328,8 @@ end;//TkwPictureFormIeViewer.GetWordNameForRegister
 
 procedure TkwPictureFormIeViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_101ACB961C5C_var*
-//#UC END# *52D00B00031A_101ACB961C5C_var*
 begin
-//#UC START# *52D00B00031A_101ACB961C5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_101ACB961C5C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ieViewer', aCtx);
 end;//TkwPictureFormIeViewer.SetValuePrim
 
 function TkwPictureFormIeViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -373,27 +344,29 @@ end;//TkwPictureFormIeViewer.GetAllParamsCount
 
 function TkwPictureFormIeViewer.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TPictureForm)]);
 end;//TkwPictureFormIeViewer.ParamsTypes
 
 function TkwPictureFormIeProc.ieProc(const aCtx: TtfwContext;
  aPictureForm: TPictureForm): TImageEnProc;
  {* Реализация слова скрипта .TPictureForm.ieProc }
-//#UC START# *2B5C761000BE_BF66EC4F24E9_var*
-//#UC END# *2B5C761000BE_BF66EC4F24E9_var*
 begin
-//#UC START# *2B5C761000BE_BF66EC4F24E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2B5C761000BE_BF66EC4F24E9_impl*
+ Result := aPictureForm.ieProc;
 end;//TkwPictureFormIeProc.ieProc
 
 procedure TkwPictureFormIeProc.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BF66EC4F24E9_var*
-//#UC END# *4DAEEDE10285_BF66EC4F24E9_var*
+var l_aPictureForm: TPictureForm;
 begin
-//#UC START# *4DAEEDE10285_BF66EC4F24E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BF66EC4F24E9_impl*
+ try
+  l_aPictureForm := TPictureForm(aCtx.rEngine.PopObjAs(TPictureForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aPictureForm: TPictureForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ieProc(aCtx, l_aPictureForm));
 end;//TkwPictureFormIeProc.DoDoIt
 
 class function TkwPictureFormIeProc.GetWordNameForRegister: AnsiString;
@@ -403,12 +376,8 @@ end;//TkwPictureFormIeProc.GetWordNameForRegister
 
 procedure TkwPictureFormIeProc.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BF66EC4F24E9_var*
-//#UC END# *52D00B00031A_BF66EC4F24E9_var*
 begin
-//#UC START# *52D00B00031A_BF66EC4F24E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BF66EC4F24E9_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ieProc', aCtx);
 end;//TkwPictureFormIeProc.SetValuePrim
 
 function TkwPictureFormIeProc.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -423,7 +392,7 @@ end;//TkwPictureFormIeProc.GetAllParamsCount
 
 function TkwPictureFormIeProc.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TPictureForm)]);
 end;//TkwPictureFormIeProc.ParamsTypes
 
 initialization

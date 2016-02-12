@@ -23,7 +23,7 @@ uses
 
 type
  _X_ = InevTableCell;
- {$Include evParaListPainter.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas}
  TevTableCellPainter = class(_evParaListPainter_)
   {* –еализаци€ интерфейса IevPainter дл€ €чеек }
   private
@@ -85,7 +85,7 @@ uses
  , Windows
 ;
 
-{$Include evParaListPainter.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas}
 
 function TevTableCellPainter.GetTablePainter: IevTablePainter;
 //#UC START# *52B3CE5501D4_481D6D3F003F_var*

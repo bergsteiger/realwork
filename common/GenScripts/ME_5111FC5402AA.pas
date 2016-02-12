@@ -21,7 +21,7 @@ uses
 
 type
  _ddDocAtomWithAssign_Parent_ = Tl3ProtoDataContainer;
- {$Include ddDocAtomWithAssign.imp.pas}
+ {$Include w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas}
  TddTextSegment = class(_ddDocAtomWithAssign_)
   private
    f_HLHandle: LongInt;
@@ -113,7 +113,7 @@ uses
  , k2Tags
 ;
 
-{$Include ddDocAtomWithAssign.imp.pas}
+{$Include w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas}
 
 procedure TddTextSegment.pm_SetCHP(aValue: TddCharacterProperty);
 //#UC START# *525D2DB20127_5111FC5402AAset_var*

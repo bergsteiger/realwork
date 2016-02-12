@@ -25,7 +25,7 @@ uses
 
 type
  _MouseClickOnPoint_Parent_ = TTextEditorVisitor;
- {$Include MouseClickOnPoint.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
  TMouseSelectPtTest = {abstract} class(_MouseClickOnPoint_)
   {* “ест щелкань€ мышью по определенной точке. }
   protected
@@ -56,7 +56,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include MouseClickOnPoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TMouseSelectPtTest.DoVisit(aForm: TPrimTextLoadForm);

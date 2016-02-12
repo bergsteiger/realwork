@@ -41,7 +41,7 @@ uses
 ;
 
 type
- {$Include dsBaseDocumentPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
  TdsDictionDocument = {final} class(_dsBaseDocumentPrim_, IdsDictionDocument)
   {* Документ толкового словаря }
   private
@@ -87,7 +87,7 @@ uses
 
 type _Instance_R_ = TdsDictionDocument;
 
-{$Include dsBaseDocumentPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
 procedure TdsDictionDocument.OpenLiteratureList;
  {* открыть список литературы для толкового словаря }

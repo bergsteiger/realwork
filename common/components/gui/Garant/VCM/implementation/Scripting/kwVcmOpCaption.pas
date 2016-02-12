@@ -1,52 +1,38 @@
 unit kwVcmOpCaption;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwVcmOpCaption.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi::VCM$Scripting::VCMWords::vcm_op_Caption
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpCaption.pas"
+// Стереотип: "ScriptKeyword"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  kwOperationParamWordPrim,
-  vcmInterfaces,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , kwOperationParamWordPrim
+ , vcmInterfaces
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
- TkwVcmOpCaption = {final scriptword} class(TkwOperationParamWordPrim)
- protected
- // realized methods
+ TkwVcmOpCaption = {final} class(TkwOperationParamWordPrim)
+  protected
    procedure DoParams(const aParams: IvcmTestParams;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwVcmOpCaption
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TkwVcmOpCaption
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 procedure TkwVcmOpCaption.DoParams(const aParams: IvcmTestParams;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *5230185F0140_5230180F029A_var*
 //#UC END# *5230185F0140_5230180F029A_var*
 begin
@@ -56,17 +42,13 @@ begin
 end;//TkwVcmOpCaption.DoParams
 
 class function TkwVcmOpCaption.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'vcm:op:Caption';
 end;//TkwVcmOpCaption.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация vcm_op_Caption
  TkwVcmOpCaption.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация vcm_op_Caption }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

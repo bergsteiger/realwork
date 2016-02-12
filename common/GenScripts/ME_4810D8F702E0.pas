@@ -24,12 +24,12 @@ type
 
  _FindDataType_ = TnevRootFormatInfoKey;
  _l3Searcher_Parent_ = TnevRootFormatInfoListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TnevRootFormatInfoList = class(_l3Searcher_)
  end;//TnevRootFormatInfoList
 
  _nevChildSpy_Parent_ = TnevFormatPoolBase;
- {$Include nevChildSpy.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}
  TnevFormatPool = class(_nevChildSpy_, InevFormatPool)
   private
    f_Roots: TnevRootFormatInfoList;
@@ -90,9 +90,9 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TnevRootFormatInfoList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
-{$Include nevChildSpy.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}
 
 procedure TnevFormatPool.AfterSectionBreakAdded;
 //#UC START# *4E15BC75016A_4810D8F702E0_var*

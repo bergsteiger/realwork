@@ -21,7 +21,7 @@ type
  RevMarker = class of TevMarker;
 
  _nevParaTool_Parent_ = Tk2TagTool;
- {$Include nevParaTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
  TevMarker = class(_nevParaTool_, IevMarker)
   protected
    procedure SetClientValue(aValue: Integer;
@@ -68,7 +68,7 @@ uses
 
 type _Instance_R_ = TevMarker;
 
-{$Include nevParaTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
 
 procedure TevMarker.SetClientValue(aValue: Integer;
  const aContext: InevOp);

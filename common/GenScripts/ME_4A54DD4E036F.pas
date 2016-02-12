@@ -15,7 +15,7 @@ uses
 
 type
  _l3DataContainer_Parent_ = Tl3ProtoObject;
- {$Include l3DataContainer.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DataContainer.imp.pas}
  Tl3ProtoDataContainer = {abstract} class(_l3DataContainer_)
   {* Самый примитивный контейнер данных }
  end;//Tl3ProtoDataContainer
@@ -26,6 +26,6 @@ uses
  l3ImplUses
 ;
 
-{$Include l3DataContainer.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DataContainer.imp.pas}
 
 end.

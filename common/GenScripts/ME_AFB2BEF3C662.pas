@@ -205,12 +205,8 @@ begin
 end;//Tkw_Form_Diction.GetWordNameForRegister
 
 function Tkw_Form_Diction.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_13CB70E95F1B_var*
-//#UC END# *4DDFD2EA0116_13CB70E95F1B_var*
 begin
-//#UC START# *4DDFD2EA0116_13CB70E95F1B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_13CB70E95F1B_impl*
+ Result := 'enDiction';
 end;//Tkw_Form_Diction.GetString
 
 class function Tkw_Diction_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -219,21 +215,14 @@ begin
 end;//Tkw_Diction_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_Diction_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5FC0994E2F9E_var*
-//#UC END# *4DDFD2EA0116_5FC0994E2F9E_var*
 begin
-//#UC START# *4DDFD2EA0116_5FC0994E2F9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5FC0994E2F9E_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_Diction_Control_BackgroundPanel.GetString
 
 class procedure Tkw_Diction_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_5FC0994E2F9E_var*
-//#UC END# *52A086150180_5FC0994E2F9E_var*
 begin
-//#UC START# *52A086150180_5FC0994E2F9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5FC0994E2F9E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Diction_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_Diction_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -256,21 +245,14 @@ begin
 end;//Tkw_Diction_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_Diction_Control_ContextFilter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D8E741EFA38A_var*
-//#UC END# *4DDFD2EA0116_D8E741EFA38A_var*
 begin
-//#UC START# *4DDFD2EA0116_D8E741EFA38A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D8E741EFA38A_impl*
+ Result := 'ContextFilter';
 end;//Tkw_Diction_Control_ContextFilter.GetString
 
 class procedure Tkw_Diction_Control_ContextFilter.RegisterInEngine;
-//#UC START# *52A086150180_D8E741EFA38A_var*
-//#UC END# *52A086150180_D8E741EFA38A_var*
 begin
-//#UC START# *52A086150180_D8E741EFA38A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_D8E741EFA38A_impl*
+ inherited;
+ TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_Diction_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_Diction_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
@@ -293,21 +275,14 @@ begin
 end;//Tkw_Diction_Control_WordsTree.GetWordNameForRegister
 
 function Tkw_Diction_Control_WordsTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_625384791C6F_var*
-//#UC END# *4DDFD2EA0116_625384791C6F_var*
 begin
-//#UC START# *4DDFD2EA0116_625384791C6F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_625384791C6F_impl*
+ Result := 'WordsTree';
 end;//Tkw_Diction_Control_WordsTree.GetString
 
 class procedure Tkw_Diction_Control_WordsTree.RegisterInEngine;
-//#UC START# *52A086150180_625384791C6F_var*
-//#UC END# *52A086150180_625384791C6F_var*
 begin
-//#UC START# *52A086150180_625384791C6F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_625384791C6F_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Diction_Control_WordsTree.RegisterInEngine
 
 procedure Tkw_Diction_Control_WordsTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -327,21 +302,23 @@ end;//Tkw_Diction_Control_WordsTree_Push.GetWordNameForRegister
 function TkwEnDictionBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aenDiction: TenDiction): TvtPanel;
  {* Реализация слова скрипта .TenDiction.BackgroundPanel }
-//#UC START# *8CA40CE18A4E_B2258800EAED_var*
-//#UC END# *8CA40CE18A4E_B2258800EAED_var*
 begin
-//#UC START# *8CA40CE18A4E_B2258800EAED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8CA40CE18A4E_B2258800EAED_impl*
+ Result := aenDiction.BackgroundPanel;
 end;//TkwEnDictionBackgroundPanel.BackgroundPanel
 
 procedure TkwEnDictionBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B2258800EAED_var*
-//#UC END# *4DAEEDE10285_B2258800EAED_var*
+var l_aenDiction: TenDiction;
 begin
-//#UC START# *4DAEEDE10285_B2258800EAED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B2258800EAED_impl*
+ try
+  l_aenDiction := TenDiction(aCtx.rEngine.PopObjAs(TenDiction));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenDiction: TenDiction : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aenDiction));
 end;//TkwEnDictionBackgroundPanel.DoDoIt
 
 class function TkwEnDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -351,12 +328,8 @@ end;//TkwEnDictionBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B2258800EAED_var*
-//#UC END# *52D00B00031A_B2258800EAED_var*
 begin
-//#UC START# *52D00B00031A_B2258800EAED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B2258800EAED_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEnDictionBackgroundPanel.SetValuePrim
 
 function TkwEnDictionBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -371,27 +344,29 @@ end;//TkwEnDictionBackgroundPanel.GetAllParamsCount
 
 function TkwEnDictionBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenDiction)]);
 end;//TkwEnDictionBackgroundPanel.ParamsTypes
 
 function TkwEnDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
  aenDiction: TenDiction): TnscContextFilter;
  {* Реализация слова скрипта .TenDiction.ContextFilter }
-//#UC START# *6271F0C92E13_B4EC4D5AF267_var*
-//#UC END# *6271F0C92E13_B4EC4D5AF267_var*
 begin
-//#UC START# *6271F0C92E13_B4EC4D5AF267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6271F0C92E13_B4EC4D5AF267_impl*
+ Result := aenDiction.ContextFilter;
 end;//TkwEnDictionContextFilter.ContextFilter
 
 procedure TkwEnDictionContextFilter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B4EC4D5AF267_var*
-//#UC END# *4DAEEDE10285_B4EC4D5AF267_var*
+var l_aenDiction: TenDiction;
 begin
-//#UC START# *4DAEEDE10285_B4EC4D5AF267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B4EC4D5AF267_impl*
+ try
+  l_aenDiction := TenDiction(aCtx.rEngine.PopObjAs(TenDiction));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenDiction: TenDiction : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aenDiction));
 end;//TkwEnDictionContextFilter.DoDoIt
 
 class function TkwEnDictionContextFilter.GetWordNameForRegister: AnsiString;
@@ -401,12 +376,8 @@ end;//TkwEnDictionContextFilter.GetWordNameForRegister
 
 procedure TkwEnDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B4EC4D5AF267_var*
-//#UC END# *52D00B00031A_B4EC4D5AF267_var*
 begin
-//#UC START# *52D00B00031A_B4EC4D5AF267_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B4EC4D5AF267_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEnDictionContextFilter.SetValuePrim
 
 function TkwEnDictionContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -421,27 +392,29 @@ end;//TkwEnDictionContextFilter.GetAllParamsCount
 
 function TkwEnDictionContextFilter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenDiction)]);
 end;//TkwEnDictionContextFilter.ParamsTypes
 
 function TkwEnDictionWordsTree.WordsTree(const aCtx: TtfwContext;
  aenDiction: TenDiction): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TenDiction.WordsTree }
-//#UC START# *EF711B8690BD_ED3545E875CA_var*
-//#UC END# *EF711B8690BD_ED3545E875CA_var*
 begin
-//#UC START# *EF711B8690BD_ED3545E875CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EF711B8690BD_ED3545E875CA_impl*
+ Result := aenDiction.WordsTree;
 end;//TkwEnDictionWordsTree.WordsTree
 
 procedure TkwEnDictionWordsTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ED3545E875CA_var*
-//#UC END# *4DAEEDE10285_ED3545E875CA_var*
+var l_aenDiction: TenDiction;
 begin
-//#UC START# *4DAEEDE10285_ED3545E875CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ED3545E875CA_impl*
+ try
+  l_aenDiction := TenDiction(aCtx.rEngine.PopObjAs(TenDiction));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenDiction: TenDiction : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WordsTree(aCtx, l_aenDiction));
 end;//TkwEnDictionWordsTree.DoDoIt
 
 class function TkwEnDictionWordsTree.GetWordNameForRegister: AnsiString;
@@ -451,12 +424,8 @@ end;//TkwEnDictionWordsTree.GetWordNameForRegister
 
 procedure TkwEnDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ED3545E875CA_var*
-//#UC END# *52D00B00031A_ED3545E875CA_var*
 begin
-//#UC START# *52D00B00031A_ED3545E875CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ED3545E875CA_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WordsTree', aCtx);
 end;//TkwEnDictionWordsTree.SetValuePrim
 
 function TkwEnDictionWordsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -471,7 +440,7 @@ end;//TkwEnDictionWordsTree.GetAllParamsCount
 
 function TkwEnDictionWordsTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenDiction)]);
 end;//TkwEnDictionWordsTree.ParamsTypes
 
 initialization

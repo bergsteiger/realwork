@@ -1,58 +1,52 @@
 unit kwInsertFromStreamCommon;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwInsertFromStreamCommon.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TkwInsertFromStreamCommon
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwInsertFromStreamCommon.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwEditorFromStackWord,
-  evCustomEditorWindow
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
  TkwInsertFromStreamCommon = {abstract} class(TkwEditorFromStackWord)
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- public
- // public methods
+    anEditor: TevCustomEditorWindow); override;
+  public
    function GetFormat(const aCtx: TtfwContext): Integer; virtual; abstract;
  end;//TkwInsertFromStreamCommon
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evTypes,
-  ActiveX,
-  l3Base,
-  l3Filer,
-  nevInternalInterfaces,
-  l3Types
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwInsertFromStreamCommon
+ l3ImplUses
+ , evTypes
+ , ActiveX
+ , l3Base
+ , l3Filer
+ , nevInternalInterfaces
+ , l3Types
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwInsertFromStreamCommon.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_52650217029A_var*
 var
  l_Filer    : Tl3CustomDOSFiler;
@@ -86,12 +80,9 @@ begin
 //#UC END# *4F4CB81200CA_52650217029A_impl*
 end;//TkwInsertFromStreamCommon.DoWithEditor
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwInsertFromStreamCommon
  TkwInsertFromStreamCommon.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwInsertFromStreamCommon }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

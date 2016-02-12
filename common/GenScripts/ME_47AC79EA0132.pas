@@ -22,7 +22,7 @@ uses
 
 type
  _l3Dictionary_Parent_ = Tl3DictionaryPrim;
- {$Include l3Dictionary.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}
  Tl3Dictionary = class(_l3Dictionary_)
   {* Словарь. Используется для преобразования строки в идентификатор и наоборот. Имеет два индекса сортировки }
  end;//Tl3Dictionary
@@ -38,6 +38,6 @@ uses
 
 type _Instance_R_ = Tl3Dictionary;
 
-{$Include l3Dictionary.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}
 
 end.

@@ -6,9 +6,9 @@
 {$Define l3UnknownPrim_imp}
 
  _l3CheckStamp_Parent_ = _l3UnknownPrim_Parent_;
- {$Include l3CheckStamp.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas}
  _RefCountedPrim_Parent_ = _l3CheckStamp_;
- {$Include RefCountedPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\RefCountedPrim.imp.pas}
  _l3UnknownPrim_ = class(_RefCountedPrim_)
   {* Класс-примесь реализующий подсчет ссылок и кеширование. }
   protected
@@ -53,9 +53,9 @@
 
 {$Define l3UnknownPrim_imp_impl}
 
-{$Include l3CheckStamp.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CheckStamp.imp.pas}
 
-{$Include RefCountedPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\RefCountedPrim.imp.pas}
 
 procedure _l3UnknownPrim_.ClearFields;
 //#UC START# *5000565C019C_47913F4E02E0_var*

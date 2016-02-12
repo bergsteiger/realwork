@@ -10,11 +10,14 @@ interface
 uses
  l3IntfUses
  , ddCustomRTFReader
+ , destNorm
  , ddDocumentAtom
 ;
 
 type
  TddRTFReader = class(TddCustomRTFReader)
+  protected
+   function GetdestNormClass: RdestNorm; virtual;
   public
    procedure BeforeClosePara(const aPara: TddDocumentAtom;
     var aNewStyle: Integer); override;
@@ -27,6 +30,15 @@ implementation
 uses
  l3ImplUses
 ;
+
+function TddRTFReader.GetdestNormClass: RdestNorm;
+//#UC START# *56BB204702E6_4C971BD4031B_var*
+//#UC END# *56BB204702E6_4C971BD4031B_var*
+begin
+//#UC START# *56BB204702E6_4C971BD4031B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56BB204702E6_4C971BD4031B_impl*
+end;//TddRTFReader.GetdestNormClass
 
 procedure TddRTFReader.BeforeClosePara(const aPara: TddDocumentAtom;
  var aNewStyle: Integer);

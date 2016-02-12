@@ -6,7 +6,7 @@
 {$Define evLeafParaPainterPrim_imp}
 
 {$If Defined(evNeedPainters)}
- {$Include evParaPainter.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
  _evLeafParaPainterPrim_ = class(_evParaPainter_)
   {* Базовый рисователь листьевых параграфов. }
   protected
@@ -22,7 +22,7 @@
 
 {$Else Defined(evNeedPainters)}
 
-{$Include evParaPainter.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
 _evLeafParaPainterPrim_ = _evParaPainter_;
 
 {$IfEnd} // Defined(evNeedPainters)
@@ -33,7 +33,7 @@ _evLeafParaPainterPrim_ = _evParaPainter_;
 {$Define evLeafParaPainterPrim_imp_impl}
 
 {$If Defined(evNeedPainters)}
-{$Include evParaPainter.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
 
 function _evLeafParaPainterPrim_.GetBitmapForPara: Il3Bitmap;
 //#UC START# *4E53B9A500B4_4804C7B60375_var*

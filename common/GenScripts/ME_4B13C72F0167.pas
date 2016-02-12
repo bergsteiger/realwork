@@ -31,7 +31,7 @@ type
     {* Метод получения экземпляра синглетона TnsUseTaskPanelOperationEvent }
  end;//TnsUseTaskPanelOperationEvent
 
- {$Include vcmScrollableFormWithWheelSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
  TPrimTasksPanelForm = class(_vcmScrollableFormWithWheelSupport_)
   private
    f_tpvMain: TnscTasksPanelView;
@@ -121,7 +121,7 @@ begin
  Result := g_TnsUseTaskPanelOperationEvent;
 end;//TnsUseTaskPanelOperationEvent.Instance
 
-{$Include vcmScrollableFormWithWheelSupport.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas}
 
 procedure TPrimTasksPanelForm.tpvMainOperationExecute(Sender: TObject);
 //#UC START# *4EE78AE903D9_4B13C72F0167_var*

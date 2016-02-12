@@ -18,7 +18,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTextViaEditorProcessorWithNavigate;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TInsertBreakInTextTableTest = {abstract} class(_CursorMover_)
   {* Вставка текста в моноширинную таблицу в режиме рисования текста. }
   protected
@@ -53,7 +53,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 procedure TInsertBreakInTextTableTest.Navigate(aText: TevCustomEditorWindow;
  const anOp: Il3OpPack);

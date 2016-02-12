@@ -39,7 +39,7 @@ uses
 
 type
  _vcmComponentDestroyer_Parent_ = TvcmChromeLikeTabbedContainerForm;
- {$Include vcmComponentDestroyer.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
  TvcmTabbedContainerForm = class(_vcmComponentDestroyer_{$If Defined(Nemesis)}
  , IvcmFlashingWindow
  {$IfEnd} // Defined(Nemesis)
@@ -182,7 +182,7 @@ uses
 
 type _Instance_R_ = TvcmTabbedContainerForm;
 
-{$Include vcmComponentDestroyer.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
 
 function TvcmTabbedContainerForm.pm_GetFormCount: Integer;
 //#UC START# *550AB87B00B3_534F69E702D9get_var*

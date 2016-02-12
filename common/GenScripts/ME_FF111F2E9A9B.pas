@@ -43,12 +43,8 @@ begin
 end;//Tkw_Form_ListAnalize.GetWordNameForRegister
 
 function Tkw_Form_ListAnalize.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B7DFAFBD7BE2_var*
-//#UC END# *4DDFD2EA0116_B7DFAFBD7BE2_var*
 begin
-//#UC START# *4DDFD2EA0116_B7DFAFBD7BE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B7DFAFBD7BE2_impl*
+ Result := 'ListAnalizeForm';
 end;//Tkw_Form_ListAnalize.GetString
 
 initialization

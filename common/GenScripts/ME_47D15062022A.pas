@@ -17,7 +17,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TBitmap;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Tl3Bitmap = class(_l3Unknown_)
   private
    f_Canvas: Tl3Canvas;
@@ -47,7 +47,7 @@ type
  Tl3BitmapCanvas = class(Tl3Canvas)
  end;//Tl3BitmapCanvas
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 function Tl3Bitmap.pm_GetCanvasEx: Il3Canvas;
 //#UC START# *47D1587401BD_47D15062022Aget_var*

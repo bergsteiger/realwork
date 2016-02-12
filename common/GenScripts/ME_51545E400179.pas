@@ -13,7 +13,7 @@ uses
 
 type
  _ItemType_ = AnsiString;
- {$Include Stack.imp.pas}
+ {$Include w:\common\components\SandBox\Stack.imp.pas}
  TStringStack = class(_Stack_)
  end;//TStringStack
 
@@ -23,6 +23,6 @@ uses
  l3ImplUses
 ;
 
-{$Include Stack.imp.pas}
+{$Include w:\common\components\SandBox\Stack.imp.pas}
 
 end.

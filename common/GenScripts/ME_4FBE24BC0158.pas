@@ -16,7 +16,7 @@ uses
 
 type
  _k2ParentedTagObject_Parent_ = Tk2TypedHugeListTag;
- {$Include k2ParentedTagObject.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
  Tk2ParentedTypedHugeListTag = class(_k2ParentedTagObject_)
   {* Список параграфов с числом атрибутов больше 32 }
  end;//Tk2ParentedTypedHugeListTag
@@ -29,6 +29,6 @@ uses
  , k2NullTagImpl
 ;
 
-{$Include k2ParentedTagObject.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 
 end.

@@ -1,47 +1,33 @@
 unit kwVcmOpVisible;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwVcmOpVisible.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi::VCM$Scripting::VCMWords::vcm_op_Visible
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpVisible.pas"
+// Стереотип: "ScriptKeyword"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  kwOperationParamWord,
-  vcmExternalInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , kwOperationParamWord
+ , vcmExternalInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
- TkwVcmOpVisible = {final scriptword} class(TkwOperationParamWord)
- protected
- // realized methods
+ TkwVcmOpVisible = {final} class(TkwOperationParamWord)
+  protected
    function Flag: TvcmOpFlag; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwVcmOpVisible
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TkwVcmOpVisible
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 function TkwVcmOpVisible.Flag: TvcmOpFlag;
 //#UC START# *5230151C02BA_523014D3003C_var*
@@ -53,17 +39,13 @@ begin
 end;//TkwVcmOpVisible.Flag
 
 class function TkwVcmOpVisible.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'vcm:op:Visible';
 end;//TkwVcmOpVisible.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация vcm_op_Visible
  TkwVcmOpVisible.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация vcm_op_Visible }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

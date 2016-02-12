@@ -23,7 +23,7 @@ type
  //#UC START# *4D555D3201E9ci*
  //#UC END# *4D555D3201E9ci*
  _l3Unknown_Parent_ = TCollectionItem;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *4D555D3201E9cit*
  //#UC END# *4D555D3201E9cit*
  TvgCustomGradientPoint = class(_l3Unknown_)
@@ -76,7 +76,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 function TvgCustomGradientPoint.pm_GetColor: AnsiString;
 //#UC START# *4D555E930177_4D555D3201E9get_var*

@@ -205,12 +205,8 @@ begin
 end;//Tkw_Form_UserList.GetWordNameForRegister
 
 function Tkw_Form_UserList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FE7337DC1EA7_var*
-//#UC END# *4DDFD2EA0116_FE7337DC1EA7_var*
 begin
-//#UC START# *4DDFD2EA0116_FE7337DC1EA7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FE7337DC1EA7_impl*
+ Result := 'efUserList';
 end;//Tkw_Form_UserList.GetString
 
 class function Tkw_UserList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -219,21 +215,14 @@ begin
 end;//Tkw_UserList_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_UserList_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7443532241B2_var*
-//#UC END# *4DDFD2EA0116_7443532241B2_var*
 begin
-//#UC START# *4DDFD2EA0116_7443532241B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7443532241B2_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_UserList_Control_BackgroundPanel.GetString
 
 class procedure Tkw_UserList_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_7443532241B2_var*
-//#UC END# *52A086150180_7443532241B2_var*
 begin
-//#UC START# *52A086150180_7443532241B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7443532241B2_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_UserList_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_UserList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -256,21 +245,14 @@ begin
 end;//Tkw_UserList_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_UserList_Control_ContextFilter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F1B2952D2F3B_var*
-//#UC END# *4DDFD2EA0116_F1B2952D2F3B_var*
 begin
-//#UC START# *4DDFD2EA0116_F1B2952D2F3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F1B2952D2F3B_impl*
+ Result := 'ContextFilter';
 end;//Tkw_UserList_Control_ContextFilter.GetString
 
 class procedure Tkw_UserList_Control_ContextFilter.RegisterInEngine;
-//#UC START# *52A086150180_F1B2952D2F3B_var*
-//#UC END# *52A086150180_F1B2952D2F3B_var*
 begin
-//#UC START# *52A086150180_F1B2952D2F3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F1B2952D2F3B_impl*
+ inherited;
+ TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_UserList_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_UserList_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
@@ -293,21 +275,14 @@ begin
 end;//Tkw_UserList_Control_trUserList.GetWordNameForRegister
 
 function Tkw_UserList_Control_trUserList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_57F121607540_var*
-//#UC END# *4DDFD2EA0116_57F121607540_var*
 begin
-//#UC START# *4DDFD2EA0116_57F121607540_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_57F121607540_impl*
+ Result := 'trUserList';
 end;//Tkw_UserList_Control_trUserList.GetString
 
 class procedure Tkw_UserList_Control_trUserList.RegisterInEngine;
-//#UC START# *52A086150180_57F121607540_var*
-//#UC END# *52A086150180_57F121607540_var*
 begin
-//#UC START# *52A086150180_57F121607540_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_57F121607540_impl*
+ inherited;
+ TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_UserList_Control_trUserList.RegisterInEngine
 
 procedure Tkw_UserList_Control_trUserList_Push.DoDoIt(const aCtx: TtfwContext);
@@ -327,21 +302,23 @@ end;//Tkw_UserList_Control_trUserList_Push.GetWordNameForRegister
 function TkwEfUserListBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aefUserList: TefUserList): TvtPanel;
  {* Реализация слова скрипта .TefUserList.BackgroundPanel }
-//#UC START# *547B1A2B396D_7D8AACEB42CB_var*
-//#UC END# *547B1A2B396D_7D8AACEB42CB_var*
 begin
-//#UC START# *547B1A2B396D_7D8AACEB42CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *547B1A2B396D_7D8AACEB42CB_impl*
+ Result := aefUserList.BackgroundPanel;
 end;//TkwEfUserListBackgroundPanel.BackgroundPanel
 
 procedure TkwEfUserListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7D8AACEB42CB_var*
-//#UC END# *4DAEEDE10285_7D8AACEB42CB_var*
+var l_aefUserList: TefUserList;
 begin
-//#UC START# *4DAEEDE10285_7D8AACEB42CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7D8AACEB42CB_impl*
+ try
+  l_aefUserList := TefUserList(aCtx.rEngine.PopObjAs(TefUserList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefUserList: TefUserList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefUserList));
 end;//TkwEfUserListBackgroundPanel.DoDoIt
 
 class function TkwEfUserListBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -351,12 +328,8 @@ end;//TkwEfUserListBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEfUserListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7D8AACEB42CB_var*
-//#UC END# *52D00B00031A_7D8AACEB42CB_var*
 begin
-//#UC START# *52D00B00031A_7D8AACEB42CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7D8AACEB42CB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEfUserListBackgroundPanel.SetValuePrim
 
 function TkwEfUserListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -371,27 +344,29 @@ end;//TkwEfUserListBackgroundPanel.GetAllParamsCount
 
 function TkwEfUserListBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefUserList)]);
 end;//TkwEfUserListBackgroundPanel.ParamsTypes
 
 function TkwEfUserListContextFilter.ContextFilter(const aCtx: TtfwContext;
  aefUserList: TefUserList): TnscContextFilter;
  {* Реализация слова скрипта .TefUserList.ContextFilter }
-//#UC START# *BA68B9155831_396FC976959E_var*
-//#UC END# *BA68B9155831_396FC976959E_var*
 begin
-//#UC START# *BA68B9155831_396FC976959E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BA68B9155831_396FC976959E_impl*
+ Result := aefUserList.ContextFilter;
 end;//TkwEfUserListContextFilter.ContextFilter
 
 procedure TkwEfUserListContextFilter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_396FC976959E_var*
-//#UC END# *4DAEEDE10285_396FC976959E_var*
+var l_aefUserList: TefUserList;
 begin
-//#UC START# *4DAEEDE10285_396FC976959E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_396FC976959E_impl*
+ try
+  l_aefUserList := TefUserList(aCtx.rEngine.PopObjAs(TefUserList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefUserList: TefUserList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aefUserList));
 end;//TkwEfUserListContextFilter.DoDoIt
 
 class function TkwEfUserListContextFilter.GetWordNameForRegister: AnsiString;
@@ -401,12 +376,8 @@ end;//TkwEfUserListContextFilter.GetWordNameForRegister
 
 procedure TkwEfUserListContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_396FC976959E_var*
-//#UC END# *52D00B00031A_396FC976959E_var*
 begin
-//#UC START# *52D00B00031A_396FC976959E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_396FC976959E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEfUserListContextFilter.SetValuePrim
 
 function TkwEfUserListContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -421,27 +392,29 @@ end;//TkwEfUserListContextFilter.GetAllParamsCount
 
 function TkwEfUserListContextFilter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefUserList)]);
 end;//TkwEfUserListContextFilter.ParamsTypes
 
 function TkwEfUserListTrUserList.trUserList(const aCtx: TtfwContext;
  aefUserList: TefUserList): TeeTreeView;
  {* Реализация слова скрипта .TefUserList.trUserList }
-//#UC START# *BC6960408CDC_4AE7B910728D_var*
-//#UC END# *BC6960408CDC_4AE7B910728D_var*
 begin
-//#UC START# *BC6960408CDC_4AE7B910728D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BC6960408CDC_4AE7B910728D_impl*
+ Result := aefUserList.trUserList;
 end;//TkwEfUserListTrUserList.trUserList
 
 procedure TkwEfUserListTrUserList.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4AE7B910728D_var*
-//#UC END# *4DAEEDE10285_4AE7B910728D_var*
+var l_aefUserList: TefUserList;
 begin
-//#UC START# *4DAEEDE10285_4AE7B910728D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4AE7B910728D_impl*
+ try
+  l_aefUserList := TefUserList(aCtx.rEngine.PopObjAs(TefUserList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefUserList: TefUserList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(trUserList(aCtx, l_aefUserList));
 end;//TkwEfUserListTrUserList.DoDoIt
 
 class function TkwEfUserListTrUserList.GetWordNameForRegister: AnsiString;
@@ -451,12 +424,8 @@ end;//TkwEfUserListTrUserList.GetWordNameForRegister
 
 procedure TkwEfUserListTrUserList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4AE7B910728D_var*
-//#UC END# *52D00B00031A_4AE7B910728D_var*
 begin
-//#UC START# *52D00B00031A_4AE7B910728D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4AE7B910728D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству trUserList', aCtx);
 end;//TkwEfUserListTrUserList.SetValuePrim
 
 function TkwEfUserListTrUserList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -471,7 +440,7 @@ end;//TkwEfUserListTrUserList.GetAllParamsCount
 
 function TkwEfUserListTrUserList.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefUserList)]);
 end;//TkwEfUserListTrUserList.ParamsTypes
 
 initialization

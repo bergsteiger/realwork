@@ -46,7 +46,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsDocumentWithFlash;
- {$Include dsDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocument.imp.pas}
  TdsDocumentWithFlash = class(_dsDocument_, IdsDocumentWithFlash)
   {* БОФ документа-схемы }
   private
@@ -94,7 +94,7 @@ uses
 
 type _Instance_R_ = TdsDocumentWithFlash;
 
-{$Include dsDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocument.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 function TdsDocumentWithFlash.MakeDisplayName: IvcmCString;

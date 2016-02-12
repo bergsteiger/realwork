@@ -1,51 +1,44 @@
 unit kwRegisterSchema;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwRegisterSchema.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::SchemaWords::TkwRegisterSchema
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRegisterSchema.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+
 type
  TkwRegisterSchema = {final} class
- private
- // private methods
+  private
    class procedure RegisterSchema(aSender: TObject);
  end;//TkwRegisterSchema
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  k2Facade,
-  k2Tags,
-  evStyleInterface,
-  tfwIntegerConstantRegistrator,
-  k2Attributes,
-  l3Base,
-  k2Base,
-  SysUtils,
-  l3Variant,
-  evdStyles,
-  tfwEnumRegistrator,
-  TypInfo,
-  evdTypes,
-  tfwClassRef
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwRegisterSchema
+ l3ImplUses
+ , k2Facade
+ , k2Tags
+ , evStyleInterface
+ , tfwIntegerConstantRegistrator
+ , k2Attributes
+ , l3Base
+ , k2Base
+ , SysUtils
+ , l3Variant
+ , evdStyles
+ , tfwEnumRegistrator
+ , TypInfo
+ , evdTypes
+ , tfwClassRef
+;
 
 class procedure TkwRegisterSchema.RegisterSchema(aSender: TObject);
 //#UC START# *53C7C3DC0014_53C7C38A011C_var*
@@ -121,13 +114,10 @@ begin
 //#UC END# *53C7C3DC0014_53C7C38A011C_impl*
 end;//TkwRegisterSchema.RegisterSchema
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
 //#UC START# *53C7C3B90110*
  Tk2TypeTable.AddCreatedListener(TkwRegisterSchema.RegisterSchema);
 //#UC END# *53C7C3B90110*
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

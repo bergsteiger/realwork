@@ -6,17 +6,17 @@
 {$Define vcmFormDataSourceWithFlexUseCaseControllerType_imp}
 
 {$If NOT Defined(NoVCM)}
- {$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
  _vcmFormDataSourceWithData_Parent_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
- {$Include vcmFormDataSourceWithData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas}
  _vcmFormDataSourceWithFlexUseCaseControllerType_ = class(_vcmFormDataSourceWithData_)
  end;//_vcmFormDataSourceWithFlexUseCaseControllerType_
 
 {$Else NOT Defined(NoVCM)}
 
-{$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 _vcmFormDataSourceWithData_Parent_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
-{$Include vcmFormDataSourceWithData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas}
 _vcmFormDataSourceWithFlexUseCaseControllerType_ = _vcmFormDataSourceWithData_;
 
 {$IfEnd} // NOT Defined(NoVCM)
@@ -27,9 +27,9 @@ _vcmFormDataSourceWithFlexUseCaseControllerType_ = _vcmFormDataSourceWithData_;
 {$Define vcmFormDataSourceWithFlexUseCaseControllerType_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 
-{$Include vcmFormDataSourceWithData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$EndIf vcmFormDataSourceWithFlexUseCaseControllerType_imp_impl}

@@ -6,7 +6,7 @@
 {$Define l3LockedChange_imp}
 
  _l3LockedChangePrim_Parent_ = _l3LockedChange_Parent_;
- {$Include l3LockedChangePrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3LockedChangePrim.imp.pas}
  _l3LockedChange_ = class(_l3LockedChangePrim_)
   {* Нотификатор об изменениях со счётчиком ссылок изменений }
  end;//_l3LockedChange_
@@ -17,7 +17,7 @@
 
 {$Define l3LockedChange_imp_impl}
 
-{$Include l3LockedChangePrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3LockedChangePrim.imp.pas}
 
 {$EndIf l3LockedChange_imp_impl}
 

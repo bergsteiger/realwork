@@ -16,7 +16,7 @@ uses
 
 type
  _atHasStringParamAddOn_Parent_ = TatOperationBase;
- {$Include atHasStringParamAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
  TatContextSearchInDocumentOperation = class(_atHasStringParamAddOn_)
   private
    f_IsLogFoundContexts: Boolean;
@@ -43,7 +43,7 @@ uses
  , atConstStringProvider
 ;
 
-{$Include atHasStringParamAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
 
 function TatContextSearchInDocumentOperation.OnString(const aString: AnsiString): Boolean;
 //#UC START# *503648620273_50460E8A0063_var*

@@ -6,7 +6,7 @@
 {$Define l3ObjectRefList_imp}
 
  _l3UncomparabeObjectRefList_Parent_ = _l3ObjectRefList_Parent_;
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _l3ObjectRefList_ = class(_l3UncomparabeObjectRefList_)
   {* Список ссылок на объекты. }
  end;//_l3ObjectRefList_
@@ -45,7 +45,7 @@ begin
 //#UC END# *47B99D4503A2_47B57B9E0050_impl*
 end;//CompareExistingItems
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 {$EndIf l3ObjectRefList_imp_impl}
 

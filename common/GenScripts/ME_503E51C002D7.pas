@@ -12,7 +12,7 @@ uses
 
 type
  _SecondType_ = TQueryLogicOperation;
- {$Include atStringConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
  TatNonATQueryLogicOperationConverter = class(_atStringConverter_)
   protected
    procedure InitConvertMap; override;
@@ -41,7 +41,7 @@ begin
  l3Free(g_TatNonATQueryLogicOperationConverter);
 end;//TatNonATQueryLogicOperationConverterFree
 
-{$Include atStringConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
 
 class function TatNonATQueryLogicOperationConverter.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

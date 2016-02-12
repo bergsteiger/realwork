@@ -6,9 +6,9 @@
 {$Define dsList_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include dsSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _dsBaseSearchSupportQuery_Parent_ = _dsSimpleTree_;
- {$Include dsBaseSearchSupportQuery.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
  _dsList_ = {abstract} class(_dsBaseSearchSupportQuery_, Il3ItemNotifyRecipient, IdsList, IucbBaseSearchSupportQuery)
   {* Базовый бизнес объект для формы со списком }
   private
@@ -266,9 +266,9 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 _dsBaseSearchSupportQuery_Parent_ = _dsSimpleTree_;
-{$Include dsBaseSearchSupportQuery.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
 _dsList_ = _dsBaseSearchSupportQuery_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -283,9 +283,9 @@ const
  cExportFlag = DynamicTreeUnit.FM_FIRST_USER_FLAG;
   {* флаг, которым помечаются узлы для экспорта }
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
-{$Include dsBaseSearchSupportQuery.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
 
 function _dsList_.pm_GetCurrent: Il3SimpleNode;
 //#UC START# *47F0CE0C02DC_47E9EDA800FEget_var*

@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _FormDataSourceType_ = IdsDocumentList;
- {$Include dsList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
  _dsDocumentList_ = {abstract} class(_dsList_, IdsDocumentList, InsCRSimpleListTypeRootNodeListener)
   {* Список документов }
   private
@@ -142,7 +142,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dsList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
 _dsDocumentList_ = _dsList_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -153,7 +153,7 @@ _dsDocumentList_ = _dsList_;
 {$Define dsDocumentList_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dsList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
 
 procedure _dsDocumentList_.GetSortParams;
 //#UC START# *4926AA480044_47E9EDC602B2_var*

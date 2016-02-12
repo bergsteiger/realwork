@@ -3,7 +3,7 @@ unit ddTableConvTypes;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTableConvTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

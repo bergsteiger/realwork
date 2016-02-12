@@ -16,7 +16,7 @@ uses
 
 type
  _VCMWord_Parent_ = TtfwRegisterableWord;
- {$Include VCMWord.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwVcmHistoryClear = {final} class(_VCMWord_)
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -38,7 +38,7 @@ uses
  , afwAnswer
 ;
 
-{$Include VCMWord.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
 procedure TkwVcmHistoryClear.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52F4D3CF01ED_var*

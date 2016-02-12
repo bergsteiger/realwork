@@ -21,7 +21,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TCustomMaskEdit;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvtSimpleCustomCombo = class(_l3Unknown_)
   protected
    procedure DoCloseUp(Accept: Boolean); virtual;
@@ -57,7 +57,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvtSimpleCustomCombo.DoCloseUp(Accept: Boolean);
 //#UC START# *52A9AF500143_52A9AD5F0269_var*

@@ -25,9 +25,9 @@ type
  _ListType_ = IevEditorControlList;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  _l3InterfacedList_Parent_ = _l3InterfaceRefList_;
- {$Include l3InterfacedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas}
  TevEditorControlList = class(_l3InterfacedList_)
  end;//TevEditorControlList
 
@@ -43,8 +43,8 @@ uses
 
 type _Instance_R_ = TevEditorControlList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
-{$Include l3InterfacedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas}
 
 end.

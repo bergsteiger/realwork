@@ -23,7 +23,7 @@ uses
 
 type
  _vcmGlassForm_Parent_ = TvcmEntityForm;
- {$Include vcmGlassForm.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.imp.pas}
  TvcmGlassForm = class(_vcmGlassForm_)
  end;//TvcmGlassForm
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -43,7 +43,7 @@ uses
 
 type _Instance_R_ = TvcmGlassForm;
 
-{$Include vcmGlassForm.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.imp.pas}
 
 initialization
 {$If NOT Defined(NoScripts)}

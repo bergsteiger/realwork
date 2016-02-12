@@ -19,7 +19,7 @@ uses
 
 type
  _kwEditorGetTableFromCursor_Parent_ = TkwEditorFromStackWord;
- {$Include kwEditorGetTableFromCursor.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
  TkwSelectCellsWord = {abstract} class(_kwEditorGetTableFromCursor_)
   {* Примесь выделения мышью части таблицы в редакторе. }
   protected
@@ -42,7 +42,7 @@ uses
  , Table_Const
 ;
 
-{$Include kwEditorGetTableFromCursor.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
 
 procedure TkwSelectCellsWord.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

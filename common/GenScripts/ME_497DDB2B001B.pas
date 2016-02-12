@@ -190,7 +190,7 @@ type
  end;//IPrimListFormState
 
  _afwApplicationDataUpdate_Parent_ = Tl3ProtoObject;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TPrimListFormState = class(_afwApplicationDataUpdate_, IPrimListFormState)
   private
    f_InnerState: IvcmBase;
@@ -222,17 +222,17 @@ type
  end;//TPrimListFormState
 
  _ListUserTypes_Parent_ = TvcmContainerForm;
- {$Include ListUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes.imp.pas}
  _PageControlNotification_Parent_ = _ListUserTypes_;
- {$Include PageControlNotification.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _BaseDocument_Parent_ = _PageControlNotification_;
- {$Include BaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
  _StatusBarItems_Parent_ = _BaseDocument_;
- {$Include StatusBarItems.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
  _BaseSearchPresentation_Parent_ = _StatusBarItems_;
- {$Include BaseSearchPresentation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
  _HyperlinkToDocumentProducer_Parent_ = _BaseSearchPresentation_;
- {$Include HyperlinkToDocumentProducer.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
  TPrimListForm = {abstract} class(_HyperlinkToDocumentProducer_, InsContextSearcher, InsBaseSearchPresentation, InsBaseSearchVisibleWatcher, InsTurnOffTimeMachine)
   {* Список документов }
   private
@@ -844,7 +844,7 @@ begin
 //#UC END# *4B0CF288004C_4B0CF2510084_impl*
 end;//TnsViewSameDocumentsEvent.Log
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 constructor TPrimListFormState.Create(const aInnerState: IvcmBase;
  const aContextFilterState: IUnknown;
@@ -946,19 +946,19 @@ begin
 //#UC END# *47EA4E9002C6_5677B9280204_impl*
 end;//TPrimListFormState.FinishDataUpdate
 
-{$Include ListUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes.imp.pas}
 
-{$Include PageControlNotification.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
-{$Include BaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
 
 type _Instance_R_ = TPrimListForm;
 
-{$Include StatusBarItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
 
-{$Include BaseSearchPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 
-{$Include HyperlinkToDocumentProducer.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\LinksToGarant\HyperlinkToDocumentProducer.imp.pas}
 
 function TPrimListForm.pm_GetNoMoreThanOneSelected: Boolean;
 //#UC START# *4C3AA8E0004C_497DDB2B001Bget_var*

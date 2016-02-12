@@ -17,7 +17,7 @@ uses
 type
  _FindDataType_ = Tl3WString;
  _l3Searcher_Parent_ = Tl3ConstStringsPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3ConstStrings1 = class(_l3Searcher_, Il3ApplicationL10NStrings)
   protected
    procedure Define(const aName: AnsiString;
@@ -50,7 +50,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3ConstStrings1;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 procedure Tl3ConstStrings1.Define(const aName: AnsiString;
  const aRus: AnsiString;

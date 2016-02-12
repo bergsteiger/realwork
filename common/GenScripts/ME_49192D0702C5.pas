@@ -24,7 +24,7 @@ type
  _ItemType_ = InevObject;
  _l3InterfaceRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  TnevSectionBreakListPrim = class(_l3InterfaceRefListPrim_)
   {* Базовый список разрывов разделов }
  end;//TnevSectionBreakListPrim
@@ -90,6 +90,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TnevSectionBreakListPrim;
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 end.

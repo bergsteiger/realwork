@@ -20,7 +20,7 @@ uses
 
 type
  _PrintRowCompare_Parent_ = TPreviewTestBefore235875079;
- {$Include PrintRowCompare.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\PrintRowCompare.imp.pas}
  TPreviewTestBefore235875079WithRowCmp = {abstract} class(_PrintRowCompare_)
   protected
    {$If NOT Defined(NoVCM)}
@@ -51,7 +51,7 @@ uses
  , l3Base
 ;
 
-{$Include PrintRowCompare.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\PrintRowCompare.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TPreviewTestBefore235875079WithRowCmp.DoVisit(aForm: TPrimTextLoadForm);

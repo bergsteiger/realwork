@@ -39,7 +39,7 @@ uses
 ;
 
 type
- {$Include dsBaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas}
  TdsMedicDictionDocument = class(_dsBaseDocument_)
   {* для словаря медицинских терминов }
   protected
@@ -77,7 +77,7 @@ uses
 
 type _Instance_R_ = TdsMedicDictionDocument;
 
-{$Include dsBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas}
 
 function TdsMedicDictionDocument.GetTimeMachineOff: Boolean;
  {* при получении источника данных машину времени нужно выключить }

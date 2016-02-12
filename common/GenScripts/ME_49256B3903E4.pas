@@ -7,9 +7,9 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = IdeSimpleTree;
- {$Include dsSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _nsContextFilter_Parent_ = _dsSimpleTree_;
- {$Include nsContextFilter.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
  _dsBaseContents_ = {abstract} class(_nsContextFilter_, IdsBaseContents)
   {* Простое оглавление }
   private
@@ -34,9 +34,9 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 _nsContextFilter_Parent_ = _dsSimpleTree_;
-{$Include nsContextFilter.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
 _dsBaseContents_ = _nsContextFilter_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -47,9 +47,9 @@ _dsBaseContents_ = _nsContextFilter_;
 {$Define dsBaseContents_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
-{$Include nsContextFilter.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
 
 function _dsBaseContents_.pm_GetDocInfo: IdeDocInfo;
 //#UC START# *492566F7019F_49256B3903E4get_var*

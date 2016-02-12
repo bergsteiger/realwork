@@ -29,7 +29,7 @@ uses
 
 type
  _IvcmRealData_ = IdDrugList;
- {$Include dBaseDrugDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas}
  TdDrugList = class(_dBaseDrugDocument_, IdDrugList)
   {* Данные сборки "Список лекартсвенных препаратов". }
   private
@@ -81,7 +81,7 @@ uses
 
 type _Instance_R_ = TdDrugList;
 
-{$Include dBaseDrugDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas}
 
 class function TdDrugList.Make: IdDrugList;
  {* Фабричный метод }

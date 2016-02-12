@@ -23,7 +23,7 @@ uses
 
 type
  _nevParaListTool_Parent_ = TevCursorPair;
- {$Include nevParaListTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  TevParaListCursorPair = class(_nevParaListTool_)
   {* Выделение для списка параграфов }
   protected
@@ -139,7 +139,7 @@ uses
 
 type _Instance_R_ = TevParaListCursorPair;
 
-{$Include nevParaListTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
 function TevParaListCursorPair.GetParaBlockBordersPrim(const aChildPara: InevPara;
  aPID: LongInt;

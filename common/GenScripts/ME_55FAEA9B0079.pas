@@ -21,7 +21,7 @@ uses
 
 type
  _l3Notifier_Parent_ = TvcmBase;
- {$Include l3Notifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  TbsConsultationManager = {final} class(_l3Notifier_, IbsConsultationManager, Il3ChangeNotifier)
   private
    f_Unread: Integer;
@@ -82,7 +82,7 @@ begin
 //#UC END# *55FBE42C03DF_55FAEA9B0079_impl*
 end;//IsConsultationManagerAssigned
 
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
 procedure TbsConsultationManager.UpdateUnread;
 //#UC START# *55FACCF500B4_492FFDF7011A_var*

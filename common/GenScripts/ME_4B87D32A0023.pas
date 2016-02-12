@@ -16,7 +16,7 @@ uses
 
 type
  _l3ObjectByHandleSearcher_Parent_ = TevSubPanelSubCollectionPrim;
- {$Include l3ObjectByHandleSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
  TevSubPanelSubCollection = class(_l3ObjectByHandleSearcher_)
   public
    function CheckLayer(aHandle: Tl3Handle): TevSubPanelSubArray;
@@ -32,7 +32,7 @@ uses
 
 type _Instance_R_ = TevSubPanelSubCollection;
 
-{$Include l3ObjectByHandleSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
 
 function TevSubPanelSubCollection.CheckLayer(aHandle: Tl3Handle): TevSubPanelSubArray;
 //#UC START# *4B87D6CD02BD_4B87D32A0023_var*

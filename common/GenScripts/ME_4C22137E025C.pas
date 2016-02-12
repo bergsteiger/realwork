@@ -23,9 +23,9 @@ type
  TevReadColontitulsEvent = procedure(var theColontituls: TevColontituls) of object;
 
  _afwSettingChanged_Parent_ = TevHAFPainter;
- {$Include afwSettingChanged.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  _afwSettingsReplace_Parent_ = _afwSettingChanged_;
- {$Include afwSettingsReplace.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  TevHAFPainterEx = class(_afwSettingsReplace_)
   protected
    f_Colontituls: TevColontituls;
@@ -70,9 +70,9 @@ uses
  , afwSettingsChangePublisher
 ;
 
-{$Include afwSettingChanged.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
-{$Include afwSettingsReplace.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
 
 function TevHAFPainterEx.IsSettingAffectsUs(const aSettingId: TafwSettingId): Boolean;
 //#UC START# *5243E95503E4_47F352A30004_var*

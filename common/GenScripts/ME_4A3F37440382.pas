@@ -18,11 +18,11 @@ uses
 
 type
  _nevTextParaTool_Parent_ = TnevLeafParaAnchor;
- {$Include nevTextParaTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas}
  _nevTextParaViewBounds_Parent_ = _nevTextParaTool_;
- {$Include nevTextParaViewBounds.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas}
  _nevTextParaAnchorModify_Parent_ = _nevTextParaViewBounds_;
- {$Include nevTextParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas}
  TnevTextParaAnchor = class(_nevTextParaAnchorModify_)
   private
    f_Line: Integer;
@@ -71,11 +71,11 @@ end;//GetLC
 
 type _Instance_R_ = TnevTextParaAnchor;
 
-{$Include nevTextParaTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas}
 
-{$Include nevTextParaViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas}
 
-{$Include nevTextParaAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevTextParaAnchorModify.imp.pas}
 
 function TnevTextParaAnchor.GetAtStart: Boolean;
 //#UC START# *4A3B707700C9_4A3F37440382_var*

@@ -1,52 +1,38 @@
 unit kwVcmOpHint;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwVcmOpHint.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi::VCM$Scripting::VCMWords::vcm_op_Hint
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpHint.pas"
+// Стереотип: "ScriptKeyword"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  kwOperationParamWordPrim,
-  vcmInterfaces,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , kwOperationParamWordPrim
+ , vcmInterfaces
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
- TkwVcmOpHint = {final scriptword} class(TkwOperationParamWordPrim)
- protected
- // realized methods
+ TkwVcmOpHint = {final} class(TkwOperationParamWordPrim)
+  protected
    procedure DoParams(const aParams: IvcmTestParams;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwVcmOpHint
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TkwVcmOpHint
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 procedure TkwVcmOpHint.DoParams(const aParams: IvcmTestParams;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *5230185F0140_5230189600D2_var*
 //#UC END# *5230185F0140_5230189600D2_var*
 begin
@@ -56,17 +42,13 @@ begin
 end;//TkwVcmOpHint.DoParams
 
 class function TkwVcmOpHint.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'vcm:op:Hint';
 end;//TkwVcmOpHint.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация vcm_op_Hint
  TkwVcmOpHint.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация vcm_op_Hint }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

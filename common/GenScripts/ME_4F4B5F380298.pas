@@ -15,7 +15,7 @@ uses
 
 type
  _PrintViewDecorationRules_Parent_ = TnevRootFormatInfo;
- {$Include PrintViewDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas}
  TnevPrintingRootFormatInfo = class(_PrintViewDecorationRules_)
  end;//TnevPrintingRootFormatInfo
 
@@ -27,6 +27,6 @@ uses
  , k2Tags
 ;
 
-{$Include PrintViewDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas}
 
 end.

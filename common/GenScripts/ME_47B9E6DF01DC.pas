@@ -24,7 +24,7 @@ type
  _ItemType_ = Il3ValueMap;
  _l3InterfaceRefListPrim_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  Tl3ValueMapManagerPrim = class(_l3InterfaceRefListPrim_)
  end;//Tl3ValueMapManagerPrim
 
@@ -84,6 +84,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ValueMapManagerPrim;
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 end.

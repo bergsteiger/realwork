@@ -1,45 +1,35 @@
 unit kwPopQueryCardSetAttribute;
+ {* Добавляет атрибут к текущей карточке запроса.
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwPopQueryCardSetAttribute.pas"
-// Начат: 26.09.2011 18:38
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::QueryCardProcessing::pop_QueryCard_SetAttribute
-//
-// Добавляет атрибут к текущей карточке запроса.
-// 
-// *Пример:*
-// {code}
-// моп::Поиск_Поиск_лекарственного_средства
-// 'AT_PHARM_NAME' 'Аргинин' Search:SetAttribute
-// 'AT_PHARM_ATC' 'A. Пищеварительный тракт и обмен веществ' Search:SetAttribute
-// 'AT_PHARM_ATC' 'B. Препараты влияющие на кроветворение и кровь' Search:SetAttribute
-// Ok
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+*Пример:*
+[code]
+ моп::Поиск_Поиск_лекарственного_средства
+ 'AT_PHARM_NAME' 'Аргинин' Search:SetAttribute
+ 'AT_PHARM_ATC' 'A. Пищеварительный тракт и обмен веществ' Search:SetAttribute
+ 'AT_PHARM_ATC' 'B. Препараты влияющие на кроветворение и кровь' Search:SetAttribute
+ Ok
+[code] }
 
-{$Include ..\ScriptEngine\seDefine.inc}
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardSetAttribute.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  nevBase,
-  evQueryCardInt,
-  evQueryCardEditor,
-  tfwScriptingInterfaces,
-  kwQueryCardFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwQueryCardFromStackWord
+ , l3Interfaces
+ , nevBase
+ , tfwScriptingInterfaces
+ , evQueryCardEditor
+ , evQueryCardInt
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopQueryCardSetAttribute = {scriptword} class(TkwQueryCardFromStackWord)
+ TkwPopQueryCardSetAttribute = class(TkwQueryCardFromStackWord)
   {* Добавляет атрибут к текущей карточке запроса.
 
 *Пример:*
@@ -50,44 +40,43 @@ type
  'AT_PHARM_ATC' 'B. Препараты влияющие на кроветворение и кровь' Search:SetAttribute
  Ok
 [code] }
- private
- // private methods
+  private
    procedure DoModelImpl(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor);
- protected
- // realized methods
+    aCard: TevQueryCardEditor);
+  protected
    procedure DoCard(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor); override;
- protected
- // overridden protected methods
+    aCard: TevQueryCardEditor); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopQueryCardSetAttribute
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  l3Base,
-  evReqIterator
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopQueryCardSetAttribute
+ l3ImplUses
+ , l3String
+ , l3Base
+ , evReqIterator
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopQueryCardSetAttribute.DoModelImpl(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
-var
- l_Name : Il3CString;
- l_Value : Il3CString;
- l_Op : InevOp;
+ aCard: TevQueryCardEditor);
+var l_Name: Il3CString;
+var l_Value: Il3CString;
+var l_Op: InevOp;
 
  procedure CallIterator;
 
   function DoIt(const anItem: IevReq): Boolean;
+   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
   //#UC START# *6E7B54AC5B25__var*
   var
    l_F : IevEditorControlField;
@@ -140,7 +129,7 @@ var
   //#UC START# *4E81ADFF02ACiter*
   TevReqIterator.Make(aCard).
   //#UC END# *4E81ADFF02ACiter*
-   DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+  DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
  end;//CallIterator
 
 //#UC START# *4E81A3090197_4E808E3E026E_var*
@@ -159,7 +148,7 @@ begin
 end;//TkwPopQueryCardSetAttribute.DoModelImpl
 
 procedure TkwPopQueryCardSetAttribute.DoCard(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
+ aCard: TevQueryCardEditor);
 //#UC START# *4E808E8B01BB_4E808E3E026E_var*
 //#UC END# *4E808E8B01BB_4E808E3E026E_var*
 begin
@@ -169,17 +158,13 @@ begin
 end;//TkwPopQueryCardSetAttribute.DoCard
 
 class function TkwPopQueryCardSetAttribute.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:QueryCard:SetAttribute';
 end;//TkwPopQueryCardSetAttribute.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_QueryCard_SetAttribute
  TkwPopQueryCardSetAttribute.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_QueryCard_SetAttribute }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

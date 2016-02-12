@@ -7,14 +7,14 @@
 
 {$If NOT Defined(NoVCM)}
  _UseCaseControllerType_ = IvcmFormSetDataSource;
- {$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
  _vcmFormDataSourcePrim_ = class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_)
   {* Бизнес объект формы }
  end;//_vcmFormDataSourcePrim_
 
 {$Else NOT Defined(NoVCM)}
 
-{$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 _vcmFormDataSourcePrim_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
 
 {$IfEnd} // NOT Defined(NoVCM)
@@ -25,7 +25,7 @@ _vcmFormDataSourcePrim_ = _vcmFormDataSourcePrimWithFlexUseCaseControllerType_;
 {$Define vcmFormDataSourcePrim_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 {$EndIf vcmFormDataSourcePrim_imp_impl}

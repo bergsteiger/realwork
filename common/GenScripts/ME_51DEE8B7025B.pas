@@ -16,7 +16,7 @@ uses
 
 type
  _ItemType_ = Int64;
- {$Include StandardAtomicList.imp.pas}
+ {$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}
  TInt64List = class(_StandardAtomicList_)
  end;//TInt64List
 
@@ -28,6 +28,6 @@ uses
  , l3MemorySizeUtils
 ;
 
-{$Include StandardAtomicList.imp.pas}
+{$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}
 
 end.

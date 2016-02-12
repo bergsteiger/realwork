@@ -24,7 +24,7 @@ uses
 
 type
  _Para2Point_Parent_ = TTextEditorVisitor;
- {$Include Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  TSelectPtTest = {abstract} class(_Para2Point_)
   {* “ест вида - загрузили и ткнули в точку со смещением относительно какого-нибудь параграфа }
   protected
@@ -55,7 +55,7 @@ uses
  , l3Base
 ;
 
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TSelectPtTest.DoVisit(aForm: TPrimTextLoadForm);

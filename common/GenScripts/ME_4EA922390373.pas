@@ -20,7 +20,7 @@ uses
 
 type
  _Para2Point_Parent_ = TkwEditorFromStackWord;
- {$Include Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  TkwPopEditorSetCursorByPoint = class(_Para2Point_)
   {* editor:SetCursorByPoint }
   private
@@ -55,7 +55,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
 procedure TkwPopEditorSetCursorByPoint.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

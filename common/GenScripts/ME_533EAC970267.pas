@@ -24,7 +24,7 @@ type
  _ItemType_ = TvgRemindersLine;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TvgRemindersLineList = class(_l3ObjectPtrList_)
   public
    class function Exists: Boolean;
@@ -55,7 +55,7 @@ end;//TvgRemindersLineListFree
 
 type _Instance_R_ = TvgRemindersLineList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 class function TvgRemindersLineList.Exists: Boolean;
 //#UC START# *533EAC1502AD_533EAC970267_var*

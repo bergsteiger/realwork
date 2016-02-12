@@ -24,7 +24,7 @@ type
  DocTagNodeType = If1TagDataProvider;
 
  _StyleParser_Parent_ = TnsTagNodePrimPrim;
- {$Include StyleParser.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}
  TnsTagNodePrim = {abstract} class(_StyleParser_)
   {* –еализаци€ тега, представл€ющего данные из адаптерной ноды }
   private
@@ -87,7 +87,7 @@ uses
 
 type _Instance_R_ = TnsTagNodePrim;
 
-{$Include StyleParser.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}
 
 procedure TnsTagNodePrim.ParseStyle;
 //#UC START# *4C6D1CE80342_467FCCB101CF_var*

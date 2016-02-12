@@ -290,7 +290,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Table(aCtx, l_aRange),IedTable);
+ aCtx.rEngine.PushIntf(Table(aCtx, l_aRange), TypeInfo(IedTable));
 end;//TkwPopRangeTable.DoDoIt
 
 class function TkwPopRangeTable.GetWordNameForRegister: AnsiString;
@@ -336,7 +336,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Hyperlink(aCtx, l_aRange),IevHyperlink);
+ aCtx.rEngine.PushIntf(Hyperlink(aCtx, l_aRange), TypeInfo(IevHyperlink));
 end;//TkwPopRangeHyperlink.DoDoIt
 
 class function TkwPopRangeHyperlink.GetWordNameForRegister: AnsiString;
@@ -428,7 +428,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(TextParagraph(aCtx, l_aRange),IedTextParagraph);
+ aCtx.rEngine.PushIntf(TextParagraph(aCtx, l_aRange), TypeInfo(IedTextParagraph));
 end;//TkwPopRangeTextParagraph.DoDoIt
 
 class function TkwPopRangeTextParagraph.GetWordNameForRegister: AnsiString;
@@ -474,7 +474,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Document(aCtx, l_aRange),IevDocument);
+ aCtx.rEngine.PushIntf(Document(aCtx, l_aRange), TypeInfo(IevDocument));
 end;//TkwPopRangeDocument.DoDoIt
 
 class function TkwPopRangeDocument.GetWordNameForRegister: AnsiString;

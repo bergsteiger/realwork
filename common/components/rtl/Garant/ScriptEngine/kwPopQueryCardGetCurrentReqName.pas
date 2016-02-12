@@ -1,53 +1,46 @@
 unit kwPopQueryCardGetCurrentReqName;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopQueryCardGetCurrentReqName.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::QueryCardProcessing::pop_QueryCard_GetCurrentReqName
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardGetCurrentReqName.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwQueryCardFromStackWord,
-  evQueryCardEditor,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwQueryCardFromStackWord
+ , tfwScriptingInterfaces
+ , evQueryCardEditor
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopQueryCardGetCurrentReqName = {final scriptword} class(TkwQueryCardFromStackWord)
- protected
- // realized methods
+ TkwPopQueryCardGetCurrentReqName = {final} class(TkwQueryCardFromStackWord)
+  protected
    procedure DoCard(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor); override;
- protected
- // overridden protected methods
+    aCard: TevQueryCardEditor); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopQueryCardGetCurrentReqName
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evQueryCardInt
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopQueryCardGetCurrentReqName
+ l3ImplUses
+ , evQueryCardInt
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopQueryCardGetCurrentReqName.DoCard(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
+ aCard: TevQueryCardEditor);
 //#UC START# *4E808E8B01BB_4FDB10E9009A_var*
 var
  l_Control: IevEditorControl;
@@ -62,17 +55,13 @@ begin
 end;//TkwPopQueryCardGetCurrentReqName.DoCard
 
 class function TkwPopQueryCardGetCurrentReqName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:QueryCard:GetCurrentReqName';
 end;//TkwPopQueryCardGetCurrentReqName.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_QueryCard_GetCurrentReqName
  TkwPopQueryCardGetCurrentReqName.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_QueryCard_GetCurrentReqName }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

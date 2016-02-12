@@ -4,7 +4,7 @@ program ReleaseDailyTest;
 // Модуль: "w:\common\components\DailyTest\ReleaseDailyTest.dpr"
 // Стереотип: "TestTarget"
 
-{$Include DailyTest.inc}
+{$Include w:\common\components\DailyTest\DailyTest.inc}
 
 interface
 

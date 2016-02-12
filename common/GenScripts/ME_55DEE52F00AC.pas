@@ -23,7 +23,7 @@ type
  _ItemType_ = TddNSRCSub;
  _l3NotSortedObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3NotSortedObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3NotSortedObjectRefList.imp.pas}
  TddNSRCSubList = class(_l3NotSortedObjectRefList_)
  end;//TddNSRCSubList
 
@@ -39,6 +39,6 @@ uses
 
 type _Instance_R_ = TddNSRCSubList;
 
-{$Include l3NotSortedObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3NotSortedObjectRefList.imp.pas}
 
 end.

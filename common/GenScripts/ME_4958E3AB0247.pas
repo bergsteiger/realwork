@@ -56,9 +56,9 @@ type
  // ztParent
 
  _nsUserSettingsListener_Parent_ = TvcmContainerForm;
- {$Include nsUserSettingsListener.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
  _vcmChromeLikeTabUpdater_Parent_ = _nsUserSettingsListener_;
- {$Include vcmChromeLikeTabUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabUpdater.imp.pas}
  TPrimSaveLoadForm = {abstract} class(_vcmChromeLikeTabUpdater_, InsBaseSearchResultProcessor, InsWorkJournalListener)
   private
    f_LastQueryIndex: Integer;
@@ -336,11 +336,11 @@ begin
 end;//TnsLoadQueryFromHistoryEvent.Log
 {$IfEnd} // NOT Defined(Monitorings)
 
-{$Include nsUserSettingsListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 
 type _Instance_R_ = TPrimSaveLoadForm;
 
-{$Include vcmChromeLikeTabUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabUpdater.imp.pas}
 
 function TPrimSaveLoadForm.pm_GetQueryHistory: TvcmItems;
 //#UC START# *4C319872011D_4958E3AB0247get_var*

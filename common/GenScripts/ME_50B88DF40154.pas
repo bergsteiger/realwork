@@ -18,7 +18,7 @@ uses
 
 type
  _kwEditorFromStackCursorWordUses_Parent_ = TkwEditorFromStackWord;
- {$Include kwEditorFromStackCursorWordUses.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas}
  TkwEditorFromStackCursorWord = {abstract} class(_kwEditorFromStackCursorWordUses_)
   protected
    procedure DoCursor(const aCtx: TtfwContext;
@@ -49,7 +49,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include kwEditorFromStackCursorWordUses.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas}
 
 procedure TkwEditorFromStackCursorWord.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

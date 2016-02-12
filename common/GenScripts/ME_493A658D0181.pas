@@ -32,7 +32,7 @@ uses
 type
  _SetDataType_ = IdMedicFirmList;
  _SetType_ = IsdsMedicFirmList;
- {$Include sdsMedicFirmDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.imp.pas}
  TsdsMedicFirmList = class(_sdsMedicFirmDocument_, IsdsMedicFirmList)
   {* Бизнес объект прецедента список медицинских фирм-производителей }
   protected
@@ -100,7 +100,7 @@ uses
 
 type _Instance_R_ = TsdsMedicFirmList;
 
-{$Include sdsMedicFirmDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.imp.pas}
 
 procedure TsdsMedicFirmList.ChangeSynchroForm(aSynchroForm: TMedicFirmList_SynchroView_Areas);
  {* Переключает форму синхронного просмотра }

@@ -18,7 +18,7 @@ uses
 type
  _ItemType_ = IUnknown;
  _InterfacePtrList_Parent_ = TRefcounted;
- {$Include InterfacePtrList.imp.pas}
+ {$Include w:\common\components\SandBox\InterfacePtrList.imp.pas}
  TIUnknownPtrList = class(_InterfacePtrList_)
   {* —ÔËÒÓÍ ” ¿«¿“≈À≈… Ì‡ IUnknown }
  end;//TIUnknownPtrList
@@ -31,6 +31,6 @@ uses
  , l3MemorySizeUtils
 ;
 
-{$Include InterfacePtrList.imp.pas}
+{$Include w:\common\components\SandBox\InterfacePtrList.imp.pas}
 
 end.

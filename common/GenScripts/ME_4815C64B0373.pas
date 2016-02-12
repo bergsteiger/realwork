@@ -23,7 +23,7 @@ type
  _ItemType_ = TnevFormatInfo;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TnevFormatInfoList = class(_l3UncomparabeObjectRefList_)
   public
    procedure ClearReferencesToParentFormatInfo;
@@ -70,7 +70,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TnevFormatInfoList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 procedure TnevFormatInfoList.ClearReferencesToParentFormatInfo;
 //#UC START# *4EA5701600EF_4815C64B0373_var*

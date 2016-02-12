@@ -175,33 +175,33 @@ type
     out Obj): HResult; override;
  end;//TExTextFormState
 
- {$Include SearcheableText.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SearcheableText.imp.pas}
  _PageControlNotification_Parent_ = _SearcheableText_;
- {$Include PageControlNotification.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  _TurnOnTimeMachine_Parent_ = _PageControlNotification_;
- {$Include TurnOnTimeMachine.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachine.imp.pas}
  _TurnOffTimeMachine_Parent_ = _TurnOnTimeMachine_;
- {$Include TurnOffTimeMachine.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOffTimeMachine.imp.pas}
  _WorkWithRedactions_Parent_ = _TurnOffTimeMachine_;
- {$Include WorkWithRedactions.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
  _DocumentPresentation_Parent_ = _WorkWithRedactions_;
- {$Include DocumentPresentation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
  _HyperlinkProcessor_Parent_ = _DocumentPresentation_;
- {$Include HyperlinkProcessor.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
  _TextWithComments_Parent_ = _HyperlinkProcessor_;
- {$Include TextWithComments.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
  _DocumentUserTypes_Parent_ = _TextWithComments_;
- {$Include DocumentUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes.imp.pas}
  _BlockSelector_Parent_ = _DocumentUserTypes_;
- {$Include BlockSelector.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas}
  _CommonForTextAndFlashOperations_Parent_ = _BlockSelector_;
- {$Include CommonForTextAndFlashOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}
  _HyperlinkOperations_Parent_ = _CommonForTextAndFlashOperations_;
- {$Include HyperlinkOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
  _vcmChromeLikeTabCaptionProvider_Parent_ = _HyperlinkOperations_;
- {$Include vcmChromeLikeTabCaptionProvider.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _vcmChromeLikeTabCaptionProvider_;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TExTextForm = class(_vcmChromeLikeTabIconUpdater_, Il3SelectedTabDependent)
   {* Форма документа, работающая с IdsDocument и другими вариантами контроллеров области ввода }
   private
@@ -301,7 +301,7 @@ type
     const aPicture: IeePicture;
     aOpenKind: TvcmMainFormOpenKind = vcmInterfaces.vcm_okInCurrentTab);
    function LeafParaUnderCursor: IeePara;
-   procedure MakePositionList;
+   function MakePositionList(aCRType: TlstCRType): IPositionList;
    procedure SetFocusToText;
    function GetNeedsStatusBarItems: Boolean;
    function NeedShowTOC: Boolean;
@@ -1219,33 +1219,33 @@ end;//TExTextFormState.QueryInterface
 
 type _Instance_R_ = TExTextForm;
 
-{$Include SearcheableText.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SearcheableText.imp.pas}
 
-{$Include PageControlNotification.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
-{$Include TurnOnTimeMachine.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachine.imp.pas}
 
-{$Include TurnOffTimeMachine.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOffTimeMachine.imp.pas}
 
-{$Include WorkWithRedactions.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\WorkWithRedactions.imp.pas}
 
-{$Include DocumentPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
 
-{$Include HyperlinkProcessor.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
 
-{$Include TextWithComments.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
 
-{$Include DocumentUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentUserTypes.imp.pas}
 
-{$Include BlockSelector.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas}
 
-{$Include CommonForTextAndFlashOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\CommonForTextAndFlashOperations.imp.pas}
 
-{$Include HyperlinkOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
 
-{$Include vcmChromeLikeTabCaptionProvider.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 function TExTextForm.CheckParamForUserType(aUserType: Integer): Boolean;
 //#UC START# *4A8EEFED022C_49539DBA029D_var*
@@ -2037,13 +2037,14 @@ begin
 //#UC END# *4F672B0E03A8_49539DBA029D_impl*
 end;//TExTextForm.LeafParaUnderCursor
 
-procedure TExTextForm.MakePositionList;
+function TExTextForm.MakePositionList(aCRType: TlstCRType): IPositionList;
 var l_PositionList: IPositionList absolute Result;
 
- procedure CollectParas;
+ procedure CollectParas(const aRange: InevRange);
  var l_WasCorrection: Boolean;
 
-  procedure DoIt;
+  function DoIt(const anItem: InevRange;
+   anIndex: Integer): Boolean;
    {* Подитеративная функция для вызова L2InevRangePrimIterateAction из CollectParas }
 
    function CorrectPara(const aPara: InevObject): Boolean;

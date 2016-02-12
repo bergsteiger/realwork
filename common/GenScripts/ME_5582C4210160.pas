@@ -18,7 +18,7 @@ uses
 type
  _ItemType_ = IvcmOperationDef;
  _ListType_ = TvcmOperationDefList;
- {$Include vcmIterator.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
  TvcmOperationsDefIterator = class(_vcmIterator_, IvcmOperationsDefIterator)
   protected
    function Get_Next: IvcmOperationDef;
@@ -32,7 +32,7 @@ uses
  l3ImplUses
 ;
 
-{$Include vcmIterator.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
 
 function TvcmOperationsDefIterator.Get_Next: IvcmOperationDef;
 //#UC START# *4995645B02C7_5582C4210160get_var*

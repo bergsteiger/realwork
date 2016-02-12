@@ -16,7 +16,7 @@ uses
 
 type
  _l3COMQueryInterface_Parent_ = Tl3ProtoDataContainer;
- {$Include l3COMQueryInterface.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
  Tl3ProtoDataContainerWithCOMQI = class(_l3COMQueryInterface_)
  end;//Tl3ProtoDataContainerWithCOMQI
 
@@ -27,6 +27,6 @@ uses
  , l3InterfacesMisc
 ;
 
-{$Include l3COMQueryInterface.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
 
 end.

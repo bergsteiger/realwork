@@ -32,7 +32,7 @@ uses
 type
  _InitDataType_ = IdeAdmin;
  _SetType_ = IsdsAdmin;
- {$Include vcmFormSetDataSourceWithoutData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
  TsdsAdmin = class(_vcmFormSetDataSourceWithoutData_, IsdsAdmin)
   {* бизнес объект сборки администратор пользователей }
   private
@@ -171,7 +171,7 @@ uses
 
 type _Instance_R_ = TsdsAdmin;
 
-{$Include vcmFormSetDataSourceWithoutData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
 function TsdsAdmin.pm_GetInternalUserList: IdsUserList;
 //#UC START# *49F0282D02AA_493126130280get_var*

@@ -22,7 +22,7 @@ type
  //#UC START# *503DEACA03BBci*
  //#UC END# *503DEACA03BBci*
  _nscStatusBarItemNotification_Parent_ = TCustomToolbarPanel97;
- {$Include nscStatusBarItemNotification.imp.pas}
+ {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
  //#UC START# *503DEACA03BBcit*
  //#UC END# *503DEACA03BBcit*
  TnscStatusBarPanel = class(_nscStatusBarItemNotification_)
@@ -47,7 +47,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include nscStatusBarItemNotification.imp.pas}
+{$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
 //#UC START# *503DEACA03BBimpl*
 //#UC END# *503DEACA03BBimpl*

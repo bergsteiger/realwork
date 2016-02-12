@@ -10,7 +10,7 @@
  {$Define l3Items_NoOwner}
 
  _l3VariantListPrim_Parent_ = _k2SimpleTagListPrim_Parent_;
- {$Include l3VariantListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas}
  _k2SimpleTagListPrim_ = class(_l3VariantListPrim_)
   {* Список параграфов }
   protected
@@ -55,7 +55,7 @@ begin
 //#UC END# *47B99D4503A2_4A5F28820363_impl*
 end;//CompareExistingItems
 
-{$Include l3VariantListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function _k2SimpleTagListPrim_.IsCacheable: Boolean;

@@ -31,7 +31,7 @@ uses
 
 type
  _PrimSaveLoadUserTypes_Parent_ = TPrimSaveLoadOptionsForm;
- {$Include PrimSaveLoadUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes.imp.pas}
  TPrimSaveLoadOptionsWithUserTypesForm = class(_PrimSaveLoadUserTypes_)
  end;//TPrimSaveLoadOptionsWithUserTypesForm
 {$IfEnd} // NOT Defined(Admin)
@@ -67,7 +67,7 @@ type
 
  // ExcludeSearchType
 
-{$Include PrimSaveLoadUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes.imp.pas}
 
 initialization
 {$If NOT Defined(NoScripts)}

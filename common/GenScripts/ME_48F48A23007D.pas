@@ -19,7 +19,7 @@ uses
 type
  _StorableClass_ = TevConstStringStorable;
  _DataType_ = IevdHyperlinkInfo;
- {$Include evDataObjectFromStorable.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
  TevConstStringDataObject = class(_evDataObjectFromStorable_)
   protected
    function GetIsQuestionNeedBeforeFlush: Boolean; override;
@@ -41,7 +41,7 @@ uses
  , l3Base
 ;
 
-{$Include evDataObjectFromStorable.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
 
 function TevConstStringDataObject.GetIsQuestionNeedBeforeFlush: Boolean;
 //#UC START# *48F4818300A5_48F48A23007D_var*

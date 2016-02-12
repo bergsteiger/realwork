@@ -24,7 +24,7 @@ type
  _ItemType_ = IafwApplicationDataListener;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TIafwApplicationDataListenerPtrList = class(_l3InterfacePtrList_)
   {* —ÔËÒÓÍ ” ¿«¿“≈À≈… Ì‡ IafwApplicationDataListener }
  end;//TIafwApplicationDataListenerPtrList
@@ -41,6 +41,6 @@ uses
 
 type _Instance_R_ = TIafwApplicationDataListenerPtrList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 end.

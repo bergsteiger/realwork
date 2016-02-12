@@ -6,7 +6,7 @@
 {$Define l3RecordListPrim_imp}
 
  _l3RecordListPrimPrim_Parent_ = _l3RecordListPrim_Parent_;
- {$Include l3RecordListPrimPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrimPrim.imp.pas}
  _l3RecordListPrim_ = class(_l3RecordListPrimPrim_)
   {* Список записей }
  end;//_l3RecordListPrim_
@@ -31,7 +31,7 @@ begin
 //#UC END# *47B94A5C006E_4B223ADC02BF_impl*
 end;//FreeItem
 
-{$Include l3RecordListPrimPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrimPrim.imp.pas}
 
 {$EndIf l3RecordListPrim_imp_impl}
 

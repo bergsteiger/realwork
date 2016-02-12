@@ -1,42 +1,33 @@
 unit kwCFRTF;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwCFRTF.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SchemaWords::CF_RTF
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFRTF.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClipboardFormatWord,
-  evTypes
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwClipboardFormatWord
+ , evTypes
+;
 
-{$If not defined(NoScripts)}
 type
- TkwCFRTF = {final scriptword} class(TtfwClipboardFormatWord)
- protected
- // realized methods
+ TkwCFRTF = {final} class(TtfwClipboardFormatWord)
+  protected
    function GetFormat: TevFormat; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwCFRTF
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwCFRTF
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TkwCFRTF.GetFormat: TevFormat;
 //#UC START# *54D231000227_5291E204016B_var*
@@ -48,17 +39,13 @@ begin
 end;//TkwCFRTF.GetFormat
 
 class function TkwCFRTF.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'CF_RTF';
 end;//TkwCFRTF.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация CF_RTF
  TkwCFRTF.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация CF_RTF }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

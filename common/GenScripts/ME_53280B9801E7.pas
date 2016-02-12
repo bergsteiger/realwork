@@ -10,9 +10,9 @@
  {$IfEnd} // Defined(k2TagNoSort)
 
  _k2Int64Holder_Parent_ = _k2TagPrim_Parent_;
- {$Include k2Int64Holder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
  _k2DoQT_Parent_ = _k2Int64Holder_;
- {$Include k2DoQT.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas}
  _k2TagPrim_ = class(_k2DoQT_)
   protected
    {$If NOT Defined(k2Tag_No_f_TagType)}
@@ -145,9 +145,9 @@
 
 {$Define k2TagPrim_imp_impl}
 
-{$Include k2Int64Holder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
 
-{$Include k2DoQT.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas}
 
 {$If NOT Defined(k2TagIsAtomic)}
 function _k2TagPrim_.IterateInnerChildrenOnWrite: Boolean;

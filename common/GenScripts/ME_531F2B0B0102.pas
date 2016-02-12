@@ -25,7 +25,7 @@ uses
 
 type
  _k2Tag_Parent_ = Tk2NotStructuredTag;
- {$Include k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2IUnknownTag = class(_k2Tag_)
   private
    f_Interface: IUnknown;
@@ -79,7 +79,7 @@ uses
 
 type _Instance_R_ = Tk2IUnknownTag;
 
-{$Include k2Tag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2IUnknownTag.Create(const anInterface: IUnknown);
 //#UC START# *531F2C14010E_531F2B0B0102_var*

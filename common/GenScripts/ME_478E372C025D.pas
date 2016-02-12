@@ -19,7 +19,7 @@ uses
 type
  _FindDataType_ = Tl3ValueMapID;
  _l3Searcher_Parent_ = Tl3ValueMapManagerPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3ValueMapManager = class(_l3Searcher_)
   {* базовая реализация менеджера мап "строка"-что-то. }
   protected
@@ -55,7 +55,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3ValueMapManager;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 function Tl3ValueMapManager.pm_GetMap(const aID: Tl3ValueMapID): Il3ValueMap; { can raise El3ValueMap }
 //#UC START# *47A1C3DA01BE_478E372C025Dget_var*

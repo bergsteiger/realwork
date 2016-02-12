@@ -12,7 +12,7 @@ uses
 
 type
  _EnumType_ = TPositionType;
- {$Include atEnumConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatPositionTypeConverter = class(_atEnumConverter_)
   public
    class function Exists: Boolean;
@@ -39,7 +39,7 @@ begin
  l3Free(g_TatPositionTypeConverter);
 end;//TatPositionTypeConverterFree
 
-{$Include atEnumConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
 class function TatPositionTypeConverter.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

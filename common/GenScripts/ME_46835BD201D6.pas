@@ -29,7 +29,7 @@ type
  _ItemType_ = Il3ContextFilterNotifier;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TIl3ContextFilterNotifierList = class(_l3InterfacePtrList_)
  end;//TIl3ContextFilterNotifierList
 
@@ -147,7 +147,7 @@ type
 
 type _Instance_R_ = TIl3ContextFilterNotifierList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 function TnsFilterableTreeStruct.pm_GetFilters: Il3TreeFilters;
 //#UC START# *48FF42E50041_46835BD201D6get_var*

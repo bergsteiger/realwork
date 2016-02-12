@@ -6,7 +6,7 @@
 {$Define InterfaceList_imp}
 
  _List_Parent_ = _InterfaceList_Parent_;
- {$Include List.imp.pas}
+ {$Include w:\common\components\SandBox\List.imp.pas}
  _InterfaceList_ = class(_List_)
  end;//_InterfaceList_
 
@@ -26,7 +26,7 @@ begin
 //#UC END# *51DECB820261_51E81D74001D_impl*
 end;//IsSame
 
-{$Include List.imp.pas}
+{$Include w:\common\components\SandBox\List.imp.pas}
 
 {$EndIf InterfaceList_imp_impl}
 

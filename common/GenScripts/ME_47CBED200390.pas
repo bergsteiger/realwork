@@ -17,7 +17,7 @@ uses
 type
  _ListType_ = Il3InterfaceList;
  _l3InterfacedList_Parent_ = Tl3InterfaceList;
- {$Include l3InterfacedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas}
  Tl3InterfacedInterfaceList = class(_l3InterfacedList_)
  end;//Tl3InterfacedInterfaceList
 
@@ -29,6 +29,6 @@ uses
 
 type _Instance_R_ = Tl3InterfacedInterfaceList;
 
-{$Include l3InterfacedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas}
 
 end.

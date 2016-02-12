@@ -15,7 +15,7 @@ uses
 
 type
  _l3Unknown_Parent_ = Tl3CastableStrings;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Tl3VCLStringsItems = class(_l3Unknown_)
   protected
    function Get(Index: Integer): String; override;
@@ -48,7 +48,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure Tl3VCLStringsItems.Clear;
 //#UC START# *47E21AB50104_47E21D500381_var*

@@ -24,7 +24,7 @@ type
  _ItemType_ = Tl3ProtoDataContainer;
  _l3UncomparabeObjectRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tl3ObjectCache = class(_l3UncomparabeObjectRefList_)
   {* Кеш объектов. }
   protected
@@ -73,7 +73,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ObjectCache;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function Tl3ObjectCache.IsCacheable: Boolean;

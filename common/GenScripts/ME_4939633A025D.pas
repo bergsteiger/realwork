@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = IdeDocInfo;
- {$Include sdsBaseDocumentWithAttributes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
  _sdsMedicFirmDocument_ = {abstract} class(_sdsBaseDocumentWithAttributes_, IsdsMedicFirmDocumentPrim)
   {* документ-фирма }
   protected
@@ -31,7 +31,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include sdsBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 _sdsMedicFirmDocument_ = _sdsBaseDocumentWithAttributes_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -42,7 +42,7 @@ _sdsMedicFirmDocument_ = _sdsBaseDocumentWithAttributes_;
 {$Define sdsMedicFirmDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include sdsBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 
 function _sdsMedicFirmDocument_.NeedMakeDrugList: Boolean;
 //#UC START# *493964C6039A_4939633A025D_var*

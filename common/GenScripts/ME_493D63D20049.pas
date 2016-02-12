@@ -46,7 +46,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsDocument;
- {$Include dsDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocument.imp.pas}
  TdsDocument = class(_dsDocument_)
   {* Обычный юридический документ, если я правильно всё понимаю (Люлин) }
   protected
@@ -91,7 +91,7 @@ uses
 
 type _Instance_R_ = TdsDocument;
 
-{$Include dsDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocument.imp.pas}
 
 function TdsDocument.MakeContainer: InevDocumentContainer;
  {* Конструирует контейнер документа }

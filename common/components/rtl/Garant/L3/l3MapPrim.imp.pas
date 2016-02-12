@@ -21,7 +21,7 @@ type
 
  _ItemType_ = Tl3KeyValuePair;
  _l3RecordListPrim_Parent_ = _l3MapPrim_Parent_;
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  _l3MapPrim_ = {abstract} class(_l3RecordListPrim_)
   {* Словарь (ключ-значение) }
   protected
@@ -111,7 +111,7 @@ begin
 //#UC END# *47B99D4503A2_560907E00134_impl*
 end;//CompareExistingItems
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 function _l3MapPrim_.Has(const aKey: _KeyType_): Boolean;
 //#UC START# *560909F101B3_560907E00134_var*

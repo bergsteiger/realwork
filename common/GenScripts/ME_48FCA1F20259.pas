@@ -6,7 +6,7 @@
 {$Define l3ChangingChangedNotifier_imp}
 
  _l3Notifier_Parent_ = _l3ChangingChangedNotifier_Parent_;
- {$Include l3Notifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  _l3ChangingChangedNotifier_ = class(_l3Notifier_)
   protected
    procedure DoChanged; override;
@@ -19,7 +19,7 @@
 
 {$Define l3ChangingChangedNotifier_imp_impl}
 
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
 procedure _l3ChangingChangedNotifier_.DoChanged;
 //#UC START# *54D9E08D0212_48FCA1F20259_var*

@@ -23,7 +23,7 @@ uses
 
 type
  _l3Dictionary_Parent_ = Tl3StringMapPrim;
- {$Include l3Dictionary.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}
  Tl3StringMap = class(_l3Dictionary_)
   private
    f_Hi: Integer;
@@ -45,7 +45,7 @@ uses
 
 type _Instance_R_ = Tl3StringMap;
 
-{$Include l3Dictionary.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}
 
 function Tl3StringMap.ResolveString(const aString: AnsiString): Integer;
  {* Возвращает идентификатор строки }

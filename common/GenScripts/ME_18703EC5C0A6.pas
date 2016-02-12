@@ -4,7 +4,7 @@ program ReleaseNewGenTest;
 // Модуль: "w:\MDProcess\NewGenTest\ReleaseNewGenTest.dpr"
 // Стереотип: "TestTarget"
 
-{$Include NewGenTest.inc}
+{$Include w:\MDProcess\NewGenTest\NewGenTest.inc}
 
 interface
 

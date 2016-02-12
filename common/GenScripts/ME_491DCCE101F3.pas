@@ -27,7 +27,7 @@ uses
 
 type
  _InitDataType_ = IdeQuery;
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  TdsQuery = {final} class(_vcmFormDataSource_, IdsQuery)
   private
    f_IsQuerySaved: Boolean;
@@ -52,7 +52,7 @@ uses
 
 type _Instance_R_ = TdsQuery;
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 function TdsQuery.pm_GetQuery: IdeQuery;
 //#UC START# *491DC9970093_491DCCE101F3get_var*

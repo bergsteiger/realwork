@@ -24,7 +24,7 @@ type
  _ItemType_ = IvcmFormSetHistoryItem;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TvcmFormSetHistoryItemList = class(_l3InterfaceRefList_)
  end;//TvcmFormSetHistoryItemList
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TvcmFormSetHistoryItemList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

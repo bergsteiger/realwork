@@ -27,7 +27,7 @@ uses
 
 type
  _IvcmRealData_ = IdCommonDiction;
- {$Include dCommonDiction.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas}
  TdCommonDiction = class(_dCommonDiction_)
  end;//TdCommonDiction
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -46,7 +46,7 @@ uses
 
 type _Instance_R_ = TdCommonDiction;
 
-{$Include dCommonDiction.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

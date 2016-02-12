@@ -42,7 +42,7 @@ uses
 
 type
  _InitDataType_ = IdeDocInfo;
- {$Include dsCommonDiction.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
  TdsMedicDiction = {final} class(_dsCommonDiction_)
   {* Список медицинских терминов }
   protected
@@ -77,7 +77,7 @@ uses
 
 type _Instance_R_ = TdsMedicDiction;
 
-{$Include dsCommonDiction.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
 
 function TdsMedicDiction.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

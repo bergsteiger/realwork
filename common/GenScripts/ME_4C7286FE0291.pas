@@ -17,7 +17,7 @@ uses
 
 type
  _f1TagDataProviderFactory_Parent_ = TObject;
- {$Include f1TagDataProviderFactory.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderFactory.imp.pas}
  Tf1TagDataFromDTPFactory = class(_f1TagDataProviderFactory_)
   public
    class function MakeProvider(const aProvider: IDocumentTextProvider;
@@ -41,7 +41,7 @@ uses
  , nevBase
 ;
 
-{$Include f1TagDataProviderFactory.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderFactory.imp.pas}
 
 class function Tf1TagDataFromDTPFactory.MakeProvider(const aProvider: IDocumentTextProvider;
  aParent: Tf1ListTagDataFromDTPPrim;

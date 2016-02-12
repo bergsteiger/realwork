@@ -7,9 +7,9 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = IdeDocInfo;
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _UnderControlBehaviour_Parent_ = _vcmFormDataSource_;
- {$Include UnderControlBehaviour.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
  _dsBaseDocumentPrim_ = {abstract} class(_UnderControlBehaviour_, IdsBaseDocument, IucpHAFMacroReplacerFactory, IucpFilterInfoFactory)
   {* БОФ, базовый для прецедентов с документом. Не определяет конечный интерфейс бизнес-объекта }
   private
@@ -96,9 +96,9 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 _UnderControlBehaviour_Parent_ = _vcmFormDataSource_;
-{$Include UnderControlBehaviour.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
 _dsBaseDocumentPrim_ = _UnderControlBehaviour_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -109,9 +109,9 @@ _dsBaseDocumentPrim_ = _UnderControlBehaviour_;
 {$Define dsBaseDocumentPrim_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
-{$Include UnderControlBehaviour.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
 
 function _dsBaseDocumentPrim_.MakeLikeStateHolder: InsDocumentLikeStateHolder;
 //#UC START# *51ED328E0077_47EA20430108_var*

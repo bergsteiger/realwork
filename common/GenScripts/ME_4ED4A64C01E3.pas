@@ -16,7 +16,7 @@ uses
 
 type
  _SBSColumnMarker_Parent_ = TevColumnBorderMarker;
- {$Include SBSColumnMarker.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas}
  TevSBSColumnBorderMarker = class(_SBSColumnMarker_)
  end;//TevSBSColumnBorderMarker
 {$IfEnd} // Defined(evUseVisibleCursors)
@@ -31,7 +31,7 @@ uses
 
 type _Instance_R_ = TevSBSColumnBorderMarker;
 
-{$Include SBSColumnMarker.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas}
 {$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

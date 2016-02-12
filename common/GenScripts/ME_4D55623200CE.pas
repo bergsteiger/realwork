@@ -23,7 +23,7 @@ type
  //#UC START# *4D55623200CEci*
  //#UC END# *4D55623200CEci*
  _l3Unknown_Parent_ = TCollection;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *4D55623200CEcit*
  //#UC END# *4D55623200CEcit*
  TvgGradientPoints = class(_l3Unknown_)
@@ -60,7 +60,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 function TvgGradientPoints.pm_GetPoints(anIndex: Integer): TvgGradientPoint;
 //#UC START# *4D55624903C3_4D55623200CEget_var*

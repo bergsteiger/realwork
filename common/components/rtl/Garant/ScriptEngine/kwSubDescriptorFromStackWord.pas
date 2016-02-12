@@ -1,48 +1,39 @@
 unit kwSubDescriptorFromStackWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwSubDescriptorFromStackWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::TkwSubDescriptorFromStackWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubDescriptorFromStackWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  kwObjectFromStackWord,
-  evSubPn
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwObjectFromStackWord
+ , evSubPn
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  TkwSubDescriptorFromStackWord = {abstract} class(TkwObjectFromStackWord)
- protected
- // realized methods
-   procedure DoObject(anObject: TObject;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
+  protected
    procedure DoWithSubDescriptor(aControl: TevSubDescriptor;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   procedure DoObject(anObject: TObject;
+    const aCtx: TtfwContext); override;
  end;//TkwSubDescriptorFromStackWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwSubDescriptorFromStackWord
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwSubDescriptorFromStackWord.DoObject(anObject: TObject;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F212BD5010E_52D65E6902A8_var*
 //#UC END# *4F212BD5010E_52D65E6902A8_var*
 begin
@@ -51,12 +42,9 @@ begin
 //#UC END# *4F212BD5010E_52D65E6902A8_impl*
 end;//TkwSubDescriptorFromStackWord.DoObject
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwSubDescriptorFromStackWord
  TkwSubDescriptorFromStackWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwSubDescriptorFromStackWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

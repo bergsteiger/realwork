@@ -24,7 +24,7 @@ type
  _ItemType_ = TvcmZoneType;
  _l3EnumList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3EnumList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
  TvcmZoneTypeList = class(_l3EnumList_)
  end;//TvcmZoneTypeList
 {$IfEnd} // NOT Defined(NoVCM)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TvcmZoneTypeList;
 
-{$Include l3EnumList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

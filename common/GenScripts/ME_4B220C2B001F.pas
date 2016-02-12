@@ -25,7 +25,7 @@ uses
 
 type
  _IvcmRealData_ = IdBaseDocument;
- {$Include dBaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.imp.pas}
  TdBaseDocument = class(_dBaseDocument_)
   {* Данные сборки документа }
   public
@@ -46,7 +46,7 @@ uses
 
 type _Instance_R_ = TdBaseDocument;
 
-{$Include dBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocument.imp.pas}
 
 class function TdBaseDocument.Make: IdBaseDocument;
 var

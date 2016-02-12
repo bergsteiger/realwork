@@ -19,7 +19,7 @@ type
  {$Define k2Tag_No_f_TagType}
  //#UC END# *4A64874301F2ci*
  _k2ParentedTagObject_Parent_ = Tk2TypedSmallLeafTag;
- {$Include k2ParentedTagObject.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
  //#UC START# *4A64874301F2cit*
  //#UC END# *4A64874301F2cit*
  Tk2ParentedTypedSmallLeafTag = class(_k2ParentedTagObject_)
@@ -36,7 +36,7 @@ uses
  , k2NullTagImpl
 ;
 
-{$Include k2ParentedTagObject.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 
 //#UC START# *4A64874301F2impl*
 //#UC END# *4A64874301F2impl*

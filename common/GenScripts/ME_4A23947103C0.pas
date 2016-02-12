@@ -25,7 +25,7 @@ type
  _ItemType_ = IevSub;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnevFlatSubsList = class(_l3InterfaceRefList_, InevFlatSubsList)
   {* Плоский контейнер сабов }
   protected
@@ -44,7 +44,7 @@ uses
 
 type _Instance_R_ = TnevFlatSubsList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 function TnevFlatSubsList.pm_GetCount: Integer;
 //#UC START# *4BB08B8902F2_4A23947103C0get_var*

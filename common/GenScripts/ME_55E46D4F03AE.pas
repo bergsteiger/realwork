@@ -377,12 +377,8 @@ end;//TkwPopEditorInsertTable.ParamsTypes
 procedure TkwPopEditorInsertRow.InsertRow(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
  {* Реализация слова скрипта pop:Editor:InsertRow }
-//#UC START# *2836BE44B1CE_FD58A4635AC9_var*
-//#UC END# *2836BE44B1CE_FD58A4635AC9_var*
 begin
-//#UC START# *2836BE44B1CE_FD58A4635AC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2836BE44B1CE_FD58A4635AC9_impl*
+ aEditor.InsertRow;
 end;//TkwPopEditorInsertRow.InsertRow
 
 procedure TkwPopEditorInsertRow.DoDoIt(const aCtx: TtfwContext);
@@ -423,12 +419,8 @@ end;//TkwPopEditorInsertRow.ParamsTypes
 procedure TkwPopEditorDeleteRow.DeleteRow(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
  {* Реализация слова скрипта pop:Editor:DeleteRow }
-//#UC START# *BC172019E079_9A0327B85C97_var*
-//#UC END# *BC172019E079_9A0327B85C97_var*
 begin
-//#UC START# *BC172019E079_9A0327B85C97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BC172019E079_9A0327B85C97_impl*
+ aEditor.DeleteRow;
 end;//TkwPopEditorDeleteRow.DeleteRow
 
 procedure TkwPopEditorDeleteRow.DoDoIt(const aCtx: TtfwContext);
@@ -469,12 +461,8 @@ end;//TkwPopEditorDeleteRow.ParamsTypes
 procedure TkwPopEditorInsertColumn.InsertColumn(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
  {* Реализация слова скрипта pop:Editor:InsertColumn }
-//#UC START# *D4E991A7F4AE_16C269694050_var*
-//#UC END# *D4E991A7F4AE_16C269694050_var*
 begin
-//#UC START# *D4E991A7F4AE_16C269694050_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D4E991A7F4AE_16C269694050_impl*
+ aEditor.InsertColumn;
 end;//TkwPopEditorInsertColumn.InsertColumn
 
 procedure TkwPopEditorInsertColumn.DoDoIt(const aCtx: TtfwContext);
@@ -515,12 +503,8 @@ end;//TkwPopEditorInsertColumn.ParamsTypes
 procedure TkwPopEditorDeleteColumn.DeleteColumn(const aCtx: TtfwContext;
  aEditor: TevCustomEditor);
  {* Реализация слова скрипта pop:Editor:DeleteColumn }
-//#UC START# *A069E18C5C66_2EA84891C677_var*
-//#UC END# *A069E18C5C66_2EA84891C677_var*
 begin
-//#UC START# *A069E18C5C66_2EA84891C677_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A069E18C5C66_2EA84891C677_impl*
+ aEditor.DeleteColumn;
 end;//TkwPopEditorDeleteColumn.DeleteColumn
 
 procedure TkwPopEditorDeleteColumn.DoDoIt(const aCtx: TtfwContext);
@@ -975,7 +959,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(Range(aCtx, l_aEditor),IedRange);
+ aCtx.rEngine.PushIntf(Range(aCtx, l_aEditor), TypeInfo(IedRange));
 end;//TkwPopEditorRange.DoDoIt
 
 class function TkwPopEditorRange.GetWordNameForRegister: AnsiString;

@@ -21,9 +21,9 @@ uses
 
 type
  _CursorMover_Parent_ = TPrimScrollTest;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  _ScrollSupport_Parent_ = _CursorMover_;
- {$Include ScrollSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas}
  TScrollByArrow = {abstract} class(_ScrollSupport_)
   {* ѕрокрутка документа стрелкой на клавиатуре. }
   protected
@@ -57,9 +57,9 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-{$Include ScrollSupport.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TScrollByArrow.DoVisit(aForm: TPrimTextLoadForm);

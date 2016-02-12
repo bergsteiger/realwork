@@ -24,7 +24,7 @@ type
  _DataType_ = Tl3Ptr;
  _l3UntypedList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UntypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}
  Tl3DynamicArray = class(_l3UntypedList_)
   {* Базовый класс для динамических массовов. }
   protected
@@ -47,7 +47,7 @@ uses
 
 type _Instance_R_ = Tl3DynamicArray;
 
-{$Include l3UntypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}
 
 function Tl3DynamicArray.pm_GetItems(anIndex: Integer): Pointer;
 //#UC START# *479DFDBE0123_479DFD5300C5get_var*

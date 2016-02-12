@@ -1,37 +1,29 @@
 unit kwPopEditorResizeTableColumnEX;
+ {* »зменить размер колонки таблицы. ѕример:
+[code]   aDelta aKeys aCol aRow editor:ResizeTableColumnEX[code]
+[panel]
+ * aCol - номер €чейки, которую т€нем
+ * aRow - номер строки
+ * aKeys - клавиша, нажата€ при изменении размеров.
+ * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).
+[panel] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Ѕиблиотека "ScriptEngine$Everest"
-// ћодуль: "kwPopEditorResizeTableColumnEX.pas"
-// –одные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_ResizeTableColumnEX
-//
-// »зменить размер колонки таблицы. ѕример:
-// {code}   aDelta aKeys aCol aRow editor:ResizeTableColumnEX{code}
-// {panel}
-// * aCol - номер €чейки, которую т€нем
-// * aRow - номер строки
-// * aKeys - клавиша, нажата€ при изменении размеров.
-// * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).
-// {panel}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ћодуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumnEX.pas"
+// —тереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackTableColumnResize,
-  Classes
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackTableColumnResize
+ , Classes
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorResizeTableColumnEX = {scriptword} class(TkwEditorFromStackTableColumnResize)
+ TkwPopEditorResizeTableColumnEX = class(TkwEditorFromStackTableColumnResize)
   {* »зменить размер колонки таблицы. ѕример:
 [code]   aDelta aKeys aCol aRow editor:ResizeTableColumnEX[code]
 [panel]
@@ -40,30 +32,31 @@ type
  * aKeys - клавиша, нажата€ при изменении размеров.
  * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).
 [panel] }
- protected
- // overridden protected methods
+  protected
    class function GetWordNameForRegister: AnsiString; override;
    function GetKeys: TShiftState; override;
  end;//TkwPopEditorResizeTableColumnEX
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorResizeTableColumnEX
+ l3ImplUses
+ , tfwScriptingInterfaces
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 class function TkwPopEditorResizeTableColumnEX.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:ResizeTableColumnEX';
 end;//TkwPopEditorResizeTableColumnEX.GetWordNameForRegister
@@ -87,12 +80,9 @@ begin
 //#UC END# *4E32CA120170_4E37BEF102EE_impl*
 end;//TkwPopEditorResizeTableColumnEX.GetKeys
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// –егистраци€ pop_editor_ResizeTableColumnEX
  TkwPopEditorResizeTableColumnEX.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* –егистраци€ pop_editor_ResizeTableColumnEX }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

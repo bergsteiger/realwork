@@ -26,7 +26,7 @@ type
  _ItemType_ = TevSubPanelSubArray;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TevSubPanelSubCollectionPrim = {abstract} class(_l3UncomparabeObjectRefList_)
   private
    f_Owner: TWinControl;
@@ -78,7 +78,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevSubPanelSubCollectionPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 constructor TevSubPanelSubCollectionPrim.Create(anOwner: TWinControl);
 //#UC START# *4B87ECA700CD_4B87D2A7029B_var*

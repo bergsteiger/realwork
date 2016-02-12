@@ -16,7 +16,7 @@ uses
 
 type
  _EntityInterface_ = IListEntryInfo;
- {$Include atEntity.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}
  TatListEntryInfo = class(_atEntity_)
   protected
    function pm_GetDocument: IDocument; virtual;
@@ -36,7 +36,7 @@ uses
  , IOUnit
 ;
 
-{$Include atEntity.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}
 
 function TatListEntryInfo.pm_GetDocument: IDocument;
 //#UC START# *5051EB280111_5051EA2101A5get_var*

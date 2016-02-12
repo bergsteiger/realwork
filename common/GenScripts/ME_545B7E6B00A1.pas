@@ -7,7 +7,7 @@
 
  // _KeyType_
 
- {$Include m3AutoAllocList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3AutoAllocList.imp.pas}
  _m3ListWithFind_ = class(_m3AutoAllocList_)
   protected
    function CompareKeyByItem(const aKey: _KeyType_;
@@ -23,7 +23,7 @@
 
 {$Define m3ListWithFind_imp_impl}
 
-{$Include m3AutoAllocList.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3AutoAllocList.imp.pas}
 
 function _m3ListWithFind_.FindItemByKey(const aKey: _KeyType_;
  var theIndex: Integer): Boolean;

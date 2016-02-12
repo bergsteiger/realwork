@@ -6,7 +6,7 @@
 {$Define evLeafParaPainter_imp}
 
 {$If Defined(evNeedPainters)}
- {$Include evLeafParaPainterPrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evLeafParaPainterPrim.imp.pas}
  _evLeafParaPainter_ = class(_evLeafParaPainterPrim_)
   {* Рисователь листьевых параграфов. }
   protected
@@ -17,7 +17,7 @@
 
 {$Else Defined(evNeedPainters)}
 
-{$Include evLeafParaPainterPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evLeafParaPainterPrim.imp.pas}
 _evLeafParaPainter_ = _evLeafParaPainterPrim_;
 
 {$IfEnd} // Defined(evNeedPainters)
@@ -28,7 +28,7 @@ _evLeafParaPainter_ = _evLeafParaPainterPrim_;
 {$Define evLeafParaPainter_imp_impl}
 
 {$If Defined(evNeedPainters)}
-{$Include evLeafParaPainterPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evLeafParaPainterPrim.imp.pas}
 
 function _evLeafParaPainter_.DoDraw: Boolean;
 //#UC START# *4804CB4B00B2_4804CB1B0328_var*

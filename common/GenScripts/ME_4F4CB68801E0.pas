@@ -711,7 +711,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(PushParaFromCursor(aCtx, l_aEditor),InevPara);
+ aCtx.rEngine.PushIntf(PushParaFromCursor(aCtx, l_aEditor), TypeInfo(InevPara));
 end;//TkwPopEditorPushParaFromCursor.DoDoIt
 
 class function TkwPopEditorPushParaFromCursor.GetWordNameForRegister: AnsiString;
@@ -973,7 +973,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Editor, aValue.AsBoolean);
+ DoSetValue(l_Editor, aValue.AsBoolean);
 end;//TkwPopEditorCaretVisible.SetValuePrim
 
 function TkwPopEditorCaretVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -994,12 +994,8 @@ end;//TkwPopEditorCaretVisible.ParamsTypes
 function TkwPopEditorShowDocumentParts.ShowDocumentParts(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:ShowDocumentParts }
-//#UC START# *1989F54F9653_A77B7AB26CFF_var*
-//#UC END# *1989F54F9653_A77B7AB26CFF_var*
 begin
-//#UC START# *1989F54F9653_A77B7AB26CFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *1989F54F9653_A77B7AB26CFF_impl*
+ Result := aEditor.ShowDocumentParts;
 end;//TkwPopEditorShowDocumentParts.ShowDocumentParts
 
 procedure TkwPopEditorShowDocumentParts.DoDoIt(const aCtx: TtfwContext);
@@ -1035,7 +1031,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Editor. := aValue.AsBoolean;
+ l_Editor.ShowDocumentParts := aValue.AsBoolean;
 end;//TkwPopEditorShowDocumentParts.SetValuePrim
 
 function TkwPopEditorShowDocumentParts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1056,12 +1052,8 @@ end;//TkwPopEditorShowDocumentParts.ParamsTypes
 function TkwPopEditorWebStyle.WebStyle(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:WebStyle }
-//#UC START# *33DEC739C875_85D5F3815C6E_var*
-//#UC END# *33DEC739C875_85D5F3815C6E_var*
 begin
-//#UC START# *33DEC739C875_85D5F3815C6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *33DEC739C875_85D5F3815C6E_impl*
+ Result := aEditor.WebStyle;
 end;//TkwPopEditorWebStyle.WebStyle
 
 procedure TkwPopEditorWebStyle.DoDoIt(const aCtx: TtfwContext);
@@ -1097,7 +1089,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Editor. := aValue.AsBoolean;
+ l_Editor.WebStyle := aValue.AsBoolean;
 end;//TkwPopEditorWebStyle.SetValuePrim
 
 function TkwPopEditorWebStyle.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1118,12 +1110,8 @@ end;//TkwPopEditorWebStyle.ParamsTypes
 function TkwPopEditorDrawSpecial.DrawSpecial(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:DrawSpecial }
-//#UC START# *A8F8F865E1DC_BB22FD3C71A4_var*
-//#UC END# *A8F8F865E1DC_BB22FD3C71A4_var*
 begin
-//#UC START# *A8F8F865E1DC_BB22FD3C71A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A8F8F865E1DC_BB22FD3C71A4_impl*
+ Result := aEditor.DrawSpecial;
 end;//TkwPopEditorDrawSpecial.DrawSpecial
 
 procedure TkwPopEditorDrawSpecial.DoDoIt(const aCtx: TtfwContext);
@@ -1159,7 +1147,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Editor. := aValue.AsBoolean;
+ l_Editor.DrawSpecial := aValue.AsBoolean;
 end;//TkwPopEditorDrawSpecial.SetValuePrim
 
 function TkwPopEditorDrawSpecial.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1210,18 +1198,8 @@ end;//TkwPopEditorDocumentTailVisible.GetWordNameForRegister
 
 procedure TkwPopEditorDocumentTailVisible.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_Editor: TevCustomEditorWindow;
 begin
- try
-  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- DoSetValue(Editor, aValue.AsBoolean);
+ RunnerError('Нельзя присваивать значение readonly свойству DocumentTailVisible', aCtx);
 end;//TkwPopEditorDocumentTailVisible.SetValuePrim
 
 function TkwPopEditorDocumentTailVisible.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1242,12 +1220,8 @@ end;//TkwPopEditorDocumentTailVisible.ParamsTypes
 function TkwPopEditorModified.Modified(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): Boolean;
  {* Реализация слова скрипта pop:Editor:Modified }
-//#UC START# *53C9376AB7F3_C36C39E9CCC8_var*
-//#UC END# *53C9376AB7F3_C36C39E9CCC8_var*
 begin
-//#UC START# *53C9376AB7F3_C36C39E9CCC8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53C9376AB7F3_C36C39E9CCC8_impl*
+ Result := aEditor.Modified;
 end;//TkwPopEditorModified.Modified
 
 procedure TkwPopEditorModified.DoDoIt(const aCtx: TtfwContext);
@@ -1272,18 +1246,8 @@ end;//TkwPopEditorModified.GetWordNameForRegister
 
 procedure TkwPopEditorModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_Editor: TevCustomEditorWindow;
 begin
- try
-  l_Editor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Editor: TevCustomEditorWindow : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- Editor. := aValue.AsBoolean;
+ RunnerError('Нельзя присваивать значение readonly свойству Modified', aCtx);
 end;//TkwPopEditorModified.SetValuePrim
 
 function TkwPopEditorModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1356,7 +1320,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(Editor, aValue.AsBoolean);
+ DoSetValue(l_Editor, aValue.AsBoolean);
 end;//TkwPopEditorDrawLines.SetValuePrim
 
 function TkwPopEditorDrawLines.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1377,12 +1341,8 @@ end;//TkwPopEditorDrawLines.ParamsTypes
 function TkwPopEditorAllowRubberTables.AllowRubberTables(const aCtx: TtfwContext;
  aEditor: TevCustomEditorWindow): TnevRubberTablesMode;
  {* Реализация слова скрипта pop:Editor:AllowRubberTables }
-//#UC START# *27CCB8D080B9_1009897A0104_var*
-//#UC END# *27CCB8D080B9_1009897A0104_var*
 begin
-//#UC START# *27CCB8D080B9_1009897A0104_impl*
- !!! Needs to be implemented !!!
-//#UC END# *27CCB8D080B9_1009897A0104_impl*
+ Result := aEditor.AllowRubberTables;
 end;//TkwPopEditorAllowRubberTables.AllowRubberTables
 
 procedure TkwPopEditorAllowRubberTables.DoDoIt(const aCtx: TtfwContext);
@@ -1418,7 +1378,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- Editor. := TnevRubberTablesMode(aValue.AsInt);
+ l_Editor.AllowRubberTables := TnevRubberTablesMode(aValue.AsInt);
 end;//TkwPopEditorAllowRubberTables.SetValuePrim
 
 function TkwPopEditorAllowRubberTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

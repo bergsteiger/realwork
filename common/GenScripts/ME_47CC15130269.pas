@@ -23,7 +23,7 @@ type
  _ItemType_ = IevMarker;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TevMarkersList = class(_l3InterfaceRefList_{$If Defined(evNeedMarkers)}
  , IevMarkersList
  {$IfEnd} // Defined(evNeedMarkers)
@@ -44,7 +44,7 @@ uses
 
 type _Instance_R_ = TevMarkersList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 function TevMarkersList.pm_GetCount: Integer;
 //#UC START# *4BB08B8902F2_47CC15130269get_var*

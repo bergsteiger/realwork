@@ -23,7 +23,7 @@ type
  _ItemType_ = IevSCAttrElement;
  _l3InterfaceRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  TevSCSubAttrList = class(_l3InterfaceRefListPrim_)
  end;//TevSCSubAttrList
 
@@ -82,6 +82,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevSCSubAttrList;
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 end.

@@ -23,7 +23,7 @@ type
  _ItemType_ = TddTable;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddTableList = class(_l3UncomparabeObjectRefList_)
  end;//TddTableList
 
@@ -64,6 +64,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddTableList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

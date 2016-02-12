@@ -7,7 +7,7 @@
 
 {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
  _nsUnknownComponent_Parent_ = _nsUnknownComponentWithIvcmState_Parent_;
- {$Include nsUnknownComponent.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas}
  _nsUnknownComponentWithIvcmState_ = class(_nsUnknownComponent_{$If NOT Defined(NoVCM)}
  , IvcmState
  {$IfEnd} // NOT Defined(NoVCM)
@@ -31,7 +31,7 @@
 {$Else NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
 
 _nsUnknownComponent_Parent_ = _nsUnknownComponentWithIvcmState_Parent_;
-{$Include nsUnknownComponent.imp.pas}
+{$Include w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas}
 _nsUnknownComponentWithIvcmState_ = _nsUnknownComponent_;
 
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)
@@ -42,7 +42,7 @@ _nsUnknownComponentWithIvcmState_ = _nsUnknownComponent_;
 {$Define nsUnknownComponentWithIvcmState_imp_impl}
 
 {$If NOT Defined(NoVGScene) AND NOT Defined(DesignTimeLibrary)}
-{$Include nsUnknownComponent.imp.pas}
+{$Include w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas}
 
 function _nsUnknownComponentWithIvcmState_.DoLoadState(const theState: IUnknown;
  aStateType: TvcmStateType): Boolean;

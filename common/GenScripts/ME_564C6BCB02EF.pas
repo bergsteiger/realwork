@@ -16,7 +16,7 @@ uses
 type
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = TddAnnoKindStatisticListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TddAnnoKindStatisticList = class(_l3Searcher_)
  end;//TddAnnoKindStatisticList
 
@@ -42,6 +42,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TddAnnoKindStatisticList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

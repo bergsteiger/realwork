@@ -197,7 +197,7 @@ type
  _ItemType_ = IvcmFormHistoryItem;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TvcmFormHistoryItemList = class(_l3InterfaceRefList_, IvcmFormHistoryItemList)
   protected
    function pm_GetCount: Integer;
@@ -1852,7 +1852,7 @@ end;//TvcmHistoryItemBase.COMQueryInterface
 
 type _Instance_R_ = TvcmFormHistoryItemList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 function TvcmFormHistoryItemList.pm_GetCount: Integer;
 //#UC START# *4BB08B8902F2_55C0A6F4039Eget_var*

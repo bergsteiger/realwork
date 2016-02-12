@@ -1,37 +1,35 @@
 unit SubPanelWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "SubPanelWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::SubPanelWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SubPanelWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwIterateSubDescriptors,
-  kwSubdescriptorGetDrawType,
-  kwSubdescriptorGetBitmapIndex,
-  kwSubdescriptorGetBlockBitmapIndex,
-  kwSubdescriptorGetDocumentBitmapIndex,
-  kwSubdescriptorGetVisible,
-  kwSubdescriptorGetColumn,
-  kwIterateSubDecriptorsOnSubPanel,
-  kwIterateSubDecriptorsOnSubPanelEX,
-  kwSubPanelGetPopupMenuForSub,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwIterateSubDescriptors
+ , kwSubdescriptorGetDrawType
+ , kwSubdescriptorGetBitmapIndex
+ , kwSubdescriptorGetBlockBitmapIndex
+ , kwSubdescriptorGetDocumentBitmapIndex
+ , kwSubdescriptorGetVisible
+ , kwSubdescriptorGetColumn
+ , kwIterateSubDecriptorsOnSubPanel
+ , kwIterateSubDecriptorsOnSubPanelEX
+ , kwSubPanelGetPopupMenuForSub
+ , tfwScriptingTypes
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
 end.

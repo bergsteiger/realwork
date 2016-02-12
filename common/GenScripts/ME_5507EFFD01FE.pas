@@ -256,7 +256,7 @@ type
  _ItemType_ = TChromeLikeTab;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TChromeLikeTabList = class(_l3ObjectPtrList_)
  end;//TChromeLikeTabList
 
@@ -1514,7 +1514,7 @@ end;//TChromeLikeTab.DoMiddleButtonClick
 
 type _Instance_R_ = TChromeLikeTabList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 function TChromeLikeTabAction.pm_GetTab: TChromeLikeTab;
 //#UC START# *553F56960377_553F55FD034Aget_var*

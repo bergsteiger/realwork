@@ -24,7 +24,7 @@ type
  _ItemType_ = TObject;
  _l3ObjectRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
  Tl3ClassCacheEntry = class(_l3ObjectRefListPrim_)
   public
    constructor Create; reintroduce;
@@ -116,7 +116,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ClassCacheEntry;
 
-{$Include l3ObjectRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
 
 constructor Tl3ClassCacheEntry.Create;
 //#UC START# *47B5A114039E_47A9A53001F6_var*

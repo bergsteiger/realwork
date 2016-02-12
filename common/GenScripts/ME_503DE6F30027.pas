@@ -23,7 +23,7 @@ type
  //#UC START# *503DE6F30027ci*
  //#UC END# *503DE6F30027ci*
  _nscStatusBarItemNotification_Parent_ = TCustomToolbarButton97;
- {$Include nscStatusBarItemNotification.imp.pas}
+ {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
  //#UC START# *503DE6F30027cit*
  //#UC END# *503DE6F30027cit*
  TnscStatusBarButton = class(_nscStatusBarItemNotification_)
@@ -67,7 +67,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include nscStatusBarItemNotification.imp.pas}
+{$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
 {$If NOT Defined(NoTB97)}
 function TnscStatusBarButton.IsGtbToolbarButtonSizeNeeded: Boolean;

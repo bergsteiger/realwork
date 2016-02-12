@@ -1,42 +1,33 @@
 unit kwCFXML;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwCFXML.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SchemaWords::CF_XML
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFXML.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClipboardFormatWord,
-  evTypes
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwClipboardFormatWord
+ , evTypes
+;
 
-{$If not defined(NoScripts)}
 type
- TkwCFXML = {final scriptword} class(TtfwClipboardFormatWord)
- protected
- // realized methods
+ TkwCFXML = {final} class(TtfwClipboardFormatWord)
+  protected
    function GetFormat: TevFormat; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwCFXML
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwCFXML
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TkwCFXML.GetFormat: TevFormat;
 //#UC START# *54D231000227_4FF436960135_var*
@@ -48,17 +39,13 @@ begin
 end;//TkwCFXML.GetFormat
 
 class function TkwCFXML.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'CF_XML';
 end;//TkwCFXML.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация CF_XML
  TkwCFXML.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация CF_XML }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

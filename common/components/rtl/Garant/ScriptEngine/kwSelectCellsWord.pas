@@ -1,66 +1,51 @@
 unit kwSelectCellsWord;
+ {* Примесь выделения мышью части таблицы в редакторе. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwSelectCellsWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TkwSelectCellsWord
-//
-// Примесь выделения мышью части таблицы в редакторе.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSelectCellsWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  nevTools,
-  tfwScriptingInterfaces,
-  evCustomEditorWindow
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
  _kwEditorGetTableFromCursor_Parent_ = TkwEditorFromStackWord;
- {$Include ..\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
  TkwSelectCellsWord = {abstract} class(_kwEditorGetTableFromCursor_)
   {* Примесь выделения мышью части таблицы в редакторе. }
- protected
- // realized methods
-   procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // protected methods
+  protected
    function IsVertical: Boolean; virtual; abstract;
-     {* При выделении мышь движется сверху вниз. }
+    {* При выделении мышь движется сверху вниз. }
+   procedure DoWithEditor(const aCtx: TtfwContext;
+    anEditor: TevCustomEditorWindow); override;
  end;//TkwSelectCellsWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  l3Units,
-  evConst,
-  nevGUIInterfaces,
-  Table_Const
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , l3Base
+ , l3Units
+ , evConst
+ , nevGUIInterfaces
+ , Table_Const
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
-
-// start class TkwSelectCellsWord
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
 
 procedure TkwSelectCellsWord.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4F604272014E_var*
 const
  cnSelectionStep = 500;
@@ -147,12 +132,9 @@ begin
 //#UC END# *4F4CB81200CA_4F604272014E_impl*
 end;//TkwSelectCellsWord.DoWithEditor
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwSelectCellsWord
  TkwSelectCellsWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwSelectCellsWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

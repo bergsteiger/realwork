@@ -23,7 +23,7 @@ type
  _ItemType_ = InevPoint;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnevPointList = class(_l3InterfaceRefList_)
   protected
    {$If NOT Defined(DesignTimeLibrary)}
@@ -44,7 +44,7 @@ uses
 
 type _Instance_R_ = TnevPointList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function TnevPointList.IsCacheable: Boolean;

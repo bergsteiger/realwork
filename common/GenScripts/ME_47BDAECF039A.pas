@@ -15,7 +15,7 @@ uses
 
 type
  _l3ObjectByHandleSearcher_Parent_ = Tl3ObjectWithHandleRefListPrim;
- {$Include l3ObjectByHandleSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
  Tl3ObjectWithHandleRefList = class(_l3ObjectByHandleSearcher_)
  end;//Tl3ObjectWithHandleRefList
 
@@ -27,6 +27,6 @@ uses
 
 type _Instance_R_ = Tl3ObjectWithHandleRefList;
 
-{$Include l3ObjectByHandleSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
 
 end.

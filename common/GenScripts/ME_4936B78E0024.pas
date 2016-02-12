@@ -6,7 +6,7 @@
 {$Define dCommonDiction_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include dBaseDocumentWithAttributes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
  _dCommonDiction_ = class(_dBaseDocumentWithAttributes_, IdCommonDiction)
   private
    f_CurrentNode: INodeBase;
@@ -28,7 +28,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 _dCommonDiction_ = _dBaseDocumentWithAttributes_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -39,7 +39,7 @@ _dCommonDiction_ = _dBaseDocumentWithAttributes_;
 {$Define dCommonDiction_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
 class function _dCommonDiction_.Make: IdCommonDiction;
 var

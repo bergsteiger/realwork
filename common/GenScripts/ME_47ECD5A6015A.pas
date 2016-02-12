@@ -29,7 +29,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsDrugListSynchroView;
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsDrugListSynchroView = class(_vcmFormDataSourcePrim_, IdsSimpleListSynchroView, IdsDrugListSynchroView)
   {* Бизнес объект формы синхронного просмотра списка препаратов }
   protected
@@ -67,7 +67,7 @@ uses
 
 type _Instance_R_ = TdsDrugListSynchroView;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 function TdsDrugListSynchroView.pm_GetIsDrugInternationalNameSynonimsActive: Boolean;
 //#UC START# *33C4CFE7BE58_47ECD5A6015Aget_var*

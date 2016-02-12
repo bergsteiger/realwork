@@ -1,36 +1,31 @@
 {$IfNDef kwEditorGetTableFromCursor_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwEditorGetTableFromCursor.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::kwEditorGetTableFromCursor
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define kwEditorGetTableFromCursor_imp}
-{$If not defined(NoScripts)}
- _kwEditorGetTableFromCursor_ = {abstract mixin} class(_kwEditorGetTableFromCursor_Parent_)
- protected
- // protected methods
+
+{$If NOT Defined(NoScripts)}
+ _kwEditorGetTableFromCursor_ = {abstract} class(_kwEditorGetTableFromCursor_Parent_)
+  protected
    function GetTablePoint(const aCtx: TtfwContext;
-     const aCursorPoint: InevBasePoint): InevBasePoint;
+    const aCursorPoint: InevBasePoint): InevBasePoint;
  end;//_kwEditorGetTableFromCursor_
-{$Else}
 
- _kwEditorGetTableFromCursor_ = _kwEditorGetTableFromCursor_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_kwEditorGetTableFromCursor_ = _kwEditorGetTableFromCursor_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else kwEditorGetTableFromCursor_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef kwEditorGetTableFromCursor_imp_impl}
 
-// start class _kwEditorGetTableFromCursor_
+{$Define kwEditorGetTableFromCursor_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 function _kwEditorGetTableFromCursor_.GetTablePoint(const aCtx: TtfwContext;
-  const aCursorPoint: InevBasePoint): InevBasePoint;
+ const aCursorPoint: InevBasePoint): InevBasePoint;
 //#UC START# *4F549C0101F6_4F549BD300D3_var*
 var
  l_TablePoint: InevBasePoint;
@@ -52,7 +47,9 @@ begin
  RunnerAssert(Result <> nil, 'Курсор не в таблице.', aCtx);
 //#UC END# *4F549C0101F6_4F549BD300D3_impl*
 end;//_kwEditorGetTableFromCursor_.GetTablePoint
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf kwEditorGetTableFromCursor_imp_impl}
 
 {$EndIf kwEditorGetTableFromCursor_imp}
+

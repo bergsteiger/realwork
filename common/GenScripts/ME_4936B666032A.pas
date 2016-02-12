@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = IdeDocInfo;
- {$Include sdsBaseDocumentWithAttributes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
  _sdsCommonDiction_ = {abstract} class(_sdsBaseDocumentWithAttributes_, IsdsCommonDiction)
   {* Бизнес объект сборки "Обобщенный словарь" }
   private
@@ -48,7 +48,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include sdsBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 _sdsCommonDiction_ = _sdsBaseDocumentWithAttributes_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -59,7 +59,7 @@ _sdsCommonDiction_ = _sdsBaseDocumentWithAttributes_;
 {$Define sdsCommonDiction_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include sdsBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 
 procedure _sdsCommonDiction_.BeforeAssignDocument(const aDoc: IdeDocInfo);
 //#UC START# *4936B8B600F2_4936B666032A_var*

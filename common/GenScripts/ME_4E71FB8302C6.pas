@@ -11,7 +11,7 @@ type
  TevParaStrings = array [TevParaStringsRange] of Tl3CustomString;
 
  _nevStringCacheHackBecauseMl3Uknown_Parent_ = _nevStringCache_Parent_;
- {$Include nevStringCacheHackBecauseMl3Uknown.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas}
  _nevStringCache_ = class(_nevStringCacheHackBecauseMl3Uknown_)
   private
    f_S: TevParaStrings;
@@ -27,7 +27,7 @@ type
 
 {$Define nevStringCache_imp_impl}
 
-{$Include nevStringCacheHackBecauseMl3Uknown.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevStringCacheHackBecauseMl3Uknown.imp.pas}
 
 function _nevStringCache_.CheckS(i: Integer): Tl3CustomString;
 //#UC START# *4E5690220216_4E71FB8302C6_var*

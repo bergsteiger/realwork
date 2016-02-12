@@ -7,7 +7,7 @@
 
  _DataType_ = Tl3Ptr;
  _l3FourByteItemList_Parent_ = _l3StandardTypedList_Parent_;
- {$Include l3FourByteItemList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3FourByteItemList.imp.pas}
  _l3StandardTypedList_ = {abstract} class(_l3FourByteItemList_)
   {* Стандартный типизированный список с размером элемента в 4 байта }
   public
@@ -25,7 +25,7 @@
 
 {$Define l3StandardTypedList_imp_impl}
 
-{$Include l3FourByteItemList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3FourByteItemList.imp.pas}
 
 {$If NOT Defined(l3Items_NoSort)}
 constructor _l3StandardTypedList_.MakeSorted(aDuplicates: Tl3Duplicates = l3Types.l3_dupIgnore;

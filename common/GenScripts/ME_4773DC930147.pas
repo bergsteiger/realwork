@@ -26,9 +26,9 @@ type
  _ItemType_ = Integer;
  _l3AtomicList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3AtomicList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
  _l3Storable_Parent_ = _l3AtomicList_;
- {$Include l3Storable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Storable.imp.pas}
  //#UC START# *4773DC930147cit*
  //#UC END# *4773DC930147cit*
  Tl3LongintListPrim = class(_l3Storable_)
@@ -65,9 +65,9 @@ uses
 
 type _Instance_R_ = Tl3LongintListPrim;
 
-{$Include l3AtomicList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
 
-{$Include l3Storable.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Storable.imp.pas}
 
 procedure Tl3LongintListPrim.Load(aStream: TStream);
 //#UC START# *47AAC5B30149_4773DC930147_var*

@@ -8,9 +8,9 @@
  //#UC START# *48CF9748004Fci*
  //#UC END# *48CF9748004Fci*
  _k2Int64Holder_Parent_ = _k2TagBox_Parent_;
- {$Include k2Int64Holder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
  _k2DoQT_Parent_ = _k2Int64Holder_;
- {$Include k2DoQT.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas}
  //#UC START# *48CF9748004Fcit*
  //#UC END# *48CF9748004Fcit*
  _k2TagBox_ = class(_k2DoQT_, Il3TagRef)
@@ -117,9 +117,9 @@ type
  Tl3HackVariant = {final} class(Tl3Variant)
  end;//Tl3HackVariant
 
-{$Include k2Int64Holder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
 
-{$Include k2DoQT.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2DoQT.imp.pas}
 
 function _k2TagBox_.GetRedirect: Tl3Variant;
 //#UC START# *53219B250295_48CF9748004F_var*

@@ -24,9 +24,9 @@ uses
 
 type
  _CursorMover_Parent_ = TTextViaEditorProcessor;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  _ClipboardOperations_Parent_ = _CursorMover_;
- {$Include ClipboardOperations.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
  TCopyPasteTest = {abstract} class(_ClipboardOperations_)
   {* Тест копирования/вставки через буфер обмена }
   protected
@@ -65,9 +65,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-{$Include ClipboardOperations.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TCopyPasteTest.Process(aForm: TPrimTextLoadForm);

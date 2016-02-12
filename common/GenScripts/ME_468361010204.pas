@@ -19,7 +19,7 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = TnsFilterableTreeStruct;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsDataResetTreeStruct = {abstract} class(_afwApplicationDataUpdate_)
   {* ƒерево, которое умеет обновл€тьс€ при смене данных }
   private
@@ -64,7 +64,7 @@ uses
  , afwFacade
 ;
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 function TnsDataResetTreeStruct.ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase;
  {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }

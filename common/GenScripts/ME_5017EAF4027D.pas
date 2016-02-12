@@ -11,7 +11,7 @@
  // _FormDataSourceType_
 
  _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
- {$Include l3Notifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  _vcmFormDataSourcePrimWithFlexUseCaseControllerType_ = class(_l3Notifier_, IvcmFormDataSource, IvcmFormSetDataSourceListener)
   private
    f_DisplayName: IvcmCString;
@@ -59,7 +59,7 @@
 {$Else NOT Defined(NoVCM)}
 
 _l3Notifier_Parent_ = Tl3ProtoObjectWithCOMQI;
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 _vcmFormDataSourcePrimWithFlexUseCaseControllerType_ = _l3Notifier_;
 
 {$IfEnd} // NOT Defined(NoVCM)
@@ -70,7 +70,7 @@ _vcmFormDataSourcePrimWithFlexUseCaseControllerType_ = _l3Notifier_;
 {$Define vcmFormDataSourcePrimWithFlexUseCaseControllerType_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
 function _vcmFormDataSourcePrimWithFlexUseCaseControllerType_.GetIsDataAvailable: Boolean;
  {* существуют ли данные }

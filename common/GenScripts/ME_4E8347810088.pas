@@ -28,9 +28,9 @@ uses
 type
  _HashType_ = Tl3PtrHash;
  _k2HashTag_Parent_ = Tk2LeafTag;
- {$Include k2HashTag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
  _k2ParentedTagObject_Parent_ = _k2HashTag_;
- {$Include k2ParentedTagObject.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
  Tk2ParentedTypedHugeLeafTag = class(_k2ParentedTagObject_)
   {* Листьевой тег с заранее определённым типом, имеющий ссылку на родителя и могущий иметь БОЛЕЕ 32 (включительно) атрибутов }
  end;//Tk2ParentedTypedHugeLeafTag
@@ -67,8 +67,8 @@ uses
 
 type _Instance_R_ = Tk2ParentedTypedHugeLeafTag;
 
-{$Include k2HashTag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
 
-{$Include k2ParentedTagObject.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 
 end.

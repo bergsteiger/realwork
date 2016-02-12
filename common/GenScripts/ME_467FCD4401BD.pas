@@ -18,7 +18,7 @@ uses
 
 type
  _k2ParentedTagObject_Parent_ = TnsTagNodePrim;
- {$Include k2ParentedTagObject.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
  TnsParentedTagNode = class(_k2ParentedTagObject_)
   {* Тег над адаптерной нодой, представляющий ссылку на родителя }
   public
@@ -65,7 +65,7 @@ uses
  , nsStyleParser
 ;
 
-{$Include k2ParentedTagObject.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 
 class function TnsParentedTagNode.MakeNodeTag(const aNode: DocTagNodeType;
  aParent: Tl3Tag = nil;

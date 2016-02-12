@@ -21,9 +21,9 @@ uses
 
 type
  _k2TagHolder_Parent_ = Tl3PlaceNode;
- {$Include k2TagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
  _k2TagBox_Parent_ = _k2TagHolder_;
- {$Include k2TagBox.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
  TevCustomNode = class(_k2TagBox_, Il3HandleNode)
   protected
    function Get_Handle: Integer;
@@ -63,11 +63,11 @@ begin
 //#UC END# *47F259C00067_47F259A300DA_impl*
 end;//FindNodeByTag
 
-{$Include k2TagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
 
 type _Instance_R_ = TevCustomNode;
 
-{$Include k2TagBox.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
 
 function TevCustomNode.Get_Handle: Integer;
 //#UC START# *46827CAF03CD_4A573D87036Dget_var*

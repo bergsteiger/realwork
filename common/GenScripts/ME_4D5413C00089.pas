@@ -22,7 +22,7 @@ type
  //#UC START# *4D5413C00089ci*
  //#UC END# *4D5413C00089ci*
  _l3Unknown_Parent_ = TInterfacedPersistent;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *4D5413C00089cit*
  //#UC END# *4D5413C00089cit*
  TvgInterfacedPersistent = class(_l3Unknown_)
@@ -49,7 +49,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvgInterfacedPersistent.Free(var Dummy: Integer);
  {* Для ловли Free }

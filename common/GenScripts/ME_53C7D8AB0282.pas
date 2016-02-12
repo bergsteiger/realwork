@@ -24,7 +24,7 @@ type
  _ItemType_ = TNotifyEvent;
  _l3StandardTypedList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3StandardTypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StandardTypedList.imp.pas}
  Tk2TypeTableCreatedListeners = class(_l3StandardTypedList_)
   public
    procedure AddListener(aListener: TNotifyEvent);
@@ -143,7 +143,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2TypeTableCreatedListeners;
 
-{$Include l3StandardTypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StandardTypedList.imp.pas}
 
 procedure Tk2TypeTableCreatedListeners.AddListener(aListener: TNotifyEvent);
 //#UC START# *53C7D9E60110_53C7D8AB0282_var*

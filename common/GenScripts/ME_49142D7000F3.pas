@@ -6,7 +6,7 @@
 {$Define l3EnumList_imp}
 
  _l3StandardMemTypedList_Parent_ = _l3EnumList_Parent_;
- {$Include l3StandardMemTypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas}
  _l3EnumList_ = class(_l3StandardMemTypedList_)
   {* Стандартный список из элементов перечислимого типа }
  end;//_l3EnumList_
@@ -129,7 +129,7 @@ begin
 //#UC END# *47B99D4503A2_49142D7000F3_impl*
 end;//CompareExistingItems
 
-{$Include l3StandardMemTypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas}
 
 {$EndIf l3EnumList_imp_impl}
 

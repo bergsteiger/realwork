@@ -17,7 +17,7 @@ uses
 
 type
  _nevSolidParaAnchorModify_Parent_ = TevLeafParaCursor;
- {$Include nevSolidParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}
  TevSolidParaCursor = class(_nevSolidParaAnchorModify_)
   private
    f_Y: Integer;
@@ -55,7 +55,7 @@ uses
  , l3MinMax
 ;
 
-{$Include nevSolidParaAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}
 
 function TevSolidParaCursor.GetY: Integer;
 //#UC START# *4B1D0E1A0256_49DF6D3F02F9_var*

@@ -14,7 +14,7 @@ uses
 type
  _FirstType_ = Tl3WordPosition;
  _SecondType_ = TContextPlace;
- {$Include atEnumToEnumConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
  TatWordPositionConverter = class(_atEnumToEnumConverter_)
   protected
    procedure InitConvertMap; override;
@@ -43,7 +43,7 @@ begin
  l3Free(g_TatWordPositionConverter);
 end;//TatWordPositionConverterFree
 
-{$Include atEnumToEnumConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
 
 class function TatWordPositionConverter.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

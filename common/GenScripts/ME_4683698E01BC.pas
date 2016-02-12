@@ -22,7 +22,7 @@ uses
 
 type
  _nsTaggedTreeInfo_Parent_ = TnsOneLevelTreeStruct;
- {$Include nsTaggedTreeInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}
  TnsAttributeOneLevelTreeStruct = class(_nsTaggedTreeInfo_)
   {* Коллеги, это что? }
   protected
@@ -69,7 +69,7 @@ uses
  , bsUtils
 ;
 
-{$Include nsTaggedTreeInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}
 
 class function TnsAttributeOneLevelTreeStruct.Make(const aNode: INodeBase;
  aShowRoot: Boolean;

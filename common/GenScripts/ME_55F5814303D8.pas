@@ -26,7 +26,7 @@ type
  _ItemType_ = TControl;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TvcmControlList = class(_l3ObjectPtrList_)
  end;//TvcmControlList
 {$IfEnd} // NOT Defined(NoVCM)
@@ -44,7 +44,7 @@ uses
 
 type _Instance_R_ = TvcmControlList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

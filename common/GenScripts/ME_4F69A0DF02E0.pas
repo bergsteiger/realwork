@@ -21,7 +21,8 @@ uses
 type
  TkwPopQueryCardAttributeSetFocus = {final} class(TkwQueryCardFromStackWord)
   private
-   procedure DoModelImpl;
+   procedure DoModelImpl(const aCtx: TtfwContext;
+    aCard: TevQueryCardEditor);
   protected
    procedure DoCard(const aCtx: TtfwContext;
     aCard: TevQueryCardEditor); override;
@@ -46,7 +47,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-procedure TkwPopQueryCardAttributeSetFocus.DoModelImpl;
+procedure TkwPopQueryCardAttributeSetFocus.DoModelImpl(const aCtx: TtfwContext;
+ aCard: TevQueryCardEditor);
 var l_Name: Il3CString;
 var l_Op: InevOp;
 

@@ -28,7 +28,7 @@ type
  _ItemType_ = IspHelpNotifyListener;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TspHelpNotifyListenerList = class(_l3InterfacePtrList_)
  end;//TspHelpNotifyListenerList
 
@@ -70,7 +70,7 @@ end;//TspHelpNotifyManagerFree
 
 type _Instance_R_ = TspHelpNotifyListenerList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 class procedure TspHelpNotifyManager.AddListener(const aListener: IspHelpNotifyListener);
 //#UC START# *53760C6703AB_53760B2701DD_var*

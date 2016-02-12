@@ -32,7 +32,7 @@ type
  _ItemType_ = TvcmContainerLockCountItem;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvcmContainersLockCountList = class(_l3RecordWithEQList_)
   private
    procedure ChangeLockCount(aContainer: TvcmTabbedContainerForm;
@@ -102,7 +102,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmContainersLockCountList;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
 function TvcmContainersLockCountList.IsContainerLocked(aContainer: TvcmTabbedContainerForm): Boolean;
 //#UC START# *5582543B0147_55815E1A0227_var*

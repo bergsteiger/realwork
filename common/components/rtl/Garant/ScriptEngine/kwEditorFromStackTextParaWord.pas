@@ -1,61 +1,54 @@
 unit kwEditorFromStackTextParaWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwEditorFromStackTextParaWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TkwEditorFromStackTextParaWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTextParaWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces,
-  kwEditorFromStackCursorWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackCursorWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
  TkwEditorFromStackTextParaWord = {abstract} class(TkwEditorFromStackCursorWord)
- protected
- // realized methods
-   procedure DoCursor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPoint: InevBasePoint); override;
- protected
- // protected methods
+  protected
    procedure DoPara(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPara: InevPara); virtual; abstract;
+    anEditor: TevCustomEditorWindow;
+    const aPara: InevPara); virtual; abstract;
+   procedure DoCursor(const aCtx: TtfwContext;
+    anEditor: TevCustomEditorWindow;
+    const aPoint: InevBasePoint); override;
  end;//TkwEditorFromStackTextParaWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  LeafPara_Const,
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwEditorFromStackTextParaWord
+ l3ImplUses
+ , LeafPara_Const
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwEditorFromStackTextParaWord.DoCursor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPoint: InevBasePoint);
+ anEditor: TevCustomEditorWindow;
+ const aPoint: InevBasePoint);
 //#UC START# *50B8BCDF0093_50BA0B820089_var*
 var
  l_P : InevBasePoint;
@@ -71,12 +64,9 @@ begin
 //#UC END# *50B8BCDF0093_50BA0B820089_impl*
 end;//TkwEditorFromStackTextParaWord.DoCursor
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwEditorFromStackTextParaWord
  TkwEditorFromStackTextParaWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwEditorFromStackTextParaWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

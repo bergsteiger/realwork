@@ -16,7 +16,7 @@ uses
 type
  TevCustomTextFormatterModelPart = class(TevdDocumentFilter)
   protected
-   procedure ValidateStyles;
+   procedure ValidateStyles(aPara: Tl3Variant);
  end;//TevCustomTextFormatterModelPart
 
 implementation
@@ -30,7 +30,7 @@ uses
  , ObjectSegment_Const
 ;
 
-procedure TevCustomTextFormatterModelPart.ValidateStyles;
+procedure TevCustomTextFormatterModelPart.ValidateStyles(aPara: Tl3Variant);
 
  function DoIt(anItem: Tl3Variant;
   anIndex: Integer): Boolean;

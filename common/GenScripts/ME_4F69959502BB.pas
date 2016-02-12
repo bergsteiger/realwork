@@ -33,7 +33,8 @@ type
 'AT_TEXT_NAME' true Search:SetAttributeCollapsed
 [code] }
   private
-   procedure DoModelImpl;
+   procedure DoModelImpl(const aCtx: TtfwContext;
+    aCard: TevQueryCardEditor);
   protected
    procedure DoCard(const aCtx: TtfwContext;
     aCard: TevQueryCardEditor); override;
@@ -58,7 +59,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-procedure TkwPopQueryCardAttributeSetCollapsed.DoModelImpl;
+procedure TkwPopQueryCardAttributeSetCollapsed.DoModelImpl(const aCtx: TtfwContext;
+ aCard: TevQueryCardEditor);
 var l_Op: InevOp;
 var l_Name: Il3CString;
 var l_Value: Boolean;

@@ -18,7 +18,7 @@ uses
 
 type
  _SelectTablePart_Parent_ = TkwEditorFromStackCursorWord;
- {$Include SelectTablePart.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TkwPopEditorSelectTable = class(_SelectTablePart_)
   private
    f_Point: InevBasePoint;
@@ -57,7 +57,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include SelectTablePart.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
 procedure TkwPopEditorSelectTable.DoCursor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow;

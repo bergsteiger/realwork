@@ -42,7 +42,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsMedicFirmDocument;
- {$Include dsBaseDocumentPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
  TdsMedicFirmDocument = class(_dsBaseDocumentPrim_, IdsMedicFirmDocument)
   {* Документ описания фирмы-производителя }
   private
@@ -83,7 +83,7 @@ uses
 
 type _Instance_R_ = TdsMedicFirmDocument;
 
-{$Include dsBaseDocumentPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
 procedure TdsMedicFirmDocument.OpenDrugList;
  {* открыть список выпускаемых препаратов }

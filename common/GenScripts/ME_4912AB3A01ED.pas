@@ -18,7 +18,7 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = Tl3InterfacedStringList;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsAttributeTreeCacheNew = class(_afwApplicationDataUpdate_)
   {* Коллеги, это что? }
   private
@@ -63,7 +63,7 @@ begin
  l3Free(g_TnsAttributeTreeCacheNew);
 end;//TnsAttributeTreeCacheNewFree
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 function TnsAttributeTreeCacheNew.pm_GetAttributeRoot(const aTag: Il3CString): INodeBase;
 //#UC START# *4912ABB40360_4912AB3A01EDget_var*

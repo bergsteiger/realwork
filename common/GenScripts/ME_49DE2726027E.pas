@@ -7,15 +7,15 @@
 
 {$If Defined(evUseVisibleCursors)}
  _nevParentPointFactory_Parent_ = TevLocation;
- {$Include nevParentPointFactory.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
  _nevParentPointFactoryEx_Parent_ = _nevParentPointFactory_;
- {$Include nevParentPointFactoryEx.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas}
  _nevParentPointHolder_Parent_ = _nevParentPointFactoryEx_;
- {$Include nevParentPointHolder.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
  _nevMostInner_Parent_ = _nevParentPointHolder_;
- {$Include nevMostInner.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
  _nevDiff_Parent_ = _nevMostInner_;
- {$Include nevDiff.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevDiff.imp.pas}
  _evCursor_ = class(_nevDiff_)
   {* "Совсем базовый" курсор }
   private
@@ -128,15 +128,15 @@
 {$Else Defined(evUseVisibleCursors)}
 
 _nevParentPointFactory_Parent_ = TevLocation;
-{$Include nevParentPointFactory.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
 _nevParentPointFactoryEx_Parent_ = _nevParentPointFactory_;
-{$Include nevParentPointFactoryEx.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas}
 _nevParentPointHolder_Parent_ = _nevParentPointFactoryEx_;
-{$Include nevParentPointHolder.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
 _nevMostInner_Parent_ = _nevParentPointHolder_;
-{$Include nevMostInner.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
 _nevDiff_Parent_ = _nevMostInner_;
-{$Include nevDiff.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevDiff.imp.pas}
 _evCursor_ = _nevDiff_;
 
 {$IfEnd} // Defined(evUseVisibleCursors)
@@ -147,15 +147,15 @@ _evCursor_ = _nevDiff_;
 {$Define evCursor_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-{$Include nevParentPointFactory.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
 
-{$Include nevParentPointFactoryEx.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas}
 
-{$Include nevParentPointHolder.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
 
-{$Include nevMostInner.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
 
-{$Include nevDiff.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevDiff.imp.pas}
 
 procedure _evCursor_.pm_SetPosition(aValue: TnevPosition);
 //#UC START# *49DEF7060313_49DE2726027Eset_var*

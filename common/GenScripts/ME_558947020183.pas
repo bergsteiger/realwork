@@ -24,7 +24,7 @@ type
  _ItemType_ = IvcmHistoryItem;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TvcmHistoryItemList = class(_l3InterfaceRefList_, IvcmHistoryItems)
   protected
    function Get_HistoryItemCount: Integer;
@@ -52,7 +52,7 @@ uses
 
 type _Instance_R_ = TvcmHistoryItemList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 constructor TvcmHistoryItemList.Create(const aOtherList: IvcmHistoryItems);
 //#UC START# *558A37400258_558947020183_var*

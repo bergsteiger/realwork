@@ -203,12 +203,8 @@ begin
 end;//Tkw_Form_EULA.GetWordNameForRegister
 
 function Tkw_Form_EULA.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C8D203B9FBAE_var*
-//#UC END# *4DDFD2EA0116_C8D203B9FBAE_var*
 begin
-//#UC START# *4DDFD2EA0116_C8D203B9FBAE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C8D203B9FBAE_impl*
+ Result := 'efEULA';
 end;//Tkw_Form_EULA.GetString
 
 class function Tkw_EULA_Control_ShellCaptionLabel.GetWordNameForRegister: AnsiString;
@@ -217,21 +213,14 @@ begin
 end;//Tkw_EULA_Control_ShellCaptionLabel.GetWordNameForRegister
 
 function Tkw_EULA_Control_ShellCaptionLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_133785C674AC_var*
-//#UC END# *4DDFD2EA0116_133785C674AC_var*
 begin
-//#UC START# *4DDFD2EA0116_133785C674AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_133785C674AC_impl*
+ Result := 'ShellCaptionLabel';
 end;//Tkw_EULA_Control_ShellCaptionLabel.GetString
 
 class procedure Tkw_EULA_Control_ShellCaptionLabel.RegisterInEngine;
-//#UC START# *52A086150180_133785C674AC_var*
-//#UC END# *52A086150180_133785C674AC_var*
 begin
-//#UC START# *52A086150180_133785C674AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_133785C674AC_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_EULA_Control_ShellCaptionLabel.RegisterInEngine
 
 procedure Tkw_EULA_Control_ShellCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -254,21 +243,14 @@ begin
 end;//Tkw_EULA_Control_OkButton.GetWordNameForRegister
 
 function Tkw_EULA_Control_OkButton.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3BDBAE387D96_var*
-//#UC END# *4DDFD2EA0116_3BDBAE387D96_var*
 begin
-//#UC START# *4DDFD2EA0116_3BDBAE387D96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3BDBAE387D96_impl*
+ Result := 'OkButton';
 end;//Tkw_EULA_Control_OkButton.GetString
 
 class procedure Tkw_EULA_Control_OkButton.RegisterInEngine;
-//#UC START# *52A086150180_3BDBAE387D96_var*
-//#UC END# *52A086150180_3BDBAE387D96_var*
 begin
-//#UC START# *52A086150180_3BDBAE387D96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_3BDBAE387D96_impl*
+ inherited;
+ TtfwClassRef.Register(TvtButton);
 end;//Tkw_EULA_Control_OkButton.RegisterInEngine
 
 procedure Tkw_EULA_Control_OkButton_Push.DoDoIt(const aCtx: TtfwContext);
@@ -291,21 +273,14 @@ begin
 end;//Tkw_EULA_Control_eeMemoWithEditOperations1.GetWordNameForRegister
 
 function Tkw_EULA_Control_eeMemoWithEditOperations1.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6830474D7205_var*
-//#UC END# *4DDFD2EA0116_6830474D7205_var*
 begin
-//#UC START# *4DDFD2EA0116_6830474D7205_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6830474D7205_impl*
+ Result := 'eeMemoWithEditOperations1';
 end;//Tkw_EULA_Control_eeMemoWithEditOperations1.GetString
 
 class procedure Tkw_EULA_Control_eeMemoWithEditOperations1.RegisterInEngine;
-//#UC START# *52A086150180_6830474D7205_var*
-//#UC END# *52A086150180_6830474D7205_var*
 begin
-//#UC START# *52A086150180_6830474D7205_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6830474D7205_impl*
+ inherited;
+ TtfwClassRef.Register(TeeMemoWithEditOperations);
 end;//Tkw_EULA_Control_eeMemoWithEditOperations1.RegisterInEngine
 
 procedure Tkw_EULA_Control_eeMemoWithEditOperations1_Push.DoDoIt(const aCtx: TtfwContext);
@@ -325,21 +300,23 @@ end;//Tkw_EULA_Control_eeMemoWithEditOperations1_Push.GetWordNameForRegister
 function TkwEfEULAShellCaptionLabel.ShellCaptionLabel(const aCtx: TtfwContext;
  aefEULA: TefEULA): TvtLabel;
  {* Реализация слова скрипта .TefEULA.ShellCaptionLabel }
-//#UC START# *628A5F6D2722_58C15386A400_var*
-//#UC END# *628A5F6D2722_58C15386A400_var*
 begin
-//#UC START# *628A5F6D2722_58C15386A400_impl*
- !!! Needs to be implemented !!!
-//#UC END# *628A5F6D2722_58C15386A400_impl*
+ Result := aefEULA.ShellCaptionLabel;
 end;//TkwEfEULAShellCaptionLabel.ShellCaptionLabel
 
 procedure TkwEfEULAShellCaptionLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_58C15386A400_var*
-//#UC END# *4DAEEDE10285_58C15386A400_var*
+var l_aefEULA: TefEULA;
 begin
-//#UC START# *4DAEEDE10285_58C15386A400_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_58C15386A400_impl*
+ try
+  l_aefEULA := TefEULA(aCtx.rEngine.PopObjAs(TefEULA));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefEULA: TefEULA : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ShellCaptionLabel(aCtx, l_aefEULA));
 end;//TkwEfEULAShellCaptionLabel.DoDoIt
 
 class function TkwEfEULAShellCaptionLabel.GetWordNameForRegister: AnsiString;
@@ -349,12 +326,8 @@ end;//TkwEfEULAShellCaptionLabel.GetWordNameForRegister
 
 procedure TkwEfEULAShellCaptionLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_58C15386A400_var*
-//#UC END# *52D00B00031A_58C15386A400_var*
 begin
-//#UC START# *52D00B00031A_58C15386A400_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_58C15386A400_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ShellCaptionLabel', aCtx);
 end;//TkwEfEULAShellCaptionLabel.SetValuePrim
 
 function TkwEfEULAShellCaptionLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -369,27 +342,29 @@ end;//TkwEfEULAShellCaptionLabel.GetAllParamsCount
 
 function TkwEfEULAShellCaptionLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefEULA)]);
 end;//TkwEfEULAShellCaptionLabel.ParamsTypes
 
 function TkwEfEULAOkButton.OkButton(const aCtx: TtfwContext;
  aefEULA: TefEULA): TvtButton;
  {* Реализация слова скрипта .TefEULA.OkButton }
-//#UC START# *A7249F70CDDB_84B2391A0258_var*
-//#UC END# *A7249F70CDDB_84B2391A0258_var*
 begin
-//#UC START# *A7249F70CDDB_84B2391A0258_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A7249F70CDDB_84B2391A0258_impl*
+ Result := aefEULA.OkButton;
 end;//TkwEfEULAOkButton.OkButton
 
 procedure TkwEfEULAOkButton.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_84B2391A0258_var*
-//#UC END# *4DAEEDE10285_84B2391A0258_var*
+var l_aefEULA: TefEULA;
 begin
-//#UC START# *4DAEEDE10285_84B2391A0258_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_84B2391A0258_impl*
+ try
+  l_aefEULA := TefEULA(aCtx.rEngine.PopObjAs(TefEULA));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefEULA: TefEULA : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(OkButton(aCtx, l_aefEULA));
 end;//TkwEfEULAOkButton.DoDoIt
 
 class function TkwEfEULAOkButton.GetWordNameForRegister: AnsiString;
@@ -399,12 +374,8 @@ end;//TkwEfEULAOkButton.GetWordNameForRegister
 
 procedure TkwEfEULAOkButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_84B2391A0258_var*
-//#UC END# *52D00B00031A_84B2391A0258_var*
 begin
-//#UC START# *52D00B00031A_84B2391A0258_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_84B2391A0258_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству OkButton', aCtx);
 end;//TkwEfEULAOkButton.SetValuePrim
 
 function TkwEfEULAOkButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -419,27 +390,29 @@ end;//TkwEfEULAOkButton.GetAllParamsCount
 
 function TkwEfEULAOkButton.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefEULA)]);
 end;//TkwEfEULAOkButton.ParamsTypes
 
 function TkwEfEULAEeMemoWithEditOperations1.eeMemoWithEditOperations1(const aCtx: TtfwContext;
  aefEULA: TefEULA): TeeMemoWithEditOperations;
  {* Реализация слова скрипта .TefEULA.eeMemoWithEditOperations1 }
-//#UC START# *70E6A37FB9C7_ACE4A3A50395_var*
-//#UC END# *70E6A37FB9C7_ACE4A3A50395_var*
 begin
-//#UC START# *70E6A37FB9C7_ACE4A3A50395_impl*
- !!! Needs to be implemented !!!
-//#UC END# *70E6A37FB9C7_ACE4A3A50395_impl*
+ Result := aefEULA.eeMemoWithEditOperations1;
 end;//TkwEfEULAEeMemoWithEditOperations1.eeMemoWithEditOperations1
 
 procedure TkwEfEULAEeMemoWithEditOperations1.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ACE4A3A50395_var*
-//#UC END# *4DAEEDE10285_ACE4A3A50395_var*
+var l_aefEULA: TefEULA;
 begin
-//#UC START# *4DAEEDE10285_ACE4A3A50395_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ACE4A3A50395_impl*
+ try
+  l_aefEULA := TefEULA(aCtx.rEngine.PopObjAs(TefEULA));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefEULA: TefEULA : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(eeMemoWithEditOperations1(aCtx, l_aefEULA));
 end;//TkwEfEULAEeMemoWithEditOperations1.DoDoIt
 
 class function TkwEfEULAEeMemoWithEditOperations1.GetWordNameForRegister: AnsiString;
@@ -449,12 +422,8 @@ end;//TkwEfEULAEeMemoWithEditOperations1.GetWordNameForRegister
 
 procedure TkwEfEULAEeMemoWithEditOperations1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ACE4A3A50395_var*
-//#UC END# *52D00B00031A_ACE4A3A50395_var*
 begin
-//#UC START# *52D00B00031A_ACE4A3A50395_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ACE4A3A50395_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству eeMemoWithEditOperations1', aCtx);
 end;//TkwEfEULAEeMemoWithEditOperations1.SetValuePrim
 
 function TkwEfEULAEeMemoWithEditOperations1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -469,7 +438,7 @@ end;//TkwEfEULAEeMemoWithEditOperations1.GetAllParamsCount
 
 function TkwEfEULAEeMemoWithEditOperations1.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefEULA)]);
 end;//TkwEfEULAEeMemoWithEditOperations1.ParamsTypes
 
 initialization

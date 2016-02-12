@@ -6,7 +6,7 @@
 {$Define l3RecordWithEQList_imp}
 
  _l3RecordListPrim_Parent_ = _l3RecordWithEQList_Parent_;
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  _l3RecordWithEQList_ = class(_l3RecordListPrim_)
   {* Список записей с операцией EQ }
  end;//_l3RecordWithEQList_
@@ -30,7 +30,7 @@ begin
 end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 {$EndIf l3RecordWithEQList_imp_impl}
 

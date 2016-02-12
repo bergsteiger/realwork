@@ -21,7 +21,7 @@ uses
 
 type
  _nevParaTool_Parent_ = Tk2TagPointer;
- {$Include nevParaTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
  TevLocationBase = class(_nevParaTool_, InevTextModify, InevLocation, InevDataFormatting, InevDataFormattingModify, IevDocumentPoint)
   {* Базовый объект для диапазонов в документе (курсоров и блоков) }
   protected
@@ -163,7 +163,7 @@ uses
 
 type _Instance_R_ = TevLocationBase;
 
-{$Include nevParaTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
 
 function TevLocationBase.TagWriter: InevTagWriter;
 //#UC START# *4A3A61840280_47F4D44C01BF_var*

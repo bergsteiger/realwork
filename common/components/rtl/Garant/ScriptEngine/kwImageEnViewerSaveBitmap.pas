@@ -1,64 +1,56 @@
 unit kwImageEnViewerSaveBitmap;
+ {* Формат:
+[code]
+aFileName ImageEnViewer:SaveBitmap
+[code]
+где aFileName - имя файла, куда сохранять. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$ImageEn"
-// Модуль: "kwImageEnViewerSaveBitmap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$ImageEn::ImageEnView::ImageEnViewer_SaveBitmap
-//
-// Формат:
-// {code}
-// aFileName ImageEnViewer:SaveBitmap
-// {code}
-// где aFileName - имя файла, куда сохранять.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwImageEnViewerSaveBitmap.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
 uses
-  kwImageEnControl,
-  imageenview,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoImageEn AND not NoScripts
+ l3IntfUses
+ , kwImageEnControl
+ , imageenview
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
 type
- TkwImageEnViewerSaveBitmap = {final scriptword} class(TkwImageEnControl)
+ TkwImageEnViewerSaveBitmap = {final} class(TkwImageEnControl)
   {* Формат:
 [code]
 aFileName ImageEnViewer:SaveBitmap
 [code]
 где aFileName - имя файла, куда сохранять. }
- protected
- // realized methods
+  protected
    procedure DoWithImageEn(aControl: TImageEnView;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwImageEnViewerSaveBitmap
-{$IfEnd} //not NoImageEn AND not NoScripts
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 
 implementation
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //not NoImageEn AND not NoScripts
-
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
-
-// start class TkwImageEnViewerSaveBitmap
+ l3ImplUses
+ , SysUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwImageEnViewerSaveBitmap.DoWithImageEn(aControl: TImageEnView;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52E20FD6017C_52E20E70006F_var*
 const
  csBMPExt = '.bmp';
@@ -75,17 +67,13 @@ begin
 end;//TkwImageEnViewerSaveBitmap.DoWithImageEn
 
 class function TkwImageEnViewerSaveBitmap.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'ImageEnViewer:SaveBitmap';
 end;//TkwImageEnViewerSaveBitmap.GetWordNameForRegister
 
-{$IfEnd} //not NoImageEn AND not NoScripts
-
 initialization
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
-// Регистрация ImageEnViewer_SaveBitmap
  TkwImageEnViewerSaveBitmap.RegisterInEngine;
-{$IfEnd} //not NoImageEn AND not NoScripts
+ {* Регистрация ImageEnViewer_SaveBitmap }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 
 end.

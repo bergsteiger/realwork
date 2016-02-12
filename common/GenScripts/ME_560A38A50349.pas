@@ -22,7 +22,7 @@ uses
 type
  _KeyType_ = TddFilerDispatcherMapKeyRecord;
  _ValueType_ = IddExportFilerDispatcherElem;
- {$Include l3Map.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
  TddExportFilerMap = class(_l3Map_)
  end;//TddExportFilerMap
 
@@ -55,6 +55,6 @@ end;//CompareKeys
 
 type _Instance_R_ = TddExportFilerMap;
 
-{$Include l3Map.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
 
 end.

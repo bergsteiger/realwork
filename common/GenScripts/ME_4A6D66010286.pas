@@ -51,7 +51,7 @@ type
  _ItemType_ = Tl3ProtoObject;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tl3BaseRefInterfacedList = class(_l3UncomparabeObjectRefList_, Il3CBaseList)
   {* Список Tl3Base с интерфейсным представлением }
   protected
@@ -74,8 +74,8 @@ uses
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
-procedure AssignItem(const aTo: _ItemType_;
- const aFrom: _ItemType_);
+procedure AssignItem(const aTo: Tl3ProtoObject;
+ const aFrom: Tl3ProtoObject);
 //#UC START# *47B2C42A0163_4A6D66010286_var*
 //#UC END# *47B2C42A0163_4A6D66010286_var*
 begin
@@ -100,7 +100,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3BaseRefInterfacedList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 class function Tl3BaseRefInterfacedList.MakeI: Il3CBaseList;
 var

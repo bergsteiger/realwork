@@ -145,12 +145,8 @@ begin
 end;//Tkw_Form_ListInfo.GetWordNameForRegister
 
 function Tkw_Form_ListInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8B54C59B0DC1_var*
-//#UC END# *4DDFD2EA0116_8B54C59B0DC1_var*
 begin
-//#UC START# *4DDFD2EA0116_8B54C59B0DC1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8B54C59B0DC1_impl*
+ Result := 'efListInfo';
 end;//Tkw_Form_ListInfo.GetString
 
 class function Tkw_ListInfo_Control_ListInfoViewer.GetWordNameForRegister: AnsiString;
@@ -159,21 +155,14 @@ begin
 end;//Tkw_ListInfo_Control_ListInfoViewer.GetWordNameForRegister
 
 function Tkw_ListInfo_Control_ListInfoViewer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AF0DF54C9A79_var*
-//#UC END# *4DDFD2EA0116_AF0DF54C9A79_var*
 begin
-//#UC START# *4DDFD2EA0116_AF0DF54C9A79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AF0DF54C9A79_impl*
+ Result := 'ListInfoViewer';
 end;//Tkw_ListInfo_Control_ListInfoViewer.GetString
 
 class procedure Tkw_ListInfo_Control_ListInfoViewer.RegisterInEngine;
-//#UC START# *52A086150180_AF0DF54C9A79_var*
-//#UC END# *52A086150180_AF0DF54C9A79_var*
 begin
-//#UC START# *52A086150180_AF0DF54C9A79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_AF0DF54C9A79_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_ListInfo_Control_ListInfoViewer.RegisterInEngine
 
 procedure Tkw_ListInfo_Control_ListInfoViewer_Push.DoDoIt(const aCtx: TtfwContext);
@@ -196,41 +185,36 @@ begin
 end;//Tkw_ListInfo_Component_TextSource.GetWordNameForRegister
 
 function Tkw_ListInfo_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EC6F65E42CD5_var*
-//#UC END# *4DDFD2EA0116_EC6F65E42CD5_var*
 begin
-//#UC START# *4DDFD2EA0116_EC6F65E42CD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EC6F65E42CD5_impl*
+ Result := 'TextSource';
 end;//Tkw_ListInfo_Component_TextSource.GetString
 
 class procedure Tkw_ListInfo_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_EC6F65E42CD5_var*
-//#UC END# *52A086150180_EC6F65E42CD5_var*
 begin
-//#UC START# *52A086150180_EC6F65E42CD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EC6F65E42CD5_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_ListInfo_Component_TextSource.RegisterInEngine
 
 function TkwEfListInfoListInfoViewer.ListInfoViewer(const aCtx: TtfwContext;
  aefListInfo: TefListInfo): TnscEditor;
  {* Реализация слова скрипта .TefListInfo.ListInfoViewer }
-//#UC START# *2331C87FA947_6C1002171F6A_var*
-//#UC END# *2331C87FA947_6C1002171F6A_var*
 begin
-//#UC START# *2331C87FA947_6C1002171F6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2331C87FA947_6C1002171F6A_impl*
+ Result := aefListInfo.ListInfoViewer;
 end;//TkwEfListInfoListInfoViewer.ListInfoViewer
 
 procedure TkwEfListInfoListInfoViewer.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6C1002171F6A_var*
-//#UC END# *4DAEEDE10285_6C1002171F6A_var*
+var l_aefListInfo: TefListInfo;
 begin
-//#UC START# *4DAEEDE10285_6C1002171F6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6C1002171F6A_impl*
+ try
+  l_aefListInfo := TefListInfo(aCtx.rEngine.PopObjAs(TefListInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefListInfo: TefListInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ListInfoViewer(aCtx, l_aefListInfo));
 end;//TkwEfListInfoListInfoViewer.DoDoIt
 
 class function TkwEfListInfoListInfoViewer.GetWordNameForRegister: AnsiString;
@@ -240,12 +224,8 @@ end;//TkwEfListInfoListInfoViewer.GetWordNameForRegister
 
 procedure TkwEfListInfoListInfoViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6C1002171F6A_var*
-//#UC END# *52D00B00031A_6C1002171F6A_var*
 begin
-//#UC START# *52D00B00031A_6C1002171F6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6C1002171F6A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ListInfoViewer', aCtx);
 end;//TkwEfListInfoListInfoViewer.SetValuePrim
 
 function TkwEfListInfoListInfoViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -260,27 +240,29 @@ end;//TkwEfListInfoListInfoViewer.GetAllParamsCount
 
 function TkwEfListInfoListInfoViewer.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefListInfo)]);
 end;//TkwEfListInfoListInfoViewer.ParamsTypes
 
 function TkwEfListInfoTextSource.TextSource(const aCtx: TtfwContext;
  aefListInfo: TefListInfo): TnscTextSource;
  {* Реализация слова скрипта .TefListInfo.TextSource }
-//#UC START# *4BEE9B3C05FA_288FE0C200C7_var*
-//#UC END# *4BEE9B3C05FA_288FE0C200C7_var*
 begin
-//#UC START# *4BEE9B3C05FA_288FE0C200C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BEE9B3C05FA_288FE0C200C7_impl*
+ Result := aefListInfo.TextSource;
 end;//TkwEfListInfoTextSource.TextSource
 
 procedure TkwEfListInfoTextSource.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_288FE0C200C7_var*
-//#UC END# *4DAEEDE10285_288FE0C200C7_var*
+var l_aefListInfo: TefListInfo;
 begin
-//#UC START# *4DAEEDE10285_288FE0C200C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_288FE0C200C7_impl*
+ try
+  l_aefListInfo := TefListInfo(aCtx.rEngine.PopObjAs(TefListInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefListInfo: TefListInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aefListInfo));
 end;//TkwEfListInfoTextSource.DoDoIt
 
 class function TkwEfListInfoTextSource.GetWordNameForRegister: AnsiString;
@@ -290,12 +272,8 @@ end;//TkwEfListInfoTextSource.GetWordNameForRegister
 
 procedure TkwEfListInfoTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_288FE0C200C7_var*
-//#UC END# *52D00B00031A_288FE0C200C7_var*
 begin
-//#UC START# *52D00B00031A_288FE0C200C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_288FE0C200C7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwEfListInfoTextSource.SetValuePrim
 
 function TkwEfListInfoTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -310,7 +288,7 @@ end;//TkwEfListInfoTextSource.GetAllParamsCount
 
 function TkwEfListInfoTextSource.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefListInfo)]);
 end;//TkwEfListInfoTextSource.ParamsTypes
 
 initialization

@@ -1,40 +1,35 @@
 unit vtComboTreeWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "vtComboTreeWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::vtComboTreeWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtComboTreeWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3TreeInterfaces,
-  tfwScriptingInterfaces,
-  vtComboTree,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , vtComboTree
+ , l3TreeInterfaces
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopComboTreeCurrentNode = {final scriptword} class(TtfwClassLike)
+ TkwPopComboTreeCurrentNode = {final} class(TtfwClassLike)
   {* Слово скрипта pop:ComboTree:CurrentNode
 *Тип результата:* Il3SimpleNode
 *Пример:*
@@ -42,28 +37,22 @@ type
 INTERFACE VAR l_Il3SimpleNode
  aComboTree pop:ComboTree:CurrentNode >>> l_Il3SimpleNode
 [code]  }
- private
- // private methods
+  private
    function CurrentNode(const aCtx: TtfwContext;
     aComboTree: TvtComboTree): Il3SimpleNode;
-     {* Реализация слова скрипта pop:ComboTree:CurrentNode }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:ComboTree:CurrentNode }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopComboTreeCurrentNode
 
-// start class TkwPopComboTreeCurrentNode
-
 function TkwPopComboTreeCurrentNode.CurrentNode(const aCtx: TtfwContext;
-  aComboTree: TvtComboTree): Il3SimpleNode;
+ aComboTree: TvtComboTree): Il3SimpleNode;
+ {* Реализация слова скрипта pop:ComboTree:CurrentNode }
 //#UC START# *E52B39199FD5_9F9FF0616B3E_var*
 //#UC END# *E52B39199FD5_9F9FF0616B3E_var*
 begin
@@ -73,9 +62,7 @@ begin
 end;//TkwPopComboTreeCurrentNode.CurrentNode
 
 procedure TkwPopComboTreeCurrentNode.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboTree : TvtComboTree;
+var l_aComboTree: TvtComboTree;
 begin
  try
   l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
@@ -86,50 +73,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf((CurrentNode(aCtx, l_aComboTree)), TypeInfo(Il3SimpleNode));
+ aCtx.rEngine.PushIntf(CurrentNode(aCtx, l_aComboTree), TypeInfo(Il3SimpleNode));
 end;//TkwPopComboTreeCurrentNode.DoDoIt
 
 class function TkwPopComboTreeCurrentNode.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboTree:CurrentNode';
 end;//TkwPopComboTreeCurrentNode.GetWordNameForRegister
 
 function TkwPopComboTreeCurrentNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Il3SimpleNode);
 end;//TkwPopComboTreeCurrentNode.GetResultTypeInfo
 
 function TkwPopComboTreeCurrentNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopComboTreeCurrentNode.GetAllParamsCount
 
 function TkwPopComboTreeCurrentNode.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree)]);
 end;//TkwPopComboTreeCurrentNode.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboTree_CurrentNode
  TkwPopComboTreeCurrentNode.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_ComboTree_CurrentNode }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TvtComboTree
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtComboTree));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Il3SimpleNode
+ {* Регистрация типа TvtComboTree }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3SimpleNode));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Il3SimpleNode }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -13,7 +13,7 @@ uses
 
 type
  _Unknown_Parent_ = TObject;
- {$Include Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\Unknown.imp.pas}
  TmyInterfacedObject = class(_Unknown_)
  end;//TmyInterfacedObject
 
@@ -24,6 +24,6 @@ uses
  , Windows
 ;
 
-{$Include Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\Unknown.imp.pas}
 
 end.

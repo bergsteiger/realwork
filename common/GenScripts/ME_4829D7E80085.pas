@@ -23,7 +23,7 @@ const
 
 type
  _RegionableControl_Parent_ = TevCustomMemo;
- {$Include RegionableControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
  TevCustomEdit = class(_RegionableControl_)
   {* Строка ввода. }
   private
@@ -78,7 +78,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include RegionableControl.imp.pas}
+{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
 
 procedure TevCustomEdit.pm_SetRegionable(aValue: Boolean);
 //#UC START# *4CFFC1BA00EB_4829D7E80085set_var*

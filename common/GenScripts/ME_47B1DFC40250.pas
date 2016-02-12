@@ -29,9 +29,9 @@ uses
 
 type
  _l3StringList_Parent_ = Tl3ProtoPersistentDataContainer;
- {$Include l3StringList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
  _l3Storable_Parent_ = _l3StringList_;
- {$Include l3Storable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Storable.imp.pas}
  Tl3StringListPrim = class(_l3Storable_)
   protected
    function WStrToItem(const aStr: Tl3WString): Tl3CustomString; virtual;
@@ -69,9 +69,9 @@ uses
 
 type _Instance_R_ = Tl3StringListPrim;
 
-{$Include l3StringList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
 
-{$Include l3Storable.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Storable.imp.pas}
 
 function Tl3StringListPrim.Add(const Item: Tl3WString): Integer;
 //#UC START# *47B1E3CD0239_47B1DFC40250_var*

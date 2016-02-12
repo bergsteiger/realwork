@@ -1,56 +1,39 @@
 unit kwEntityOperationTest;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwEntityOperationTest.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Scripting::Operations::TkwEntityOperationTest
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperationTest.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  kwEntityOperationPrim,
-  vcmExternalInterfaces,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , kwEntityOperationPrim
+ , tfwScriptingInterfaces
+ , vcmExternalInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
  TkwEntityOperationTest = class(TkwEntityOperationPrim)
- protected
- // realized methods
+  protected
    procedure DoOp(const aCtx: TtfwContext;
-     const anOp: TvcmOPID); override;
+    const anOp: TvcmOPID); override;
  end;//TkwEntityOperationTest
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmBase,
-  vcmInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
-
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TkwEntityOperationTest
+ l3ImplUses
+ , vcmBase
+ , vcmInterfaces
+;
 
 procedure TkwEntityOperationTest.DoOp(const aCtx: TtfwContext;
-  const anOp: TvcmOPID);
+ const anOp: TvcmOPID);
 //#UC START# *523008BC0096_5230072D031A_var*
 var
  l_Params : IvcmTestParams;
@@ -72,12 +55,9 @@ begin
 //#UC END# *523008BC0096_5230072D031A_impl*
 end;//TkwEntityOperationTest.DoOp
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TkwEntityOperationTest
  TkwEntityOperationTest.RegisterClass;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TkwEntityOperationTest }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

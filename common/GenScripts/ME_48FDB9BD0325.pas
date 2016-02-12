@@ -6,7 +6,7 @@
 {$Define nsRootManagerPrim_imp}
 
  _nsNodeNotifier_Parent_ = _nsRootManagerPrim_Parent_;
- {$Include nsNodeNotifier.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifier.imp.pas}
  _nsRootManagerPrim_ = class(_nsNodeNotifier_)
   private
    f_RootNode: INodeBase;
@@ -28,7 +28,7 @@
 
 {$Define nsRootManagerPrim_imp_impl}
 
-{$Include nsNodeNotifier.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifier.imp.pas}
 
 procedure _nsRootManagerPrim_.pm_SetRootNode(const aValue: INodeBase);
 //#UC START# *48FDB9E80327_48FDB9BD0325set_var*

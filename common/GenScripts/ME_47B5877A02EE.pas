@@ -6,7 +6,7 @@
 {$Define l3DataRefList_imp}
 
  _l3RefList_Parent_ = _l3DataRefList_Parent_;
- {$Include l3RefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
  _l3DataRefList_ = class(_l3RefList_)
   {* —писок ссылок на данные. ”правл€ет жизненным циклом указателей. }
  end;//_l3DataRefList_
@@ -106,7 +106,7 @@ begin
 //#UC END# *47B99D4503A2_47B5877A02EE_impl*
 end;//CompareExistingItems
 
-{$Include l3RefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
 
 {$EndIf l3DataRefList_imp_impl}
 

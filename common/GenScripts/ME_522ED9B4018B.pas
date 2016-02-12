@@ -48,7 +48,7 @@ uses
 
 type
  _afwSettingChanged_Parent_ = Tl3ProtoObject;
- {$Include afwSettingChanged.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  TevStylesSettingsListener = class(_afwSettingChanged_)
   {* Экземпляр evStyles, который подписывается к настройкам }
   private
@@ -75,7 +75,7 @@ begin
  l3Free(g_TevStylesSettingsListener);
 end;//TevStylesSettingsListenerFree
 
-{$Include afwSettingChanged.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
 class procedure TevStylesSettingsListener.CheckSubscribe;
  {* Метод для проверки того факта, что TevStylesSettingsListener подписан на изменения необходимых настроек }

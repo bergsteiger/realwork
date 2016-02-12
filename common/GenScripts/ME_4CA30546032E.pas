@@ -17,7 +17,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTextViaEditorProcessorWithNavigate;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TDeleteCharTest = {abstract} class(_CursorMover_)
   protected
    function CharCount: Integer; virtual;
@@ -51,7 +51,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 function TDeleteCharTest.CharCount: Integer;
 //#UC START# *4DF781CB0217_4CA30546032E_var*

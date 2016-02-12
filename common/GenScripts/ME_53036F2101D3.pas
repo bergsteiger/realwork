@@ -8,7 +8,7 @@
  _StringType_ = _ItemType_;
  _IDIndexType_ = Tl3IDIndex;
  _l3DictionaryPrim_Parent_ = _l3Dictionary_Parent_;
- {$Include l3DictionaryPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrim.imp.pas}
  _l3Dictionary_ = {abstract} class(_l3DictionaryPrim_)
  end;//_l3Dictionary_
 
@@ -27,7 +27,7 @@ begin
 //#UC END# *5304D6C5002B_53036F2101D3_impl*
 end;//ItemToWStr
 
-{$Include l3DictionaryPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrim.imp.pas}
 
 {$EndIf l3Dictionary_imp_impl}
 

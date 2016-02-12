@@ -6,7 +6,7 @@
 {$Define l3PtrListPrim_imp}
 
  _l3StandardTypedList_Parent_ = _l3PtrListPrim_Parent_;
- {$Include l3StandardTypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StandardTypedList.imp.pas}
  _l3PtrListPrim_ = {abstract} class(_l3StandardTypedList_)
   {* Примесь для списков указателей. Список НЕ УПРАВЛЯЕТ временем жизни элементов. }
  end;//_l3PtrListPrim_
@@ -32,7 +32,7 @@ begin
 //#UC END# *47B94A5C006E_47B941FB0284_impl*
 end;//FreeItem
 
-{$Include l3StandardTypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StandardTypedList.imp.pas}
 
 {$EndIf l3PtrListPrim_imp_impl}
 

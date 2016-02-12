@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_SelectedAttributes.GetWordNameForRegister
 
 function Tkw_Form_SelectedAttributes.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A6B6409DB9FB_var*
-//#UC END# *4DDFD2EA0116_A6B6409DB9FB_var*
 begin
-//#UC START# *4DDFD2EA0116_A6B6409DB9FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A6B6409DB9FB_impl*
+ Result := 'enSelectedAttributes';
 end;//Tkw_Form_SelectedAttributes.GetString
 
 class function Tkw_SelectedAttributes_Control_SelectedTree.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_SelectedAttributes_Control_SelectedTree.GetWordNameForRegister
 
 function Tkw_SelectedAttributes_Control_SelectedTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_18C51EA78BA3_var*
-//#UC END# *4DDFD2EA0116_18C51EA78BA3_var*
 begin
-//#UC START# *4DDFD2EA0116_18C51EA78BA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_18C51EA78BA3_impl*
+ Result := 'SelectedTree';
 end;//Tkw_SelectedAttributes_Control_SelectedTree.GetString
 
 class procedure Tkw_SelectedAttributes_Control_SelectedTree.RegisterInEngine;
-//#UC START# *52A086150180_18C51EA78BA3_var*
-//#UC END# *52A086150180_18C51EA78BA3_var*
 begin
-//#UC START# *52A086150180_18C51EA78BA3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_18C51EA78BA3_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_SelectedAttributes_Control_SelectedTree.RegisterInEngine
 
 procedure Tkw_SelectedAttributes_Control_SelectedTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_SelectedAttributes_Control_SelectedTree_Push.GetWordNameForRegister
 function TkwEnSelectedAttributesSelectedTree.SelectedTree(const aCtx: TtfwContext;
  aenSelectedAttributes: TenSelectedAttributes): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TenSelectedAttributes.SelectedTree }
-//#UC START# *D5909770B483_A201FE36705B_var*
-//#UC END# *D5909770B483_A201FE36705B_var*
 begin
-//#UC START# *D5909770B483_A201FE36705B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D5909770B483_A201FE36705B_impl*
+ Result := aenSelectedAttributes.SelectedTree;
 end;//TkwEnSelectedAttributesSelectedTree.SelectedTree
 
 procedure TkwEnSelectedAttributesSelectedTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A201FE36705B_var*
-//#UC END# *4DAEEDE10285_A201FE36705B_var*
+var l_aenSelectedAttributes: TenSelectedAttributes;
 begin
-//#UC START# *4DAEEDE10285_A201FE36705B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A201FE36705B_impl*
+ try
+  l_aenSelectedAttributes := TenSelectedAttributes(aCtx.rEngine.PopObjAs(TenSelectedAttributes));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenSelectedAttributes: TenSelectedAttributes : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(SelectedTree(aCtx, l_aenSelectedAttributes));
 end;//TkwEnSelectedAttributesSelectedTree.DoDoIt
 
 class function TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEnSelectedAttributesSelectedTree.GetWordNameForRegister
 
 procedure TkwEnSelectedAttributesSelectedTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A201FE36705B_var*
-//#UC END# *52D00B00031A_A201FE36705B_var*
 begin
-//#UC START# *52D00B00031A_A201FE36705B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A201FE36705B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству SelectedTree', aCtx);
 end;//TkwEnSelectedAttributesSelectedTree.SetValuePrim
 
 function TkwEnSelectedAttributesSelectedTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEnSelectedAttributesSelectedTree.GetAllParamsCount
 
 function TkwEnSelectedAttributesSelectedTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenSelectedAttributes)]);
 end;//TkwEnSelectedAttributesSelectedTree.ParamsTypes
 
 initialization

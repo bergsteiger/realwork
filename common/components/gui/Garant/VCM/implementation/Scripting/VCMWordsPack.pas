@@ -1,58 +1,51 @@
 unit VCMWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/VCMWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> Shared Delphi::VCM$Scripting::VCMWords::VCMWordsPack
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-{$IfEnd} //not NoScripts AND not NoVCM
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  kwVcmDispatcherLock,
-  kwVcmDispatcherUnlock,
-  kwVcmDispatcherBeginOp,
-  kwVcmDispatcherEndOp,
-  kwVcmHistoryGetBackCount,
-  kwVcmHistoryGetBackItem,
-  kwVcmHistoryGetForwardCount,
-  kwVcmHistoryGetForwardItem,
-  kwVcmOpEnabled,
-  kwVcmOpVisible,
-  kwVcmOpChecked,
-  kwVcmOpDefault,
-  kwVcmOpCaption,
-  kwVcmOpHint,
-  kwVcmOpImageIndex,
-  kwVcmOpShortcut,
-  kwVcmOpLongHint,
-  RegisterVcmControls,
-  kwVcmHistoryDeleteBackItem,
-  kwVcmFindForm,
-  kwVcmHistoryClear,
-  kwVcmHistoryDeleteForwardItem,
-  kwTryFocusOnForm,
-  kwObjectCreate,
-  kwVcmDispatcherLockInOp,
-  kwVcmDispatcherUnlockInOp,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwVcmDispatcherLock
+ , kwVcmDispatcherUnlock
+ , kwVcmDispatcherBeginOp
+ , kwVcmDispatcherEndOp
+ , kwVcmHistoryGetBackCount
+ , kwVcmHistoryGetBackItem
+ , kwVcmHistoryGetForwardCount
+ , kwVcmHistoryGetForwardItem
+ , kwVcmOpEnabled
+ , kwVcmOpVisible
+ , kwVcmOpChecked
+ , kwVcmOpDefault
+ , kwVcmOpCaption
+ , kwVcmOpHint
+ , kwVcmOpImageIndex
+ , kwVcmOpShortcut
+ , kwVcmOpLongHint
+ , RegisterVcmControls
+ , kwVcmHistoryDeleteBackItem
+ , kwVcmFindForm
+ , kwVcmHistoryClear
+ , kwVcmHistoryDeleteForwardItem
+ , kwTryFocusOnForm
+ , kwObjectCreate
+ , kwVcmDispatcherLockInOp
+ , kwVcmDispatcherUnlockInOp
+ , tfwScriptingTypes
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
-{$IfEnd} //not NoScripts AND not NoVCM
 end.

@@ -45,9 +45,9 @@ uses
 ;
 
 type
- {$Include dsBaseDrugDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsBaseDrugDocument.imp.pas}
  _dsDocumentFromList_Parent_ = _dsBaseDrugDocument_;
- {$Include dsDocumentFromList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
  TdsDrugDocument = {final} class(_dsDocumentFromList_, IdsDrugDocument, IucbDocumentWithContents, IucbDocumentFromList)
   {* Описание лекарственного препарата }
   private
@@ -106,9 +106,9 @@ uses
 
 type _Instance_R_ = TdsDrugDocument;
 
-{$Include dsBaseDrugDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dsBaseDrugDocument.imp.pas}
 
-{$Include dsDocumentFromList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
 
 function TdsDrugDocument.As_IucbDocumentWithContents: IucbDocumentWithContents;
  {* Метод приведения нашего интерфейса к IucbDocumentWithContents }

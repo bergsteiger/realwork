@@ -32,9 +32,9 @@ uses
 type
  _HashType_ = Tl3OneBytePtrHash;
  _k2HashTag_Parent_ = Tk2TypedSimpleTagListPrim;
- {$Include k2HashTag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
  _k2TagByIntegerSearcher_Parent_ = _k2HashTag_;
- {$Include k2TagByIntegerSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas}
  Tk2TypedSmallListTag = class(_k2TagByIntegerSearcher_)
   {* Списог тегов с заранее определённым типом, имеющий ссылку на родителя и могущий иметь не более 32 (включительно) атрибутов }
  end;//Tk2TypedSmallListTag
@@ -71,8 +71,8 @@ uses
 
 type _Instance_R_ = Tk2TypedSmallListTag;
 
-{$Include k2HashTag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
 
-{$Include k2TagByIntegerSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas}
 
 end.

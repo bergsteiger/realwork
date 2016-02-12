@@ -29,15 +29,15 @@ uses
 type
  _ItemType_ = TSavedQuery;
  _l3Changing_Parent_ = Tl3ProtoDataContainer;
- {$Include l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  _l3UncomparabeObjectRefList_Parent_ = _l3Changing_;
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _l3ChangingChangedNotifier_Parent_ = _l3UncomparabeObjectRefList_;
- {$Include l3ChangingChangedNotifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
  _l3LockedChange_Parent_ = _l3ChangingChangedNotifier_;
- {$Include l3LockedChange.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3LockedChange.imp.pas}
  _l3OpenArray_Parent_ = _l3LockedChange_;
- {$Include l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  TQueryListPrim = class(_l3OpenArray_)
  end;//TQueryListPrim
 {$IfEnd} // NOT Defined(Nemesis)
@@ -77,17 +77,17 @@ begin
 //#UC END# *47B99D4503A2_52FCAC0E0384_impl*
 end;//CompareExistingItems
 
-{$Include l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 type _Instance_R_ = TQueryListPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-{$Include l3ChangingChangedNotifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
 
-{$Include l3LockedChange.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3LockedChange.imp.pas}
 
-{$Include l3OpenArray.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

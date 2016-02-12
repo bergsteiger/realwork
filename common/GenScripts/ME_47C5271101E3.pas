@@ -24,7 +24,7 @@ type
  _ItemType_ = InevPara;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnevParas = class(_l3InterfaceRefList_, InevParas)
   {* Список параграфов. }
   protected
@@ -43,7 +43,7 @@ uses
 
 type _Instance_R_ = TnevParas;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 function TnevParas.pm_GetCount: Integer;
 //#UC START# *4BB08B8902F2_47C5271101E3get_var*

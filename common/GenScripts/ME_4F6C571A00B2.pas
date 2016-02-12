@@ -9,7 +9,7 @@
  _KeyType_ = PAnsiChar;
  _BooleanType_ = ByteBool;
  _nsAbstractSettingsPrim_Parent_ = _nsSettings_Parent_;
- {$Include nsAbstractSettingsPrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas}
  _nsSettings_ = {abstract} class(_nsAbstractSettingsPrim_)
  end;//_nsSettings_
 
@@ -61,7 +61,7 @@ begin
 //#UC END# *4F6C699E009A_4F6C571A00B2_impl*
 end;//StringToPChar
 
-{$Include nsAbstractSettingsPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas}
 
 {$EndIf nsSettings_imp_impl}
 

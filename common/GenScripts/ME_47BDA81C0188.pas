@@ -16,7 +16,7 @@ uses
 type
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = Tl3BaseWithLargeIDListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3BaseWithLargeIDList = class(_l3Searcher_)
  end;//Tl3BaseWithLargeIDList
 
@@ -48,6 +48,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3BaseWithLargeIDList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

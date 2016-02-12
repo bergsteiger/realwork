@@ -16,7 +16,7 @@ uses
 type
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = Tk2AtomicTagRefListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tk2AtomicTagRefList = class(_l3Searcher_)
  end;//Tk2AtomicTagRefList
 
@@ -51,6 +51,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tk2AtomicTagRefList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

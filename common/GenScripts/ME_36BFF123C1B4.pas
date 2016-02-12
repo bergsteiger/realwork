@@ -155,12 +155,8 @@ begin
 end;//Tkw_Form_GroupProperty.GetWordNameForRegister
 
 function Tkw_Form_GroupProperty.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_75116EAE1983_var*
-//#UC END# *4DDFD2EA0116_75116EAE1983_var*
 begin
-//#UC START# *4DDFD2EA0116_75116EAE1983_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_75116EAE1983_impl*
+ Result := 'efGroupProperty';
 end;//Tkw_Form_GroupProperty.GetString
 
 class function Tkw_GroupProperty_Control_edName.GetWordNameForRegister: AnsiString;
@@ -169,21 +165,14 @@ begin
 end;//Tkw_GroupProperty_Control_edName.GetWordNameForRegister
 
 function Tkw_GroupProperty_Control_edName.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CE2ACDC15DE5_var*
-//#UC END# *4DDFD2EA0116_CE2ACDC15DE5_var*
 begin
-//#UC START# *4DDFD2EA0116_CE2ACDC15DE5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CE2ACDC15DE5_impl*
+ Result := 'edName';
 end;//Tkw_GroupProperty_Control_edName.GetString
 
 class procedure Tkw_GroupProperty_Control_edName.RegisterInEngine;
-//#UC START# *52A086150180_CE2ACDC15DE5_var*
-//#UC END# *52A086150180_CE2ACDC15DE5_var*
 begin
-//#UC START# *52A086150180_CE2ACDC15DE5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CE2ACDC15DE5_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEdit);
 end;//Tkw_GroupProperty_Control_edName.RegisterInEngine
 
 procedure Tkw_GroupProperty_Control_edName_Push.DoDoIt(const aCtx: TtfwContext);
@@ -206,21 +195,14 @@ begin
 end;//Tkw_GroupProperty_Control_Label1.GetWordNameForRegister
 
 function Tkw_GroupProperty_Control_Label1.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A59F7FE083FA_var*
-//#UC END# *4DDFD2EA0116_A59F7FE083FA_var*
 begin
-//#UC START# *4DDFD2EA0116_A59F7FE083FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A59F7FE083FA_impl*
+ Result := 'Label1';
 end;//Tkw_GroupProperty_Control_Label1.GetString
 
 class procedure Tkw_GroupProperty_Control_Label1.RegisterInEngine;
-//#UC START# *52A086150180_A59F7FE083FA_var*
-//#UC END# *52A086150180_A59F7FE083FA_var*
 begin
-//#UC START# *52A086150180_A59F7FE083FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_A59F7FE083FA_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_GroupProperty_Control_Label1.RegisterInEngine
 
 procedure Tkw_GroupProperty_Control_Label1_Push.DoDoIt(const aCtx: TtfwContext);
@@ -240,21 +222,23 @@ end;//Tkw_GroupProperty_Control_Label1_Push.GetWordNameForRegister
 function TkwEfGroupPropertyEdName.edName(const aCtx: TtfwContext;
  aefGroupProperty: TefGroupProperty): TnscEdit;
  {* Реализация слова скрипта .TefGroupProperty.edName }
-//#UC START# *B4B1217E98F2_4F99EBEBC67D_var*
-//#UC END# *B4B1217E98F2_4F99EBEBC67D_var*
 begin
-//#UC START# *B4B1217E98F2_4F99EBEBC67D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B4B1217E98F2_4F99EBEBC67D_impl*
+ Result := aefGroupProperty.edName;
 end;//TkwEfGroupPropertyEdName.edName
 
 procedure TkwEfGroupPropertyEdName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4F99EBEBC67D_var*
-//#UC END# *4DAEEDE10285_4F99EBEBC67D_var*
+var l_aefGroupProperty: TefGroupProperty;
 begin
-//#UC START# *4DAEEDE10285_4F99EBEBC67D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4F99EBEBC67D_impl*
+ try
+  l_aefGroupProperty := TefGroupProperty(aCtx.rEngine.PopObjAs(TefGroupProperty));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefGroupProperty: TefGroupProperty : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edName(aCtx, l_aefGroupProperty));
 end;//TkwEfGroupPropertyEdName.DoDoIt
 
 class function TkwEfGroupPropertyEdName.GetWordNameForRegister: AnsiString;
@@ -264,12 +248,8 @@ end;//TkwEfGroupPropertyEdName.GetWordNameForRegister
 
 procedure TkwEfGroupPropertyEdName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4F99EBEBC67D_var*
-//#UC END# *52D00B00031A_4F99EBEBC67D_var*
 begin
-//#UC START# *52D00B00031A_4F99EBEBC67D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4F99EBEBC67D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edName', aCtx);
 end;//TkwEfGroupPropertyEdName.SetValuePrim
 
 function TkwEfGroupPropertyEdName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -284,27 +264,29 @@ end;//TkwEfGroupPropertyEdName.GetAllParamsCount
 
 function TkwEfGroupPropertyEdName.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefGroupProperty)]);
 end;//TkwEfGroupPropertyEdName.ParamsTypes
 
 function TkwEfGroupPropertyLabel1.Label1(const aCtx: TtfwContext;
  aefGroupProperty: TefGroupProperty): TvtLabel;
  {* Реализация слова скрипта .TefGroupProperty.Label1 }
-//#UC START# *F29CEAD31E48_8DC84936A887_var*
-//#UC END# *F29CEAD31E48_8DC84936A887_var*
 begin
-//#UC START# *F29CEAD31E48_8DC84936A887_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F29CEAD31E48_8DC84936A887_impl*
+ Result := aefGroupProperty.Label1;
 end;//TkwEfGroupPropertyLabel1.Label1
 
 procedure TkwEfGroupPropertyLabel1.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8DC84936A887_var*
-//#UC END# *4DAEEDE10285_8DC84936A887_var*
+var l_aefGroupProperty: TefGroupProperty;
 begin
-//#UC START# *4DAEEDE10285_8DC84936A887_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8DC84936A887_impl*
+ try
+  l_aefGroupProperty := TefGroupProperty(aCtx.rEngine.PopObjAs(TefGroupProperty));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefGroupProperty: TefGroupProperty : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Label1(aCtx, l_aefGroupProperty));
 end;//TkwEfGroupPropertyLabel1.DoDoIt
 
 class function TkwEfGroupPropertyLabel1.GetWordNameForRegister: AnsiString;
@@ -314,12 +296,8 @@ end;//TkwEfGroupPropertyLabel1.GetWordNameForRegister
 
 procedure TkwEfGroupPropertyLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8DC84936A887_var*
-//#UC END# *52D00B00031A_8DC84936A887_var*
 begin
-//#UC START# *52D00B00031A_8DC84936A887_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8DC84936A887_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Label1', aCtx);
 end;//TkwEfGroupPropertyLabel1.SetValuePrim
 
 function TkwEfGroupPropertyLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -334,7 +312,7 @@ end;//TkwEfGroupPropertyLabel1.GetAllParamsCount
 
 function TkwEfGroupPropertyLabel1.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefGroupProperty)]);
 end;//TkwEfGroupPropertyLabel1.ParamsTypes
 
 initialization

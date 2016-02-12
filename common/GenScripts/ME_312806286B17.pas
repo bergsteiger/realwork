@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_Attributes.GetWordNameForRegister
 
 function Tkw_Form_Attributes.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_0E3DBAA731F1_var*
-//#UC END# *4DDFD2EA0116_0E3DBAA731F1_var*
 begin
-//#UC START# *4DDFD2EA0116_0E3DBAA731F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_0E3DBAA731F1_impl*
+ Result := 'AttributesForm';
 end;//Tkw_Form_Attributes.GetString
 
 class function Tkw_Attributes_Control_tvAttributes.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_Attributes_Control_tvAttributes.GetWordNameForRegister
 
 function Tkw_Attributes_Control_tvAttributes.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7C2297E661A1_var*
-//#UC END# *4DDFD2EA0116_7C2297E661A1_var*
 begin
-//#UC START# *4DDFD2EA0116_7C2297E661A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7C2297E661A1_impl*
+ Result := 'tvAttributes';
 end;//Tkw_Attributes_Control_tvAttributes.GetString
 
 class procedure Tkw_Attributes_Control_tvAttributes.RegisterInEngine;
-//#UC START# *52A086150180_7C2297E661A1_var*
-//#UC END# *52A086150180_7C2297E661A1_var*
 begin
-//#UC START# *52A086150180_7C2297E661A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7C2297E661A1_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Attributes_Control_tvAttributes.RegisterInEngine
 
 procedure Tkw_Attributes_Control_tvAttributes_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_Attributes_Control_tvAttributes_Push.GetWordNameForRegister
 function TkwAttributesFormTvAttributes.tvAttributes(const aCtx: TtfwContext;
  aAttributesForm: TAttributesForm): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TAttributesForm.tvAttributes }
-//#UC START# *D963523A1B4B_C2DA991E7351_var*
-//#UC END# *D963523A1B4B_C2DA991E7351_var*
 begin
-//#UC START# *D963523A1B4B_C2DA991E7351_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D963523A1B4B_C2DA991E7351_impl*
+ Result := aAttributesForm.tvAttributes;
 end;//TkwAttributesFormTvAttributes.tvAttributes
 
 procedure TkwAttributesFormTvAttributes.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C2DA991E7351_var*
-//#UC END# *4DAEEDE10285_C2DA991E7351_var*
+var l_aAttributesForm: TAttributesForm;
 begin
-//#UC START# *4DAEEDE10285_C2DA991E7351_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C2DA991E7351_impl*
+ try
+  l_aAttributesForm := TAttributesForm(aCtx.rEngine.PopObjAs(TAttributesForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aAttributesForm: TAttributesForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvAttributes(aCtx, l_aAttributesForm));
 end;//TkwAttributesFormTvAttributes.DoDoIt
 
 class function TkwAttributesFormTvAttributes.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwAttributesFormTvAttributes.GetWordNameForRegister
 
 procedure TkwAttributesFormTvAttributes.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C2DA991E7351_var*
-//#UC END# *52D00B00031A_C2DA991E7351_var*
 begin
-//#UC START# *52D00B00031A_C2DA991E7351_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C2DA991E7351_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству tvAttributes', aCtx);
 end;//TkwAttributesFormTvAttributes.SetValuePrim
 
 function TkwAttributesFormTvAttributes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwAttributesFormTvAttributes.GetAllParamsCount
 
 function TkwAttributesFormTvAttributes.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TAttributesForm)]);
 end;//TkwAttributesFormTvAttributes.ParamsTypes
 
 initialization

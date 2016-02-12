@@ -10,7 +10,7 @@
 type
  RDataClass = class of _DataClass_;
 
- {$Include ddTreeDataObject.imp.pas}
+ {$Include w:\common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas}
  _evTreeData_ = {abstract} class(_ddTreeDataObject_)
   private
    f_ExtData: IDataObject;
@@ -44,7 +44,7 @@ type
 
 {$Define evTreeData_imp_impl}
 
-{$Include ddTreeDataObject.imp.pas}
+{$Include w:\common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas}
 
 constructor _evTreeData_.Create(const aData: _DataType_;
  const aBitmap: Il3Bitmap);

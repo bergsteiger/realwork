@@ -22,11 +22,11 @@ uses
 
 type
  _AACSpaceDrawing_Parent_ = TevTextParaPainterPrim;
- {$Include AACSpaceDrawing.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
  _evCollapsedStylePainter_Parent_ = _AACSpaceDrawing_;
- {$Include evCollapsedStylePainter.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas}
  _nevStringCache_Parent_ = _evCollapsedStylePainter_;
- {$Include nevStringCache.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}
  TevTextParaPainter = class(_nevStringCache_)
   {* Рисователь текстового параграфа }
   protected
@@ -60,11 +60,11 @@ uses
  , SysUtils
 ;
 
-{$Include AACSpaceDrawing.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
 
-{$Include evCollapsedStylePainter.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas}
 
-{$Include nevStringCache.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}
 
 procedure TevTextParaPainter.AssignFontFromStyle(const aFont: Il3Font;
  const aStyle: Tl3Variant);

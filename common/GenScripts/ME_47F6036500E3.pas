@@ -20,7 +20,7 @@ uses
 ;
 
 type
- {$Include nevPrimPoint.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
  TnevAfterEndPoint = class(_nevPrimPoint_, InevPoint, InevBasePoint)
   {* Точка, указывающая ЗА КОНЕЦ параграфа. }
   protected
@@ -134,7 +134,7 @@ uses
 
 type _Instance_R_ = TnevAfterEndPoint;
 
-{$Include nevPrimPoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
 
 constructor TnevAfterEndPoint.Create(const aPoint: InevBasePoint);
 //#UC START# *47F6046E01B1_47F6036500E3_var*

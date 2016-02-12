@@ -55,12 +55,8 @@ BOOLEAN VAR l_Boolean
 function TkwPopTB97ButtonDown.Down(const aCtx: TtfwContext;
  aTB97Button: TCustomToolbarButton97): Boolean;
  {* Реализация слова скрипта pop:TB97Button:Down }
-//#UC START# *5E37302039D5_C746DA0CF72F_var*
-//#UC END# *5E37302039D5_C746DA0CF72F_var*
 begin
-//#UC START# *5E37302039D5_C746DA0CF72F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5E37302039D5_C746DA0CF72F_impl*
+ Result := aTB97Button.Down;
 end;//TkwPopTB97ButtonDown.Down
 
 procedure TkwPopTB97ButtonDown.DoDoIt(const aCtx: TtfwContext);
@@ -85,18 +81,8 @@ end;//TkwPopTB97ButtonDown.GetWordNameForRegister
 
 procedure TkwPopTB97ButtonDown.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_TB97Button: TCustomToolbarButton97;
 begin
- try
-  l_TB97Button := TCustomToolbarButton97(aCtx.rEngine.PopObjAs(TCustomToolbarButton97));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра TB97Button: TCustomToolbarButton97 : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- TB97Button. := aValue.AsBoolean;
+ RunnerError('Нельзя присваивать значение readonly свойству Down', aCtx);
 end;//TkwPopTB97ButtonDown.SetValuePrim
 
 function TkwPopTB97ButtonDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

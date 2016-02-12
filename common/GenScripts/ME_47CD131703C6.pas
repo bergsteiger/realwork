@@ -25,7 +25,7 @@ type
  _ItemType_ = TvtNavigatorForm;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TvtNavigatorFormListPrimPrim = class(_l3UncomparabeObjectRefList_)
   {* Список форм навигатора }
  end;//TvtNavigatorFormListPrimPrim
@@ -72,7 +72,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvtNavigatorFormListPrimPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

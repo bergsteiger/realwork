@@ -33,7 +33,7 @@ type
  _ItemType_ = InsNotificationListener;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnsNotificationListenersList = class(_l3InterfacePtrList_)
  end;//TnsNotificationListenersList
 
@@ -83,7 +83,7 @@ end;//TnsNotificationManagerPrimFree
 
 type _Instance_R_ = TnsNotificationListenersList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 function TnsNotificationManagerPrim.pm_GetListeners: TnsNotificationListenersList;
 //#UC START# *542BEFCA00C5_542D0141013Eget_var*

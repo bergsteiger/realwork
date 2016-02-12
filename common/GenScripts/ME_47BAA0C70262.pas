@@ -17,7 +17,7 @@ uses
 type
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = Tl3IDIndexPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3IDIndex = class(_l3Searcher_)
   {* Список строк с возможностью поиска по целочисленному идентификатору. }
  end;//Tl3IDIndex
@@ -44,6 +44,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3IDIndex;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

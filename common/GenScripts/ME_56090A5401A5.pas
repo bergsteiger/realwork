@@ -21,7 +21,7 @@ uses
 type
  _KeyType_ = Integer;
  _ValueType_ = Integer;
- {$Include l3Map.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
  Tl3IntegerToIntegerMap = class(_l3Map_)
  end;//Tl3IntegerToIntegerMap
 
@@ -47,6 +47,6 @@ end;//CompareKeys
 
 type _Instance_R_ = Tl3IntegerToIntegerMap;
 
-{$Include l3Map.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
 
 end.

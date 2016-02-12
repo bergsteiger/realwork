@@ -8,7 +8,7 @@
  // _IDIndexType_
 
  _l3DictionaryPrimPrim_Parent_ = _l3DictionaryPrim_Parent_;
- {$Include l3DictionaryPrimPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrimPrim.imp.pas}
  _l3DictionaryPrim_ = {abstract} class(_l3DictionaryPrimPrim_)
   private
    f_IDIndex: _IDIndexType_;
@@ -50,7 +50,7 @@ type
   {* еръ }
  end;//THackIndex
 
-{$Include l3DictionaryPrimPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrimPrim.imp.pas}
 
 function _l3DictionaryPrim_.pm_GetDRByID(anID: Integer): _StringType_;
 //#UC START# *4B8BBA220048_4B8BB87A0089get_var*

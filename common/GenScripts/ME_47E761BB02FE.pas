@@ -19,7 +19,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TCustomAction;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmAction = class(_l3Unknown_)
   {* Ѕазова€ операци€ библиотеки vcm дл€ прив€зки к меню. }
   protected
@@ -41,7 +41,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvcmAction.DoUpdate;
 //#UC START# *47E766E10053_47E761BB02FE_var*

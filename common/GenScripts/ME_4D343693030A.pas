@@ -17,7 +17,7 @@ uses
 
 type
  _l3Notifier_Parent_ = TvcmBase;
- {$Include l3Notifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  TvcmCustOpsNotifier = class(_l3Notifier_)
  end;//TvcmCustOpsNotifier
 {$IfEnd} // NOT Defined(NoVCM)
@@ -31,7 +31,7 @@ uses
  , SysUtils
 ;
 
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

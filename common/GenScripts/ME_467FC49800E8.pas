@@ -26,7 +26,7 @@ uses
 type
  _HashType_ = Tl3PtrHash;
  _k2HashTag_Parent_ = Tk2NonAtomicTag;
- {$Include k2HashTag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
  Tk2HugeTagObject = class(_k2HashTag_)
   {* Одна из реализаций хранилища тегов. С неограниченным количеством свойств }
  end;//Tk2HugeTagObject
@@ -63,6 +63,6 @@ uses
 
 type _Instance_R_ = Tk2HugeTagObject;
 
-{$Include k2HashTag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
 
 end.

@@ -7,7 +7,7 @@
 
 {$If NOT Defined(DesignTimeLibrary)}
  _evStyleTableListenerPrim_Parent_ = _evCacheableStyleTableListener_Parent_;
- {$Include evStyleTableListenerPrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
  _evCacheableStyleTableListener_ = class(_evStyleTableListenerPrim_)
   {* Подписчик на изменение таблицы стилей, который держит какие-то параметры зависящие от с тилей в то время, когда находится в кеше }
   protected
@@ -17,7 +17,7 @@
 {$Else NOT Defined(DesignTimeLibrary)}
 
 _evStyleTableListenerPrim_Parent_ = _evCacheableStyleTableListener_Parent_;
-{$Include evStyleTableListenerPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
 _evCacheableStyleTableListener_ = _evStyleTableListenerPrim_;
 
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
@@ -28,7 +28,7 @@ _evCacheableStyleTableListener_ = _evStyleTableListenerPrim_;
 {$Define evCacheableStyleTableListener_imp_impl}
 
 {$If NOT Defined(DesignTimeLibrary)}
-{$Include evStyleTableListenerPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
 
 procedure _evCacheableStyleTableListener_.Release;
 //#UC START# *479F2AFB0397_4A485B9801E0_var*

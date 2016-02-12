@@ -36,7 +36,7 @@ uses
 type
  _SetDataType_ = IdCommonDiction;
  _SetType_ = IsdsCommonDiction;
- {$Include sdsCommonDiction.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}
  TsdsCommonDiction = class(_sdsCommonDiction_)
   {* Обобщённый словарь }
   protected
@@ -74,7 +74,7 @@ uses
 
 type _Instance_R_ = TsdsCommonDiction;
 
-{$Include sdsCommonDiction.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 function TsdsCommonDiction.MakeData: _SetDataType_;

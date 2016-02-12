@@ -6,7 +6,7 @@
 {$Define nevTableRowBaseLineCommon_imp}
 
 {$If Defined(evUseVisibleCursors)}
- {$Include nevPrimPoint.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
  _nevTableRowBaseLineCommon_ = class(_nevPrimPoint_, InevPoint, InevBasePoint)
   {* ќбщие методы дл€ базовых линий }
   private
@@ -157,7 +157,7 @@
 
 {$Else Defined(evUseVisibleCursors)}
 
-{$Include nevPrimPoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
 _nevTableRowBaseLineCommon_ = _nevPrimPoint_;
 
 {$IfEnd} // Defined(evUseVisibleCursors)
@@ -168,7 +168,7 @@ _nevTableRowBaseLineCommon_ = _nevPrimPoint_;
 {$Define nevTableRowBaseLineCommon_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-{$Include nevPrimPoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
 
 procedure _nevTableRowBaseLineCommon_.InitHeadCells(const aView: InevView);
  {* »нициализирует точки с объединенными €чейками дл€ текущей строки. }

@@ -23,7 +23,7 @@ type
  _ItemType_ = Pl3StringIDEx;
  _l3AtomicListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3AtomicListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
  TPl3StringIDExList = class(_l3AtomicListPrim_)
  end;//TPl3StringIDExList
 
@@ -50,6 +50,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TPl3StringIDExList;
 
-{$Include l3AtomicListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
 
 end.

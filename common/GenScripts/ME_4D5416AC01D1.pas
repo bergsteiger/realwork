@@ -24,7 +24,7 @@ type
  //#UC START# *4D5416AC01D1ci*
  //#UC END# *4D5416AC01D1ci*
  _l3Unknown_Parent_ = TCustomControl;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *4D5416AC01D1cit*
  //#UC END# *4D5416AC01D1cit*
  TvgCustomControl = class(_l3Unknown_)
@@ -55,7 +55,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvgCustomControl.Free(var Dummy: Integer);
  {* Для ловли Free }

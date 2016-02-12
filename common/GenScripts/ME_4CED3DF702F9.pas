@@ -20,9 +20,9 @@ uses
 
 type
  _nsNativePara_Parent_ = CommentParaTagClass;
- {$Include nsNativePara.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativePara.imp.pas}
  _StyleParser_Parent_ = _nsNativePara_;
- {$Include StyleParser.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}
  TnsNativeCommentPara = class(_StyleParser_)
   private
    f_State: TnsNodeStates;
@@ -173,9 +173,9 @@ end;//TnsNativeCommentParaSink.Store
 
 type _Instance_R_ = TnsNativeCommentPara;
 
-{$Include nsNativePara.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativePara.imp.pas}
 
-{$Include StyleParser.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\StyleParser.imp.pas}
 
 class function TnsNativeCommentPara.MakeFromStyle(const aStyle: IStream;
  anOwner: Tl3Tag): Il3TagRef;

@@ -18,7 +18,7 @@ type
  {$Define _UnknownIsComponent}
  //#UC END# *48BC1AC0027Cci*
  _l3Unknown_Parent_ = TOvcBase;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *48BC1AC0027Ccit*
  //#UC END# *48BC1AC0027Ccit*
  TafwControlPrim = class(_l3Unknown_)
@@ -44,7 +44,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 //#UC START# *48BC1AC0027Cimpl*
 type

@@ -20,7 +20,7 @@ uses
 
 type
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  Tl3ExecuteInMainThread = class(_l3CriticalSectionHolder_)
   {* Перед использованием нужно вызывать init в главном потоке. }
   private
@@ -118,7 +118,7 @@ begin
 //#UC END# *479731C50290_549BDA9C0160_impl*
 end;//Tl3SynTask.Cleanup
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 procedure Tl3ExecuteInMainThread.WndProc(var Message: TMessage);
 //#UC START# *549BD08302D8_549BC58B0346_var*

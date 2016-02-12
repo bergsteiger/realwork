@@ -18,7 +18,7 @@ uses
 
 type
  _k2Int64Holder_Parent_ = Tk2SpecialTag;
- {$Include k2Int64Holder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
  Tk2TransparentTag = class(_k2Int64Holder_)
   {* Прозрачное значение тега }
   private
@@ -70,7 +70,7 @@ uses
 
 type _Instance_R_ = Tk2TransparentTag;
 
-{$Include k2Int64Holder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
 
 constructor Tk2TransparentTag.Create(aType: Tk2Type);
 //#UC START# *49C907900344_49C906E203A1_var*

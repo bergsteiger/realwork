@@ -20,7 +20,7 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = Tl3SimpleObject;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsStartupTips = class(_afwApplicationDataUpdate_, InsStartupTips)
   {* Советик дня }
   private
@@ -70,7 +70,7 @@ uses
  , nsTypes
 ;
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 constructor TnsStartupTips.Create;
 //#UC START# *49928A97027C_4992891800CF_var*

@@ -205,12 +205,8 @@ begin
 end;//Tkw_Form_DocNumberQuery.GetWordNameForRegister
 
 function Tkw_Form_DocNumberQuery.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_76082E4C5C54_var*
-//#UC END# *4DDFD2EA0116_76082E4C5C54_var*
 begin
-//#UC START# *4DDFD2EA0116_76082E4C5C54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_76082E4C5C54_impl*
+ Result := 'DocNumberQueryForm';
 end;//Tkw_Form_DocNumberQuery.GetString
 
 class function Tkw_DocNumberQuery_Control_Label1.GetWordNameForRegister: AnsiString;
@@ -219,21 +215,14 @@ begin
 end;//Tkw_DocNumberQuery_Control_Label1.GetWordNameForRegister
 
 function Tkw_DocNumberQuery_Control_Label1.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C3265889A167_var*
-//#UC END# *4DDFD2EA0116_C3265889A167_var*
 begin
-//#UC START# *4DDFD2EA0116_C3265889A167_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C3265889A167_impl*
+ Result := 'Label1';
 end;//Tkw_DocNumberQuery_Control_Label1.GetString
 
 class procedure Tkw_DocNumberQuery_Control_Label1.RegisterInEngine;
-//#UC START# *52A086150180_C3265889A167_var*
-//#UC END# *52A086150180_C3265889A167_var*
 begin
-//#UC START# *52A086150180_C3265889A167_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C3265889A167_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_DocNumberQuery_Control_Label1.RegisterInEngine
 
 procedure Tkw_DocNumberQuery_Control_Label1_Push.DoDoIt(const aCtx: TtfwContext);
@@ -256,21 +245,14 @@ begin
 end;//Tkw_DocNumberQuery_Control_edNumber.GetWordNameForRegister
 
 function Tkw_DocNumberQuery_Control_edNumber.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5B4280F54DA1_var*
-//#UC END# *4DDFD2EA0116_5B4280F54DA1_var*
 begin
-//#UC START# *4DDFD2EA0116_5B4280F54DA1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5B4280F54DA1_impl*
+ Result := 'edNumber';
 end;//Tkw_DocNumberQuery_Control_edNumber.GetString
 
 class procedure Tkw_DocNumberQuery_Control_edNumber.RegisterInEngine;
-//#UC START# *52A086150180_5B4280F54DA1_var*
-//#UC END# *52A086150180_5B4280F54DA1_var*
 begin
-//#UC START# *52A086150180_5B4280F54DA1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5B4280F54DA1_impl*
+ inherited;
+ TtfwClassRef.Register(TnscComboBox);
 end;//Tkw_DocNumberQuery_Control_edNumber.RegisterInEngine
 
 procedure Tkw_DocNumberQuery_Control_edNumber_Push.DoDoIt(const aCtx: TtfwContext);
@@ -293,21 +275,14 @@ begin
 end;//Tkw_DocNumberQuery_Control_cbInternal.GetWordNameForRegister
 
 function Tkw_DocNumberQuery_Control_cbInternal.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6C4F9F558894_var*
-//#UC END# *4DDFD2EA0116_6C4F9F558894_var*
 begin
-//#UC START# *4DDFD2EA0116_6C4F9F558894_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6C4F9F558894_impl*
+ Result := 'cbInternal';
 end;//Tkw_DocNumberQuery_Control_cbInternal.GetString
 
 class procedure Tkw_DocNumberQuery_Control_cbInternal.RegisterInEngine;
-//#UC START# *52A086150180_6C4F9F558894_var*
-//#UC END# *52A086150180_6C4F9F558894_var*
 begin
-//#UC START# *52A086150180_6C4F9F558894_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6C4F9F558894_impl*
+ inherited;
+ TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_DocNumberQuery_Control_cbInternal.RegisterInEngine
 
 procedure Tkw_DocNumberQuery_Control_cbInternal_Push.DoDoIt(const aCtx: TtfwContext);
@@ -327,21 +302,23 @@ end;//Tkw_DocNumberQuery_Control_cbInternal_Push.GetWordNameForRegister
 function TkwDocNumberQueryFormLabel1.Label1(const aCtx: TtfwContext;
  aDocNumberQueryForm: TDocNumberQueryForm): TvtLabel;
  {* Реализация слова скрипта .TDocNumberQueryForm.Label1 }
-//#UC START# *B8858CDC1C5F_B6936A6E2063_var*
-//#UC END# *B8858CDC1C5F_B6936A6E2063_var*
 begin
-//#UC START# *B8858CDC1C5F_B6936A6E2063_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B8858CDC1C5F_B6936A6E2063_impl*
+ Result := aDocNumberQueryForm.Label1;
 end;//TkwDocNumberQueryFormLabel1.Label1
 
 procedure TkwDocNumberQueryFormLabel1.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B6936A6E2063_var*
-//#UC END# *4DAEEDE10285_B6936A6E2063_var*
+var l_aDocNumberQueryForm: TDocNumberQueryForm;
 begin
-//#UC START# *4DAEEDE10285_B6936A6E2063_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B6936A6E2063_impl*
+ try
+  l_aDocNumberQueryForm := TDocNumberQueryForm(aCtx.rEngine.PopObjAs(TDocNumberQueryForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDocNumberQueryForm: TDocNumberQueryForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Label1(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormLabel1.DoDoIt
 
 class function TkwDocNumberQueryFormLabel1.GetWordNameForRegister: AnsiString;
@@ -351,12 +328,8 @@ end;//TkwDocNumberQueryFormLabel1.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormLabel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B6936A6E2063_var*
-//#UC END# *52D00B00031A_B6936A6E2063_var*
 begin
-//#UC START# *52D00B00031A_B6936A6E2063_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B6936A6E2063_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Label1', aCtx);
 end;//TkwDocNumberQueryFormLabel1.SetValuePrim
 
 function TkwDocNumberQueryFormLabel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -371,27 +344,29 @@ end;//TkwDocNumberQueryFormLabel1.GetAllParamsCount
 
 function TkwDocNumberQueryFormLabel1.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormLabel1.ParamsTypes
 
 function TkwDocNumberQueryFormEdNumber.edNumber(const aCtx: TtfwContext;
  aDocNumberQueryForm: TDocNumberQueryForm): TnscComboBox;
  {* Реализация слова скрипта .TDocNumberQueryForm.edNumber }
-//#UC START# *EBD263DB3A1A_6B90A4F929E2_var*
-//#UC END# *EBD263DB3A1A_6B90A4F929E2_var*
 begin
-//#UC START# *EBD263DB3A1A_6B90A4F929E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EBD263DB3A1A_6B90A4F929E2_impl*
+ Result := aDocNumberQueryForm.edNumber;
 end;//TkwDocNumberQueryFormEdNumber.edNumber
 
 procedure TkwDocNumberQueryFormEdNumber.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6B90A4F929E2_var*
-//#UC END# *4DAEEDE10285_6B90A4F929E2_var*
+var l_aDocNumberQueryForm: TDocNumberQueryForm;
 begin
-//#UC START# *4DAEEDE10285_6B90A4F929E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6B90A4F929E2_impl*
+ try
+  l_aDocNumberQueryForm := TDocNumberQueryForm(aCtx.rEngine.PopObjAs(TDocNumberQueryForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDocNumberQueryForm: TDocNumberQueryForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edNumber(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormEdNumber.DoDoIt
 
 class function TkwDocNumberQueryFormEdNumber.GetWordNameForRegister: AnsiString;
@@ -401,12 +376,8 @@ end;//TkwDocNumberQueryFormEdNumber.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormEdNumber.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6B90A4F929E2_var*
-//#UC END# *52D00B00031A_6B90A4F929E2_var*
 begin
-//#UC START# *52D00B00031A_6B90A4F929E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6B90A4F929E2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edNumber', aCtx);
 end;//TkwDocNumberQueryFormEdNumber.SetValuePrim
 
 function TkwDocNumberQueryFormEdNumber.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -421,27 +392,29 @@ end;//TkwDocNumberQueryFormEdNumber.GetAllParamsCount
 
 function TkwDocNumberQueryFormEdNumber.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormEdNumber.ParamsTypes
 
 function TkwDocNumberQueryFormCbInternal.cbInternal(const aCtx: TtfwContext;
  aDocNumberQueryForm: TDocNumberQueryForm): TvtCheckBox;
  {* Реализация слова скрипта .TDocNumberQueryForm.cbInternal }
-//#UC START# *23849E12E51A_DC4D2CCC9C8D_var*
-//#UC END# *23849E12E51A_DC4D2CCC9C8D_var*
 begin
-//#UC START# *23849E12E51A_DC4D2CCC9C8D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *23849E12E51A_DC4D2CCC9C8D_impl*
+ Result := aDocNumberQueryForm.cbInternal;
 end;//TkwDocNumberQueryFormCbInternal.cbInternal
 
 procedure TkwDocNumberQueryFormCbInternal.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DC4D2CCC9C8D_var*
-//#UC END# *4DAEEDE10285_DC4D2CCC9C8D_var*
+var l_aDocNumberQueryForm: TDocNumberQueryForm;
 begin
-//#UC START# *4DAEEDE10285_DC4D2CCC9C8D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DC4D2CCC9C8D_impl*
+ try
+  l_aDocNumberQueryForm := TDocNumberQueryForm(aCtx.rEngine.PopObjAs(TDocNumberQueryForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDocNumberQueryForm: TDocNumberQueryForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbInternal(aCtx, l_aDocNumberQueryForm));
 end;//TkwDocNumberQueryFormCbInternal.DoDoIt
 
 class function TkwDocNumberQueryFormCbInternal.GetWordNameForRegister: AnsiString;
@@ -451,12 +424,8 @@ end;//TkwDocNumberQueryFormCbInternal.GetWordNameForRegister
 
 procedure TkwDocNumberQueryFormCbInternal.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DC4D2CCC9C8D_var*
-//#UC END# *52D00B00031A_DC4D2CCC9C8D_var*
 begin
-//#UC START# *52D00B00031A_DC4D2CCC9C8D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DC4D2CCC9C8D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cbInternal', aCtx);
 end;//TkwDocNumberQueryFormCbInternal.SetValuePrim
 
 function TkwDocNumberQueryFormCbInternal.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -471,7 +440,7 @@ end;//TkwDocNumberQueryFormCbInternal.GetAllParamsCount
 
 function TkwDocNumberQueryFormCbInternal.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TDocNumberQueryForm)]);
 end;//TkwDocNumberQueryFormCbInternal.ParamsTypes
 
 initialization

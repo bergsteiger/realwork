@@ -15,7 +15,7 @@ uses
 type
  _ItemType_ = Integer;
  _StackPrim_Parent_ = TPersistent;
- {$Include StackPrim.imp.pas}
+ {$Include w:\common\components\SandBox\StackPrim.imp.pas}
  TIntStackFromPersistent = class(_StackPrim_)
  end;//TIntStackFromPersistent
 
@@ -25,6 +25,6 @@ uses
  l3ImplUses
 ;
 
-{$Include StackPrim.imp.pas}
+{$Include w:\common\components\SandBox\StackPrim.imp.pas}
 
 end.

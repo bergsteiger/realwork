@@ -660,7 +660,7 @@ type
  _ItemType_ = TvcmToolbarDef;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TvcmToolbarDefList = class(_l3ObjectPtrList_)
  end;//TvcmToolbarDefList
 
@@ -4203,7 +4203,7 @@ end;//TvcmDispatcherHelper.Instance
 
 type _Instance_R_ = TvcmToolbarDefList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 //#UC START# *4B30EC67025Aimpl*
 //#UC END# *4B30EC67025Aimpl*

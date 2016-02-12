@@ -17,7 +17,7 @@ uses
 
 type
  _LoadUnits_Parent_ = TtfwRegisterableWord;
- {$Include LoadUnits.imp.pas}
+ {$Include w:\common\components\gui\Garant\Daily\LoadUnits.imp.pas}
  TkwLoadFromFile = {final} class(_LoadUnits_)
   {* Загружает файл в форму дочернего класса TPrimTextLoadForm. 
 *Формат:* имя_файла LoadFromFile
@@ -37,7 +37,7 @@ uses
  , Document_Const
 ;
 
-{$Include LoadUnits.imp.pas}
+{$Include w:\common\components\gui\Garant\Daily\LoadUnits.imp.pas}
 
 procedure TkwLoadFromFile.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_509A5CCB022A_var*

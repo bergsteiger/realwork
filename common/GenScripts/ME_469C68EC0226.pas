@@ -5,7 +5,7 @@
 
 {$Define ddTreeDataObject_imp}
 
- {$Include l3TreeDataObject.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3TreeDataObject.imp.pas}
  _ddTreeDataObject_ = class(_l3TreeDataObject_)
   {* Объект данных дерева }
   protected
@@ -26,7 +26,7 @@
 
 {$Define ddTreeDataObject_imp_impl}
 
-{$Include l3TreeDataObject.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3TreeDataObject.imp.pas}
 
 constructor _ddTreeDataObject_.Create(const aData: _DataType_;
  const aBitmap: Il3Bitmap);

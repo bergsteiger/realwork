@@ -1,53 +1,49 @@
 unit kwPopEditorUpdateCursorFromHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwPopEditorUpdateCursorFromHotSpot.pas"
-// Начат: 08.09.2011 18:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_UpdateCursorFromHotSpot
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpot.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evCustomEditorWindow,
-  kwEditorFromStackWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorUpdateCursorFromHotSpot = {scriptword} class(TkwEditorFromStackWord)
- protected
- // realized methods
+ TkwPopEditorUpdateCursorFromHotSpot = class(TkwEditorFromStackWord)
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorUpdateCursorFromHotSpot
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
-  TevCustomEditorWindowHack = class(TevCustomEditorWindow)
-  end;//TevCustomEditorWindowHack
-
-// start class TkwPopEditorUpdateCursorFromHotSpot
+ TevCustomEditorWindowHack = class(TevCustomEditorWindow)
+ end;//TevCustomEditorWindowHack
 
 procedure TkwPopEditorUpdateCursorFromHotSpot.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4E68D7D10110_var*
 //#UC END# *4F4CB81200CA_4E68D7D10110_var*
 begin
@@ -57,17 +53,13 @@ begin
 end;//TkwPopEditorUpdateCursorFromHotSpot.DoWithEditor
 
 class function TkwPopEditorUpdateCursorFromHotSpot.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:UpdateCursorFromHotSpot';
 end;//TkwPopEditorUpdateCursorFromHotSpot.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_UpdateCursorFromHotSpot
  TkwPopEditorUpdateCursorFromHotSpot.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_UpdateCursorFromHotSpot }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

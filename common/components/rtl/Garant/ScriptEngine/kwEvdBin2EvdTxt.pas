@@ -1,55 +1,41 @@
 unit kwEvdBin2EvdTxt;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwEvdBin2EvdTxt.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SchemaWords::EvdBin2EvdTxt
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEvdBin2EvdTxt.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwSysUtilsWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwSysUtilsWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwEvdBin2EvdTxt = {final scriptword} class(TtfwSysUtilsWord)
- protected
- // realized methods
+ TkwEvdBin2EvdTxt = {final} class(TtfwSysUtilsWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwEvdBin2EvdTxt
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Filer,
-  l3Interfaces,
-  l3Memory,
-  evEvdRd,
-  evdNativeWriter,
-  SysUtils,
-  l3String,
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwEvdBin2EvdTxt
+ l3ImplUses
+ , l3Filer
+ , l3Interfaces
+ , l3Memory
+ , evEvdRd
+ , evdNativeWriter
+ , SysUtils
+ , l3String
+ , l3Base
+;
 
 procedure TkwEvdBin2EvdTxt.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_52DEAB2F00A1_var*
@@ -111,17 +97,13 @@ begin
 end;//TkwEvdBin2EvdTxt.DoDoIt
 
 class function TkwEvdBin2EvdTxt.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'EvdBin2EvdTxt';
 end;//TkwEvdBin2EvdTxt.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация EvdBin2EvdTxt
  TkwEvdBin2EvdTxt.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация EvdBin2EvdTxt }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -19,7 +19,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TStream;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Tl3Stream = class(_l3Unknown_, Il3ObjectWrap, IStream)
   {* Базовый класс потоков, поддерживающих счетчик ссылок и интерфейсы IUnknown и IStream }
   protected
@@ -47,7 +47,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 function Tl3Stream.COMQueryInterface(const IID: Tl3GUID;
  out Obj): Tl3HResult;

@@ -15,7 +15,7 @@ uses
 
 type
  _l3CriticalSectionHolder_Parent_ = Tm3BaseStorage;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  Tm3StoragePrim = {abstract} class(_l3CriticalSectionHolder_)
  end;//Tm3StoragePrim
 
@@ -26,6 +26,6 @@ uses
  , SysUtils
 ;
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 end.

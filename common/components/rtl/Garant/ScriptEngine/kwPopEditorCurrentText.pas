@@ -1,62 +1,53 @@
 unit kwPopEditorCurrentText;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwPopEditorCurrentText.pas"
-// Начат: 20.05.2011 15:01
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_CurrentText
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCurrentText.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackTextParaWord,
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackTextParaWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorCurrentText = {scriptword} class(TkwEditorFromStackTextParaWord)
- protected
- // realized methods
+ TkwPopEditorCurrentText = class(TkwEditorFromStackTextParaWord)
+  protected
    procedure DoPara(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPara: InevPara); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow;
+    const aPara: InevPara); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorCurrentText
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  k2Tags,
-  l3Base,
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorCurrentText
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorCurrentText.DoPara(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPara: InevPara);
+ anEditor: TevCustomEditorWindow;
+ const aPara: InevPara);
 //#UC START# *50BA0BBD01BF_4DD649D40028_var*
 //#UC END# *50BA0BBD01BF_4DD649D40028_var*
 begin
@@ -66,17 +57,13 @@ begin
 end;//TkwPopEditorCurrentText.DoPara
 
 class function TkwPopEditorCurrentText.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:CurrentText';
 end;//TkwPopEditorCurrentText.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_CurrentText
  TkwPopEditorCurrentText.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_CurrentText }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

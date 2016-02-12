@@ -29,7 +29,7 @@ type
  _ItemType_ = TnpControls;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TnpControlsListPrim = class(_l3UncomparabeObjectRefList_)
   {* список навигаторов на форме, от которых были отстыкованы компоненты. }
   public
@@ -85,7 +85,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TnpControlsListPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 function TnpControlsListPrim.Find(aControl: TControl): TnpControls;
  {* найти навигатор с которым связан компонент }

@@ -36,7 +36,7 @@ uses
 
 type
  _RegionableControl_Parent_ = TSubTree;
- {$Include RegionableControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
  TnscSubTree = class(_RegionableControl_)
   private
    f_CloseSize: TSize;
@@ -290,7 +290,7 @@ const
  cButtonHeight = 22;
  op_local_Paste = ev_msgLast + 1;
 
-{$Include RegionableControl.imp.pas}
+{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
 
 procedure TnscSubTree.SetMouseTrackItemIndex(aIndex: Integer);
 //#UC START# *53FDAD2F00B9_53FDAB5501EB_var*

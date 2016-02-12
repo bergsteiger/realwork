@@ -18,7 +18,7 @@ uses
 type
  _ItemType_ = IUnknown;
  _InterfaceRefList_Parent_ = TRefcounted;
- {$Include InterfaceRefList.imp.pas}
+ {$Include w:\common\components\SandBox\InterfaceRefList.imp.pas}
  TIUnknownRefList = class(_InterfaceRefList_)
   {* Список ССЫЛОК на IUnknown }
  end;//TIUnknownRefList
@@ -31,6 +31,6 @@ uses
  , l3MemorySizeUtils
 ;
 
-{$Include InterfaceRefList.imp.pas}
+{$Include w:\common\components\SandBox\InterfaceRefList.imp.pas}
 
 end.

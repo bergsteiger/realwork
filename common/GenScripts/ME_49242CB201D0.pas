@@ -6,9 +6,9 @@
 {$Define dsSituation_imp}
 
  _InitDataType_ = IdeSearch;
- {$Include dsTagSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas}
  _CurrentChangedListener_Parent_ = _dsTagSimpleTree_;
- {$Include CurrentChangedListener.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas}
  _dsSituation_ = {abstract} class(_CurrentChangedListener_, IdsSituation, IbsCurrentChangedListener)
   {* отложенное обновление представлений при перемещении по деревьям ППС 6.х (CQ: OIT5-28303) }
   private
@@ -36,9 +36,9 @@
 
 {$Define dsSituation_imp_impl}
 
-{$Include dsTagSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas}
 
-{$Include CurrentChangedListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas}
 
 function _dsSituation_.As_IbsCurrentChangedListener: IbsCurrentChangedListener;
  {* Метод приведения нашего интерфейса к IbsCurrentChangedListener }

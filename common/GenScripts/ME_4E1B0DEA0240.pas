@@ -31,7 +31,7 @@ uses
 
 type
  _kwCheckWithEtalonCommon_Parent_ = TkwEditorFromStackWord;
- {$Include kwCheckWithEtalonCommon.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}
  TkwPopEditorRepaintAndCheckWithEtalon = class(_kwCheckWithEtalonCommon_)
   {* *Описание:*
 Перерисовывает редактор сохраняя данные об отриосванном для тестов. Пересовка вызвается принудительно. Все отрисованные до этого данные стираются! Создается файл с именем NNN.shapes - где NNN - номер теста (Внимание! Имя теста дожно начинаться с TK) . Если до этого не существовало эталона, то он создается. О чем сообщается в конце выполнеия теста. Если эталон уже существовал, то производится сравнение новой версии файла с эталоном. Если сравнение не прошло, то об этом будет сообщено (тест будет считаться не прошедшим) и будет вызвана внешняя программа сравнения файлов.
@@ -68,7 +68,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include kwCheckWithEtalonCommon.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}
 
 procedure TkwPopEditorRepaintAndCheckWithEtalon.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

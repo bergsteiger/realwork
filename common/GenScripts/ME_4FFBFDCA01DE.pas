@@ -125,12 +125,8 @@ end;//Tkw_Form_AdminForm_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_AdminForm_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E605A87B167C_var*
-//#UC END# *4DDFD2EA0116_E605A87B167C_var*
 begin
-//#UC START# *4DDFD2EA0116_E605A87B167C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E605A87B167C_impl*
+ Result := 'cfAdminForm';
 end;//Tkw_Form_AdminForm_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -143,12 +139,8 @@ end;//Tkw_Form_GroupList_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_GroupList_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CDF7839CB8D8_var*
-//#UC END# *4DDFD2EA0116_CDF7839CB8D8_var*
 begin
-//#UC START# *4DDFD2EA0116_CDF7839CB8D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CDF7839CB8D8_impl*
+ Result := 'efGroupList';
 end;//Tkw_Form_GroupList_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -161,12 +153,8 @@ end;//Tkw_Form_UserList_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_UserList_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5418C937AF03_var*
-//#UC END# *4DDFD2EA0116_5418C937AF03_var*
 begin
-//#UC START# *4DDFD2EA0116_5418C937AF03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5418C937AF03_impl*
+ Result := 'efUserList';
 end;//Tkw_Form_UserList_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -179,12 +167,8 @@ end;//Tkw_Form_UserProperty_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_UserProperty_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1FE220211105_var*
-//#UC END# *4DDFD2EA0116_1FE220211105_var*
 begin
-//#UC START# *4DDFD2EA0116_1FE220211105_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1FE220211105_impl*
+ Result := 'efUserProperty';
 end;//Tkw_Form_UserProperty_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 

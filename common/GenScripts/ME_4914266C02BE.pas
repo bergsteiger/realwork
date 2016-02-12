@@ -24,7 +24,7 @@ type
  _ItemType_ = TbsLanguage;
  _l3EnumList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3EnumList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
  TnsLangList = class(_l3EnumList_)
  end;//TnsLangList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TnsLangList;
 
-{$Include l3EnumList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

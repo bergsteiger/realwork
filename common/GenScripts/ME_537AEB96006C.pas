@@ -58,12 +58,12 @@ type
  _ItemType_ = TvcmContainedFormDescr;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvcmFormToContainerMap = class(_l3RecordWithEQList_)
  end;//TvcmFormToContainerMap
 
  _vcmKeyDataListener_Parent_ = Tl3ProtoObject;
- {$Include vcmKeyDataListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmKeyDataListener.imp.pas}
  TvcmTabbedContainerFormDispatcher = {final} class(_vcmKeyDataListener_, IvcmTabbedContainersService)
   private
    f_MakingClone: Boolean;
@@ -445,9 +445,9 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmFormToContainerMap;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
-{$Include vcmKeyDataListener.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmKeyDataListener.imp.pas}
 
 function TvcmTabbedContainerFormDispatcher.pm_GetContainerCount: Integer;
 //#UC START# *537AEEA5023F_537AEC5E03DDget_var*

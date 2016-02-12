@@ -1,69 +1,61 @@
 unit kwPopQueryCardAttributeSetFocus;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopQueryCardAttributeSetFocus.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::QueryCardProcessing::pop_QueryCard_Attribute_SetFocus
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeSetFocus.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  nevBase,
-  evQueryCardInt,
-  evQueryCardEditor,
-  tfwScriptingInterfaces,
-  kwQueryCardFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwQueryCardFromStackWord
+ , l3Interfaces
+ , nevBase
+ , tfwScriptingInterfaces
+ , evQueryCardEditor
+ , evQueryCardInt
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopQueryCardAttributeSetFocus = {final scriptword} class(TkwQueryCardFromStackWord)
- private
- // private methods
+ TkwPopQueryCardAttributeSetFocus = {final} class(TkwQueryCardFromStackWord)
+  private
    procedure DoModelImpl(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor);
- protected
- // realized methods
+    aCard: TevQueryCardEditor);
+  protected
    procedure DoCard(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor); override;
- protected
- // overridden protected methods
+    aCard: TevQueryCardEditor); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopQueryCardAttributeSetFocus
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  l3Base,
-  evReqIterator
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopQueryCardAttributeSetFocus
+ l3ImplUses
+ , l3String
+ , l3Base
+ , evReqIterator
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopQueryCardAttributeSetFocus.DoModelImpl(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
-var
- l_Name : Il3CString;
- l_Op : InevOp;
+ aCard: TevQueryCardEditor);
+var l_Name: Il3CString;
+var l_Op: InevOp;
 
  procedure CallIterator;
 
   function DoIt(const anItem: IevReq): Boolean;
+   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
   //#UC START# *68801C8A78FF__var*
   var
    l_F : IevEditorControlField;
@@ -88,7 +80,7 @@ var
   //#UC START# *4F69A17402A1iter*
   TevReqIterator.Make(aCard).
   //#UC END# *4F69A17402A1iter*
-   DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+  DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
  end;//CallIterator
 
 //#UC START# *4F69A12C0199_4F69A0DF02E0_var*
@@ -106,7 +98,7 @@ begin
 end;//TkwPopQueryCardAttributeSetFocus.DoModelImpl
 
 procedure TkwPopQueryCardAttributeSetFocus.DoCard(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
+ aCard: TevQueryCardEditor);
 //#UC START# *4E808E8B01BB_4F69A0DF02E0_var*
 //#UC END# *4E808E8B01BB_4F69A0DF02E0_var*
 begin
@@ -116,17 +108,13 @@ begin
 end;//TkwPopQueryCardAttributeSetFocus.DoCard
 
 class function TkwPopQueryCardAttributeSetFocus.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:QueryCard:Attribute:SetFocus';
 end;//TkwPopQueryCardAttributeSetFocus.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_QueryCard_Attribute_SetFocus
  TkwPopQueryCardAttributeSetFocus.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_QueryCard_Attribute_SetFocus }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

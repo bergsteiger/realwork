@@ -19,7 +19,7 @@ uses
 
 type
  _LinesDrawOutput_Parent_ = TkwEditorFromStackWord;
- {$Include LinesDrawOutput.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\LinesDrawOutput.imp.pas}
  TkwPopEditorRepaintTableLinesAndCheckWithEtalon = {final} class(_LinesDrawOutput_)
   private
    f_ScriptCaller: ItfwScriptCaller;
@@ -47,7 +47,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include LinesDrawOutput.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\LinesDrawOutput.imp.pas}
 
 procedure TkwPopEditorRepaintTableLinesAndCheckWithEtalon.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

@@ -1,44 +1,37 @@
 unit RadioButtonWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VT"
-// Модуль: "RadioButtonWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VT::vtControlsFromStackWords::RadioButtonWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  tfwScriptingInterfaces,
-  tfwPropertyLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopRadioButtonChecked = {final scriptword} class(TtfwPropertyLike)
+ TkwPopRadioButtonChecked = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:RadioButton:Checked
 *Тип результата:* Boolean
 *Пример:*
@@ -46,39 +39,30 @@ type
 BOOLEAN VAR l_Boolean
  aRadioButton pop:RadioButton:Checked >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function Checked(const aCtx: TtfwContext;
     aRadioButton: TRadioButton): Boolean;
-     {* Реализация слова скрипта pop:RadioButton:Checked }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:RadioButton:Checked }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopRadioButtonChecked
 
-// start class TkwPopRadioButtonChecked
-
 function TkwPopRadioButtonChecked.Checked(const aCtx: TtfwContext;
-  aRadioButton: TRadioButton): Boolean;
- {-}
+ aRadioButton: TRadioButton): Boolean;
+ {* Реализация слова скрипта pop:RadioButton:Checked }
 begin
  Result := aRadioButton.Checked;
 end;//TkwPopRadioButtonChecked.Checked
 
 procedure TkwPopRadioButtonChecked.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aRadioButton : TRadioButton;
+var l_aRadioButton: TRadioButton;
 begin
  try
   l_aRadioButton := TRadioButton(aCtx.rEngine.PopObjAs(TRadioButton));
@@ -89,67 +73,54 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((Checked(aCtx, l_aRadioButton)));
+ aCtx.rEngine.PushBool(Checked(aCtx, l_aRadioButton));
 end;//TkwPopRadioButtonChecked.DoDoIt
 
 class function TkwPopRadioButtonChecked.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:RadioButton:Checked';
 end;//TkwPopRadioButtonChecked.GetWordNameForRegister
 
 procedure TkwPopRadioButtonChecked.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
-var
- l_RadioButton: TRadioButton;
+ const aCtx: TtfwContext);
+var l_RadioButton: TRadioButton;
 begin
  try
   l_RadioButton := TRadioButton(aCtx.rEngine.PopObjAs(TRadioButton));
  except
   on E: Exception do
   begin
-   RunnerError('Ошибка при получении параметра l_RadioButton: TRadioButton : ' + E.Message, aCtx);
+   RunnerError('Ошибка при получении параметра RadioButton: TRadioButton : ' + E.Message, aCtx);
    Exit;
   end;//on E: Exception
  end;//try..except
- l_RadioButton.Checked := (aValue.AsBoolean);
+ l_RadioButton.Checked := aValue.AsBoolean;
 end;//TkwPopRadioButtonChecked.SetValuePrim
 
 function TkwPopRadioButtonChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopRadioButtonChecked.GetResultTypeInfo
 
 function TkwPopRadioButtonChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopRadioButtonChecked.GetAllParamsCount
 
 function TkwPopRadioButtonChecked.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TRadioButton)]);
 end;//TkwPopRadioButtonChecked.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_RadioButton_Checked
  TkwPopRadioButtonChecked.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_RadioButton_Checked }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TRadioButton
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TRadioButton));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа TRadioButton }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Boolean }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

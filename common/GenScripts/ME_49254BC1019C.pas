@@ -42,7 +42,7 @@ uses
 
 type
  _InitDataType_ = IdeDocInfo;
- {$Include dsCommonDiction.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
  TdsTips = {final} class(_dsCommonDiction_)
   {* Список советов дня }
   protected
@@ -72,7 +72,7 @@ uses
 
 type _Instance_R_ = TdsTips;
 
-{$Include dsCommonDiction.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
 
 function TdsTips.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

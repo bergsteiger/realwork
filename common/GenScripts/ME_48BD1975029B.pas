@@ -38,9 +38,9 @@ type
  //#UC START# *48BD1975029Bci*
  //#UC END# *48BD1975029Bci*
  _afwToolOwner_Parent_ = TafwControlPrim;
- {$Include afwToolOwner.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas}
  _afwVGSceneUpdater_Parent_ = _afwToolOwner_;
- {$Include afwVGSceneUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwVGSceneUpdater.imp.pas}
  //#UC START# *48BD1975029Bcit*
  //#UC END# *48BD1975029Bcit*
  TafwBaseControl = class(_afwVGSceneUpdater_, Il3CommandTarget, Il3DropTarget, Il3ChangeRecipient, IafwControl, IafwMenuUnlockedPostBuild)
@@ -267,9 +267,9 @@ uses
  , SysUtils
 ;
 
-{$Include afwToolOwner.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas}
 
-{$Include afwVGSceneUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwVGSceneUpdater.imp.pas}
 
 function TafwBaseControl.pm_GetCanvas: Tl3WinControlCanvas;
 //#UC START# *48C6B5BB03B4_48BD1975029Bget_var*

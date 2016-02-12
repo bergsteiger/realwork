@@ -1,61 +1,53 @@
 unit kwPopEditorSetTextParaStyle;
+ {* StyleID textpara:SetStyleByID }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorSetTextParaStyle.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_SetTextParaStyle
-//
-// StyleID textpara:SetStyleByID
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetTextParaStyle.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackTextParaWord,
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackTextParaWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorSetTextParaStyle = {scriptword} class(TkwEditorFromStackTextParaWord)
+ TkwPopEditorSetTextParaStyle = class(TkwEditorFromStackTextParaWord)
   {* StyleID textpara:SetStyleByID }
- protected
- // realized methods
+  protected
    procedure DoPara(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPara: InevPara); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow;
+    const aPara: InevPara); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorSetTextParaStyle
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorSetTextParaStyle
+ l3ImplUses
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorSetTextParaStyle.DoPara(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPara: InevPara);
+ anEditor: TevCustomEditorWindow;
+ const aPara: InevPara);
 //#UC START# *50BA0BBD01BF_4E60749A01C2_var*
 //#UC END# *50BA0BBD01BF_4E60749A01C2_var*
 begin
@@ -68,17 +60,13 @@ begin
 end;//TkwPopEditorSetTextParaStyle.DoPara
 
 class function TkwPopEditorSetTextParaStyle.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'textpara:SetStyleByID';
 end;//TkwPopEditorSetTextParaStyle.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_SetTextParaStyle
  TkwPopEditorSetTextParaStyle.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_SetTextParaStyle }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -14,7 +14,7 @@ uses
 
 type
  _l3DataContainer_Parent_ = Tl3SimpleObject;
- {$Include l3DataContainer.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DataContainer.imp.pas}
  Tl3SimpleDataContainer = {abstract} class(_l3DataContainer_)
  end;//Tl3SimpleDataContainer
 
@@ -24,6 +24,6 @@ uses
  l3ImplUses
 ;
 
-{$Include l3DataContainer.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DataContainer.imp.pas}
 
 end.

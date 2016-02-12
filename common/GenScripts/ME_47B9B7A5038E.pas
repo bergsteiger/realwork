@@ -24,7 +24,7 @@ type
  _ItemType_ = Tk2CustomProperty;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tk2PropSorter = class(_l3UncomparabeObjectRefList_)
   {* Сортировщик свойств. }
  end;//Tk2PropSorter
@@ -68,6 +68,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2PropSorter;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

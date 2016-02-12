@@ -23,7 +23,7 @@ type
  _ItemType_ = IafwPreviewPage;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TafwPreviewPageList = class(_l3InterfaceRefList_)
  end;//TafwPreviewPageList
 
@@ -39,6 +39,6 @@ uses
 
 type _Instance_R_ = TafwPreviewPageList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 end.

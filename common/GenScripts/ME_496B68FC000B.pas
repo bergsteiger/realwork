@@ -7,9 +7,9 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _PrimText_Parent_ = _SearcheableText_Parent_;
- {$Include PrimText.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas}
  _BaseSearchPresentation_Parent_ = _PrimText_;
- {$Include BaseSearchPresentation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
  _SearcheableText_ = {abstract} class(_BaseSearchPresentation_, InsBaseSearchPresentation)
   protected
    function WindowRequired: Boolean;
@@ -26,9 +26,9 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _PrimText_Parent_ = _SearcheableText_Parent_;
-{$Include PrimText.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas}
 _BaseSearchPresentation_Parent_ = _PrimText_;
-{$Include BaseSearchPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 _SearcheableText_ = _BaseSearchPresentation_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -39,9 +39,9 @@ _SearcheableText_ = _BaseSearchPresentation_;
 {$Define SearcheableText_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include PrimText.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PrimText.imp.pas}
 
-{$Include BaseSearchPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 
 function _SearcheableText_.WindowRequired: Boolean;
 //#UC START# *496B4C41023E_496B68FC000B_var*

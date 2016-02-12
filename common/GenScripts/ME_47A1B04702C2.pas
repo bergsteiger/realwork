@@ -6,7 +6,7 @@
 {$Define l3AtomicList_imp}
 
  _l3AtomicListPrim_Parent_ = _l3AtomicList_Parent_;
- {$Include l3AtomicListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
  _l3AtomicList_ = class(_l3AtomicListPrim_)
   {* Список АТОМАРНЫХ элементов, без всякого подсчёта ссылок и управления временем жизни }
  end;//_l3AtomicList_
@@ -36,7 +36,7 @@ begin
 //#UC END# *47B99D4503A2_47A1B04702C2_impl*
 end;//CompareExistingItems
 
-{$Include l3AtomicListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
 
 {$EndIf l3AtomicList_imp_impl}
 

@@ -1,66 +1,58 @@
 unit kwPopEditorLP2DP;
+ {* *Формат:* X Y anEditorControl pop:editor:LP2DP
+*Описание:* Переводи значения точки из долей дюйма в пиксели.
+*Пример:*
+[code] 
+100 100  focused:control:push pop:editor:LP2DP
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorLP2DP.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_LP2DP
-//
-// *Формат:* X Y anEditorControl pop:editor:LP2DP
-// *Описание:* Переводи значения точки из долей дюйма в пиксели.
-// *Пример:*
-// {code}
-// 100 100  focused:control:push pop:editor:LP2DP
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorLP2DP.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorLP2DP = {final scriptword} class(TkwEditorFromStackWord)
+ TkwPopEditorLP2DP = {final} class(TkwEditorFromStackWord)
   {* *Формат:* X Y anEditorControl pop:editor:LP2DP
 *Описание:* Переводи значения точки из долей дюйма в пиксели.
 *Пример:*
 [code] 
 100 100  focused:control:push pop:editor:LP2DP
 [code] }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorLP2DP
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Units
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorLP2DP
+ l3ImplUses
+ , l3Units
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorLP2DP.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_503C589F0334_var*
 var
  l_X, l_Y : Integer;
@@ -85,17 +77,13 @@ begin
 end;//TkwPopEditorLP2DP.DoWithEditor
 
 class function TkwPopEditorLP2DP.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:LP2DP';
 end;//TkwPopEditorLP2DP.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_LP2DP
  TkwPopEditorLP2DP.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_LP2DP }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

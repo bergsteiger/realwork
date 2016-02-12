@@ -24,7 +24,7 @@ type
  _ItemType_ = IvcmOperationDef;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TvcmOperationDefList = class(_l3InterfaceRefList_)
  end;//TvcmOperationDefList
 {$IfEnd} // NOT Defined(NoVCM)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TvcmOperationDefList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

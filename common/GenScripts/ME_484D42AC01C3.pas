@@ -26,9 +26,9 @@ uses
 type
  _HashType_ = Tl3OneBytePtrHash;
  _k2HashTag_Parent_ = Tk2DictRecTag;
- {$Include k2HashTag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
  _k2ParentedTagObject_Parent_ = _k2HashTag_;
- {$Include k2ParentedTagObject.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
  Tk2DictItem = class(_k2ParentedTagObject_)
   {* —ловарна€ запись, со ссылкой на родительский тег }
  end;//Tk2DictItem
@@ -65,8 +65,8 @@ uses
 
 type _Instance_R_ = Tk2DictItem;
 
-{$Include k2HashTag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
 
-{$Include k2ParentedTagObject.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 
 end.

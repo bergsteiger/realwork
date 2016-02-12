@@ -18,7 +18,7 @@ uses
 
 type
  _vcmLayout_Parent_ = TvcmForm;
- {$Include vcmLayout.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmLayout.imp.pas}
  TvcmEntityFormModelPart = class(_vcmLayout_)
   private
    f_ZoneType: TvcmZoneType;
@@ -67,7 +67,7 @@ uses
 
 type _Instance_R_ = TvcmEntityFormModelPart;
 
-{$Include vcmLayout.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmLayout.imp.pas}
 
 procedure TvcmEntityFormModelPart.pm_SetZoneType(aValue: TvcmZoneType);
 //#UC START# *501FEC050356_4F22CB1E0009set_var*

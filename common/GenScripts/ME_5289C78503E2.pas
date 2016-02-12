@@ -45,7 +45,7 @@ type
  _ItemType_ = TvcmFormSetFormItem;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvcmFormSetFormList = class(_l3RecordWithEQList_)
   private
    function GetFormIndex(const aFormDescr: TvcmFormSetFormItemDescr): Integer;
@@ -199,7 +199,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmFormSetFormList;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
 function TvcmFormSetFormList.pm_GetNeedMakeDS(const Index: TvcmFormSetFormItemDescr): TvcmNeedMakeDS;
 //#UC START# *528DB25B023B_5289CD8F0001get_var*

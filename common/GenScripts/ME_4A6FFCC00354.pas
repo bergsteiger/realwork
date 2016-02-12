@@ -6,7 +6,7 @@
 {$Define l3InterfacePtrListPrim_imp}
 
  _l3PtrListPrim_Parent_ = _l3InterfacePtrListPrim_Parent_;
- {$Include l3PtrListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3PtrListPrim.imp.pas}
  _l3InterfacePtrListPrim_ = class(_l3PtrListPrim_)
  end;//_l3InterfacePtrListPrim_
 
@@ -31,7 +31,7 @@ begin
 //#UC END# *47B935AF0066_4A6FFCC00354_impl*
 end;//FillItem
 
-{$Include l3PtrListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3PtrListPrim.imp.pas}
 
 {$EndIf l3InterfacePtrListPrim_imp_impl}
 

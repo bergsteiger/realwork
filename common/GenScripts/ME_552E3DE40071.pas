@@ -57,12 +57,8 @@ BOOLEAN VAR l_Boolean
 function TkwPopRadioButtonChecked.Checked(const aCtx: TtfwContext;
  aRadioButton: TRadioButton): Boolean;
  {* Реализация слова скрипта pop:RadioButton:Checked }
-//#UC START# *0B811F8AAF5C_06BAC463482F_var*
-//#UC END# *0B811F8AAF5C_06BAC463482F_var*
 begin
-//#UC START# *0B811F8AAF5C_06BAC463482F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0B811F8AAF5C_06BAC463482F_impl*
+ Result := aRadioButton.Checked;
 end;//TkwPopRadioButtonChecked.Checked
 
 procedure TkwPopRadioButtonChecked.DoDoIt(const aCtx: TtfwContext);
@@ -98,7 +94,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- RadioButton. := aValue.AsBoolean;
+ l_RadioButton.Checked := aValue.AsBoolean;
 end;//TkwPopRadioButtonChecked.SetValuePrim
 
 function TkwPopRadioButtonChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

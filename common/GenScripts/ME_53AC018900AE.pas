@@ -18,7 +18,7 @@ uses
 
 type
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TddTaskItemPrim = class(_evdTagHolder_)
   private
    f_CanNotifyChange: Boolean;
@@ -103,7 +103,7 @@ uses
  , k2DocumentBuffer
 ;
 
-{$Include evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TddTaskItemPrim.pm_GetTaskType: TcsTaskType;
 //#UC START# *5B83E11F22FB_53AC018900AEget_var*

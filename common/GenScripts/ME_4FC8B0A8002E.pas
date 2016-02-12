@@ -15,7 +15,7 @@ uses
 
 type
  _atExecutesQueryAddOn_Parent_ = TatIterateUserJournalOperation;
- {$Include atExecutesQueryAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
  TatExecuteUserJournalOperation = class(_atExecutesQueryAddOn_)
   protected
    function OnQuery(const anQuery: TatQuery): Boolean; override;
@@ -34,7 +34,7 @@ uses
  , SysUtils
 ;
 
-{$Include atExecutesQueryAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
 
 function TatExecuteUserJournalOperation.OnQuery(const anQuery: TatQuery): Boolean;
 //#UC START# *5006F37302DF_4FC8B0A8002E_var*

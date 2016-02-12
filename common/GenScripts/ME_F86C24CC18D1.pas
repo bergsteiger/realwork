@@ -403,12 +403,8 @@ begin
 end;//Tkw_Form_TurnOnTimeMachine.GetWordNameForRegister
 
 function Tkw_Form_TurnOnTimeMachine.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_967CB34C707C_var*
-//#UC END# *4DDFD2EA0116_967CB34C707C_var*
 begin
-//#UC START# *4DDFD2EA0116_967CB34C707C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_967CB34C707C_impl*
+ Result := 'en_TurnOnTimeMachine';
 end;//Tkw_Form_TurnOnTimeMachine.GetString
 
 class function Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetWordNameForRegister: AnsiString;
@@ -417,21 +413,14 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_893BC6387739_var*
-//#UC END# *4DDFD2EA0116_893BC6387739_var*
 begin
-//#UC START# *4DDFD2EA0116_893BC6387739_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_893BC6387739_impl*
+ Result := 'rb_totmOnDate';
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.GetString
 
 class procedure Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.RegisterInEngine;
-//#UC START# *52A086150180_893BC6387739_var*
-//#UC END# *52A086150180_893BC6387739_var*
 begin
-//#UC START# *52A086150180_893BC6387739_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_893BC6387739_impl*
+ inherited;
+ TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push.DoDoIt(const aCtx: TtfwContext);
@@ -454,21 +443,14 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2A0774CE123E_var*
-//#UC END# *4DDFD2EA0116_2A0774CE123E_var*
 begin
-//#UC START# *4DDFD2EA0116_2A0774CE123E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2A0774CE123E_impl*
+ Result := 'rb_totmOnCurrentRedation';
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.GetString
 
 class procedure Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.RegisterInEngine;
-//#UC START# *52A086150180_2A0774CE123E_var*
-//#UC END# *52A086150180_2A0774CE123E_var*
 begin
-//#UC START# *52A086150180_2A0774CE123E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_2A0774CE123E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push.DoDoIt(const aCtx: TtfwContext);
@@ -491,21 +473,14 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_deDate.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_deDate.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6B28BDA682B1_var*
-//#UC END# *4DDFD2EA0116_6B28BDA682B1_var*
 begin
-//#UC START# *4DDFD2EA0116_6B28BDA682B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6B28BDA682B1_impl*
+ Result := 'deDate';
 end;//Tkw_TurnOnTimeMachine_Control_deDate.GetString
 
 class procedure Tkw_TurnOnTimeMachine_Control_deDate.RegisterInEngine;
-//#UC START# *52A086150180_6B28BDA682B1_var*
-//#UC END# *52A086150180_6B28BDA682B1_var*
 begin
-//#UC START# *52A086150180_6B28BDA682B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6B28BDA682B1_impl*
+ inherited;
+ TtfwClassRef.Register(TvtDblClickDateEdit);
 end;//Tkw_TurnOnTimeMachine_Control_deDate.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_deDate_Push.DoDoIt(const aCtx: TtfwContext);
@@ -528,21 +503,14 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_pbDialogIcon.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FD7F9843981F_var*
-//#UC END# *4DDFD2EA0116_FD7F9843981F_var*
 begin
-//#UC START# *4DDFD2EA0116_FD7F9843981F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FD7F9843981F_impl*
+ Result := 'pbDialogIcon';
 end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon.GetString
 
 class procedure Tkw_TurnOnTimeMachine_Control_pbDialogIcon.RegisterInEngine;
-//#UC START# *52A086150180_FD7F9843981F_var*
-//#UC END# *52A086150180_FD7F9843981F_var*
 begin
-//#UC START# *52A086150180_FD7F9843981F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_FD7F9843981F_impl*
+ inherited;
+ TtfwClassRef.Register(TPaintBox);
 end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push.DoDoIt(const aCtx: TtfwContext);
@@ -565,21 +533,14 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AFC9E630D2DC_var*
-//#UC END# *4DDFD2EA0116_AFC9E630D2DC_var*
 begin
-//#UC START# *4DDFD2EA0116_AFC9E630D2DC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AFC9E630D2DC_impl*
+ Result := 'lblTurnOnTimeMachineInfo';
 end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.GetString
 
 class procedure Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.RegisterInEngine;
-//#UC START# *52A086150180_AFC9E630D2DC_var*
-//#UC END# *52A086150180_AFC9E630D2DC_var*
 begin
-//#UC START# *52A086150180_AFC9E630D2DC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_AFC9E630D2DC_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push.DoDoIt(const aCtx: TtfwContext);
@@ -602,21 +563,14 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_btnOk.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_btnOk.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C61CBC097283_var*
-//#UC END# *4DDFD2EA0116_C61CBC097283_var*
 begin
-//#UC START# *4DDFD2EA0116_C61CBC097283_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C61CBC097283_impl*
+ Result := 'btnOk';
 end;//Tkw_TurnOnTimeMachine_Control_btnOk.GetString
 
 class procedure Tkw_TurnOnTimeMachine_Control_btnOk.RegisterInEngine;
-//#UC START# *52A086150180_C61CBC097283_var*
-//#UC END# *52A086150180_C61CBC097283_var*
 begin
-//#UC START# *52A086150180_C61CBC097283_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C61CBC097283_impl*
+ inherited;
+ TtfwClassRef.Register(TvtButton);
 end;//Tkw_TurnOnTimeMachine_Control_btnOk.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_btnOk_Push.DoDoIt(const aCtx: TtfwContext);
@@ -639,21 +593,14 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_btnCancel.GetWordNameForRegister
 
 function Tkw_TurnOnTimeMachine_Control_btnCancel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A0B1AFDB49C3_var*
-//#UC END# *4DDFD2EA0116_A0B1AFDB49C3_var*
 begin
-//#UC START# *4DDFD2EA0116_A0B1AFDB49C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A0B1AFDB49C3_impl*
+ Result := 'btnCancel';
 end;//Tkw_TurnOnTimeMachine_Control_btnCancel.GetString
 
 class procedure Tkw_TurnOnTimeMachine_Control_btnCancel.RegisterInEngine;
-//#UC START# *52A086150180_A0B1AFDB49C3_var*
-//#UC END# *52A086150180_A0B1AFDB49C3_var*
 begin
-//#UC START# *52A086150180_A0B1AFDB49C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_A0B1AFDB49C3_impl*
+ inherited;
+ TtfwClassRef.Register(TvtButton);
 end;//Tkw_TurnOnTimeMachine_Control_btnCancel.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_btnCancel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -673,21 +620,23 @@ end;//Tkw_TurnOnTimeMachine_Control_btnCancel_Push.GetWordNameForRegister
 function TkwEnTurnOnTimeMachineRbTotmOnDate.rb_totmOnDate(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtRadioButton;
  {* Реализация слова скрипта .Ten_TurnOnTimeMachine.rb_totmOnDate }
-//#UC START# *C52210223D9B_738D30BFC216_var*
-//#UC END# *C52210223D9B_738D30BFC216_var*
 begin
-//#UC START# *C52210223D9B_738D30BFC216_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C52210223D9B_738D30BFC216_impl*
+ Result := aen_TurnOnTimeMachine.rb_totmOnDate;
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.rb_totmOnDate
 
 procedure TkwEnTurnOnTimeMachineRbTotmOnDate.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_738D30BFC216_var*
-//#UC END# *4DAEEDE10285_738D30BFC216_var*
+var l_aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine;
 begin
-//#UC START# *4DAEEDE10285_738D30BFC216_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_738D30BFC216_impl*
+ try
+  l_aen_TurnOnTimeMachine := Ten_TurnOnTimeMachine(aCtx.rEngine.PopObjAs(Ten_TurnOnTimeMachine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(rb_totmOnDate(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.DoDoIt
 
 class function TkwEnTurnOnTimeMachineRbTotmOnDate.GetWordNameForRegister: AnsiString;
@@ -697,12 +646,8 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineRbTotmOnDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_738D30BFC216_var*
-//#UC END# *52D00B00031A_738D30BFC216_var*
 begin
-//#UC START# *52D00B00031A_738D30BFC216_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_738D30BFC216_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству rb_totmOnDate', aCtx);
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.SetValuePrim
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -717,27 +662,29 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnDate.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineRbTotmOnDate.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineRbTotmOnDate.ParamsTypes
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.rb_totmOnCurrentRedation(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtRadioButton;
  {* Реализация слова скрипта .Ten_TurnOnTimeMachine.rb_totmOnCurrentRedation }
-//#UC START# *A397D716C9EB_410A0E5236E8_var*
-//#UC END# *A397D716C9EB_410A0E5236E8_var*
 begin
-//#UC START# *A397D716C9EB_410A0E5236E8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A397D716C9EB_410A0E5236E8_impl*
+ Result := aen_TurnOnTimeMachine.rb_totmOnCurrentRedation;
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.rb_totmOnCurrentRedation
 
 procedure TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_410A0E5236E8_var*
-//#UC END# *4DAEEDE10285_410A0E5236E8_var*
+var l_aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine;
 begin
-//#UC START# *4DAEEDE10285_410A0E5236E8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_410A0E5236E8_impl*
+ try
+  l_aen_TurnOnTimeMachine := Ten_TurnOnTimeMachine(aCtx.rEngine.PopObjAs(Ten_TurnOnTimeMachine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(rb_totmOnCurrentRedation(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.DoDoIt
 
 class function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetWordNameForRegister: AnsiString;
@@ -747,12 +694,8 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_410A0E5236E8_var*
-//#UC END# *52D00B00031A_410A0E5236E8_var*
 begin
-//#UC START# *52D00B00031A_410A0E5236E8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_410A0E5236E8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству rb_totmOnCurrentRedation', aCtx);
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.SetValuePrim
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -767,27 +710,29 @@ end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineRbTotmOnCurrentRedation.ParamsTypes
 
 function TkwEnTurnOnTimeMachineDeDate.deDate(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtDblClickDateEdit;
  {* Реализация слова скрипта .Ten_TurnOnTimeMachine.deDate }
-//#UC START# *23E6BEC283DC_34CF83AB09E2_var*
-//#UC END# *23E6BEC283DC_34CF83AB09E2_var*
 begin
-//#UC START# *23E6BEC283DC_34CF83AB09E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *23E6BEC283DC_34CF83AB09E2_impl*
+ Result := aen_TurnOnTimeMachine.deDate;
 end;//TkwEnTurnOnTimeMachineDeDate.deDate
 
 procedure TkwEnTurnOnTimeMachineDeDate.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_34CF83AB09E2_var*
-//#UC END# *4DAEEDE10285_34CF83AB09E2_var*
+var l_aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine;
 begin
-//#UC START# *4DAEEDE10285_34CF83AB09E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_34CF83AB09E2_impl*
+ try
+  l_aen_TurnOnTimeMachine := Ten_TurnOnTimeMachine(aCtx.rEngine.PopObjAs(Ten_TurnOnTimeMachine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(deDate(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineDeDate.DoDoIt
 
 class function TkwEnTurnOnTimeMachineDeDate.GetWordNameForRegister: AnsiString;
@@ -797,12 +742,8 @@ end;//TkwEnTurnOnTimeMachineDeDate.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineDeDate.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_34CF83AB09E2_var*
-//#UC END# *52D00B00031A_34CF83AB09E2_var*
 begin
-//#UC START# *52D00B00031A_34CF83AB09E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_34CF83AB09E2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству deDate', aCtx);
 end;//TkwEnTurnOnTimeMachineDeDate.SetValuePrim
 
 function TkwEnTurnOnTimeMachineDeDate.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -817,27 +758,29 @@ end;//TkwEnTurnOnTimeMachineDeDate.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineDeDate.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineDeDate.ParamsTypes
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.pbDialogIcon(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TPaintBox;
  {* Реализация слова скрипта .Ten_TurnOnTimeMachine.pbDialogIcon }
-//#UC START# *560E6C43DAEA_D77A7DA792C7_var*
-//#UC END# *560E6C43DAEA_D77A7DA792C7_var*
 begin
-//#UC START# *560E6C43DAEA_D77A7DA792C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *560E6C43DAEA_D77A7DA792C7_impl*
+ Result := aen_TurnOnTimeMachine.pbDialogIcon;
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.pbDialogIcon
 
 procedure TkwEnTurnOnTimeMachinePbDialogIcon.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D77A7DA792C7_var*
-//#UC END# *4DAEEDE10285_D77A7DA792C7_var*
+var l_aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine;
 begin
-//#UC START# *4DAEEDE10285_D77A7DA792C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D77A7DA792C7_impl*
+ try
+  l_aen_TurnOnTimeMachine := Ten_TurnOnTimeMachine(aCtx.rEngine.PopObjAs(Ten_TurnOnTimeMachine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pbDialogIcon(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.DoDoIt
 
 class function TkwEnTurnOnTimeMachinePbDialogIcon.GetWordNameForRegister: AnsiString;
@@ -847,12 +790,8 @@ end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachinePbDialogIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D77A7DA792C7_var*
-//#UC END# *52D00B00031A_D77A7DA792C7_var*
 begin
-//#UC START# *52D00B00031A_D77A7DA792C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D77A7DA792C7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pbDialogIcon', aCtx);
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.SetValuePrim
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -867,27 +806,29 @@ end;//TkwEnTurnOnTimeMachinePbDialogIcon.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachinePbDialogIcon.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachinePbDialogIcon.ParamsTypes
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.lblTurnOnTimeMachineInfo(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtLabel;
  {* Реализация слова скрипта .Ten_TurnOnTimeMachine.lblTurnOnTimeMachineInfo }
-//#UC START# *18664E7965BC_47E2676FB408_var*
-//#UC END# *18664E7965BC_47E2676FB408_var*
 begin
-//#UC START# *18664E7965BC_47E2676FB408_impl*
- !!! Needs to be implemented !!!
-//#UC END# *18664E7965BC_47E2676FB408_impl*
+ Result := aen_TurnOnTimeMachine.lblTurnOnTimeMachineInfo;
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.lblTurnOnTimeMachineInfo
 
 procedure TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_47E2676FB408_var*
-//#UC END# *4DAEEDE10285_47E2676FB408_var*
+var l_aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine;
 begin
-//#UC START# *4DAEEDE10285_47E2676FB408_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_47E2676FB408_impl*
+ try
+  l_aen_TurnOnTimeMachine := Ten_TurnOnTimeMachine(aCtx.rEngine.PopObjAs(Ten_TurnOnTimeMachine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblTurnOnTimeMachineInfo(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.DoDoIt
 
 class function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister: AnsiString;
@@ -897,12 +838,8 @@ end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_47E2676FB408_var*
-//#UC END# *52D00B00031A_47E2676FB408_var*
 begin
-//#UC START# *52D00B00031A_47E2676FB408_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_47E2676FB408_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblTurnOnTimeMachineInfo', aCtx);
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.SetValuePrim
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -917,27 +854,29 @@ end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineLblTurnOnTimeMachineInfo.ParamsTypes
 
 function TkwEnTurnOnTimeMachineBtnOk.btnOk(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtButton;
  {* Реализация слова скрипта .Ten_TurnOnTimeMachine.btnOk }
-//#UC START# *B11DF7087FAE_E6A646BF492A_var*
-//#UC END# *B11DF7087FAE_E6A646BF492A_var*
 begin
-//#UC START# *B11DF7087FAE_E6A646BF492A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B11DF7087FAE_E6A646BF492A_impl*
+ Result := aen_TurnOnTimeMachine.btnOk;
 end;//TkwEnTurnOnTimeMachineBtnOk.btnOk
 
 procedure TkwEnTurnOnTimeMachineBtnOk.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E6A646BF492A_var*
-//#UC END# *4DAEEDE10285_E6A646BF492A_var*
+var l_aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine;
 begin
-//#UC START# *4DAEEDE10285_E6A646BF492A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E6A646BF492A_impl*
+ try
+  l_aen_TurnOnTimeMachine := Ten_TurnOnTimeMachine(aCtx.rEngine.PopObjAs(Ten_TurnOnTimeMachine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnOk(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineBtnOk.DoDoIt
 
 class function TkwEnTurnOnTimeMachineBtnOk.GetWordNameForRegister: AnsiString;
@@ -947,12 +886,8 @@ end;//TkwEnTurnOnTimeMachineBtnOk.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineBtnOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E6A646BF492A_var*
-//#UC END# *52D00B00031A_E6A646BF492A_var*
 begin
-//#UC START# *52D00B00031A_E6A646BF492A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E6A646BF492A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству btnOk', aCtx);
 end;//TkwEnTurnOnTimeMachineBtnOk.SetValuePrim
 
 function TkwEnTurnOnTimeMachineBtnOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -967,27 +902,29 @@ end;//TkwEnTurnOnTimeMachineBtnOk.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineBtnOk.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineBtnOk.ParamsTypes
 
 function TkwEnTurnOnTimeMachineBtnCancel.btnCancel(const aCtx: TtfwContext;
  aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine): TvtButton;
  {* Реализация слова скрипта .Ten_TurnOnTimeMachine.btnCancel }
-//#UC START# *9B55E9293AEE_FEC8921670AD_var*
-//#UC END# *9B55E9293AEE_FEC8921670AD_var*
 begin
-//#UC START# *9B55E9293AEE_FEC8921670AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9B55E9293AEE_FEC8921670AD_impl*
+ Result := aen_TurnOnTimeMachine.btnCancel;
 end;//TkwEnTurnOnTimeMachineBtnCancel.btnCancel
 
 procedure TkwEnTurnOnTimeMachineBtnCancel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FEC8921670AD_var*
-//#UC END# *4DAEEDE10285_FEC8921670AD_var*
+var l_aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine;
 begin
-//#UC START# *4DAEEDE10285_FEC8921670AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FEC8921670AD_impl*
+ try
+  l_aen_TurnOnTimeMachine := Ten_TurnOnTimeMachine(aCtx.rEngine.PopObjAs(Ten_TurnOnTimeMachine));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TurnOnTimeMachine: Ten_TurnOnTimeMachine : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnCancel(aCtx, l_aen_TurnOnTimeMachine));
 end;//TkwEnTurnOnTimeMachineBtnCancel.DoDoIt
 
 class function TkwEnTurnOnTimeMachineBtnCancel.GetWordNameForRegister: AnsiString;
@@ -997,12 +934,8 @@ end;//TkwEnTurnOnTimeMachineBtnCancel.GetWordNameForRegister
 
 procedure TkwEnTurnOnTimeMachineBtnCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FEC8921670AD_var*
-//#UC END# *52D00B00031A_FEC8921670AD_var*
 begin
-//#UC START# *52D00B00031A_FEC8921670AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FEC8921670AD_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству btnCancel', aCtx);
 end;//TkwEnTurnOnTimeMachineBtnCancel.SetValuePrim
 
 function TkwEnTurnOnTimeMachineBtnCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1017,7 +950,7 @@ end;//TkwEnTurnOnTimeMachineBtnCancel.GetAllParamsCount
 
 function TkwEnTurnOnTimeMachineBtnCancel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_TurnOnTimeMachine)]);
 end;//TkwEnTurnOnTimeMachineBtnCancel.ParamsTypes
 
 initialization

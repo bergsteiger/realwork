@@ -1,47 +1,34 @@
 unit ImageEnViewRegistrator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$ImageEn"
-// Модуль: "ImageEnViewRegistrator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$ImageEn::ImageEnView::TImageEnViewRegistrator
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ImageEnViewRegistrator.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
 uses
-  imageenview
-  ;
-{$IfEnd} //not NoImageEn AND not NoScripts
+ l3IntfUses
+ , imageenview
+;
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
 type
  TImageEnViewRegistrator = {abstract} class(TImageEnView)
  end;//TImageEnViewRegistrator
-{$IfEnd} //not NoImageEn AND not NoScripts
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 
 implementation
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
 uses
-  TtfwClassRef_Proxy
-  ;
-{$IfEnd} //not NoImageEn AND not NoScripts
-
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
-
-
-{$IfEnd} //not NoImageEn AND not NoScripts
+ l3ImplUses
+ , TtfwClassRef_Proxy
+;
 
 initialization
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
-// Регистрация TImageEnViewRegistrator
  TtfwClassRef.Register(TImageEnViewRegistrator);
-{$IfEnd} //not NoImageEn AND not NoScripts
+ {* Регистрация TImageEnViewRegistrator }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 
 end.

@@ -15,7 +15,7 @@ uses
 
 type
  _l3CriticalSectionHolderPrim_Parent_ = TRefcounted;
- {$Include l3CriticalSectionHolderPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas}
  Tl3SimpleMemoryManagerPrim = {abstract} class(_l3CriticalSectionHolderPrim_)
   protected
    procedure Release; override;
@@ -30,7 +30,7 @@ uses
  , SysUtils
 ;
 
-{$Include l3CriticalSectionHolderPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas}
 
 constructor Tl3SimpleMemoryManagerPrim.Create;
 //#UC START# *54B68024012F_54B67EB9023D_var*

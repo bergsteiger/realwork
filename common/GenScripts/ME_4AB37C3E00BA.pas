@@ -24,7 +24,7 @@ type
  _ItemType_ = Tm4WordID;
  _l3AtomicList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3AtomicList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
  Tm4WordIDStr = class(_l3AtomicList_)
   {* Элемент словаря. Список идентификаторов слов }
   private
@@ -53,7 +53,7 @@ uses
 
 type _Instance_R_ = Tm4WordIDStr;
 
-{$Include l3AtomicList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
 
 function Tm4WordIDStr.Compare(anOther: Tm4WordIDStr): Integer;
 //#UC START# *4AB3856602A8_4AB37C3E00BA_var*

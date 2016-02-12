@@ -19,7 +19,7 @@ uses
 
 type
  _kwCheckWithEtalonCommon_Parent_ = TkwCompiledWordWorker;
- {$Include kwCheckWithEtalonCommon.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}
  TkwCompiledCheckWithEtalon = class(_kwCheckWithEtalonCommon_)
   protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
@@ -36,7 +36,7 @@ uses
  , StrUtils
 ;
 
-{$Include kwCheckWithEtalonCommon.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}
 
 procedure TkwCompiledCheckWithEtalon.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_50F3D22D007B_var*

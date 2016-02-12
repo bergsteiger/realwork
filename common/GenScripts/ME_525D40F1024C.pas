@@ -23,7 +23,7 @@ type
  _ItemType_ = TddTextSegment;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddTextSegmentsList = class(_l3UncomparabeObjectRefList_)
   private
    f_HasHyperlink: Boolean;
@@ -89,7 +89,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddTextSegmentsList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 procedure TddTextSegmentsList.Cleanup;
  {* Функция очистки полей объекта. }

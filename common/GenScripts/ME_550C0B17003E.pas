@@ -22,7 +22,7 @@ type
  _ItemType_ = TChromeLikeBaseVisualObjectPrim;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TChromeLikeBaseVisualObjectList = class(_l3ObjectPtrList_)
  end;//TChromeLikeBaseVisualObjectList
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
@@ -40,7 +40,7 @@ uses
 
 type _Instance_R_ = TChromeLikeBaseVisualObjectList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

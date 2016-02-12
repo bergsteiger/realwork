@@ -14,7 +14,7 @@ uses
 type
  _NamedParameter_ = TatCommandLineParameter;
  _atNamedParametersList_Parent_ = TObject;
- {$Include atNamedParametersList.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParametersList.imp.pas}
  TatCommandLineParametersList = class(_atNamedParametersList_)
  end;//TatCommandLineParametersList
 
@@ -25,6 +25,6 @@ uses
  , Classes
 ;
 
-{$Include atNamedParametersList.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParametersList.imp.pas}
 
 end.

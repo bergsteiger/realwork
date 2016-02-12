@@ -17,7 +17,7 @@ uses
 type
  _FindDataType_ = Tl3WString;
  _l3Searcher_Parent_ = Tl3StringList1;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3StringList2 = class(_l3Searcher_)
  end;//Tl3StringList2
 
@@ -43,6 +43,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3StringList2;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

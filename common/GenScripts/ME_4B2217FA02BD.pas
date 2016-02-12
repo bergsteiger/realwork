@@ -26,7 +26,7 @@ uses
 
 type
  _IvcmRealData_ = IdMedicFirmDocument;
- {$Include dMedicFirmDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas}
  TdMedicFirmDocument = class(_dMedicFirmDocument_)
   public
    class function Make: IdMedicFirmDocument; reintroduce;
@@ -47,7 +47,7 @@ uses
 
 type _Instance_R_ = TdMedicFirmDocument;
 
-{$Include dMedicFirmDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas}
 
 class function TdMedicFirmDocument.Make: IdMedicFirmDocument;
 var

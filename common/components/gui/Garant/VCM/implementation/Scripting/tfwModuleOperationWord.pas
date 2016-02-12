@@ -1,68 +1,44 @@
 unit tfwModuleOperationWord;
+ {* Слово для выполнения операции модуля }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/tfwModuleOperationWord.pas"
-// Начат: 21.04.2011 20:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Scripting::Operations::TtfwModuleOperationWord
-//
-// Слово для выполнения операции модуля
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\tfwModuleOperationWord.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , tfwRegisterableWord
+ , vcmExternalInterfaces
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
  TtfwModuleOperationWord = {abstract} class(TtfwRegisterableWord)
   {* Слово для выполнения операции модуля }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class procedure RegisterInEngine; override;
- protected
- // protected methods
+  protected
    class function GetModuleOperationCode: TvcmMOPID; virtual;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class procedure RegisterInEngine; override;
  end;//TtfwModuleOperationWord
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmBase,
-  kwString,
-  vcmBaseOperationsCollectionItem,
-  vcmModulesCollectionItem,
-  l3Except,
-  vcmBaseMenuManager,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
-
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TtfwModuleOperationWord
+ l3ImplUses
+ , vcmBase
+ , kwString
+ , vcmBaseOperationsCollectionItem
+ , vcmModulesCollectionItem
+ , l3Except
+ , vcmBaseMenuManager
+ , SysUtils
+;
 
 class function TtfwModuleOperationWord.GetModuleOperationCode: TvcmMOPID;
 //#UC START# *4DB079E00084_4DB060930263_var*
@@ -117,12 +93,9 @@ begin
 //#UC END# *52A086150180_4DB060930263_impl*
 end;//TtfwModuleOperationWord.RegisterInEngine
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TtfwModuleOperationWord
  TtfwModuleOperationWord.RegisterClass;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TtfwModuleOperationWord }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

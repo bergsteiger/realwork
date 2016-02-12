@@ -1,65 +1,44 @@
 unit kwVcmHistoryGetForwardItem;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwVcmHistoryGetForwardItem.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi::VCM$Scripting::VCMWords::vcm_History_GetForwardItem
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmHistoryGetForwardItem.pas"
+// Стереотип: "ScriptKeyword"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
  _VCMWord_Parent_ = TtfwRegisterableWord;
- {$Include ..\Scripting\VCMWord.imp.pas}
- TkwVcmHistoryGetForwardItem = {final scriptword} class(_VCMWord_)
- protected
- // realized methods
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
+ TkwVcmHistoryGetForwardItem = {final} class(_VCMWord_)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwVcmHistoryGetForwardItem
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmForm
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  StdRes,
-  vcmBase,
-  afwAnswer
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3ImplUses
+ , vcmForm
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , StdRes
+ , vcmBase
+ , afwAnswer
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-{$Include ..\Scripting\VCMWord.imp.pas}
-
-// start class TkwVcmHistoryGetForwardItem
+{$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
 procedure TkwVcmHistoryGetForwardItem.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4FC4CF150163_var*
@@ -71,17 +50,13 @@ begin
 end;//TkwVcmHistoryGetForwardItem.DoDoIt
 
 class function TkwVcmHistoryGetForwardItem.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'vcm:History:GetForwardItem';
 end;//TkwVcmHistoryGetForwardItem.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация vcm_History_GetForwardItem
  TkwVcmHistoryGetForwardItem.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация vcm_History_GetForwardItem }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

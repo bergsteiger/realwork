@@ -18,7 +18,7 @@ uses
 type
  _StringType_ = Tl3LogFont;
  _l3DictionaryPrimPrim_Parent_ = Tl3FontManagerPrimPrim;
- {$Include l3DictionaryPrimPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrimPrim.imp.pas}
  Tl3FontManagerPrim = class(_l3DictionaryPrimPrim_)
  end;//Tl3FontManagerPrim
 
@@ -40,6 +40,6 @@ end;//ItemToWStr
 
 type _Instance_R_ = Tl3FontManagerPrim;
 
-{$Include l3DictionaryPrimPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrimPrim.imp.pas}
 
 end.

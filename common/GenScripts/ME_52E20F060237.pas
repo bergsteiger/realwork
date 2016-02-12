@@ -20,7 +20,7 @@ uses
 ;
 
 type
- {$Include kwControlFromStackWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwImageEnControl = {abstract} class(_kwControlFromStackWord_)
   protected
    procedure DoWithImageEn(aControl: TImageEnView;
@@ -43,7 +43,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include kwControlFromStackWord.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
 {$If NOT Defined(NoVCL)}
 procedure TkwImageEnControl.DoControl(aControl: TControl;

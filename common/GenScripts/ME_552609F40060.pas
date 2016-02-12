@@ -26,7 +26,7 @@ type
  _ItemType_ = Il3FormTabParams;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TChromeLikeFormTabParamsList = class(_l3InterfaceRefList_)
   private
    function FindFormTabParams(aForm: TForm): Il3FormTabParams;
@@ -152,7 +152,7 @@ end;//TChromeLikeFormTabParamsItem.Cleanup
 
 type _Instance_R_ = TChromeLikeFormTabParamsList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 procedure TChromeLikeFormTabParamsList.SetFormParams(aForm: TForm;
  const aParams: Il3TabParams);

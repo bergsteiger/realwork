@@ -24,7 +24,7 @@ type
  _ItemType_ = Il3ContextFilterParamsNotifier;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TIl3ContextFilterParamsNotifierPtrList = class(_l3InterfacePtrList_)
   {* —ÔËÒÓÍ ” ¿«¿“≈À≈… Ì‡ Il3ContextFilterParamsNotifier }
  end;//TIl3ContextFilterParamsNotifierPtrList
@@ -41,6 +41,6 @@ uses
 
 type _Instance_R_ = TIl3ContextFilterParamsNotifierPtrList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 end.

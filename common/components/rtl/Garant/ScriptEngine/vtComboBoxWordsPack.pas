@@ -1,109 +1,330 @@
 unit vtComboBoxWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VT"
-// Модуль: "vtComboBoxWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VT::vtComboBoxWords::vtComboBoxWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  tfwScriptingInterfaces,
-  vtComboTree,
-  tfwAxiomaticsResNameGetter,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtComboTree
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwAxiomaticsResNameGetters,
-  vtComboBoxQS,
-  l3TreeInterfaces,
-  l3Filer,
-  l3Types,
-  l3Interfaces,
-  SysUtils,
-  tfwScriptingTypes,
-  TypInfo,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwAxiomaticsResNameGetters
+ , vtComboBoxQS
+ , l3TreeInterfaces
+ , l3Filer
+ , l3Types
+ , l3Interfaces
+ , SysUtils
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+;
 
 type
-//#UC START# *D1FD416FEE23ci*
-//#UC END# *D1FD416FEE23ci*
-//#UC START# *D1FD416FEE23cit*
-//#UC END# *D1FD416FEE23cit*
+ //#UC START# *D1FD416FEE23ci*
+ //#UC END# *D1FD416FEE23ci*
+ //#UC START# *D1FD416FEE23cit*
+ //#UC END# *D1FD416FEE23cit*
  TvtComboBoxWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *D1FD416FEE23publ*
-//#UC END# *D1FD416FEE23publ*
+ //#UC START# *D1FD416FEE23publ*
+ //#UC END# *D1FD416FEE23publ*
  end;//TvtComboBoxWordsPackResNameGetter
 
-// start class TvtComboBoxWordsPackResNameGetter
-
-class function TvtComboBoxWordsPackResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'vtComboBoxWordsPack';
-end;//TvtComboBoxWordsPackResNameGetter.ResName
-
- {$R vtComboBoxWordsPack.res}
-
-type
  TCustomComboBoxFriend = {abstract} class(TCustomComboBox)
   {* Друг для TCustomComboBox }
  end;//TCustomComboBoxFriend
 
- TkwPopComboBoxDropDown = {final scriptword} class(TtfwClassLike)
+ TkwPopComboBoxDropDown = {final} class(TtfwClassLike)
   {* Слово скрипта pop:ComboBox:DropDown
 *Пример:*
 [code]
  aValue aComboBox pop:ComboBox:DropDown
 [code]  }
- private
- // private methods
+  private
    procedure DropDown(const aCtx: TtfwContext;
     aComboBox: TCustomComboBox;
     aValue: Boolean);
-     {* Реализация слова скрипта pop:ComboBox:DropDown }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:ComboBox:DropDown }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopComboBoxDropDown
 
-// start class TkwPopComboBoxDropDown
+ TkwPopComboBoxGetItemIndex = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboBox:GetItemIndex
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aComboBox pop:ComboBox:GetItemIndex >>> l_Integer
+[code]  }
+  private
+   function GetItemIndex(const aCtx: TtfwContext;
+    aComboBox: TCustomComboBox): Integer;
+    {* Реализация слова скрипта pop:ComboBox:GetItemIndex }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboBoxGetItemIndex
+
+ TkwPopComboBoxIndexOf = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboBox:IndexOf
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString aComboBox pop:ComboBox:IndexOf >>> l_Integer
+[code]  }
+  private
+   function IndexOf(const aCtx: TtfwContext;
+    aComboBox: TCustomComboBox;
+    const aString: AnsiString): Integer;
+    {* Реализация слова скрипта pop:ComboBox:IndexOf }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboBoxIndexOf
+
+ TkwPopComboBoxSelectItem = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboBox:SelectItem
+*Пример:*
+[code]
+ aString aComboBox pop:ComboBox:SelectItem
+[code]  }
+  private
+   procedure SelectItem(const aCtx: TtfwContext;
+    aComboBox: TCustomComboBox;
+    const aString: AnsiString);
+    {* Реализация слова скрипта pop:ComboBox:SelectItem }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboBoxSelectItem
+
+ TkwPopComboBoxSetItemIndex = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboBox:SetItemIndex
+*Пример:*
+[code]
+ anIndex aComboBox pop:ComboBox:SetItemIndex
+[code]  }
+  private
+   procedure SetItemIndex(const aCtx: TtfwContext;
+    aComboBox: TCustomComboBox;
+    anIndex: Integer);
+    {* Реализация слова скрипта pop:ComboBox:SetItemIndex }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboBoxSetItemIndex
+
+ TkwPopComboBoxSaveItems = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboBox:SaveItems
+[panel]*Формат:* имя_файла  контрол pop:ComboBox:SaveItems 
+*Описание:* Сохраняет все пункты выпадающего списка (задается параметром контрол) в файл (задается параметром имя_файла)  и сравнивает с эталоном.
+*Пример:*
+[code]
+'MyList.cmbx' 'StyleComboBox' byname:control:push pop:ComboBox:SaveItems
+[code] 
+*Результат:* Сохраняет содержимое комбобокса 'StyleComboBox' в  файл  'MyList.cmbx' и сравнивает с эталоном.[panel]
+*Пример:*
+[code]
+ aFileName aComboBox pop:ComboBox:SaveItems
+[code]  }
+  private
+   procedure SaveItems(const aCtx: TtfwContext;
+    aComboBox: TCustomComboBox;
+    const aFileName: AnsiString);
+    {* Реализация слова скрипта pop:ComboBox:SaveItems }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboBoxSaveItems
+
+ TkwPopComboTreeDropDown = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboTree:DropDown
+*Пример:*
+[code]
+ aValue aComboTree pop:ComboTree:DropDown
+[code]  }
+  private
+   procedure DropDown(const aCtx: TtfwContext;
+    aComboTree: TvtComboTree;
+    aValue: Boolean);
+    {* Реализация слова скрипта pop:ComboTree:DropDown }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboTreeDropDown
+
+ TkwPopComboTreeGetItemIndex = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboTree:GetItemIndex
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aComboTree pop:ComboTree:GetItemIndex >>> l_Integer
+[code]  }
+  private
+   function GetItemIndex(const aCtx: TtfwContext;
+    aComboTree: TvtComboTree): Integer;
+    {* Реализация слова скрипта pop:ComboTree:GetItemIndex }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboTreeGetItemIndex
+
+ TkwPopComboTreeIndexOf = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboTree:IndexOf
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aString aComboTree pop:ComboTree:IndexOf >>> l_Integer
+[code]  }
+  private
+   function IndexOf(const aCtx: TtfwContext;
+    aComboTree: TvtComboTree;
+    const aString: AnsiString): Integer;
+    {* Реализация слова скрипта pop:ComboTree:IndexOf }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboTreeIndexOf
+
+ TkwPopComboTreeSelectItem = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboTree:SelectItem
+*Пример:*
+[code]
+ aString aComboTree pop:ComboTree:SelectItem
+[code]  }
+  private
+   procedure SelectItem(const aCtx: TtfwContext;
+    aComboTree: TvtComboTree;
+    const aString: AnsiString);
+    {* Реализация слова скрипта pop:ComboTree:SelectItem }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboTreeSelectItem
+
+ TkwPopComboTreeSetItemIndex = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboTree:SetItemIndex
+*Пример:*
+[code]
+ anIndex aComboTree pop:ComboTree:SetItemIndex
+[code]  }
+  private
+   procedure SetItemIndex(const aCtx: TtfwContext;
+    aComboTree: TvtComboTree;
+    anIndex: Integer);
+    {* Реализация слова скрипта pop:ComboTree:SetItemIndex }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboTreeSetItemIndex
+
+ TkwPopComboTreeSaveItems = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:ComboTree:SaveItems
+[panel]*Формат:* имя_файла  контрол pop:ComboBox:SaveItems 
+*Описание:* Сохраняет все пункты выпадающего списка (задается параметром контрол) в файл (задается параметром имя_файла)  и сравнивает с эталоном.
+*Пример:*
+[code]
+'MyList.cmbx' 'StyleComboBox' byname:control:push pop:ComboBox:SaveItems
+[code] 
+*Результат:* Сохраняет содержимое комбобокса 'StyleComboBox' в  файл  'MyList.cmbx' и сравнивает с эталоном.[panel]
+*Пример:*
+[code]
+ aFileName aComboTree pop:ComboTree:SaveItems
+[code]  }
+  private
+   procedure SaveItems(const aCtx: TtfwContext;
+    aComboTree: TvtComboTree;
+    const aFileName: AnsiString);
+    {* Реализация слова скрипта pop:ComboTree:SaveItems }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopComboTreeSaveItems
+
+class function TvtComboBoxWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'vtComboBoxWordsPack';
+end;//TvtComboBoxWordsPackResNameGetter.ResName
+
+ {$R vtComboBoxWordsPack.res}
 
 procedure TkwPopComboBoxDropDown.DropDown(const aCtx: TtfwContext;
-  aComboBox: TCustomComboBox;
-  aValue: Boolean);
+ aComboBox: TCustomComboBox;
+ aValue: Boolean);
+ {* Реализация слова скрипта pop:ComboBox:DropDown }
 //#UC START# *D4660B294082_B7676CD1AAB3_var*
 //#UC END# *D4660B294082_B7676CD1AAB3_var*
 begin
@@ -113,10 +334,8 @@ begin
 end;//TkwPopComboBoxDropDown.DropDown
 
 procedure TkwPopComboBoxDropDown.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboBox : TCustomComboBox;
- l_aValue : Boolean;
+var l_aComboBox: TCustomComboBox;
+var l_aValue: Boolean;
 begin
  try
   l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
@@ -140,60 +359,28 @@ begin
 end;//TkwPopComboBoxDropDown.DoDoIt
 
 class function TkwPopComboBoxDropDown.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboBox:DropDown';
 end;//TkwPopComboBoxDropDown.GetWordNameForRegister
 
 function TkwPopComboBoxDropDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopComboBoxDropDown.GetResultTypeInfo
 
 function TkwPopComboBoxDropDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboBoxDropDown.GetAllParamsCount
 
 function TkwPopComboBoxDropDown.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(Boolean)]);
 end;//TkwPopComboBoxDropDown.ParamsTypes
 
-type
- TkwPopComboBoxGetItemIndex = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:GetItemIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aComboBox pop:ComboBox:GetItemIndex >>> l_Integer
-[code]  }
- private
- // private methods
-   function GetItemIndex(const aCtx: TtfwContext;
-    aComboBox: TCustomComboBox): Integer;
-     {* Реализация слова скрипта pop:ComboBox:GetItemIndex }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboBoxGetItemIndex
-
-// start class TkwPopComboBoxGetItemIndex
-
 function TkwPopComboBoxGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
-  aComboBox: TCustomComboBox): Integer;
+ aComboBox: TCustomComboBox): Integer;
+ {* Реализация слова скрипта pop:ComboBox:GetItemIndex }
 //#UC START# *0DE7BD329B92_731890DC5F90_var*
 //#UC END# *0DE7BD329B92_731890DC5F90_var*
 begin
@@ -203,9 +390,7 @@ begin
 end;//TkwPopComboBoxGetItemIndex.GetItemIndex
 
 procedure TkwPopComboBoxGetItemIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboBox : TCustomComboBox;
+var l_aComboBox: TCustomComboBox;
 begin
  try
   l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
@@ -216,66 +401,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((GetItemIndex(aCtx, l_aComboBox)));
+ aCtx.rEngine.PushInt(GetItemIndex(aCtx, l_aComboBox));
 end;//TkwPopComboBoxGetItemIndex.DoDoIt
 
 class function TkwPopComboBoxGetItemIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboBox:GetItemIndex';
 end;//TkwPopComboBoxGetItemIndex.GetWordNameForRegister
 
 function TkwPopComboBoxGetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopComboBoxGetItemIndex.GetResultTypeInfo
 
 function TkwPopComboBoxGetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopComboBoxGetItemIndex.GetAllParamsCount
 
 function TkwPopComboBoxGetItemIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox)]);
 end;//TkwPopComboBoxGetItemIndex.ParamsTypes
 
-type
- TkwPopComboBoxIndexOf = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:IndexOf
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString aComboBox pop:ComboBox:IndexOf >>> l_Integer
-[code]  }
- private
- // private methods
-   function IndexOf(const aCtx: TtfwContext;
-    aComboBox: TCustomComboBox;
-    const aString: AnsiString): Integer;
-     {* Реализация слова скрипта pop:ComboBox:IndexOf }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboBoxIndexOf
-
-// start class TkwPopComboBoxIndexOf
-
 function TkwPopComboBoxIndexOf.IndexOf(const aCtx: TtfwContext;
-  aComboBox: TCustomComboBox;
-  const aString: AnsiString): Integer;
+ aComboBox: TCustomComboBox;
+ const aString: AnsiString): Integer;
+ {* Реализация слова скрипта pop:ComboBox:IndexOf }
 //#UC START# *56A99D643C95_697C86093610_var*
 //#UC END# *56A99D643C95_697C86093610_var*
 begin
@@ -285,10 +437,8 @@ begin
 end;//TkwPopComboBoxIndexOf.IndexOf
 
 procedure TkwPopComboBoxIndexOf.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboBox : TCustomComboBox;
- l_aString : AnsiString;
+var l_aComboBox: TCustomComboBox;
+var l_aString: AnsiString;
 begin
  try
   l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
@@ -308,64 +458,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((IndexOf(aCtx, l_aComboBox, l_aString)));
+ aCtx.rEngine.PushInt(IndexOf(aCtx, l_aComboBox, l_aString));
 end;//TkwPopComboBoxIndexOf.DoDoIt
 
 class function TkwPopComboBoxIndexOf.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboBox:IndexOf';
 end;//TkwPopComboBoxIndexOf.GetWordNameForRegister
 
 function TkwPopComboBoxIndexOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopComboBoxIndexOf.GetResultTypeInfo
 
 function TkwPopComboBoxIndexOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboBoxIndexOf.GetAllParamsCount
 
 function TkwPopComboBoxIndexOf.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxIndexOf.ParamsTypes
 
-type
- TkwPopComboBoxSelectItem = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:SelectItem
-*Пример:*
-[code]
- aString aComboBox pop:ComboBox:SelectItem
-[code]  }
- private
- // private methods
-   procedure SelectItem(const aCtx: TtfwContext;
-    aComboBox: TCustomComboBox;
-    const aString: AnsiString);
-     {* Реализация слова скрипта pop:ComboBox:SelectItem }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboBoxSelectItem
-
-// start class TkwPopComboBoxSelectItem
-
 procedure TkwPopComboBoxSelectItem.SelectItem(const aCtx: TtfwContext;
-  aComboBox: TCustomComboBox;
-  const aString: AnsiString);
+ aComboBox: TCustomComboBox;
+ const aString: AnsiString);
+ {* Реализация слова скрипта pop:ComboBox:SelectItem }
 //#UC START# *BC0BF0E96B69_E94AE4FC3D32_var*
 //#UC END# *BC0BF0E96B69_E94AE4FC3D32_var*
 begin
@@ -375,10 +494,8 @@ begin
 end;//TkwPopComboBoxSelectItem.SelectItem
 
 procedure TkwPopComboBoxSelectItem.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboBox : TCustomComboBox;
- l_aString : AnsiString;
+var l_aComboBox: TCustomComboBox;
+var l_aString: AnsiString;
 begin
  try
   l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
@@ -402,60 +519,29 @@ begin
 end;//TkwPopComboBoxSelectItem.DoDoIt
 
 class function TkwPopComboBoxSelectItem.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboBox:SelectItem';
 end;//TkwPopComboBoxSelectItem.GetWordNameForRegister
 
 function TkwPopComboBoxSelectItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopComboBoxSelectItem.GetResultTypeInfo
 
 function TkwPopComboBoxSelectItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboBoxSelectItem.GetAllParamsCount
 
 function TkwPopComboBoxSelectItem.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxSelectItem.ParamsTypes
 
-type
- TkwPopComboBoxSetItemIndex = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:SetItemIndex
-*Пример:*
-[code]
- anIndex aComboBox pop:ComboBox:SetItemIndex
-[code]  }
- private
- // private methods
-   procedure SetItemIndex(const aCtx: TtfwContext;
-    aComboBox: TCustomComboBox;
-    anIndex: Integer);
-     {* Реализация слова скрипта pop:ComboBox:SetItemIndex }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboBoxSetItemIndex
-
-// start class TkwPopComboBoxSetItemIndex
-
 procedure TkwPopComboBoxSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
-  aComboBox: TCustomComboBox;
-  anIndex: Integer);
+ aComboBox: TCustomComboBox;
+ anIndex: Integer);
+ {* Реализация слова скрипта pop:ComboBox:SetItemIndex }
 //#UC START# *589DC0B1C0D3_DF10F6F55A61_var*
 //#UC END# *589DC0B1C0D3_DF10F6F55A61_var*
 begin
@@ -466,10 +552,8 @@ begin
 end;//TkwPopComboBoxSetItemIndex.SetItemIndex
 
 procedure TkwPopComboBoxSetItemIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboBox : TCustomComboBox;
- l_anIndex : Integer;
+var l_aComboBox: TCustomComboBox;
+var l_anIndex: Integer;
 begin
  try
   l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
@@ -493,67 +577,29 @@ begin
 end;//TkwPopComboBoxSetItemIndex.DoDoIt
 
 class function TkwPopComboBoxSetItemIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboBox:SetItemIndex';
 end;//TkwPopComboBoxSetItemIndex.GetWordNameForRegister
 
 function TkwPopComboBoxSetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopComboBoxSetItemIndex.GetResultTypeInfo
 
 function TkwPopComboBoxSetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboBoxSetItemIndex.GetAllParamsCount
 
 function TkwPopComboBoxSetItemIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(Integer)]);
 end;//TkwPopComboBoxSetItemIndex.ParamsTypes
 
-type
- TkwPopComboBoxSaveItems = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboBox:SaveItems
-[panel]*Формат:* имя_файла  контрол pop:ComboBox:SaveItems 
-*Описание:* Сохраняет все пункты выпадающего списка (задается параметром контрол) в файл (задается параметром имя_файла)  и сравнивает с эталоном.
-*Пример:*
-[code]
-'MyList.cmbx' 'StyleComboBox' byname:control:push pop:ComboBox:SaveItems
-[code] 
-*Результат:* Сохраняет содержимое комбобокса 'StyleComboBox' в  файл  'MyList.cmbx' и сравнивает с эталоном.[panel]
-*Пример:*
-[code]
- aFileName aComboBox pop:ComboBox:SaveItems
-[code]  }
- private
- // private methods
-   procedure SaveItems(const aCtx: TtfwContext;
-    aComboBox: TCustomComboBox;
-    const aFileName: AnsiString);
-     {* Реализация слова скрипта pop:ComboBox:SaveItems }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboBoxSaveItems
-
-// start class TkwPopComboBoxSaveItems
-
 procedure TkwPopComboBoxSaveItems.SaveItems(const aCtx: TtfwContext;
-  aComboBox: TCustomComboBox;
-  const aFileName: AnsiString);
+ aComboBox: TCustomComboBox;
+ const aFileName: AnsiString);
+ {* Реализация слова скрипта pop:ComboBox:SaveItems }
 //#UC START# *414096239FD4_F4F78563FAA5_var*
 var
  l_S: AnsiString;
@@ -582,10 +628,8 @@ begin
 end;//TkwPopComboBoxSaveItems.SaveItems
 
 procedure TkwPopComboBoxSaveItems.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboBox : TCustomComboBox;
- l_aFileName : AnsiString;
+var l_aComboBox: TCustomComboBox;
+var l_aFileName: AnsiString;
 begin
  try
   l_aComboBox := TCustomComboBox(aCtx.rEngine.PopObjAs(TCustomComboBox));
@@ -609,60 +653,29 @@ begin
 end;//TkwPopComboBoxSaveItems.DoDoIt
 
 class function TkwPopComboBoxSaveItems.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboBox:SaveItems';
 end;//TkwPopComboBoxSaveItems.GetWordNameForRegister
 
 function TkwPopComboBoxSaveItems.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopComboBoxSaveItems.GetResultTypeInfo
 
 function TkwPopComboBoxSaveItems.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboBoxSaveItems.GetAllParamsCount
 
 function TkwPopComboBoxSaveItems.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TCustomComboBox), @tfw_tiString]);
 end;//TkwPopComboBoxSaveItems.ParamsTypes
 
-type
- TkwPopComboTreeDropDown = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:DropDown
-*Пример:*
-[code]
- aValue aComboTree pop:ComboTree:DropDown
-[code]  }
- private
- // private methods
-   procedure DropDown(const aCtx: TtfwContext;
-    aComboTree: TvtComboTree;
-    aValue: Boolean);
-     {* Реализация слова скрипта pop:ComboTree:DropDown }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboTreeDropDown
-
-// start class TkwPopComboTreeDropDown
-
 procedure TkwPopComboTreeDropDown.DropDown(const aCtx: TtfwContext;
-  aComboTree: TvtComboTree;
-  aValue: Boolean);
+ aComboTree: TvtComboTree;
+ aValue: Boolean);
+ {* Реализация слова скрипта pop:ComboTree:DropDown }
 //#UC START# *BB9DD9C656EE_CBB40EABEDB6_var*
 //#UC END# *BB9DD9C656EE_CBB40EABEDB6_var*
 begin
@@ -672,10 +685,8 @@ begin
 end;//TkwPopComboTreeDropDown.DropDown
 
 procedure TkwPopComboTreeDropDown.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboTree : TvtComboTree;
- l_aValue : Boolean;
+var l_aComboTree: TvtComboTree;
+var l_aValue: Boolean;
 begin
  try
   l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
@@ -699,60 +710,28 @@ begin
 end;//TkwPopComboTreeDropDown.DoDoIt
 
 class function TkwPopComboTreeDropDown.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboTree:DropDown';
 end;//TkwPopComboTreeDropDown.GetWordNameForRegister
 
 function TkwPopComboTreeDropDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopComboTreeDropDown.GetResultTypeInfo
 
 function TkwPopComboTreeDropDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboTreeDropDown.GetAllParamsCount
 
 function TkwPopComboTreeDropDown.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(Boolean)]);
 end;//TkwPopComboTreeDropDown.ParamsTypes
 
-type
- TkwPopComboTreeGetItemIndex = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:GetItemIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aComboTree pop:ComboTree:GetItemIndex >>> l_Integer
-[code]  }
- private
- // private methods
-   function GetItemIndex(const aCtx: TtfwContext;
-    aComboTree: TvtComboTree): Integer;
-     {* Реализация слова скрипта pop:ComboTree:GetItemIndex }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboTreeGetItemIndex
-
-// start class TkwPopComboTreeGetItemIndex
-
 function TkwPopComboTreeGetItemIndex.GetItemIndex(const aCtx: TtfwContext;
-  aComboTree: TvtComboTree): Integer;
+ aComboTree: TvtComboTree): Integer;
+ {* Реализация слова скрипта pop:ComboTree:GetItemIndex }
 //#UC START# *1C4FCF6402FE_FDB2008A1DAA_var*
 //#UC END# *1C4FCF6402FE_FDB2008A1DAA_var*
 begin
@@ -765,9 +744,7 @@ begin
 end;//TkwPopComboTreeGetItemIndex.GetItemIndex
 
 procedure TkwPopComboTreeGetItemIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboTree : TvtComboTree;
+var l_aComboTree: TvtComboTree;
 begin
  try
   l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
@@ -778,66 +755,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((GetItemIndex(aCtx, l_aComboTree)));
+ aCtx.rEngine.PushInt(GetItemIndex(aCtx, l_aComboTree));
 end;//TkwPopComboTreeGetItemIndex.DoDoIt
 
 class function TkwPopComboTreeGetItemIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboTree:GetItemIndex';
 end;//TkwPopComboTreeGetItemIndex.GetWordNameForRegister
 
 function TkwPopComboTreeGetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopComboTreeGetItemIndex.GetResultTypeInfo
 
 function TkwPopComboTreeGetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopComboTreeGetItemIndex.GetAllParamsCount
 
 function TkwPopComboTreeGetItemIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree)]);
 end;//TkwPopComboTreeGetItemIndex.ParamsTypes
 
-type
- TkwPopComboTreeIndexOf = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:IndexOf
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aString aComboTree pop:ComboTree:IndexOf >>> l_Integer
-[code]  }
- private
- // private methods
-   function IndexOf(const aCtx: TtfwContext;
-    aComboTree: TvtComboTree;
-    const aString: AnsiString): Integer;
-     {* Реализация слова скрипта pop:ComboTree:IndexOf }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboTreeIndexOf
-
-// start class TkwPopComboTreeIndexOf
-
 function TkwPopComboTreeIndexOf.IndexOf(const aCtx: TtfwContext;
-  aComboTree: TvtComboTree;
-  const aString: AnsiString): Integer;
+ aComboTree: TvtComboTree;
+ const aString: AnsiString): Integer;
+ {* Реализация слова скрипта pop:ComboTree:IndexOf }
 //#UC START# *6E676C6B7B53_C0C842FB1A8C_var*
 //#UC END# *6E676C6B7B53_C0C842FB1A8C_var*
 begin
@@ -847,10 +791,8 @@ begin
 end;//TkwPopComboTreeIndexOf.IndexOf
 
 procedure TkwPopComboTreeIndexOf.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboTree : TvtComboTree;
- l_aString : AnsiString;
+var l_aComboTree: TvtComboTree;
+var l_aString: AnsiString;
 begin
  try
   l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
@@ -870,64 +812,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((IndexOf(aCtx, l_aComboTree, l_aString)));
+ aCtx.rEngine.PushInt(IndexOf(aCtx, l_aComboTree, l_aString));
 end;//TkwPopComboTreeIndexOf.DoDoIt
 
 class function TkwPopComboTreeIndexOf.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboTree:IndexOf';
 end;//TkwPopComboTreeIndexOf.GetWordNameForRegister
 
 function TkwPopComboTreeIndexOf.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopComboTreeIndexOf.GetResultTypeInfo
 
 function TkwPopComboTreeIndexOf.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboTreeIndexOf.GetAllParamsCount
 
 function TkwPopComboTreeIndexOf.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeIndexOf.ParamsTypes
 
-type
- TkwPopComboTreeSelectItem = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:SelectItem
-*Пример:*
-[code]
- aString aComboTree pop:ComboTree:SelectItem
-[code]  }
- private
- // private methods
-   procedure SelectItem(const aCtx: TtfwContext;
-    aComboTree: TvtComboTree;
-    const aString: AnsiString);
-     {* Реализация слова скрипта pop:ComboTree:SelectItem }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboTreeSelectItem
-
-// start class TkwPopComboTreeSelectItem
-
 procedure TkwPopComboTreeSelectItem.SelectItem(const aCtx: TtfwContext;
-  aComboTree: TvtComboTree;
-  const aString: AnsiString);
+ aComboTree: TvtComboTree;
+ const aString: AnsiString);
+ {* Реализация слова скрипта pop:ComboTree:SelectItem }
 //#UC START# *8E1C1B564723_B5A21C7BEE37_var*
 //#UC END# *8E1C1B564723_B5A21C7BEE37_var*
 begin
@@ -937,10 +848,8 @@ begin
 end;//TkwPopComboTreeSelectItem.SelectItem
 
 procedure TkwPopComboTreeSelectItem.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboTree : TvtComboTree;
- l_aString : AnsiString;
+var l_aComboTree: TvtComboTree;
+var l_aString: AnsiString;
 begin
  try
   l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
@@ -964,60 +873,29 @@ begin
 end;//TkwPopComboTreeSelectItem.DoDoIt
 
 class function TkwPopComboTreeSelectItem.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboTree:SelectItem';
 end;//TkwPopComboTreeSelectItem.GetWordNameForRegister
 
 function TkwPopComboTreeSelectItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopComboTreeSelectItem.GetResultTypeInfo
 
 function TkwPopComboTreeSelectItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboTreeSelectItem.GetAllParamsCount
 
 function TkwPopComboTreeSelectItem.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeSelectItem.ParamsTypes
 
-type
- TkwPopComboTreeSetItemIndex = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:SetItemIndex
-*Пример:*
-[code]
- anIndex aComboTree pop:ComboTree:SetItemIndex
-[code]  }
- private
- // private methods
-   procedure SetItemIndex(const aCtx: TtfwContext;
-    aComboTree: TvtComboTree;
-    anIndex: Integer);
-     {* Реализация слова скрипта pop:ComboTree:SetItemIndex }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboTreeSetItemIndex
-
-// start class TkwPopComboTreeSetItemIndex
-
 procedure TkwPopComboTreeSetItemIndex.SetItemIndex(const aCtx: TtfwContext;
-  aComboTree: TvtComboTree;
-  anIndex: Integer);
+ aComboTree: TvtComboTree;
+ anIndex: Integer);
+ {* Реализация слова скрипта pop:ComboTree:SetItemIndex }
 //#UC START# *6A72CBA7686D_8C448529271A_var*
 var
  l_Node: Il3SimpleNode;
@@ -1036,10 +914,8 @@ begin
 end;//TkwPopComboTreeSetItemIndex.SetItemIndex
 
 procedure TkwPopComboTreeSetItemIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboTree : TvtComboTree;
- l_anIndex : Integer;
+var l_aComboTree: TvtComboTree;
+var l_anIndex: Integer;
 begin
  try
   l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
@@ -1063,67 +939,29 @@ begin
 end;//TkwPopComboTreeSetItemIndex.DoDoIt
 
 class function TkwPopComboTreeSetItemIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboTree:SetItemIndex';
 end;//TkwPopComboTreeSetItemIndex.GetWordNameForRegister
 
 function TkwPopComboTreeSetItemIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopComboTreeSetItemIndex.GetResultTypeInfo
 
 function TkwPopComboTreeSetItemIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboTreeSetItemIndex.GetAllParamsCount
 
 function TkwPopComboTreeSetItemIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(Integer)]);
 end;//TkwPopComboTreeSetItemIndex.ParamsTypes
 
-type
- TkwPopComboTreeSaveItems = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:ComboTree:SaveItems
-[panel]*Формат:* имя_файла  контрол pop:ComboBox:SaveItems 
-*Описание:* Сохраняет все пункты выпадающего списка (задается параметром контрол) в файл (задается параметром имя_файла)  и сравнивает с эталоном.
-*Пример:*
-[code]
-'MyList.cmbx' 'StyleComboBox' byname:control:push pop:ComboBox:SaveItems
-[code] 
-*Результат:* Сохраняет содержимое комбобокса 'StyleComboBox' в  файл  'MyList.cmbx' и сравнивает с эталоном.[panel]
-*Пример:*
-[code]
- aFileName aComboTree pop:ComboTree:SaveItems
-[code]  }
- private
- // private methods
-   procedure SaveItems(const aCtx: TtfwContext;
-    aComboTree: TvtComboTree;
-    const aFileName: AnsiString);
-     {* Реализация слова скрипта pop:ComboTree:SaveItems }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopComboTreeSaveItems
-
-// start class TkwPopComboTreeSaveItems
-
 procedure TkwPopComboTreeSaveItems.SaveItems(const aCtx: TtfwContext;
-  aComboTree: TvtComboTree;
-  const aFileName: AnsiString);
+ aComboTree: TvtComboTree;
+ const aFileName: AnsiString);
+ {* Реализация слова скрипта pop:ComboTree:SaveItems }
 //#UC START# *1F4D33D465E4_957FA5E0E3AB_var*
 var
  l_S: AnsiString;
@@ -1148,10 +986,8 @@ begin
 end;//TkwPopComboTreeSaveItems.SaveItems
 
 procedure TkwPopComboTreeSaveItems.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aComboTree : TvtComboTree;
- l_aFileName : AnsiString;
+var l_aComboTree: TvtComboTree;
+var l_aFileName: AnsiString;
 begin
  try
   l_aComboTree := TvtComboTree(aCtx.rEngine.PopObjAs(TvtComboTree));
@@ -1175,106 +1011,64 @@ begin
 end;//TkwPopComboTreeSaveItems.DoDoIt
 
 class function TkwPopComboTreeSaveItems.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:ComboTree:SaveItems';
 end;//TkwPopComboTreeSaveItems.GetWordNameForRegister
 
 function TkwPopComboTreeSaveItems.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopComboTreeSaveItems.GetResultTypeInfo
 
 function TkwPopComboTreeSaveItems.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopComboTreeSaveItems.GetAllParamsCount
 
 function TkwPopComboTreeSaveItems.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TvtComboTree), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TvtComboTree), @tfw_tiString]);
 end;//TkwPopComboTreeSaveItems.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TvtComboBoxWordsPackResNameGetter.Register;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboBox_DropDown
+ {* Регистрация скриптованой аксиоматики }
  TkwPopComboBoxDropDown.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboBox_GetItemIndex
+ {* Регистрация pop_ComboBox_DropDown }
  TkwPopComboBoxGetItemIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboBox_IndexOf
+ {* Регистрация pop_ComboBox_GetItemIndex }
  TkwPopComboBoxIndexOf.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboBox_SelectItem
+ {* Регистрация pop_ComboBox_IndexOf }
  TkwPopComboBoxSelectItem.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboBox_SetItemIndex
+ {* Регистрация pop_ComboBox_SelectItem }
  TkwPopComboBoxSetItemIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboBox_SaveItems
+ {* Регистрация pop_ComboBox_SetItemIndex }
  TkwPopComboBoxSaveItems.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboTree_DropDown
+ {* Регистрация pop_ComboBox_SaveItems }
  TkwPopComboTreeDropDown.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboTree_GetItemIndex
+ {* Регистрация pop_ComboTree_DropDown }
  TkwPopComboTreeGetItemIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboTree_IndexOf
+ {* Регистрация pop_ComboTree_GetItemIndex }
  TkwPopComboTreeIndexOf.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboTree_SelectItem
+ {* Регистрация pop_ComboTree_IndexOf }
  TkwPopComboTreeSelectItem.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboTree_SetItemIndex
+ {* Регистрация pop_ComboTree_SelectItem }
  TkwPopComboTreeSetItemIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_ComboTree_SaveItems
+ {* Регистрация pop_ComboTree_SetItemIndex }
  TkwPopComboTreeSaveItems.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_ComboTree_SaveItems }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TCustomComboBox
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomComboBox));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа TCustomComboBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TvtComboTree
+ {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtComboTree));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TvtComboTree }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

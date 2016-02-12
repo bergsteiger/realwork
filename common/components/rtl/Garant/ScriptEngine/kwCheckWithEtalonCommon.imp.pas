@@ -1,50 +1,42 @@
 {$IfNDef kwCheckWithEtalonCommon_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwCheckWithEtalonCommon.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::kwCheckWithEtalonCommon
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define kwCheckWithEtalonCommon_imp}
-{$If not defined(NoScripts)}
+
+{$If NOT Defined(NoScripts)}
  _DrawOutputSupport_Parent_ = _kwCheckWithEtalonCommon_Parent_;
- {$Include ..\ScriptEngine\DrawOutputSupport.imp.pas}
- _kwCheckWithEtalonCommon_ = {mixin} class(_DrawOutputSupport_)
- private
- // private fields
-   f_ScriptCaller : ItfwScriptCaller;
-   f_OutputFileName : AnsiString;
- protected
- // realized methods
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
+ _kwCheckWithEtalonCommon_ = class(_DrawOutputSupport_)
+  private
+   f_ScriptCaller: ItfwScriptCaller;
+   f_OutputFileName: AnsiString;
+  protected
+   procedure ExecuteWithEditor(const aCtx: TtfwContext;
+    anEditor: TevCustomEditorWindow);
    function DoOpenLog(const aView: InevView): AnsiString; override;
    procedure DoCloseLog(const aLogName: AnsiString); override;
- protected
- // protected methods
-   procedure ExecuteWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow);
  end;//_kwCheckWithEtalonCommon_
-{$Else}
 
- _DrawOutputSupport_Parent_ = _kwCheckWithEtalonCommon_Parent_;
- {$Include ..\ScriptEngine\DrawOutputSupport.imp.pas}
- _kwCheckWithEtalonCommon_ = _DrawOutputSupport_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_DrawOutputSupport_Parent_ = _kwCheckWithEtalonCommon_Parent_;
+{$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
+_kwCheckWithEtalonCommon_ = _DrawOutputSupport_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else kwCheckWithEtalonCommon_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef kwCheckWithEtalonCommon_imp_impl}
 
-{$Include ..\ScriptEngine\DrawOutputSupport.imp.pas}
+{$Define kwCheckWithEtalonCommon_imp_impl}
 
-// start class _kwCheckWithEtalonCommon_
+{$If NOT Defined(NoScripts)}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
 
 procedure _kwCheckWithEtalonCommon_.ExecuteWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *50F3D8DF034F_50D456F10356_var*
 //#UC END# *50F3D8DF034F_50D456F10356_var*
 begin
@@ -79,7 +71,9 @@ begin
  f_ScriptCaller.CheckWithEtalon(aLogName, #0);
 //#UC END# *4E1C0C8C0007_50D456F10356_impl*
 end;//_kwCheckWithEtalonCommon_.DoCloseLog
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf kwCheckWithEtalonCommon_imp_impl}
 
 {$EndIf kwCheckWithEtalonCommon_imp}
+

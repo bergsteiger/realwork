@@ -21,7 +21,7 @@ uses
 
 type
  _VCMWord_Parent_ = TtfwRegisterableWord;
- {$Include VCMWord.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwObjectCreate = class(_VCMWord_)
   {* Поддержка автоматического создания формы-обвязки для тестов.
 *Формат:* aClass .Create
@@ -52,7 +52,7 @@ uses
  , afwAnswer
 ;
 
-{$Include VCMWord.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
 procedure TkwObjectCreate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E29311F0055_var*

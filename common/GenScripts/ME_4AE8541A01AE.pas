@@ -36,7 +36,7 @@ type
  //#UC START# *50253C0401F1ci*
  //#UC END# *50253C0401F1ci*
  _l3Unknown_Parent_ = TCustomLabel;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *50253C0401F1cit*
  //#UC END# *50253C0401F1cit*
  TvtCustomLabelPrim = class(_l3Unknown_)
@@ -201,7 +201,7 @@ type
  THackLink = class(TControlActionLink)
  end;//THackLink
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 //#UC START# *50253C0401F1impl*
 type

@@ -12,7 +12,7 @@ uses
 
 type
  _EnumType_ = TQueryLogicOperation;
- {$Include atEnumConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatQueryLogicOperationConverter = class(_atEnumConverter_)
   public
    class function Exists: Boolean;
@@ -39,7 +39,7 @@ begin
  l3Free(g_TatQueryLogicOperationConverter);
 end;//TatQueryLogicOperationConverterFree
 
-{$Include atEnumConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
 class function TatQueryLogicOperationConverter.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

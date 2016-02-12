@@ -24,7 +24,7 @@ uses
 
 type
  _MouseClickSupport_Parent_ = TTextEditorVisitor;
- {$Include MouseClickSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickSupport.imp.pas}
  TShowBaseSearchTest = {abstract} class(_MouseClickSupport_)
   {* Тест показа базового поиска }
   private
@@ -71,7 +71,7 @@ uses
  , l3Base
 ;
 
-{$Include MouseClickSupport.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickSupport.imp.pas}
 
 procedure TShowBaseSearchTest.ShowBaseSearch(aForm: TPrimTextLoadForm);
 //#UC START# *4D6CBCE7034B_4D6CBA680035_var*

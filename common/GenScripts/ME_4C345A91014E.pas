@@ -23,9 +23,9 @@ uses
 
 type
  _CursorMover_Parent_ = TTableToolsTestPrim;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  _SelectTablePart_Parent_ = _CursorMover_;
- {$Include SelectTablePart.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TTableToolsTest = {abstract} class(_SelectTablePart_)
   {* “есты инструментов работы с таблицами }
   protected
@@ -65,9 +65,9 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-{$Include SelectTablePart.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TTableToolsTest.CheckOperation(aForm: TPrimTextLoadForm);

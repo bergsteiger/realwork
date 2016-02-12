@@ -14,7 +14,7 @@ uses
 
 type
  _CellFormatInfoCommon_Parent_ = TnevListFormatInfo;
- {$Include CellFormatInfoCommon.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}
  TnevSBSCellFormatInfo = class(_CellFormatInfoCommon_)
   public
    function VerticalAlignmentMargin: Integer; override;
@@ -30,7 +30,7 @@ uses
  , k2Tags
 ;
 
-{$Include CellFormatInfoCommon.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}
 
 function TnevSBSCellFormatInfo.VerticalAlignmentMargin: Integer;
  {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }

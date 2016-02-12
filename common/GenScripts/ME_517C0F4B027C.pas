@@ -6,7 +6,7 @@
 {$Define RoundedControl_imp}
 
  _RegionableControl_Parent_ = _RoundedControl_Parent_;
- {$Include RegionableControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
  _RoundedControl_ = class(_RegionableControl_)
   protected
    procedure TuneRegion(aRegion: Tl3Region); override;
@@ -18,7 +18,7 @@
 
 {$Define RoundedControl_imp_impl}
 
-{$Include RegionableControl.imp.pas}
+{$Include w:\common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas}
 
 procedure _RoundedControl_.TuneRegion(aRegion: Tl3Region);
 //#UC START# *4CC847800383_517C0F4B027C_var*

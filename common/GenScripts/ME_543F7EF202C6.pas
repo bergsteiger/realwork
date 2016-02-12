@@ -18,7 +18,7 @@ uses
 
 type
  _l3CriticalSectionHolder_Parent_ = Tl3CProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  Tm3RootStreamManagerPrimPrim = {abstract} class(_l3CriticalSectionHolder_)
   private
    f_Logger: Tl3Logger;
@@ -73,7 +73,7 @@ uses
  , l3Base
 ;
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 constructor Tm3RootStreamManagerPrimPrim.Create(aLogger: Tl3Logger);
 //#UC START# *543F9D22008D_543F7EF202C6_var*

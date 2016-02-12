@@ -16,7 +16,7 @@ uses
 
 type
  _vtUnicodeButtonControl_Parent_ = TRadioButton;
- {$Include vtUnicodeButtonControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
  TvtRadioButton = class(_vtUnicodeButtonControl_)
  end;//TvtRadioButton
 
@@ -29,7 +29,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-{$Include vtUnicodeButtonControl.imp.pas}
+{$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
 
 initialization
 {$If NOT Defined(NoScripts)}

@@ -22,7 +22,7 @@ uses
 
 type
  _AACSpaceDrawing_Parent_ = TevParaListPainter;
- {$Include AACSpaceDrawing.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
  TevDocumentPartPainter = class(_AACSpaceDrawing_)
   {* Реализация интерфейса IevPainter для блока параграфов }
   private
@@ -94,7 +94,7 @@ const
  cDeltaText = cPlusSize + cPlusFrameWidth;
   {* Смещение текста после него (иначе получается некрасиво). }
 
-{$Include AACSpaceDrawing.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas}
 
 procedure TevDocumentPartPainter.CorrectFrameBounds;
 //#UC START# *4EB92D5A0249_49DB1B70013F_var*

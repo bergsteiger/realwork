@@ -39,7 +39,7 @@ uses
 
 type
  _EnumType_ = OpType;
- {$Include atEnumConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatOpTypeConverter = class(_atEnumConverter_)
   public
    class function Exists: Boolean;
@@ -57,7 +57,7 @@ begin
  l3Free(g_TatOpTypeConverter);
 end;//TatOpTypeConverterFree
 
-{$Include atEnumConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
 class function TatOpTypeConverter.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

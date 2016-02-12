@@ -1,35 +1,27 @@
 unit kwPopEditorResizeTableColumn;
+ {* Изменить размер колонки таблицы. Пример:
+[code]   aDelta aCol aRow editor:ResizeTableColumn [code]
+[panel]
+ * aCol - номер ячейки, которую тянем
+ * aRow - номер строки
+ * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).
+[panel] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorResizeTableColumn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_ResizeTableColumn
-//
-// Изменить размер колонки таблицы. Пример:
-// {code}   aDelta aCol aRow editor:ResizeTableColumn {code}
-// {panel}
-// * aCol - номер ячейки, которую тянем
-// * aRow - номер строки
-// * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).
-// {panel}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumn.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackTableColumnResize
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackTableColumnResize
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorResizeTableColumn = {scriptword} class(TkwEditorFromStackTableColumnResize)
+ TkwPopEditorResizeTableColumn = class(TkwEditorFromStackTableColumnResize)
   {* Изменить размер колонки таблицы. Пример:
 [code]   aDelta aCol aRow editor:ResizeTableColumn [code]
 [panel]
@@ -37,38 +29,36 @@ type
  * aRow - номер строки
  * aDelta - смещение колонки (положительное - вправо, отрицательное - влево).
 [panel] }
- protected
- // overridden protected methods
+  protected
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorResizeTableColumn
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorResizeTableColumn
+ l3ImplUses
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 class function TkwPopEditorResizeTableColumn.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:ResizeTableColumn';
 end;//TkwPopEditorResizeTableColumn.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_ResizeTableColumn
  TkwPopEditorResizeTableColumn.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_ResizeTableColumn }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

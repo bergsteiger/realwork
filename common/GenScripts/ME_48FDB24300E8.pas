@@ -6,7 +6,7 @@
 {$Define nsNodeNotifier_imp}
 
  _nsNodeNotifierImplementation_Parent_ = _nsNodeNotifier_Parent_;
- {$Include nsNodeNotifierImplementation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierImplementation.imp.pas}
  _nsNodeNotifier_ = class(_nsNodeNotifierImplementation_)
   protected
    procedure Changing;
@@ -19,7 +19,7 @@
 
 {$Define nsNodeNotifier_imp_impl}
 
-{$Include nsNodeNotifierImplementation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierImplementation.imp.pas}
 
 procedure _nsNodeNotifier_.Changing;
 //#UC START# *48FDB28502C3_48FDB24300E8_var*

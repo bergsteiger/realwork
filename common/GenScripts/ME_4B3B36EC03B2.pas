@@ -52,7 +52,7 @@ type
  _ItemType_ = Pl3StringIDEx;
  _l3AtomicListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3AtomicListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
  Tl3ConstStringsPrim = class(_l3AtomicListPrim_)
   protected
    procedure InitFields; override;
@@ -194,7 +194,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ConstStringsPrim;
 
-{$Include l3AtomicListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
 
 procedure Tl3ConstStringsPrim.InitFields;
 //#UC START# *47A042E100E2_4BA223D801B3_var*

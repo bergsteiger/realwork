@@ -6,7 +6,7 @@
 {$Define evdTagHolder_imp}
 
  _k2TaggedDataHolder_Parent_ = _evdTagHolder_Parent_;
- {$Include k2TaggedDataHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TaggedDataHolder.imp.pas}
  _evdTagHolder_ = class(_k2TaggedDataHolder_)
   protected
    function NeedSendRawDataAsBinary: Boolean; virtual;
@@ -23,7 +23,7 @@
 
 {$Define evdTagHolder_imp_impl}
 
-{$Include k2TaggedDataHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TaggedDataHolder.imp.pas}
 
 procedure _evdTagHolder_.SaveToEVD(aStream: TStream;
  const aFilter: Ik2TagGenerator);

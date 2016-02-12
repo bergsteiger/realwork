@@ -20,9 +20,9 @@ uses
 
 type
  _ClipboardOperations_Parent_ = TTextMetricsTest;
- {$Include ClipboardOperations.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
  _SelectOperation_Parent_ = _ClipboardOperations_;
- {$Include SelectOperation.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
  TTextMetricsAfterCopyPasteTest = {abstract} class(_SelectOperation_)
   {* ѕроверка метрик после вставки-копировани€ текста. }
   protected
@@ -56,9 +56,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include ClipboardOperations.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
-{$Include SelectOperation.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TTextMetricsAfterCopyPasteTest.Process(aForm: TPrimTextLoadForm);

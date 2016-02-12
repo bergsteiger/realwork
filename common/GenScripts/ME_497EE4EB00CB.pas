@@ -50,11 +50,11 @@ uses
 
 type
  _CommonForTextAndFlashAndMedicFirmList_Parent_ = TvcmEntityForm;
- {$Include CommonForTextAndFlashAndMedicFirmList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
  _BaseDocument_Parent_ = _CommonForTextAndFlashAndMedicFirmList_;
- {$Include BaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _BaseDocument_;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimMedicFirmListForm = class(_vcmChromeLikeTabIconUpdater_)
   {* Список фирм-производителей }
   private
@@ -219,13 +219,13 @@ const
  str_mflMainCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'mflMainCaption'; rValue : 'Фармацевтические фирмы (полный список)');
   {* Заголовок пользовательского типа "Фармацевтические фирмы (полный список)" }
 
-{$Include CommonForTextAndFlashAndMedicFirmList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CommonForTextAndFlashAndMedicFirmList.imp.pas}
 
-{$Include BaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
 
 type _Instance_R_ = TPrimMedicFirmListForm;
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 function TPrimMedicFirmListForm.HasCurrent: Boolean;
 //#UC START# *4C52FA220387_497EE4EB00CB_var*

@@ -27,7 +27,7 @@ type
  _ItemType_ = If1NotificationListener;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  Tf1NotificationList = class(_l3InterfaceRefList_)
  end;//Tf1NotificationList
 
@@ -72,7 +72,7 @@ end;//Tf1NotificationManagerFree
 
 type _Instance_R_ = Tf1NotificationList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 function Tf1NotificationManager.pm_GetList: Tf1NotificationList;
 //#UC START# *54F5D8C3022B_54F5D5E002E0get_var*

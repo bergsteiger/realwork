@@ -22,7 +22,7 @@ type
  //#UC START# *4D52A881018Bci*
  //#UC END# *4D52A881018Bci*
  _l3Unknown_Parent_ = TComponent;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *4D52A881018Bcit*
  //#UC END# *4D52A881018Bcit*
  TvgComponent = class(_l3Unknown_)
@@ -49,7 +49,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvgComponent.Free(var Dummy: Integer);
  {* Для ловли просто Free }

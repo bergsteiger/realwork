@@ -6,18 +6,18 @@
 {$Define nevPrimPoint_imp}
 
 {$If Defined(evUseVisibleCursors)}
- {$Include nevBasePoint.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas}
  _nevParentPointFactoryExVOID_Parent_ = _nevBasePoint_;
- {$Include nevParentPointFactoryExVOID.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryExVOID.imp.pas}
  _nevPrimPoint_ = class(_nevParentPointFactoryExVOID_)
   {* Примитивная точка }
  end;//_nevPrimPoint_
 
 {$Else Defined(evUseVisibleCursors)}
 
-{$Include nevBasePoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas}
 _nevParentPointFactoryExVOID_Parent_ = _nevBasePoint_;
-{$Include nevParentPointFactoryExVOID.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryExVOID.imp.pas}
 _nevPrimPoint_ = _nevParentPointFactoryExVOID_;
 
 {$IfEnd} // Defined(evUseVisibleCursors)
@@ -28,9 +28,9 @@ _nevPrimPoint_ = _nevParentPointFactoryExVOID_;
 {$Define nevPrimPoint_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-{$Include nevBasePoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevBasePoint.imp.pas}
 
-{$Include nevParentPointFactoryExVOID.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactoryExVOID.imp.pas}
 {$IfEnd} // Defined(evUseVisibleCursors)
 
 {$EndIf nevPrimPoint_imp_impl}

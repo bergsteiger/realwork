@@ -23,7 +23,7 @@ type
  _ItemType_ = Il3SimpleNode;
  _l3InterfaceRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  Tl3SimpleNodeList = class(_l3InterfaceRefList_)
  end;//Tl3SimpleNodeList
 
@@ -39,6 +39,6 @@ uses
 
 type _Instance_R_ = Tl3SimpleNodeList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 end.

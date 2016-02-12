@@ -17,7 +17,7 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = TnevDocumentContainerListPrim;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnevDocumentContainerList = class(_afwApplicationDataUpdate_, Ik2Listener)
   protected
    procedure Fire(const anEvent: Tk2Event;
@@ -52,7 +52,7 @@ begin
  l3Free(g_TnevDocumentContainerList);
 end;//TnevDocumentContainerListFree
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 class function TnevDocumentContainerList.Exists: Boolean;
 //#UC START# *4DD26253028D_4DD25B17012A_var*

@@ -25,7 +25,7 @@ type
  _ItemType_ = Integer;
  _l3AtomicListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3AtomicListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
  Tl3CustomSortIntegerList = {abstract} class(_l3AtomicListPrim_)
   {* http://mdp.garant.ru/pages/viewpage.action?pageId=269058147 }
   protected
@@ -60,7 +60,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3CustomSortIntegerList;
 
-{$Include l3AtomicListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
 
 procedure Tl3CustomSortIntegerList.InitFields;
 //#UC START# *47A042E100E2_4DEFAA880377_var*

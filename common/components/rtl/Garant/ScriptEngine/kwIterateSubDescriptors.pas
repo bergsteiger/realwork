@@ -1,46 +1,36 @@
 unit kwIterateSubDescriptors;
+ {* Перебирает все SubDescriptot на SubPanel, которые могут быть использованы (!). Такой список задается на этапе проектирвоания/изменения компонета. И не зависит от вида отображения.
+Формат:
+[code]
+@ aWord aLayerID aSubPanel ItarateSubDescriptors
+[code]
+aLayerID - слой, в котором производится итерация
+aSubPanel - контрол сабпанели.
+aWord - функция для обработки вида:
+[code]
+PROCEDURE CheckDescription OBJECT IN aSubDescription
+ // А здесь обрабатываем полученный aSubDescription
+;
+[code]
+Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwIterateSubDescriptors.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::IterateSubDescriptors
-//
-// Перебирает все SubDescriptot на SubPanel, которые могут быть использованы (!). Такой список
-// задается на этапе проектирвоания/изменения компонета. И не зависит от вида отображения.
-// Формат:
-// {code}
-// @ aWord aLayerID aSubPanel ItarateSubDescriptors
-// {code}
-// aLayerID - слой, в котором производится итерация
-// aSubPanel - контрол сабпанели.
-// aWord - функция для обработки вида:
-// {code}
-// PROCEDURE CheckDescription OBJECT IN aSubDescription
-// // А здесь обрабатываем полученный aSubDescription
-// ;
-// {code}
-// Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType
-// и т.п.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIterateSubDescriptors.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSubPanelFromStackWord,
-  tfwScriptingInterfaces,
-  evSubPn
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSubPanelFromStackWord
+ , evSubPn
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwIterateSubDescriptors = {final scriptword} class(TkwSubPanelFromStackWord)
+ TkwIterateSubDescriptors = {final} class(TkwSubPanelFromStackWord)
   {* Перебирает все SubDescriptot на SubPanel, которые могут быть использованы (!). Такой список задается на этапе проектирвоания/изменения компонета. И не зависит от вида отображения.
 Формат:
 [code]
@@ -55,24 +45,29 @@ PROCEDURE CheckDescription OBJECT IN aSubDescription
 ;
 [code]
 Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п. }
- protected
- // realized methods
+  protected
    procedure DoWithSubPanel(aControl: TevCustomSubPanel;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwIterateSubDescriptors
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwIterateSubDescriptors
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwIterateSubDescriptors.DoWithSubPanel(aControl: TevCustomSubPanel;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D6471802DC_52D643C100A8_var*
 var
  i        : Integer;
@@ -106,17 +101,13 @@ begin
 end;//TkwIterateSubDescriptors.DoWithSubPanel
 
 class function TkwIterateSubDescriptors.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IterateSubDescriptors';
 end;//TkwIterateSubDescriptors.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация IterateSubDescriptors
  TkwIterateSubDescriptors.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация IterateSubDescriptors }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

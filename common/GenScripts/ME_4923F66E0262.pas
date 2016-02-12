@@ -26,7 +26,7 @@ uses
 ;
 
 type
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsSaveLoad = {final} class(_vcmFormDataSourcePrim_, IdsSaveLoad)
  end;//TdsSaveLoad
 {$IfEnd} // NOT Defined(Admin)
@@ -43,7 +43,7 @@ uses
 
 type _Instance_R_ = TdsSaveLoad;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 {$IfEnd} // NOT Defined(Admin)
 
 end.

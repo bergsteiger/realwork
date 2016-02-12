@@ -111,7 +111,9 @@ type
     out theStatus: TafwStatusInfo);
    function GetContentsElement(const aBlock: IevDocumentPart): IevDocumentPart;
   protected
-   procedure SetReminderOpParams;
+   procedure SetReminderOpParams(const aParams: IvcmTestParamsPrim;
+    const aInfo: Il3CString;
+    const aCaption: Il3CString = nil);
    function WarnJurorInfo: Il3CString;
     {* сообщение к предупреждению "В настоящий документ внесены изменения" }
    function TimeMachineWarningOnInfo: Il3CString;
@@ -473,9 +475,11 @@ const
  c_VersionComment = - (Ord(ev_sbtMark) * c_Div + 2);
   {* Версионный комментарий юристов в SubPanel }
 
-procedure TExTextOptionsForm.SetReminderOpParams;
+procedure TExTextOptionsForm.SetReminderOpParams(const aParams: IvcmTestParamsPrim;
+ const aInfo: Il3CString;
+ const aCaption: Il3CString = nil);
 
- procedure RefineBaloonHint;
+ function RefineBaloonHint(const aHint: Il3CString): Il3CString;
 
   procedure MergeText(aRoot: Tl3Tag;
    var theText: Il3CString);

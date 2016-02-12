@@ -19,7 +19,7 @@ uses
 type
  _FindDataType_ = TafwSettingId;
  _l3Searcher_Parent_ = TafwSettingsImplPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TafwSettingsImpl = class(_l3Searcher_, IafwSettingsImpl)
   protected
    function GetString(const aSettingId: TafwSettingId;
@@ -60,7 +60,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TafwSettingsImpl;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 function TafwSettingsImpl.GetString(const aSettingId: TafwSettingId;
  out theValue: Il3CString): Boolean;

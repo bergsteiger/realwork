@@ -17,7 +17,7 @@ uses
 
 type
  _k2Int64Holder_Parent_ = Tk2SpecialTag;
- {$Include k2Int64Holder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
  Tk2NullTagImplPrim = class(_k2Int64Holder_)
   {* Реализация пустого тега }
   protected
@@ -65,7 +65,7 @@ uses
 
 type _Instance_R_ = Tk2NullTagImplPrim;
 
-{$Include k2Int64Holder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Int64Holder.imp.pas}
 
 function Tk2NullTagImplPrim.CloneTag: Il3TagRef;
 //#UC START# *47612DF00301_49A69B87036C_var*

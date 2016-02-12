@@ -21,7 +21,7 @@ uses
 type
  _DataClass_ = TevConstStringDataObject;
  _DataType_ = IevdHyperlinkInfo;
- {$Include evTreeData.imp.pas}
+ {$Include w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas}
  TevConstStringData = class(_evTreeData_)
   protected
    function GetFormats: Tl3ClipboardFormats; override;
@@ -47,7 +47,7 @@ uses
  , l3TreeConst
 ;
 
-{$Include evTreeData.imp.pas}
+{$Include w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas}
 
 function TevConstStringData.GetFormats: Tl3ClipboardFormats;
 //#UC START# *48F4B33501DE_48F4CF9903D6_var*

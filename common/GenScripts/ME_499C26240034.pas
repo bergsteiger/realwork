@@ -59,7 +59,7 @@ type
  end;//TnscTreeViewState
 
  _nsUnknownComponent_Parent_ = TeeTreeView;
- {$Include nsUnknownComponent.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas}
  TnscTreeViewPrim = class(_nsUnknownComponent_{$If NOT Defined(NoVCM)}
  , IvcmOperationsProvider
  {$IfEnd} // NOT Defined(NoVCM)
@@ -253,7 +253,7 @@ begin
 //#UC END# *4A60B23E00C3_52DD07CE001D_impl*
 end;//TnscTreeViewState.COMQueryInterface
 
-{$Include nsUnknownComponent.imp.pas}
+{$Include w:\common\components\gui\Garant\VT\nsUnknownComponent.imp.pas}
 
 procedure TnscTreeViewPrim.pm_SetSettingId(const aValue: AnsiString);
 //#UC START# *52DD08FC017B_52DD0971008Aset_var*

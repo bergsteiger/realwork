@@ -21,7 +21,7 @@ uses
 
 type
  _ItemType_ = Tm3HashHandle;
- {$Include m3AutoAllocList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3AutoAllocList.imp.pas}
  Tm3HashHandleListPrim = class(_m3AutoAllocList_)
  end;//Tm3HashHandleListPrim
 
@@ -37,6 +37,6 @@ uses
 
 type _Instance_R_ = Tm3HashHandleListPrim;
 
-{$Include m3AutoAllocList.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3AutoAllocList.imp.pas}
 
 end.

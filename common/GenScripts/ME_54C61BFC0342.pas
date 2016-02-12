@@ -125,7 +125,7 @@ type
  end;//Il3NodeWrap
 
  _l3Changing_Parent_ = Tl3PrimNode;
- {$Include l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  Tl3CustomNode = class(_l3Changing_, Il3Node, Il3NodeWrap)
   private
    f_MoveEnterCount: Integer;
@@ -1019,7 +1019,7 @@ begin
 //#UC END# *47B5759A03C0_4ADDDFE60236get_impl*
 end;//Tl3PrimNode.Get_Prev
 
-{$Include l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 procedure Tl3CustomNode.Set_AllChildrenCount(aValue: Integer);
 //#UC START# *54C8DD88028F_4ADDDFD50118set_var*

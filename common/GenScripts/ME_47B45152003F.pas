@@ -30,9 +30,9 @@ type
 
  _FindDataType_ = _ItemType_;
  _l3Sortable_Parent_ = _l3Items_Parent_;
- {$Include l3Sortable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Sortable.imp.pas}
  _l3Searcher_Parent_ = _l3Sortable_;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  _l3Items_ = {abstract} class(_l3Searcher_)
   {* Список }
   private
@@ -156,9 +156,9 @@ begin
 //#UC END# *47B9BAFD01F4_47B45152003F_impl*
 end;//CompareItemWithData
 
-{$Include l3Sortable.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Sortable.imp.pas}
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 function _l3Items_.pm_GetCapacity: Integer; { can raise EListError }
 //#UC START# *47B5982200F8_47B45152003Fget_var*

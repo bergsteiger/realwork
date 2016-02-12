@@ -17,7 +17,7 @@ uses
 type
  _FindDataType_ = Il3CString;
  _l3Searcher_Parent_ = TafwSettingsImplPrimPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TafwSettingsImplPrim = {abstract} class(_l3Searcher_)
  end;//TafwSettingsImplPrim
 
@@ -43,6 +43,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TafwSettingsImplPrim;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

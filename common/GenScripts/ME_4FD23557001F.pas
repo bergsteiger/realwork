@@ -17,11 +17,11 @@ uses
 type
  _FoldersNodeMatcher_ = TatQueryMatcher;
  _ObjectType_ = IQuery;
- {$Include atProcessNamedFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
  _atOpenFoldersObjectAddon_Parent_ = _atProcessNamedFoldersObjectOperation_;
- {$Include atOpenFoldersObjectAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
  _atExecutesQueryAddOn_Parent_ = _atOpenFoldersObjectAddon_;
- {$Include atExecutesQueryAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
  TatExecuteSavedQueryOperation = class(_atExecutesQueryAddOn_)
   protected
    procedure OnFoldersObject(const aFoldersObject: _ObjectType_); override;
@@ -39,11 +39,11 @@ uses
  , atNodeHelper
 ;
 
-{$Include atProcessNamedFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
 
-{$Include atOpenFoldersObjectAddon.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
 
-{$Include atExecutesQueryAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
 
 procedure TatExecuteSavedQueryOperation.OnFoldersObject(const aFoldersObject: _ObjectType_);
 //#UC START# *4FD0D2530143_4FD23557001F_var*

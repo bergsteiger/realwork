@@ -17,7 +17,7 @@ uses
 
 type
  _afwShortcutsHandler_Parent_ = TvgCustomControl;
- {$Include afwShortcutsHandler.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
  TvgScenePrim = class(_afwShortcutsHandler_)
  end;//TvgScenePrim
 {$IfEnd} // NOT Defined(NoVGScene)
@@ -40,7 +40,7 @@ uses
  , OvcConst
 ;
 
-{$Include afwShortcutsHandler.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
 
 initialization
 {$If NOT Defined(NoScripts)}

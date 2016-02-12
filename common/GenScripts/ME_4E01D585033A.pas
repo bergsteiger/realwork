@@ -42,7 +42,7 @@ type
  end;//TvcmCloseFormHelper
 
  _vcmUserInteractiveForm_Parent_ = Tl3Form;
- {$Include vcmUserInteractiveForm.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmUserInteractiveForm.imp.pas}
  TvcmUserInteractiveForm = class(_vcmUserInteractiveForm_)
  end;//TvcmUserInteractiveForm
 {$IfEnd} // NOT Defined(NoVCM)
@@ -107,7 +107,7 @@ begin
  Result := g_TvcmCloseFormHelper;
 end;//TvcmCloseFormHelper.Instance
 
-{$Include vcmUserInteractiveForm.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmUserInteractiveForm.imp.pas}
 
 initialization
 {$If NOT Defined(NoVCL)}

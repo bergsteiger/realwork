@@ -17,7 +17,7 @@ uses
 
 type
  _DigitalSeparatorSupport_Parent_ = TevdBufferedFilter;
- {$Include DigitalSeparatorSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}
  TevTabStopsFilter = class(_DigitalSeparatorSupport_)
   protected
    procedure AddAtomEx(AtomIndex: Integer;
@@ -42,7 +42,7 @@ uses
  , l3String
 ;
 
-{$Include DigitalSeparatorSupport.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}
 
 procedure TevTabStopsFilter.AddAtomEx(AtomIndex: Integer;
  const Value: Ik2Variant);

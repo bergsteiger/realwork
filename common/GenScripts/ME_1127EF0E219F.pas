@@ -649,21 +649,14 @@ begin
 end;//Tkw_Form_PrintDialog.GetWordNameForRegister
 
 function Tkw_Form_PrintDialog.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3401F167740D_var*
-//#UC END# *4DDFD2EA0116_3401F167740D_var*
 begin
-//#UC START# *4DDFD2EA0116_3401F167740D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3401F167740D_impl*
+ Result := 'en_PrintDialog';
 end;//Tkw_Form_PrintDialog.GetString
 
 class procedure Tkw_Form_PrintDialog.RegisterInEngine;
-//#UC START# *52A086150180_3401F167740D_var*
-//#UC END# *52A086150180_3401F167740D_var*
 begin
-//#UC START# *52A086150180_3401F167740D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_3401F167740D_impl*
+ inherited;
+ TtfwClassRef.Register(Ten_PrintDialog);
 end;//Tkw_Form_PrintDialog.RegisterInEngine
 
 class function Tkw_PrintDialog_Control_poDocumentNames.GetWordNameForRegister: AnsiString;
@@ -672,21 +665,14 @@ begin
 end;//Tkw_PrintDialog_Control_poDocumentNames.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_poDocumentNames.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B819FFC34360_var*
-//#UC END# *4DDFD2EA0116_B819FFC34360_var*
 begin
-//#UC START# *4DDFD2EA0116_B819FFC34360_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B819FFC34360_impl*
+ Result := 'poDocumentNames';
 end;//Tkw_PrintDialog_Control_poDocumentNames.GetString
 
 class procedure Tkw_PrintDialog_Control_poDocumentNames.RegisterInEngine;
-//#UC START# *52A086150180_B819FFC34360_var*
-//#UC END# *52A086150180_B819FFC34360_var*
 begin
-//#UC START# *52A086150180_B819FFC34360_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B819FFC34360_impl*
+ inherited;
+ TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_poDocumentNames.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_poDocumentNames_Push.DoDoIt(const aCtx: TtfwContext);
@@ -709,21 +695,14 @@ begin
 end;//Tkw_PrintDialog_Control_rbPrintSelected.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_rbPrintSelected.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A6F0A7BC7112_var*
-//#UC END# *4DDFD2EA0116_A6F0A7BC7112_var*
 begin
-//#UC START# *4DDFD2EA0116_A6F0A7BC7112_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A6F0A7BC7112_impl*
+ Result := 'rbPrintSelected';
 end;//Tkw_PrintDialog_Control_rbPrintSelected.GetString
 
 class procedure Tkw_PrintDialog_Control_rbPrintSelected.RegisterInEngine;
-//#UC START# *52A086150180_A6F0A7BC7112_var*
-//#UC END# *52A086150180_A6F0A7BC7112_var*
 begin
-//#UC START# *52A086150180_A6F0A7BC7112_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_A6F0A7BC7112_impl*
+ inherited;
+ TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_rbPrintSelected.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_rbPrintSelected_Push.DoDoIt(const aCtx: TtfwContext);
@@ -746,21 +725,14 @@ begin
 end;//Tkw_PrintDialog_Control_rbPrintCurrent.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_rbPrintCurrent.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_20DDAFDA1939_var*
-//#UC END# *4DDFD2EA0116_20DDAFDA1939_var*
 begin
-//#UC START# *4DDFD2EA0116_20DDAFDA1939_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_20DDAFDA1939_impl*
+ Result := 'rbPrintCurrent';
 end;//Tkw_PrintDialog_Control_rbPrintCurrent.GetString
 
 class procedure Tkw_PrintDialog_Control_rbPrintCurrent.RegisterInEngine;
-//#UC START# *52A086150180_20DDAFDA1939_var*
-//#UC END# *52A086150180_20DDAFDA1939_var*
 begin
-//#UC START# *52A086150180_20DDAFDA1939_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_20DDAFDA1939_impl*
+ inherited;
+ TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_rbPrintCurrent.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_rbPrintCurrent_Push.DoDoIt(const aCtx: TtfwContext);
@@ -783,21 +755,14 @@ begin
 end;//Tkw_PrintDialog_Control_edPrintInterval.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_edPrintInterval.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_70397C897133_var*
-//#UC END# *4DDFD2EA0116_70397C897133_var*
 begin
-//#UC START# *4DDFD2EA0116_70397C897133_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_70397C897133_impl*
+ Result := 'edPrintInterval';
 end;//Tkw_PrintDialog_Control_edPrintInterval.GetString
 
 class procedure Tkw_PrintDialog_Control_edPrintInterval.RegisterInEngine;
-//#UC START# *52A086150180_70397C897133_var*
-//#UC END# *52A086150180_70397C897133_var*
 begin
-//#UC START# *52A086150180_70397C897133_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_70397C897133_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditWithoutPlusMinusShortcut);
 end;//Tkw_PrintDialog_Control_edPrintInterval.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_edPrintInterval_Push.DoDoIt(const aCtx: TtfwContext);
@@ -820,21 +785,14 @@ begin
 end;//Tkw_PrintDialog_Control_edCopyCount.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_edCopyCount.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CAF2E701A1D0_var*
-//#UC END# *4DDFD2EA0116_CAF2E701A1D0_var*
 begin
-//#UC START# *4DDFD2EA0116_CAF2E701A1D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CAF2E701A1D0_impl*
+ Result := 'edCopyCount';
 end;//Tkw_PrintDialog_Control_edCopyCount.GetString
 
 class procedure Tkw_PrintDialog_Control_edCopyCount.RegisterInEngine;
-//#UC START# *52A086150180_CAF2E701A1D0_var*
-//#UC END# *52A086150180_CAF2E701A1D0_var*
 begin
-//#UC START# *52A086150180_CAF2E701A1D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CAF2E701A1D0_impl*
+ inherited;
+ TtfwClassRef.Register(TvtSpinEdit);
 end;//Tkw_PrintDialog_Control_edCopyCount.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_edCopyCount_Push.DoDoIt(const aCtx: TtfwContext);
@@ -857,21 +815,14 @@ begin
 end;//Tkw_PrintDialog_Control_CollateCheckBox.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_CollateCheckBox.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F85429B89A97_var*
-//#UC END# *4DDFD2EA0116_F85429B89A97_var*
 begin
-//#UC START# *4DDFD2EA0116_F85429B89A97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F85429B89A97_impl*
+ Result := 'CollateCheckBox';
 end;//Tkw_PrintDialog_Control_CollateCheckBox.GetString
 
 class procedure Tkw_PrintDialog_Control_CollateCheckBox.RegisterInEngine;
-//#UC START# *52A086150180_F85429B89A97_var*
-//#UC END# *52A086150180_F85429B89A97_var*
 begin
-//#UC START# *52A086150180_F85429B89A97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F85429B89A97_impl*
+ inherited;
+ TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_PrintDialog_Control_CollateCheckBox.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_CollateCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
@@ -894,21 +845,14 @@ begin
 end;//Tkw_PrintDialog_Control_cbOddEven.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_cbOddEven.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F21452DB0895_var*
-//#UC END# *4DDFD2EA0116_F21452DB0895_var*
 begin
-//#UC START# *4DDFD2EA0116_F21452DB0895_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F21452DB0895_impl*
+ Result := 'cbOddEven';
 end;//Tkw_PrintDialog_Control_cbOddEven.GetString
 
 class procedure Tkw_PrintDialog_Control_cbOddEven.RegisterInEngine;
-//#UC START# *52A086150180_F21452DB0895_var*
-//#UC END# *52A086150180_F21452DB0895_var*
 begin
-//#UC START# *52A086150180_F21452DB0895_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F21452DB0895_impl*
+ inherited;
+ TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_PrintDialog_Control_cbOddEven.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_cbOddEven_Push.DoDoIt(const aCtx: TtfwContext);
@@ -931,21 +875,14 @@ begin
 end;//Tkw_PrintDialog_Control_poDocumentTexts.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_poDocumentTexts.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7417E050E675_var*
-//#UC END# *4DDFD2EA0116_7417E050E675_var*
 begin
-//#UC START# *4DDFD2EA0116_7417E050E675_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7417E050E675_impl*
+ Result := 'poDocumentTexts';
 end;//Tkw_PrintDialog_Control_poDocumentTexts.GetString
 
 class procedure Tkw_PrintDialog_Control_poDocumentTexts.RegisterInEngine;
-//#UC START# *52A086150180_7417E050E675_var*
-//#UC END# *52A086150180_7417E050E675_var*
 begin
-//#UC START# *52A086150180_7417E050E675_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7417E050E675_impl*
+ inherited;
+ TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_poDocumentTexts.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_poDocumentTexts_Push.DoDoIt(const aCtx: TtfwContext);
@@ -968,21 +905,14 @@ begin
 end;//Tkw_PrintDialog_Control_rbPrintAll.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_rbPrintAll.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8557D1FBFDE0_var*
-//#UC END# *4DDFD2EA0116_8557D1FBFDE0_var*
 begin
-//#UC START# *4DDFD2EA0116_8557D1FBFDE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8557D1FBFDE0_impl*
+ Result := 'rbPrintAll';
 end;//Tkw_PrintDialog_Control_rbPrintAll.GetString
 
 class procedure Tkw_PrintDialog_Control_rbPrintAll.RegisterInEngine;
-//#UC START# *52A086150180_8557D1FBFDE0_var*
-//#UC END# *52A086150180_8557D1FBFDE0_var*
 begin
-//#UC START# *52A086150180_8557D1FBFDE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8557D1FBFDE0_impl*
+ inherited;
+ TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_rbPrintAll.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_rbPrintAll_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1005,21 +935,14 @@ begin
 end;//Tkw_PrintDialog_Control_rbPrintInterval.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_rbPrintInterval.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7869C692A410_var*
-//#UC END# *4DDFD2EA0116_7869C692A410_var*
 begin
-//#UC START# *4DDFD2EA0116_7869C692A410_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7869C692A410_impl*
+ Result := 'rbPrintInterval';
 end;//Tkw_PrintDialog_Control_rbPrintInterval.GetString
 
 class procedure Tkw_PrintDialog_Control_rbPrintInterval.RegisterInEngine;
-//#UC START# *52A086150180_7869C692A410_var*
-//#UC END# *52A086150180_7869C692A410_var*
 begin
-//#UC START# *52A086150180_7869C692A410_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7869C692A410_impl*
+ inherited;
+ TtfwClassRef.Register(TvtRadioButton);
 end;//Tkw_PrintDialog_Control_rbPrintInterval.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_rbPrintInterval_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1042,21 +965,14 @@ begin
 end;//Tkw_PrintDialog_Control_cbPrinter.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_cbPrinter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_63312B7DE7C6_var*
-//#UC END# *4DDFD2EA0116_63312B7DE7C6_var*
 begin
-//#UC START# *4DDFD2EA0116_63312B7DE7C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_63312B7DE7C6_impl*
+ Result := 'cbPrinter';
 end;//Tkw_PrintDialog_Control_cbPrinter.GetString
 
 class procedure Tkw_PrintDialog_Control_cbPrinter.RegisterInEngine;
-//#UC START# *52A086150180_63312B7DE7C6_var*
-//#UC END# *52A086150180_63312B7DE7C6_var*
 begin
-//#UC START# *52A086150180_63312B7DE7C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_63312B7DE7C6_impl*
+ inherited;
+ TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_PrintDialog_Control_cbPrinter.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_cbPrinter_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1079,21 +995,14 @@ begin
 end;//Tkw_PrintDialog_Control_cbPrintInfo.GetWordNameForRegister
 
 function Tkw_PrintDialog_Control_cbPrintInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EB01DFB3097E_var*
-//#UC END# *4DDFD2EA0116_EB01DFB3097E_var*
 begin
-//#UC START# *4DDFD2EA0116_EB01DFB3097E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EB01DFB3097E_impl*
+ Result := 'cbPrintInfo';
 end;//Tkw_PrintDialog_Control_cbPrintInfo.GetString
 
 class procedure Tkw_PrintDialog_Control_cbPrintInfo.RegisterInEngine;
-//#UC START# *52A086150180_EB01DFB3097E_var*
-//#UC END# *52A086150180_EB01DFB3097E_var*
 begin
-//#UC START# *52A086150180_EB01DFB3097E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EB01DFB3097E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_PrintDialog_Control_cbPrintInfo.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_cbPrintInfo_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1113,21 +1022,23 @@ end;//Tkw_PrintDialog_Control_cbPrintInfo_Push.GetWordNameForRegister
 function TkwEnPrintDialogPoDocumentNames.poDocumentNames(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
  {* Реализация слова скрипта .Ten_PrintDialog.poDocumentNames }
-//#UC START# *76109A1F419E_103A0129A2B3_var*
-//#UC END# *76109A1F419E_103A0129A2B3_var*
 begin
-//#UC START# *76109A1F419E_103A0129A2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *76109A1F419E_103A0129A2B3_impl*
+ Result := aen_PrintDialog.poDocumentNames;
 end;//TkwEnPrintDialogPoDocumentNames.poDocumentNames
 
 procedure TkwEnPrintDialogPoDocumentNames.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_103A0129A2B3_var*
-//#UC END# *4DAEEDE10285_103A0129A2B3_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_103A0129A2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_103A0129A2B3_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(poDocumentNames(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogPoDocumentNames.DoDoIt
 
 class function TkwEnPrintDialogPoDocumentNames.GetWordNameForRegister: AnsiString;
@@ -1137,12 +1048,8 @@ end;//TkwEnPrintDialogPoDocumentNames.GetWordNameForRegister
 
 procedure TkwEnPrintDialogPoDocumentNames.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_103A0129A2B3_var*
-//#UC END# *52D00B00031A_103A0129A2B3_var*
 begin
-//#UC START# *52D00B00031A_103A0129A2B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_103A0129A2B3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству poDocumentNames', aCtx);
 end;//TkwEnPrintDialogPoDocumentNames.SetValuePrim
 
 function TkwEnPrintDialogPoDocumentNames.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1157,27 +1064,29 @@ end;//TkwEnPrintDialogPoDocumentNames.GetAllParamsCount
 
 function TkwEnPrintDialogPoDocumentNames.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogPoDocumentNames.ParamsTypes
 
 function TkwEnPrintDialogRbPrintSelected.rbPrintSelected(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
  {* Реализация слова скрипта .Ten_PrintDialog.rbPrintSelected }
-//#UC START# *90F4C4D195AB_97819185B8B3_var*
-//#UC END# *90F4C4D195AB_97819185B8B3_var*
 begin
-//#UC START# *90F4C4D195AB_97819185B8B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *90F4C4D195AB_97819185B8B3_impl*
+ Result := aen_PrintDialog.rbPrintSelected;
 end;//TkwEnPrintDialogRbPrintSelected.rbPrintSelected
 
 procedure TkwEnPrintDialogRbPrintSelected.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_97819185B8B3_var*
-//#UC END# *4DAEEDE10285_97819185B8B3_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_97819185B8B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_97819185B8B3_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(rbPrintSelected(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogRbPrintSelected.DoDoIt
 
 class function TkwEnPrintDialogRbPrintSelected.GetWordNameForRegister: AnsiString;
@@ -1187,12 +1096,8 @@ end;//TkwEnPrintDialogRbPrintSelected.GetWordNameForRegister
 
 procedure TkwEnPrintDialogRbPrintSelected.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_97819185B8B3_var*
-//#UC END# *52D00B00031A_97819185B8B3_var*
 begin
-//#UC START# *52D00B00031A_97819185B8B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_97819185B8B3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству rbPrintSelected', aCtx);
 end;//TkwEnPrintDialogRbPrintSelected.SetValuePrim
 
 function TkwEnPrintDialogRbPrintSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1207,27 +1112,29 @@ end;//TkwEnPrintDialogRbPrintSelected.GetAllParamsCount
 
 function TkwEnPrintDialogRbPrintSelected.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogRbPrintSelected.ParamsTypes
 
 function TkwEnPrintDialogRbPrintCurrent.rbPrintCurrent(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
  {* Реализация слова скрипта .Ten_PrintDialog.rbPrintCurrent }
-//#UC START# *4D947840F275_23FF77EDE234_var*
-//#UC END# *4D947840F275_23FF77EDE234_var*
 begin
-//#UC START# *4D947840F275_23FF77EDE234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D947840F275_23FF77EDE234_impl*
+ Result := aen_PrintDialog.rbPrintCurrent;
 end;//TkwEnPrintDialogRbPrintCurrent.rbPrintCurrent
 
 procedure TkwEnPrintDialogRbPrintCurrent.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_23FF77EDE234_var*
-//#UC END# *4DAEEDE10285_23FF77EDE234_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_23FF77EDE234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_23FF77EDE234_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(rbPrintCurrent(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogRbPrintCurrent.DoDoIt
 
 class function TkwEnPrintDialogRbPrintCurrent.GetWordNameForRegister: AnsiString;
@@ -1237,12 +1144,8 @@ end;//TkwEnPrintDialogRbPrintCurrent.GetWordNameForRegister
 
 procedure TkwEnPrintDialogRbPrintCurrent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_23FF77EDE234_var*
-//#UC END# *52D00B00031A_23FF77EDE234_var*
 begin
-//#UC START# *52D00B00031A_23FF77EDE234_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_23FF77EDE234_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству rbPrintCurrent', aCtx);
 end;//TkwEnPrintDialogRbPrintCurrent.SetValuePrim
 
 function TkwEnPrintDialogRbPrintCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1257,27 +1160,29 @@ end;//TkwEnPrintDialogRbPrintCurrent.GetAllParamsCount
 
 function TkwEnPrintDialogRbPrintCurrent.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogRbPrintCurrent.ParamsTypes
 
 function TkwEnPrintDialogEdPrintInterval.edPrintInterval(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TnscEditWithoutPlusMinusShortcut;
  {* Реализация слова скрипта .Ten_PrintDialog.edPrintInterval }
-//#UC START# *6D557F3DA586_72BD6982D75C_var*
-//#UC END# *6D557F3DA586_72BD6982D75C_var*
 begin
-//#UC START# *6D557F3DA586_72BD6982D75C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6D557F3DA586_72BD6982D75C_impl*
+ Result := aen_PrintDialog.edPrintInterval;
 end;//TkwEnPrintDialogEdPrintInterval.edPrintInterval
 
 procedure TkwEnPrintDialogEdPrintInterval.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_72BD6982D75C_var*
-//#UC END# *4DAEEDE10285_72BD6982D75C_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_72BD6982D75C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_72BD6982D75C_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edPrintInterval(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogEdPrintInterval.DoDoIt
 
 class function TkwEnPrintDialogEdPrintInterval.GetWordNameForRegister: AnsiString;
@@ -1287,12 +1192,8 @@ end;//TkwEnPrintDialogEdPrintInterval.GetWordNameForRegister
 
 procedure TkwEnPrintDialogEdPrintInterval.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_72BD6982D75C_var*
-//#UC END# *52D00B00031A_72BD6982D75C_var*
 begin
-//#UC START# *52D00B00031A_72BD6982D75C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_72BD6982D75C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edPrintInterval', aCtx);
 end;//TkwEnPrintDialogEdPrintInterval.SetValuePrim
 
 function TkwEnPrintDialogEdPrintInterval.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1307,27 +1208,29 @@ end;//TkwEnPrintDialogEdPrintInterval.GetAllParamsCount
 
 function TkwEnPrintDialogEdPrintInterval.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogEdPrintInterval.ParamsTypes
 
 function TkwEnPrintDialogEdCopyCount.edCopyCount(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtSpinEdit;
  {* Реализация слова скрипта .Ten_PrintDialog.edCopyCount }
-//#UC START# *AE32A6B5803F_F312A27E7E41_var*
-//#UC END# *AE32A6B5803F_F312A27E7E41_var*
 begin
-//#UC START# *AE32A6B5803F_F312A27E7E41_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AE32A6B5803F_F312A27E7E41_impl*
+ Result := aen_PrintDialog.edCopyCount;
 end;//TkwEnPrintDialogEdCopyCount.edCopyCount
 
 procedure TkwEnPrintDialogEdCopyCount.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F312A27E7E41_var*
-//#UC END# *4DAEEDE10285_F312A27E7E41_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_F312A27E7E41_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F312A27E7E41_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edCopyCount(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogEdCopyCount.DoDoIt
 
 class function TkwEnPrintDialogEdCopyCount.GetWordNameForRegister: AnsiString;
@@ -1337,12 +1240,8 @@ end;//TkwEnPrintDialogEdCopyCount.GetWordNameForRegister
 
 procedure TkwEnPrintDialogEdCopyCount.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F312A27E7E41_var*
-//#UC END# *52D00B00031A_F312A27E7E41_var*
 begin
-//#UC START# *52D00B00031A_F312A27E7E41_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F312A27E7E41_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edCopyCount', aCtx);
 end;//TkwEnPrintDialogEdCopyCount.SetValuePrim
 
 function TkwEnPrintDialogEdCopyCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1357,27 +1256,29 @@ end;//TkwEnPrintDialogEdCopyCount.GetAllParamsCount
 
 function TkwEnPrintDialogEdCopyCount.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogEdCopyCount.ParamsTypes
 
 function TkwEnPrintDialogCollateCheckBox.CollateCheckBox(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtCheckBox;
  {* Реализация слова скрипта .Ten_PrintDialog.CollateCheckBox }
-//#UC START# *5D8869DDDDD9_8A08E020034B_var*
-//#UC END# *5D8869DDDDD9_8A08E020034B_var*
 begin
-//#UC START# *5D8869DDDDD9_8A08E020034B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5D8869DDDDD9_8A08E020034B_impl*
+ Result := aen_PrintDialog.CollateCheckBox;
 end;//TkwEnPrintDialogCollateCheckBox.CollateCheckBox
 
 procedure TkwEnPrintDialogCollateCheckBox.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8A08E020034B_var*
-//#UC END# *4DAEEDE10285_8A08E020034B_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_8A08E020034B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8A08E020034B_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CollateCheckBox(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogCollateCheckBox.DoDoIt
 
 class function TkwEnPrintDialogCollateCheckBox.GetWordNameForRegister: AnsiString;
@@ -1387,12 +1288,8 @@ end;//TkwEnPrintDialogCollateCheckBox.GetWordNameForRegister
 
 procedure TkwEnPrintDialogCollateCheckBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8A08E020034B_var*
-//#UC END# *52D00B00031A_8A08E020034B_var*
 begin
-//#UC START# *52D00B00031A_8A08E020034B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8A08E020034B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству CollateCheckBox', aCtx);
 end;//TkwEnPrintDialogCollateCheckBox.SetValuePrim
 
 function TkwEnPrintDialogCollateCheckBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1407,27 +1304,29 @@ end;//TkwEnPrintDialogCollateCheckBox.GetAllParamsCount
 
 function TkwEnPrintDialogCollateCheckBox.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogCollateCheckBox.ParamsTypes
 
 function TkwEnPrintDialogCbOddEven.cbOddEven(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtComboBoxQS;
  {* Реализация слова скрипта .Ten_PrintDialog.cbOddEven }
-//#UC START# *77EB611EC10B_D4AAEA04D37D_var*
-//#UC END# *77EB611EC10B_D4AAEA04D37D_var*
 begin
-//#UC START# *77EB611EC10B_D4AAEA04D37D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *77EB611EC10B_D4AAEA04D37D_impl*
+ Result := aen_PrintDialog.cbOddEven;
 end;//TkwEnPrintDialogCbOddEven.cbOddEven
 
 procedure TkwEnPrintDialogCbOddEven.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D4AAEA04D37D_var*
-//#UC END# *4DAEEDE10285_D4AAEA04D37D_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_D4AAEA04D37D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D4AAEA04D37D_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbOddEven(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogCbOddEven.DoDoIt
 
 class function TkwEnPrintDialogCbOddEven.GetWordNameForRegister: AnsiString;
@@ -1437,12 +1336,8 @@ end;//TkwEnPrintDialogCbOddEven.GetWordNameForRegister
 
 procedure TkwEnPrintDialogCbOddEven.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D4AAEA04D37D_var*
-//#UC END# *52D00B00031A_D4AAEA04D37D_var*
 begin
-//#UC START# *52D00B00031A_D4AAEA04D37D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D4AAEA04D37D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cbOddEven', aCtx);
 end;//TkwEnPrintDialogCbOddEven.SetValuePrim
 
 function TkwEnPrintDialogCbOddEven.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1457,27 +1352,29 @@ end;//TkwEnPrintDialogCbOddEven.GetAllParamsCount
 
 function TkwEnPrintDialogCbOddEven.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogCbOddEven.ParamsTypes
 
 function TkwEnPrintDialogPoDocumentTexts.poDocumentTexts(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
  {* Реализация слова скрипта .Ten_PrintDialog.poDocumentTexts }
-//#UC START# *C4C8DB29507F_7B77E6E2C7AF_var*
-//#UC END# *C4C8DB29507F_7B77E6E2C7AF_var*
 begin
-//#UC START# *C4C8DB29507F_7B77E6E2C7AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C4C8DB29507F_7B77E6E2C7AF_impl*
+ Result := aen_PrintDialog.poDocumentTexts;
 end;//TkwEnPrintDialogPoDocumentTexts.poDocumentTexts
 
 procedure TkwEnPrintDialogPoDocumentTexts.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7B77E6E2C7AF_var*
-//#UC END# *4DAEEDE10285_7B77E6E2C7AF_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_7B77E6E2C7AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7B77E6E2C7AF_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(poDocumentTexts(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogPoDocumentTexts.DoDoIt
 
 class function TkwEnPrintDialogPoDocumentTexts.GetWordNameForRegister: AnsiString;
@@ -1487,12 +1384,8 @@ end;//TkwEnPrintDialogPoDocumentTexts.GetWordNameForRegister
 
 procedure TkwEnPrintDialogPoDocumentTexts.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7B77E6E2C7AF_var*
-//#UC END# *52D00B00031A_7B77E6E2C7AF_var*
 begin
-//#UC START# *52D00B00031A_7B77E6E2C7AF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7B77E6E2C7AF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству poDocumentTexts', aCtx);
 end;//TkwEnPrintDialogPoDocumentTexts.SetValuePrim
 
 function TkwEnPrintDialogPoDocumentTexts.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1507,27 +1400,29 @@ end;//TkwEnPrintDialogPoDocumentTexts.GetAllParamsCount
 
 function TkwEnPrintDialogPoDocumentTexts.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogPoDocumentTexts.ParamsTypes
 
 function TkwEnPrintDialogRbPrintAll.rbPrintAll(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
  {* Реализация слова скрипта .Ten_PrintDialog.rbPrintAll }
-//#UC START# *BB2B51FBFD83_064862418464_var*
-//#UC END# *BB2B51FBFD83_064862418464_var*
 begin
-//#UC START# *BB2B51FBFD83_064862418464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BB2B51FBFD83_064862418464_impl*
+ Result := aen_PrintDialog.rbPrintAll;
 end;//TkwEnPrintDialogRbPrintAll.rbPrintAll
 
 procedure TkwEnPrintDialogRbPrintAll.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_064862418464_var*
-//#UC END# *4DAEEDE10285_064862418464_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_064862418464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_064862418464_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(rbPrintAll(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogRbPrintAll.DoDoIt
 
 class function TkwEnPrintDialogRbPrintAll.GetWordNameForRegister: AnsiString;
@@ -1537,12 +1432,8 @@ end;//TkwEnPrintDialogRbPrintAll.GetWordNameForRegister
 
 procedure TkwEnPrintDialogRbPrintAll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_064862418464_var*
-//#UC END# *52D00B00031A_064862418464_var*
 begin
-//#UC START# *52D00B00031A_064862418464_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_064862418464_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству rbPrintAll', aCtx);
 end;//TkwEnPrintDialogRbPrintAll.SetValuePrim
 
 function TkwEnPrintDialogRbPrintAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1557,27 +1448,29 @@ end;//TkwEnPrintDialogRbPrintAll.GetAllParamsCount
 
 function TkwEnPrintDialogRbPrintAll.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogRbPrintAll.ParamsTypes
 
 function TkwEnPrintDialogRbPrintInterval.rbPrintInterval(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtRadioButton;
  {* Реализация слова скрипта .Ten_PrintDialog.rbPrintInterval }
-//#UC START# *9FAB611291C7_6A445E1BC728_var*
-//#UC END# *9FAB611291C7_6A445E1BC728_var*
 begin
-//#UC START# *9FAB611291C7_6A445E1BC728_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9FAB611291C7_6A445E1BC728_impl*
+ Result := aen_PrintDialog.rbPrintInterval;
 end;//TkwEnPrintDialogRbPrintInterval.rbPrintInterval
 
 procedure TkwEnPrintDialogRbPrintInterval.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6A445E1BC728_var*
-//#UC END# *4DAEEDE10285_6A445E1BC728_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_6A445E1BC728_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6A445E1BC728_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(rbPrintInterval(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogRbPrintInterval.DoDoIt
 
 class function TkwEnPrintDialogRbPrintInterval.GetWordNameForRegister: AnsiString;
@@ -1587,12 +1480,8 @@ end;//TkwEnPrintDialogRbPrintInterval.GetWordNameForRegister
 
 procedure TkwEnPrintDialogRbPrintInterval.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6A445E1BC728_var*
-//#UC END# *52D00B00031A_6A445E1BC728_var*
 begin
-//#UC START# *52D00B00031A_6A445E1BC728_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6A445E1BC728_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству rbPrintInterval', aCtx);
 end;//TkwEnPrintDialogRbPrintInterval.SetValuePrim
 
 function TkwEnPrintDialogRbPrintInterval.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1607,27 +1496,29 @@ end;//TkwEnPrintDialogRbPrintInterval.GetAllParamsCount
 
 function TkwEnPrintDialogRbPrintInterval.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogRbPrintInterval.ParamsTypes
 
 function TkwEnPrintDialogCbPrinter.cbPrinter(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtComboBoxQS;
  {* Реализация слова скрипта .Ten_PrintDialog.cbPrinter }
-//#UC START# *2B9A1BD0C6CA_2BD5B9B2560F_var*
-//#UC END# *2B9A1BD0C6CA_2BD5B9B2560F_var*
 begin
-//#UC START# *2B9A1BD0C6CA_2BD5B9B2560F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2B9A1BD0C6CA_2BD5B9B2560F_impl*
+ Result := aen_PrintDialog.cbPrinter;
 end;//TkwEnPrintDialogCbPrinter.cbPrinter
 
 procedure TkwEnPrintDialogCbPrinter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2BD5B9B2560F_var*
-//#UC END# *4DAEEDE10285_2BD5B9B2560F_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_2BD5B9B2560F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2BD5B9B2560F_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbPrinter(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogCbPrinter.DoDoIt
 
 class function TkwEnPrintDialogCbPrinter.GetWordNameForRegister: AnsiString;
@@ -1637,12 +1528,8 @@ end;//TkwEnPrintDialogCbPrinter.GetWordNameForRegister
 
 procedure TkwEnPrintDialogCbPrinter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2BD5B9B2560F_var*
-//#UC END# *52D00B00031A_2BD5B9B2560F_var*
 begin
-//#UC START# *52D00B00031A_2BD5B9B2560F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2BD5B9B2560F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cbPrinter', aCtx);
 end;//TkwEnPrintDialogCbPrinter.SetValuePrim
 
 function TkwEnPrintDialogCbPrinter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1657,27 +1544,29 @@ end;//TkwEnPrintDialogCbPrinter.GetAllParamsCount
 
 function TkwEnPrintDialogCbPrinter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogCbPrinter.ParamsTypes
 
 function TkwEnPrintDialogCbPrintInfo.cbPrintInfo(const aCtx: TtfwContext;
  aen_PrintDialog: Ten_PrintDialog): TvtCheckBox;
  {* Реализация слова скрипта .Ten_PrintDialog.cbPrintInfo }
-//#UC START# *54E86D0B378E_D98C3DAD8DBF_var*
-//#UC END# *54E86D0B378E_D98C3DAD8DBF_var*
 begin
-//#UC START# *54E86D0B378E_D98C3DAD8DBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54E86D0B378E_D98C3DAD8DBF_impl*
+ Result := aen_PrintDialog.cbPrintInfo;
 end;//TkwEnPrintDialogCbPrintInfo.cbPrintInfo
 
 procedure TkwEnPrintDialogCbPrintInfo.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D98C3DAD8DBF_var*
-//#UC END# *4DAEEDE10285_D98C3DAD8DBF_var*
+var l_aen_PrintDialog: Ten_PrintDialog;
 begin
-//#UC START# *4DAEEDE10285_D98C3DAD8DBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D98C3DAD8DBF_impl*
+ try
+  l_aen_PrintDialog := Ten_PrintDialog(aCtx.rEngine.PopObjAs(Ten_PrintDialog));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PrintDialog: Ten_PrintDialog : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbPrintInfo(aCtx, l_aen_PrintDialog));
 end;//TkwEnPrintDialogCbPrintInfo.DoDoIt
 
 class function TkwEnPrintDialogCbPrintInfo.GetWordNameForRegister: AnsiString;
@@ -1687,12 +1576,8 @@ end;//TkwEnPrintDialogCbPrintInfo.GetWordNameForRegister
 
 procedure TkwEnPrintDialogCbPrintInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D98C3DAD8DBF_var*
-//#UC END# *52D00B00031A_D98C3DAD8DBF_var*
 begin
-//#UC START# *52D00B00031A_D98C3DAD8DBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D98C3DAD8DBF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cbPrintInfo', aCtx);
 end;//TkwEnPrintDialogCbPrintInfo.SetValuePrim
 
 function TkwEnPrintDialogCbPrintInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1707,7 +1592,7 @@ end;//TkwEnPrintDialogCbPrintInfo.GetAllParamsCount
 
 function TkwEnPrintDialogCbPrintInfo.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PrintDialog)]);
 end;//TkwEnPrintDialogCbPrintInfo.ParamsTypes
 
 initialization

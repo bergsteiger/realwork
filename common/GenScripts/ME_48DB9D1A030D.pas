@@ -17,7 +17,7 @@ uses
 
 type
  _CellFormatInfoCommon_Parent_ = TnevListFormatInfo;
- {$Include CellFormatInfoCommon.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}
  TnevTableCellFormatInfo = class(_CellFormatInfoCommon_)
   private
    f_CellAtTop: InevPara;
@@ -50,7 +50,7 @@ uses
  , evdTypes
 ;
 
-{$Include CellFormatInfoCommon.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas}
 
 function TnevTableCellFormatInfo.GetContinueCellAtTheTop: InevPara;
 //#UC START# *5005119C02DB_48DB9D1A030D_var*

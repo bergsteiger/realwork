@@ -24,7 +24,7 @@ type
  _ItemType_ = InevTableCell;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnevTableCellList = class(_l3InterfaceRefList_)
   {* Список InevTableCell. }
  end;//TnevTableCellList
@@ -41,6 +41,6 @@ uses
 
 type _Instance_R_ = TnevTableCellList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 end.

@@ -24,7 +24,7 @@ type
  _ItemType_ = TedCellType;
  _l3EnumList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3EnumList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
  TedCellTypesList = class(_l3EnumList_)
   {* —писок дл€ хранени€ типов содержимого €чеек. }
  end;//TedCellTypesList
@@ -41,6 +41,6 @@ uses
 
 type _Instance_R_ = TedCellTypesList;
 
-{$Include l3EnumList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
 
 end.

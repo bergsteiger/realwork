@@ -30,7 +30,7 @@ type
  _ItemType_ = InscDocumentHistoryListener;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnscDocumentHistoryListenerList = class(_l3InterfacePtrList_)
  end;//TnscDocumentHistoryListenerList
 
@@ -77,7 +77,7 @@ end;//TnscDocumentHistoryFree
 
 type _Instance_R_ = TnscDocumentHistoryListenerList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 procedure TnscDocumentHistory.AddDocument(aDocId: Integer);
 //#UC START# *53D229400300_53D2281F0048_var*

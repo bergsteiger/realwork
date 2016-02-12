@@ -5,7 +5,7 @@
 
 {$Define atProcessNamedFoldersObjectOperation_imp}
 
- {$Include atProcessFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessFoldersObjectOperation.imp.pas}
  _atProcessNamedFoldersObjectOperation_ = {abstract} class(_atProcessFoldersObjectOperation_)
   protected
    procedure InitParamList; override;
@@ -18,7 +18,7 @@
 
 {$Define atProcessNamedFoldersObjectOperation_imp_impl}
 
-{$Include atProcessFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessFoldersObjectOperation.imp.pas}
 
 procedure _atProcessNamedFoldersObjectOperation_.InitParamList;
 //#UC START# *48089F3701B4_484FA0FD0223_var*

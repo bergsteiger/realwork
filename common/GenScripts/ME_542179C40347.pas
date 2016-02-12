@@ -11,7 +11,7 @@
 
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _m3AutoAllocList_ = class(_l3UncomparabeObjectRefList_)
   protected
    {$If NOT Defined(DesignTimeLibrary)}
@@ -52,7 +52,7 @@ begin
 //#UC END# *47B99D4503A2_542179C40347_impl*
 end;//CompareExistingItems
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function _m3AutoAllocList_.IsCacheable: Boolean;

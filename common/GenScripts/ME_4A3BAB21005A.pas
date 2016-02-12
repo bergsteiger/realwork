@@ -18,7 +18,7 @@ uses
 
 type
  _nevSolidParaAnchorModify_Parent_ = TnevLeafParaAnchor;
- {$Include nevSolidParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}
  TnevSolidParaAnchor = class(_nevSolidParaAnchorModify_)
   {* якорь листьевого параграфа не имеющего делени€ на строки }
   private
@@ -58,7 +58,7 @@ uses
  , l3MinMax
 ;
 
-{$Include nevSolidParaAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas}
 
 function TnevSolidParaAnchor.GetAtStart: Boolean;
 //#UC START# *4A3B707700C9_4A3BAB21005A_var*

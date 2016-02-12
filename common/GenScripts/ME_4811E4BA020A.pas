@@ -18,7 +18,7 @@ uses
 
 type
  _nevDocumentContainerDecorationRules_Parent_ = TnevBaseView;
- {$Include nevDocumentContainerDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
  TnevBaseDrawView = class(_nevDocumentContainerDecorationRules_, InevScrollListener, InevControlView, InevDrawView, InevViewMetrics)
   private
    f_Control: Pointer;
@@ -129,7 +129,7 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
 ;
 
-{$Include nevDocumentContainerDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
 
 function TnevBaseDrawView.pm_GetViewExtent: TnevPoint;
 //#UC START# *48C7F58C03E0_4811E4BA020Aget_var*

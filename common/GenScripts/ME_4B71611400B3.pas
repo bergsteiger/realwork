@@ -8,7 +8,7 @@
  {$Define l3Items_IsAtomic}
 
  _l3UnrefcountedList_Parent_ = _l3AtomicListPrim_Parent_;
- {$Include l3UnrefcountedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
  _l3AtomicListPrim_ = class(_l3UnrefcountedList_)
   {* Список атомарных элементов }
  end;//_l3AtomicListPrim_
@@ -19,7 +19,7 @@
 
 {$Define l3AtomicListPrim_imp_impl}
 
-{$Include l3UnrefcountedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
 
 {$EndIf l3AtomicListPrim_imp_impl}
 

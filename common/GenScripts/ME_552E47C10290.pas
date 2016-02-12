@@ -288,12 +288,8 @@ end;//TkwPopListerFooterCaption.ParamsTypes
 function TkwPopListerCurrent.Current(const aCtx: TtfwContext;
  aLister: TvtCustomLister): Integer;
  {* Реализация слова скрипта pop:Lister:Current }
-//#UC START# *E16233BAE445_AC4C8A615B0D_var*
-//#UC END# *E16233BAE445_AC4C8A615B0D_var*
 begin
-//#UC START# *E16233BAE445_AC4C8A615B0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E16233BAE445_AC4C8A615B0D_impl*
+ Result := aLister.Current;
 end;//TkwPopListerCurrent.Current
 
 procedure TkwPopListerCurrent.DoDoIt(const aCtx: TtfwContext);
@@ -318,18 +314,8 @@ end;//TkwPopListerCurrent.GetWordNameForRegister
 
 procedure TkwPopListerCurrent.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-var l_Lister: TvtCustomLister;
 begin
- try
-  l_Lister := TvtCustomLister(aCtx.rEngine.PopObjAs(TvtCustomLister));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра Lister: TvtCustomLister : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- Lister. := aValue.AsInt;
+ RunnerError('Нельзя присваивать значение readonly свойству Current', aCtx);
 end;//TkwPopListerCurrent.SetValuePrim
 
 function TkwPopListerCurrent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

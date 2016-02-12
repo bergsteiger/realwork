@@ -18,7 +18,7 @@ uses
 type
  _ListType_ = TvcmUserTypeDefList;
  _ItemType_ = IvcmUserTypeDef;
- {$Include vcmIterator.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
  TvcmUserTypesIterator = class(_vcmIterator_, IvcmUserTypesIterator)
   protected
    function Next: IvcmUserTypeDef;
@@ -34,7 +34,7 @@ uses
  l3ImplUses
 ;
 
-{$Include vcmIterator.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas}
 
 class function TvcmUserTypesIterator.Make(aList: TvcmUserTypeDefList): IvcmUserTypesIterator;
 var

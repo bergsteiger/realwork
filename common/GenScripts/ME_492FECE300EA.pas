@@ -33,7 +33,7 @@ type
 
  _InitDataType_ = IdeQuery;
  _SetType_ = IsdsQuery;
- {$Include vcmFormSetDataSourceWithoutData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
  TsdsQuery = {final} class(_vcmFormSetDataSourceWithoutData_, IsdsQuery)
   {* Бизнес объект прецедента "Поисковый запрос" }
   private
@@ -67,7 +67,7 @@ uses
 
 type _Instance_R_ = TsdsQuery;
 
-{$Include vcmFormSetDataSourceWithoutData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
 function TsdsQuery.GetQueryClass: TdsQueryClass;
 //#UC START# *492FEE0000FD_492FECE300EA_var*

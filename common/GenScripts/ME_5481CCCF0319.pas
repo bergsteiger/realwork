@@ -18,7 +18,7 @@ uses
 
 type
  _m3BaseStore_Parent_ = Tl3Stream;
- {$Include m3BaseStore.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3BaseStore.imp.pas}
  Tm3PrimStream = {abstract} class(_m3BaseStore_)
   protected
    procedure DoRead(aBuff: Pointer;
@@ -78,7 +78,7 @@ uses
  , ComObj
 ;
 
-{$Include m3BaseStore.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3BaseStore.imp.pas}
 
 procedure Tm3PrimStream.DoRead(aBuff: Pointer;
  aSize: Integer;

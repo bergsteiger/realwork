@@ -18,7 +18,7 @@ uses
 
 type
  _nevDocumentContainerDecorationRules_Parent_ = TnevBaseView;
- {$Include nevDocumentContainerDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
  TnevBaseDetachedView = class(_nevDocumentContainerDecorationRules_, InevViewMetrics)
   private
    f_Text: Pointer;
@@ -77,7 +77,7 @@ uses
  , TextPara_Const
 ;
 
-{$Include nevDocumentContainerDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
 
 constructor TnevBaseDetachedView.Create(const aText: InevObject;
  const aCanvas: InevCanvas);

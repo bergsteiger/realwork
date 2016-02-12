@@ -22,7 +22,7 @@ type
  RevSegmentClass = class of TevSegmentHotSpot;
 
  _evDecorHotSpotTester_Parent_ = Tk2TagTool;
- {$Include evDecorHotSpotTester.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
  TevTextParaHotSpotTester = class(_evDecorHotSpotTester_, InevHotSpotTester2)
   protected
    function GetSegmentClass: RevSegmentClass; virtual;
@@ -67,7 +67,7 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
 ;
 
-{$Include evDecorHotSpotTester.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
 
 function TevTextParaHotSpotTester.GetSegmentClass: RevSegmentClass;
 //#UC START# *4A26B035006A_4A26AF690296_var*

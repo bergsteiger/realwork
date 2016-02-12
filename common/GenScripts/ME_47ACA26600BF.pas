@@ -23,7 +23,7 @@ type
  _ItemType_ = IUnknown;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  Tl3InterfacePtrList = class(_l3InterfacePtrList_)
   {* Список УКАЗАТЕЛЕЙ на интерфейсы. Не владеет ими. }
  end;//Tl3InterfacePtrList
@@ -40,6 +40,6 @@ uses
 
 type _Instance_R_ = Tl3InterfacePtrList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 end.

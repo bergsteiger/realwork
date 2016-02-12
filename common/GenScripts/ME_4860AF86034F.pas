@@ -21,7 +21,7 @@ type
  _IDIndexType_ = Tk2DictionaryIDIndex;
  _StringType_ = Tl3Variant;
  _l3DictionaryPrim_Parent_ = Tk2DictionaryPrim;
- {$Include l3DictionaryPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrim.imp.pas}
  Tk2Dictionary = class(_l3DictionaryPrim_)
   {* Словарь. }
  end;//Tk2Dictionary
@@ -48,6 +48,6 @@ end;//ItemToWStr
 
 type _Instance_R_ = Tk2Dictionary;
 
-{$Include l3DictionaryPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrim.imp.pas}
 
 end.

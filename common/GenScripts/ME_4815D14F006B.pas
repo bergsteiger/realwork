@@ -24,7 +24,7 @@ type
  _ItemType_ = TnevRootFormatInfo;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TnevRootFormatInfoListPrim = class(_l3UncomparabeObjectRefList_)
   public
    class function CompareViews(const A: InevViewMetrics;
@@ -72,7 +72,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TnevRootFormatInfoListPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 class function TnevRootFormatInfoListPrim.CompareViews(const A: InevViewMetrics;
  const B: InevViewMetrics): Integer;

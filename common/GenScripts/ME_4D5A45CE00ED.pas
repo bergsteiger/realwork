@@ -22,7 +22,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTextEditorVisitor;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TTabInTableTest = {abstract} class(_CursorMover_)
   {* “еситрование поведени€ таблицации в таблице }
   protected
@@ -60,7 +60,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 procedure TTabInTableTest.CheckPoint(const aCellPoint: InevBasePoint);
 //#UC START# *4D5A4CA602E5_4D5A45CE00ED_var*

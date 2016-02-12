@@ -20,7 +20,7 @@ uses
 
 type
  _SetType_ = IvcmFormSetDataSource;
- {$Include vcmTinyUseCaseController.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
  TvcmFormSetDataSource = class(_vcmTinyUseCaseController_)
   {* Временная реализация абстрактного прецедента для TvcmFormSetFactory.MakeFormSet }
  end;//TvcmFormSetDataSource
@@ -38,7 +38,7 @@ uses
 
 type _Instance_R_ = TvcmFormSetDataSource;
 
-{$Include vcmTinyUseCaseController.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

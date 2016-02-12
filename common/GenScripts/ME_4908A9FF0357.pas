@@ -17,11 +17,11 @@ uses
 
 type
  _l3LockedChange_Parent_ = Tl3ProtoPersistentDataContainer;
- {$Include l3LockedChange.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3LockedChange.imp.pas}
  _l3Sortable_Parent_ = _l3LockedChange_;
- {$Include l3Sortable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Sortable.imp.pas}
  _l3ChangingChangedNotifier_Parent_ = _l3Sortable_;
- {$Include l3ChangingChangedNotifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
  Tl3ItemsStorage = class(_l3ChangingChangedNotifier_)
   protected
    procedure Swap(var I1: _ItemType_;
@@ -54,13 +54,13 @@ begin
 //#UC END# *47B5B5F1038E_4908A9FF0357_impl*
 end;//DoCompareItems
 
-{$Include l3LockedChange.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3LockedChange.imp.pas}
 
 type _Instance_R_ = Tl3ItemsStorage;
 
-{$Include l3Sortable.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Sortable.imp.pas}
 
-{$Include l3ChangingChangedNotifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
 
 procedure Tl3ItemsStorage.Swap(var I1: _ItemType_;
  var I2: _ItemType_);

@@ -27,7 +27,7 @@ type
  _ItemType_ = Tl3LogFont;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tl3FontManagerPrimPrim = class(_l3UncomparabeObjectRefList_)
  end;//Tl3FontManagerPrimPrim
 
@@ -87,6 +87,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3FontManagerPrimPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

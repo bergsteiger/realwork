@@ -15,7 +15,7 @@ uses
 
 type
  _l3ObjectByHandleSearcher_Parent_ = Tl3ProtoPersistentWithHandleRefListPrim;
- {$Include l3ObjectByHandleSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
  Tl3ProtoPersistentWithHandleRefList = class(_l3ObjectByHandleSearcher_)
  end;//Tl3ProtoPersistentWithHandleRefList
 
@@ -27,6 +27,6 @@ uses
 
 type _Instance_R_ = Tl3ProtoPersistentWithHandleRefList;
 
-{$Include l3ObjectByHandleSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
 
 end.

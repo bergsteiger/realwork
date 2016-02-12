@@ -16,9 +16,9 @@ uses
 
 type
  _atIterateThroughFilesAddOn_Parent_ = TatOperationBase;
- {$Include atIterateThroughFilesAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}
  _atExecutesQueryAddOn_Parent_ = _atIterateThroughFilesAddOn_;
- {$Include atExecutesQueryAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
  TatJurQueryTestOperation = class(_atExecutesQueryAddOn_)
   private
    f_ImportErrors: TStringList;
@@ -50,9 +50,9 @@ uses
  , atSearchHelper
 ;
 
-{$Include atIterateThroughFilesAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}
 
-{$Include atExecutesQueryAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
 
 function TatJurQueryTestOperation.OnFile(const aFileName: AnsiString): Boolean;
 //#UC START# *502A649F0204_5051E5CB00F4_var*

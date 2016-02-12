@@ -169,7 +169,7 @@ type
  _ItemType_ = TvcmHistoryFormCacheItem;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvcmHistoryFormCache = class(_l3RecordWithEQList_)
   public
    function FindForm(const aGUID: TGUID): IvcmEntityForm;
@@ -1040,7 +1040,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmHistoryFormCache;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
 function TvcmHistoryFormCache.FindForm(const aGUID: TGUID): IvcmEntityForm;
 //#UC START# *55C893D00196_55C864BA02BE_var*

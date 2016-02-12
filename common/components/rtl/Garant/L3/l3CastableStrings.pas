@@ -15,7 +15,7 @@ uses
 
 type
  _l3Castable_Parent_ = TStrings;
- {$Include l3Castable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
  Tl3CastableStrings = class(_l3Castable_)
  end;//Tl3CastableStrings
 
@@ -25,6 +25,6 @@ uses
  l3ImplUses
 ;
 
-{$Include l3Castable.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
 
 end.

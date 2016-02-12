@@ -7,7 +7,7 @@
 
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = _k2TagByIntegerSearcher_Parent_;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  _k2TagByIntegerSearcher_ = {abstract} class(_l3Searcher_)
  end;//_k2TagByIntegerSearcher_
 
@@ -30,7 +30,7 @@ begin
 //#UC END# *47B9BAFD01F4_4B89152D0120_impl*
 end;//CompareItemWithData
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 {$EndIf k2TagByIntegerSearcher_imp_impl}
 

@@ -99,7 +99,7 @@ type
  end;//TatDocReader
 
  _EntityInterface_ = IBookmark;
- {$Include atEntityWithName.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
  TatBookmark = class(_atEntityWithName_)
   protected
    function pm_GetDocument: IDocument; virtual;
@@ -589,7 +589,7 @@ begin
 //#UC END# *48077504027E_4DD39F320114_impl*
 end;//TatDocReader.Destroy
 
-{$Include atEntityWithName.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
 
 function TatBookmark.pm_GetDocument: IDocument;
 //#UC START# *4FD0E49203B9_4FD0E3FA03BEget_var*

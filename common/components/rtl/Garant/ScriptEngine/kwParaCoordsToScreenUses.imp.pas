@@ -1,29 +1,28 @@
 {$IfNDef kwParaCoordsToScreenUses_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwParaCoordsToScreenUses.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi::ScriptEngine$Everest::MoveMouseByPara::kwParaCoordsToScreenUses
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define kwParaCoordsToScreenUses_imp}
-{$If not defined(NoScripts)}
- _kwParaCoordsToScreenUses_ = {abstract mixin} class(_kwParaCoordsToScreenUses_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _kwParaCoordsToScreenUses_ = {abstract} class(_kwParaCoordsToScreenUses_Parent_)
  end;//_kwParaCoordsToScreenUses_
-{$Else}
 
- _kwParaCoordsToScreenUses_ = _kwParaCoordsToScreenUses_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_kwParaCoordsToScreenUses_ = _kwParaCoordsToScreenUses_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else kwParaCoordsToScreenUses_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef kwParaCoordsToScreenUses_imp_impl}
 
+{$Define kwParaCoordsToScreenUses_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf kwParaCoordsToScreenUses_imp_impl}
 
 {$EndIf kwParaCoordsToScreenUses_imp}
+

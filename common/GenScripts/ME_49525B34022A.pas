@@ -53,9 +53,9 @@ type
  end;//IvcmStateItem
 
  _afwApplicationDataUpdate_Parent_ = TvcmEntityFormModelPart;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _afwSettingsReplace_Parent_ = _afwApplicationDataUpdate_;
- {$Include afwSettingsReplace.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  TvcmEntityForm = class(_afwSettingsReplace_, Il3CommandTarget, IafwForm, IafwTabSheetControl, IvcmToolbarsCustomizeListener, IvcmFormDispatcherListener)
   protected
    procedure UpdateStatusInfo;
@@ -153,7 +153,7 @@ type
  _ItemType_ = IvcmStateItem;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TvcmFormState = class(_l3InterfaceRefList_, IvcmBase, IvcmFormState)
   protected
    procedure LoadState(aForm: TvcmEntityForm;
@@ -165,7 +165,7 @@ type
 
 type _Instance_R_ = TvcmFormState;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 procedure TvcmFormState.AddState(const aName: AnsiString;
  const aState: IUnknown);
@@ -187,9 +187,9 @@ begin
 //#UC END# *55C1F7D50220_55C1F803015D_impl*
 end;//TvcmFormState.LoadState
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-{$Include afwSettingsReplace.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
 
 procedure TvcmEntityForm.UpdateStatusInfo;
 //#UC START# *4A378C0E0268_49525B34022A_var*

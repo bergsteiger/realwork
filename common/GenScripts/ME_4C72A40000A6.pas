@@ -24,7 +24,7 @@ type
 
  Tf1ListTagDataFromDTPPrim = class;
 
- {$Include f1TagDataProviderPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderPrim.imp.pas}
  Tf1TagDataFromDTP = {abstract} class(_f1TagDataProviderPrim_, If1TagDataProvider)
   {* Базовый поставщик данных о параграфе }
   protected
@@ -107,7 +107,7 @@ uses
  , f1TagDataFromDTPFactory
 ;
 
-{$Include f1TagDataProviderPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\f1TagDataProviderPrim.imp.pas}
 
 function Tf1TagDataFromDTP.pm_Getf_Provider: IDocumentTextProvider;
 //#UC START# *4C727B320016_4C727ADB0312get_var*

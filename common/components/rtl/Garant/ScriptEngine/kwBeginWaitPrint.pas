@@ -1,53 +1,36 @@
 unit kwBeginWaitPrint;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwBeginWaitPrint.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::BeginWait_Print
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwBeginWaitPrint.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //nsTest AND not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If defined(nsTest) AND not defined(NoScripts)}
 type
- TkwBeginWaitPrint = {final scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwBeginWaitPrint = {final} class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwBeginWaitPrint
-{$IfEnd} //nsTest AND not NoScripts
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(nsTest) AND not defined(NoScripts)}
+{$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(InsiderTest) AND not defined(NoScripts)}
-  ,
-  kwPrintDataSaver
-  {$IfEnd} //InsiderTest AND not NoScripts
-  
-  ;
-{$IfEnd} //nsTest AND not NoScripts
-
-{$If defined(nsTest) AND not defined(NoScripts)}
-
-// start class TkwBeginWaitPrint
+ l3ImplUses
+ {$If Defined(InsiderTest)}
+ , kwPrintDataSaver
+ {$IfEnd} // Defined(InsiderTest)
+;
 
 procedure TkwBeginWaitPrint.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F72B9B00169_var*
@@ -61,17 +44,13 @@ begin
 end;//TkwBeginWaitPrint.DoDoIt
 
 class function TkwBeginWaitPrint.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'BeginWait:Print';
 end;//TkwBeginWaitPrint.GetWordNameForRegister
 
-{$IfEnd} //nsTest AND not NoScripts
-
 initialization
-{$If defined(nsTest) AND not defined(NoScripts)}
-// Регистрация BeginWait_Print
  TkwBeginWaitPrint.RegisterInEngine;
-{$IfEnd} //nsTest AND not NoScripts
+ {* Регистрация BeginWait_Print }
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 
 end.

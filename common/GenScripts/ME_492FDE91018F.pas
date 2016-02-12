@@ -28,7 +28,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsNewsLine;
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsNewsLine = class(_vcmFormDataSourcePrim_, IdsNewsLine)
   {* Новостная лента }
   protected
@@ -54,7 +54,7 @@ uses
 
 type _Instance_R_ = TdsNewsLine;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 procedure TdsNewsLine.Cleanup;
  {* Функция очистки полей объекта. }

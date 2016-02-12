@@ -29,7 +29,7 @@ uses
 type
  _FormDataSourceType_ = IdsAttributeSelect;
  _InitDataType_ = IdeSearch;
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  TdsAttributeSelect = class(_vcmFormDataSource_, IdsAttributeSelect)
   {* бизнес объект формы выбранные атрибуты дерева }
   protected
@@ -49,7 +49,7 @@ uses
 
 type _Instance_R_ = TdsAttributeSelect;
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 function TdsAttributeSelect.pm_GetSearch: IdeSearch;
 //#UC START# *4922D0440266_4922D2780153get_var*

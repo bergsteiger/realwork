@@ -1,31 +1,29 @@
 unit EditorParaCoordsToScreenPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "EditorParaCoordsToScreenPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$Everest::MoveMouseByPara::EditorParaCoordsToScreenPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\EditorParaCoordsToScreenPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwPopEditorParaCoordsToScreen,
-  kwPopEditorParaEndCoordsToScreen,
-  kwPopEditorParaMiddleCoordsToScreen,
-  kwPopEditorCursorCoordsToScreen,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwPopEditorParaCoordsToScreen
+ , kwPopEditorParaEndCoordsToScreen
+ , kwPopEditorParaMiddleCoordsToScreen
+ , kwPopEditorCursorCoordsToScreen
+ , tfwScriptingTypes
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
 end.

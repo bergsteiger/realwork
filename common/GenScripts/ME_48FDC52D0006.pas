@@ -6,7 +6,7 @@
 {$Define nsRootManager_imp}
 
  _nsRootManagerPrim_Parent_ = _nsRootManager_Parent_;
- {$Include nsRootManagerPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManagerPrim.imp.pas}
  _nsRootManager_ = class(_nsRootManagerPrim_)
   private
    f_GetByVisibleIndexCounter: Integer;
@@ -54,7 +54,7 @@
 
 {$Define nsRootManager_imp_impl}
 
-{$Include nsRootManagerPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsRootManagerPrim.imp.pas}
 
 function _nsRootManager_.pm_GetCurrentNode: INodeBase;
 //#UC START# *48FDC5BC0004_48FDC52D0006get_var*

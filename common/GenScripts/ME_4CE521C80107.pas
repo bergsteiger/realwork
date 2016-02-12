@@ -26,7 +26,7 @@ type
  _ItemType_ = Tl3ProtoObject;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tl3ProtoObjectRefList = class(_l3UncomparabeObjectRefList_)
   {* Список ССЫЛОК на Tl3ProtoObject }
  end;//Tl3ProtoObjectRefList
@@ -71,6 +71,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ProtoObjectRefList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

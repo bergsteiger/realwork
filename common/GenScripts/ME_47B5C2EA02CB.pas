@@ -6,7 +6,7 @@
 {$Define l3FourByteItemList_imp}
 
  _l3TypedList_Parent_ = _l3FourByteItemList_Parent_;
- {$Include l3TypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3TypedList.imp.pas}
  _l3FourByteItemList_ = {abstract} class(_l3TypedList_)
   {* Список элементов размером в 4 байта. }
  end;//_l3FourByteItemList_
@@ -51,7 +51,7 @@ begin
 //#UC END# *47B5C4080270_47B5C2EA02CB_impl*
 end;//DoExchange
 
-{$Include l3TypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3TypedList.imp.pas}
 
 {$EndIf l3FourByteItemList_imp_impl}
 

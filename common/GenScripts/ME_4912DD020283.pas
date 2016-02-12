@@ -3,7 +3,7 @@ unit eeInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

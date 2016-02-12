@@ -21,7 +21,7 @@ uses
 ;
 
 type
- {$Include nevTableRowBaseLineCommon.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}
  TnevTableRowBaseLine4Print = class(_nevTableRowBaseLineCommon_)
   {* Базовая линия для печати }
   protected
@@ -63,7 +63,7 @@ uses
 
 type _Instance_R_ = TnevTableRowBaseLine4Print;
 
-{$Include nevTableRowBaseLineCommon.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}
 
 class function TnevTableRowBaseLine4Print.Make(aRow: Tl3Variant): InevPoint;
 var

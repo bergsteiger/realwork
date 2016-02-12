@@ -24,7 +24,7 @@ type
  _ItemType_ = Tl3_Base;
  _l3ObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectRefList.imp.pas}
  Tl3ObjectRefList1 = class(_l3ObjectRefList_)
   {* Список ссылок на объекты. }
   protected
@@ -46,7 +46,7 @@ uses
 
 type _Instance_R_ = Tl3ObjectRefList1;
 
-{$Include l3ObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectRefList.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function Tl3ObjectRefList1.IsCacheable: Boolean;

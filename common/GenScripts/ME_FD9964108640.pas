@@ -301,12 +301,8 @@ begin
 end;//Tkw_Form_CompInfo.GetWordNameForRegister
 
 function Tkw_Form_CompInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A3C9AF40C7D0_var*
-//#UC END# *4DDFD2EA0116_A3C9AF40C7D0_var*
 begin
-//#UC START# *4DDFD2EA0116_A3C9AF40C7D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A3C9AF40C7D0_impl*
+ Result := 'enCompInfo';
 end;//Tkw_Form_CompInfo.GetString
 
 class function Tkw_CompInfo_Control_tvComplectInfo.GetWordNameForRegister: AnsiString;
@@ -315,21 +311,14 @@ begin
 end;//Tkw_CompInfo_Control_tvComplectInfo.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_tvComplectInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_93A68894CE91_var*
-//#UC END# *4DDFD2EA0116_93A68894CE91_var*
 begin
-//#UC START# *4DDFD2EA0116_93A68894CE91_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_93A68894CE91_impl*
+ Result := 'tvComplectInfo';
 end;//Tkw_CompInfo_Control_tvComplectInfo.GetString
 
 class procedure Tkw_CompInfo_Control_tvComplectInfo.RegisterInEngine;
-//#UC START# *52A086150180_93A68894CE91_var*
-//#UC END# *52A086150180_93A68894CE91_var*
 begin
-//#UC START# *52A086150180_93A68894CE91_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_93A68894CE91_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_CompInfo_Control_tvComplectInfo.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_tvComplectInfo_Push.DoDoIt(const aCtx: TtfwContext);
@@ -352,21 +341,14 @@ begin
 end;//Tkw_CompInfo_Control_pnBottom.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_pnBottom.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1124F46A0E54_var*
-//#UC END# *4DDFD2EA0116_1124F46A0E54_var*
 begin
-//#UC START# *4DDFD2EA0116_1124F46A0E54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1124F46A0E54_impl*
+ Result := 'pnBottom';
 end;//Tkw_CompInfo_Control_pnBottom.GetString
 
 class procedure Tkw_CompInfo_Control_pnBottom.RegisterInEngine;
-//#UC START# *52A086150180_1124F46A0E54_var*
-//#UC END# *52A086150180_1124F46A0E54_var*
 begin
-//#UC START# *52A086150180_1124F46A0E54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1124F46A0E54_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CompInfo_Control_pnBottom.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_pnBottom_Push.DoDoIt(const aCtx: TtfwContext);
@@ -389,21 +371,14 @@ begin
 end;//Tkw_CompInfo_Control_pnVisualRepresentationData.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_pnVisualRepresentationData.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_94FF3D7D6FEE_var*
-//#UC END# *4DDFD2EA0116_94FF3D7D6FEE_var*
 begin
-//#UC START# *4DDFD2EA0116_94FF3D7D6FEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_94FF3D7D6FEE_impl*
+ Result := 'pnVisualRepresentationData';
 end;//Tkw_CompInfo_Control_pnVisualRepresentationData.GetString
 
 class procedure Tkw_CompInfo_Control_pnVisualRepresentationData.RegisterInEngine;
-//#UC START# *52A086150180_94FF3D7D6FEE_var*
-//#UC END# *52A086150180_94FF3D7D6FEE_var*
 begin
-//#UC START# *52A086150180_94FF3D7D6FEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_94FF3D7D6FEE_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CompInfo_Control_pnVisualRepresentationData.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_pnVisualRepresentationData_Push.DoDoIt(const aCtx: TtfwContext);
@@ -426,21 +401,14 @@ begin
 end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4669E9FC848B_var*
-//#UC END# *4DDFD2EA0116_4669E9FC848B_var*
 begin
-//#UC START# *4DDFD2EA0116_4669E9FC848B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4669E9FC848B_impl*
+ Result := 'pnVisualRepresentationDataCaption';
 end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.GetString
 
 class procedure Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.RegisterInEngine;
-//#UC START# *52A086150180_4669E9FC848B_var*
-//#UC END# *52A086150180_4669E9FC848B_var*
 begin
-//#UC START# *52A086150180_4669E9FC848B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_4669E9FC848B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push.DoDoIt(const aCtx: TtfwContext);
@@ -463,21 +431,14 @@ begin
 end;//Tkw_CompInfo_Control_lblVisualRepresentationData.GetWordNameForRegister
 
 function Tkw_CompInfo_Control_lblVisualRepresentationData.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_05C07A6F62A5_var*
-//#UC END# *4DDFD2EA0116_05C07A6F62A5_var*
 begin
-//#UC START# *4DDFD2EA0116_05C07A6F62A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_05C07A6F62A5_impl*
+ Result := 'lblVisualRepresentationData';
 end;//Tkw_CompInfo_Control_lblVisualRepresentationData.GetString
 
 class procedure Tkw_CompInfo_Control_lblVisualRepresentationData.RegisterInEngine;
-//#UC START# *52A086150180_05C07A6F62A5_var*
-//#UC END# *52A086150180_05C07A6F62A5_var*
 begin
-//#UC START# *52A086150180_05C07A6F62A5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_05C07A6F62A5_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_CompInfo_Control_lblVisualRepresentationData.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_lblVisualRepresentationData_Push.DoDoIt(const aCtx: TtfwContext);
@@ -497,21 +458,23 @@ end;//Tkw_CompInfo_Control_lblVisualRepresentationData_Push.GetWordNameForRegist
 function TkwEnCompInfoTvComplectInfo.tvComplectInfo(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TenCompInfo.tvComplectInfo }
-//#UC START# *92A9610CDDDC_CA0E729726DA_var*
-//#UC END# *92A9610CDDDC_CA0E729726DA_var*
 begin
-//#UC START# *92A9610CDDDC_CA0E729726DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *92A9610CDDDC_CA0E729726DA_impl*
+ Result := aenCompInfo.tvComplectInfo;
 end;//TkwEnCompInfoTvComplectInfo.tvComplectInfo
 
 procedure TkwEnCompInfoTvComplectInfo.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CA0E729726DA_var*
-//#UC END# *4DAEEDE10285_CA0E729726DA_var*
+var l_aenCompInfo: TenCompInfo;
 begin
-//#UC START# *4DAEEDE10285_CA0E729726DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CA0E729726DA_impl*
+ try
+  l_aenCompInfo := TenCompInfo(aCtx.rEngine.PopObjAs(TenCompInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenCompInfo: TenCompInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvComplectInfo(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoTvComplectInfo.DoDoIt
 
 class function TkwEnCompInfoTvComplectInfo.GetWordNameForRegister: AnsiString;
@@ -521,12 +484,8 @@ end;//TkwEnCompInfoTvComplectInfo.GetWordNameForRegister
 
 procedure TkwEnCompInfoTvComplectInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_CA0E729726DA_var*
-//#UC END# *52D00B00031A_CA0E729726DA_var*
 begin
-//#UC START# *52D00B00031A_CA0E729726DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_CA0E729726DA_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству tvComplectInfo', aCtx);
 end;//TkwEnCompInfoTvComplectInfo.SetValuePrim
 
 function TkwEnCompInfoTvComplectInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -541,27 +500,29 @@ end;//TkwEnCompInfoTvComplectInfo.GetAllParamsCount
 
 function TkwEnCompInfoTvComplectInfo.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoTvComplectInfo.ParamsTypes
 
 function TkwEnCompInfoPnBottom.pnBottom(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TvtPanel;
  {* Реализация слова скрипта .TenCompInfo.pnBottom }
-//#UC START# *C3B5CC3A15F6_BB03EE607F17_var*
-//#UC END# *C3B5CC3A15F6_BB03EE607F17_var*
 begin
-//#UC START# *C3B5CC3A15F6_BB03EE607F17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C3B5CC3A15F6_BB03EE607F17_impl*
+ Result := aenCompInfo.pnBottom;
 end;//TkwEnCompInfoPnBottom.pnBottom
 
 procedure TkwEnCompInfoPnBottom.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BB03EE607F17_var*
-//#UC END# *4DAEEDE10285_BB03EE607F17_var*
+var l_aenCompInfo: TenCompInfo;
 begin
-//#UC START# *4DAEEDE10285_BB03EE607F17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BB03EE607F17_impl*
+ try
+  l_aenCompInfo := TenCompInfo(aCtx.rEngine.PopObjAs(TenCompInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenCompInfo: TenCompInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnBottom(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoPnBottom.DoDoIt
 
 class function TkwEnCompInfoPnBottom.GetWordNameForRegister: AnsiString;
@@ -571,12 +532,8 @@ end;//TkwEnCompInfoPnBottom.GetWordNameForRegister
 
 procedure TkwEnCompInfoPnBottom.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BB03EE607F17_var*
-//#UC END# *52D00B00031A_BB03EE607F17_var*
 begin
-//#UC START# *52D00B00031A_BB03EE607F17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BB03EE607F17_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnBottom', aCtx);
 end;//TkwEnCompInfoPnBottom.SetValuePrim
 
 function TkwEnCompInfoPnBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -591,27 +548,29 @@ end;//TkwEnCompInfoPnBottom.GetAllParamsCount
 
 function TkwEnCompInfoPnBottom.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoPnBottom.ParamsTypes
 
 function TkwEnCompInfoPnVisualRepresentationData.pnVisualRepresentationData(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TvtPanel;
  {* Реализация слова скрипта .TenCompInfo.pnVisualRepresentationData }
-//#UC START# *B1D60ABCDB69_ED2685ED0E01_var*
-//#UC END# *B1D60ABCDB69_ED2685ED0E01_var*
 begin
-//#UC START# *B1D60ABCDB69_ED2685ED0E01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B1D60ABCDB69_ED2685ED0E01_impl*
+ Result := aenCompInfo.pnVisualRepresentationData;
 end;//TkwEnCompInfoPnVisualRepresentationData.pnVisualRepresentationData
 
 procedure TkwEnCompInfoPnVisualRepresentationData.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ED2685ED0E01_var*
-//#UC END# *4DAEEDE10285_ED2685ED0E01_var*
+var l_aenCompInfo: TenCompInfo;
 begin
-//#UC START# *4DAEEDE10285_ED2685ED0E01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ED2685ED0E01_impl*
+ try
+  l_aenCompInfo := TenCompInfo(aCtx.rEngine.PopObjAs(TenCompInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenCompInfo: TenCompInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnVisualRepresentationData(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoPnVisualRepresentationData.DoDoIt
 
 class function TkwEnCompInfoPnVisualRepresentationData.GetWordNameForRegister: AnsiString;
@@ -621,12 +580,8 @@ end;//TkwEnCompInfoPnVisualRepresentationData.GetWordNameForRegister
 
 procedure TkwEnCompInfoPnVisualRepresentationData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ED2685ED0E01_var*
-//#UC END# *52D00B00031A_ED2685ED0E01_var*
 begin
-//#UC START# *52D00B00031A_ED2685ED0E01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ED2685ED0E01_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnVisualRepresentationData', aCtx);
 end;//TkwEnCompInfoPnVisualRepresentationData.SetValuePrim
 
 function TkwEnCompInfoPnVisualRepresentationData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -641,27 +596,29 @@ end;//TkwEnCompInfoPnVisualRepresentationData.GetAllParamsCount
 
 function TkwEnCompInfoPnVisualRepresentationData.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoPnVisualRepresentationData.ParamsTypes
 
 function TkwEnCompInfoPnVisualRepresentationDataCaption.pnVisualRepresentationDataCaption(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TvtPanel;
  {* Реализация слова скрипта .TenCompInfo.pnVisualRepresentationDataCaption }
-//#UC START# *645717FD5779_12AEC3D1A33C_var*
-//#UC END# *645717FD5779_12AEC3D1A33C_var*
 begin
-//#UC START# *645717FD5779_12AEC3D1A33C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *645717FD5779_12AEC3D1A33C_impl*
+ Result := aenCompInfo.pnVisualRepresentationDataCaption;
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.pnVisualRepresentationDataCaption
 
 procedure TkwEnCompInfoPnVisualRepresentationDataCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_12AEC3D1A33C_var*
-//#UC END# *4DAEEDE10285_12AEC3D1A33C_var*
+var l_aenCompInfo: TenCompInfo;
 begin
-//#UC START# *4DAEEDE10285_12AEC3D1A33C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_12AEC3D1A33C_impl*
+ try
+  l_aenCompInfo := TenCompInfo(aCtx.rEngine.PopObjAs(TenCompInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenCompInfo: TenCompInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnVisualRepresentationDataCaption(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.DoDoIt
 
 class function TkwEnCompInfoPnVisualRepresentationDataCaption.GetWordNameForRegister: AnsiString;
@@ -671,12 +628,8 @@ end;//TkwEnCompInfoPnVisualRepresentationDataCaption.GetWordNameForRegister
 
 procedure TkwEnCompInfoPnVisualRepresentationDataCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_12AEC3D1A33C_var*
-//#UC END# *52D00B00031A_12AEC3D1A33C_var*
 begin
-//#UC START# *52D00B00031A_12AEC3D1A33C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_12AEC3D1A33C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnVisualRepresentationDataCaption', aCtx);
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.SetValuePrim
 
 function TkwEnCompInfoPnVisualRepresentationDataCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -691,27 +644,29 @@ end;//TkwEnCompInfoPnVisualRepresentationDataCaption.GetAllParamsCount
 
 function TkwEnCompInfoPnVisualRepresentationDataCaption.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoPnVisualRepresentationDataCaption.ParamsTypes
 
 function TkwEnCompInfoLblVisualRepresentationData.lblVisualRepresentationData(const aCtx: TtfwContext;
  aenCompInfo: TenCompInfo): TvtLabel;
  {* Реализация слова скрипта .TenCompInfo.lblVisualRepresentationData }
-//#UC START# *13FC19350BCA_317E9A769DAB_var*
-//#UC END# *13FC19350BCA_317E9A769DAB_var*
 begin
-//#UC START# *13FC19350BCA_317E9A769DAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *13FC19350BCA_317E9A769DAB_impl*
+ Result := aenCompInfo.lblVisualRepresentationData;
 end;//TkwEnCompInfoLblVisualRepresentationData.lblVisualRepresentationData
 
 procedure TkwEnCompInfoLblVisualRepresentationData.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_317E9A769DAB_var*
-//#UC END# *4DAEEDE10285_317E9A769DAB_var*
+var l_aenCompInfo: TenCompInfo;
 begin
-//#UC START# *4DAEEDE10285_317E9A769DAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_317E9A769DAB_impl*
+ try
+  l_aenCompInfo := TenCompInfo(aCtx.rEngine.PopObjAs(TenCompInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenCompInfo: TenCompInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblVisualRepresentationData(aCtx, l_aenCompInfo));
 end;//TkwEnCompInfoLblVisualRepresentationData.DoDoIt
 
 class function TkwEnCompInfoLblVisualRepresentationData.GetWordNameForRegister: AnsiString;
@@ -721,12 +676,8 @@ end;//TkwEnCompInfoLblVisualRepresentationData.GetWordNameForRegister
 
 procedure TkwEnCompInfoLblVisualRepresentationData.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_317E9A769DAB_var*
-//#UC END# *52D00B00031A_317E9A769DAB_var*
 begin
-//#UC START# *52D00B00031A_317E9A769DAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_317E9A769DAB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblVisualRepresentationData', aCtx);
 end;//TkwEnCompInfoLblVisualRepresentationData.SetValuePrim
 
 function TkwEnCompInfoLblVisualRepresentationData.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -741,7 +692,7 @@ end;//TkwEnCompInfoLblVisualRepresentationData.GetAllParamsCount
 
 function TkwEnCompInfoLblVisualRepresentationData.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenCompInfo)]);
 end;//TkwEnCompInfoLblVisualRepresentationData.ParamsTypes
 
 initialization

@@ -27,7 +27,7 @@ uses
 
 type
  _k2Tag_Parent_ = Tl3IEBitmapContainer;
- {$Include k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  TevBitmapParaBitmapContainer = class(_k2Tag_)
   protected
    {$If NOT Defined(k2TagIsAtomic)}
@@ -73,7 +73,7 @@ uses
 
 type _Instance_R_ = TevBitmapParaBitmapContainer;
 
-{$Include k2Tag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor TevBitmapParaBitmapContainer.Create(aType: Tk2Type);
 //#UC START# *53075BB9030D_4858153B023B_var*

@@ -53,7 +53,7 @@ uses
 
 type
  _InitDataType_ = IdeDocumentList;
- {$Include dsDocumentList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.imp.pas}
  TdsDocumentList = class(_dsDocumentList_)
   {* Список документов }
  end;//TdsDocumentList
@@ -136,7 +136,7 @@ uses
 
 type _Instance_R_ = TdsDocumentList;
 
-{$Include dsDocumentList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.imp.pas}
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

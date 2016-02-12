@@ -50,7 +50,7 @@ type
  _ItemType_ = TddBlockInfo;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddBlockInfoStack = {final} class(_l3UncomparabeObjectRefList_)
  end;//TddBlockInfoStack
 
@@ -154,7 +154,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddBlockInfoStack;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 function TddRTFExpandedTextWriter.NeedCheckCollapsed(aStyle: Integer): Boolean;
 //#UC START# *55BB652A0311_55BB1F310213_var*

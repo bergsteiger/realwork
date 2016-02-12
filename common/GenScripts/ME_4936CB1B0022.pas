@@ -39,7 +39,7 @@ uses
 type
  _SetDataType_ = IdDiction;
  _SetType_ = IsdsDiction;
- {$Include sdsCommonDiction.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}
  TsdsDiction = class(_sdsCommonDiction_, IsdsDiction)
   {* Бизнес объект сборки "Толковый словарь" }
   private
@@ -124,7 +124,7 @@ uses
 
 type _Instance_R_ = TsdsDiction;
 
-{$Include sdsCommonDiction.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.imp.pas}
 
 procedure TsdsDiction.LoadLanguages(const aDocument: IDocument);
  {* загружает доступные для документа языки }

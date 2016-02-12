@@ -105,12 +105,8 @@ begin
 end;//Tkw_Form_TasksPanel.GetWordNameForRegister
 
 function Tkw_Form_TasksPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7EA8E1DB3FC0_var*
-//#UC END# *4DDFD2EA0116_7EA8E1DB3FC0_var*
 begin
-//#UC START# *4DDFD2EA0116_7EA8E1DB3FC0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7EA8E1DB3FC0_impl*
+ Result := 'en_TasksPanel';
 end;//Tkw_Form_TasksPanel.GetString
 
 class function Tkw_TasksPanel_Control_tpvMain.GetWordNameForRegister: AnsiString;
@@ -119,21 +115,14 @@ begin
 end;//Tkw_TasksPanel_Control_tpvMain.GetWordNameForRegister
 
 function Tkw_TasksPanel_Control_tpvMain.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_0D6328B77C96_var*
-//#UC END# *4DDFD2EA0116_0D6328B77C96_var*
 begin
-//#UC START# *4DDFD2EA0116_0D6328B77C96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_0D6328B77C96_impl*
+ Result := 'tpvMain';
 end;//Tkw_TasksPanel_Control_tpvMain.GetString
 
 class procedure Tkw_TasksPanel_Control_tpvMain.RegisterInEngine;
-//#UC START# *52A086150180_0D6328B77C96_var*
-//#UC END# *52A086150180_0D6328B77C96_var*
 begin
-//#UC START# *52A086150180_0D6328B77C96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_0D6328B77C96_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTasksPanelView);
 end;//Tkw_TasksPanel_Control_tpvMain.RegisterInEngine
 
 procedure Tkw_TasksPanel_Control_tpvMain_Push.DoDoIt(const aCtx: TtfwContext);
@@ -153,21 +142,23 @@ end;//Tkw_TasksPanel_Control_tpvMain_Push.GetWordNameForRegister
 function TkwEnTasksPanelTpvMain.tpvMain(const aCtx: TtfwContext;
  aen_TasksPanel: Ten_TasksPanel): TnscTasksPanelView;
  {* Реализация слова скрипта .Ten_TasksPanel.tpvMain }
-//#UC START# *F0C78761A83C_934E9DB43F55_var*
-//#UC END# *F0C78761A83C_934E9DB43F55_var*
 begin
-//#UC START# *F0C78761A83C_934E9DB43F55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F0C78761A83C_934E9DB43F55_impl*
+ Result := aen_TasksPanel.tpvMain;
 end;//TkwEnTasksPanelTpvMain.tpvMain
 
 procedure TkwEnTasksPanelTpvMain.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_934E9DB43F55_var*
-//#UC END# *4DAEEDE10285_934E9DB43F55_var*
+var l_aen_TasksPanel: Ten_TasksPanel;
 begin
-//#UC START# *4DAEEDE10285_934E9DB43F55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_934E9DB43F55_impl*
+ try
+  l_aen_TasksPanel := Ten_TasksPanel(aCtx.rEngine.PopObjAs(Ten_TasksPanel));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_TasksPanel: Ten_TasksPanel : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tpvMain(aCtx, l_aen_TasksPanel));
 end;//TkwEnTasksPanelTpvMain.DoDoIt
 
 class function TkwEnTasksPanelTpvMain.GetWordNameForRegister: AnsiString;
@@ -177,12 +168,8 @@ end;//TkwEnTasksPanelTpvMain.GetWordNameForRegister
 
 procedure TkwEnTasksPanelTpvMain.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_934E9DB43F55_var*
-//#UC END# *52D00B00031A_934E9DB43F55_var*
 begin
-//#UC START# *52D00B00031A_934E9DB43F55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_934E9DB43F55_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству tpvMain', aCtx);
 end;//TkwEnTasksPanelTpvMain.SetValuePrim
 
 function TkwEnTasksPanelTpvMain.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,7 +184,7 @@ end;//TkwEnTasksPanelTpvMain.GetAllParamsCount
 
 function TkwEnTasksPanelTpvMain.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_TasksPanel)]);
 end;//TkwEnTasksPanelTpvMain.ParamsTypes
 
 initialization

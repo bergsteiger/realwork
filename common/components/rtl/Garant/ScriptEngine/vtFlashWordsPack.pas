@@ -1,44 +1,36 @@
 unit vtFlashWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VT"
-// Модуль: "vtFlashWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VT::vtFlashWords::vtFlashWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtFlashWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoFlash)}
-  ,
-  vtShockwaveFlashEx
-  {$IfEnd} //not NoFlash
-  ,
-  tfwScriptingInterfaces,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoFlash)}
+ , vtShockwaveFlashEx
+ {$IfEnd} // NOT Defined(NoFlash)
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopFlashGetFrame = {final scriptword} class(TtfwClassLike)
+ TkwPopFlashGetFrame = {final} class(TtfwClassLike)
   {* Слово скрипта pop:flash:GetFrame
 *Тип результата:* Integer
 *Пример:*
@@ -46,28 +38,22 @@ type
 INTEGER VAR l_Integer
  aFlash pop:flash:GetFrame >>> l_Integer
 [code]  }
- private
- // private methods
+  private
    function GetFrame(const aCtx: TtfwContext;
     aFlash: TvtShockwaveFlashEx): Integer;
-     {* Реализация слова скрипта pop:flash:GetFrame }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:flash:GetFrame }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopFlashGetFrame
 
-// start class TkwPopFlashGetFrame
-
 function TkwPopFlashGetFrame.GetFrame(const aCtx: TtfwContext;
-  aFlash: TvtShockwaveFlashEx): Integer;
+ aFlash: TvtShockwaveFlashEx): Integer;
+ {* Реализация слова скрипта pop:flash:GetFrame }
 //#UC START# *974085042BA3_4E9CC5473030_var*
 //#UC END# *974085042BA3_4E9CC5473030_var*
 begin
@@ -77,9 +63,7 @@ begin
 end;//TkwPopFlashGetFrame.GetFrame
 
 procedure TkwPopFlashGetFrame.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aFlash : TvtShockwaveFlashEx;
+var l_aFlash: TvtShockwaveFlashEx;
 begin
  try
   l_aFlash := TvtShockwaveFlashEx(aCtx.rEngine.PopObjAs(TvtShockwaveFlashEx));
@@ -90,50 +74,38 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((GetFrame(aCtx, l_aFlash)));
+ aCtx.rEngine.PushInt(GetFrame(aCtx, l_aFlash));
 end;//TkwPopFlashGetFrame.DoDoIt
 
 class function TkwPopFlashGetFrame.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:flash:GetFrame';
 end;//TkwPopFlashGetFrame.GetWordNameForRegister
 
 function TkwPopFlashGetFrame.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopFlashGetFrame.GetResultTypeInfo
 
 function TkwPopFlashGetFrame.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopFlashGetFrame.GetAllParamsCount
 
 function TkwPopFlashGetFrame.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtShockwaveFlashEx)]);
 end;//TkwPopFlashGetFrame.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_Flash_GetFrame
  TkwPopFlashGetFrame.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_Flash_GetFrame }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TvtShockwaveFlashEx
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtShockwaveFlashEx));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа TvtShockwaveFlashEx }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Integer }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

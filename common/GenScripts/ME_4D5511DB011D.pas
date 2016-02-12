@@ -24,7 +24,7 @@ type
  _ItemType_ = IvgScene;
  _l3InterfacePtrListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrListPrim.imp.pas}
  TvgSceneList = class(_l3InterfacePtrListPrim_)
  end;//TvgSceneList
 {$IfEnd} // NOT Defined(NoVGScene)
@@ -84,7 +84,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvgSceneList;
 
-{$Include l3InterfacePtrListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrListPrim.imp.pas}
 {$IfEnd} // NOT Defined(NoVGScene)
 
 end.

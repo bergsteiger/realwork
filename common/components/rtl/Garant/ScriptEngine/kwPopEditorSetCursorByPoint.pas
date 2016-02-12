@@ -1,73 +1,64 @@
 unit kwPopEditorSetCursorByPoint;
+ {* editor:SetCursorByPoint }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorSetCursorByPoint.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_SetCursorByPoint
-//
-// editor:SetCursorByPoint
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetCursorByPoint.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  kwEditorFromStackWord,
-  l3Units,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , nevTools
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , l3Units
+;
 
-{$If not defined(NoScripts)}
 type
  _Para2Point_Parent_ = TkwEditorFromStackWord;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
- TkwPopEditorSetCursorByPoint = {scriptword} class(_Para2Point_)
+ TkwPopEditorSetCursorByPoint = class(_Para2Point_)
   {* editor:SetCursorByPoint }
- private
- // private fields
-   f_Point : InevBasePoint;
-   f_DeltaX : Integer;
-   f_DeltaY : Integer;
- protected
- // realized methods
+  private
+   f_Point: InevBasePoint;
+   f_DeltaX: Integer;
+   f_DeltaY: Integer;
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
    function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
+    {* Возвращает точку, на которую нужно спозиционироваться. }
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorSetCursorByPoint
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevGUIInterfaces,
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , nevGUIInterfaces
+ , l3Base
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-// start class TkwPopEditorSetCursorByPoint
-
 procedure TkwPopEditorSetCursorByPoint.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4EA922390373_var*
 var
  l_Effect        : TevMouseEffect;
@@ -104,7 +95,8 @@ begin
 end;//TkwPopEditorSetCursorByPoint.DoWithEditor
 
 function TkwPopEditorSetCursorByPoint.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4EA922390373_var*
 //#UC END# *4BF4E6A00093_4EA922390373_var*
 begin
@@ -115,6 +107,7 @@ begin
 end;//TkwPopEditorSetCursorByPoint.GetInnerPara
 
 function TkwPopEditorSetCursorByPoint.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4EA922390373_var*
 //#UC END# *4C3C927B027E_4EA922390373_var*
 begin
@@ -124,17 +117,13 @@ begin
 end;//TkwPopEditorSetCursorByPoint.GetPoint
 
 class function TkwPopEditorSetCursorByPoint.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:SetCursorByPoint';
 end;//TkwPopEditorSetCursorByPoint.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_SetCursorByPoint
  TkwPopEditorSetCursorByPoint.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_SetCursorByPoint }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

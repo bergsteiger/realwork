@@ -23,7 +23,7 @@ type
  _ItemType_ = Tk2OperationContainer;
  _l3UncomparabeObjectRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tk2OperationContainerRefList = class(_l3UncomparabeObjectRefList_)
  end;//Tk2OperationContainerRefList
 
@@ -64,6 +64,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2OperationContainerRefList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

@@ -15,7 +15,7 @@ uses
 
 type
  _l3ObjectByHandleSearcher_Parent_ = TevSubPanelSubArrayPrim;
- {$Include l3ObjectByHandleSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
  TevSubPanelSubArray = class(_l3ObjectByHandleSearcher_)
  end;//TevSubPanelSubArray
 
@@ -27,6 +27,6 @@ uses
 
 type _Instance_R_ = TevSubPanelSubArray;
 
-{$Include l3ObjectByHandleSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectByHandleSearcher.imp.pas}
 
 end.

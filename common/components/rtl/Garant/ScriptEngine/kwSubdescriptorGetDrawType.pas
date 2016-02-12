@@ -1,58 +1,48 @@
 unit kwSubdescriptorGetDrawType;
+ {* Помещает в стек тип отображения метки в виде целого числа.
+Формат:
+[code]
+aSubDescrObj subdescriptor:GetDrawType
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwSubdescriptorGetDrawType.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::subdescriptor_GetDrawType
-//
-// Помещает в стек тип отображения метки в виде целого числа.
-// Формат:
-// {code}
-// aSubDescrObj subdescriptor:GetDrawType
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetDrawType.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSubDescriptorFromStackWord,
-  tfwScriptingInterfaces,
-  evSubPn
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSubDescriptorFromStackWord
+ , evSubPn
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwSubdescriptorGetDrawType = {final scriptword} class(TkwSubDescriptorFromStackWord)
+ TkwSubdescriptorGetDrawType = {final} class(TkwSubDescriptorFromStackWord)
   {* Помещает в стек тип отображения метки в виде целого числа.
 Формат:
 [code]
 aSubDescrObj subdescriptor:GetDrawType
 [code] }
- protected
- // realized methods
+  protected
    procedure DoWithSubDescriptor(aControl: TevSubDescriptor;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwSubdescriptorGetDrawType
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwSubdescriptorGetDrawType
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwSubdescriptorGetDrawType.DoWithSubDescriptor(aControl: TevSubDescriptor;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D65E9502E1_52D65F690396_var*
 //#UC END# *52D65E9502E1_52D65F690396_var*
 begin
@@ -62,17 +52,13 @@ begin
 end;//TkwSubdescriptorGetDrawType.DoWithSubDescriptor
 
 class function TkwSubdescriptorGetDrawType.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'subdescriptor:GetDrawType';
 end;//TkwSubdescriptorGetDrawType.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация subdescriptor_GetDrawType
  TkwSubdescriptorGetDrawType.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация subdescriptor_GetDrawType }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

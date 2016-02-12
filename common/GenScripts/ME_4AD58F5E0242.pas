@@ -19,7 +19,7 @@ uses
 type
  _SettingsClass_ = IBaseSettingsManager;
  _nsSettings_Parent_ = Tl3ProtoObject;
- {$Include nsSettings.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
  TnsSettingsPrim = class(_nsSettings_, IafwSettingsPrim)
   public
    class function Make(const aSettings: IBaseSettingsManager): IafwSettingsPrim; reintroduce;
@@ -36,7 +36,7 @@ uses
  , l3Base
 ;
 
-{$Include nsSettings.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
 
 class function TnsSettingsPrim.Make(const aSettings: IBaseSettingsManager): IafwSettingsPrim;
 var

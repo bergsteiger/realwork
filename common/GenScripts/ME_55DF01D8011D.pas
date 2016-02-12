@@ -23,7 +23,7 @@ type
  _ItemType_ = TDoc2DocLinkRec;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TddDoc2DocLinkRecList = class(_l3RecordListPrim_)
  end;//TddDoc2DocLinkRecList
 
@@ -82,6 +82,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddDoc2DocLinkRecList;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 end.

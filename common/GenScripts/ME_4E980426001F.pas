@@ -21,7 +21,7 @@ uses
 
 type
  _CellSelectionByMouse_Parent_ = TkwEditorFromStackCursorWord;
- {$Include CellSelectionByMouse.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas}
  TkwPopEditorSelectCellByMouse = class(_CellSelectionByMouse_)
   {* editorSelectCellByMouse }
   private
@@ -61,7 +61,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include CellSelectionByMouse.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas}
 
 procedure TkwPopEditorSelectCellByMouse.DoCursor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow;

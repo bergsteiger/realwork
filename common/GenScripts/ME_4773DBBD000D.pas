@@ -23,7 +23,7 @@ type
  _ItemType_ = TObject;
  _l3ObjectPtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  Tl3ObjectList = class(_l3ObjectPtrList_)
   {* Списсок указателей на объект. }
   protected
@@ -43,7 +43,7 @@ uses
 
 type _Instance_R_ = Tl3ObjectList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 procedure Tl3ObjectList.DoDelete(Index: Integer);
  {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }

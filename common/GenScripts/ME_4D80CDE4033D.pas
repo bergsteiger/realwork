@@ -100,12 +100,8 @@ end;//Tkw_Form_TreeAttributeSelect_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_TreeAttributeSelect_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4B75BABFB57D_var*
-//#UC END# *4DDFD2EA0116_4B75BABFB57D_var*
 begin
-//#UC START# *4DDFD2EA0116_4B75BABFB57D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4B75BABFB57D_impl*
+ Result := 'efTreeAttributeSelect';
 end;//Tkw_Form_TreeAttributeSelect_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -118,12 +114,8 @@ end;//Tkw_Form_SelectedAttributes_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_SelectedAttributes_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5E03387D0255_var*
-//#UC END# *4DDFD2EA0116_5E03387D0255_var*
 begin
-//#UC START# *4DDFD2EA0116_5E03387D0255_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5E03387D0255_impl*
+ Result := 'enSelectedAttributes';
 end;//Tkw_Form_SelectedAttributes_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -136,12 +128,8 @@ end;//Tkw_Form_AttributeSelect_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_AttributeSelect_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_49CBE92ABADB_var*
-//#UC END# *4DDFD2EA0116_49CBE92ABADB_var*
 begin
-//#UC START# *4DDFD2EA0116_49CBE92ABADB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_49CBE92ABADB_impl*
+ Result := 'cfAttributeSelect';
 end;//Tkw_Form_AttributeSelect_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 

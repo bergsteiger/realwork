@@ -6,7 +6,7 @@
 {$Define sdsBaseDrugDocument_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include sdsBaseDocumentWithAttributes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
  _sdsBaseDrugDocument_ = {abstract} class(_sdsBaseDocumentWithAttributes_, IsdsBaseDrugDocument)
   {* БОС описание препарата. }
   protected
@@ -32,7 +32,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include sdsBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 _sdsBaseDrugDocument_ = _sdsBaseDocumentWithAttributes_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -43,7 +43,7 @@ _sdsBaseDrugDocument_ = _sdsBaseDocumentWithAttributes_;
 {$Define sdsBaseDrugDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include sdsBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 
 procedure _sdsBaseDrugDocument_.DoOpenDrugInternationalNameSynonims;
  {* - открыть синонимы по международному названию. }

@@ -6,7 +6,7 @@
 {$Define l3ChangingWithLock_imp}
 
  _l3ChangingChangedNotifier_Parent_ = _l3ChangingWithLock_Parent_;
- {$Include l3ChangingChangedNotifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
  _l3ChangingWithLock_ = class(_l3ChangingChangedNotifier_)
   private
    f_NotificationLockCount: Integer;
@@ -26,7 +26,7 @@
 
 {$Define l3ChangingWithLock_imp_impl}
 
-{$Include l3ChangingChangedNotifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
 
 procedure _l3ChangingWithLock_.LockNotification;
 //#UC START# *54CB3F2A02B0_54CB3F0F01C0_var*

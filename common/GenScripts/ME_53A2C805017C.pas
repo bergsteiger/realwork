@@ -30,7 +30,7 @@ type
  *)
 
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  Tl3MultiThreadIntegerList = class(_l3CriticalSectionHolder_)
   private
    f_Items: Tl3ProtoIntegerList;
@@ -77,7 +77,7 @@ asm
  jmp l3LocalStub
 end;//L2IntegerIteratorForOneFAction
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 procedure Tl3MultiThreadIntegerList.Add(anItem: Integer);
 //#UC START# *53A2C8C10024_53A2C7AA03BF_var*

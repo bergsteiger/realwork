@@ -35,7 +35,7 @@ type
  _SetDataType_ = IdBaseDocument;
  _InitDataType_ = IdeDocInfo;
  _SetType_ = IsdsAutoreferat;
- {$Include sdsBaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocument.imp.pas}
  TsdsAutoreferat = class(_sdsBaseDocument_, IsdsAutoreferat)
   {* Бизнес объект сборки "Автореферат" }
   private
@@ -82,7 +82,7 @@ uses
 
 type _Instance_R_ = TsdsAutoreferat;
 
-{$Include sdsBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocument.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 function TsdsAutoreferat.MakeData: _SetDataType_;

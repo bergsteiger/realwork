@@ -1,71 +1,53 @@
 unit kwSubPanelFromStackWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwSubPanelFromStackWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::TkwSubPanelFromStackWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubPanelFromStackWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces,
-  evSubPn
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  kwComponentFromStackWord,
-  Classes
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , evSubPn
+ , tfwScriptingInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , kwComponentFromStackWord
+ , Classes
+;
 
-{$If not defined(NoScripts)}
 type
- {$Include ..\ScriptEngine\kwControlFromStackWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwSubPanelFromStackWord = {abstract} class(_kwControlFromStackWord_)
- protected
- // realized methods
-    {$If not defined(NoScripts) AND not defined(NoVCL)}
-   procedure DoControl(aControl: TControl;
-     const aCtx: TtfwContext); override;
-    {$IfEnd} //not NoScripts AND not NoVCL
- protected
- // protected methods
+  protected
    procedure DoWithSubPanel(aControl: TevCustomSubPanel;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   {$If NOT Defined(NoVCL)}
+   procedure DoControl(aControl: TControl;
+    const aCtx: TtfwContext); override;
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//TkwSubPanelFromStackWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
-{$Include ..\ScriptEngine\kwControlFromStackWord.imp.pas}
-
-// start class TkwSubPanelFromStackWord
-
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TkwSubPanelFromStackWord.DoControl(aControl: TControl;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F212C3A015A_52D646990049_var*
 //#UC END# *4F212C3A015A_52D646990049_var*
 begin
@@ -73,14 +55,11 @@ begin
  DoWithSubPanel(aControl as TevCustomSubPanel, aCtx);
 //#UC END# *4F212C3A015A_52D646990049_impl*
 end;//TkwSubPanelFromStackWord.DoControl
-{$IfEnd} //not NoScripts AND not NoVCL
-
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwSubPanelFromStackWord
  TkwSubPanelFromStackWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwSubPanelFromStackWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

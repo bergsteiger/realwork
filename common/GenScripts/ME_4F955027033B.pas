@@ -20,9 +20,9 @@ uses
 
 type
  _Para2Point_Parent_ = TkwEditorFromStackWord;
- {$Include Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _kwParaCoordsToScreenUses_Parent_ = _Para2Point_;
- {$Include kwParaCoordsToScreenUses.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas}
  TkwParaCoordsToScreen = {abstract} class(_kwParaCoordsToScreenUses_)
   protected
    f_Point: InevBasePoint;
@@ -55,9 +55,9 @@ type
   {* Друг для TnevControl }
  end;//TnevControlFriend
 
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-{$Include kwParaCoordsToScreenUses.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas}
 
 procedure TkwParaCoordsToScreen.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

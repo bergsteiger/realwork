@@ -40,7 +40,7 @@ type
  _ItemType_ = TevdBlockInfo;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TevdBlocks = class(_l3RecordListPrim_)
   {* Накопленные в результате анализа документа блоки }
  end;//TevdBlocks
@@ -172,7 +172,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevdBlocks;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 procedure TevdBlockNameAdder.Cleanup;
  {* Функция очистки полей объекта. }

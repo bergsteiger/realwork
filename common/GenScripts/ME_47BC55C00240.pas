@@ -19,7 +19,7 @@ uses
 type
  _FindDataType_ = TDictID;
  _l3Searcher_Parent_ = TdtDictItemsPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TdtDictItems = class(_l3Searcher_)
   {* Список элементов словаря. }
  end;//TdtDictItems
@@ -54,7 +54,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TdtDictItems;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

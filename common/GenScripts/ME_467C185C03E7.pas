@@ -20,9 +20,9 @@ uses
 
 type
  _k2TagHolder_Parent_ = Tk2ToolPrim;
- {$Include k2TagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
  _k2TagBox_Parent_ = _k2TagHolder_;
- {$Include k2TagBox.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
  Tk2TagPointer = {abstract} class(_k2TagBox_, Ik2TagListener, Ik2TagTool)
   protected
    procedure ClearTagCache; virtual;
@@ -59,11 +59,11 @@ uses
  , k2InterfaceFactory
 ;
 
-{$Include k2TagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
 
 type _Instance_R_ = Tk2TagPointer;
 
-{$Include k2TagBox.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
 
 procedure Tk2TagPointer.ClearTagCache;
 //#UC START# *48CE74A10014_467C185C03E7_var*

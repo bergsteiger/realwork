@@ -17,7 +17,7 @@ uses
 type
  _ListType_ = Tl3LongintList;
  _ItemType_ = Integer;
- {$Include l3OtherTypedListView.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OtherTypedListView.imp.pas}
  Tl3CustomLongintListView = {abstract} class(_l3OtherTypedListView_)
  end;//Tl3CustomLongintListView
 
@@ -29,6 +29,6 @@ uses
  , SysUtils
 ;
 
-{$Include l3OtherTypedListView.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OtherTypedListView.imp.pas}
 
 end.

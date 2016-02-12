@@ -19,7 +19,7 @@ type
  TcsTaskResultClass = class of TcsTaskResult;
 
  _evdTagHolder_Parent_ = Tl3Tag;
- {$Include evdTagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TcsTaskResult = class(_evdTagHolder_)
   protected
    function pm_GetTaskID: AnsiString;
@@ -45,7 +45,7 @@ uses
  , k2DocumentBuffer
 ;
 
-{$Include evdTagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
 
 function TcsTaskResult.pm_GetTaskID: AnsiString;
 //#UC START# *96286EAE2E82_53E0D4F50178get_var*

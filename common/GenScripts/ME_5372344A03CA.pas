@@ -22,7 +22,7 @@ type
  _ItemType_ = Byte;
  _l3AtomicList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3AtomicList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
  Tl3ByteList = class(_l3AtomicList_)
  end;//Tl3ByteList
 
@@ -38,6 +38,6 @@ uses
 
 type _Instance_R_ = Tl3ByteList;
 
-{$Include l3AtomicList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
 
 end.

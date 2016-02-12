@@ -36,7 +36,7 @@ uses
 ;
 
 type
- {$Include BaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
  TPrimDictionForm = class(_BaseDocument_, IbsDictionListener)
   {* Толковый словарь }
   private
@@ -168,7 +168,7 @@ const
  str_utDictionSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utDictionSettingsCaption'; rValue : 'Толковый словарь: Список терминов (вкладка)');
   {* Заголовок пользовательского типа "Толковый словарь" для настройки панелей инструментов }
 
-{$Include BaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
 
 function TPrimDictionForm.pm_GetContextMap: InsLangToContextMap;
 //#UC START# *51B7302E015F_4979D40E0180get_var*

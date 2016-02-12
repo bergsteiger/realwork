@@ -23,11 +23,11 @@ uses
 
 type
  _nevParaListTool_Parent_ = TnevAnchor;
- {$Include nevParaListTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  _nevParaListViewBounds_Parent_ = _nevParaListTool_;
- {$Include nevParaListViewBounds.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas}
  _nevParaListAnchorModify_Parent_ = _nevParaListViewBounds_;
- {$Include nevParaListAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas}
  TnevParaListAnchor = class(_nevParaListAnchorModify_)
   {* якорь дл€ списков параграфов }
   private
@@ -78,11 +78,11 @@ uses
 
 type _Instance_R_ = TnevParaListAnchor;
 
-{$Include nevParaListTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-{$Include nevParaListViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas}
 
-{$Include nevParaListAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas}
 
 procedure TnevParaListAnchor.CheckInner;
 //#UC START# *4A58C42A029C_4A3F457A0129_var*

@@ -25,7 +25,7 @@ uses
 
 type
  _X_ = InevParaList;
- {$Include evParaListPainter.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas}
  TevParaListPainter = class(_evParaListPainter_)
   {* Рисователь списка параграфов }
  end;//TevParaListPainter
@@ -67,7 +67,7 @@ uses
  , Windows
 ;
 
-{$Include evParaListPainter.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evParaListPainter.imp.pas}
 {$IfEnd} // Defined(evNeedPainters)
 
 end.

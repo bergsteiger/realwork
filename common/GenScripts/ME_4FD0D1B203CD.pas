@@ -16,9 +16,9 @@ uses
 type
  _FoldersNodeMatcher_ = TatBookmarkMatcher;
  _ObjectType_ = IBookmark;
- {$Include atProcessNamedFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
  _atOpenFoldersObjectAddon_Parent_ = _atProcessNamedFoldersObjectOperation_;
- {$Include atOpenFoldersObjectAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
  TatOpenSavedBookmarkOperation = class(_atOpenFoldersObjectAddon_)
   protected
    procedure OnFoldersObject(const aFoldersObject: _ObjectType_); override;
@@ -36,9 +36,9 @@ uses
  , atNodeHelper
 ;
 
-{$Include atProcessNamedFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
 
-{$Include atOpenFoldersObjectAddon.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
 
 procedure TatOpenSavedBookmarkOperation.OnFoldersObject(const aFoldersObject: _ObjectType_);
 //#UC START# *4FD0D2530143_4FD0D1B203CD_var*

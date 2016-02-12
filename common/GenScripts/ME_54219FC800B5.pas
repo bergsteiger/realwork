@@ -23,7 +23,7 @@ uses
 type
  _ItemType_ = Tm3TOCHandle;
  _KeyType_ = Tl3WString;
- {$Include m3PersistentList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3PersistentList.imp.pas}
  Tm3TOCHandleList = class(_m3PersistentList_)
   private
    f_Modified: Boolean;
@@ -57,7 +57,7 @@ uses
 
 type _Instance_R_ = Tm3TOCHandleList;
 
-{$Include m3PersistentList.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3PersistentList.imp.pas}
 
 function Tm3TOCHandleList.pm_GetModified: Boolean;
 //#UC START# *5422B20901DA_54219FC800B5get_var*

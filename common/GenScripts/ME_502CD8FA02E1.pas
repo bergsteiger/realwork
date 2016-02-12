@@ -18,7 +18,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TGraphicControl;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Ttb97CustomGraphicControl = class(_l3Unknown_)
  end;//Ttb97CustomGraphicControl
 
@@ -46,7 +46,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 initialization
 {$If NOT Defined(NoScripts)}

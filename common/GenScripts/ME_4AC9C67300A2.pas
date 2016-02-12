@@ -20,7 +20,7 @@ uses
 
 type
  _nsUnknownComponentWithIvcmState_Parent_ = TvtHideField;
- {$Include nsUnknownComponentWithIvcmState.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
  TnscCustomHideField = class(_nsUnknownComponentWithIvcmState_)
   private
    f_SettingId: AnsiString;
@@ -106,7 +106,7 @@ const
  cstidState = 'State';
   {* идентификатор настройки для состояния }
 
-{$Include nsUnknownComponentWithIvcmState.imp.pas}
+{$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
 
 procedure TnscCustomHideField.pm_SetSettingId(const aValue: AnsiString);
 //#UC START# *51125768008D_4E732E0B0308set_var*

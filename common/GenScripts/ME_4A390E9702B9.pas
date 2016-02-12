@@ -19,7 +19,7 @@ uses
 
 type
  _RoundMarkerValue_Parent_ = TevMarker;
- {$Include RoundMarkerValue.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}
  TevTabIndentMarker = class(_RoundMarkerValue_)
   private
    f_FirstTabStop: Tl3Variant;
@@ -57,7 +57,7 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
 ;
 
-{$Include RoundMarkerValue.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}
 
 function TevTabIndentMarker.CheckDecimapSeparatorType: Boolean;
 //#UC START# *4E3A3E3802A5_4A390E9702B9_var*

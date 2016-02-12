@@ -60,9 +60,9 @@ type
  // BaseSearchZone
 
  _vcmChromeLikeTabCaptionProvider_Parent_ = TPrimLegalMainMenuForm;
- {$Include vcmChromeLikeTabCaptionProvider.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  _vcmChromeLikeTabIconUpdater_Parent_ = _vcmChromeLikeTabCaptionProvider_;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimMainMenuNewForm = {abstract} class(_vcmChromeLikeTabIconUpdater_)
   private
    f_Banner: IBanner;
@@ -270,9 +270,9 @@ const
 
 type _Instance_R_ = TPrimMainMenuNewForm;
 
-{$Include vcmChromeLikeTabCaptionProvider.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 procedure TPrimMainMenuNewForm.BaseSearchPanelResize(aSender: TObject);
 //#UC START# *4ACB20380272_4958E1F700C0_var*

@@ -105,12 +105,8 @@ begin
 end;//Tkw_Form_UserCR2_WarningBaloon.GetWordNameForRegister
 
 function Tkw_Form_UserCR2_WarningBaloon.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_11316102A2C2_var*
-//#UC END# *4DDFD2EA0116_11316102A2C2_var*
 begin
-//#UC START# *4DDFD2EA0116_11316102A2C2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_11316102A2C2_impl*
+ Result := 'UserCR2_WarningBaloonForm';
 end;//Tkw_Form_UserCR2_WarningBaloon.GetString
 
 class function Tkw_UserCR2_WarningBaloon_Control_Viewer.GetWordNameForRegister: AnsiString;
@@ -119,21 +115,14 @@ begin
 end;//Tkw_UserCR2_WarningBaloon_Control_Viewer.GetWordNameForRegister
 
 function Tkw_UserCR2_WarningBaloon_Control_Viewer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A546A6C8057F_var*
-//#UC END# *4DDFD2EA0116_A546A6C8057F_var*
 begin
-//#UC START# *4DDFD2EA0116_A546A6C8057F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A546A6C8057F_impl*
+ Result := 'Viewer';
 end;//Tkw_UserCR2_WarningBaloon_Control_Viewer.GetString
 
 class procedure Tkw_UserCR2_WarningBaloon_Control_Viewer.RegisterInEngine;
-//#UC START# *52A086150180_A546A6C8057F_var*
-//#UC END# *52A086150180_A546A6C8057F_var*
 begin
-//#UC START# *52A086150180_A546A6C8057F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_A546A6C8057F_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_UserCR2_WarningBaloon_Control_Viewer.RegisterInEngine
 
 procedure Tkw_UserCR2_WarningBaloon_Control_Viewer_Push.DoDoIt(const aCtx: TtfwContext);
@@ -153,21 +142,23 @@ end;//Tkw_UserCR2_WarningBaloon_Control_Viewer_Push.GetWordNameForRegister
 function TkwUserCR2WarningBaloonFormViewer.Viewer(const aCtx: TtfwContext;
  aUserCR2_WarningBaloonForm: TUserCR2_WarningBaloonForm): TnscEditor;
  {* Реализация слова скрипта .TUserCR2_WarningBaloonForm.Viewer }
-//#UC START# *634DA3AAFDC8_A8A947A902C4_var*
-//#UC END# *634DA3AAFDC8_A8A947A902C4_var*
 begin
-//#UC START# *634DA3AAFDC8_A8A947A902C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *634DA3AAFDC8_A8A947A902C4_impl*
+ Result := aUserCR2_WarningBaloonForm.Viewer;
 end;//TkwUserCR2WarningBaloonFormViewer.Viewer
 
 procedure TkwUserCR2WarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A8A947A902C4_var*
-//#UC END# *4DAEEDE10285_A8A947A902C4_var*
+var l_aUserCR2_WarningBaloonForm: TUserCR2_WarningBaloonForm;
 begin
-//#UC START# *4DAEEDE10285_A8A947A902C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A8A947A902C4_impl*
+ try
+  l_aUserCR2_WarningBaloonForm := TUserCR2_WarningBaloonForm(aCtx.rEngine.PopObjAs(TUserCR2_WarningBaloonForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aUserCR2_WarningBaloonForm: TUserCR2_WarningBaloonForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aUserCR2_WarningBaloonForm));
 end;//TkwUserCR2WarningBaloonFormViewer.DoDoIt
 
 class function TkwUserCR2WarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
@@ -177,12 +168,8 @@ end;//TkwUserCR2WarningBaloonFormViewer.GetWordNameForRegister
 
 procedure TkwUserCR2WarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A8A947A902C4_var*
-//#UC END# *52D00B00031A_A8A947A902C4_var*
 begin
-//#UC START# *52D00B00031A_A8A947A902C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A8A947A902C4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwUserCR2WarningBaloonFormViewer.SetValuePrim
 
 function TkwUserCR2WarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,7 +184,7 @@ end;//TkwUserCR2WarningBaloonFormViewer.GetAllParamsCount
 
 function TkwUserCR2WarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TUserCR2_WarningBaloonForm)]);
 end;//TkwUserCR2WarningBaloonFormViewer.ParamsTypes
 
 initialization

@@ -31,7 +31,7 @@ type
  _ItemType_ = TvcmFormGUIDFromMainFormRec;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TvcmFormGUIDFromMainFormList = class(_l3RecordListPrim_)
   protected
    procedure InitFields; override;
@@ -126,7 +126,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmFormGUIDFromMainFormList;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 procedure TvcmFormGUIDFromMainFormList.CreateFormGUID(const aForm: IvcmEntityForm;
  var theGUID: TGUID);

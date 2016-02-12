@@ -22,7 +22,7 @@ type
  _ItemType_ = TClass;
  _l3UnrefcountedList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UnrefcountedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
  Tl3ClassList = class(_l3UnrefcountedList_)
  end;//Tl3ClassList
 
@@ -51,6 +51,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ClassList;
 
-{$Include l3UnrefcountedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
 
 end.

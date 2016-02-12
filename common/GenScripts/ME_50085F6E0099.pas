@@ -16,9 +16,9 @@ uses
 
 type
  _atIterateThroughFilesAddOn_Parent_ = TatOperationBase;
- {$Include atIterateThroughFilesAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}
  _atExecutesQueryAddOn_Parent_ = _atIterateThroughFilesAddOn_;
- {$Include atExecutesQueryAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
  TatExecuteQueryFromXMLOperation = class(_atExecutesQueryAddOn_)
   private
    f_IsIgnoreImportErrors: Boolean;
@@ -46,9 +46,9 @@ uses
  , atSearchHelper
 ;
 
-{$Include atIterateThroughFilesAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}
 
-{$Include atExecutesQueryAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}
 
 function TatExecuteQueryFromXMLOperation.OnFile(const aFileName: AnsiString): Boolean;
 //#UC START# *502A649F0204_50085F6E0099_var*

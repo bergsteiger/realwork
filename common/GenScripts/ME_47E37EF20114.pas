@@ -17,7 +17,7 @@ uses
 type
  _ListType_ = Ik2TagListPrim;
  _l3InterfacedList_Parent_ = Tk2SimpleTagList;
- {$Include l3InterfacedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas}
  Tk2InterfacedTagList = class(_l3InterfacedList_, Ik2TagList)
   public
    class function MakeI: Ik2TagList; reintroduce;
@@ -32,7 +32,7 @@ uses
 
 type _Instance_R_ = Tk2InterfacedTagList;
 
-{$Include l3InterfacedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacedList.imp.pas}
 
 class function Tk2InterfacedTagList.MakeI: Ik2TagList;
 var

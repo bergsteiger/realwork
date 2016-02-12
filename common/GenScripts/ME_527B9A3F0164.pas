@@ -15,7 +15,7 @@ uses
 
 type
  _k2OwnedTagObject_Parent_ = Tk2TypedHugeListTag;
- {$Include k2OwnedTagObject.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas}
  Tk2OwnedTypedHugeListTag = class(_k2OwnedTagObject_)
  end;//Tk2OwnedTypedHugeListTag
 
@@ -28,6 +28,6 @@ uses
  , k2NullTagImpl
 ;
 
-{$Include k2OwnedTagObject.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas}
 
 end.

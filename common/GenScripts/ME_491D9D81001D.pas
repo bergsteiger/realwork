@@ -28,7 +28,7 @@ uses
 ;
 
 type
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsForbidAutoregistration = {final} class(_vcmFormDataSourcePrim_, IdsForbidAutoregistration)
   {* Запрет авторегистрации }
   private
@@ -61,7 +61,7 @@ const
 
 type _Instance_R_ = TdsForbidAutoregistration;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 function TdsForbidAutoregistration.pm_GetPhone: Il3CString;
 //#UC START# *491D96B9006E_491D9D81001Dget_var*

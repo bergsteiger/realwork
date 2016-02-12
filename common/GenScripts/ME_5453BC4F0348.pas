@@ -27,7 +27,7 @@ type
 
  _ItemType_ = Tm3BranchHandle;
  _KeyType_ = Tm3WideString;
- {$Include m3ListWithFind.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas}
  Tm3BranchHandleList = class(_m3ListWithFind_)
   protected
    function CompareKeyByItem(const aKey: _KeyType_;
@@ -75,7 +75,7 @@ end;//Tm3WideString_C
 
 type _Instance_R_ = Tm3BranchHandleList;
 
-{$Include m3ListWithFind.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas}
 
 function Tm3BranchHandleList.CompareKeyByItem(const aKey: _KeyType_;
  const anItem: _ItemType_): Integer;

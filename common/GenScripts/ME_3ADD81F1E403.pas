@@ -205,12 +205,8 @@ begin
 end;//Tkw_Form_Navigator.GetWordNameForRegister
 
 function Tkw_Form_Navigator.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7D2047A498FC_var*
-//#UC END# *4DDFD2EA0116_7D2047A498FC_var*
 begin
-//#UC START# *4DDFD2EA0116_7D2047A498FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7D2047A498FC_impl*
+ Result := 'en_Navigator';
 end;//Tkw_Form_Navigator.GetString
 
 class function Tkw_Navigator_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -219,21 +215,14 @@ begin
 end;//Tkw_Navigator_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_Navigator_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CCD9CD9DC02B_var*
-//#UC END# *4DDFD2EA0116_CCD9CD9DC02B_var*
 begin
-//#UC START# *4DDFD2EA0116_CCD9CD9DC02B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CCD9CD9DC02B_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_Navigator_Control_BackgroundPanel.GetString
 
 class procedure Tkw_Navigator_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_CCD9CD9DC02B_var*
-//#UC END# *52A086150180_CCD9CD9DC02B_var*
 begin
-//#UC START# *52A086150180_CCD9CD9DC02B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CCD9CD9DC02B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Navigator_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_Navigator_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -256,21 +245,14 @@ begin
 end;//Tkw_Navigator_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_Navigator_Control_ContextFilter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C47642E4B3A1_var*
-//#UC END# *4DDFD2EA0116_C47642E4B3A1_var*
 begin
-//#UC START# *4DDFD2EA0116_C47642E4B3A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C47642E4B3A1_impl*
+ Result := 'ContextFilter';
 end;//Tkw_Navigator_Control_ContextFilter.GetString
 
 class procedure Tkw_Navigator_Control_ContextFilter.RegisterInEngine;
-//#UC START# *52A086150180_C47642E4B3A1_var*
-//#UC END# *52A086150180_C47642E4B3A1_var*
 begin
-//#UC START# *52A086150180_C47642E4B3A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C47642E4B3A1_impl*
+ inherited;
+ TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_Navigator_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_Navigator_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
@@ -293,21 +275,14 @@ begin
 end;//Tkw_Navigator_Control_NavigatorTree.GetWordNameForRegister
 
 function Tkw_Navigator_Control_NavigatorTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EA7258EA96E2_var*
-//#UC END# *4DDFD2EA0116_EA7258EA96E2_var*
 begin
-//#UC START# *4DDFD2EA0116_EA7258EA96E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EA7258EA96E2_impl*
+ Result := 'NavigatorTree';
 end;//Tkw_Navigator_Control_NavigatorTree.GetString
 
 class procedure Tkw_Navigator_Control_NavigatorTree.RegisterInEngine;
-//#UC START# *52A086150180_EA7258EA96E2_var*
-//#UC END# *52A086150180_EA7258EA96E2_var*
 begin
-//#UC START# *52A086150180_EA7258EA96E2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EA7258EA96E2_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Navigator_Control_NavigatorTree.RegisterInEngine
 
 procedure Tkw_Navigator_Control_NavigatorTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -327,21 +302,23 @@ end;//Tkw_Navigator_Control_NavigatorTree_Push.GetWordNameForRegister
 function TkwEnNavigatorBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aen_Navigator: Ten_Navigator): TvtPanel;
  {* Реализация слова скрипта .Ten_Navigator.BackgroundPanel }
-//#UC START# *DF5EB3AB0F99_70C417ED0B1C_var*
-//#UC END# *DF5EB3AB0F99_70C417ED0B1C_var*
 begin
-//#UC START# *DF5EB3AB0F99_70C417ED0B1C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DF5EB3AB0F99_70C417ED0B1C_impl*
+ Result := aen_Navigator.BackgroundPanel;
 end;//TkwEnNavigatorBackgroundPanel.BackgroundPanel
 
 procedure TkwEnNavigatorBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_70C417ED0B1C_var*
-//#UC END# *4DAEEDE10285_70C417ED0B1C_var*
+var l_aen_Navigator: Ten_Navigator;
 begin
-//#UC START# *4DAEEDE10285_70C417ED0B1C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_70C417ED0B1C_impl*
+ try
+  l_aen_Navigator := Ten_Navigator(aCtx.rEngine.PopObjAs(Ten_Navigator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_Navigator: Ten_Navigator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorBackgroundPanel.DoDoIt
 
 class function TkwEnNavigatorBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -351,12 +328,8 @@ end;//TkwEnNavigatorBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnNavigatorBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_70C417ED0B1C_var*
-//#UC END# *52D00B00031A_70C417ED0B1C_var*
 begin
-//#UC START# *52D00B00031A_70C417ED0B1C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_70C417ED0B1C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEnNavigatorBackgroundPanel.SetValuePrim
 
 function TkwEnNavigatorBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -371,27 +344,29 @@ end;//TkwEnNavigatorBackgroundPanel.GetAllParamsCount
 
 function TkwEnNavigatorBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorBackgroundPanel.ParamsTypes
 
 function TkwEnNavigatorContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_Navigator: Ten_Navigator): TnscContextFilter;
  {* Реализация слова скрипта .Ten_Navigator.ContextFilter }
-//#UC START# *4BAE554126C1_6F24A35F9C81_var*
-//#UC END# *4BAE554126C1_6F24A35F9C81_var*
 begin
-//#UC START# *4BAE554126C1_6F24A35F9C81_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4BAE554126C1_6F24A35F9C81_impl*
+ Result := aen_Navigator.ContextFilter;
 end;//TkwEnNavigatorContextFilter.ContextFilter
 
 procedure TkwEnNavigatorContextFilter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6F24A35F9C81_var*
-//#UC END# *4DAEEDE10285_6F24A35F9C81_var*
+var l_aen_Navigator: Ten_Navigator;
 begin
-//#UC START# *4DAEEDE10285_6F24A35F9C81_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6F24A35F9C81_impl*
+ try
+  l_aen_Navigator := Ten_Navigator(aCtx.rEngine.PopObjAs(Ten_Navigator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_Navigator: Ten_Navigator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorContextFilter.DoDoIt
 
 class function TkwEnNavigatorContextFilter.GetWordNameForRegister: AnsiString;
@@ -401,12 +376,8 @@ end;//TkwEnNavigatorContextFilter.GetWordNameForRegister
 
 procedure TkwEnNavigatorContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6F24A35F9C81_var*
-//#UC END# *52D00B00031A_6F24A35F9C81_var*
 begin
-//#UC START# *52D00B00031A_6F24A35F9C81_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6F24A35F9C81_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEnNavigatorContextFilter.SetValuePrim
 
 function TkwEnNavigatorContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -421,27 +392,29 @@ end;//TkwEnNavigatorContextFilter.GetAllParamsCount
 
 function TkwEnNavigatorContextFilter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorContextFilter.ParamsTypes
 
 function TkwEnNavigatorNavigatorTree.NavigatorTree(const aCtx: TtfwContext;
  aen_Navigator: Ten_Navigator): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .Ten_Navigator.NavigatorTree }
-//#UC START# *9506B2CB2FD9_584619536FEF_var*
-//#UC END# *9506B2CB2FD9_584619536FEF_var*
 begin
-//#UC START# *9506B2CB2FD9_584619536FEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9506B2CB2FD9_584619536FEF_impl*
+ Result := aen_Navigator.NavigatorTree;
 end;//TkwEnNavigatorNavigatorTree.NavigatorTree
 
 procedure TkwEnNavigatorNavigatorTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_584619536FEF_var*
-//#UC END# *4DAEEDE10285_584619536FEF_var*
+var l_aen_Navigator: Ten_Navigator;
 begin
-//#UC START# *4DAEEDE10285_584619536FEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_584619536FEF_impl*
+ try
+  l_aen_Navigator := Ten_Navigator(aCtx.rEngine.PopObjAs(Ten_Navigator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_Navigator: Ten_Navigator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(NavigatorTree(aCtx, l_aen_Navigator));
 end;//TkwEnNavigatorNavigatorTree.DoDoIt
 
 class function TkwEnNavigatorNavigatorTree.GetWordNameForRegister: AnsiString;
@@ -451,12 +424,8 @@ end;//TkwEnNavigatorNavigatorTree.GetWordNameForRegister
 
 procedure TkwEnNavigatorNavigatorTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_584619536FEF_var*
-//#UC END# *52D00B00031A_584619536FEF_var*
 begin
-//#UC START# *52D00B00031A_584619536FEF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_584619536FEF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству NavigatorTree', aCtx);
 end;//TkwEnNavigatorNavigatorTree.SetValuePrim
 
 function TkwEnNavigatorNavigatorTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -471,7 +440,7 @@ end;//TkwEnNavigatorNavigatorTree.GetAllParamsCount
 
 function TkwEnNavigatorNavigatorTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_Navigator)]);
 end;//TkwEnNavigatorNavigatorTree.ParamsTypes
 
 initialization

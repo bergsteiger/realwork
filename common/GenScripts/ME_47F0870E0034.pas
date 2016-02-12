@@ -63,7 +63,10 @@ type
    f_Next: TnevDocumentContainer;
     {* Поле для свойства Next }
   private
-   procedure WriteDataExEx;
+   procedure WriteDataExEx(const aView: InevView;
+    const aReader: Ik2TagReader;
+    const aBlock: IUnknown;
+    aFlags: TevLoadFlags);
     {* считать документ из памяти в TextSource }
    procedure ClearSubs;
    procedure ResetPreviewCaches(ResetInfo: Boolean);
@@ -511,7 +514,10 @@ begin
 //#UC END# *47F2358001B5_47F0870E0034set_impl*
 end;//TnevDocumentContainer.pm_SetNext
 
-procedure TnevDocumentContainer.WriteDataExEx;
+procedure TnevDocumentContainer.WriteDataExEx(const aView: InevView;
+ const aReader: Ik2TagReader;
+ const aBlock: IUnknown;
+ aFlags: TevLoadFlags);
  {* считать документ из памяти в TextSource }
 var l_FS: Ik2FilerSource2;
 var l_Events: TnevFilerEvents;

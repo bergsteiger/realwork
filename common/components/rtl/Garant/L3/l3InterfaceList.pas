@@ -23,7 +23,7 @@ type
  _ItemType_ = IUnknown;
  _l3InterfaceRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  Tl3InterfaceList = class(_l3InterfaceRefList_)
   {* Список интерфейсов. }
   protected
@@ -45,7 +45,7 @@ uses
 
 type _Instance_R_ = Tl3InterfaceList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function Tl3InterfaceList.IsCacheable: Boolean;

@@ -16,7 +16,7 @@ uses
 
 type
  _nevBreakParaAnchorModify_Parent_ = TevSolidParaCursor;
- {$Include nevBreakParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
  TevBreakParaCursor = class(_nevBreakParaAnchorModify_)
  end;//TevBreakParaCursor
 {$IfEnd} // Defined(evUseVisibleCursors)
@@ -28,7 +28,7 @@ uses
  l3ImplUses
 ;
 
-{$Include nevBreakParaAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
 {$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

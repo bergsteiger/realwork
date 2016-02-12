@@ -6,7 +6,7 @@
 {$Define l3RecordListPrimPrim_imp}
 
  _l3StandardMemTypedList_Parent_ = _l3RecordListPrimPrim_Parent_;
- {$Include l3StandardMemTypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas}
  _l3RecordListPrimPrim_ = class(_l3StandardMemTypedList_)
  end;//_l3RecordListPrimPrim_
 
@@ -54,7 +54,7 @@ begin
 //#UC END# *47B935AF0066_4E5506F6007E_impl*
 end;//FillItem
 
-{$Include l3StandardMemTypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas}
 
 {$EndIf l3RecordListPrimPrim_imp_impl}
 

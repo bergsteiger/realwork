@@ -7,9 +7,9 @@
 
 {$If NOT Defined(NoScripts)}
  _Para2Point_Parent_ = _CellSelectionByMouse_Parent_;
- {$Include Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _HotSpotTools_Parent_ = _Para2Point_;
- {$Include HotSpotTools.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
  _CellSelectionByMouse_ = class(_HotSpotTools_)
   protected
    function GetPoint(const aMap: InevMap): Tl3Point; override;
@@ -21,9 +21,9 @@
 {$Else NOT Defined(NoScripts)}
 
 _Para2Point_Parent_ = _CellSelectionByMouse_Parent_;
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 _HotSpotTools_Parent_ = _Para2Point_;
-{$Include HotSpotTools.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 _CellSelectionByMouse_ = _HotSpotTools_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -34,9 +34,9 @@ _CellSelectionByMouse_ = _HotSpotTools_;
 {$Define CellSelectionByMouse_imp_impl}
 
 {$If NOT Defined(NoScripts)}
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-{$Include HotSpotTools.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 
 function _CellSelectionByMouse_.SelectCell(aText: TevCustomEditorWindow): Boolean;
 //#UC START# *4E97EEAA0320_4E97EE2D00D7_var*

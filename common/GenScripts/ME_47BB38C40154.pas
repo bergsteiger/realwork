@@ -26,7 +26,7 @@ type
  _ItemType_ = TProcedure;
  _l3StandardMemTypedList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3StandardMemTypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas}
  Tl3ProcedureList = class(_l3StandardMemTypedList_)
   {* Список процедур. }
  end;//Tl3ProcedureList
@@ -155,6 +155,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ProcedureList;
 
-{$Include l3StandardMemTypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas}
 
 end.

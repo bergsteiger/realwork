@@ -29,7 +29,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsMedicFirmListSynchroView;
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsMedicFirmSynchroView = class(_vcmFormDataSourcePrim_, IdsSimpleListSynchroView, IdsMedicFirmListSynchroView)
   {* Бизнес объект формы синхронного просмотра списка препаратов }
   protected
@@ -67,7 +67,7 @@ uses
 
 type _Instance_R_ = TdsMedicFirmSynchroView;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 procedure TdsMedicFirmSynchroView.OpenDocument;
  {* Открыть документ. }

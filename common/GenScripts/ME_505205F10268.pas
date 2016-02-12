@@ -5,7 +5,7 @@
 
 {$Define atEntityWithName_imp}
 
- {$Include atEntity.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}
  _atEntityWithName_ = class(_atEntity_)
   protected
    function pm_GetName: AnsiString; virtual;
@@ -20,7 +20,7 @@
 
 {$Define atEntityWithName_imp_impl}
 
-{$Include atEntity.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}
 
 function _atEntityWithName_.pm_GetName: AnsiString;
 //#UC START# *4FD249FB01FC_505205F10268get_var*

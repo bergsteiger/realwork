@@ -44,14 +44,15 @@ type
  );//TnsTemplateFieldType
 
  _nsDocumentContainer_Parent_ = TeeDocumentContainer;
- {$Include nsDocumentContainer.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  TnsConsultationDocumentContainerNew = class(_nsDocumentContainer_)
   {* Контейнер документа-консультации }
   private
    f_Cons: IConsultation;
    f_DocInfo: IdeDocInfo;
   private
-   procedure FillTemplateFields;
+   procedure FillTemplateFields(aTag: Tl3Tag;
+    const anInfo: IConsultingTemplateInfo);
     {* Заполняет поля шаблона реальными значениями }
    function HideHyperlinks(aPara: Tl3Tag): Boolean;
    function DoFinishAtom(G: Tk2DocumentGenerator;
@@ -111,7 +112,7 @@ uses
  , evdVer
 ;
 
-{$Include nsDocumentContainer.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
 constructor TnsConsultationDocumentContainerNew.Create(const aDocInfo: IdeDocInfo;
  const aCons: IConsultation);
@@ -137,11 +138,13 @@ begin
  end;//try..finally
 end;//TnsConsultationDocumentContainerNew.Make
 
-procedure TnsConsultationDocumentContainerNew.FillTemplateFields;
+procedure TnsConsultationDocumentContainerNew.FillTemplateFields(aTag: Tl3Tag;
+ const anInfo: IConsultingTemplateInfo);
  {* Заполняет поля шаблона реальными значениями }
 var l_WasSomeHyperlinkHidden: Boolean;
 
- procedure DoIt;
+ function DoIt(anItem: Tl3Variant;
+  anIndex: Integer): Boolean;
   {* Подитеративная функция для вызова L2Mk2ChildrenIterateChildrenFAction из FillTemplateFields }
 
   procedure FillText(const aText: Tl3WString);

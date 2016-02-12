@@ -26,7 +26,7 @@ uses
 
 type
  _ColumnResizeByMouse_Parent_ = TTextViaEditorProcessor;
- {$Include ColumnResizeByMouse.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
  TColumnResizeByMousePrimTest = {abstract} class(_ColumnResizeByMouse_)
   {* Тест изменения колонок с помощью мыши }
   protected
@@ -58,7 +58,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include ColumnResizeByMouse.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TColumnResizeByMousePrimTest.Process(aForm: TPrimTextLoadForm);

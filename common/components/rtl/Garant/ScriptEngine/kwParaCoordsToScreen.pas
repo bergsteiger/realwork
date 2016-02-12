@@ -1,74 +1,66 @@
 unit kwParaCoordsToScreen;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwParaCoordsToScreen.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::MoveMouseByPara::TkwParaCoordsToScreen
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreen.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  nevControl,
-  kwEditorFromStackWord,
-  l3Units,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , nevTools
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , l3Units
+ , nevControl
+;
 
-{$If not defined(NoScripts)}
 type
  _Para2Point_Parent_ = TkwEditorFromStackWord;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _kwParaCoordsToScreenUses_Parent_ = _Para2Point_;
- {$Include ..\ScriptEngine\kwParaCoordsToScreenUses.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas}
  TkwParaCoordsToScreen = {abstract} class(_kwParaCoordsToScreenUses_)
- protected
- // realized methods
+  protected
+   f_Point: InevBasePoint;
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
- protected
- // protected fields
-   f_Point : InevBasePoint;
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
  end;//TkwParaCoordsToScreen
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Types
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , Types
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
+type
+ TnevControlFriend = {abstract} class(TnevControl)
+  {* Друг для TnevControl }
+ end;//TnevControlFriend
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-{$Include ..\ScriptEngine\kwParaCoordsToScreenUses.imp.pas}
-
-type
-  TnevControlFriend = {abstract} class(TnevControl)
-   {* Друг для TnevControl }
-  end;//TnevControlFriend
-
-// start class TkwParaCoordsToScreen
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas}
 
 procedure TkwParaCoordsToScreen.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4F955027033B_var*
 var
  l_l3Pt: Tl3Point;
@@ -93,7 +85,8 @@ begin
 end;//TkwParaCoordsToScreen.DoWithEditor
 
 function TkwParaCoordsToScreen.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4F955027033B_var*
 //#UC END# *4BF4E6A00093_4F955027033B_var*
 begin
@@ -102,12 +95,9 @@ begin
 //#UC END# *4BF4E6A00093_4F955027033B_impl*
 end;//TkwParaCoordsToScreen.GetInnerPara
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwParaCoordsToScreen
  TkwParaCoordsToScreen.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwParaCoordsToScreen }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

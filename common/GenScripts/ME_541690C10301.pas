@@ -23,7 +23,7 @@ type
  _ItemType_ = TddFillAAC;
  _l3EnumList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3EnumList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
  TddFillAACStack = class(_l3EnumList_)
   public
    procedure Push(aValue: TddFillAAC);
@@ -43,7 +43,7 @@ uses
 
 type _Instance_R_ = TddFillAACStack;
 
-{$Include l3EnumList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3EnumList.imp.pas}
 
 procedure TddFillAACStack.Push(aValue: TddFillAAC);
 //#UC START# *5416925A01A0_541690C10301_var*

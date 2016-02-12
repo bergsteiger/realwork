@@ -9,7 +9,7 @@
  {$Define l3Items_IsUnrefcounted}
  //#UC END# *47B992F60244ci*
  _l3StandardTypedList_Parent_ = _l3UnrefcountedList_Parent_;
- {$Include l3StandardTypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StandardTypedList.imp.pas}
  //#UC START# *47B992F60244cit*
  //#UC END# *47B992F60244cit*
  _l3UnrefcountedList_ = {abstract} class(_l3StandardTypedList_)
@@ -102,7 +102,7 @@ begin
 //#UC END# *47B94A5C006E_47B992F60244_impl*
 end;//FreeItem
 
-{$Include l3StandardTypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StandardTypedList.imp.pas}
 
 //#UC START# *47B992F60244impl*
 //#UC END# *47B992F60244impl*

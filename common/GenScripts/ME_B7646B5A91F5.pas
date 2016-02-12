@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_Redactions.GetWordNameForRegister
 
 function Tkw_Form_Redactions.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4BF10666C1F4_var*
-//#UC END# *4DDFD2EA0116_4BF10666C1F4_var*
 begin
-//#UC START# *4DDFD2EA0116_4BF10666C1F4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4BF10666C1F4_impl*
+ Result := 'RedactionsForm';
 end;//Tkw_Form_Redactions.GetString
 
 class function Tkw_Redactions_Control_RedactionTree.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_Redactions_Control_RedactionTree.GetWordNameForRegister
 
 function Tkw_Redactions_Control_RedactionTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8515DEBDD215_var*
-//#UC END# *4DDFD2EA0116_8515DEBDD215_var*
 begin
-//#UC START# *4DDFD2EA0116_8515DEBDD215_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8515DEBDD215_impl*
+ Result := 'RedactionTree';
 end;//Tkw_Redactions_Control_RedactionTree.GetString
 
 class procedure Tkw_Redactions_Control_RedactionTree.RegisterInEngine;
-//#UC START# *52A086150180_8515DEBDD215_var*
-//#UC END# *52A086150180_8515DEBDD215_var*
 begin
-//#UC START# *52A086150180_8515DEBDD215_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8515DEBDD215_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Redactions_Control_RedactionTree.RegisterInEngine
 
 procedure Tkw_Redactions_Control_RedactionTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_Redactions_Control_RedactionTree_Push.GetWordNameForRegister
 function TkwRedactionsFormRedactionTree.RedactionTree(const aCtx: TtfwContext;
  aRedactionsForm: TRedactionsForm): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TRedactionsForm.RedactionTree }
-//#UC START# *B19A1ABEC5DE_A2E39CF13C2B_var*
-//#UC END# *B19A1ABEC5DE_A2E39CF13C2B_var*
 begin
-//#UC START# *B19A1ABEC5DE_A2E39CF13C2B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B19A1ABEC5DE_A2E39CF13C2B_impl*
+ Result := aRedactionsForm.RedactionTree;
 end;//TkwRedactionsFormRedactionTree.RedactionTree
 
 procedure TkwRedactionsFormRedactionTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A2E39CF13C2B_var*
-//#UC END# *4DAEEDE10285_A2E39CF13C2B_var*
+var l_aRedactionsForm: TRedactionsForm;
 begin
-//#UC START# *4DAEEDE10285_A2E39CF13C2B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A2E39CF13C2B_impl*
+ try
+  l_aRedactionsForm := TRedactionsForm(aCtx.rEngine.PopObjAs(TRedactionsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRedactionsForm: TRedactionsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RedactionTree(aCtx, l_aRedactionsForm));
 end;//TkwRedactionsFormRedactionTree.DoDoIt
 
 class function TkwRedactionsFormRedactionTree.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwRedactionsFormRedactionTree.GetWordNameForRegister
 
 procedure TkwRedactionsFormRedactionTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A2E39CF13C2B_var*
-//#UC END# *52D00B00031A_A2E39CF13C2B_var*
 begin
-//#UC START# *52D00B00031A_A2E39CF13C2B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A2E39CF13C2B_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству RedactionTree', aCtx);
 end;//TkwRedactionsFormRedactionTree.SetValuePrim
 
 function TkwRedactionsFormRedactionTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwRedactionsFormRedactionTree.GetAllParamsCount
 
 function TkwRedactionsFormRedactionTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRedactionsForm)]);
 end;//TkwRedactionsFormRedactionTree.ParamsTypes
 
 initialization

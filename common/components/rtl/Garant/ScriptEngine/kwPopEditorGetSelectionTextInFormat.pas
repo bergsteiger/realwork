@@ -1,69 +1,57 @@
 unit kwPopEditorGetSelectionTextInFormat;
+ {* Получает текст параграфа в указанном формате }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwPopEditorGetSelectionTextInFormat.pas"
-// Начат: 14.11.2011 16:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_GetSelectionTextInFormat
-//
-// Получает текст параграфа в указанном формате
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionTextInFormat.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorGetSelectionTextInFormat = {scriptword} class(TkwEditorFromStackWord)
+ TkwPopEditorGetSelectionTextInFormat = class(TkwEditorFromStackWord)
   {* Получает текст параграфа в указанном формате }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorGetSelectionTextInFormat
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Utils,
-  nevBase
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evdBlockNameAdder,
-  evdDocumentMarksEliminator,
-  evdMarkEliminator,
-  ddPicturePathListner,
-  evTypes
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorGetSelectionTextInFormat
+ l3ImplUses
+ , l3Utils
+ , nevBase
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evdBlockNameAdder
+ , evdDocumentMarksEliminator
+ , evdMarkEliminator
+ , ddPicturePathListner
+ , evTypes
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorGetSelectionTextInFormat.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4EC10AB3000A_var*
 var
  l_F   : Integer;
@@ -106,17 +94,13 @@ begin
 end;//TkwPopEditorGetSelectionTextInFormat.DoWithEditor
 
 class function TkwPopEditorGetSelectionTextInFormat.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:GetSelectionTextInFormat';
 end;//TkwPopEditorGetSelectionTextInFormat.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_GetSelectionTextInFormat
  TkwPopEditorGetSelectionTextInFormat.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_GetSelectionTextInFormat }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

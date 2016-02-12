@@ -33,11 +33,11 @@ uses
 
 type
  _afwSettingChanged_Parent_ = TnevObjectHolderPrim;
- {$Include afwSettingChanged.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  _afwSettingsReplace_Parent_ = _afwSettingChanged_;
- {$Include afwSettingsReplace.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  _afwStatusElement_Parent_ = _afwSettingsReplace_;
- {$Include afwStatusElement.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas}
  TevDocumentPreviewPrim = class(_afwStatusElement_, IafwDocumentPreview, IafwPreviewNotificationSource, IevDocumentPreviewInfo, Il3AbortChecker)
   {* Предварительный просмотр печати документа }
   private
@@ -101,7 +101,8 @@ type
    procedure pm_SetPrinter(const aValue: IafwPrinter);
    function pm_GetProcessor: InevProcessor;
    function pm_GetPagesInfo: TafwPagesInfo;
-   procedure DoPrint;
+   function DoPrint(const aCanvas: InevCanvas;
+    const aPagesArray: TafwPrintPagesArray = nil): Boolean;
     {* Собственно процесс печати }
    procedure UnformatView(const aView: InevView);
     {* Сбрасывает информацию о форматировании для конкретного View }
@@ -255,11 +256,11 @@ uses
  , evSectionPara
 ;
 
-{$Include afwSettingChanged.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
-{$Include afwSettingsReplace.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
 
-{$Include afwStatusElement.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas}
 
 function TevDocumentPreviewPrim.pm_GetPreview: IafwPreviewCanvas;
 //#UC START# *47EB82040062_47EA97410130get_var*
@@ -365,7 +366,8 @@ begin
 //#UC END# *4CC6A35900D0_47EA97410130get_impl*
 end;//TevDocumentPreviewPrim.pm_GetPagesInfo
 
-procedure TevDocumentPreviewPrim.DoPrint;
+function TevDocumentPreviewPrim.DoPrint(const aCanvas: InevCanvas;
+ const aPagesArray: TafwPrintPagesArray = nil): Boolean;
  {* Собственно процесс печати }
 var l_Width: Integer;
  {* Запоминаемая ширина документа }
@@ -376,7 +378,9 @@ var l_Printer: Il3Printer;
 var l_View: InevPrintView;
 var l_Text: InevObject;
 
- procedure DocumentPrint;
+ procedure DocumentPrint(const anArea: TnevShapeArea;
+  const aDocument: InevObject;
+  const aProgress: Il3Progress);
   {* Печать документа }
  var l_Aborted: Boolean;
   {* Печать прервана }

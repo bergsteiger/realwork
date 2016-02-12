@@ -27,7 +27,7 @@ uses
 
 type
  _IvcmRealData_ = IdDrugDocument;
- {$Include dBaseDrugDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas}
  TdDrugDocument = class(_dBaseDrugDocument_, IdDrugDocument)
   {* Данные описания препарата. }
   private
@@ -63,7 +63,7 @@ uses
 
 type _Instance_R_ = TdDrugDocument;
 
-{$Include dBaseDrugDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas}
 
 class function TdDrugDocument.Make: IdDrugDocument;
 var

@@ -16,9 +16,9 @@ uses
 type
  _FoldersNodeMatcher_ = TatListMatcher;
  _ObjectType_ = IDynList;
- {$Include atProcessNamedFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
  _atOpenFoldersObjectAddon_Parent_ = _atProcessNamedFoldersObjectOperation_;
- {$Include atOpenFoldersObjectAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
  TatOpenSavedListOperation = class(_atOpenFoldersObjectAddon_)
   protected
    procedure OnFoldersObject(const aFoldersObject: _ObjectType_); override;
@@ -36,9 +36,9 @@ uses
  , atNodeHelper
 ;
 
-{$Include atProcessNamedFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
 
-{$Include atOpenFoldersObjectAddon.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
 
 procedure TatOpenSavedListOperation.OnFoldersObject(const aFoldersObject: _ObjectType_);
 //#UC START# *4FD0D2530143_4FD234F20321_var*

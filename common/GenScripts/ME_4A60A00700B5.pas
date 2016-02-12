@@ -16,7 +16,7 @@ uses
 
 type
  _l3Changing_Parent_ = Tl3DataContainerWithoutIUnknownPrim;
- {$Include l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  Tl3DataContainerWithoutIUnknown = {abstract} class(_l3Changing_)
   {* Контейнер данных без реализации IUnknown, но во всей интерфейсной поддержкой }
  end;//Tl3DataContainerWithoutIUnknown
@@ -29,6 +29,6 @@ uses
  , l3InterfacesMisc
 ;
 
-{$Include l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 end.

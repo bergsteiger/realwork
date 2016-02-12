@@ -7,7 +7,7 @@
 
 {$If NOT Defined(NoScripts)}
  _MouseClickOnPoint_Parent_ = _ClickOnCommentHeader_Parent_;
- {$Include MouseClickOnPoint.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
  _ClickOnCommentHeader_ = class(_MouseClickOnPoint_)
   private
    function CheckCollapsed(aText: TevCustomEditorWindow): Boolean; virtual; abstract;
@@ -19,7 +19,7 @@
 {$Else NOT Defined(NoScripts)}
 
 _MouseClickOnPoint_Parent_ = _ClickOnCommentHeader_Parent_;
-{$Include MouseClickOnPoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
 _ClickOnCommentHeader_ = _MouseClickOnPoint_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -30,7 +30,7 @@ _ClickOnCommentHeader_ = _MouseClickOnPoint_;
 {$Define ClickOnCommentHeader_imp_impl}
 
 {$If NOT Defined(NoScripts)}
-{$Include MouseClickOnPoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
 
 function _ClickOnCommentHeader_.GetPoint(const aMap: InevMap): Tl3Point;
  {* Возвращает точку, на которую нужно спозиционироваться. }

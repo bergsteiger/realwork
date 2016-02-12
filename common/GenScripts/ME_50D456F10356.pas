@@ -7,7 +7,7 @@
 
 {$If NOT Defined(NoScripts)}
  _DrawOutputSupport_Parent_ = _kwCheckWithEtalonCommon_Parent_;
- {$Include DrawOutputSupport.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
  _kwCheckWithEtalonCommon_ = class(_DrawOutputSupport_)
   private
    f_ScriptCaller: ItfwScriptCaller;
@@ -22,7 +22,7 @@
 {$Else NOT Defined(NoScripts)}
 
 _DrawOutputSupport_Parent_ = _kwCheckWithEtalonCommon_Parent_;
-{$Include DrawOutputSupport.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
 _kwCheckWithEtalonCommon_ = _DrawOutputSupport_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -33,7 +33,7 @@ _kwCheckWithEtalonCommon_ = _DrawOutputSupport_;
 {$Define kwCheckWithEtalonCommon_imp_impl}
 
 {$If NOT Defined(NoScripts)}
-{$Include DrawOutputSupport.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas}
 
 procedure _kwCheckWithEtalonCommon_.ExecuteWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

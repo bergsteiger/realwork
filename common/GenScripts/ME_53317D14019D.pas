@@ -584,7 +584,7 @@ type
  //#UC START# *532031160122ci*
  //#UC END# *532031160122ci*
  _l3Changing_Parent_ = Tl3VariantPrim;
- {$Include l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  //#UC START# *532031160122cit*
  //#UC END# *532031160122cit*
  Tl3Variant = {abstract} class(_l3Changing_)
@@ -1456,7 +1456,7 @@ begin
 //#UC END# *5329CD1A020E_5331A06F028A_impl*
 end;//Tl3VariantDef.GetAsString
 
-{$Include l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 function Tl3Variant.pm_GetTagOwner: Tl3Variant;
 //#UC START# *53343980014A_532031160122get_var*

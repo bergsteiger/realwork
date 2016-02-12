@@ -28,7 +28,7 @@ uses
 
 type
  _nsDocumentContainer_Parent_ = TeeDocumentContainer;
- {$Include nsDocumentContainer.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
  TnsAutoreferatDocumentContainer = class(_nsDocumentContainer_)
   {* Контейнер документа для автореферата }
   protected
@@ -74,7 +74,7 @@ uses
  , afwFacade
 ;
 
-{$Include nsDocumentContainer.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\nsDocumentContainer.imp.pas}
 
 function TnsAutoreferatDocumentContainer.GetDocument: Tl3Tag;
 //#UC START# *47F27DA80172_4CE6937D031D_var*

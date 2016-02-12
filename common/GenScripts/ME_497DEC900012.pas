@@ -42,9 +42,9 @@ type
  end;//TnsListReferenceActivateEvent
 
  _ListInfoUserTypes_Parent_ = TvcmEntityForm;
- {$Include ListInfoUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes.imp.pas}
  _PageControlNotification_Parent_ = _ListInfoUserTypes_;
- {$Include PageControlNotification.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
  TPrimListInfoForm = class(_PageControlNotification_)
   {* Информация о списке }
   private
@@ -135,9 +135,9 @@ begin
 //#UC END# *4B14E35A0092_4B14E32102A2_impl*
 end;//TnsListReferenceActivateEvent.Log
 
-{$Include ListInfoUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListInfoUserTypes.imp.pas}
 
-{$Include PageControlNotification.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\PageControlNotification.imp.pas}
 
 function TPrimListInfoForm.MakePreview: IafwComplexDocumentPreview;
 //#UC START# *4C88CF0C0337_497DEC900012_var*

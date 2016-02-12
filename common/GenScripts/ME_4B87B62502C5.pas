@@ -28,7 +28,7 @@ type
  _ItemType_ = TevSubPanelSub;
  _l3ObjectRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
  TevSubPanelSubArrayPrim = {abstract} class(_l3ObjectRefListPrim_)
   private
    f_Owner: TWinControl;
@@ -138,7 +138,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevSubPanelSubArrayPrim;
 
-{$Include l3ObjectRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
 
 constructor TevSubPanelSubArrayPrim.Create(anOwner: TWinControl;
  aHandle: Tl3Handle);

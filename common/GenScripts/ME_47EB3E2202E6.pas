@@ -6,7 +6,7 @@
 {$Define dBaseDocument_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include vcmData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
  _dBaseDocument_ = class(_vcmData_, IdBaseDocument)
   {* Данные сборки документа }
   private
@@ -32,7 +32,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include vcmData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
 _dBaseDocument_ = _vcmData_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -43,7 +43,7 @@ _dBaseDocument_ = _vcmData_;
 {$Define dBaseDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include vcmData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
 
 function _dBaseDocument_.pm_GetdsDocumentRef: IvcmFormDataSourceRef;
 //#UC START# *2C233EE5B42C_47EB3E2202E6get_var*

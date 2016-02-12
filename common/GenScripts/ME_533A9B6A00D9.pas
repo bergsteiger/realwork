@@ -29,7 +29,7 @@ uses
 
 type
  _ChromeLikeTabbedContainerForm_Parent_ = TvcmChromeLikeTabbedContainerFormPrim;
- {$Include ChromeLikeTabbedContainerForm.imp.pas}
+ {$Include w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabbedContainerForm.imp.pas}
  TvcmChromeLikeTabbedContainerForm = {abstract} class(_ChromeLikeTabbedContainerForm_)
   private
    f_Decorator: TFormFrameDecorator;
@@ -72,7 +72,7 @@ uses
  , afwFacade
 ;
 
-{$Include ChromeLikeTabbedContainerForm.imp.pas}
+{$Include w:\common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabbedContainerForm.imp.pas}
 
 function TvcmChromeLikeTabbedContainerForm.pm_GetDecorator: TFormFrameDecorator;
 //#UC START# *54B4B8D50155_533A9B6A00D9get_var*

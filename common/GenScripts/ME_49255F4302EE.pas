@@ -37,7 +37,7 @@ uses
 type
  _InitDataType_ = IdeDocInfo;
  _FormDataSourceType_ = IdsAttributes;
- {$Include dsSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  TdsAttributes = class(_dsSimpleTree_, IdsAttributes)
   {* бизнес объект формы "Информация о документе" }
   protected
@@ -65,7 +65,7 @@ uses
 
 type _Instance_R_ = TdsAttributes;
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 function TdsAttributes.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

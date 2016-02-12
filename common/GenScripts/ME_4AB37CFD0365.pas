@@ -24,7 +24,7 @@ type
  _ItemType_ = Tm4WordIDStr;
  _l3ObjectRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
  Tm4WordIDStrListPrim = class(_l3ObjectRefListPrim_)
   {* Список списков идентификаторов слов }
  end;//Tm4WordIDStrListPrim
@@ -109,6 +109,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tm4WordIDStrListPrim;
 
-{$Include l3ObjectRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
 
 end.

@@ -141,12 +141,8 @@ begin
 end;//Tkw_Form_QueryCard.GetWordNameForRegister
 
 function Tkw_Form_QueryCard.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C2D191C98445_var*
-//#UC END# *4DDFD2EA0116_C2D191C98445_var*
 begin
-//#UC START# *4DDFD2EA0116_C2D191C98445_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C2D191C98445_impl*
+ Result := 'enQueryCard';
 end;//Tkw_Form_QueryCard.GetString
 
 class function Tkw_QueryCard_Control_Editor.GetWordNameForRegister: AnsiString;
@@ -155,21 +151,14 @@ begin
 end;//Tkw_QueryCard_Control_Editor.GetWordNameForRegister
 
 function Tkw_QueryCard_Control_Editor.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8CE82345456D_var*
-//#UC END# *4DDFD2EA0116_8CE82345456D_var*
 begin
-//#UC START# *4DDFD2EA0116_8CE82345456D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8CE82345456D_impl*
+ Result := 'Editor';
 end;//Tkw_QueryCard_Control_Editor.GetString
 
 class procedure Tkw_QueryCard_Control_Editor.RegisterInEngine;
-//#UC START# *52A086150180_8CE82345456D_var*
-//#UC END# *52A086150180_8CE82345456D_var*
 begin
-//#UC START# *52A086150180_8CE82345456D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8CE82345456D_impl*
+ inherited;
+ TtfwClassRef.Register(TevQueryCardEditor);
 end;//Tkw_QueryCard_Control_Editor.RegisterInEngine
 
 procedure Tkw_QueryCard_Control_Editor_Push.DoDoIt(const aCtx: TtfwContext);
@@ -192,41 +181,36 @@ begin
 end;//Tkw_QueryCard_Component_TextSource.GetWordNameForRegister
 
 function Tkw_QueryCard_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_55FA1BAB0123_var*
-//#UC END# *4DDFD2EA0116_55FA1BAB0123_var*
 begin
-//#UC START# *4DDFD2EA0116_55FA1BAB0123_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_55FA1BAB0123_impl*
+ Result := 'TextSource';
 end;//Tkw_QueryCard_Component_TextSource.GetString
 
 class procedure Tkw_QueryCard_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_55FA1BAB0123_var*
-//#UC END# *52A086150180_55FA1BAB0123_var*
 begin
-//#UC START# *52A086150180_55FA1BAB0123_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_55FA1BAB0123_impl*
+ inherited;
+ TtfwClassRef.Register(TevTextSource);
 end;//Tkw_QueryCard_Component_TextSource.RegisterInEngine
 
 function TkwEnQueryCardEditor.Editor(const aCtx: TtfwContext;
  aenQueryCard: TenQueryCard): TevQueryCardEditor;
  {* Реализация слова скрипта .TenQueryCard.Editor }
-//#UC START# *0A4C485022C3_C531EBC72793_var*
-//#UC END# *0A4C485022C3_C531EBC72793_var*
 begin
-//#UC START# *0A4C485022C3_C531EBC72793_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0A4C485022C3_C531EBC72793_impl*
+ Result := aenQueryCard.Editor;
 end;//TkwEnQueryCardEditor.Editor
 
 procedure TkwEnQueryCardEditor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C531EBC72793_var*
-//#UC END# *4DAEEDE10285_C531EBC72793_var*
+var l_aenQueryCard: TenQueryCard;
 begin
-//#UC START# *4DAEEDE10285_C531EBC72793_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C531EBC72793_impl*
+ try
+  l_aenQueryCard := TenQueryCard(aCtx.rEngine.PopObjAs(TenQueryCard));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenQueryCard: TenQueryCard : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Editor(aCtx, l_aenQueryCard));
 end;//TkwEnQueryCardEditor.DoDoIt
 
 class function TkwEnQueryCardEditor.GetWordNameForRegister: AnsiString;
@@ -236,12 +220,8 @@ end;//TkwEnQueryCardEditor.GetWordNameForRegister
 
 procedure TkwEnQueryCardEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C531EBC72793_var*
-//#UC END# *52D00B00031A_C531EBC72793_var*
 begin
-//#UC START# *52D00B00031A_C531EBC72793_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C531EBC72793_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Editor', aCtx);
 end;//TkwEnQueryCardEditor.SetValuePrim
 
 function TkwEnQueryCardEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -256,27 +236,29 @@ end;//TkwEnQueryCardEditor.GetAllParamsCount
 
 function TkwEnQueryCardEditor.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenQueryCard)]);
 end;//TkwEnQueryCardEditor.ParamsTypes
 
 function TkwEnQueryCardTextSource.TextSource(const aCtx: TtfwContext;
  aenQueryCard: TenQueryCard): TevTextSource;
  {* Реализация слова скрипта .TenQueryCard.TextSource }
-//#UC START# *C8E4304B9C34_88CF64489AF4_var*
-//#UC END# *C8E4304B9C34_88CF64489AF4_var*
 begin
-//#UC START# *C8E4304B9C34_88CF64489AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C8E4304B9C34_88CF64489AF4_impl*
+ Result := aenQueryCard.TextSource;
 end;//TkwEnQueryCardTextSource.TextSource
 
 procedure TkwEnQueryCardTextSource.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_88CF64489AF4_var*
-//#UC END# *4DAEEDE10285_88CF64489AF4_var*
+var l_aenQueryCard: TenQueryCard;
 begin
-//#UC START# *4DAEEDE10285_88CF64489AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_88CF64489AF4_impl*
+ try
+  l_aenQueryCard := TenQueryCard(aCtx.rEngine.PopObjAs(TenQueryCard));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenQueryCard: TenQueryCard : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TextSource(aCtx, l_aenQueryCard));
 end;//TkwEnQueryCardTextSource.DoDoIt
 
 class function TkwEnQueryCardTextSource.GetWordNameForRegister: AnsiString;
@@ -286,12 +268,8 @@ end;//TkwEnQueryCardTextSource.GetWordNameForRegister
 
 procedure TkwEnQueryCardTextSource.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_88CF64489AF4_var*
-//#UC END# *52D00B00031A_88CF64489AF4_var*
 begin
-//#UC START# *52D00B00031A_88CF64489AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_88CF64489AF4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству TextSource', aCtx);
 end;//TkwEnQueryCardTextSource.SetValuePrim
 
 function TkwEnQueryCardTextSource.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -306,7 +284,7 @@ end;//TkwEnQueryCardTextSource.GetAllParamsCount
 
 function TkwEnQueryCardTextSource.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenQueryCard)]);
 end;//TkwEnQueryCardTextSource.ParamsTypes
 
 initialization

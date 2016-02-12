@@ -6,7 +6,7 @@
 {$Define l3Notifier_imp}
 
  _l3NotifierBase_Parent_ = _l3Notifier_Parent_;
- {$Include l3NotifierBase.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
  _l3Notifier_ = class(_l3NotifierBase_)
   protected
    procedure CallNotify(aOperation: Integer;
@@ -19,7 +19,7 @@
 
 {$Define l3Notifier_imp_impl}
 
-{$Include l3NotifierBase.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
 
 procedure _l3Notifier_.CallNotify(aOperation: Integer;
  aIndex: Integer);

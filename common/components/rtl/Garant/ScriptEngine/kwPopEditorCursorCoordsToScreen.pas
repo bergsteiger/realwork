@@ -1,65 +1,60 @@
 unit kwPopEditorCursorCoordsToScreen;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorCursorCoordsToScreen.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::MoveMouseByPara::pop_editor_CursorCoordsToScreen
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCursorCoordsToScreen.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evCustomEditorWindow,
-  nevControl,
-  kwParaCoordsToScreen,
-  l3Units,
-  nevTools,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwParaCoordsToScreen
+ , evCustomEditorWindow
+ , l3Units
+ , nevTools
+ , tfwScriptingInterfaces
+ , nevControl
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorCursorCoordsToScreen = {final scriptword} class(TkwParaCoordsToScreen)
- private
- // private fields
-   f_Editor : TevCustomEditorWindow;
- protected
- // overridden protected methods
+ TkwPopEditorCursorCoordsToScreen = {final} class(TkwParaCoordsToScreen)
+  private
+   f_Editor: TevCustomEditorWindow;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
+    {* Возвращает точку, на которую нужно спозиционироваться. }
    class function GetWordNameForRegister: AnsiString; override;
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
+    anEditor: TevCustomEditorWindow); override;
  end;//TkwPopEditorCursorCoordsToScreen
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Types
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , Types
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
-  TnevControlFriend = {abstract} class(TnevControl)
-   {* Друг для TnevControl }
-  end;//TnevControlFriend
-
-// start class TkwPopEditorCursorCoordsToScreen
+ TnevControlFriend = {abstract} class(TnevControl)
+  {* Друг для TnevControl }
+ end;//TnevControlFriend
 
 procedure TkwPopEditorCursorCoordsToScreen.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FABE1110175_var*
 //#UC END# *479731C50290_4FABE1110175_var*
 begin
@@ -70,6 +65,7 @@ begin
 end;//TkwPopEditorCursorCoordsToScreen.Cleanup
 
 function TkwPopEditorCursorCoordsToScreen.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4FABE1110175_var*
 var
  l_DeltaX: Integer;
@@ -84,13 +80,12 @@ begin
 end;//TkwPopEditorCursorCoordsToScreen.GetPoint
 
 class function TkwPopEditorCursorCoordsToScreen.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:CursorCoordsToScreen';
 end;//TkwPopEditorCursorCoordsToScreen.GetWordNameForRegister
 
 procedure TkwPopEditorCursorCoordsToScreen.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4FABE1110175_var*
 var
  l_l3Pt: Tl3Point;
@@ -116,12 +111,9 @@ begin
 //#UC END# *4F4CB81200CA_4FABE1110175_impl*
 end;//TkwPopEditorCursorCoordsToScreen.DoWithEditor
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_CursorCoordsToScreen
  TkwPopEditorCursorCoordsToScreen.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_CursorCoordsToScreen }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

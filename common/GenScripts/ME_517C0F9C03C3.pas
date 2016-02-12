@@ -18,9 +18,9 @@ uses
 
 type
  _RefCounted_Parent_ = TButton;
- {$Include RefCounted.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
  _RoundedControl_Parent_ = _RefCounted_;
- {$Include RoundedControl.imp.pas}
+ {$Include w:\common\components\SandBox\RoundedControl.imp.pas}
  TRoundedButton = class(_RoundedControl_)
  end;//TRoundedButton
 
@@ -35,8 +35,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include RefCounted.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
-{$Include RoundedControl.imp.pas}
+{$Include w:\common\components\SandBox\RoundedControl.imp.pas}
 
 end.

@@ -17,7 +17,7 @@ uses
 
 type
  _BaseSearchPresentationFor296635421_Parent_ = TPrimMainMenuForm;
- {$Include BaseSearchPresentationFor296635421.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas}
  TMainMenuWithBaseSearchSupportForm = {abstract} class(_BaseSearchPresentationFor296635421_, InsBaseSearchPresentation, InsMainMenuLikeBaseSearchOwner)
   {* Основное меню с поддержкой базового поиска }
   protected
@@ -68,7 +68,7 @@ uses
 
 type _Instance_R_ = TMainMenuWithBaseSearchSupportForm;
 
-{$Include BaseSearchPresentationFor296635421.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentationFor296635421.imp.pas}
 
 function TMainMenuWithBaseSearchSupportForm.WindowRequired: Boolean;
 //#UC START# *496B4C41023E_4AC99EBE0106_var*

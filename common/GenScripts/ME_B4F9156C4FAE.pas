@@ -205,12 +205,8 @@ begin
 end;//Tkw_Form_MedicFirmList.GetWordNameForRegister
 
 function Tkw_Form_MedicFirmList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9FA2A7743D59_var*
-//#UC END# *4DDFD2EA0116_9FA2A7743D59_var*
 begin
-//#UC START# *4DDFD2EA0116_9FA2A7743D59_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9FA2A7743D59_impl*
+ Result := 'en_MedicFirmList';
 end;//Tkw_Form_MedicFirmList.GetString
 
 class function Tkw_MedicFirmList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -219,21 +215,14 @@ begin
 end;//Tkw_MedicFirmList_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_MedicFirmList_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F63188E40F08_var*
-//#UC END# *4DDFD2EA0116_F63188E40F08_var*
 begin
-//#UC START# *4DDFD2EA0116_F63188E40F08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F63188E40F08_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_MedicFirmList_Control_BackgroundPanel.GetString
 
 class procedure Tkw_MedicFirmList_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_F63188E40F08_var*
-//#UC END# *52A086150180_F63188E40F08_var*
 begin
-//#UC START# *52A086150180_F63188E40F08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F63188E40F08_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MedicFirmList_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_MedicFirmList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -256,21 +245,14 @@ begin
 end;//Tkw_MedicFirmList_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_MedicFirmList_Control_ContextFilter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_0E25968661B6_var*
-//#UC END# *4DDFD2EA0116_0E25968661B6_var*
 begin
-//#UC START# *4DDFD2EA0116_0E25968661B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_0E25968661B6_impl*
+ Result := 'ContextFilter';
 end;//Tkw_MedicFirmList_Control_ContextFilter.GetString
 
 class procedure Tkw_MedicFirmList_Control_ContextFilter.RegisterInEngine;
-//#UC START# *52A086150180_0E25968661B6_var*
-//#UC END# *52A086150180_0E25968661B6_var*
 begin
-//#UC START# *52A086150180_0E25968661B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_0E25968661B6_impl*
+ inherited;
+ TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_MedicFirmList_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_MedicFirmList_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
@@ -293,21 +275,14 @@ begin
 end;//Tkw_MedicFirmList_Control_ListTree.GetWordNameForRegister
 
 function Tkw_MedicFirmList_Control_ListTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_671089D6F4B3_var*
-//#UC END# *4DDFD2EA0116_671089D6F4B3_var*
 begin
-//#UC START# *4DDFD2EA0116_671089D6F4B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_671089D6F4B3_impl*
+ Result := 'ListTree';
 end;//Tkw_MedicFirmList_Control_ListTree.GetString
 
 class procedure Tkw_MedicFirmList_Control_ListTree.RegisterInEngine;
-//#UC START# *52A086150180_671089D6F4B3_var*
-//#UC END# *52A086150180_671089D6F4B3_var*
 begin
-//#UC START# *52A086150180_671089D6F4B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_671089D6F4B3_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_MedicFirmList_Control_ListTree.RegisterInEngine
 
 procedure Tkw_MedicFirmList_Control_ListTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -327,21 +302,23 @@ end;//Tkw_MedicFirmList_Control_ListTree_Push.GetWordNameForRegister
 function TkwEnMedicFirmListBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aen_MedicFirmList: Ten_MedicFirmList): TvtPanel;
  {* Реализация слова скрипта .Ten_MedicFirmList.BackgroundPanel }
-//#UC START# *2F052D812AE6_F45A6F3A6877_var*
-//#UC END# *2F052D812AE6_F45A6F3A6877_var*
 begin
-//#UC START# *2F052D812AE6_F45A6F3A6877_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2F052D812AE6_F45A6F3A6877_impl*
+ Result := aen_MedicFirmList.BackgroundPanel;
 end;//TkwEnMedicFirmListBackgroundPanel.BackgroundPanel
 
 procedure TkwEnMedicFirmListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F45A6F3A6877_var*
-//#UC END# *4DAEEDE10285_F45A6F3A6877_var*
+var l_aen_MedicFirmList: Ten_MedicFirmList;
 begin
-//#UC START# *4DAEEDE10285_F45A6F3A6877_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F45A6F3A6877_impl*
+ try
+  l_aen_MedicFirmList := Ten_MedicFirmList(aCtx.rEngine.PopObjAs(Ten_MedicFirmList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MedicFirmList: Ten_MedicFirmList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListBackgroundPanel.DoDoIt
 
 class function TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -351,12 +328,8 @@ end;//TkwEnMedicFirmListBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnMedicFirmListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F45A6F3A6877_var*
-//#UC END# *52D00B00031A_F45A6F3A6877_var*
 begin
-//#UC START# *52D00B00031A_F45A6F3A6877_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F45A6F3A6877_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEnMedicFirmListBackgroundPanel.SetValuePrim
 
 function TkwEnMedicFirmListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -371,27 +344,29 @@ end;//TkwEnMedicFirmListBackgroundPanel.GetAllParamsCount
 
 function TkwEnMedicFirmListBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListBackgroundPanel.ParamsTypes
 
 function TkwEnMedicFirmListContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_MedicFirmList: Ten_MedicFirmList): TnscContextFilter;
  {* Реализация слова скрипта .Ten_MedicFirmList.ContextFilter }
-//#UC START# *FE1EC808F555_2F2BD8918036_var*
-//#UC END# *FE1EC808F555_2F2BD8918036_var*
 begin
-//#UC START# *FE1EC808F555_2F2BD8918036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FE1EC808F555_2F2BD8918036_impl*
+ Result := aen_MedicFirmList.ContextFilter;
 end;//TkwEnMedicFirmListContextFilter.ContextFilter
 
 procedure TkwEnMedicFirmListContextFilter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2F2BD8918036_var*
-//#UC END# *4DAEEDE10285_2F2BD8918036_var*
+var l_aen_MedicFirmList: Ten_MedicFirmList;
 begin
-//#UC START# *4DAEEDE10285_2F2BD8918036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2F2BD8918036_impl*
+ try
+  l_aen_MedicFirmList := Ten_MedicFirmList(aCtx.rEngine.PopObjAs(Ten_MedicFirmList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MedicFirmList: Ten_MedicFirmList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListContextFilter.DoDoIt
 
 class function TkwEnMedicFirmListContextFilter.GetWordNameForRegister: AnsiString;
@@ -401,12 +376,8 @@ end;//TkwEnMedicFirmListContextFilter.GetWordNameForRegister
 
 procedure TkwEnMedicFirmListContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2F2BD8918036_var*
-//#UC END# *52D00B00031A_2F2BD8918036_var*
 begin
-//#UC START# *52D00B00031A_2F2BD8918036_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2F2BD8918036_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEnMedicFirmListContextFilter.SetValuePrim
 
 function TkwEnMedicFirmListContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -421,27 +392,29 @@ end;//TkwEnMedicFirmListContextFilter.GetAllParamsCount
 
 function TkwEnMedicFirmListContextFilter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListContextFilter.ParamsTypes
 
 function TkwEnMedicFirmListListTree.ListTree(const aCtx: TtfwContext;
  aen_MedicFirmList: Ten_MedicFirmList): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .Ten_MedicFirmList.ListTree }
-//#UC START# *CD712C6E8A53_9D0DDC3CED67_var*
-//#UC END# *CD712C6E8A53_9D0DDC3CED67_var*
 begin
-//#UC START# *CD712C6E8A53_9D0DDC3CED67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CD712C6E8A53_9D0DDC3CED67_impl*
+ Result := aen_MedicFirmList.ListTree;
 end;//TkwEnMedicFirmListListTree.ListTree
 
 procedure TkwEnMedicFirmListListTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9D0DDC3CED67_var*
-//#UC END# *4DAEEDE10285_9D0DDC3CED67_var*
+var l_aen_MedicFirmList: Ten_MedicFirmList;
 begin
-//#UC START# *4DAEEDE10285_9D0DDC3CED67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9D0DDC3CED67_impl*
+ try
+  l_aen_MedicFirmList := Ten_MedicFirmList(aCtx.rEngine.PopObjAs(Ten_MedicFirmList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MedicFirmList: Ten_MedicFirmList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ListTree(aCtx, l_aen_MedicFirmList));
 end;//TkwEnMedicFirmListListTree.DoDoIt
 
 class function TkwEnMedicFirmListListTree.GetWordNameForRegister: AnsiString;
@@ -451,12 +424,8 @@ end;//TkwEnMedicFirmListListTree.GetWordNameForRegister
 
 procedure TkwEnMedicFirmListListTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9D0DDC3CED67_var*
-//#UC END# *52D00B00031A_9D0DDC3CED67_var*
 begin
-//#UC START# *52D00B00031A_9D0DDC3CED67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9D0DDC3CED67_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ListTree', aCtx);
 end;//TkwEnMedicFirmListListTree.SetValuePrim
 
 function TkwEnMedicFirmListListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -471,7 +440,7 @@ end;//TkwEnMedicFirmListListTree.GetAllParamsCount
 
 function TkwEnMedicFirmListListTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_MedicFirmList)]);
 end;//TkwEnMedicFirmListListTree.ParamsTypes
 
 initialization

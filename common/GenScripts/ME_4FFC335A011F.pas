@@ -23,7 +23,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TCollectionItem;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmPrimCollectionItem = class(_l3Unknown_)
   protected
    function pm_GetDispatcher: IvcmDispatcher;
@@ -54,7 +54,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 function TvcmPrimCollectionItem.pm_GetDispatcher: IvcmDispatcher;
 //#UC START# *55CCAB2C0353_4FFC335A011Fget_var*

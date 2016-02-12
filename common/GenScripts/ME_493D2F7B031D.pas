@@ -6,13 +6,13 @@
 {$Define sdsDocInfo_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include sdsBaseDocumentWithAttributes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
  _afwApplicationDataUpdate_Parent_ = _sdsBaseDocumentWithAttributes_;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _afwSettingsReplace_Parent_ = _afwApplicationDataUpdate_;
- {$Include afwSettingsReplace.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  _nsUserSettingsListener_Parent_ = _afwSettingsReplace_;
- {$Include nsUserSettingsListener.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
  _sdsDocInfo_ = {abstract} class(_nsUserSettingsListener_, IsdsDocInfo, IbsFlash)
   {* Общий объект сборки для списка и документа }
   private
@@ -116,13 +116,13 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include sdsBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 _afwApplicationDataUpdate_Parent_ = _sdsBaseDocumentWithAttributes_;
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 _afwSettingsReplace_Parent_ = _afwApplicationDataUpdate_;
-{$Include afwSettingsReplace.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
 _nsUserSettingsListener_Parent_ = _afwSettingsReplace_;
-{$Include nsUserSettingsListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 _sdsDocInfo_ = _nsUserSettingsListener_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -133,13 +133,13 @@ _sdsDocInfo_ = _nsUserSettingsListener_;
 {$Define sdsDocInfo_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include sdsBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocumentWithAttributes.imp.pas}
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-{$Include afwSettingsReplace.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
 
-{$Include nsUserSettingsListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 
 function _sdsDocInfo_.NeedMakeDSUserCRList1: Boolean;
 //#UC START# *493D51B00058_493D2F7B031D_var*

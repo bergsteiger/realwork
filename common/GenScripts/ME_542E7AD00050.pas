@@ -15,7 +15,7 @@ uses
 
 type
  _l3CriticalSectionHolder_Parent_ = Tm3StorageHolderListPrim1;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  Tm3StorageHolderList = class(_l3CriticalSectionHolder_)
   protected
    procedure InitFields; override;
@@ -45,7 +45,7 @@ begin
  l3Free(g_Tm3StorageHolderList);
 end;//Tm3StorageHolderListFree
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 class function Tm3StorageHolderList.Exists: Boolean;
 //#UC START# *542E9D1B0264_542E7AD00050_var*

@@ -25,7 +25,7 @@ type
  _ItemType_ = TvgCustomObject;
  _l3PtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3PtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
  TvgSortableObjectList = class(_l3PtrList_)
   public
    procedure Sort(aComparer: TvgObjectSortCompare);
@@ -89,7 +89,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvgSortableObjectList;
 
-{$Include l3PtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
 
 procedure TvgSortableObjectList.Sort(aComparer: TvgObjectSortCompare);
 //#UC START# *4D552BB90144_4D552B230161_var*

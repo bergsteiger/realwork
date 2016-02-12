@@ -7,7 +7,7 @@
 
  _ItemType_ = Tl3Variant;
  _l3RefList_Parent_ = _l3VariantListPrim_Parent_;
- {$Include l3RefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
  _l3VariantListPrim_ = class(_l3RefList_)
  end;//_l3VariantListPrim_
 
@@ -77,7 +77,7 @@ begin
 //#UC END# *47B94A5C006E_534515CD039A_impl*
 end;//FreeItem
 
-{$Include l3RefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
 
 {$EndIf l3VariantListPrim_imp_impl}
 

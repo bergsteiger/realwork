@@ -135,12 +135,8 @@ begin
 end;//TkwLoggingGetLogRecords.logging_GetLogRecords
 
 procedure TkwLoggingGetLogRecords.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4FDD3D4A4771_var*
-//#UC END# *4DAEEDE10285_4FDD3D4A4771_var*
 begin
-//#UC START# *4DAEEDE10285_4FDD3D4A4771_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4FDD3D4A4771_impl*
+ aCtx.rEngine.PushString(logging_GetLogRecords(aCtx));
 end;//TkwLoggingGetLogRecords.DoDoIt
 
 class function TkwLoggingGetLogRecords.GetWordNameForRegister: AnsiString;

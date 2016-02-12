@@ -35,11 +35,11 @@ type
  _SetDataType_ = IdDrugDocument;
  _InitDataType_ = IdeDocInfo;
  _SetType_ = IsdsDrugDocument;
- {$Include sdsBaseDrugDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsBaseDrugDocument.imp.pas}
  _afwApplicationDataUpdate_Parent_ = _sdsBaseDrugDocument_;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _nsOpenContents_Parent_ = _afwApplicationDataUpdate_;
- {$Include nsOpenContents.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas}
  TsdsDrugDocument = class(_nsOpenContents_, IsdsDrugDocument, IucpDocumentWithContents)
   {* Базовый для списка препаратов и описания препаратов. }
   protected
@@ -98,11 +98,11 @@ uses
 
 type _Instance_R_ = TsdsDrugDocument;
 
-{$Include sdsBaseDrugDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsBaseDrugDocument.imp.pas}
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-{$Include nsOpenContents.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsOpenContents.imp.pas}
 
 function TsdsDrugDocument.As_IucpDocumentWithContents: IucpDocumentWithContents;
  {* Метод приведения нашего интерфейса к IucpDocumentWithContents }

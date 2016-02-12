@@ -17,13 +17,13 @@ uses
 
 type
  _l3Castable_Parent_ = TFont;
- {$Include l3Castable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
  TafwCastableFont = class(_l3Castable_)
   {* ״נטפע ס QueryInterface. }
  end;//TafwCastableFont
 
  _l3Unknown_Parent_ = TafwCastableFont;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TafwFontI = class(_l3Unknown_, IafwFont)
   private
    f_BackColor: TafwColor;
@@ -109,9 +109,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include l3Castable.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 constructor TafwFontI.Create;
 //#UC START# *47E15C42028A_47E1231D0293_var*

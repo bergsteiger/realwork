@@ -18,7 +18,7 @@ uses
 
 type
  _l3NotifierBase_Parent_ = Tl3CacheableBase;
- {$Include l3NotifierBase.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
  Tl3SimpleTree = class(_l3NotifierBase_, Il3SimpleTree)
   {* "Простое" дерево. }
   private
@@ -130,7 +130,7 @@ uses
  , SysUtils
 ;
 
-{$Include l3NotifierBase.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
 
 constructor Tl3SimpleTree.Create(const aRoot: Il3SimpleRootNode);
 //#UC START# *48724FD5009D_48724DAD02E0_var*

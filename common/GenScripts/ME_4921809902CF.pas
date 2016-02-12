@@ -28,7 +28,7 @@ uses
 
 type
  _UseCaseControllerType_ = IsdsPrimDocument;
- {$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
  TdsEditions = {final} class(_vcmFormDataSourcePrimWithFlexUseCaseControllerType_, IdsEditions)
   protected
    function GetEditionsRoot: Il3SimpleRootNode;
@@ -52,7 +52,7 @@ uses
 
 type _Instance_R_ = TdsEditions;
 
-{$Include vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrimWithFlexUseCaseControllerType.imp.pas}
 
 function TdsEditions.GetEditionsRoot: Il3SimpleRootNode;
  {* получение списка редакций документа }

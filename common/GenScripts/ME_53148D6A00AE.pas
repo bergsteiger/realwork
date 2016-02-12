@@ -8,7 +8,7 @@
  // _StringType_
 
  _l3DelphiStringSearcherPrim_Parent_ = _l3DictionaryPrimPrim_Parent_;
- {$Include l3DelphiStringSearcherPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas}
  _l3DictionaryPrimPrim_ = {abstract} class(_l3DelphiStringSearcherPrim_)
   private
    f_Default: _StringType_;
@@ -35,7 +35,7 @@
 
 {$Define l3DictionaryPrimPrim_imp_impl}
 
-{$Include l3DelphiStringSearcherPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas}
 
 procedure _l3DictionaryPrimPrim_.pm_SetDefault(const aValue: _StringType_);
 //#UC START# *5314900300F1_53148D6A00AEset_var*

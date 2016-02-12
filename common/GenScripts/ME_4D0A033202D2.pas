@@ -18,7 +18,7 @@ uses
 
 type
  _EntityInterface_ = IJournalBookmark;
- {$Include atEntityWithName.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
  TatJournalBookmark = class(_atEntityWithName_)
   protected
    function pm_GetDocument: IDocument; virtual;
@@ -64,7 +64,7 @@ uses
  , atQuery
 ;
 
-{$Include atEntityWithName.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
 
 function TatJournalBookmark.pm_GetDocument: IDocument;
 //#UC START# *4FC8EDB701E9_4FC8EC8900FEget_var*

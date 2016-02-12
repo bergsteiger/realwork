@@ -24,7 +24,7 @@ type
  _ItemType_ = Il3StringValueMapFactory;
  _l3InterfaceRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  Tl3StringValueMapFactories = class(_l3InterfaceRefList_)
  end;//Tl3StringValueMapFactories
 
@@ -84,7 +84,7 @@ end;//l3StringMapManager
 
 type _Instance_R_ = Tl3StringValueMapFactories;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 class function Tl3StringValueMapManager.Make: Il3StringValueMapManager;
 var

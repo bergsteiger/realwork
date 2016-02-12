@@ -18,7 +18,7 @@ type
 
  _ItemType_ = VOID;
  _l3Items_Parent_ = _l3UntypedList_Parent_;
- {$Include l3Items.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
  _l3UntypedList_ = {abstract} class(_l3Items_)
   protected
    function pm_GetItemSize: Integer; virtual; abstract;
@@ -229,7 +229,7 @@ begin
 //#UC END# *47BEDF2A02EA_47B433E500BC_impl*
 end;//GetItemSlot
 
-{$Include l3Items.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
 
 procedure _l3UntypedList_.Clear;
  {* Очищает список. }

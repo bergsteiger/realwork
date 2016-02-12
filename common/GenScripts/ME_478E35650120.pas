@@ -24,7 +24,7 @@ type
  _ItemType_ = Il3IntegerValueMapFactory;
  _l3InterfaceRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  Tl3IntegerValueMapFactories = class(_l3InterfaceRefList_)
  end;//Tl3IntegerValueMapFactories
 
@@ -84,7 +84,7 @@ end;//l3IntegerMapManager
 
 type _Instance_R_ = Tl3IntegerValueMapFactories;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 class function Tl3IntegerValueMapManager.Make: Il3IntegerValueMapManager;
 var

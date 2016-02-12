@@ -6,7 +6,7 @@
 {$Define l3InterfaceRefList_imp}
 
  _l3InterfaceRefListPrim_Parent_ = _l3InterfaceRefList_Parent_;
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  _l3InterfaceRefList_ = class(_l3InterfaceRefListPrim_)
   {* Список ссылок на интерфейсы. }
  end;//_l3InterfaceRefList_
@@ -61,7 +61,7 @@ begin
 //#UC END# *47B99D4503A2_47B57D830369_impl*
 end;//CompareExistingItems
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 {$EndIf l3InterfaceRefList_imp_impl}
 

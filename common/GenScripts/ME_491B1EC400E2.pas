@@ -23,7 +23,7 @@ uses
 type
  _InitDataType_ = IUnknown;
  _FormDataSourceType_ = IvcmViewAreaController;
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  TvcmFormDataSource = class(_vcmFormDataSource_)
   {* "Бизнес объект формы". Для поддержки старого нетипизированного подхода }
  end;//TvcmFormDataSource
@@ -41,7 +41,7 @@ uses
 
 type _Instance_R_ = TvcmFormDataSource;
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

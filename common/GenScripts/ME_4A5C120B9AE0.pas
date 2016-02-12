@@ -153,12 +153,8 @@ begin
 end;//Tkw_Form_GroupList.GetWordNameForRegister
 
 function Tkw_Form_GroupList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B88D22ADD23E_var*
-//#UC END# *4DDFD2EA0116_B88D22ADD23E_var*
 begin
-//#UC START# *4DDFD2EA0116_B88D22ADD23E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B88D22ADD23E_impl*
+ Result := 'efGroupList';
 end;//Tkw_Form_GroupList.GetString
 
 class function Tkw_GroupList_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -167,21 +163,14 @@ begin
 end;//Tkw_GroupList_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_GroupList_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CA886BB3DD53_var*
-//#UC END# *4DDFD2EA0116_CA886BB3DD53_var*
 begin
-//#UC START# *4DDFD2EA0116_CA886BB3DD53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CA886BB3DD53_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_GroupList_Control_BackgroundPanel.GetString
 
 class procedure Tkw_GroupList_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_CA886BB3DD53_var*
-//#UC END# *52A086150180_CA886BB3DD53_var*
 begin
-//#UC START# *52A086150180_CA886BB3DD53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CA886BB3DD53_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_GroupList_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_GroupList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -204,21 +193,14 @@ begin
 end;//Tkw_GroupList_Control_GroupsTree.GetWordNameForRegister
 
 function Tkw_GroupList_Control_GroupsTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F19187841A8C_var*
-//#UC END# *4DDFD2EA0116_F19187841A8C_var*
 begin
-//#UC START# *4DDFD2EA0116_F19187841A8C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F19187841A8C_impl*
+ Result := 'GroupsTree';
 end;//Tkw_GroupList_Control_GroupsTree.GetString
 
 class procedure Tkw_GroupList_Control_GroupsTree.RegisterInEngine;
-//#UC START# *52A086150180_F19187841A8C_var*
-//#UC END# *52A086150180_F19187841A8C_var*
 begin
-//#UC START# *52A086150180_F19187841A8C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F19187841A8C_impl*
+ inherited;
+ TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_GroupList_Control_GroupsTree.RegisterInEngine
 
 procedure Tkw_GroupList_Control_GroupsTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -238,21 +220,23 @@ end;//Tkw_GroupList_Control_GroupsTree_Push.GetWordNameForRegister
 function TkwEfGroupListBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aefGroupList: TefGroupList): TvtPanel;
  {* Реализация слова скрипта .TefGroupList.BackgroundPanel }
-//#UC START# *68F14766C616_6BCC2CEE5EC2_var*
-//#UC END# *68F14766C616_6BCC2CEE5EC2_var*
 begin
-//#UC START# *68F14766C616_6BCC2CEE5EC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *68F14766C616_6BCC2CEE5EC2_impl*
+ Result := aefGroupList.BackgroundPanel;
 end;//TkwEfGroupListBackgroundPanel.BackgroundPanel
 
 procedure TkwEfGroupListBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6BCC2CEE5EC2_var*
-//#UC END# *4DAEEDE10285_6BCC2CEE5EC2_var*
+var l_aefGroupList: TefGroupList;
 begin
-//#UC START# *4DAEEDE10285_6BCC2CEE5EC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6BCC2CEE5EC2_impl*
+ try
+  l_aefGroupList := TefGroupList(aCtx.rEngine.PopObjAs(TefGroupList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefGroupList: TefGroupList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefGroupList));
 end;//TkwEfGroupListBackgroundPanel.DoDoIt
 
 class function TkwEfGroupListBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -262,12 +246,8 @@ end;//TkwEfGroupListBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEfGroupListBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_6BCC2CEE5EC2_var*
-//#UC END# *52D00B00031A_6BCC2CEE5EC2_var*
 begin
-//#UC START# *52D00B00031A_6BCC2CEE5EC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_6BCC2CEE5EC2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEfGroupListBackgroundPanel.SetValuePrim
 
 function TkwEfGroupListBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -282,27 +262,29 @@ end;//TkwEfGroupListBackgroundPanel.GetAllParamsCount
 
 function TkwEfGroupListBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefGroupList)]);
 end;//TkwEfGroupListBackgroundPanel.ParamsTypes
 
 function TkwEfGroupListGroupsTree.GroupsTree(const aCtx: TtfwContext;
  aefGroupList: TefGroupList): TeeTreeView;
  {* Реализация слова скрипта .TefGroupList.GroupsTree }
-//#UC START# *9DA094A70502_682D3079A453_var*
-//#UC END# *9DA094A70502_682D3079A453_var*
 begin
-//#UC START# *9DA094A70502_682D3079A453_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9DA094A70502_682D3079A453_impl*
+ Result := aefGroupList.GroupsTree;
 end;//TkwEfGroupListGroupsTree.GroupsTree
 
 procedure TkwEfGroupListGroupsTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_682D3079A453_var*
-//#UC END# *4DAEEDE10285_682D3079A453_var*
+var l_aefGroupList: TefGroupList;
 begin
-//#UC START# *4DAEEDE10285_682D3079A453_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_682D3079A453_impl*
+ try
+  l_aefGroupList := TefGroupList(aCtx.rEngine.PopObjAs(TefGroupList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefGroupList: TefGroupList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(GroupsTree(aCtx, l_aefGroupList));
 end;//TkwEfGroupListGroupsTree.DoDoIt
 
 class function TkwEfGroupListGroupsTree.GetWordNameForRegister: AnsiString;
@@ -312,12 +294,8 @@ end;//TkwEfGroupListGroupsTree.GetWordNameForRegister
 
 procedure TkwEfGroupListGroupsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_682D3079A453_var*
-//#UC END# *52D00B00031A_682D3079A453_var*
 begin
-//#UC START# *52D00B00031A_682D3079A453_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_682D3079A453_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству GroupsTree', aCtx);
 end;//TkwEfGroupListGroupsTree.SetValuePrim
 
 function TkwEfGroupListGroupsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -332,7 +310,7 @@ end;//TkwEfGroupListGroupsTree.GetAllParamsCount
 
 function TkwEfGroupListGroupsTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefGroupList)]);
 end;//TkwEfGroupListGroupsTree.ParamsTypes
 
 initialization

@@ -7,7 +7,7 @@
 
 {$If NOT Defined(NoVCM)}
  _SetDataType_ = IvcmData;
- {$Include vcmFormSetDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
  _vcmFormSetDataSourceWithoutData_ = class(_vcmFormSetDataSource_)
   {* Бизнес объект сборки. Без "данных сборки" }
   protected
@@ -17,7 +17,7 @@
 
 {$Else NOT Defined(NoVCM)}
 
-{$Include vcmFormSetDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 _vcmFormSetDataSourceWithoutData_ = _vcmFormSetDataSource_;
 
 {$IfEnd} // NOT Defined(NoVCM)
@@ -28,7 +28,7 @@ _vcmFormSetDataSourceWithoutData_ = _vcmFormSetDataSource_;
 {$Define vcmFormSetDataSourceWithoutData_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$Include vcmFormSetDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
 function _vcmFormSetDataSourceWithoutData_.MakeData: _SetDataType_;
  {* Данные сборки. }

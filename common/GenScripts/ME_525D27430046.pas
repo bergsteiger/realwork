@@ -23,7 +23,7 @@ type
  _ItemType_ = TddHyperlinkTarget;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddHyperlinkTargetList = class(_l3UncomparabeObjectRefList_)
  end;//TddHyperlinkTargetList
 
@@ -67,6 +67,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddHyperlinkTargetList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

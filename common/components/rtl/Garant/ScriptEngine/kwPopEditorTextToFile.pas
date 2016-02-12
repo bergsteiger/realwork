@@ -1,76 +1,66 @@
 unit kwPopEditorTextToFile;
+ {* Сохраняет содержимое редактора в evd-файл. 
+Пример:
+'C:\MyFile.evd' editor:TextToFile }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwPopEditorTextToFile.pas"
-// Начат: 26.05.2011 13:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_TextToFile
-//
-// Сохраняет содержимое редактора в evd-файл.
-// Пример:
-// 'C:\MyFile.evd' editor:TextToFile
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorTextToFile.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorTextToFile = {scriptword} class(TkwEditorFromStackWord)
+ TkwPopEditorTextToFile = class(TkwEditorFromStackWord)
   {* Сохраняет содержимое редактора в evd-файл. 
 Пример:
 'C:\MyFile.evd' editor:TextToFile }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorTextToFile
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evTypes,
-  l3Interfaces,
-  l3Stream,
-  l3Types,
-  SysUtils,
-  evdMarkEliminator,
-  evdDocumentMarksEliminator,
-  l3Variant,
-  evdDocumentBookmarksEliminator,
-  evdDocumentSubsEliminator,
-  evDocumentSubsChildrenCountEliminator,
-  evdHypelinkDocIDEliminator,
-  evdEmptySubsEliminator,
-  evdStartAndTimeEliminator,
-  evBitmapEliminator4Tests
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorTextToFile
+ l3ImplUses
+ , evTypes
+ , l3Interfaces
+ , l3Stream
+ , l3Types
+ , SysUtils
+ , evdMarkEliminator
+ , evdDocumentMarksEliminator
+ , l3Variant
+ , evdDocumentBookmarksEliminator
+ , evdDocumentSubsEliminator
+ , evDocumentSubsChildrenCountEliminator
+ , evdHypelinkDocIDEliminator
+ , evdEmptySubsEliminator
+ , evdStartAndTimeEliminator
+ , evBitmapEliminator4Tests
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorTextToFile.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4DDE23E403D6_var*
 var
  l_S : AnsiString;
@@ -110,17 +100,13 @@ begin
 end;//TkwPopEditorTextToFile.DoWithEditor
 
 class function TkwPopEditorTextToFile.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:TextToFile';
 end;//TkwPopEditorTextToFile.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_TextToFile
  TkwPopEditorTextToFile.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_TextToFile }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

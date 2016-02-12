@@ -25,11 +25,11 @@ uses
 
 type
  _ClipboardOperations_Parent_ = TTextViaEditorProcessor;
- {$Include ClipboardOperations.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
  _Para2Point_Parent_ = _ClipboardOperations_;
- {$Include Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _HotSpotTools_Parent_ = _Para2Point_;
- {$Include HotSpotTools.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
  THotSpotSelectionTest = {abstract} class(_HotSpotTools_)
   {* Тест выделения с помощью хотспота. }
   protected
@@ -63,11 +63,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include ClipboardOperations.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-{$Include HotSpotTools.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure THotSpotSelectionTest.Process(aForm: TPrimTextLoadForm);

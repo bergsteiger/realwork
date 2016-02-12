@@ -205,12 +205,8 @@ begin
 end;//Tkw_Form_CommonDiction.GetWordNameForRegister
 
 function Tkw_Form_CommonDiction.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_42A925F9A13B_var*
-//#UC END# *4DDFD2EA0116_42A925F9A13B_var*
 begin
-//#UC START# *4DDFD2EA0116_42A925F9A13B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_42A925F9A13B_impl*
+ Result := 'en_CommonDiction';
 end;//Tkw_Form_CommonDiction.GetString
 
 class function Tkw_CommonDiction_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -219,21 +215,14 @@ begin
 end;//Tkw_CommonDiction_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_CommonDiction_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_807C2AF0C088_var*
-//#UC END# *4DDFD2EA0116_807C2AF0C088_var*
 begin
-//#UC START# *4DDFD2EA0116_807C2AF0C088_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_807C2AF0C088_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_CommonDiction_Control_BackgroundPanel.GetString
 
 class procedure Tkw_CommonDiction_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_807C2AF0C088_var*
-//#UC END# *52A086150180_807C2AF0C088_var*
 begin
-//#UC START# *52A086150180_807C2AF0C088_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_807C2AF0C088_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_CommonDiction_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_CommonDiction_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -256,21 +245,14 @@ begin
 end;//Tkw_CommonDiction_Control_WordsTree.GetWordNameForRegister
 
 function Tkw_CommonDiction_Control_WordsTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1C9004614D5A_var*
-//#UC END# *4DDFD2EA0116_1C9004614D5A_var*
 begin
-//#UC START# *4DDFD2EA0116_1C9004614D5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1C9004614D5A_impl*
+ Result := 'WordsTree';
 end;//Tkw_CommonDiction_Control_WordsTree.GetString
 
 class procedure Tkw_CommonDiction_Control_WordsTree.RegisterInEngine;
-//#UC START# *52A086150180_1C9004614D5A_var*
-//#UC END# *52A086150180_1C9004614D5A_var*
 begin
-//#UC START# *52A086150180_1C9004614D5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1C9004614D5A_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_CommonDiction_Control_WordsTree.RegisterInEngine
 
 procedure Tkw_CommonDiction_Control_WordsTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -293,21 +275,14 @@ begin
 end;//Tkw_CommonDiction_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_CommonDiction_Control_ContextFilter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4487D210157E_var*
-//#UC END# *4DDFD2EA0116_4487D210157E_var*
 begin
-//#UC START# *4DDFD2EA0116_4487D210157E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4487D210157E_impl*
+ Result := 'ContextFilter';
 end;//Tkw_CommonDiction_Control_ContextFilter.GetString
 
 class procedure Tkw_CommonDiction_Control_ContextFilter.RegisterInEngine;
-//#UC START# *52A086150180_4487D210157E_var*
-//#UC END# *52A086150180_4487D210157E_var*
 begin
-//#UC START# *52A086150180_4487D210157E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_4487D210157E_impl*
+ inherited;
+ TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_CommonDiction_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_CommonDiction_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
@@ -327,21 +302,23 @@ end;//Tkw_CommonDiction_Control_ContextFilter_Push.GetWordNameForRegister
 function TkwEnCommonDictionBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aen_CommonDiction: Ten_CommonDiction): TvtPanel;
  {* Реализация слова скрипта .Ten_CommonDiction.BackgroundPanel }
-//#UC START# *C64A55DBAF88_4988BB9A5265_var*
-//#UC END# *C64A55DBAF88_4988BB9A5265_var*
 begin
-//#UC START# *C64A55DBAF88_4988BB9A5265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C64A55DBAF88_4988BB9A5265_impl*
+ Result := aen_CommonDiction.BackgroundPanel;
 end;//TkwEnCommonDictionBackgroundPanel.BackgroundPanel
 
 procedure TkwEnCommonDictionBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4988BB9A5265_var*
-//#UC END# *4DAEEDE10285_4988BB9A5265_var*
+var l_aen_CommonDiction: Ten_CommonDiction;
 begin
-//#UC START# *4DAEEDE10285_4988BB9A5265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4988BB9A5265_impl*
+ try
+  l_aen_CommonDiction := Ten_CommonDiction(aCtx.rEngine.PopObjAs(Ten_CommonDiction));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_CommonDiction: Ten_CommonDiction : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionBackgroundPanel.DoDoIt
 
 class function TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -351,12 +328,8 @@ end;//TkwEnCommonDictionBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEnCommonDictionBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4988BB9A5265_var*
-//#UC END# *52D00B00031A_4988BB9A5265_var*
 begin
-//#UC START# *52D00B00031A_4988BB9A5265_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4988BB9A5265_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEnCommonDictionBackgroundPanel.SetValuePrim
 
 function TkwEnCommonDictionBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -371,27 +344,29 @@ end;//TkwEnCommonDictionBackgroundPanel.GetAllParamsCount
 
 function TkwEnCommonDictionBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionBackgroundPanel.ParamsTypes
 
 function TkwEnCommonDictionWordsTree.WordsTree(const aCtx: TtfwContext;
  aen_CommonDiction: Ten_CommonDiction): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .Ten_CommonDiction.WordsTree }
-//#UC START# *CFE6160555CD_71793BC09F4D_var*
-//#UC END# *CFE6160555CD_71793BC09F4D_var*
 begin
-//#UC START# *CFE6160555CD_71793BC09F4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CFE6160555CD_71793BC09F4D_impl*
+ Result := aen_CommonDiction.WordsTree;
 end;//TkwEnCommonDictionWordsTree.WordsTree
 
 procedure TkwEnCommonDictionWordsTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_71793BC09F4D_var*
-//#UC END# *4DAEEDE10285_71793BC09F4D_var*
+var l_aen_CommonDiction: Ten_CommonDiction;
 begin
-//#UC START# *4DAEEDE10285_71793BC09F4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_71793BC09F4D_impl*
+ try
+  l_aen_CommonDiction := Ten_CommonDiction(aCtx.rEngine.PopObjAs(Ten_CommonDiction));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_CommonDiction: Ten_CommonDiction : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WordsTree(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionWordsTree.DoDoIt
 
 class function TkwEnCommonDictionWordsTree.GetWordNameForRegister: AnsiString;
@@ -401,12 +376,8 @@ end;//TkwEnCommonDictionWordsTree.GetWordNameForRegister
 
 procedure TkwEnCommonDictionWordsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_71793BC09F4D_var*
-//#UC END# *52D00B00031A_71793BC09F4D_var*
 begin
-//#UC START# *52D00B00031A_71793BC09F4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_71793BC09F4D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WordsTree', aCtx);
 end;//TkwEnCommonDictionWordsTree.SetValuePrim
 
 function TkwEnCommonDictionWordsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -421,27 +392,29 @@ end;//TkwEnCommonDictionWordsTree.GetAllParamsCount
 
 function TkwEnCommonDictionWordsTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionWordsTree.ParamsTypes
 
 function TkwEnCommonDictionContextFilter.ContextFilter(const aCtx: TtfwContext;
  aen_CommonDiction: Ten_CommonDiction): TnscContextFilter;
  {* Реализация слова скрипта .Ten_CommonDiction.ContextFilter }
-//#UC START# *E00C404A4DBB_308467DC9822_var*
-//#UC END# *E00C404A4DBB_308467DC9822_var*
 begin
-//#UC START# *E00C404A4DBB_308467DC9822_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E00C404A4DBB_308467DC9822_impl*
+ Result := aen_CommonDiction.ContextFilter;
 end;//TkwEnCommonDictionContextFilter.ContextFilter
 
 procedure TkwEnCommonDictionContextFilter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_308467DC9822_var*
-//#UC END# *4DAEEDE10285_308467DC9822_var*
+var l_aen_CommonDiction: Ten_CommonDiction;
 begin
-//#UC START# *4DAEEDE10285_308467DC9822_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_308467DC9822_impl*
+ try
+  l_aen_CommonDiction := Ten_CommonDiction(aCtx.rEngine.PopObjAs(Ten_CommonDiction));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_CommonDiction: Ten_CommonDiction : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aen_CommonDiction));
 end;//TkwEnCommonDictionContextFilter.DoDoIt
 
 class function TkwEnCommonDictionContextFilter.GetWordNameForRegister: AnsiString;
@@ -451,12 +424,8 @@ end;//TkwEnCommonDictionContextFilter.GetWordNameForRegister
 
 procedure TkwEnCommonDictionContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_308467DC9822_var*
-//#UC END# *52D00B00031A_308467DC9822_var*
 begin
-//#UC START# *52D00B00031A_308467DC9822_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_308467DC9822_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEnCommonDictionContextFilter.SetValuePrim
 
 function TkwEnCommonDictionContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -471,7 +440,7 @@ end;//TkwEnCommonDictionContextFilter.GetAllParamsCount
 
 function TkwEnCommonDictionContextFilter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_CommonDiction)]);
 end;//TkwEnCommonDictionContextFilter.ParamsTypes
 
 initialization

@@ -1,68 +1,60 @@
 unit kwPopEditorBlockResize;
+ {* *Формат:
+aDelta aTop anEditor  pop:editor:BlockResize
+* aDelta - смещение блока
+* aTop - true чтобы двигать верхнюю границу
+* anEditor - редактор, в котором изменяется блок. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorBlockResize.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_BlockResize
-//
-// *Формат:
-// aDelta aTop anEditor  pop:editor:BlockResize
-// * aDelta - смещение блока
-// * aTop - true чтобы двигать верхнюю границу
-// * anEditor - редактор, в котором изменяется блок.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResize.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwBlockResize,
-  nevTools,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwBlockResize
+ , tfwScriptingInterfaces
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorBlockResize = {scriptword} class(TkwBlockResize)
+ TkwPopEditorBlockResize = class(TkwBlockResize)
   {* *Формат:
 aDelta aTop anEditor  pop:editor:BlockResize
 * aDelta - смещение блока
 * aTop - true чтобы двигать верхнюю границу
 * anEditor - редактор, в котором изменяется блок. }
- protected
- // realized methods
+  protected
    procedure CorrectBlockPoint(const aCtx: TtfwContext;
-     var aMap: InevMap;
-     var aCursor: InevBasePoint); override;
- protected
- // overridden protected methods
+    var aMap: InevMap;
+    var aCursor: InevBasePoint); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorBlockResize
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorBlockResize
+ l3ImplUses
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorBlockResize.CorrectBlockPoint(const aCtx: TtfwContext;
-  var aMap: InevMap;
-  var aCursor: InevBasePoint);
+ var aMap: InevMap;
+ var aCursor: InevBasePoint);
 //#UC START# *514BFC55039E_4F38F6E001CB_var*
 //#UC END# *514BFC55039E_4F38F6E001CB_var*
 begin
@@ -72,17 +64,13 @@ begin
 end;//TkwPopEditorBlockResize.CorrectBlockPoint
 
 class function TkwPopEditorBlockResize.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:BlockResize';
 end;//TkwPopEditorBlockResize.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_BlockResize
  TkwPopEditorBlockResize.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_BlockResize }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

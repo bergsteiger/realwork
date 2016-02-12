@@ -20,7 +20,7 @@ type
  TLogEvent = LoggingUnit.TLogEvent;
 
  _nsLogEvent_Parent_ = Tl3SimpleObject;
- {$Include nsLogEvent.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.imp.pas}
  TnsLogEvent = {abstract} class(_nsLogEvent_)
   private
    f_Logger: InsLogManager;
@@ -40,7 +40,7 @@ uses
  , nsLogManager
 ;
 
-{$Include nsLogEvent.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.imp.pas}
 
 class function TnsLogEvent.GetLogger: InsLogManager;
 //#UC START# *566AE04B01D3_4B0A6109010C_var*

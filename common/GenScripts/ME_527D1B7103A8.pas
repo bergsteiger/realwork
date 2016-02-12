@@ -29,9 +29,9 @@ uses
 type
  _HashType_ = Tl3OneBytePtrHash;
  _k2HashTag_Parent_ = Tk2TypedSimpleSortableTagListPrim;
- {$Include k2HashTag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
  _k2TagByIntegerSearcher_Parent_ = _k2HashTag_;
- {$Include k2TagByIntegerSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas}
  Tk2TypedSmallSortableListTag = class(_k2TagByIntegerSearcher_)
  end;//Tk2TypedSmallSortableListTag
 
@@ -67,8 +67,8 @@ uses
 
 type _Instance_R_ = Tk2TypedSmallSortableListTag;
 
-{$Include k2HashTag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
 
-{$Include k2TagByIntegerSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas}
 
 end.

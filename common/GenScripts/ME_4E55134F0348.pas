@@ -17,7 +17,7 @@ uses
 type
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = TevStandardStylesListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TevStandardStylesList = class(_l3Searcher_)
   public
    function StyleByID(anID: Integer;
@@ -54,7 +54,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TevStandardStylesList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 function TevStandardStylesList.StyleByID(anID: Integer;
  aJust: Boolean;

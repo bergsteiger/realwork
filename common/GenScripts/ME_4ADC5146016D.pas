@@ -35,7 +35,7 @@ type
  end;//TnsUniqueName
 
  _vcmTabbedContainersListener_Parent_ = Tl3ProtoObject;
- {$Include vcmTabbedContainersListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainersListener.imp.pas}
  TnsWindowsListPrim = class(_vcmTabbedContainersListener_)
   {* класс управляющий списком окон }
   private
@@ -140,7 +140,7 @@ begin
 //#UC END# *479731C50290_4ADC55470317_impl*
 end;//TnsUniqueName.Cleanup
 
-{$Include vcmTabbedContainersListener.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainersListener.imp.pas}
 
 function TnsWindowsListPrim.pm_GetRoot: Il3Node;
 //#UC START# *4ADC531F03B4_4ADC5146016Dget_var*

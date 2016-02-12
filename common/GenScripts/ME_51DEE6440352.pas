@@ -16,7 +16,7 @@ uses
 
 type
  _ItemType_ = Byte;
- {$Include StandardAtomicList.imp.pas}
+ {$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}
  TByteList = class(_StandardAtomicList_)
  end;//TByteList
 
@@ -28,6 +28,6 @@ uses
  , l3MemorySizeUtils
 ;
 
-{$Include StandardAtomicList.imp.pas}
+{$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}
 
 end.

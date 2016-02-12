@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_SynchroView.GetWordNameForRegister
 
 function Tkw_Form_SynchroView.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_60ED02681128_var*
-//#UC END# *4DDFD2EA0116_60ED02681128_var*
 begin
-//#UC START# *4DDFD2EA0116_60ED02681128_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_60ED02681128_impl*
+ Result := 'fcSynchroView';
 end;//Tkw_Form_SynchroView.GetString
 
 class function Tkw_SynchroView_Control_DocView.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_SynchroView_Control_DocView.GetWordNameForRegister
 
 function Tkw_SynchroView_Control_DocView.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E62F53898600_var*
-//#UC END# *4DDFD2EA0116_E62F53898600_var*
 begin
-//#UC START# *4DDFD2EA0116_E62F53898600_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E62F53898600_impl*
+ Result := 'DocView';
 end;//Tkw_SynchroView_Control_DocView.GetString
 
 class procedure Tkw_SynchroView_Control_DocView.RegisterInEngine;
-//#UC START# *52A086150180_E62F53898600_var*
-//#UC END# *52A086150180_E62F53898600_var*
 begin
-//#UC START# *52A086150180_E62F53898600_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_E62F53898600_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SynchroView_Control_DocView.RegisterInEngine
 
 procedure Tkw_SynchroView_Control_DocView_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_SynchroView_Control_DocView_Push.GetWordNameForRegister
 function TkwFcSynchroViewDocView.DocView(const aCtx: TtfwContext;
  afcSynchroView: TfcSynchroView): TvtPanel;
  {* Реализация слова скрипта .TfcSynchroView.DocView }
-//#UC START# *625E86D90A45_4F94CC511B43_var*
-//#UC END# *625E86D90A45_4F94CC511B43_var*
 begin
-//#UC START# *625E86D90A45_4F94CC511B43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *625E86D90A45_4F94CC511B43_impl*
+ Result := afcSynchroView.DocView;
 end;//TkwFcSynchroViewDocView.DocView
 
 procedure TkwFcSynchroViewDocView.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4F94CC511B43_var*
-//#UC END# *4DAEEDE10285_4F94CC511B43_var*
+var l_afcSynchroView: TfcSynchroView;
 begin
-//#UC START# *4DAEEDE10285_4F94CC511B43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4F94CC511B43_impl*
+ try
+  l_afcSynchroView := TfcSynchroView(aCtx.rEngine.PopObjAs(TfcSynchroView));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра afcSynchroView: TfcSynchroView : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(DocView(aCtx, l_afcSynchroView));
 end;//TkwFcSynchroViewDocView.DoDoIt
 
 class function TkwFcSynchroViewDocView.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwFcSynchroViewDocView.GetWordNameForRegister
 
 procedure TkwFcSynchroViewDocView.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4F94CC511B43_var*
-//#UC END# *52D00B00031A_4F94CC511B43_var*
 begin
-//#UC START# *52D00B00031A_4F94CC511B43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4F94CC511B43_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству DocView', aCtx);
 end;//TkwFcSynchroViewDocView.SetValuePrim
 
 function TkwFcSynchroViewDocView.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwFcSynchroViewDocView.GetAllParamsCount
 
 function TkwFcSynchroViewDocView.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TfcSynchroView)]);
 end;//TkwFcSynchroViewDocView.ParamsTypes
 
 initialization

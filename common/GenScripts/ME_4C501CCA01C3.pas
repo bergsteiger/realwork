@@ -18,7 +18,7 @@ uses
 
 type
  _CursorMover_Parent_ = TInsertStreamTest;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TK228692711 = class(_CursorMover_)
   {* [RequestLink:228692711] }
   protected
@@ -52,7 +52,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 function TK228692711.TextForInsert: AnsiString;
  {* Текст для вставки }

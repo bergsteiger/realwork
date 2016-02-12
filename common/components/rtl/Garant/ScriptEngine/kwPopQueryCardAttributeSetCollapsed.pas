@@ -1,83 +1,74 @@
 unit kwPopQueryCardAttributeSetCollapsed;
+ {* Управляет свойством Collapsed той ГРУППЫ к которой принадлежит данный атрибут
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopQueryCardAttributeSetCollapsed.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::QueryCardProcessing::pop_QueryCard_Attribute_SetCollapsed
-//
-// Управляет свойством Collapsed той ГРУППЫ к которой принадлежит данный атрибут
-// 
-// Пример:
-// {code}
-// 'AT_TEXT_NAME' true Search:SetAttributeCollapsed
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Пример:
+[code]
+'AT_TEXT_NAME' true Search:SetAttributeCollapsed
+[code] }
 
-{$Include ..\ScriptEngine\seDefine.inc}
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeSetCollapsed.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  nevBase,
-  evQueryCardInt,
-  evQueryCardEditor,
-  tfwScriptingInterfaces,
-  kwQueryCardFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwQueryCardFromStackWord
+ , nevBase
+ , l3Interfaces
+ , tfwScriptingInterfaces
+ , evQueryCardEditor
+ , evQueryCardInt
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopQueryCardAttributeSetCollapsed = {final scriptword} class(TkwQueryCardFromStackWord)
+ TkwPopQueryCardAttributeSetCollapsed = {final} class(TkwQueryCardFromStackWord)
   {* Управляет свойством Collapsed той ГРУППЫ к которой принадлежит данный атрибут
 
 Пример:
 [code]
 'AT_TEXT_NAME' true Search:SetAttributeCollapsed
 [code] }
- private
- // private methods
+  private
    procedure DoModelImpl(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor);
- protected
- // realized methods
+    aCard: TevQueryCardEditor);
+  protected
    procedure DoCard(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor); override;
- protected
- // overridden protected methods
+    aCard: TevQueryCardEditor); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopQueryCardAttributeSetCollapsed
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  l3Base,
-  evReqIterator
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopQueryCardAttributeSetCollapsed
+ l3ImplUses
+ , l3String
+ , l3Base
+ , evReqIterator
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopQueryCardAttributeSetCollapsed.DoModelImpl(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
-var
- l_Op : InevOp;
- l_Name : Il3CString;
- l_Value : Boolean;
+ aCard: TevQueryCardEditor);
+var l_Op: InevOp;
+var l_Name: Il3CString;
+var l_Value: Boolean;
 
  procedure CallIterator;
 
   function DoIt(const anItem: IevReq): Boolean;
+   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
   //#UC START# *07D78AC0F47E__var*
   //#UC END# *07D78AC0F47E__var*
   begin
@@ -99,7 +90,7 @@ var
   //#UC START# *4F6996830081iter*
   TevReqIterator.Make(aCard).
   //#UC END# *4F6996830081iter*
-   DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+  DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
  end;//CallIterator
 
 //#UC START# *4F6995F7028A_4F69959502BB_var*
@@ -118,7 +109,7 @@ begin
 end;//TkwPopQueryCardAttributeSetCollapsed.DoModelImpl
 
 procedure TkwPopQueryCardAttributeSetCollapsed.DoCard(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
+ aCard: TevQueryCardEditor);
 //#UC START# *4E808E8B01BB_4F69959502BB_var*
 //#UC END# *4E808E8B01BB_4F69959502BB_var*
 begin
@@ -128,17 +119,13 @@ begin
 end;//TkwPopQueryCardAttributeSetCollapsed.DoCard
 
 class function TkwPopQueryCardAttributeSetCollapsed.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:QueryCard:Attribute:SetCollapsed';
 end;//TkwPopQueryCardAttributeSetCollapsed.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_QueryCard_Attribute_SetCollapsed
  TkwPopQueryCardAttributeSetCollapsed.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_QueryCard_Attribute_SetCollapsed }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

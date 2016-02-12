@@ -4,7 +4,7 @@ unit ReleaseItsLAW;
 // Модуль: "w:\MDProcess\NewGenTest\ReleaseItsLAW.pas"
 // Стереотип: "TestResults"
 
-{$Include NewGenTest.inc}
+{$Include w:\MDProcess\NewGenTest\NewGenTest.inc}
 
 interface
 

@@ -24,9 +24,9 @@ uses
 
 type
  _ClipboardOperations_Parent_ = TTextViaEditorProcessor;
- {$Include ClipboardOperations.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
  _Para2Point_Parent_ = _ClipboardOperations_;
- {$Include Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  TMouseMoveSelectionTest = {abstract} class(_Para2Point_)
   {* Выделение с помощью движения мыши. }
   protected
@@ -62,9 +62,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include ClipboardOperations.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TMouseMoveSelectionTest.Process(aForm: TPrimTextLoadForm);

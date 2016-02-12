@@ -17,7 +17,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTextViaEditorProcessorWithNavigate;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TMoveSubTest = {abstract} class(_CursorMover_)
   protected
    procedure Navigate(aText: TevCustomEditorWindow;
@@ -51,7 +51,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 procedure TMoveSubTest.Navigate(aText: TevCustomEditorWindow;
  const anOp: Il3OpPack);

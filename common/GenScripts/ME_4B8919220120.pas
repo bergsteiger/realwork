@@ -7,7 +7,7 @@
 
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = _l3ObjectByHandleSearcher_Parent_;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  _l3ObjectByHandleSearcher_ = {abstract} class(_l3Searcher_)
  end;//_l3ObjectByHandleSearcher_
 
@@ -31,7 +31,7 @@ begin
 //#UC END# *47B9BAFD01F4_4B8919220120_impl*
 end;//CompareItemWithData
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 {$EndIf l3ObjectByHandleSearcher_imp_impl}
 

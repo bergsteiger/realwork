@@ -24,7 +24,7 @@ type
  _ItemType_ = TevCellsCharOffsets;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TevCellsOffsetsList = class(_l3UncomparabeObjectRefList_)
   public
    procedure Try2RemeberWidths(const anIterator: IedCellsIterator);
@@ -69,7 +69,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevCellsOffsetsList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 procedure TevCellsOffsetsList.Try2RemeberWidths(const anIterator: IedCellsIterator);
 //#UC START# *50922CA3006F_509228200297_var*

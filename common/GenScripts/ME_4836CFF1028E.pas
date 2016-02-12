@@ -22,9 +22,9 @@ type
  TevFramePartIndexes = set of Tl3FramePartIndex;
 
  _DigitalSeparatorSupport_Parent_ = TevCustomNSRCWriter;
- {$Include DigitalSeparatorSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}
  _CellsCountStack_Parent_ = _DigitalSeparatorSupport_;
- {$Include CellsCountStack.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\CellsCountStack.imp.pas}
  TevNSRCPlusWriter = class(_CellsCountStack_)
   {* Писатель формата NSRC+. Для решения задачи [$91848978]. }
   private
@@ -68,9 +68,9 @@ uses
  , l3String
 ;
 
-{$Include DigitalSeparatorSupport.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas}
 
-{$Include CellsCountStack.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\CellsCountStack.imp.pas}
 
 function TevNSRCPlusWriter.GetCellOpened: Boolean;
 //#UC START# *52BC39E70137_4836CFF1028E_var*

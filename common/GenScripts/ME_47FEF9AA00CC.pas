@@ -29,7 +29,7 @@ uses
 type
  _InitDataType_ = Il3CString;
  _UseCaseControllerType_ = IsdsListNameHolder;
- {$Include vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas}
  TdsListInfo = {final} class(_vcmFormDataSourceWithFlexUseCaseControllerType_, IdsListInfo)
   {* Информация о списке. }
   private
@@ -60,7 +60,7 @@ uses
 
 type _Instance_R_ = TdsListInfo;
 
-{$Include vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithFlexUseCaseControllerType.imp.pas}
 
 function TdsListInfo.pm_GetInfo: Tl3WString;
 //#UC START# *49005EDD006C_47FEF9AA00CCget_var*

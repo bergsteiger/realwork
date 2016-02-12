@@ -1,43 +1,36 @@
 unit CheckListBoxWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VT"
-// Модуль: "CheckListBoxWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VT::vtControlsFromStackWords::CheckListBoxWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  CheckLst
-  {$IfEnd} //not NoVCL
-  ,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , CheckLst
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopCheckListBoxGetChecked = {final scriptword} class(TtfwClassLike)
+ TkwPopCheckListBoxGetChecked = {final} class(TtfwClassLike)
   {* Слово скрипта pop:CheckListBox:GetChecked
 [panel]anIndex aCheckBoxList pop:CheckListBox:GetChecked
 anIndex - индекс CheckBox'а
@@ -49,30 +42,70 @@ aCheckBoxList  - контрол
 BOOLEAN VAR l_Boolean
  anIndex aCheckListBox pop:CheckListBox:GetChecked >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function GetChecked(const aCtx: TtfwContext;
     aCheckListBox: TCheckListBox;
     anIndex: Integer): Boolean;
-     {* Реализация слова скрипта pop:CheckListBox:GetChecked }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:CheckListBox:GetChecked }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopCheckListBoxGetChecked
 
-// start class TkwPopCheckListBoxGetChecked
+ TkwPopCheckListBoxSetChecked = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:CheckListBox:SetChecked
+[panel]aValue anIndex aCheckBoxList pop:CheckListBox:SetChecked
+anIndex - индекс CheckBox'а
+aCheckBoxList  - контрол
+Помечает элемент, если aValue = True и сбрасывает пометку, если aValue = False[panel]
+*Пример:*
+[code]
+ aValue anIndex aCheckListBox pop:CheckListBox:SetChecked
+[code]  }
+  private
+   procedure SetChecked(const aCtx: TtfwContext;
+    aCheckListBox: TCheckListBox;
+    anIndex: Integer;
+    aValue: Boolean);
+    {* Реализация слова скрипта pop:CheckListBox:SetChecked }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopCheckListBoxSetChecked
+
+ TkwPopCheckListBoxUncheckAll = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:CheckListBox:UncheckAll
+[panel]aCheckBoxList pop:CheckListBox:UncheckAll
+Сбрасыват пометки у всех пунктов контрола.[panel]
+*Пример:*
+[code]
+ aCheckListBox pop:CheckListBox:UncheckAll
+[code]  }
+  private
+   procedure UncheckAll(const aCtx: TtfwContext;
+    aCheckListBox: TCheckListBox);
+    {* Реализация слова скрипта pop:CheckListBox:UncheckAll }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopCheckListBoxUncheckAll
 
 function TkwPopCheckListBoxGetChecked.GetChecked(const aCtx: TtfwContext;
-  aCheckListBox: TCheckListBox;
-  anIndex: Integer): Boolean;
+ aCheckListBox: TCheckListBox;
+ anIndex: Integer): Boolean;
+ {* Реализация слова скрипта pop:CheckListBox:GetChecked }
 //#UC START# *5C7C4E6C6645_61EE94402745_var*
 //#UC END# *5C7C4E6C6645_61EE94402745_var*
 begin
@@ -82,10 +115,8 @@ begin
 end;//TkwPopCheckListBoxGetChecked.GetChecked
 
 procedure TkwPopCheckListBoxGetChecked.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aCheckListBox : TCheckListBox;
- l_anIndex : Integer;
+var l_aCheckListBox: TCheckListBox;
+var l_anIndex: Integer;
 begin
  try
   l_aCheckListBox := TCheckListBox(aCtx.rEngine.PopObjAs(TCheckListBox));
@@ -105,70 +136,34 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((GetChecked(aCtx, l_aCheckListBox, l_anIndex)));
+ aCtx.rEngine.PushBool(GetChecked(aCtx, l_aCheckListBox, l_anIndex));
 end;//TkwPopCheckListBoxGetChecked.DoDoIt
 
 class function TkwPopCheckListBoxGetChecked.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:CheckListBox:GetChecked';
 end;//TkwPopCheckListBoxGetChecked.GetWordNameForRegister
 
 function TkwPopCheckListBoxGetChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopCheckListBoxGetChecked.GetResultTypeInfo
 
 function TkwPopCheckListBoxGetChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopCheckListBoxGetChecked.GetAllParamsCount
 
 function TkwPopCheckListBoxGetChecked.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TCheckListBox), TypeInfo(Integer)]);
 end;//TkwPopCheckListBoxGetChecked.ParamsTypes
 
-type
- TkwPopCheckListBoxSetChecked = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:CheckListBox:SetChecked
-[panel]aValue anIndex aCheckBoxList pop:CheckListBox:SetChecked
-anIndex - индекс CheckBox'а
-aCheckBoxList  - контрол
-Помечает элемент, если aValue = True и сбрасывает пометку, если aValue = False[panel]
-*Пример:*
-[code]
- aValue anIndex aCheckListBox pop:CheckListBox:SetChecked
-[code]  }
- private
- // private methods
-   procedure SetChecked(const aCtx: TtfwContext;
-    aCheckListBox: TCheckListBox;
-    anIndex: Integer;
-    aValue: Boolean);
-     {* Реализация слова скрипта pop:CheckListBox:SetChecked }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopCheckListBoxSetChecked
-
-// start class TkwPopCheckListBoxSetChecked
-
 procedure TkwPopCheckListBoxSetChecked.SetChecked(const aCtx: TtfwContext;
-  aCheckListBox: TCheckListBox;
-  anIndex: Integer;
-  aValue: Boolean);
+ aCheckListBox: TCheckListBox;
+ anIndex: Integer;
+ aValue: Boolean);
+ {* Реализация слова скрипта pop:CheckListBox:SetChecked }
 //#UC START# *AEDB5415872F_CA2863D28A34_var*
 //#UC END# *AEDB5415872F_CA2863D28A34_var*
 begin
@@ -178,11 +173,9 @@ begin
 end;//TkwPopCheckListBoxSetChecked.SetChecked
 
 procedure TkwPopCheckListBoxSetChecked.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aCheckListBox : TCheckListBox;
- l_anIndex : Integer;
- l_aValue : Boolean;
+var l_aCheckListBox: TCheckListBox;
+var l_anIndex: Integer;
+var l_aValue: Boolean;
 begin
  try
   l_aCheckListBox := TCheckListBox(aCtx.rEngine.PopObjAs(TCheckListBox));
@@ -215,60 +208,28 @@ begin
 end;//TkwPopCheckListBoxSetChecked.DoDoIt
 
 class function TkwPopCheckListBoxSetChecked.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:CheckListBox:SetChecked';
 end;//TkwPopCheckListBoxSetChecked.GetWordNameForRegister
 
 function TkwPopCheckListBoxSetChecked.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopCheckListBoxSetChecked.GetResultTypeInfo
 
 function TkwPopCheckListBoxSetChecked.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwPopCheckListBoxSetChecked.GetAllParamsCount
 
 function TkwPopCheckListBoxSetChecked.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TCheckListBox), TypeInfo(Integer), TypeInfo(Boolean)]);
 end;//TkwPopCheckListBoxSetChecked.ParamsTypes
 
-type
- TkwPopCheckListBoxUncheckAll = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:CheckListBox:UncheckAll
-[panel]aCheckBoxList pop:CheckListBox:UncheckAll
-Сбрасыват пометки у всех пунктов контрола.[panel]
-*Пример:*
-[code]
- aCheckListBox pop:CheckListBox:UncheckAll
-[code]  }
- private
- // private methods
-   procedure UncheckAll(const aCtx: TtfwContext;
-    aCheckListBox: TCheckListBox);
-     {* Реализация слова скрипта pop:CheckListBox:UncheckAll }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopCheckListBoxUncheckAll
-
-// start class TkwPopCheckListBoxUncheckAll
-
 procedure TkwPopCheckListBoxUncheckAll.UncheckAll(const aCtx: TtfwContext;
-  aCheckListBox: TCheckListBox);
+ aCheckListBox: TCheckListBox);
+ {* Реализация слова скрипта pop:CheckListBox:UncheckAll }
 //#UC START# *9D7C5A3CC63F_CC902BB857AE_var*
 var
  i: Integer;
@@ -281,9 +242,7 @@ begin
 end;//TkwPopCheckListBoxUncheckAll.UncheckAll
 
 procedure TkwPopCheckListBoxUncheckAll.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aCheckListBox : TCheckListBox;
+var l_aCheckListBox: TCheckListBox;
 begin
  try
   l_aCheckListBox := TCheckListBox(aCtx.rEngine.PopObjAs(TCheckListBox));
@@ -298,58 +257,40 @@ begin
 end;//TkwPopCheckListBoxUncheckAll.DoDoIt
 
 class function TkwPopCheckListBoxUncheckAll.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:CheckListBox:UncheckAll';
 end;//TkwPopCheckListBoxUncheckAll.GetWordNameForRegister
 
 function TkwPopCheckListBoxUncheckAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopCheckListBoxUncheckAll.GetResultTypeInfo
 
 function TkwPopCheckListBoxUncheckAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopCheckListBoxUncheckAll.GetAllParamsCount
 
 function TkwPopCheckListBoxUncheckAll.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TCheckListBox)]);
 end;//TkwPopCheckListBoxUncheckAll.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_CheckListBox_GetChecked
  TkwPopCheckListBoxGetChecked.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_CheckListBox_SetChecked
+ {* Регистрация pop_CheckListBox_GetChecked }
  TkwPopCheckListBoxSetChecked.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_CheckListBox_UncheckAll
+ {* Регистрация pop_CheckListBox_SetChecked }
  TkwPopCheckListBoxUncheckAll.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_CheckListBox_UncheckAll }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TCheckListBox
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCheckListBox));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа TCheckListBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Boolean }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

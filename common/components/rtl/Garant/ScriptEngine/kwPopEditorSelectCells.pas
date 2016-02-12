@@ -1,41 +1,29 @@
 unit kwPopEditorSelectCells;
+ {* *Формат:* aStartCell aStartRow aFinshCell aFinishRow anEditorControl pop:editor:SelectCells
+*Описание:* Выделяет диапазон ячеек с помощью мыши начиная от начальной (aStartCell, aRowCell) до конечной (aFinishCell, aFinishRow). Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aStartCell aStartRow aFinshCell aFinishRow - Integer
+*Пример:*
+[code] 
+0 0 2 2 focused:control:push pop:editor:SelectCells
+[code] 
+*Результат:* Выделяет диапазон ячеек в таблице от (0, 0) до (2, 2) у текущего редактора.
+*Примечание:* В каждой ячейке должен быть только один параграф, иначе выделение будет неправильным.
+*Примечание 2:* Текст в начальной ячейке должен быть выровнен по левому краю. Иначе  появится сообщение об ошибке. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorSelectCells.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_SelectCells
-//
-// *Формат:* aStartCell aStartRow aFinshCell aFinishRow anEditorControl pop:editor:SelectCells
-// *Описание:* Выделяет диапазон ячеек с помощью мыши начиная от начальной (aStartCell, aRowCell)
-// до конечной (aFinishCell, aFinishRow). Курсор должен уже находится в таблице. Положение курсора
-// в таблице не имеет значения. Параметры aStartCell aStartRow aFinshCell aFinishRow - Integer
-// *Пример:*
-// {code}
-// 0 0 2 2 focused:control:push pop:editor:SelectCells
-// {code}
-// *Результат:* Выделяет диапазон ячеек в таблице от (0, 0) до (2, 2) у текущего редактора.
-// *Примечание:* В каждой ячейке должен быть только один параграф, иначе выделение будет
-// неправильным.
-// *Примечание 2:* Текст в начальной ячейке должен быть выровнен по левому краю. Иначе  появится
-// сообщение об ошибке.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCells.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSelectCellsWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSelectCellsWord
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorSelectCells = {final scriptword} class(TkwSelectCellsWord)
+ TkwPopEditorSelectCells = {final} class(TkwSelectCellsWord)
   {* *Формат:* aStartCell aStartRow aFinshCell aFinishRow anEditorControl pop:editor:SelectCells
 *Описание:* Выделяет диапазон ячеек с помощью мыши начиная от начальной (aStartCell, aRowCell) до конечной (aFinishCell, aFinishRow). Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aStartCell aStartRow aFinshCell aFinishRow - Integer
 *Пример:*
@@ -45,23 +33,22 @@ type
 *Результат:* Выделяет диапазон ячеек в таблице от (0, 0) до (2, 2) у текущего редактора.
 *Примечание:* В каждой ячейке должен быть только один параграф, иначе выделение будет неправильным.
 *Примечание 2:* Текст в начальной ячейке должен быть выровнен по левому краю. Иначе  появится сообщение об ошибке. }
- protected
- // realized methods
+  protected
    function IsVertical: Boolean; override;
-     {* При выделении мышь движется сверху вниз. }
- protected
- // overridden protected methods
+    {* При выделении мышь движется сверху вниз. }
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorSelectCells
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorSelectCells
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TkwPopEditorSelectCells.IsVertical: Boolean;
+ {* При выделении мышь движется сверху вниз. }
 //#UC START# *4F6042D20081_4F4DD643008C_var*
 //#UC END# *4F6042D20081_4F4DD643008C_var*
 begin
@@ -71,17 +58,13 @@ begin
 end;//TkwPopEditorSelectCells.IsVertical
 
 class function TkwPopEditorSelectCells.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:SelectCells';
 end;//TkwPopEditorSelectCells.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_SelectCells
  TkwPopEditorSelectCells.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_SelectCells }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

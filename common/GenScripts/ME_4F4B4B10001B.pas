@@ -6,7 +6,7 @@
 {$Define PrintViewDecorationRules_imp}
 
  _nsEditionsDecorationRules_Parent_ = _PrintViewDecorationRules_Parent_;
- {$Include nsEditionsDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
  _PrintViewDecorationRules_ = class(_nsEditionsDecorationRules_)
   {* Правила вывода декораций на печать }
   protected
@@ -20,7 +20,7 @@
 
 {$Define PrintViewDecorationRules_imp_impl}
 
-{$Include nsEditionsDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
 
 function _PrintViewDecorationRules_.GetAllowsThisDecor(aFI: TnevFormatInfoPrim;
  aType: TnevDecorType): Boolean;

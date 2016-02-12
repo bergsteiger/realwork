@@ -31,7 +31,7 @@ uses
 type
  _HashType_ = Tl3PtrHash;
  _k2HashTag_Parent_ = TevHugeParaListPrimWithFind;
- {$Include k2HashTag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
  Tk2TypedHugeListTag = class(_k2HashTag_)
  end;//Tk2TypedHugeListTag
 
@@ -67,6 +67,6 @@ uses
 
 type _Instance_R_ = Tk2TypedHugeListTag;
 
-{$Include k2HashTag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
 
 end.

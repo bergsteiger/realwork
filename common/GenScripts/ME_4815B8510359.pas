@@ -18,12 +18,12 @@ uses
 
 type
  _nevChildSpy_Parent_ = TnevParaFormatInfo;
- {$Include nevChildSpy.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}
  TnevListFormatInfo = class(_nevChildSpy_)
   private
    f_Children: TnevFormatInfoArray;
   private
-   procedure RecalcImpl;
+   procedure RecalcImpl(const aView: InevViewMetrics);
    procedure CellChanged;
    function NearestInfoForChild(const aChild: InevObject): TnevListFormatInfo;
   protected
@@ -82,7 +82,7 @@ uses
  , Table_Const
 ;
 
-{$Include nevChildSpy.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas}
 
 function TnevListFormatInfo.AllowTotalRecalc: Boolean;
 //#UC START# *4E7095FC023D_4815B8510359_var*
@@ -93,7 +93,7 @@ begin
 //#UC END# *4E7095FC023D_4815B8510359_impl*
 end;//TnevListFormatInfo.AllowTotalRecalc
 
-procedure TnevListFormatInfo.RecalcImpl;
+procedure TnevListFormatInfo.RecalcImpl(const aView: InevViewMetrics);
 var l_sPH: Integer;
 var l_sPW: Integer;
 var l_FixedWidth: Boolean;

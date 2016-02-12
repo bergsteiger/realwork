@@ -28,7 +28,7 @@ type
  _ItemType_ = TControl;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TnpControls = class(_l3ObjectPtrList_)
   {* указывает от какого навигатора на форме был отстыкован компонент }
   private
@@ -57,7 +57,7 @@ uses
 
 type _Instance_R_ = TnpControls;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 function TnpControls.DeleteControl(aControl: TControl): Boolean;
 //#UC START# *4F61EDD001B7_4F61DED90246_var*

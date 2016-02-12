@@ -22,7 +22,7 @@ uses
 
 type
  _evDelayedPainters_Parent_ = TevParaListPainter;
- {$Include evDelayedPainters.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDelayedPainters.imp.pas}
  TevFramedParaListPainter = class(_evDelayedPainters_)
   {* общая функциональность для рисователей таблиц }
   protected
@@ -57,7 +57,7 @@ uses
  , evDelayedPaintersSpy
 ;
 
-{$Include evDelayedPainters.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evDelayedPainters.imp.pas}
 
 function TevFramedParaListPainter.GetFameObjectBehaviur: Tl3FrameObjectBehaviour;
 //#UC START# *51B96E5A0285_48C9300A02EF_var*

@@ -23,7 +23,7 @@ type
  _ItemType_ = IevDocumentPreviewInfo;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TevDocumentPreviewInfoList = class(_l3InterfaceRefList_)
   public
    procedure StopAllPreviews;
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TevDocumentPreviewInfoList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 procedure TevDocumentPreviewInfoList.StopAllPreviews;
  {* Остановить построение превью }

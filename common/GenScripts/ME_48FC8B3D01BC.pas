@@ -18,7 +18,7 @@ uses
 type
  _DataType_ = TevTreeStorableData;
  _StorableClass_ = TevTreeStorable;
- {$Include evDataObjectFromStorable.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
  TevTreeDataObject = class(_evDataObjectFromStorable_)
   public
    class function MakeStorable(const aData: TevTreeStorableData): InevDataObjectPrim2; reintroduce;
@@ -33,7 +33,7 @@ uses
  , l3Base
 ;
 
-{$Include evDataObjectFromStorable.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
 
 class function TevTreeDataObject.MakeStorable(const aData: TevTreeStorableData): InevDataObjectPrim2;
 var

@@ -17,7 +17,7 @@ uses
 
 type
  _ClipboardOperations_Parent_ = TkwEditorFromStackWord;
- {$Include ClipboardOperations.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
  TkwPopEditorCopyAndPaste2DocumentBottom = class(_ClipboardOperations_)
   protected
    procedure DoWithEditor(const aCtx: TtfwContext;
@@ -43,7 +43,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include ClipboardOperations.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
 procedure TkwPopEditorCopyAndPaste2DocumentBottom.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

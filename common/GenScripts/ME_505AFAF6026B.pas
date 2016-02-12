@@ -217,7 +217,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(generators_Link(aCtx, l_aTagGenerator, l_aGenHead),Ik2TagGenerator);
+ aCtx.rEngine.PushIntf(generators_Link(aCtx, l_aTagGenerator, l_aGenHead), TypeInfo(Ik2TagGenerator));
 end;//TkwGeneratorsLink.DoDoIt
 
 class function TkwGeneratorsLink.GetWordNameForRegister: AnsiString;

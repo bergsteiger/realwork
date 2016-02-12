@@ -28,7 +28,7 @@ uses
 
 type
  _k2Tag_Parent_ = TnsNewString;
- {$Include k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  TnsTagString = class(_k2Tag_)
   {* —трока, представл€юща€ строковый атрибут тега }
   protected
@@ -78,7 +78,7 @@ uses
 
 type _Instance_R_ = TnsTagString;
 
-{$Include k2Tag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 {$If NOT Defined(k2TagIsAtomic)}
 function TnsTagString.SetAtomPrim(const aProp: _PropIn_;

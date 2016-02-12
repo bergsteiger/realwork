@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_MedicListSynchroView.GetWordNameForRegister
 
 function Tkw_Form_MedicListSynchroView.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E7B39B4BEC84_var*
-//#UC END# *4DDFD2EA0116_E7B39B4BEC84_var*
 begin
-//#UC START# *4DDFD2EA0116_E7B39B4BEC84_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E7B39B4BEC84_impl*
+ Result := 'en_MedicListSynchroView';
 end;//Tkw_Form_MedicListSynchroView.GetString
 
 class function Tkw_MedicListSynchroView_Control_ztChild.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_MedicListSynchroView_Control_ztChild.GetWordNameForRegister
 
 function Tkw_MedicListSynchroView_Control_ztChild.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_AD16E495852F_var*
-//#UC END# *4DDFD2EA0116_AD16E495852F_var*
 begin
-//#UC START# *4DDFD2EA0116_AD16E495852F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_AD16E495852F_impl*
+ Result := 'ztChild';
 end;//Tkw_MedicListSynchroView_Control_ztChild.GetString
 
 class procedure Tkw_MedicListSynchroView_Control_ztChild.RegisterInEngine;
-//#UC START# *52A086150180_AD16E495852F_var*
-//#UC END# *52A086150180_AD16E495852F_var*
 begin
-//#UC START# *52A086150180_AD16E495852F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_AD16E495852F_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_MedicListSynchroView_Control_ztChild.RegisterInEngine
 
 procedure Tkw_MedicListSynchroView_Control_ztChild_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_MedicListSynchroView_Control_ztChild_Push.GetWordNameForRegister
 function TkwEnMedicListSynchroViewZtChild.ztChild(const aCtx: TtfwContext;
  aen_MedicListSynchroView: Ten_MedicListSynchroView): TvtPanel;
  {* Реализация слова скрипта .Ten_MedicListSynchroView.ztChild }
-//#UC START# *CADC58F04913_B2A1FE850B9A_var*
-//#UC END# *CADC58F04913_B2A1FE850B9A_var*
 begin
-//#UC START# *CADC58F04913_B2A1FE850B9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CADC58F04913_B2A1FE850B9A_impl*
+ Result := aen_MedicListSynchroView.ztChild;
 end;//TkwEnMedicListSynchroViewZtChild.ztChild
 
 procedure TkwEnMedicListSynchroViewZtChild.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B2A1FE850B9A_var*
-//#UC END# *4DAEEDE10285_B2A1FE850B9A_var*
+var l_aen_MedicListSynchroView: Ten_MedicListSynchroView;
 begin
-//#UC START# *4DAEEDE10285_B2A1FE850B9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B2A1FE850B9A_impl*
+ try
+  l_aen_MedicListSynchroView := Ten_MedicListSynchroView(aCtx.rEngine.PopObjAs(Ten_MedicListSynchroView));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_MedicListSynchroView: Ten_MedicListSynchroView : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ztChild(aCtx, l_aen_MedicListSynchroView));
 end;//TkwEnMedicListSynchroViewZtChild.DoDoIt
 
 class function TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEnMedicListSynchroViewZtChild.GetWordNameForRegister
 
 procedure TkwEnMedicListSynchroViewZtChild.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B2A1FE850B9A_var*
-//#UC END# *52D00B00031A_B2A1FE850B9A_var*
 begin
-//#UC START# *52D00B00031A_B2A1FE850B9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B2A1FE850B9A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ztChild', aCtx);
 end;//TkwEnMedicListSynchroViewZtChild.SetValuePrim
 
 function TkwEnMedicListSynchroViewZtChild.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEnMedicListSynchroViewZtChild.GetAllParamsCount
 
 function TkwEnMedicListSynchroViewZtChild.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_MedicListSynchroView)]);
 end;//TkwEnMedicListSynchroViewZtChild.ParamsTypes
 
 initialization

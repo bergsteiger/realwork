@@ -153,12 +153,8 @@ begin
 end;//Tkw_Form_ListAnalizer.GetWordNameForRegister
 
 function Tkw_Form_ListAnalizer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_0B83761D221F_var*
-//#UC END# *4DDFD2EA0116_0B83761D221F_var*
 begin
-//#UC START# *4DDFD2EA0116_0B83761D221F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_0B83761D221F_impl*
+ Result := 'ListAnalizerForm';
 end;//Tkw_Form_ListAnalizer.GetString
 
 class function Tkw_ListAnalizer_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -167,21 +163,14 @@ begin
 end;//Tkw_ListAnalizer_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_ListAnalizer_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_35D262AD6016_var*
-//#UC END# *4DDFD2EA0116_35D262AD6016_var*
 begin
-//#UC START# *4DDFD2EA0116_35D262AD6016_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_35D262AD6016_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_ListAnalizer_Control_BackgroundPanel.GetString
 
 class procedure Tkw_ListAnalizer_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_35D262AD6016_var*
-//#UC END# *52A086150180_35D262AD6016_var*
 begin
-//#UC START# *52A086150180_35D262AD6016_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_35D262AD6016_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ListAnalizer_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_ListAnalizer_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -204,21 +193,14 @@ begin
 end;//Tkw_ListAnalizer_Control_ListTree.GetWordNameForRegister
 
 function Tkw_ListAnalizer_Control_ListTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_A71220D97692_var*
-//#UC END# *4DDFD2EA0116_A71220D97692_var*
 begin
-//#UC START# *4DDFD2EA0116_A71220D97692_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_A71220D97692_impl*
+ Result := 'ListTree';
 end;//Tkw_ListAnalizer_Control_ListTree.GetString
 
 class procedure Tkw_ListAnalizer_Control_ListTree.RegisterInEngine;
-//#UC START# *52A086150180_A71220D97692_var*
-//#UC END# *52A086150180_A71220D97692_var*
 begin
-//#UC START# *52A086150180_A71220D97692_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_A71220D97692_impl*
+ inherited;
+ TtfwClassRef.Register(TeeTreeView);
 end;//Tkw_ListAnalizer_Control_ListTree.RegisterInEngine
 
 procedure Tkw_ListAnalizer_Control_ListTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -238,21 +220,23 @@ end;//Tkw_ListAnalizer_Control_ListTree_Push.GetWordNameForRegister
 function TkwListAnalizerFormBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aListAnalizerForm: TListAnalizerForm): TvtPanel;
  {* Реализация слова скрипта .TListAnalizerForm.BackgroundPanel }
-//#UC START# *FA5051093930_B5BF39070BB2_var*
-//#UC END# *FA5051093930_B5BF39070BB2_var*
 begin
-//#UC START# *FA5051093930_B5BF39070BB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FA5051093930_B5BF39070BB2_impl*
+ Result := aListAnalizerForm.BackgroundPanel;
 end;//TkwListAnalizerFormBackgroundPanel.BackgroundPanel
 
 procedure TkwListAnalizerFormBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B5BF39070BB2_var*
-//#UC END# *4DAEEDE10285_B5BF39070BB2_var*
+var l_aListAnalizerForm: TListAnalizerForm;
 begin
-//#UC START# *4DAEEDE10285_B5BF39070BB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B5BF39070BB2_impl*
+ try
+  l_aListAnalizerForm := TListAnalizerForm(aCtx.rEngine.PopObjAs(TListAnalizerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aListAnalizerForm: TListAnalizerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aListAnalizerForm));
 end;//TkwListAnalizerFormBackgroundPanel.DoDoIt
 
 class function TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -262,12 +246,8 @@ end;//TkwListAnalizerFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwListAnalizerFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B5BF39070BB2_var*
-//#UC END# *52D00B00031A_B5BF39070BB2_var*
 begin
-//#UC START# *52D00B00031A_B5BF39070BB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B5BF39070BB2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwListAnalizerFormBackgroundPanel.SetValuePrim
 
 function TkwListAnalizerFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -282,27 +262,29 @@ end;//TkwListAnalizerFormBackgroundPanel.GetAllParamsCount
 
 function TkwListAnalizerFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TListAnalizerForm)]);
 end;//TkwListAnalizerFormBackgroundPanel.ParamsTypes
 
 function TkwListAnalizerFormListTree.ListTree(const aCtx: TtfwContext;
  aListAnalizerForm: TListAnalizerForm): TeeTreeView;
  {* Реализация слова скрипта .TListAnalizerForm.ListTree }
-//#UC START# *EA0D10FFAADC_4AAC0AE9EF9E_var*
-//#UC END# *EA0D10FFAADC_4AAC0AE9EF9E_var*
 begin
-//#UC START# *EA0D10FFAADC_4AAC0AE9EF9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EA0D10FFAADC_4AAC0AE9EF9E_impl*
+ Result := aListAnalizerForm.ListTree;
 end;//TkwListAnalizerFormListTree.ListTree
 
 procedure TkwListAnalizerFormListTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4AAC0AE9EF9E_var*
-//#UC END# *4DAEEDE10285_4AAC0AE9EF9E_var*
+var l_aListAnalizerForm: TListAnalizerForm;
 begin
-//#UC START# *4DAEEDE10285_4AAC0AE9EF9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4AAC0AE9EF9E_impl*
+ try
+  l_aListAnalizerForm := TListAnalizerForm(aCtx.rEngine.PopObjAs(TListAnalizerForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aListAnalizerForm: TListAnalizerForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ListTree(aCtx, l_aListAnalizerForm));
 end;//TkwListAnalizerFormListTree.DoDoIt
 
 class function TkwListAnalizerFormListTree.GetWordNameForRegister: AnsiString;
@@ -312,12 +294,8 @@ end;//TkwListAnalizerFormListTree.GetWordNameForRegister
 
 procedure TkwListAnalizerFormListTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4AAC0AE9EF9E_var*
-//#UC END# *52D00B00031A_4AAC0AE9EF9E_var*
 begin
-//#UC START# *52D00B00031A_4AAC0AE9EF9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4AAC0AE9EF9E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ListTree', aCtx);
 end;//TkwListAnalizerFormListTree.SetValuePrim
 
 function TkwListAnalizerFormListTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -332,7 +310,7 @@ end;//TkwListAnalizerFormListTree.GetAllParamsCount
 
 function TkwListAnalizerFormListTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TListAnalizerForm)]);
 end;//TkwListAnalizerFormListTree.ParamsTypes
 
 initialization

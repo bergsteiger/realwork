@@ -1,37 +1,29 @@
 unit kwSubPanelGetPopupMenuForSub;
+ {* *Описание*: возвращает меню для саба на сабпанели.
+*Формат:*
+[code]
+aSubPanel aSubPanelSub SubPanel:GetPopupMenuForSub
+[code]
+aSubPanel - контрол саб панели.
+aSubPanelSub - объект класса TevSubPanelSub }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwSubPanelGetPopupMenuForSub.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::SubPanel_GetPopupMenuForSub
-//
-// *Описание*: возвращает меню для саба на сабпанели.
-// *Формат:*
-// {code}
-// aSubPanel aSubPanelSub SubPanel:GetPopupMenuForSub
-// {code}
-// aSubPanel - контрол саб панели.
-// aSubPanelSub - объект класса TevSubPanelSub
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubPanelGetPopupMenuForSub.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSubPanelFromStackWord,
-  tfwScriptingInterfaces,
-  evSubPn
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSubPanelFromStackWord
+ , evSubPn
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwSubPanelGetPopupMenuForSub = {final scriptword} class(TkwSubPanelFromStackWord)
+ TkwSubPanelGetPopupMenuForSub = {final} class(TkwSubPanelFromStackWord)
   {* *Описание*: возвращает меню для саба на сабпанели.
 *Формат:*
 [code]
@@ -39,38 +31,36 @@ aSubPanel aSubPanelSub SubPanel:GetPopupMenuForSub
 [code]
 aSubPanel - контрол саб панели.
 aSubPanelSub - объект класса TevSubPanelSub }
- protected
- // realized methods
+  protected
    procedure DoWithSubPanel(aControl: TevCustomSubPanel;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwSubPanelGetPopupMenuForSub
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evSubPanelSub,
-  nevFacade,
-  l3Interfaces,
-  Types
-  {$If not defined(NoVCL)}
-  ,
-  l3PopupMenuHelper
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwSubPanelGetPopupMenuForSub
+ l3ImplUses
+ , evSubPanelSub
+ , nevFacade
+ , l3Interfaces
+ , Types
+ {$If NOT Defined(NoVCL)}
+ , l3PopupMenuHelper
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwSubPanelGetPopupMenuForSub.DoWithSubPanel(aControl: TevCustomSubPanel;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D6471802DC_53EE014B03AC_var*
 var
  l_SPoint     : Tl3_SPoint;
@@ -87,17 +77,13 @@ begin
 end;//TkwSubPanelGetPopupMenuForSub.DoWithSubPanel
 
 class function TkwSubPanelGetPopupMenuForSub.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'SubPanel:GetPopupMenuForSub';
 end;//TkwSubPanelGetPopupMenuForSub.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация SubPanel_GetPopupMenuForSub
  TkwSubPanelGetPopupMenuForSub.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация SubPanel_GetPopupMenuForSub }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

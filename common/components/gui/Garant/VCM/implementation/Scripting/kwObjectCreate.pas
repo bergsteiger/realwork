@@ -1,82 +1,58 @@
 unit kwObjectCreate;
+ {* Поддержка автоматического создания формы-обвязки для тестов.
+*Формат:* aClass .Create
+aClass - класс формы.
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwObjectCreate.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi::VCM$Scripting::VCMWords::object_Create
-//
-// Поддержка автоматического создания формы-обвязки для тестов.
-// *Формат:* aClass .Create
-// aClass - класс формы.
-// 
-// ПОКА создаёт только VCM-формы но предполагается научить создавать и ДРУГИЕ объекты.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ПОКА создаёт только VCM-формы но предполагается научить создавать и ДРУГИЕ объекты. }
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwObjectCreate.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
  _VCMWord_Parent_ = TtfwRegisterableWord;
- {$Include ..\Scripting\VCMWord.imp.pas}
- TkwObjectCreate = {scriptword} class(_VCMWord_)
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
+ TkwObjectCreate = class(_VCMWord_)
   {* Поддержка автоматического создания формы-обвязки для тестов.
 *Формат:* aClass .Create
 aClass - класс формы.
 
 ПОКА создаёт только VCM-формы но предполагается научить создавать и ДРУГИЕ объекты. }
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwObjectCreate
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmEntityForm
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vcmBase,
-  vcmForm
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  StdRes,
-  afwAnswer
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3ImplUses
+ , vcmEntityForm
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmBase
+ , vcmForm
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , StdRes
+ , afwAnswer
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-{$Include ..\Scripting\VCMWord.imp.pas}
-
-// start class TkwObjectCreate
+{$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
 procedure TkwObjectCreate.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E29311F0055_var*
@@ -101,17 +77,13 @@ begin
 end;//TkwObjectCreate.DoDoIt
 
 class function TkwObjectCreate.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := '.Create';
 end;//TkwObjectCreate.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация object_Create
  TkwObjectCreate.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация object_Create }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

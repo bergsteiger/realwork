@@ -33,6 +33,8 @@ uses
 ;
 
 type
+ RdestNorm = class of TdestNorm;
+
  TdestNorm = class(TddRTFDestination)
   private
    f_BorderOwner: TddBorderOwner;
@@ -107,6 +109,8 @@ type
    procedure ParagraphsClear;
    procedure ClearTextBuffer;
    procedure AfterAddPara(const anAtom: TddDocumentAtom); virtual;
+   procedure CloseTextPara(aPara: TddTextParagraph); virtual;
+   function InTable(aPAP: TddParagraphProperty): Boolean; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -1551,6 +1555,24 @@ begin
  l_LastPara.AddSub(f_CustomRTFReader.NextFootnoteNumber, aText.AsPCharLen);
 //#UC END# *56A9F2670380_51D278280093_impl*
 end;//TdestNorm.AddSub
+
+procedure TdestNorm.CloseTextPara(aPara: TddTextParagraph);
+//#UC START# *56BC3011019B_51D278280093_var*
+//#UC END# *56BC3011019B_51D278280093_var*
+begin
+//#UC START# *56BC3011019B_51D278280093_impl*
+ aPara.Closed := True;
+//#UC END# *56BC3011019B_51D278280093_impl*
+end;//TdestNorm.CloseTextPara
+
+function TdestNorm.InTable(aPAP: TddParagraphProperty): Boolean;
+//#UC START# *56BC304D02E0_51D278280093_var*
+//#UC END# *56BC304D02E0_51D278280093_var*
+begin
+//#UC START# *56BC304D02E0_51D278280093_impl*
+ Result := aPAP.InTable;
+//#UC END# *56BC304D02E0_51D278280093_impl*
+end;//TdestNorm.InTable
 
 procedure TdestNorm.Close(aState: TddRTFState;
  aNewDest: TddRTFDestination);

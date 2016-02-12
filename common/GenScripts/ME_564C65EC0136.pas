@@ -28,7 +28,7 @@ type
  _ItemType_ = IddAnnoKindSortItem;
  _l3InterfaceRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  TddAnnoKindStatisticListPrim = class(_l3InterfaceRefListPrim_)
  end;//TddAnnoKindStatisticListPrim
 
@@ -89,6 +89,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddAnnoKindStatisticListPrim;
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 end.

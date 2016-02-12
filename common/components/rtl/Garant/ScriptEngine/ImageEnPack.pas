@@ -1,29 +1,27 @@
 unit ImageEnPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$ImageEn"
-// Модуль: "ImageEnPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$ImageEn::ImageEnView::ImageEnPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ImageEnPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
-{$IfEnd} //not NoImageEn AND not NoScripts
+{$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 
 implementation
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
 uses
-  kwImageEnViewerSaveBitmap,
-  ImageEnViewRegistrator,
-  tfwScriptingTypes
-  ;
+ l3ImplUses
+ , kwImageEnViewerSaveBitmap
+ , ImageEnViewRegistrator
+ , tfwScriptingTypes
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 
-{$IfEnd} //not NoImageEn AND not NoScripts
 end.

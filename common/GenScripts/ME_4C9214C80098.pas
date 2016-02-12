@@ -22,7 +22,7 @@ uses
 
 type
  _Navigator_Parent_ = TTextViaEditorProcessor;
- {$Include Navigator.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas}
  TTextViaEditorProcessorWithNavigate = {abstract} class(_Navigator_)
   protected
    procedure DoProcess(aText: TevCustomEditorWindow;
@@ -54,7 +54,7 @@ uses
  , l3Base
 ;
 
-{$Include Navigator.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TTextViaEditorProcessorWithNavigate.Process(aForm: TPrimTextLoadForm);

@@ -43,12 +43,8 @@ begin
 end;//Tkw_Form_DocumentWithFlash.GetWordNameForRegister
 
 function Tkw_Form_DocumentWithFlash.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B6F09834AD0F_var*
-//#UC END# *4DDFD2EA0116_B6F09834AD0F_var*
 begin
-//#UC START# *4DDFD2EA0116_B6F09834AD0F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B6F09834AD0F_impl*
+ Result := 'DocumentWithFlashForm';
 end;//Tkw_Form_DocumentWithFlash.GetString
 
 initialization

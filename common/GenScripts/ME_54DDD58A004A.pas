@@ -53,7 +53,7 @@ type
  _ItemType_ = TddColorEntry;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddColorEntryList = class(_l3UncomparabeObjectRefList_)
  end;//TddColorEntryList
 
@@ -129,7 +129,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddColorEntryList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 function TdestColorTable.ColorByIndex(aColorIndex: Integer): TColor;
 //#UC START# *54DDD8790277_54DDD793020C_var*

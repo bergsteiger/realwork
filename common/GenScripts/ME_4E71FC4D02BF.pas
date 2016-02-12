@@ -16,7 +16,7 @@ uses
 
 type
  _nevStringCache_Parent_ = Tl3CProtoObject;
- {$Include nevStringCache.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}
  TnevStringCache = class(_nevStringCache_, InevStringCache)
   public
    constructor Create; reintroduce;
@@ -31,7 +31,7 @@ uses
  , SysUtils
 ;
 
-{$Include nevStringCache.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevStringCache.imp.pas}
 
 constructor TnevStringCache.Create;
 //#UC START# *4E71FCAE00EE_4E71FC4D02BF_var*

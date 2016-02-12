@@ -16,7 +16,7 @@ uses
 
 type
  _m3BaseStore_Parent_ = Tl3CProtoObject;
- {$Include m3BaseStore.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3BaseStore.imp.pas}
  Tm3BaseStore = {abstract} class(_m3BaseStore_)
  end;//Tm3BaseStore
 
@@ -27,6 +27,6 @@ uses
  , ActiveX
 ;
 
-{$Include m3BaseStore.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3BaseStore.imp.pas}
 
 end.

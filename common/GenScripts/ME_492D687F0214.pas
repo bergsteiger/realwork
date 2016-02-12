@@ -53,7 +53,7 @@ uses
 
 type
  _InitDataType_ = IdeDocumentListCR;
- {$Include dsDocumentList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.imp.pas}
  TdsDocumentListCR = class(_dsDocumentList_)
   {* Список корреспондентов/респондентов }
   protected
@@ -141,7 +141,7 @@ uses
 
 type _Instance_R_ = TdsDocumentListCR;
 
-{$Include dsDocumentList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TdsDocumentListCR.GotData;

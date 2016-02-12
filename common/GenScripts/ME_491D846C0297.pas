@@ -6,7 +6,7 @@
 {$Define dsBaseDrugDocument_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include dsBaseDocumentPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
  _dsBaseDrugDocument_ = {abstract} class(_dsBaseDocumentPrim_)
   {* ƒокумент-препарат }
   protected
@@ -16,7 +16,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dsBaseDocumentPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 _dsBaseDrugDocument_ = _dsBaseDocumentPrim_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -27,7 +27,7 @@ _dsBaseDrugDocument_ = _dsBaseDocumentPrim_;
 {$Define dsBaseDrugDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dsBaseDocumentPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
 function _dsBaseDrugDocument_.GetTimeMachineOff: Boolean;
  {* при получении источника данных машину времени нужно выключить }

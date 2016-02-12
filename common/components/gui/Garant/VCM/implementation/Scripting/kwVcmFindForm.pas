@@ -1,66 +1,45 @@
 unit kwVcmFindForm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwVcmFindForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi::VCM$Scripting::VCMWords::vcm_FindForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmFindForm.pas"
+// Стереотип: "ScriptKeyword"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
  _VCMWord_Parent_ = TtfwRegisterableWord;
- {$Include ..\Scripting\VCMWord.imp.pas}
- TkwVcmFindForm = {scriptword} class(_VCMWord_)
- protected
- // realized methods
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
+ TkwVcmFindForm = class(_VCMWord_)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwVcmFindForm
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmInterfaces,
-  vcmForm
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  StdRes,
-  vcmBase,
-  afwAnswer
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3ImplUses
+ , vcmInterfaces
+ , vcmForm
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , StdRes
+ , vcmBase
+ , afwAnswer
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-{$Include ..\Scripting\VCMWord.imp.pas}
-
-// start class TkwVcmFindForm
+{$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
 procedure TkwVcmFindForm.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4F215ADB00AF_var*
@@ -95,17 +74,13 @@ begin
 end;//TkwVcmFindForm.DoDoIt
 
 class function TkwVcmFindForm.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'vcm:FindForm';
 end;//TkwVcmFindForm.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация vcm_FindForm
  TkwVcmFindForm.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация vcm_FindForm }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

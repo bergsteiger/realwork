@@ -7,7 +7,7 @@
 
  _InterfaceListElement_ = _HistoryStoredObject_;
  _atTypedInterfaceList_Parent_ = TInterfaceList;
- {$Include atTypedInterfaceList.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedInterfaceList.imp.pas}
  _atObjectHistory_ = class(_atTypedInterfaceList_)
   private
    f_HistoryLength: Integer;
@@ -34,7 +34,7 @@
 
 {$Define atObjectHistory_imp_impl}
 
-{$Include atTypedInterfaceList.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedInterfaceList.imp.pas}
 
 function _atObjectHistory_.pm_GetHistoryLength: Integer;
 //#UC START# *483A8008021E_483A7BE60395get_var*

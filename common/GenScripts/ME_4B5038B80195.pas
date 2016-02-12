@@ -17,7 +17,7 @@ uses
 
 type
  _nsUserPropertyImpl_Parent_ = Tl3SimpleObject;
- {$Include nsUserPropertyImpl.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas}
  TnsUserProperty = class(_nsUserPropertyImpl_, InsUserProperty)
   protected
    constructor Create(const aProfile: IUserProfile); reintroduce;
@@ -36,7 +36,7 @@ uses
  , IOUnit
 ;
 
-{$Include nsUserPropertyImpl.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas}
 
 class function TnsUserProperty.Make(const aProfile: IUserProfile): InsUserProperty;
 var

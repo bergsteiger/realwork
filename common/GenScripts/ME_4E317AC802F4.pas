@@ -16,7 +16,7 @@ uses
 type
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = TevDefaultStylesFontSizesPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  TevDefaultStylesFontSizesPrim1 = class(_l3Searcher_)
  end;//TevDefaultStylesFontSizesPrim1
 
@@ -41,6 +41,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = TevDefaultStylesFontSizesPrim1;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

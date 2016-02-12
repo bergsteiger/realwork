@@ -21,7 +21,7 @@ uses
 type
  _DataType_ = Il3SimpleNode;
  _DataClass_ = TevNodeDataObject;
- {$Include evTreeData.imp.pas}
+ {$Include w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas}
  TevNodeData = class(_evTreeData_)
   protected
    function GetFormats: Tl3ClipboardFormats; override;
@@ -46,7 +46,7 @@ uses
  , TextPara_Const
 ;
 
-{$Include evTreeData.imp.pas}
+{$Include w:\common\components\gui\Garant\EverestCommon\evTreeData.imp.pas}
 
 function TevNodeData.GetFormats: Tl3ClipboardFormats;
 //#UC START# *48F4B33501DE_48F7014003A5_var*

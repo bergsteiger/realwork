@@ -1,39 +1,30 @@
 unit kwPopEditorPrintAcnhor;
+ {* *Формат:* aTopAnchor anEditorControl pop:editor:PrintAcnhor
+*Описание:* Печатает текущее значение якоря, включая дочерние, позицию, PID параграф и т.п. aTopAnchor - true - верхния якорь, false - нижний якорь.
+*Пример:*
+[code] 
+true focused:control:push pop:editor:PrintAcnhor
+[code] 
+*Результат:* В засимости от значения поля в будет напечатано значение "true" или "false" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorPrintAcnhor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_PrintAcnhor
-//
-// *Формат:* aTopAnchor anEditorControl pop:editor:PrintAcnhor
-// *Описание:* Печатает текущее значение якоря, включая дочерние, позицию, PID параграф и т.п.
-// aTopAnchor - true - верхния якорь, false - нижний якорь.
-// *Пример:*
-// {code}
-// true focused:control:push pop:editor:PrintAcnhor
-// {code}
-// *Результат:* В засимости от значения поля в будет напечатано значение "true" или "false"
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintAcnhor.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces,
-  kwEditorFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , nevTools
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorPrintAcnhor = {final scriptword} class(TkwEditorFromStackWord)
+ TkwPopEditorPrintAcnhor = {final} class(TkwEditorFromStackWord)
   {* *Формат:* aTopAnchor anEditorControl pop:editor:PrintAcnhor
 *Описание:* Печатает текущее значение якоря, включая дочерние, позицию, PID параграф и т.п. aTopAnchor - true - верхния якорь, false - нижний якорь.
 *Пример:*
@@ -41,40 +32,39 @@ type
 true focused:control:push pop:editor:PrintAcnhor
 [code] 
 *Результат:* В засимости от значения поля в будет напечатано значение "true" или "false" }
- private
- // private methods
+  private
    procedure SaveAnchor(const aCtx: TtfwContext;
-     const anAnchor: InevBasePoint;
-     anEditor: TevCustomEditorWindow);
+    const anAnchor: InevBasePoint;
+    anEditor: TevCustomEditorWindow);
    function CheckBaseLine(const aCtx: TtfwContext;
-     const anAnchor: InevBasePoint;
-     anEditor: TevCustomEditorWindow): Boolean;
- protected
- // realized methods
+    const anAnchor: InevBasePoint;
+    anEditor: TevCustomEditorWindow): Boolean;
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorPrintAcnhor
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  l3Base
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorPrintAcnhor
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorPrintAcnhor.SaveAnchor(const aCtx: TtfwContext;
-  const anAnchor: InevBasePoint;
-  anEditor: TevCustomEditorWindow);
+ const anAnchor: InevBasePoint;
+ anEditor: TevCustomEditorWindow);
 //#UC START# *500925030215_5009071C00FF_var*
 var
  l_Anchor : InevBasePoint;
@@ -97,8 +87,8 @@ begin
 end;//TkwPopEditorPrintAcnhor.SaveAnchor
 
 function TkwPopEditorPrintAcnhor.CheckBaseLine(const aCtx: TtfwContext;
-  const anAnchor: InevBasePoint;
-  anEditor: TevCustomEditorWindow): Boolean;
+ const anAnchor: InevBasePoint;
+ anEditor: TevCustomEditorWindow): Boolean;
 //#UC START# *5009264E0377_5009071C00FF_var*
 var
  i       : Integer;
@@ -133,7 +123,7 @@ begin
 end;//TkwPopEditorPrintAcnhor.CheckBaseLine
 
 procedure TkwPopEditorPrintAcnhor.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_5009071C00FF_var*
 var
  l_Top: Boolean;
@@ -153,17 +143,13 @@ begin
 end;//TkwPopEditorPrintAcnhor.DoWithEditor
 
 class function TkwPopEditorPrintAcnhor.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:PrintAcnhor';
 end;//TkwPopEditorPrintAcnhor.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_PrintAcnhor
  TkwPopEditorPrintAcnhor.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_PrintAcnhor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

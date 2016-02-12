@@ -23,7 +23,7 @@ type
  _ItemType_ = Pointer;
  _l3DataRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3DataRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DataRefList.imp.pas}
  Tl3DataRefList = class(_l3DataRefList_)
   {* Список ссылок на куски памяти. При своём освобождении освобождает хранимые куски памяти. Эта память должна быть выделена функцией l3System.GetLocalMem. }
  end;//Tl3DataRefList
@@ -40,6 +40,6 @@ uses
 
 type _Instance_R_ = Tl3DataRefList;
 
-{$Include l3DataRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DataRefList.imp.pas}
 
 end.

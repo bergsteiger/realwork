@@ -24,7 +24,7 @@ uses
 type
  _k2SimpleTagListPrim_Parent_ = Tk2ListTag;
  {$Define l3Items_IsProto}
- {$Include k2SimpleTagListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas}
  Tk2TypedSimpleSortableTagListPrim = class(_k2SimpleTagListPrim_)
   protected
    function ExpandSize(aTargetSize: Integer): Integer; override;
@@ -43,7 +43,7 @@ uses
 
 type _Instance_R_ = Tk2TypedSimpleSortableTagListPrim;
 
-{$Include k2SimpleTagListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas}
 
 function Tk2TypedSimpleSortableTagListPrim.ExpandSize(aTargetSize: Integer): Integer;
 //#UC START# *47B975AF02ED_527D1B86018D_var*

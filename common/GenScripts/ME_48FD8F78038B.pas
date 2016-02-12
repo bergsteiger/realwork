@@ -16,9 +16,9 @@ type
  end;//TnsThreadCallParamsRec
 
  _l3ThreadNotifier_Parent_ = _nsNodeNotifierBase_Parent_;
- {$Include l3ThreadNotifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ThreadNotifier.imp.pas}
  _nsNodeNotifierPrim_Parent_ = _l3ThreadNotifier_;
- {$Include nsNodeNotifierPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierPrim.imp.pas}
  _nsNodeNotifierBase_ = class(_nsNodeNotifierPrim_)
   private
    f_CountViewChanged: Boolean;
@@ -99,9 +99,9 @@ begin
 //#UC END# *47A042E100E2_48FD9AE5001C_impl*
 end;//TnsNodeNotifierHolder.InitFields
 
-{$Include l3ThreadNotifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ThreadNotifier.imp.pas}
 
-{$Include nsNodeNotifierPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierPrim.imp.pas}
 
 function _nsNodeNotifierBase_.IsInGetByVisibleIndex: Boolean;
 //#UC START# *48FDA0CB01AD_48FD8F78038B_var*

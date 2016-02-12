@@ -1,99 +1,316 @@
 unit TevCustomEditorWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "TevCustomEditorWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TevCustomEditorWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TevCustomEditorWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evdTypes,
-  evCustomEditor,
-  evEditorInterfaces,
-  tfwScriptingInterfaces,
-  tfwAxiomaticsResNameGetter,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , evCustomEditor
+ , evEditorInterfaces
+ , evdTypes
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  IedRangeWordsPack,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , l3Interfaces
+ , IedRangeWordsPack
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
-//#UC START# *D2EC9F607FB9ci*
-//#UC END# *D2EC9F607FB9ci*
-//#UC START# *D2EC9F607FB9cit*
-//#UC END# *D2EC9F607FB9cit*
+ //#UC START# *D2EC9F607FB9ci*
+ //#UC END# *D2EC9F607FB9ci*
+ //#UC START# *D2EC9F607FB9cit*
+ //#UC END# *D2EC9F607FB9cit*
  TTevCustomEditorWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *D2EC9F607FB9publ*
-//#UC END# *D2EC9F607FB9publ*
+ //#UC START# *D2EC9F607FB9publ*
+ //#UC END# *D2EC9F607FB9publ*
  end;//TTevCustomEditorWordsPackResNameGetter
 
-// start class TTevCustomEditorWordsPackResNameGetter
-
-class function TTevCustomEditorWordsPackResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'TevCustomEditorWordsPack';
-end;//TTevCustomEditorWordsPackResNameGetter.ResName
-
- {$R TevCustomEditorWordsPack.res}
-
-type
- TkwPopEditorInsertTable = {final scriptword} class(TtfwClassLike)
+ TkwPopEditorInsertTable = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Editor:InsertTable
 *Пример:*
 [code]
  aColNum aRowNum aEditor pop:Editor:InsertTable
 [code]  }
- private
- // private methods
+  private
    procedure InsertTable(const aCtx: TtfwContext;
     aEditor: TevCustomEditor;
     aRowNum: Integer;
     aColNum: Integer);
-     {* Реализация слова скрипта pop:Editor:InsertTable }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:Editor:InsertTable }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopEditorInsertTable
 
-// start class TkwPopEditorInsertTable
+ TkwPopEditorInsertRow = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:InsertRow
+*Пример:*
+[code]
+ aEditor pop:Editor:InsertRow
+[code]  }
+  private
+   procedure InsertRow(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor);
+    {* Реализация слова скрипта pop:Editor:InsertRow }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorInsertRow
+
+ TkwPopEditorDeleteRow = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:DeleteRow
+*Пример:*
+[code]
+ aEditor pop:Editor:DeleteRow
+[code]  }
+  private
+   procedure DeleteRow(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor);
+    {* Реализация слова скрипта pop:Editor:DeleteRow }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorDeleteRow
+
+ TkwPopEditorInsertColumn = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:InsertColumn
+*Пример:*
+[code]
+ aEditor pop:Editor:InsertColumn
+[code]  }
+  private
+   procedure InsertColumn(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor);
+    {* Реализация слова скрипта pop:Editor:InsertColumn }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorInsertColumn
+
+ TkwPopEditorDeleteColumn = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:DeleteColumn
+*Пример:*
+[code]
+ aEditor pop:Editor:DeleteColumn
+[code]  }
+  private
+   procedure DeleteColumn(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor);
+    {* Реализация слова скрипта pop:Editor:DeleteColumn }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorDeleteColumn
+
+ TkwPopEditorMergeCells = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:MergeCells
+*Пример:*
+[code]
+ anAlgorytm aEditor pop:Editor:MergeCells
+[code]  }
+  private
+   procedure MergeCells(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor;
+    anAlgorytm: TedMergeAlgorythm);
+    {* Реализация слова скрипта pop:Editor:MergeCells }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorMergeCells
+
+ TkwPopEditorSplitCell = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:SplitCell
+*Пример:*
+[code]
+ aVert aEditor pop:Editor:SplitCell
+[code]  }
+  private
+   procedure SplitCell(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor;
+    aVert: Boolean);
+    {* Реализация слова скрипта pop:Editor:SplitCell }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorSplitCell
+
+ TkwPopEditorSplitTable = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:SplitTable
+*Пример:*
+[code]
+ aEditor pop:Editor:SplitTable
+[code]  }
+  private
+   procedure SplitTable(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor);
+    {* Реализация слова скрипта pop:Editor:SplitTable }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorSplitTable
+
+ TkwPopEditorMergeTables = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:MergeTables
+*Пример:*
+[code]
+ aEditor pop:Editor:MergeTables
+[code]  }
+  private
+   procedure MergeTables(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor);
+    {* Реализация слова скрипта pop:Editor:MergeTables }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorMergeTables
+
+ TkwPopEditorInsertSectionBreak = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:InsertSectionBreak
+*Пример:*
+[code]
+ aPageOrientation aEditor pop:Editor:InsertSectionBreak
+[code]  }
+  private
+   procedure InsertSectionBreak(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor;
+    aPageOrientation: TevPageOrientation);
+    {* Реализация слова скрипта pop:Editor:InsertSectionBreak }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorInsertSectionBreak
+
+ TkwPopEditorPrevHyperlink = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:PrevHyperlink
+*Пример:*
+[code]
+ aEditor pop:Editor:PrevHyperlink
+[code]  }
+  private
+   procedure PrevHyperlink(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor);
+    {* Реализация слова скрипта pop:Editor:PrevHyperlink }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorPrevHyperlink
+
+ TkwPopEditorNextHyperlink = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:NextHyperlink
+*Пример:*
+[code]
+ aEditor pop:Editor:NextHyperlink
+[code]  }
+  private
+   procedure NextHyperlink(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor);
+    {* Реализация слова скрипта pop:Editor:NextHyperlink }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorNextHyperlink
+
+ TkwPopEditorRange = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Editor:Range
+*Тип результата:* IedRange
+*Пример:*
+[code]
+INTERFACE VAR l_IedRange
+ aEditor pop:Editor:Range >>> l_IedRange
+[code]  }
+  private
+   function Range(const aCtx: TtfwContext;
+    aEditor: TevCustomEditor): IedRange;
+    {* Реализация слова скрипта pop:Editor:Range }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopEditorRange
+
+class function TTevCustomEditorWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'TevCustomEditorWordsPack';
+end;//TTevCustomEditorWordsPackResNameGetter.ResName
+
+ {$R TevCustomEditorWordsPack.res}
 
 procedure TkwPopEditorInsertTable.InsertTable(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor;
-  aRowNum: Integer;
-  aColNum: Integer);
+ aEditor: TevCustomEditor;
+ aRowNum: Integer;
+ aColNum: Integer);
+ {* Реализация слова скрипта pop:Editor:InsertTable }
 //#UC START# *2A65ED70712B_A1BCB5D9397E_var*
 //#UC END# *2A65ED70712B_A1BCB5D9397E_var*
 begin
@@ -103,11 +320,9 @@ begin
 end;//TkwPopEditorInsertTable.InsertTable
 
 procedure TkwPopEditorInsertTable.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
- l_aRowNum : Integer;
- l_aColNum : Integer;
+var l_aEditor: TevCustomEditor;
+var l_aRowNum: Integer;
+var l_aColNum: Integer;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -140,67 +355,34 @@ begin
 end;//TkwPopEditorInsertTable.DoDoIt
 
 class function TkwPopEditorInsertTable.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:InsertTable';
 end;//TkwPopEditorInsertTable.GetWordNameForRegister
 
 function TkwPopEditorInsertTable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorInsertTable.GetResultTypeInfo
 
 function TkwPopEditorInsertTable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwPopEditorInsertTable.GetAllParamsCount
 
 function TkwPopEditorInsertTable.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwPopEditorInsertTable.ParamsTypes
 
-type
- TkwPopEditorInsertRow = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:InsertRow
-*Пример:*
-[code]
- aEditor pop:Editor:InsertRow
-[code]  }
- private
- // private methods
-   procedure InsertRow(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor);
-     {* Реализация слова скрипта pop:Editor:InsertRow }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorInsertRow
-
-// start class TkwPopEditorInsertRow
-
 procedure TkwPopEditorInsertRow.InsertRow(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor);
- {-}
+ aEditor: TevCustomEditor);
+ {* Реализация слова скрипта pop:Editor:InsertRow }
 begin
  aEditor.InsertRow;
 end;//TkwPopEditorInsertRow.InsertRow
 
 procedure TkwPopEditorInsertRow.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -215,67 +397,34 @@ begin
 end;//TkwPopEditorInsertRow.DoDoIt
 
 class function TkwPopEditorInsertRow.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:InsertRow';
 end;//TkwPopEditorInsertRow.GetWordNameForRegister
 
 function TkwPopEditorInsertRow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorInsertRow.GetResultTypeInfo
 
 function TkwPopEditorInsertRow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorInsertRow.GetAllParamsCount
 
 function TkwPopEditorInsertRow.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorInsertRow.ParamsTypes
 
-type
- TkwPopEditorDeleteRow = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:DeleteRow
-*Пример:*
-[code]
- aEditor pop:Editor:DeleteRow
-[code]  }
- private
- // private methods
-   procedure DeleteRow(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor);
-     {* Реализация слова скрипта pop:Editor:DeleteRow }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorDeleteRow
-
-// start class TkwPopEditorDeleteRow
-
 procedure TkwPopEditorDeleteRow.DeleteRow(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor);
- {-}
+ aEditor: TevCustomEditor);
+ {* Реализация слова скрипта pop:Editor:DeleteRow }
 begin
  aEditor.DeleteRow;
 end;//TkwPopEditorDeleteRow.DeleteRow
 
 procedure TkwPopEditorDeleteRow.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -290,67 +439,34 @@ begin
 end;//TkwPopEditorDeleteRow.DoDoIt
 
 class function TkwPopEditorDeleteRow.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:DeleteRow';
 end;//TkwPopEditorDeleteRow.GetWordNameForRegister
 
 function TkwPopEditorDeleteRow.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorDeleteRow.GetResultTypeInfo
 
 function TkwPopEditorDeleteRow.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorDeleteRow.GetAllParamsCount
 
 function TkwPopEditorDeleteRow.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorDeleteRow.ParamsTypes
 
-type
- TkwPopEditorInsertColumn = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:InsertColumn
-*Пример:*
-[code]
- aEditor pop:Editor:InsertColumn
-[code]  }
- private
- // private methods
-   procedure InsertColumn(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor);
-     {* Реализация слова скрипта pop:Editor:InsertColumn }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorInsertColumn
-
-// start class TkwPopEditorInsertColumn
-
 procedure TkwPopEditorInsertColumn.InsertColumn(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor);
- {-}
+ aEditor: TevCustomEditor);
+ {* Реализация слова скрипта pop:Editor:InsertColumn }
 begin
  aEditor.InsertColumn;
 end;//TkwPopEditorInsertColumn.InsertColumn
 
 procedure TkwPopEditorInsertColumn.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -365,67 +481,34 @@ begin
 end;//TkwPopEditorInsertColumn.DoDoIt
 
 class function TkwPopEditorInsertColumn.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:InsertColumn';
 end;//TkwPopEditorInsertColumn.GetWordNameForRegister
 
 function TkwPopEditorInsertColumn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorInsertColumn.GetResultTypeInfo
 
 function TkwPopEditorInsertColumn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorInsertColumn.GetAllParamsCount
 
 function TkwPopEditorInsertColumn.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorInsertColumn.ParamsTypes
 
-type
- TkwPopEditorDeleteColumn = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:DeleteColumn
-*Пример:*
-[code]
- aEditor pop:Editor:DeleteColumn
-[code]  }
- private
- // private methods
-   procedure DeleteColumn(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor);
-     {* Реализация слова скрипта pop:Editor:DeleteColumn }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorDeleteColumn
-
-// start class TkwPopEditorDeleteColumn
-
 procedure TkwPopEditorDeleteColumn.DeleteColumn(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor);
- {-}
+ aEditor: TevCustomEditor);
+ {* Реализация слова скрипта pop:Editor:DeleteColumn }
 begin
  aEditor.DeleteColumn;
 end;//TkwPopEditorDeleteColumn.DeleteColumn
 
 procedure TkwPopEditorDeleteColumn.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -440,60 +523,29 @@ begin
 end;//TkwPopEditorDeleteColumn.DoDoIt
 
 class function TkwPopEditorDeleteColumn.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:DeleteColumn';
 end;//TkwPopEditorDeleteColumn.GetWordNameForRegister
 
 function TkwPopEditorDeleteColumn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorDeleteColumn.GetResultTypeInfo
 
 function TkwPopEditorDeleteColumn.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorDeleteColumn.GetAllParamsCount
 
 function TkwPopEditorDeleteColumn.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorDeleteColumn.ParamsTypes
 
-type
- TkwPopEditorMergeCells = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:MergeCells
-*Пример:*
-[code]
- anAlgorytm aEditor pop:Editor:MergeCells
-[code]  }
- private
- // private methods
-   procedure MergeCells(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor;
-    anAlgorytm: TedMergeAlgorythm);
-     {* Реализация слова скрипта pop:Editor:MergeCells }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorMergeCells
-
-// start class TkwPopEditorMergeCells
-
 procedure TkwPopEditorMergeCells.MergeCells(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor;
-  anAlgorytm: TedMergeAlgorythm);
+ aEditor: TevCustomEditor;
+ anAlgorytm: TedMergeAlgorythm);
+ {* Реализация слова скрипта pop:Editor:MergeCells }
 //#UC START# *1D5492E02FD7_A451D154F580_var*
 var
  l_Table     : IedTable;
@@ -516,10 +568,8 @@ begin
 end;//TkwPopEditorMergeCells.MergeCells
 
 procedure TkwPopEditorMergeCells.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
- l_anAlgorytm : TedMergeAlgorythm;
+var l_aEditor: TevCustomEditor;
+var l_anAlgorytm: TedMergeAlgorythm;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -543,60 +593,29 @@ begin
 end;//TkwPopEditorMergeCells.DoDoIt
 
 class function TkwPopEditorMergeCells.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:MergeCells';
 end;//TkwPopEditorMergeCells.GetWordNameForRegister
 
 function TkwPopEditorMergeCells.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorMergeCells.GetResultTypeInfo
 
 function TkwPopEditorMergeCells.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopEditorMergeCells.GetAllParamsCount
 
 function TkwPopEditorMergeCells.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor), TypeInfo(TedMergeAlgorythm)]);
 end;//TkwPopEditorMergeCells.ParamsTypes
 
-type
- TkwPopEditorSplitCell = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:SplitCell
-*Пример:*
-[code]
- aVert aEditor pop:Editor:SplitCell
-[code]  }
- private
- // private methods
-   procedure SplitCell(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor;
-    aVert: Boolean);
-     {* Реализация слова скрипта pop:Editor:SplitCell }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorSplitCell
-
-// start class TkwPopEditorSplitCell
-
 procedure TkwPopEditorSplitCell.SplitCell(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor;
-  aVert: Boolean);
+ aEditor: TevCustomEditor;
+ aVert: Boolean);
+ {* Реализация слова скрипта pop:Editor:SplitCell }
 //#UC START# *FC2B610EC587_3AC5FB50949B_var*
 var
  l_Cell : IedCell;
@@ -620,10 +639,8 @@ begin
 end;//TkwPopEditorSplitCell.SplitCell
 
 procedure TkwPopEditorSplitCell.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
- l_aVert : Boolean;
+var l_aEditor: TevCustomEditor;
+var l_aVert: Boolean;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -647,58 +664,28 @@ begin
 end;//TkwPopEditorSplitCell.DoDoIt
 
 class function TkwPopEditorSplitCell.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:SplitCell';
 end;//TkwPopEditorSplitCell.GetWordNameForRegister
 
 function TkwPopEditorSplitCell.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorSplitCell.GetResultTypeInfo
 
 function TkwPopEditorSplitCell.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopEditorSplitCell.GetAllParamsCount
 
 function TkwPopEditorSplitCell.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor), TypeInfo(Boolean)]);
 end;//TkwPopEditorSplitCell.ParamsTypes
 
-type
- TkwPopEditorSplitTable = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:SplitTable
-*Пример:*
-[code]
- aEditor pop:Editor:SplitTable
-[code]  }
- private
- // private methods
-   procedure SplitTable(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor);
-     {* Реализация слова скрипта pop:Editor:SplitTable }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorSplitTable
-
-// start class TkwPopEditorSplitTable
-
 procedure TkwPopEditorSplitTable.SplitTable(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor);
+ aEditor: TevCustomEditor);
+ {* Реализация слова скрипта pop:Editor:SplitTable }
 //#UC START# *4F994DADAE61_AA4E45C58AA3_var*
 var
  l_Table: IedTable;
@@ -714,9 +701,7 @@ begin
 end;//TkwPopEditorSplitTable.SplitTable
 
 procedure TkwPopEditorSplitTable.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -731,58 +716,28 @@ begin
 end;//TkwPopEditorSplitTable.DoDoIt
 
 class function TkwPopEditorSplitTable.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:SplitTable';
 end;//TkwPopEditorSplitTable.GetWordNameForRegister
 
 function TkwPopEditorSplitTable.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorSplitTable.GetResultTypeInfo
 
 function TkwPopEditorSplitTable.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorSplitTable.GetAllParamsCount
 
 function TkwPopEditorSplitTable.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorSplitTable.ParamsTypes
 
-type
- TkwPopEditorMergeTables = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:MergeTables
-*Пример:*
-[code]
- aEditor pop:Editor:MergeTables
-[code]  }
- private
- // private methods
-   procedure MergeTables(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor);
-     {* Реализация слова скрипта pop:Editor:MergeTables }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorMergeTables
-
-// start class TkwPopEditorMergeTables
-
 procedure TkwPopEditorMergeTables.MergeTables(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor);
+ aEditor: TevCustomEditor);
+ {* Реализация слова скрипта pop:Editor:MergeTables }
 //#UC START# *7C77C501EF5C_E73997E799CF_var*
 var
  l_Table: IedTable;
@@ -798,9 +753,7 @@ begin
 end;//TkwPopEditorMergeTables.MergeTables
 
 procedure TkwPopEditorMergeTables.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -815,60 +768,29 @@ begin
 end;//TkwPopEditorMergeTables.DoDoIt
 
 class function TkwPopEditorMergeTables.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:MergeTables';
 end;//TkwPopEditorMergeTables.GetWordNameForRegister
 
 function TkwPopEditorMergeTables.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorMergeTables.GetResultTypeInfo
 
 function TkwPopEditorMergeTables.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorMergeTables.GetAllParamsCount
 
 function TkwPopEditorMergeTables.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorMergeTables.ParamsTypes
 
-type
- TkwPopEditorInsertSectionBreak = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:InsertSectionBreak
-*Пример:*
-[code]
- aPageOrientation aEditor pop:Editor:InsertSectionBreak
-[code]  }
- private
- // private methods
-   procedure InsertSectionBreak(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor;
-    aPageOrientation: TevPageOrientation);
-     {* Реализация слова скрипта pop:Editor:InsertSectionBreak }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorInsertSectionBreak
-
-// start class TkwPopEditorInsertSectionBreak
-
 procedure TkwPopEditorInsertSectionBreak.InsertSectionBreak(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor;
-  aPageOrientation: TevPageOrientation);
+ aEditor: TevCustomEditor;
+ aPageOrientation: TevPageOrientation);
+ {* Реализация слова скрипта pop:Editor:InsertSectionBreak }
 //#UC START# *20D4E8106F99_5C1388B33B3A_var*
 //#UC END# *20D4E8106F99_5C1388B33B3A_var*
 begin
@@ -878,10 +800,8 @@ begin
 end;//TkwPopEditorInsertSectionBreak.InsertSectionBreak
 
 procedure TkwPopEditorInsertSectionBreak.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
- l_aPageOrientation : TevPageOrientation;
+var l_aEditor: TevCustomEditor;
+var l_aPageOrientation: TevPageOrientation;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -905,58 +825,28 @@ begin
 end;//TkwPopEditorInsertSectionBreak.DoDoIt
 
 class function TkwPopEditorInsertSectionBreak.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:InsertSectionBreak';
 end;//TkwPopEditorInsertSectionBreak.GetWordNameForRegister
 
 function TkwPopEditorInsertSectionBreak.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorInsertSectionBreak.GetResultTypeInfo
 
 function TkwPopEditorInsertSectionBreak.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopEditorInsertSectionBreak.GetAllParamsCount
 
 function TkwPopEditorInsertSectionBreak.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor), TypeInfo(TevPageOrientation)]);
 end;//TkwPopEditorInsertSectionBreak.ParamsTypes
 
-type
- TkwPopEditorPrevHyperlink = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:PrevHyperlink
-*Пример:*
-[code]
- aEditor pop:Editor:PrevHyperlink
-[code]  }
- private
- // private methods
-   procedure PrevHyperlink(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor);
-     {* Реализация слова скрипта pop:Editor:PrevHyperlink }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorPrevHyperlink
-
-// start class TkwPopEditorPrevHyperlink
-
 procedure TkwPopEditorPrevHyperlink.PrevHyperlink(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor);
+ aEditor: TevCustomEditor);
+ {* Реализация слова скрипта pop:Editor:PrevHyperlink }
 //#UC START# *DB7F8A6A9D94_B77C574814C1_var*
 //#UC END# *DB7F8A6A9D94_B77C574814C1_var*
 begin
@@ -966,9 +856,7 @@ begin
 end;//TkwPopEditorPrevHyperlink.PrevHyperlink
 
 procedure TkwPopEditorPrevHyperlink.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -983,58 +871,28 @@ begin
 end;//TkwPopEditorPrevHyperlink.DoDoIt
 
 class function TkwPopEditorPrevHyperlink.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:PrevHyperlink';
 end;//TkwPopEditorPrevHyperlink.GetWordNameForRegister
 
 function TkwPopEditorPrevHyperlink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorPrevHyperlink.GetResultTypeInfo
 
 function TkwPopEditorPrevHyperlink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorPrevHyperlink.GetAllParamsCount
 
 function TkwPopEditorPrevHyperlink.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorPrevHyperlink.ParamsTypes
 
-type
- TkwPopEditorNextHyperlink = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:NextHyperlink
-*Пример:*
-[code]
- aEditor pop:Editor:NextHyperlink
-[code]  }
- private
- // private methods
-   procedure NextHyperlink(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor);
-     {* Реализация слова скрипта pop:Editor:NextHyperlink }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorNextHyperlink
-
-// start class TkwPopEditorNextHyperlink
-
 procedure TkwPopEditorNextHyperlink.NextHyperlink(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor);
+ aEditor: TevCustomEditor);
+ {* Реализация слова скрипта pop:Editor:NextHyperlink }
 //#UC START# *8C3D0835326B_F05E0D5E838A_var*
 //#UC END# *8C3D0835326B_F05E0D5E838A_var*
 begin
@@ -1044,9 +902,7 @@ begin
 end;//TkwPopEditorNextHyperlink.NextHyperlink
 
 procedure TkwPopEditorNextHyperlink.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -1061,60 +917,28 @@ begin
 end;//TkwPopEditorNextHyperlink.DoDoIt
 
 class function TkwPopEditorNextHyperlink.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:NextHyperlink';
 end;//TkwPopEditorNextHyperlink.GetWordNameForRegister
 
 function TkwPopEditorNextHyperlink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwPopEditorNextHyperlink.GetResultTypeInfo
 
 function TkwPopEditorNextHyperlink.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorNextHyperlink.GetAllParamsCount
 
 function TkwPopEditorNextHyperlink.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorNextHyperlink.ParamsTypes
 
-type
- TkwPopEditorRange = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:Editor:Range
-*Тип результата:* IedRange
-*Пример:*
-[code]
-INTERFACE VAR l_IedRange
- aEditor pop:Editor:Range >>> l_IedRange
-[code]  }
- private
- // private methods
-   function Range(const aCtx: TtfwContext;
-    aEditor: TevCustomEditor): IedRange;
-     {* Реализация слова скрипта pop:Editor:Range }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopEditorRange
-
-// start class TkwPopEditorRange
-
 function TkwPopEditorRange.Range(const aCtx: TtfwContext;
-  aEditor: TevCustomEditor): IedRange;
+ aEditor: TevCustomEditor): IedRange;
+ {* Реализация слова скрипта pop:Editor:Range }
 //#UC START# *7884E20C97ED_47D4B4C536FD_var*
 //#UC END# *7884E20C97ED_47D4B4C536FD_var*
 begin
@@ -1124,9 +948,7 @@ begin
 end;//TkwPopEditorRange.Range
 
 procedure TkwPopEditorRange.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aEditor : TevCustomEditor;
+var l_aEditor: TevCustomEditor;
 begin
  try
   l_aEditor := TevCustomEditor(aCtx.rEngine.PopObjAs(TevCustomEditor));
@@ -1137,118 +959,72 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf((Range(aCtx, l_aEditor)), TypeInfo(IedRange));
+ aCtx.rEngine.PushIntf(Range(aCtx, l_aEditor), TypeInfo(IedRange));
 end;//TkwPopEditorRange.DoDoIt
 
 class function TkwPopEditorRange.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Editor:Range';
 end;//TkwPopEditorRange.GetWordNameForRegister
 
 function TkwPopEditorRange.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(IedRange);
 end;//TkwPopEditorRange.GetResultTypeInfo
 
 function TkwPopEditorRange.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopEditorRange.GetAllParamsCount
 
 function TkwPopEditorRange.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TevCustomEditor)]);
 end;//TkwPopEditorRange.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TTevCustomEditorWordsPackResNameGetter.Register;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_InsertTable
+ {* Регистрация скриптованой аксиоматики }
  TkwPopEditorInsertTable.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_InsertRow
+ {* Регистрация pop_Editor_InsertTable }
  TkwPopEditorInsertRow.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_DeleteRow
+ {* Регистрация pop_Editor_InsertRow }
  TkwPopEditorDeleteRow.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_InsertColumn
+ {* Регистрация pop_Editor_DeleteRow }
  TkwPopEditorInsertColumn.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_DeleteColumn
+ {* Регистрация pop_Editor_InsertColumn }
  TkwPopEditorDeleteColumn.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_MergeCells
+ {* Регистрация pop_Editor_DeleteColumn }
  TkwPopEditorMergeCells.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_SplitCell
+ {* Регистрация pop_Editor_MergeCells }
  TkwPopEditorSplitCell.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_SplitTable
+ {* Регистрация pop_Editor_SplitCell }
  TkwPopEditorSplitTable.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_MergeTables
+ {* Регистрация pop_Editor_SplitTable }
  TkwPopEditorMergeTables.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_InsertSectionBreak
+ {* Регистрация pop_Editor_MergeTables }
  TkwPopEditorInsertSectionBreak.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_PrevHyperlink
+ {* Регистрация pop_Editor_InsertSectionBreak }
  TkwPopEditorPrevHyperlink.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_NextHyperlink
+ {* Регистрация pop_Editor_PrevHyperlink }
  TkwPopEditorNextHyperlink.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_Editor_Range
+ {* Регистрация pop_Editor_NextHyperlink }
  TkwPopEditorRange.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_Editor_Range }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TevCustomEditor
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomEditor));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа TevCustomEditor }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TedMergeAlgorythm
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TedMergeAlgorythm));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа TedMergeAlgorythm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа PageOrientation
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevPageOrientation));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа IedRange
+ {* Регистрация типа PageOrientation }
  TtfwTypeRegistrator.RegisterType(TypeInfo(IedRange));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа IedRange }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -25,7 +25,7 @@ type
  _ItemType_ = TdtCustomDictItem;
  _l3UncomparabeObjectRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TdtDictItemsPrim = class(_l3UncomparabeObjectRefList_)
   {* Базовый список элементов словаря. }
  end;//TdtDictItemsPrim
@@ -77,7 +77,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TdtDictItemsPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

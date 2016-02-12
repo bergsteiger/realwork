@@ -5,7 +5,7 @@
 
 {$Define l3OtherTypedListView_imp}
 
- {$Include l3OtherListView.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas}
  _l3OtherTypedListView_ = class(_l3OtherListView_)
   protected
    function pm_GetItems(anIndex: Integer): _ItemType_;
@@ -21,7 +21,7 @@
 
 {$Define l3OtherTypedListView_imp_impl}
 
-{$Include l3OtherListView.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas}
 
 function _l3OtherTypedListView_.pm_GetItems(anIndex: Integer): _ItemType_;
 //#UC START# *4DEFC3FF0116_4DEFC3B90061get_var*

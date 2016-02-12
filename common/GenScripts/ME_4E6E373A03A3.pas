@@ -19,9 +19,9 @@ uses
 
 type
  _nevParaListTool_Parent_ = TevHotSpot;
- {$Include nevParaListTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  _evDecorHotSpotTester_Parent_ = _nevParaListTool_;
- {$Include evDecorHotSpotTester.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
  TevParaListHotSpotTesterPrim = class(_evDecorHotSpotTester_, InevHotSpotTester2)
   protected
    function GetChildHotSpot(const aView: InevControlView;
@@ -63,9 +63,9 @@ uses
 
 type _Instance_R_ = TevParaListHotSpotTesterPrim;
 
-{$Include nevParaListTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-{$Include evDecorHotSpotTester.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evDecorHotSpotTester.imp.pas}
 
 function TevParaListHotSpotTesterPrim.GetChildHotSpot(const aView: InevControlView;
  const aState: TevCursorState;

@@ -7,9 +7,9 @@
 
 {$If NOT Defined(NoScripts)}
  _Para2Point_Parent_ = _MouseClickOnPoint_Parent_;
- {$Include Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _HotSpotTools_Parent_ = _Para2Point_;
- {$Include HotSpotTools.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
  _MouseClickOnPoint_ = class(_HotSpotTools_)
   {* ўелчок мышью на точке в редакторе }
   protected
@@ -20,9 +20,9 @@
 {$Else NOT Defined(NoScripts)}
 
 _Para2Point_Parent_ = _MouseClickOnPoint_Parent_;
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 _HotSpotTools_Parent_ = _Para2Point_;
-{$Include HotSpotTools.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 _MouseClickOnPoint_ = _HotSpotTools_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -33,9 +33,9 @@ _MouseClickOnPoint_ = _HotSpotTools_;
 {$Define MouseClickOnPoint_imp_impl}
 
 {$If NOT Defined(NoScripts)}
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-{$Include HotSpotTools.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 
 procedure _MouseClickOnPoint_.ClickOnPoint(aText: TevCustomEditorWindow;
  aNeedMouseUp: Boolean);

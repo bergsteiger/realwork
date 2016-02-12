@@ -22,7 +22,7 @@ uses
 type
  _l3VariantListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3VariantListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas}
  Tk2DictionaryIDIndexPrim = class(_l3VariantListPrim_)
  end;//Tk2DictionaryIDIndexPrim
 
@@ -63,6 +63,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2DictionaryIDIndexPrim;
 
-{$Include l3VariantListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas}
 
 end.

@@ -21,7 +21,7 @@ type
 
  _FindDataType_ = Tl3DataAndSize;
  _l3Searcher_Parent_ = Tl3ProtoPtrRecListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3RecListWithPartialFind = class(_l3Searcher_)
   public
    function FindPart(aData;
@@ -52,7 +52,7 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3RecListWithPartialFind;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 function Tl3RecListWithPartialFind.FindPart(aData;
  aDataSize: Cardinal;

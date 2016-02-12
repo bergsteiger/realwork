@@ -24,7 +24,7 @@ type
  _ItemType_ = Il3Node;
  _l3InterfaceRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  Tl3NodeList = class(_l3InterfaceRefList_)
   {* Список узлов дерева. }
  end;//Tl3NodeList
@@ -41,6 +41,6 @@ uses
 
 type _Instance_R_ = Tl3NodeList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 end.

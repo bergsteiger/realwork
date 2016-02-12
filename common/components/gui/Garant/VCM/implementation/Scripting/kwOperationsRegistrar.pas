@@ -1,90 +1,61 @@
 unit kwOperationsRegistrar;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwOperationsRegistrar.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Scripting::Operations::TkwOperationsRegistrar
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwOperationsRegistrar.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  l3ProtoObject,
-  vcmOperationsManager,
-  vcmBaseOperationsCollectionItem,
-  vcmBaseEntitiesCollectionItem
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , l3ProtoObject
+ , vcmOperationsManager
+ , vcmBaseEntitiesCollectionItem
+ , vcmBaseOperationsCollectionItem
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
  TkwOperationsRegistrar = class(Tl3ProtoObject, IvcmOperationsRegistrar)
- protected
- // realized methods
+  protected
    procedure Register(anEn: TvcmBaseEntitiesCollectionItem;
-      anOp: TvcmBaseOperationsCollectionItem);
- public
- // public methods
+    anOp: TvcmBaseOperationsCollectionItem);
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwOperationsRegistrar;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TkwOperationsRegistrar }
  end;//TkwOperationsRegistrar
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  l3Base {a},
-  kwEntityOperation
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3ImplUses
+ , kwEntityOperation
+ , SysUtils
+ , l3Base
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-
-// start class TkwOperationsRegistrar
-
-var g_TkwOperationsRegistrar : TkwOperationsRegistrar = nil;
+var g_TkwOperationsRegistrar: TkwOperationsRegistrar = nil;
+ {* Экземпляр синглетона TkwOperationsRegistrar }
 
 procedure TkwOperationsRegistrarFree;
+ {* Метод освобождения экземпляра синглетона TkwOperationsRegistrar }
 begin
  l3Free(g_TkwOperationsRegistrar);
-end;
-
-class function TkwOperationsRegistrar.Instance: TkwOperationsRegistrar;
-begin
- if (g_TkwOperationsRegistrar = nil) then
- begin
-  l3System.AddExitProc(TkwOperationsRegistrarFree);
-  g_TkwOperationsRegistrar := Create;
- end;
- Result := g_TkwOperationsRegistrar;
-end;
-
+end;//TkwOperationsRegistrarFree
 
 class function TkwOperationsRegistrar.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TkwOperationsRegistrar <> nil;
 end;//TkwOperationsRegistrar.Exists
 
 procedure TkwOperationsRegistrar.Register(anEn: TvcmBaseEntitiesCollectionItem;
-  anOp: TvcmBaseOperationsCollectionItem);
+ anOp: TvcmBaseOperationsCollectionItem);
 //#UC START# *52A73C7103C7_52A73D1701B9_var*
 //#UC END# *52A73C7103C7_52A73D1701B9_var*
 begin
@@ -93,13 +64,21 @@ begin
 //#UC END# *52A73C7103C7_52A73D1701B9_impl*
 end;//TkwOperationsRegistrar.Register
 
-{$IfEnd} //not NoScripts AND not NoVCM
+class function TkwOperationsRegistrar.Instance: TkwOperationsRegistrar;
+ {* Метод получения экземпляра синглетона TkwOperationsRegistrar }
+begin
+ if (g_TkwOperationsRegistrar = nil) then
+ begin
+  l3System.AddExitProc(TkwOperationsRegistrarFree);
+  g_TkwOperationsRegistrar := Create;
+ end;
+ Result := g_TkwOperationsRegistrar;
+end;//TkwOperationsRegistrar.Instance
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 //#UC START# *52A73D57020D*
  TvcmOperationsManager.Instance.Registrar := TkwOperationsRegistrar.Instance;
 //#UC END# *52A73D57020D*
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

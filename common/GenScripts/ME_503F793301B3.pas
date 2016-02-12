@@ -12,7 +12,7 @@ uses
 type
  _FirstType_ = AnsiString;
  _SecondType_ = AnsiString;
- {$Include atConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
  TatStringToStringConverterBase = {abstract} class(_atConverter_)
   public
    function FirstToSecondCI(const aFirst: _FirstType_): _SecondType_; virtual;
@@ -26,7 +26,7 @@ uses
  , TypInfo
 ;
 
-{$Include atConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
 
 function TatStringToStringConverterBase.FirstToSecondCI(const aFirst: _FirstType_): _SecondType_;
 //#UC START# *503F7A2601F6_503F793301B3_var*

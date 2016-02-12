@@ -1,56 +1,42 @@
 unit kwCompiledCheckWithEtalon;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwCompiledCheckWithEtalon.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TkwCompiledCheckWithEtalon
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledCheckWithEtalon.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwCompiledWordWorker,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces,
-  nevTools,
-  nevShapesPaintedSpy
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwCompiledWordWorker
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+ , nevShapesPaintedSpy
+;
 
-{$If not defined(NoScripts)}
 type
  _kwCheckWithEtalonCommon_Parent_ = TkwCompiledWordWorker;
- {$Include ..\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}
  TkwCompiledCheckWithEtalon = class(_kwCheckWithEtalonCommon_)
- protected
- // realized methods
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    procedure DoRepaint(aText: TevCustomEditorWindow); override;
  end;//TkwCompiledCheckWithEtalon
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  SysUtils,
-  StrUtils
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , SysUtils
+ , StrUtils
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}
-
-// start class TkwCompiledCheckWithEtalon
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas}
 
 procedure TkwCompiledCheckWithEtalon.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_50F3D22D007B_var*
@@ -80,12 +66,9 @@ begin
 //#UC END# *4EB100CE0160_50F3D22D007B_impl*
 end;//TkwCompiledCheckWithEtalon.DoRepaint
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwCompiledCheckWithEtalon
  TkwCompiledCheckWithEtalon.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwCompiledCheckWithEtalon }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -6,7 +6,7 @@
 {$Define nsNodeNotifierImplementation_imp}
 
  _nsNodeNotifierBase_Parent_ = _nsNodeNotifierImplementation_Parent_;
- {$Include nsNodeNotifierBase.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierBase.imp.pas}
  _nsNodeNotifierImplementation_ = class(_nsNodeNotifierBase_, INodeNotifier)
   protected
    procedure OldChanging;
@@ -42,7 +42,7 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
 
 {$Define nsNodeNotifierImplementation_imp_impl}
 
-{$Include nsNodeNotifierBase.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierBase.imp.pas}
 
 procedure _nsNodeNotifierImplementation_.OldChanging;
 //#UC START# *48FDAA2000B3_48FDA9D500E4_var*

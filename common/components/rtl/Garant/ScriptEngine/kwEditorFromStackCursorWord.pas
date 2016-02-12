@@ -1,73 +1,58 @@
 unit kwEditorFromStackCursorWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwEditorFromStackCursorWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TkwEditorFromStackCursorWord
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces,
-  kwEditorFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
  _kwEditorFromStackCursorWordUses_Parent_ = TkwEditorFromStackWord;
- {$Include ..\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas}
  TkwEditorFromStackCursorWord = {abstract} class(_kwEditorFromStackCursorWordUses_)
- protected
- // realized methods
-   procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // protected methods
+  protected
    procedure DoCursor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPoint: InevBasePoint); virtual; abstract;
+    anEditor: TevCustomEditorWindow;
+    const aPoint: InevBasePoint); virtual; abstract;
+   procedure DoWithEditor(const aCtx: TtfwContext;
+    anEditor: TevCustomEditorWindow); override;
  end;//TkwEditorFromStackCursorWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  TextPara_Const,
-  CommentPara_Const,
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If defined(k2ForEditor)}
-  ,
-  evParaTools
-  {$IfEnd} //k2ForEditor
-  ,
-  evOp
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , TextPara_Const
+ , CommentPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(k2ForEditor)}
+ , evParaTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , evOp
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas}
-
-// start class TkwEditorFromStackCursorWord
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas}
 
 procedure TkwEditorFromStackCursorWord.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_50B88DF40154_var*
 //#UC END# *4F4CB81200CA_50B88DF40154_var*
 begin
@@ -78,12 +63,9 @@ begin
 //#UC END# *4F4CB81200CA_50B88DF40154_impl*
 end;//TkwEditorFromStackCursorWord.DoWithEditor
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwEditorFromStackCursorWord
  TkwEditorFromStackCursorWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwEditorFromStackCursorWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

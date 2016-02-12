@@ -12,7 +12,7 @@ uses
 
 type
  _EnumType_ = TListNodeType;
- {$Include atEnumConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
  TatListNodeTypeConverter = class(_atEnumConverter_)
   public
    class function Exists: Boolean;
@@ -39,7 +39,7 @@ begin
  l3Free(g_TatListNodeTypeConverter);
 end;//TatListNodeTypeConverterFree
 
-{$Include atEnumConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
 class function TatListNodeTypeConverter.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

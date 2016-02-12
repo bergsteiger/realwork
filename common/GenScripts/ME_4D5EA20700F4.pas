@@ -25,7 +25,7 @@ type
  _ItemType_ = TvgObject;
  _l3PtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3PtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
  TvgObjectList = class(_l3PtrList_)
   {* Списсок указателей на объект. НИЧЕГО не освобождает }
  end;//TvgObjectList
@@ -86,7 +86,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvgObjectList;
 
-{$Include l3PtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
 {$IfEnd} // NOT Defined(NoVGScene)
 
 end.

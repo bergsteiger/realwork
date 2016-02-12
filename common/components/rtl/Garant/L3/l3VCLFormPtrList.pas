@@ -26,7 +26,7 @@ type
  _ItemType_ = TCustomForm;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  Tl3VCLFormPtrList = class(_l3ObjectPtrList_)
   {* Список УКАЗАТЕЛЕЙ на формы VCL }
  end;//Tl3VCLFormPtrList
@@ -43,6 +43,6 @@ uses
 
 type _Instance_R_ = Tl3VCLFormPtrList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 end.

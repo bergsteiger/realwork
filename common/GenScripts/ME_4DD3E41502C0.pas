@@ -25,7 +25,7 @@ type
  _ItemType_ = Tl3ProtoPersistent;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tl3ProtoPersistentRefList = class(_l3UncomparabeObjectRefList_)
  end;//Tl3ProtoPersistentRefList
 
@@ -68,6 +68,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ProtoPersistentRefList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

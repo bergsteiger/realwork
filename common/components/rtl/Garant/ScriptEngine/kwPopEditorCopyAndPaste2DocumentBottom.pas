@@ -1,59 +1,52 @@
 unit kwPopEditorCopyAndPaste2DocumentBottom;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorCopyAndPaste2DocumentBottom.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_CopyAndPaste2DocumentBottom
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCopyAndPaste2DocumentBottom.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
  _ClipboardOperations_Parent_ = TkwEditorFromStackWord;
- {$Include ..\ScriptEngine\ClipboardOperations.imp.pas}
- TkwPopEditorCopyAndPaste2DocumentBottom = {scriptword} class(_ClipboardOperations_)
- protected
- // realized methods
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
+ TkwPopEditorCopyAndPaste2DocumentBottom = class(_ClipboardOperations_)
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorCopyAndPaste2DocumentBottom
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Base,
-  evOp,
-  l3InternalInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , l3Base
+ , evOp
+ , l3InternalInterfaces
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\ClipboardOperations.imp.pas}
-
-// start class TkwPopEditorCopyAndPaste2DocumentBottom
+{$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
 procedure TkwPopEditorCopyAndPaste2DocumentBottom.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4E2835DE00FD_var*
 //#UC END# *4F4CB81200CA_4E2835DE00FD_var*
 begin
@@ -63,17 +56,13 @@ begin
 end;//TkwPopEditorCopyAndPaste2DocumentBottom.DoWithEditor
 
 class function TkwPopEditorCopyAndPaste2DocumentBottom.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:CopyAndPaste2DocumentBottom';
 end;//TkwPopEditorCopyAndPaste2DocumentBottom.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_CopyAndPaste2DocumentBottom
  TkwPopEditorCopyAndPaste2DocumentBottom.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_CopyAndPaste2DocumentBottom }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -19,9 +19,9 @@ uses
 
 type
  _CursorMover_Parent_ = TDrawTest;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  _ScrollSupport_Parent_ = _CursorMover_;
- {$Include ScrollSupport.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas}
  TScrollByArrowAndCheckShapesTest = {abstract} class(_ScrollSupport_)
   {* Прокрутить стрелкой до определенной позиции и сравнить "картинку". }
   protected
@@ -57,9 +57,9 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-{$Include ScrollSupport.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas}
 
 function TScrollByArrowAndCheckShapesTest.GetFolder: AnsiString;
  {* Папка в которую входит тест }

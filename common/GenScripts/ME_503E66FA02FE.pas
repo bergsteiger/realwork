@@ -5,7 +5,7 @@
 
 {$Define atEnumToEnumConverter_imp}
 
- {$Include atConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
  _atEnumToEnumConverter_ = class(_atConverter_)
   public
    function FirstToSecond(const aFirstOrd: Integer): _SecondType_; overload; virtual;
@@ -18,7 +18,7 @@
 
 {$Define atEnumToEnumConverter_imp_impl}
 
-{$Include atConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}
 
 function _atEnumToEnumConverter_.FirstToSecond(const aFirstOrd: Integer): _SecondType_;
 //#UC START# *503E671B03A4_503E66FA02FE_var*

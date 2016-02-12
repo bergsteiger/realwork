@@ -7,7 +7,7 @@
 
  _X_ = InevPara;
  _nevParaXTool_Parent_ = _nevParaTool_Parent_;
- {$Include nevParaXTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas}
  _nevParaTool_ = class(_nevParaXTool_)
   {* Инструмент для InevPara }
  end;//_nevParaTool_
@@ -18,7 +18,7 @@
 
 {$Define nevParaTool_imp_impl}
 
-{$Include nevParaXTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas}
 
 {$EndIf nevParaTool_imp_impl}
 

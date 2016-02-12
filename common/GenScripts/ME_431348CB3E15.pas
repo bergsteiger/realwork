@@ -4,7 +4,7 @@ unit ReleasetoK;
 // Модуль: "w:\common\components\DailyTest\ReleasetoK.pas"
 // Стереотип: "TestResults"
 
-{$Include DailyTest.inc}
+{$Include w:\common\components\DailyTest\DailyTest.inc}
 
 interface
 

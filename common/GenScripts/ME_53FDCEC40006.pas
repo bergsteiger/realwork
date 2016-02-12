@@ -8,7 +8,7 @@
  // _HeaderType_
 
  _m3HeaderIDSupplier_Parent_ = Tm3BaseHeaderStream;
- {$Include m3HeaderIDSupplier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3HeaderIDSupplier.imp.pas}
  _m3CustomHeaderStream_ = class(_m3HeaderIDSupplier_)
   {* Поток с заголовком-идентификатором }
   private
@@ -35,7 +35,7 @@
 
 {$Define m3CustomHeaderStream_imp_impl}
 
-{$Include m3HeaderIDSupplier.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3HeaderIDSupplier.imp.pas}
 
 constructor _m3CustomHeaderStream_.Create(const aStream: IStream;
  aAccess: Integer);

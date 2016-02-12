@@ -20,7 +20,7 @@ type
  {$Define l3Unknown_NoIUnknown}
  //#UC END# *53E49235000Bci*
  _l3Unknown_Parent_ = TGauge;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *53E49235000Bcit*
  //#UC END# *53E49235000Bcit*
  TvtGauge = class(_l3Unknown_)
@@ -46,7 +46,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure TvtGauge.Free(var Dummy: Integer);
  {* Для ловли Free }

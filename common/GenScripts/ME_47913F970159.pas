@@ -6,7 +6,7 @@
 {$Define l3Unknown_imp}
 
  _l3UnknownPrim_Parent_ = _l3Unknown_Parent_;
- {$Include l3UnknownPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UnknownPrim.imp.pas}
  _l3Unknown_ = class(_l3UnknownPrim_)
   {* ¬ этом классе собираем методы, которые запрещено перекрывать и вызывать напр€мую. }
   public
@@ -23,7 +23,7 @@
 
 {$Define l3Unknown_imp_impl}
 
-{$Include l3UnknownPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UnknownPrim.imp.pas}
 
 class function _l3Unknown_.NewInstance: TObject;
 //#UC START# *47913FE900A2_47913F970159_var*

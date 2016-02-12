@@ -28,7 +28,7 @@ type
  _ItemType_ = Tk2ChildrenPath;
  _l3UncomparabeObjectRefList_Parent_ = Tl3DataContainerWithoutIUnknownPrim;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  //#UC START# *47BD505E0344cit*
  //#UC END# *47BD505E0344cit*
  Tk2ChildrenPathListPrim = class(_l3UncomparabeObjectRefList_)
@@ -77,7 +77,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2ChildrenPathListPrim;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 //#UC START# *47BD505E0344impl*
 //#UC END# *47BD505E0344impl*

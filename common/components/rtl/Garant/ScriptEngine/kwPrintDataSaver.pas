@@ -1,58 +1,47 @@
 unit kwPrintDataSaver;
+ {* Парень умеющий сохранять результаты печати в файл. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPrintDataSaver.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::MixIns::TkwPrintDataSaver
-//
-// Парень умеющий сохранять результаты печати в файл.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPrintDataSaver.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND not defined(NoScripts)}
+{$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  afwInterfaces,
-  nevShapesPaintedSpy
-  {$If defined(nsTest)}
-  ,
-  afwPreviewPageSpy
-  {$IfEnd} //nsTest
-  ,
-  tfwScriptingInterfaces,
-  evCustomPrintDataSaver,
-  nevTools,
-  afwPreviewPage
-  ;
-{$IfEnd} //InsiderTest AND not NoScripts
+ l3IntfUses
+ , evCustomPrintDataSaver
+ , afwInterfaces
+ , nevShapesPaintedSpy
+ {$If Defined(nsTest)}
+ , afwPreviewPageSpy
+ {$IfEnd} // Defined(nsTest)
+ , tfwScriptingInterfaces
+ , nevTools
+ , afwPreviewPage
+;
 
-{$If defined(InsiderTest) AND not defined(NoScripts)}
 type
- TkwPrintDataSaver = class(TevCustomPrintDataSaver, IafwPreviewPanel, InevShapesLogger {$If defined(nsTest)}, IafwPagesLogger{$IfEnd} //nsTest
+ TkwPrintDataSaver = class(TevCustomPrintDataSaver, IafwPreviewPanel, InevShapesLogger{$If Defined(nsTest)}
+ , IafwPagesLogger
+ {$IfEnd} // Defined(nsTest)
  )
   {* Парень умеющий сохранять результаты печати в файл. }
- private
- // private fields
-   f_Context : TtfwContext;
-   f_Now : Cardinal;
-   f_CurrentOutput : AnsiString;
-   f_LogNumber : Integer;
-   f_Done : Boolean;
-   f_WasInit : Integer;
- private
- // private methods
+  private
+   f_Context: TtfwContext;
+   f_Now: Cardinal;
+   f_CurrentOutput: AnsiString;
+   f_LogNumber: Integer;
+   f_Done: Boolean;
+   f_WasInit: Integer;
+  private
    function PageFileName(aNumber: Integer;
-     aWidthNumber: Integer;
-     aCounter: Boolean;
-     anEtalon: Boolean): AnsiString;
+    aWidthNumber: Integer;
+    aCounter: Boolean;
+    anEtalon: Boolean): AnsiString;
    procedure ClearFields;
- protected
- // realized methods
+  protected
    procedure SetCurrentPage(aValue: Integer);
    procedure Invalidate;
    procedure Done;
@@ -61,82 +50,61 @@ type
    function OpenLog(const aView: InevView): AnsiString;
    procedure CloseLog(const aLogName: AnsiString);
    function LogScreen(const aView: InevView): Boolean;
-    {$If defined(nsTest)}
+   {$If Defined(nsTest)}
    procedure LogPage(aPage: TafwPreviewPage;
-     aCounter: Boolean);
-    {$IfEnd} //nsTest
-   {$If defined(nsTest)}
+    aCounter: Boolean);
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    function ShouldStop: Boolean;
-   {$IfEnd} //nsTest
-   function GetPanel: IafwPreviewPanel; override;
-   procedure CheckResult; override;
-   function IsWaitingPrint: Boolean; override;
-    {$If defined(nsTest)}
+   {$IfEnd} // Defined(nsTest)
+   {$If Defined(nsTest)}
    procedure IncCounterPageNumer;
-    {$IfEnd} //nsTest
- protected
- // overridden protected methods
+   {$IfEnd} // Defined(nsTest)
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    procedure StartWaitingToPrint(const aCtx: TtfwContext);
    procedure EndWatingToPrint;
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function GetPanel: IafwPreviewPanel; override;
+   procedure CheckResult; override;
+   function IsWaitingPrint: Boolean; override;
    class function Instance: TkwPrintDataSaver;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TkwPrintDataSaver }
  end;//TkwPrintDataSaver
-{$IfEnd} //InsiderTest AND not NoScripts
+{$IfEnd} // Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND not defined(NoScripts)}
+{$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
-  l3Base {a},
-  SysUtils,
-  l3String
-  {$If not defined(NoImageEn)}
-  ,
-  imageenio
-  {$IfEnd} //not NoImageEn
-  ,
-  Graphics,
-  Classes,
-  l3FileUtils,
-  Windows
-  ;
-{$IfEnd} //InsiderTest AND not NoScripts
+ l3ImplUses
+ , SysUtils
+ , l3String
+ {$If NOT Defined(NoImageEn)}
+ , imageenio
+ {$IfEnd} // NOT Defined(NoImageEn)
+ , Graphics
+ , Classes
+ , l3FileUtils
+ , Windows
+ , l3Base
+;
 
-{$If defined(InsiderTest) AND not defined(NoScripts)}
-
-
-// start class TkwPrintDataSaver
-
-var g_TkwPrintDataSaver : TkwPrintDataSaver = nil;
+var g_TkwPrintDataSaver: TkwPrintDataSaver = nil;
+ {* Экземпляр синглетона TkwPrintDataSaver }
 
 procedure TkwPrintDataSaverFree;
+ {* Метод освобождения экземпляра синглетона TkwPrintDataSaver }
 begin
  l3Free(g_TkwPrintDataSaver);
-end;
-
-class function TkwPrintDataSaver.Instance: TkwPrintDataSaver;
-begin
- if (g_TkwPrintDataSaver = nil) then
- begin
-  l3System.AddExitProc(TkwPrintDataSaverFree);
-  g_TkwPrintDataSaver := Create;
- end;
- Result := g_TkwPrintDataSaver;
-end;
-
+end;//TkwPrintDataSaverFree
 
 function TkwPrintDataSaver.PageFileName(aNumber: Integer;
-  aWidthNumber: Integer;
-  aCounter: Boolean;
-  anEtalon: Boolean): AnsiString;
+ aWidthNumber: Integer;
+ aCounter: Boolean;
+ anEtalon: Boolean): AnsiString;
 //#UC START# *4F0D866C01AA_4F72AE860228_var*
 var
  l_Et : AnsiString;
@@ -217,7 +185,7 @@ begin
 end;//TkwPrintDataSaver.EndWatingToPrint
 
 class function TkwPrintDataSaver.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TkwPrintDataSaver <> nil;
 end;//TkwPrintDataSaver.Exists
@@ -336,9 +304,9 @@ begin
 //#UC END# *4CACAF4F008D_4F72AE860228_impl*
 end;//TkwPrintDataSaver.LogScreen
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 procedure TkwPrintDataSaver.LogPage(aPage: TafwPreviewPage;
-  aCounter: Boolean);
+ aCounter: Boolean);
 //#UC START# *4CB6E39A019E_4F72AE860228_var*
 var
  l_EN  : AnsiString;
@@ -394,9 +362,9 @@ begin
  end;//not IsWritingToK
 //#UC END# *4CB6E39A019E_4F72AE860228_impl*
 end;//TkwPrintDataSaver.LogPage
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 function TkwPrintDataSaver.ShouldStop: Boolean;
 //#UC START# *4DDE0F5C0097_4F72AE860228_var*
 //#UC END# *4DDE0F5C0097_4F72AE860228_var*
@@ -408,7 +376,7 @@ begin
   Result := False;
 //#UC END# *4DDE0F5C0097_4F72AE860228_impl*
 end;//TkwPrintDataSaver.ShouldStop
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 function TkwPrintDataSaver.GetPanel: IafwPreviewPanel;
 //#UC START# *4F72F9CD022D_4F72AE860228_var*
@@ -438,7 +406,7 @@ begin
 //#UC END# *4F7967A8006B_4F72AE860228_impl*
 end;//TkwPrintDataSaver.IsWaitingPrint
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 procedure TkwPrintDataSaver.IncCounterPageNumer;
 //#UC START# *51ADB60602BB_4F72AE860228_var*
 //#UC END# *51ADB60602BB_4F72AE860228_var*
@@ -446,9 +414,21 @@ begin
 //#UC START# *51ADB60602BB_4F72AE860228_impl*
 //#UC END# *51ADB60602BB_4F72AE860228_impl*
 end;//TkwPrintDataSaver.IncCounterPageNumer
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
+
+class function TkwPrintDataSaver.Instance: TkwPrintDataSaver;
+ {* Метод получения экземпляра синглетона TkwPrintDataSaver }
+begin
+ if (g_TkwPrintDataSaver = nil) then
+ begin
+  l3System.AddExitProc(TkwPrintDataSaverFree);
+  g_TkwPrintDataSaver := Create;
+ end;
+ Result := g_TkwPrintDataSaver;
+end;//TkwPrintDataSaver.Instance
 
 procedure TkwPrintDataSaver.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F72AE860228_var*
 //#UC END# *479731C50290_4F72AE860228_var*
 begin
@@ -458,13 +438,10 @@ begin
 //#UC END# *479731C50290_4F72AE860228_impl*
 end;//TkwPrintDataSaver.Cleanup
 
-{$IfEnd} //InsiderTest AND not NoScripts
-
 initialization
-{$If defined(InsiderTest) AND not defined(NoScripts)}
 //#UC START# *4F743764030D*
  TevCustomPrintDataSaver.SetPrintDataSaver(TkwPrintDataSaver.Instance);
 //#UC END# *4F743764030D*
-{$IfEnd} //InsiderTest AND not NoScripts
+{$IfEnd} // Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

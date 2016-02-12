@@ -9,7 +9,7 @@ const
  cItemSize = SizeOf(_ItemType_);
 
  _l3Items_Parent_ = _l3TypedListPrim_Parent_;
- {$Include l3Items.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
  _l3TypedListPrim_ = {abstract} class(_l3Items_)
   private
    {$If Defined(l3Items_HasCustomSort) AND NOT Defined(l3Items_NoSort)}
@@ -142,7 +142,7 @@ begin
 //#UC END# *47BEDF2A02EA_47A74A5F0123_impl*
 end;//GetItemSlot
 
-{$Include l3Items.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
 
 function _l3TypedListPrim_.pm_GetLast: _ItemType_;
 //#UC START# *47AAC9AF02F5_47A74A5F0123get_var*

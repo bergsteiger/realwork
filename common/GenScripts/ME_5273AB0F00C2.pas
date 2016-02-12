@@ -25,9 +25,9 @@ type
  _ItemType_ = Tk2Type;
  _l3UnrefcountedList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UnrefcountedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
  _l3OpenArray_Parent_ = _l3UnrefcountedList_;
- {$Include l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  Tk2TypesByHandleList = class(_l3OpenArray_)
  end;//Tk2TypesByHandleList
 
@@ -54,8 +54,8 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2TypesByHandleList;
 
-{$Include l3UnrefcountedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
 
-{$Include l3OpenArray.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
 
 end.

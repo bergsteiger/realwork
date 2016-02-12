@@ -31,7 +31,7 @@ type
  //#UC END# *47AC67EA00B9ci*
  _l3VariantListPrim_Parent_ = Tk2ListTag;
  {$Define l3Items_IsProto}
- {$Include l3VariantListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas}
  //#UC START# *47AC67EA00B9cit*
  //#UC END# *47AC67EA00B9cit*
  Tk2TagListPrim = class(_l3VariantListPrim_)
@@ -89,7 +89,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2TagListPrim;
 
-{$Include l3VariantListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function Tk2TagListPrim.IsCacheable: Boolean;

@@ -13,7 +13,7 @@ uses
 
 type
  _atHasStringParamAddOn_Parent_ = TatOperationBase;
- {$Include atHasStringParamAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
  TatFiltrateTreeOperation = class(_atHasStringParamAddOn_)
   protected
    function OnString(const aString: AnsiString): Boolean; override;
@@ -36,7 +36,7 @@ uses
  , atConstStringProvider
 ;
 
-{$Include atHasStringParamAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
 
 function TatFiltrateTreeOperation.OnString(const aString: AnsiString): Boolean;
 //#UC START# *503648620273_503B7D18032C_var*

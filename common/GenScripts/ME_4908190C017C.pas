@@ -19,7 +19,7 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = Tl3CacheableBase;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TnsDictCachePrim = class(_afwApplicationDataUpdate_)
   private
    f_AvailableLangs: TnsLangList;
@@ -63,7 +63,7 @@ uses
  , afwFacade
 ;
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 function TnsDictCachePrim.pm_GetRoot: INodeBase;
 //#UC START# *490819DA005E_4908190C017Cget_var*

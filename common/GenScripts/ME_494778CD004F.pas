@@ -7,7 +7,7 @@
 
 {$If NOT Defined(NoVCM)}
  _InitDataType_ = IUnknown;
- {$Include vcmFormSetDataSourceWithoutData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
  _vcmTinyUseCaseController_ = class(_vcmFormSetDataSourceWithoutData_)
   {*  онтролер прецедента без вс€ких данных }
   public
@@ -17,7 +17,7 @@
 
 {$Else NOT Defined(NoVCM)}
 
-{$Include vcmFormSetDataSourceWithoutData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 _vcmTinyUseCaseController_ = _vcmFormSetDataSourceWithoutData_;
 
 {$IfEnd} // NOT Defined(NoVCM)
@@ -28,7 +28,7 @@ _vcmTinyUseCaseController_ = _vcmFormSetDataSourceWithoutData_;
 {$Define vcmTinyUseCaseController_imp_impl}
 
 {$If NOT Defined(NoVCM)}
-{$Include vcmFormSetDataSourceWithoutData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
 constructor _vcmTinyUseCaseController_.Create;
 //#UC START# *4947799403BE_494778CD004F_var*

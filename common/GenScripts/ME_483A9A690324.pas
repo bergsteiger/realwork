@@ -13,7 +13,7 @@ uses
 
 type
  _HistoryStoredObject_ = IDynList;
- {$Include atObjectHistory.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas}
  TatListHistory = class(_atObjectHistory_)
  end;//TatListHistory
 
@@ -23,6 +23,6 @@ uses
  l3ImplUses
 ;
 
-{$Include atObjectHistory.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas}
 
 end.

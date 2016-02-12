@@ -1,41 +1,32 @@
 unit kwPopEditorSelectColumn;
+ {* *Формат:* aColID anEditorControl pop:editor:SelectCells
+*Описание:* Выделяет колонку таблицы. Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aColID - Integer
+*Пример:*
+[code] 
+2 focused:control:push pop:editor:SelectCells
+[code] 
+*Результат:* Выделяет вторую колонку. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorSelectColumn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_SelectColumn
-//
-// *Формат:* aColID anEditorControl pop:editor:SelectCells
-// *Описание:* Выделяет колонку таблицы. Курсор должен уже находится в таблице. Положение курсора в
-// таблице не имеет значения. Параметры aColID - Integer
-// *Пример:*
-// {code}
-// 2 focused:control:push pop:editor:SelectCells
-// {code}
-// *Результат:* Выделяет вторую колонку.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectColumn.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  nevTools,
-  tfwScriptingInterfaces,
-  evCustomEditorWindow
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
  _kwEditorGetTableFromCursor_Parent_ = TkwEditorFromStackWord;
- {$Include ..\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
- TkwPopEditorSelectColumn = {final scriptword} class(_kwEditorGetTableFromCursor_)
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
+ TkwPopEditorSelectColumn = {final} class(_kwEditorGetTableFromCursor_)
   {* *Формат:* aColID anEditorControl pop:editor:SelectCells
 *Описание:* Выделяет колонку таблицы. Курсор должен уже находится в таблице. Положение курсора в таблице не имеет значения. Параметры aColID - Integer
 *Пример:*
@@ -43,38 +34,28 @@ type
 2 focused:control:push pop:editor:SelectCells
 [code] 
 *Результат:* Выделяет вторую колонку. }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorSelectColumn
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  Table_Const
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , Table_Const
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
-
-// start class TkwPopEditorSelectColumn
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
 
 procedure TkwPopEditorSelectColumn.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4F548EC7007E_var*
 var
  l_ColID      : Integer;
@@ -92,17 +73,13 @@ begin
 end;//TkwPopEditorSelectColumn.DoWithEditor
 
 class function TkwPopEditorSelectColumn.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:SelectColumn';
 end;//TkwPopEditorSelectColumn.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_SelectColumn
  TkwPopEditorSelectColumn.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_SelectColumn }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

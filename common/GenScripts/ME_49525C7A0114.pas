@@ -19,7 +19,7 @@ uses
 
 type
  _vcmComponentDestroyer_Parent_ = TvcmMainFormModelPart;
- {$Include vcmComponentDestroyer.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
  TvcmMainForm = class(_vcmComponentDestroyer_, IafwMainForm, IvcmContainerMaker)
   {* Базовый класс для главной формы приложения построенного на библиотеке vcm }
   protected
@@ -62,7 +62,7 @@ uses
 
 type _Instance_R_ = TvcmMainForm;
 
-{$Include vcmComponentDestroyer.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
 
 function TvcmMainForm.DoMakeClone(aNeedShow: Boolean): TvcmMainForm;
 //#UC START# *537DB1C100A8_49525C7A0114_var*

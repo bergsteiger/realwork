@@ -1,78 +1,61 @@
 unit kwPopEditorPrintTableCellsParams;
+ {* *‘ормат:* anEditorControl pop:editor:PrintTableCellsParams
+*ќписание:* ѕечатает структуру информацию €чеек таблицы: тип объединени€, если объединенна€, то номер €чейки в строке сверху, номер €чейки в строке снизу и номер начальной €чейки/номер строки, где эта €чейка. –езультат выводитс€ в обычный файл вывода результатов.
+*ѕример:*
+[code] 
+focused:control:push pop:editor:PrintTableCellsParams
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Ѕиблиотека "ScriptEngine$Everest"
-// ћодуль: "kwPopEditorPrintTableCellsParams.pas"
-// –одные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_PrintTableCellsParams
-//
-// *‘ормат:* anEditorControl pop:editor:PrintTableCellsParams
-// *ќписание:* ѕечатает структуру информацию €чеек таблицы: тип объединени€, если объединенна€, то
-// номер €чейки в строке сверху, номер €чейки в строке снизу и номер начальной €чейки/номер строки,
-// где эта €чейка. –езультат выводитс€ в обычный файл вывода результатов.
-// *ѕример:*
-// {code}
-// focused:control:push pop:editor:PrintTableCellsParams
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ћодуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintTableCellsParams.pas"
+// —тереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  nevTools,
-  tfwScriptingInterfaces,
-  evCustomEditorWindow
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
  _kwEditorGetTableFromCursor_Parent_ = TkwEditorFromStackWord;
- {$Include ..\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
- TkwPopEditorPrintTableCellsParams = {final scriptword} class(_kwEditorGetTableFromCursor_)
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
+ TkwPopEditorPrintTableCellsParams = {final} class(_kwEditorGetTableFromCursor_)
   {* *‘ормат:* anEditorControl pop:editor:PrintTableCellsParams
 *ќписание:* ѕечатает структуру информацию €чеек таблицы: тип объединени€, если объединенна€, то номер €чейки в строке сверху, номер €чейки в строке снизу и номер начальной €чейки/номер строки, где эта €чейка. –езультат выводитс€ в обычный файл вывода результатов.
 *ѕример:*
 [code] 
 focused:control:push pop:editor:PrintTableCellsParams
 [code] }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorPrintTableCellsParams
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevBase,
-  nevFormatInfoUtils,
-  l3Base,
-  SysUtils,
-  nevFacade,
-  Table_Const
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , nevBase
+ , nevFormatInfoUtils
+ , l3Base
+ , SysUtils
+ , nevFacade
+ , Table_Const
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
-
-// start class TkwPopEditorPrintTableCellsParams
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
 
 procedure TkwPopEditorPrintTableCellsParams.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_5028D0B602D0_var*
 var
  l_TableFI: TnevFormatInfoPrim;
@@ -126,17 +109,13 @@ begin
 end;//TkwPopEditorPrintTableCellsParams.DoWithEditor
 
 class function TkwPopEditorPrintTableCellsParams.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:PrintTableCellsParams';
 end;//TkwPopEditorPrintTableCellsParams.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// –егистраци€ pop_editor_PrintTableCellsParams
  TkwPopEditorPrintTableCellsParams.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* –егистраци€ pop_editor_PrintTableCellsParams }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

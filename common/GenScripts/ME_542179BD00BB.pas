@@ -5,7 +5,7 @@
 
 {$Define m3PersistentList_imp}
 
- {$Include m3ListWithFind.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas}
  _m3PersistentList_ = class(_m3ListWithFind_)
   public
    procedure LoadFromStream(const aStream: IStream;
@@ -19,7 +19,7 @@
 
 {$Define m3PersistentList_imp_impl}
 
-{$Include m3ListWithFind.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3ListWithFind.imp.pas}
 
 procedure _m3PersistentList_.LoadFromStream(const aStream: IStream;
  aPosition: Int64);

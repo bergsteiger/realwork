@@ -38,7 +38,7 @@ uses
 ;
 
 type
- {$Include dsBaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas}
  TdsTipsDocument = class(_dsBaseDocument_)
   protected
    function GetIsReadOnly: Boolean; override;
@@ -75,7 +75,7 @@ uses
 
 type _Instance_R_ = TdsTipsDocument;
 
-{$Include dsBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas}
 
 function TdsTipsDocument.GetIsReadOnly: Boolean;
 //#UC START# *491C263E03AF_491D56370182_var*

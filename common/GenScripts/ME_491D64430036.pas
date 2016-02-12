@@ -6,11 +6,11 @@
 {$Define dsDocument_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include dsBaseDocumentPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
  _dsDocumentFromList_Parent_ = _dsBaseDocumentPrim_;
- {$Include dsDocumentFromList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
  _dsBaseSearchSupportQuery_Parent_ = _dsDocumentFromList_;
- {$Include dsBaseSearchSupportQuery.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
  _dsDocument_ = {abstract} class(_dsBaseSearchSupportQuery_, IdsDocument, IucbDocumentWithContents, IucbDocumentFromList, IucbBaseSearchSupportQuery)
   {* Бизнес объект формы "TextForm" }
   private
@@ -50,11 +50,11 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dsBaseDocumentPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 _dsDocumentFromList_Parent_ = _dsBaseDocumentPrim_;
-{$Include dsDocumentFromList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
 _dsBaseSearchSupportQuery_Parent_ = _dsDocumentFromList_;
-{$Include dsBaseSearchSupportQuery.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
 _dsDocument_ = _dsBaseSearchSupportQuery_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -65,11 +65,11 @@ _dsDocument_ = _dsBaseSearchSupportQuery_;
 {$Define dsDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dsBaseDocumentPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
-{$Include dsDocumentFromList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}
 
-{$Include dsBaseSearchSupportQuery.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}
 
 function _dsDocument_.As_IucbDocumentWithContents: IucbDocumentWithContents;
  {* Метод приведения нашего интерфейса к IucbDocumentWithContents }

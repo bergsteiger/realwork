@@ -18,7 +18,7 @@ uses
 
 type
  _nevDocumentContainerDecorationRules_Parent_ = TnevDocumentFormatInfo;
- {$Include nevDocumentContainerDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
  TnevRootFormatInfo = class(_nevDocumentContainerDecorationRules_, InevViewMetrics)
   private
    f_IsWebStyle: Boolean;
@@ -77,7 +77,7 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
 ;
 
-{$Include nevDocumentContainerDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
 
 constructor TnevRootFormatInfo.Create(const aView: InevView;
  aPool: TnevFormatPoolBase);

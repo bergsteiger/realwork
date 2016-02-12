@@ -14,7 +14,7 @@ uses
 
 type
  _atHasStringParamAddOn_Parent_ = TatOperationBase;
- {$Include atHasStringParamAddOn.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
  TatBaseSearchOperation = class(_atHasStringParamAddOn_)
   private
    f_SearchNumber: Integer;
@@ -37,7 +37,7 @@ uses
  , atConstStringProvider
 ;
 
-{$Include atHasStringParamAddOn.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}
 
 function TatBaseSearchOperation.OnString(const aString: AnsiString): Boolean;
 //#UC START# *503648620273_483D28C30393_var*

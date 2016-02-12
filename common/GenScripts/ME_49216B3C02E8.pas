@@ -29,7 +29,7 @@ uses
 ;
 
 type
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsConsultationMark = {final} class(_vcmFormDataSourcePrim_, IdsConsultationMark)
   {* БОС оценки консультации }
   private
@@ -66,7 +66,7 @@ uses
 
 type _Instance_R_ = TdsConsultationMark;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 procedure TdsConsultationMark.Send;
  {* послать оценку }

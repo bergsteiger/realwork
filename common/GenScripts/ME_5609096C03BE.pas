@@ -9,7 +9,7 @@
  //#UC END# *5609096C03BEci*
  _l3MapPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3MapPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3MapPrim.imp.pas}
  //#UC START# *5609096C03BEcit*
 type
  //#UC END# *5609096C03BEcit*
@@ -25,7 +25,7 @@ type
 
 {$Define l3Map_imp_impl}
 
-{$Include l3MapPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3MapPrim.imp.pas}
 
 //#UC START# *5609096C03BEimpl*
 //#UC END# *5609096C03BEimpl*

@@ -1,42 +1,33 @@
 unit kwCFPDF;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwCFPDF.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SchemaWords::CF_PDF
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFPDF.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwClipboardFormatWord,
-  evTypes
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwClipboardFormatWord
+ , evTypes
+;
 
-{$If not defined(NoScripts)}
 type
- TkwCFPDF = {final scriptword} class(TtfwClipboardFormatWord)
- protected
- // realized methods
+ TkwCFPDF = {final} class(TtfwClipboardFormatWord)
+  protected
    function GetFormat: TevFormat; override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwCFPDF
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwCFPDF
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 function TkwCFPDF.GetFormat: TevFormat;
 //#UC START# *54D231000227_5548AB5A0050_var*
@@ -48,17 +39,13 @@ begin
 end;//TkwCFPDF.GetFormat
 
 class function TkwCFPDF.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'CF_PDF';
 end;//TkwCFPDF.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация CF_PDF
  TkwCFPDF.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация CF_PDF }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

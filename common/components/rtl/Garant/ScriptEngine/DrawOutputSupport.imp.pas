@@ -1,49 +1,40 @@
 {$IfNDef DrawOutputSupport_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "DrawOutputSupport.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi::ScriptEngine$Everest::MixIns::DrawOutputSupport
-//
-// Поддержка сохранения информации об отрисованном в файл для последующего сравнение с эталоном.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define DrawOutputSupport_imp}
-{$If not defined(NoScripts)}
- _DrawOutputSupport_ = {mixin} class(_DrawOutputSupport_Parent_, InevShapesLogger)
+
+{$If NOT Defined(NoScripts)}
+ _DrawOutputSupport_ = class(_DrawOutputSupport_Parent_, InevShapesLogger)
   {* Поддержка сохранения информации об отрисованном в файл для последующего сравнение с эталоном. }
- private
- // private fields
-   f_Editor : TevCustomEditorWindow;
- protected
- // realized methods
-   function OpenLog(const aView: InevView): AnsiString;
-   procedure CloseLog(const aLogName: AnsiString);
-   function LogScreen(const aView: InevView): Boolean;
- protected
- // protected methods
+  private
+   f_Editor: TevCustomEditorWindow;
+  protected
    procedure SaveDrawing(const aText: TevCustomEditorWindow);
-     {* Сохранить информацию об отрисованном. }
+    {* Сохранить информацию об отрисованном. }
    procedure DoRepaint(aText: TevCustomEditorWindow); virtual;
    function DoOpenLog(const aView: InevView): AnsiString; virtual; abstract;
    procedure DoCloseLog(const aLogName: AnsiString); virtual; abstract;
+   function OpenLog(const aView: InevView): AnsiString;
+   procedure CloseLog(const aLogName: AnsiString);
+   function LogScreen(const aView: InevView): Boolean;
  end;//_DrawOutputSupport_
-{$Else}
 
- _DrawOutputSupport_ = _DrawOutputSupport_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_DrawOutputSupport_ = _DrawOutputSupport_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else DrawOutputSupport_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef DrawOutputSupport_imp_impl}
 
-// start class _DrawOutputSupport_
+{$Define DrawOutputSupport_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _DrawOutputSupport_.SaveDrawing(const aText: TevCustomEditorWindow);
+ {* Сохранить информацию об отрисованном. }
 //#UC START# *4E1C02500330_4E1C016B0011_var*
 //#UC END# *4E1C02500330_4E1C016B0011_var*
 begin
@@ -109,7 +100,9 @@ begin
    end;//try..finally
 //#UC END# *4CACAF4F008D_4E1C016B0011_impl*
 end;//_DrawOutputSupport_.LogScreen
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf DrawOutputSupport_imp_impl}
 
 {$EndIf DrawOutputSupport_imp}
+

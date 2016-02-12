@@ -717,12 +717,8 @@ begin
 end;//Tkw_Form_Text.GetWordNameForRegister
 
 function Tkw_Form_Text.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_54668E91A87D_var*
-//#UC END# *4DDFD2EA0116_54668E91A87D_var*
 begin
-//#UC START# *4DDFD2EA0116_54668E91A87D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_54668E91A87D_impl*
+ Result := 'TextForm';
 end;//Tkw_Form_Text.GetString
 
 class function Tkw_Text_Control_RemindersLine.GetWordNameForRegister: AnsiString;
@@ -731,21 +727,14 @@ begin
 end;//Tkw_Text_Control_RemindersLine.GetWordNameForRegister
 
 function Tkw_Text_Control_RemindersLine.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_052115F90E31_var*
-//#UC END# *4DDFD2EA0116_052115F90E31_var*
 begin
-//#UC START# *4DDFD2EA0116_052115F90E31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_052115F90E31_impl*
+ Result := 'RemindersLine';
 end;//Tkw_Text_Control_RemindersLine.GetString
 
 class procedure Tkw_Text_Control_RemindersLine.RegisterInEngine;
-//#UC START# *52A086150180_052115F90E31_var*
-//#UC END# *52A086150180_052115F90E31_var*
 begin
-//#UC START# *52A086150180_052115F90E31_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_052115F90E31_impl*
+ inherited;
+ TtfwClassRef.Register(TnscRemindersLine);
 end;//Tkw_Text_Control_RemindersLine.RegisterInEngine
 
 procedure Tkw_Text_Control_RemindersLine_Push.DoDoIt(const aCtx: TtfwContext);
@@ -768,21 +757,14 @@ begin
 end;//Tkw_Text_Control_WarnTimeMachineException.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnTimeMachineException.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_DEF6126800AA_var*
-//#UC END# *4DDFD2EA0116_DEF6126800AA_var*
 begin
-//#UC START# *4DDFD2EA0116_DEF6126800AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_DEF6126800AA_impl*
+ Result := 'WarnTimeMachineException';
 end;//Tkw_Text_Control_WarnTimeMachineException.GetString
 
 class procedure Tkw_Text_Control_WarnTimeMachineException.RegisterInEngine;
-//#UC START# *52A086150180_DEF6126800AA_var*
-//#UC END# *52A086150180_DEF6126800AA_var*
 begin
-//#UC START# *52A086150180_DEF6126800AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_DEF6126800AA_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnTimeMachineException.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnTimeMachineException_Push.DoDoIt(const aCtx: TtfwContext);
@@ -805,21 +787,14 @@ begin
 end;//Tkw_Text_Control_WarnIsAbolished.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnIsAbolished.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4B4C395CA1D9_var*
-//#UC END# *4DDFD2EA0116_4B4C395CA1D9_var*
 begin
-//#UC START# *4DDFD2EA0116_4B4C395CA1D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4B4C395CA1D9_impl*
+ Result := 'WarnIsAbolished';
 end;//Tkw_Text_Control_WarnIsAbolished.GetString
 
 class procedure Tkw_Text_Control_WarnIsAbolished.RegisterInEngine;
-//#UC START# *52A086150180_4B4C395CA1D9_var*
-//#UC END# *52A086150180_4B4C395CA1D9_var*
 begin
-//#UC START# *52A086150180_4B4C395CA1D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_4B4C395CA1D9_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnIsAbolished.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnIsAbolished_Push.DoDoIt(const aCtx: TtfwContext);
@@ -842,21 +817,14 @@ begin
 end;//Tkw_Text_Control_WarnPreActive.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnPreActive.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_19ABCBDFCC03_var*
-//#UC END# *4DDFD2EA0116_19ABCBDFCC03_var*
 begin
-//#UC START# *4DDFD2EA0116_19ABCBDFCC03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_19ABCBDFCC03_impl*
+ Result := 'WarnPreActive';
 end;//Tkw_Text_Control_WarnPreActive.GetString
 
 class procedure Tkw_Text_Control_WarnPreActive.RegisterInEngine;
-//#UC START# *52A086150180_19ABCBDFCC03_var*
-//#UC END# *52A086150180_19ABCBDFCC03_var*
 begin
-//#UC START# *52A086150180_19ABCBDFCC03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_19ABCBDFCC03_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnPreActive.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnPreActive_Push.DoDoIt(const aCtx: TtfwContext);
@@ -879,21 +847,14 @@ begin
 end;//Tkw_Text_Control_WarnTimeMachineWarning.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnTimeMachineWarning.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E8BFFCCDECA5_var*
-//#UC END# *4DDFD2EA0116_E8BFFCCDECA5_var*
 begin
-//#UC START# *4DDFD2EA0116_E8BFFCCDECA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E8BFFCCDECA5_impl*
+ Result := 'WarnTimeMachineWarning';
 end;//Tkw_Text_Control_WarnTimeMachineWarning.GetString
 
 class procedure Tkw_Text_Control_WarnTimeMachineWarning.RegisterInEngine;
-//#UC START# *52A086150180_E8BFFCCDECA5_var*
-//#UC END# *52A086150180_E8BFFCCDECA5_var*
 begin
-//#UC START# *52A086150180_E8BFFCCDECA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_E8BFFCCDECA5_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnTimeMachineWarning.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnTimeMachineWarning_Push.DoDoIt(const aCtx: TtfwContext);
@@ -916,21 +877,14 @@ begin
 end;//Tkw_Text_Control_WarnOnControl.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnOnControl.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_675AF2C45E1D_var*
-//#UC END# *4DDFD2EA0116_675AF2C45E1D_var*
 begin
-//#UC START# *4DDFD2EA0116_675AF2C45E1D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_675AF2C45E1D_impl*
+ Result := 'WarnOnControl';
 end;//Tkw_Text_Control_WarnOnControl.GetString
 
 class procedure Tkw_Text_Control_WarnOnControl.RegisterInEngine;
-//#UC START# *52A086150180_675AF2C45E1D_var*
-//#UC END# *52A086150180_675AF2C45E1D_var*
 begin
-//#UC START# *52A086150180_675AF2C45E1D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_675AF2C45E1D_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnOnControl.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnOnControl_Push.DoDoIt(const aCtx: TtfwContext);
@@ -953,21 +907,14 @@ begin
 end;//Tkw_Text_Control_WarnJuror.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnJuror.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_023CC16EEAB5_var*
-//#UC END# *4DDFD2EA0116_023CC16EEAB5_var*
 begin
-//#UC START# *4DDFD2EA0116_023CC16EEAB5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_023CC16EEAB5_impl*
+ Result := 'WarnJuror';
 end;//Tkw_Text_Control_WarnJuror.GetString
 
 class procedure Tkw_Text_Control_WarnJuror.RegisterInEngine;
-//#UC START# *52A086150180_023CC16EEAB5_var*
-//#UC END# *52A086150180_023CC16EEAB5_var*
 begin
-//#UC START# *52A086150180_023CC16EEAB5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_023CC16EEAB5_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnJuror.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnJuror_Push.DoDoIt(const aCtx: TtfwContext);
@@ -990,21 +937,14 @@ begin
 end;//Tkw_Text_Control_WarnRedaction.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnRedaction.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9FA2347EEFA1_var*
-//#UC END# *4DDFD2EA0116_9FA2347EEFA1_var*
 begin
-//#UC START# *4DDFD2EA0116_9FA2347EEFA1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9FA2347EEFA1_impl*
+ Result := 'WarnRedaction';
 end;//Tkw_Text_Control_WarnRedaction.GetString
 
 class procedure Tkw_Text_Control_WarnRedaction.RegisterInEngine;
-//#UC START# *52A086150180_9FA2347EEFA1_var*
-//#UC END# *52A086150180_9FA2347EEFA1_var*
 begin
-//#UC START# *52A086150180_9FA2347EEFA1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_9FA2347EEFA1_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnRedaction.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnRedaction_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1027,21 +967,14 @@ begin
 end;//Tkw_Text_Control_WarnInactualDocument.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnInactualDocument.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_24364DDE0BA9_var*
-//#UC END# *4DDFD2EA0116_24364DDE0BA9_var*
 begin
-//#UC START# *4DDFD2EA0116_24364DDE0BA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_24364DDE0BA9_impl*
+ Result := 'WarnInactualDocument';
 end;//Tkw_Text_Control_WarnInactualDocument.GetString
 
 class procedure Tkw_Text_Control_WarnInactualDocument.RegisterInEngine;
-//#UC START# *52A086150180_24364DDE0BA9_var*
-//#UC END# *52A086150180_24364DDE0BA9_var*
 begin
-//#UC START# *52A086150180_24364DDE0BA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_24364DDE0BA9_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnInactualDocument.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnInactualDocument_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1064,21 +997,14 @@ begin
 end;//Tkw_Text_Control_WarnTimeMachineOn.GetWordNameForRegister
 
 function Tkw_Text_Control_WarnTimeMachineOn.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_58E81681C256_var*
-//#UC END# *4DDFD2EA0116_58E81681C256_var*
 begin
-//#UC START# *4DDFD2EA0116_58E81681C256_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_58E81681C256_impl*
+ Result := 'WarnTimeMachineOn';
 end;//Tkw_Text_Control_WarnTimeMachineOn.GetString
 
 class procedure Tkw_Text_Control_WarnTimeMachineOn.RegisterInEngine;
-//#UC START# *52A086150180_58E81681C256_var*
-//#UC END# *52A086150180_58E81681C256_var*
 begin
-//#UC START# *52A086150180_58E81681C256_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_58E81681C256_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_Text_Control_WarnTimeMachineOn.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnTimeMachineOn_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1101,21 +1027,14 @@ begin
 end;//Tkw_Text_Control_SubPanel.GetWordNameForRegister
 
 function Tkw_Text_Control_SubPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CD43667354E1_var*
-//#UC END# *4DDFD2EA0116_CD43667354E1_var*
 begin
-//#UC START# *4DDFD2EA0116_CD43667354E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CD43667354E1_impl*
+ Result := 'SubPanel';
 end;//Tkw_Text_Control_SubPanel.GetString
 
 class procedure Tkw_Text_Control_SubPanel.RegisterInEngine;
-//#UC START# *52A086150180_CD43667354E1_var*
-//#UC END# *52A086150180_CD43667354E1_var*
 begin
-//#UC START# *52A086150180_CD43667354E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CD43667354E1_impl*
+ inherited;
+ TtfwClassRef.Register(TeeSubPanel);
 end;//Tkw_Text_Control_SubPanel.RegisterInEngine
 
 procedure Tkw_Text_Control_SubPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1138,21 +1057,14 @@ begin
 end;//Tkw_Text_Control_HScroll.GetWordNameForRegister
 
 function Tkw_Text_Control_HScroll.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_16902FCE5398_var*
-//#UC END# *4DDFD2EA0116_16902FCE5398_var*
 begin
-//#UC START# *4DDFD2EA0116_16902FCE5398_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_16902FCE5398_impl*
+ Result := 'HScroll';
 end;//Tkw_Text_Control_HScroll.GetString
 
 class procedure Tkw_Text_Control_HScroll.RegisterInEngine;
-//#UC START# *52A086150180_16902FCE5398_var*
-//#UC END# *52A086150180_16902FCE5398_var*
 begin
-//#UC START# *52A086150180_16902FCE5398_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_16902FCE5398_impl*
+ inherited;
+ TtfwClassRef.Register(TvtScrollBar);
 end;//Tkw_Text_Control_HScroll.RegisterInEngine
 
 procedure Tkw_Text_Control_HScroll_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1175,21 +1087,14 @@ begin
 end;//Tkw_Text_Control_Text.GetWordNameForRegister
 
 function Tkw_Text_Control_Text.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8F6A8A39D5FF_var*
-//#UC END# *4DDFD2EA0116_8F6A8A39D5FF_var*
 begin
-//#UC START# *4DDFD2EA0116_8F6A8A39D5FF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8F6A8A39D5FF_impl*
+ Result := 'Text';
 end;//Tkw_Text_Control_Text.GetString
 
 class procedure Tkw_Text_Control_Text.RegisterInEngine;
-//#UC START# *52A086150180_8F6A8A39D5FF_var*
-//#UC END# *52A086150180_8F6A8A39D5FF_var*
 begin
-//#UC START# *52A086150180_8F6A8A39D5FF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8F6A8A39D5FF_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_Text_Control_Text.RegisterInEngine
 
 procedure Tkw_Text_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1212,41 +1117,36 @@ begin
 end;//Tkw_Text_Component_TextSource.GetWordNameForRegister
 
 function Tkw_Text_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_571A9A0C7CA4_var*
-//#UC END# *4DDFD2EA0116_571A9A0C7CA4_var*
 begin
-//#UC START# *4DDFD2EA0116_571A9A0C7CA4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_571A9A0C7CA4_impl*
+ Result := 'TextSource';
 end;//Tkw_Text_Component_TextSource.GetString
 
 class procedure Tkw_Text_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_571A9A0C7CA4_var*
-//#UC END# *52A086150180_571A9A0C7CA4_var*
 begin
-//#UC START# *52A086150180_571A9A0C7CA4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_571A9A0C7CA4_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_Text_Component_TextSource.RegisterInEngine
 
 function TkwTextFormRemindersLine.RemindersLine(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscRemindersLine;
  {* Реализация слова скрипта .TTextForm.RemindersLine }
-//#UC START# *5C1B18ECBF63_90150A717339_var*
-//#UC END# *5C1B18ECBF63_90150A717339_var*
 begin
-//#UC START# *5C1B18ECBF63_90150A717339_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5C1B18ECBF63_90150A717339_impl*
+ Result := aTextForm.RemindersLine;
 end;//TkwTextFormRemindersLine.RemindersLine
 
 procedure TkwTextFormRemindersLine.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_90150A717339_var*
-//#UC END# *4DAEEDE10285_90150A717339_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_90150A717339_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_90150A717339_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RemindersLine(aCtx, l_aTextForm));
 end;//TkwTextFormRemindersLine.DoDoIt
 
 class function TkwTextFormRemindersLine.GetWordNameForRegister: AnsiString;
@@ -1256,12 +1156,8 @@ end;//TkwTextFormRemindersLine.GetWordNameForRegister
 
 procedure TkwTextFormRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_90150A717339_var*
-//#UC END# *52D00B00031A_90150A717339_var*
 begin
-//#UC START# *52D00B00031A_90150A717339_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_90150A717339_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству RemindersLine', aCtx);
 end;//TkwTextFormRemindersLine.SetValuePrim
 
 function TkwTextFormRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1276,27 +1172,29 @@ end;//TkwTextFormRemindersLine.GetAllParamsCount
 
 function TkwTextFormRemindersLine.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormRemindersLine.ParamsTypes
 
 function TkwTextFormWarnTimeMachineException.WarnTimeMachineException(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnTimeMachineException }
-//#UC START# *7204E1977248_727D705B6FA2_var*
-//#UC END# *7204E1977248_727D705B6FA2_var*
 begin
-//#UC START# *7204E1977248_727D705B6FA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7204E1977248_727D705B6FA2_impl*
+ Result := aTextForm.WarnTimeMachineException;
 end;//TkwTextFormWarnTimeMachineException.WarnTimeMachineException
 
 procedure TkwTextFormWarnTimeMachineException.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_727D705B6FA2_var*
-//#UC END# *4DAEEDE10285_727D705B6FA2_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_727D705B6FA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_727D705B6FA2_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnTimeMachineException(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineException.DoDoIt
 
 class function TkwTextFormWarnTimeMachineException.GetWordNameForRegister: AnsiString;
@@ -1306,12 +1204,8 @@ end;//TkwTextFormWarnTimeMachineException.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineException.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_727D705B6FA2_var*
-//#UC END# *52D00B00031A_727D705B6FA2_var*
 begin
-//#UC START# *52D00B00031A_727D705B6FA2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_727D705B6FA2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineException', aCtx);
 end;//TkwTextFormWarnTimeMachineException.SetValuePrim
 
 function TkwTextFormWarnTimeMachineException.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1326,27 +1220,29 @@ end;//TkwTextFormWarnTimeMachineException.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineException.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineException.ParamsTypes
 
 function TkwTextFormWarnIsAbolished.WarnIsAbolished(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnIsAbolished }
-//#UC START# *62D1EC129E50_0289BC4D5C98_var*
-//#UC END# *62D1EC129E50_0289BC4D5C98_var*
 begin
-//#UC START# *62D1EC129E50_0289BC4D5C98_impl*
- !!! Needs to be implemented !!!
-//#UC END# *62D1EC129E50_0289BC4D5C98_impl*
+ Result := aTextForm.WarnIsAbolished;
 end;//TkwTextFormWarnIsAbolished.WarnIsAbolished
 
 procedure TkwTextFormWarnIsAbolished.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0289BC4D5C98_var*
-//#UC END# *4DAEEDE10285_0289BC4D5C98_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_0289BC4D5C98_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0289BC4D5C98_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnIsAbolished(aCtx, l_aTextForm));
 end;//TkwTextFormWarnIsAbolished.DoDoIt
 
 class function TkwTextFormWarnIsAbolished.GetWordNameForRegister: AnsiString;
@@ -1356,12 +1252,8 @@ end;//TkwTextFormWarnIsAbolished.GetWordNameForRegister
 
 procedure TkwTextFormWarnIsAbolished.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0289BC4D5C98_var*
-//#UC END# *52D00B00031A_0289BC4D5C98_var*
 begin
-//#UC START# *52D00B00031A_0289BC4D5C98_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0289BC4D5C98_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnIsAbolished', aCtx);
 end;//TkwTextFormWarnIsAbolished.SetValuePrim
 
 function TkwTextFormWarnIsAbolished.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1376,27 +1268,29 @@ end;//TkwTextFormWarnIsAbolished.GetAllParamsCount
 
 function TkwTextFormWarnIsAbolished.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnIsAbolished.ParamsTypes
 
 function TkwTextFormWarnPreActive.WarnPreActive(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnPreActive }
-//#UC START# *90B5AAE8958B_ACA021C09FCA_var*
-//#UC END# *90B5AAE8958B_ACA021C09FCA_var*
 begin
-//#UC START# *90B5AAE8958B_ACA021C09FCA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *90B5AAE8958B_ACA021C09FCA_impl*
+ Result := aTextForm.WarnPreActive;
 end;//TkwTextFormWarnPreActive.WarnPreActive
 
 procedure TkwTextFormWarnPreActive.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ACA021C09FCA_var*
-//#UC END# *4DAEEDE10285_ACA021C09FCA_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_ACA021C09FCA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ACA021C09FCA_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnPreActive(aCtx, l_aTextForm));
 end;//TkwTextFormWarnPreActive.DoDoIt
 
 class function TkwTextFormWarnPreActive.GetWordNameForRegister: AnsiString;
@@ -1406,12 +1300,8 @@ end;//TkwTextFormWarnPreActive.GetWordNameForRegister
 
 procedure TkwTextFormWarnPreActive.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ACA021C09FCA_var*
-//#UC END# *52D00B00031A_ACA021C09FCA_var*
 begin
-//#UC START# *52D00B00031A_ACA021C09FCA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ACA021C09FCA_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnPreActive', aCtx);
 end;//TkwTextFormWarnPreActive.SetValuePrim
 
 function TkwTextFormWarnPreActive.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1426,27 +1316,29 @@ end;//TkwTextFormWarnPreActive.GetAllParamsCount
 
 function TkwTextFormWarnPreActive.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnPreActive.ParamsTypes
 
 function TkwTextFormWarnTimeMachineWarning.WarnTimeMachineWarning(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnTimeMachineWarning }
-//#UC START# *CEECA0E17A15_E6CBDC26628D_var*
-//#UC END# *CEECA0E17A15_E6CBDC26628D_var*
 begin
-//#UC START# *CEECA0E17A15_E6CBDC26628D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CEECA0E17A15_E6CBDC26628D_impl*
+ Result := aTextForm.WarnTimeMachineWarning;
 end;//TkwTextFormWarnTimeMachineWarning.WarnTimeMachineWarning
 
 procedure TkwTextFormWarnTimeMachineWarning.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E6CBDC26628D_var*
-//#UC END# *4DAEEDE10285_E6CBDC26628D_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_E6CBDC26628D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E6CBDC26628D_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnTimeMachineWarning(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineWarning.DoDoIt
 
 class function TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister: AnsiString;
@@ -1456,12 +1348,8 @@ end;//TkwTextFormWarnTimeMachineWarning.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E6CBDC26628D_var*
-//#UC END# *52D00B00031A_E6CBDC26628D_var*
 begin
-//#UC START# *52D00B00031A_E6CBDC26628D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E6CBDC26628D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineWarning', aCtx);
 end;//TkwTextFormWarnTimeMachineWarning.SetValuePrim
 
 function TkwTextFormWarnTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1476,27 +1364,29 @@ end;//TkwTextFormWarnTimeMachineWarning.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineWarning.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineWarning.ParamsTypes
 
 function TkwTextFormWarnOnControl.WarnOnControl(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnOnControl }
-//#UC START# *D7453CC0AD49_9EC0F704660C_var*
-//#UC END# *D7453CC0AD49_9EC0F704660C_var*
 begin
-//#UC START# *D7453CC0AD49_9EC0F704660C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D7453CC0AD49_9EC0F704660C_impl*
+ Result := aTextForm.WarnOnControl;
 end;//TkwTextFormWarnOnControl.WarnOnControl
 
 procedure TkwTextFormWarnOnControl.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9EC0F704660C_var*
-//#UC END# *4DAEEDE10285_9EC0F704660C_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_9EC0F704660C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9EC0F704660C_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnOnControl(aCtx, l_aTextForm));
 end;//TkwTextFormWarnOnControl.DoDoIt
 
 class function TkwTextFormWarnOnControl.GetWordNameForRegister: AnsiString;
@@ -1506,12 +1396,8 @@ end;//TkwTextFormWarnOnControl.GetWordNameForRegister
 
 procedure TkwTextFormWarnOnControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9EC0F704660C_var*
-//#UC END# *52D00B00031A_9EC0F704660C_var*
 begin
-//#UC START# *52D00B00031A_9EC0F704660C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9EC0F704660C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnOnControl', aCtx);
 end;//TkwTextFormWarnOnControl.SetValuePrim
 
 function TkwTextFormWarnOnControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1526,27 +1412,29 @@ end;//TkwTextFormWarnOnControl.GetAllParamsCount
 
 function TkwTextFormWarnOnControl.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnOnControl.ParamsTypes
 
 function TkwTextFormWarnJuror.WarnJuror(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnJuror }
-//#UC START# *8E2BB46865BA_FF3DC6808151_var*
-//#UC END# *8E2BB46865BA_FF3DC6808151_var*
 begin
-//#UC START# *8E2BB46865BA_FF3DC6808151_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8E2BB46865BA_FF3DC6808151_impl*
+ Result := aTextForm.WarnJuror;
 end;//TkwTextFormWarnJuror.WarnJuror
 
 procedure TkwTextFormWarnJuror.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FF3DC6808151_var*
-//#UC END# *4DAEEDE10285_FF3DC6808151_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_FF3DC6808151_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FF3DC6808151_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnJuror(aCtx, l_aTextForm));
 end;//TkwTextFormWarnJuror.DoDoIt
 
 class function TkwTextFormWarnJuror.GetWordNameForRegister: AnsiString;
@@ -1556,12 +1444,8 @@ end;//TkwTextFormWarnJuror.GetWordNameForRegister
 
 procedure TkwTextFormWarnJuror.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FF3DC6808151_var*
-//#UC END# *52D00B00031A_FF3DC6808151_var*
 begin
-//#UC START# *52D00B00031A_FF3DC6808151_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FF3DC6808151_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnJuror', aCtx);
 end;//TkwTextFormWarnJuror.SetValuePrim
 
 function TkwTextFormWarnJuror.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1576,27 +1460,29 @@ end;//TkwTextFormWarnJuror.GetAllParamsCount
 
 function TkwTextFormWarnJuror.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnJuror.ParamsTypes
 
 function TkwTextFormWarnRedaction.WarnRedaction(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnRedaction }
-//#UC START# *5F6752825CB9_C6F656F5F519_var*
-//#UC END# *5F6752825CB9_C6F656F5F519_var*
 begin
-//#UC START# *5F6752825CB9_C6F656F5F519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5F6752825CB9_C6F656F5F519_impl*
+ Result := aTextForm.WarnRedaction;
 end;//TkwTextFormWarnRedaction.WarnRedaction
 
 procedure TkwTextFormWarnRedaction.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C6F656F5F519_var*
-//#UC END# *4DAEEDE10285_C6F656F5F519_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_C6F656F5F519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C6F656F5F519_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnRedaction(aCtx, l_aTextForm));
 end;//TkwTextFormWarnRedaction.DoDoIt
 
 class function TkwTextFormWarnRedaction.GetWordNameForRegister: AnsiString;
@@ -1606,12 +1492,8 @@ end;//TkwTextFormWarnRedaction.GetWordNameForRegister
 
 procedure TkwTextFormWarnRedaction.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C6F656F5F519_var*
-//#UC END# *52D00B00031A_C6F656F5F519_var*
 begin
-//#UC START# *52D00B00031A_C6F656F5F519_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C6F656F5F519_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnRedaction', aCtx);
 end;//TkwTextFormWarnRedaction.SetValuePrim
 
 function TkwTextFormWarnRedaction.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1626,27 +1508,29 @@ end;//TkwTextFormWarnRedaction.GetAllParamsCount
 
 function TkwTextFormWarnRedaction.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnRedaction.ParamsTypes
 
 function TkwTextFormWarnInactualDocument.WarnInactualDocument(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnInactualDocument }
-//#UC START# *8C366D3E7DC7_DFD5690970AB_var*
-//#UC END# *8C366D3E7DC7_DFD5690970AB_var*
 begin
-//#UC START# *8C366D3E7DC7_DFD5690970AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8C366D3E7DC7_DFD5690970AB_impl*
+ Result := aTextForm.WarnInactualDocument;
 end;//TkwTextFormWarnInactualDocument.WarnInactualDocument
 
 procedure TkwTextFormWarnInactualDocument.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DFD5690970AB_var*
-//#UC END# *4DAEEDE10285_DFD5690970AB_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_DFD5690970AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DFD5690970AB_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnInactualDocument(aCtx, l_aTextForm));
 end;//TkwTextFormWarnInactualDocument.DoDoIt
 
 class function TkwTextFormWarnInactualDocument.GetWordNameForRegister: AnsiString;
@@ -1656,12 +1540,8 @@ end;//TkwTextFormWarnInactualDocument.GetWordNameForRegister
 
 procedure TkwTextFormWarnInactualDocument.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DFD5690970AB_var*
-//#UC END# *52D00B00031A_DFD5690970AB_var*
 begin
-//#UC START# *52D00B00031A_DFD5690970AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DFD5690970AB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnInactualDocument', aCtx);
 end;//TkwTextFormWarnInactualDocument.SetValuePrim
 
 function TkwTextFormWarnInactualDocument.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1676,27 +1556,29 @@ end;//TkwTextFormWarnInactualDocument.GetAllParamsCount
 
 function TkwTextFormWarnInactualDocument.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnInactualDocument.ParamsTypes
 
 function TkwTextFormWarnTimeMachineOn.WarnTimeMachineOn(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscReminder;
  {* Реализация слова скрипта .TTextForm.WarnTimeMachineOn }
-//#UC START# *D936833CFC11_3F2343F5CBC9_var*
-//#UC END# *D936833CFC11_3F2343F5CBC9_var*
 begin
-//#UC START# *D936833CFC11_3F2343F5CBC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D936833CFC11_3F2343F5CBC9_impl*
+ Result := aTextForm.WarnTimeMachineOn;
 end;//TkwTextFormWarnTimeMachineOn.WarnTimeMachineOn
 
 procedure TkwTextFormWarnTimeMachineOn.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3F2343F5CBC9_var*
-//#UC END# *4DAEEDE10285_3F2343F5CBC9_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_3F2343F5CBC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3F2343F5CBC9_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarnTimeMachineOn(aCtx, l_aTextForm));
 end;//TkwTextFormWarnTimeMachineOn.DoDoIt
 
 class function TkwTextFormWarnTimeMachineOn.GetWordNameForRegister: AnsiString;
@@ -1706,12 +1588,8 @@ end;//TkwTextFormWarnTimeMachineOn.GetWordNameForRegister
 
 procedure TkwTextFormWarnTimeMachineOn.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3F2343F5CBC9_var*
-//#UC END# *52D00B00031A_3F2343F5CBC9_var*
 begin
-//#UC START# *52D00B00031A_3F2343F5CBC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3F2343F5CBC9_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarnTimeMachineOn', aCtx);
 end;//TkwTextFormWarnTimeMachineOn.SetValuePrim
 
 function TkwTextFormWarnTimeMachineOn.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1726,27 +1604,29 @@ end;//TkwTextFormWarnTimeMachineOn.GetAllParamsCount
 
 function TkwTextFormWarnTimeMachineOn.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormWarnTimeMachineOn.ParamsTypes
 
 function TkwTextFormSubPanel.SubPanel(const aCtx: TtfwContext;
  aTextForm: TTextForm): TeeSubPanel;
  {* Реализация слова скрипта .TTextForm.SubPanel }
-//#UC START# *E71980FD0EA4_F953CE4B1F89_var*
-//#UC END# *E71980FD0EA4_F953CE4B1F89_var*
 begin
-//#UC START# *E71980FD0EA4_F953CE4B1F89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E71980FD0EA4_F953CE4B1F89_impl*
+ Result := aTextForm.SubPanel;
 end;//TkwTextFormSubPanel.SubPanel
 
 procedure TkwTextFormSubPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F953CE4B1F89_var*
-//#UC END# *4DAEEDE10285_F953CE4B1F89_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_F953CE4B1F89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F953CE4B1F89_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(SubPanel(aCtx, l_aTextForm));
 end;//TkwTextFormSubPanel.DoDoIt
 
 class function TkwTextFormSubPanel.GetWordNameForRegister: AnsiString;
@@ -1756,12 +1636,8 @@ end;//TkwTextFormSubPanel.GetWordNameForRegister
 
 procedure TkwTextFormSubPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F953CE4B1F89_var*
-//#UC END# *52D00B00031A_F953CE4B1F89_var*
 begin
-//#UC START# *52D00B00031A_F953CE4B1F89_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F953CE4B1F89_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству SubPanel', aCtx);
 end;//TkwTextFormSubPanel.SetValuePrim
 
 function TkwTextFormSubPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1776,27 +1652,29 @@ end;//TkwTextFormSubPanel.GetAllParamsCount
 
 function TkwTextFormSubPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormSubPanel.ParamsTypes
 
 function TkwTextFormHScroll.HScroll(const aCtx: TtfwContext;
  aTextForm: TTextForm): TvtScrollBar;
  {* Реализация слова скрипта .TTextForm.HScroll }
-//#UC START# *96D869DFC10A_61746557FDD0_var*
-//#UC END# *96D869DFC10A_61746557FDD0_var*
 begin
-//#UC START# *96D869DFC10A_61746557FDD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *96D869DFC10A_61746557FDD0_impl*
+ Result := aTextForm.HScroll;
 end;//TkwTextFormHScroll.HScroll
 
 procedure TkwTextFormHScroll.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_61746557FDD0_var*
-//#UC END# *4DAEEDE10285_61746557FDD0_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_61746557FDD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_61746557FDD0_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HScroll(aCtx, l_aTextForm));
 end;//TkwTextFormHScroll.DoDoIt
 
 class function TkwTextFormHScroll.GetWordNameForRegister: AnsiString;
@@ -1806,12 +1684,8 @@ end;//TkwTextFormHScroll.GetWordNameForRegister
 
 procedure TkwTextFormHScroll.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_61746557FDD0_var*
-//#UC END# *52D00B00031A_61746557FDD0_var*
 begin
-//#UC START# *52D00B00031A_61746557FDD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_61746557FDD0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HScroll', aCtx);
 end;//TkwTextFormHScroll.SetValuePrim
 
 function TkwTextFormHScroll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1826,27 +1700,29 @@ end;//TkwTextFormHScroll.GetAllParamsCount
 
 function TkwTextFormHScroll.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormHScroll.ParamsTypes
 
 function TkwTextFormText.Text(const aCtx: TtfwContext;
  aTextForm: TTextForm): TnscEditor;
  {* Реализация слова скрипта .TTextForm.Text }
-//#UC START# *49D5A37A19A6_AFA1F527A874_var*
-//#UC END# *49D5A37A19A6_AFA1F527A874_var*
 begin
-//#UC START# *49D5A37A19A6_AFA1F527A874_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49D5A37A19A6_AFA1F527A874_impl*
+ Result := aTextForm.Text;
 end;//TkwTextFormText.Text
 
 procedure TkwTextFormText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AFA1F527A874_var*
-//#UC END# *4DAEEDE10285_AFA1F527A874_var*
+var l_aTextForm: TTextForm;
 begin
-//#UC START# *4DAEEDE10285_AFA1F527A874_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AFA1F527A874_impl*
+ try
+  l_aTextForm := TTextForm(aCtx.rEngine.PopObjAs(TTextForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTextForm: TTextForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aTextForm));
 end;//TkwTextFormText.DoDoIt
 
 class function TkwTextFormText.GetWordNameForRegister: AnsiString;
@@ -1856,12 +1732,8 @@ end;//TkwTextFormText.GetWordNameForRegister
 
 procedure TkwTextFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AFA1F527A874_var*
-//#UC END# *52D00B00031A_AFA1F527A874_var*
 begin
-//#UC START# *52D00B00031A_AFA1F527A874_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AFA1F527A874_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwTextFormText.SetValuePrim
 
 function TkwTextFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1876,7 +1748,7 @@ end;//TkwTextFormText.GetAllParamsCount
 
 function TkwTextFormText.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTextForm)]);
 end;//TkwTextFormText.ParamsTypes
 
 initialization

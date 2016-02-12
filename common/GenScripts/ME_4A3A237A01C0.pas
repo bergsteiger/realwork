@@ -26,11 +26,11 @@ type
  PevParaListCursor = ^TevParaListCursorPrim;
 
  _nevParaListTool_Parent_ = TevParaCursor;
- {$Include nevParaListTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  _nevParaListViewBounds_Parent_ = _nevParaListTool_;
- {$Include nevParaListViewBounds.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas}
  _nevParaListAnchorModify_Parent_ = _nevParaListViewBounds_;
- {$Include nevParaListAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas}
  TevParaListCursorPrim = class(_nevParaListAnchorModify_)
   {* Курсор для списка параграфов }
   private
@@ -151,11 +151,11 @@ uses
 
 type _Instance_R_ = TevParaListCursorPrim;
 
-{$Include nevParaListTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-{$Include nevParaListViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParaListViewBounds.imp.pas}
 
-{$Include nevParaListAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas}
 
 procedure TevParaListCursorPrim.OffsetPID(Delta: Integer;
  const Context: InevOp);

@@ -105,12 +105,8 @@ begin
 end;//Tkw_Form_ProgressIndicator.GetWordNameForRegister
 
 function Tkw_Form_ProgressIndicator.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_37B8325BAA5C_var*
-//#UC END# *4DDFD2EA0116_37B8325BAA5C_var*
 begin
-//#UC START# *4DDFD2EA0116_37B8325BAA5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_37B8325BAA5C_impl*
+ Result := 'efProgressIndicator';
 end;//Tkw_Form_ProgressIndicator.GetString
 
 class function Tkw_ProgressIndicator_Control_ProgressBar.GetWordNameForRegister: AnsiString;
@@ -119,21 +115,14 @@ begin
 end;//Tkw_ProgressIndicator_Control_ProgressBar.GetWordNameForRegister
 
 function Tkw_ProgressIndicator_Control_ProgressBar.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D7DC3FFE5333_var*
-//#UC END# *4DDFD2EA0116_D7DC3FFE5333_var*
 begin
-//#UC START# *4DDFD2EA0116_D7DC3FFE5333_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D7DC3FFE5333_impl*
+ Result := 'ProgressBar';
 end;//Tkw_ProgressIndicator_Control_ProgressBar.GetString
 
 class procedure Tkw_ProgressIndicator_Control_ProgressBar.RegisterInEngine;
-//#UC START# *52A086150180_D7DC3FFE5333_var*
-//#UC END# *52A086150180_D7DC3FFE5333_var*
 begin
-//#UC START# *52A086150180_D7DC3FFE5333_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_D7DC3FFE5333_impl*
+ inherited;
+ TtfwClassRef.Register(TProgressBar);
 end;//Tkw_ProgressIndicator_Control_ProgressBar.RegisterInEngine
 
 procedure Tkw_ProgressIndicator_Control_ProgressBar_Push.DoDoIt(const aCtx: TtfwContext);
@@ -153,21 +142,23 @@ end;//Tkw_ProgressIndicator_Control_ProgressBar_Push.GetWordNameForRegister
 function TkwEfProgressIndicatorProgressBar.ProgressBar(const aCtx: TtfwContext;
  aefProgressIndicator: TefProgressIndicator): TProgressBar;
  {* Реализация слова скрипта .TefProgressIndicator.ProgressBar }
-//#UC START# *2984FEE345A9_048590F2C0A3_var*
-//#UC END# *2984FEE345A9_048590F2C0A3_var*
 begin
-//#UC START# *2984FEE345A9_048590F2C0A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2984FEE345A9_048590F2C0A3_impl*
+ Result := aefProgressIndicator.ProgressBar;
 end;//TkwEfProgressIndicatorProgressBar.ProgressBar
 
 procedure TkwEfProgressIndicatorProgressBar.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_048590F2C0A3_var*
-//#UC END# *4DAEEDE10285_048590F2C0A3_var*
+var l_aefProgressIndicator: TefProgressIndicator;
 begin
-//#UC START# *4DAEEDE10285_048590F2C0A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_048590F2C0A3_impl*
+ try
+  l_aefProgressIndicator := TefProgressIndicator(aCtx.rEngine.PopObjAs(TefProgressIndicator));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefProgressIndicator: TefProgressIndicator : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aefProgressIndicator));
 end;//TkwEfProgressIndicatorProgressBar.DoDoIt
 
 class function TkwEfProgressIndicatorProgressBar.GetWordNameForRegister: AnsiString;
@@ -177,12 +168,8 @@ end;//TkwEfProgressIndicatorProgressBar.GetWordNameForRegister
 
 procedure TkwEfProgressIndicatorProgressBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_048590F2C0A3_var*
-//#UC END# *52D00B00031A_048590F2C0A3_var*
 begin
-//#UC START# *52D00B00031A_048590F2C0A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_048590F2C0A3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ProgressBar', aCtx);
 end;//TkwEfProgressIndicatorProgressBar.SetValuePrim
 
 function TkwEfProgressIndicatorProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,7 +184,7 @@ end;//TkwEfProgressIndicatorProgressBar.GetAllParamsCount
 
 function TkwEfProgressIndicatorProgressBar.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefProgressIndicator)]);
 end;//TkwEfProgressIndicatorProgressBar.ParamsTypes
 
 initialization

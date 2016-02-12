@@ -18,9 +18,9 @@ uses
 
 type
  _RefCounted_Parent_ = TEdit;
- {$Include RefCounted.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
  _RoundedControl_Parent_ = _RefCounted_;
- {$Include RoundedControl.imp.pas}
+ {$Include w:\common\components\SandBox\RoundedControl.imp.pas}
  TRoundedEdit = class(_RoundedControl_)
  end;//TRoundedEdit
 
@@ -38,9 +38,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include RefCounted.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\RefCounted.imp.pas}
 
-{$Include RoundedControl.imp.pas}
+{$Include w:\common\components\SandBox\RoundedControl.imp.pas}
 
 initialization
 {$If NOT Defined(NoScripts)}

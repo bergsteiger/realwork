@@ -16,7 +16,7 @@ uses
 
 type
  _SBSColumnMarker_Parent_ = TevTableColumnHotSpot;
- {$Include SBSColumnMarker.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas}
  TevSBSColumnHotSpot = class(_SBSColumnMarker_)
  end;//TevSBSColumnHotSpot
 {$IfEnd} // Defined(evUseVisibleCursors)
@@ -31,7 +31,7 @@ uses
 
 type _Instance_R_ = TevSBSColumnHotSpot;
 
-{$Include SBSColumnMarker.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas}
 {$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

@@ -5,7 +5,7 @@
 
 {$Define dsSimpleTree_imp}
 
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _dsSimpleTree_ = {abstract} class(_vcmFormDataSource_, IdsSimpleTree, InsDropListener)
   {* Бизнес объект формы с деревом }
   private
@@ -97,7 +97,7 @@ const
  ns_UpdateTime = 100;
   {* время с момента обновления текущего после которого можно снова обновлять связанное представление }
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 function _dsSimpleTree_.pm_GetUpdateCurrentTimer: TTimer;
 //#UC START# *492152570031_47F0C1410011get_var*

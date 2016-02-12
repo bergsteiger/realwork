@@ -1,77 +1,67 @@
 unit kwPopEditorSelectTable;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorSelectTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_SelectTable
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectTable.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  kwEditorFromStackCursorWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackCursorWord
+ , nevTools
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
  _SelectTablePart_Parent_ = TkwEditorFromStackCursorWord;
- {$Include ..\ScriptEngine\SelectTablePart.imp.pas}
- TkwPopEditorSelectTable = {scriptword} class(_SelectTablePart_)
- private
- // private fields
-   f_Point : InevBasePoint;
- protected
- // realized methods
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
+ TkwPopEditorSelectTable = class(_SelectTablePart_)
+  private
+   f_Point: InevBasePoint;
+  protected
    procedure DoCursor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPoint: InevBasePoint); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow;
+    const aPoint: InevBasePoint); override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function SelectTableWholly: Boolean; override;
-     {* Вылять таблицу целиком }
+    {* Вылять таблицу целиком }
    function GetTablePara(const aDocument: InevParaList): InevParaList; override;
-     {* Возвращает параграф с таблицей }
+    {* Возвращает параграф с таблицей }
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorSelectTable
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Table_Const,
-  evOp
-  {$If defined(k2ForEditor)}
-  ,
-  evCursorTools
-  {$IfEnd} //k2ForEditor
-  ,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
+ l3ImplUses
+ , Table_Const
+ , evOp
+ {$If Defined(k2ForEditor)}
+ , evCursorTools
+ {$IfEnd} // Defined(k2ForEditor)
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoScripts)}
-
-{$Include ..\ScriptEngine\SelectTablePart.imp.pas}
-
-// start class TkwPopEditorSelectTable
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
 procedure TkwPopEditorSelectTable.DoCursor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPoint: InevBasePoint);
+ anEditor: TevCustomEditorWindow;
+ const aPoint: InevBasePoint);
 //#UC START# *50B8BCDF0093_4E2820E701E1_var*
 //#UC END# *50B8BCDF0093_4E2820E701E1_var*
 begin
@@ -86,6 +76,7 @@ begin
 end;//TkwPopEditorSelectTable.DoCursor
 
 procedure TkwPopEditorSelectTable.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E2820E701E1_var*
 //#UC END# *479731C50290_4E2820E701E1_var*
 begin
@@ -96,6 +87,7 @@ begin
 end;//TkwPopEditorSelectTable.Cleanup
 
 function TkwPopEditorSelectTable.SelectTableWholly: Boolean;
+ {* Вылять таблицу целиком }
 //#UC START# *4C34625E021F_4E2820E701E1_var*
 //#UC END# *4C34625E021F_4E2820E701E1_var*
 begin
@@ -105,6 +97,7 @@ begin
 end;//TkwPopEditorSelectTable.SelectTableWholly
 
 function TkwPopEditorSelectTable.GetTablePara(const aDocument: InevParaList): InevParaList;
+ {* Возвращает параграф с таблицей }
 //#UC START# *4CC818F4022D_4E2820E701E1_var*
 var
  l_Inner: InevBasePoint;
@@ -121,17 +114,13 @@ begin
 end;//TkwPopEditorSelectTable.GetTablePara
 
 class function TkwPopEditorSelectTable.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:SelectTable';
 end;//TkwPopEditorSelectTable.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_SelectTable
  TkwPopEditorSelectTable.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_SelectTable }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

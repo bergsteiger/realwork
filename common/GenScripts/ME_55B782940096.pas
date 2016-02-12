@@ -73,7 +73,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(CurrentNode(aCtx, l_aComboTree),Il3SimpleNode);
+ aCtx.rEngine.PushIntf(CurrentNode(aCtx, l_aComboTree), TypeInfo(Il3SimpleNode));
 end;//TkwPopComboTreeCurrentNode.DoDoIt
 
 class function TkwPopComboTreeCurrentNode.GetWordNameForRegister: AnsiString;

@@ -30,7 +30,7 @@ uses
 type
  _l3StringList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3StringList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
  Tl3DictionaryPrim = class(_l3StringList_)
  end;//Tl3DictionaryPrim
 
@@ -47,6 +47,6 @@ uses
 
 type _Instance_R_ = Tl3DictionaryPrim;
 
-{$Include l3StringList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
 
 end.

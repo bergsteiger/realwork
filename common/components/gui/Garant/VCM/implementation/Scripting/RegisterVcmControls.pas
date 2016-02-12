@@ -1,59 +1,43 @@
 unit RegisterVcmControls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/RegisterVcmControls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Scripting::VCMWords::RegisterVcmControls
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\RegisterVcmControls.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-{$IfEnd} //not NoScripts AND not NoVCM
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmMenuManager
-  {$If not defined(NoTB97)}
-  ,
-  TB97Tlbr
-  {$IfEnd} //not NoTB97
-  ,
-  vcmToolbar,
-  tfwClassRef,
-  elCustomButtonEdit
-  {$If not defined(NoVCL)}
-  ,
-  ComCtrls
-  {$IfEnd} //not NoVCL
-  ,
-  vtNavigator
-  {$If not defined(NoVGScene)}
-  ,
-  vgRemindersLineForm
-  {$IfEnd} //not NoVGScene
-  
-  ;
-
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3ImplUses
+ , vcmMenuManager
+ {$If NOT Defined(NoTB97)}
+ , TB97Tlbr
+ {$IfEnd} // NOT Defined(NoTB97)
+ , vcmToolbar
+ , tfwClassRef
+ , elCustomButtonEdit
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtNavigator
+ {$If NOT Defined(NoVGScene)}
+ , vgRemindersLineForm
+ {$IfEnd} // NOT Defined(NoVGScene)
+;
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 //#UC START# *52B16BBF00B4*
  TtfwClassRef.Register(TCustomUpDown);
 //#UC END# *52B16BBF00B4*
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

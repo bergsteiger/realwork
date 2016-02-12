@@ -25,9 +25,9 @@ type
  _ItemType_ = Tl3VariantDef;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _l3OpenArray_Parent_ = _l3UncomparabeObjectRefList_;
- {$Include l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  Tk2PropertyArray = class(_l3OpenArray_)
  end;//Tk2PropertyArray
 
@@ -68,8 +68,8 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2PropertyArray;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-{$Include l3OpenArray.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
 
 end.

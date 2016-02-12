@@ -23,9 +23,9 @@ type
  RevColumnMarkerClass = class of TevColumnBorderMarker;
 
  _nevParaListTool_Parent_ = TevMarker;
- {$Include nevParaListTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  _RoundMarkerValue_Parent_ = _nevParaListTool_;
- {$Include RoundMarkerValue.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}
  TevColumnBorderMarker = class(_RoundMarkerValue_, IevColumnBorderMarker)
   private
    f_ColumnID: Integer;
@@ -65,9 +65,9 @@ uses
 
 type _Instance_R_ = TevColumnBorderMarker;
 
-{$Include nevParaListTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-{$Include RoundMarkerValue.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\RoundMarkerValue.imp.pas}
 
 constructor TevColumnBorderMarker.Create(const aView: InevView;
  aPara: Tl3Variant;

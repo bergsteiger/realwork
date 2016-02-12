@@ -1,41 +1,36 @@
 unit PageControlWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VT"
-// Модуль: "PageControlWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VT::vtControlsFromStackWords::PageControlWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  ElPgCtl,
-  tfwScriptingInterfaces,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , ElPgCtl
+ , l3Interfaces
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , l3String
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopPageControlFindPageByCaption = {final scriptword} class(TtfwClassLike)
+ TkwPopPageControlFindPageByCaption = {final} class(TtfwClassLike)
   {* Слово скрипта pop:PageControl:FindPageByCaption
 *Тип результата:* Integer
 *Пример:*
@@ -43,30 +38,89 @@ type
 INTEGER VAR l_Integer
  aCaption aPageControl pop:PageControl:FindPageByCaption >>> l_Integer
 [code]  }
- private
- // private methods
+  private
    function FindPageByCaption(const aCtx: TtfwContext;
     aPageControl: TElCustomPageControl;
     const aCaption: Il3CString): Integer;
-     {* Реализация слова скрипта pop:PageControl:FindPageByCaption }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:PageControl:FindPageByCaption }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopPageControlFindPageByCaption
 
-// start class TkwPopPageControlFindPageByCaption
+ TkwPopPageControlPageCaptionByIndex = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:PageControl:PageCaptionByIndex
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ anIndex aPageControl pop:PageControl:PageCaptionByIndex >>> l_String
+[code]  }
+  private
+   function PageCaptionByIndex(const aCtx: TtfwContext;
+    aPageControl: TElCustomPageControl;
+    anIndex: Integer): AnsiString;
+    {* Реализация слова скрипта pop:PageControl:PageCaptionByIndex }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopPageControlPageCaptionByIndex
+
+ TkwPopPageControlPageByIndex = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:PageControl:PageByIndex
+*Тип результата:* TElTabSheet
+*Пример:*
+[code]
+OBJECT VAR l_TElTabSheet
+ anIndex aPageControl pop:PageControl:PageByIndex >>> l_TElTabSheet
+[code]  }
+  private
+   function PageByIndex(const aCtx: TtfwContext;
+    aPageControl: TElCustomPageControl;
+    anIndex: Integer): TElTabSheet;
+    {* Реализация слова скрипта pop:PageControl:PageByIndex }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopPageControlPageByIndex
+
+ TkwPopPageControlGetAllPageCaptions = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:PageControl:GetAllPageCaptions
+*Тип результата:* String
+*Пример:*
+[code]
+STRING VAR l_String
+ aPageControl pop:PageControl:GetAllPageCaptions >>> l_String
+[code]  }
+  private
+   function GetAllPageCaptions(const aCtx: TtfwContext;
+    aPageControl: TElCustomPageControl): AnsiString;
+    {* Реализация слова скрипта pop:PageControl:GetAllPageCaptions }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopPageControlGetAllPageCaptions
 
 function TkwPopPageControlFindPageByCaption.FindPageByCaption(const aCtx: TtfwContext;
-  aPageControl: TElCustomPageControl;
-  const aCaption: Il3CString): Integer;
+ aPageControl: TElCustomPageControl;
+ const aCaption: Il3CString): Integer;
+ {* Реализация слова скрипта pop:PageControl:FindPageByCaption }
 //#UC START# *FCC6A46AF340_39ABBBDC9493_var*
 var
  I, l_PageNum: Integer;
@@ -90,10 +144,8 @@ begin
 end;//TkwPopPageControlFindPageByCaption.FindPageByCaption
 
 procedure TkwPopPageControlFindPageByCaption.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPageControl : TElCustomPageControl;
- l_aCaption : Il3CString;
+var l_aPageControl: TElCustomPageControl;
+var l_aCaption: Il3CString;
 begin
  try
   l_aPageControl := TElCustomPageControl(aCtx.rEngine.PopObjAs(TElCustomPageControl));
@@ -105,7 +157,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_aCaption := aCtx.rEngine.PopString;
+  l_aCaption := Il3CString(aCtx.rEngine.PopString);
  except
   on E: Exception do
   begin
@@ -113,66 +165,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((FindPageByCaption(aCtx, l_aPageControl, l_aCaption)));
+ aCtx.rEngine.PushInt(FindPageByCaption(aCtx, l_aPageControl, l_aCaption));
 end;//TkwPopPageControlFindPageByCaption.DoDoIt
 
 class function TkwPopPageControlFindPageByCaption.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:PageControl:FindPageByCaption';
 end;//TkwPopPageControlFindPageByCaption.GetWordNameForRegister
 
 function TkwPopPageControlFindPageByCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwPopPageControlFindPageByCaption.GetResultTypeInfo
 
 function TkwPopPageControlFindPageByCaption.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopPageControlFindPageByCaption.GetAllParamsCount
 
 function TkwPopPageControlFindPageByCaption.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TElCustomPageControl), @tfw_tiString]);
 end;//TkwPopPageControlFindPageByCaption.ParamsTypes
 
-type
- TkwPopPageControlPageCaptionByIndex = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:PageControl:PageCaptionByIndex
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- anIndex aPageControl pop:PageControl:PageCaptionByIndex >>> l_String
-[code]  }
- private
- // private methods
-   function PageCaptionByIndex(const aCtx: TtfwContext;
-    aPageControl: TElCustomPageControl;
-    anIndex: Integer): AnsiString;
-     {* Реализация слова скрипта pop:PageControl:PageCaptionByIndex }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopPageControlPageCaptionByIndex
-
-// start class TkwPopPageControlPageCaptionByIndex
-
 function TkwPopPageControlPageCaptionByIndex.PageCaptionByIndex(const aCtx: TtfwContext;
-  aPageControl: TElCustomPageControl;
-  anIndex: Integer): AnsiString;
+ aPageControl: TElCustomPageControl;
+ anIndex: Integer): AnsiString;
+ {* Реализация слова скрипта pop:PageControl:PageCaptionByIndex }
 //#UC START# *600644323CE8_1C7B18964322_var*
 var
  I : Integer;
@@ -195,10 +214,8 @@ begin
 end;//TkwPopPageControlPageCaptionByIndex.PageCaptionByIndex
 
 procedure TkwPopPageControlPageCaptionByIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPageControl : TElCustomPageControl;
- l_anIndex : Integer;
+var l_aPageControl: TElCustomPageControl;
+var l_anIndex: Integer;
 begin
  try
   l_aPageControl := TElCustomPageControl(aCtx.rEngine.PopObjAs(TElCustomPageControl));
@@ -218,66 +235,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((PageCaptionByIndex(aCtx, l_aPageControl, l_anIndex)));
+ aCtx.rEngine.PushString(PageCaptionByIndex(aCtx, l_aPageControl, l_anIndex));
 end;//TkwPopPageControlPageCaptionByIndex.DoDoIt
 
 class function TkwPopPageControlPageCaptionByIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:PageControl:PageCaptionByIndex';
 end;//TkwPopPageControlPageCaptionByIndex.GetWordNameForRegister
 
 function TkwPopPageControlPageCaptionByIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwPopPageControlPageCaptionByIndex.GetResultTypeInfo
 
 function TkwPopPageControlPageCaptionByIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopPageControlPageCaptionByIndex.GetAllParamsCount
 
 function TkwPopPageControlPageCaptionByIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TElCustomPageControl), TypeInfo(Integer)]);
 end;//TkwPopPageControlPageCaptionByIndex.ParamsTypes
 
-type
- TkwPopPageControlPageByIndex = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:PageControl:PageByIndex
-*Тип результата:* TElTabSheet
-*Пример:*
-[code]
-OBJECT VAR l_TElTabSheet
- anIndex aPageControl pop:PageControl:PageByIndex >>> l_TElTabSheet
-[code]  }
- private
- // private methods
-   function PageByIndex(const aCtx: TtfwContext;
-    aPageControl: TElCustomPageControl;
-    anIndex: Integer): TElTabSheet;
-     {* Реализация слова скрипта pop:PageControl:PageByIndex }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopPageControlPageByIndex
-
-// start class TkwPopPageControlPageByIndex
-
 function TkwPopPageControlPageByIndex.PageByIndex(const aCtx: TtfwContext;
-  aPageControl: TElCustomPageControl;
-  anIndex: Integer): TElTabSheet;
+ aPageControl: TElCustomPageControl;
+ anIndex: Integer): TElTabSheet;
+ {* Реализация слова скрипта pop:PageControl:PageByIndex }
 //#UC START# *2BB966C33F13_CF3FBFFD21B3_var*
 //#UC END# *2BB966C33F13_CF3FBFFD21B3_var*
 begin
@@ -289,10 +273,8 @@ begin
 end;//TkwPopPageControlPageByIndex.PageByIndex
 
 procedure TkwPopPageControlPageByIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPageControl : TElCustomPageControl;
- l_anIndex : Integer;
+var l_aPageControl: TElCustomPageControl;
+var l_anIndex: Integer;
 begin
  try
   l_aPageControl := TElCustomPageControl(aCtx.rEngine.PopObjAs(TElCustomPageControl));
@@ -312,64 +294,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((PageByIndex(aCtx, l_aPageControl, l_anIndex)));
+ aCtx.rEngine.PushObj(PageByIndex(aCtx, l_aPageControl, l_anIndex));
 end;//TkwPopPageControlPageByIndex.DoDoIt
 
 class function TkwPopPageControlPageByIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:PageControl:PageByIndex';
 end;//TkwPopPageControlPageByIndex.GetWordNameForRegister
 
 function TkwPopPageControlPageByIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TElTabSheet);
 end;//TkwPopPageControlPageByIndex.GetResultTypeInfo
 
 function TkwPopPageControlPageByIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopPageControlPageByIndex.GetAllParamsCount
 
 function TkwPopPageControlPageByIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TElCustomPageControl), TypeInfo(Integer)]);
 end;//TkwPopPageControlPageByIndex.ParamsTypes
 
-type
- TkwPopPageControlGetAllPageCaptions = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта pop:PageControl:GetAllPageCaptions
-*Тип результата:* String
-*Пример:*
-[code]
-STRING VAR l_String
- aPageControl pop:PageControl:GetAllPageCaptions >>> l_String
-[code]  }
- private
- // private methods
-   function GetAllPageCaptions(const aCtx: TtfwContext;
-    aPageControl: TElCustomPageControl): AnsiString;
-     {* Реализация слова скрипта pop:PageControl:GetAllPageCaptions }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwPopPageControlGetAllPageCaptions
-
-// start class TkwPopPageControlGetAllPageCaptions
-
 function TkwPopPageControlGetAllPageCaptions.GetAllPageCaptions(const aCtx: TtfwContext;
-  aPageControl: TElCustomPageControl): AnsiString;
+ aPageControl: TElCustomPageControl): AnsiString;
+ {* Реализация слова скрипта pop:PageControl:GetAllPageCaptions }
 //#UC START# *29701A9D9F2B_2A5E921BA82F_var*
 var
  l_Captions: AnsiString;
@@ -390,9 +340,7 @@ begin
 end;//TkwPopPageControlGetAllPageCaptions.GetAllPageCaptions
 
 procedure TkwPopPageControlGetAllPageCaptions.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPageControl : TElCustomPageControl;
+var l_aPageControl: TElCustomPageControl;
 begin
  try
   l_aPageControl := TElCustomPageControl(aCtx.rEngine.PopObjAs(TElCustomPageControl));
@@ -403,74 +351,50 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((GetAllPageCaptions(aCtx, l_aPageControl)));
+ aCtx.rEngine.PushString(GetAllPageCaptions(aCtx, l_aPageControl));
 end;//TkwPopPageControlGetAllPageCaptions.DoDoIt
 
 class function TkwPopPageControlGetAllPageCaptions.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:PageControl:GetAllPageCaptions';
 end;//TkwPopPageControlGetAllPageCaptions.GetWordNameForRegister
 
 function TkwPopPageControlGetAllPageCaptions.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
- Result := TypeInfo(AnsiString);
+ Result := @tfw_tiString;
 end;//TkwPopPageControlGetAllPageCaptions.GetResultTypeInfo
 
 function TkwPopPageControlGetAllPageCaptions.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopPageControlGetAllPageCaptions.GetAllParamsCount
 
 function TkwPopPageControlGetAllPageCaptions.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TElCustomPageControl)]);
 end;//TkwPopPageControlGetAllPageCaptions.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_PageControl_FindPageByCaption
  TkwPopPageControlFindPageByCaption.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_PageControl_PageCaptionByIndex
+ {* Регистрация pop_PageControl_FindPageByCaption }
  TkwPopPageControlPageCaptionByIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_PageControl_PageByIndex
+ {* Регистрация pop_PageControl_PageCaptionByIndex }
  TkwPopPageControlPageByIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация pop_PageControl_GetAllPageCaptions
+ {* Регистрация pop_PageControl_PageByIndex }
  TkwPopPageControlGetAllPageCaptions.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_PageControl_GetAllPageCaptions }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TElCustomPageControl
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TElCustomPageControl));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Il3CString
+ {* Регистрация типа TElCustomPageControl }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа Il3CString }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TElTabSheet
+ {* Регистрация типа Integer }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TElTabSheet));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TElTabSheet }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

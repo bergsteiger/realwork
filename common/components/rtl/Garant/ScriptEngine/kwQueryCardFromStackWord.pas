@@ -1,54 +1,49 @@
 unit kwQueryCardFromStackWord;
+ {* Слово работающее с текущим редактором как с карточкой запроса }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwQueryCardFromStackWord.pas"
-// Начат: 26.09.2011 18:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::QueryCardProcessing::TkwQueryCardFromStackWord
-//
-// Слово работающее с текущим редактором как с карточкой запроса
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwQueryCardFromStackWord.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evQueryCardEditor,
-  tfwScriptingInterfaces,
-  kwEditorFromStackWord,
-  evCustomEditorWindow
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evQueryCardEditor
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
  TkwQueryCardFromStackWord = {abstract} class(TkwEditorFromStackWord)
   {* Слово работающее с текущим редактором как с карточкой запроса }
- protected
- // realized methods
-   procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // protected methods
+  protected
    procedure DoCard(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor); virtual; abstract;
+    aCard: TevQueryCardEditor); virtual; abstract;
+   procedure DoWithEditor(const aCtx: TtfwContext;
+    anEditor: TevCustomEditorWindow); override;
  end;//TkwQueryCardFromStackWord
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwQueryCardFromStackWord
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwQueryCardFromStackWord.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4E808D48037D_var*
 //#UC END# *4F4CB81200CA_4E808D48037D_var*
 begin
@@ -58,12 +53,9 @@ begin
 //#UC END# *4F4CB81200CA_4E808D48037D_impl*
 end;//TkwQueryCardFromStackWord.DoWithEditor
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwQueryCardFromStackWord
  TkwQueryCardFromStackWord.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwQueryCardFromStackWord }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

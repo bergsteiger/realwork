@@ -23,7 +23,7 @@ uses
 
 type
  _nscStatusBarItemNotification_Parent_ = TSizeGripPanel;
- {$Include nscStatusBarItemNotification.imp.pas}
+ {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
  TnscSizeGripPanel = class(_nscStatusBarItemNotification_)
   protected
    {$If NOT Defined(NoTB97)}
@@ -46,7 +46,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include nscStatusBarItemNotification.imp.pas}
+{$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
 {$If NOT Defined(NoTB97)}
 function TnscSizeGripPanel.GetFormToResize: TCustomForm;

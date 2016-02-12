@@ -6,7 +6,7 @@
 {$Define sdsBaseDocumentWithAttributes_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include sdsBaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocument.imp.pas}
  _sdsBaseDocumentWithAttributes_ = {abstract} class(_sdsBaseDocument_, IsdsBaseDocumentWithAttributes)
   {* Документ с атрибутами }
   protected
@@ -29,7 +29,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include sdsBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocument.imp.pas}
 _sdsBaseDocumentWithAttributes_ = _sdsBaseDocument_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -40,7 +40,7 @@ _sdsBaseDocumentWithAttributes_ = _sdsBaseDocument_;
 {$Define sdsBaseDocumentWithAttributes_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include sdsBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\sdsBaseDocument.imp.pas}
 
 procedure _sdsBaseDocumentWithAttributes_.DoOpenAttributes;
  {* - атрибуты. }

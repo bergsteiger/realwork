@@ -22,7 +22,7 @@ type
  _ItemType_ = Int64;
  _l3RevertedAtomicList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RevertedAtomicList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RevertedAtomicList.imp.pas}
  Tl3RevertedInt64List = class(_l3RevertedAtomicList_)
  end;//Tl3RevertedInt64List
 
@@ -38,6 +38,6 @@ uses
 
 type _Instance_R_ = Tl3RevertedInt64List;
 
-{$Include l3RevertedAtomicList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RevertedAtomicList.imp.pas}
 
 end.

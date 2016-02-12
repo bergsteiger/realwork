@@ -14,7 +14,7 @@ uses
 
 type
  _atSaveQueryToXMLAddon_Parent_ = TatIterateUserJournalOperation;
- {$Include atSaveQueryToXMLAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}
  TatSaveJournalQueryToXMLOperation = class(_atSaveQueryToXMLAddon_)
   protected
    function OnQuery(const anQuery: TatQuery): Boolean; override;
@@ -33,7 +33,7 @@ uses
  , Windows
 ;
 
-{$Include atSaveQueryToXMLAddon.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}
 
 function TatSaveJournalQueryToXMLOperation.OnQuery(const anQuery: TatQuery): Boolean;
 //#UC START# *5006F37302DF_5006FEE200E1_var*

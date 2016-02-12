@@ -34,7 +34,7 @@ uses
 type
  _InitDataType_ = IbsConsultation;
  _SetType_ = IsdsConsultation;
- {$Include vcmFormSetDataSourceWithoutData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
  TsdsConsultation = class(_vcmFormSetDataSourceWithoutData_, IsdsConsultation, IsdsGotoPointDataMaker)
   {* Бизнес объект прецедента "Консультация" }
   private
@@ -128,7 +128,7 @@ uses
 
 type _Instance_R_ = TsdsConsultation;
 
-{$Include vcmFormSetDataSourceWithoutData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
 function TsdsConsultation.As_IsdsGotoPointDataMaker: IsdsGotoPointDataMaker;
  {* Метод приведения нашего интерфейса к IsdsGotoPointDataMaker }

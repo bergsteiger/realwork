@@ -17,11 +17,11 @@ uses
 type
  _FoldersNodeMatcher_ = TatQueryMatcher;
  _ObjectType_ = IQuery;
- {$Include atProcessNamedFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
  _atOpenFoldersObjectAddon_Parent_ = _atProcessNamedFoldersObjectOperation_;
- {$Include atOpenFoldersObjectAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
  _atSaveQueryToXMLAddon_Parent_ = _atOpenFoldersObjectAddon_;
- {$Include atSaveQueryToXMLAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}
  TatSaveFoldersQueryToXMLOperation = class(_atSaveQueryToXMLAddon_)
   protected
    procedure OnFoldersObject(const aFoldersObject: _ObjectType_); override;
@@ -41,11 +41,11 @@ uses
  , Windows
 ;
 
-{$Include atProcessNamedFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}
 
-{$Include atOpenFoldersObjectAddon.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas}
 
-{$Include atSaveQueryToXMLAddon.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}
 
 procedure TatSaveFoldersQueryToXMLOperation.OnFoldersObject(const aFoldersObject: _ObjectType_);
 //#UC START# *4FD0D2530143_5006FF3D006C_var*

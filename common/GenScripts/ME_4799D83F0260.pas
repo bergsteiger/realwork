@@ -20,13 +20,13 @@ uses
 
 type
  _l3Castable_Parent_ = TPrinter;
- {$Include l3Castable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
  Tl3CastablePrinter = class(_l3Castable_)
   {* Принтер с методом QueryInterface. }
  end;//Tl3CastablePrinter
 
  _l3Unknown_Parent_ = Tl3CastablePrinter;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Tl3Printer = class(_l3Unknown_, Il3Printer)
   private
    f_NoPrinter: Boolean;
@@ -102,9 +102,9 @@ type
    DeviceMode: THandle;
  end;//THackPrinter
 
-{$Include l3Castable.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 class function Tl3Printer.Make: Il3Printer;
 var

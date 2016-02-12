@@ -35,7 +35,7 @@ type
  _ItemType_ = TnscTasksPanelGroupDesc;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TnscTasksPanelGroupDescList = class(_l3RecordWithEQList_)
  end;//TnscTasksPanelGroupDescList
 
@@ -103,7 +103,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TnscTasksPanelGroupDescList;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 {$IfEnd} // Defined(Nemesis)
 
 end.

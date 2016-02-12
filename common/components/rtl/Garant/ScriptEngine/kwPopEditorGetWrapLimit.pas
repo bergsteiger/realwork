@@ -1,57 +1,50 @@
 unit kwPopEditorGetWrapLimit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorGetWrapLimit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_GetWrapLimit
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetWrapLimit.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evCustomEditorWindow,
-  kwEditorFromStackWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorGetWrapLimit = {final scriptword} class(TkwEditorFromStackWord)
- protected
- // realized methods
+ TkwPopEditorGetWrapLimit = {final} class(TkwEditorFromStackWord)
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorGetWrapLimit
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Units
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , l3Units
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
-  TevCEWHack = class(TevCustomEditorWindow)
-  end;//TevCEWHack
-
-// start class TkwPopEditorGetWrapLimit
+ TevCEWHack = class(TevCustomEditorWindow)
+ end;//TevCEWHack
 
 procedure TkwPopEditorGetWrapLimit.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_51499706003B_var*
 //#UC END# *4F4CB81200CA_51499706003B_var*
 begin
@@ -62,17 +55,13 @@ begin
 end;//TkwPopEditorGetWrapLimit.DoWithEditor
 
 class function TkwPopEditorGetWrapLimit.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:GetWrapLimit';
 end;//TkwPopEditorGetWrapLimit.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_GetWrapLimit
  TkwPopEditorGetWrapLimit.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_GetWrapLimit }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

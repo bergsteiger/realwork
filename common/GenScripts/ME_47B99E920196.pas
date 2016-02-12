@@ -6,7 +6,7 @@
 {$Define l3UncomparabeObjectRefList_imp}
 
  _l3ObjectRefListPrim_Parent_ = _l3UncomparabeObjectRefList_Parent_;
- {$Include l3ObjectRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
  _l3UncomparabeObjectRefList_ = {abstract} class(_l3ObjectRefListPrim_)
  end;//_l3UncomparabeObjectRefList_
 
@@ -52,7 +52,7 @@ begin
 //#UC END# *47B94A5C006E_47B99E920196_impl*
 end;//FreeItem
 
-{$Include l3ObjectRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
 
 {$EndIf l3UncomparabeObjectRefList_imp_impl}
 

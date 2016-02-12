@@ -37,7 +37,7 @@ type
  _ItemType_ = TvcmCommandInfo;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvcmCommandIDsListPrim = class(_l3RecordWithEQList_)
   {* Список информации о командах }
  end;//TvcmCommandIDsListPrim
@@ -110,7 +110,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmCommandIDsListPrim;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

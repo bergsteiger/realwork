@@ -25,9 +25,9 @@ uses
 
 type
  _ClipboardOperations_Parent_ = TTextViaEditorProcessor;
- {$Include ClipboardOperations.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
  _MouseClickOnPoint_Parent_ = _ClipboardOperations_;
- {$Include MouseClickOnPoint.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
  TRowSelectionTest = {abstract} class(_MouseClickOnPoint_)
   {* Тест выделения строки. }
   protected
@@ -60,9 +60,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include ClipboardOperations.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
-{$Include MouseClickOnPoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TRowSelectionTest.Process(aForm: TPrimTextLoadForm);

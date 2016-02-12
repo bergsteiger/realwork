@@ -1,82 +1,73 @@
 unit kwEditorFromStackTableColumnResize;
+ {* Вспомогательное слово для изменение размера колонок таблиц }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwEditorFromStackTableColumnResize.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::TkwEditorFromStackTableColumnResize
-//
-// Вспомогательное слово для изменение размера колонок таблиц
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTableColumnResize.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  kwEditorFromStackCursorWord,
-  Classes,
-  evCustomEditorWindow,
-  l3Units,
-  nevGUIInterfaces,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackCursorWord
+ , nevTools
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , Classes
+ , l3Units
+ , nevGUIInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _ColumnResizeByMouse_Parent_ = TkwEditorFromStackCursorWord;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
  TkwEditorFromStackTableColumnResize = {abstract} class(_ColumnResizeByMouse_)
   {* Вспомогательное слово для изменение размера колонок таблиц }
- protected
- // realized methods
+  protected
+   f_TablePara: InevParaList;
+   f_Engine: Pointer;
+  protected
    procedure DoCursor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPoint: InevBasePoint); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow;
+    const aPoint: InevBasePoint); override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
    procedure GetColumnAndRow(var aCol: Integer;
-     var aRow: Integer); override;
+    var aRow: Integer); override;
    function GetDelta: Integer; override;
- protected
- // protected fields
-   f_TablePara : InevParaList;
-   f_Engine : Pointer;
  end;//TkwEditorFromStackTableColumnResize
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Table_Const,
-  evConst,
-  l3Base,
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , Table_Const
+ , evConst
+ , l3Base
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
 
-// start class TkwEditorFromStackTableColumnResize
-
 procedure TkwEditorFromStackTableColumnResize.DoCursor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPoint: InevBasePoint);
+ anEditor: TevCustomEditorWindow;
+ const aPoint: InevBasePoint);
 //#UC START# *50B8BCDF0093_4E37F5B402A5_var*
 var
  l_Point : InevBasePoint;
@@ -96,6 +87,7 @@ begin
 end;//TkwEditorFromStackTableColumnResize.DoCursor
 
 procedure TkwEditorFromStackTableColumnResize.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4E37F5B402A5_var*
 //#UC END# *479731C50290_4E37F5B402A5_var*
 begin
@@ -106,7 +98,8 @@ begin
 end;//TkwEditorFromStackTableColumnResize.Cleanup
 
 function TkwEditorFromStackTableColumnResize.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4E37F5B402A5_var*
 var
  l_Col : Integer;
@@ -124,7 +117,7 @@ begin
 end;//TkwEditorFromStackTableColumnResize.GetInnerPara
 
 procedure TkwEditorFromStackTableColumnResize.GetColumnAndRow(var aCol: Integer;
-  var aRow: Integer);
+ var aRow: Integer);
 //#UC START# *4E32CA35008A_4E37F5B402A5_var*
 //#UC END# *4E32CA35008A_4E37F5B402A5_var*
 begin
@@ -146,12 +139,9 @@ begin
 //#UC END# *4E32CA5E0115_4E37F5B402A5_impl*
 end;//TkwEditorFromStackTableColumnResize.GetDelta
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TkwEditorFromStackTableColumnResize
  TkwEditorFromStackTableColumnResize.RegisterClass;
-{$IfEnd} //not NoScripts
+ {* Регистрация TkwEditorFromStackTableColumnResize }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

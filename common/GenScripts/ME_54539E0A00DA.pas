@@ -23,7 +23,7 @@ uses
 type
  _ItemType_ = Tm3ArcHandle;
  _KeyType_ = Int64;
- {$Include m3PersistentList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3PersistentList.imp.pas}
  Tm3ArcHandleList = class(_m3PersistentList_)
   protected
    function CompareKeyByItem(const aKey: _KeyType_;
@@ -51,7 +51,7 @@ uses
 
 type _Instance_R_ = Tm3ArcHandleList;
 
-{$Include m3PersistentList.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3PersistentList.imp.pas}
 
 function Tm3ArcHandleList.CompareKeyByItem(const aKey: _KeyType_;
  const anItem: _ItemType_): Integer;

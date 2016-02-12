@@ -14,7 +14,7 @@ uses
 
 type
  _vtUnicodeButtonControl_Parent_ = TeeButton;
- {$Include vtUnicodeButtonControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
  TvtButton = class(_vtUnicodeButtonControl_)
  end;//TvtButton
 
@@ -24,6 +24,6 @@ uses
  l3ImplUses
 ;
 
-{$Include vtUnicodeButtonControl.imp.pas}
+{$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
 
 end.

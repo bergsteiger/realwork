@@ -26,7 +26,7 @@ type
  _ItemType_ = TddHTMLParam;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TddParamsList = class(_l3RecordListPrim_)
  end;//TddParamsList
 
@@ -79,8 +79,10 @@ type
     {* Проверяет есть ли данные в теге. }
    function HasKey(anKeyID: TddHTMLParamID;
     var aParam: TddHTMLParam): Boolean;
-   procedure AlnalyseValue(aHRefSeacher: Tl3RegularSearch);
+   procedure AlnalyseValue(aHRefSeacher: Tl3RegularSearch;
+    aClosed: Boolean);
    function Param2PCharLen(const aParam: TddHTMLParam): Tl3PCharLen;
+   procedure Assign(aTag: TddHTMLTag);
   public
    property TagID: Integer
     read pm_GetTagID;
@@ -145,7 +147,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddParamsList;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 function TddHTMLTag.pm_GetTagID: Integer;
 //#UC START# *52415A3602DA_524159C700FEget_var*
@@ -401,7 +403,8 @@ begin
 //#UC END# *5243BCE0031D_524159C700FE_impl*
 end;//TddHTMLTag.CanAddNewValue
 
-procedure TddHTMLTag.AlnalyseValue(aHRefSeacher: Tl3RegularSearch);
+procedure TddHTMLTag.AlnalyseValue(aHRefSeacher: Tl3RegularSearch;
+ aClosed: Boolean);
 //#UC START# *5243D88E026F_524159C700FE_var*
 var
  l_ParamType: TddHTMLParamID;
@@ -719,6 +722,19 @@ begin
   AddKeyValue(dd_paridSTYLE);
 //#UC END# *56A071C8034A_524159C700FE_impl*
 end;//TddHTMLTag.AnalyseBorder
+
+procedure TddHTMLTag.Assign(aTag: TddHTMLTag);
+//#UC START# *56BC693D00CE_524159C700FE_var*
+//#UC END# *56BC693D00CE_524159C700FE_var*
+begin
+//#UC START# *56BC693D00CE_524159C700FE_impl*
+ f_TagID := aTag.f_TagID;
+ f_ParamsString.Assign(aTag.f_ParamsString);
+ f_ParamsList.Assign(aTag.f_ParamsList);
+ f_ParamCount := aTag.f_ParamCount;
+ f_Start := aTag.f_Start;
+//#UC END# *56BC693D00CE_524159C700FE_impl*
+end;//TddHTMLTag.Assign(aTag: TddHTMLTag)
 
 procedure TddHTMLTag.Cleanup;
  {* Функция очистки полей объекта. }

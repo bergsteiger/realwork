@@ -16,7 +16,7 @@ uses
 ;
 
 type
- {$Include BaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
  TPrimCommonDictionForm = class(_BaseDocument_)
   protected
    dsCommonDiction: IdsCommonDiction;
@@ -62,7 +62,7 @@ const
  str_utMedicDictionSettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'utMedicDictionSettingsCaption'; rValue : 'Словарь медицинских терминов: Список терминов (вкладка)');
   {* Заголовок пользовательского типа "Словарь медицинских терминов" для настройки панелей инструментов }
 
-{$Include BaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\BaseDocument.imp.pas}
 
 procedure TPrimCommonDictionForm.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_497ED770029D_var*

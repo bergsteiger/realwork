@@ -550,12 +550,8 @@ begin
 end;//Tkw_Form_FoldersElementInfo.GetWordNameForRegister
 
 function Tkw_Form_FoldersElementInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_62255BAB72F3_var*
-//#UC END# *4DDFD2EA0116_62255BAB72F3_var*
 begin
-//#UC START# *4DDFD2EA0116_62255BAB72F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_62255BAB72F3_impl*
+ Result := 'enFoldersElementInfo';
 end;//Tkw_Form_FoldersElementInfo.GetString
 
 class function Tkw_FoldersElementInfo_Control_CommentPanel.GetWordNameForRegister: AnsiString;
@@ -564,21 +560,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_CommentPanel.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_CommentPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_09E958E65FBC_var*
-//#UC END# *4DDFD2EA0116_09E958E65FBC_var*
 begin
-//#UC START# *4DDFD2EA0116_09E958E65FBC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_09E958E65FBC_impl*
+ Result := 'CommentPanel';
 end;//Tkw_FoldersElementInfo_Control_CommentPanel.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_CommentPanel.RegisterInEngine;
-//#UC START# *52A086150180_09E958E65FBC_var*
-//#UC END# *52A086150180_09E958E65FBC_var*
 begin
-//#UC START# *52A086150180_09E958E65FBC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_09E958E65FBC_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersElementInfo_Control_CommentPanel.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_CommentPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -601,21 +590,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_ElementComment.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_ElementComment.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CD901EF69045_var*
-//#UC END# *4DDFD2EA0116_CD901EF69045_var*
 begin
-//#UC START# *4DDFD2EA0116_CD901EF69045_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CD901EF69045_impl*
+ Result := 'ElementComment';
 end;//Tkw_FoldersElementInfo_Control_ElementComment.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_ElementComment.RegisterInEngine;
-//#UC START# *52A086150180_CD901EF69045_var*
-//#UC END# *52A086150180_CD901EF69045_var*
 begin
-//#UC START# *52A086150180_CD901EF69045_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CD901EF69045_impl*
+ inherited;
+ TtfwClassRef.Register(TeeMemoWithEditOperations);
 end;//Tkw_FoldersElementInfo_Control_ElementComment.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_ElementComment_Push.DoDoIt(const aCtx: TtfwContext);
@@ -638,21 +620,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_CaptionPanel.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_CaptionPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9357DEEAFAD7_var*
-//#UC END# *4DDFD2EA0116_9357DEEAFAD7_var*
 begin
-//#UC START# *4DDFD2EA0116_9357DEEAFAD7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9357DEEAFAD7_impl*
+ Result := 'CaptionPanel';
 end;//Tkw_FoldersElementInfo_Control_CaptionPanel.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_CaptionPanel.RegisterInEngine;
-//#UC START# *52A086150180_9357DEEAFAD7_var*
-//#UC END# *52A086150180_9357DEEAFAD7_var*
 begin
-//#UC START# *52A086150180_9357DEEAFAD7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_9357DEEAFAD7_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersElementInfo_Control_CaptionPanel.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_CaptionPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -675,21 +650,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_lblComment.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_lblComment.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_107B2E51722D_var*
-//#UC END# *4DDFD2EA0116_107B2E51722D_var*
 begin
-//#UC START# *4DDFD2EA0116_107B2E51722D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_107B2E51722D_impl*
+ Result := 'lblComment';
 end;//Tkw_FoldersElementInfo_Control_lblComment.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_lblComment.RegisterInEngine;
-//#UC START# *52A086150180_107B2E51722D_var*
-//#UC END# *52A086150180_107B2E51722D_var*
 begin
-//#UC START# *52A086150180_107B2E51722D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_107B2E51722D_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_FoldersElementInfo_Control_lblComment.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_lblComment_Push.DoDoIt(const aCtx: TtfwContext);
@@ -712,21 +680,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_TopPanel.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_TopPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C560D946A761_var*
-//#UC END# *4DDFD2EA0116_C560D946A761_var*
 begin
-//#UC START# *4DDFD2EA0116_C560D946A761_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C560D946A761_impl*
+ Result := 'TopPanel';
 end;//Tkw_FoldersElementInfo_Control_TopPanel.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_TopPanel.RegisterInEngine;
-//#UC START# *52A086150180_C560D946A761_var*
-//#UC END# *52A086150180_C560D946A761_var*
 begin
-//#UC START# *52A086150180_C560D946A761_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C560D946A761_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersElementInfo_Control_TopPanel.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -749,21 +710,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_NamePanel.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_NamePanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5469525C6B1E_var*
-//#UC END# *4DDFD2EA0116_5469525C6B1E_var*
 begin
-//#UC START# *4DDFD2EA0116_5469525C6B1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5469525C6B1E_impl*
+ Result := 'NamePanel';
 end;//Tkw_FoldersElementInfo_Control_NamePanel.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_NamePanel.RegisterInEngine;
-//#UC START# *52A086150180_5469525C6B1E_var*
-//#UC END# *52A086150180_5469525C6B1E_var*
 begin
-//#UC START# *52A086150180_5469525C6B1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5469525C6B1E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_FoldersElementInfo_Control_NamePanel.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_NamePanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -786,21 +740,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_lblElementName.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_lblElementName.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_377936B0D7D9_var*
-//#UC END# *4DDFD2EA0116_377936B0D7D9_var*
 begin
-//#UC START# *4DDFD2EA0116_377936B0D7D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_377936B0D7D9_impl*
+ Result := 'lblElementName';
 end;//Tkw_FoldersElementInfo_Control_lblElementName.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_lblElementName.RegisterInEngine;
-//#UC START# *52A086150180_377936B0D7D9_var*
-//#UC END# *52A086150180_377936B0D7D9_var*
 begin
-//#UC START# *52A086150180_377936B0D7D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_377936B0D7D9_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_FoldersElementInfo_Control_lblElementName.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_lblElementName_Push.DoDoIt(const aCtx: TtfwContext);
@@ -823,21 +770,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_ElementName.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_ElementName.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_20039A382622_var*
-//#UC END# *4DDFD2EA0116_20039A382622_var*
 begin
-//#UC START# *4DDFD2EA0116_20039A382622_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_20039A382622_impl*
+ Result := 'ElementName';
 end;//Tkw_FoldersElementInfo_Control_ElementName.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_ElementName.RegisterInEngine;
-//#UC START# *52A086150180_20039A382622_var*
-//#UC END# *52A086150180_20039A382622_var*
 begin
-//#UC START# *52A086150180_20039A382622_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_20039A382622_impl*
+ inherited;
+ TtfwClassRef.Register(TnscComboBoxWithReadOnly);
 end;//Tkw_FoldersElementInfo_Control_ElementName.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_ElementName_Push.DoDoIt(const aCtx: TtfwContext);
@@ -860,21 +800,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_cbShared.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_cbShared.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_86C191799612_var*
-//#UC END# *4DDFD2EA0116_86C191799612_var*
 begin
-//#UC START# *4DDFD2EA0116_86C191799612_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_86C191799612_impl*
+ Result := 'cbShared';
 end;//Tkw_FoldersElementInfo_Control_cbShared.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_cbShared.RegisterInEngine;
-//#UC START# *52A086150180_86C191799612_var*
-//#UC END# *52A086150180_86C191799612_var*
 begin
-//#UC START# *52A086150180_86C191799612_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_86C191799612_impl*
+ inherited;
+ TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_FoldersElementInfo_Control_cbShared.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_cbShared_Push.DoDoIt(const aCtx: TtfwContext);
@@ -897,21 +830,14 @@ begin
 end;//Tkw_FoldersElementInfo_Control_InfoName.GetWordNameForRegister
 
 function Tkw_FoldersElementInfo_Control_InfoName.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_DB6F345D65FD_var*
-//#UC END# *4DDFD2EA0116_DB6F345D65FD_var*
 begin
-//#UC START# *4DDFD2EA0116_DB6F345D65FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_DB6F345D65FD_impl*
+ Result := 'InfoName';
 end;//Tkw_FoldersElementInfo_Control_InfoName.GetString
 
 class procedure Tkw_FoldersElementInfo_Control_InfoName.RegisterInEngine;
-//#UC START# *52A086150180_DB6F345D65FD_var*
-//#UC END# *52A086150180_DB6F345D65FD_var*
 begin
-//#UC START# *52A086150180_DB6F345D65FD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_DB6F345D65FD_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_FoldersElementInfo_Control_InfoName.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_InfoName_Push.DoDoIt(const aCtx: TtfwContext);
@@ -931,21 +857,23 @@ end;//Tkw_FoldersElementInfo_Control_InfoName_Push.GetWordNameForRegister
 function TkwEnFoldersElementInfoCommentPanel.CommentPanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
  {* Реализация слова скрипта .TenFoldersElementInfo.CommentPanel }
-//#UC START# *6E75820A9A29_FC246B9E60E7_var*
-//#UC END# *6E75820A9A29_FC246B9E60E7_var*
 begin
-//#UC START# *6E75820A9A29_FC246B9E60E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6E75820A9A29_FC246B9E60E7_impl*
+ Result := aenFoldersElementInfo.CommentPanel;
 end;//TkwEnFoldersElementInfoCommentPanel.CommentPanel
 
 procedure TkwEnFoldersElementInfoCommentPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FC246B9E60E7_var*
-//#UC END# *4DAEEDE10285_FC246B9E60E7_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_FC246B9E60E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FC246B9E60E7_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CommentPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCommentPanel.DoDoIt
 
 class function TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister: AnsiString;
@@ -955,12 +883,8 @@ end;//TkwEnFoldersElementInfoCommentPanel.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoCommentPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FC246B9E60E7_var*
-//#UC END# *52D00B00031A_FC246B9E60E7_var*
 begin
-//#UC START# *52D00B00031A_FC246B9E60E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FC246B9E60E7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству CommentPanel', aCtx);
 end;//TkwEnFoldersElementInfoCommentPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoCommentPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -975,27 +899,29 @@ end;//TkwEnFoldersElementInfoCommentPanel.GetAllParamsCount
 
 function TkwEnFoldersElementInfoCommentPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCommentPanel.ParamsTypes
 
 function TkwEnFoldersElementInfoElementComment.ElementComment(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TeeMemoWithEditOperations;
  {* Реализация слова скрипта .TenFoldersElementInfo.ElementComment }
-//#UC START# *FDBAF6D6D042_4551FFBCF0C6_var*
-//#UC END# *FDBAF6D6D042_4551FFBCF0C6_var*
 begin
-//#UC START# *FDBAF6D6D042_4551FFBCF0C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FDBAF6D6D042_4551FFBCF0C6_impl*
+ Result := aenFoldersElementInfo.ElementComment;
 end;//TkwEnFoldersElementInfoElementComment.ElementComment
 
 procedure TkwEnFoldersElementInfoElementComment.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4551FFBCF0C6_var*
-//#UC END# *4DAEEDE10285_4551FFBCF0C6_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_4551FFBCF0C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4551FFBCF0C6_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ElementComment(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoElementComment.DoDoIt
 
 class function TkwEnFoldersElementInfoElementComment.GetWordNameForRegister: AnsiString;
@@ -1005,12 +931,8 @@ end;//TkwEnFoldersElementInfoElementComment.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoElementComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4551FFBCF0C6_var*
-//#UC END# *52D00B00031A_4551FFBCF0C6_var*
 begin
-//#UC START# *52D00B00031A_4551FFBCF0C6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4551FFBCF0C6_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ElementComment', aCtx);
 end;//TkwEnFoldersElementInfoElementComment.SetValuePrim
 
 function TkwEnFoldersElementInfoElementComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1025,27 +947,29 @@ end;//TkwEnFoldersElementInfoElementComment.GetAllParamsCount
 
 function TkwEnFoldersElementInfoElementComment.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoElementComment.ParamsTypes
 
 function TkwEnFoldersElementInfoCaptionPanel.CaptionPanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
  {* Реализация слова скрипта .TenFoldersElementInfo.CaptionPanel }
-//#UC START# *70B31DC38D6E_A0B79FE250B1_var*
-//#UC END# *70B31DC38D6E_A0B79FE250B1_var*
 begin
-//#UC START# *70B31DC38D6E_A0B79FE250B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *70B31DC38D6E_A0B79FE250B1_impl*
+ Result := aenFoldersElementInfo.CaptionPanel;
 end;//TkwEnFoldersElementInfoCaptionPanel.CaptionPanel
 
 procedure TkwEnFoldersElementInfoCaptionPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A0B79FE250B1_var*
-//#UC END# *4DAEEDE10285_A0B79FE250B1_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_A0B79FE250B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A0B79FE250B1_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CaptionPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCaptionPanel.DoDoIt
 
 class function TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister: AnsiString;
@@ -1055,12 +979,8 @@ end;//TkwEnFoldersElementInfoCaptionPanel.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoCaptionPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_A0B79FE250B1_var*
-//#UC END# *52D00B00031A_A0B79FE250B1_var*
 begin
-//#UC START# *52D00B00031A_A0B79FE250B1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_A0B79FE250B1_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству CaptionPanel', aCtx);
 end;//TkwEnFoldersElementInfoCaptionPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoCaptionPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1075,27 +995,29 @@ end;//TkwEnFoldersElementInfoCaptionPanel.GetAllParamsCount
 
 function TkwEnFoldersElementInfoCaptionPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCaptionPanel.ParamsTypes
 
 function TkwEnFoldersElementInfoLblComment.lblComment(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
  {* Реализация слова скрипта .TenFoldersElementInfo.lblComment }
-//#UC START# *D66FE10D5BBB_F4AFE53A600D_var*
-//#UC END# *D66FE10D5BBB_F4AFE53A600D_var*
 begin
-//#UC START# *D66FE10D5BBB_F4AFE53A600D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D66FE10D5BBB_F4AFE53A600D_impl*
+ Result := aenFoldersElementInfo.lblComment;
 end;//TkwEnFoldersElementInfoLblComment.lblComment
 
 procedure TkwEnFoldersElementInfoLblComment.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F4AFE53A600D_var*
-//#UC END# *4DAEEDE10285_F4AFE53A600D_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_F4AFE53A600D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F4AFE53A600D_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblComment(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoLblComment.DoDoIt
 
 class function TkwEnFoldersElementInfoLblComment.GetWordNameForRegister: AnsiString;
@@ -1105,12 +1027,8 @@ end;//TkwEnFoldersElementInfoLblComment.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoLblComment.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_F4AFE53A600D_var*
-//#UC END# *52D00B00031A_F4AFE53A600D_var*
 begin
-//#UC START# *52D00B00031A_F4AFE53A600D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_F4AFE53A600D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblComment', aCtx);
 end;//TkwEnFoldersElementInfoLblComment.SetValuePrim
 
 function TkwEnFoldersElementInfoLblComment.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1125,27 +1043,29 @@ end;//TkwEnFoldersElementInfoLblComment.GetAllParamsCount
 
 function TkwEnFoldersElementInfoLblComment.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoLblComment.ParamsTypes
 
 function TkwEnFoldersElementInfoTopPanel.TopPanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
  {* Реализация слова скрипта .TenFoldersElementInfo.TopPanel }
-//#UC START# *D0485E43FFC7_0598428B8405_var*
-//#UC END# *D0485E43FFC7_0598428B8405_var*
 begin
-//#UC START# *D0485E43FFC7_0598428B8405_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D0485E43FFC7_0598428B8405_impl*
+ Result := aenFoldersElementInfo.TopPanel;
 end;//TkwEnFoldersElementInfoTopPanel.TopPanel
 
 procedure TkwEnFoldersElementInfoTopPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0598428B8405_var*
-//#UC END# *4DAEEDE10285_0598428B8405_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_0598428B8405_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0598428B8405_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TopPanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoTopPanel.DoDoIt
 
 class function TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister: AnsiString;
@@ -1155,12 +1075,8 @@ end;//TkwEnFoldersElementInfoTopPanel.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoTopPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0598428B8405_var*
-//#UC END# *52D00B00031A_0598428B8405_var*
 begin
-//#UC START# *52D00B00031A_0598428B8405_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0598428B8405_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству TopPanel', aCtx);
 end;//TkwEnFoldersElementInfoTopPanel.SetValuePrim
 
 function TkwEnFoldersElementInfoTopPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1175,27 +1091,29 @@ end;//TkwEnFoldersElementInfoTopPanel.GetAllParamsCount
 
 function TkwEnFoldersElementInfoTopPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoTopPanel.ParamsTypes
 
 function TkwEnFoldersElementInfoNamePanel.NamePanel(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtPanel;
  {* Реализация слова скрипта .TenFoldersElementInfo.NamePanel }
-//#UC START# *5F902738E230_52A5040B9075_var*
-//#UC END# *5F902738E230_52A5040B9075_var*
 begin
-//#UC START# *5F902738E230_52A5040B9075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5F902738E230_52A5040B9075_impl*
+ Result := aenFoldersElementInfo.NamePanel;
 end;//TkwEnFoldersElementInfoNamePanel.NamePanel
 
 procedure TkwEnFoldersElementInfoNamePanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_52A5040B9075_var*
-//#UC END# *4DAEEDE10285_52A5040B9075_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_52A5040B9075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_52A5040B9075_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(NamePanel(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoNamePanel.DoDoIt
 
 class function TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister: AnsiString;
@@ -1205,12 +1123,8 @@ end;//TkwEnFoldersElementInfoNamePanel.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoNamePanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_52A5040B9075_var*
-//#UC END# *52D00B00031A_52A5040B9075_var*
 begin
-//#UC START# *52D00B00031A_52A5040B9075_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_52A5040B9075_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству NamePanel', aCtx);
 end;//TkwEnFoldersElementInfoNamePanel.SetValuePrim
 
 function TkwEnFoldersElementInfoNamePanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1225,27 +1139,29 @@ end;//TkwEnFoldersElementInfoNamePanel.GetAllParamsCount
 
 function TkwEnFoldersElementInfoNamePanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoNamePanel.ParamsTypes
 
 function TkwEnFoldersElementInfoLblElementName.lblElementName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
  {* Реализация слова скрипта .TenFoldersElementInfo.lblElementName }
-//#UC START# *16D09F0E0B43_D5C00B48FC3E_var*
-//#UC END# *16D09F0E0B43_D5C00B48FC3E_var*
 begin
-//#UC START# *16D09F0E0B43_D5C00B48FC3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *16D09F0E0B43_D5C00B48FC3E_impl*
+ Result := aenFoldersElementInfo.lblElementName;
 end;//TkwEnFoldersElementInfoLblElementName.lblElementName
 
 procedure TkwEnFoldersElementInfoLblElementName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D5C00B48FC3E_var*
-//#UC END# *4DAEEDE10285_D5C00B48FC3E_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_D5C00B48FC3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D5C00B48FC3E_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblElementName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoLblElementName.DoDoIt
 
 class function TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister: AnsiString;
@@ -1255,12 +1171,8 @@ end;//TkwEnFoldersElementInfoLblElementName.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoLblElementName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D5C00B48FC3E_var*
-//#UC END# *52D00B00031A_D5C00B48FC3E_var*
 begin
-//#UC START# *52D00B00031A_D5C00B48FC3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D5C00B48FC3E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblElementName', aCtx);
 end;//TkwEnFoldersElementInfoLblElementName.SetValuePrim
 
 function TkwEnFoldersElementInfoLblElementName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1275,27 +1187,29 @@ end;//TkwEnFoldersElementInfoLblElementName.GetAllParamsCount
 
 function TkwEnFoldersElementInfoLblElementName.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoLblElementName.ParamsTypes
 
 function TkwEnFoldersElementInfoElementName.ElementName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TnscComboBoxWithReadOnly;
  {* Реализация слова скрипта .TenFoldersElementInfo.ElementName }
-//#UC START# *5DDFB165AD04_267BC48F5895_var*
-//#UC END# *5DDFB165AD04_267BC48F5895_var*
 begin
-//#UC START# *5DDFB165AD04_267BC48F5895_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5DDFB165AD04_267BC48F5895_impl*
+ Result := aenFoldersElementInfo.ElementName;
 end;//TkwEnFoldersElementInfoElementName.ElementName
 
 procedure TkwEnFoldersElementInfoElementName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_267BC48F5895_var*
-//#UC END# *4DAEEDE10285_267BC48F5895_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_267BC48F5895_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_267BC48F5895_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ElementName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoElementName.DoDoIt
 
 class function TkwEnFoldersElementInfoElementName.GetWordNameForRegister: AnsiString;
@@ -1305,12 +1219,8 @@ end;//TkwEnFoldersElementInfoElementName.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoElementName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_267BC48F5895_var*
-//#UC END# *52D00B00031A_267BC48F5895_var*
 begin
-//#UC START# *52D00B00031A_267BC48F5895_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_267BC48F5895_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ElementName', aCtx);
 end;//TkwEnFoldersElementInfoElementName.SetValuePrim
 
 function TkwEnFoldersElementInfoElementName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1325,27 +1235,29 @@ end;//TkwEnFoldersElementInfoElementName.GetAllParamsCount
 
 function TkwEnFoldersElementInfoElementName.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoElementName.ParamsTypes
 
 function TkwEnFoldersElementInfoCbShared.cbShared(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtCheckBox;
  {* Реализация слова скрипта .TenFoldersElementInfo.cbShared }
-//#UC START# *334AECAD88B1_11977A9AAA59_var*
-//#UC END# *334AECAD88B1_11977A9AAA59_var*
 begin
-//#UC START# *334AECAD88B1_11977A9AAA59_impl*
- !!! Needs to be implemented !!!
-//#UC END# *334AECAD88B1_11977A9AAA59_impl*
+ Result := aenFoldersElementInfo.cbShared;
 end;//TkwEnFoldersElementInfoCbShared.cbShared
 
 procedure TkwEnFoldersElementInfoCbShared.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_11977A9AAA59_var*
-//#UC END# *4DAEEDE10285_11977A9AAA59_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_11977A9AAA59_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_11977A9AAA59_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbShared(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoCbShared.DoDoIt
 
 class function TkwEnFoldersElementInfoCbShared.GetWordNameForRegister: AnsiString;
@@ -1355,12 +1267,8 @@ end;//TkwEnFoldersElementInfoCbShared.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoCbShared.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_11977A9AAA59_var*
-//#UC END# *52D00B00031A_11977A9AAA59_var*
 begin
-//#UC START# *52D00B00031A_11977A9AAA59_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_11977A9AAA59_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cbShared', aCtx);
 end;//TkwEnFoldersElementInfoCbShared.SetValuePrim
 
 function TkwEnFoldersElementInfoCbShared.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1375,27 +1283,29 @@ end;//TkwEnFoldersElementInfoCbShared.GetAllParamsCount
 
 function TkwEnFoldersElementInfoCbShared.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoCbShared.ParamsTypes
 
 function TkwEnFoldersElementInfoInfoName.InfoName(const aCtx: TtfwContext;
  aenFoldersElementInfo: TenFoldersElementInfo): TvtLabel;
  {* Реализация слова скрипта .TenFoldersElementInfo.InfoName }
-//#UC START# *85618E8FF478_4CFE9C00804F_var*
-//#UC END# *85618E8FF478_4CFE9C00804F_var*
 begin
-//#UC START# *85618E8FF478_4CFE9C00804F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *85618E8FF478_4CFE9C00804F_impl*
+ Result := aenFoldersElementInfo.InfoName;
 end;//TkwEnFoldersElementInfoInfoName.InfoName
 
 procedure TkwEnFoldersElementInfoInfoName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4CFE9C00804F_var*
-//#UC END# *4DAEEDE10285_4CFE9C00804F_var*
+var l_aenFoldersElementInfo: TenFoldersElementInfo;
 begin
-//#UC START# *4DAEEDE10285_4CFE9C00804F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4CFE9C00804F_impl*
+ try
+  l_aenFoldersElementInfo := TenFoldersElementInfo(aCtx.rEngine.PopObjAs(TenFoldersElementInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aenFoldersElementInfo: TenFoldersElementInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(InfoName(aCtx, l_aenFoldersElementInfo));
 end;//TkwEnFoldersElementInfoInfoName.DoDoIt
 
 class function TkwEnFoldersElementInfoInfoName.GetWordNameForRegister: AnsiString;
@@ -1405,12 +1315,8 @@ end;//TkwEnFoldersElementInfoInfoName.GetWordNameForRegister
 
 procedure TkwEnFoldersElementInfoInfoName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4CFE9C00804F_var*
-//#UC END# *52D00B00031A_4CFE9C00804F_var*
 begin
-//#UC START# *52D00B00031A_4CFE9C00804F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4CFE9C00804F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству InfoName', aCtx);
 end;//TkwEnFoldersElementInfoInfoName.SetValuePrim
 
 function TkwEnFoldersElementInfoInfoName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1425,7 +1331,7 @@ end;//TkwEnFoldersElementInfoInfoName.GetAllParamsCount
 
 function TkwEnFoldersElementInfoInfoName.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TenFoldersElementInfo)]);
 end;//TkwEnFoldersElementInfoInfoName.ParamsTypes
 
 initialization

@@ -30,7 +30,7 @@ type
  end;//Tm3HashInfoStreamHeader
 
  _HeaderType_ = Tm3HashInfoStreamHeader;
- {$Include m3CustomHeaderStream.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas}
  Tm3BaseHashInfoStream = class(_m3CustomHeaderStream_)
   public
    class function HeaderID: TCLSID; override;
@@ -52,7 +52,7 @@ uses
  , m3Const
 ;
 
-{$Include m3CustomHeaderStream.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas}
 
 class function Tm3BaseHashInfoStream.HeaderID: TCLSID;
 //#UC START# *53FDFAF900ED_53FF322603A8_var*

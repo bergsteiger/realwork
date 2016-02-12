@@ -20,9 +20,9 @@ uses
 
 type
  _DeletingRowCorrector_Parent_ = TevParaListCursorPair;
- {$Include DeletingRowCorrector.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
  _CheckWidthInDeletingColumn_Parent_ = _DeletingRowCorrector_;
- {$Include CheckWidthInDeletingColumn.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas}
  TevTableCursorPair = class(_CheckWidthInDeletingColumn_, IevTableRange)
   {* Выделение для таблицы. }
   private
@@ -103,9 +103,9 @@ uses
  {$IfEnd} // Defined(k2ForEditor)
 ;
 
-{$Include DeletingRowCorrector.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
 
-{$Include CheckWidthInDeletingColumn.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas}
 
 function TevTableCursorPair.GetRowBlock(const aView: InevView;
  aRow: Tl3Variant;

@@ -1,61 +1,57 @@
 unit kwPopEditorWheelScroll;
+ {* *Формат:* aUp aVeritcal anEditorControl pop:editor:WheelScroll
+*Описание:* Прокручивает документ к позиции скроллера. aVeritcal - если true, то скроллируем повертикали. aUp - сроллировать вверх, если true
+*Пример:*
+[code] 
+false true focused:control:push anEditorControl pop:editor:WheelScroll
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorWheelScroll.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_WheelScroll
-//
-// *Формат:* aUp aVeritcal anEditorControl pop:editor:WheelScroll
-// *Описание:* Прокручивает документ к позиции скроллера. aVeritcal - если true, то скроллируем
-// повертикали. aUp - сроллировать вверх, если true
-// *Пример:*
-// {code}
-// false true focused:control:push anEditorControl pop:editor:WheelScroll
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorWheelScroll.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorWheelScroll = {final scriptword} class(TkwEditorFromStackWord)
+ TkwPopEditorWheelScroll = {final} class(TkwEditorFromStackWord)
   {* *Формат:* aUp aVeritcal anEditorControl pop:editor:WheelScroll
 *Описание:* Прокручивает документ к позиции скроллера. aVeritcal - если true, то скроллируем повертикали. aUp - сроллировать вверх, если true
 *Пример:*
 [code] 
 false true focused:control:push anEditorControl pop:editor:WheelScroll
 [code] }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorWheelScroll
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorWheelScroll
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorWheelScroll.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4F4F5A730085_var*
 var
  l_Up       : Boolean;
@@ -80,17 +76,13 @@ begin
 end;//TkwPopEditorWheelScroll.DoWithEditor
 
 class function TkwPopEditorWheelScroll.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:WheelScroll';
 end;//TkwPopEditorWheelScroll.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_WheelScroll
  TkwPopEditorWheelScroll.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_WheelScroll }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

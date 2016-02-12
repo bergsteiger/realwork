@@ -14,9 +14,9 @@ uses
 
 type
  _FoldersNodeMatcher_ = TatAnyMatcher;
- {$Include atProcessFoldersObjectOperation.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessFoldersObjectOperation.imp.pas}
  _atDeleteFoldersObjectAddon_Parent_ = _atProcessFoldersObjectOperation_;
- {$Include atDeleteFoldersObjectAddon.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\Operations\atDeleteFoldersObjectAddon.imp.pas}
  TatDeleteAllOperation = class(_atDeleteFoldersObjectAddon_)
  end;//TatDeleteAllOperation
 
@@ -27,8 +27,8 @@ uses
  , atLogger
 ;
 
-{$Include atProcessFoldersObjectOperation.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessFoldersObjectOperation.imp.pas}
 
-{$Include atDeleteFoldersObjectAddon.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\Operations\atDeleteFoldersObjectAddon.imp.pas}
 
 end.

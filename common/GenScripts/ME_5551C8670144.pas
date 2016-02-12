@@ -30,7 +30,7 @@ type
  end;//Im3StorageService
 
  _l3CriticalSectionHolder_Parent_ = Tl3ProtoObject;
- {$Include l3CriticalSectionHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
  Tm3StorageService = {final} class(_l3CriticalSectionHolder_)
   private
    f_UseSplitted: Boolean;
@@ -70,7 +70,7 @@ begin
  l3Free(g_Tm3StorageService);
 end;//Tm3StorageServiceFree
 
-{$Include l3CriticalSectionHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas}
 
 procedure Tm3StorageService.pm_SetAlien(const aValue: Im3StorageService);
 begin

@@ -39,7 +39,7 @@ uses
 ;
 
 type
- {$Include dsBaseDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas}
  TdsAutoreferat = class(_dsBaseDocument_)
   {* Автореферат }
   protected
@@ -77,7 +77,7 @@ uses
 
 type _Instance_R_ = TdsAutoreferat;
 
-{$Include dsBaseDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocument.imp.pas}
 
 function TdsAutoreferat.GetIsReadOnly: Boolean;
 //#UC START# *491C263E03AF_491C3B8D00D8_var*

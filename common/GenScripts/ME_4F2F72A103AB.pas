@@ -23,7 +23,7 @@ type
  _ItemType_ = TevCellsOffsetsPair;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TevCellsOffsetsPairList = class(_l3UncomparabeObjectRefList_)
   public
    function PenultimateItem: TevCellsOffsetsPair;
@@ -66,7 +66,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevCellsOffsetsPairList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 function TevCellsOffsetsPairList.PenultimateItem: TevCellsOffsetsPair;
 //#UC START# *4FC618A7012C_4F2F72A103AB_var*

@@ -7,7 +7,7 @@
 
 {$If NOT Defined(DesignTimeLibrary)}
  _evStyleTableListenerPrim_Parent_ = _evStyleTableListener_Parent_;
- {$Include evStyleTableListenerPrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
  _evStyleTableListener_ = class(_evStyleTableListenerPrim_)
   {* Объект, слушающий изменения таблицы стилей }
   protected
@@ -18,7 +18,7 @@
 {$Else NOT Defined(DesignTimeLibrary)}
 
 _evStyleTableListenerPrim_Parent_ = _evStyleTableListener_Parent_;
-{$Include evStyleTableListenerPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
 _evStyleTableListener_ = _evStyleTableListenerPrim_;
 
 {$IfEnd} // NOT Defined(DesignTimeLibrary)
@@ -29,7 +29,7 @@ _evStyleTableListener_ = _evStyleTableListenerPrim_;
 {$Define evStyleTableListener_imp_impl}
 
 {$If NOT Defined(DesignTimeLibrary)}
-{$Include evStyleTableListenerPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas}
 
 procedure _evStyleTableListener_.Cleanup;
  {* Функция очистки полей объекта. }

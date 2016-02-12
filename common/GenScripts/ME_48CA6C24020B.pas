@@ -24,7 +24,7 @@ type
  _ItemType_ = Tl3FrameObject;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tl3FrameObjectList = class(_l3UncomparabeObjectRefList_)
   {* Массив объектов отрисовки }
   protected
@@ -71,7 +71,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3FrameObjectList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function Tl3FrameObjectList.IsCacheable: Boolean;

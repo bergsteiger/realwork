@@ -25,7 +25,7 @@ type
  _ItemType_ = IvcmNode;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TvcmNodes = class(_l3InterfaceRefList_, IvcmNodes)
   {* Список нод. }
   private
@@ -64,7 +64,7 @@ uses
 
 type _Instance_R_ = TvcmNodes;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 class function TvcmNodes.MakeI: IvcmNodes;
 var

@@ -6,7 +6,7 @@
 {$Define atEnumConverter_imp}
 
  _SecondType_ = _EnumType_;
- {$Include atStringConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
  _atEnumConverter_ = class(_atStringConverter_)
   protected
    procedure InitConvertMap; override;
@@ -21,7 +21,7 @@
 
 {$Define atEnumConverter_imp_impl}
 
-{$Include atStringConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
 
 function _atEnumConverter_.ToName(const aValueOrd: Integer): AnsiString;
 //#UC START# *503E67610170_50005E6B0318_var*

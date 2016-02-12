@@ -25,7 +25,7 @@ uses
 type
  _k2SimpleTagListPrim_Parent_ = Tl3DataContainerWithoutIUnknownPrim;
  {$Define l3Items_IsProto}
- {$Include k2SimpleTagListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas}
  Tk2SimpleTagList = class(_k2SimpleTagListPrim_)
   public
    procedure JoinWith(anOther: Tk2TagList); overload;
@@ -46,7 +46,7 @@ uses
 
 type _Instance_R_ = Tk2SimpleTagList;
 
-{$Include k2SimpleTagListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2SimpleTagListPrim.imp.pas}
 
 procedure Tk2SimpleTagList.JoinWith(anOther: Tk2TagList);
 //#UC START# *5319D72D03D1_5319CECC039A_var*

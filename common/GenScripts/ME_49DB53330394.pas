@@ -22,7 +22,7 @@ uses
 
 type
  _X_ = InevLeafPara;
- {$Include evLeafParaPainter.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evLeafParaPainter.imp.pas}
  TevLeafParaPainter = class(_evLeafParaPainter_)
  end;//TevLeafParaPainter
 {$IfEnd} // Defined(evNeedPainters)
@@ -58,7 +58,7 @@ uses
  , Windows
 ;
 
-{$Include evLeafParaPainter.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evLeafParaPainter.imp.pas}
 {$IfEnd} // Defined(evNeedPainters)
 
 end.

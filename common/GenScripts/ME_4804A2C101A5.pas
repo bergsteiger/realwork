@@ -6,7 +6,7 @@
 {$Define evParaPainter_imp}
 
 {$If Defined(evNeedPainters)}
- {$Include nevTinyParaXTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas}
  _evParaPainter_ = class(_nevTinyParaXTool_, Il3FrameTextPainter, InevDrawingShape, IevPainter, InevK235870994Hacker)
   {* Базовая реализация инструмента для рисования параграфа. }
   private
@@ -213,7 +213,7 @@
 
 {$Else Defined(evNeedPainters)}
 
-{$Include nevTinyParaXTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas}
 _evParaPainter_ = _nevTinyParaXTool_;
 
 {$IfEnd} // Defined(evNeedPainters)
@@ -224,7 +224,7 @@ _evParaPainter_ = _nevTinyParaXTool_;
 {$Define evParaPainter_imp_impl}
 
 {$If Defined(evNeedPainters)}
-{$Include nevTinyParaXTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas}
 
 function _evParaPainter_.pm_GetVerticalAlignmentMargin: Integer;
 //#UC START# *4804AA7A003A_4804A2C101A5get_var*

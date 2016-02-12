@@ -23,7 +23,7 @@ uses
 
 type
  _SelectTablePart_Parent_ = TTextViaEditorProcessor;
- {$Include SelectTablePart.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TSelectRowAndDeleteTest = {abstract} class(_SelectTablePart_)
   {* Выделить строку и удалить. }
   protected
@@ -65,7 +65,7 @@ uses
  , l3Base
 ;
 
-{$Include SelectTablePart.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TSelectRowAndDeleteTest.Process(aForm: TPrimTextLoadForm);

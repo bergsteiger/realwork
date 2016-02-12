@@ -20,7 +20,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTableToolsTest;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TSplitTableTest = {abstract} class(_CursorMover_)
   {* “есты разбиени€ таблиц }
   protected
@@ -64,7 +64,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 function TSplitTableTest.GetLineCount: Integer;
  {*  оличество строчек (текста), на которое нужно сдинуть курсор перед разбиванием табилцы на две. }

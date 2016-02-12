@@ -9,7 +9,7 @@
  _KeyType_ = TafwSettingId;
  _BooleanType_ = Boolean;
  _nsAbstractSettingsPrim_Parent_ = _afwSettingsPrim_Parent_;
- {$Include nsAbstractSettingsPrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas}
  _afwSettingsPrim_ = {abstract} class(_nsAbstractSettingsPrim_)
  end;//_afwSettingsPrim_
 
@@ -61,7 +61,7 @@ begin
 //#UC END# *4F6C699E009A_4F6C6DF70131_impl*
 end;//StringToPChar
 
-{$Include nsAbstractSettingsPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\nsAbstractSettingsPrim.imp.pas}
 
 {$EndIf afwSettingsPrim_imp_impl}
 

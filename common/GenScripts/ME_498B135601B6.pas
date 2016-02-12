@@ -264,7 +264,8 @@ type
    procedure OpenDocOnNumber;
     {* Открыть документ по номеру }
   public
-   procedure OpenDocument;
+   procedure OpenDocument(const aDocInfo: IdeDocInfo;
+    const aContainer: IvcmContainer);
     {* Открывает документ }
    function OpenEntityAsDocument(const anEntity: IUnknown;
     const aContainer: IvcmContainer): IDocument;
@@ -644,7 +645,8 @@ begin
 //#UC END# *4B150AAA0334_4B150A890212_impl*
 end;//TnsOpenDocumentByNumber.Log
 
-procedure TDocumentModule.OpenDocument;
+procedure TDocumentModule.OpenDocument(const aDocInfo: IdeDocInfo;
+ const aContainer: IvcmContainer);
  {* Открывает документ }
 
  procedure CheckAlive;

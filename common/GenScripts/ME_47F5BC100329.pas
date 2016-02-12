@@ -27,7 +27,7 @@ uses
 ;
 
 type
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsFilters = {final} class(_vcmFormDataSourcePrim_, IdsFilters)
   {* БОФ формы фильтры }
   protected
@@ -47,7 +47,7 @@ uses
 
 type _Instance_R_ = TdsFilters;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 function TdsFilters.OpenFilter(const aNode: Il3SimpleNode): IdeFilter;
  {* возвращает данные необходимые редактироания фильтра }

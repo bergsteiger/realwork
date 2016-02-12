@@ -1,50 +1,41 @@
 {$IfNDef LinesDrawOutput_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "LinesDrawOutput.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi::ScriptEngine$Everest::MixIns::LinesDrawOutput
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\LinesDrawOutput.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define LinesDrawOutput_imp}
-{$If not defined(NoScripts)}
- _LinesDrawOutput_ = {mixin} class(_LinesDrawOutput_Parent_, Il3FrameLinesLogger)
- private
- // private fields
-   f_ObjID : Integer;
- protected
- // realized methods
-   function OpenLinesLog(const aCanvas: Il3InfoCanvas;
-     aObjID: Integer): AnsiString;
-   procedure CloseLinesLog(const aLogName: AnsiString);
-   function GetPrecision: Integer;
- protected
- // protected fields
-   f_OutputFileName : AnsiString;
-   f_Precision : Integer;
- protected
- // protected methods
+
+{$If NOT Defined(NoScripts)}
+ _LinesDrawOutput_ = class(_LinesDrawOutput_Parent_, Il3FrameLinesLogger)
+  private
+   f_ObjID: Integer;
+  protected
+   f_OutputFileName: AnsiString;
+   f_Precision: Integer;
+  protected
    procedure DoCloseLog(const aLogName: AnsiString); virtual; abstract;
    procedure SaveDrawing(anEditor: TevCustomEditorWindow;
-     aPrinting: Boolean);
+    aPrinting: Boolean);
+   function OpenLinesLog(const aCanvas: Il3InfoCanvas;
+    aObjID: Integer): AnsiString;
+   procedure CloseLinesLog(const aLogName: AnsiString);
+   function GetPrecision: Integer;
  end;//_LinesDrawOutput_
-{$Else}
 
- _LinesDrawOutput_ = _LinesDrawOutput_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_LinesDrawOutput_ = _LinesDrawOutput_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else LinesDrawOutput_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef LinesDrawOutput_imp_impl}
 
-// start class _LinesDrawOutput_
+{$Define LinesDrawOutput_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _LinesDrawOutput_.SaveDrawing(anEditor: TevCustomEditorWindow;
-  aPrinting: Boolean);
+ aPrinting: Boolean);
 //#UC START# *4FA3CBA503D7_4FA3BB1500BA_var*
 //#UC END# *4FA3CBA503D7_4FA3BB1500BA_var*
 begin
@@ -62,7 +53,7 @@ begin
 end;//_LinesDrawOutput_.SaveDrawing
 
 function _LinesDrawOutput_.OpenLinesLog(const aCanvas: Il3InfoCanvas;
-  aObjID: Integer): AnsiString;
+ aObjID: Integer): AnsiString;
 //#UC START# *4D00C91B03B2_4FA3BB1500BA_var*
 //#UC END# *4D00C91B03B2_4FA3BB1500BA_var*
 begin
@@ -88,7 +79,9 @@ begin
  Result := f_Precision;
 //#UC END# *4FA3D5A500A9_4FA3BB1500BA_impl*
 end;//_LinesDrawOutput_.GetPrecision
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf LinesDrawOutput_imp_impl}
 
 {$EndIf LinesDrawOutput_imp}
+

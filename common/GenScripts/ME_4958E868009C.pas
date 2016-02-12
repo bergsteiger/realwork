@@ -38,7 +38,7 @@ uses
 
 type
  _vcmChromeLikeTabIconUpdater_Parent_ = TPrimMainMenuForm;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TInpharmMainMenuForm = {abstract} class(_vcmChromeLikeTabIconUpdater_)
   {* Основное меню Инфарм }
   private
@@ -153,7 +153,7 @@ const
 
 type _Instance_R_ = TInpharmMainMenuForm;
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 function TInpharmMainMenuForm.DoBuildGrid: InscArrangeGrid;
 //#UC START# *4AC9B6D00250_4958E868009C_var*

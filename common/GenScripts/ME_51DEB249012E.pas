@@ -17,7 +17,7 @@ uses
 
 type
  _ItemType_ = Integer;
- {$Include StandardAtomicList.imp.pas}
+ {$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}
  TIntegerList = class(_StandardAtomicList_)
   {* Список Integer'ов }
  end;//TIntegerList
@@ -30,6 +30,6 @@ uses
  , l3MemorySizeUtils
 ;
 
-{$Include StandardAtomicList.imp.pas}
+{$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}
 
 end.

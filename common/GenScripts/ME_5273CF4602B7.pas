@@ -29,7 +29,7 @@ type
  Rk2TypedAtomicTag = class of Tk2TypedAtomicTag;
 
  _k2Tag_Parent_ = Tk2AtomicTag;
- {$Include k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2TypedAtomicTag = class(_k2Tag_)
   protected
    {$If NOT Defined(k2TagIsAtomic)}
@@ -77,7 +77,7 @@ uses
 
 type _Instance_R_ = Tk2TypedAtomicTag;
 
-{$Include k2Tag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2TypedAtomicTag.Create(aValue: Integer;
  aType: Tk2Type);

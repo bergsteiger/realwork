@@ -27,9 +27,9 @@ type
  end;//TevDocumentImplementation
 
  _k2TagHolder_Parent_ = Tl3CacheableBase;
- {$Include k2TagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
  _k2TagBox_Parent_ = _k2TagHolder_;
- {$Include k2TagBox.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
  TevDocumentPartImplementation = class(_k2TagBox_, IevSub, IevDocumentPart, IevDocumentPoint)
   protected
    procedure SetTo(EntryPoint: Tl3Variant);
@@ -92,11 +92,11 @@ uses
  , k2InterfaceFactory
 ;
 
-{$Include k2TagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
 
 type _Instance_R_ = TevDocumentPartImplementation;
 
-{$Include k2TagBox.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
 
 procedure TevDocumentPartImplementation.SetTo(EntryPoint: Tl3Variant);
  {* устанавливает метку в EntryPoint. }

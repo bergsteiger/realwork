@@ -26,7 +26,7 @@ uses
 
 type
  _IvcmRealData_ = IdMedicFirmList;
- {$Include dMedicFirmDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas}
  TdMedicFirmList = class(_dMedicFirmDocument_, IdMedicFirmList)
   private
    f_dsSynchroViewRef: IvcmFormDataSourceRef;
@@ -64,7 +64,7 @@ uses
 
 type _Instance_R_ = TdMedicFirmList;
 
-{$Include dMedicFirmDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas}
 
 class function TdMedicFirmList.Make: IdMedicFirmList;
 var

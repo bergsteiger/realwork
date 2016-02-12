@@ -27,7 +27,7 @@ uses
 
 type
  _VCMWord_Parent_ = TtfwRegisterableWord;
- {$Include VCMWord.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
  TkwVcmHistoryDeleteBackItem = class(_VCMWord_)
   {* Удаляет один элемент истории из списка Back.
  *Пример:*
@@ -60,7 +60,7 @@ uses
  , afwAnswer
 ;
 
-{$Include VCMWord.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas}
 
 procedure TkwVcmHistoryDeleteBackItem.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4E82CEBA0299_var*

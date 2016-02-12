@@ -20,7 +20,7 @@ uses
 
 type
  _nscStatusBarItemNotification_Parent_ = TToolbarSep97;
- {$Include nscStatusBarItemNotification.imp.pas}
+ {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
  TnscStatusBarSep = class(_nscStatusBarItemNotification_)
  end;//TnscStatusBarSep
 {$IfEnd} // Defined(Nemesis)
@@ -39,7 +39,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include nscStatusBarItemNotification.imp.pas}
+{$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}
 
 initialization
 {$If NOT Defined(NoScripts)}

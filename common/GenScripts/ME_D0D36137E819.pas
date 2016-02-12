@@ -203,12 +203,8 @@ begin
 end;//Tkw_Form_AttributeSelect.GetWordNameForRegister
 
 function Tkw_Form_AttributeSelect.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7B04CBBC23FE_var*
-//#UC END# *4DDFD2EA0116_7B04CBBC23FE_var*
 begin
-//#UC START# *4DDFD2EA0116_7B04CBBC23FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7B04CBBC23FE_impl*
+ Result := 'cfAttributeSelect';
 end;//Tkw_Form_AttributeSelect.GetString
 
 class function Tkw_AttributeSelect_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -217,21 +213,14 @@ begin
 end;//Tkw_AttributeSelect_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_AttributeSelect_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_323ED05D103E_var*
-//#UC END# *4DDFD2EA0116_323ED05D103E_var*
 begin
-//#UC START# *4DDFD2EA0116_323ED05D103E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_323ED05D103E_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_AttributeSelect_Control_BackgroundPanel.GetString
 
 class procedure Tkw_AttributeSelect_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_323ED05D103E_var*
-//#UC END# *52A086150180_323ED05D103E_var*
 begin
-//#UC START# *52A086150180_323ED05D103E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_323ED05D103E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_AttributeSelect_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_AttributeSelect_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -254,21 +243,14 @@ begin
 end;//Tkw_AttributeSelect_Control_SelectedZone.GetWordNameForRegister
 
 function Tkw_AttributeSelect_Control_SelectedZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_20E72858C727_var*
-//#UC END# *4DDFD2EA0116_20E72858C727_var*
 begin
-//#UC START# *4DDFD2EA0116_20E72858C727_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_20E72858C727_impl*
+ Result := 'SelectedZone';
 end;//Tkw_AttributeSelect_Control_SelectedZone.GetString
 
 class procedure Tkw_AttributeSelect_Control_SelectedZone.RegisterInEngine;
-//#UC START# *52A086150180_20E72858C727_var*
-//#UC END# *52A086150180_20E72858C727_var*
 begin
-//#UC START# *52A086150180_20E72858C727_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_20E72858C727_impl*
+ inherited;
+ TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_AttributeSelect_Control_SelectedZone.RegisterInEngine
 
 procedure Tkw_AttributeSelect_Control_SelectedZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -291,21 +273,14 @@ begin
 end;//Tkw_AttributeSelect_Control_ValuesZone.GetWordNameForRegister
 
 function Tkw_AttributeSelect_Control_ValuesZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_02C59321A72A_var*
-//#UC END# *4DDFD2EA0116_02C59321A72A_var*
 begin
-//#UC START# *4DDFD2EA0116_02C59321A72A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_02C59321A72A_impl*
+ Result := 'ValuesZone';
 end;//Tkw_AttributeSelect_Control_ValuesZone.GetString
 
 class procedure Tkw_AttributeSelect_Control_ValuesZone.RegisterInEngine;
-//#UC START# *52A086150180_02C59321A72A_var*
-//#UC END# *52A086150180_02C59321A72A_var*
 begin
-//#UC START# *52A086150180_02C59321A72A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_02C59321A72A_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AttributeSelect_Control_ValuesZone.RegisterInEngine
 
 procedure Tkw_AttributeSelect_Control_ValuesZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -325,21 +300,23 @@ end;//Tkw_AttributeSelect_Control_ValuesZone_Push.GetWordNameForRegister
 function TkwCfAttributeSelectBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  acfAttributeSelect: TcfAttributeSelect): TvtProportionalPanel;
  {* Реализация слова скрипта .TcfAttributeSelect.BackgroundPanel }
-//#UC START# *89CABF85AB03_89575F4DA07E_var*
-//#UC END# *89CABF85AB03_89575F4DA07E_var*
 begin
-//#UC START# *89CABF85AB03_89575F4DA07E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *89CABF85AB03_89575F4DA07E_impl*
+ Result := acfAttributeSelect.BackgroundPanel;
 end;//TkwCfAttributeSelectBackgroundPanel.BackgroundPanel
 
 procedure TkwCfAttributeSelectBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_89575F4DA07E_var*
-//#UC END# *4DAEEDE10285_89575F4DA07E_var*
+var l_acfAttributeSelect: TcfAttributeSelect;
 begin
-//#UC START# *4DAEEDE10285_89575F4DA07E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_89575F4DA07E_impl*
+ try
+  l_acfAttributeSelect := TcfAttributeSelect(aCtx.rEngine.PopObjAs(TcfAttributeSelect));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfAttributeSelect: TcfAttributeSelect : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectBackgroundPanel.DoDoIt
 
 class function TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -349,12 +326,8 @@ end;//TkwCfAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_89575F4DA07E_var*
-//#UC END# *52D00B00031A_89575F4DA07E_var*
 begin
-//#UC START# *52D00B00031A_89575F4DA07E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_89575F4DA07E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwCfAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwCfAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -369,27 +342,29 @@ end;//TkwCfAttributeSelectBackgroundPanel.GetAllParamsCount
 
 function TkwCfAttributeSelectBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectBackgroundPanel.ParamsTypes
 
 function TkwCfAttributeSelectSelectedZone.SelectedZone(const aCtx: TtfwContext;
  acfAttributeSelect: TcfAttributeSelect): TvtSizeablePanel;
  {* Реализация слова скрипта .TcfAttributeSelect.SelectedZone }
-//#UC START# *DA3D7C206BCF_74458A23E791_var*
-//#UC END# *DA3D7C206BCF_74458A23E791_var*
 begin
-//#UC START# *DA3D7C206BCF_74458A23E791_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DA3D7C206BCF_74458A23E791_impl*
+ Result := acfAttributeSelect.SelectedZone;
 end;//TkwCfAttributeSelectSelectedZone.SelectedZone
 
 procedure TkwCfAttributeSelectSelectedZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_74458A23E791_var*
-//#UC END# *4DAEEDE10285_74458A23E791_var*
+var l_acfAttributeSelect: TcfAttributeSelect;
 begin
-//#UC START# *4DAEEDE10285_74458A23E791_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_74458A23E791_impl*
+ try
+  l_acfAttributeSelect := TcfAttributeSelect(aCtx.rEngine.PopObjAs(TcfAttributeSelect));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfAttributeSelect: TcfAttributeSelect : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(SelectedZone(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectSelectedZone.DoDoIt
 
 class function TkwCfAttributeSelectSelectedZone.GetWordNameForRegister: AnsiString;
@@ -399,12 +374,8 @@ end;//TkwCfAttributeSelectSelectedZone.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectSelectedZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_74458A23E791_var*
-//#UC END# *52D00B00031A_74458A23E791_var*
 begin
-//#UC START# *52D00B00031A_74458A23E791_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_74458A23E791_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству SelectedZone', aCtx);
 end;//TkwCfAttributeSelectSelectedZone.SetValuePrim
 
 function TkwCfAttributeSelectSelectedZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -419,27 +390,29 @@ end;//TkwCfAttributeSelectSelectedZone.GetAllParamsCount
 
 function TkwCfAttributeSelectSelectedZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectSelectedZone.ParamsTypes
 
 function TkwCfAttributeSelectValuesZone.ValuesZone(const aCtx: TtfwContext;
  acfAttributeSelect: TcfAttributeSelect): TvtPanel;
  {* Реализация слова скрипта .TcfAttributeSelect.ValuesZone }
-//#UC START# *A13D09205356_122E41686ED8_var*
-//#UC END# *A13D09205356_122E41686ED8_var*
 begin
-//#UC START# *A13D09205356_122E41686ED8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A13D09205356_122E41686ED8_impl*
+ Result := acfAttributeSelect.ValuesZone;
 end;//TkwCfAttributeSelectValuesZone.ValuesZone
 
 procedure TkwCfAttributeSelectValuesZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_122E41686ED8_var*
-//#UC END# *4DAEEDE10285_122E41686ED8_var*
+var l_acfAttributeSelect: TcfAttributeSelect;
 begin
-//#UC START# *4DAEEDE10285_122E41686ED8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_122E41686ED8_impl*
+ try
+  l_acfAttributeSelect := TcfAttributeSelect(aCtx.rEngine.PopObjAs(TcfAttributeSelect));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfAttributeSelect: TcfAttributeSelect : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ValuesZone(aCtx, l_acfAttributeSelect));
 end;//TkwCfAttributeSelectValuesZone.DoDoIt
 
 class function TkwCfAttributeSelectValuesZone.GetWordNameForRegister: AnsiString;
@@ -449,12 +422,8 @@ end;//TkwCfAttributeSelectValuesZone.GetWordNameForRegister
 
 procedure TkwCfAttributeSelectValuesZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_122E41686ED8_var*
-//#UC END# *52D00B00031A_122E41686ED8_var*
 begin
-//#UC START# *52D00B00031A_122E41686ED8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_122E41686ED8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ValuesZone', aCtx);
 end;//TkwCfAttributeSelectValuesZone.SetValuePrim
 
 function TkwCfAttributeSelectValuesZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -469,7 +438,7 @@ end;//TkwCfAttributeSelectValuesZone.GetAllParamsCount
 
 function TkwCfAttributeSelectValuesZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfAttributeSelect)]);
 end;//TkwCfAttributeSelectValuesZone.ParamsTypes
 
 initialization

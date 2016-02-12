@@ -459,12 +459,8 @@ begin
 end;//Tkw_Form_List.GetWordNameForRegister
 
 function Tkw_Form_List.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E3D7804C32D0_var*
-//#UC END# *4DDFD2EA0116_E3D7804C32D0_var*
 begin
-//#UC START# *4DDFD2EA0116_E3D7804C32D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E3D7804C32D0_impl*
+ Result := 'efList';
 end;//Tkw_Form_List.GetString
 
 class function Tkw_List_Control_RemindersLine.GetWordNameForRegister: AnsiString;
@@ -473,21 +469,14 @@ begin
 end;//Tkw_List_Control_RemindersLine.GetWordNameForRegister
 
 function Tkw_List_Control_RemindersLine.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EEE4E4036F9B_var*
-//#UC END# *4DDFD2EA0116_EEE4E4036F9B_var*
 begin
-//#UC START# *4DDFD2EA0116_EEE4E4036F9B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EEE4E4036F9B_impl*
+ Result := 'RemindersLine';
 end;//Tkw_List_Control_RemindersLine.GetString
 
 class procedure Tkw_List_Control_RemindersLine.RegisterInEngine;
-//#UC START# *52A086150180_EEE4E4036F9B_var*
-//#UC END# *52A086150180_EEE4E4036F9B_var*
 begin
-//#UC START# *52A086150180_EEE4E4036F9B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EEE4E4036F9B_impl*
+ inherited;
+ TtfwClassRef.Register(TnscRemindersLine);
 end;//Tkw_List_Control_RemindersLine.RegisterInEngine
 
 procedure Tkw_List_Control_RemindersLine_Push.DoDoIt(const aCtx: TtfwContext);
@@ -510,21 +499,14 @@ begin
 end;//Tkw_List_Control_remListFiltered.GetWordNameForRegister
 
 function Tkw_List_Control_remListFiltered.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_00D920D82800_var*
-//#UC END# *4DDFD2EA0116_00D920D82800_var*
 begin
-//#UC START# *4DDFD2EA0116_00D920D82800_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_00D920D82800_impl*
+ Result := 'remListFiltered';
 end;//Tkw_List_Control_remListFiltered.GetString
 
 class procedure Tkw_List_Control_remListFiltered.RegisterInEngine;
-//#UC START# *52A086150180_00D920D82800_var*
-//#UC END# *52A086150180_00D920D82800_var*
 begin
-//#UC START# *52A086150180_00D920D82800_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_00D920D82800_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_List_Control_remListFiltered.RegisterInEngine
 
 procedure Tkw_List_Control_remListFiltered_Push.DoDoIt(const aCtx: TtfwContext);
@@ -547,21 +529,14 @@ begin
 end;//Tkw_List_Control_remListModified.GetWordNameForRegister
 
 function Tkw_List_Control_remListModified.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7B075F9166B7_var*
-//#UC END# *4DDFD2EA0116_7B075F9166B7_var*
 begin
-//#UC START# *4DDFD2EA0116_7B075F9166B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7B075F9166B7_impl*
+ Result := 'remListModified';
 end;//Tkw_List_Control_remListModified.GetString
 
 class procedure Tkw_List_Control_remListModified.RegisterInEngine;
-//#UC START# *52A086150180_7B075F9166B7_var*
-//#UC END# *52A086150180_7B075F9166B7_var*
 begin
-//#UC START# *52A086150180_7B075F9166B7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7B075F9166B7_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_List_Control_remListModified.RegisterInEngine
 
 procedure Tkw_List_Control_remListModified_Push.DoDoIt(const aCtx: TtfwContext);
@@ -584,21 +559,14 @@ begin
 end;//Tkw_List_Control_remTimeMachineWarning.GetWordNameForRegister
 
 function Tkw_List_Control_remTimeMachineWarning.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1E3943818AF9_var*
-//#UC END# *4DDFD2EA0116_1E3943818AF9_var*
 begin
-//#UC START# *4DDFD2EA0116_1E3943818AF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1E3943818AF9_impl*
+ Result := 'remTimeMachineWarning';
 end;//Tkw_List_Control_remTimeMachineWarning.GetString
 
 class procedure Tkw_List_Control_remTimeMachineWarning.RegisterInEngine;
-//#UC START# *52A086150180_1E3943818AF9_var*
-//#UC END# *52A086150180_1E3943818AF9_var*
 begin
-//#UC START# *52A086150180_1E3943818AF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1E3943818AF9_impl*
+ inherited;
+ TtfwClassRef.Register(TnscReminder);
 end;//Tkw_List_Control_remTimeMachineWarning.RegisterInEngine
 
 procedure Tkw_List_Control_remTimeMachineWarning_Push.DoDoIt(const aCtx: TtfwContext);
@@ -621,21 +589,14 @@ begin
 end;//Tkw_List_Control_EmptyListEditor.GetWordNameForRegister
 
 function Tkw_List_Control_EmptyListEditor.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_DCB705344A08_var*
-//#UC END# *4DDFD2EA0116_DCB705344A08_var*
 begin
-//#UC START# *4DDFD2EA0116_DCB705344A08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_DCB705344A08_impl*
+ Result := 'EmptyListEditor';
 end;//Tkw_List_Control_EmptyListEditor.GetString
 
 class procedure Tkw_List_Control_EmptyListEditor.RegisterInEngine;
-//#UC START# *52A086150180_DCB705344A08_var*
-//#UC END# *52A086150180_DCB705344A08_var*
 begin
-//#UC START# *52A086150180_DCB705344A08_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_DCB705344A08_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_List_Control_EmptyListEditor.RegisterInEngine
 
 procedure Tkw_List_Control_EmptyListEditor_Push.DoDoIt(const aCtx: TtfwContext);
@@ -658,21 +619,14 @@ begin
 end;//Tkw_List_Control_ListPanel.GetWordNameForRegister
 
 function Tkw_List_Control_ListPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6F2F68114B07_var*
-//#UC END# *4DDFD2EA0116_6F2F68114B07_var*
 begin
-//#UC START# *4DDFD2EA0116_6F2F68114B07_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6F2F68114B07_impl*
+ Result := 'ListPanel';
 end;//Tkw_List_Control_ListPanel.GetString
 
 class procedure Tkw_List_Control_ListPanel.RegisterInEngine;
-//#UC START# *52A086150180_6F2F68114B07_var*
-//#UC END# *52A086150180_6F2F68114B07_var*
 begin
-//#UC START# *52A086150180_6F2F68114B07_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6F2F68114B07_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_List_Control_ListPanel.RegisterInEngine
 
 procedure Tkw_List_Control_ListPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -695,21 +649,14 @@ begin
 end;//Tkw_List_Control_tvList.GetWordNameForRegister
 
 function Tkw_List_Control_tvList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_75B5996C434D_var*
-//#UC END# *4DDFD2EA0116_75B5996C434D_var*
 begin
-//#UC START# *4DDFD2EA0116_75B5996C434D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_75B5996C434D_impl*
+ Result := 'tvList';
 end;//Tkw_List_Control_tvList.GetString
 
 class procedure Tkw_List_Control_tvList.RegisterInEngine;
-//#UC START# *52A086150180_75B5996C434D_var*
-//#UC END# *52A086150180_75B5996C434D_var*
 begin
-//#UC START# *52A086150180_75B5996C434D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_75B5996C434D_impl*
+ inherited;
+ TtfwClassRef.Register(TnscDocumentListTreeView);
 end;//Tkw_List_Control_tvList.RegisterInEngine
 
 procedure Tkw_List_Control_tvList_Push.DoDoIt(const aCtx: TtfwContext);
@@ -732,21 +679,14 @@ begin
 end;//Tkw_List_Control_cfList.GetWordNameForRegister
 
 function Tkw_List_Control_cfList.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FF4D166F0413_var*
-//#UC END# *4DDFD2EA0116_FF4D166F0413_var*
 begin
-//#UC START# *4DDFD2EA0116_FF4D166F0413_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FF4D166F0413_impl*
+ Result := 'cfList';
 end;//Tkw_List_Control_cfList.GetString
 
 class procedure Tkw_List_Control_cfList.RegisterInEngine;
-//#UC START# *52A086150180_FF4D166F0413_var*
-//#UC END# *52A086150180_FF4D166F0413_var*
 begin
-//#UC START# *52A086150180_FF4D166F0413_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_FF4D166F0413_impl*
+ inherited;
+ TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_List_Control_cfList.RegisterInEngine
 
 procedure Tkw_List_Control_cfList_Push.DoDoIt(const aCtx: TtfwContext);
@@ -766,21 +706,23 @@ end;//Tkw_List_Control_cfList_Push.GetWordNameForRegister
 function TkwEfListRemindersLine.RemindersLine(const aCtx: TtfwContext;
  aefList: TefList): TnscRemindersLine;
  {* Реализация слова скрипта .TefList.RemindersLine }
-//#UC START# *FC3E0760D9D4_4B02DC799E8A_var*
-//#UC END# *FC3E0760D9D4_4B02DC799E8A_var*
 begin
-//#UC START# *FC3E0760D9D4_4B02DC799E8A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FC3E0760D9D4_4B02DC799E8A_impl*
+ Result := aefList.RemindersLine;
 end;//TkwEfListRemindersLine.RemindersLine
 
 procedure TkwEfListRemindersLine.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4B02DC799E8A_var*
-//#UC END# *4DAEEDE10285_4B02DC799E8A_var*
+var l_aefList: TefList;
 begin
-//#UC START# *4DAEEDE10285_4B02DC799E8A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4B02DC799E8A_impl*
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RemindersLine(aCtx, l_aefList));
 end;//TkwEfListRemindersLine.DoDoIt
 
 class function TkwEfListRemindersLine.GetWordNameForRegister: AnsiString;
@@ -790,12 +732,8 @@ end;//TkwEfListRemindersLine.GetWordNameForRegister
 
 procedure TkwEfListRemindersLine.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4B02DC799E8A_var*
-//#UC END# *52D00B00031A_4B02DC799E8A_var*
 begin
-//#UC START# *52D00B00031A_4B02DC799E8A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4B02DC799E8A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству RemindersLine', aCtx);
 end;//TkwEfListRemindersLine.SetValuePrim
 
 function TkwEfListRemindersLine.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -810,27 +748,29 @@ end;//TkwEfListRemindersLine.GetAllParamsCount
 
 function TkwEfListRemindersLine.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListRemindersLine.ParamsTypes
 
 function TkwEfListRemListFiltered.remListFiltered(const aCtx: TtfwContext;
  aefList: TefList): TnscReminder;
  {* Реализация слова скрипта .TefList.remListFiltered }
-//#UC START# *8CF8EA21467C_9EDC79448FB0_var*
-//#UC END# *8CF8EA21467C_9EDC79448FB0_var*
 begin
-//#UC START# *8CF8EA21467C_9EDC79448FB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8CF8EA21467C_9EDC79448FB0_impl*
+ Result := aefList.remListFiltered;
 end;//TkwEfListRemListFiltered.remListFiltered
 
 procedure TkwEfListRemListFiltered.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9EDC79448FB0_var*
-//#UC END# *4DAEEDE10285_9EDC79448FB0_var*
+var l_aefList: TefList;
 begin
-//#UC START# *4DAEEDE10285_9EDC79448FB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9EDC79448FB0_impl*
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(remListFiltered(aCtx, l_aefList));
 end;//TkwEfListRemListFiltered.DoDoIt
 
 class function TkwEfListRemListFiltered.GetWordNameForRegister: AnsiString;
@@ -840,12 +780,8 @@ end;//TkwEfListRemListFiltered.GetWordNameForRegister
 
 procedure TkwEfListRemListFiltered.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9EDC79448FB0_var*
-//#UC END# *52D00B00031A_9EDC79448FB0_var*
 begin
-//#UC START# *52D00B00031A_9EDC79448FB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9EDC79448FB0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству remListFiltered', aCtx);
 end;//TkwEfListRemListFiltered.SetValuePrim
 
 function TkwEfListRemListFiltered.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -860,27 +796,29 @@ end;//TkwEfListRemListFiltered.GetAllParamsCount
 
 function TkwEfListRemListFiltered.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListRemListFiltered.ParamsTypes
 
 function TkwEfListRemListModified.remListModified(const aCtx: TtfwContext;
  aefList: TefList): TnscReminder;
  {* Реализация слова скрипта .TefList.remListModified }
-//#UC START# *4117870BA6DC_715456D52720_var*
-//#UC END# *4117870BA6DC_715456D52720_var*
 begin
-//#UC START# *4117870BA6DC_715456D52720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4117870BA6DC_715456D52720_impl*
+ Result := aefList.remListModified;
 end;//TkwEfListRemListModified.remListModified
 
 procedure TkwEfListRemListModified.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_715456D52720_var*
-//#UC END# *4DAEEDE10285_715456D52720_var*
+var l_aefList: TefList;
 begin
-//#UC START# *4DAEEDE10285_715456D52720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_715456D52720_impl*
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(remListModified(aCtx, l_aefList));
 end;//TkwEfListRemListModified.DoDoIt
 
 class function TkwEfListRemListModified.GetWordNameForRegister: AnsiString;
@@ -890,12 +828,8 @@ end;//TkwEfListRemListModified.GetWordNameForRegister
 
 procedure TkwEfListRemListModified.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_715456D52720_var*
-//#UC END# *52D00B00031A_715456D52720_var*
 begin
-//#UC START# *52D00B00031A_715456D52720_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_715456D52720_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству remListModified', aCtx);
 end;//TkwEfListRemListModified.SetValuePrim
 
 function TkwEfListRemListModified.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -910,27 +844,29 @@ end;//TkwEfListRemListModified.GetAllParamsCount
 
 function TkwEfListRemListModified.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListRemListModified.ParamsTypes
 
 function TkwEfListRemTimeMachineWarning.remTimeMachineWarning(const aCtx: TtfwContext;
  aefList: TefList): TnscReminder;
  {* Реализация слова скрипта .TefList.remTimeMachineWarning }
-//#UC START# *C6CBA655E894_914FC12132E1_var*
-//#UC END# *C6CBA655E894_914FC12132E1_var*
 begin
-//#UC START# *C6CBA655E894_914FC12132E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C6CBA655E894_914FC12132E1_impl*
+ Result := aefList.remTimeMachineWarning;
 end;//TkwEfListRemTimeMachineWarning.remTimeMachineWarning
 
 procedure TkwEfListRemTimeMachineWarning.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_914FC12132E1_var*
-//#UC END# *4DAEEDE10285_914FC12132E1_var*
+var l_aefList: TefList;
 begin
-//#UC START# *4DAEEDE10285_914FC12132E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_914FC12132E1_impl*
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(remTimeMachineWarning(aCtx, l_aefList));
 end;//TkwEfListRemTimeMachineWarning.DoDoIt
 
 class function TkwEfListRemTimeMachineWarning.GetWordNameForRegister: AnsiString;
@@ -940,12 +876,8 @@ end;//TkwEfListRemTimeMachineWarning.GetWordNameForRegister
 
 procedure TkwEfListRemTimeMachineWarning.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_914FC12132E1_var*
-//#UC END# *52D00B00031A_914FC12132E1_var*
 begin
-//#UC START# *52D00B00031A_914FC12132E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_914FC12132E1_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству remTimeMachineWarning', aCtx);
 end;//TkwEfListRemTimeMachineWarning.SetValuePrim
 
 function TkwEfListRemTimeMachineWarning.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -960,27 +892,29 @@ end;//TkwEfListRemTimeMachineWarning.GetAllParamsCount
 
 function TkwEfListRemTimeMachineWarning.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListRemTimeMachineWarning.ParamsTypes
 
 function TkwEfListEmptyListEditor.EmptyListEditor(const aCtx: TtfwContext;
  aefList: TefList): TnscEditor;
  {* Реализация слова скрипта .TefList.EmptyListEditor }
-//#UC START# *FB07DB2118E3_4926301346C5_var*
-//#UC END# *FB07DB2118E3_4926301346C5_var*
 begin
-//#UC START# *FB07DB2118E3_4926301346C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FB07DB2118E3_4926301346C5_impl*
+ Result := aefList.EmptyListEditor;
 end;//TkwEfListEmptyListEditor.EmptyListEditor
 
 procedure TkwEfListEmptyListEditor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4926301346C5_var*
-//#UC END# *4DAEEDE10285_4926301346C5_var*
+var l_aefList: TefList;
 begin
-//#UC START# *4DAEEDE10285_4926301346C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4926301346C5_impl*
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(EmptyListEditor(aCtx, l_aefList));
 end;//TkwEfListEmptyListEditor.DoDoIt
 
 class function TkwEfListEmptyListEditor.GetWordNameForRegister: AnsiString;
@@ -990,12 +924,8 @@ end;//TkwEfListEmptyListEditor.GetWordNameForRegister
 
 procedure TkwEfListEmptyListEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4926301346C5_var*
-//#UC END# *52D00B00031A_4926301346C5_var*
 begin
-//#UC START# *52D00B00031A_4926301346C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4926301346C5_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству EmptyListEditor', aCtx);
 end;//TkwEfListEmptyListEditor.SetValuePrim
 
 function TkwEfListEmptyListEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1010,27 +940,29 @@ end;//TkwEfListEmptyListEditor.GetAllParamsCount
 
 function TkwEfListEmptyListEditor.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListEmptyListEditor.ParamsTypes
 
 function TkwEfListListPanel.ListPanel(const aCtx: TtfwContext;
  aefList: TefList): TvtPanel;
  {* Реализация слова скрипта .TefList.ListPanel }
-//#UC START# *10E83E5249D5_27A65BB46620_var*
-//#UC END# *10E83E5249D5_27A65BB46620_var*
 begin
-//#UC START# *10E83E5249D5_27A65BB46620_impl*
- !!! Needs to be implemented !!!
-//#UC END# *10E83E5249D5_27A65BB46620_impl*
+ Result := aefList.ListPanel;
 end;//TkwEfListListPanel.ListPanel
 
 procedure TkwEfListListPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_27A65BB46620_var*
-//#UC END# *4DAEEDE10285_27A65BB46620_var*
+var l_aefList: TefList;
 begin
-//#UC START# *4DAEEDE10285_27A65BB46620_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_27A65BB46620_impl*
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ListPanel(aCtx, l_aefList));
 end;//TkwEfListListPanel.DoDoIt
 
 class function TkwEfListListPanel.GetWordNameForRegister: AnsiString;
@@ -1040,12 +972,8 @@ end;//TkwEfListListPanel.GetWordNameForRegister
 
 procedure TkwEfListListPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_27A65BB46620_var*
-//#UC END# *52D00B00031A_27A65BB46620_var*
 begin
-//#UC START# *52D00B00031A_27A65BB46620_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_27A65BB46620_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ListPanel', aCtx);
 end;//TkwEfListListPanel.SetValuePrim
 
 function TkwEfListListPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1060,27 +988,29 @@ end;//TkwEfListListPanel.GetAllParamsCount
 
 function TkwEfListListPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListListPanel.ParamsTypes
 
 function TkwEfListTvList.tvList(const aCtx: TtfwContext;
  aefList: TefList): TnscDocumentListTreeView;
  {* Реализация слова скрипта .TefList.tvList }
-//#UC START# *7C59F455979A_8A0E3F8249F5_var*
-//#UC END# *7C59F455979A_8A0E3F8249F5_var*
 begin
-//#UC START# *7C59F455979A_8A0E3F8249F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7C59F455979A_8A0E3F8249F5_impl*
+ Result := aefList.tvList;
 end;//TkwEfListTvList.tvList
 
 procedure TkwEfListTvList.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8A0E3F8249F5_var*
-//#UC END# *4DAEEDE10285_8A0E3F8249F5_var*
+var l_aefList: TefList;
 begin
-//#UC START# *4DAEEDE10285_8A0E3F8249F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8A0E3F8249F5_impl*
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(tvList(aCtx, l_aefList));
 end;//TkwEfListTvList.DoDoIt
 
 class function TkwEfListTvList.GetWordNameForRegister: AnsiString;
@@ -1090,12 +1020,8 @@ end;//TkwEfListTvList.GetWordNameForRegister
 
 procedure TkwEfListTvList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8A0E3F8249F5_var*
-//#UC END# *52D00B00031A_8A0E3F8249F5_var*
 begin
-//#UC START# *52D00B00031A_8A0E3F8249F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8A0E3F8249F5_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству tvList', aCtx);
 end;//TkwEfListTvList.SetValuePrim
 
 function TkwEfListTvList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1110,27 +1036,29 @@ end;//TkwEfListTvList.GetAllParamsCount
 
 function TkwEfListTvList.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListTvList.ParamsTypes
 
 function TkwEfListCfList.cfList(const aCtx: TtfwContext;
  aefList: TefList): TnscContextFilter;
  {* Реализация слова скрипта .TefList.cfList }
-//#UC START# *D45300956210_E2E83C1BEE9F_var*
-//#UC END# *D45300956210_E2E83C1BEE9F_var*
 begin
-//#UC START# *D45300956210_E2E83C1BEE9F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D45300956210_E2E83C1BEE9F_impl*
+ Result := aefList.cfList;
 end;//TkwEfListCfList.cfList
 
 procedure TkwEfListCfList.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E2E83C1BEE9F_var*
-//#UC END# *4DAEEDE10285_E2E83C1BEE9F_var*
+var l_aefList: TefList;
 begin
-//#UC START# *4DAEEDE10285_E2E83C1BEE9F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E2E83C1BEE9F_impl*
+ try
+  l_aefList := TefList(aCtx.rEngine.PopObjAs(TefList));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefList: TefList : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cfList(aCtx, l_aefList));
 end;//TkwEfListCfList.DoDoIt
 
 class function TkwEfListCfList.GetWordNameForRegister: AnsiString;
@@ -1140,12 +1068,8 @@ end;//TkwEfListCfList.GetWordNameForRegister
 
 procedure TkwEfListCfList.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E2E83C1BEE9F_var*
-//#UC END# *52D00B00031A_E2E83C1BEE9F_var*
 begin
-//#UC START# *52D00B00031A_E2E83C1BEE9F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E2E83C1BEE9F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cfList', aCtx);
 end;//TkwEfListCfList.SetValuePrim
 
 function TkwEfListCfList.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1160,7 +1084,7 @@ end;//TkwEfListCfList.GetAllParamsCount
 
 function TkwEfListCfList.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefList)]);
 end;//TkwEfListCfList.ParamsTypes
 
 initialization

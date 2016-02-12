@@ -6,7 +6,7 @@
 {$Define l3ObjectPtrList_imp}
 
  _l3PtrList_Parent_ = _l3ObjectPtrList_Parent_;
- {$Include l3PtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
  _l3ObjectPtrList_ = class(_l3PtrList_)
   {* Список указателей на объекты. }
  end;//_l3ObjectPtrList_
@@ -62,7 +62,7 @@ begin
 //#UC END# *47B99D4503A2_47B57B7800A7_impl*
 end;//CompareExistingItems
 
-{$Include l3PtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3PtrList.imp.pas}
 
 {$EndIf l3ObjectPtrList_imp_impl}
 

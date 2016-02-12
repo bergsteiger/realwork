@@ -4,7 +4,7 @@ unit m2InternalInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\L3\m2\m2InternalInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include m2Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\m2\m2Define.inc}
 
 interface
 

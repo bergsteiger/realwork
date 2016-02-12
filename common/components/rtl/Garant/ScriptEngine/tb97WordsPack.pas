@@ -1,39 +1,35 @@
 unit tb97WordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$tb97"
-// Модуль: "tb97WordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$tb97::tb97Words::tb97WordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tb97WordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoTB97)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoTB97)}
 uses
-  tb97Ctls,
-  tfwScriptingInterfaces,
-  tfwPropertyLike
-  ;
-
-{$IfEnd} //not NoScripts AND not NoTB97
+ l3IntfUses
+ , tb97Ctls
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoTB97)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoTB97)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoTB97)}
 uses
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopTB97ButtonDown = {final scriptword} class(TtfwPropertyLike)
+ TkwPopTB97ButtonDown = {final} class(TtfwPropertyLike)
   {* Слово скрипта pop:TB97Button:Down
 *Тип результата:* Boolean
 *Пример:*
@@ -41,39 +37,30 @@ type
 BOOLEAN VAR l_Boolean
  aTB97Button pop:TB97Button:Down >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function Down(const aCtx: TtfwContext;
     aTB97Button: TCustomToolbarButton97): Boolean;
-     {* Реализация слова скрипта pop:TB97Button:Down }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:TB97Button:Down }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopTB97ButtonDown
 
-// start class TkwPopTB97ButtonDown
-
 function TkwPopTB97ButtonDown.Down(const aCtx: TtfwContext;
-  aTB97Button: TCustomToolbarButton97): Boolean;
- {-}
+ aTB97Button: TCustomToolbarButton97): Boolean;
+ {* Реализация слова скрипта pop:TB97Button:Down }
 begin
  Result := aTB97Button.Down;
 end;//TkwPopTB97ButtonDown.Down
 
 procedure TkwPopTB97ButtonDown.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTB97Button : TCustomToolbarButton97;
+var l_aTB97Button: TCustomToolbarButton97;
 begin
  try
   l_aTB97Button := TCustomToolbarButton97(aCtx.rEngine.PopObjAs(TCustomToolbarButton97));
@@ -84,57 +71,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((Down(aCtx, l_aTB97Button)));
+ aCtx.rEngine.PushBool(Down(aCtx, l_aTB97Button));
 end;//TkwPopTB97ButtonDown.DoDoIt
 
 class function TkwPopTB97ButtonDown.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:TB97Button:Down';
 end;//TkwPopTB97ButtonDown.GetWordNameForRegister
 
 procedure TkwPopTB97ButtonDown.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству Down', aCtx);
 end;//TkwPopTB97ButtonDown.SetValuePrim
 
 function TkwPopTB97ButtonDown.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwPopTB97ButtonDown.GetResultTypeInfo
 
 function TkwPopTB97ButtonDown.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwPopTB97ButtonDown.GetAllParamsCount
 
 function TkwPopTB97ButtonDown.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TCustomToolbarButton97)]);
 end;//TkwPopTB97ButtonDown.ParamsTypes
-{$IfEnd} //not NoScripts AND not NoTB97
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация pop_TB97Button_Down
  TkwPopTB97ButtonDown.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_TB97Button_Down }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация типа TCustomToolbarButton97
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomToolbarButton97));
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация типа Boolean
+ {* Регистрация типа TCustomToolbarButton97 }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts AND not NoTB97
+ {* Регистрация типа Boolean }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoTB97)
 
 end.

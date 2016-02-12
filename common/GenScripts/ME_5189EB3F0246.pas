@@ -23,7 +23,7 @@ type
  _ItemType_ = TddCellProperty;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TddCellsPropertyList = class(_l3UncomparabeObjectRefList_)
   protected
    {$If NOT Defined(DesignTimeLibrary)}
@@ -69,7 +69,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TddCellsPropertyList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function TddCellsPropertyList.IsCacheable: Boolean;

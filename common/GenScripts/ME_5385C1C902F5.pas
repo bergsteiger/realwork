@@ -30,7 +30,7 @@ type
  _ItemType_ = IcsTaskListener;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TcsTaskListeners = class(_l3InterfacePtrList_)
   public
    procedure AddListener(const aListener: IcsTaskListener);
@@ -63,7 +63,7 @@ end;//TcsTaskListenersFree
 
 type _Instance_R_ = TcsTaskListeners;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 procedure TcsTaskListeners.AddListener(const aListener: IcsTaskListener);
 //#UC START# *5385C33700DA_5385C2D801D9_var*

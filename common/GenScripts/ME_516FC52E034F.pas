@@ -32,7 +32,7 @@ uses
 
 type
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimCompInfoForm = {abstract} class(_vcmChromeLikeTabIconUpdater_)
   {* Информация о комплекте }
   private
@@ -134,7 +134,7 @@ const
 
 type _Instance_R_ = TPrimCompInfoForm;
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 function TPrimCompInfoForm.pm_GetControlsToFree: Tl3ObjectList;
 //#UC START# *53E49B0D02C4_516FC52E034Fget_var*

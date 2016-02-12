@@ -16,7 +16,7 @@ uses
 
 type
  _l3Changing_Parent_ = Tl3SimpleObject;
- {$Include l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  Tl3_Base = class(_l3Changing_)
   {* ! Базовый класс объектов библиотеки L3. Рекомендуется для наследования от него остальных разрабатываемых объектов. Поддерживает контроль за распределением памяти и освобождением объектов. }
   public
@@ -33,7 +33,7 @@ uses
  , l3Base
 ;
 
-{$Include l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 function Tl3_Base.OCompare(anObject: Tl3_Base): Integer;
  {* функция сравнения объекта с другим объектом. }

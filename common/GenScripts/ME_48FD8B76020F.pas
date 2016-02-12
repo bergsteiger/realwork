@@ -6,9 +6,9 @@
 {$Define nsNodeNotifierPrim_imp}
 
  _l3ChangingChangedNotifier_Parent_ = _nsNodeNotifierPrim_Parent_;
- {$Include l3ChangingChangedNotifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
  _l3LockedChange_Parent_ = _l3ChangingChangedNotifier_;
- {$Include l3LockedChange.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3LockedChange.imp.pas}
  _nsNodeNotifierPrim_ = class(_l3LockedChange_)
  end;//_nsNodeNotifierPrim_
 
@@ -18,9 +18,9 @@
 
 {$Define nsNodeNotifierPrim_imp_impl}
 
-{$Include l3ChangingChangedNotifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
 
-{$Include l3LockedChange.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3LockedChange.imp.pas}
 
 {$EndIf nsNodeNotifierPrim_imp_impl}
 

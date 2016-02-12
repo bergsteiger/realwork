@@ -18,7 +18,7 @@ uses
 
 type
  _PrintViewDecorationRules_Parent_ = TnevBaseDetachedView;
- {$Include PrintViewDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas}
  TnevPrintView = class(_PrintViewDecorationRules_, InevPrintView)
   {* Область вывода для печати. }
   private
@@ -54,7 +54,7 @@ uses
  , k2Tags
 ;
 
-{$Include PrintViewDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas}
 
 constructor TnevPrintView.Create(const aText: InevObject;
  const aCanvas: InevCanvas;

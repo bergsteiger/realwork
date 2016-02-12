@@ -14,7 +14,7 @@ uses
 
 type
  _vtUnicodeButtonControl_Parent_ = TeeCheckBox;
- {$Include vtUnicodeButtonControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
  TvtCheckBox = class(_vtUnicodeButtonControl_)
  end;//TvtCheckBox
 
@@ -24,6 +24,6 @@ uses
  l3ImplUses
 ;
 
-{$Include vtUnicodeButtonControl.imp.pas}
+{$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
 
 end.

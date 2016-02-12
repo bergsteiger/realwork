@@ -23,7 +23,7 @@ uses
 
 type
  _evStyleTableListener_Parent_ = TafwControl;
- {$Include evStyleTableListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  TnevControl = class(_evStyleTableListener_, InevViewMetrics, InevControl)
   private
    f_WebStyle: Boolean;
@@ -172,7 +172,7 @@ uses
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
 ;
 
-{$Include evStyleTableListener.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
 procedure TnevControl.pm_SetWebStyle(aValue: Boolean);
 //#UC START# *48E0EDB700C0_48E0E5C1032Aset_var*

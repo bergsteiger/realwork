@@ -21,7 +21,7 @@ uses
 type
  _KeyType_ = Il3CString;
  _ValueType_ = Il3CString;
- {$Include l3Map.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
  Tl3StringToStringMap = class(_l3Map_)
  end;//Tl3StringToStringMap
 
@@ -49,6 +49,6 @@ end;//CompareKeys
 
 type _Instance_R_ = Tl3StringToStringMap;
 
-{$Include l3Map.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Map.imp.pas}
 
 end.

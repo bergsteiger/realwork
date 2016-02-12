@@ -3,7 +3,7 @@ unit nscNavigatorPageControl_p;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscNavigatorPageControl_p.pas"
 // Стереотип: "TestClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\l3Define.inc}
 
 interface
 

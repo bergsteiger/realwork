@@ -28,7 +28,7 @@ type
  _ItemType_ = InsUnderControlNotificationListener;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnsUnderControlNotificationListenersList = class(_l3InterfacePtrList_)
  end;//TnsUnderControlNotificationListenersList
 
@@ -79,7 +79,7 @@ end;//TnsUnderControlNotificationManagerFree
 
 type _Instance_R_ = TnsUnderControlNotificationListenersList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 function TnsUnderControlNotificationManager.pm_GetHasChanged: Boolean;
 //#UC START# *55D4325E03DF_55D429A70008get_var*

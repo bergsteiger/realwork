@@ -21,7 +21,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTextEditorVisitor;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TVerticalCursorMovingTest = {abstract} class(_CursorMover_)
   {* “ест вертикального перемещени€ курсора. }
   protected
@@ -55,7 +55,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TVerticalCursorMovingTest.DoVisit(aForm: TPrimTextLoadForm);

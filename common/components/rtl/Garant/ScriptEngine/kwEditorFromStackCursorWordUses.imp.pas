@@ -1,29 +1,28 @@
 {$IfNDef kwEditorFromStackCursorWordUses_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwEditorFromStackCursorWordUses.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::kwEditorFromStackCursorWordUses
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWordUses.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define kwEditorFromStackCursorWordUses_imp}
-{$If not defined(NoScripts)}
- _kwEditorFromStackCursorWordUses_ = {mixin} class(_kwEditorFromStackCursorWordUses_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _kwEditorFromStackCursorWordUses_ = class(_kwEditorFromStackCursorWordUses_Parent_)
  end;//_kwEditorFromStackCursorWordUses_
-{$Else}
 
- _kwEditorFromStackCursorWordUses_ = _kwEditorFromStackCursorWordUses_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_kwEditorFromStackCursorWordUses_ = _kwEditorFromStackCursorWordUses_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else kwEditorFromStackCursorWordUses_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef kwEditorFromStackCursorWordUses_imp_impl}
 
+{$Define kwEditorFromStackCursorWordUses_imp_impl}
 
-{$IfEnd} //not NoScripts
+{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts)
+{$EndIf kwEditorFromStackCursorWordUses_imp_impl}
 
 {$EndIf kwEditorFromStackCursorWordUses_imp}
+

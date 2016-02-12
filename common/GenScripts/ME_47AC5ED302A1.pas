@@ -25,7 +25,7 @@ uses
 type
  _HashType_ = Tl3OneBytePtrHash;
  _k2HashTag_Parent_ = Tk2DictRecTag;
- {$Include k2HashTag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
  Tk2DictRec = class(_k2HashTag_)
  end;//Tk2DictRec
 
@@ -61,6 +61,6 @@ uses
 
 type _Instance_R_ = Tk2DictRec;
 
-{$Include k2HashTag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
 
 end.

@@ -537,12 +537,8 @@ begin
 end;//Tkw_Form_ShutDown.GetWordNameForRegister
 
 function Tkw_Form_ShutDown.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D482E48B82F8_var*
-//#UC END# *4DDFD2EA0116_D482E48B82F8_var*
 begin
-//#UC START# *4DDFD2EA0116_D482E48B82F8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D482E48B82F8_impl*
+ Result := 'ShutDownForm';
 end;//Tkw_Form_ShutDown.GetString
 
 class function Tkw_ShutDown_Component_ShutdownTimer.GetWordNameForRegister: AnsiString;
@@ -551,21 +547,14 @@ begin
 end;//Tkw_ShutDown_Component_ShutdownTimer.GetWordNameForRegister
 
 function Tkw_ShutDown_Component_ShutdownTimer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1D2C13E70A44_var*
-//#UC END# *4DDFD2EA0116_1D2C13E70A44_var*
 begin
-//#UC START# *4DDFD2EA0116_1D2C13E70A44_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1D2C13E70A44_impl*
+ Result := 'ShutdownTimer';
 end;//Tkw_ShutDown_Component_ShutdownTimer.GetString
 
 class procedure Tkw_ShutDown_Component_ShutdownTimer.RegisterInEngine;
-//#UC START# *52A086150180_1D2C13E70A44_var*
-//#UC END# *52A086150180_1D2C13E70A44_var*
 begin
-//#UC START# *52A086150180_1D2C13E70A44_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1D2C13E70A44_impl*
+ inherited;
+ TtfwClassRef.Register(TTimer);
 end;//Tkw_ShutDown_Component_ShutdownTimer.RegisterInEngine
 
 class function Tkw_ShutDown_Control_vtPanel1.GetWordNameForRegister: AnsiString;
@@ -574,21 +563,14 @@ begin
 end;//Tkw_ShutDown_Control_vtPanel1.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_vtPanel1.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_506FB9C4AE9E_var*
-//#UC END# *4DDFD2EA0116_506FB9C4AE9E_var*
 begin
-//#UC START# *4DDFD2EA0116_506FB9C4AE9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_506FB9C4AE9E_impl*
+ Result := 'vtPanel1';
 end;//Tkw_ShutDown_Control_vtPanel1.GetString
 
 class procedure Tkw_ShutDown_Control_vtPanel1.RegisterInEngine;
-//#UC START# *52A086150180_506FB9C4AE9E_var*
-//#UC END# *52A086150180_506FB9C4AE9E_var*
 begin
-//#UC START# *52A086150180_506FB9C4AE9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_506FB9C4AE9E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_vtPanel1.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_vtPanel1_Push.DoDoIt(const aCtx: TtfwContext);
@@ -611,21 +593,14 @@ begin
 end;//Tkw_ShutDown_Control_LeftPanel.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_LeftPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_4406F66A6769_var*
-//#UC END# *4DDFD2EA0116_4406F66A6769_var*
 begin
-//#UC START# *4DDFD2EA0116_4406F66A6769_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_4406F66A6769_impl*
+ Result := 'LeftPanel';
 end;//Tkw_ShutDown_Control_LeftPanel.GetString
 
 class procedure Tkw_ShutDown_Control_LeftPanel.RegisterInEngine;
-//#UC START# *52A086150180_4406F66A6769_var*
-//#UC END# *52A086150180_4406F66A6769_var*
 begin
-//#UC START# *52A086150180_4406F66A6769_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_4406F66A6769_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_LeftPanel.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_LeftPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -648,21 +623,14 @@ begin
 end;//Tkw_ShutDown_Control_Image.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_Image.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_65FA8501C473_var*
-//#UC END# *4DDFD2EA0116_65FA8501C473_var*
 begin
-//#UC START# *4DDFD2EA0116_65FA8501C473_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_65FA8501C473_impl*
+ Result := 'Image';
 end;//Tkw_ShutDown_Control_Image.GetString
 
 class procedure Tkw_ShutDown_Control_Image.RegisterInEngine;
-//#UC START# *52A086150180_65FA8501C473_var*
-//#UC END# *52A086150180_65FA8501C473_var*
 begin
-//#UC START# *52A086150180_65FA8501C473_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_65FA8501C473_impl*
+ inherited;
+ TtfwClassRef.Register(TImage);
 end;//Tkw_ShutDown_Control_Image.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_Image_Push.DoDoIt(const aCtx: TtfwContext);
@@ -685,21 +653,14 @@ begin
 end;//Tkw_ShutDown_Control_CenterPanel.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_CenterPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_74F5B3CD8745_var*
-//#UC END# *4DDFD2EA0116_74F5B3CD8745_var*
 begin
-//#UC START# *4DDFD2EA0116_74F5B3CD8745_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_74F5B3CD8745_impl*
+ Result := 'CenterPanel';
 end;//Tkw_ShutDown_Control_CenterPanel.GetString
 
 class procedure Tkw_ShutDown_Control_CenterPanel.RegisterInEngine;
-//#UC START# *52A086150180_74F5B3CD8745_var*
-//#UC END# *52A086150180_74F5B3CD8745_var*
 begin
-//#UC START# *52A086150180_74F5B3CD8745_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_74F5B3CD8745_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_CenterPanel.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_CenterPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -722,21 +683,14 @@ begin
 end;//Tkw_ShutDown_Control_TopSpacerPanel.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_TopSpacerPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FD2D24E3E7B3_var*
-//#UC END# *4DDFD2EA0116_FD2D24E3E7B3_var*
 begin
-//#UC START# *4DDFD2EA0116_FD2D24E3E7B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FD2D24E3E7B3_impl*
+ Result := 'TopSpacerPanel';
 end;//Tkw_ShutDown_Control_TopSpacerPanel.GetString
 
 class procedure Tkw_ShutDown_Control_TopSpacerPanel.RegisterInEngine;
-//#UC START# *52A086150180_FD2D24E3E7B3_var*
-//#UC END# *52A086150180_FD2D24E3E7B3_var*
 begin
-//#UC START# *52A086150180_FD2D24E3E7B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_FD2D24E3E7B3_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_TopSpacerPanel.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_TopSpacerPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -759,21 +713,14 @@ begin
 end;//Tkw_ShutDown_Control_WarningText.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_WarningText.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EEA83BB79FD4_var*
-//#UC END# *4DDFD2EA0116_EEA83BB79FD4_var*
 begin
-//#UC START# *4DDFD2EA0116_EEA83BB79FD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EEA83BB79FD4_impl*
+ Result := 'WarningText';
 end;//Tkw_ShutDown_Control_WarningText.GetString
 
 class procedure Tkw_ShutDown_Control_WarningText.RegisterInEngine;
-//#UC START# *52A086150180_EEA83BB79FD4_var*
-//#UC END# *52A086150180_EEA83BB79FD4_var*
 begin
-//#UC START# *52A086150180_EEA83BB79FD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EEA83BB79FD4_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_ShutDown_Control_WarningText.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_WarningText_Push.DoDoIt(const aCtx: TtfwContext);
@@ -796,21 +743,14 @@ begin
 end;//Tkw_ShutDown_Control_RightSpacerPanel.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_RightSpacerPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1F02004AC237_var*
-//#UC END# *4DDFD2EA0116_1F02004AC237_var*
 begin
-//#UC START# *4DDFD2EA0116_1F02004AC237_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1F02004AC237_impl*
+ Result := 'RightSpacerPanel';
 end;//Tkw_ShutDown_Control_RightSpacerPanel.GetString
 
 class procedure Tkw_ShutDown_Control_RightSpacerPanel.RegisterInEngine;
-//#UC START# *52A086150180_1F02004AC237_var*
-//#UC END# *52A086150180_1F02004AC237_var*
 begin
-//#UC START# *52A086150180_1F02004AC237_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1F02004AC237_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_RightSpacerPanel.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_RightSpacerPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -833,21 +773,14 @@ begin
 end;//Tkw_ShutDown_Control_pnlBottom.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_pnlBottom.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_32A0050AEA5C_var*
-//#UC END# *4DDFD2EA0116_32A0050AEA5C_var*
 begin
-//#UC START# *4DDFD2EA0116_32A0050AEA5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_32A0050AEA5C_impl*
+ Result := 'pnlBottom';
 end;//Tkw_ShutDown_Control_pnlBottom.GetString
 
 class procedure Tkw_ShutDown_Control_pnlBottom.RegisterInEngine;
-//#UC START# *52A086150180_32A0050AEA5C_var*
-//#UC END# *52A086150180_32A0050AEA5C_var*
 begin
-//#UC START# *52A086150180_32A0050AEA5C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_32A0050AEA5C_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_ShutDown_Control_pnlBottom.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_pnlBottom_Push.DoDoIt(const aCtx: TtfwContext);
@@ -870,21 +803,14 @@ begin
 end;//Tkw_ShutDown_Control_CloseButton.GetWordNameForRegister
 
 function Tkw_ShutDown_Control_CloseButton.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7300B472659A_var*
-//#UC END# *4DDFD2EA0116_7300B472659A_var*
 begin
-//#UC START# *4DDFD2EA0116_7300B472659A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7300B472659A_impl*
+ Result := 'CloseButton';
 end;//Tkw_ShutDown_Control_CloseButton.GetString
 
 class procedure Tkw_ShutDown_Control_CloseButton.RegisterInEngine;
-//#UC START# *52A086150180_7300B472659A_var*
-//#UC END# *52A086150180_7300B472659A_var*
 begin
-//#UC START# *52A086150180_7300B472659A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7300B472659A_impl*
+ inherited;
+ TtfwClassRef.Register(TvtButton);
 end;//Tkw_ShutDown_Control_CloseButton.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_CloseButton_Push.DoDoIt(const aCtx: TtfwContext);
@@ -904,21 +830,23 @@ end;//Tkw_ShutDown_Control_CloseButton_Push.GetWordNameForRegister
 function TkwShutDownFormShutdownTimer.ShutdownTimer(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TTimer;
  {* Реализация слова скрипта .TShutDownForm.ShutdownTimer }
-//#UC START# *C81ECD7469A3_DE97E923CA92_var*
-//#UC END# *C81ECD7469A3_DE97E923CA92_var*
 begin
-//#UC START# *C81ECD7469A3_DE97E923CA92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C81ECD7469A3_DE97E923CA92_impl*
+ Result := aShutDownForm.ShutdownTimer;
 end;//TkwShutDownFormShutdownTimer.ShutdownTimer
 
 procedure TkwShutDownFormShutdownTimer.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DE97E923CA92_var*
-//#UC END# *4DAEEDE10285_DE97E923CA92_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_DE97E923CA92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DE97E923CA92_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ShutdownTimer(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormShutdownTimer.DoDoIt
 
 class function TkwShutDownFormShutdownTimer.GetWordNameForRegister: AnsiString;
@@ -928,12 +856,8 @@ end;//TkwShutDownFormShutdownTimer.GetWordNameForRegister
 
 procedure TkwShutDownFormShutdownTimer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_DE97E923CA92_var*
-//#UC END# *52D00B00031A_DE97E923CA92_var*
 begin
-//#UC START# *52D00B00031A_DE97E923CA92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_DE97E923CA92_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ShutdownTimer', aCtx);
 end;//TkwShutDownFormShutdownTimer.SetValuePrim
 
 function TkwShutDownFormShutdownTimer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -948,27 +872,29 @@ end;//TkwShutDownFormShutdownTimer.GetAllParamsCount
 
 function TkwShutDownFormShutdownTimer.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormShutdownTimer.ParamsTypes
 
 function TkwShutDownFormVtPanel1.vtPanel1(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
  {* Реализация слова скрипта .TShutDownForm.vtPanel1 }
-//#UC START# *E9A2917D3A16_158CF0E1A25F_var*
-//#UC END# *E9A2917D3A16_158CF0E1A25F_var*
 begin
-//#UC START# *E9A2917D3A16_158CF0E1A25F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E9A2917D3A16_158CF0E1A25F_impl*
+ Result := aShutDownForm.vtPanel1;
 end;//TkwShutDownFormVtPanel1.vtPanel1
 
 procedure TkwShutDownFormVtPanel1.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_158CF0E1A25F_var*
-//#UC END# *4DAEEDE10285_158CF0E1A25F_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_158CF0E1A25F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_158CF0E1A25F_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(vtPanel1(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormVtPanel1.DoDoIt
 
 class function TkwShutDownFormVtPanel1.GetWordNameForRegister: AnsiString;
@@ -978,12 +904,8 @@ end;//TkwShutDownFormVtPanel1.GetWordNameForRegister
 
 procedure TkwShutDownFormVtPanel1.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_158CF0E1A25F_var*
-//#UC END# *52D00B00031A_158CF0E1A25F_var*
 begin
-//#UC START# *52D00B00031A_158CF0E1A25F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_158CF0E1A25F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству vtPanel1', aCtx);
 end;//TkwShutDownFormVtPanel1.SetValuePrim
 
 function TkwShutDownFormVtPanel1.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -998,27 +920,29 @@ end;//TkwShutDownFormVtPanel1.GetAllParamsCount
 
 function TkwShutDownFormVtPanel1.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormVtPanel1.ParamsTypes
 
 function TkwShutDownFormLeftPanel.LeftPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
  {* Реализация слова скрипта .TShutDownForm.LeftPanel }
-//#UC START# *EAD26D650C81_59E9C9B4EA9C_var*
-//#UC END# *EAD26D650C81_59E9C9B4EA9C_var*
 begin
-//#UC START# *EAD26D650C81_59E9C9B4EA9C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EAD26D650C81_59E9C9B4EA9C_impl*
+ Result := aShutDownForm.LeftPanel;
 end;//TkwShutDownFormLeftPanel.LeftPanel
 
 procedure TkwShutDownFormLeftPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_59E9C9B4EA9C_var*
-//#UC END# *4DAEEDE10285_59E9C9B4EA9C_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_59E9C9B4EA9C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_59E9C9B4EA9C_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LeftPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormLeftPanel.DoDoIt
 
 class function TkwShutDownFormLeftPanel.GetWordNameForRegister: AnsiString;
@@ -1028,12 +952,8 @@ end;//TkwShutDownFormLeftPanel.GetWordNameForRegister
 
 procedure TkwShutDownFormLeftPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_59E9C9B4EA9C_var*
-//#UC END# *52D00B00031A_59E9C9B4EA9C_var*
 begin
-//#UC START# *52D00B00031A_59E9C9B4EA9C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_59E9C9B4EA9C_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству LeftPanel', aCtx);
 end;//TkwShutDownFormLeftPanel.SetValuePrim
 
 function TkwShutDownFormLeftPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1048,27 +968,29 @@ end;//TkwShutDownFormLeftPanel.GetAllParamsCount
 
 function TkwShutDownFormLeftPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormLeftPanel.ParamsTypes
 
 function TkwShutDownFormImage.Image(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TImage;
  {* Реализация слова скрипта .TShutDownForm.Image }
-//#UC START# *AA20C3236153_E7709C854526_var*
-//#UC END# *AA20C3236153_E7709C854526_var*
 begin
-//#UC START# *AA20C3236153_E7709C854526_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AA20C3236153_E7709C854526_impl*
+ Result := aShutDownForm.Image;
 end;//TkwShutDownFormImage.Image
 
 procedure TkwShutDownFormImage.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E7709C854526_var*
-//#UC END# *4DAEEDE10285_E7709C854526_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_E7709C854526_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E7709C854526_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Image(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormImage.DoDoIt
 
 class function TkwShutDownFormImage.GetWordNameForRegister: AnsiString;
@@ -1078,12 +1000,8 @@ end;//TkwShutDownFormImage.GetWordNameForRegister
 
 procedure TkwShutDownFormImage.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E7709C854526_var*
-//#UC END# *52D00B00031A_E7709C854526_var*
 begin
-//#UC START# *52D00B00031A_E7709C854526_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E7709C854526_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Image', aCtx);
 end;//TkwShutDownFormImage.SetValuePrim
 
 function TkwShutDownFormImage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1098,27 +1016,29 @@ end;//TkwShutDownFormImage.GetAllParamsCount
 
 function TkwShutDownFormImage.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormImage.ParamsTypes
 
 function TkwShutDownFormCenterPanel.CenterPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
  {* Реализация слова скрипта .TShutDownForm.CenterPanel }
-//#UC START# *345187A27894_656B67C7EC87_var*
-//#UC END# *345187A27894_656B67C7EC87_var*
 begin
-//#UC START# *345187A27894_656B67C7EC87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *345187A27894_656B67C7EC87_impl*
+ Result := aShutDownForm.CenterPanel;
 end;//TkwShutDownFormCenterPanel.CenterPanel
 
 procedure TkwShutDownFormCenterPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_656B67C7EC87_var*
-//#UC END# *4DAEEDE10285_656B67C7EC87_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_656B67C7EC87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_656B67C7EC87_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CenterPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormCenterPanel.DoDoIt
 
 class function TkwShutDownFormCenterPanel.GetWordNameForRegister: AnsiString;
@@ -1128,12 +1048,8 @@ end;//TkwShutDownFormCenterPanel.GetWordNameForRegister
 
 procedure TkwShutDownFormCenterPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_656B67C7EC87_var*
-//#UC END# *52D00B00031A_656B67C7EC87_var*
 begin
-//#UC START# *52D00B00031A_656B67C7EC87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_656B67C7EC87_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству CenterPanel', aCtx);
 end;//TkwShutDownFormCenterPanel.SetValuePrim
 
 function TkwShutDownFormCenterPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1148,27 +1064,29 @@ end;//TkwShutDownFormCenterPanel.GetAllParamsCount
 
 function TkwShutDownFormCenterPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormCenterPanel.ParamsTypes
 
 function TkwShutDownFormTopSpacerPanel.TopSpacerPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
  {* Реализация слова скрипта .TShutDownForm.TopSpacerPanel }
-//#UC START# *2B4B510F023C_00128E113C54_var*
-//#UC END# *2B4B510F023C_00128E113C54_var*
 begin
-//#UC START# *2B4B510F023C_00128E113C54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2B4B510F023C_00128E113C54_impl*
+ Result := aShutDownForm.TopSpacerPanel;
 end;//TkwShutDownFormTopSpacerPanel.TopSpacerPanel
 
 procedure TkwShutDownFormTopSpacerPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_00128E113C54_var*
-//#UC END# *4DAEEDE10285_00128E113C54_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_00128E113C54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_00128E113C54_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TopSpacerPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormTopSpacerPanel.DoDoIt
 
 class function TkwShutDownFormTopSpacerPanel.GetWordNameForRegister: AnsiString;
@@ -1178,12 +1096,8 @@ end;//TkwShutDownFormTopSpacerPanel.GetWordNameForRegister
 
 procedure TkwShutDownFormTopSpacerPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_00128E113C54_var*
-//#UC END# *52D00B00031A_00128E113C54_var*
 begin
-//#UC START# *52D00B00031A_00128E113C54_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_00128E113C54_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству TopSpacerPanel', aCtx);
 end;//TkwShutDownFormTopSpacerPanel.SetValuePrim
 
 function TkwShutDownFormTopSpacerPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1198,27 +1112,29 @@ end;//TkwShutDownFormTopSpacerPanel.GetAllParamsCount
 
 function TkwShutDownFormTopSpacerPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormTopSpacerPanel.ParamsTypes
 
 function TkwShutDownFormWarningText.WarningText(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtLabel;
  {* Реализация слова скрипта .TShutDownForm.WarningText }
-//#UC START# *747D110BD723_3CE1A3888F23_var*
-//#UC END# *747D110BD723_3CE1A3888F23_var*
 begin
-//#UC START# *747D110BD723_3CE1A3888F23_impl*
- !!! Needs to be implemented !!!
-//#UC END# *747D110BD723_3CE1A3888F23_impl*
+ Result := aShutDownForm.WarningText;
 end;//TkwShutDownFormWarningText.WarningText
 
 procedure TkwShutDownFormWarningText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3CE1A3888F23_var*
-//#UC END# *4DAEEDE10285_3CE1A3888F23_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_3CE1A3888F23_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3CE1A3888F23_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(WarningText(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormWarningText.DoDoIt
 
 class function TkwShutDownFormWarningText.GetWordNameForRegister: AnsiString;
@@ -1228,12 +1144,8 @@ end;//TkwShutDownFormWarningText.GetWordNameForRegister
 
 procedure TkwShutDownFormWarningText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3CE1A3888F23_var*
-//#UC END# *52D00B00031A_3CE1A3888F23_var*
 begin
-//#UC START# *52D00B00031A_3CE1A3888F23_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3CE1A3888F23_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству WarningText', aCtx);
 end;//TkwShutDownFormWarningText.SetValuePrim
 
 function TkwShutDownFormWarningText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1248,27 +1160,29 @@ end;//TkwShutDownFormWarningText.GetAllParamsCount
 
 function TkwShutDownFormWarningText.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormWarningText.ParamsTypes
 
 function TkwShutDownFormRightSpacerPanel.RightSpacerPanel(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
  {* Реализация слова скрипта .TShutDownForm.RightSpacerPanel }
-//#UC START# *AA3DCE1FF5B2_C2796C4F6F52_var*
-//#UC END# *AA3DCE1FF5B2_C2796C4F6F52_var*
 begin
-//#UC START# *AA3DCE1FF5B2_C2796C4F6F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AA3DCE1FF5B2_C2796C4F6F52_impl*
+ Result := aShutDownForm.RightSpacerPanel;
 end;//TkwShutDownFormRightSpacerPanel.RightSpacerPanel
 
 procedure TkwShutDownFormRightSpacerPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C2796C4F6F52_var*
-//#UC END# *4DAEEDE10285_C2796C4F6F52_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_C2796C4F6F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C2796C4F6F52_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RightSpacerPanel(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormRightSpacerPanel.DoDoIt
 
 class function TkwShutDownFormRightSpacerPanel.GetWordNameForRegister: AnsiString;
@@ -1278,12 +1192,8 @@ end;//TkwShutDownFormRightSpacerPanel.GetWordNameForRegister
 
 procedure TkwShutDownFormRightSpacerPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C2796C4F6F52_var*
-//#UC END# *52D00B00031A_C2796C4F6F52_var*
 begin
-//#UC START# *52D00B00031A_C2796C4F6F52_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C2796C4F6F52_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству RightSpacerPanel', aCtx);
 end;//TkwShutDownFormRightSpacerPanel.SetValuePrim
 
 function TkwShutDownFormRightSpacerPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1298,27 +1208,29 @@ end;//TkwShutDownFormRightSpacerPanel.GetAllParamsCount
 
 function TkwShutDownFormRightSpacerPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormRightSpacerPanel.ParamsTypes
 
 function TkwShutDownFormPnlBottom.pnlBottom(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtPanel;
  {* Реализация слова скрипта .TShutDownForm.pnlBottom }
-//#UC START# *B17D85786F9B_27832B920452_var*
-//#UC END# *B17D85786F9B_27832B920452_var*
 begin
-//#UC START# *B17D85786F9B_27832B920452_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B17D85786F9B_27832B920452_impl*
+ Result := aShutDownForm.pnlBottom;
 end;//TkwShutDownFormPnlBottom.pnlBottom
 
 procedure TkwShutDownFormPnlBottom.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_27832B920452_var*
-//#UC END# *4DAEEDE10285_27832B920452_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_27832B920452_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_27832B920452_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnlBottom(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormPnlBottom.DoDoIt
 
 class function TkwShutDownFormPnlBottom.GetWordNameForRegister: AnsiString;
@@ -1328,12 +1240,8 @@ end;//TkwShutDownFormPnlBottom.GetWordNameForRegister
 
 procedure TkwShutDownFormPnlBottom.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_27832B920452_var*
-//#UC END# *52D00B00031A_27832B920452_var*
 begin
-//#UC START# *52D00B00031A_27832B920452_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_27832B920452_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnlBottom', aCtx);
 end;//TkwShutDownFormPnlBottom.SetValuePrim
 
 function TkwShutDownFormPnlBottom.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1348,27 +1256,29 @@ end;//TkwShutDownFormPnlBottom.GetAllParamsCount
 
 function TkwShutDownFormPnlBottom.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormPnlBottom.ParamsTypes
 
 function TkwShutDownFormCloseButton.CloseButton(const aCtx: TtfwContext;
  aShutDownForm: TShutDownForm): TvtButton;
  {* Реализация слова скрипта .TShutDownForm.CloseButton }
-//#UC START# *F6DBCBF04EFC_1E09A179F85E_var*
-//#UC END# *F6DBCBF04EFC_1E09A179F85E_var*
 begin
-//#UC START# *F6DBCBF04EFC_1E09A179F85E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F6DBCBF04EFC_1E09A179F85E_impl*
+ Result := aShutDownForm.CloseButton;
 end;//TkwShutDownFormCloseButton.CloseButton
 
 procedure TkwShutDownFormCloseButton.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1E09A179F85E_var*
-//#UC END# *4DAEEDE10285_1E09A179F85E_var*
+var l_aShutDownForm: TShutDownForm;
 begin
-//#UC START# *4DAEEDE10285_1E09A179F85E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1E09A179F85E_impl*
+ try
+  l_aShutDownForm := TShutDownForm(aCtx.rEngine.PopObjAs(TShutDownForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aShutDownForm: TShutDownForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CloseButton(aCtx, l_aShutDownForm));
 end;//TkwShutDownFormCloseButton.DoDoIt
 
 class function TkwShutDownFormCloseButton.GetWordNameForRegister: AnsiString;
@@ -1378,12 +1288,8 @@ end;//TkwShutDownFormCloseButton.GetWordNameForRegister
 
 procedure TkwShutDownFormCloseButton.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1E09A179F85E_var*
-//#UC END# *52D00B00031A_1E09A179F85E_var*
 begin
-//#UC START# *52D00B00031A_1E09A179F85E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1E09A179F85E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству CloseButton', aCtx);
 end;//TkwShutDownFormCloseButton.SetValuePrim
 
 function TkwShutDownFormCloseButton.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1398,7 +1304,7 @@ end;//TkwShutDownFormCloseButton.GetAllParamsCount
 
 function TkwShutDownFormCloseButton.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TShutDownForm)]);
 end;//TkwShutDownFormCloseButton.ParamsTypes
 
 initialization

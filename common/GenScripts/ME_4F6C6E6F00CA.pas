@@ -18,7 +18,7 @@ uses
 type
  _SettingsClass_ = IafwSettingsImpl;
  _afwSettingsPrim_Parent_ = Tl3ProtoObject;
- {$Include afwSettingsPrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas}
  TafwSettingsPrimPrim = {abstract} class(_afwSettingsPrim_, IafwSettingsPrim)
   public
    constructor Create(const aSettingsImpl: IafwSettingsImpl); reintroduce;
@@ -36,7 +36,7 @@ uses
  , l3VCLStrings
 ;
 
-{$Include afwSettingsPrim.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\afwSettingsPrim.imp.pas}
 
 constructor TafwSettingsPrimPrim.Create(const aSettingsImpl: IafwSettingsImpl);
 //#UC START# *4F6C7E6802B0_4F6C6E6F00CA_var*

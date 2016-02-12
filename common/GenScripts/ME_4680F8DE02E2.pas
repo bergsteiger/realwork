@@ -5,7 +5,7 @@
 
 {$Define l3TreeDataObject_imp}
 
- {$Include l3InterfacedDataObject.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacedDataObject.imp.pas}
  _l3TreeDataObject_ = class(_l3InterfacedDataObject_)
   {* Объект данных дерева }
   protected
@@ -23,7 +23,7 @@
 
 {$Define l3TreeDataObject_imp_impl}
 
-{$Include l3InterfacedDataObject.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacedDataObject.imp.pas}
 
 function _l3TreeDataObject_.GetFormats: Tl3ClipboardFormats;
 //#UC START# *48F4B33501DE_4680F8DE02E2_var*

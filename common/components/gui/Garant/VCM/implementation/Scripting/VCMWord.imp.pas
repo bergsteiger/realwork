@@ -1,34 +1,28 @@
 {$IfNDef VCMWord_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/VCMWord.imp.pas"
-// Начат: 28.04.2011 15:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi::VCM$Scripting::VCMWords::VCMWord
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWord.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define VCMWord_imp}
-{$If not defined(NoScripts) AND not defined(NoVCM)}
- _VCMWord_ = {abstract mixin} class(_VCMWord_Parent_)
+
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+ _VCMWord_ = {abstract} class(_VCMWord_Parent_)
  end;//_VCMWord_
-{$Else}
 
- _VCMWord_ = _VCMWord_Parent_;
+{$Else NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 
-{$IfEnd} //not NoScripts AND not NoVCM
+_VCMWord_ = _VCMWord_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 {$Else VCMWord_imp}
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$IfNDef VCMWord_imp_impl}
 
+{$Define VCMWord_imp_impl}
 
-{$IfEnd} //not NoScripts AND not NoVCM
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
+{$EndIf VCMWord_imp_impl}
 
 {$EndIf VCMWord_imp}
+

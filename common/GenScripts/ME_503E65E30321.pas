@@ -14,7 +14,7 @@ uses
 type
  _FirstType_ = Tl3TreeLevelDist;
  _SecondType_ = TSearchArea;
- {$Include atEnumToEnumConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
  TatTreeLevelConverter = class(_atEnumToEnumConverter_)
   protected
    procedure InitConvertMap; override;
@@ -43,7 +43,7 @@ begin
  l3Free(g_TatTreeLevelConverter);
 end;//TatTreeLevelConverterFree
 
-{$Include atEnumToEnumConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumToEnumConverter.imp.pas}
 
 class function TatTreeLevelConverter.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

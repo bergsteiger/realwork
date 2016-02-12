@@ -19,7 +19,7 @@ uses
 ;
 
 type
- {$Include nevPrimPoint.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
  TnevBeforeStartPoint = class(_nevPrimPoint_, InevPoint, InevBasePoint)
   protected
    function Range: InevRange;
@@ -132,7 +132,7 @@ uses
 
 type _Instance_R_ = TnevBeforeStartPoint;
 
-{$Include nevPrimPoint.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevPrimPoint.imp.pas}
 
 constructor TnevBeforeStartPoint.Create(const aPoint: InevBasePoint);
 //#UC START# *4EC3AE6D0321_4EC3AD980264_var*

@@ -41,7 +41,8 @@ type
  Ok
 [code] }
   private
-   procedure DoModelImpl;
+   procedure DoModelImpl(const aCtx: TtfwContext;
+    aCard: TevQueryCardEditor);
   protected
    procedure DoCard(const aCtx: TtfwContext;
     aCard: TevQueryCardEditor); override;
@@ -66,7 +67,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-procedure TkwPopQueryCardAttributeSetWithLogicOperation.DoModelImpl;
+procedure TkwPopQueryCardAttributeSetWithLogicOperation.DoModelImpl(const aCtx: TtfwContext;
+ aCard: TevQueryCardEditor);
 var l_Name: Il3CString;
 var l_Value: Il3CString;
 var l_Op: InevOp;

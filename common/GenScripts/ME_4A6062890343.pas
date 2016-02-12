@@ -28,7 +28,7 @@ type
  //#UC END# *4A6062890343ci*
  _l3VariantListPrim_Parent_ = Tk2ListTag;
  {$Define l3Items_IsProto}
- {$Include l3VariantListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas}
  //#UC START# *4A6062890343cit*
  //#UC END# *4A6062890343cit*
  TevHugeParaListPrim = class(_l3VariantListPrim_)
@@ -79,7 +79,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevHugeParaListPrim;
 
-{$Include l3VariantListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas}
 
 //#UC START# *4A6062890343impl*
 //#UC END# *4A6062890343impl*

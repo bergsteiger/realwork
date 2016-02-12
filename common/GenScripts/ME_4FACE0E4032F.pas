@@ -17,7 +17,7 @@ uses
 
 type
  _ddDocAtomWithAssign_Parent_ = Tl3ProtoDataContainer;
- {$Include ddDocAtomWithAssign.imp.pas}
+ {$Include w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas}
  TddDocumentAtom = class(_ddDocAtomWithAssign_)
   private
    f_Closed: Boolean;
@@ -69,7 +69,7 @@ uses
  , ddTypes
 ;
 
-{$Include ddDocAtomWithAssign.imp.pas}
+{$Include w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas}
 
 procedure TddDocumentAtom.pm_SetClosed(aValue: Boolean);
 //#UC START# *5192108D0091_4FACE0E4032Fset_var*

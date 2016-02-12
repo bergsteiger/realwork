@@ -50,7 +50,7 @@ uses
 
 type
  _InitDataType_ = IdeList;
- {$Include dsList.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
  TdsDrugList = {final} class(_dsList_, IdsDrugList)
   {* Список лекарственных препаратов }
   private
@@ -140,7 +140,7 @@ uses
 
 type _Instance_R_ = TdsDrugList;
 
-{$Include dsList.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
 
 function TdsDrugList.MakeDocInfo(const aNode: INodeBase): IdeDocInfo;
  {* создать информацию о документе по узлу. }

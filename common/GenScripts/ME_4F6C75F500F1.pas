@@ -23,7 +23,7 @@ type
  _ItemType_ = IafwStatusElement;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TIafwStatusElementPtrList = class(_l3InterfacePtrList_)
  end;//TIafwStatusElementPtrList
 
@@ -39,6 +39,6 @@ uses
 
 type _Instance_R_ = TIafwStatusElementPtrList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 end.

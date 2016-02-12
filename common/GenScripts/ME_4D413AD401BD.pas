@@ -22,11 +22,11 @@ uses
 
 type
  _CursorMover_Parent_ = TTextViaEditorProcessor;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  _ClipboardOperations_Parent_ = _CursorMover_;
- {$Include ClipboardOperations.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
  _SelectOperation_Parent_ = _ClipboardOperations_;
- {$Include SelectOperation.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
  TSelectionCellTest = {abstract} class(_SelectOperation_)
   {* Тест на выделение ячейки. }
   protected
@@ -61,11 +61,11 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
-{$Include ClipboardOperations.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\ClipboardOperations.imp.pas}
 
-{$Include SelectOperation.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TSelectionCellTest.Process(aForm: TPrimTextLoadForm);

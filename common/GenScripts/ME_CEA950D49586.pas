@@ -254,12 +254,8 @@ begin
 end;//Tkw_Form_SaveLoad.GetWordNameForRegister
 
 function Tkw_Form_SaveLoad.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_577D804DEED5_var*
-//#UC END# *4DDFD2EA0116_577D804DEED5_var*
 begin
-//#UC START# *4DDFD2EA0116_577D804DEED5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_577D804DEED5_impl*
+ Result := 'cfSaveLoad';
 end;//Tkw_Form_SaveLoad.GetString
 
 class function Tkw_SaveLoad_Control_pnHeader.GetWordNameForRegister: AnsiString;
@@ -268,21 +264,14 @@ begin
 end;//Tkw_SaveLoad_Control_pnHeader.GetWordNameForRegister
 
 function Tkw_SaveLoad_Control_pnHeader.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EF00184E37A8_var*
-//#UC END# *4DDFD2EA0116_EF00184E37A8_var*
 begin
-//#UC START# *4DDFD2EA0116_EF00184E37A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EF00184E37A8_impl*
+ Result := 'pnHeader';
 end;//Tkw_SaveLoad_Control_pnHeader.GetString
 
 class procedure Tkw_SaveLoad_Control_pnHeader.RegisterInEngine;
-//#UC START# *52A086150180_EF00184E37A8_var*
-//#UC END# *52A086150180_EF00184E37A8_var*
 begin
-//#UC START# *52A086150180_EF00184E37A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EF00184E37A8_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SaveLoad_Control_pnHeader.RegisterInEngine
 
 procedure Tkw_SaveLoad_Control_pnHeader_Push.DoDoIt(const aCtx: TtfwContext);
@@ -305,21 +294,14 @@ begin
 end;//Tkw_SaveLoad_Control_lbHeader.GetWordNameForRegister
 
 function Tkw_SaveLoad_Control_lbHeader.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_0596130B6DD0_var*
-//#UC END# *4DDFD2EA0116_0596130B6DD0_var*
 begin
-//#UC START# *4DDFD2EA0116_0596130B6DD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_0596130B6DD0_impl*
+ Result := 'lbHeader';
 end;//Tkw_SaveLoad_Control_lbHeader.GetString
 
 class procedure Tkw_SaveLoad_Control_lbHeader.RegisterInEngine;
-//#UC START# *52A086150180_0596130B6DD0_var*
-//#UC END# *52A086150180_0596130B6DD0_var*
 begin
-//#UC START# *52A086150180_0596130B6DD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_0596130B6DD0_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_SaveLoad_Control_lbHeader.RegisterInEngine
 
 procedure Tkw_SaveLoad_Control_lbHeader_Push.DoDoIt(const aCtx: TtfwContext);
@@ -342,21 +324,14 @@ begin
 end;//Tkw_SaveLoad_Control_pbHeader.GetWordNameForRegister
 
 function Tkw_SaveLoad_Control_pbHeader.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5CC753C5EEDF_var*
-//#UC END# *4DDFD2EA0116_5CC753C5EEDF_var*
 begin
-//#UC START# *4DDFD2EA0116_5CC753C5EEDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5CC753C5EEDF_impl*
+ Result := 'pbHeader';
 end;//Tkw_SaveLoad_Control_pbHeader.GetString
 
 class procedure Tkw_SaveLoad_Control_pbHeader.RegisterInEngine;
-//#UC START# *52A086150180_5CC753C5EEDF_var*
-//#UC END# *52A086150180_5CC753C5EEDF_var*
 begin
-//#UC START# *52A086150180_5CC753C5EEDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5CC753C5EEDF_impl*
+ inherited;
+ TtfwClassRef.Register(TPaintBox);
 end;//Tkw_SaveLoad_Control_pbHeader.RegisterInEngine
 
 procedure Tkw_SaveLoad_Control_pbHeader_Push.DoDoIt(const aCtx: TtfwContext);
@@ -379,21 +354,14 @@ begin
 end;//Tkw_SaveLoad_Control_ParentZone.GetWordNameForRegister
 
 function Tkw_SaveLoad_Control_ParentZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5929D0B42CAB_var*
-//#UC END# *4DDFD2EA0116_5929D0B42CAB_var*
 begin
-//#UC START# *4DDFD2EA0116_5929D0B42CAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5929D0B42CAB_impl*
+ Result := 'ParentZone';
 end;//Tkw_SaveLoad_Control_ParentZone.GetString
 
 class procedure Tkw_SaveLoad_Control_ParentZone.RegisterInEngine;
-//#UC START# *52A086150180_5929D0B42CAB_var*
-//#UC END# *52A086150180_5929D0B42CAB_var*
 begin
-//#UC START# *52A086150180_5929D0B42CAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5929D0B42CAB_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_SaveLoad_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_SaveLoad_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -413,21 +381,23 @@ end;//Tkw_SaveLoad_Control_ParentZone_Push.GetWordNameForRegister
 function TkwCfSaveLoadPnHeader.pnHeader(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TvtPanel;
  {* Реализация слова скрипта .TcfSaveLoad.pnHeader }
-//#UC START# *59D7A2072AB7_2440EB34C9D0_var*
-//#UC END# *59D7A2072AB7_2440EB34C9D0_var*
 begin
-//#UC START# *59D7A2072AB7_2440EB34C9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *59D7A2072AB7_2440EB34C9D0_impl*
+ Result := acfSaveLoad.pnHeader;
 end;//TkwCfSaveLoadPnHeader.pnHeader
 
 procedure TkwCfSaveLoadPnHeader.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2440EB34C9D0_var*
-//#UC END# *4DAEEDE10285_2440EB34C9D0_var*
+var l_acfSaveLoad: TcfSaveLoad;
 begin
-//#UC START# *4DAEEDE10285_2440EB34C9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2440EB34C9D0_impl*
+ try
+  l_acfSaveLoad := TcfSaveLoad(aCtx.rEngine.PopObjAs(TcfSaveLoad));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfSaveLoad: TcfSaveLoad : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadPnHeader.DoDoIt
 
 class function TkwCfSaveLoadPnHeader.GetWordNameForRegister: AnsiString;
@@ -437,12 +407,8 @@ end;//TkwCfSaveLoadPnHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadPnHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_2440EB34C9D0_var*
-//#UC END# *52D00B00031A_2440EB34C9D0_var*
 begin
-//#UC START# *52D00B00031A_2440EB34C9D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_2440EB34C9D0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnHeader', aCtx);
 end;//TkwCfSaveLoadPnHeader.SetValuePrim
 
 function TkwCfSaveLoadPnHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -457,27 +423,29 @@ end;//TkwCfSaveLoadPnHeader.GetAllParamsCount
 
 function TkwCfSaveLoadPnHeader.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadPnHeader.ParamsTypes
 
 function TkwCfSaveLoadLbHeader.lbHeader(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TvtLabel;
  {* Реализация слова скрипта .TcfSaveLoad.lbHeader }
-//#UC START# *9F45CCDA8270_E675708F6BD5_var*
-//#UC END# *9F45CCDA8270_E675708F6BD5_var*
 begin
-//#UC START# *9F45CCDA8270_E675708F6BD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9F45CCDA8270_E675708F6BD5_impl*
+ Result := acfSaveLoad.lbHeader;
 end;//TkwCfSaveLoadLbHeader.lbHeader
 
 procedure TkwCfSaveLoadLbHeader.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E675708F6BD5_var*
-//#UC END# *4DAEEDE10285_E675708F6BD5_var*
+var l_acfSaveLoad: TcfSaveLoad;
 begin
-//#UC START# *4DAEEDE10285_E675708F6BD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E675708F6BD5_impl*
+ try
+  l_acfSaveLoad := TcfSaveLoad(aCtx.rEngine.PopObjAs(TcfSaveLoad));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfSaveLoad: TcfSaveLoad : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lbHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadLbHeader.DoDoIt
 
 class function TkwCfSaveLoadLbHeader.GetWordNameForRegister: AnsiString;
@@ -487,12 +455,8 @@ end;//TkwCfSaveLoadLbHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadLbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E675708F6BD5_var*
-//#UC END# *52D00B00031A_E675708F6BD5_var*
 begin
-//#UC START# *52D00B00031A_E675708F6BD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E675708F6BD5_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lbHeader', aCtx);
 end;//TkwCfSaveLoadLbHeader.SetValuePrim
 
 function TkwCfSaveLoadLbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -507,27 +471,29 @@ end;//TkwCfSaveLoadLbHeader.GetAllParamsCount
 
 function TkwCfSaveLoadLbHeader.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadLbHeader.ParamsTypes
 
 function TkwCfSaveLoadPbHeader.pbHeader(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TPaintBox;
  {* Реализация слова скрипта .TcfSaveLoad.pbHeader }
-//#UC START# *083E1C6BCE60_26C9E1BE48F1_var*
-//#UC END# *083E1C6BCE60_26C9E1BE48F1_var*
 begin
-//#UC START# *083E1C6BCE60_26C9E1BE48F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *083E1C6BCE60_26C9E1BE48F1_impl*
+ Result := acfSaveLoad.pbHeader;
 end;//TkwCfSaveLoadPbHeader.pbHeader
 
 procedure TkwCfSaveLoadPbHeader.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_26C9E1BE48F1_var*
-//#UC END# *4DAEEDE10285_26C9E1BE48F1_var*
+var l_acfSaveLoad: TcfSaveLoad;
 begin
-//#UC START# *4DAEEDE10285_26C9E1BE48F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_26C9E1BE48F1_impl*
+ try
+  l_acfSaveLoad := TcfSaveLoad(aCtx.rEngine.PopObjAs(TcfSaveLoad));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfSaveLoad: TcfSaveLoad : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pbHeader(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadPbHeader.DoDoIt
 
 class function TkwCfSaveLoadPbHeader.GetWordNameForRegister: AnsiString;
@@ -537,12 +503,8 @@ end;//TkwCfSaveLoadPbHeader.GetWordNameForRegister
 
 procedure TkwCfSaveLoadPbHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_26C9E1BE48F1_var*
-//#UC END# *52D00B00031A_26C9E1BE48F1_var*
 begin
-//#UC START# *52D00B00031A_26C9E1BE48F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_26C9E1BE48F1_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pbHeader', aCtx);
 end;//TkwCfSaveLoadPbHeader.SetValuePrim
 
 function TkwCfSaveLoadPbHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -557,27 +519,29 @@ end;//TkwCfSaveLoadPbHeader.GetAllParamsCount
 
 function TkwCfSaveLoadPbHeader.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadPbHeader.ParamsTypes
 
 function TkwCfSaveLoadParentZone.ParentZone(const aCtx: TtfwContext;
  acfSaveLoad: TcfSaveLoad): TvtPanel;
  {* Реализация слова скрипта .TcfSaveLoad.ParentZone }
-//#UC START# *EF9CFEE320EB_27482DAD1D6E_var*
-//#UC END# *EF9CFEE320EB_27482DAD1D6E_var*
 begin
-//#UC START# *EF9CFEE320EB_27482DAD1D6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *EF9CFEE320EB_27482DAD1D6E_impl*
+ Result := acfSaveLoad.ParentZone;
 end;//TkwCfSaveLoadParentZone.ParentZone
 
 procedure TkwCfSaveLoadParentZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_27482DAD1D6E_var*
-//#UC END# *4DAEEDE10285_27482DAD1D6E_var*
+var l_acfSaveLoad: TcfSaveLoad;
 begin
-//#UC START# *4DAEEDE10285_27482DAD1D6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_27482DAD1D6E_impl*
+ try
+  l_acfSaveLoad := TcfSaveLoad(aCtx.rEngine.PopObjAs(TcfSaveLoad));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfSaveLoad: TcfSaveLoad : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ParentZone(aCtx, l_acfSaveLoad));
 end;//TkwCfSaveLoadParentZone.DoDoIt
 
 class function TkwCfSaveLoadParentZone.GetWordNameForRegister: AnsiString;
@@ -587,12 +551,8 @@ end;//TkwCfSaveLoadParentZone.GetWordNameForRegister
 
 procedure TkwCfSaveLoadParentZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_27482DAD1D6E_var*
-//#UC END# *52D00B00031A_27482DAD1D6E_var*
 begin
-//#UC START# *52D00B00031A_27482DAD1D6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_27482DAD1D6E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ParentZone', aCtx);
 end;//TkwCfSaveLoadParentZone.SetValuePrim
 
 function TkwCfSaveLoadParentZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -607,7 +567,7 @@ end;//TkwCfSaveLoadParentZone.GetAllParamsCount
 
 function TkwCfSaveLoadParentZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfSaveLoad)]);
 end;//TkwCfSaveLoadParentZone.ParamsTypes
 
 initialization

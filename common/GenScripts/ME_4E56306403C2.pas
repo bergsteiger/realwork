@@ -32,7 +32,7 @@ type
  _ItemType_ = TevSearcherAndReplacerPair;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TevSearcherAndReplacerPairList = class(_l3RecordListPrim_)
   {* [RequestLink:280009855] }
  end;//TevSearcherAndReplacerPairList
@@ -108,6 +108,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevSearcherAndReplacerPairList;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 end.

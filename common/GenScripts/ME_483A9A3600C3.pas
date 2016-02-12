@@ -13,7 +13,7 @@ uses
 
 type
  _HistoryStoredObject_ = IDocument;
- {$Include atObjectHistory.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas}
  TatDocumentHistory = class(_atObjectHistory_)
  end;//TatDocumentHistory
 
@@ -23,6 +23,6 @@ uses
  l3ImplUses
 ;
 
-{$Include atObjectHistory.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas}
 
 end.

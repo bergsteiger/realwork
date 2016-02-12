@@ -32,7 +32,7 @@ type
  _ItemType_ = TvcmUserTypeDescr;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TvcmUserTypeDescrList = class(_l3RecordWithEQList_)
  end;//TvcmUserTypeDescrList
 {$IfEnd} // NOT Defined(NoVCM)
@@ -85,7 +85,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmUserTypeDescrList;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

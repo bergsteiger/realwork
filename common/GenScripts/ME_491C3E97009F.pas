@@ -42,7 +42,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsConsultation;
- {$Include dsBaseDocumentPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
  TdsConsultation = class(_dsBaseDocumentPrim_, IdsConsultation)
   {* БОС запроса на консультацию }
   private
@@ -86,7 +86,7 @@ uses
 
 type _Instance_R_ = TdsConsultation;
 
-{$Include dsBaseDocumentPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
 function TdsConsultation.pm_GetShowingStatus: TbsConsultationStatuses;
 //#UC START# *491C3FAA009D_491C3E97009Fget_var*

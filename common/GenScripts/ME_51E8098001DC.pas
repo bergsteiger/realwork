@@ -6,7 +6,7 @@
 {$Define InterfacePtrList_imp}
 
  _InterfaceList_Parent_ = _InterfacePtrList_Parent_;
- {$Include InterfaceList.imp.pas}
+ {$Include w:\common\components\SandBox\InterfaceList.imp.pas}
  _InterfacePtrList_ = class(_InterfaceList_)
   {* Список УКАЗАТЕЛЕЙ на интерфейсы. Не владеет своими элементами }
  end;//_InterfacePtrList_
@@ -39,7 +39,7 @@ begin
 //#UC END# *51DECB440087_51E8098001DC_impl*
 end;//FillItem
 
-{$Include InterfaceList.imp.pas}
+{$Include w:\common\components\SandBox\InterfaceList.imp.pas}
 
 {$EndIf InterfacePtrList_imp_impl}
 

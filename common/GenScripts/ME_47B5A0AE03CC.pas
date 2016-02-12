@@ -6,7 +6,7 @@
 {$Define l3ObjectRefListPrim_imp}
 
  _l3RefList_Parent_ = _l3ObjectRefListPrim_Parent_;
- {$Include l3RefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
  _l3ObjectRefListPrim_ = {abstract} class(_l3RefList_)
  end;//_l3ObjectRefListPrim_
 
@@ -29,7 +29,7 @@ begin
 end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$Include l3RefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
 
 {$EndIf l3ObjectRefListPrim_imp_impl}
 

@@ -1,80 +1,71 @@
 unit kwPopEditorSelectCellByMouse;
+ {* editorSelectCellByMouse }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorSelectCellByMouse.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_SelectCellByMouse
-//
-// editorSelectCellByMouse
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellByMouse.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools,
-  kwEditorFromStackCursorWord,
-  evCustomEditorWindow,
-  l3Units,
-  nevGUIInterfaces,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackCursorWord
+ , nevTools
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , l3Units
+ , nevGUIInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
  _CellSelectionByMouse_Parent_ = TkwEditorFromStackCursorWord;
  {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas}
- TkwPopEditorSelectCellByMouse = {scriptword} class(_CellSelectionByMouse_)
+ TkwPopEditorSelectCellByMouse = class(_CellSelectionByMouse_)
   {* editorSelectCellByMouse }
- private
- // private fields
-   f_Row : Integer;
-    {* Номер строки}
-   f_Col : Integer;
-    {* Номер колонки.}
-   f_Table : InevParaList;
- protected
- // realized methods
+  private
+   f_Row: Integer;
+    {* Номер строки }
+   f_Col: Integer;
+    {* Номер колонки. }
+   f_Table: InevParaList;
+  protected
    procedure DoCursor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPoint: InevBasePoint); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow;
+    const aPoint: InevBasePoint); override;
    function GetInnerPara(const aView: InevInputView;
     const aDocument: InevPara): InevPara; override;
-     {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
+    {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorSelectCellByMouse
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Table_Const,
-  evConst,
-  l3Base,
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
+ l3ImplUses
+ , Table_Const
+ , evConst
+ , l3Base
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas}
 
-// start class TkwPopEditorSelectCellByMouse
-
 procedure TkwPopEditorSelectCellByMouse.DoCursor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPoint: InevBasePoint);
+ anEditor: TevCustomEditorWindow;
+ const aPoint: InevBasePoint);
 //#UC START# *50B8BCDF0093_4E980426001F_var*
 var
  l_Point: InevBasePoint;
@@ -102,7 +93,8 @@ begin
 end;//TkwPopEditorSelectCellByMouse.DoCursor
 
 function TkwPopEditorSelectCellByMouse.GetInnerPara(const aView: InevInputView;
-  const aDocument: InevPara): InevPara;
+ const aDocument: InevPara): InevPara;
+ {* Возвращает параграф, относительно которого будет рассчитываться точка для выделения }
 //#UC START# *4BF4E6A00093_4E980426001F_var*
 //#UC END# *4BF4E6A00093_4E980426001F_var*
 begin
@@ -112,17 +104,13 @@ begin
 end;//TkwPopEditorSelectCellByMouse.GetInnerPara
 
 class function TkwPopEditorSelectCellByMouse.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:SelectCellByMouse';
 end;//TkwPopEditorSelectCellByMouse.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_SelectCellByMouse
  TkwPopEditorSelectCellByMouse.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_SelectCellByMouse }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

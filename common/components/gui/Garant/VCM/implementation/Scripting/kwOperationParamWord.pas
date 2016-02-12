@@ -1,53 +1,39 @@
 unit kwOperationParamWord;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwOperationParamWord.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeyword::Class>> Shared Delphi::VCM$Scripting::VCMWords::OperationParamWord
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwOperationParamWord.pas"
+// Стереотип: "ScriptKeyword"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  kwOperationParamWordPrim,
-  vcmInterfaces,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , kwOperationParamWordPrim
+ , vcmExternalInterfaces
+ , vcmInterfaces
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
- TkwOperationParamWord = {abstract scriptword} class(TkwOperationParamWordPrim)
- protected
- // realized methods
-   procedure DoParams(const aParams: IvcmTestParams;
-     const aCtx: TtfwContext); override;
- protected
- // protected methods
+ TkwOperationParamWord = {abstract} class(TkwOperationParamWordPrim)
+  protected
    function Flag: TvcmOpFlag; virtual; abstract;
+   procedure DoParams(const aParams: IvcmTestParams;
+    const aCtx: TtfwContext); override;
  end;//TkwOperationParamWord
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TkwOperationParamWord
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 procedure TkwOperationParamWord.DoParams(const aParams: IvcmTestParams;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *5230185F0140_5230147B0151_var*
 //#UC END# *5230185F0140_5230147B0151_var*
 begin
@@ -56,12 +42,9 @@ begin
 //#UC END# *5230185F0140_5230147B0151_impl*
 end;//TkwOperationParamWord.DoParams
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация OperationParamWord
  TkwOperationParamWord.RegisterClass;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация OperationParamWord }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

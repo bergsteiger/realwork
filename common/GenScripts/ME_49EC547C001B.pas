@@ -36,7 +36,7 @@ uses
 
 type
  _InitDataType_ = IdeNode;
- {$Include dsSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  TdsGroupsList = {final} class(_dsSimpleTree_, IdsGroupsList)
   {* Группы пользователей }
   private
@@ -92,7 +92,7 @@ uses
 
 type _Instance_R_ = TdsGroupsList;
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 function TdsGroupsList.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

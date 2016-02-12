@@ -23,7 +23,7 @@ type
  TevStandardStylesCacheByID = array [TevStandardCachedStyle] of TevStandardStylesCacheByJustification;
 
  _evStyleTableListener_Parent_ = Tl3ProtoObject;
- {$Include evStyleTableListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  TevStandardStyles = class(_evStyleTableListener_, IafwFontCache)
   {* Стандартные стили }
   private
@@ -85,7 +85,7 @@ begin
  l3Free(g_TevStandardStyles);
 end;//TevStandardStylesFree
 
-{$Include evStyleTableListener.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
 function TevStandardStyles.GetStandardStyleFont(aPara: Tl3Variant;
  aFixedFont: Boolean;

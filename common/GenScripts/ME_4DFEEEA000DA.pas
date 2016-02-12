@@ -22,7 +22,7 @@ uses
 
 type
  _l3Changing_Parent_ = Tl3Tree;
- {$Include l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  TevContentsTree = class(_l3Changing_, InevSubChangeListener)
   {* Дерево оглавления. }
   private
@@ -62,7 +62,7 @@ uses
  , k2Prim
 ;
 
-{$Include l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 procedure TevContentsTree.CreateRootChild(aDocument: Tl3Variant);
 //#UC START# *4EAE7B0803B7_4DFEEEA000DA_var*

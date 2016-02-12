@@ -6,7 +6,7 @@
 {$Define l3DelphiStringSearcher_imp}
 
  _l3DelphiStringSearcherPrim_Parent_ = _l3DelphiStringSearcher_Parent_;
- {$Include l3DelphiStringSearcherPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas}
  _l3DelphiStringSearcher_ = {abstract} class(_l3DelphiStringSearcherPrim_)
  end;//_l3DelphiStringSearcher_
 
@@ -25,7 +25,7 @@ begin
 //#UC END# *5304D6C5002B_5304D68D03B2_impl*
 end;//ItemToWStr
 
-{$Include l3DelphiStringSearcherPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas}
 
 {$EndIf l3DelphiStringSearcher_imp_impl}
 

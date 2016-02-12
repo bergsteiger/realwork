@@ -42,7 +42,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsBaseContents;
- {$Include dsBaseContents.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas}
  TdsBaseContents = class(_dsBaseContents_)
   {* Простое оглавление }
   protected
@@ -77,7 +77,7 @@ uses
 
 type _Instance_R_ = TdsBaseContents;
 
-{$Include dsBaseContents.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas}
 
 function TdsBaseContents.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

@@ -405,12 +405,8 @@ begin
 end;//Tkw_Form_Contents.GetWordNameForRegister
 
 function Tkw_Form_Contents.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7B6EE98B5EAB_var*
-//#UC END# *4DDFD2EA0116_7B6EE98B5EAB_var*
 begin
-//#UC START# *4DDFD2EA0116_7B6EE98B5EAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7B6EE98B5EAB_impl*
+ Result := 'ContentsForm';
 end;//Tkw_Form_Contents.GetString
 
 class function Tkw_Contents_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -419,21 +415,14 @@ begin
 end;//Tkw_Contents_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_Contents_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_94B6B22BBEAB_var*
-//#UC END# *4DDFD2EA0116_94B6B22BBEAB_var*
 begin
-//#UC START# *4DDFD2EA0116_94B6B22BBEAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_94B6B22BBEAB_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_Contents_Control_BackgroundPanel.GetString
 
 class procedure Tkw_Contents_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_94B6B22BBEAB_var*
-//#UC END# *52A086150180_94B6B22BBEAB_var*
 begin
-//#UC START# *52A086150180_94B6B22BBEAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_94B6B22BBEAB_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Contents_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_Contents_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -456,21 +445,14 @@ begin
 end;//Tkw_Contents_Control_lstBookmarks.GetWordNameForRegister
 
 function Tkw_Contents_Control_lstBookmarks.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_FDC19690CA0B_var*
-//#UC END# *4DDFD2EA0116_FDC19690CA0B_var*
 begin
-//#UC START# *4DDFD2EA0116_FDC19690CA0B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_FDC19690CA0B_impl*
+ Result := 'lstBookmarks';
 end;//Tkw_Contents_Control_lstBookmarks.GetString
 
 class procedure Tkw_Contents_Control_lstBookmarks.RegisterInEngine;
-//#UC START# *52A086150180_FDC19690CA0B_var*
-//#UC END# *52A086150180_FDC19690CA0B_var*
 begin
-//#UC START# *52A086150180_FDC19690CA0B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_FDC19690CA0B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLister);
 end;//Tkw_Contents_Control_lstBookmarks.RegisterInEngine
 
 procedure Tkw_Contents_Control_lstBookmarks_Push.DoDoIt(const aCtx: TtfwContext);
@@ -493,21 +475,14 @@ begin
 end;//Tkw_Contents_Control_lstComments.GetWordNameForRegister
 
 function Tkw_Contents_Control_lstComments.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B125D6142B36_var*
-//#UC END# *4DDFD2EA0116_B125D6142B36_var*
 begin
-//#UC START# *4DDFD2EA0116_B125D6142B36_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B125D6142B36_impl*
+ Result := 'lstComments';
 end;//Tkw_Contents_Control_lstComments.GetString
 
 class procedure Tkw_Contents_Control_lstComments.RegisterInEngine;
-//#UC START# *52A086150180_B125D6142B36_var*
-//#UC END# *52A086150180_B125D6142B36_var*
 begin
-//#UC START# *52A086150180_B125D6142B36_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B125D6142B36_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLister);
 end;//Tkw_Contents_Control_lstComments.RegisterInEngine
 
 procedure Tkw_Contents_Control_lstComments_Push.DoDoIt(const aCtx: TtfwContext);
@@ -530,21 +505,14 @@ begin
 end;//Tkw_Contents_Control_lstExternalObjects.GetWordNameForRegister
 
 function Tkw_Contents_Control_lstExternalObjects.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_473A1360A833_var*
-//#UC END# *4DDFD2EA0116_473A1360A833_var*
 begin
-//#UC START# *4DDFD2EA0116_473A1360A833_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_473A1360A833_impl*
+ Result := 'lstExternalObjects';
 end;//Tkw_Contents_Control_lstExternalObjects.GetString
 
 class procedure Tkw_Contents_Control_lstExternalObjects.RegisterInEngine;
-//#UC START# *52A086150180_473A1360A833_var*
-//#UC END# *52A086150180_473A1360A833_var*
 begin
-//#UC START# *52A086150180_473A1360A833_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_473A1360A833_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLister);
 end;//Tkw_Contents_Control_lstExternalObjects.RegisterInEngine
 
 procedure Tkw_Contents_Control_lstExternalObjects_Push.DoDoIt(const aCtx: TtfwContext);
@@ -567,21 +535,14 @@ begin
 end;//Tkw_Contents_Control_ContentsTree.GetWordNameForRegister
 
 function Tkw_Contents_Control_ContentsTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_90DB87D5A17A_var*
-//#UC END# *4DDFD2EA0116_90DB87D5A17A_var*
 begin
-//#UC START# *4DDFD2EA0116_90DB87D5A17A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_90DB87D5A17A_impl*
+ Result := 'ContentsTree';
 end;//Tkw_Contents_Control_ContentsTree.GetString
 
 class procedure Tkw_Contents_Control_ContentsTree.RegisterInEngine;
-//#UC START# *52A086150180_90DB87D5A17A_var*
-//#UC END# *52A086150180_90DB87D5A17A_var*
 begin
-//#UC START# *52A086150180_90DB87D5A17A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_90DB87D5A17A_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
 end;//Tkw_Contents_Control_ContentsTree.RegisterInEngine
 
 procedure Tkw_Contents_Control_ContentsTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -604,21 +565,14 @@ begin
 end;//Tkw_Contents_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_Contents_Control_ContextFilter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_98C51C23607E_var*
-//#UC END# *4DDFD2EA0116_98C51C23607E_var*
 begin
-//#UC START# *4DDFD2EA0116_98C51C23607E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_98C51C23607E_impl*
+ Result := 'ContextFilter';
 end;//Tkw_Contents_Control_ContextFilter.GetString
 
 class procedure Tkw_Contents_Control_ContextFilter.RegisterInEngine;
-//#UC START# *52A086150180_98C51C23607E_var*
-//#UC END# *52A086150180_98C51C23607E_var*
 begin
-//#UC START# *52A086150180_98C51C23607E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_98C51C23607E_impl*
+ inherited;
+ TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_Contents_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_Contents_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
@@ -641,21 +595,14 @@ begin
 end;//Tkw_Contents_Control_Tasks.GetWordNameForRegister
 
 function Tkw_Contents_Control_Tasks.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5D1F447C6980_var*
-//#UC END# *4DDFD2EA0116_5D1F447C6980_var*
 begin
-//#UC START# *4DDFD2EA0116_5D1F447C6980_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5D1F447C6980_impl*
+ Result := 'Tasks';
 end;//Tkw_Contents_Control_Tasks.GetString
 
 class procedure Tkw_Contents_Control_Tasks.RegisterInEngine;
-//#UC START# *52A086150180_5D1F447C6980_var*
-//#UC END# *52A086150180_5D1F447C6980_var*
 begin
-//#UC START# *52A086150180_5D1F447C6980_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5D1F447C6980_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTasksPanelView);
 end;//Tkw_Contents_Control_Tasks.RegisterInEngine
 
 procedure Tkw_Contents_Control_Tasks_Push.DoDoIt(const aCtx: TtfwContext);
@@ -675,21 +622,23 @@ end;//Tkw_Contents_Control_Tasks_Push.GetWordNameForRegister
 function TkwContentsFormBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtPanel;
  {* Реализация слова скрипта .TContentsForm.BackgroundPanel }
-//#UC START# *DFF755D04550_4C8C363B5514_var*
-//#UC END# *DFF755D04550_4C8C363B5514_var*
 begin
-//#UC START# *DFF755D04550_4C8C363B5514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *DFF755D04550_4C8C363B5514_impl*
+ Result := aContentsForm.BackgroundPanel;
 end;//TkwContentsFormBackgroundPanel.BackgroundPanel
 
 procedure TkwContentsFormBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4C8C363B5514_var*
-//#UC END# *4DAEEDE10285_4C8C363B5514_var*
+var l_aContentsForm: TContentsForm;
 begin
-//#UC START# *4DAEEDE10285_4C8C363B5514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4C8C363B5514_impl*
+ try
+  l_aContentsForm := TContentsForm(aCtx.rEngine.PopObjAs(TContentsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContentsForm: TContentsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aContentsForm));
 end;//TkwContentsFormBackgroundPanel.DoDoIt
 
 class function TkwContentsFormBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -699,12 +648,8 @@ end;//TkwContentsFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwContentsFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4C8C363B5514_var*
-//#UC END# *52D00B00031A_4C8C363B5514_var*
 begin
-//#UC START# *52D00B00031A_4C8C363B5514_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4C8C363B5514_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwContentsFormBackgroundPanel.SetValuePrim
 
 function TkwContentsFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -719,27 +664,29 @@ end;//TkwContentsFormBackgroundPanel.GetAllParamsCount
 
 function TkwContentsFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormBackgroundPanel.ParamsTypes
 
 function TkwContentsFormLstBookmarks.lstBookmarks(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
  {* Реализация слова скрипта .TContentsForm.lstBookmarks }
-//#UC START# *F19C40784EE7_4490BAA2CF4F_var*
-//#UC END# *F19C40784EE7_4490BAA2CF4F_var*
 begin
-//#UC START# *F19C40784EE7_4490BAA2CF4F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F19C40784EE7_4490BAA2CF4F_impl*
+ Result := aContentsForm.lstBookmarks;
 end;//TkwContentsFormLstBookmarks.lstBookmarks
 
 procedure TkwContentsFormLstBookmarks.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4490BAA2CF4F_var*
-//#UC END# *4DAEEDE10285_4490BAA2CF4F_var*
+var l_aContentsForm: TContentsForm;
 begin
-//#UC START# *4DAEEDE10285_4490BAA2CF4F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4490BAA2CF4F_impl*
+ try
+  l_aContentsForm := TContentsForm(aCtx.rEngine.PopObjAs(TContentsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContentsForm: TContentsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lstBookmarks(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstBookmarks.DoDoIt
 
 class function TkwContentsFormLstBookmarks.GetWordNameForRegister: AnsiString;
@@ -749,12 +696,8 @@ end;//TkwContentsFormLstBookmarks.GetWordNameForRegister
 
 procedure TkwContentsFormLstBookmarks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_4490BAA2CF4F_var*
-//#UC END# *52D00B00031A_4490BAA2CF4F_var*
 begin
-//#UC START# *52D00B00031A_4490BAA2CF4F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_4490BAA2CF4F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lstBookmarks', aCtx);
 end;//TkwContentsFormLstBookmarks.SetValuePrim
 
 function TkwContentsFormLstBookmarks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -769,27 +712,29 @@ end;//TkwContentsFormLstBookmarks.GetAllParamsCount
 
 function TkwContentsFormLstBookmarks.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstBookmarks.ParamsTypes
 
 function TkwContentsFormLstComments.lstComments(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
  {* Реализация слова скрипта .TContentsForm.lstComments }
-//#UC START# *5D2D9D6FB682_BB45F71CEF15_var*
-//#UC END# *5D2D9D6FB682_BB45F71CEF15_var*
 begin
-//#UC START# *5D2D9D6FB682_BB45F71CEF15_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5D2D9D6FB682_BB45F71CEF15_impl*
+ Result := aContentsForm.lstComments;
 end;//TkwContentsFormLstComments.lstComments
 
 procedure TkwContentsFormLstComments.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BB45F71CEF15_var*
-//#UC END# *4DAEEDE10285_BB45F71CEF15_var*
+var l_aContentsForm: TContentsForm;
 begin
-//#UC START# *4DAEEDE10285_BB45F71CEF15_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BB45F71CEF15_impl*
+ try
+  l_aContentsForm := TContentsForm(aCtx.rEngine.PopObjAs(TContentsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContentsForm: TContentsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lstComments(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstComments.DoDoIt
 
 class function TkwContentsFormLstComments.GetWordNameForRegister: AnsiString;
@@ -799,12 +744,8 @@ end;//TkwContentsFormLstComments.GetWordNameForRegister
 
 procedure TkwContentsFormLstComments.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BB45F71CEF15_var*
-//#UC END# *52D00B00031A_BB45F71CEF15_var*
 begin
-//#UC START# *52D00B00031A_BB45F71CEF15_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BB45F71CEF15_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lstComments', aCtx);
 end;//TkwContentsFormLstComments.SetValuePrim
 
 function TkwContentsFormLstComments.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -819,27 +760,29 @@ end;//TkwContentsFormLstComments.GetAllParamsCount
 
 function TkwContentsFormLstComments.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstComments.ParamsTypes
 
 function TkwContentsFormLstExternalObjects.lstExternalObjects(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TvtLister;
  {* Реализация слова скрипта .TContentsForm.lstExternalObjects }
-//#UC START# *8C038B13B576_BC07363209CB_var*
-//#UC END# *8C038B13B576_BC07363209CB_var*
 begin
-//#UC START# *8C038B13B576_BC07363209CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8C038B13B576_BC07363209CB_impl*
+ Result := aContentsForm.lstExternalObjects;
 end;//TkwContentsFormLstExternalObjects.lstExternalObjects
 
 procedure TkwContentsFormLstExternalObjects.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BC07363209CB_var*
-//#UC END# *4DAEEDE10285_BC07363209CB_var*
+var l_aContentsForm: TContentsForm;
 begin
-//#UC START# *4DAEEDE10285_BC07363209CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BC07363209CB_impl*
+ try
+  l_aContentsForm := TContentsForm(aCtx.rEngine.PopObjAs(TContentsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContentsForm: TContentsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lstExternalObjects(aCtx, l_aContentsForm));
 end;//TkwContentsFormLstExternalObjects.DoDoIt
 
 class function TkwContentsFormLstExternalObjects.GetWordNameForRegister: AnsiString;
@@ -849,12 +792,8 @@ end;//TkwContentsFormLstExternalObjects.GetWordNameForRegister
 
 procedure TkwContentsFormLstExternalObjects.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BC07363209CB_var*
-//#UC END# *52D00B00031A_BC07363209CB_var*
 begin
-//#UC START# *52D00B00031A_BC07363209CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BC07363209CB_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lstExternalObjects', aCtx);
 end;//TkwContentsFormLstExternalObjects.SetValuePrim
 
 function TkwContentsFormLstExternalObjects.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -869,27 +808,29 @@ end;//TkwContentsFormLstExternalObjects.GetAllParamsCount
 
 function TkwContentsFormLstExternalObjects.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormLstExternalObjects.ParamsTypes
 
 function TkwContentsFormContentsTree.ContentsTree(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscTreeViewWithAdapterDragDrop;
  {* Реализация слова скрипта .TContentsForm.ContentsTree }
-//#UC START# *493082DA0AA9_73822264D1F3_var*
-//#UC END# *493082DA0AA9_73822264D1F3_var*
 begin
-//#UC START# *493082DA0AA9_73822264D1F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *493082DA0AA9_73822264D1F3_impl*
+ Result := aContentsForm.ContentsTree;
 end;//TkwContentsFormContentsTree.ContentsTree
 
 procedure TkwContentsFormContentsTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_73822264D1F3_var*
-//#UC END# *4DAEEDE10285_73822264D1F3_var*
+var l_aContentsForm: TContentsForm;
 begin
-//#UC START# *4DAEEDE10285_73822264D1F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_73822264D1F3_impl*
+ try
+  l_aContentsForm := TContentsForm(aCtx.rEngine.PopObjAs(TContentsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContentsForm: TContentsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContentsTree(aCtx, l_aContentsForm));
 end;//TkwContentsFormContentsTree.DoDoIt
 
 class function TkwContentsFormContentsTree.GetWordNameForRegister: AnsiString;
@@ -899,12 +840,8 @@ end;//TkwContentsFormContentsTree.GetWordNameForRegister
 
 procedure TkwContentsFormContentsTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_73822264D1F3_var*
-//#UC END# *52D00B00031A_73822264D1F3_var*
 begin
-//#UC START# *52D00B00031A_73822264D1F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_73822264D1F3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContentsTree', aCtx);
 end;//TkwContentsFormContentsTree.SetValuePrim
 
 function TkwContentsFormContentsTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -919,27 +856,29 @@ end;//TkwContentsFormContentsTree.GetAllParamsCount
 
 function TkwContentsFormContentsTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormContentsTree.ParamsTypes
 
 function TkwContentsFormContextFilter.ContextFilter(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscContextFilter;
  {* Реализация слова скрипта .TContentsForm.ContextFilter }
-//#UC START# *95E7CE26282E_1F49FC7EEC5A_var*
-//#UC END# *95E7CE26282E_1F49FC7EEC5A_var*
 begin
-//#UC START# *95E7CE26282E_1F49FC7EEC5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *95E7CE26282E_1F49FC7EEC5A_impl*
+ Result := aContentsForm.ContextFilter;
 end;//TkwContentsFormContextFilter.ContextFilter
 
 procedure TkwContentsFormContextFilter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1F49FC7EEC5A_var*
-//#UC END# *4DAEEDE10285_1F49FC7EEC5A_var*
+var l_aContentsForm: TContentsForm;
 begin
-//#UC START# *4DAEEDE10285_1F49FC7EEC5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1F49FC7EEC5A_impl*
+ try
+  l_aContentsForm := TContentsForm(aCtx.rEngine.PopObjAs(TContentsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContentsForm: TContentsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aContentsForm));
 end;//TkwContentsFormContextFilter.DoDoIt
 
 class function TkwContentsFormContextFilter.GetWordNameForRegister: AnsiString;
@@ -949,12 +888,8 @@ end;//TkwContentsFormContextFilter.GetWordNameForRegister
 
 procedure TkwContentsFormContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1F49FC7EEC5A_var*
-//#UC END# *52D00B00031A_1F49FC7EEC5A_var*
 begin
-//#UC START# *52D00B00031A_1F49FC7EEC5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1F49FC7EEC5A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwContentsFormContextFilter.SetValuePrim
 
 function TkwContentsFormContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -969,27 +904,29 @@ end;//TkwContentsFormContextFilter.GetAllParamsCount
 
 function TkwContentsFormContextFilter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormContextFilter.ParamsTypes
 
 function TkwContentsFormTasks.Tasks(const aCtx: TtfwContext;
  aContentsForm: TContentsForm): TnscTasksPanelView;
  {* Реализация слова скрипта .TContentsForm.Tasks }
-//#UC START# *8B0302DABFA2_7D17DDA72BEE_var*
-//#UC END# *8B0302DABFA2_7D17DDA72BEE_var*
 begin
-//#UC START# *8B0302DABFA2_7D17DDA72BEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *8B0302DABFA2_7D17DDA72BEE_impl*
+ Result := aContentsForm.Tasks;
 end;//TkwContentsFormTasks.Tasks
 
 procedure TkwContentsFormTasks.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7D17DDA72BEE_var*
-//#UC END# *4DAEEDE10285_7D17DDA72BEE_var*
+var l_aContentsForm: TContentsForm;
 begin
-//#UC START# *4DAEEDE10285_7D17DDA72BEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7D17DDA72BEE_impl*
+ try
+  l_aContentsForm := TContentsForm(aCtx.rEngine.PopObjAs(TContentsForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aContentsForm: TContentsForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Tasks(aCtx, l_aContentsForm));
 end;//TkwContentsFormTasks.DoDoIt
 
 class function TkwContentsFormTasks.GetWordNameForRegister: AnsiString;
@@ -999,12 +936,8 @@ end;//TkwContentsFormTasks.GetWordNameForRegister
 
 procedure TkwContentsFormTasks.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7D17DDA72BEE_var*
-//#UC END# *52D00B00031A_7D17DDA72BEE_var*
 begin
-//#UC START# *52D00B00031A_7D17DDA72BEE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7D17DDA72BEE_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Tasks', aCtx);
 end;//TkwContentsFormTasks.SetValuePrim
 
 function TkwContentsFormTasks.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1019,7 +952,7 @@ end;//TkwContentsFormTasks.GetAllParamsCount
 
 function TkwContentsFormTasks.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TContentsForm)]);
 end;//TkwContentsFormTasks.ParamsTypes
 
 initialization

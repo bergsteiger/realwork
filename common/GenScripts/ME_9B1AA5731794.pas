@@ -45,21 +45,14 @@ begin
 end;//Tkw_Form_Logo.GetWordNameForRegister
 
 function Tkw_Form_Logo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6D62B6080174_var*
-//#UC END# *4DDFD2EA0116_6D62B6080174_var*
 begin
-//#UC START# *4DDFD2EA0116_6D62B6080174_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6D62B6080174_impl*
+ Result := 'LogoForm';
 end;//Tkw_Form_Logo.GetString
 
 class procedure Tkw_Form_Logo.RegisterInEngine;
-//#UC START# *52A086150180_6D62B6080174_var*
-//#UC END# *52A086150180_6D62B6080174_var*
 begin
-//#UC START# *52A086150180_6D62B6080174_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6D62B6080174_impl*
+ inherited;
+ TtfwClassRef.Register(TLogoForm);
 end;//Tkw_Form_Logo.RegisterInEngine
 
 initialization

@@ -58,7 +58,7 @@ type
 
  _ObjectListElement_ = TatOperationBase;
  _atTypedObjectList_Parent_ = TObjectList;
- {$Include atTypedObjectList.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
  TatOperationsList = class(_atTypedObjectList_)
  end;//TatOperationsList
 
@@ -214,6 +214,6 @@ begin
 //#UC END# *47A042E100E2_48076E9D013E_impl*
 end;//TatOperationBase.InitFields
 
-{$Include atTypedObjectList.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
 
 end.

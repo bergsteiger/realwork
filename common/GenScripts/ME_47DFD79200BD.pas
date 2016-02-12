@@ -19,7 +19,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TMetafile;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Tl3Metafile = class(_l3Unknown_)
   {* Метафайл }
   protected
@@ -68,7 +68,7 @@ type
    FInch: Word;
  end;//THackImage
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 procedure Tl3Metafile.LoadWMFFromStream(Stream: TStream);
 //#UC START# *54BE0C4402DE_47DFD79200BD_var*

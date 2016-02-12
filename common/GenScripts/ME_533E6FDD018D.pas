@@ -24,7 +24,7 @@ type
  _ItemType_ = TvgRect;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TvgRectList = class(_l3RecordListPrim_)
  end;//TvgRectList
 {$IfEnd} // NOT Defined(NoVGScene)
@@ -85,7 +85,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvgRectList;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 {$IfEnd} // NOT Defined(NoVGScene)
 
 end.

@@ -18,7 +18,7 @@ uses
 
 type
  _nevFontTool_Parent_ = Tl3CProtoObject;
- {$Include nevFontTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevFontTool.imp.pas}
  TnevFontTool = class(_nevFontTool_, InevFontTool)
   public
    constructor Create; reintroduce;
@@ -52,7 +52,7 @@ uses
  , BitmapPara_Const
 ;
 
-{$Include nevFontTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevFontTool.imp.pas}
 
 constructor TnevFontTool.Create;
 //#UC START# *4E7204190000_4E7203ED01F2_var*

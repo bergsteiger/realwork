@@ -27,7 +27,7 @@ uses
 type
  _HashType_ = Tl3PtrHash;
  _k2HashTag_Parent_ = Tk2LeafTag;
- {$Include k2HashTag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
  Tk2TypedHugeLeafTag = class(_k2HashTag_)
  end;//Tk2TypedHugeLeafTag
 
@@ -63,6 +63,6 @@ uses
 
 type _Instance_R_ = Tk2TypedHugeLeafTag;
 
-{$Include k2HashTag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2HashTag.imp.pas}
 
 end.

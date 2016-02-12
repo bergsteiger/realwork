@@ -6,7 +6,7 @@
 {$Define l3InterfacedList_imp}
 
  _l3ListAssign_Parent_ = _l3InterfacedList_Parent_;
- {$Include l3ListAssign.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ListAssign.imp.pas}
  _l3InterfacedList_ = class(_l3ListAssign_, _ListType_)
   protected
    function pm_GetCount: Integer;
@@ -20,7 +20,7 @@
 
 {$Define l3InterfacedList_imp_impl}
 
-{$Include l3ListAssign.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ListAssign.imp.pas}
 
 class function _l3InterfacedList_.MakeI: _ListType_;
 var

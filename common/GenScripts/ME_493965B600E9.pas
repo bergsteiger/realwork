@@ -6,7 +6,7 @@
 {$Define dMedicFirmDocument_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include dBaseDocumentWithAttributes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
  _dMedicFirmDocument_ = class(_dBaseDocumentWithAttributes_, IdMedicFirmDocument)
   private
    f_dsDrugListRef: IvcmFormDataSourceRef;
@@ -21,7 +21,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 _dMedicFirmDocument_ = _dBaseDocumentWithAttributes_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -32,7 +32,7 @@ _dMedicFirmDocument_ = _dBaseDocumentWithAttributes_;
 {$Define dMedicFirmDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
 function _dMedicFirmDocument_.pm_GetdsDrugListRef: IvcmFormDataSourceRef;
 //#UC START# *9FEBA868EC20_493965B600E9get_var*

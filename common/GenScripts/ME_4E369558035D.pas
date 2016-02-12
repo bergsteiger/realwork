@@ -19,7 +19,7 @@ uses
 
 type
  _ListAnalizeUserTypes_Parent_ = TvcmEntityForm;
- {$Include ListAnalizeUserTypes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes.imp.pas}
  TPrimListAnalizeForm = class(_ListAnalizeUserTypes_)
   {* Анализ списка }
   private
@@ -55,7 +55,7 @@ uses
  , l3MessageID
 ;
 
-{$Include ListAnalizeUserTypes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\ListAnalizeUserTypes.imp.pas}
 
 procedure TPrimListAnalizeForm.UpdateTabAction(aSender: TObject);
 //#UC START# *4E36B621000E_4E369558035D_var*

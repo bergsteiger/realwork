@@ -204,7 +204,7 @@ type
  _ItemType_ = TvgReminder;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TvgRemindersList = class(_l3UncomparabeObjectRefList_)
  end;//TvgRemindersList
 
@@ -940,7 +940,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvgRemindersList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 procedure TvgRemindersLine.pm_SetParent(aValue: TWinControl);
 //#UC START# *532888BC0156_532322D901A3set_var*

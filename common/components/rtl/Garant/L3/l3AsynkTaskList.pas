@@ -23,7 +23,7 @@ type
  _ItemType_ = Tl3AsyncTask;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  Tl3AsynkTaskList = class(_l3UncomparabeObjectRefList_)
  end;//Tl3AsynkTaskList
 
@@ -63,6 +63,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3AsynkTaskList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 end.

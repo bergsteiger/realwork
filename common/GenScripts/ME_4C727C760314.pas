@@ -16,7 +16,7 @@ uses
 
 type
  _nsParentedTagData_Parent_ = Tf1ListTagDataFromDTPPrim;
- {$Include nsParentedTagData.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}
  Tf1ListTagDataFromDTP = class(_nsParentedTagData_)
   {* Поставщик данных о списке параграфов }
  end;//Tf1ListTagDataFromDTP
@@ -29,6 +29,6 @@ uses
  , l3Base
 ;
 
-{$Include nsParentedTagData.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}
 
 end.

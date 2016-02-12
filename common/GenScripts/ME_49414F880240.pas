@@ -32,7 +32,7 @@ uses
 type
  _SetDataType_ = IdMedicFirmDocument;
  _SetType_ = IsdsMedicFirmDocument;
- {$Include sdsMedicFirmDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.imp.pas}
  TsdsMedicFirmDocument = class(_sdsMedicFirmDocument_, IsdsMedicFirmDocument)
   {* Документ-фирма }
   protected
@@ -71,7 +71,7 @@ uses
 
 type _Instance_R_ = TsdsMedicFirmDocument;
 
-{$Include sdsMedicFirmDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmDocument.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 function TsdsMedicFirmDocument.MakeData: _SetDataType_;

@@ -1,48 +1,38 @@
 unit kwIterateSubDecriptorsOnSubPanelEX;
+ {* Перебирает все SubDescriptot на SubPanel, которые *могут быть* отрисованы (!). Т.е. проверка на Visible не производится. Если это нужно, то можно реализвать в скриптах. 
+Формат:
+[code]
+@ aWord aLayerID aSubPanel IterateSubDecriptorsOnSubPanelEX
+[code]
+aLayerID - слой, в котором производится итерация
+aSubPanel - контрол сабпанели.
+aWord - функция для обработки вида:
+[code]
+PROCEDURE CheckDescription OBJECT IN aSubDescription OBJECT IN aSubPanelSub
+ // А здесь обрабатываем полученный aSubDescription
+;
+[code]
+Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п.
+aSubPanelSub - визуальное представление метки. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwIterateSubDecriptorsOnSubPanelEX.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::IterateSubDecriptorsOnSubPanelEX
-//
-// Перебирает все SubDescriptot на SubPanel, которые *могут быть* отрисованы (!). Т.е. проверка на
-// Visible не производится. Если это нужно, то можно реализвать в скриптах.
-// Формат:
-// {code}
-// @ aWord aLayerID aSubPanel IterateSubDecriptorsOnSubPanelEX
-// {code}
-// aLayerID - слой, в котором производится итерация
-// aSubPanel - контрол сабпанели.
-// aWord - функция для обработки вида:
-// {code}
-// PROCEDURE CheckDescription OBJECT IN aSubDescription OBJECT IN aSubPanelSub
-// // А здесь обрабатываем полученный aSubDescription
-// ;
-// {code}
-// Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType
-// и т.п.
-// aSubPanelSub - визуальное представление метки.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwIterateSubDecriptorsOnSubPanelEX.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwIterateSubDecriptorsOnSubPanel,
-  evSubPanelSub,
-  tfwScriptingInterfaces,
-  evSubPn
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwIterateSubDecriptorsOnSubPanel
+ , tfwScriptingInterfaces
+ , evSubPn
+ , evSubPanelSub
+;
 
-{$If not defined(NoScripts)}
 type
- TkwIterateSubDecriptorsOnSubPanelEX = {final scriptword} class(TkwIterateSubDecriptorsOnSubPanel)
+ TkwIterateSubDecriptorsOnSubPanelEX = {final} class(TkwIterateSubDecriptorsOnSubPanel)
   {* Перебирает все SubDescriptot на SubPanel, которые *могут быть* отрисованы (!). Т.е. проверка на Visible не производится. Если это нужно, то можно реализвать в скриптах. 
 Формат:
 [code]
@@ -58,37 +48,31 @@ PROCEDURE CheckDescription OBJECT IN aSubDescription OBJECT IN aSubPanelSub
 [code]
 Для извлечения нужной инфорации из aSubDescription есть набор функций: subdescriptor:GetDrawType и т.п.
 aSubPanelSub - визуальное представление метки. }
- protected
- // overridden protected methods
+  protected
    class function GetWordNameForRegister: AnsiString; override;
    procedure PushObjData(const aCtx: TtfwContext;
-     aSubDescription: TevSubDescriptor;
-     aSubPanelSub: TevSubPanelSub); override;
+    aSubDescription: TevSubDescriptor;
+    aSubPanelSub: TevSubPanelSub); override;
  end;//TkwIterateSubDecriptorsOnSubPanelEX
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evSubPanelSubArray,
-  evSubPanelSubCollection
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwIterateSubDecriptorsOnSubPanelEX
+ l3ImplUses
+ , evSubPanelSubArray
+ , evSubPanelSubCollection
+;
 
 class function TkwIterateSubDecriptorsOnSubPanelEX.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'IterateSubDecriptorsOnSubPanelEX';
 end;//TkwIterateSubDecriptorsOnSubPanelEX.GetWordNameForRegister
 
 procedure TkwIterateSubDecriptorsOnSubPanelEX.PushObjData(const aCtx: TtfwContext;
-  aSubDescription: TevSubDescriptor;
-  aSubPanelSub: TevSubPanelSub);
+ aSubDescription: TevSubDescriptor;
+ aSubPanelSub: TevSubPanelSub);
 //#UC START# *53EDFA0401B8_53EDF0A20129_var*
 //#UC END# *53EDFA0401B8_53EDF0A20129_var*
 begin
@@ -98,12 +82,9 @@ begin
 //#UC END# *53EDFA0401B8_53EDF0A20129_impl*
 end;//TkwIterateSubDecriptorsOnSubPanelEX.PushObjData
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация IterateSubDecriptorsOnSubPanelEX
  TkwIterateSubDecriptorsOnSubPanelEX.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация IterateSubDecriptorsOnSubPanelEX }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

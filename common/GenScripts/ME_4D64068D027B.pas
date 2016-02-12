@@ -22,7 +22,7 @@ uses
 
 type
  _nevParaListTool_Parent_ = TevHotSpot;
- {$Include nevParaListTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  TevReqGroupHotSpot = class(_nevParaListTool_, IevAdvancedHotSpot)
   protected
    function MouseAction(const aView: InevControlView;
@@ -67,7 +67,7 @@ uses
 
 type _Instance_R_ = TevReqGroupHotSpot;
 
-{$Include nevParaListTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
 class function TevReqGroupHotSpot.Make(aTag: Tl3Variant;
  const aProcessor: Ik2Processor): IevAdvancedHotSpot;

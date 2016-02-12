@@ -1,52 +1,46 @@
 unit kwPopEditorParaCoordsToScreen;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Костицын М.
-// Модуль: "kwPopEditorParaCoordsToScreen.pas"
-// Начат: 16.12.2011
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::MoveMouseByPara::pop_editor_ParaCoordsToScreen
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaCoordsToScreen.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwParaCoordsToScreen,
-  l3Units,
-  nevTools
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwParaCoordsToScreen
+ , l3Units
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorParaCoordsToScreen = {final scriptword} class(TkwParaCoordsToScreen)
- protected
- // overridden protected methods
+ TkwPopEditorParaCoordsToScreen = {final} class(TkwParaCoordsToScreen)
+  protected
    function GetPoint(const aMap: InevMap): Tl3Point; override;
-     {* Возвращает точку, на которую нужно спозиционироваться. }
+    {* Возвращает точку, на которую нужно спозиционироваться. }
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorParaCoordsToScreen
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  Types
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorParaCoordsToScreen
+ l3ImplUses
+ , Types
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 function TkwPopEditorParaCoordsToScreen.GetPoint(const aMap: InevMap): Tl3Point;
+ {* Возвращает точку, на которую нужно спозиционироваться. }
 //#UC START# *4C3C927B027E_4EEB66D703A9_var*
 //#UC END# *4C3C927B027E_4EEB66D703A9_var*
 begin
@@ -56,17 +50,13 @@ begin
 end;//TkwPopEditorParaCoordsToScreen.GetPoint
 
 class function TkwPopEditorParaCoordsToScreen.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:ParaCoordsToScreen';
 end;//TkwPopEditorParaCoordsToScreen.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_ParaCoordsToScreen
  TkwPopEditorParaCoordsToScreen.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_ParaCoordsToScreen }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

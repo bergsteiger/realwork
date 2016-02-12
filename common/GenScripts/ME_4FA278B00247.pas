@@ -32,9 +32,9 @@ type
  _ItemType_ = Tm3InnerFileStream;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _l3OpenArray_Parent_ = _l3UncomparabeObjectRefList_;
- {$Include l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  Tm3InnerFileStreamList = class(_l3OpenArray_)
  end;//Tm3InnerFileStreamList
 
@@ -163,9 +163,9 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tm3InnerFileStreamList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
-{$Include l3OpenArray.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
 
 function Tm3SplittedFileStream.pm_GetFilesCount: Integer;
 //#UC START# *4FA3CE4C03CB_4FA278B00247get_var*

@@ -1,60 +1,51 @@
 unit kwPopEditorDeleteUserComment;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwPopEditorDeleteUserComment.pas"
-// Начат: 27.04.2011 14:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_DeleteUserComment
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDeleteUserComment.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackNextParaWord,
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackNextParaWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorDeleteUserComment = {scriptword} class(TkwEditorFromStackNextParaWord)
- protected
- // realized methods
+ TkwPopEditorDeleteUserComment = class(TkwEditorFromStackNextParaWord)
+  protected
    procedure DoNextPara(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPara: InevPara); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow;
+    const aPara: InevPara); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorDeleteUserComment
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  CommentPara_Const,
-  evOp,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorDeleteUserComment
+ l3ImplUses
+ , CommentPara_Const
+ , evOp
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorDeleteUserComment.DoNextPara(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPara: InevPara);
+ anEditor: TevCustomEditorWindow;
+ const aPara: InevPara);
 //#UC START# *50BA0CC800CA_4DB7EA830363_var*
 var
  l_Res : Boolean;
@@ -78,17 +69,13 @@ begin
 end;//TkwPopEditorDeleteUserComment.DoNextPara
 
 class function TkwPopEditorDeleteUserComment.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:DeleteComment';
 end;//TkwPopEditorDeleteUserComment.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_DeleteUserComment
  TkwPopEditorDeleteUserComment.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_DeleteUserComment }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

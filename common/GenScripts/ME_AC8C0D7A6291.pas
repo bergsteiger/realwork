@@ -105,12 +105,8 @@ begin
 end;//Tkw_Form_Warning.GetWordNameForRegister
 
 function Tkw_Form_Warning.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F04941204495_var*
-//#UC END# *4DDFD2EA0116_F04941204495_var*
 begin
-//#UC START# *4DDFD2EA0116_F04941204495_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F04941204495_impl*
+ Result := 'WarningForm';
 end;//Tkw_Form_Warning.GetString
 
 class function Tkw_Warning_Control_Viewer.GetWordNameForRegister: AnsiString;
@@ -119,21 +115,14 @@ begin
 end;//Tkw_Warning_Control_Viewer.GetWordNameForRegister
 
 function Tkw_Warning_Control_Viewer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_20B03195C5DC_var*
-//#UC END# *4DDFD2EA0116_20B03195C5DC_var*
 begin
-//#UC START# *4DDFD2EA0116_20B03195C5DC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_20B03195C5DC_impl*
+ Result := 'Viewer';
 end;//Tkw_Warning_Control_Viewer.GetString
 
 class procedure Tkw_Warning_Control_Viewer.RegisterInEngine;
-//#UC START# *52A086150180_20B03195C5DC_var*
-//#UC END# *52A086150180_20B03195C5DC_var*
 begin
-//#UC START# *52A086150180_20B03195C5DC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_20B03195C5DC_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_Warning_Control_Viewer.RegisterInEngine
 
 procedure Tkw_Warning_Control_Viewer_Push.DoDoIt(const aCtx: TtfwContext);
@@ -153,21 +142,23 @@ end;//Tkw_Warning_Control_Viewer_Push.GetWordNameForRegister
 function TkwWarningFormViewer.Viewer(const aCtx: TtfwContext;
  aWarningForm: TWarningForm): TnscEditor;
  {* Реализация слова скрипта .TWarningForm.Viewer }
-//#UC START# *D9E97791A411_FF936140AA96_var*
-//#UC END# *D9E97791A411_FF936140AA96_var*
 begin
-//#UC START# *D9E97791A411_FF936140AA96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D9E97791A411_FF936140AA96_impl*
+ Result := aWarningForm.Viewer;
 end;//TkwWarningFormViewer.Viewer
 
 procedure TkwWarningFormViewer.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FF936140AA96_var*
-//#UC END# *4DAEEDE10285_FF936140AA96_var*
+var l_aWarningForm: TWarningForm;
 begin
-//#UC START# *4DAEEDE10285_FF936140AA96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FF936140AA96_impl*
+ try
+  l_aWarningForm := TWarningForm(aCtx.rEngine.PopObjAs(TWarningForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aWarningForm: TWarningForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aWarningForm));
 end;//TkwWarningFormViewer.DoDoIt
 
 class function TkwWarningFormViewer.GetWordNameForRegister: AnsiString;
@@ -177,12 +168,8 @@ end;//TkwWarningFormViewer.GetWordNameForRegister
 
 procedure TkwWarningFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FF936140AA96_var*
-//#UC END# *52D00B00031A_FF936140AA96_var*
 begin
-//#UC START# *52D00B00031A_FF936140AA96_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FF936140AA96_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwWarningFormViewer.SetValuePrim
 
 function TkwWarningFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,7 +184,7 @@ end;//TkwWarningFormViewer.GetAllParamsCount
 
 function TkwWarningFormViewer.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TWarningForm)]);
 end;//TkwWarningFormViewer.ParamsTypes
 
 initialization

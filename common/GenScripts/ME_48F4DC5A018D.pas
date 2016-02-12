@@ -18,7 +18,7 @@ uses
 type
  _StorableClass_ = TevNodeStorable;
  _DataType_ = Il3SimpleNode;
- {$Include evDataObjectFromStorable.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
  TevNodeDataObject = class(_evDataObjectFromStorable_)
  end;//TevNodeDataObject
 
@@ -32,6 +32,6 @@ uses
  , l3Base
 ;
 
-{$Include evDataObjectFromStorable.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas}
 
 end.

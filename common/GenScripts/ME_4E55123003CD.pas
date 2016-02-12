@@ -35,7 +35,7 @@ type
  _ItemType_ = TevStandardStylesCacheItem;
  _l3RecordListPrimPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrimPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrimPrim.imp.pas}
  TevStandardStylesListPrim = class(_l3RecordListPrimPrim_)
   protected
    procedure InitFields; override;
@@ -119,7 +119,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TevStandardStylesListPrim;
 
-{$Include l3RecordListPrimPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrimPrim.imp.pas}
 
 class procedure TevStandardStylesListPrim.evFreeStandardStylesCache(var theCache: TevStandardStylesCacheByJustification);
 //#UC START# *4E55156E009C_4E55123003CD_var*

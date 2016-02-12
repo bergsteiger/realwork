@@ -1,53 +1,37 @@
 unit kwStyleTableSaveToFile;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwStyleTableSaveToFile.pas"
-// Начат: 11.05.2011 17:14
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SchemaWords::StyleTable_SaveToFile
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStyleTableSaveToFile.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  tfwRegisterableWord,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwStyleTableSaveToFile = {scriptword} class(TtfwRegisterableWord)
- protected
- // realized methods
+ TkwStyleTableSaveToFile = class(TtfwRegisterableWord)
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwStyleTableSaveToFile
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evStyleInterfaceEx,
-  l3Stream,
-  l3Types,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwStyleTableSaveToFile
+ l3ImplUses
+ , evStyleInterfaceEx
+ , l3Stream
+ , l3Types
+ , SysUtils
+;
 
 procedure TkwStyleTableSaveToFile.DoDoIt(const aCtx: TtfwContext);
 //#UC START# *4DAEEDE10285_4DCA8B9D033E_var*
@@ -72,17 +56,13 @@ begin
 end;//TkwStyleTableSaveToFile.DoDoIt
 
 class function TkwStyleTableSaveToFile.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'StyleTable:SaveToFile';
 end;//TkwStyleTableSaveToFile.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация StyleTable_SaveToFile
  TkwStyleTableSaveToFile.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация StyleTable_SaveToFile }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

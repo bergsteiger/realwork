@@ -24,7 +24,7 @@ type
  _ItemType_ = IvcmOperationDef;
  _l3InterfaceRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
  TvcmOperationsDefIteratorForContextMenu = class(_l3InterfaceRefListPrim_, IvcmOperationsDefIterator)
   private
    f_Iter: IvcmOperationsDefIterator;
@@ -92,7 +92,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TvcmOperationsDefIteratorForContextMenu;
 
-{$Include l3InterfaceRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
 constructor TvcmOperationsDefIteratorForContextMenu.Create(const anIter: IvcmOperationsDefIterator);
 //#UC START# *51D149B9038D_51D14918034E_var*

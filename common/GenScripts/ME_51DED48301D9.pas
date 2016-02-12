@@ -8,7 +8,7 @@
  {$Define l3Items_IsAtomic}
 
  _UnrefcountedListPrim_Parent_ = _AtomicList_Parent_;
- {$Include UnrefcountedListPrim.imp.pas}
+ {$Include w:\common\components\SandBox\UnrefcountedListPrim.imp.pas}
  _AtomicList_ = class(_UnrefcountedListPrim_)
   {* Список атомарных значений }
  end;//_AtomicList_
@@ -41,7 +41,7 @@ begin
 //#UC END# *51DECB440087_51DED48301D9_impl*
 end;//FillItem
 
-{$Include UnrefcountedListPrim.imp.pas}
+{$Include w:\common\components\SandBox\UnrefcountedListPrim.imp.pas}
 
 {$EndIf AtomicList_imp_impl}
 

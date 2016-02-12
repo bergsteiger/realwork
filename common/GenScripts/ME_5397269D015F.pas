@@ -41,7 +41,7 @@ type
 
  _ObjectListElement_ = TatListElement;
  _atTypedObjectList_Parent_ = TObjectList;
- {$Include atTypedObjectList.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
  TatElementsList = class(_atTypedObjectList_)
  end;//TatElementsList
 
@@ -178,7 +178,7 @@ begin
 //#UC END# *5000565C019C_539726B801C6_impl*
 end;//TatListElement.ClearFields
 
-{$Include atTypedObjectList.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
 
 constructor TatComparableList.Create(const aList: IDynList);
 //#UC START# *53972BC4005B_5397269D015F_var*

@@ -22,7 +22,7 @@ type
  _ItemType_ = Il3MouseWheelListener;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  Tl3MouseWheelListenersList = class(_l3InterfacePtrList_)
  end;//Tl3MouseWheelListenersList
 
@@ -38,6 +38,6 @@ uses
 
 type _Instance_R_ = Tl3MouseWheelListenersList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 end.

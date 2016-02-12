@@ -8,7 +8,7 @@
  {$Define l3Items_NoSort}
 
  _l3UncomparabeObjectRefList_Parent_ = _l3NotSortedObjectRefList_Parent_;
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  _l3NotSortedObjectRefList_ = {abstract} class(_l3UncomparabeObjectRefList_)
  end;//_l3NotSortedObjectRefList_
 
@@ -43,7 +43,7 @@ begin
 //#UC END# *47B99D4503A2_55DEEA210182_impl*
 end;//CompareExistingItems
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 {$EndIf l3NotSortedObjectRefList_imp_impl}
 

@@ -24,7 +24,7 @@ type
  _ItemType_ = TvcmEntityForm;
  _l3ObjectPtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  TvcmSlayedEntityFormsList = class(_l3ObjectPtrList_)
   public
    class function Exists: Boolean;
@@ -56,7 +56,7 @@ end;//TvcmSlayedEntityFormsListFree
 
 type _Instance_R_ = TvcmSlayedEntityFormsList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 class function TvcmSlayedEntityFormsList.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

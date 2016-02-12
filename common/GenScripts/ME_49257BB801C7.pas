@@ -45,9 +45,9 @@ uses
 
 type
  _InitDataType_ = IdeMedicFirmList;
- {$Include dsSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _nsContextFilter_Parent_ = _dsSimpleTree_;
- {$Include nsContextFilter.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
  TdsMedicFirmList = {final} class(_nsContextFilter_, InsMedicFirmsTreeNotifyRecipient, IdsMedicFirmList)
   {* Список фирм-производителей }
   private
@@ -170,9 +170,9 @@ uses
 
 type _Instance_R_ = TdsMedicFirmList;
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
-{$Include nsContextFilter.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas}
 
 function TdsMedicFirmList.pm_GetShortName: Il3CString;
 //#UC START# *49257D6C02A5_49257BB801C7get_var*

@@ -17,7 +17,7 @@ uses
 type
  _ListType_ = Tl3ProtoPtrRecListPrim;
  _ItemType_ = VOID;
- {$Include l3OtherListView.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas}
  Tl3CustomRecListView = {abstract} class(_l3OtherListView_)
   protected
    function CompareRecs(aRec1: PItemType;
@@ -34,7 +34,7 @@ uses
  , SysUtils
 ;
 
-{$Include l3OtherListView.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OtherListView.imp.pas}
 
 function Tl3CustomRecListView.CompareData(const anItem1: _ItemType_;
  const anItem2: _ItemType_): Integer;

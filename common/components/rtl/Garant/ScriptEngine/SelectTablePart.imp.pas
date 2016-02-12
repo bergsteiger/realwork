@@ -1,54 +1,48 @@
 {$IfNDef SelectTablePart_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "SelectTablePart.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: Impurity::Class Shared Delphi::ScriptEngine$Everest::MixIns::SelectTablePart
-//
-// Выделить часть таблицы
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define SelectTablePart_imp}
-{$If not defined(NoScripts)}
- _SelectTablePart_ = {mixin} class(_SelectTablePart_Parent_)
+
+{$If NOT Defined(NoScripts)}
+ _SelectTablePart_ = class(_SelectTablePart_Parent_)
   {* Выделить часть таблицы }
- protected
- // protected methods
+  protected
    procedure MakeSelection(aText: TevCustomEditorWindow);
-     {* Выделить по заданным параметрам. }
+    {* Выделить по заданным параметрам. }
    function GetSelection(const aView: InevView;
-     const aTable: InevPara): InevRange;
-     {* Получить выделение по заданным "координатам". }
+    const aTable: InevPara): InevRange;
+    {* Получить выделение по заданным "координатам". }
    function NeedSelection: Boolean; virtual;
-     {* Нужно ли чего-нибудь выделять. }
+    {* Нужно ли чего-нибудь выделять. }
    function GetTablePara(const aDocument: InevParaList): InevParaList; virtual;
-     {* Возвращает параграф с таблицей }
+    {* Возвращает параграф с таблицей }
    procedure GetSelectParam(out aStartRow: Integer;
     out aStartCell: Integer;
     out aFinishRow: Integer;
     out aFinishCell: Integer); virtual;
-     {* Получить "координаты" точек выделения. }
+    {* Получить "координаты" точек выделения. }
    function SelectColumn(var aColID: Integer): Boolean; virtual;
-     {* Выделить колонку aColID }
+    {* Выделить колонку aColID }
    function SelectTableWholly: Boolean; virtual;
-     {* Вылять таблицу целиком }
+    {* Вылять таблицу целиком }
  end;//_SelectTablePart_
-{$Else}
 
- _SelectTablePart_ = _SelectTablePart_Parent_;
+{$Else NOT Defined(NoScripts)}
 
-{$IfEnd} //not NoScripts
+_SelectTablePart_ = _SelectTablePart_Parent_;
 
+{$IfEnd} // NOT Defined(NoScripts)
 {$Else SelectTablePart_imp}
 
-{$If not defined(NoScripts)}
+{$IfNDef SelectTablePart_imp_impl}
 
-// start class _SelectTablePart_
+{$Define SelectTablePart_imp_impl}
 
+{$If NOT Defined(NoScripts)}
 procedure _SelectTablePart_.MakeSelection(aText: TevCustomEditorWindow);
+ {* Выделить по заданным параметрам. }
 //#UC START# *4CC8163F034F_4CC815A00031_var*
 var
  l_ColID     : Integer;
@@ -78,7 +72,8 @@ begin
 end;//_SelectTablePart_.MakeSelection
 
 function _SelectTablePart_.GetSelection(const aView: InevView;
-  const aTable: InevPara): InevRange;
+ const aTable: InevPara): InevRange;
+ {* Получить выделение по заданным "координатам". }
 //#UC START# *4CC81818005F_4CC815A00031_var*
 var
  l_Start  : InevBasePoint;
@@ -108,6 +103,7 @@ begin
 end;//_SelectTablePart_.GetSelection
 
 function _SelectTablePart_.NeedSelection: Boolean;
+ {* Нужно ли чего-нибудь выделять. }
 //#UC START# *4CC8189D02DF_4CC815A00031_var*
 //#UC END# *4CC8189D02DF_4CC815A00031_var*
 begin
@@ -117,6 +113,7 @@ begin
 end;//_SelectTablePart_.NeedSelection
 
 function _SelectTablePart_.GetTablePara(const aDocument: InevParaList): InevParaList;
+ {* Возвращает параграф с таблицей }
 //#UC START# *4CC818F4022D_4CC815A00031_var*
 //#UC END# *4CC818F4022D_4CC815A00031_var*
 begin
@@ -126,9 +123,10 @@ begin
 end;//_SelectTablePart_.GetTablePara
 
 procedure _SelectTablePart_.GetSelectParam(out aStartRow: Integer;
-  out aStartCell: Integer;
-  out aFinishRow: Integer;
-  out aFinishCell: Integer);
+ out aStartCell: Integer;
+ out aFinishRow: Integer;
+ out aFinishCell: Integer);
+ {* Получить "координаты" точек выделения. }
 //#UC START# *4CC81D4101AC_4CC815A00031_var*
 //#UC END# *4CC81D4101AC_4CC815A00031_var*
 begin
@@ -141,6 +139,7 @@ begin
 end;//_SelectTablePart_.GetSelectParam
 
 function _SelectTablePart_.SelectColumn(var aColID: Integer): Boolean;
+ {* Выделить колонку aColID }
 //#UC START# *4C9874060367_4CC815A00031_var*
 //#UC END# *4C9874060367_4CC815A00031_var*
 begin
@@ -151,6 +150,7 @@ begin
 end;//_SelectTablePart_.SelectColumn
 
 function _SelectTablePart_.SelectTableWholly: Boolean;
+ {* Вылять таблицу целиком }
 //#UC START# *4C34625E021F_4CC815A00031_var*
 //#UC END# *4C34625E021F_4CC815A00031_var*
 begin
@@ -158,7 +158,9 @@ begin
  Result := False;
 //#UC END# *4C34625E021F_4CC815A00031_impl*
 end;//_SelectTablePart_.SelectTableWholly
+{$IfEnd} // NOT Defined(NoScripts)
 
-{$IfEnd} //not NoScripts
+{$EndIf SelectTablePart_imp_impl}
 
 {$EndIf SelectTablePart_imp}
+

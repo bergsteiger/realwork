@@ -30,7 +30,7 @@ uses
 
 type
  _IvcmRealData_ = IdDiction;
- {$Include dCommonDiction.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas}
  TdDiction = class(_dCommonDiction_, IdDiction)
   private
    f_IsShowLiteratureList: Boolean;
@@ -79,7 +79,7 @@ uses
 
 type _Instance_R_ = TdDiction;
 
-{$Include dCommonDiction.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dCommonDiction.imp.pas}
 
 function TdDiction.pm_GetrefTranslationList: Tl3InterfaceList;
 //#UC START# *4B19106100BA_4936CCA700F0get_var*

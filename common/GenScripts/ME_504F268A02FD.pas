@@ -12,9 +12,9 @@ uses
 type
  _BitMaskValueType_ = AnsiString;
  _BitMaskType_ = Integer;
- {$Include atBitMaskConverter.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas}
  _atStringConverterImp_Parent_ = _atBitMaskConverter_;
- {$Include atStringConverterImp.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas}
  TatStringToBitMaskConverterBase = {abstract} class(_atStringConverterImp_)
   public
    function ToMaskCI(const aValues: array of _BitMaskValueType_): _BitMaskType_; virtual;
@@ -30,9 +30,9 @@ uses
  , SysUtils
 ;
 
-{$Include atBitMaskConverter.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas}
 
-{$Include atStringConverterImp.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverterImp.imp.pas}
 
 function TatStringToBitMaskConverterBase.ToMaskCI(const aValues: array of _BitMaskValueType_): _BitMaskType_;
 //#UC START# *504F3866005D_504F268A02FD_var*

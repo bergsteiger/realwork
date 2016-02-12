@@ -9,7 +9,7 @@
 type
  TCRInfoArray = array [TnsUserCRListId] of IbsUserCRListInfoModify;
 
- {$Include dBaseDocumentWithAttributes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
  _dDocInfo_ = class(_dBaseDocumentWithAttributes_, IdDocInfo)
   private
    f_UserCRListInfo: TCRInfoArray;
@@ -111,7 +111,7 @@ type
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 _dDocInfo_ = _dBaseDocumentWithAttributes_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -122,7 +122,7 @@ _dDocInfo_ = _dBaseDocumentWithAttributes_;
 {$Define dDocInfo_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
 function _dDocInfo_.pm_GetdsSimilarDocumentsToFragmentRef: IvcmFormDataSourceRef;
 //#UC START# *04CD377DE4D3_493D4E010178get_var*

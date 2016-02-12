@@ -29,9 +29,9 @@ uses
 
 type
  _InitDataType_ = IdeProfile;
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _nsUserPropertyImpl_Parent_ = _vcmFormDataSource_;
- {$Include nsUserPropertyImpl.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas}
  TdsUserProperty = {final} class(_nsUserPropertyImpl_, IdsUserProperty)
   private
    SDS: IsdsAdmin;
@@ -76,9 +76,9 @@ uses
 
 type _Instance_R_ = TdsUserProperty;
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
-{$Include nsUserPropertyImpl.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserPropertyImpl.imp.pas}
 
 procedure TdsUserProperty.CreateUserProfile(const aLogin: Tl3WString;
  const aName: Tl3WString;

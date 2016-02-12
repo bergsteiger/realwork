@@ -24,7 +24,7 @@ const
 
 type
  _EntityInterface_ = IDynList;
- {$Include atEntityWithName.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
  TatList = class(_atEntityWithName_)
   private
    f_Root: INodeBase;
@@ -68,7 +68,7 @@ uses
  , IOUnit
 ;
 
-{$Include atEntityWithName.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
 
 function TatList.pm_GetHistory: AnsiString;
 //#UC START# *5051E5520315_4FD24A98029Fget_var*

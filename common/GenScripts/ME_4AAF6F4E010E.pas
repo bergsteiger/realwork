@@ -39,7 +39,7 @@ uses
 
 type
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
- {$Include vcmChromeLikeTabIconUpdater.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimPreviewForm = {abstract} class(_vcmChromeLikeTabIconUpdater_)
   private
    f_PreviewPanel: TnscPreviewPanel;
@@ -142,7 +142,7 @@ const
 
 type _Instance_R_ = TPrimPreviewForm;
 
-{$Include vcmChromeLikeTabIconUpdater.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
 
 function TPrimPreviewForm.IsReady: Boolean;
  {* все готово, можно печатать }

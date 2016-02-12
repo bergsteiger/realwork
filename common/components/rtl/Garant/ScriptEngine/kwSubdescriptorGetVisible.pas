@@ -1,58 +1,48 @@
 unit kwSubdescriptorGetVisible;
+ {* Помещает в стек видмость метки.
+Формат:
+[code]
+aSubDescrObj subdescriptor:GetVisible
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwSubdescriptorGetVisible.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::subdescriptor_GetVisible
-//
-// Помещает в стек видмость метки.
-// Формат:
-// {code}
-// aSubDescrObj subdescriptor:GetVisible
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetVisible.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSubDescriptorFromStackWord,
-  tfwScriptingInterfaces,
-  evSubPn
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSubDescriptorFromStackWord
+ , evSubPn
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwSubdescriptorGetVisible = {final scriptword} class(TkwSubDescriptorFromStackWord)
+ TkwSubdescriptorGetVisible = {final} class(TkwSubDescriptorFromStackWord)
   {* Помещает в стек видмость метки.
 Формат:
 [code]
 aSubDescrObj subdescriptor:GetVisible
 [code] }
- protected
- // realized methods
+  protected
    procedure DoWithSubDescriptor(aControl: TevSubDescriptor;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwSubdescriptorGetVisible
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwSubdescriptorGetVisible
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwSubdescriptorGetVisible.DoWithSubDescriptor(aControl: TevSubDescriptor;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D65E9502E1_52D661D4008D_var*
 //#UC END# *52D65E9502E1_52D661D4008D_var*
 begin
@@ -62,17 +52,13 @@ begin
 end;//TkwSubdescriptorGetVisible.DoWithSubDescriptor
 
 class function TkwSubdescriptorGetVisible.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'subdescriptor:GetVisible';
 end;//TkwSubdescriptorGetVisible.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация subdescriptor_GetVisible
  TkwSubdescriptorGetVisible.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация subdescriptor_GetVisible }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

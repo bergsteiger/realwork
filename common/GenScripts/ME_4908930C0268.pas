@@ -20,9 +20,9 @@ uses
 
 type
  _afwSettingChanged_Parent_ = Tl3CacheableBase;
- {$Include afwSettingChanged.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
  _afwSettingsReplace_Parent_ = _afwSettingChanged_;
- {$Include afwSettingsReplace.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  TnsContextFilterParams = class(_afwSettingsReplace_, Il3ContextFilterParamsNotifySource, Il3ContextFilterParams, InsContextFilterParamsInfo)
   {* –еализаци€ хранилищ€ дл€ параметров контекстной фильтрации }
   private
@@ -75,9 +75,9 @@ const
  cDefaultWordOrder = woAnyOrder;
  cDefaultWordPosition = wpAnyPathWord;
 
-{$Include afwSettingChanged.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas}
 
-{$Include afwSettingsReplace.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
 
 function TnsContextFilterParams.pm_GetSettings: IafwSettings;
 //#UC START# *49089AFB017D_4908930C0268get_var*

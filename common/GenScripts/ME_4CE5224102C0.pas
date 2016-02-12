@@ -24,7 +24,7 @@ type
  _ItemType_ = Tl3ProtoObject;
  _l3ObjectPtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  Tl3ProtoObjectPtrList = class(_l3ObjectPtrList_)
   {* —ÔËÒÓÍ ” ¿«¿“≈À≈… Ì‡ Tl3ProtoObject }
  end;//Tl3ProtoObjectPtrList
@@ -41,6 +41,6 @@ uses
 
 type _Instance_R_ = Tl3ProtoObjectPtrList;
 
-{$Include l3ObjectPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 end.

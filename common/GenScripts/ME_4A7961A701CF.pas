@@ -88,7 +88,7 @@ type
  //#UC START# *50FD1AE5027Aci*
  //#UC END# *50FD1AE5027Aci*
  _afwShortcutsHandler_Parent_ = TvtCustomPanelPrim;
- {$Include afwShortcutsHandler.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
  //#UC START# *50FD1AE5027Acit*
  //#UC END# *50FD1AE5027Acit*
  TvtCustomPanel = class(_afwShortcutsHandler_)
@@ -304,7 +304,7 @@ end;//TvtCustomPanelPrim.pm_SetBorderWidth
 //#UC START# *50FD3A9003A4impl*
 //#UC END# *50FD3A9003A4impl*
 
-{$Include afwShortcutsHandler.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas}
 
 {$If NOT Defined(Delphi7)}
 procedure TvtCustomPanel.Resize;

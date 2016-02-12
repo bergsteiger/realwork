@@ -1,61 +1,53 @@
 unit kwPopEditorHasComment;
+ {* editor:HasComment. Помещает в стек true, если текущий параграф содержит комментарий. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorHasComment.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_HasComment
-//
-// editor:HasComment. Помещает в стек true, если текущий параграф содержит комментарий.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorHasComment.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackNextParaWord,
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackNextParaWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+ , nevTools
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorHasComment = {scriptword} class(TkwEditorFromStackNextParaWord)
+ TkwPopEditorHasComment = class(TkwEditorFromStackNextParaWord)
   {* editor:HasComment. Помещает в стек true, если текущий параграф содержит комментарий. }
- protected
- // realized methods
+  protected
    procedure DoNextPara(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow;
-     const aPara: InevPara); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow;
+    const aPara: InevPara); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorHasComment
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  evOp,
-  CommentPara_Const,
-  TextPara_Const
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorHasComment
+ l3ImplUses
+ , evOp
+ , CommentPara_Const
+ , TextPara_Const
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorHasComment.DoNextPara(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow;
-  const aPara: InevPara);
+ anEditor: TevCustomEditorWindow;
+ const aPara: InevPara);
 //#UC START# *50BA0CC800CA_4DD0F87600ED_var*
 //#UC END# *50BA0CC800CA_4DD0F87600ED_var*
 begin
@@ -65,17 +57,13 @@ begin
 end;//TkwPopEditorHasComment.DoNextPara
 
 class function TkwPopEditorHasComment.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:HasComment';
 end;//TkwPopEditorHasComment.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_HasComment
  TkwPopEditorHasComment.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_HasComment }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

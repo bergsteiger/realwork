@@ -18,7 +18,7 @@ uses
 
 type
  _EntityInterface_ = IQuery;
- {$Include atEntityWithName.imp.pas}
+ {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
  TatQuery = class(_atEntityWithName_)
   {* Вспомогательная обертка для Query }
   protected
@@ -90,7 +90,7 @@ const
  AN_CITY_CODE = 'city_code';
  PATH_DELIMITER = '\';
 
-{$Include atEntityWithName.imp.pas}
+{$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}
 
 function TatQuery.pm_GetQuery: IQuery;
 //#UC START# *4A549D35001C_4A549C190378get_var*

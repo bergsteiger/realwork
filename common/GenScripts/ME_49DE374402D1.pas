@@ -7,15 +7,15 @@
 
 {$If Defined(evUseVisibleCursors)}
  _nevParaTool_Parent_ = Tk2TagPointer;
- {$Include nevParaTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
  _nevParentPointFactory_Parent_ = _nevParaTool_;
- {$Include nevParentPointFactory.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
  _nevParentPointHolder_Parent_ = _nevParentPointFactory_;
- {$Include nevParentPointHolder.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
  _nevMostInner_Parent_ = _nevParentPointHolder_;
- {$Include nevMostInner.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
  _nevViewBounds_Parent_ = _nevMostInner_;
- {$Include nevViewBounds.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevViewBounds.imp.pas}
  _nevBasePoint_ = class(_nevViewBounds_)
   {* "Самая базовая" точка }
   protected
@@ -47,15 +47,15 @@
 {$Else Defined(evUseVisibleCursors)}
 
 _nevParaTool_Parent_ = Tk2TagPointer;
-{$Include nevParaTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
 _nevParentPointFactory_Parent_ = _nevParaTool_;
-{$Include nevParentPointFactory.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
 _nevParentPointHolder_Parent_ = _nevParentPointFactory_;
-{$Include nevParentPointHolder.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
 _nevMostInner_Parent_ = _nevParentPointHolder_;
-{$Include nevMostInner.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
 _nevViewBounds_Parent_ = _nevMostInner_;
-{$Include nevViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevViewBounds.imp.pas}
 _nevBasePoint_ = _nevViewBounds_;
 
 {$IfEnd} // Defined(evUseVisibleCursors)
@@ -66,15 +66,15 @@ _nevBasePoint_ = _nevViewBounds_;
 {$Define nevBasePoint_imp_impl}
 
 {$If Defined(evUseVisibleCursors)}
-{$Include nevParaTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
 
-{$Include nevParentPointFactory.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas}
 
-{$Include nevParentPointHolder.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas}
 
-{$Include nevMostInner.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevMostInner.imp.pas}
 
-{$Include nevViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevViewBounds.imp.pas}
 
 function _nevBasePoint_.DoMove(const aView: InevView;
  aCode: Integer;

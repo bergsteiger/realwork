@@ -16,7 +16,7 @@ uses
 type
  _FindDataType_ = Integer;
  _l3Searcher_Parent_ = Tk2ChildrenPathListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tk2ChildrenPathList = class(_l3Searcher_)
  end;//Tk2ChildrenPathList
 
@@ -43,6 +43,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tk2ChildrenPathList;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

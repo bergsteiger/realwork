@@ -27,7 +27,7 @@ uses
 type
  _l3StringList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3StringList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
  Tl3StringMapPrim = class(_l3StringList_)
  end;//Tl3StringMapPrim
 {$IfEnd} // NOT Defined(NoVCM)
@@ -46,7 +46,7 @@ uses
 
 type _Instance_R_ = Tl3StringMapPrim;
 
-{$Include l3StringList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

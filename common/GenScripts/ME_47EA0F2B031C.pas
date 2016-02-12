@@ -43,9 +43,9 @@ type
  _SetDataType_ = IdDrugList;
  _InitDataType_ = IdeList;
  _SetType_ = IsdsDrugList;
- {$Include sdsBaseDrugDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsBaseDrugDocument.imp.pas}
  _nsListWarningGenerator_Parent_ = _sdsBaseDrugDocument_;
- {$Include nsListWarningGenerator.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas}
  TsdsDrugList = class(_nsListWarningGenerator_, IsdsDrugList, IucpFilters, IucpNodeForPositioningHolder, InsWarningGenerator, IsdsListPrim, IsdsListNameHolder)
   {* БОС Список лекарственных препаратов. }
   private
@@ -164,9 +164,9 @@ uses
 
 type _Instance_R_ = TsdsDrugList;
 
-{$Include sdsBaseDrugDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsBaseDrugDocument.imp.pas}
 
-{$Include nsListWarningGenerator.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas}
 
 procedure TsdsDrugList.ChangeSynchroForm(aSynchroForm: TDrugList_SynchroView_Areas);
  {* Переключает форму синхронного просмотра }

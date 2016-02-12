@@ -6,7 +6,7 @@
 {$Define dsCommonDiction_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include dsSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
  _dsCommonDiction_ = {abstract} class(_dsSimpleTree_, IdsCommonDiction)
   {* Обобщенный словарь }
   private
@@ -46,7 +46,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 _dsCommonDiction_ = _dsSimpleTree_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -57,7 +57,7 @@ _dsCommonDiction_ = _dsSimpleTree_;
 {$Define dsCommonDiction_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dsSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 procedure _dsCommonDiction_.DictionNotify(const aNotifier: IbsCommonDictionListener);
 //#UC START# *492545420326_4925449A0296_var*

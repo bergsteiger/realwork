@@ -6,7 +6,7 @@
 {$Define l3InterfaceRefListPrim_imp}
 
  _l3RefList_Parent_ = _l3InterfaceRefListPrim_Parent_;
- {$Include l3RefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
  _l3InterfaceRefListPrim_ = {abstract} class(_l3RefList_)
  end;//_l3InterfaceRefListPrim_
 
@@ -56,7 +56,7 @@ begin
 //#UC END# *47B94A5C006E_47B9AF6E0228_impl*
 end;//FreeItem
 
-{$Include l3RefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
 
 {$EndIf l3InterfaceRefListPrim_imp_impl}
 

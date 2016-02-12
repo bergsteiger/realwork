@@ -1,46 +1,38 @@
 unit VGSceneAndWinControlPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VG"
-// Модуль: "VGSceneAndWinControlPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VG::VGSceneWords::VGSceneAndWinControlPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VGSceneAndWinControlPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoScripts)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  vgObject,
-  tfwScriptingInterfaces,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts AND not NoVGScene
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vgObject
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoScripts)}
 uses
-  vg_controls,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , vg_controls
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
- TkwPopControlFindVGControlByName = {final scriptword} class(TtfwClassLike)
+ TkwPopControlFindVGControlByName = {final} class(TtfwClassLike)
   {* Слово скрипта pop:Control:FindVGControlByName
 *Тип результата:* TvgObject
 *Пример:*
@@ -48,30 +40,24 @@ type
 OBJECT VAR l_TvgObject
  aName aControl pop:Control:FindVGControlByName >>> l_TvgObject
 [code]  }
- private
- // private methods
+  private
    function FindVGControlByName(const aCtx: TtfwContext;
     aControl: TWinControl;
     const aName: AnsiString): TvgObject;
-     {* Реализация слова скрипта pop:Control:FindVGControlByName }
- protected
- // realized methods
+    {* Реализация слова скрипта pop:Control:FindVGControlByName }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopControlFindVGControlByName
 
-// start class TkwPopControlFindVGControlByName
-
 function TkwPopControlFindVGControlByName.FindVGControlByName(const aCtx: TtfwContext;
-  aControl: TWinControl;
-  const aName: AnsiString): TvgObject;
+ aControl: TWinControl;
+ const aName: AnsiString): TvgObject;
+ {* Реализация слова скрипта pop:Control:FindVGControlByName }
 //#UC START# *687CE4789741_BAFBA1D026AA_var*
 
  function DoFindVGObject(aVgControl: TvgObject; const aName: AnsiString): TvgObject;
@@ -130,10 +116,8 @@ begin
 end;//TkwPopControlFindVGControlByName.FindVGControlByName
 
 procedure TkwPopControlFindVGControlByName.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aControl : TWinControl;
- l_aName : AnsiString;
+var l_aControl: TWinControl;
+var l_aName: AnsiString;
 begin
  try
   l_aControl := TWinControl(aCtx.rEngine.PopObjAs(TWinControl));
@@ -153,54 +137,40 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((FindVGControlByName(aCtx, l_aControl, l_aName)));
+ aCtx.rEngine.PushObj(FindVGControlByName(aCtx, l_aControl, l_aName));
 end;//TkwPopControlFindVGControlByName.DoDoIt
 
 class function TkwPopControlFindVGControlByName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:Control:FindVGControlByName';
 end;//TkwPopControlFindVGControlByName.GetWordNameForRegister
 
 function TkwPopControlFindVGControlByName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TvgObject);
 end;//TkwPopControlFindVGControlByName.GetResultTypeInfo
 
 function TkwPopControlFindVGControlByName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwPopControlFindVGControlByName.GetAllParamsCount
 
 function TkwPopControlFindVGControlByName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TWinControl), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TWinControl), @tfw_tiString]);
 end;//TkwPopControlFindVGControlByName.ParamsTypes
-{$IfEnd} //not NoScripts AND not NoVGScene
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация pop_Control_FindVGControlByName
  TkwPopControlFindVGControlByName.RegisterInEngine;
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация типа TtfwContext
+ {* Регистрация pop_Control_FindVGControlByName }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация типа TWinControl
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TWinControl));
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация типа TvgObject
+ {* Регистрация типа TWinControl }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgObject));
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация типа TvgObject }
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)
 
 end.

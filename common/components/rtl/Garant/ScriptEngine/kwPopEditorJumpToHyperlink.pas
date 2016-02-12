@@ -1,55 +1,48 @@
 unit kwPopEditorJumpToHyperlink;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopEditorJumpToHyperlink.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_JumpToHyperlink
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorJumpToHyperlink.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorJumpToHyperlink = {final scriptword} class(TkwEditorFromStackWord)
- protected
- // realized methods
+ TkwPopEditorJumpToHyperlink = {final} class(TkwEditorFromStackWord)
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorJumpToHyperlink
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevNavigation,
-  afwNavigation,
-  SysUtils
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorJumpToHyperlink
+ l3ImplUses
+ , nevNavigation
+ , afwNavigation
+ , SysUtils
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorJumpToHyperlink.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4F75BC5F03A0_var*
 var
  l_Hyperlink : IevHyperlink;
@@ -64,17 +57,13 @@ begin
 end;//TkwPopEditorJumpToHyperlink.DoWithEditor
 
 class function TkwPopEditorJumpToHyperlink.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:JumpToHyperlink';
 end;//TkwPopEditorJumpToHyperlink.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_JumpToHyperlink
  TkwPopEditorJumpToHyperlink.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_JumpToHyperlink }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

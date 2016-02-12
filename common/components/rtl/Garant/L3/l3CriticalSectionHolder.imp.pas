@@ -6,7 +6,7 @@
 {$Define l3CriticalSectionHolder_imp}
 
  _l3CriticalSectionHolderPrim_Parent_ = _l3CriticalSectionHolder_Parent_;
- {$Include l3CriticalSectionHolderPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas}
  _l3CriticalSectionHolder_ = {abstract} class(_l3CriticalSectionHolderPrim_)
   protected
    procedure AfterDestroyCalled; override;
@@ -19,7 +19,7 @@
 
 {$Define l3CriticalSectionHolder_imp_impl}
 
-{$Include l3CriticalSectionHolderPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas}
 
 procedure _l3CriticalSectionHolder_.AfterDestroyCalled;
 //#UC START# *52BC2B9401F3_53A03846011C_var*

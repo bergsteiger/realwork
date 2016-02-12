@@ -22,7 +22,7 @@ uses
 ;
 
 type
- {$Include nevTableRowBaseLineCommon.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}
  TnevTableRowBaseLine4Anchor = class(_nevTableRowBaseLineCommon_)
   {* Базовая линия для якоря }
   private
@@ -115,7 +115,7 @@ uses
 
 type _Instance_R_ = TnevTableRowBaseLine4Anchor;
 
-{$Include nevTableRowBaseLineCommon.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}
 
 function TnevTableRowBaseLine4Anchor.GetBottomIndex(const aView: InevView): Integer;
 //#UC START# *4DDBDE21011A_4DD77A73036E_var*

@@ -17,7 +17,7 @@ uses
 
 type
  _nevBreakParaAnchorModify_Parent_ = TnevSolidParaAnchor;
- {$Include nevBreakParaAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
  TnevBreakParaAnchor = class(_nevBreakParaAnchorModify_)
   {* якорь параграфа-разрыва }
  end;//TnevBreakParaAnchor
@@ -30,7 +30,7 @@ uses
  l3ImplUses
 ;
 
-{$Include nevBreakParaAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas}
 {$IfEnd} // Defined(k2ForEditor)
 
 end.

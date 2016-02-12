@@ -17,9 +17,9 @@ uses
 
 type
  _DeletingRowCorrector_Parent_ = Tk2ProcTagTool;
- {$Include DeletingRowCorrector.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
  _CheckWidthInDeletingColumn_Parent_ = _DeletingRowCorrector_;
- {$Include CheckWidthInDeletingColumn.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas}
  TevTableImplementation = class(_CheckWidthInDeletingColumn_, IevTable)
   private
    f_Loc: InevBasePoint;
@@ -75,9 +75,9 @@ uses
  , evTableCellUtils
 ;
 
-{$Include DeletingRowCorrector.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas}
 
-{$Include CheckWidthInDeletingColumn.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas}
 
 procedure TevTableImplementation.DoCloneSegments(const aOldRow: Tl3Variant;
  const aNewRow: Tl3Variant;

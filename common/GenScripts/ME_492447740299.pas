@@ -37,7 +37,7 @@ uses
 
 type
  _FormDataSourceType_ = IdsTreeAttributeFirstLevel;
- {$Include dsSituation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSituation.imp.pas}
  TdsTreeAttributeFirstLevel = class(_dsSituation_, IdsTreeAttributeFirstLevel)
   {* бизнес объект формы выбранные атрибуты дерева }
   protected
@@ -65,7 +65,7 @@ uses
 
 type _Instance_R_ = TdsTreeAttributeFirstLevel;
 
-{$Include dsSituation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsSituation.imp.pas}
 
 function TdsTreeAttributeFirstLevel.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

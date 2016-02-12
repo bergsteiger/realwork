@@ -1,71 +1,53 @@
 unit kwImageEnControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$ImageEn"
-// Модуль: "kwImageEnControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: SimpleClass::Class Shared Delphi::ScriptEngine$ImageEn::ImageEnView::TkwImageEnControl
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwImageEnControl.pas"
+// Стереотип: "SimpleClass"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
 uses
-  imageenview,
-  tfwScriptingInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  kwComponentFromStackWord,
-  Classes
-  ;
-{$IfEnd} //not NoImageEn AND not NoScripts
+ l3IntfUses
+ , imageenview
+ , tfwScriptingInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , kwComponentFromStackWord
+ , Classes
+;
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
 type
- {$Include ..\ScriptEngine\kwControlFromStackWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwImageEnControl = {abstract} class(_kwControlFromStackWord_)
- protected
- // realized methods
-    {$If not defined(NoScripts) AND not defined(NoVCL)}
-   procedure DoControl(aControl: TControl;
-     const aCtx: TtfwContext); override;
-    {$IfEnd} //not NoScripts AND not NoVCL
- protected
- // protected methods
+  protected
    procedure DoWithImageEn(aControl: TImageEnView;
-     const aCtx: TtfwContext); virtual; abstract;
+    const aCtx: TtfwContext); virtual; abstract;
+   {$If NOT Defined(NoVCL)}
+   procedure DoControl(aControl: TControl;
+    const aCtx: TtfwContext); override;
+   {$IfEnd} // NOT Defined(NoVCL)
  end;//TkwImageEnControl
-{$IfEnd} //not NoImageEn AND not NoScripts
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 
 implementation
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoImageEn)}
 uses
-  Windows
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  ;
-{$IfEnd} //not NoImageEn AND not NoScripts
+ l3ImplUses
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
-{$Include ..\ScriptEngine\kwControlFromStackWord.imp.pas}
-
-// start class TkwImageEnControl
-
-{$If not defined(NoScripts) AND not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TkwImageEnControl.DoControl(aControl: TControl;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *4F212C3A015A_52E20F060237_var*
 //#UC END# *4F212C3A015A_52E20F060237_var*
 begin
@@ -73,14 +55,11 @@ begin
  DoWithImageEn(aControl as TImageEnView, aCtx);
 //#UC END# *4F212C3A015A_52E20F060237_impl*
 end;//TkwImageEnControl.DoControl
-{$IfEnd} //not NoScripts AND not NoVCL
-
-{$IfEnd} //not NoImageEn AND not NoScripts
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
-// Регистрация TkwImageEnControl
  TkwImageEnControl.RegisterClass;
-{$IfEnd} //not NoImageEn AND not NoScripts
+ {* Регистрация TkwImageEnControl }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoImageEn)
 
 end.

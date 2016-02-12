@@ -27,9 +27,9 @@ uses
 type
  _DataType_ = Tl3Ptr;
  _l3Changing_Parent_ = Tl3ProtoDataContainer;
- {$Include l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  _l3UntypedList_Parent_ = _l3Changing_;
- {$Include l3UntypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}
  Tl3ProtoPtrRecListPrim = class(_l3UntypedList_)
  end;//Tl3ProtoPtrRecListPrim
 
@@ -43,10 +43,10 @@ uses
  , l3MinMax
 ;
 
-{$Include l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 type _Instance_R_ = Tl3ProtoPtrRecListPrim;
 
-{$Include l3UntypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UntypedList.imp.pas}
 
 end.

@@ -20,9 +20,9 @@ uses
 
 type
  _l3Unknown_Parent_ = TForm;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  _l3COMQueryInterface_Parent_ = _l3Unknown_;
- {$Include l3COMQueryInterface.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
  Tl3Form = class(_l3COMQueryInterface_)
   {* Базовый класс форм, поддерживающих счетчик ссылок и интерфейс IUnknown }
  end;//Tl3Form
@@ -44,9 +44,9 @@ uses
  , l3InterfacesMisc
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
-{$Include l3COMQueryInterface.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
 
 initialization
 {$If NOT Defined(NoScripts)}

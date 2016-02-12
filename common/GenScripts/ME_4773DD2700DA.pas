@@ -23,7 +23,7 @@ type
  _ItemType_ = Pointer;
  _l3DataPtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3DataPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3DataPtrList.imp.pas}
  Tl3DataPtrList = class(_l3DataPtrList_)
   {* Список указателей на куски памяти. Ничего не освобождает. }
  end;//Tl3DataPtrList
@@ -40,6 +40,6 @@ uses
 
 type _Instance_R_ = Tl3DataPtrList;
 
-{$Include l3DataPtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3DataPtrList.imp.pas}
 
 end.

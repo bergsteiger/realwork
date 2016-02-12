@@ -13,7 +13,7 @@
   {$Define k2TagUseDefaultValue}
  //#UC END# *47AC562D0134ci*
  _k2Tag_Parent_ = _k2HashTag_Parent_;
- {$Include k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  //#UC START# *47AC562D0134cit*
  //#UC END# *47AC562D0134cit*
  _k2HashTag_ = class(_k2Tag_)
@@ -57,7 +57,7 @@
 
 {$Define k2HashTag_imp_impl}
 
-{$Include k2Tag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 class function _k2HashTag_.Make(aTagType: Tk2Type): Il3TagRef;
 //#UC START# *5356A90303BD_47AC562D0134_var*

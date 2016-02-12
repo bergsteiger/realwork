@@ -42,7 +42,7 @@ uses
 ;
 
 type
- {$Include dsBaseContents.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas}
  TdsContents = {final} class(_dsBaseContents_, IdsContents)
   {* бизнес объект формы ContentsForm }
   private
@@ -84,7 +84,7 @@ uses
 
 type _Instance_R_ = TdsContents;
 
-{$Include dsBaseContents.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.imp.pas}
 
 function TdsContents.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

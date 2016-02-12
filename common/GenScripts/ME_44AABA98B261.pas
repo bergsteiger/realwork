@@ -103,12 +103,8 @@ begin
 end;//Tkw_Form_PictureInfo.GetWordNameForRegister
 
 function Tkw_Form_PictureInfo.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D75DB6A2BDA5_var*
-//#UC END# *4DDFD2EA0116_D75DB6A2BDA5_var*
 begin
-//#UC START# *4DDFD2EA0116_D75DB6A2BDA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D75DB6A2BDA5_impl*
+ Result := 'en_PictureInfo';
 end;//Tkw_Form_PictureInfo.GetString
 
 class function Tkw_PictureInfo_Control_Info.GetWordNameForRegister: AnsiString;
@@ -117,21 +113,14 @@ begin
 end;//Tkw_PictureInfo_Control_Info.GetWordNameForRegister
 
 function Tkw_PictureInfo_Control_Info.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D49FEF176C47_var*
-//#UC END# *4DDFD2EA0116_D49FEF176C47_var*
 begin
-//#UC START# *4DDFD2EA0116_D49FEF176C47_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D49FEF176C47_impl*
+ Result := 'Info';
 end;//Tkw_PictureInfo_Control_Info.GetString
 
 class procedure Tkw_PictureInfo_Control_Info.RegisterInEngine;
-//#UC START# *52A086150180_D49FEF176C47_var*
-//#UC END# *52A086150180_D49FEF176C47_var*
 begin
-//#UC START# *52A086150180_D49FEF176C47_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_D49FEF176C47_impl*
+ inherited;
+ TtfwClassRef.Register(TeeMemoWithEditOperations);
 end;//Tkw_PictureInfo_Control_Info.RegisterInEngine
 
 procedure Tkw_PictureInfo_Control_Info_Push.DoDoIt(const aCtx: TtfwContext);
@@ -151,21 +140,23 @@ end;//Tkw_PictureInfo_Control_Info_Push.GetWordNameForRegister
 function TkwEnPictureInfoInfo.Info(const aCtx: TtfwContext;
  aen_PictureInfo: Ten_PictureInfo): TeeMemoWithEditOperations;
  {* Реализация слова скрипта .Ten_PictureInfo.Info }
-//#UC START# *97873E0A4C48_9B1531781ADE_var*
-//#UC END# *97873E0A4C48_9B1531781ADE_var*
 begin
-//#UC START# *97873E0A4C48_9B1531781ADE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *97873E0A4C48_9B1531781ADE_impl*
+ Result := aen_PictureInfo.Info;
 end;//TkwEnPictureInfoInfo.Info
 
 procedure TkwEnPictureInfoInfo.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9B1531781ADE_var*
-//#UC END# *4DAEEDE10285_9B1531781ADE_var*
+var l_aen_PictureInfo: Ten_PictureInfo;
 begin
-//#UC START# *4DAEEDE10285_9B1531781ADE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9B1531781ADE_impl*
+ try
+  l_aen_PictureInfo := Ten_PictureInfo(aCtx.rEngine.PopObjAs(Ten_PictureInfo));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PictureInfo: Ten_PictureInfo : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Info(aCtx, l_aen_PictureInfo));
 end;//TkwEnPictureInfoInfo.DoDoIt
 
 class function TkwEnPictureInfoInfo.GetWordNameForRegister: AnsiString;
@@ -175,12 +166,8 @@ end;//TkwEnPictureInfoInfo.GetWordNameForRegister
 
 procedure TkwEnPictureInfoInfo.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9B1531781ADE_var*
-//#UC END# *52D00B00031A_9B1531781ADE_var*
 begin
-//#UC START# *52D00B00031A_9B1531781ADE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9B1531781ADE_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Info', aCtx);
 end;//TkwEnPictureInfoInfo.SetValuePrim
 
 function TkwEnPictureInfoInfo.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -195,7 +182,7 @@ end;//TkwEnPictureInfoInfo.GetAllParamsCount
 
 function TkwEnPictureInfoInfo.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PictureInfo)]);
 end;//TkwEnPictureInfoInfo.ParamsTypes
 
 initialization

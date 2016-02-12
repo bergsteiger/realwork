@@ -4,7 +4,7 @@ unit nevTools;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTools.pas"
 // Стереотип: "Interfaces"
 
-{$Include nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 

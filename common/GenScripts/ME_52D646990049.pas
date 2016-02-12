@@ -20,7 +20,7 @@ uses
 ;
 
 type
- {$Include kwControlFromStackWord.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
  TkwSubPanelFromStackWord = {abstract} class(_kwControlFromStackWord_)
   protected
    procedure DoWithSubPanel(aControl: TevCustomSubPanel;
@@ -43,7 +43,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include kwControlFromStackWord.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas}
 
 {$If NOT Defined(NoVCL)}
 procedure TkwSubPanelFromStackWord.DoControl(aControl: TControl;

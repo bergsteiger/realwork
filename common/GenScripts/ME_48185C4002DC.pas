@@ -23,11 +23,11 @@ uses
 
 type
  _l3Notifier_Parent_ = TnevDocumentContainerPrim;
- {$Include l3Notifier.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
  _evStyleTableListener_Parent_ = _l3Notifier_;
- {$Include evStyleTableListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  _nevDocumentContainerDecorationRules_Parent_ = _evStyleTableListener_;
- {$Include nevDocumentContainerDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
  TnevObjectHolderPrim = class(_nevDocumentContainerDecorationRules_, InevObjectHolder)
   private
    f_FormatPool: TnevFormatPool;
@@ -120,11 +120,11 @@ uses
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
 ;
 
-{$Include l3Notifier.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
-{$Include evStyleTableListener.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
-{$Include nevDocumentContainerDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas}
 
 procedure TnevObjectHolderPrim.pm_SetModified(aValue: Boolean);
 //#UC START# *4918285A0247_48185C4002DCset_var*

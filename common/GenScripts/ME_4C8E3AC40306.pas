@@ -18,7 +18,7 @@ uses
 
 type
  _l3Unknown_Parent_ = TPopupMenu;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmPopupMenuPrim = class(_l3Unknown_)
  end;//TvcmPopupMenuPrim
 {$IfEnd} // NOT Defined(NoVCM)
@@ -37,7 +37,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

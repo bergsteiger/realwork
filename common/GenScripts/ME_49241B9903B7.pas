@@ -36,7 +36,7 @@ uses
 
 type
  _InitDataType_ = IdeSelectedAttributes;
- {$Include dsTagSimpleTree.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas}
  TdsSelectedAttributes = {final} class(_dsTagSimpleTree_, IdsSelectedAttributes)
   {* бизнес объект формы "выбранные атрибуты дерева" }
   private
@@ -72,7 +72,7 @@ uses
 
 type _Instance_R_ = TdsSelectedAttributes;
 
-{$Include dsTagSimpleTree.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\dsTagSimpleTree.imp.pas}
 
 function TdsSelectedAttributes.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

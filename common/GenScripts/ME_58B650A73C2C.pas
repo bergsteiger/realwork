@@ -452,12 +452,8 @@ begin
 end;//Tkw_Form_LongProcess.GetWordNameForRegister
 
 function Tkw_Form_LongProcess.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C4A3AD5E3009_var*
-//#UC END# *4DDFD2EA0116_C4A3AD5E3009_var*
 begin
-//#UC START# *4DDFD2EA0116_C4A3AD5E3009_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C4A3AD5E3009_impl*
+ Result := 'LongProcessForm';
 end;//Tkw_Form_LongProcess.GetString
 
 class function Tkw_LongProcess_Control_ClientPanel.GetWordNameForRegister: AnsiString;
@@ -466,21 +462,14 @@ begin
 end;//Tkw_LongProcess_Control_ClientPanel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_ClientPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_80415E0A03B6_var*
-//#UC END# *4DDFD2EA0116_80415E0A03B6_var*
 begin
-//#UC START# *4DDFD2EA0116_80415E0A03B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_80415E0A03B6_impl*
+ Result := 'ClientPanel';
 end;//Tkw_LongProcess_Control_ClientPanel.GetString
 
 class procedure Tkw_LongProcess_Control_ClientPanel.RegisterInEngine;
-//#UC START# *52A086150180_80415E0A03B6_var*
-//#UC END# *52A086150180_80415E0A03B6_var*
 begin
-//#UC START# *52A086150180_80415E0A03B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_80415E0A03B6_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LongProcess_Control_ClientPanel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_ClientPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -503,21 +492,14 @@ begin
 end;//Tkw_LongProcess_Control_MessageLabel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_MessageLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EE429CEF80B2_var*
-//#UC END# *4DDFD2EA0116_EE429CEF80B2_var*
 begin
-//#UC START# *4DDFD2EA0116_EE429CEF80B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EE429CEF80B2_impl*
+ Result := 'MessageLabel';
 end;//Tkw_LongProcess_Control_MessageLabel.GetString
 
 class procedure Tkw_LongProcess_Control_MessageLabel.RegisterInEngine;
-//#UC START# *52A086150180_EE429CEF80B2_var*
-//#UC END# *52A086150180_EE429CEF80B2_var*
 begin
-//#UC START# *52A086150180_EE429CEF80B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EE429CEF80B2_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_LongProcess_Control_MessageLabel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_MessageLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -540,21 +522,14 @@ begin
 end;//Tkw_LongProcess_Control_BottomPanel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_BottomPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1D52AE8ECAD0_var*
-//#UC END# *4DDFD2EA0116_1D52AE8ECAD0_var*
 begin
-//#UC START# *4DDFD2EA0116_1D52AE8ECAD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1D52AE8ECAD0_impl*
+ Result := 'BottomPanel';
 end;//Tkw_LongProcess_Control_BottomPanel.GetString
 
 class procedure Tkw_LongProcess_Control_BottomPanel.RegisterInEngine;
-//#UC START# *52A086150180_1D52AE8ECAD0_var*
-//#UC END# *52A086150180_1D52AE8ECAD0_var*
 begin
-//#UC START# *52A086150180_1D52AE8ECAD0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1D52AE8ECAD0_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LongProcess_Control_BottomPanel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -577,21 +552,14 @@ begin
 end;//Tkw_LongProcess_Control_ProgressBar.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_ProgressBar.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8A7072EA0EBB_var*
-//#UC END# *4DDFD2EA0116_8A7072EA0EBB_var*
 begin
-//#UC START# *4DDFD2EA0116_8A7072EA0EBB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8A7072EA0EBB_impl*
+ Result := 'ProgressBar';
 end;//Tkw_LongProcess_Control_ProgressBar.GetString
 
 class procedure Tkw_LongProcess_Control_ProgressBar.RegisterInEngine;
-//#UC START# *52A086150180_8A7072EA0EBB_var*
-//#UC END# *52A086150180_8A7072EA0EBB_var*
 begin
-//#UC START# *52A086150180_8A7072EA0EBB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8A7072EA0EBB_impl*
+ inherited;
+ TtfwClassRef.Register(TvtGradientWaitbar);
 end;//Tkw_LongProcess_Control_ProgressBar.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_ProgressBar_Push.DoDoIt(const aCtx: TtfwContext);
@@ -614,21 +582,14 @@ begin
 end;//Tkw_LongProcess_Control_LeftPanel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_LeftPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_37371C609A4E_var*
-//#UC END# *4DDFD2EA0116_37371C609A4E_var*
 begin
-//#UC START# *4DDFD2EA0116_37371C609A4E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_37371C609A4E_impl*
+ Result := 'LeftPanel';
 end;//Tkw_LongProcess_Control_LeftPanel.GetString
 
 class procedure Tkw_LongProcess_Control_LeftPanel.RegisterInEngine;
-//#UC START# *52A086150180_37371C609A4E_var*
-//#UC END# *52A086150180_37371C609A4E_var*
 begin
-//#UC START# *52A086150180_37371C609A4E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_37371C609A4E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LongProcess_Control_LeftPanel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_LeftPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -651,21 +612,14 @@ begin
 end;//Tkw_LongProcess_Control_Image.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_Image.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1A4830627510_var*
-//#UC END# *4DDFD2EA0116_1A4830627510_var*
 begin
-//#UC START# *4DDFD2EA0116_1A4830627510_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1A4830627510_impl*
+ Result := 'Image';
 end;//Tkw_LongProcess_Control_Image.GetString
 
 class procedure Tkw_LongProcess_Control_Image.RegisterInEngine;
-//#UC START# *52A086150180_1A4830627510_var*
-//#UC END# *52A086150180_1A4830627510_var*
 begin
-//#UC START# *52A086150180_1A4830627510_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1A4830627510_impl*
+ inherited;
+ TtfwClassRef.Register(TImage);
 end;//Tkw_LongProcess_Control_Image.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_Image_Push.DoDoIt(const aCtx: TtfwContext);
@@ -688,21 +642,14 @@ begin
 end;//Tkw_LongProcess_Control_ButtonPanel.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_ButtonPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6459869CFA95_var*
-//#UC END# *4DDFD2EA0116_6459869CFA95_var*
 begin
-//#UC START# *4DDFD2EA0116_6459869CFA95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6459869CFA95_impl*
+ Result := 'ButtonPanel';
 end;//Tkw_LongProcess_Control_ButtonPanel.GetString
 
 class procedure Tkw_LongProcess_Control_ButtonPanel.RegisterInEngine;
-//#UC START# *52A086150180_6459869CFA95_var*
-//#UC END# *52A086150180_6459869CFA95_var*
 begin
-//#UC START# *52A086150180_6459869CFA95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6459869CFA95_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_LongProcess_Control_ButtonPanel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_ButtonPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -725,21 +672,14 @@ begin
 end;//Tkw_LongProcess_Control_btnExit.GetWordNameForRegister
 
 function Tkw_LongProcess_Control_btnExit.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B8087B324800_var*
-//#UC END# *4DDFD2EA0116_B8087B324800_var*
 begin
-//#UC START# *4DDFD2EA0116_B8087B324800_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B8087B324800_impl*
+ Result := 'btnExit';
 end;//Tkw_LongProcess_Control_btnExit.GetString
 
 class procedure Tkw_LongProcess_Control_btnExit.RegisterInEngine;
-//#UC START# *52A086150180_B8087B324800_var*
-//#UC END# *52A086150180_B8087B324800_var*
 begin
-//#UC START# *52A086150180_B8087B324800_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B8087B324800_impl*
+ inherited;
+ TtfwClassRef.Register(TvtButton);
 end;//Tkw_LongProcess_Control_btnExit.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_btnExit_Push.DoDoIt(const aCtx: TtfwContext);
@@ -759,21 +699,23 @@ end;//Tkw_LongProcess_Control_btnExit_Push.GetWordNameForRegister
 function TkwLongProcessFormClientPanel.ClientPanel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtPanel;
  {* Реализация слова скрипта .TLongProcessForm.ClientPanel }
-//#UC START# *3479D5B334CC_486A220C7922_var*
-//#UC END# *3479D5B334CC_486A220C7922_var*
 begin
-//#UC START# *3479D5B334CC_486A220C7922_impl*
- !!! Needs to be implemented !!!
-//#UC END# *3479D5B334CC_486A220C7922_impl*
+ Result := aLongProcessForm.ClientPanel;
 end;//TkwLongProcessFormClientPanel.ClientPanel
 
 procedure TkwLongProcessFormClientPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_486A220C7922_var*
-//#UC END# *4DAEEDE10285_486A220C7922_var*
+var l_aLongProcessForm: TLongProcessForm;
 begin
-//#UC START# *4DAEEDE10285_486A220C7922_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_486A220C7922_impl*
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ClientPanel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormClientPanel.DoDoIt
 
 class function TkwLongProcessFormClientPanel.GetWordNameForRegister: AnsiString;
@@ -783,12 +725,8 @@ end;//TkwLongProcessFormClientPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormClientPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_486A220C7922_var*
-//#UC END# *52D00B00031A_486A220C7922_var*
 begin
-//#UC START# *52D00B00031A_486A220C7922_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_486A220C7922_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ClientPanel', aCtx);
 end;//TkwLongProcessFormClientPanel.SetValuePrim
 
 function TkwLongProcessFormClientPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -803,27 +741,29 @@ end;//TkwLongProcessFormClientPanel.GetAllParamsCount
 
 function TkwLongProcessFormClientPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormClientPanel.ParamsTypes
 
 function TkwLongProcessFormMessageLabel.MessageLabel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtLabel;
  {* Реализация слова скрипта .TLongProcessForm.MessageLabel }
-//#UC START# *32DE68119216_70AD8C304A76_var*
-//#UC END# *32DE68119216_70AD8C304A76_var*
 begin
-//#UC START# *32DE68119216_70AD8C304A76_impl*
- !!! Needs to be implemented !!!
-//#UC END# *32DE68119216_70AD8C304A76_impl*
+ Result := aLongProcessForm.MessageLabel;
 end;//TkwLongProcessFormMessageLabel.MessageLabel
 
 procedure TkwLongProcessFormMessageLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_70AD8C304A76_var*
-//#UC END# *4DAEEDE10285_70AD8C304A76_var*
+var l_aLongProcessForm: TLongProcessForm;
 begin
-//#UC START# *4DAEEDE10285_70AD8C304A76_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_70AD8C304A76_impl*
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(MessageLabel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormMessageLabel.DoDoIt
 
 class function TkwLongProcessFormMessageLabel.GetWordNameForRegister: AnsiString;
@@ -833,12 +773,8 @@ end;//TkwLongProcessFormMessageLabel.GetWordNameForRegister
 
 procedure TkwLongProcessFormMessageLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_70AD8C304A76_var*
-//#UC END# *52D00B00031A_70AD8C304A76_var*
 begin
-//#UC START# *52D00B00031A_70AD8C304A76_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_70AD8C304A76_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству MessageLabel', aCtx);
 end;//TkwLongProcessFormMessageLabel.SetValuePrim
 
 function TkwLongProcessFormMessageLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -853,27 +789,29 @@ end;//TkwLongProcessFormMessageLabel.GetAllParamsCount
 
 function TkwLongProcessFormMessageLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormMessageLabel.ParamsTypes
 
 function TkwLongProcessFormBottomPanel.BottomPanel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtPanel;
  {* Реализация слова скрипта .TLongProcessForm.BottomPanel }
-//#UC START# *7C16D12BA921_7257AAEDA827_var*
-//#UC END# *7C16D12BA921_7257AAEDA827_var*
 begin
-//#UC START# *7C16D12BA921_7257AAEDA827_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7C16D12BA921_7257AAEDA827_impl*
+ Result := aLongProcessForm.BottomPanel;
 end;//TkwLongProcessFormBottomPanel.BottomPanel
 
 procedure TkwLongProcessFormBottomPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7257AAEDA827_var*
-//#UC END# *4DAEEDE10285_7257AAEDA827_var*
+var l_aLongProcessForm: TLongProcessForm;
 begin
-//#UC START# *4DAEEDE10285_7257AAEDA827_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7257AAEDA827_impl*
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BottomPanel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormBottomPanel.DoDoIt
 
 class function TkwLongProcessFormBottomPanel.GetWordNameForRegister: AnsiString;
@@ -883,12 +821,8 @@ end;//TkwLongProcessFormBottomPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormBottomPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7257AAEDA827_var*
-//#UC END# *52D00B00031A_7257AAEDA827_var*
 begin
-//#UC START# *52D00B00031A_7257AAEDA827_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7257AAEDA827_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BottomPanel', aCtx);
 end;//TkwLongProcessFormBottomPanel.SetValuePrim
 
 function TkwLongProcessFormBottomPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -903,27 +837,29 @@ end;//TkwLongProcessFormBottomPanel.GetAllParamsCount
 
 function TkwLongProcessFormBottomPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormBottomPanel.ParamsTypes
 
 function TkwLongProcessFormProgressBar.ProgressBar(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtGradientWaitbar;
  {* Реализация слова скрипта .TLongProcessForm.ProgressBar }
-//#UC START# *854A47C11673_B362DE4317E9_var*
-//#UC END# *854A47C11673_B362DE4317E9_var*
 begin
-//#UC START# *854A47C11673_B362DE4317E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *854A47C11673_B362DE4317E9_impl*
+ Result := aLongProcessForm.ProgressBar;
 end;//TkwLongProcessFormProgressBar.ProgressBar
 
 procedure TkwLongProcessFormProgressBar.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B362DE4317E9_var*
-//#UC END# *4DAEEDE10285_B362DE4317E9_var*
+var l_aLongProcessForm: TLongProcessForm;
 begin
-//#UC START# *4DAEEDE10285_B362DE4317E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B362DE4317E9_impl*
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ProgressBar(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormProgressBar.DoDoIt
 
 class function TkwLongProcessFormProgressBar.GetWordNameForRegister: AnsiString;
@@ -933,12 +869,8 @@ end;//TkwLongProcessFormProgressBar.GetWordNameForRegister
 
 procedure TkwLongProcessFormProgressBar.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_B362DE4317E9_var*
-//#UC END# *52D00B00031A_B362DE4317E9_var*
 begin
-//#UC START# *52D00B00031A_B362DE4317E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_B362DE4317E9_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ProgressBar', aCtx);
 end;//TkwLongProcessFormProgressBar.SetValuePrim
 
 function TkwLongProcessFormProgressBar.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -953,27 +885,29 @@ end;//TkwLongProcessFormProgressBar.GetAllParamsCount
 
 function TkwLongProcessFormProgressBar.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormProgressBar.ParamsTypes
 
 function TkwLongProcessFormLeftPanel.LeftPanel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtPanel;
  {* Реализация слова скрипта .TLongProcessForm.LeftPanel }
-//#UC START# *E2251777354D_763DFD3968B4_var*
-//#UC END# *E2251777354D_763DFD3968B4_var*
 begin
-//#UC START# *E2251777354D_763DFD3968B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *E2251777354D_763DFD3968B4_impl*
+ Result := aLongProcessForm.LeftPanel;
 end;//TkwLongProcessFormLeftPanel.LeftPanel
 
 procedure TkwLongProcessFormLeftPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_763DFD3968B4_var*
-//#UC END# *4DAEEDE10285_763DFD3968B4_var*
+var l_aLongProcessForm: TLongProcessForm;
 begin
-//#UC START# *4DAEEDE10285_763DFD3968B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_763DFD3968B4_impl*
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(LeftPanel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormLeftPanel.DoDoIt
 
 class function TkwLongProcessFormLeftPanel.GetWordNameForRegister: AnsiString;
@@ -983,12 +917,8 @@ end;//TkwLongProcessFormLeftPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormLeftPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_763DFD3968B4_var*
-//#UC END# *52D00B00031A_763DFD3968B4_var*
 begin
-//#UC START# *52D00B00031A_763DFD3968B4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_763DFD3968B4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству LeftPanel', aCtx);
 end;//TkwLongProcessFormLeftPanel.SetValuePrim
 
 function TkwLongProcessFormLeftPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1003,27 +933,29 @@ end;//TkwLongProcessFormLeftPanel.GetAllParamsCount
 
 function TkwLongProcessFormLeftPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormLeftPanel.ParamsTypes
 
 function TkwLongProcessFormImage.Image(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TImage;
  {* Реализация слова скрипта .TLongProcessForm.Image }
-//#UC START# *C88A16931701_E257BCDBC2B9_var*
-//#UC END# *C88A16931701_E257BCDBC2B9_var*
 begin
-//#UC START# *C88A16931701_E257BCDBC2B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C88A16931701_E257BCDBC2B9_impl*
+ Result := aLongProcessForm.Image;
 end;//TkwLongProcessFormImage.Image
 
 procedure TkwLongProcessFormImage.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E257BCDBC2B9_var*
-//#UC END# *4DAEEDE10285_E257BCDBC2B9_var*
+var l_aLongProcessForm: TLongProcessForm;
 begin
-//#UC START# *4DAEEDE10285_E257BCDBC2B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E257BCDBC2B9_impl*
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Image(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormImage.DoDoIt
 
 class function TkwLongProcessFormImage.GetWordNameForRegister: AnsiString;
@@ -1033,12 +965,8 @@ end;//TkwLongProcessFormImage.GetWordNameForRegister
 
 procedure TkwLongProcessFormImage.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E257BCDBC2B9_var*
-//#UC END# *52D00B00031A_E257BCDBC2B9_var*
 begin
-//#UC START# *52D00B00031A_E257BCDBC2B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E257BCDBC2B9_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Image', aCtx);
 end;//TkwLongProcessFormImage.SetValuePrim
 
 function TkwLongProcessFormImage.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1053,27 +981,29 @@ end;//TkwLongProcessFormImage.GetAllParamsCount
 
 function TkwLongProcessFormImage.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormImage.ParamsTypes
 
 function TkwLongProcessFormButtonPanel.ButtonPanel(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtPanel;
  {* Реализация слова скрипта .TLongProcessForm.ButtonPanel }
-//#UC START# *4A4E4FD73CCD_372A17FE3DFD_var*
-//#UC END# *4A4E4FD73CCD_372A17FE3DFD_var*
 begin
-//#UC START# *4A4E4FD73CCD_372A17FE3DFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A4E4FD73CCD_372A17FE3DFD_impl*
+ Result := aLongProcessForm.ButtonPanel;
 end;//TkwLongProcessFormButtonPanel.ButtonPanel
 
 procedure TkwLongProcessFormButtonPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_372A17FE3DFD_var*
-//#UC END# *4DAEEDE10285_372A17FE3DFD_var*
+var l_aLongProcessForm: TLongProcessForm;
 begin
-//#UC START# *4DAEEDE10285_372A17FE3DFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_372A17FE3DFD_impl*
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ButtonPanel(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormButtonPanel.DoDoIt
 
 class function TkwLongProcessFormButtonPanel.GetWordNameForRegister: AnsiString;
@@ -1083,12 +1013,8 @@ end;//TkwLongProcessFormButtonPanel.GetWordNameForRegister
 
 procedure TkwLongProcessFormButtonPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_372A17FE3DFD_var*
-//#UC END# *52D00B00031A_372A17FE3DFD_var*
 begin
-//#UC START# *52D00B00031A_372A17FE3DFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_372A17FE3DFD_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ButtonPanel', aCtx);
 end;//TkwLongProcessFormButtonPanel.SetValuePrim
 
 function TkwLongProcessFormButtonPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1103,27 +1029,29 @@ end;//TkwLongProcessFormButtonPanel.GetAllParamsCount
 
 function TkwLongProcessFormButtonPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormButtonPanel.ParamsTypes
 
 function TkwLongProcessFormBtnExit.btnExit(const aCtx: TtfwContext;
  aLongProcessForm: TLongProcessForm): TvtButton;
  {* Реализация слова скрипта .TLongProcessForm.btnExit }
-//#UC START# *2A2D9AD94E8B_ECD55A49EDCE_var*
-//#UC END# *2A2D9AD94E8B_ECD55A49EDCE_var*
 begin
-//#UC START# *2A2D9AD94E8B_ECD55A49EDCE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2A2D9AD94E8B_ECD55A49EDCE_impl*
+ Result := aLongProcessForm.btnExit;
 end;//TkwLongProcessFormBtnExit.btnExit
 
 procedure TkwLongProcessFormBtnExit.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ECD55A49EDCE_var*
-//#UC END# *4DAEEDE10285_ECD55A49EDCE_var*
+var l_aLongProcessForm: TLongProcessForm;
 begin
-//#UC START# *4DAEEDE10285_ECD55A49EDCE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ECD55A49EDCE_impl*
+ try
+  l_aLongProcessForm := TLongProcessForm(aCtx.rEngine.PopObjAs(TLongProcessForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLongProcessForm: TLongProcessForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnExit(aCtx, l_aLongProcessForm));
 end;//TkwLongProcessFormBtnExit.DoDoIt
 
 class function TkwLongProcessFormBtnExit.GetWordNameForRegister: AnsiString;
@@ -1133,12 +1061,8 @@ end;//TkwLongProcessFormBtnExit.GetWordNameForRegister
 
 procedure TkwLongProcessFormBtnExit.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ECD55A49EDCE_var*
-//#UC END# *52D00B00031A_ECD55A49EDCE_var*
 begin
-//#UC START# *52D00B00031A_ECD55A49EDCE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ECD55A49EDCE_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству btnExit', aCtx);
 end;//TkwLongProcessFormBtnExit.SetValuePrim
 
 function TkwLongProcessFormBtnExit.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1153,7 +1077,7 @@ end;//TkwLongProcessFormBtnExit.GetAllParamsCount
 
 function TkwLongProcessFormBtnExit.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLongProcessForm)]);
 end;//TkwLongProcessFormBtnExit.ParamsTypes
 
 initialization

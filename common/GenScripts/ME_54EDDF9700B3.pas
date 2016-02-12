@@ -457,7 +457,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf(GetParent(aCtx, l_aPara),InevPara);
+ aCtx.rEngine.PushIntf(GetParent(aCtx, l_aPara), TypeInfo(InevPara));
 end;//TkwParaGetParent.DoDoIt
 
 class function TkwParaGetParent.GetWordNameForRegister: AnsiString;

@@ -110,7 +110,7 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- DoSetValue(SpinEdit, aValue.AsInt);
+ DoSetValue(l_SpinEdit, aValue.AsInt);
 end;//TkwPopSpinEditValue.SetValuePrim
 
 function TkwPopSpinEditValue.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;

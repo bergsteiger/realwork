@@ -15,7 +15,7 @@ uses
 
 type
  _k2TagByIntegerSearcher_Parent_ = Tk2TagListPrim;
- {$Include k2TagByIntegerSearcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas}
  Tk2TagList = class(_k2TagByIntegerSearcher_)
  end;//Tk2TagList
 
@@ -28,6 +28,6 @@ uses
 
 type _Instance_R_ = Tk2TagList;
 
-{$Include k2TagByIntegerSearcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagByIntegerSearcher.imp.pas}
 
 end.

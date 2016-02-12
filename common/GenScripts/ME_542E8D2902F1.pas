@@ -16,7 +16,7 @@ uses
 type
  _FindDataType_ = WideString;
  _l3Searcher_Parent_ = Tm3StorageHolderListPrim;
- {$Include l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tm3StorageHolderListPrim1 = class(_l3Searcher_)
  end;//Tm3StorageHolderListPrim1
 
@@ -42,6 +42,6 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tm3StorageHolderListPrim1;
 
-{$Include l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
 end.

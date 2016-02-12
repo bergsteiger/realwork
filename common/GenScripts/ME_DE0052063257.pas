@@ -105,12 +105,8 @@ begin
 end;//Tkw_Form_Translation_WarningBaloon.GetWordNameForRegister
 
 function Tkw_Form_Translation_WarningBaloon.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_00A08488AB00_var*
-//#UC END# *4DDFD2EA0116_00A08488AB00_var*
 begin
-//#UC START# *4DDFD2EA0116_00A08488AB00_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_00A08488AB00_impl*
+ Result := 'Translation_WarningBaloonForm';
 end;//Tkw_Form_Translation_WarningBaloon.GetString
 
 class function Tkw_Translation_WarningBaloon_Control_Viewer.GetWordNameForRegister: AnsiString;
@@ -119,21 +115,14 @@ begin
 end;//Tkw_Translation_WarningBaloon_Control_Viewer.GetWordNameForRegister
 
 function Tkw_Translation_WarningBaloon_Control_Viewer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7834354B8302_var*
-//#UC END# *4DDFD2EA0116_7834354B8302_var*
 begin
-//#UC START# *4DDFD2EA0116_7834354B8302_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7834354B8302_impl*
+ Result := 'Viewer';
 end;//Tkw_Translation_WarningBaloon_Control_Viewer.GetString
 
 class procedure Tkw_Translation_WarningBaloon_Control_Viewer.RegisterInEngine;
-//#UC START# *52A086150180_7834354B8302_var*
-//#UC END# *52A086150180_7834354B8302_var*
 begin
-//#UC START# *52A086150180_7834354B8302_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7834354B8302_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_Translation_WarningBaloon_Control_Viewer.RegisterInEngine
 
 procedure Tkw_Translation_WarningBaloon_Control_Viewer_Push.DoDoIt(const aCtx: TtfwContext);
@@ -153,21 +142,23 @@ end;//Tkw_Translation_WarningBaloon_Control_Viewer_Push.GetWordNameForRegister
 function TkwTranslationWarningBaloonFormViewer.Viewer(const aCtx: TtfwContext;
  aTranslation_WarningBaloonForm: TTranslation_WarningBaloonForm): TnscEditor;
  {* Реализация слова скрипта .TTranslation_WarningBaloonForm.Viewer }
-//#UC START# *AA0A0365CCEE_83A9A6BA36A3_var*
-//#UC END# *AA0A0365CCEE_83A9A6BA36A3_var*
 begin
-//#UC START# *AA0A0365CCEE_83A9A6BA36A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AA0A0365CCEE_83A9A6BA36A3_impl*
+ Result := aTranslation_WarningBaloonForm.Viewer;
 end;//TkwTranslationWarningBaloonFormViewer.Viewer
 
 procedure TkwTranslationWarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_83A9A6BA36A3_var*
-//#UC END# *4DAEEDE10285_83A9A6BA36A3_var*
+var l_aTranslation_WarningBaloonForm: TTranslation_WarningBaloonForm;
 begin
-//#UC START# *4DAEEDE10285_83A9A6BA36A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_83A9A6BA36A3_impl*
+ try
+  l_aTranslation_WarningBaloonForm := TTranslation_WarningBaloonForm(aCtx.rEngine.PopObjAs(TTranslation_WarningBaloonForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aTranslation_WarningBaloonForm: TTranslation_WarningBaloonForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aTranslation_WarningBaloonForm));
 end;//TkwTranslationWarningBaloonFormViewer.DoDoIt
 
 class function TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
@@ -177,12 +168,8 @@ end;//TkwTranslationWarningBaloonFormViewer.GetWordNameForRegister
 
 procedure TkwTranslationWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_83A9A6BA36A3_var*
-//#UC END# *52D00B00031A_83A9A6BA36A3_var*
 begin
-//#UC START# *52D00B00031A_83A9A6BA36A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_83A9A6BA36A3_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwTranslationWarningBaloonFormViewer.SetValuePrim
 
 function TkwTranslationWarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,7 +184,7 @@ end;//TkwTranslationWarningBaloonFormViewer.GetAllParamsCount
 
 function TkwTranslationWarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TTranslation_WarningBaloonForm)]);
 end;//TkwTranslationWarningBaloonFormViewer.ParamsTypes
 
 initialization

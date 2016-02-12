@@ -27,9 +27,9 @@ type
  _ItemType_ = Tl3ProtoDataContainer;
  _l3ObjectRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3ObjectRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
  _l3OpenArray_Parent_ = _l3ObjectRefListPrim_;
- {$Include l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  TnevShapePrim = class(_l3OpenArray_)
   {* Информация об отрисованном объекте }
   protected
@@ -126,9 +126,9 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TnevShapePrim;
 
-{$Include l3ObjectRefListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
 
-{$Include l3OpenArray.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function TnevShapePrim.IsCacheable: Boolean;

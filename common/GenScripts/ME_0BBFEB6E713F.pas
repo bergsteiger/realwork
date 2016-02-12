@@ -156,21 +156,14 @@ begin
 end;//Tkw_Form_PageSetup.GetWordNameForRegister
 
 function Tkw_Form_PageSetup.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_B3AC908036D8_var*
-//#UC END# *4DDFD2EA0116_B3AC908036D8_var*
 begin
-//#UC START# *4DDFD2EA0116_B3AC908036D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_B3AC908036D8_impl*
+ Result := 'en_PageSetup';
 end;//Tkw_Form_PageSetup.GetString
 
 class procedure Tkw_Form_PageSetup.RegisterInEngine;
-//#UC START# *52A086150180_B3AC908036D8_var*
-//#UC END# *52A086150180_B3AC908036D8_var*
 begin
-//#UC START# *52A086150180_B3AC908036D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_B3AC908036D8_impl*
+ inherited;
+ TtfwClassRef.Register(Ten_PageSetup);
 end;//Tkw_Form_PageSetup.RegisterInEngine
 
 class function Tkw_PageSetup_Control_PreviewGroupBox.GetWordNameForRegister: AnsiString;
@@ -179,21 +172,14 @@ begin
 end;//Tkw_PageSetup_Control_PreviewGroupBox.GetWordNameForRegister
 
 function Tkw_PageSetup_Control_PreviewGroupBox.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_772D544984D2_var*
-//#UC END# *4DDFD2EA0116_772D544984D2_var*
 begin
-//#UC START# *4DDFD2EA0116_772D544984D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_772D544984D2_impl*
+ Result := 'PreviewGroupBox';
 end;//Tkw_PageSetup_Control_PreviewGroupBox.GetString
 
 class procedure Tkw_PageSetup_Control_PreviewGroupBox.RegisterInEngine;
-//#UC START# *52A086150180_772D544984D2_var*
-//#UC END# *52A086150180_772D544984D2_var*
 begin
-//#UC START# *52A086150180_772D544984D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_772D544984D2_impl*
+ inherited;
+ TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_PageSetup_Control_PreviewGroupBox.RegisterInEngine
 
 procedure Tkw_PageSetup_Control_PreviewGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
@@ -216,21 +202,14 @@ begin
 end;//Tkw_PageSetup_Control_SettingsPageControl.GetWordNameForRegister
 
 function Tkw_PageSetup_Control_SettingsPageControl.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C13C6835EC3A_var*
-//#UC END# *4DDFD2EA0116_C13C6835EC3A_var*
 begin
-//#UC START# *4DDFD2EA0116_C13C6835EC3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C13C6835EC3A_impl*
+ Result := 'SettingsPageControl';
 end;//Tkw_PageSetup_Control_SettingsPageControl.GetString
 
 class procedure Tkw_PageSetup_Control_SettingsPageControl.RegisterInEngine;
-//#UC START# *52A086150180_C13C6835EC3A_var*
-//#UC END# *52A086150180_C13C6835EC3A_var*
 begin
-//#UC START# *52A086150180_C13C6835EC3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C13C6835EC3A_impl*
+ inherited;
+ TtfwClassRef.Register(TnscPageControl);
 end;//Tkw_PageSetup_Control_SettingsPageControl.RegisterInEngine
 
 procedure Tkw_PageSetup_Control_SettingsPageControl_Push.DoDoIt(const aCtx: TtfwContext);
@@ -250,21 +229,23 @@ end;//Tkw_PageSetup_Control_SettingsPageControl_Push.GetWordNameForRegister
 function TkwEnPageSetupPreviewGroupBox.PreviewGroupBox(const aCtx: TtfwContext;
  aen_PageSetup: Ten_PageSetup): TvtGroupBox;
  {* Реализация слова скрипта .Ten_PageSetup.PreviewGroupBox }
-//#UC START# *0629E4100124_56C42AEE3D11_var*
-//#UC END# *0629E4100124_56C42AEE3D11_var*
 begin
-//#UC START# *0629E4100124_56C42AEE3D11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0629E4100124_56C42AEE3D11_impl*
+ Result := aen_PageSetup.PreviewGroupBox;
 end;//TkwEnPageSetupPreviewGroupBox.PreviewGroupBox
 
 procedure TkwEnPageSetupPreviewGroupBox.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_56C42AEE3D11_var*
-//#UC END# *4DAEEDE10285_56C42AEE3D11_var*
+var l_aen_PageSetup: Ten_PageSetup;
 begin
-//#UC START# *4DAEEDE10285_56C42AEE3D11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_56C42AEE3D11_impl*
+ try
+  l_aen_PageSetup := Ten_PageSetup(aCtx.rEngine.PopObjAs(Ten_PageSetup));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PageSetup: Ten_PageSetup : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(PreviewGroupBox(aCtx, l_aen_PageSetup));
 end;//TkwEnPageSetupPreviewGroupBox.DoDoIt
 
 class function TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister: AnsiString;
@@ -274,12 +255,8 @@ end;//TkwEnPageSetupPreviewGroupBox.GetWordNameForRegister
 
 procedure TkwEnPageSetupPreviewGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_56C42AEE3D11_var*
-//#UC END# *52D00B00031A_56C42AEE3D11_var*
 begin
-//#UC START# *52D00B00031A_56C42AEE3D11_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_56C42AEE3D11_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству PreviewGroupBox', aCtx);
 end;//TkwEnPageSetupPreviewGroupBox.SetValuePrim
 
 function TkwEnPageSetupPreviewGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -294,27 +271,29 @@ end;//TkwEnPageSetupPreviewGroupBox.GetAllParamsCount
 
 function TkwEnPageSetupPreviewGroupBox.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PageSetup)]);
 end;//TkwEnPageSetupPreviewGroupBox.ParamsTypes
 
 function TkwEnPageSetupSettingsPageControl.SettingsPageControl(const aCtx: TtfwContext;
  aen_PageSetup: Ten_PageSetup): TnscPageControl;
  {* Реализация слова скрипта .Ten_PageSetup.SettingsPageControl }
-//#UC START# *5F075EA07FE3_82C3311120D2_var*
-//#UC END# *5F075EA07FE3_82C3311120D2_var*
 begin
-//#UC START# *5F075EA07FE3_82C3311120D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5F075EA07FE3_82C3311120D2_impl*
+ Result := aen_PageSetup.SettingsPageControl;
 end;//TkwEnPageSetupSettingsPageControl.SettingsPageControl
 
 procedure TkwEnPageSetupSettingsPageControl.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82C3311120D2_var*
-//#UC END# *4DAEEDE10285_82C3311120D2_var*
+var l_aen_PageSetup: Ten_PageSetup;
 begin
-//#UC START# *4DAEEDE10285_82C3311120D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82C3311120D2_impl*
+ try
+  l_aen_PageSetup := Ten_PageSetup(aCtx.rEngine.PopObjAs(Ten_PageSetup));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aen_PageSetup: Ten_PageSetup : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(SettingsPageControl(aCtx, l_aen_PageSetup));
 end;//TkwEnPageSetupSettingsPageControl.DoDoIt
 
 class function TkwEnPageSetupSettingsPageControl.GetWordNameForRegister: AnsiString;
@@ -324,12 +303,8 @@ end;//TkwEnPageSetupSettingsPageControl.GetWordNameForRegister
 
 procedure TkwEnPageSetupSettingsPageControl.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_82C3311120D2_var*
-//#UC END# *52D00B00031A_82C3311120D2_var*
 begin
-//#UC START# *52D00B00031A_82C3311120D2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_82C3311120D2_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству SettingsPageControl', aCtx);
 end;//TkwEnPageSetupSettingsPageControl.SetValuePrim
 
 function TkwEnPageSetupSettingsPageControl.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -344,7 +319,7 @@ end;//TkwEnPageSetupSettingsPageControl.GetAllParamsCount
 
 function TkwEnPageSetupSettingsPageControl.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(Ten_PageSetup)]);
 end;//TkwEnPageSetupSettingsPageControl.ParamsTypes
 
 initialization

@@ -19,7 +19,7 @@ uses
 
 type
  _nsParentedTagData_Parent_ = Tf1TagDataFromDTP;
- {$Include nsParentedTagData.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}
  Tf1LeafTagDataFromDTP = class(_nsParentedTagData_)
   {* Поставщик данных о листьевом параграфе }
   protected
@@ -42,7 +42,7 @@ uses
  , l3Base
 ;
 
-{$Include nsParentedTagData.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParentedTagData.imp.pas}
 
 procedure Tf1LeafTagDataFromDTP.DoSetWStyle(const aValue: IStream);
 //#UC START# *4C6EAFC9029B_4C727C300081_var*

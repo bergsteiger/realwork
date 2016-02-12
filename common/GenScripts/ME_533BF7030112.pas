@@ -26,7 +26,7 @@ const
 
 type
  _nsUnknownComponentWithIvcmState_Parent_ = TvgRemindersLine;
- {$Include nsUnknownComponentWithIvcmState.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
  TvgRemindersLineWithState = class(_nsUnknownComponentWithIvcmState_)
   private
    f_Left: Integer;
@@ -62,7 +62,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
-{$Include nsUnknownComponentWithIvcmState.imp.pas}
+{$Include w:\common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas}
 
 procedure TvgRemindersLineWithState.CheckName;
 //#UC START# *533BFFBD03B8_533BF7030112_var*

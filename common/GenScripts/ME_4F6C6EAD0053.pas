@@ -45,7 +45,7 @@ type
  _ItemType_ = TafwKeyValue;
  _l3RecordListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
  TafwSettingsImplPrimPrim = class(_l3RecordListPrim_)
  end;//TafwSettingsImplPrimPrim
 
@@ -119,6 +119,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TafwSettingsImplPrimPrim;
 
-{$Include l3RecordListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordListPrim.imp.pas}
 
 end.

@@ -20,7 +20,7 @@ type
  {$Define _UnknownIsBaseComponent}
  //#UC END# *47541E17024Eci*
  _l3Unknown_Parent_ = TComponent;
- {$Include l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *47541E17024Ecit*
  //#UC END# *47541E17024Ecit*
  Tl3InterfacedComponent = class(_l3Unknown_)
@@ -49,7 +49,7 @@ uses
  , l3Interlocked
 ;
 
-{$Include l3Unknown.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 function Tl3InterfacedComponent.COMQueryInterface(const IID: Tl3GUID;
  out Obj): Tl3HResult;

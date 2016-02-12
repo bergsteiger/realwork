@@ -22,7 +22,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTextViaEditorProcessor;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TInsertSectionBreak = {abstract} class(_CursorMover_)
   {* Тест на вставку разрыва раздела. }
   protected
@@ -65,7 +65,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TInsertSectionBreak.Process(aForm: TPrimTextLoadForm);

@@ -27,7 +27,7 @@ uses
 ;
 
 type
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsAdmin = {final} class(_vcmFormDataSourcePrim_, IdsAdmin)
   {* бизнес объект контейнера cfAdmin }
  end;//TdsAdmin
@@ -45,7 +45,7 @@ uses
 
 type _Instance_R_ = TdsAdmin;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 {$IfEnd} // Defined(Admin)
 
 end.

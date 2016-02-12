@@ -6,7 +6,7 @@
 {$Define evParaListPainter_imp}
 
 {$If Defined(evNeedPainters)}
- {$Include evParaPainter.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
  _evParaListPainter_ = class(_evParaPainter_)
   {* Рисователь списка параграфов }
   protected
@@ -40,7 +40,7 @@
 
 {$Else Defined(evNeedPainters)}
 
-{$Include evParaPainter.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
 _evParaListPainter_ = _evParaPainter_;
 
 {$IfEnd} // Defined(evNeedPainters)
@@ -51,7 +51,7 @@ _evParaListPainter_ = _evParaPainter_;
 {$Define evParaListPainter_imp_impl}
 
 {$If Defined(evNeedPainters)}
-{$Include evParaPainter.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evParaPainter.imp.pas}
 
 procedure _evParaListPainter_.AfterDrawChild(const aChild: InevPara;
  const aChildPainter: IevPainter;

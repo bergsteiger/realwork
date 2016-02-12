@@ -1,62 +1,46 @@
 unit kwEntityOperationPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Scripting"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Scripting/kwEntityOperationPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Scripting::Operations::TkwEntityOperationPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwEntityOperationPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
+{$Include vcmDefine.inc}
 
 interface
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  vcmBaseOperationsCollectionItem,
-  tfwScriptingInterfaces,
-  vcmBaseEntitiesCollectionItem,
-  tfwRegisterableWordPrim
-  ;
-{$IfEnd} //not NoScripts AND not NoVCM
+ l3IntfUses
+ , tfwRegisterableWordPrim
+ , vcmBaseOperationsCollectionItem
+ , vcmBaseEntitiesCollectionItem
+ , tfwScriptingInterfaces
+ , vcmExternalInterfaces
+;
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
 type
  TkwEntityOperationPrim = class(TtfwRegisterableWordPrim)
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // protected fields
-   f_Op : TvcmBaseOperationsCollectionItem;
-   f_En : TvcmBaseEntitiesCollectionItem;
- protected
- // protected methods
+  protected
+   f_Op: TvcmBaseOperationsCollectionItem;
+   f_En: TvcmBaseEntitiesCollectionItem;
+  protected
    procedure DoOp(const aCtx: TtfwContext;
-     const anOp: TvcmOPID); virtual; abstract;
- public
- // public methods
+    const anOp: TvcmOPID); virtual; abstract;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
    constructor Create(anEn: TvcmBaseEntitiesCollectionItem;
-     anOp: TvcmBaseOperationsCollectionItem); reintroduce;
+    anOp: TvcmBaseOperationsCollectionItem); reintroduce;
  end;//TkwEntityOperationPrim
-{$IfEnd} //not NoScripts AND not NoVCM
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-
-// start class TkwEntityOperationPrim
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
 
 constructor TkwEntityOperationPrim.Create(anEn: TvcmBaseEntitiesCollectionItem;
-  anOp: TvcmBaseOperationsCollectionItem);
+ anOp: TvcmBaseOperationsCollectionItem);
 //#UC START# *4DDBBDEB00DE_523006F7004A_var*
 //#UC END# *4DDBBDEB00DE_523006F7004A_var*
 begin
@@ -80,12 +64,9 @@ begin
 //#UC END# *4DAEEDE10285_523006F7004A_impl*
 end;//TkwEntityOperationPrim.DoDoIt
 
-{$IfEnd} //not NoScripts AND not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TkwEntityOperationPrim
  TkwEntityOperationPrim.RegisterClass;
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TkwEntityOperationPrim }
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
 end.

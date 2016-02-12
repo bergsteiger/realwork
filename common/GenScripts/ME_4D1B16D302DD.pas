@@ -21,7 +21,7 @@ uses
 
 type
  _SelectTablePart_Parent_ = TTextMetricsTest;
- {$Include SelectTablePart.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TTextMericsAfterDeleteTest = {abstract} class(_SelectTablePart_)
   {* Проверка метрик после удаления. }
   protected
@@ -58,7 +58,7 @@ uses
  , l3Base
 ;
 
-{$Include SelectTablePart.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TTextMericsAfterDeleteTest.Process(aForm: TPrimTextLoadForm);

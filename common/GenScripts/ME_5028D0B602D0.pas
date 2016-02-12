@@ -24,7 +24,7 @@ uses
 
 type
  _kwEditorGetTableFromCursor_Parent_ = TkwEditorFromStackWord;
- {$Include kwEditorGetTableFromCursor.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
  TkwPopEditorPrintTableCellsParams = {final} class(_kwEditorGetTableFromCursor_)
   {* *‘ормат:* anEditorControl pop:editor:PrintTableCellsParams
 *ќписание:* ѕечатает структуру информацию €чеек таблицы: тип объединени€, если объединенна€, то номер €чейки в строке сверху, номер €чейки в строке снизу и номер начальной €чейки/номер строки, где эта €чейка. –езультат выводитс€ в обычный файл вывода результатов.
@@ -52,7 +52,7 @@ uses
  , Table_Const
 ;
 
-{$Include kwEditorGetTableFromCursor.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas}
 
 procedure TkwPopEditorPrintTableCellsParams.DoWithEditor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow);

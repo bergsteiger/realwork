@@ -44,7 +44,7 @@ uses
 
 type
  _InitDataType_ = IdeDiction;
- {$Include dsCommonDiction.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
  TdsDiction = {final} class(_dsCommonDiction_, IdsDiction)
   {* перевод толкового словаря на сборку }
   private
@@ -104,7 +104,7 @@ uses
 
 type _Instance_R_ = TdsDiction;
 
-{$Include dsCommonDiction.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsCommonDiction.imp.pas}
 
 function TdsDiction.MakeSimpleTree: Il3SimpleTree;
  {* Создать данные дерева }

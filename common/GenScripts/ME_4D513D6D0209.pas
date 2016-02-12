@@ -21,7 +21,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTextViaEditorProcessor;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TInsertPictureTest = {abstract} class(_CursorMover_)
   {* Тест вставки картинки в текст. }
   protected
@@ -58,7 +58,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TInsertPictureTest.Process(aForm: TPrimTextLoadForm);

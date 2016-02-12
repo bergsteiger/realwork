@@ -105,12 +105,8 @@ begin
 end;//Tkw_Form_PreviewForm.GetWordNameForRegister
 
 function Tkw_Form_PreviewForm.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_25FD8618F2A7_var*
-//#UC END# *4DDFD2EA0116_25FD8618F2A7_var*
 begin
-//#UC START# *4DDFD2EA0116_25FD8618F2A7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_25FD8618F2A7_impl*
+ Result := 'efPreviewForm';
 end;//Tkw_Form_PreviewForm.GetString
 
 class function Tkw_PreviewForm_Control_PreviewPanel.GetWordNameForRegister: AnsiString;
@@ -119,21 +115,14 @@ begin
 end;//Tkw_PreviewForm_Control_PreviewPanel.GetWordNameForRegister
 
 function Tkw_PreviewForm_Control_PreviewPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D19E45D92C1F_var*
-//#UC END# *4DDFD2EA0116_D19E45D92C1F_var*
 begin
-//#UC START# *4DDFD2EA0116_D19E45D92C1F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D19E45D92C1F_impl*
+ Result := 'PreviewPanel';
 end;//Tkw_PreviewForm_Control_PreviewPanel.GetString
 
 class procedure Tkw_PreviewForm_Control_PreviewPanel.RegisterInEngine;
-//#UC START# *52A086150180_D19E45D92C1F_var*
-//#UC END# *52A086150180_D19E45D92C1F_var*
 begin
-//#UC START# *52A086150180_D19E45D92C1F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_D19E45D92C1F_impl*
+ inherited;
+ TtfwClassRef.Register(TnscPreviewPanel);
 end;//Tkw_PreviewForm_Control_PreviewPanel.RegisterInEngine
 
 procedure Tkw_PreviewForm_Control_PreviewPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -153,21 +142,23 @@ end;//Tkw_PreviewForm_Control_PreviewPanel_Push.GetWordNameForRegister
 function TkwEfPreviewFormPreviewPanel.PreviewPanel(const aCtx: TtfwContext;
  aefPreviewForm: TefPreviewForm): TnscPreviewPanel;
  {* Реализация слова скрипта .TefPreviewForm.PreviewPanel }
-//#UC START# *44089CA7ADC0_BEE124DE58A4_var*
-//#UC END# *44089CA7ADC0_BEE124DE58A4_var*
 begin
-//#UC START# *44089CA7ADC0_BEE124DE58A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *44089CA7ADC0_BEE124DE58A4_impl*
+ Result := aefPreviewForm.PreviewPanel;
 end;//TkwEfPreviewFormPreviewPanel.PreviewPanel
 
 procedure TkwEfPreviewFormPreviewPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BEE124DE58A4_var*
-//#UC END# *4DAEEDE10285_BEE124DE58A4_var*
+var l_aefPreviewForm: TefPreviewForm;
 begin
-//#UC START# *4DAEEDE10285_BEE124DE58A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BEE124DE58A4_impl*
+ try
+  l_aefPreviewForm := TefPreviewForm(aCtx.rEngine.PopObjAs(TefPreviewForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefPreviewForm: TefPreviewForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(PreviewPanel(aCtx, l_aefPreviewForm));
 end;//TkwEfPreviewFormPreviewPanel.DoDoIt
 
 class function TkwEfPreviewFormPreviewPanel.GetWordNameForRegister: AnsiString;
@@ -177,12 +168,8 @@ end;//TkwEfPreviewFormPreviewPanel.GetWordNameForRegister
 
 procedure TkwEfPreviewFormPreviewPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BEE124DE58A4_var*
-//#UC END# *52D00B00031A_BEE124DE58A4_var*
 begin
-//#UC START# *52D00B00031A_BEE124DE58A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BEE124DE58A4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству PreviewPanel', aCtx);
 end;//TkwEfPreviewFormPreviewPanel.SetValuePrim
 
 function TkwEfPreviewFormPreviewPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,7 +184,7 @@ end;//TkwEfPreviewFormPreviewPanel.GetAllParamsCount
 
 function TkwEfPreviewFormPreviewPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefPreviewForm)]);
 end;//TkwEfPreviewFormPreviewPanel.ParamsTypes
 
 initialization

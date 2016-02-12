@@ -23,7 +23,7 @@ type
  _ItemType_ = InevAnchor;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnevAnchorList = class(_l3InterfaceRefList_)
  end;//TnevAnchorList
 
@@ -39,6 +39,6 @@ uses
 
 type _Instance_R_ = TnevAnchorList;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 end.

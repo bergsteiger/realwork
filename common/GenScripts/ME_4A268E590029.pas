@@ -39,7 +39,7 @@ type
    f_DownPoint: InevBasePoint;
   private
    function IsHyperlink: Boolean;
-   procedure GetHyperLink;
+   function GetHyperLink: Tl3Variant;
     {* Возвращает гиперссылку, от продолжения на данном сегменте }
    {$If Defined(evChangeSegmentByMouse)}
    function GetPlacement: TevSegmentPlacement;
@@ -50,7 +50,10 @@ type
     const aPack: InevOp);
    {$IfEnd} // Defined(evChangeSegmentByMouse)
    {$If Defined(evChangeSegmentByMouse)}
-   procedure CanChangeBorderPrim;
+   function CanChangeBorderPrim(aPara: Tl3Variant;
+    aSegments: Tl3Variant;
+    aPosition: Integer;
+    out aPlacement: TevSegmentPlacement): Boolean;
    {$IfEnd} // Defined(evChangeSegmentByMouse)
    {$If Defined(evChangeSegmentByMouse)}
    function CanChangeBorder(const aView: InevControlView;
@@ -188,7 +191,7 @@ begin
 //#UC END# *4A269501015E_4A268E590029_impl*
 end;//TevSegmentHotSpot.IsHyperlink
 
-procedure TevSegmentHotSpot.GetHyperLink;
+function TevSegmentHotSpot.GetHyperLink: Tl3Variant;
  {* Возвращает гиперссылку, от продолжения на данном сегменте }
 var l_Para: InevPara;
 var l_Segment: Tl3Tag absolute Result;
@@ -196,7 +199,8 @@ var l_Segment: Tl3Tag absolute Result;
  procedure IterateLayers;
   {* Перебирает слои сегментов }
 
-  procedure DoIt;
+  function DoIt(anItem: Tl3Variant;
+   anIndex: Integer): Boolean;
    {* Обрабатывает слой сегментов }
   var l_Handle: Integer;
 
@@ -329,11 +333,15 @@ end;//TevSegmentHotSpot.ChangeBorder
 {$IfEnd} // Defined(evChangeSegmentByMouse)
 
 {$If Defined(evChangeSegmentByMouse)}
-procedure TevSegmentHotSpot.CanChangeBorderPrim;
+function TevSegmentHotSpot.CanChangeBorderPrim(aPara: Tl3Variant;
+ aSegments: Tl3Variant;
+ aPosition: Integer;
+ out aPlacement: TevSegmentPlacement): Boolean;
 var l_Start: Integer;
 var l_Finish: Integer;
 
- procedure HasSegment;
+ function HasSegment(aStart: Integer;
+  aFinish: Integer): Boolean;
 
   function thereIsSegment(S: Tl3Variant;
    Index: Integer): Boolean;

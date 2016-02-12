@@ -203,12 +203,8 @@ begin
 end;//Tkw_Form_AdminForm.GetWordNameForRegister
 
 function Tkw_Form_AdminForm.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F4A92FC5FEBA_var*
-//#UC END# *4DDFD2EA0116_F4A92FC5FEBA_var*
 begin
-//#UC START# *4DDFD2EA0116_F4A92FC5FEBA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F4A92FC5FEBA_impl*
+ Result := 'cfAdminForm';
 end;//Tkw_Form_AdminForm.GetString
 
 class function Tkw_AdminForm_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -217,21 +213,14 @@ begin
 end;//Tkw_AdminForm_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_AdminForm_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_89693E060DE9_var*
-//#UC END# *4DDFD2EA0116_89693E060DE9_var*
 begin
-//#UC START# *4DDFD2EA0116_89693E060DE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_89693E060DE9_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_AdminForm_Control_BackgroundPanel.GetString
 
 class procedure Tkw_AdminForm_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_89693E060DE9_var*
-//#UC END# *52A086150180_89693E060DE9_var*
 begin
-//#UC START# *52A086150180_89693E060DE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_89693E060DE9_impl*
+ inherited;
+ TtfwClassRef.Register(TvtProportionalPanel);
 end;//Tkw_AdminForm_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_AdminForm_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -254,21 +243,14 @@ begin
 end;//Tkw_AdminForm_Control_PropertyZone.GetWordNameForRegister
 
 function Tkw_AdminForm_Control_PropertyZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_71F3EE1BBFD3_var*
-//#UC END# *4DDFD2EA0116_71F3EE1BBFD3_var*
 begin
-//#UC START# *4DDFD2EA0116_71F3EE1BBFD3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_71F3EE1BBFD3_impl*
+ Result := 'PropertyZone';
 end;//Tkw_AdminForm_Control_PropertyZone.GetString
 
 class procedure Tkw_AdminForm_Control_PropertyZone.RegisterInEngine;
-//#UC START# *52A086150180_71F3EE1BBFD3_var*
-//#UC END# *52A086150180_71F3EE1BBFD3_var*
 begin
-//#UC START# *52A086150180_71F3EE1BBFD3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_71F3EE1BBFD3_impl*
+ inherited;
+ TtfwClassRef.Register(TvtSizeablePanel);
 end;//Tkw_AdminForm_Control_PropertyZone.RegisterInEngine
 
 procedure Tkw_AdminForm_Control_PropertyZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -291,21 +273,14 @@ begin
 end;//Tkw_AdminForm_Control_TreeZone.GetWordNameForRegister
 
 function Tkw_AdminForm_Control_TreeZone.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6E390D96FE2B_var*
-//#UC END# *4DDFD2EA0116_6E390D96FE2B_var*
 begin
-//#UC START# *4DDFD2EA0116_6E390D96FE2B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6E390D96FE2B_impl*
+ Result := 'TreeZone';
 end;//Tkw_AdminForm_Control_TreeZone.GetString
 
 class procedure Tkw_AdminForm_Control_TreeZone.RegisterInEngine;
-//#UC START# *52A086150180_6E390D96FE2B_var*
-//#UC END# *52A086150180_6E390D96FE2B_var*
 begin
-//#UC START# *52A086150180_6E390D96FE2B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6E390D96FE2B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_AdminForm_Control_TreeZone.RegisterInEngine
 
 procedure Tkw_AdminForm_Control_TreeZone_Push.DoDoIt(const aCtx: TtfwContext);
@@ -325,21 +300,23 @@ end;//Tkw_AdminForm_Control_TreeZone_Push.GetWordNameForRegister
 function TkwCfAdminFormBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  acfAdminForm: TcfAdminForm): TvtProportionalPanel;
  {* Реализация слова скрипта .TcfAdminForm.BackgroundPanel }
-//#UC START# *0F1520A3D8B8_C4515223E983_var*
-//#UC END# *0F1520A3D8B8_C4515223E983_var*
 begin
-//#UC START# *0F1520A3D8B8_C4515223E983_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0F1520A3D8B8_C4515223E983_impl*
+ Result := acfAdminForm.BackgroundPanel;
 end;//TkwCfAdminFormBackgroundPanel.BackgroundPanel
 
 procedure TkwCfAdminFormBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C4515223E983_var*
-//#UC END# *4DAEEDE10285_C4515223E983_var*
+var l_acfAdminForm: TcfAdminForm;
 begin
-//#UC START# *4DAEEDE10285_C4515223E983_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C4515223E983_impl*
+ try
+  l_acfAdminForm := TcfAdminForm(aCtx.rEngine.PopObjAs(TcfAdminForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfAdminForm: TcfAdminForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormBackgroundPanel.DoDoIt
 
 class function TkwCfAdminFormBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -349,12 +326,8 @@ end;//TkwCfAdminFormBackgroundPanel.GetWordNameForRegister
 
 procedure TkwCfAdminFormBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C4515223E983_var*
-//#UC END# *52D00B00031A_C4515223E983_var*
 begin
-//#UC START# *52D00B00031A_C4515223E983_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C4515223E983_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwCfAdminFormBackgroundPanel.SetValuePrim
 
 function TkwCfAdminFormBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -369,27 +342,29 @@ end;//TkwCfAdminFormBackgroundPanel.GetAllParamsCount
 
 function TkwCfAdminFormBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormBackgroundPanel.ParamsTypes
 
 function TkwCfAdminFormPropertyZone.PropertyZone(const aCtx: TtfwContext;
  acfAdminForm: TcfAdminForm): TvtSizeablePanel;
  {* Реализация слова скрипта .TcfAdminForm.PropertyZone }
-//#UC START# *C3D524687333_AFA25E6606C9_var*
-//#UC END# *C3D524687333_AFA25E6606C9_var*
 begin
-//#UC START# *C3D524687333_AFA25E6606C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C3D524687333_AFA25E6606C9_impl*
+ Result := acfAdminForm.PropertyZone;
 end;//TkwCfAdminFormPropertyZone.PropertyZone
 
 procedure TkwCfAdminFormPropertyZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AFA25E6606C9_var*
-//#UC END# *4DAEEDE10285_AFA25E6606C9_var*
+var l_acfAdminForm: TcfAdminForm;
 begin
-//#UC START# *4DAEEDE10285_AFA25E6606C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AFA25E6606C9_impl*
+ try
+  l_acfAdminForm := TcfAdminForm(aCtx.rEngine.PopObjAs(TcfAdminForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfAdminForm: TcfAdminForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(PropertyZone(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormPropertyZone.DoDoIt
 
 class function TkwCfAdminFormPropertyZone.GetWordNameForRegister: AnsiString;
@@ -399,12 +374,8 @@ end;//TkwCfAdminFormPropertyZone.GetWordNameForRegister
 
 procedure TkwCfAdminFormPropertyZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AFA25E6606C9_var*
-//#UC END# *52D00B00031A_AFA25E6606C9_var*
 begin
-//#UC START# *52D00B00031A_AFA25E6606C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AFA25E6606C9_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству PropertyZone', aCtx);
 end;//TkwCfAdminFormPropertyZone.SetValuePrim
 
 function TkwCfAdminFormPropertyZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -419,27 +390,29 @@ end;//TkwCfAdminFormPropertyZone.GetAllParamsCount
 
 function TkwCfAdminFormPropertyZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormPropertyZone.ParamsTypes
 
 function TkwCfAdminFormTreeZone.TreeZone(const aCtx: TtfwContext;
  acfAdminForm: TcfAdminForm): TvtPanel;
  {* Реализация слова скрипта .TcfAdminForm.TreeZone }
-//#UC START# *7F4CA87D95FF_CE662E9AFEBF_var*
-//#UC END# *7F4CA87D95FF_CE662E9AFEBF_var*
 begin
-//#UC START# *7F4CA87D95FF_CE662E9AFEBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *7F4CA87D95FF_CE662E9AFEBF_impl*
+ Result := acfAdminForm.TreeZone;
 end;//TkwCfAdminFormTreeZone.TreeZone
 
 procedure TkwCfAdminFormTreeZone.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CE662E9AFEBF_var*
-//#UC END# *4DAEEDE10285_CE662E9AFEBF_var*
+var l_acfAdminForm: TcfAdminForm;
 begin
-//#UC START# *4DAEEDE10285_CE662E9AFEBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CE662E9AFEBF_impl*
+ try
+  l_acfAdminForm := TcfAdminForm(aCtx.rEngine.PopObjAs(TcfAdminForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра acfAdminForm: TcfAdminForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(TreeZone(aCtx, l_acfAdminForm));
 end;//TkwCfAdminFormTreeZone.DoDoIt
 
 class function TkwCfAdminFormTreeZone.GetWordNameForRegister: AnsiString;
@@ -449,12 +422,8 @@ end;//TkwCfAdminFormTreeZone.GetWordNameForRegister
 
 procedure TkwCfAdminFormTreeZone.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_CE662E9AFEBF_var*
-//#UC END# *52D00B00031A_CE662E9AFEBF_var*
 begin
-//#UC START# *52D00B00031A_CE662E9AFEBF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_CE662E9AFEBF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству TreeZone', aCtx);
 end;//TkwCfAdminFormTreeZone.SetValuePrim
 
 function TkwCfAdminFormTreeZone.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -469,7 +438,7 @@ end;//TkwCfAdminFormTreeZone.GetAllParamsCount
 
 function TkwCfAdminFormTreeZone.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TcfAdminForm)]);
 end;//TkwCfAdminFormTreeZone.ParamsTypes
 
 initialization

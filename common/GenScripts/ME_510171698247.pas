@@ -852,12 +852,8 @@ begin
 end;//Tkw_Form_Login.GetWordNameForRegister
 
 function Tkw_Form_Login.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_261C9A9EE165_var*
-//#UC END# *4DDFD2EA0116_261C9A9EE165_var*
 begin
-//#UC START# *4DDFD2EA0116_261C9A9EE165_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_261C9A9EE165_impl*
+ Result := 'LoginForm';
 end;//Tkw_Form_Login.GetString
 
 class function Tkw_Login_Control_RegisteredGroupBox.GetWordNameForRegister: AnsiString;
@@ -866,21 +862,14 @@ begin
 end;//Tkw_Login_Control_RegisteredGroupBox.GetWordNameForRegister
 
 function Tkw_Login_Control_RegisteredGroupBox.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_D162EBE5BA6B_var*
-//#UC END# *4DDFD2EA0116_D162EBE5BA6B_var*
 begin
-//#UC START# *4DDFD2EA0116_D162EBE5BA6B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_D162EBE5BA6B_impl*
+ Result := 'RegisteredGroupBox';
 end;//Tkw_Login_Control_RegisteredGroupBox.GetString
 
 class procedure Tkw_Login_Control_RegisteredGroupBox.RegisterInEngine;
-//#UC START# *52A086150180_D162EBE5BA6B_var*
-//#UC END# *52A086150180_D162EBE5BA6B_var*
 begin
-//#UC START# *52A086150180_D162EBE5BA6B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_D162EBE5BA6B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_Login_Control_RegisteredGroupBox.RegisterInEngine
 
 procedure Tkw_Login_Control_RegisteredGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
@@ -903,21 +892,14 @@ begin
 end;//Tkw_Login_Control_lblLogin.GetWordNameForRegister
 
 function Tkw_Login_Control_lblLogin.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_498E275B1BF9_var*
-//#UC END# *4DDFD2EA0116_498E275B1BF9_var*
 begin
-//#UC START# *4DDFD2EA0116_498E275B1BF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_498E275B1BF9_impl*
+ Result := 'lblLogin';
 end;//Tkw_Login_Control_lblLogin.GetString
 
 class procedure Tkw_Login_Control_lblLogin.RegisterInEngine;
-//#UC START# *52A086150180_498E275B1BF9_var*
-//#UC END# *52A086150180_498E275B1BF9_var*
 begin
-//#UC START# *52A086150180_498E275B1BF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_498E275B1BF9_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_Login_Control_lblLogin.RegisterInEngine
 
 procedure Tkw_Login_Control_lblLogin_Push.DoDoIt(const aCtx: TtfwContext);
@@ -940,21 +922,14 @@ begin
 end;//Tkw_Login_Control_lblPassword.GetWordNameForRegister
 
 function Tkw_Login_Control_lblPassword.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_59A6F6A37B4D_var*
-//#UC END# *4DDFD2EA0116_59A6F6A37B4D_var*
 begin
-//#UC START# *4DDFD2EA0116_59A6F6A37B4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_59A6F6A37B4D_impl*
+ Result := 'lblPassword';
 end;//Tkw_Login_Control_lblPassword.GetString
 
 class procedure Tkw_Login_Control_lblPassword.RegisterInEngine;
-//#UC START# *52A086150180_59A6F6A37B4D_var*
-//#UC END# *52A086150180_59A6F6A37B4D_var*
 begin
-//#UC START# *52A086150180_59A6F6A37B4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_59A6F6A37B4D_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_Login_Control_lblPassword.RegisterInEngine
 
 procedure Tkw_Login_Control_lblPassword_Push.DoDoIt(const aCtx: TtfwContext);
@@ -977,21 +952,14 @@ begin
 end;//Tkw_Login_Control_EnterPaintBox.GetWordNameForRegister
 
 function Tkw_Login_Control_EnterPaintBox.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1A40AA72C55B_var*
-//#UC END# *4DDFD2EA0116_1A40AA72C55B_var*
 begin
-//#UC START# *4DDFD2EA0116_1A40AA72C55B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1A40AA72C55B_impl*
+ Result := 'EnterPaintBox';
 end;//Tkw_Login_Control_EnterPaintBox.GetString
 
 class procedure Tkw_Login_Control_EnterPaintBox.RegisterInEngine;
-//#UC START# *52A086150180_1A40AA72C55B_var*
-//#UC END# *52A086150180_1A40AA72C55B_var*
 begin
-//#UC START# *52A086150180_1A40AA72C55B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1A40AA72C55B_impl*
+ inherited;
+ TtfwClassRef.Register(TPaintBox);
 end;//Tkw_Login_Control_EnterPaintBox.RegisterInEngine
 
 procedure Tkw_Login_Control_EnterPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1014,21 +982,14 @@ begin
 end;//Tkw_Login_Control_edUserName.GetWordNameForRegister
 
 function Tkw_Login_Control_edUserName.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3C63147DE6A9_var*
-//#UC END# *4DDFD2EA0116_3C63147DE6A9_var*
 begin
-//#UC START# *4DDFD2EA0116_3C63147DE6A9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3C63147DE6A9_impl*
+ Result := 'edUserName';
 end;//Tkw_Login_Control_edUserName.GetString
 
 class procedure Tkw_Login_Control_edUserName.RegisterInEngine;
-//#UC START# *52A086150180_3C63147DE6A9_var*
-//#UC END# *52A086150180_3C63147DE6A9_var*
 begin
-//#UC START# *52A086150180_3C63147DE6A9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_3C63147DE6A9_impl*
+ inherited;
+ TtfwClassRef.Register(TnscComboBoxWithReadOnly);
 end;//Tkw_Login_Control_edUserName.RegisterInEngine
 
 procedure Tkw_Login_Control_edUserName_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1051,21 +1012,14 @@ begin
 end;//Tkw_Login_Control_edPassword.GetWordNameForRegister
 
 function Tkw_Login_Control_edPassword.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8EEA9E785569_var*
-//#UC END# *4DDFD2EA0116_8EEA9E785569_var*
 begin
-//#UC START# *4DDFD2EA0116_8EEA9E785569_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8EEA9E785569_impl*
+ Result := 'edPassword';
 end;//Tkw_Login_Control_edPassword.GetString
 
 class procedure Tkw_Login_Control_edPassword.RegisterInEngine;
-//#UC START# *52A086150180_8EEA9E785569_var*
-//#UC END# *52A086150180_8EEA9E785569_var*
 begin
-//#UC START# *52A086150180_8EEA9E785569_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8EEA9E785569_impl*
+ inherited;
+ TtfwClassRef.Register(TnscComboBoxWithPwdChar);
 end;//Tkw_Login_Control_edPassword.RegisterInEngine
 
 procedure Tkw_Login_Control_edPassword_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1088,21 +1042,14 @@ begin
 end;//Tkw_Login_Control_lblForgetPassword.GetWordNameForRegister
 
 function Tkw_Login_Control_lblForgetPassword.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6384D06DD800_var*
-//#UC END# *4DDFD2EA0116_6384D06DD800_var*
 begin
-//#UC START# *4DDFD2EA0116_6384D06DD800_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6384D06DD800_impl*
+ Result := 'lblForgetPassword';
 end;//Tkw_Login_Control_lblForgetPassword.GetString
 
 class procedure Tkw_Login_Control_lblForgetPassword.RegisterInEngine;
-//#UC START# *52A086150180_6384D06DD800_var*
-//#UC END# *52A086150180_6384D06DD800_var*
 begin
-//#UC START# *52A086150180_6384D06DD800_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6384D06DD800_impl*
+ inherited;
+ TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_Login_Control_lblForgetPassword.RegisterInEngine
 
 procedure Tkw_Login_Control_lblForgetPassword_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1125,21 +1072,14 @@ begin
 end;//Tkw_Login_Control_cbAutoLogin.GetWordNameForRegister
 
 function Tkw_Login_Control_cbAutoLogin.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_3FBF8382C090_var*
-//#UC END# *4DDFD2EA0116_3FBF8382C090_var*
 begin
-//#UC START# *4DDFD2EA0116_3FBF8382C090_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_3FBF8382C090_impl*
+ Result := 'cbAutoLogin';
 end;//Tkw_Login_Control_cbAutoLogin.GetString
 
 class procedure Tkw_Login_Control_cbAutoLogin.RegisterInEngine;
-//#UC START# *52A086150180_3FBF8382C090_var*
-//#UC END# *52A086150180_3FBF8382C090_var*
 begin
-//#UC START# *52A086150180_3FBF8382C090_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_3FBF8382C090_impl*
+ inherited;
+ TtfwClassRef.Register(TvtCheckBox);
 end;//Tkw_Login_Control_cbAutoLogin.RegisterInEngine
 
 procedure Tkw_Login_Control_cbAutoLogin_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1162,21 +1102,14 @@ begin
 end;//Tkw_Login_Control_btnOk.GetWordNameForRegister
 
 function Tkw_Login_Control_btnOk.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_57452CA115E9_var*
-//#UC END# *4DDFD2EA0116_57452CA115E9_var*
 begin
-//#UC START# *4DDFD2EA0116_57452CA115E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_57452CA115E9_impl*
+ Result := 'btnOk';
 end;//Tkw_Login_Control_btnOk.GetString
 
 class procedure Tkw_Login_Control_btnOk.RegisterInEngine;
-//#UC START# *52A086150180_57452CA115E9_var*
-//#UC END# *52A086150180_57452CA115E9_var*
 begin
-//#UC START# *52A086150180_57452CA115E9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_57452CA115E9_impl*
+ inherited;
+ TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_Login_Control_btnOk.RegisterInEngine
 
 procedure Tkw_Login_Control_btnOk_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1199,21 +1132,14 @@ begin
 end;//Tkw_Login_Control_NewUserGroupBox.GetWordNameForRegister
 
 function Tkw_Login_Control_NewUserGroupBox.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_CEEF938E7CA5_var*
-//#UC END# *4DDFD2EA0116_CEEF938E7CA5_var*
 begin
-//#UC START# *4DDFD2EA0116_CEEF938E7CA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_CEEF938E7CA5_impl*
+ Result := 'NewUserGroupBox';
 end;//Tkw_Login_Control_NewUserGroupBox.GetString
 
 class procedure Tkw_Login_Control_NewUserGroupBox.RegisterInEngine;
-//#UC START# *52A086150180_CEEF938E7CA5_var*
-//#UC END# *52A086150180_CEEF938E7CA5_var*
 begin
-//#UC START# *52A086150180_CEEF938E7CA5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_CEEF938E7CA5_impl*
+ inherited;
+ TtfwClassRef.Register(TvtGroupBox);
 end;//Tkw_Login_Control_NewUserGroupBox.RegisterInEngine
 
 procedure Tkw_Login_Control_NewUserGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1236,21 +1162,14 @@ begin
 end;//Tkw_Login_Control_NewUserLabel.GetWordNameForRegister
 
 function Tkw_Login_Control_NewUserLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_BF98098EB9AC_var*
-//#UC END# *4DDFD2EA0116_BF98098EB9AC_var*
 begin
-//#UC START# *4DDFD2EA0116_BF98098EB9AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_BF98098EB9AC_impl*
+ Result := 'NewUserLabel';
 end;//Tkw_Login_Control_NewUserLabel.GetString
 
 class procedure Tkw_Login_Control_NewUserLabel.RegisterInEngine;
-//#UC START# *52A086150180_BF98098EB9AC_var*
-//#UC END# *52A086150180_BF98098EB9AC_var*
 begin
-//#UC START# *52A086150180_BF98098EB9AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_BF98098EB9AC_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_Login_Control_NewUserLabel.RegisterInEngine
 
 procedure Tkw_Login_Control_NewUserLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1273,21 +1192,14 @@ begin
 end;//Tkw_Login_Control_NewUserPaintBox.GetWordNameForRegister
 
 function Tkw_Login_Control_NewUserPaintBox.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_872FA0A52DE9_var*
-//#UC END# *4DDFD2EA0116_872FA0A52DE9_var*
 begin
-//#UC START# *4DDFD2EA0116_872FA0A52DE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_872FA0A52DE9_impl*
+ Result := 'NewUserPaintBox';
 end;//Tkw_Login_Control_NewUserPaintBox.GetString
 
 class procedure Tkw_Login_Control_NewUserPaintBox.RegisterInEngine;
-//#UC START# *52A086150180_872FA0A52DE9_var*
-//#UC END# *52A086150180_872FA0A52DE9_var*
 begin
-//#UC START# *52A086150180_872FA0A52DE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_872FA0A52DE9_impl*
+ inherited;
+ TtfwClassRef.Register(TPaintBox);
 end;//Tkw_Login_Control_NewUserPaintBox.RegisterInEngine
 
 procedure Tkw_Login_Control_NewUserPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1310,21 +1222,14 @@ begin
 end;//Tkw_Login_Control_lblNewUser.GetWordNameForRegister
 
 function Tkw_Login_Control_lblNewUser.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8B1EDAFE04A3_var*
-//#UC END# *4DDFD2EA0116_8B1EDAFE04A3_var*
 begin
-//#UC START# *4DDFD2EA0116_8B1EDAFE04A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8B1EDAFE04A3_impl*
+ Result := 'lblNewUser';
 end;//Tkw_Login_Control_lblNewUser.GetString
 
 class procedure Tkw_Login_Control_lblNewUser.RegisterInEngine;
-//#UC START# *52A086150180_8B1EDAFE04A3_var*
-//#UC END# *52A086150180_8B1EDAFE04A3_var*
 begin
-//#UC START# *52A086150180_8B1EDAFE04A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8B1EDAFE04A3_impl*
+ inherited;
+ TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_Login_Control_lblNewUser.RegisterInEngine
 
 procedure Tkw_Login_Control_lblNewUser_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1347,21 +1252,14 @@ begin
 end;//Tkw_Login_Control_HelpPanel.GetWordNameForRegister
 
 function Tkw_Login_Control_HelpPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_7434B9DF105F_var*
-//#UC END# *4DDFD2EA0116_7434B9DF105F_var*
 begin
-//#UC START# *4DDFD2EA0116_7434B9DF105F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_7434B9DF105F_impl*
+ Result := 'HelpPanel';
 end;//Tkw_Login_Control_HelpPanel.GetString
 
 class procedure Tkw_Login_Control_HelpPanel.RegisterInEngine;
-//#UC START# *52A086150180_7434B9DF105F_var*
-//#UC END# *52A086150180_7434B9DF105F_var*
 begin
-//#UC START# *52A086150180_7434B9DF105F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_7434B9DF105F_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_Login_Control_HelpPanel.RegisterInEngine
 
 procedure Tkw_Login_Control_HelpPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1384,21 +1282,14 @@ begin
 end;//Tkw_Login_Control_HelpPaintBox.GetWordNameForRegister
 
 function Tkw_Login_Control_HelpPaintBox.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_2764998FE17B_var*
-//#UC END# *4DDFD2EA0116_2764998FE17B_var*
 begin
-//#UC START# *4DDFD2EA0116_2764998FE17B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_2764998FE17B_impl*
+ Result := 'HelpPaintBox';
 end;//Tkw_Login_Control_HelpPaintBox.GetString
 
 class procedure Tkw_Login_Control_HelpPaintBox.RegisterInEngine;
-//#UC START# *52A086150180_2764998FE17B_var*
-//#UC END# *52A086150180_2764998FE17B_var*
 begin
-//#UC START# *52A086150180_2764998FE17B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_2764998FE17B_impl*
+ inherited;
+ TtfwClassRef.Register(TPaintBox);
 end;//Tkw_Login_Control_HelpPaintBox.RegisterInEngine
 
 procedure Tkw_Login_Control_HelpPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1421,21 +1312,14 @@ begin
 end;//Tkw_Login_Control_HelpLabel.GetWordNameForRegister
 
 function Tkw_Login_Control_HelpLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_96D2E440FC0E_var*
-//#UC END# *4DDFD2EA0116_96D2E440FC0E_var*
 begin
-//#UC START# *4DDFD2EA0116_96D2E440FC0E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_96D2E440FC0E_impl*
+ Result := 'HelpLabel';
 end;//Tkw_Login_Control_HelpLabel.GetString
 
 class procedure Tkw_Login_Control_HelpLabel.RegisterInEngine;
-//#UC START# *52A086150180_96D2E440FC0E_var*
-//#UC END# *52A086150180_96D2E440FC0E_var*
 begin
-//#UC START# *52A086150180_96D2E440FC0E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_96D2E440FC0E_impl*
+ inherited;
+ TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_Login_Control_HelpLabel.RegisterInEngine
 
 procedure Tkw_Login_Control_HelpLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -1455,21 +1339,23 @@ end;//Tkw_Login_Control_HelpLabel_Push.GetWordNameForRegister
 function TkwLoginFormRegisteredGroupBox.RegisteredGroupBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtGroupBox;
  {* Реализация слова скрипта .TLoginForm.RegisteredGroupBox }
-//#UC START# *73D99A3E2AA6_9B4F211D4C21_var*
-//#UC END# *73D99A3E2AA6_9B4F211D4C21_var*
 begin
-//#UC START# *73D99A3E2AA6_9B4F211D4C21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *73D99A3E2AA6_9B4F211D4C21_impl*
+ Result := aLoginForm.RegisteredGroupBox;
 end;//TkwLoginFormRegisteredGroupBox.RegisteredGroupBox
 
 procedure TkwLoginFormRegisteredGroupBox.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9B4F211D4C21_var*
-//#UC END# *4DAEEDE10285_9B4F211D4C21_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_9B4F211D4C21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9B4F211D4C21_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(RegisteredGroupBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormRegisteredGroupBox.DoDoIt
 
 class function TkwLoginFormRegisteredGroupBox.GetWordNameForRegister: AnsiString;
@@ -1479,12 +1365,8 @@ end;//TkwLoginFormRegisteredGroupBox.GetWordNameForRegister
 
 procedure TkwLoginFormRegisteredGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9B4F211D4C21_var*
-//#UC END# *52D00B00031A_9B4F211D4C21_var*
 begin
-//#UC START# *52D00B00031A_9B4F211D4C21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9B4F211D4C21_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству RegisteredGroupBox', aCtx);
 end;//TkwLoginFormRegisteredGroupBox.SetValuePrim
 
 function TkwLoginFormRegisteredGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1499,27 +1381,29 @@ end;//TkwLoginFormRegisteredGroupBox.GetAllParamsCount
 
 function TkwLoginFormRegisteredGroupBox.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormRegisteredGroupBox.ParamsTypes
 
 function TkwLoginFormLblLogin.lblLogin(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtLabel;
  {* Реализация слова скрипта .TLoginForm.lblLogin }
-//#UC START# *66D8455F1F9B_FFD5E9C273CA_var*
-//#UC END# *66D8455F1F9B_FFD5E9C273CA_var*
 begin
-//#UC START# *66D8455F1F9B_FFD5E9C273CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *66D8455F1F9B_FFD5E9C273CA_impl*
+ Result := aLoginForm.lblLogin;
 end;//TkwLoginFormLblLogin.lblLogin
 
 procedure TkwLoginFormLblLogin.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FFD5E9C273CA_var*
-//#UC END# *4DAEEDE10285_FFD5E9C273CA_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_FFD5E9C273CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FFD5E9C273CA_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblLogin(aCtx, l_aLoginForm));
 end;//TkwLoginFormLblLogin.DoDoIt
 
 class function TkwLoginFormLblLogin.GetWordNameForRegister: AnsiString;
@@ -1529,12 +1413,8 @@ end;//TkwLoginFormLblLogin.GetWordNameForRegister
 
 procedure TkwLoginFormLblLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FFD5E9C273CA_var*
-//#UC END# *52D00B00031A_FFD5E9C273CA_var*
 begin
-//#UC START# *52D00B00031A_FFD5E9C273CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FFD5E9C273CA_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblLogin', aCtx);
 end;//TkwLoginFormLblLogin.SetValuePrim
 
 function TkwLoginFormLblLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1549,27 +1429,29 @@ end;//TkwLoginFormLblLogin.GetAllParamsCount
 
 function TkwLoginFormLblLogin.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormLblLogin.ParamsTypes
 
 function TkwLoginFormLblPassword.lblPassword(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtLabel;
  {* Реализация слова скрипта .TLoginForm.lblPassword }
-//#UC START# *C83B0D32A29B_ADC1F68E0487_var*
-//#UC END# *C83B0D32A29B_ADC1F68E0487_var*
 begin
-//#UC START# *C83B0D32A29B_ADC1F68E0487_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C83B0D32A29B_ADC1F68E0487_impl*
+ Result := aLoginForm.lblPassword;
 end;//TkwLoginFormLblPassword.lblPassword
 
 procedure TkwLoginFormLblPassword.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ADC1F68E0487_var*
-//#UC END# *4DAEEDE10285_ADC1F68E0487_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_ADC1F68E0487_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ADC1F68E0487_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblPassword(aCtx, l_aLoginForm));
 end;//TkwLoginFormLblPassword.DoDoIt
 
 class function TkwLoginFormLblPassword.GetWordNameForRegister: AnsiString;
@@ -1579,12 +1461,8 @@ end;//TkwLoginFormLblPassword.GetWordNameForRegister
 
 procedure TkwLoginFormLblPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_ADC1F68E0487_var*
-//#UC END# *52D00B00031A_ADC1F68E0487_var*
 begin
-//#UC START# *52D00B00031A_ADC1F68E0487_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_ADC1F68E0487_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblPassword', aCtx);
 end;//TkwLoginFormLblPassword.SetValuePrim
 
 function TkwLoginFormLblPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1599,27 +1477,29 @@ end;//TkwLoginFormLblPassword.GetAllParamsCount
 
 function TkwLoginFormLblPassword.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormLblPassword.ParamsTypes
 
 function TkwLoginFormEnterPaintBox.EnterPaintBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TPaintBox;
  {* Реализация слова скрипта .TLoginForm.EnterPaintBox }
-//#UC START# *50E9C138BA47_75E9BCD66298_var*
-//#UC END# *50E9C138BA47_75E9BCD66298_var*
 begin
-//#UC START# *50E9C138BA47_75E9BCD66298_impl*
- !!! Needs to be implemented !!!
-//#UC END# *50E9C138BA47_75E9BCD66298_impl*
+ Result := aLoginForm.EnterPaintBox;
 end;//TkwLoginFormEnterPaintBox.EnterPaintBox
 
 procedure TkwLoginFormEnterPaintBox.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_75E9BCD66298_var*
-//#UC END# *4DAEEDE10285_75E9BCD66298_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_75E9BCD66298_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_75E9BCD66298_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(EnterPaintBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormEnterPaintBox.DoDoIt
 
 class function TkwLoginFormEnterPaintBox.GetWordNameForRegister: AnsiString;
@@ -1629,12 +1509,8 @@ end;//TkwLoginFormEnterPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormEnterPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_75E9BCD66298_var*
-//#UC END# *52D00B00031A_75E9BCD66298_var*
 begin
-//#UC START# *52D00B00031A_75E9BCD66298_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_75E9BCD66298_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству EnterPaintBox', aCtx);
 end;//TkwLoginFormEnterPaintBox.SetValuePrim
 
 function TkwLoginFormEnterPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1649,27 +1525,29 @@ end;//TkwLoginFormEnterPaintBox.GetAllParamsCount
 
 function TkwLoginFormEnterPaintBox.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormEnterPaintBox.ParamsTypes
 
 function TkwLoginFormEdUserName.edUserName(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TnscComboBoxWithReadOnly;
  {* Реализация слова скрипта .TLoginForm.edUserName }
-//#UC START# *BAB4AFF6F0A5_C550F6E48B7D_var*
-//#UC END# *BAB4AFF6F0A5_C550F6E48B7D_var*
 begin
-//#UC START# *BAB4AFF6F0A5_C550F6E48B7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BAB4AFF6F0A5_C550F6E48B7D_impl*
+ Result := aLoginForm.edUserName;
 end;//TkwLoginFormEdUserName.edUserName
 
 procedure TkwLoginFormEdUserName.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C550F6E48B7D_var*
-//#UC END# *4DAEEDE10285_C550F6E48B7D_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_C550F6E48B7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C550F6E48B7D_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edUserName(aCtx, l_aLoginForm));
 end;//TkwLoginFormEdUserName.DoDoIt
 
 class function TkwLoginFormEdUserName.GetWordNameForRegister: AnsiString;
@@ -1679,12 +1557,8 @@ end;//TkwLoginFormEdUserName.GetWordNameForRegister
 
 procedure TkwLoginFormEdUserName.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C550F6E48B7D_var*
-//#UC END# *52D00B00031A_C550F6E48B7D_var*
 begin
-//#UC START# *52D00B00031A_C550F6E48B7D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C550F6E48B7D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edUserName', aCtx);
 end;//TkwLoginFormEdUserName.SetValuePrim
 
 function TkwLoginFormEdUserName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1699,27 +1573,29 @@ end;//TkwLoginFormEdUserName.GetAllParamsCount
 
 function TkwLoginFormEdUserName.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormEdUserName.ParamsTypes
 
 function TkwLoginFormEdPassword.edPassword(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TnscComboBoxWithPwdChar;
  {* Реализация слова скрипта .TLoginForm.edPassword }
-//#UC START# *891CAC2FE263_7BF42C20181F_var*
-//#UC END# *891CAC2FE263_7BF42C20181F_var*
 begin
-//#UC START# *891CAC2FE263_7BF42C20181F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *891CAC2FE263_7BF42C20181F_impl*
+ Result := aLoginForm.edPassword;
 end;//TkwLoginFormEdPassword.edPassword
 
 procedure TkwLoginFormEdPassword.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7BF42C20181F_var*
-//#UC END# *4DAEEDE10285_7BF42C20181F_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_7BF42C20181F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7BF42C20181F_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edPassword(aCtx, l_aLoginForm));
 end;//TkwLoginFormEdPassword.DoDoIt
 
 class function TkwLoginFormEdPassword.GetWordNameForRegister: AnsiString;
@@ -1729,12 +1605,8 @@ end;//TkwLoginFormEdPassword.GetWordNameForRegister
 
 procedure TkwLoginFormEdPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7BF42C20181F_var*
-//#UC END# *52D00B00031A_7BF42C20181F_var*
 begin
-//#UC START# *52D00B00031A_7BF42C20181F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7BF42C20181F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edPassword', aCtx);
 end;//TkwLoginFormEdPassword.SetValuePrim
 
 function TkwLoginFormEdPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1749,27 +1621,29 @@ end;//TkwLoginFormEdPassword.GetAllParamsCount
 
 function TkwLoginFormEdPassword.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormEdPassword.ParamsTypes
 
 function TkwLoginFormLblForgetPassword.lblForgetPassword(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtFocusLabel;
  {* Реализация слова скрипта .TLoginForm.lblForgetPassword }
-//#UC START# *6E55A5043A8C_1E431A639AC6_var*
-//#UC END# *6E55A5043A8C_1E431A639AC6_var*
 begin
-//#UC START# *6E55A5043A8C_1E431A639AC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6E55A5043A8C_1E431A639AC6_impl*
+ Result := aLoginForm.lblForgetPassword;
 end;//TkwLoginFormLblForgetPassword.lblForgetPassword
 
 procedure TkwLoginFormLblForgetPassword.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1E431A639AC6_var*
-//#UC END# *4DAEEDE10285_1E431A639AC6_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_1E431A639AC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1E431A639AC6_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblForgetPassword(aCtx, l_aLoginForm));
 end;//TkwLoginFormLblForgetPassword.DoDoIt
 
 class function TkwLoginFormLblForgetPassword.GetWordNameForRegister: AnsiString;
@@ -1779,12 +1653,8 @@ end;//TkwLoginFormLblForgetPassword.GetWordNameForRegister
 
 procedure TkwLoginFormLblForgetPassword.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1E431A639AC6_var*
-//#UC END# *52D00B00031A_1E431A639AC6_var*
 begin
-//#UC START# *52D00B00031A_1E431A639AC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1E431A639AC6_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblForgetPassword', aCtx);
 end;//TkwLoginFormLblForgetPassword.SetValuePrim
 
 function TkwLoginFormLblForgetPassword.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1799,27 +1669,29 @@ end;//TkwLoginFormLblForgetPassword.GetAllParamsCount
 
 function TkwLoginFormLblForgetPassword.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormLblForgetPassword.ParamsTypes
 
 function TkwLoginFormCbAutoLogin.cbAutoLogin(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtCheckBox;
  {* Реализация слова скрипта .TLoginForm.cbAutoLogin }
-//#UC START# *5DCEF8E91435_7240CBBD5078_var*
-//#UC END# *5DCEF8E91435_7240CBBD5078_var*
 begin
-//#UC START# *5DCEF8E91435_7240CBBD5078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5DCEF8E91435_7240CBBD5078_impl*
+ Result := aLoginForm.cbAutoLogin;
 end;//TkwLoginFormCbAutoLogin.cbAutoLogin
 
 procedure TkwLoginFormCbAutoLogin.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7240CBBD5078_var*
-//#UC END# *4DAEEDE10285_7240CBBD5078_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_7240CBBD5078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7240CBBD5078_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(cbAutoLogin(aCtx, l_aLoginForm));
 end;//TkwLoginFormCbAutoLogin.DoDoIt
 
 class function TkwLoginFormCbAutoLogin.GetWordNameForRegister: AnsiString;
@@ -1829,12 +1701,8 @@ end;//TkwLoginFormCbAutoLogin.GetWordNameForRegister
 
 procedure TkwLoginFormCbAutoLogin.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7240CBBD5078_var*
-//#UC END# *52D00B00031A_7240CBBD5078_var*
 begin
-//#UC START# *52D00B00031A_7240CBBD5078_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7240CBBD5078_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству cbAutoLogin', aCtx);
 end;//TkwLoginFormCbAutoLogin.SetValuePrim
 
 function TkwLoginFormCbAutoLogin.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1849,27 +1717,29 @@ end;//TkwLoginFormCbAutoLogin.GetAllParamsCount
 
 function TkwLoginFormCbAutoLogin.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormCbAutoLogin.ParamsTypes
 
 function TkwLoginFormBtnOk.btnOk(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TElPopupButton;
  {* Реализация слова скрипта .TLoginForm.btnOk }
-//#UC START# *72D0A337AD3F_82596223B513_var*
-//#UC END# *72D0A337AD3F_82596223B513_var*
 begin
-//#UC START# *72D0A337AD3F_82596223B513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *72D0A337AD3F_82596223B513_impl*
+ Result := aLoginForm.btnOk;
 end;//TkwLoginFormBtnOk.btnOk
 
 procedure TkwLoginFormBtnOk.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82596223B513_var*
-//#UC END# *4DAEEDE10285_82596223B513_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_82596223B513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82596223B513_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnOk(aCtx, l_aLoginForm));
 end;//TkwLoginFormBtnOk.DoDoIt
 
 class function TkwLoginFormBtnOk.GetWordNameForRegister: AnsiString;
@@ -1879,12 +1749,8 @@ end;//TkwLoginFormBtnOk.GetWordNameForRegister
 
 procedure TkwLoginFormBtnOk.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_82596223B513_var*
-//#UC END# *52D00B00031A_82596223B513_var*
 begin
-//#UC START# *52D00B00031A_82596223B513_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_82596223B513_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству btnOk', aCtx);
 end;//TkwLoginFormBtnOk.SetValuePrim
 
 function TkwLoginFormBtnOk.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1899,27 +1765,29 @@ end;//TkwLoginFormBtnOk.GetAllParamsCount
 
 function TkwLoginFormBtnOk.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormBtnOk.ParamsTypes
 
 function TkwLoginFormNewUserGroupBox.NewUserGroupBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtGroupBox;
  {* Реализация слова скрипта .TLoginForm.NewUserGroupBox }
-//#UC START# *A07A1C0F218B_03381F46504D_var*
-//#UC END# *A07A1C0F218B_03381F46504D_var*
 begin
-//#UC START# *A07A1C0F218B_03381F46504D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A07A1C0F218B_03381F46504D_impl*
+ Result := aLoginForm.NewUserGroupBox;
 end;//TkwLoginFormNewUserGroupBox.NewUserGroupBox
 
 procedure TkwLoginFormNewUserGroupBox.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_03381F46504D_var*
-//#UC END# *4DAEEDE10285_03381F46504D_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_03381F46504D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_03381F46504D_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(NewUserGroupBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormNewUserGroupBox.DoDoIt
 
 class function TkwLoginFormNewUserGroupBox.GetWordNameForRegister: AnsiString;
@@ -1929,12 +1797,8 @@ end;//TkwLoginFormNewUserGroupBox.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserGroupBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_03381F46504D_var*
-//#UC END# *52D00B00031A_03381F46504D_var*
 begin
-//#UC START# *52D00B00031A_03381F46504D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_03381F46504D_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству NewUserGroupBox', aCtx);
 end;//TkwLoginFormNewUserGroupBox.SetValuePrim
 
 function TkwLoginFormNewUserGroupBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1949,27 +1813,29 @@ end;//TkwLoginFormNewUserGroupBox.GetAllParamsCount
 
 function TkwLoginFormNewUserGroupBox.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormNewUserGroupBox.ParamsTypes
 
 function TkwLoginFormNewUserLabel.NewUserLabel(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtLabel;
  {* Реализация слова скрипта .TLoginForm.NewUserLabel }
-//#UC START# *01721263E37D_FEA3248A13D0_var*
-//#UC END# *01721263E37D_FEA3248A13D0_var*
 begin
-//#UC START# *01721263E37D_FEA3248A13D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *01721263E37D_FEA3248A13D0_impl*
+ Result := aLoginForm.NewUserLabel;
 end;//TkwLoginFormNewUserLabel.NewUserLabel
 
 procedure TkwLoginFormNewUserLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FEA3248A13D0_var*
-//#UC END# *4DAEEDE10285_FEA3248A13D0_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_FEA3248A13D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FEA3248A13D0_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(NewUserLabel(aCtx, l_aLoginForm));
 end;//TkwLoginFormNewUserLabel.DoDoIt
 
 class function TkwLoginFormNewUserLabel.GetWordNameForRegister: AnsiString;
@@ -1979,12 +1845,8 @@ end;//TkwLoginFormNewUserLabel.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_FEA3248A13D0_var*
-//#UC END# *52D00B00031A_FEA3248A13D0_var*
 begin
-//#UC START# *52D00B00031A_FEA3248A13D0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_FEA3248A13D0_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству NewUserLabel', aCtx);
 end;//TkwLoginFormNewUserLabel.SetValuePrim
 
 function TkwLoginFormNewUserLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -1999,27 +1861,29 @@ end;//TkwLoginFormNewUserLabel.GetAllParamsCount
 
 function TkwLoginFormNewUserLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormNewUserLabel.ParamsTypes
 
 function TkwLoginFormNewUserPaintBox.NewUserPaintBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TPaintBox;
  {* Реализация слова скрипта .TLoginForm.NewUserPaintBox }
-//#UC START# *F881E15DB979_545C2415CF4A_var*
-//#UC END# *F881E15DB979_545C2415CF4A_var*
 begin
-//#UC START# *F881E15DB979_545C2415CF4A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F881E15DB979_545C2415CF4A_impl*
+ Result := aLoginForm.NewUserPaintBox;
 end;//TkwLoginFormNewUserPaintBox.NewUserPaintBox
 
 procedure TkwLoginFormNewUserPaintBox.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_545C2415CF4A_var*
-//#UC END# *4DAEEDE10285_545C2415CF4A_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_545C2415CF4A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_545C2415CF4A_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(NewUserPaintBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormNewUserPaintBox.DoDoIt
 
 class function TkwLoginFormNewUserPaintBox.GetWordNameForRegister: AnsiString;
@@ -2029,12 +1893,8 @@ end;//TkwLoginFormNewUserPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormNewUserPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_545C2415CF4A_var*
-//#UC END# *52D00B00031A_545C2415CF4A_var*
 begin
-//#UC START# *52D00B00031A_545C2415CF4A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_545C2415CF4A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству NewUserPaintBox', aCtx);
 end;//TkwLoginFormNewUserPaintBox.SetValuePrim
 
 function TkwLoginFormNewUserPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2049,27 +1909,29 @@ end;//TkwLoginFormNewUserPaintBox.GetAllParamsCount
 
 function TkwLoginFormNewUserPaintBox.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormNewUserPaintBox.ParamsTypes
 
 function TkwLoginFormLblNewUser.lblNewUser(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtFocusLabel;
  {* Реализация слова скрипта .TLoginForm.lblNewUser }
-//#UC START# *6D68AB9A4BC2_BD193B22974F_var*
-//#UC END# *6D68AB9A4BC2_BD193B22974F_var*
 begin
-//#UC START# *6D68AB9A4BC2_BD193B22974F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6D68AB9A4BC2_BD193B22974F_impl*
+ Result := aLoginForm.lblNewUser;
 end;//TkwLoginFormLblNewUser.lblNewUser
 
 procedure TkwLoginFormLblNewUser.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BD193B22974F_var*
-//#UC END# *4DAEEDE10285_BD193B22974F_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_BD193B22974F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BD193B22974F_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(lblNewUser(aCtx, l_aLoginForm));
 end;//TkwLoginFormLblNewUser.DoDoIt
 
 class function TkwLoginFormLblNewUser.GetWordNameForRegister: AnsiString;
@@ -2079,12 +1941,8 @@ end;//TkwLoginFormLblNewUser.GetWordNameForRegister
 
 procedure TkwLoginFormLblNewUser.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_BD193B22974F_var*
-//#UC END# *52D00B00031A_BD193B22974F_var*
 begin
-//#UC START# *52D00B00031A_BD193B22974F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_BD193B22974F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству lblNewUser', aCtx);
 end;//TkwLoginFormLblNewUser.SetValuePrim
 
 function TkwLoginFormLblNewUser.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2099,27 +1957,29 @@ end;//TkwLoginFormLblNewUser.GetAllParamsCount
 
 function TkwLoginFormLblNewUser.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormLblNewUser.ParamsTypes
 
 function TkwLoginFormHelpPanel.HelpPanel(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtPanel;
  {* Реализация слова скрипта .TLoginForm.HelpPanel }
-//#UC START# *6B39FF047C8C_1EF3C1D6EB3F_var*
-//#UC END# *6B39FF047C8C_1EF3C1D6EB3F_var*
 begin
-//#UC START# *6B39FF047C8C_1EF3C1D6EB3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *6B39FF047C8C_1EF3C1D6EB3F_impl*
+ Result := aLoginForm.HelpPanel;
 end;//TkwLoginFormHelpPanel.HelpPanel
 
 procedure TkwLoginFormHelpPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1EF3C1D6EB3F_var*
-//#UC END# *4DAEEDE10285_1EF3C1D6EB3F_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_1EF3C1D6EB3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1EF3C1D6EB3F_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HelpPanel(aCtx, l_aLoginForm));
 end;//TkwLoginFormHelpPanel.DoDoIt
 
 class function TkwLoginFormHelpPanel.GetWordNameForRegister: AnsiString;
@@ -2129,12 +1989,8 @@ end;//TkwLoginFormHelpPanel.GetWordNameForRegister
 
 procedure TkwLoginFormHelpPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1EF3C1D6EB3F_var*
-//#UC END# *52D00B00031A_1EF3C1D6EB3F_var*
 begin
-//#UC START# *52D00B00031A_1EF3C1D6EB3F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1EF3C1D6EB3F_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HelpPanel', aCtx);
 end;//TkwLoginFormHelpPanel.SetValuePrim
 
 function TkwLoginFormHelpPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2149,27 +2005,29 @@ end;//TkwLoginFormHelpPanel.GetAllParamsCount
 
 function TkwLoginFormHelpPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormHelpPanel.ParamsTypes
 
 function TkwLoginFormHelpPaintBox.HelpPaintBox(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TPaintBox;
  {* Реализация слова скрипта .TLoginForm.HelpPaintBox }
-//#UC START# *2E28DD800721_0D089B690A42_var*
-//#UC END# *2E28DD800721_0D089B690A42_var*
 begin
-//#UC START# *2E28DD800721_0D089B690A42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2E28DD800721_0D089B690A42_impl*
+ Result := aLoginForm.HelpPaintBox;
 end;//TkwLoginFormHelpPaintBox.HelpPaintBox
 
 procedure TkwLoginFormHelpPaintBox.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0D089B690A42_var*
-//#UC END# *4DAEEDE10285_0D089B690A42_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_0D089B690A42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0D089B690A42_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HelpPaintBox(aCtx, l_aLoginForm));
 end;//TkwLoginFormHelpPaintBox.DoDoIt
 
 class function TkwLoginFormHelpPaintBox.GetWordNameForRegister: AnsiString;
@@ -2179,12 +2037,8 @@ end;//TkwLoginFormHelpPaintBox.GetWordNameForRegister
 
 procedure TkwLoginFormHelpPaintBox.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_0D089B690A42_var*
-//#UC END# *52D00B00031A_0D089B690A42_var*
 begin
-//#UC START# *52D00B00031A_0D089B690A42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_0D089B690A42_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HelpPaintBox', aCtx);
 end;//TkwLoginFormHelpPaintBox.SetValuePrim
 
 function TkwLoginFormHelpPaintBox.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2199,27 +2053,29 @@ end;//TkwLoginFormHelpPaintBox.GetAllParamsCount
 
 function TkwLoginFormHelpPaintBox.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormHelpPaintBox.ParamsTypes
 
 function TkwLoginFormHelpLabel.HelpLabel(const aCtx: TtfwContext;
  aLoginForm: TLoginForm): TvtFocusLabel;
  {* Реализация слова скрипта .TLoginForm.HelpLabel }
-//#UC START# *38D10DFBDBF1_61075CCC4E17_var*
-//#UC END# *38D10DFBDBF1_61075CCC4E17_var*
 begin
-//#UC START# *38D10DFBDBF1_61075CCC4E17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *38D10DFBDBF1_61075CCC4E17_impl*
+ Result := aLoginForm.HelpLabel;
 end;//TkwLoginFormHelpLabel.HelpLabel
 
 procedure TkwLoginFormHelpLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_61075CCC4E17_var*
-//#UC END# *4DAEEDE10285_61075CCC4E17_var*
+var l_aLoginForm: TLoginForm;
 begin
-//#UC START# *4DAEEDE10285_61075CCC4E17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_61075CCC4E17_impl*
+ try
+  l_aLoginForm := TLoginForm(aCtx.rEngine.PopObjAs(TLoginForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aLoginForm: TLoginForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HelpLabel(aCtx, l_aLoginForm));
 end;//TkwLoginFormHelpLabel.DoDoIt
 
 class function TkwLoginFormHelpLabel.GetWordNameForRegister: AnsiString;
@@ -2229,12 +2085,8 @@ end;//TkwLoginFormHelpLabel.GetWordNameForRegister
 
 procedure TkwLoginFormHelpLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_61075CCC4E17_var*
-//#UC END# *52D00B00031A_61075CCC4E17_var*
 begin
-//#UC START# *52D00B00031A_61075CCC4E17_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_61075CCC4E17_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HelpLabel', aCtx);
 end;//TkwLoginFormHelpLabel.SetValuePrim
 
 function TkwLoginFormHelpLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -2249,7 +2101,7 @@ end;//TkwLoginFormHelpLabel.GetAllParamsCount
 
 function TkwLoginFormHelpLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TLoginForm)]);
 end;//TkwLoginFormHelpLabel.ParamsTypes
 
 initialization

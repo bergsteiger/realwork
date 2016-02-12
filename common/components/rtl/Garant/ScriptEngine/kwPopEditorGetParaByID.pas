@@ -1,43 +1,33 @@
 unit kwPopEditorGetParaByID;
+ {* Получает от редактора параграф по его ID.
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Автор: Люлин А.В.
-// Модуль: "kwPopEditorGetParaByID.pas"
-// Начат: 03.11.2011 15:47
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::EditorFromStackKeyWords::pop_editor_GetParaByID
-//
-// Получает от редактора параграф по его ID.
-// 
-// Пример:
-// {code}
-// 12 editor:GetParaByID
-// IF
-// Para:Text .
-// ELSE
-// 'Параграф не найден' .
-// ENDIF
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Пример:
+[code]
+ 12 editor:GetParaByID
+ IF
+  Para:Text .
+ ELSE
+ 'Параграф не найден' .
+ ENDIF
+[code] }
 
-{$Include ..\ScriptEngine\seDefine.inc}
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetParaByID.pas"
+// Стереотип: "ScriptKeyword"
+
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwEditorFromStackWord,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwEditorFromStackWord
+ , tfwScriptingInterfaces
+ , evCustomEditorWindow
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopEditorGetParaByID = {scriptword} class(TkwEditorFromStackWord)
+ TkwPopEditorGetParaByID = class(TkwEditorFromStackWord)
   {* Получает от редактора параграф по его ID.
 
 Пример:
@@ -49,30 +39,30 @@ type
  'Параграф не найден' .
  ENDIF
 [code] }
- protected
- // realized methods
+  protected
    procedure DoWithEditor(const aCtx: TtfwContext;
-     anEditor: TevCustomEditorWindow); override;
- protected
- // overridden protected methods
+    anEditor: TevCustomEditorWindow); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopEditorGetParaByID
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  nevTools
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopEditorGetParaByID
+ l3ImplUses
+ , nevTools
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopEditorGetParaByID.DoWithEditor(const aCtx: TtfwContext;
-  anEditor: TevCustomEditorWindow);
+ anEditor: TevCustomEditorWindow);
 //#UC START# *4F4CB81200CA_4EB27F0E00CF_var*
 var
  l_O : InevObject;
@@ -93,17 +83,13 @@ begin
 end;//TkwPopEditorGetParaByID.DoWithEditor
 
 class function TkwPopEditorGetParaByID.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:editor:GetParaByID';
 end;//TkwPopEditorGetParaByID.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_editor_GetParaByID
  TkwPopEditorGetParaByID.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_editor_GetParaByID }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

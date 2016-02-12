@@ -23,7 +23,7 @@ uses
 
 type
  _SelectTablePart_Parent_ = TDrawTestPrim;
- {$Include SelectTablePart.imp.pas}
+ {$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
  TMergeAndCheck = {abstract} class(_SelectTablePart_)
   {* Тест объединения ячеек и сравнения отрисованного }
   protected
@@ -63,7 +63,7 @@ uses
  , l3Base
 ;
 
-{$Include SelectTablePart.imp.pas}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure TMergeAndCheck.DoBeforeDrawing(aForm: TPrimTextLoadForm);

@@ -32,9 +32,9 @@ uses
 type
  _InitDataType_ = IdeSearch;
  _SetType_ = IsdsSituation;
- {$Include vcmFormSetDataSourceWithoutData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
  _CurrentChangedListener_Parent_ = _vcmFormSetDataSourceWithoutData_;
- {$Include CurrentChangedListener.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas}
  TsdsSituation = class(_CurrentChangedListener_, IsdsSituation, IucpFilters, IbsCurrentChangedListener, IbsSelectedAttributes)
   {* бизнес объект сборки дерево атрибутов }
   private
@@ -100,9 +100,9 @@ uses
 
 type _Instance_R_ = TsdsSituation;
 
-{$Include vcmFormSetDataSourceWithoutData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}
 
-{$Include CurrentChangedListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas}
 
 function TsdsSituation.As_IucpFilters: IucpFilters;
  {* Метод приведения нашего интерфейса к IucpFilters }

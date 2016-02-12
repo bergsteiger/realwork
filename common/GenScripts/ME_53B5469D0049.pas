@@ -35,7 +35,7 @@ uses
 
 type
  _k2Tag_Parent_ = Tl3SizedMemoryPool;
- {$Include k2Tag.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
  Tk2SizedMemoryPool = class(_k2Tag_)
   protected
    {$If NOT Defined(k2TagIsAtomic)}
@@ -101,7 +101,7 @@ uses
 
 type _Instance_R_ = Tk2SizedMemoryPool;
 
-{$Include k2Tag.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}
 
 constructor Tk2SizedMemoryPool.Create(aType: Tk2Type);
 //#UC START# *530770EB0342_53076BA10113_var*

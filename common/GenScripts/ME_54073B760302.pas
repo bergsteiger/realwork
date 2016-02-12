@@ -5,7 +5,7 @@
 
 {$Define m3RootStream_imp}
 
- {$Include m3CustomHeaderStream.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas}
  _m3RootStream_ = class(_m3CustomHeaderStream_)
   private
    f_Logger: Tl3Logger;
@@ -33,7 +33,7 @@
 
 {$Define m3RootStream_imp_impl}
 
-{$Include m3CustomHeaderStream.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas}
 
 procedure _m3RootStream_.pm_SetLogger(aValue: Tl3Logger);
 //#UC START# *540F06CE030B_54073B760302set_var*

@@ -1,58 +1,48 @@
 unit kwSubdescriptorGetColumn;
+ {* Помещает в стек номер колонки.
+Формат:
+[code]
+aSubDescrObj subdescriptor:GetColumn
+[code] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwSubdescriptorGetColumn.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::SubPanelWords::subdescriptor_GetColumn
-//
-// Помещает в стек номер колонки.
-// Формат:
-// {code}
-// aSubDescrObj subdescriptor:GetColumn
-// {code}
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetColumn.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  kwSubDescriptorFromStackWord,
-  tfwScriptingInterfaces,
-  evSubPn
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwSubDescriptorFromStackWord
+ , evSubPn
+ , tfwScriptingInterfaces
+;
 
-{$If not defined(NoScripts)}
 type
- TkwSubdescriptorGetColumn = {final scriptword} class(TkwSubDescriptorFromStackWord)
+ TkwSubdescriptorGetColumn = {final} class(TkwSubDescriptorFromStackWord)
   {* Помещает в стек номер колонки.
 Формат:
 [code]
 aSubDescrObj subdescriptor:GetColumn
 [code] }
- protected
- // realized methods
+  protected
    procedure DoWithSubDescriptor(aControl: TevSubDescriptor;
-     const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
+    const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwSubdescriptorGetColumn
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
-
-// start class TkwSubdescriptorGetColumn
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
 procedure TkwSubdescriptorGetColumn.DoWithSubDescriptor(aControl: TevSubDescriptor;
-  const aCtx: TtfwContext);
+ const aCtx: TtfwContext);
 //#UC START# *52D65E9502E1_52D6622F0148_var*
 //#UC END# *52D65E9502E1_52D6622F0148_var*
 begin
@@ -62,17 +52,13 @@ begin
 end;//TkwSubdescriptorGetColumn.DoWithSubDescriptor
 
 class function TkwSubdescriptorGetColumn.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'subdescriptor:GetColumn';
 end;//TkwSubdescriptorGetColumn.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация subdescriptor_GetColumn
  TkwSubdescriptorGetColumn.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация subdescriptor_GetColumn }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

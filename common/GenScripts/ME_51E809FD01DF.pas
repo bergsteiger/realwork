@@ -6,7 +6,7 @@
 {$Define StandardAtomicList_imp}
 
  _AtomicList_Parent_ = TRefcounted;
- {$Include AtomicList.imp.pas}
+ {$Include w:\common\components\SandBox\AtomicList.imp.pas}
  _StandardAtomicList_ = class(_AtomicList_)
  end;//_StandardAtomicList_
 
@@ -16,7 +16,7 @@
 
 {$Define StandardAtomicList_imp_impl}
 
-{$Include AtomicList.imp.pas}
+{$Include w:\common\components\SandBox\AtomicList.imp.pas}
 
 {$EndIf StandardAtomicList_imp_impl}
 

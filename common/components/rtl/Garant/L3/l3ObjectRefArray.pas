@@ -15,7 +15,7 @@ uses
 
 type
  _l3OpenArray_Parent_ = Tl3ProtoObjectRefList;
- {$Include l3OpenArray.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
  Tl3ObjectRefArray = class(_l3OpenArray_)
   {* "Открытый массив". Список, который автоматически расширяется при добавлении элемента за гранецей диапазона }
  end;//Tl3ObjectRefArray
@@ -29,6 +29,6 @@ uses
 
 type _Instance_R_ = Tl3ObjectRefArray;
 
-{$Include l3OpenArray.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas}
 
 end.

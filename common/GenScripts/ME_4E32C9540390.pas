@@ -7,9 +7,9 @@
 
 {$If NOT Defined(NoScripts)}
  _Para2Point_Parent_ = _ColumnResizeByMouse_Parent_;
- {$Include Para2Point.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
  _HotSpotTools_Parent_ = _Para2Point_;
- {$Include HotSpotTools.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
  _ColumnResizeByMouse_ = class(_HotSpotTools_)
   protected
    procedure SelectColumn(aText: TevCustomEditorWindow);
@@ -27,9 +27,9 @@
 {$Else NOT Defined(NoScripts)}
 
 _Para2Point_Parent_ = _ColumnResizeByMouse_Parent_;
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 _HotSpotTools_Parent_ = _Para2Point_;
-{$Include HotSpotTools.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 _ColumnResizeByMouse_ = _HotSpotTools_;
 
 {$IfEnd} // NOT Defined(NoScripts)
@@ -40,9 +40,9 @@ _ColumnResizeByMouse_ = _HotSpotTools_;
 {$Define ColumnResizeByMouse_imp_impl}
 
 {$If NOT Defined(NoScripts)}
-{$Include Para2Point.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas}
 
-{$Include HotSpotTools.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas}
 
 procedure _ColumnResizeByMouse_.SelectColumn(aText: TevCustomEditorWindow);
 //#UC START# *4E32C9D70275_4E32C9540390_var*

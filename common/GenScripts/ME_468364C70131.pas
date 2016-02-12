@@ -22,7 +22,7 @@ uses
 
 type
  _nsTaggedTreeInfo_Parent_ = TnsDataResetTreeStruct;
- {$Include nsTaggedTreeInfo.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}
  TnsAttributeTreeStruct = class(_nsTaggedTreeInfo_)
   {* Коллеги, а чем это от TnsAttrOneLevelStruct отличается? }
   protected
@@ -56,7 +56,7 @@ uses
  , bsUtils
 ;
 
-{$Include nsTaggedTreeInfo.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Search\nsTaggedTreeInfo.imp.pas}
 
 class function TnsAttributeTreeStruct.Make(const aTag: Il3CString;
  aShowRoot: Boolean): Il3SimpleTree;

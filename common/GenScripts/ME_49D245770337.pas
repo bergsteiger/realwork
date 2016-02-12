@@ -22,11 +22,11 @@ uses
 ;
 
 type
- {$Include evCursor.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evCursor.imp.pas}
  _nevViewBounds_Parent_ = _evCursor_;
- {$Include nevViewBounds.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevViewBounds.imp.pas}
  _nevAnchorModify_Parent_ = _nevViewBounds_;
- {$Include nevAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevAnchorModify.imp.pas}
  TevCursor = class(_nevAnchorModify_, InevPoint, InevBasePoint)
   {* Курсор }
   protected
@@ -134,11 +134,11 @@ uses
 
 type _Instance_R_ = TevCursor;
 
-{$Include evCursor.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evCursor.imp.pas}
 
-{$Include nevViewBounds.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevViewBounds.imp.pas}
 
-{$Include nevAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevAnchorModify.imp.pas}
 
 {$If Defined(evNeedMarkers)}
 function TevCursor.pm_GetMarkersSource: IevMarkersSource;

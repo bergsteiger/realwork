@@ -105,12 +105,8 @@ begin
 end;//Tkw_Form_SynchroView_WarningBaloon.GetWordNameForRegister
 
 function Tkw_Form_SynchroView_WarningBaloon.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_11405B0E96EC_var*
-//#UC END# *4DDFD2EA0116_11405B0E96EC_var*
 begin
-//#UC START# *4DDFD2EA0116_11405B0E96EC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_11405B0E96EC_impl*
+ Result := 'SynchroView_WarningBaloonForm';
 end;//Tkw_Form_SynchroView_WarningBaloon.GetString
 
 class function Tkw_SynchroView_WarningBaloon_Control_Viewer.GetWordNameForRegister: AnsiString;
@@ -119,21 +115,14 @@ begin
 end;//Tkw_SynchroView_WarningBaloon_Control_Viewer.GetWordNameForRegister
 
 function Tkw_SynchroView_WarningBaloon_Control_Viewer.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_55338649331E_var*
-//#UC END# *4DDFD2EA0116_55338649331E_var*
 begin
-//#UC START# *4DDFD2EA0116_55338649331E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_55338649331E_impl*
+ Result := 'Viewer';
 end;//Tkw_SynchroView_WarningBaloon_Control_Viewer.GetString
 
 class procedure Tkw_SynchroView_WarningBaloon_Control_Viewer.RegisterInEngine;
-//#UC START# *52A086150180_55338649331E_var*
-//#UC END# *52A086150180_55338649331E_var*
 begin
-//#UC START# *52A086150180_55338649331E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_55338649331E_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_SynchroView_WarningBaloon_Control_Viewer.RegisterInEngine
 
 procedure Tkw_SynchroView_WarningBaloon_Control_Viewer_Push.DoDoIt(const aCtx: TtfwContext);
@@ -153,21 +142,23 @@ end;//Tkw_SynchroView_WarningBaloon_Control_Viewer_Push.GetWordNameForRegister
 function TkwSynchroViewWarningBaloonFormViewer.Viewer(const aCtx: TtfwContext;
  aSynchroView_WarningBaloonForm: TSynchroView_WarningBaloonForm): TnscEditor;
  {* Реализация слова скрипта .TSynchroView_WarningBaloonForm.Viewer }
-//#UC START# *0E9150D43889_C36D33260EB8_var*
-//#UC END# *0E9150D43889_C36D33260EB8_var*
 begin
-//#UC START# *0E9150D43889_C36D33260EB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *0E9150D43889_C36D33260EB8_impl*
+ Result := aSynchroView_WarningBaloonForm.Viewer;
 end;//TkwSynchroViewWarningBaloonFormViewer.Viewer
 
 procedure TkwSynchroViewWarningBaloonFormViewer.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C36D33260EB8_var*
-//#UC END# *4DAEEDE10285_C36D33260EB8_var*
+var l_aSynchroView_WarningBaloonForm: TSynchroView_WarningBaloonForm;
 begin
-//#UC START# *4DAEEDE10285_C36D33260EB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C36D33260EB8_impl*
+ try
+  l_aSynchroView_WarningBaloonForm := TSynchroView_WarningBaloonForm(aCtx.rEngine.PopObjAs(TSynchroView_WarningBaloonForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aSynchroView_WarningBaloonForm: TSynchroView_WarningBaloonForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Viewer(aCtx, l_aSynchroView_WarningBaloonForm));
 end;//TkwSynchroViewWarningBaloonFormViewer.DoDoIt
 
 class function TkwSynchroViewWarningBaloonFormViewer.GetWordNameForRegister: AnsiString;
@@ -177,12 +168,8 @@ end;//TkwSynchroViewWarningBaloonFormViewer.GetWordNameForRegister
 
 procedure TkwSynchroViewWarningBaloonFormViewer.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_C36D33260EB8_var*
-//#UC END# *52D00B00031A_C36D33260EB8_var*
 begin
-//#UC START# *52D00B00031A_C36D33260EB8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_C36D33260EB8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Viewer', aCtx);
 end;//TkwSynchroViewWarningBaloonFormViewer.SetValuePrim
 
 function TkwSynchroViewWarningBaloonFormViewer.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,7 +184,7 @@ end;//TkwSynchroViewWarningBaloonFormViewer.GetAllParamsCount
 
 function TkwSynchroViewWarningBaloonFormViewer.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TSynchroView_WarningBaloonForm)]);
 end;//TkwSynchroViewWarningBaloonFormViewer.ParamsTypes
 
 initialization

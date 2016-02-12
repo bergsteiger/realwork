@@ -303,12 +303,8 @@ begin
 end;//Tkw_Form_RememberPassword.GetWordNameForRegister
 
 function Tkw_Form_RememberPassword.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_44A0C15F4915_var*
-//#UC END# *4DDFD2EA0116_44A0C15F4915_var*
 begin
-//#UC START# *4DDFD2EA0116_44A0C15F4915_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_44A0C15F4915_impl*
+ Result := 'RememberPasswordForm';
 end;//Tkw_Form_RememberPassword.GetString
 
 class function Tkw_RememberPassword_Control_EMailLabel.GetWordNameForRegister: AnsiString;
@@ -317,21 +313,14 @@ begin
 end;//Tkw_RememberPassword_Control_EMailLabel.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_EMailLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_32691366400B_var*
-//#UC END# *4DDFD2EA0116_32691366400B_var*
 begin
-//#UC START# *4DDFD2EA0116_32691366400B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_32691366400B_impl*
+ Result := 'EMailLabel';
 end;//Tkw_RememberPassword_Control_EMailLabel.GetString
 
 class procedure Tkw_RememberPassword_Control_EMailLabel.RegisterInEngine;
-//#UC START# *52A086150180_32691366400B_var*
-//#UC END# *52A086150180_32691366400B_var*
 begin
-//#UC START# *52A086150180_32691366400B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_32691366400B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RememberPassword_Control_EMailLabel.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -354,21 +343,14 @@ begin
 end;//Tkw_RememberPassword_Control_HintLabel.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_HintLabel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EC23CE3EBFB0_var*
-//#UC END# *4DDFD2EA0116_EC23CE3EBFB0_var*
 begin
-//#UC START# *4DDFD2EA0116_EC23CE3EBFB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EC23CE3EBFB0_impl*
+ Result := 'HintLabel';
 end;//Tkw_RememberPassword_Control_HintLabel.GetString
 
 class procedure Tkw_RememberPassword_Control_HintLabel.RegisterInEngine;
-//#UC START# *52A086150180_EC23CE3EBFB0_var*
-//#UC END# *52A086150180_EC23CE3EBFB0_var*
 begin
-//#UC START# *52A086150180_EC23CE3EBFB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EC23CE3EBFB0_impl*
+ inherited;
+ TtfwClassRef.Register(TvtLabel);
 end;//Tkw_RememberPassword_Control_HintLabel.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_HintLabel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -391,21 +373,14 @@ begin
 end;//Tkw_RememberPassword_Control_btnCancel.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_btnCancel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_01ECB74311B2_var*
-//#UC END# *4DDFD2EA0116_01ECB74311B2_var*
 begin
-//#UC START# *4DDFD2EA0116_01ECB74311B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_01ECB74311B2_impl*
+ Result := 'btnCancel';
 end;//Tkw_RememberPassword_Control_btnCancel.GetString
 
 class procedure Tkw_RememberPassword_Control_btnCancel.RegisterInEngine;
-//#UC START# *52A086150180_01ECB74311B2_var*
-//#UC END# *52A086150180_01ECB74311B2_var*
 begin
-//#UC START# *52A086150180_01ECB74311B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_01ECB74311B2_impl*
+ inherited;
+ TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_RememberPassword_Control_btnCancel.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_btnCancel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -428,21 +403,14 @@ begin
 end;//Tkw_RememberPassword_Control_btnSend.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_btnSend.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_13BD53EBA825_var*
-//#UC END# *4DDFD2EA0116_13BD53EBA825_var*
 begin
-//#UC START# *4DDFD2EA0116_13BD53EBA825_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_13BD53EBA825_impl*
+ Result := 'btnSend';
 end;//Tkw_RememberPassword_Control_btnSend.GetString
 
 class procedure Tkw_RememberPassword_Control_btnSend.RegisterInEngine;
-//#UC START# *52A086150180_13BD53EBA825_var*
-//#UC END# *52A086150180_13BD53EBA825_var*
 begin
-//#UC START# *52A086150180_13BD53EBA825_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_13BD53EBA825_impl*
+ inherited;
+ TtfwClassRef.Register(TElPopupButton);
 end;//Tkw_RememberPassword_Control_btnSend.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_btnSend_Push.DoDoIt(const aCtx: TtfwContext);
@@ -465,21 +433,14 @@ begin
 end;//Tkw_RememberPassword_Control_edEmail.GetWordNameForRegister
 
 function Tkw_RememberPassword_Control_edEmail.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F761753E0B78_var*
-//#UC END# *4DDFD2EA0116_F761753E0B78_var*
 begin
-//#UC START# *4DDFD2EA0116_F761753E0B78_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F761753E0B78_impl*
+ Result := 'edEmail';
 end;//Tkw_RememberPassword_Control_edEmail.GetString
 
 class procedure Tkw_RememberPassword_Control_edEmail.RegisterInEngine;
-//#UC START# *52A086150180_F761753E0B78_var*
-//#UC END# *52A086150180_F761753E0B78_var*
 begin
-//#UC START# *52A086150180_F761753E0B78_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F761753E0B78_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEdit);
 end;//Tkw_RememberPassword_Control_edEmail.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_edEmail_Push.DoDoIt(const aCtx: TtfwContext);
@@ -499,21 +460,23 @@ end;//Tkw_RememberPassword_Control_edEmail_Push.GetWordNameForRegister
 function TkwRememberPasswordFormEMailLabel.EMailLabel(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TvtLabel;
  {* Реализация слова скрипта .TRememberPasswordForm.EMailLabel }
-//#UC START# *A8128A72BDDD_8762FC4AA6B6_var*
-//#UC END# *A8128A72BDDD_8762FC4AA6B6_var*
 begin
-//#UC START# *A8128A72BDDD_8762FC4AA6B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *A8128A72BDDD_8762FC4AA6B6_impl*
+ Result := aRememberPasswordForm.EMailLabel;
 end;//TkwRememberPasswordFormEMailLabel.EMailLabel
 
 procedure TkwRememberPasswordFormEMailLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8762FC4AA6B6_var*
-//#UC END# *4DAEEDE10285_8762FC4AA6B6_var*
+var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
-//#UC START# *4DAEEDE10285_8762FC4AA6B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8762FC4AA6B6_impl*
+ try
+  l_aRememberPasswordForm := TRememberPasswordForm(aCtx.rEngine.PopObjAs(TRememberPasswordForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRememberPasswordForm: TRememberPasswordForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(EMailLabel(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormEMailLabel.DoDoIt
 
 class function TkwRememberPasswordFormEMailLabel.GetWordNameForRegister: AnsiString;
@@ -523,12 +486,8 @@ end;//TkwRememberPasswordFormEMailLabel.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormEMailLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_8762FC4AA6B6_var*
-//#UC END# *52D00B00031A_8762FC4AA6B6_var*
 begin
-//#UC START# *52D00B00031A_8762FC4AA6B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_8762FC4AA6B6_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству EMailLabel', aCtx);
 end;//TkwRememberPasswordFormEMailLabel.SetValuePrim
 
 function TkwRememberPasswordFormEMailLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -543,27 +502,29 @@ end;//TkwRememberPasswordFormEMailLabel.GetAllParamsCount
 
 function TkwRememberPasswordFormEMailLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormEMailLabel.ParamsTypes
 
 function TkwRememberPasswordFormHintLabel.HintLabel(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TvtLabel;
  {* Реализация слова скрипта .TRememberPasswordForm.HintLabel }
-//#UC START# *F1E98B821E19_E057630A6AF4_var*
-//#UC END# *F1E98B821E19_E057630A6AF4_var*
 begin
-//#UC START# *F1E98B821E19_E057630A6AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *F1E98B821E19_E057630A6AF4_impl*
+ Result := aRememberPasswordForm.HintLabel;
 end;//TkwRememberPasswordFormHintLabel.HintLabel
 
 procedure TkwRememberPasswordFormHintLabel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E057630A6AF4_var*
-//#UC END# *4DAEEDE10285_E057630A6AF4_var*
+var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
-//#UC START# *4DAEEDE10285_E057630A6AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E057630A6AF4_impl*
+ try
+  l_aRememberPasswordForm := TRememberPasswordForm(aCtx.rEngine.PopObjAs(TRememberPasswordForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRememberPasswordForm: TRememberPasswordForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HintLabel(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormHintLabel.DoDoIt
 
 class function TkwRememberPasswordFormHintLabel.GetWordNameForRegister: AnsiString;
@@ -573,12 +534,8 @@ end;//TkwRememberPasswordFormHintLabel.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormHintLabel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E057630A6AF4_var*
-//#UC END# *52D00B00031A_E057630A6AF4_var*
 begin
-//#UC START# *52D00B00031A_E057630A6AF4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E057630A6AF4_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HintLabel', aCtx);
 end;//TkwRememberPasswordFormHintLabel.SetValuePrim
 
 function TkwRememberPasswordFormHintLabel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -593,27 +550,29 @@ end;//TkwRememberPasswordFormHintLabel.GetAllParamsCount
 
 function TkwRememberPasswordFormHintLabel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormHintLabel.ParamsTypes
 
 function TkwRememberPasswordFormBtnCancel.btnCancel(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
  {* Реализация слова скрипта .TRememberPasswordForm.btnCancel }
-//#UC START# *2BA8120DD293_1DAD0A24AD05_var*
-//#UC END# *2BA8120DD293_1DAD0A24AD05_var*
 begin
-//#UC START# *2BA8120DD293_1DAD0A24AD05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *2BA8120DD293_1DAD0A24AD05_impl*
+ Result := aRememberPasswordForm.btnCancel;
 end;//TkwRememberPasswordFormBtnCancel.btnCancel
 
 procedure TkwRememberPasswordFormBtnCancel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1DAD0A24AD05_var*
-//#UC END# *4DAEEDE10285_1DAD0A24AD05_var*
+var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
-//#UC START# *4DAEEDE10285_1DAD0A24AD05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1DAD0A24AD05_impl*
+ try
+  l_aRememberPasswordForm := TRememberPasswordForm(aCtx.rEngine.PopObjAs(TRememberPasswordForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRememberPasswordForm: TRememberPasswordForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnCancel(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormBtnCancel.DoDoIt
 
 class function TkwRememberPasswordFormBtnCancel.GetWordNameForRegister: AnsiString;
@@ -623,12 +582,8 @@ end;//TkwRememberPasswordFormBtnCancel.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormBtnCancel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_1DAD0A24AD05_var*
-//#UC END# *52D00B00031A_1DAD0A24AD05_var*
 begin
-//#UC START# *52D00B00031A_1DAD0A24AD05_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_1DAD0A24AD05_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству btnCancel', aCtx);
 end;//TkwRememberPasswordFormBtnCancel.SetValuePrim
 
 function TkwRememberPasswordFormBtnCancel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -643,27 +598,29 @@ end;//TkwRememberPasswordFormBtnCancel.GetAllParamsCount
 
 function TkwRememberPasswordFormBtnCancel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormBtnCancel.ParamsTypes
 
 function TkwRememberPasswordFormBtnSend.btnSend(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TElPopupButton;
  {* Реализация слова скрипта .TRememberPasswordForm.btnSend }
-//#UC START# *63F9C17CB819_9D168AD23177_var*
-//#UC END# *63F9C17CB819_9D168AD23177_var*
 begin
-//#UC START# *63F9C17CB819_9D168AD23177_impl*
- !!! Needs to be implemented !!!
-//#UC END# *63F9C17CB819_9D168AD23177_impl*
+ Result := aRememberPasswordForm.btnSend;
 end;//TkwRememberPasswordFormBtnSend.btnSend
 
 procedure TkwRememberPasswordFormBtnSend.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9D168AD23177_var*
-//#UC END# *4DAEEDE10285_9D168AD23177_var*
+var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
-//#UC START# *4DAEEDE10285_9D168AD23177_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9D168AD23177_impl*
+ try
+  l_aRememberPasswordForm := TRememberPasswordForm(aCtx.rEngine.PopObjAs(TRememberPasswordForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRememberPasswordForm: TRememberPasswordForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(btnSend(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormBtnSend.DoDoIt
 
 class function TkwRememberPasswordFormBtnSend.GetWordNameForRegister: AnsiString;
@@ -673,12 +630,8 @@ end;//TkwRememberPasswordFormBtnSend.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormBtnSend.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_9D168AD23177_var*
-//#UC END# *52D00B00031A_9D168AD23177_var*
 begin
-//#UC START# *52D00B00031A_9D168AD23177_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_9D168AD23177_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству btnSend', aCtx);
 end;//TkwRememberPasswordFormBtnSend.SetValuePrim
 
 function TkwRememberPasswordFormBtnSend.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -693,27 +646,29 @@ end;//TkwRememberPasswordFormBtnSend.GetAllParamsCount
 
 function TkwRememberPasswordFormBtnSend.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormBtnSend.ParamsTypes
 
 function TkwRememberPasswordFormEdEmail.edEmail(const aCtx: TtfwContext;
  aRememberPasswordForm: TRememberPasswordForm): TnscEdit;
  {* Реализация слова скрипта .TRememberPasswordForm.edEmail }
-//#UC START# *62396A4E6064_AA3BE956D240_var*
-//#UC END# *62396A4E6064_AA3BE956D240_var*
 begin
-//#UC START# *62396A4E6064_AA3BE956D240_impl*
- !!! Needs to be implemented !!!
-//#UC END# *62396A4E6064_AA3BE956D240_impl*
+ Result := aRememberPasswordForm.edEmail;
 end;//TkwRememberPasswordFormEdEmail.edEmail
 
 procedure TkwRememberPasswordFormEdEmail.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AA3BE956D240_var*
-//#UC END# *4DAEEDE10285_AA3BE956D240_var*
+var l_aRememberPasswordForm: TRememberPasswordForm;
 begin
-//#UC START# *4DAEEDE10285_AA3BE956D240_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AA3BE956D240_impl*
+ try
+  l_aRememberPasswordForm := TRememberPasswordForm(aCtx.rEngine.PopObjAs(TRememberPasswordForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRememberPasswordForm: TRememberPasswordForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(edEmail(aCtx, l_aRememberPasswordForm));
 end;//TkwRememberPasswordFormEdEmail.DoDoIt
 
 class function TkwRememberPasswordFormEdEmail.GetWordNameForRegister: AnsiString;
@@ -723,12 +678,8 @@ end;//TkwRememberPasswordFormEdEmail.GetWordNameForRegister
 
 procedure TkwRememberPasswordFormEdEmail.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AA3BE956D240_var*
-//#UC END# *52D00B00031A_AA3BE956D240_var*
 begin
-//#UC START# *52D00B00031A_AA3BE956D240_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AA3BE956D240_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству edEmail', aCtx);
 end;//TkwRememberPasswordFormEdEmail.SetValuePrim
 
 function TkwRememberPasswordFormEdEmail.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -743,7 +694,7 @@ end;//TkwRememberPasswordFormEdEmail.GetAllParamsCount
 
 function TkwRememberPasswordFormEdEmail.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRememberPasswordForm)]);
 end;//TkwRememberPasswordFormEdEmail.ParamsTypes
 
 initialization

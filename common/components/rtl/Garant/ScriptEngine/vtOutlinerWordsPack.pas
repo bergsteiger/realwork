@@ -1,83 +1,64 @@
 unit vtOutlinerWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$VT"
-// Модуль: "vtOutlinerWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$VT::vtOutlinerWords::vtOutlinerWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtOutlinerWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3TreeInterfaces,
-  tfwScriptingInterfaces,
-  vtOutliner,
-  tfwAxiomaticsResNameGetter,
-  tfwClassLike
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , vtOutliner
+ , l3TreeInterfaces
+ , tfwScriptingInterfaces
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Nodes,
-  l3String,
-  l3Interfaces,
-  l3Chars,
-  l3Types,
-  l3Base,
-  l3Filer,
-  SysUtils,
-  l3Tree_TLB,
-  l3Bits
-  {$If not defined(NoVCL)}
-  ,
-  ImgList
-  {$IfEnd} //not NoVCL
-  ,
-  tfwScriptingTypes,
-  TypInfo,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , l3Nodes
+ , l3String
+ , l3Interfaces
+ , l3Chars
+ , l3Types
+ , l3Base
+ , l3Filer
+ , SysUtils
+ , l3Tree_TLB
+ , l3Bits
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+;
 
 type
-//#UC START# *B62FFB5F75B4ci*
-//#UC END# *B62FFB5F75B4ci*
-//#UC START# *B62FFB5F75B4cit*
-//#UC END# *B62FFB5F75B4cit*
+ //#UC START# *B62FFB5F75B4ci*
+ //#UC END# *B62FFB5F75B4ci*
+ //#UC START# *B62FFB5F75B4cit*
+ //#UC END# *B62FFB5F75B4cit*
  TvtOutlinerWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *B62FFB5F75B4publ*
-//#UC END# *B62FFB5F75B4publ*
+ //#UC START# *B62FFB5F75B4publ*
+ //#UC END# *B62FFB5F75B4publ*
  end;//TvtOutlinerWordsPackResNameGetter
 
-// start class TvtOutlinerWordsPackResNameGetter
-
-class function TvtOutlinerWordsPackResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'vtOutlinerWordsPack';
-end;//TvtOutlinerWordsPackResNameGetter.ResName
-
- {$R vtOutlinerWordsPack.res}
-
-type
  TvtCustomOutlinerFriend = {abstract} class(TvtCustomOutliner)
   {* Друг для TvtCustomOutliner }
  end;//TvtCustomOutlinerFriend
 
- TkwTreeCheckFlag = {final scriptword} class(TtfwClassLike)
+ TkwTreeCheckFlag = {final} class(TtfwClassLike)
   {* Слово скрипта tree:CheckFlag
 *Тип результата:* Boolean
 *Пример:*
@@ -85,46 +66,442 @@ type
 BOOLEAN VAR l_Boolean
  aNodeID aFlag aTree tree:CheckFlag >>> l_Boolean
 [code]  }
- private
- // private methods
-   function TreeCheckFlag(const aCtx: TtfwContext;
+  private
+   function tree_CheckFlag(const aCtx: TtfwContext;
     aTree: TvtCustomOutliner;
     aFlag: Integer;
     aNodeID: Integer): Boolean;
-     {* Реализация слова скрипта tree:CheckFlag }
- protected
- // realized methods
+    {* Реализация слова скрипта tree:CheckFlag }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwTreeCheckFlag
 
-// start class TkwTreeCheckFlag
+ TkwTreeCollapseAll = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:CollapseAll
+*Пример:*
+[code]
+ aTree tree:CollapseAll
+[code]  }
+  private
+   procedure tree_CollapseAll(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner);
+    {* Реализация слова скрипта tree:CollapseAll }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeCollapseAll
 
-function TkwTreeCheckFlag.TreeCheckFlag(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  aFlag: Integer;
-  aNodeID: Integer): Boolean;
+ TkwTreeCurrentNodeIsExpanded = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:CurrentNode:IsExpanded
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aTree tree:CurrentNode:IsExpanded >>> l_Boolean
+[code]  }
+  private
+   function tree_CurrentNode_IsExpanded(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner): Boolean;
+    {* Реализация слова скрипта tree:CurrentNode:IsExpanded }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeCurrentNodeIsExpanded
+
+ TkwTreeDeleteAllChildren = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:DeleteAllChildren
+*Пример:*
+[code]
+ aTree tree:DeleteAllChildren
+[code]  }
+  private
+   procedure tree_DeleteAllChildren(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner);
+    {* Реализация слова скрипта tree:DeleteAllChildren }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeDeleteAllChildren
+
+ TkwTreeExpandAll = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:ExpandAll
+*Пример:*
+[code]
+ aTree tree:ExpandAll
+[code]  }
+  private
+   procedure tree_ExpandAll(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner);
+    {* Реализация слова скрипта tree:ExpandAll }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeExpandAll
+
+ TkwTreeCurrentNode = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:CurrentNode
+*Тип результата:* Il3SimpleNode
+*Пример:*
+[code]
+INTERFACE VAR l_Il3SimpleNode
+ aTree tree:CurrentNode >>> l_Il3SimpleNode
+[code]  }
+  private
+   function tree_CurrentNode(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner): Il3SimpleNode;
+    {* Реализация слова скрипта tree:CurrentNode }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeCurrentNode
+
+ TkwTreeGetItem = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:GetItem
+*Тип результата:* Il3SimpleNode
+*Пример:*
+[code]
+INTERFACE VAR l_Il3SimpleNode
+ anIndex aTree tree:GetItem >>> l_Il3SimpleNode
+[code]  }
+  private
+   function tree_GetItem(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer): Il3SimpleNode;
+    {* Реализация слова скрипта tree:GetItem }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeGetItem
+
+ TkwTreeGetItemsCount = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:GetItemsCount
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aTree tree:GetItemsCount >>> l_Integer
+[code]  }
+  private
+   function tree_GetItemsCount(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner): Integer;
+    {* Реализация слова скрипта tree:GetItemsCount }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeGetItemsCount
+
+ TkwTreeIterateNodes = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:IterateNodes
+*Пример:*
+[code]
+ aLambda aTree tree:IterateNodes
+[code]  }
+  private
+   procedure tree_IterateNodes(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    aLambda: TtfwWord);
+    {* Реализация слова скрипта tree:IterateNodes }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeIterateNodes
+
+ TkwTreeSaveState2File = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:SaveState2File
+*Пример:*
+[code]
+ aFileName aTree tree:SaveState2File
+[code]  }
+  private
+   procedure tree_SaveState2File(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    const aFileName: AnsiString);
+    {* Реализация слова скрипта tree:SaveState2File }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeSaveState2File
+
+ TkwTreeChildrenCount = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:ChildrenCount
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anIndex aTree tree:ChildrenCount >>> l_Integer
+[code]  }
+  private
+   function tree_ChildrenCount(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer): Integer;
+    {* Реализация слова скрипта tree:ChildrenCount }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeChildrenCount
+
+ TkwTreeExpand = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:развернуть
+*Пример:*
+[code]
+ anIndex aTree tree:развернуть
+[code]  }
+  private
+   procedure tree_expand(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer);
+    {* Реализация слова скрипта tree:развернуть }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeExpand
+
+ TkwTreeGetItemHeight = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:GetItem:Height
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anIndex aTree tree:GetItem:Height >>> l_Integer
+[code]  }
+  private
+   function tree_GetItem_Height(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer): Integer;
+    {* Реализация слова скрипта tree:GetItem:Height }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeGetItemHeight
+
+ TkwTreeGetItemImageIndex = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:GetItemImageIndex
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anIndex aTree tree:GetItemImageIndex >>> l_Integer
+[code]  }
+  private
+   function tree_GetItemImageIndex(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer): Integer;
+    {* Реализация слова скрипта tree:GetItemImageIndex }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeGetItemImageIndex
+
+ TkwTreeGetItemLeft = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:GetItem:Left
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anIndex aTree tree:GetItem:Left >>> l_Integer
+[code]  }
+  private
+   function tree_GetItem_Left(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer): Integer;
+    {* Реализация слова скрипта tree:GetItem:Left }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeGetItemLeft
+
+ TkwTreeGetItemTop = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:GetItem:Top
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anIndex aTree tree:GetItem:Top >>> l_Integer
+[code]  }
+  private
+   function tree_GetItem_Top(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer): Integer;
+    {* Реализация слова скрипта tree:GetItem:Top }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeGetItemTop
+
+ TkwTreeGetItemWidth = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:GetItem:Width
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ anIndex aTree tree:GetItem:Width >>> l_Integer
+[code]  }
+  private
+   function tree_GetItem_Width(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer): Integer;
+    {* Реализация слова скрипта tree:GetItem:Width }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeGetItemWidth
+
+ TkwTreeGetSelected = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:GetSelected
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ anIndex aTree tree:GetSelected >>> l_Boolean
+[code]  }
+  private
+   function tree_GetSelected(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer): Boolean;
+    {* Реализация слова скрипта tree:GetSelected }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeGetSelected
+
+ TkwTreeSetSelected = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:SetSelected
+*Пример:*
+[code]
+ aValue anIndex aTree tree:SetSelected
+[code]  }
+  private
+   procedure tree_SetSelected(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer;
+    aValue: Boolean);
+    {* Реализация слова скрипта tree:SetSelected }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeSetSelected
+
+ TkwTreeCollapse = {final} class(TtfwClassLike)
+  {* Слово скрипта tree:свернуть
+*Пример:*
+[code]
+ anIndex aTree tree:свернуть
+[code]  }
+  private
+   procedure tree_collapse(const aCtx: TtfwContext;
+    aTree: TvtCustomOutliner;
+    anIndex: Integer);
+    {* Реализация слова скрипта tree:свернуть }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwTreeCollapse
+
+class function TvtOutlinerWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'vtOutlinerWordsPack';
+end;//TvtOutlinerWordsPackResNameGetter.ResName
+
+ {$R vtOutlinerWordsPack.res}
+
+function TkwTreeCheckFlag.tree_CheckFlag(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ aFlag: Integer;
+ aNodeID: Integer): Boolean;
+ {* Реализация слова скрипта tree:CheckFlag }
 //#UC START# *A4D880DBCC97_3A8F612BD250_var*
 //#UC END# *A4D880DBCC97_3A8F612BD250_var*
 begin
 //#UC START# *A4D880DBCC97_3A8F612BD250_impl*
  Result := l3TestMask(aTree.CTree.CNodes[aNodeID].Flags, aFlag);
 //#UC END# *A4D880DBCC97_3A8F612BD250_impl*
-end;//TkwTreeCheckFlag.TreeCheckFlag
+end;//TkwTreeCheckFlag.tree_CheckFlag
 
 procedure TkwTreeCheckFlag.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_aFlag : Integer;
- l_aNodeID : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_aFlag: Integer;
+var l_aNodeID: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -153,74 +530,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((TreeCheckFlag(aCtx, l_aTree, l_aFlag, l_aNodeID)));
+ aCtx.rEngine.PushBool(tree_CheckFlag(aCtx, l_aTree, l_aFlag, l_aNodeID));
 end;//TkwTreeCheckFlag.DoDoIt
 
 class function TkwTreeCheckFlag.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:CheckFlag';
 end;//TkwTreeCheckFlag.GetWordNameForRegister
 
 function TkwTreeCheckFlag.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwTreeCheckFlag.GetResultTypeInfo
 
 function TkwTreeCheckFlag.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwTreeCheckFlag.GetAllParamsCount
 
 function TkwTreeCheckFlag.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwTreeCheckFlag.ParamsTypes
 
-type
- TkwTreeCollapseAll = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:CollapseAll
-*Пример:*
-[code]
- aTree tree:CollapseAll
-[code]  }
- private
- // private methods
-   procedure TreeCollapseAll(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner);
-     {* Реализация слова скрипта tree:CollapseAll }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeCollapseAll
-
-// start class TkwTreeCollapseAll
-
-procedure TkwTreeCollapseAll.TreeCollapseAll(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner);
+procedure TkwTreeCollapseAll.tree_CollapseAll(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner);
+ {* Реализация слова скрипта tree:CollapseAll }
 //#UC START# *53CF58CDEE72_DCC8D602858A_var*
 //#UC END# *53CF58CDEE72_DCC8D602858A_var*
 begin
 //#UC START# *53CF58CDEE72_DCC8D602858A_impl*
  aTree.TreeStruct.RootNode.ExpandCollapseAll(False);
 //#UC END# *53CF58CDEE72_DCC8D602858A_impl*
-end;//TkwTreeCollapseAll.TreeCollapseAll
+end;//TkwTreeCollapseAll.tree_CollapseAll
 
 procedure TkwTreeCollapseAll.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
+var l_aTree: TvtCustomOutliner;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -231,76 +576,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- TreeCollapseAll(aCtx, l_aTree);
+ tree_CollapseAll(aCtx, l_aTree);
 end;//TkwTreeCollapseAll.DoDoIt
 
 class function TkwTreeCollapseAll.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:CollapseAll';
 end;//TkwTreeCollapseAll.GetWordNameForRegister
 
 function TkwTreeCollapseAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTreeCollapseAll.GetResultTypeInfo
 
 function TkwTreeCollapseAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwTreeCollapseAll.GetAllParamsCount
 
 function TkwTreeCollapseAll.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCollapseAll.ParamsTypes
 
-type
- TkwTreeCurrentNodeIsExpanded = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:CurrentNode:IsExpanded
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTree tree:CurrentNode:IsExpanded >>> l_Boolean
-[code]  }
- private
- // private methods
-   function TreeCurrentNodeIsExpanded(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner): Boolean;
-     {* Реализация слова скрипта tree:CurrentNode:IsExpanded }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeCurrentNodeIsExpanded
-
-// start class TkwTreeCurrentNodeIsExpanded
-
-function TkwTreeCurrentNodeIsExpanded.TreeCurrentNodeIsExpanded(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner): Boolean;
+function TkwTreeCurrentNodeIsExpanded.tree_CurrentNode_IsExpanded(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner): Boolean;
+ {* Реализация слова скрипта tree:CurrentNode:IsExpanded }
 //#UC START# *5E6EA88E41A6_24EBB16818DB_var*
 //#UC END# *5E6EA88E41A6_24EBB16818DB_var*
 begin
 //#UC START# *5E6EA88E41A6_24EBB16818DB_impl*
  Result := aTree.TreeStruct.IsExpanded(aTree.GetCurrentNode);
 //#UC END# *5E6EA88E41A6_24EBB16818DB_impl*
-end;//TkwTreeCurrentNodeIsExpanded.TreeCurrentNodeIsExpanded
+end;//TkwTreeCurrentNodeIsExpanded.tree_CurrentNode_IsExpanded
 
 procedure TkwTreeCurrentNodeIsExpanded.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
+var l_aTree: TvtCustomOutliner;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -311,62 +622,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((TreeCurrentNodeIsExpanded(aCtx, l_aTree)));
+ aCtx.rEngine.PushBool(tree_CurrentNode_IsExpanded(aCtx, l_aTree));
 end;//TkwTreeCurrentNodeIsExpanded.DoDoIt
 
 class function TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:CurrentNode:IsExpanded';
 end;//TkwTreeCurrentNodeIsExpanded.GetWordNameForRegister
 
 function TkwTreeCurrentNodeIsExpanded.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwTreeCurrentNodeIsExpanded.GetResultTypeInfo
 
 function TkwTreeCurrentNodeIsExpanded.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwTreeCurrentNodeIsExpanded.GetAllParamsCount
 
 function TkwTreeCurrentNodeIsExpanded.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCurrentNodeIsExpanded.ParamsTypes
 
-type
- TkwTreeDeleteAllChildren = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:DeleteAllChildren
-*Пример:*
-[code]
- aTree tree:DeleteAllChildren
-[code]  }
- private
- // private methods
-   procedure TreeDeleteAllChildren(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner);
-     {* Реализация слова скрипта tree:DeleteAllChildren }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeDeleteAllChildren
-
-// start class TkwTreeDeleteAllChildren
-
-procedure TkwTreeDeleteAllChildren.TreeDeleteAllChildren(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner);
+procedure TkwTreeDeleteAllChildren.tree_DeleteAllChildren(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner);
+ {* Реализация слова скрипта tree:DeleteAllChildren }
 //#UC START# *8767BA37432C_88EA9B4D8249_var*
 var
  l_Node   : Il3SimpleNode;
@@ -381,12 +662,10 @@ begin
   l_Node.Delete;
  end; // while l_Current.HasChld do
 //#UC END# *8767BA37432C_88EA9B4D8249_impl*
-end;//TkwTreeDeleteAllChildren.TreeDeleteAllChildren
+end;//TkwTreeDeleteAllChildren.tree_DeleteAllChildren
 
 procedure TkwTreeDeleteAllChildren.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
+var l_aTree: TvtCustomOutliner;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -397,74 +676,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- TreeDeleteAllChildren(aCtx, l_aTree);
+ tree_DeleteAllChildren(aCtx, l_aTree);
 end;//TkwTreeDeleteAllChildren.DoDoIt
 
 class function TkwTreeDeleteAllChildren.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:DeleteAllChildren';
 end;//TkwTreeDeleteAllChildren.GetWordNameForRegister
 
 function TkwTreeDeleteAllChildren.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTreeDeleteAllChildren.GetResultTypeInfo
 
 function TkwTreeDeleteAllChildren.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwTreeDeleteAllChildren.GetAllParamsCount
 
 function TkwTreeDeleteAllChildren.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeDeleteAllChildren.ParamsTypes
 
-type
- TkwTreeExpandAll = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:ExpandAll
-*Пример:*
-[code]
- aTree tree:ExpandAll
-[code]  }
- private
- // private methods
-   procedure TreeExpandAll(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner);
-     {* Реализация слова скрипта tree:ExpandAll }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeExpandAll
-
-// start class TkwTreeExpandAll
-
-procedure TkwTreeExpandAll.TreeExpandAll(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner);
+procedure TkwTreeExpandAll.tree_ExpandAll(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner);
+ {* Реализация слова скрипта tree:ExpandAll }
 //#UC START# *04755E6E20F4_11D7E325A602_var*
 //#UC END# *04755E6E20F4_11D7E325A602_var*
 begin
 //#UC START# *04755E6E20F4_11D7E325A602_impl*
  aTree.TreeStruct.RootNode.ExpandCollapseAll(True);
 //#UC END# *04755E6E20F4_11D7E325A602_impl*
-end;//TkwTreeExpandAll.TreeExpandAll
+end;//TkwTreeExpandAll.tree_ExpandAll
 
 procedure TkwTreeExpandAll.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
+var l_aTree: TvtCustomOutliner;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -475,76 +722,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- TreeExpandAll(aCtx, l_aTree);
+ tree_ExpandAll(aCtx, l_aTree);
 end;//TkwTreeExpandAll.DoDoIt
 
 class function TkwTreeExpandAll.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:ExpandAll';
 end;//TkwTreeExpandAll.GetWordNameForRegister
 
 function TkwTreeExpandAll.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTreeExpandAll.GetResultTypeInfo
 
 function TkwTreeExpandAll.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwTreeExpandAll.GetAllParamsCount
 
 function TkwTreeExpandAll.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeExpandAll.ParamsTypes
 
-type
- TkwTreeCurrentNode = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:CurrentNode
-*Тип результата:* Il3SimpleNode
-*Пример:*
-[code]
-INTERFACE VAR l_Il3SimpleNode
- aTree tree:CurrentNode >>> l_Il3SimpleNode
-[code]  }
- private
- // private methods
-   function TreeCurrentNode(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner): Il3SimpleNode;
-     {* Реализация слова скрипта tree:CurrentNode }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeCurrentNode
-
-// start class TkwTreeCurrentNode
-
-function TkwTreeCurrentNode.TreeCurrentNode(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner): Il3SimpleNode;
+function TkwTreeCurrentNode.tree_CurrentNode(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner): Il3SimpleNode;
+ {* Реализация слова скрипта tree:CurrentNode }
 //#UC START# *7AB848282EE2_6EB6AE69700F_var*
 //#UC END# *7AB848282EE2_6EB6AE69700F_var*
 begin
 //#UC START# *7AB848282EE2_6EB6AE69700F_impl*
  Result := aTree.GetCurrentNode;
 //#UC END# *7AB848282EE2_6EB6AE69700F_impl*
-end;//TkwTreeCurrentNode.TreeCurrentNode
+end;//TkwTreeCurrentNode.tree_CurrentNode
 
 procedure TkwTreeCurrentNode.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
+var l_aTree: TvtCustomOutliner;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -555,79 +768,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf((TreeCurrentNode(aCtx, l_aTree)), TypeInfo(Il3SimpleNode));
+ aCtx.rEngine.PushIntf(tree_CurrentNode(aCtx, l_aTree), TypeInfo(Il3SimpleNode));
 end;//TkwTreeCurrentNode.DoDoIt
 
 class function TkwTreeCurrentNode.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:CurrentNode';
 end;//TkwTreeCurrentNode.GetWordNameForRegister
 
 function TkwTreeCurrentNode.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Il3SimpleNode);
 end;//TkwTreeCurrentNode.GetResultTypeInfo
 
 function TkwTreeCurrentNode.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwTreeCurrentNode.GetAllParamsCount
 
 function TkwTreeCurrentNode.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeCurrentNode.ParamsTypes
 
-type
- TkwTreeGetItem = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem
-*Тип результата:* Il3SimpleNode
-*Пример:*
-[code]
-INTERFACE VAR l_Il3SimpleNode
- anIndex aTree tree:GetItem >>> l_Il3SimpleNode
-[code]  }
- private
- // private methods
-   function TreeGetItem(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer): Il3SimpleNode;
-     {* Реализация слова скрипта tree:GetItem }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeGetItem
-
-// start class TkwTreeGetItem
-
-function TkwTreeGetItem.TreeGetItem(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer): Il3SimpleNode;
+function TkwTreeGetItem.tree_GetItem(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer): Il3SimpleNode;
+ {* Реализация слова скрипта tree:GetItem }
 //#UC START# *7FAAC6D7CD3C_E66BB4447886_var*
 //#UC END# *7FAAC6D7CD3C_E66BB4447886_var*
 begin
 //#UC START# *7FAAC6D7CD3C_E66BB4447886_impl*
  Result := aTree.TreeStruct.Nodes[anIndex];
 //#UC END# *7FAAC6D7CD3C_E66BB4447886_impl*
-end;//TkwTreeGetItem.TreeGetItem
+end;//TkwTreeGetItem.tree_GetItem
 
 procedure TkwTreeGetItem.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -647,76 +825,42 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf((TreeGetItem(aCtx, l_aTree, l_anIndex)), TypeInfo(Il3SimpleNode));
+ aCtx.rEngine.PushIntf(tree_GetItem(aCtx, l_aTree, l_anIndex), TypeInfo(Il3SimpleNode));
 end;//TkwTreeGetItem.DoDoIt
 
 class function TkwTreeGetItem.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:GetItem';
 end;//TkwTreeGetItem.GetWordNameForRegister
 
 function TkwTreeGetItem.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Il3SimpleNode);
 end;//TkwTreeGetItem.GetResultTypeInfo
 
 function TkwTreeGetItem.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeGetItem.GetAllParamsCount
 
 function TkwTreeGetItem.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItem.ParamsTypes
 
-type
- TkwTreeGetItemsCount = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItemsCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aTree tree:GetItemsCount >>> l_Integer
-[code]  }
- private
- // private methods
-   function TreeGetItemsCount(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner): Integer;
-     {* Реализация слова скрипта tree:GetItemsCount }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeGetItemsCount
-
-// start class TkwTreeGetItemsCount
-
-function TkwTreeGetItemsCount.TreeGetItemsCount(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner): Integer;
+function TkwTreeGetItemsCount.tree_GetItemsCount(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner): Integer;
+ {* Реализация слова скрипта tree:GetItemsCount }
 //#UC START# *4336ED9E3EE1_6AA86FBC7A2F_var*
 //#UC END# *4336ED9E3EE1_6AA86FBC7A2F_var*
 begin
 //#UC START# *4336ED9E3EE1_6AA86FBC7A2F_impl*
  Result := aTree.TreeStruct.CountView;
 //#UC END# *4336ED9E3EE1_6AA86FBC7A2F_impl*
-end;//TkwTreeGetItemsCount.TreeGetItemsCount
+end;//TkwTreeGetItemsCount.tree_GetItemsCount
 
 procedure TkwTreeGetItemsCount.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
+var l_aTree: TvtCustomOutliner;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -727,64 +871,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((TreeGetItemsCount(aCtx, l_aTree)));
+ aCtx.rEngine.PushInt(tree_GetItemsCount(aCtx, l_aTree));
 end;//TkwTreeGetItemsCount.DoDoIt
 
 class function TkwTreeGetItemsCount.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:GetItemsCount';
 end;//TkwTreeGetItemsCount.GetWordNameForRegister
 
 function TkwTreeGetItemsCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwTreeGetItemsCount.GetResultTypeInfo
 
 function TkwTreeGetItemsCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwTreeGetItemsCount.GetAllParamsCount
 
 function TkwTreeGetItemsCount.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner)]);
 end;//TkwTreeGetItemsCount.ParamsTypes
 
-type
- TkwTreeIterateNodes = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:IterateNodes
-*Пример:*
-[code]
- aLambda aTree tree:IterateNodes
-[code]  }
- private
- // private methods
-   procedure TreeIterateNodes(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    aLambda: TtfwWord);
-     {* Реализация слова скрипта tree:IterateNodes }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeIterateNodes
-
-// start class TkwTreeIterateNodes
-
-procedure TkwTreeIterateNodes.TreeIterateNodes(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  aLambda: TtfwWord);
+procedure TkwTreeIterateNodes.tree_IterateNodes(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ aLambda: TtfwWord);
+ {* Реализация слова скрипта tree:IterateNodes }
 //#UC START# *C2580701FE33_57DF7C56BA33_var*
 
  function DoItem(const aNode: Il3Node): Boolean;
@@ -803,13 +916,11 @@ begin
   on EtfwBreakIterator do ;
  end;//try..except
 //#UC END# *C2580701FE33_57DF7C56BA33_impl*
-end;//TkwTreeIterateNodes.TreeIterateNodes
+end;//TkwTreeIterateNodes.tree_IterateNodes
 
 procedure TkwTreeIterateNodes.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_aLambda : TtfwWord;
+var l_aTree: TvtCustomOutliner;
+var l_aLambda: TtfwWord;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -829,64 +940,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- TreeIterateNodes(aCtx, l_aTree, l_aLambda);
+ tree_IterateNodes(aCtx, l_aTree, l_aLambda);
 end;//TkwTreeIterateNodes.DoDoIt
 
 class function TkwTreeIterateNodes.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:IterateNodes';
 end;//TkwTreeIterateNodes.GetWordNameForRegister
 
 function TkwTreeIterateNodes.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTreeIterateNodes.GetResultTypeInfo
 
 function TkwTreeIterateNodes.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeIterateNodes.GetAllParamsCount
 
 function TkwTreeIterateNodes.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(TtfwWord)]);
 end;//TkwTreeIterateNodes.ParamsTypes
 
-type
- TkwTreeSaveState2File = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:SaveState2File
-*Пример:*
-[code]
- aFileName aTree tree:SaveState2File
-[code]  }
- private
- // private methods
-   procedure TreeSaveState2File(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    const aFileName: AnsiString);
-     {* Реализация слова скрипта tree:SaveState2File }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeSaveState2File
-
-// start class TkwTreeSaveState2File
-
-procedure TkwTreeSaveState2File.TreeSaveState2File(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  const aFileName: AnsiString);
+procedure TkwTreeSaveState2File.tree_SaveState2File(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ const aFileName: AnsiString);
+ {* Реализация слова скрипта tree:SaveState2File }
 //#UC START# *60993335F29E_B4D43BCE4979_var*
 var
  l_F : Tl3CustomDosFiler;
@@ -930,13 +1010,11 @@ begin
   FreeAndNil(l_F);
  end;//try..finally
 //#UC END# *60993335F29E_B4D43BCE4979_impl*
-end;//TkwTreeSaveState2File.TreeSaveState2File
+end;//TkwTreeSaveState2File.tree_SaveState2File
 
 procedure TkwTreeSaveState2File.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_aFileName : AnsiString;
+var l_aTree: TvtCustomOutliner;
+var l_aFileName: AnsiString;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -956,79 +1034,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- TreeSaveState2File(aCtx, l_aTree, l_aFileName);
+ tree_SaveState2File(aCtx, l_aTree, l_aFileName);
 end;//TkwTreeSaveState2File.DoDoIt
 
 class function TkwTreeSaveState2File.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:SaveState2File';
 end;//TkwTreeSaveState2File.GetWordNameForRegister
 
 function TkwTreeSaveState2File.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTreeSaveState2File.GetResultTypeInfo
 
 function TkwTreeSaveState2File.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeSaveState2File.GetAllParamsCount
 
 function TkwTreeSaveState2File.ParamsTypes: PTypeInfoArray;
- {-}
 begin
- Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(AnsiString)]);
+ Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), @tfw_tiString]);
 end;//TkwTreeSaveState2File.ParamsTypes
 
-type
- TkwTreeChildrenCount = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:ChildrenCount
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:ChildrenCount >>> l_Integer
-[code]  }
- private
- // private methods
-   function TreeChildrenCount(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer): Integer;
-     {* Реализация слова скрипта tree:ChildrenCount }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeChildrenCount
-
-// start class TkwTreeChildrenCount
-
-function TkwTreeChildrenCount.TreeChildrenCount(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer): Integer;
+function TkwTreeChildrenCount.tree_ChildrenCount(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer): Integer;
+ {* Реализация слова скрипта tree:ChildrenCount }
 //#UC START# *AE43F50BC9AF_015D1248A6CF_var*
 //#UC END# *AE43F50BC9AF_015D1248A6CF_var*
 begin
 //#UC START# *AE43F50BC9AF_015D1248A6CF_impl*
  Result := aTree.GetNode(anIndex).ThisChildrenCount;
 //#UC END# *AE43F50BC9AF_015D1248A6CF_impl*
-end;//TkwTreeChildrenCount.TreeChildrenCount
+end;//TkwTreeChildrenCount.tree_ChildrenCount
 
 procedure TkwTreeChildrenCount.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1048,77 +1091,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((TreeChildrenCount(aCtx, l_aTree, l_anIndex)));
+ aCtx.rEngine.PushInt(tree_ChildrenCount(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeChildrenCount.DoDoIt
 
 class function TkwTreeChildrenCount.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:ChildrenCount';
 end;//TkwTreeChildrenCount.GetWordNameForRegister
 
 function TkwTreeChildrenCount.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwTreeChildrenCount.GetResultTypeInfo
 
 function TkwTreeChildrenCount.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeChildrenCount.GetAllParamsCount
 
 function TkwTreeChildrenCount.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeChildrenCount.ParamsTypes
 
-type
- TkwTreeExpand = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:развернуть
-*Пример:*
-[code]
- anIndex aTree tree:развернуть
-[code]  }
- private
- // private methods
-   procedure TreeExpand(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer);
-     {* Реализация слова скрипта tree:развернуть }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeExpand
-
-// start class TkwTreeExpand
-
-procedure TkwTreeExpand.TreeExpand(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer);
+procedure TkwTreeExpand.tree_expand(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer);
+ {* Реализация слова скрипта tree:развернуть }
 //#UC START# *2E30DC700B4D_B776D637E7D3_var*
 //#UC END# *2E30DC700B4D_B776D637E7D3_var*
 begin
 //#UC START# *2E30DC700B4D_B776D637E7D3_impl*
  aTree.ExpandNode(aTree.GetNode(anIndex), True);
 //#UC END# *2E30DC700B4D_B776D637E7D3_impl*
-end;//TkwTreeExpand.TreeExpand
+end;//TkwTreeExpand.tree_expand
 
 procedure TkwTreeExpand.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1138,66 +1148,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- TreeExpand(aCtx, l_aTree, l_anIndex);
+ tree_expand(aCtx, l_aTree, l_anIndex);
 end;//TkwTreeExpand.DoDoIt
 
 class function TkwTreeExpand.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:развернуть';
 end;//TkwTreeExpand.GetWordNameForRegister
 
 function TkwTreeExpand.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTreeExpand.GetResultTypeInfo
 
 function TkwTreeExpand.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeExpand.GetAllParamsCount
 
 function TkwTreeExpand.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeExpand.ParamsTypes
 
-type
- TkwTreeGetItemHeight = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem:Height
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItem:Height >>> l_Integer
-[code]  }
- private
- // private methods
-   function TreeGetItemHeight(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer): Integer;
-     {* Реализация слова скрипта tree:GetItem:Height }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeGetItemHeight
-
-// start class TkwTreeGetItemHeight
-
-function TkwTreeGetItemHeight.TreeGetItemHeight(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer): Integer;
+function TkwTreeGetItemHeight.tree_GetItem_Height(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer): Integer;
+ {* Реализация слова скрипта tree:GetItem:Height }
 //#UC START# *6A1F8BF29A15_62AE36AC72B7_var*
 //#UC END# *6A1F8BF29A15_62AE36AC72B7_var*
 begin
@@ -1205,13 +1182,11 @@ begin
  with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
   Result := (Bottom - Top);
 //#UC END# *6A1F8BF29A15_62AE36AC72B7_impl*
-end;//TkwTreeGetItemHeight.TreeGetItemHeight
+end;//TkwTreeGetItemHeight.tree_GetItem_Height
 
 procedure TkwTreeGetItemHeight.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1231,66 +1206,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((TreeGetItemHeight(aCtx, l_aTree, l_anIndex)));
+ aCtx.rEngine.PushInt(tree_GetItem_Height(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemHeight.DoDoIt
 
 class function TkwTreeGetItemHeight.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:GetItem:Height';
 end;//TkwTreeGetItemHeight.GetWordNameForRegister
 
 function TkwTreeGetItemHeight.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwTreeGetItemHeight.GetResultTypeInfo
 
 function TkwTreeGetItemHeight.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeGetItemHeight.GetAllParamsCount
 
 function TkwTreeGetItemHeight.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemHeight.ParamsTypes
 
-type
- TkwTreeGetItemImageIndex = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItemImageIndex
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItemImageIndex >>> l_Integer
-[code]  }
- private
- // private methods
-   function TreeGetItemImageIndex(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer): Integer;
-     {* Реализация слова скрипта tree:GetItemImageIndex }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeGetItemImageIndex
-
-// start class TkwTreeGetItemImageIndex
-
-function TkwTreeGetItemImageIndex.TreeGetItemImageIndex(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer): Integer;
+function TkwTreeGetItemImageIndex.tree_GetItemImageIndex(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer): Integer;
+ {* Реализация слова скрипта tree:GetItemImageIndex }
 //#UC START# *8973BBC94034_A8F9DB23E07A_var*
 var
  l_IL: TCustomImageList;
@@ -1302,13 +1244,11 @@ begin
  else
   Result := vtItemWithoutImage;
 //#UC END# *8973BBC94034_A8F9DB23E07A_impl*
-end;//TkwTreeGetItemImageIndex.TreeGetItemImageIndex
+end;//TkwTreeGetItemImageIndex.tree_GetItemImageIndex
 
 procedure TkwTreeGetItemImageIndex.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1328,66 +1268,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((TreeGetItemImageIndex(aCtx, l_aTree, l_anIndex)));
+ aCtx.rEngine.PushInt(tree_GetItemImageIndex(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemImageIndex.DoDoIt
 
 class function TkwTreeGetItemImageIndex.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:GetItemImageIndex';
 end;//TkwTreeGetItemImageIndex.GetWordNameForRegister
 
 function TkwTreeGetItemImageIndex.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwTreeGetItemImageIndex.GetResultTypeInfo
 
 function TkwTreeGetItemImageIndex.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeGetItemImageIndex.GetAllParamsCount
 
 function TkwTreeGetItemImageIndex.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemImageIndex.ParamsTypes
 
-type
- TkwTreeGetItemLeft = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem:Left
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItem:Left >>> l_Integer
-[code]  }
- private
- // private methods
-   function TreeGetItemLeft(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer): Integer;
-     {* Реализация слова скрипта tree:GetItem:Left }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeGetItemLeft
-
-// start class TkwTreeGetItemLeft
-
-function TkwTreeGetItemLeft.TreeGetItemLeft(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer): Integer;
+function TkwTreeGetItemLeft.tree_GetItem_Left(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer): Integer;
+ {* Реализация слова скрипта tree:GetItem:Left }
 //#UC START# *B8F482D3E058_6CAA56491F95_var*
 //#UC END# *B8F482D3E058_6CAA56491F95_var*
 begin
@@ -1395,13 +1302,11 @@ begin
  with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
   Result := Left;
 //#UC END# *B8F482D3E058_6CAA56491F95_impl*
-end;//TkwTreeGetItemLeft.TreeGetItemLeft
+end;//TkwTreeGetItemLeft.tree_GetItem_Left
 
 procedure TkwTreeGetItemLeft.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1421,66 +1326,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((TreeGetItemLeft(aCtx, l_aTree, l_anIndex)));
+ aCtx.rEngine.PushInt(tree_GetItem_Left(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemLeft.DoDoIt
 
 class function TkwTreeGetItemLeft.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:GetItem:Left';
 end;//TkwTreeGetItemLeft.GetWordNameForRegister
 
 function TkwTreeGetItemLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwTreeGetItemLeft.GetResultTypeInfo
 
 function TkwTreeGetItemLeft.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeGetItemLeft.GetAllParamsCount
 
 function TkwTreeGetItemLeft.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemLeft.ParamsTypes
 
-type
- TkwTreeGetItemTop = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem:Top
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItem:Top >>> l_Integer
-[code]  }
- private
- // private methods
-   function TreeGetItemTop(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer): Integer;
-     {* Реализация слова скрипта tree:GetItem:Top }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeGetItemTop
-
-// start class TkwTreeGetItemTop
-
-function TkwTreeGetItemTop.TreeGetItemTop(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer): Integer;
+function TkwTreeGetItemTop.tree_GetItem_Top(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer): Integer;
+ {* Реализация слова скрипта tree:GetItem:Top }
 //#UC START# *BB0EA75B28A4_5F6D76A66CAD_var*
 //#UC END# *BB0EA75B28A4_5F6D76A66CAD_var*
 begin
@@ -1488,13 +1360,11 @@ begin
  with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
   Result := Top;
 //#UC END# *BB0EA75B28A4_5F6D76A66CAD_impl*
-end;//TkwTreeGetItemTop.TreeGetItemTop
+end;//TkwTreeGetItemTop.tree_GetItem_Top
 
 procedure TkwTreeGetItemTop.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1514,66 +1384,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((TreeGetItemTop(aCtx, l_aTree, l_anIndex)));
+ aCtx.rEngine.PushInt(tree_GetItem_Top(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemTop.DoDoIt
 
 class function TkwTreeGetItemTop.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:GetItem:Top';
 end;//TkwTreeGetItemTop.GetWordNameForRegister
 
 function TkwTreeGetItemTop.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwTreeGetItemTop.GetResultTypeInfo
 
 function TkwTreeGetItemTop.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeGetItemTop.GetAllParamsCount
 
 function TkwTreeGetItemTop.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemTop.ParamsTypes
 
-type
- TkwTreeGetItemWidth = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:GetItem:Width
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- anIndex aTree tree:GetItem:Width >>> l_Integer
-[code]  }
- private
- // private methods
-   function TreeGetItemWidth(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer): Integer;
-     {* Реализация слова скрипта tree:GetItem:Width }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeGetItemWidth
-
-// start class TkwTreeGetItemWidth
-
-function TkwTreeGetItemWidth.TreeGetItemWidth(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer): Integer;
+function TkwTreeGetItemWidth.tree_GetItem_Width(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer): Integer;
+ {* Реализация слова скрипта tree:GetItem:Width }
 //#UC START# *C87D76FDB760_645DA96C0332_var*
 //#UC END# *C87D76FDB760_645DA96C0332_var*
 begin
@@ -1581,13 +1418,11 @@ begin
  with TvtCustomOutlinerFriend(aTree).GetDrawRect(anIndex) do
   Result := (Right - Left);
 //#UC END# *C87D76FDB760_645DA96C0332_impl*
-end;//TkwTreeGetItemWidth.TreeGetItemWidth
+end;//TkwTreeGetItemWidth.tree_GetItem_Width
 
 procedure TkwTreeGetItemWidth.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1607,79 +1442,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((TreeGetItemWidth(aCtx, l_aTree, l_anIndex)));
+ aCtx.rEngine.PushInt(tree_GetItem_Width(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetItemWidth.DoDoIt
 
 class function TkwTreeGetItemWidth.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:GetItem:Width';
 end;//TkwTreeGetItemWidth.GetWordNameForRegister
 
 function TkwTreeGetItemWidth.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwTreeGetItemWidth.GetResultTypeInfo
 
 function TkwTreeGetItemWidth.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeGetItemWidth.GetAllParamsCount
 
 function TkwTreeGetItemWidth.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetItemWidth.ParamsTypes
 
-type
- TkwTreeGetSelected = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:GetSelected
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anIndex aTree tree:GetSelected >>> l_Boolean
-[code]  }
- private
- // private methods
-   function TreeGetSelected(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer): Boolean;
-     {* Реализация слова скрипта tree:GetSelected }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeGetSelected
-
-// start class TkwTreeGetSelected
-
-function TkwTreeGetSelected.TreeGetSelected(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer): Boolean;
+function TkwTreeGetSelected.tree_GetSelected(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer): Boolean;
+ {* Реализация слова скрипта tree:GetSelected }
 //#UC START# *9B0DC054C6CC_5AEA5F2D19AB_var*
 //#UC END# *9B0DC054C6CC_5AEA5F2D19AB_var*
 begin
 //#UC START# *9B0DC054C6CC_5AEA5F2D19AB_impl*
  Result := aTree.Selected[anIndex];
 //#UC END# *9B0DC054C6CC_5AEA5F2D19AB_impl*
-end;//TkwTreeGetSelected.TreeGetSelected
+end;//TkwTreeGetSelected.tree_GetSelected
 
 procedure TkwTreeGetSelected.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1699,80 +1499,46 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((TreeGetSelected(aCtx, l_aTree, l_anIndex)));
+ aCtx.rEngine.PushBool(tree_GetSelected(aCtx, l_aTree, l_anIndex));
 end;//TkwTreeGetSelected.DoDoIt
 
 class function TkwTreeGetSelected.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:GetSelected';
 end;//TkwTreeGetSelected.GetWordNameForRegister
 
 function TkwTreeGetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwTreeGetSelected.GetResultTypeInfo
 
 function TkwTreeGetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeGetSelected.GetAllParamsCount
 
 function TkwTreeGetSelected.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeGetSelected.ParamsTypes
 
-type
- TkwTreeSetSelected = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:SetSelected
-*Пример:*
-[code]
- aValue anIndex aTree tree:SetSelected
-[code]  }
- private
- // private methods
-   procedure TreeSetSelected(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer;
-    aValue: Boolean);
-     {* Реализация слова скрипта tree:SetSelected }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeSetSelected
-
-// start class TkwTreeSetSelected
-
-procedure TkwTreeSetSelected.TreeSetSelected(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer;
-  aValue: Boolean);
+procedure TkwTreeSetSelected.tree_SetSelected(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer;
+ aValue: Boolean);
+ {* Реализация слова скрипта tree:SetSelected }
 //#UC START# *FB5CACE1D73C_017A97801F00_var*
 //#UC END# *FB5CACE1D73C_017A97801F00_var*
 begin
 //#UC START# *FB5CACE1D73C_017A97801F00_impl*
  aTree.Selected[anIndex] := aValue;
 //#UC END# *FB5CACE1D73C_017A97801F00_impl*
-end;//TkwTreeSetSelected.TreeSetSelected
+end;//TkwTreeSetSelected.tree_SetSelected
 
 procedure TkwTreeSetSelected.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
- l_aValue : Boolean;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
+var l_aValue: Boolean;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1801,77 +1567,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- TreeSetSelected(aCtx, l_aTree, l_anIndex, l_aValue);
+ tree_SetSelected(aCtx, l_aTree, l_anIndex, l_aValue);
 end;//TkwTreeSetSelected.DoDoIt
 
 class function TkwTreeSetSelected.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:SetSelected';
 end;//TkwTreeSetSelected.GetWordNameForRegister
 
 function TkwTreeSetSelected.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTreeSetSelected.GetResultTypeInfo
 
 function TkwTreeSetSelected.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 2 + 1;
+ Result := 3;
 end;//TkwTreeSetSelected.GetAllParamsCount
 
 function TkwTreeSetSelected.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer), TypeInfo(Boolean)]);
 end;//TkwTreeSetSelected.ParamsTypes
 
-type
- TkwTreeCollapse = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта tree:свернуть
-*Пример:*
-[code]
- anIndex aTree tree:свернуть
-[code]  }
- private
- // private methods
-   procedure TreeCollapse(const aCtx: TtfwContext;
-    aTree: TvtCustomOutliner;
-    anIndex: Integer);
-     {* Реализация слова скрипта tree:свернуть }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwTreeCollapse
-
-// start class TkwTreeCollapse
-
-procedure TkwTreeCollapse.TreeCollapse(const aCtx: TtfwContext;
-  aTree: TvtCustomOutliner;
-  anIndex: Integer);
+procedure TkwTreeCollapse.tree_collapse(const aCtx: TtfwContext;
+ aTree: TvtCustomOutliner;
+ anIndex: Integer);
+ {* Реализация слова скрипта tree:свернуть }
 //#UC START# *CEBD033C9914_9749EACE054F_var*
 //#UC END# *CEBD033C9914_9749EACE054F_var*
 begin
 //#UC START# *CEBD033C9914_9749EACE054F_impl*
  aTree.ExpandNode(aTree.GetNode(anIndex), false);
 //#UC END# *CEBD033C9914_9749EACE054F_impl*
-end;//TkwTreeCollapse.TreeCollapse
+end;//TkwTreeCollapse.tree_collapse
 
 procedure TkwTreeCollapse.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aTree : TvtCustomOutliner;
- l_anIndex : Integer;
+var l_aTree: TvtCustomOutliner;
+var l_anIndex: Integer;
 begin
  try
   l_aTree := TvtCustomOutliner(aCtx.rEngine.PopObjAs(TvtCustomOutliner));
@@ -1891,146 +1624,86 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- TreeCollapse(aCtx, l_aTree, l_anIndex);
+ tree_collapse(aCtx, l_aTree, l_anIndex);
 end;//TkwTreeCollapse.DoDoIt
 
 class function TkwTreeCollapse.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'tree:свернуть';
 end;//TkwTreeCollapse.GetWordNameForRegister
 
 function TkwTreeCollapse.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwTreeCollapse.GetResultTypeInfo
 
 function TkwTreeCollapse.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwTreeCollapse.GetAllParamsCount
 
 function TkwTreeCollapse.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TvtCustomOutliner), TypeInfo(Integer)]);
 end;//TkwTreeCollapse.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TvtOutlinerWordsPackResNameGetter.Register;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_CheckFlag
+ {* Регистрация скриптованой аксиоматики }
  TkwTreeCheckFlag.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_CollapseAll
+ {* Регистрация tree_CheckFlag }
  TkwTreeCollapseAll.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_CurrentNode_IsExpanded
+ {* Регистрация tree_CollapseAll }
  TkwTreeCurrentNodeIsExpanded.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_DeleteAllChildren
+ {* Регистрация tree_CurrentNode_IsExpanded }
  TkwTreeDeleteAllChildren.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_ExpandAll
+ {* Регистрация tree_DeleteAllChildren }
  TkwTreeExpandAll.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_CurrentNode
+ {* Регистрация tree_ExpandAll }
  TkwTreeCurrentNode.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_GetItem
+ {* Регистрация tree_CurrentNode }
  TkwTreeGetItem.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_GetItemsCount
+ {* Регистрация tree_GetItem }
  TkwTreeGetItemsCount.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_IterateNodes
+ {* Регистрация tree_GetItemsCount }
  TkwTreeIterateNodes.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_SaveState2File
+ {* Регистрация tree_IterateNodes }
  TkwTreeSaveState2File.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_ChildrenCount
+ {* Регистрация tree_SaveState2File }
  TkwTreeChildrenCount.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_expand
+ {* Регистрация tree_ChildrenCount }
  TkwTreeExpand.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_GetItem_Height
+ {* Регистрация tree_expand }
  TkwTreeGetItemHeight.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_GetItemImageIndex
+ {* Регистрация tree_GetItem_Height }
  TkwTreeGetItemImageIndex.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_GetItem_Left
+ {* Регистрация tree_GetItemImageIndex }
  TkwTreeGetItemLeft.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_GetItem_Top
+ {* Регистрация tree_GetItem_Left }
  TkwTreeGetItemTop.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_GetItem_Width
+ {* Регистрация tree_GetItem_Top }
  TkwTreeGetItemWidth.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_GetSelected
+ {* Регистрация tree_GetItem_Width }
  TkwTreeGetSelected.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_SetSelected
+ {* Регистрация tree_GetSelected }
  TkwTreeSetSelected.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация tree_collapse
+ {* Регистрация tree_SetSelected }
  TkwTreeCollapse.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация tree_collapse }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TvtCustomOutliner
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCustomOutliner));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа TvtCustomOutliner }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Il3SimpleNode
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3SimpleNode));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwWord
+ {* Регистрация типа Il3SimpleNode }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwWord));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа String
- TtfwTypeRegistrator.RegisterType(TypeInfo(AnsiString));
-{$IfEnd} //not NoScripts
+ {* Регистрация типа TtfwWord }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiString);
+ {* Регистрация типа String }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

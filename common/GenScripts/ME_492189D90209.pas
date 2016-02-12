@@ -29,7 +29,7 @@ uses
 ;
 
 type
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsWarning = {final} class(_vcmFormDataSourcePrim_, IdsWarning)
   private
    f_WarningContent: TWarningTypeSet;
@@ -63,7 +63,7 @@ uses
 
 type _Instance_R_ = TdsWarning;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 function TdsWarning.DoGetDocInfo: IdeDocInfo;
 //#UC START# *4EDCF99301CA_492189D90209_var*

@@ -6,7 +6,7 @@
 {$Define l3TypedList_imp}
 
  _l3TypedListPrim_Parent_ = _l3TypedList_Parent_;
- {$Include l3TypedListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3TypedListPrim.imp.pas}
  _l3TypedList_ = {abstract} class(_l3TypedListPrim_)
   {* —писок с возможностью переопределени€ методов манипул€ции с элементами }
   protected
@@ -58,7 +58,7 @@ begin
 //#UC END# *47B48A510176_47B084190028_impl*
 end;//MoveItems
 
-{$Include l3TypedListPrim.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3TypedListPrim.imp.pas}
 
 function _l3TypedList_.pm_GetItems(anIndex: Integer): _ItemType_;
 //#UC START# *47A1B1C102E9_47B084190028get_var*

@@ -1,76 +1,59 @@
 unit evParaWordsPack;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "evParaWordsPack.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeywordsPack::Class Shared Delphi::ScriptEngine$Everest::ParaWords::evParaWordsPack
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\evParaWordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  nevTools,
-  evCustomEditorWindow,
-  tfwScriptingInterfaces,
-  l3Variant,
-  tfwAxiomaticsResNameGetter,
-  tfwClassLike,
-  l3Types,
-  k2Interfaces,
-  k2Prim,
-  nevBase
-  ;
-
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , nevTools
+ , l3Variant
+ , l3Interfaces
+ , evCustomEditorWindow
+ , l3Types
+ , k2Interfaces
+ , nevBase
+ , k2Prim
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+;
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  k2Tags,
-  l3Base,
-  l3String,
-  k2OpMisc,
-  k2Facade,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , k2Tags
+ , l3Base
+ , l3String
+ , k2OpMisc
+ , k2Facade
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , SysUtils
+;
 
 type
-//#UC START# *B6DC8B9D2ADEci*
-//#UC END# *B6DC8B9D2ADEci*
-//#UC START# *B6DC8B9D2ADEcit*
-//#UC END# *B6DC8B9D2ADEcit*
+ //#UC START# *B6DC8B9D2ADEci*
+ //#UC END# *B6DC8B9D2ADEci*
+ //#UC START# *B6DC8B9D2ADEcit*
+ //#UC END# *B6DC8B9D2ADEcit*
  TevParaWordsPackResNameGetter = {final} class(TtfwAxiomaticsResNameGetter)
   {* Регистрация скриптованой аксиоматики }
- public
- // realized methods
+  public
    class function ResName: AnsiString; override;
-//#UC START# *B6DC8B9D2ADEpubl*
-//#UC END# *B6DC8B9D2ADEpubl*
+ //#UC START# *B6DC8B9D2ADEpubl*
+ //#UC END# *B6DC8B9D2ADEpubl*
  end;//TevParaWordsPackResNameGetter
 
-// start class TevParaWordsPackResNameGetter
-
-class function TevParaWordsPackResNameGetter.ResName: AnsiString;
- {-}
-begin
- Result := 'evParaWordsPack';
-end;//TevParaWordsPackResNameGetter.ResName
-
- {$R evParaWordsPack.res}
-
-type
- TkwParaBoolA = {final scriptword} class(TtfwClassLike)
+ TkwParaBoolA = {final} class(TtfwClassLike)
   {* Слово скрипта Para:BoolA
 *Тип результата:* Boolean
 *Пример:*
@@ -78,30 +61,247 @@ type
 BOOLEAN VAR l_Boolean
  aTag aPara Para:BoolA >>> l_Boolean
 [code]  }
- private
- // private methods
+  private
    function BoolA(const aCtx: TtfwContext;
     const aPara: InevPara;
     aTag: Integer): Boolean;
-     {* Реализация слова скрипта Para:BoolA }
- protected
- // realized methods
+    {* Реализация слова скрипта Para:BoolA }
+  protected
    procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
+  public
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwParaBoolA
 
-// start class TkwParaBoolA
+ TkwParaBoolW = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:BoolW
+*Пример:*
+[code]
+ aTag aValue anEditor aPara Para:BoolW
+[code]  }
+  private
+   procedure BoolW(const aCtx: TtfwContext;
+    const aPara: InevPara;
+    anEditor: TevCustomEditorWindow;
+    aValue: Boolean;
+    aTag: Integer);
+    {* Реализация слова скрипта Para:BoolW }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaBoolW
+
+ TkwParaGetParent = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:GetParent
+*Тип результата:* InevPara
+*Пример:*
+[code]
+INTERFACE VAR l_InevPara
+ aPara Para:GetParent >>> l_InevPara
+[code]  }
+  private
+   function GetParent(const aCtx: TtfwContext;
+    const aPara: InevPara): InevPara;
+    {* Реализация слова скрипта Para:GetParent }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaGetParent
+
+ TkwParaGetType = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:GetType
+*Тип результата:* Tl3VariantDef
+*Пример:*
+[code]
+OBJECT VAR l_Tl3VariantDef
+ aPara Para:GetType >>> l_Tl3VariantDef
+[code]  }
+  private
+   function GetType(const aCtx: TtfwContext;
+    const aPara: InevPara): Tl3VariantDef;
+    {* Реализация слова скрипта Para:GetType }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaGetType
+
+ TkwParaIntA = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:IntA
+*Тип результата:* Integer
+*Пример:*
+[code]
+INTEGER VAR l_Integer
+ aTag aPara Para:IntA >>> l_Integer
+[code]  }
+  private
+   function IntA(const aCtx: TtfwContext;
+    const aPara: InevPara;
+    aTag: Integer): Integer;
+    {* Реализация слова скрипта Para:IntA }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaIntA
+
+ TkwParaIntW = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:IntW
+*Пример:*
+[code]
+ aTag aValue anEditor aPara Para:IntW
+[code]  }
+  private
+   procedure IntW(const aCtx: TtfwContext;
+    const aPara: InevPara;
+    anEditor: TevCustomEditorWindow;
+    aValue: Integer;
+    aTag: Integer);
+    {* Реализация слова скрипта Para:IntW }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaIntW
+
+ TkwParaIsSame = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:IsSame
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ anOther aPara Para:IsSame >>> l_Boolean
+[code]  }
+  private
+   function IsSame(const aCtx: TtfwContext;
+    const aPara: InevPara;
+    const anOther: InevPara): Boolean;
+    {* Реализация слова скрипта Para:IsSame }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaIsSame
+
+ TkwParaStrA = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:StrA
+*Тип результата:* Tl3WString
+*Пример:*
+[code]
+STRING VAR l_Tl3WString
+ aTag aPara Para:StrA >>> l_Tl3WString
+[code]  }
+  private
+   function StrA(const aCtx: TtfwContext;
+    const aPara: InevPara;
+    aTag: Integer): Tl3WString;
+    {* Реализация слова скрипта Para:StrA }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaStrA
+
+ TkwParaStyleName = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:StyleName
+*Тип результата:* Tl3WString
+*Пример:*
+[code]
+STRING VAR l_Tl3WString
+ aPara Para:StyleName >>> l_Tl3WString
+[code]  }
+  private
+   function StyleName(const aCtx: TtfwContext;
+    const aPara: InevPara): Tl3WString;
+    {* Реализация слова скрипта Para:StyleName }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaStyleName
+
+ TkwParaText = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:Text
+*Тип результата:* Tl3WString
+*Пример:*
+[code]
+STRING VAR l_Tl3WString
+ aPara Para:Text >>> l_Tl3WString
+[code]  }
+  private
+   function Text(const aCtx: TtfwContext;
+    const aPara: InevPara): Tl3WString;
+    {* Реализация слова скрипта Para:Text }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaText
+
+ TkwParaTypeInherits = {final} class(TtfwClassLike)
+  {* Слово скрипта Para:Type:Inherits
+*Тип результата:* Boolean
+*Пример:*
+[code]
+BOOLEAN VAR l_Boolean
+ aTypeID aPara Para:Type:Inherits >>> l_Boolean
+[code]  }
+  private
+   function Type_Inherits(const aCtx: TtfwContext;
+    const aPara: InevPara;
+    aTypeID: Integer): Boolean;
+    {* Реализация слова скрипта Para:Type:Inherits }
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   class function GetWordNameForRegister: AnsiString; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwParaTypeInherits
+
+class function TevParaWordsPackResNameGetter.ResName: AnsiString;
+begin
+  Result := 'evParaWordsPack';
+end;//TevParaWordsPackResNameGetter.ResName
+
+ {$R evParaWordsPack.res}
 
 function TkwParaBoolA.BoolA(const aCtx: TtfwContext;
-  const aPara: InevPara;
-  aTag: Integer): Boolean;
+ const aPara: InevPara;
+ aTag: Integer): Boolean;
+ {* Реализация слова скрипта Para:BoolA }
 //#UC START# *813358A7CF85_73A41501B720_var*
 //#UC END# *813358A7CF85_73A41501B720_var*
 begin
@@ -111,10 +311,8 @@ begin
 end;//TkwParaBoolA.BoolA
 
 procedure TkwParaBoolA.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
- l_aTag : Integer;
+var l_aPara: InevPara;
+var l_aTag: Integer;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -134,68 +332,35 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((BoolA(aCtx, l_aPara, l_aTag)));
+ aCtx.rEngine.PushBool(BoolA(aCtx, l_aPara, l_aTag));
 end;//TkwParaBoolA.DoDoIt
 
 class function TkwParaBoolA.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:BoolA';
 end;//TkwParaBoolA.GetWordNameForRegister
 
 function TkwParaBoolA.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwParaBoolA.GetResultTypeInfo
 
 function TkwParaBoolA.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwParaBoolA.GetAllParamsCount
 
 function TkwParaBoolA.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaBoolA.ParamsTypes
 
-type
- TkwParaBoolW = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:BoolW
-*Пример:*
-[code]
- aTag aValue anEditor aPara Para:BoolW
-[code]  }
- private
- // private methods
-   procedure BoolW(const aCtx: TtfwContext;
-    const aPara: InevPara;
-    anEditor: TevCustomEditorWindow;
-    aValue: Boolean;
-    aTag: Integer);
-     {* Реализация слова скрипта Para:BoolW }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaBoolW
-
-// start class TkwParaBoolW
-
 procedure TkwParaBoolW.BoolW(const aCtx: TtfwContext;
-  const aPara: InevPara;
-  anEditor: TevCustomEditorWindow;
-  aValue: Boolean;
-  aTag: Integer);
+ const aPara: InevPara;
+ anEditor: TevCustomEditorWindow;
+ aValue: Boolean;
+ aTag: Integer);
+ {* Реализация слова скрипта Para:BoolW }
 //#UC START# *FA63F0F0EFEE_7DB044DC9B24_var*
 //#UC END# *FA63F0F0EFEE_7DB044DC9B24_var*
 begin
@@ -205,12 +370,10 @@ begin
 end;//TkwParaBoolW.BoolW
 
 procedure TkwParaBoolW.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
- l_anEditor : TevCustomEditorWindow;
- l_aValue : Boolean;
- l_aTag : Integer;
+var l_aPara: InevPara;
+var l_anEditor: TevCustomEditorWindow;
+var l_aValue: Boolean;
+var l_aTag: Integer;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -222,7 +385,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow, true));
+  l_anEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
  except
   on E: Exception do
   begin
@@ -252,60 +415,28 @@ begin
 end;//TkwParaBoolW.DoDoIt
 
 class function TkwParaBoolW.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:BoolW';
 end;//TkwParaBoolW.GetWordNameForRegister
 
 function TkwParaBoolW.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwParaBoolW.GetResultTypeInfo
 
 function TkwParaBoolW.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 3 + 1;
+ Result := 4;
 end;//TkwParaBoolW.GetAllParamsCount
 
 function TkwParaBoolW.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(TevCustomEditorWindow), TypeInfo(Boolean), TypeInfo(Integer)]);
 end;//TkwParaBoolW.ParamsTypes
 
-type
- TkwParaGetParent = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:GetParent
-*Тип результата:* InevPara
-*Пример:*
-[code]
-INTERFACE VAR l_InevPara
- aPara Para:GetParent >>> l_InevPara
-[code]  }
- private
- // private methods
-   function GetParent(const aCtx: TtfwContext;
-    const aPara: InevPara): InevPara;
-     {* Реализация слова скрипта Para:GetParent }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaGetParent
-
-// start class TkwParaGetParent
-
 function TkwParaGetParent.GetParent(const aCtx: TtfwContext;
-  const aPara: InevPara): InevPara;
+ const aPara: InevPara): InevPara;
+ {* Реализация слова скрипта Para:GetParent }
 //#UC START# *CDCE3FA90D6B_8E4CB03D8918_var*
 //#UC END# *CDCE3FA90D6B_8E4CB03D8918_var*
 begin
@@ -315,9 +446,7 @@ begin
 end;//TkwParaGetParent.GetParent
 
 procedure TkwParaGetParent.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
+var l_aPara: InevPara;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -328,64 +457,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushIntf((GetParent(aCtx, l_aPara)), TypeInfo(InevPara));
+ aCtx.rEngine.PushIntf(GetParent(aCtx, l_aPara), TypeInfo(InevPara));
 end;//TkwParaGetParent.DoDoIt
 
 class function TkwParaGetParent.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:GetParent';
 end;//TkwParaGetParent.GetWordNameForRegister
 
 function TkwParaGetParent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(InevPara);
 end;//TkwParaGetParent.GetResultTypeInfo
 
 function TkwParaGetParent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwParaGetParent.GetAllParamsCount
 
 function TkwParaGetParent.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaGetParent.ParamsTypes
 
-type
- TkwParaGetType = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:GetType
-*Тип результата:* Tl3VariantDef
-*Пример:*
-[code]
-OBJECT VAR l_Tl3VariantDef
- aPara Para:GetType >>> l_Tl3VariantDef
-[code]  }
- private
- // private methods
-   function GetType(const aCtx: TtfwContext;
-    const aPara: InevPara): Tl3VariantDef;
-     {* Реализация слова скрипта Para:GetType }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaGetType
-
-// start class TkwParaGetType
-
 function TkwParaGetType.GetType(const aCtx: TtfwContext;
-  const aPara: InevPara): Tl3VariantDef;
+ const aPara: InevPara): Tl3VariantDef;
+ {* Реализация слова скрипта Para:GetType }
 //#UC START# *45DC1815EB7A_1F1556695E5E_var*
 //#UC END# *45DC1815EB7A_1F1556695E5E_var*
 begin
@@ -395,9 +492,7 @@ begin
 end;//TkwParaGetType.GetType
 
 procedure TkwParaGetType.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
+var l_aPara: InevPara;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -408,66 +503,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((GetType(aCtx, l_aPara)));
+ aCtx.rEngine.PushObj(GetType(aCtx, l_aPara));
 end;//TkwParaGetType.DoDoIt
 
 class function TkwParaGetType.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:GetType';
 end;//TkwParaGetType.GetWordNameForRegister
 
 function TkwParaGetType.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Tl3VariantDef);
 end;//TkwParaGetType.GetResultTypeInfo
 
 function TkwParaGetType.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwParaGetType.GetAllParamsCount
 
 function TkwParaGetType.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaGetType.ParamsTypes
 
-type
- TkwParaIntA = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:IntA
-*Тип результата:* Integer
-*Пример:*
-[code]
-INTEGER VAR l_Integer
- aTag aPara Para:IntA >>> l_Integer
-[code]  }
- private
- // private methods
-   function IntA(const aCtx: TtfwContext;
-    const aPara: InevPara;
-    aTag: Integer): Integer;
-     {* Реализация слова скрипта Para:IntA }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaIntA
-
-// start class TkwParaIntA
-
 function TkwParaIntA.IntA(const aCtx: TtfwContext;
-  const aPara: InevPara;
-  aTag: Integer): Integer;
+ const aPara: InevPara;
+ aTag: Integer): Integer;
+ {* Реализация слова скрипта Para:IntA }
 //#UC START# *F1D0FBBB4A2A_87CE9706F506_var*
 //#UC END# *F1D0FBBB4A2A_87CE9706F506_var*
 begin
@@ -477,10 +539,8 @@ begin
 end;//TkwParaIntA.IntA
 
 procedure TkwParaIntA.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
- l_aTag : Integer;
+var l_aPara: InevPara;
+var l_aTag: Integer;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -500,68 +560,35 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushInt((IntA(aCtx, l_aPara, l_aTag)));
+ aCtx.rEngine.PushInt(IntA(aCtx, l_aPara, l_aTag));
 end;//TkwParaIntA.DoDoIt
 
 class function TkwParaIntA.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:IntA';
 end;//TkwParaIntA.GetWordNameForRegister
 
 function TkwParaIntA.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Integer);
 end;//TkwParaIntA.GetResultTypeInfo
 
 function TkwParaIntA.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwParaIntA.GetAllParamsCount
 
 function TkwParaIntA.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaIntA.ParamsTypes
 
-type
- TkwParaIntW = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:IntW
-*Пример:*
-[code]
- aTag aValue anEditor aPara Para:IntW
-[code]  }
- private
- // private methods
-   procedure IntW(const aCtx: TtfwContext;
-    const aPara: InevPara;
-    anEditor: TevCustomEditorWindow;
-    aValue: Integer;
-    aTag: Integer);
-     {* Реализация слова скрипта Para:IntW }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaIntW
-
-// start class TkwParaIntW
-
 procedure TkwParaIntW.IntW(const aCtx: TtfwContext;
-  const aPara: InevPara;
-  anEditor: TevCustomEditorWindow;
-  aValue: Integer;
-  aTag: Integer);
+ const aPara: InevPara;
+ anEditor: TevCustomEditorWindow;
+ aValue: Integer;
+ aTag: Integer);
+ {* Реализация слова скрипта Para:IntW }
 //#UC START# *79467BAD33FB_9C157259C948_var*
 //#UC END# *79467BAD33FB_9C157259C948_var*
 begin
@@ -571,12 +598,10 @@ begin
 end;//TkwParaIntW.IntW
 
 procedure TkwParaIntW.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
- l_anEditor : TevCustomEditorWindow;
- l_aValue : Integer;
- l_aTag : Integer;
+var l_aPara: InevPara;
+var l_anEditor: TevCustomEditorWindow;
+var l_aValue: Integer;
+var l_aTag: Integer;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -588,7 +613,7 @@ begin
   end;//on E: Exception
  end;//try..except
  try
-  l_anEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow, true));
+  l_anEditor := TevCustomEditorWindow(aCtx.rEngine.PopObjAs(TevCustomEditorWindow));
  except
   on E: Exception do
   begin
@@ -618,62 +643,29 @@ begin
 end;//TkwParaIntW.DoDoIt
 
 class function TkwParaIntW.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:IntW';
 end;//TkwParaIntW.GetWordNameForRegister
 
 function TkwParaIntW.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiVoid;
 end;//TkwParaIntW.GetResultTypeInfo
 
 function TkwParaIntW.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 3 + 1;
+ Result := 4;
 end;//TkwParaIntW.GetAllParamsCount
 
 function TkwParaIntW.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(TevCustomEditorWindow), TypeInfo(Integer), TypeInfo(Integer)]);
 end;//TkwParaIntW.ParamsTypes
 
-type
- TkwParaIsSame = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:IsSame
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- anOther aPara Para:IsSame >>> l_Boolean
-[code]  }
- private
- // private methods
-   function IsSame(const aCtx: TtfwContext;
-    const aPara: InevPara;
-    const anOther: InevPara): Boolean;
-     {* Реализация слова скрипта Para:IsSame }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaIsSame
-
-// start class TkwParaIsSame
-
 function TkwParaIsSame.IsSame(const aCtx: TtfwContext;
-  const aPara: InevPara;
-  const anOther: InevPara): Boolean;
+ const aPara: InevPara;
+ const anOther: InevPara): Boolean;
+ {* Реализация слова скрипта Para:IsSame }
 //#UC START# *135EE191EC2B_FD4CFCA9A1DA_var*
 //#UC END# *135EE191EC2B_FD4CFCA9A1DA_var*
 begin
@@ -683,10 +675,8 @@ begin
 end;//TkwParaIsSame.IsSame
 
 procedure TkwParaIsSame.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
- l_anOther : InevPara;
+var l_aPara: InevPara;
+var l_anOther: InevPara;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -706,66 +696,33 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((IsSame(aCtx, l_aPara, l_anOther)));
+ aCtx.rEngine.PushBool(IsSame(aCtx, l_aPara, l_anOther));
 end;//TkwParaIsSame.DoDoIt
 
 class function TkwParaIsSame.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:IsSame';
 end;//TkwParaIsSame.GetWordNameForRegister
 
 function TkwParaIsSame.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwParaIsSame.GetResultTypeInfo
 
 function TkwParaIsSame.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwParaIsSame.GetAllParamsCount
 
 function TkwParaIsSame.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(InevPara)]);
 end;//TkwParaIsSame.ParamsTypes
 
-type
- TkwParaStrA = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:StrA
-*Тип результата:* Tl3WString
-*Пример:*
-[code]
-STRING VAR l_Tl3WString
- aTag aPara Para:StrA >>> l_Tl3WString
-[code]  }
- private
- // private methods
-   function StrA(const aCtx: TtfwContext;
-    const aPara: InevPara;
-    aTag: Integer): Tl3WString;
-     {* Реализация слова скрипта Para:StrA }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaStrA
-
-// start class TkwParaStrA
-
 function TkwParaStrA.StrA(const aCtx: TtfwContext;
-  const aPara: InevPara;
-  aTag: Integer): Tl3WString;
+ const aPara: InevPara;
+ aTag: Integer): Tl3WString;
+ {* Реализация слова скрипта Para:StrA }
 //#UC START# *B475DB5CB51E_A38F9F2F9E00_var*
 //#UC END# *B475DB5CB51E_A38F9F2F9E00_var*
 begin
@@ -775,10 +732,8 @@ begin
 end;//TkwParaStrA.StrA
 
 procedure TkwParaStrA.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
- l_aTag : Integer;
+var l_aPara: InevPara;
+var l_aTag: Integer;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -798,64 +753,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((StrA(aCtx, l_aPara, l_aTag)));
+ aCtx.rEngine.PushString(StrA(aCtx, l_aPara, l_aTag));
 end;//TkwParaStrA.DoDoIt
 
 class function TkwParaStrA.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:StrA';
 end;//TkwParaStrA.GetWordNameForRegister
 
 function TkwParaStrA.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwParaStrA.GetResultTypeInfo
 
 function TkwParaStrA.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwParaStrA.GetAllParamsCount
 
 function TkwParaStrA.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaStrA.ParamsTypes
 
-type
- TkwParaStyleName = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:StyleName
-*Тип результата:* Tl3WString
-*Пример:*
-[code]
-STRING VAR l_Tl3WString
- aPara Para:StyleName >>> l_Tl3WString
-[code]  }
- private
- // private methods
-   function StyleName(const aCtx: TtfwContext;
-    const aPara: InevPara): Tl3WString;
-     {* Реализация слова скрипта Para:StyleName }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaStyleName
-
-// start class TkwParaStyleName
-
 function TkwParaStyleName.StyleName(const aCtx: TtfwContext;
-  const aPara: InevPara): Tl3WString;
+ const aPara: InevPara): Tl3WString;
+ {* Реализация слова скрипта Para:StyleName }
 //#UC START# *6DC250CE244B_6834305B1C71_var*
 //#UC END# *6DC250CE244B_6834305B1C71_var*
 begin
@@ -865,9 +788,7 @@ begin
 end;//TkwParaStyleName.StyleName
 
 procedure TkwParaStyleName.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
+var l_aPara: InevPara;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -878,64 +799,32 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((StyleName(aCtx, l_aPara)));
+ aCtx.rEngine.PushString(StyleName(aCtx, l_aPara));
 end;//TkwParaStyleName.DoDoIt
 
 class function TkwParaStyleName.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:StyleName';
 end;//TkwParaStyleName.GetWordNameForRegister
 
 function TkwParaStyleName.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwParaStyleName.GetResultTypeInfo
 
 function TkwParaStyleName.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwParaStyleName.GetAllParamsCount
 
 function TkwParaStyleName.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaStyleName.ParamsTypes
 
-type
- TkwParaText = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:Text
-*Тип результата:* Tl3WString
-*Пример:*
-[code]
-STRING VAR l_Tl3WString
- aPara Para:Text >>> l_Tl3WString
-[code]  }
- private
- // private methods
-   function Text(const aCtx: TtfwContext;
-    const aPara: InevPara): Tl3WString;
-     {* Реализация слова скрипта Para:Text }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaText
-
-// start class TkwParaText
-
 function TkwParaText.Text(const aCtx: TtfwContext;
-  const aPara: InevPara): Tl3WString;
+ const aPara: InevPara): Tl3WString;
+ {* Реализация слова скрипта Para:Text }
 //#UC START# *AF0DB87C1E22_742EC299532F_var*
 //#UC END# *AF0DB87C1E22_742EC299532F_var*
 begin
@@ -945,9 +834,7 @@ begin
 end;//TkwParaText.Text
 
 procedure TkwParaText.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
+var l_aPara: InevPara;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -958,79 +845,44 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushString((Text(aCtx, l_aPara)));
+ aCtx.rEngine.PushString(Text(aCtx, l_aPara));
 end;//TkwParaText.DoDoIt
 
 class function TkwParaText.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:Text';
 end;//TkwParaText.GetWordNameForRegister
 
 function TkwParaText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := @tfw_tiString;
 end;//TkwParaText.GetResultTypeInfo
 
 function TkwParaText.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwParaText.GetAllParamsCount
 
 function TkwParaText.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara)]);
 end;//TkwParaText.ParamsTypes
 
-type
- TkwParaTypeInherits = {final scriptword} class(TtfwClassLike)
-  {* Слово скрипта Para:Type:Inherits
-*Тип результата:* Boolean
-*Пример:*
-[code]
-BOOLEAN VAR l_Boolean
- aTypeID aPara Para:Type:Inherits >>> l_Boolean
-[code]  }
- private
- // private methods
-   function TypeInherits(const aCtx: TtfwContext;
-    const aPara: InevPara;
-    aTypeID: Integer): Boolean;
-     {* Реализация слова скрипта Para:Type:Inherits }
- protected
- // realized methods
-   procedure DoDoIt(const aCtx: TtfwContext); override;
- protected
- // overridden protected methods
-   class function GetWordNameForRegister: AnsiString; override;
- public
- // overridden public methods
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwParaTypeInherits
-
-// start class TkwParaTypeInherits
-
-function TkwParaTypeInherits.TypeInherits(const aCtx: TtfwContext;
-  const aPara: InevPara;
-  aTypeID: Integer): Boolean;
+function TkwParaTypeInherits.Type_Inherits(const aCtx: TtfwContext;
+ const aPara: InevPara;
+ aTypeID: Integer): Boolean;
+ {* Реализация слова скрипта Para:Type:Inherits }
 //#UC START# *E7A7AF07EE52_E16D3A553EA8_var*
 //#UC END# *E7A7AF07EE52_E16D3A553EA8_var*
 begin
 //#UC START# *E7A7AF07EE52_E16D3A553EA8_impl*
  Result := aPara.AsObject.IsKindOf(k2.TypeTable.TypeByHandle[aTypeID]);
 //#UC END# *E7A7AF07EE52_E16D3A553EA8_impl*
-end;//TkwParaTypeInherits.TypeInherits
+end;//TkwParaTypeInherits.Type_Inherits
 
 procedure TkwParaTypeInherits.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aPara : InevPara;
- l_aTypeID : Integer;
+var l_aPara: InevPara;
+var l_aTypeID: Integer;
 begin
  try
   l_aPara := InevPara(aCtx.rEngine.PopIntf(InevPara));
@@ -1050,110 +902,68 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushBool((TypeInherits(aCtx, l_aPara, l_aTypeID)));
+ aCtx.rEngine.PushBool(Type_Inherits(aCtx, l_aPara, l_aTypeID));
 end;//TkwParaTypeInherits.DoDoIt
 
 class function TkwParaTypeInherits.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'Para:Type:Inherits';
 end;//TkwParaTypeInherits.GetWordNameForRegister
 
 function TkwParaTypeInherits.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(Boolean);
 end;//TkwParaTypeInherits.GetResultTypeInfo
 
 function TkwParaTypeInherits.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 1 + 1;
+ Result := 2;
 end;//TkwParaTypeInherits.GetAllParamsCount
 
 function TkwParaTypeInherits.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(InevPara), TypeInfo(Integer)]);
 end;//TkwParaTypeInherits.ParamsTypes
-{$IfEnd} //not NoScripts
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация скриптованой аксиоматики
  TevParaWordsPackResNameGetter.Register;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_BoolA
+ {* Регистрация скриптованой аксиоматики }
  TkwParaBoolA.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_BoolW
+ {* Регистрация Para_BoolA }
  TkwParaBoolW.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_GetParent
+ {* Регистрация Para_BoolW }
  TkwParaGetParent.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_GetType
+ {* Регистрация Para_GetParent }
  TkwParaGetType.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_IntA
+ {* Регистрация Para_GetType }
  TkwParaIntA.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_IntW
+ {* Регистрация Para_IntA }
  TkwParaIntW.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_IsSame
+ {* Регистрация Para_IntW }
  TkwParaIsSame.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_StrA
+ {* Регистрация Para_IsSame }
  TkwParaStrA.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_StyleName
+ {* Регистрация Para_StrA }
  TkwParaStyleName.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_Text
+ {* Регистрация Para_StyleName }
  TkwParaText.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация Para_Type_Inherits
+ {* Регистрация Para_Text }
  TkwParaTypeInherits.RegisterInEngine;
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация Para_Type_Inherits }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа InevPara
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(InevPara));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Integer
+ {* Регистрация типа InevPara }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Boolean
+ {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа TevCustomEditorWindow
+ {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomEditorWindow));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Tl3VariantDef
+ {* Регистрация типа TevCustomEditorWindow }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Tl3VariantDef));
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация типа Tl3WString
+ {* Регистрация типа Tl3VariantDef }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
-{$IfEnd} //not NoScripts
+ {* Регистрация типа Tl3WString }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

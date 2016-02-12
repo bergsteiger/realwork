@@ -20,7 +20,7 @@ uses
 
 type
  _CursorMover_Parent_ = TTableToolsTest;
- {$Include CursorMover.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
  TSplitCellTest = {abstract} class(_CursorMover_)
   {* Тест разделения ячеек }
   protected
@@ -64,7 +64,7 @@ uses
  , l3Base
 ;
 
-{$Include CursorMover.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas}
 
 function TSplitCellTest.GetLineCount: Integer;
 //#UC START# *4D5A6EE600D3_4D5A63ED011A_var*

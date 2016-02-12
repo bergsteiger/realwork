@@ -208,12 +208,8 @@ begin
 end;//Tkw_Form_TreeAttributeSelect.GetWordNameForRegister
 
 function Tkw_Form_TreeAttributeSelect.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_59373E93C0F0_var*
-//#UC END# *4DDFD2EA0116_59373E93C0F0_var*
 begin
-//#UC START# *4DDFD2EA0116_59373E93C0F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_59373E93C0F0_impl*
+ Result := 'efTreeAttributeSelect';
 end;//Tkw_Form_TreeAttributeSelect.GetString
 
 class function Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -222,21 +218,14 @@ begin
 end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetWordNameForRegister
 
 function Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6CD93724FAAB_var*
-//#UC END# *4DDFD2EA0116_6CD93724FAAB_var*
 begin
-//#UC START# *4DDFD2EA0116_6CD93724FAAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6CD93724FAAB_impl*
+ Result := 'BackgroundPanel';
 end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel.GetString
 
 class procedure Tkw_TreeAttributeSelect_Control_BackgroundPanel.RegisterInEngine;
-//#UC START# *52A086150180_6CD93724FAAB_var*
-//#UC END# *52A086150180_6CD93724FAAB_var*
 begin
-//#UC START# *52A086150180_6CD93724FAAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_6CD93724FAAB_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_TreeAttributeSelect_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
@@ -259,21 +248,14 @@ begin
 end;//Tkw_TreeAttributeSelect_Control_ContextFilter.GetWordNameForRegister
 
 function Tkw_TreeAttributeSelect_Control_ContextFilter.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_74BE38D9483A_var*
-//#UC END# *4DDFD2EA0116_74BE38D9483A_var*
 begin
-//#UC START# *4DDFD2EA0116_74BE38D9483A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_74BE38D9483A_impl*
+ Result := 'ContextFilter';
 end;//Tkw_TreeAttributeSelect_Control_ContextFilter.GetString
 
 class procedure Tkw_TreeAttributeSelect_Control_ContextFilter.RegisterInEngine;
-//#UC START# *52A086150180_74BE38D9483A_var*
-//#UC END# *52A086150180_74BE38D9483A_var*
 begin
-//#UC START# *52A086150180_74BE38D9483A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_74BE38D9483A_impl*
+ inherited;
+ TtfwClassRef.Register(TnscContextFilter);
 end;//Tkw_TreeAttributeSelect_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_TreeAttributeSelect_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
@@ -296,21 +278,14 @@ begin
 end;//Tkw_TreeAttributeSelect_Control_AttributeTree.GetWordNameForRegister
 
 function Tkw_TreeAttributeSelect_Control_AttributeTree.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F3ED8A525597_var*
-//#UC END# *4DDFD2EA0116_F3ED8A525597_var*
 begin
-//#UC START# *4DDFD2EA0116_F3ED8A525597_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F3ED8A525597_impl*
+ Result := 'AttributeTree';
 end;//Tkw_TreeAttributeSelect_Control_AttributeTree.GetString
 
 class procedure Tkw_TreeAttributeSelect_Control_AttributeTree.RegisterInEngine;
-//#UC START# *52A086150180_F3ED8A525597_var*
-//#UC END# *52A086150180_F3ED8A525597_var*
 begin
-//#UC START# *52A086150180_F3ED8A525597_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_F3ED8A525597_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewHotTruck);
 end;//Tkw_TreeAttributeSelect_Control_AttributeTree.RegisterInEngine
 
 procedure Tkw_TreeAttributeSelect_Control_AttributeTree_Push.DoDoIt(const aCtx: TtfwContext);
@@ -330,21 +305,23 @@ end;//Tkw_TreeAttributeSelect_Control_AttributeTree_Push.GetWordNameForRegister
 function TkwEfTreeAttributeSelectBackgroundPanel.BackgroundPanel(const aCtx: TtfwContext;
  aefTreeAttributeSelect: TefTreeAttributeSelect): TvtPanel;
  {* Реализация слова скрипта .TefTreeAttributeSelect.BackgroundPanel }
-//#UC START# *D91532FFDBC3_3C4C01C8C1CC_var*
-//#UC END# *D91532FFDBC3_3C4C01C8C1CC_var*
 begin
-//#UC START# *D91532FFDBC3_3C4C01C8C1CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *D91532FFDBC3_3C4C01C8C1CC_impl*
+ Result := aefTreeAttributeSelect.BackgroundPanel;
 end;//TkwEfTreeAttributeSelectBackgroundPanel.BackgroundPanel
 
 procedure TkwEfTreeAttributeSelectBackgroundPanel.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3C4C01C8C1CC_var*
-//#UC END# *4DAEEDE10285_3C4C01C8C1CC_var*
+var l_aefTreeAttributeSelect: TefTreeAttributeSelect;
 begin
-//#UC START# *4DAEEDE10285_3C4C01C8C1CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3C4C01C8C1CC_impl*
+ try
+  l_aefTreeAttributeSelect := TefTreeAttributeSelect(aCtx.rEngine.PopObjAs(TefTreeAttributeSelect));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefTreeAttributeSelect: TefTreeAttributeSelect : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(BackgroundPanel(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectBackgroundPanel.DoDoIt
 
 class function TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister: AnsiString;
@@ -354,12 +331,8 @@ end;//TkwEfTreeAttributeSelectBackgroundPanel.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3C4C01C8C1CC_var*
-//#UC END# *52D00B00031A_3C4C01C8C1CC_var*
 begin
-//#UC START# *52D00B00031A_3C4C01C8C1CC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3C4C01C8C1CC_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству BackgroundPanel', aCtx);
 end;//TkwEfTreeAttributeSelectBackgroundPanel.SetValuePrim
 
 function TkwEfTreeAttributeSelectBackgroundPanel.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -374,27 +347,29 @@ end;//TkwEfTreeAttributeSelectBackgroundPanel.GetAllParamsCount
 
 function TkwEfTreeAttributeSelectBackgroundPanel.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectBackgroundPanel.ParamsTypes
 
 function TkwEfTreeAttributeSelectContextFilter.ContextFilter(const aCtx: TtfwContext;
  aefTreeAttributeSelect: TefTreeAttributeSelect): TnscContextFilter;
  {* Реализация слова скрипта .TefTreeAttributeSelect.ContextFilter }
-//#UC START# *C58360F49EE0_3EBF063E3680_var*
-//#UC END# *C58360F49EE0_3EBF063E3680_var*
 begin
-//#UC START# *C58360F49EE0_3EBF063E3680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C58360F49EE0_3EBF063E3680_impl*
+ Result := aefTreeAttributeSelect.ContextFilter;
 end;//TkwEfTreeAttributeSelectContextFilter.ContextFilter
 
 procedure TkwEfTreeAttributeSelectContextFilter.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3EBF063E3680_var*
-//#UC END# *4DAEEDE10285_3EBF063E3680_var*
+var l_aefTreeAttributeSelect: TefTreeAttributeSelect;
 begin
-//#UC START# *4DAEEDE10285_3EBF063E3680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3EBF063E3680_impl*
+ try
+  l_aefTreeAttributeSelect := TefTreeAttributeSelect(aCtx.rEngine.PopObjAs(TefTreeAttributeSelect));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefTreeAttributeSelect: TefTreeAttributeSelect : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(ContextFilter(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectContextFilter.DoDoIt
 
 class function TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister: AnsiString;
@@ -404,12 +379,8 @@ end;//TkwEfTreeAttributeSelectContextFilter.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectContextFilter.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_3EBF063E3680_var*
-//#UC END# *52D00B00031A_3EBF063E3680_var*
 begin
-//#UC START# *52D00B00031A_3EBF063E3680_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_3EBF063E3680_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству ContextFilter', aCtx);
 end;//TkwEfTreeAttributeSelectContextFilter.SetValuePrim
 
 function TkwEfTreeAttributeSelectContextFilter.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -424,27 +395,29 @@ end;//TkwEfTreeAttributeSelectContextFilter.GetAllParamsCount
 
 function TkwEfTreeAttributeSelectContextFilter.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectContextFilter.ParamsTypes
 
 function TkwEfTreeAttributeSelectAttributeTree.AttributeTree(const aCtx: TtfwContext;
  aefTreeAttributeSelect: TefTreeAttributeSelect): TnscTreeViewHotTruck;
  {* Реализация слова скрипта .TefTreeAttributeSelect.AttributeTree }
-//#UC START# *C635215DBD0B_E3BEF01A8948_var*
-//#UC END# *C635215DBD0B_E3BEF01A8948_var*
 begin
-//#UC START# *C635215DBD0B_E3BEF01A8948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C635215DBD0B_E3BEF01A8948_impl*
+ Result := aefTreeAttributeSelect.AttributeTree;
 end;//TkwEfTreeAttributeSelectAttributeTree.AttributeTree
 
 procedure TkwEfTreeAttributeSelectAttributeTree.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E3BEF01A8948_var*
-//#UC END# *4DAEEDE10285_E3BEF01A8948_var*
+var l_aefTreeAttributeSelect: TefTreeAttributeSelect;
 begin
-//#UC START# *4DAEEDE10285_E3BEF01A8948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E3BEF01A8948_impl*
+ try
+  l_aefTreeAttributeSelect := TefTreeAttributeSelect(aCtx.rEngine.PopObjAs(TefTreeAttributeSelect));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aefTreeAttributeSelect: TefTreeAttributeSelect : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(AttributeTree(aCtx, l_aefTreeAttributeSelect));
 end;//TkwEfTreeAttributeSelectAttributeTree.DoDoIt
 
 class function TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister: AnsiString;
@@ -454,12 +427,8 @@ end;//TkwEfTreeAttributeSelectAttributeTree.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeSelectAttributeTree.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E3BEF01A8948_var*
-//#UC END# *52D00B00031A_E3BEF01A8948_var*
 begin
-//#UC START# *52D00B00031A_E3BEF01A8948_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E3BEF01A8948_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству AttributeTree', aCtx);
 end;//TkwEfTreeAttributeSelectAttributeTree.SetValuePrim
 
 function TkwEfTreeAttributeSelectAttributeTree.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -474,7 +443,7 @@ end;//TkwEfTreeAttributeSelectAttributeTree.GetAllParamsCount
 
 function TkwEfTreeAttributeSelectAttributeTree.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeSelect)]);
 end;//TkwEfTreeAttributeSelectAttributeTree.ParamsTypes
 
 initialization

@@ -6,7 +6,7 @@
 {$Define dBaseDrugDocument_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include dBaseDocumentWithAttributes.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
  _dBaseDrugDocument_ = class(_dBaseDocumentWithAttributes_, IdBaseDrugDocument)
   {* Данные описания препарата. }
   private
@@ -27,7 +27,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 _dBaseDrugDocument_ = _dBaseDocumentWithAttributes_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -38,7 +38,7 @@ _dBaseDrugDocument_ = _dBaseDocumentWithAttributes_;
 {$Define dBaseDrugDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dBaseDocumentWithAttributes.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dBaseDocumentWithAttributes.imp.pas}
 
 function _dBaseDrugDocument_.pm_GetdsDrugInternationalNameSynonimsRef: IvcmFormDataSourceRef;
 //#UC START# *64B8F5213895_47F07A9F0098get_var*

@@ -23,7 +23,7 @@ uses
 type
  _X_ = InevTextPara;
  _nevParaXTool_Parent_ = Tk2TagTool;
- {$Include nevParaXTool.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas}
  TevControlParaHotSpot = class(_nevParaXTool_, IevMouseMoveHandler, IevHotSpot)
   {* –еализаци€ "гор€чей точки" дл€ параграфа, представл€ющего контрол ввода }
   private
@@ -115,7 +115,7 @@ uses
 
 type _Instance_R_ = TevControlParaHotSpot;
 
-{$Include nevParaXTool.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas}
 
 function TevControlParaHotSpot.pm_GetControlFriend: IevControlFriend;
 //#UC START# *4A27AC32013C_4A27A7D5019Eget_var*

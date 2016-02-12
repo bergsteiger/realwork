@@ -22,7 +22,7 @@ uses
 type
  TPrimForbidAutoregistrationOptionsForm = class(TPrimForbidAutoregistrationForm)
   protected
-   procedure SaveAdminInfo;
+   function SaveAdminInfo: Boolean;
   public
    {$If NOT Defined(NoVCM)}
    procedure Ok; override;
@@ -48,7 +48,7 @@ uses
  , AdminDomainInterfaces
 ;
 
-procedure TPrimForbidAutoregistrationOptionsForm.SaveAdminInfo;
+function TPrimForbidAutoregistrationOptionsForm.SaveAdminInfo: Boolean;
 
  procedure lp_SelectComboBox(const aComboBox: TnscComboBox);
  //#UC START# *4C8A05EA005B__var*

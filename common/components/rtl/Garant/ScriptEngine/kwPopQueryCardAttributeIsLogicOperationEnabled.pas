@@ -1,70 +1,62 @@
 unit kwPopQueryCardAttributeIsLogicOperationEnabled;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ScriptEngine$Everest"
-// Модуль: "kwPopQueryCardAttributeIsLogicOperationEnabled.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: ScriptKeyword::Class Shared Delphi::ScriptEngine$Everest::QueryCardProcessing::pop_QueryCard_Attribute_IsLogicOperationEnabled
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopQueryCardAttributeIsLogicOperationEnabled.pas"
+// Стереотип: "ScriptKeyword"
 
-{$Include ..\ScriptEngine\seDefine.inc}
+{$Include seDefine.inc}
 
 interface
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3Interfaces,
-  nevBase,
-  evQueryCardInt,
-  evQueryCardEditor,
-  tfwScriptingInterfaces,
-  kwQueryCardFromStackWord
-  ;
-{$IfEnd} //not NoScripts
+ l3IntfUses
+ , kwQueryCardFromStackWord
+ , l3Interfaces
+ , nevBase
+ , tfwScriptingInterfaces
+ , evQueryCardEditor
+ , evQueryCardInt
+;
 
-{$If not defined(NoScripts)}
 type
- TkwPopQueryCardAttributeIsLogicOperationEnabled = {final scriptword} class(TkwQueryCardFromStackWord)
- private
- // private methods
+ TkwPopQueryCardAttributeIsLogicOperationEnabled = {final} class(TkwQueryCardFromStackWord)
+  private
    procedure DoModelImpl(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor);
- protected
- // realized methods
+    aCard: TevQueryCardEditor);
+  protected
    procedure DoCard(const aCtx: TtfwContext;
-     aCard: TevQueryCardEditor); override;
- protected
- // overridden protected methods
+    aCard: TevQueryCardEditor); override;
    class function GetWordNameForRegister: AnsiString; override;
  end;//TkwPopQueryCardAttributeIsLogicOperationEnabled
-{$IfEnd} //not NoScripts
+{$IfEnd} // NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(NoScripts)}
+{$If NOT Defined(NoScripts)}
 uses
-  l3String,
-  l3Base,
-  evReqIterator
-  ;
-{$IfEnd} //not NoScripts
-
-{$If not defined(NoScripts)}
-
-// start class TkwPopQueryCardAttributeIsLogicOperationEnabled
+ l3ImplUses
+ , l3String
+ , l3Base
+ , evReqIterator
+ , Windows
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 procedure TkwPopQueryCardAttributeIsLogicOperationEnabled.DoModelImpl(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
-var
- l_Name : Il3CString;
- l_IsEnabled : Boolean;
- l_Op : InevOp;
+ aCard: TevQueryCardEditor);
+var l_Name: Il3CString;
+var l_IsEnabled: Boolean;
+var l_Op: InevOp;
 
  procedure CallIterator;
 
   function DoIt(const anItem: IevReq): Boolean;
+   {* Подитеративная функция для вызова L2IevReqIteratorDoReqAction из CallIterator }
   //#UC START# *1E86D84EDB95__var*
   var
    l_F : IevEditorControlField;
@@ -88,7 +80,7 @@ var
   //#UC START# *50F01237000Citer*
   TevReqIterator.Make(aCard).
   //#UC END# *50F01237000Citer*
-   DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
+  DoReqF(L2IevReqIteratorDoReqAction(@DoIt));
  end;//CallIterator
 
 //#UC START# *50F011CD0374_50EFDD9B0123_var*
@@ -107,7 +99,7 @@ begin
 end;//TkwPopQueryCardAttributeIsLogicOperationEnabled.DoModelImpl
 
 procedure TkwPopQueryCardAttributeIsLogicOperationEnabled.DoCard(const aCtx: TtfwContext;
-  aCard: TevQueryCardEditor);
+ aCard: TevQueryCardEditor);
 //#UC START# *4E808E8B01BB_50EFDD9B0123_var*
 //#UC END# *4E808E8B01BB_50EFDD9B0123_var*
 begin
@@ -117,17 +109,13 @@ begin
 end;//TkwPopQueryCardAttributeIsLogicOperationEnabled.DoCard
 
 class function TkwPopQueryCardAttributeIsLogicOperationEnabled.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := 'pop:QueryCard:Attribute:IsLogicOperationEnabled';
 end;//TkwPopQueryCardAttributeIsLogicOperationEnabled.GetWordNameForRegister
 
-{$IfEnd} //not NoScripts
-
 initialization
-{$If not defined(NoScripts)}
-// Регистрация pop_QueryCard_Attribute_IsLogicOperationEnabled
  TkwPopQueryCardAttributeIsLogicOperationEnabled.RegisterInEngine;
-{$IfEnd} //not NoScripts
+ {* Регистрация pop_QueryCard_Attribute_IsLogicOperationEnabled }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

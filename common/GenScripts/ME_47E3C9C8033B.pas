@@ -27,7 +27,7 @@ type
  _ItemType_ = Tk2Op;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  //#UC START# *47E3C9C8033Bcit*
  //#UC END# *47E3C9C8033Bcit*
  Tk2OpRefList = class(_l3UncomparabeObjectRefList_)
@@ -80,7 +80,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tk2OpRefList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 //#UC START# *47E3C9C8033Bimpl*
 //#UC END# *47E3C9C8033Bimpl*

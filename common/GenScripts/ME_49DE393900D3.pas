@@ -20,9 +20,9 @@ uses
 ;
 
 type
- {$Include nevAnchor.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\new\nevAnchor.imp.pas}
  _nevAnchorModify_Parent_ = _nevAnchor_;
- {$Include nevAnchorModify.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nevAnchorModify.imp.pas}
  TnevAnchor = class(_nevAnchorModify_, InevBasePoint, InevAnchor)
   {* якорь дл€ абстрактного параграфа }
   private
@@ -164,9 +164,9 @@ uses
 
 type _Instance_R_ = TnevAnchor;
 
-{$Include nevAnchor.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\new\nevAnchor.imp.pas}
 
-{$Include nevAnchorModify.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nevAnchorModify.imp.pas}
 
 function TnevAnchor.pm_GetHasInner: Boolean;
 //#UC START# *4A58BA550111_49DE393900D3get_var*

@@ -22,7 +22,7 @@ uses
 
 type
  _ColumnResizeByMouse_Parent_ = TkwEditorFromStackCursorWord;
- {$Include ColumnResizeByMouse.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
  TkwEditorFromStackTableColumnResize = {abstract} class(_ColumnResizeByMouse_)
   {* Вспомогательное слово для изменение размера колонок таблиц }
   protected
@@ -63,7 +63,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
-{$Include ColumnResizeByMouse.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas}
 
 procedure TkwEditorFromStackTableColumnResize.DoCursor(const aCtx: TtfwContext;
  anEditor: TevCustomEditorWindow;

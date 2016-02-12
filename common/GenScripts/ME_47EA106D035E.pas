@@ -6,7 +6,7 @@
 {$Define sdsBaseDocument_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include vcmFormSetDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
  _sdsBaseDocument_ = {abstract} class(_vcmFormSetDataSource_, IsdsBaseDocument, IsdsGotoPointDataMaker, IsdsPrimDocument)
   {* БОС, базовый для прецедента с документом }
   protected
@@ -52,7 +52,7 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include vcmFormSetDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 _sdsBaseDocument_ = _vcmFormSetDataSource_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -63,7 +63,7 @@ _sdsBaseDocument_ = _vcmFormSetDataSource_;
 {$Define sdsBaseDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include vcmFormSetDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
 function _sdsBaseDocument_.DocumentData: IdeDocInfo;
  {* данные для инициализации бизнес объекта документа }

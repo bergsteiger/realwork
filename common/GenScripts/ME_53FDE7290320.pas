@@ -38,7 +38,7 @@ type
  Rm3RootStream = class of Tm3RootStream;
 
  _HeaderType_ = Tm3RootStreamHeader;
- {$Include m3RootStream.imp.pas}
+ {$Include w:\common\components\rtl\Garant\m3\m3RootStream.imp.pas}
  Tm3RootStream = class(_m3RootStream_)
   public
    procedure ForceLockHeader;
@@ -63,7 +63,7 @@ uses
  , Windows
 ;
 
-{$Include m3RootStream.imp.pas}
+{$Include w:\common\components\rtl\Garant\m3\m3RootStream.imp.pas}
 
 procedure Tm3RootStream.ForceLockHeader;
  {* √арантированно блокирует заголовок потока. }
