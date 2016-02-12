@@ -24,7 +24,7 @@ type
    function AllowAutoSelectByMouse: Boolean; virtual;
   public
    function InsertPageBreak(NeedNewSection: Boolean = False;
-    aPageOrientation: TevPageOrientation = evdTypes.ev_poPortrait): Boolean; virtual;
+    aPageOrientation: TevPageOrientation = Portrait): Boolean; virtual;
    procedure DecIndent; virtual;
    procedure IncIndent; virtual;
  end;//TevCustomEditor
@@ -52,7 +52,7 @@ begin
 end;//TevCustomEditor.InTable
 
 function TevCustomEditor.InsertPageBreak(NeedNewSection: Boolean = False;
- aPageOrientation: TevPageOrientation = evdTypes.ev_poPortrait): Boolean;
+ aPageOrientation: TevPageOrientation = Portrait): Boolean;
 //#UC START# *54C10AFF0075_4829D89703D2_var*
 //#UC END# *54C10AFF0075_4829D89703D2_var*
 begin

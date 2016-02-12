@@ -76,6 +76,8 @@ type
    {* Возвращает "горячую точку" }
  end;//InevHotSpotTester2
 
+ IevAdvancedHotSpot = interface;
+
  IevMouseMoveHandler = interface
   {* Обработчик движения мыши }
   ['{5A0E02BF-F2CD-4553-856C-A28D78F48B01}']
@@ -97,6 +99,8 @@ type
   , ev_oaDragPoint
   , ev_oaHeader
  );//TevObjectArea
+
+ IevAdvancedHotSpot = interface;
 
  IevHotSpotDelta = interface
   {* Точность "горячей точки" (IevAdvancedHotSpot) }

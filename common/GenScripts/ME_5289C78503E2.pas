@@ -68,9 +68,9 @@ type
 function TvcmFormSetFormItemDescr_C(const aFormID: TvcmFormID;
  aZoneType: TvcmZoneType;
  aUserType: TvcmUserType;
- aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): TvcmFormSetFormItemDescr;
+ aSubUserType: TvcmUserType = vcm_utAny): TvcmFormSetFormItemDescr;
 function TvcmFormSetFormItem_C(const aKey: TvcmFormSetFormItemDescr;
- aNeedMake: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormItem;
+ aNeedMake: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormItem;
 {$IfEnd} // NOT Defined(NoVCM)
 
 implementation
@@ -87,7 +87,7 @@ uses
 function TvcmFormSetFormItemDescr_C(const aFormID: TvcmFormID;
  aZoneType: TvcmZoneType;
  aUserType: TvcmUserType;
- aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): TvcmFormSetFormItemDescr;
+ aSubUserType: TvcmUserType = vcm_utAny): TvcmFormSetFormItemDescr;
 //#UC START# *528B525300DE_5289C7D4012A_var*
 //#UC END# *528B525300DE_5289C7D4012A_var*
 begin
@@ -102,7 +102,7 @@ begin
 end;//TvcmFormSetFormItemDescr_C
 
 function TvcmFormSetFormItem_C(const aKey: TvcmFormSetFormItemDescr;
- aNeedMake: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormItem;
+ aNeedMake: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormItem;
 //#UC START# *528B51C0030E_5289CA7803D8_var*
 //#UC END# *528B51C0030E_5289CA7803D8_var*
 begin
@@ -172,6 +172,10 @@ begin
   Result := Ord(Self.rNeedMake) - Ord(anOther.rNeedMake);
 //#UC END# *5289CD3602F8_5289CA7803D8_impl*
 end;//TvcmFormSetFormItem.Compare
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 

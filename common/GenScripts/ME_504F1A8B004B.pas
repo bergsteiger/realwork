@@ -57,6 +57,10 @@ begin
  l3Free(g_TatOpTypeConverter);
 end;//TatOpTypeConverterFree
 
+{$If not Declared(_SecondType_)}type _SecondType_ = _EnumType_;{$IfEnd}
+
+{$If not Declared(_FirstType_)}type _FirstType_ = AnsiString;{$IfEnd}
+
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atEnumConverter.imp.pas}
 
 class function TatOpTypeConverter.Exists: Boolean;

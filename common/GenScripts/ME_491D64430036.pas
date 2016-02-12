@@ -39,13 +39,13 @@
    function GetHasPrevRedaction: Boolean; override;
    function GetHasNextRedaction: Boolean; override;
    function GetCanWorkWithRedactions: Boolean; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    procedure OpenContents(const aTree: IdeSimpleTree;
     anForceOpen: TnsContentsOpenMode;
     const aContainerOfDocument: InevDocumentContainer);
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//_dsDocument_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
@@ -65,6 +65,10 @@ _dsDocument_ = _dsBaseSearchSupportQuery_;
 {$Define dsDocument_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not Declared(_InitDataType_)}type _InitDataType_ = IdeDocInfo;{$IfEnd}
+
+{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
+
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseDocumentPrim.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas}

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_listAnalize.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::listAnalize';
 end;//Tkw_FormUserType_listAnalize.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_listAnalize.GetInteger: Integer;
 begin
  Result := listAnalize;

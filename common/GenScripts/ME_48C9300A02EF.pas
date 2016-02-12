@@ -57,6 +57,8 @@ uses
  , evDelayedPaintersSpy
 ;
 
+{$If not Declared(_X_)}type _X_ = InevParaList;{$IfEnd}
+
 {$Include w:\common\components\gui\Garant\Everest\evDelayedPainters.imp.pas}
 
 function TevFramedParaListPainter.GetFameObjectBehaviur: Tl3FrameObjectBehaviour;

@@ -45,9 +45,6 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure Remove; override;
    procedure DoChanged; override;
   public
@@ -55,6 +52,9 @@ type
     const aFilter: InevContentsNodeFilter); reintroduce; virtual;
    class function Make(aTag: Tl3Variant;
     const aFilter: InevContentsNodeFilter): Il3Node; virtual;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    property Document: Tl3Variant
     read pm_GetDocument;

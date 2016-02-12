@@ -21,6 +21,8 @@
 
 {$Define atEnumConverter_imp_impl}
 
+{$If not Declared(_FirstType_)}type _FirstType_ = AnsiString;{$IfEnd}
+
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas}
 
 function _atEnumConverter_.ToName(const aValueOrd: Integer): AnsiString;

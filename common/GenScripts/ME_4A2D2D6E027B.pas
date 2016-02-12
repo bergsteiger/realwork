@@ -68,16 +68,13 @@ type
     pSource: Tl3Variant;
     const anOp: InevOp): Boolean; override;
    function DoDeleteSegments(const anOpPack: InevOp): Boolean; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure DoStore(const aView: InevView;
     const G: Ik2TagGenerator;
     aFlags: TevStoreFlags); override;
    {$If Defined(evNeedEditableCursors)}
    function DoDelete(const aView: InevView;
     const anOpPack: InevOp = nil;
-    aMode: TevClearMode = nevTools.ev_cmAll;
+    aMode: TevClearMode = ev_cmAll;
     const aPara: InevPara = nil): Boolean; override;
    {$IfEnd} // Defined(evNeedEditableCursors)
    function DoGetChildSel(const aView: InevView;
@@ -95,6 +92,9 @@ type
    function DoBottomChildBlock(const aView: InevView): InevRange; override;
    procedure GetBlockBorders; override;
   public
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure DoInit(const aStart: InevBasePoint;
     const aFinish: InevBasePoint;
     aSharp: Boolean); override;
@@ -733,7 +733,7 @@ end;//TevParaListCursorPair.DoStore
 {$If Defined(evNeedEditableCursors)}
 function TevParaListCursorPair.DoDelete(const aView: InevView;
  const anOpPack: InevOp = nil;
- aMode: TevClearMode = nevTools.ev_cmAll;
+ aMode: TevClearMode = ev_cmAll;
  const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_4A2D2D6E027B_var*
  procedure DeleteParasInRange(const aParaList : InevParaList;

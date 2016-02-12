@@ -274,7 +274,7 @@ type
    function FiltrateTOCTree(const aTOC: Il3SimpleTree;
     NeedFiltrate: Boolean = True): Il3SimpleTree;
    procedure ShowWarningPage(SwitchActivity: Boolean;
-    anOffset: TnsWarningSub = DocumentAndListInterfaces.cNoneWarningSub);
+    anOffset: TnsWarningSub = NoneWarningSub);
    function GetVisibleBookmarksCount(const aBookmarks: IeeSubList): Integer;
    function GetVisibleBookmark(const aBookmarks: IeeSubList;
     anIndex: Integer = 0): IeeSub;
@@ -299,7 +299,7 @@ type
    function ExtractSubFromSubPanel(const aTarget: IUnknown): IeeSub;
    procedure OpenPicture(const aPara: IeePara;
     const aPicture: IeePicture;
-    aOpenKind: TvcmMainFormOpenKind = vcmInterfaces.vcm_okInCurrentTab);
+    aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab);
    function LeafParaUnderCursor: IeePara;
    function MakePositionList(aCRType: TlstCRType): IPositionList;
    procedure SetFocusToText;
@@ -365,7 +365,7 @@ type
    function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; override;
     {* Обработчик внешней операции }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = bsTypesNew.dptSub); override;
+    aPointType: TDocumentPositionType = Sub); override;
     {* Переход на точку в документе }
    procedure OpenRedactionLocalLink(const aDocument: IDocument;
     aSub: Cardinal;
@@ -1418,7 +1418,7 @@ begin
 end;//TExTextForm.FiltrateTOCTree
 
 procedure TExTextForm.ShowWarningPage(SwitchActivity: Boolean;
- anOffset: TnsWarningSub = DocumentAndListInterfaces.cNoneWarningSub);
+ anOffset: TnsWarningSub = NoneWarningSub);
 //#UC START# *4C3B4CCF0068_49539DBA029D_var*
 
  function lp_NeedOpen: Boolean;
@@ -2005,7 +2005,7 @@ end;//TExTextForm.GoToIntranetPrim
 
 procedure TExTextForm.OpenPicture(const aPara: IeePara;
  const aPicture: IeePicture;
- aOpenKind: TvcmMainFormOpenKind = vcmInterfaces.vcm_okInCurrentTab);
+ aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab);
 //#UC START# *4F6719C001DB_49539DBA029D_var*
 var
  l_Cont  : IvcmContainer;
@@ -3000,7 +3000,7 @@ begin
 end;//TExTextForm.DoProcessExternalOperation
 
 procedure TExTextForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = bsTypesNew.dptSub);
+ aPointType: TDocumentPositionType = Sub);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_49539DBA029D_var*
 var

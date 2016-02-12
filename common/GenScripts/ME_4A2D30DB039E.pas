@@ -35,7 +35,7 @@ type
    {$If Defined(evNeedEditableCursors)}
    function DoDelete(const aView: InevView;
     const anOpPack: InevOp = nil;
-    aMode: TevClearMode = nevTools.ev_cmAll;
+    aMode: TevClearMode = ev_cmAll;
     const aPara: InevPara = nil): Boolean; virtual;
    {$IfEnd} // Defined(evNeedEditableCursors)
    function DoGetChildSel(const aView: InevView;
@@ -67,12 +67,12 @@ type
     aNeedProgress: Boolean = True): Boolean; virtual;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
     const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean; overload;
+    aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean; overload;
     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
    function SolidBottomChildBlock(const aView: InevView): InevRange;
    function GetChildSel(const aView: InevView;
@@ -231,7 +231,7 @@ end;//TevRange.DoStore
 {$If Defined(evNeedEditableCursors)}
 function TevRange.DoDelete(const aView: InevView;
  const anOpPack: InevOp = nil;
- aMode: TevClearMode = nevTools.ev_cmAll;
+ aMode: TevClearMode = ev_cmAll;
  const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_4A2D2D4300BE_var*
 //#UC END# *5108D66900C9_4A2D2D4300BE_var*
@@ -502,7 +502,7 @@ end;//TevRange.DoSearchReplace
 
 procedure TevRange.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_4A2D2D4300BE_var*
 //#UC END# *47C68BFD011C_4A2D2D4300BE_var*
@@ -516,7 +516,7 @@ end;//TevRange.Store
 function TevRange.Store(aFormat: TevdClipboardFormat;
  const aPool: IStream;
  const aFilters: TevdTagGenerator;
- aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean;
+ aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean;
  {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_4A2D2D4300BE_var*
 var

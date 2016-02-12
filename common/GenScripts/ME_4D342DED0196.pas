@@ -75,9 +75,9 @@ type
     {* Функция очистки полей объекта. }
   public
    constructor Create(const aBaseSettingId: TafwSettingId;
-    const aGroups: TnscTasksPanelGroupDescArray); reintroduce;
+    const aGroups: array of TnscTasksPanelGroupDesc); reintroduce;
    class function Make(const aBaseSettingId: TafwSettingId;
-    const aGroups: TnscTasksPanelGroupDescArray): IvcmCustOps; reintroduce;
+    const aGroups: array of TnscTasksPanelGroupDesc): IvcmCustOps; reintroduce;
  end;//TnscTasksPanel
 {$IfEnd} // Defined(Nemesis)
 
@@ -92,7 +92,7 @@ uses
 ;
 
 constructor TnscTasksPanel.Create(const aBaseSettingId: TafwSettingId;
- const aGroups: TnscTasksPanelGroupDescArray);
+ const aGroups: array of TnscTasksPanelGroupDesc);
 //#UC START# *4D34335B0113_4D342DED0196_var*
 var
  l_Index : Integer;
@@ -108,7 +108,7 @@ begin
 end;//TnscTasksPanel.Create
 
 class function TnscTasksPanel.Make(const aBaseSettingId: TafwSettingId;
- const aGroups: TnscTasksPanelGroupDescArray): IvcmCustOps;
+ const aGroups: array of TnscTasksPanelGroupDesc): IvcmCustOps;
 var
  l_Inst : TnscTasksPanel;
 begin

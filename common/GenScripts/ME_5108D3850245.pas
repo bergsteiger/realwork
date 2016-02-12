@@ -64,7 +64,7 @@ type
    {$If Defined(evNeedEditableCursors)}
    function DoDelete(const aView: InevView;
     const anOpPack: InevOp = nil;
-    aMode: TevClearMode = nevTools.ev_cmAll;
+    aMode: TevClearMode = ev_cmAll;
     const aPara: InevPara = nil): Boolean; override;
    {$IfEnd} // Defined(evNeedEditableCursors)
    {$If Defined(k2ForEditor)}
@@ -402,7 +402,7 @@ end;//TevTableCursorPair.DoStore
 {$If Defined(evNeedEditableCursors)}
 function TevTableCursorPair.DoDelete(const aView: InevView;
  const anOpPack: InevOp = nil;
- aMode: TevClearMode = nevTools.ev_cmAll;
+ aMode: TevClearMode = ev_cmAll;
  const aPara: InevPara = nil): Boolean;
 //#UC START# *5108D66900C9_5108D3850245_var*
 var

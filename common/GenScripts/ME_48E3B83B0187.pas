@@ -25,12 +25,12 @@ type
     {* сохраняет выделение в G }
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
     const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean; overload;
+    aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean; overload;
     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
    function GetData: IevdDataObject; override;
    function GetAsStorable: InevDataObjectPrim2; override;
@@ -110,7 +110,7 @@ end;//TevMultiSelectionBlock.DoStore
 
 procedure TevMultiSelectionBlock.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48E3B83B0187_var*
 var
@@ -148,7 +148,7 @@ end;//TevMultiSelectionBlock.Store
 function TevMultiSelectionBlock.Store(aFormat: TevdClipboardFormat;
  const aPool: IStream;
  const aFilters: TevdTagGenerator;
- aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean;
+ aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean;
  {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_48E3B83B0187_var*
 var

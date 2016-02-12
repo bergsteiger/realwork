@@ -26,7 +26,10 @@ uses
  , k2Base
  , SysUtils
  , k2NullTagImpl
+ , l3BitArr
 ;
+
+{$If not Declared(_HashType_)}type _HashType_ = Tl3PtrHash;{$IfEnd}
 
 {$Include w:\common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas}
 

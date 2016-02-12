@@ -25,7 +25,7 @@ uses
 
 function evInPara(anAtom: Tl3Variant;
  aTypeID: Tk2Type;
- const anExclude: array of Tk2TypePrim;
+ const anExclude: array of Tl3VariantDef;
  out theParent: Tl3Variant): Boolean; overload;
  {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.  theParent - найденный владелец подходящего типа. Можно задавать исключения в наследовании }
 function evIsInReadOnlyPara(const aPara: InevPara): Boolean;
@@ -80,14 +80,14 @@ function evQueryParaInterface(const aView: InevView;
 procedure evClearPara(const aView: InevView;
  const aPara: InevObject;
  const anOp: InevOp;
- aMode: TevClearMode = nevTools.ev_cmKeepOne;
+ aMode: TevClearMode = ev_cmKeepOne;
  const aTopPara: InevPara = nil);
  {* Очищает параграф aPara }
 function evCopyParaList(const aView: InevView;
  const aContext: InevProcessor;
  const aDest: InevPara;
  const aSource: InevPara;
- aFlags: TevLoadFlags = nevBase.evDefaultCopyFlags;
+ aFlags: TevLoadFlags = evDefaultCopyFlags;
  SkipEmpty: Boolean = False;
  const aStart: InevPoint = nil;
  NeedDelete: Boolean = False): Boolean;
@@ -188,7 +188,7 @@ uses
 
 function evInPara(anAtom: Tl3Variant;
  aTypeID: Tk2Type;
- const anExclude: array of Tk2TypePrim;
+ const anExclude: array of Tl3VariantDef;
  out theParent: Tl3Variant): Boolean;
  {* Возвращает является ли атом anAtom или кто-то из его владельцев наследником от aTypeID.  theParent - найденный владелец подходящего типа. Можно задавать исключения в наследовании }
 var l_Parent: Tl3Variant;
@@ -777,7 +777,7 @@ end;//evQueryParaInterface
 procedure evClearPara(const aView: InevView;
  const aPara: InevObject;
  const anOp: InevOp;
- aMode: TevClearMode = nevTools.ev_cmKeepOne;
+ aMode: TevClearMode = ev_cmKeepOne;
  const aTopPara: InevPara = nil);
  {* Очищает параграф aPara }
 //#UC START# *48E4E992004F_47F1F3BC0330_var*
@@ -811,7 +811,7 @@ function evCopyParaList(const aView: InevView;
  const aContext: InevProcessor;
  const aDest: InevPara;
  const aSource: InevPara;
- aFlags: TevLoadFlags = nevBase.evDefaultCopyFlags;
+ aFlags: TevLoadFlags = evDefaultCopyFlags;
  SkipEmpty: Boolean = False;
  const aStart: InevPoint = nil;
  NeedDelete: Boolean = False): Boolean;

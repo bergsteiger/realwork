@@ -38,6 +38,8 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , vtNavigatorForm
+ , l3Memory
 ;
 
 function TvtFormHandlerID_C(anObject: TObject): TvtFormHandlerID;
@@ -50,6 +52,10 @@ begin
  Result.rObject := anObject;
 //#UC END# *4B7039C60392_47D67F4A01EA_impl*
 end;//TvtFormHandlerID_C
+
+{$If not Declared(_ItemType_)}type _ItemType_ = TvtNavigatorForm;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;

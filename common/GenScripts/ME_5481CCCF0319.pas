@@ -62,7 +62,7 @@ type
    constructor Create(anAccess: Tm3StoreAccess); reintroduce;
    function Read(var Buffer;
     Count: Integer): Integer; override;
-   function Write(Buffer;
+   function Write(const Buffer;
     Count: Integer): Integer; override;
    function Seek(const Offset: Int64;
     Origin: TSeekOrigin): Int64; override;
@@ -306,7 +306,7 @@ begin
 //#UC END# *49BE656C006E_5481CCCF0319_impl*
 end;//Tm3PrimStream.Read
 
-function Tm3PrimStream.Write(Buffer;
+function Tm3PrimStream.Write(const Buffer;
  Count: Integer): Integer;
 //#UC START# *49BE658C0261_5481CCCF0319_var*
 var

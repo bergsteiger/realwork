@@ -160,6 +160,8 @@ type
 
  TvcmEffectiveToolBarPoses = set of TvcmEffectiveToolBarPos;
 
+ IvcmOperationalIdentifiedUserFriendlyControl = interface;
+
  IvcmOperationsDefIterator = interface
   {* Итератор описаний операций }
   ['{3B8CFB31-F1BF-469A-A248-1C613BA636C9}']

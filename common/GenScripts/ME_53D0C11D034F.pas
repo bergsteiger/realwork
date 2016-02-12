@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
 ;
-{$IfEnd} // Defined(evNeedHotSpot)
 
+{$If NOT Defined(evCanEditControlsAsText)}
+{$IfEnd} // NOT Defined(evCanEditControlsAsText)
+{$IfEnd} // Defined(evNeedHotSpot)
 end.

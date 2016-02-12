@@ -58,7 +58,7 @@ type
     const aStream: IStream;
     aFormat: TnevFormat;
     const anOp: InevOp = nil;
-    aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+    aFlags: TevLoadFlags = evDefaultLoadFlags;
     aCodePage: Integer = CP_DefaultValue): Boolean;
    function DeleteString(const aView: InevView;
     Count: Integer;
@@ -109,9 +109,6 @@ type
    function UpdateCursor(const aCursor: InevBasePoint): Boolean; override;
    function pm_GetCollapsed: Boolean; override;
    function IsBlockCursor(const aCursor: InevBasePoint): Boolean; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    function SetAtom(anIndex: Cardinal;
@@ -131,6 +128,9 @@ type
     const anOpPack: InevOp = nil): Boolean;
    procedure SetFocus; override;
     {* Окно получило фокус }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure ForceStore; override;
   public
    property NoCaret: Boolean
@@ -644,7 +644,7 @@ function TevBlockCursor.InsertStream(const aView: InevView;
  const aStream: IStream;
  aFormat: TnevFormat;
  const anOp: InevOp = nil;
- aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+ aFlags: TevLoadFlags = evDefaultLoadFlags;
  aCodePage: Integer = CP_DefaultValue): Boolean;
 //#UC START# *47C5B3410044_487B5D8D00ED_var*
 var

@@ -283,6 +283,8 @@ const
  cExportFlag = DynamicTreeUnit.FM_FIRST_USER_FLAG;
   {* флаг, которым помечаются узлы для экспорта }
 
+{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
+
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Tree\dsSimpleTree.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseSearchSupportQuery.imp.pas}

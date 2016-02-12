@@ -55,6 +55,8 @@ uses
  , l3Types
 ;
 
+{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
+
 {$If Defined(evUseVisibleCursors)}
 function GetLC(aSelf: _nevTextParaViewBounds_;
  aMap: TnevFormatInfoPrim): TnevLineCoord;

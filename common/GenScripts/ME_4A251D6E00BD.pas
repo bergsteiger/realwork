@@ -18,6 +18,8 @@ uses
 ;
 
 type
+ IevHyperlink = interface;
+
  IevAddressList = interface
   {* Список адресов }
   ['{FF3E2BB3-B94A-4C87-9725-E6EF1E93079A}']
@@ -50,6 +52,8 @@ type
    write pm_SetName;
    {* Cписок имен по индексу }
  end;//IevAddressList
+
+ IevHyperlink = interface;
 
  IevAddressHolder = interface
   ['{C22FA607-035B-44DE-B592-054CB05175DE}']

@@ -83,6 +83,10 @@ begin
 //#UC END# *4A8D7588039F_4A8D70780075_impl*
 end;//TvcmCommandInfo.EQ
 
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}

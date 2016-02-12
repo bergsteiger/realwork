@@ -184,13 +184,13 @@ type
     const aPool: IStream;
     const aFilters: InevTagGenerator;
     const Block: InevDataObjectPrim2 = nil;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags;
     aCodePage: Integer = CP_DefaultValue): Integer;
     {* считать тег из Storage в aPool. }
    function ReadTagEx(const Writer: InevTagGenerator;
     const aPool: IStream = nil;
     const aBlock: InevDataObjectPrim2 = nil;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags;
     CharCountMul: Integer = 2;
     const FormatName: Il3CString = nil;
     aCodePage: Integer = CP_DefaultValue): Integer;
@@ -199,13 +199,13 @@ type
     aFormat: TnevFormat;
     const aPool: IStream;
     const aBlock: IUnknown = nil;
-    aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+    aFlags: TevLoadFlags = evDefaultLoadFlags;
     aCodePage: Integer = CP_DefaultValue): Boolean;
     {* записать тэг из Pool в Storage. }
    procedure WriteTagEx(const aView: InevView;
     const aReader: InevReader;
     const aBlock: IUnknown = nil;
-    aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags);
+    aFlags: TevLoadFlags = evDefaultLoadFlags);
     {* записать тэг из Pool в Storage. }
    function HasDocument: Boolean;
    function IsSame(const aContainer: InevDocumentContainer): Boolean;
@@ -305,14 +305,14 @@ type
     const V: TnevValues;
     const anOpPack: InevOp); override;
    function GetSubCache: IevSubCache; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    function DoGetControlImg(const aControl: TnevControlInfo;
     var theImageInfo: TnevControlImageInfo): Boolean; override;
    procedure ClearFields; override;
   public
    class function Make: InevDocumentContainer; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   protected
    property Loading: Boolean
     read f_Loading;
@@ -1824,7 +1824,7 @@ function TnevDocumentContainer.ReadTag(aFormat: TnevFormat;
  const aPool: IStream;
  const aFilters: InevTagGenerator;
  const Block: InevDataObjectPrim2 = nil;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags;
  aCodePage: Integer = CP_DefaultValue): Integer;
  {* считать тег из Storage в aPool. }
 //#UC START# *47C6AE9F03E2_47F0870E0034_var*
@@ -1893,7 +1893,7 @@ end;//TnevDocumentContainer.ReadTag
 function TnevDocumentContainer.ReadTagEx(const Writer: InevTagGenerator;
  const aPool: IStream = nil;
  const aBlock: InevDataObjectPrim2 = nil;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags;
+ aFlags: TevdStoreFlags = evDefaultStoreFlags;
  CharCountMul: Integer = 2;
  const FormatName: Il3CString = nil;
  aCodePage: Integer = CP_DefaultValue): Integer;
@@ -2137,7 +2137,7 @@ function TnevDocumentContainer.WriteTag(const aView: InevView;
  aFormat: TnevFormat;
  const aPool: IStream;
  const aBlock: IUnknown = nil;
- aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags;
+ aFlags: TevLoadFlags = evDefaultLoadFlags;
  aCodePage: Integer = CP_DefaultValue): Boolean;
  {* записать тэг из Pool в Storage. }
 //#UC START# *47C6AF76020D_47F0870E0034_var*
@@ -2219,7 +2219,7 @@ end;//TnevDocumentContainer.WriteTag
 procedure TnevDocumentContainer.WriteTagEx(const aView: InevView;
  const aReader: InevReader;
  const aBlock: IUnknown = nil;
- aFlags: TevLoadFlags = nevBase.evDefaultLoadFlags);
+ aFlags: TevLoadFlags = evDefaultLoadFlags);
  {* записать тэг из Pool в Storage. }
 //#UC START# *47C6AF9302EC_47F0870E0034_var*
 //#UC END# *47C6AF9302EC_47F0870E0034_var*

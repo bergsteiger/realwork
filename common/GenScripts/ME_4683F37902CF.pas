@@ -91,6 +91,8 @@ type
  TvcmOperationCode = Tl3OperationCode;
   {* команда возвращаемая компоненту в результате срабатывания механизма ShortCut-ов }
 
+ IvcmObjectWithData = interface;
+
  IvcmData = interface(IvcmBase)
   {* Базовый интерфейс данных }
   ['{519F45D2-92C3-4312-A8BA-15CC5E79E1B2}']
@@ -300,6 +302,8 @@ type
   vcm_dsnDestroy
  );//TvcmFormDataSourceNotify
 
+ IvcmEntityForm = interface;
+
  IvcmUserTypeDef = interface(IvcmBaseObjectDef)
   ['{1CC34971-4A78-4406-B24B-CB368802431F}']
   function Get_ID: Integer;
@@ -323,6 +327,8 @@ type
    read Get_UseToolbarAnotherUserType;
  end;//IvcmUserTypeDef
 
+ IvcmEntityForm = interface;
+
  IvcmUserTypesIterator = interface(IvcmBase)
   ['{601CCBA3-D46D-4DF4-8322-27582B18A05A}']
   function Next: IvcmUserTypeDef;
@@ -338,6 +344,8 @@ type
   , wafIfNotActivated
    {* активировать только если не активных с флагом ActivateIfUpdate }
  );//TvcmActivateIfUpdate
+
+ IvcmEntityForm = interface;
 
  IvcmEntityFormDef = interface(IvcmBaseObjectDef)
   ['{1BEF93AC-39A2-4630-964C-FCFD9714FCC7}']
@@ -361,6 +369,8 @@ type
   , isMedium
  );//TvcmImageSize
 
+ IvcmToolbarsStyle = interface;
+
  IvcmToolbarStyle = interface(IvcmBase)
   {* Стиль панели инструментов }
   ['{8583988A-F32A-4579-8430-D6DB885BC9C0}']
@@ -379,6 +389,8 @@ type
    read pm_GetContainer;
    {* контейнер для размещения панели иснтрументов }
  end;//IvcmToolbarStyle
+
+ IvcmFormStyle = interface;
 
  IvcmToolbarsStyle = interface(IvcmBase)
   {* Иконки панелей инструментов }
@@ -402,6 +414,8 @@ type
   property Bottom: IvcmToolbarStyle
    read pm_GetBottom;
  end;//IvcmToolbarsStyle
+
+ IvcmEntityForm = interface;
 
  IvcmFormStyle = interface(IvcmBase)
   {* стиль VCM формы }
@@ -681,6 +695,8 @@ type
    read pm_GetFormSetToClone;
  end;//IvcmFormSetRefreshDataParams
 
+ IvcmContainer = interface;
+
  IvcmEntityFormIterator = interface(IvcmBase)
   {* Итератор форм }
   ['{4D060767-BC15-4155-B148-005D1611436D}']
@@ -694,10 +710,14 @@ type
    {* положение окна в координатах экрана. }
  end;//TvcmMainFormInfo
 
+ IvcmContainer = interface;
+
  IvcmFormSetIterator = interface(IvcmBase)
   ['{EA17BD08-C17A-4592-B935-24D19B636FA4}']
   function Next: IvcmFormSet;
  end;//IvcmFormSetIterator
+
+ IvcmContainer = interface;
 
  IvcmAggregateIterator = interface(IvcmBase)
   ['{47922ED9-18D9-4FDE-9819-20F3E15D4895}']
@@ -722,19 +742,19 @@ type
   function InsertForm(const aForm: IvcmEntityForm): Boolean;
    {* вставляет форму в контейнер }
   function HasForm(const aName: TvcmFormID;
-   aZoneType: TvcmZoneType = vcm_ztAny;
+   aZoneType: TvcmZoneType = Any;
    aRecursive: Boolean = True;
    theForm: PIvcmEntityForm = nil;
-   aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
+   aUserType: TvcmUserType = vcm_utAny;
    aGUID: PGUID = nil;
-   aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
+   aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
    {* проверяет есть ли в контейнере такая форма }
-  function HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
+  function HasForm(aZoneType: TvcmZoneType = Any;
    aRecursive: Boolean = True;
    theForm: PIvcmEntityForm = nil;
-   aUserType: TvcmUserType = vcmUserControls.vcm_utAny;
+   aUserType: TvcmUserType = vcm_utAny;
    aGUID: PGUID = nil;
-   aSubUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean; overload;
+   aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
    {* проверяет есть ли в контейнере такая форма }
   function Operation(const anOp: TvcmOPID;
    const aParams: IvcmExecuteParams): Boolean; overload;
@@ -743,7 +763,7 @@ type
    const aParams: IvcmTestParams): Boolean; overload;
    {* Выполнение операции по имени сущности }
   function Operation(const anOp: TvcmOPID;
-   aMode: TvcmOperationMode = vcmUserControls.vcm_omExecute): Boolean; overload;
+   aMode: TvcmOperationMode = vcm_omExecute): Boolean; overload;
    {* Выполнение операции по имени сущности }
   function IsNull: Boolean;
   procedure FormStyle(const aForm: IvcmEntityForm;
@@ -803,6 +823,8 @@ type
    read Get_AsForm;
  end;//IvcmEntity
 
+ IvcmHistory = interface;
+
  IvcmHistoryItem = interface(IvcmBase)
   {* Элемент истории приложения }
   ['{31043D04-F4D1-4E89-8DDA-F005E711AC11}']
@@ -830,6 +852,8 @@ type
            создания элемент должен перейти в состояние hitClose. }
  );//TvcmHistoryItemType
 
+ IvcmHistory = interface;
+
  IvcmContainerHistoryItem = interface(IvcmHistoryItem)
   ['{85EBC57E-7442-4726-AFE4-A6BDCE989F82}']
   function Add(const anItem: IvcmHistoryItem;
@@ -840,6 +864,8 @@ type
  end;//IvcmContainerHistoryItem
 
  IvcmHistoryItems = interface;
+
+ IvcmHistory = interface;
 
  IvcmHistoryState = interface(IvcmBase)
   ['{A570EF57-53AB-4207-AB84-7A95696FCA67}']
@@ -854,6 +880,8 @@ type
    read pm_GetContainerItem;
  end;//IvcmHistoryState
 
+ IvcmHistory = interface;
+
  IvcmHistoryItems = interface(IvcmBase)
   ['{15A9DBF6-3187-431D-8C58-FC061C73CEB9}']
   function Get_HistoryItemCount: Integer;
@@ -864,6 +892,8 @@ type
   property HistoryItems[Index: Integer]: IvcmHistoryItem
    read Get_HistoryItems;
  end;//IvcmHistoryItems
+
+ IvcmDispatcher = interface;
 
  IvcmHistory = interface(IvcmBase)
   ['{D98392A1-1592-465C-A07E-B3B059CFB5D1}']
@@ -881,10 +911,10 @@ type
   procedure SaveClone(const aForm: IvcmEntityForm);
   procedure BeforeFormDestroy(const aForm: IvcmEntityForm);
   function ForceSaveState(const aForm: IvcmEntityForm;
-   aStateType: TvcmStateType = vcmExternalInterfaces.vcm_stContent): Boolean;
+   aStateType: TvcmStateType = vcm_stContent): Boolean;
    {* сохранение без проверки необходимости сохранения формы }
   function SaveState(const aForm: IvcmEntityForm;
-   aStateType: TvcmStateType = vcmExternalInterfaces.vcm_stContent): Boolean;
+   aStateType: TvcmStateType = vcm_stContent): Boolean;
   procedure SaveClose(const aForm: IvcmEntityForm;
    const aFormID: TvcmFormID;
    aUserType: TvcmUserType;
@@ -892,7 +922,7 @@ type
    aSubUserType: TvcmUserType);
    {* форма которая должна быть закрыта при переходе по истории }
   function HasInPreviousStep(const aFormClass: TvcmFormID;
-   aUserType: TvcmUserType = vcmUserControls.vcm_utAny): Boolean;
+   aUserType: TvcmUserType = vcm_utAny): Boolean;
   function Back(aTruncate: Boolean = False): Boolean; overload;
   function Forward: Boolean; overload;
   procedure Back(const aParams: IvcmExecuteParamsPrim;
@@ -925,6 +955,8 @@ type
    {* история находится в процессе сохранения (между сколбками Start-Finish) }
  end;//IvcmHistory
 
+ IvcmFormDispatcher = interface;
+
  IvcmLockListener = interface(IvcmBase)
   {* слушатель блокировок }
   ['{E0D65BF5-6B21-4ABC-9F2C-395BADEB1D05}']
@@ -937,6 +969,8 @@ type
  end;//IvcmLockListener
 
  IvcmMainFormProvider = interface;
+
+ IvcmDispatcher = interface;
 
  IvcmFormDispatcher = interface(IvcmBase)
   {* Диспетчер форм приложения }
@@ -989,6 +1023,8 @@ type
    read pm_GetMainFormProvider
    write pm_SetMainFormProvider;
  end;//IvcmFormDispatcher
+
+ IvcmDispatcher = interface;
 
  IvcmMainFormProvider = interface(IvcmBase)
   ['{6155D3F0-A171-41F9-9802-90711A07CC02}']
@@ -1114,6 +1150,8 @@ type
 
  TvcmEntityOperationsOptions = set of TvcmEntityOperationsOption;
 
+ IvcmModuleDef = interface;
+
  IvcmEntityDef = interface(IvcmOperationalIdentifiedUserFriendlyControl)
   {* Описание сущности }
   ['{99A2B713-A7AD-462E-85F1-BF8BAB015709}']
@@ -1125,6 +1163,8 @@ type
    read Get_ContextMenuWeight;
  end;//IvcmEntityDef
 
+ IvcmModuleDef = interface;
+
  IvcmEntitiesDefIterator = interface(IvcmBase)
   {* Итератор описаний сущностей }
   ['{2B7E0191-516A-4291-A8C8-3B21174FBDE0}']
@@ -1133,6 +1173,8 @@ type
    read Get_Next;
    {* следующий описатель сущности }
  end;//IvcmEntitiesDefIterator
+
+ IvcmModule = interface;
 
  IvcmModuleDef = interface(IvcmOperationalIdentifiedUserFriendlyControl)
   ['{8EC2C72E-6BC1-4DB5-92A5-364301DA3F62}']
@@ -1172,6 +1214,8 @@ type
   public
    function EQ(const anOther: TvcmFormSetID): Boolean;
  end;//TvcmFormSetID
+
+ IvcmFormSetFactory = interface;
 
  IvcmFormSetRefreshParams = interface(IvcmFormSetRefreshDataParams)
   {* Параметры обновления сборки }
@@ -1375,6 +1419,8 @@ type
    read pm_GetIsInHistoryOperation;
  end;//IvcmContainedForm
 
+ IvcmFormSetHistory = interface;
+
  IvcmFormSetFormHistoryItem = interface(IvcmBase)
   ['{00655407-1826-4A81-979E-88E15D0F5594}']
   function pm_GetZoneType: TvcmZoneType;
@@ -1407,6 +1453,8 @@ type
    read pm_GetContainerGUID;
  end;//IvcmFormSetFormHistoryItem
 
+ IvcmFormSetHistory = interface;
+
  IvcmFormSetHistoryItem = interface(IvcmBase)
   ['{BF5063EB-ADFC-4DC2-8B0E-0D2E3A832536}']
   function pm_GetCaption: IvcmCString;
@@ -1421,12 +1469,16 @@ type
    read pm_GetItemCount;
  end;//IvcmFormSetHistoryItem
 
+ IvcmFormSetHistory = interface;
+
  IvcmFormSetHistoryStepItem = interface(IvcmBase)
   ['{7BF247FB-5FDE-4E1A-B393-DF060023E2B0}']
   procedure Restore(const aContainer: IvcmContainer;
    const aFormSetToClone: IvcmFormSet;
    aNeedAssignHistory: Boolean);
  end;//IvcmFormSetHistoryStepItem
+
+ IvcmFormSetHistory = interface;
 
  IvcmFormSetHistoryStepItems = interface(IvcmBase)
   ['{0B74CE7B-2DC8-45B7-97DC-7412EED1F729}']
@@ -1439,6 +1491,8 @@ type
   property Current: IvcmFormSetHistoryStepItem
    read Get_Current;
  end;//IvcmFormSetHistoryStepItems
+
+ IvcmFormSetHistory = interface;
 
  IvcmFormSetHistoryStep = interface(IvcmFormSetHistoryStepItems)
   ['{81DCFAA4-8941-4293-B6E5-ED572DA0F4FE}']

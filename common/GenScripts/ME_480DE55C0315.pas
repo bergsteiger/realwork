@@ -36,7 +36,7 @@ type
     {* находимся в процессе построения печати? }
    procedure Update(const aPanel: IafwPreviewPanel);
     {* установить preview на панель для отображения. }
-   procedure Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+   procedure Print(anInterval: TafwPagesInterval = afw_piAll;
     const aRange: Il3RangeManager = nil;
     aCopies: Integer = 1;
     const aFileName: AnsiString = '';
@@ -200,7 +200,7 @@ begin
 //#UC END# *473D8CA002D9_480DE55C0315_impl*
 end;//TafwMultiDocumentPreview.Update
 
-procedure TafwMultiDocumentPreview.Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+procedure TafwMultiDocumentPreview.Print(anInterval: TafwPagesInterval = afw_piAll;
  const aRange: Il3RangeManager = nil;
  aCopies: Integer = 1;
  const aFileName: AnsiString = '';

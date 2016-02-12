@@ -64,7 +64,7 @@ type
   public
    class function MakeList(aType: Tk2Type): Il3Strings;
    constructor Make(aType: Tk2Type = nil;
-    aStyle: Integer = ev_saTxtNormalANSI); reintroduce;
+    aStyle: Integer = TxtNormalANSI); reintroduce;
    class function MakeListForBlock(aType: Tk2Type): Il3Strings;
    function GetVT: Tk2Dictionary;
     {* возвращает список стилей }
@@ -277,7 +277,7 @@ begin
 end;//TevStyleInterface.MakeList
 
 constructor TevStyleInterface.Make(aType: Tk2Type = nil;
- aStyle: Integer = ev_saTxtNormalANSI);
+ aStyle: Integer = TxtNormalANSI);
 //#UC START# *554CEC000039_480DB927035A_var*
 //#UC END# *554CEC000039_480DB927035A_var*
 begin

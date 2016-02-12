@@ -76,6 +76,8 @@ uses
  , Table_Const
 ;
 
+{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
+
 type _Instance_R_ = TnevParaListAnchor;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}

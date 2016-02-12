@@ -61,6 +61,8 @@ uses
  , SysUtils
 ;
 
+{$If not Declared(_X_)}type _X_ = InevParaList;{$IfEnd}
+
 type _Instance_R_ = TevParaListHotSpotTesterPrim;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}

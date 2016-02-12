@@ -84,9 +84,6 @@ type
    function pm_GetView: InevView;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    procedure ForceStore; virtual;
@@ -96,6 +93,9 @@ type
    procedure Unlock; virtual;
     {* Разрешить нотификацию об изменениях }
    procedure LinkView(const aView: InevInputView);
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    property View: InevInputView
     read f_View;

@@ -16,7 +16,6 @@ type
  Tl3PtrLoc = object
   private
    f_AsPointer: PMem;
-  protected
   public
    function Init(aSize: Integer): Boolean;
    function GetSize: Integer;

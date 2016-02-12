@@ -53,9 +53,6 @@ type
    function Get_Document: IeeDocument;
    function Get_ParentBlock: IeeBlock;
    function IsKindOf(aType: Tk2Type): Boolean;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    constructor Create(const aDocument: IeeDocumentEx;
     anID: Integer;
@@ -63,6 +60,9 @@ type
    class function Make(const aDocument: IeeDocumentEx;
     anID: Integer;
     aLayerID: Integer): IeeBlock; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TeeBlock
  {$IfEnd} // Defined(Nemesis)
 
@@ -172,9 +172,7 @@ begin
  f_LayerID := aLayerID;
 //#UC END# *54BF89AF0252_54BF88B903AF_impl*
 end;//TeeBlock.Create
-{$IfEnd} // Defined(Nemesis)
 
-{$If Defined(Nemesis)}
 class function TeeBlock.Make(const aDocument: IeeDocumentEx;
  anID: Integer;
  aLayerID: Integer): IeeBlock;
@@ -188,7 +186,6 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TeeBlock.Make
-{$IfEnd} // Defined(Nemesis)
 
 function TeeBlock.Delete: Boolean;
 //#UC START# *548188CE0291_54BF88B903AF_var*
@@ -454,6 +451,7 @@ begin
   Result := inherited COMQueryInterface(IID, Obj);
 //#UC END# *4A60B23E00C3_54BF88B903AF_impl*
 end;//TeeBlock.COMQueryInterface
+{$IfEnd} // Defined(Nemesis)
 
 function TeeEditorExportModelPart.MakeHotSpot(const aPt: TafwPoint;
  const aHotSpot: IevHotSpot;

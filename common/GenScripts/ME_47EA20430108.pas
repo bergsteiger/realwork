@@ -62,7 +62,7 @@
    function Get_PreviewCaleeArea: TafwPreviewCaleeArea;
    function MakeHAFMacroReplacer: IafwHAFMacroReplacer;
    function MakeFilterInfo(aType: TnsFolderFilter;
-    aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
+    aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
    function DoGetControllable: IControllable; override;
    function Get_LikeState: TdocLikeState;
    procedure Set_LikeState(aValue: TdocLikeState);
@@ -109,6 +109,8 @@ _dsBaseDocumentPrim_ = _UnderControlBehaviour_;
 {$Define dsBaseDocumentPrim_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
+
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
@@ -453,7 +455,7 @@ begin
 end;//_dsBaseDocumentPrim_.MakeHAFMacroReplacer
 
 function _dsBaseDocumentPrim_.MakeFilterInfo(aType: TnsFolderFilter;
- aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
+ aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
 //#UC START# *4AE575FA030B_47EA20430108_var*
   
  function nsFilterForDocument(const aDoc: IdeDocInfo): TnsFolderFilterFor;

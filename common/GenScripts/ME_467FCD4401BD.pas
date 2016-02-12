@@ -62,8 +62,11 @@ uses
  , nsReqRowNode
  , nsBlockNode
  , nsBlockNodePrim
+ , l3BitArr
  , nsStyleParser
 ;
+
+{$If not Declared(_HashType_)}type _HashType_ = Tl3PtrHash;{$IfEnd}
 
 {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 

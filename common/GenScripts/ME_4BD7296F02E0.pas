@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utUnderControl.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::utUnderControl';
 end;//Tkw_FormUserType_utUnderControl.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utUnderControl.GetInteger: Integer;
 begin
  Result := utUnderControl;

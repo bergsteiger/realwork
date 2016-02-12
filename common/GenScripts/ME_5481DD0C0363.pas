@@ -31,9 +31,6 @@ type
    function Get_Sub: IeeSub;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    constructor Create(aTagWrap: Tl3Variant;
     const aDocument: IeeDocumentEx;
@@ -45,6 +42,9 @@ type
     const aHyperlink: IevHyperlink;
     aInSelection: Boolean;
     const aSub: IeeSub = nil): IeeHotSpot; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TeeHotSpot
 {$IfEnd} // Defined(Nemesis)
 

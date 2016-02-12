@@ -49,9 +49,7 @@ class function Tkw_FormUserType_pfImage.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::pfImage';
 end;//Tkw_FormUserType_pfImage.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_pfImage.GetInteger: Integer;
 begin
  Result := pfImage;

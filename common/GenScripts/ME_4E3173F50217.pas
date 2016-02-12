@@ -72,6 +72,10 @@ begin
 //#UC END# *4E3175CA0048_4E3175000369_impl*
 end;//TevDefaultStyleFontSize.EQ
 
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
 {$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}

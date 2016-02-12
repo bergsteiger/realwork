@@ -116,7 +116,7 @@ type
    procedure pm_SetReadOnly(aValue: Boolean);
    function Get_UndoBuffer: Ik2UndoBuffer;
    procedure NotifyPropChanged(aProp: TObject;
-    aValues;
+    const aValues;
     const anOp: Il3OpPack);
     {* Сообщает об изменении свойства объекта }
    procedure CheckOn;
@@ -635,7 +635,7 @@ begin
 end;//TevCustomUndoProcessor.Get_UndoBuffer
 
 procedure TevCustomUndoProcessor.NotifyPropChanged(aProp: TObject;
- aValues;
+ const aValues;
  const anOp: Il3OpPack);
  {* Сообщает об изменении свойства объекта }
 //#UC START# *4A68941501A3_47F3521002C7_var*

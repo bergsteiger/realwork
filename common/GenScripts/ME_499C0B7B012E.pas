@@ -262,14 +262,14 @@ type
    function GetData: TvtOutlinerHystoryData;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    constructor Create(const aTree: Il3SimpleTree;
     const aData: TvtOutlinerHystoryData); reintroduce;
    class function Make(const aTree: Il3SimpleTree;
     const aData: TvtOutlinerHystoryData): IeeTreeState; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TeeTreeState
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
@@ -1655,9 +1655,7 @@ begin
  SetTree(aTree, aData);
 //#UC END# *531F040903D7_531F03AA0018_impl*
 end;//TeeTreeState.Create
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If NOT Defined(DesignTimeLibrary)}
 class function TeeTreeState.Make(const aTree: Il3SimpleTree;
  const aData: TvtOutlinerHystoryData): IeeTreeState;
 var
@@ -1670,9 +1668,7 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TeeTreeState.Make
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If NOT Defined(DesignTimeLibrary)}
 function TeeTreeState.GetTree: Il3SimpleTree;
 //#UC START# *531F034B00AA_531F03AA0018_var*
 //#UC END# *531F034B00AA_531F03AA0018_var*
@@ -1681,9 +1677,7 @@ begin
  Result := f_Tree;
 //#UC END# *531F034B00AA_531F03AA0018_impl*
 end;//TeeTreeState.GetTree
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If NOT Defined(DesignTimeLibrary)}
 procedure TeeTreeState.SetTree(const aValue: Il3SimpleTree;
  const aData: TvtOutlinerHystoryData);
 //#UC START# *531F036000C7_531F03AA0018_var*
@@ -1694,9 +1688,7 @@ begin
  f_Data := aData;
 //#UC END# *531F036000C7_531F03AA0018_impl*
 end;//TeeTreeState.SetTree
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
-{$If NOT Defined(DesignTimeLibrary)}
 function TeeTreeState.GetData: TvtOutlinerHystoryData;
 //#UC START# *531F037602E5_531F03AA0018_var*
 //#UC END# *531F037602E5_531F03AA0018_var*
@@ -1705,7 +1697,6 @@ begin
  Result := f_Data;
 //#UC END# *531F037602E5_531F03AA0018_impl*
 end;//TeeTreeState.GetData
-{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 procedure TeeTreeState.Cleanup;
  {* Функция очистки полей объекта. }
@@ -1733,6 +1724,7 @@ begin
    Result.SetNoInterface;
 //#UC END# *4A60B23E00C3_531F03AA0018_impl*
 end;//TeeTreeState.COMQueryInterface
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 //#UC START# *499C0B7B012Eimpl*
 //#UC END# *499C0B7B012Eimpl*

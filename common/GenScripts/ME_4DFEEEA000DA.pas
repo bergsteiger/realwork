@@ -35,13 +35,13 @@ type
     {* Саб добавлен/удален. }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure DoChanged; override;
   public
    constructor Create(aDocument: Tl3Variant); reintroduce; virtual;
    class function Make(aDocument: Tl3Variant): Il3Tree;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure DoNotify(aOperation: Integer;
     const aNode: Il3SimpleNode); override;
  end;//TevContentsTree

@@ -143,7 +143,7 @@ type
    constructor Create(AOwner: TComponent); override;
    function IsReadOnlyTarget(const aTarget: IUnknown): Boolean; override;
    function InsertPageBreak(NeedNewSection: Boolean = False;
-    aPageOrientation: TevPageOrientation = evdTypes.ev_poPortrait): Boolean; override;
+    aPageOrientation: TevPageOrientation = Portrait): Boolean; override;
    procedure DecIndent; override;
    procedure IncIndent; override;
   protected
@@ -1427,7 +1427,7 @@ begin
 end;//TeeEditorExport.VScrollWidth
 
 function TeeEditorExport.InsertPageBreak(NeedNewSection: Boolean = False;
- aPageOrientation: TevPageOrientation = evdTypes.ev_poPortrait): Boolean;
+ aPageOrientation: TevPageOrientation = Portrait): Boolean;
 //#UC START# *54C10AFF0075_4952693000EA_var*
 //#UC END# *54C10AFF0075_4952693000EA_var*
 begin

@@ -130,7 +130,7 @@ type
     {* находимся в процессе построения печати? }
    procedure Update(const aPanel: IafwPreviewPanel);
     {* установить preview на панель для отображения. }
-   procedure Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+   procedure Print(anInterval: TafwPagesInterval = afw_piAll;
     const aRange: Il3RangeManager = nil;
     aCopies: Integer = 1;
     const aFileName: AnsiString = '';
@@ -1427,7 +1427,7 @@ begin
 //#UC END# *473D8CA002D9_47EA97410130_impl*
 end;//TevDocumentPreviewPrim.Update
 
-procedure TevDocumentPreviewPrim.Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+procedure TevDocumentPreviewPrim.Print(anInterval: TafwPagesInterval = afw_piAll;
  const aRange: Il3RangeManager = nil;
  aCopies: Integer = 1;
  const aFileName: AnsiString = '';

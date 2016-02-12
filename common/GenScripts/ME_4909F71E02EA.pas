@@ -38,6 +38,8 @@ type
    {* Дополнительная }
  );//TnsEditionNodeCheckType
 
+ InsEditionNode = interface;
+
  InsEditionsTree = Il3SimpleTree;
 
  TnsEditionNodeGroupBeginType = (
@@ -96,20 +98,20 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    function ChildNodeClass: Rl3CustomVirtualNode; override;
    procedure ClearFields; override;
   public
    class function Make(const aDocument: IDocument;
-    aOnlyPrevEditions: TnsEditionsTreeKind = ns_etkAll): Il3Node; reintroduce;
+    aOnlyPrevEditions: TnsEditionsTreeKind = All): Il3Node; reintroduce;
    class function MakeForPrevEditions(const aDocument: IDocument): Il3Node;
    class function MakeForNextEditions(const aDocument: IDocument): Il3Node;
    constructor Create(const aDocument: IDocument;
     aOnlyPrevEditions: TnsEditionsTreeKind); reintroduce; overload;
    constructor Create(const aDocument: IDocument); reintroduce; overload;
    class function MakeAsSimpleRoot(const aDocument: IDocument): Il3SimpleRootNode; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TnsEditionsRoot
 
  TnsEditionNode = class(TnsCacheableNode, InsEditionNode)
@@ -145,15 +147,15 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
   public
    constructor Create(aHandle: Integer;
     aEType: TRedactionType); reintroduce;
    class function Make(aHandle: Integer;
     aEType: TRedactionType): Il3Node; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TnsEditionNode
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -193,7 +195,7 @@ const
   {* 'Недействующие' }
 
 class function TnsEditionsRoot.Make(const aDocument: IDocument;
- aOnlyPrevEditions: TnsEditionsTreeKind = ns_etkAll): Il3Node;
+ aOnlyPrevEditions: TnsEditionsTreeKind = All): Il3Node;
 var
  l_Inst : TnsEditionsRoot;
 begin

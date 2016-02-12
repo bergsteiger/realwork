@@ -41,12 +41,12 @@ type
    function pm_GetIsQuestionNeedBeforeFlush: Boolean;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Store(aFormat: TevdClipboardFormat;
     const aPool: IStream;
     const aFilters: TevdTagGenerator;
-    aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean; overload;
+    aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean; overload;
     {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
    function pm_GetBorders: TevPair;
    procedure Cleanup; override;
@@ -222,7 +222,7 @@ end;//TevPersistentDataObject.pm_GetIsQuestionNeedBeforeFlush
 
 procedure TevPersistentDataObject.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_48F4732803C8_var*
 var
@@ -250,7 +250,7 @@ end;//TevPersistentDataObject.Store
 function TevPersistentDataObject.Store(aFormat: TevdClipboardFormat;
  const aPool: IStream;
  const aFilters: TevdTagGenerator;
- aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean;
+ aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean;
  {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
 //#UC START# *47C68C6701AF_48F4732803C8_var*
 //#UC END# *47C68C6701AF_48F4732803C8_var*

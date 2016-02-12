@@ -38,7 +38,7 @@ type
     {* проверяет содержит ли диапазон только один листьевой параграф }
    function AsString(aFormat: Tl3ClipboardFormat = cf_Text): AnsiString;
     {* получает текст в диапазоне }
-   function Delete(aMode: TevClearMode = nevTools.ev_cmKeepOne): Boolean;
+   function Delete(aMode: TevClearMode = ev_cmKeepOne): Boolean;
     {* удаляет содержимое диапазона }
    function InsertData(aFormat: Tl3ClipboardFormat;
     aData: THandle;
@@ -477,7 +477,7 @@ begin
 //#UC END# *4BBCB2C003AE_48E3859101D5_impl*
 end;//TedRangeImplementation.AsString
 
-function TedRangeImplementation.Delete(aMode: TevClearMode = nevTools.ev_cmKeepOne): Boolean;
+function TedRangeImplementation.Delete(aMode: TevClearMode = ev_cmKeepOne): Boolean;
  {* удаляет содержимое диапазона }
 //#UC START# *4BBCB3350175_48E3859101D5_var*
 var

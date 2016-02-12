@@ -126,11 +126,12 @@
    {$If NOT Defined(NoVCM)}
    procedure DoInit; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   function CheckFullList: Boolean; override;
+   procedure ClearFields; override;
+  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
-   function CheckFullList: Boolean; override;
-   procedure ClearFields; override;
   protected
    property DocCount: Integer
     read f_DocCount;
@@ -153,6 +154,8 @@ _dsDocumentList_ = _dsList_;
 {$Define dsDocumentList_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
+
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas}
 
 procedure _dsDocumentList_.GetSortParams;

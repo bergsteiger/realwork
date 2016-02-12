@@ -73,7 +73,7 @@ type
 
  TEntryPointArr = array of TEntryPoint;
 
- TParaIDArr = array of TParaID;
+ TParaIDArr = array of TParaId;
 
  TatDocReader = class(TObject)
   private

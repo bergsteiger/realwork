@@ -39,6 +39,8 @@ uses
  l3ImplUses
  , k2Facade
  , afwFacade
+ , nevTools
+ , l3Memory
  , SysUtils
  , l3Base
 ;
@@ -51,6 +53,12 @@ procedure TnevDocumentContainerListFree;
 begin
  l3Free(g_TnevDocumentContainerList);
 end;//TnevDocumentContainerListFree
+
+{$If not Declared(_ItemType_)}type _ItemType_ = InevDocumentContainer;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 

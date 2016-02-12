@@ -179,15 +179,16 @@ type
    function NeedMakeRelatedDoc: Boolean; override;
    function NeedMakeAnnotation: Boolean; override;
    function NeedMakeSimilarDocuments: Boolean; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    {$If NOT Defined(NoVCM)}
    function DoGetFormSetImageIndex: Integer; override;
    {$IfEnd} // NOT Defined(NoVCM)
    {$If NOT Defined(NoVCM)}
    function GetDataForClone: _InitDataType_; override;
    {$IfEnd} // NOT Defined(NoVCM)
+  public
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TsdsList
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

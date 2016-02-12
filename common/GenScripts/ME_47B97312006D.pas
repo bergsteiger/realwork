@@ -125,7 +125,7 @@ type
     aZoneType: TvcmZoneType;
     const aFormDescriptor: TvcmFormDescriptor;
     aUserType: TvcmUserType;
-    aNeedMakeDS: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart; overload;
+    aNeedMakeDS: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart; overload;
    class procedure Make(const aDataSource: IvcmFormSetDataSource;
     const aContainer: IvcmContainer;
     out aFormSet: IvcmFormSet;
@@ -417,7 +417,7 @@ function TvcmFormSetFactory.AddZone(const aName: AnsiString;
  aZoneType: TvcmZoneType;
  const aFormDescriptor: TvcmFormDescriptor;
  aUserType: TvcmUserType;
- aNeedMakeDS: TvcmNeedMakeDS = vcmBaseTypes.vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart;
+ aNeedMakeDS: TvcmNeedMakeDS = vcm_nmNo): TvcmFormSetFormsCollectionItemModelPart;
 //#UC START# *528B43DA0126_47B97312006D_var*
 //#UC END# *528B43DA0126_47B97312006D_var*
 begin

@@ -20,7 +20,6 @@ type
     {* Поле для свойства Path }
    f_TagType: Integer;
     {* Поле для свойства TagType }
-  protected
   public
    constructor Create(aTagType: Integer;
     const aPath: TLongArray); reintroduce;

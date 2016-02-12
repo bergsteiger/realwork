@@ -49,7 +49,7 @@ type
     {* находимся в процессе построения печати? }
    procedure Update(const aPanel: IafwPreviewPanel);
     {* установить preview на панель для отображения. }
-   procedure Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+   procedure Print(anInterval: TafwPagesInterval = afw_piAll;
     const aRange: Il3RangeManager = nil;
     aCopies: Integer = 1;
     const aFileName: AnsiString = '';
@@ -90,14 +90,14 @@ type
    function pm_GetPagesInfo: TafwPagesInfo;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    constructor Create(const aDocument: IafwDocumentPreview;
     const anInfo: IafwDocumentPreview); reintroduce;
    class function Make(const aDocument: IafwDocumentPreview;
     const anInfo: IafwDocumentPreview = nil): IafwComplexDocumentPreview; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TafwComplexDocumentPreview
 
 implementation
@@ -266,7 +266,7 @@ begin
 //#UC END# *473D8CA002D9_47DF8F0402F7_impl*
 end;//TafwComplexDocumentPreview.Update
 
-procedure TafwComplexDocumentPreview.Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+procedure TafwComplexDocumentPreview.Print(anInterval: TafwPagesInterval = afw_piAll;
  const aRange: Il3RangeManager = nil;
  aCopies: Integer = 1;
  const aFileName: AnsiString = '';

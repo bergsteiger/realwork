@@ -26,15 +26,15 @@ type
    function ReAqurieUnfilteredRoot: INodeBase; override;
    procedure RootChanged(const aOld: Il3SimpleRootNode;
     const aNew: Il3SimpleRootNode); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    constructor Create(const aDoc: IDocument;
     aShowRoot: Boolean); reintroduce;
    class function Make(const aDoc: IDocument;
     aShowRoot: Boolean = False): Il3SimpleTree; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TnsDocAttributeTreeStruct
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

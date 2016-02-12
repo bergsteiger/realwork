@@ -31,7 +31,6 @@ type
   private
    f_Owner: TWinControl;
     {* Поле для свойства Owner }
-  protected
   public
    constructor Create(anOwner: TWinControl); reintroduce;
   public
@@ -48,6 +47,10 @@ uses
  , RTLConsts
  , SysUtils
 ;
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 

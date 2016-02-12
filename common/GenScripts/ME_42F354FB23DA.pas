@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::ut_PictureInfo';
 end;//Tkw_FormUserType_ut_PictureInfo.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_PictureInfo.GetInteger: Integer;
 begin
  Result := ut_PictureInfo;

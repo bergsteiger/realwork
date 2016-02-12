@@ -26,9 +26,6 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    function NeedMakeChildren: Boolean; override;
    function GetHandle: Integer; override;
   public
@@ -38,6 +35,9 @@ type
    class function Make(aTag: Tl3Variant;
     aSub: Tl3Variant;
     const aFilter: InevContentsNodeFilter): Il3Node;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TevContentsSubNode
 
 implementation

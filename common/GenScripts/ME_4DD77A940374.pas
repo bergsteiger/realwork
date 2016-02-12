@@ -61,6 +61,8 @@ uses
  , SysUtils
 ;
 
+{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
+
 type _Instance_R_ = TnevTableRowBaseLine4Print;
 
 {$Include w:\common\components\gui\Garant\Everest\nevTableRowBaseLineCommon.imp.pas}

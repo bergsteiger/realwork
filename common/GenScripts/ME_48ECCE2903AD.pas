@@ -36,6 +36,8 @@ uses
  , SysUtils
 ;
 
+{$If not Declared(_X_)}type _X_ = InevPara;{$IfEnd}
+
 type _Instance_R_ = TevMultiSelectionLocation;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}

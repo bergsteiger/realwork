@@ -23,7 +23,7 @@ type
   {* –еализаци€ интерфейсов IedCell и IedCells дл€ таблицы. }
   protected
    function Get_Frame: IedFrame;
-   function Merge(aMergeAlg: TedMergeAlgorythm = ed_maAll): Boolean; overload;
+   function Merge(aMergeAlg: TedMergeAlgorythm = All): Boolean; overload;
     {* объединить €чейки в диапазоне }
    function pm_GetTableRange: IevTableRange;
    function pm_GetTable: IedTable;
@@ -79,7 +79,7 @@ begin
 //#UC END# *4BBC89F8009C_48E4EBC401E7get_impl*
 end;//TevTable.Get_Frame
 
-function TevTable.Merge(aMergeAlg: TedMergeAlgorythm = ed_maAll): Boolean;
+function TevTable.Merge(aMergeAlg: TedMergeAlgorythm = All): Boolean;
  {* объединить €чейки в диапазоне }
 //#UC START# *4BBC978B0203_48E4EBC401E7_var*
 //#UC END# *4BBC978B0203_48E4EBC401E7_var*

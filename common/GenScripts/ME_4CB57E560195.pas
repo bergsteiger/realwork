@@ -27,7 +27,7 @@ type
    function pm_GetPageSetup: IafwPageSetup; virtual;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
-    aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags); overload;
+    aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
     {* сохраняет выделение в G. }
    function Get_CanProvideOriginalDocument: Boolean;
    function Get_PageSetup: IafwPageSetup;
@@ -105,7 +105,7 @@ end;//TnevDocumentProvider.Make
 
 procedure TnevDocumentProvider.Store(const aView: InevView;
  const G: InevTagGenerator;
- aFlags: TevdStoreFlags = evdInterfaces.evDefaultStoreFlags);
+ aFlags: TevdStoreFlags = evDefaultStoreFlags);
  {* сохраняет выделение в G. }
 //#UC START# *47C68BFD011C_4CB57E560195_var*
 //#UC END# *47C68BFD011C_4CB57E560195_var*

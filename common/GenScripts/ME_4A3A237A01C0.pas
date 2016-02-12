@@ -109,9 +109,6 @@ type
     aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
    function pm_GetHasInner: Boolean; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    function DoPartiallyVisible(const aView: InevView;
     const aPoint: InevBasePoint;
     aMap: TnevFormatInfoPrim): Boolean; override;
@@ -121,6 +118,9 @@ type
    procedure ChangePointByPara(const aView: InevView;
     const anOpPack: InevOp;
     const aPara: InevPara); virtual;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TevParaListCursorPrim
 {$IfEnd} // Defined(evUseVisibleCursors)
 
@@ -148,6 +148,8 @@ uses
  , l3MinMax
  , Table_Const
 ;
+
+{$If not Declared(_X_)}type _X_ = InevParaList;{$IfEnd}
 
 type _Instance_R_ = TevParaListCursorPrim;
 

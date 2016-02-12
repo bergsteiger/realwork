@@ -91,9 +91,7 @@ begin
  Result := Para.AsObject.Child[ColumnID - 1].IntA[k2_tiWidth];
 //#UC END# *4F4C6F8902DF_4F4C6B940246get_impl*
 end;//TevColumn.Get_Width
-{$IfEnd} // Defined(evNeedEditableCursors)
 
-{$If Defined(evNeedEditableCursors)}
 procedure TevColumn.Set_Width(aValue: Integer);
 //#UC START# *4F4C6F8902DF_4F4C6B940246set_var*
 //#UC END# *4F4C6F8902DF_4F4C6B940246set_var*
@@ -104,9 +102,7 @@ begin
                                 k2StartOp(Processor, ev_msgChangeParam));
 //#UC END# *4F4C6F8902DF_4F4C6B940246set_impl*
 end;//TevColumn.Set_Width
-{$IfEnd} // Defined(evNeedEditableCursors)
 
-{$If Defined(evNeedEditableCursors)}
 constructor TevColumn.Create(const aView: InevView;
  aPara: Tl3Variant;
  aColumnID: LongInt;
@@ -119,9 +115,7 @@ begin
  Processor := aProcessor;
 //#UC END# *4F4C72360323_4F4C6B940246_impl*
 end;//TevColumn.Create
-{$IfEnd} // Defined(evNeedEditableCursors)
 
-{$If Defined(evNeedEditableCursors)}
 class function TevColumn.Make(const aView: InevView;
  aPara: Tl3Variant;
  aColumnID: LongInt;
@@ -140,7 +134,6 @@ begin
  end;//try..finally
 //#UC END# *4F4C728500F4_4F4C6B940246_impl*
 end;//TevColumn.Make
-{$IfEnd} // Defined(evNeedEditableCursors)
 
 function TevColumn.pm_GetBackIterator: IedBackCellsIterator;
 //#UC START# *4BBC9430038B_4F4C6B940246get_var*
@@ -268,11 +261,10 @@ end;//TevColumn.Cleanup
 
 procedure TevColumn.ClearFields;
 begin
- {$If Defined(evNeedEditableCursors)}
  Processor := nil;
- {$IfEnd} // Defined(evNeedEditableCursors)
  inherited;
 end;//TevColumn.ClearFields
-{$IfEnd} // Defined(evUseVisibleCursors)
+{$IfEnd} // Defined(evNeedEditableCursors)
 
+{$IfEnd} // Defined(evUseVisibleCursors)
 end.

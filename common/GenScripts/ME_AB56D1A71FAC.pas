@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_DocNumberQuery.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::ut_DocNumberQuery';
 end;//Tkw_FormUserType_ut_DocNumberQuery.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_DocNumberQuery.GetInteger: Integer;
 begin
  Result := ut_DocNumberQuery;

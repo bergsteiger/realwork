@@ -39,13 +39,13 @@ type
     anInPara: Boolean;
     const aMap: InevMap): Boolean; override;
    procedure Set_Para(const Value: InevPara); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    function DoKeyCommand(const aView: InevControlView;
     aCmd: Word;
     const aTextPara: InevPara): Boolean; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TevLabel
 
 implementation
