@@ -50,9 +50,7 @@ class function Tkw_FormUserType_slqtPublishSource.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::slqtPublishSource';
 end;//Tkw_FormUserType_slqtPublishSource.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtPublishSource.GetInteger: Integer;
 begin
  Result := slqtPublishSource;

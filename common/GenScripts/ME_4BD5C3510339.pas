@@ -50,9 +50,7 @@ class function Tkw_FormUserType_utqcPostingOrder.GetWordNameForRegister: AnsiStr
 begin
  Result := 'тип_формы::utqcPostingOrder';
 end;//Tkw_FormUserType_utqcPostingOrder.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utqcPostingOrder.GetInteger: Integer;
 begin
  Result := utqcPostingOrder;

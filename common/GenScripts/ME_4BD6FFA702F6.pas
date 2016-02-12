@@ -49,9 +49,7 @@ class function Tkw_FormUserType_admCreateGroup.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::admCreateGroup';
 end;//Tkw_FormUserType_admCreateGroup.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_admCreateGroup.GetInteger: Integer;
 begin
  Result := admCreateGroup;

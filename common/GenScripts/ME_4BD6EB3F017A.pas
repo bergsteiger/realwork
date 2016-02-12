@@ -50,9 +50,7 @@ class function Tkw_FormUserType_utSaveOpen.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::utSaveOpen';
 end;//Tkw_FormUserType_utSaveOpen.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utSaveOpen.GetInteger: Integer;
 begin
  Result := utSaveOpen;

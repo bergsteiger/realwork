@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utFoldersInfoContainer.GetWordNameForRegister: A
 begin
  Result := 'тип_формы::utFoldersInfoContainer';
 end;//Tkw_FormUserType_utFoldersInfoContainer.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utFoldersInfoContainer.GetInteger: Integer;
 begin
  Result := utFoldersInfoContainer;

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_slqtAttribute.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::slqtAttribute';
 end;//Tkw_FormUserType_slqtAttribute.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtAttribute.GetInteger: Integer;
 begin
  Result := slqtAttribute;

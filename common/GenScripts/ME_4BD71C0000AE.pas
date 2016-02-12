@@ -49,9 +49,7 @@ class function Tkw_FormUserType_flSituation.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::flSituation';
 end;//Tkw_FormUserType_flSituation.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_flSituation.GetInteger: Integer;
 begin
  Result := flSituation;

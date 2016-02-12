@@ -16,7 +16,7 @@ uses
 
 type
  TnsUserInterfacedDataObject = class(TevDataObject)
-  protected
+  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }

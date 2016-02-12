@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_ForbidAutoregistration.GetWordNameForRegister
 begin
  Result := 'тип_формы::ut_ForbidAutoregistration';
 end;//Tkw_FormUserType_ut_ForbidAutoregistration.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_ForbidAutoregistration.GetInteger: Integer;
 begin
  Result := ut_ForbidAutoregistration;

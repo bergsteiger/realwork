@@ -185,6 +185,8 @@ type
    aState: TnsNodeStates): Il3TagRef;
  end;//If1ChildMaker
 
+ If1CommentSink = interface;
+
  IEVDStream = IStream;
 
  If1CommentSink = interface

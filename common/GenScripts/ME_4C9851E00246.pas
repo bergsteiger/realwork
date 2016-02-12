@@ -46,9 +46,7 @@ class function Tkw_FormUserType_sftNone.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::sftNone';
 end;//Tkw_FormUserType_sftNone.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_sftNone.GetInteger: Integer;
 begin
  Result := sftNone;

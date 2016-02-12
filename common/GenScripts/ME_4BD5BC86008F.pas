@@ -50,9 +50,7 @@ class function Tkw_FormUserType_slqtInpharmSearch.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::slqtInpharmSearch';
 end;//Tkw_FormUserType_slqtInpharmSearch.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtInpharmSearch.GetInteger: Integer;
 begin
  Result := slqtInpharmSearch;

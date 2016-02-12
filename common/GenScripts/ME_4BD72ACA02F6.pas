@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utNavigator.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::utNavigator';
 end;//Tkw_FormUserType_utNavigator.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utNavigator.GetInteger: Integer;
 begin
  Result := utNavigator;

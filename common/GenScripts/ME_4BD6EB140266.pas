@@ -50,9 +50,7 @@ class function Tkw_FormUserType_utFoldersTree.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::utFoldersTree';
 end;//Tkw_FormUserType_utFoldersTree.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utFoldersTree.GetInteger: Integer;
 begin
  Result := utFoldersTree;

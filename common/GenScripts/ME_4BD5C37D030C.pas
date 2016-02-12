@@ -50,9 +50,7 @@ class function Tkw_FormUserType_utqcSendConsultation.GetWordNameForRegister: Ans
 begin
  Result := 'тип_формы::utqcSendConsultation';
 end;//Tkw_FormUserType_utqcSendConsultation.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utqcSendConsultation.GetInteger: Integer;
 begin
  Result := utqcSendConsultation;

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_mlsfDrugList.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::mlsfDrugList';
 end;//Tkw_FormUserType_mlsfDrugList.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_mlsfDrugList.GetInteger: Integer;
 begin
  Result := mlsfDrugList;

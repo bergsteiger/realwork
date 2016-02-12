@@ -50,9 +50,7 @@ class function Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister: An
 begin
  Result := 'тип_формы::slqtLegislationReview';
 end;//Tkw_FormUserType_slqtLegislationReview.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtLegislationReview.GetInteger: Integer;
 begin
  Result := slqtLegislationReview;

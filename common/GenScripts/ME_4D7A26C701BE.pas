@@ -49,9 +49,7 @@ class function Tkw_FormUserType_slqtBaseSearch.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::slqtBaseSearch';
 end;//Tkw_FormUserType_slqtBaseSearch.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtBaseSearch.GetInteger: Integer;
 begin
  Result := slqtBaseSearch;

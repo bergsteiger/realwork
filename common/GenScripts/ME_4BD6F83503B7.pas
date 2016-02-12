@@ -47,9 +47,7 @@ class function Tkw_FormUserType_utSingleSearch.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::utSingleSearch';
 end;//Tkw_FormUserType_utSingleSearch.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utSingleSearch.GetInteger: Integer;
 begin
  Result := utSingleSearch;

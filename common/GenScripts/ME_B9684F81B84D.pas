@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_TurnOffTimeMachine.GetWordNameForRegister: An
 begin
  Result := 'тип_формы::ut_TurnOffTimeMachine';
 end;//Tkw_FormUserType_ut_TurnOffTimeMachine.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_TurnOffTimeMachine.GetInteger: Integer;
 begin
  Result := ut_TurnOffTimeMachine;

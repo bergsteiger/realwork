@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utFilters.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::utFilters';
 end;//Tkw_FormUserType_utFilters.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utFilters.GetInteger: Integer;
 begin
  Result := utFilters;

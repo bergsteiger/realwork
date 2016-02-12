@@ -116,7 +116,7 @@ type
  IucpFilterInfoFactory = interface
   ['{68ACB664-4779-45D2-B060-3BAF5E308E30}']
   function MakeFilterInfo(aType: TnsFolderFilter;
-   aShowFolders: TnsShowFolders = FoldersDomainInterfaces.sfAll): InsFolderFilterInfo;
+   aShowFolders: TnsShowFolders = sfAll): InsFolderFilterInfo;
  end;//IucpFilterInfoFactory
 
  IdsAttributes = interface(IdsSimpleTree)

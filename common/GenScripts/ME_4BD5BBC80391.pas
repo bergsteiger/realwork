@@ -50,9 +50,7 @@ class function Tkw_FormUserType_slqtFilters.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::slqtFilters';
 end;//Tkw_FormUserType_slqtFilters.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtFilters.GetInteger: Integer;
 begin
  Result := slqtFilters;

@@ -47,9 +47,7 @@ class function Tkw_FormUserType_astOneLevel.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::astOneLevel';
 end;//Tkw_FormUserType_astOneLevel.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_astOneLevel.GetInteger: Integer;
 begin
  Result := astOneLevel;

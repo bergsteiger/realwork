@@ -46,9 +46,7 @@ class function Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::ut_LongProcess';
 end;//Tkw_FormUserType_ut_LongProcess.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_LongProcess.GetInteger: Integer;
 begin
  Result := ut_LongProcess;

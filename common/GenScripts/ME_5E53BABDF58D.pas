@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_PrintDialog.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::ut_PrintDialog';
 end;//Tkw_FormUserType_ut_PrintDialog.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_PrintDialog.GetInteger: Integer;
 begin
  Result := ut_PrintDialog;

@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_RememberPassword.GetWordNameForRegister: Ansi
 begin
  Result := 'тип_формы::ut_RememberPassword';
 end;//Tkw_FormUserType_ut_RememberPassword.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_RememberPassword.GetInteger: Integer;
 begin
  Result := ut_RememberPassword;

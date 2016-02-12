@@ -50,9 +50,7 @@ class function Tkw_FormUserType_utMedicDiction.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::utMedicDiction';
 end;//Tkw_FormUserType_utMedicDiction.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utMedicDiction.GetInteger: Integer;
 begin
  Result := utMedicDiction;

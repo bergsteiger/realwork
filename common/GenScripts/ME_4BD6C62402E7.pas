@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utFolders.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::utFolders';
 end;//Tkw_FormUserType_utFolders.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utFolders.GetInteger: Integer;
 begin
  Result := utFolders;

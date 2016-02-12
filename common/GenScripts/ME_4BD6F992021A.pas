@@ -48,9 +48,7 @@ class function Tkw_FormUserType_astTaxesPublishSearch.GetWordNameForRegister: An
 begin
  Result := 'тип_формы::astTaxesPublishSearch';
 end;//Tkw_FormUserType_astTaxesPublishSearch.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_astTaxesPublishSearch.GetInteger: Integer;
 begin
  Result := astTaxesPublishSearch;

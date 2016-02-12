@@ -46,9 +46,7 @@ class function Tkw_FormUserType_utAttributeSelect.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::utAttributeSelect';
 end;//Tkw_FormUserType_utAttributeSelect.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utAttributeSelect.GetInteger: Integer;
 begin
  Result := utAttributeSelect;

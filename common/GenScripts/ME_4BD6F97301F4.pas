@@ -47,9 +47,7 @@ class function Tkw_FormUserType_astFirstLevel.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::astFirstLevel';
 end;//Tkw_FormUserType_astFirstLevel.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_astFirstLevel.GetInteger: Integer;
 begin
  Result := astFirstLevel;

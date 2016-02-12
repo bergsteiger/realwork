@@ -48,9 +48,7 @@ class function Tkw_FormUserType_astPharmPublishSearch.GetWordNameForRegister: An
 begin
  Result := 'тип_формы::astPharmPublishSearch';
 end;//Tkw_FormUserType_astPharmPublishSearch.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_astPharmPublishSearch.GetInteger: Integer;
 begin
  Result := astPharmPublishSearch;

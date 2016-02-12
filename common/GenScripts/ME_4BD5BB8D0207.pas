@@ -50,9 +50,7 @@ class function Tkw_FormUserType_slqtKW.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::slqtKW';
 end;//Tkw_FormUserType_slqtKW.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtKW.GetInteger: Integer;
 begin
  Result := slqtKW;

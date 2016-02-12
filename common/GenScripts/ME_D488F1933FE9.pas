@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_RegistrationForm.GetWordNameForRegister: Ansi
 begin
  Result := 'тип_формы::ut_RegistrationForm';
 end;//Tkw_FormUserType_ut_RegistrationForm.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_RegistrationForm.GetInteger: Integer;
 begin
  Result := ut_RegistrationForm;

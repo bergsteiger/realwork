@@ -46,9 +46,7 @@ class function Tkw_FormUserType_ut_Login.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::ut_Login';
 end;//Tkw_FormUserType_ut_Login.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_Login.GetInteger: Integer;
 begin
  Result := ut_Login;

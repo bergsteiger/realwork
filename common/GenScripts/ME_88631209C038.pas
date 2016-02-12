@@ -49,9 +49,7 @@ class function Tkw_FormUserType_ut_EULA.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::ut_EULA';
 end;//Tkw_FormUserType_ut_EULA.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_ut_EULA.GetInteger: Integer;
 begin
  Result := ut_EULA;

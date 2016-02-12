@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utEditionsContainer.GetWordNameForRegister: Ansi
 begin
  Result := 'тип_формы::utEditionsContainer';
 end;//Tkw_FormUserType_utEditionsContainer.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utEditionsContainer.GetInteger: Integer;
 begin
  Result := utEditionsContainer;

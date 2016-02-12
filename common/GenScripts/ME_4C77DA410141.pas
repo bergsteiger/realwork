@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utFoldersProperty.GetWordNameForRegister: AnsiSt
 begin
  Result := 'тип_формы::utFoldersProperty';
 end;//Tkw_FormUserType_utFoldersProperty.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utFoldersProperty.GetInteger: Integer;
 begin
  Result := utFoldersProperty;

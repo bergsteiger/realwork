@@ -96,9 +96,7 @@ class function Tkw_Form_TreeAttributeSelect_ID.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'форма::TreeAttributeSelect';
 end;//Tkw_Form_TreeAttributeSelect_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_TreeAttributeSelect_ID.GetString: AnsiString;
 begin
  Result := 'efTreeAttributeSelect';
@@ -110,9 +108,7 @@ class function Tkw_Form_SelectedAttributes_ID.GetWordNameForRegister: AnsiString
 begin
  Result := 'форма::SelectedAttributes';
 end;//Tkw_Form_SelectedAttributes_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_SelectedAttributes_ID.GetString: AnsiString;
 begin
  Result := 'enSelectedAttributes';
@@ -124,9 +120,7 @@ class function Tkw_Form_AttributeSelect_ID.GetWordNameForRegister: AnsiString;
 begin
  Result := 'форма::AttributeSelect';
 end;//Tkw_Form_AttributeSelect_ID.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_Form_AttributeSelect_ID.GetString: AnsiString;
 begin
  Result := 'cfAttributeSelect';

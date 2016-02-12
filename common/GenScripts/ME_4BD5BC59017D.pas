@@ -50,9 +50,7 @@ class function Tkw_FormUserType_slqtPostingOrder.GetWordNameForRegister: AnsiStr
 begin
  Result := 'тип_формы::slqtPostingOrder';
 end;//Tkw_FormUserType_slqtPostingOrder.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_slqtPostingOrder.GetInteger: Integer;
 begin
  Result := slqtPostingOrder;

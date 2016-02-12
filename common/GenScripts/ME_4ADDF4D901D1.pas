@@ -28,14 +28,14 @@ type
    function Get_Bookmark: IJournalBookmark;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    constructor Create(const aBookmark: IJournalBookmark;
     aFullDocName: Boolean); reintroduce;
    class function Make(const aBookmark: IJournalBookmark;
     aFullDocName: Boolean = False): Il3Node; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TnsJournalBookmarkNode
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

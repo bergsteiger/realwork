@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utMainMenuNew.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::utMainMenuNew';
 end;//Tkw_FormUserType_utMainMenuNew.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utMainMenuNew.GetInteger: Integer;
 begin
  Result := utMainMenuNew;

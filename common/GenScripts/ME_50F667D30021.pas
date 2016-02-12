@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utProgressIndicator.GetWordNameForRegister: Ansi
 begin
  Result := 'тип_формы::utProgressIndicator';
 end;//Tkw_FormUserType_utProgressIndicator.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utProgressIndicator.GetInteger: Integer;
 begin
  Result := utProgressIndicator;

@@ -65,6 +65,8 @@ uses
  , SysUtils
 ;
 
+{$If not Declared(_SetDataType_)}type _SetDataType_ = IvcmData;{$IfEnd}
+
 type _Instance_R_ = TsdsQuery;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas}

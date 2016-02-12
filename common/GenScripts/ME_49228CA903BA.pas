@@ -93,10 +93,11 @@ type
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
+   procedure ClearFields; override;
+  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
-   procedure ClearFields; override;
   protected
    property Consultation: IbsConsultation
     read f_Consultation;
@@ -125,6 +126,8 @@ uses
  , vcmLocalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
 ;
+
+{$If not Declared(_SetDataType_)}type _SetDataType_ = IvcmData;{$IfEnd}
 
 type _Instance_R_ = TsdsConsultation;
 

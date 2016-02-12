@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utPrintPreview.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::utPrintPreview';
 end;//Tkw_FormUserType_utPrintPreview.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utPrintPreview.GetInteger: Integer;
 begin
  Result := utPrintPreview;

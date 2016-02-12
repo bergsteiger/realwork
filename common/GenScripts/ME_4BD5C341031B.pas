@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utqcAttributeSearch.GetWordNameForRegister: Ansi
 begin
  Result := 'тип_формы::utqcAttributeSearch';
 end;//Tkw_FormUserType_utqcAttributeSearch.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utqcAttributeSearch.GetInteger: Integer;
 begin
  Result := utqcAttributeSearch;

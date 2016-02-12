@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utLeftEdition.GetWordNameForRegister: AnsiString
 begin
  Result := 'тип_формы::utLeftEdition';
 end;//Tkw_FormUserType_utLeftEdition.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utLeftEdition.GetInteger: Integer;
 begin
  Result := utLeftEdition;

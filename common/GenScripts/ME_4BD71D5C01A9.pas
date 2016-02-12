@@ -49,9 +49,7 @@ class function Tkw_FormUserType_admUseProperties.GetWordNameForRegister: AnsiStr
 begin
  Result := 'тип_формы::admUseProperties';
 end;//Tkw_FormUserType_admUseProperties.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_admUseProperties.GetInteger: Integer;
 begin
  Result := admUseProperties;

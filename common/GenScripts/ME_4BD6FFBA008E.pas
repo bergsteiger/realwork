@@ -50,9 +50,7 @@ class function Tkw_FormUserType_admRenameGroup.GetWordNameForRegister: AnsiStrin
 begin
  Result := 'тип_формы::admRenameGroup';
 end;//Tkw_FormUserType_admRenameGroup.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_admRenameGroup.GetInteger: Integer;
 begin
  Result := admRenameGroup;

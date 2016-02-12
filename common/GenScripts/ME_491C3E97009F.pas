@@ -51,11 +51,12 @@ type
   protected
    function pm_GetShowingStatus: TbsConsultationStatuses;
    procedure InitFields; override;
+   function MakeContainer: InevDocumentContainer; override;
+    {* Конструирует контейнер документа }
+  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
-   function MakeContainer: InevDocumentContainer; override;
-    {* Конструирует контейнер документа }
  end;//TdsConsultation
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -83,6 +84,10 @@ uses
  , afwFacade
  , IOUnit
 ;
+
+{$If not Declared(_InitDataType_)}type _InitDataType_ = IdeDocInfo;{$IfEnd}
+
+{$If not Declared(_UseCaseControllerType_)}type _UseCaseControllerType_ = IvcmFormSetDataSource;{$IfEnd}
 
 type _Instance_R_ = TdsConsultation;
 

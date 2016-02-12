@@ -49,9 +49,7 @@ class function Tkw_FormUserType_utAdmin.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::utAdmin';
 end;//Tkw_FormUserType_utAdmin.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_utAdmin.GetInteger: Integer;
 begin
  Result := utAdmin;

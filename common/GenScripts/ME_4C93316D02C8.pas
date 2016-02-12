@@ -49,9 +49,7 @@ class function Tkw_FormUserType_pstNone.GetWordNameForRegister: AnsiString;
 begin
  Result := 'тип_формы::pstNone';
 end;//Tkw_FormUserType_pstNone.GetWordNameForRegister
-{$IfEnd} // NOT Defined(NoScripts)
 
-{$If NOT Defined(NoScripts)}
 function Tkw_FormUserType_pstNone.GetInteger: Integer;
 begin
  Result := pstNone;
