@@ -1,56 +1,39 @@
 unit l3TwoByteCString;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3TwoByteCString.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3TwoByteCString
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3TwoByteCString.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3Interfaces
+;
 
 type
  Tl3TwoByteCString = class(Tl3CProtoObject, Il3CString)
- private
- // private fields
-   f_Chars : Word;
- protected
- // realized methods
+  private
+   f_Chars: Word;
+  protected
    function pm_GetAsWStr: Tl3WString;
- public
- // public methods
+  public
    constructor Create(aChars: Word); reintroduce;
    class function Make(aChars: Word): Il3CString; reintroduce;
-     {* Сигнатура фабрики Tl3TwoByteCString.Make }
  end;//Tl3TwoByteCString
 
 implementation
 
 uses
-  l3String,
-  l3Chars
-  {$If not defined(NoScripts)}
-  ,
-  tfwIl3CStringPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class Tl3TwoByteCString
+ l3ImplUses
+ , l3String
+ , l3Chars
+ {$If NOT Defined(NoScripts)}
+ , tfwIl3CStringPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor Tl3TwoByteCString.Create(aChars: Word);
 //#UC START# *4F5CBCAF00B4_4F5CBBE60070_var*
@@ -72,7 +55,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3TwoByteCString.Make
 
 function Tl3TwoByteCString.pm_GetAsWStr: Tl3WString;
 //#UC START# *46780DEF03E5_4F5CBBE60070get_var*

@@ -1,50 +1,33 @@
 unit NOT_FINISHED_l3InterfacedStringList;
+ {* Класс реализующий список строк со связанными интерфейсами }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Тунин Д.А.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3InterfacedStringList.pas"
-// Начат: 2003/10/09 14:47:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3InterfacedStringList
-//
-// Класс реализующий список строк со связанными интерфейсами
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3InterfacedStringList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3StringList,
-  l3_String
-  ;
+ l3IntfUses
+ , l3StringList
+ , l3_String
+;
 
 type
  Tl3InterfacedString = class(Tl3_String)
   {* Класс реализующий строки с возможностью хранения интерфейса }
- private
- // private fields
-   f_Intf : IUnknown;
-    {* Поле для свойства Intf}
- protected
- // overridden protected methods
+  private
+   f_Intf: IUnknown;
+    {* Поле для свойства Intf }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public properties
+  public
    property Intf: IUnknown
-     read f_Intf
-     write f_Intf;
+    read f_Intf
+    write f_Intf;
  end;//Tl3InterfacedString
 
  Tl3InterfacedStringList = class(Tl3StringList)
@@ -53,9 +36,12 @@ type
 
 implementation
 
-// start class Tl3InterfacedString
+uses
+ l3ImplUses
+;
 
 procedure Tl3InterfacedString.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4912AA1802AD_var*
 //#UC END# *479731C50290_4912AA1802AD_var*
 begin
@@ -65,7 +51,6 @@ begin
 end;//Tl3InterfacedString.Cleanup
 
 procedure Tl3InterfacedString.ClearFields;
- {-}
 begin
  Intf := nil;
  inherited;

@@ -1,56 +1,51 @@
 unit l3CEmptyString;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CEmptyString.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3CEmptyString
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CEmptyString.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3CEmptyStringPrim
-  ;
+ l3IntfUses
+ , l3CEmptyStringPrim
+;
 
 type
  Tl3CEmptyString = class(Tl3CEmptyStringPrim)
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3CEmptyString;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3CEmptyString }
  end;//Tl3CEmptyString
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3CEmptyString
-
-var g_Tl3CEmptyString : Tl3CEmptyString = nil;
+var g_Tl3CEmptyString: Tl3CEmptyString = nil;
+ {* Экземпляр синглетона Tl3CEmptyString }
 
 procedure Tl3CEmptyStringFree;
+ {* Метод освобождения экземпляра синглетона Tl3CEmptyString }
 begin
  l3Free(g_Tl3CEmptyString);
-end;
+end;//Tl3CEmptyStringFree
+
+class function Tl3CEmptyString.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3CEmptyString <> nil;
+end;//Tl3CEmptyString.Exists
 
 class function Tl3CEmptyString.Instance: Tl3CEmptyString;
+ {* Метод получения экземпляра синглетона Tl3CEmptyString }
 begin
  if (g_Tl3CEmptyString = nil) then
  begin
@@ -58,13 +53,6 @@ begin
   g_Tl3CEmptyString := Create;
  end;
  Result := g_Tl3CEmptyString;
-end;
-
-
-class function Tl3CEmptyString.Exists: Boolean;
- {-}
-begin
- Result := g_Tl3CEmptyString <> nil;
-end;//Tl3CEmptyString.Exists
+end;//Tl3CEmptyString.Instance
 
 end.

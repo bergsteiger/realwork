@@ -1,34 +1,23 @@
 unit NOT_FINISHED_l3Memory;
+ {* Объекты, классы и функции для работы с памятью. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3Memory.pas"
-// Начат: 20.10.1998 17:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3Memory
-//
-// Объекты, классы и функции для работы с памятью.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Memory.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3BaseStream,
-  l3ProtoObject,
-  l3ProtoDataContainerWithCOMQI
-  ;
+ l3IntfUses
+ , l3BaseStream
+ , l3ProtoObject
+ , l3ProtoDataContainerWithCOMQI
+;
 
 type
+ Pl3MemoryChain = ^Tl3MemoryChain;
+
  Tl3Ptr = record
   {* Smart-указатель на память. }
  end;//Tl3Ptr
@@ -69,8 +58,7 @@ type
  Rl3MemoryStream = class of Tl3MemoryStream;
 
  Tl3MemoryPoolPrim = class(Tl3ProtoDataContainerWithCOMQI)
- protected
- // protected methods
+  protected
    function GetMemoryPoolAdapterClass: Rl3MemoryPoolAdapter; virtual;
    function GetMemoryStreamClass: Rl3MemoryStream; virtual;
  end;//Tl3MemoryPoolPrim
@@ -84,14 +72,14 @@ type
  Tl3MemoryChain = record
  end;//Tl3MemoryChain
 
- Pl3MemoryChain = ^Tl3MemoryChain;
-
  Tl3BufferStreamMemoryPool = class(Tl3MemoryPoolPrim)
  end;//Tl3BufferStreamMemoryPool
 
 implementation
 
-// start class Tl3MemoryPoolPrim
+uses
+ l3ImplUses
+;
 
 function Tl3MemoryPoolPrim.GetMemoryPoolAdapterClass: Rl3MemoryPoolAdapter;
 //#UC START# *530B3ADB014E_53076BFC02F2_var*
@@ -110,4 +98,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *530B3F560201_53076BFC02F2_impl*
 end;//Tl3MemoryPoolPrim.GetMemoryStreamClass
+
 end.

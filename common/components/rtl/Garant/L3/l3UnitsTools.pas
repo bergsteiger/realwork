@@ -1,52 +1,42 @@
 unit l3UnitsTools;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3UnitsTools.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3UnitsTools
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3UnitsTools.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
-function EvInch2Char(aPixel: LongInt): LongInt;
-function EvChar2Inch(aChar: LongInt): LongInt;
-function L3Cm2Inch(aCm: LongInt): LongInt;
-function EvPixel2Cm(anInch: LongInt): LongInt;
-function EvCellWidthEpsilon: Integer;
-   {* Погрешность выравнивания ячеек в дюймах (соотвествует ширине символа). }
+uses
+ l3IntfUses
+;
+
+function evInch2Char(aPixel: LongInt): LongInt;
+function evChar2Inch(aChar: LongInt): LongInt;
+function l3Cm2Inch(aCm: LongInt): LongInt;
+function evPixel2Cm(anInch: LongInt): LongInt;
+function evCellWidthEpsilon: Integer;
+ {* Погрешность выравнивания ячеек в дюймах (соотвествует ширине символа). }
 function EvHalfCellWidthEpsilon: Integer;
-function L3FrameLinesDelta: Integer;
-   {* Величина, используемая при выравнивании линий в FrameLines }
-function EvGetMinimalCellWidth: Integer;
-   {* Возвращает минимально допустимую ширину ячейки. }
+function l3FrameLinesDelta: Integer;
+ {* Величина, используемая при выравнивании линий в FrameLines }
+function evGetMinimalCellWidth: Integer;
+ {* Возвращает минимально допустимую ширину ячейки. }
 
 implementation
 
 uses
-  l3Math,
-  l3Defaults,
-  l3Const
-  ;
+ l3ImplUses
+ , l3Math
+ , l3Defaults
+ , l3Const
+;
+
+var g_CWEpsilon: Integer = 0;
+var g_CWEpsilon_div2: Integer = 0;
 
 const
-  { CharConst }
  cnMaxPredefChars = 73;
-
-var g_CWEpsilon : Integer = 0;
-
-var g_CWEpsilon_div2 : Integer = 0;
-
-// unit methods
 
 procedure CheckEpsilonParams;
 //#UC START# *4F2A42D00142_4A3918BB0114_var*
@@ -62,43 +52,44 @@ begin
 //#UC END# *4F2A42D00142_4A3918BB0114_impl*
 end;//CheckEpsilonParams
 
-function EvInch2Char(aPixel: LongInt): LongInt;
+function evInch2Char(aPixel: LongInt): LongInt;
 //#UC START# *4F2A3430033F_4A3918BB0114_var*
 //#UC END# *4F2A3430033F_4A3918BB0114_var*
 begin
 //#UC START# *4F2A3430033F_4A3918BB0114_impl*
  Result := l3MulDiv(aPixel, cnMaxPredefChars, def_inchPrintableWidth);
 //#UC END# *4F2A3430033F_4A3918BB0114_impl*
-end;//EvInch2Char
+end;//evInch2Char
 
-function EvChar2Inch(aChar: LongInt): LongInt;
+function evChar2Inch(aChar: LongInt): LongInt;
 //#UC START# *4F2A3451001B_4A3918BB0114_var*
 //#UC END# *4F2A3451001B_4A3918BB0114_var*
 begin
 //#UC START# *4F2A3451001B_4A3918BB0114_impl*
  Result := l3MulDiv(aChar, def_inchPrintableWidth, cnMaxPredefChars);
 //#UC END# *4F2A3451001B_4A3918BB0114_impl*
-end;//EvChar2Inch
+end;//evChar2Inch
 
-function L3Cm2Inch(aCm: LongInt): LongInt;
+function l3Cm2Inch(aCm: LongInt): LongInt;
 //#UC START# *4F2A348600F9_4A3918BB0114_var*
 //#UC END# *4F2A348600F9_4A3918BB0114_var*
 begin
 //#UC START# *4F2A348600F9_4A3918BB0114_impl*
  Result := l3MulDiv(aCm, l3Inch, l3mmInInch);
 //#UC END# *4F2A348600F9_4A3918BB0114_impl*
-end;//L3Cm2Inch
+end;//l3Cm2Inch
 
-function EvPixel2Cm(anInch: LongInt): LongInt;
+function evPixel2Cm(anInch: LongInt): LongInt;
 //#UC START# *4F2A34B20068_4A3918BB0114_var*
 //#UC END# *4F2A34B20068_4A3918BB0114_var*
 begin
 //#UC START# *4F2A34B20068_4A3918BB0114_impl*
  Result := l3MulDiv(anInch, l3mmInInch, l3Inch);
 //#UC END# *4F2A34B20068_4A3918BB0114_impl*
-end;//EvPixel2Cm
+end;//evPixel2Cm
 
-function EvCellWidthEpsilon: Integer;
+function evCellWidthEpsilon: Integer;
+ {* Погрешность выравнивания ячеек в дюймах (соотвествует ширине символа). }
 //#UC START# *4F2A40EA0064_4A3918BB0114_var*
 //#UC END# *4F2A40EA0064_4A3918BB0114_var*
 begin
@@ -106,7 +97,7 @@ begin
  CheckEpsilonParams;
  Result := g_CWEpsilon;
 //#UC END# *4F2A40EA0064_4A3918BB0114_impl*
-end;//EvCellWidthEpsilon
+end;//evCellWidthEpsilon
 
 function EvHalfCellWidthEpsilon: Integer;
 //#UC START# *4F2A416E022B_4A3918BB0114_var*
@@ -118,7 +109,8 @@ begin
 //#UC END# *4F2A416E022B_4A3918BB0114_impl*
 end;//EvHalfCellWidthEpsilon
 
-function L3FrameLinesDelta: Integer;
+function l3FrameLinesDelta: Integer;
+ {* Величина, используемая при выравнивании линий в FrameLines }
 //#UC START# *4F2A554B0360_4A3918BB0114_var*
 //#UC END# *4F2A554B0360_4A3918BB0114_var*
 begin
@@ -126,15 +118,16 @@ begin
  CheckEpsilonParams;
  Result := g_CWEpsilon;
 //#UC END# *4F2A554B0360_4A3918BB0114_impl*
-end;//L3FrameLinesDelta
+end;//l3FrameLinesDelta
 
-function EvGetMinimalCellWidth: Integer;
+function evGetMinimalCellWidth: Integer;
+ {* Возвращает минимально допустимую ширину ячейки. }
 //#UC START# *5119E20703B0_4A3918BB0114_var*
 //#UC END# *5119E20703B0_4A3918BB0114_var*
 begin
 //#UC START# *5119E20703B0_4A3918BB0114_impl*
  Result := evCellWidthEpsilon;
 //#UC END# *5119E20703B0_4A3918BB0114_impl*
-end;//EvGetMinimalCellWidth
+end;//evGetMinimalCellWidth
 
 end.

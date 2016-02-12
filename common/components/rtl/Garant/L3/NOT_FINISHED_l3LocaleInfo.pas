@@ -1,34 +1,21 @@
 unit NOT_FINISHED_l3LocaleInfo;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3LocaleInfo.pas"
-// Начат: 27.06.2005 14.30
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3LocaleInfo
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3LocaleInfo.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+;
 
 type
  Tl3BaseLocaleInfo = class(Tl3ProtoObject, Il3LocaleInfo)
- protected
- // realized methods
+  protected
    function pm_GetId: LCID;
    function pm_GetLanguage: AnsiString;
    function pm_GetSubLanguage: AnsiString;
@@ -41,10 +28,9 @@ type
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class Tl3BaseLocaleInfo
+ l3ImplUses
+ , l3Base
+;
 
 function Tl3BaseLocaleInfo.pm_GetId: LCID;
 //#UC START# *46A44E1C003B_478778770380get_var*
@@ -81,4 +67,5 @@ begin
  assert(false, 'Tl3BaseLocaleInfo.pm_GetName not implemented');
 //#UC END# *46A44E770154_478778770380get_impl*
 end;//Tl3BaseLocaleInfo.pm_GetName
+
 end.

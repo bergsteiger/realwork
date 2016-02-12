@@ -1,45 +1,39 @@
 {$IfNDef l3TypedList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3TypedList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3TypedList
-//
-// Список с возможностью переопределения методов манипуляции с элементами
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3TypedList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3TypedList_imp}
+
  _l3TypedListPrim_Parent_ = _l3TypedList_Parent_;
- {$Include ..\L3\l3TypedListPrim.imp.pas}
- _l3TypedList_ = {abstract mixin} class(_l3TypedListPrim_)
+ {$Include w:\common\components\rtl\Garant\L3\l3TypedListPrim.imp.pas}
+ _l3TypedList_ = {abstract} class(_l3TypedListPrim_)
   {* Список с возможностью переопределения методов манипуляции с элементами }
- protected
- // property methods
+  protected
    function pm_GetItems(anIndex: Integer): _ItemType_;
-   procedure pm_SetItems(anIndex: Integer; const aValue: _ItemType_);
- public
- // public properties
+   procedure pm_SetItems(anIndex: Integer;
+    const aValue: _ItemType_);
+  public
    property Items[anIndex: Integer]: _ItemType_
-     read pm_GetItems
-     write pm_SetItems;
-     default;
-     {* Элементы списка. }
+    read pm_GetItems
+    write pm_SetItems;
+    default;
+    {* Элементы списка. }
  end;//_l3TypedList_
 
 {$Else l3TypedList_imp}
 
-// start class _l3TypedList_
+{$IfNDef l3TypedList_imp_impl}
+
+{$Define l3TypedList_imp_impl}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 procedure MoveItems(Dst: Integer;
-  Src: Integer;
-  aSize: Cardinal;
-  aList: _l3Items_);
+ Src: Integer;
+ aSize: Cardinal;
+ aList: _l3Items_);
+ {* Передвигает кусок памяти. }
 //#UC START# *47B48A510176_47B084190028_var*
 var
  l_Sz : Integer;
@@ -66,10 +60,7 @@ begin
 //#UC END# *47B48A510176_47B084190028_impl*
 end;//MoveItems
 
-
-{$Include ..\L3\l3TypedListPrim.imp.pas}
-
-// start class _l3TypedList_
+{$Include w:\common\components\rtl\Garant\L3\l3TypedListPrim.imp.pas}
 
 function _l3TypedList_.pm_GetItems(anIndex: Integer): _ItemType_;
 //#UC START# *47A1B1C102E9_47B084190028get_var*
@@ -80,7 +71,8 @@ begin
 //#UC END# *47A1B1C102E9_47B084190028get_impl*
 end;//_l3TypedList_.pm_GetItems
 
-procedure _l3TypedList_.pm_SetItems(anIndex: Integer; const aValue: _ItemType_);
+procedure _l3TypedList_.pm_SetItems(anIndex: Integer;
+ const aValue: _ItemType_);
 //#UC START# *47A1B1C102E9_47B084190028set_var*
 //#UC END# *47A1B1C102E9_47B084190028set_var*
 begin
@@ -89,4 +81,7 @@ begin
 //#UC END# *47A1B1C102E9_47B084190028set_impl*
 end;//_l3TypedList_.pm_SetItems
 
+{$EndIf l3TypedList_imp_impl}
+
 {$EndIf l3TypedList_imp}
+

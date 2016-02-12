@@ -1,82 +1,63 @@
 unit l3IntegerValueMapManager;
+ {* реализация менеджера мап "строка"-"число" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Лукьянец Р.В. / Люлин А.В. ©
-// Модуль: "w:/common/components/rtl/Garant/L3/l3IntegerValueMapManager.pas"
-// Начат: 30.03.2006 10:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3IntegerValueMapManager
-//
-// реализация менеджера мап "строка"-"число"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3IntegerValueMapManager.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ValueMapManager,
-  l3SimpleDataContainer,
-  l3Types,
-  l3Memory,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3Interfaces
+ , l3SimpleDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+ , l3ValueMapManager
+;
 
 type
  _ItemType_ = Il3IntegerValueMapFactory;
  _l3InterfaceRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  Tl3IntegerValueMapFactories = class(_l3InterfaceRefList_)
  end;//Tl3IntegerValueMapFactories
 
  Tl3IntegerValueMapManager = class(Tl3ValueMapManager, Il3IntegerValueMapManager)
- private
- // private fields
-   f_Factories : Tl3IntegerValueMapFactories;
- protected
- // realized methods
+  private
+   f_Factories: Tl3IntegerValueMapFactories;
+  protected
    procedure RegisterFactory(const aFactory: Il3IntegerValueMapFactory;
     aPreferred: Boolean);
-     {* aPreferred - Фабрика будет вызываться как можно раньше. }
+    {* aPreferred - Фабрика будет вызываться как можно раньше. }
    procedure UnRegisterFactory(const aFactory: Il3IntegerValueMapFactory);
    function pm_GetMap(const aID: Tl3ValueMapID): Il3IntegerValueMap;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function MakeDefaultMap(const aID: Tl3ValueMapID): Il3ValueMap; override;
- public
- // public methods
+  public
    class function Make: Il3IntegerValueMapManager; reintroduce;
  end;//Tl3IntegerValueMapManager
 
-function L3IntegerMapManager: Il3IntegerValueMapManager;
+function l3IntegerMapManager: Il3IntegerValueMapManager;
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-var g_l3IntegerMapManager : Tl3IntegerValueMapManager;
-
-// unit methods
+var g_l3IntegerMapManager: Tl3IntegerValueMapManager;
 
 procedure DoneManager;
 //#UC START# *47A1D8BA002F_478E35650120_var*
@@ -86,11 +67,28 @@ begin
  l3Free(g_l3IntegerMapManager);
 //#UC END# *47A1D8BA002F_478E35650120_impl*
 end;//DoneManager
+
+function l3IntegerMapManager: Il3IntegerValueMapManager;
+//#UC START# *47A1D86D015C_478E35650120_var*
+//#UC END# *47A1D86D015C_478E35650120_var*
+begin
+//#UC START# *47A1D86D015C_478E35650120_impl*
+ if g_l3IntegerMapManager = nil then
+ begin
+  g_l3IntegerMapManager := Tl3IntegerValueMapManager.Create;
+  l3System.AddExitProc(DoneManager);
+ end;
+ Result := g_l3IntegerMapManager;
+//#UC END# *47A1D86D015C_478E35650120_impl*
+end;//l3IntegerMapManager
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 type _Instance_R_ = Tl3IntegerValueMapFactories;
 
-{$Include ..\L3\l3InterfaceRefList.imp.pas}
-
-// start class Tl3IntegerValueMapManager
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 class function Tl3IntegerValueMapManager.Make: Il3IntegerValueMapManager;
 var
@@ -102,10 +100,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3IntegerValueMapManager.Make
 
 procedure Tl3IntegerValueMapManager.RegisterFactory(const aFactory: Il3IntegerValueMapFactory;
-  aPreferred: Boolean);
+ aPreferred: Boolean);
+ {* aPreferred - Фабрика будет вызываться как можно раньше. }
 //#UC START# *46A5FDC600BD_47A1CCD50059_var*
 //#UC END# *46A5FDC600BD_47A1CCD50059_var*
 begin
@@ -139,6 +138,7 @@ begin
 end;//Tl3IntegerValueMapManager.pm_GetMap
 
 procedure Tl3IntegerValueMapManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47A1CCD50059_var*
 //#UC END# *479731C50290_47A1CCD50059_var*
 begin
@@ -178,19 +178,5 @@ begin
  Result := inherited MakeDefaultMap(aID);
 //#UC END# *47A1C42301B5_47A1CCD50059_impl*
 end;//Tl3IntegerValueMapManager.MakeDefaultMap
-
-function L3IntegerMapManager: Il3IntegerValueMapManager;
-//#UC START# *47A1D86D015C_478E35650120_var*
-//#UC END# *47A1D86D015C_478E35650120_var*
-begin
-//#UC START# *47A1D86D015C_478E35650120_impl*
- if g_l3IntegerMapManager = nil then
- begin
-  g_l3IntegerMapManager := Tl3IntegerValueMapManager.Create;
-  l3System.AddExitProc(DoneManager);
- end;
- Result := g_l3IntegerMapManager;
-//#UC END# *47A1D86D015C_478E35650120_impl*
-end;//L3IntegerMapManager
 
 end.

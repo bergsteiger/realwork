@@ -100,11 +100,11 @@ type
   function Get_changed_doc: ICatalogBase;
   procedure update_status(force: Boolean = False);
    {* Обновить статусы объектов на контроле. }
-  function get_under_control_status(pid;
+  function get_under_control_status(const pid;
    var status: Cardinal): Boolean;
-  procedure add(pid);
-  procedure remove(pid);
-  procedure reset_control_status(pid);
+  procedure add(const pid);
+  procedure remove(const pid);
+  procedure reset_control_status(const pid);
   procedure refresh_control_status;
   procedure do_update_status;
   function get_controlled_objects: IControlledObjects;

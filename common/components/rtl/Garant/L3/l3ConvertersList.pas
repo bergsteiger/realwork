@@ -1,61 +1,53 @@
 unit l3ConvertersList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ConvertersList.pas"
-// Начат: 19.05.2011 14:38
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3ConvertersList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ConvertersList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3StringList
-  ;
+ l3IntfUses
+ , l3StringList
+;
 
 type
  Tl3ConvertersList = class(Tl3StringList)
- protected
- // overridden protected methods
+  protected
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3ConvertersList;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3ConvertersList }
  end;//Tl3ConvertersList
 
 implementation
 
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3ConvertersList
-
-var g_Tl3ConvertersList : Tl3ConvertersList = nil;
+var g_Tl3ConvertersList: Tl3ConvertersList = nil;
+ {* Экземпляр синглетона Tl3ConvertersList }
 
 procedure Tl3ConvertersListFree;
+ {* Метод освобождения экземпляра синглетона Tl3ConvertersList }
 begin
  l3Free(g_Tl3ConvertersList);
-end;
+end;//Tl3ConvertersListFree
+
+class function Tl3ConvertersList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ConvertersList <> nil;
+end;//Tl3ConvertersList.Exists
 
 class function Tl3ConvertersList.Instance: Tl3ConvertersList;
+ {* Метод получения экземпляра синглетона Tl3ConvertersList }
 begin
  if (g_Tl3ConvertersList = nil) then
  begin
@@ -63,14 +55,7 @@ begin
   g_Tl3ConvertersList := Create;
  end;
  Result := g_Tl3ConvertersList;
-end;
-
-
-class function Tl3ConvertersList.Exists: Boolean;
- {-}
-begin
- Result := g_Tl3ConvertersList <> nil;
-end;//Tl3ConvertersList.Exists
+end;//Tl3ConvertersList.Instance
 
 procedure Tl3ConvertersList.InitFields;
 //#UC START# *47A042E100E2_4DD4F30E00C6_var*

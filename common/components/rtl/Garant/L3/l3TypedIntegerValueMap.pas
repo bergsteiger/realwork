@@ -1,67 +1,45 @@
 unit l3TypedIntegerValueMap;
+ {* реализация мапы "строка"-"число" для чистой замены array [TSomeType] of string. Берет данные из ResourceString. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3TypedIntegerValueMap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3TypedIntegerValueMap
-//
-// реализация мапы "строка"-"число" для чистой замены array [TSomeType] of string. Берет данные из
-// ResourceString.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3TypedIntegerValueMap.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  TypInfo,
-  l3ValueMap
-  ;
+ l3IntfUses
+ , l3ValueMap
+ , l3Interfaces
+ , TypInfo
+;
 
 type
  Tl3IntegerValueMap = class(Tl3ValueMap, Il3IntegerValueMap)
- private
- // private fields
-   f_TypeData : PTypeData;
- protected
- // realized methods
-   function DisplayNameToValue(const aDisplayName: Il3CString): Integer;
-   function ValueToDisplayName(aValue: Integer): Il3CString;
- protected
- // protected methods
+  private
+   f_TypeData: PTypeData;
+  protected
    function DoDisplayNameToValue(const aDisplayName: Il3CString): Integer; virtual; abstract;
    function DoValueToDisplayName(aValue: Integer): Il3CString; virtual; abstract;
- public
- // public methods
+   function DisplayNameToValue(const aDisplayName: Il3CString): Integer;
+   function ValueToDisplayName(aValue: Integer): Il3CString;
+  public
    constructor Create(const aID: Tl3ValueMapID;
     aTypeInfo: PTypeInfo); reintroduce;
  end;//Tl3IntegerValueMap
 
  Tl3SimpleTypedIntegerValueMap = class(Tl3IntegerValueMap)
- protected
- // realized methods
+  protected
+   f_Values: Tl3StringArray;
+  protected
    function DoDisplayNameToValue(const aDisplayName: Il3CString): Integer; override;
    function DoValueToDisplayName(aValue: Integer): Il3CString; override;
- protected
- // overridden protected methods
    procedure DoGetDisplayNames(const aList: Il3StringsEx); override;
    function GetMapSize: Integer; override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_Values : Tl3StringArray;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aID: Tl3ValueMapID;
     aTypeInfo: PTypeInfo;
     const aValues: array of AnsiString); reintroduce;
@@ -73,21 +51,16 @@ type
  Tl3ResStringArray = array of PResStringRec;
 
  Tl3ResourceTypedIntegerValueMap = class(Tl3IntegerValueMap)
- protected
- // realized methods
+  protected
+   f_Values: Tl3ResStringArray;
+  protected
    function DoDisplayNameToValue(const aDisplayName: Il3CString): Integer; override;
    function DoValueToDisplayName(aValue: Integer): Il3CString; override;
- protected
- // overridden protected methods
    procedure DoGetDisplayNames(const aList: Il3StringsEx); override;
    function GetMapSize: Integer; override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected fields
-   f_Values : Tl3ResStringArray;
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aID: Tl3ValueMapID;
     aTypeInfo: PTypeInfo;
     const aValues: array of PResStringRec); reintroduce;
@@ -99,15 +72,14 @@ type
 implementation
 
 uses
-  SysUtils,
-  l3String,
-  l3Base
-  ;
-
-// start class Tl3IntegerValueMap
+ l3ImplUses
+ , SysUtils
+ , l3String
+ , l3Base
+;
 
 constructor Tl3IntegerValueMap.Create(const aID: Tl3ValueMapID;
-  aTypeInfo: PTypeInfo);
+ aTypeInfo: PTypeInfo);
 //#UC START# *478E20F70032_478E1E9E01CE_var*
 //#UC END# *478E20F70032_478E1E9E01CE_var*
 begin
@@ -137,11 +109,10 @@ begin
  Result := DoValueToDisplayName(aValue);
 //#UC END# *46A5FD1B000D_478E1E9E01CE_impl*
 end;//Tl3IntegerValueMap.ValueToDisplayName
-// start class Tl3SimpleTypedIntegerValueMap
 
 constructor Tl3SimpleTypedIntegerValueMap.Create(const aID: Tl3ValueMapID;
-  aTypeInfo: PTypeInfo;
-  const aValues: array of AnsiString);
+ aTypeInfo: PTypeInfo;
+ const aValues: array of AnsiString);
 //#UC START# *478E21AD021D_478E1E3A0182_var*
 var
  l_Index: Integer;
@@ -158,8 +129,8 @@ begin
 end;//Tl3SimpleTypedIntegerValueMap.Create
 
 class function Tl3SimpleTypedIntegerValueMap.Make(const aID: Tl3ValueMapID;
-  aTypeInfo: PTypeInfo;
-  const aValues: array of AnsiString): Il3IntegerValueMap;
+ aTypeInfo: PTypeInfo;
+ const aValues: array of AnsiString): Il3IntegerValueMap;
 var
  l_Inst : Tl3SimpleTypedIntegerValueMap;
 begin
@@ -169,7 +140,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3SimpleTypedIntegerValueMap.Make
 
 function Tl3SimpleTypedIntegerValueMap.DoDisplayNameToValue(const aDisplayName: Il3CString): Integer;
 //#UC START# *478E235D0041_478E1E3A0182_var*
@@ -222,6 +193,7 @@ begin
 end;//Tl3SimpleTypedIntegerValueMap.GetMapSize
 
 procedure Tl3SimpleTypedIntegerValueMap.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_478E1E3A0182_var*
 //#UC END# *479731C50290_478E1E3A0182_var*
 begin
@@ -230,11 +202,10 @@ begin
  inherited;
 //#UC END# *479731C50290_478E1E3A0182_impl*
 end;//Tl3SimpleTypedIntegerValueMap.Cleanup
-// start class Tl3ResourceTypedIntegerValueMap
 
 constructor Tl3ResourceTypedIntegerValueMap.Create(const aID: Tl3ValueMapID;
-  aTypeInfo: PTypeInfo;
-  const aValues: array of PResStringRec);
+ aTypeInfo: PTypeInfo;
+ const aValues: array of PResStringRec);
 //#UC START# *478E212D0257_478E1DFA01DF_var*
 var
  l_Index: Integer;
@@ -251,8 +222,8 @@ begin
 end;//Tl3ResourceTypedIntegerValueMap.Create
 
 class function Tl3ResourceTypedIntegerValueMap.Make(const aID: Tl3ValueMapID;
-  aTypeInfo: PTypeInfo;
-  const aValues: array of PResStringRec): Il3IntegerValueMap;
+ aTypeInfo: PTypeInfo;
+ const aValues: array of PResStringRec): Il3IntegerValueMap;
 var
  l_Inst : Tl3ResourceTypedIntegerValueMap;
 begin
@@ -262,7 +233,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3ResourceTypedIntegerValueMap.Make
 
 function Tl3ResourceTypedIntegerValueMap.DoDisplayNameToValue(const aDisplayName: Il3CString): Integer;
 //#UC START# *478E235D0041_478E1DFA01DF_var*
@@ -315,6 +286,7 @@ begin
 end;//Tl3ResourceTypedIntegerValueMap.GetMapSize
 
 procedure Tl3ResourceTypedIntegerValueMap.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_478E1DFA01DF_var*
 //#UC END# *479731C50290_478E1DFA01DF_var*
 begin

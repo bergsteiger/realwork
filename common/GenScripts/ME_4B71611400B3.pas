@@ -19,6 +19,10 @@
 
 {$Define l3AtomicListPrim_imp_impl}
 
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 {$Include w:\common\components\rtl\Garant\L3\l3UnrefcountedList.imp.pas}
 
 {$EndIf l3AtomicListPrim_imp_impl}

@@ -1,56 +1,41 @@
 unit l3InterfacedString;
+ {* Реализация интерфейса строки }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3InterfacedString.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3InterfacedString
-//
-// Реализация интерфейса строки
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacedString.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3NCString
-  ;
+ l3IntfUses
+ , l3NCString
+ , l3Interfaces
+;
 
 type
  Tl3InterfacedString = class(Tl3NCString, Il3CString)
   {* Реализация интерфейса строки }
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
  end;//Tl3InterfacedString
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  tfwIl3CStringPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwIl3CStringPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class Tl3InterfacedString
-
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3InterfacedString.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_47CC4CCC02FA_var*
 //#UC END# *47A6FEE600FC_47CC4CCC02FA_var*
 begin
@@ -58,6 +43,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_47CC4CCC02FA_impl*
 end;//Tl3InterfacedString.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

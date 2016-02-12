@@ -43,7 +43,7 @@ type
     Y1: Integer;
     X2: Integer;
     Y2: Integer); virtual;
-   procedure DrawPolygon(const Points: TPointsArray); virtual;
+   procedure DrawPolygon(const Points: array of TPoint); virtual;
    procedure FillEllipse(X1: Integer;
     Y1: Integer;
     X2: Integer;
@@ -52,7 +52,7 @@ type
     Y1: Integer;
     X2: Integer;
     Y2: Integer); virtual;
-   procedure FillPolygon(const Points: TPointsArray); virtual;
+   procedure FillPolygon(const Points: array of TPoint); virtual;
  end;//Tl3Drawer
 
 implementation
@@ -97,7 +97,7 @@ begin
 //#UC END# *4739AC99032C_4739ABDB029D_impl*
 end;//Tl3Drawer.DrawRect
 
-procedure Tl3Drawer.DrawPolygon(const Points: TPointsArray);
+procedure Tl3Drawer.DrawPolygon(const Points: array of TPoint);
 //#UC START# *4739ACBB02E5_4739ABDB029D_var*
 //#UC END# *4739ACBB02E5_4739ABDB029D_var*
 begin
@@ -130,7 +130,7 @@ begin
 //#UC END# *4739AE3300F1_4739ABDB029D_impl*
 end;//Tl3Drawer.FillRect
 
-procedure Tl3Drawer.FillPolygon(const Points: TPointsArray);
+procedure Tl3Drawer.FillPolygon(const Points: array of TPoint);
 //#UC START# *4739AE6C0279_4739ABDB029D_var*
 //#UC END# *4739AE6C0279_4739ABDB029D_var*
 begin

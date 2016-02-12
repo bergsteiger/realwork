@@ -1,39 +1,39 @@
 unit l3LongintList;
+ {* Список целых чисел }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3LongintList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3LongintList
-//
-// Список целых чисел
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3LongintList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3LongintListPrim
-  ;
+ l3IntfUses
+ , l3LongintListPrim
+;
 
 type
  _ListType_ = Tl3LongintListPrim;
  _l3ListOperations_Parent_ = Tl3LongintListPrim;
- {$Include ..\L3\l3ListOperations.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ListOperations.imp.pas}
  Tl3LongintList = class(_l3ListOperations_)
   {* Список целых чисел }
  end;//Tl3LongintList
 
 implementation
 
-{$Include ..\L3\l3ListOperations.imp.pas}
+uses
+ l3ImplUses
+ , l3Memory
+;
+
+{$If not Declared(_ItemType_)}type _ItemType_ = Integer;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
+{$Include w:\common\components\rtl\Garant\L3\l3ListOperations.imp.pas}
 
 end.

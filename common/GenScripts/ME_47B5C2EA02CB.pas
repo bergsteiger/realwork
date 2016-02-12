@@ -17,6 +17,8 @@
 
 {$Define l3FourByteItemList_imp_impl}
 
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 procedure DoExchange(var A: _ItemType_;
  var B: _ItemType_
 {$If Defined(l3Items_FillItem_NeedsList)};

@@ -1,28 +1,15 @@
 {$IfNDef l3Unknown_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3Unknown.imp.pas"
-// Начат: 2004/09/15 10:01:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3Unknown
-//
-// В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Unknown.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3Unknown_imp}
+
  _l3UnknownPrim_Parent_ = _l3Unknown_Parent_;
- {$Include ..\L3\l3UnknownPrim.imp.pas}
- _l3Unknown_ = {mixin} class(_l3UnknownPrim_)
+ {$Include w:\common\components\rtl\Garant\L3\l3UnknownPrim.imp.pas}
+ _l3Unknown_ = class(_l3UnknownPrim_)
   {* В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую. }
- public
- // public methods
+  public
    class function NewInstance: TObject;
    class procedure FreeInstance;
    class procedure AfterConstruction;
@@ -32,9 +19,11 @@
 
 {$Else l3Unknown_imp}
 
-{$Include ..\L3\l3UnknownPrim.imp.pas}
+{$IfNDef l3Unknown_imp_impl}
 
-// start class _l3Unknown_
+{$Define l3Unknown_imp_impl}
+
+{$Include w:\common\components\rtl\Garant\L3\l3UnknownPrim.imp.pas}
 
 class function _l3Unknown_.NewInstance: TObject;
 //#UC START# *47913FE900A2_47913F970159_var*
@@ -81,4 +70,7 @@ begin
 //#UC END# *4791409000A0_47913F970159_impl*
 end;//_l3Unknown_.Destroy
 
+{$EndIf l3Unknown_imp_impl}
+
 {$EndIf l3Unknown_imp}
+

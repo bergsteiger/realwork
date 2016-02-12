@@ -37,13 +37,13 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    function GetTagType: Tl3VariantDef; override;
   public
    constructor Create(const anInterface: IUnknown); reintroduce;
    class function Make(const anInterface: IUnknown): Il3TagRef; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//Tk2IUnknownTag
 
 implementation

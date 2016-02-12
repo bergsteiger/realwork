@@ -1,33 +1,20 @@
 unit l3Dict;
+ {* описание объекта-"словаря" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Dict.pas"
-// Начат: 11.10.1999 12:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3Dict
-//
-// описание объекта-"словаря"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Dict.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3DictionaryPrim,
-  l3IDIndex,
-  l3Interfaces,
-  l3Types
-  ;
+ l3IntfUses
+ , l3DictionaryPrim
+ , l3IDIndex
+ , l3Interfaces
+ , l3Types
+;
 
  {$Define l3Items_NeedsBeforeFreeItem}
 
@@ -35,7 +22,7 @@ uses
 
 type
  _l3Dictionary_Parent_ = Tl3DictionaryPrim;
- {$Include ..\L3\l3Dictionary.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}
  Tl3Dictionary = class(_l3Dictionary_)
   {* Словарь. Используется для преобразования строки в идентификатор и наоборот. Имеет два индекса сортировки }
  end;//Tl3Dictionary
@@ -43,13 +30,22 @@ type
 implementation
 
 uses
-  l3Base,
-  SysUtils,
-  l3String
-  ;
+ l3ImplUses
+ , l3Base
+ , SysUtils
+ , l3String
+ , l3Variant
+ , l3Memory
+;
+
+{$If not Declared(_ItemType_)}type _ItemType_ = Tl3PrimString;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 type _Instance_R_ = Tl3Dictionary;
 
-{$Include ..\L3\l3Dictionary.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Dictionary.imp.pas}
 
 end.

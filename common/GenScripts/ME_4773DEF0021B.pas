@@ -49,9 +49,6 @@ type
    procedure DoSetCodePage(aValue: Integer); virtual;
    procedure CheckUnicode;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    function Offset(Delta: Integer): Tl3CustomString; virtual;
    function AssignSt(aSt: PAnsiChar;
@@ -109,11 +106,11 @@ type
    procedure MakeBMTable(var BT: Tl3BMTable);
     {* создает таблицу Boyer-Moore для строки }
    function BMSearch(S: Tl3CustomString;
-    BT: Tl3BMTable;
+    const BT: Tl3BMTable;
     var Pos: Cardinal): Boolean;
     {* ищет данную строку в строке S с учетом регистра }
    function BMSearchUC(S: Tl3CustomString;
-    BT: Tl3BMTable;
+    const BT: Tl3BMTable;
     var Pos: Cardinal): Boolean;
     {* ищет данную строку в строке S без учета регистра
 ВНИМАНИЕ! Для успешного поиска без учёта регистра подстрока (S) должна быть в ВЕРХНЕМ РЕГИСТРЕ!
@@ -131,6 +128,9 @@ type
    function JoinWith(P: Tl3PrimString): Integer; virtual;
     {* операция объединения двух объектов }
    procedure Assign(Source: TPersistent); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    property St: PAnsiChar
     read pm_GetSt;
@@ -762,7 +762,7 @@ begin
 end;//Tl3CustomString.MakeBMTable
 
 function Tl3CustomString.BMSearch(S: Tl3CustomString;
- BT: Tl3BMTable;
+ const BT: Tl3BMTable;
  var Pos: Cardinal): Boolean;
  {* ищет данную строку в строке S с учетом регистра }
 //#UC START# *54C63FB802C8_4773DEF0021B_var*
@@ -782,7 +782,7 @@ begin
 end;//Tl3CustomString.BMSearch
 
 function Tl3CustomString.BMSearchUC(S: Tl3CustomString;
- BT: Tl3BMTable;
+ const BT: Tl3BMTable;
  var Pos: Cardinal): Boolean;
  {* ищет данную строку в строке S без учета регистра
 ВНИМАНИЕ! Для успешного поиска без учёта регистра подстрока (S) должна быть в ВЕРХНЕМ РЕГИСТРЕ!

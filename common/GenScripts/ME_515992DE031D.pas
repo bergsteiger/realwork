@@ -15,7 +15,7 @@ type
   protected
    procedure DoDoIt;
    function GetEtalonData: TEtalonData; virtual; abstract;
-   function ArrayToEtalon(const aData: EtalonData): TEtalonData;
+   function ArrayToEtalon(const aData: array of _ItemType_): TEtalonData;
     {* Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет }
   public
    procedure DoIt;
@@ -55,7 +55,7 @@ begin
 //#UC END# *5159938101A2_515992DE031D_impl*
 end;//_StackTest_.DoDoIt
 
-function _StackTest_.ArrayToEtalon(const aData: EtalonData): TEtalonData;
+function _StackTest_.ArrayToEtalon(const aData: array of _ItemType_): TEtalonData;
  {* Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет }
 //#UC START# *51599BD5015F_515992DE031D_var*
 var

@@ -37,6 +37,10 @@ uses
  , SysUtils
 ;
 
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
  {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_4F9BD2A103C7_var*

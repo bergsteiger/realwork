@@ -550,8 +550,8 @@ type
   procedure get_same_documents(out out_list: ICatalogBase);
    {* Получить список похожих документов }
   procedure get_server_doc;
-  class function make(document): BadFactoryType; overload;
-  class function make(pid;
+  class function make(const document): BadFactoryType; overload;
+  class function make(const pid;
    is_edition: Boolean;
    name: PAnsiChar): BadFactoryType; overload;
   function is_morpho_search_supported: Boolean;
@@ -576,7 +576,7 @@ type
   function get_text_provider_list(all_at_once: Boolean): IDocumentTextProviderList; { can raise Unsupported }
   function get_autoreferat_header_evd: IStream; { can raise Unsupported }
   function get_annotation_header_evd(handle: Cardinal): IStream; { can raise Unsupported }
-  function diff(pid): TDiffData;
+  function diff(const pid): TDiffData;
   function get_evd_stream: IStream;
    {* возвращает evd поток документа - совета дня или evd поток заглушки для отсутствующего в базе документа или документа запрещенного к просмотру }
   procedure get_self_missing_info(out missing_info: IMissingInfo);
@@ -784,7 +784,7 @@ K555095873 }
   ['{51778307-FE15-45BF-9A86-62A66BF81725}']
   function get_object: IUnknown;
   function get_object_type: TLinkedObjectType;
-  class function make(server_link): BadFactoryType;
+  class function make(const server_link): BadFactoryType;
  end;//IObjectFromLink
 
 const
@@ -792,23 +792,23 @@ const
  ROOT_LAYER: TLayerID = 4294967295;
   {* 0xFFFFFFFF }
 
-class function make(pid): BadFactoryType;
-class function make(diff_data): BadFactoryType;
-class function make(list): BadFactoryType;
-class function make(server_doc;
- handle;
+class function make(const pid): BadFactoryType;
+class function make(const diff_data): BadFactoryType;
+class function make(const list): BadFactoryType;
+class function make(const server_doc;
+ const handle;
  all_at_once: Boolean): BadFactoryType; overload;
-class function make(server_doc;
+class function make(const server_doc;
  handle: Cardinal;
  all_at_once: Boolean): BadFactoryType; overload;
-class function make(bookmark;
- doc_bookmark;
+class function make(const bookmark;
+ const doc_bookmark;
  var folders_node: IFoldersNode): BadFactoryType;
 class function make(var source_doc: IDocument): BadFactoryType; overload;
 class function make: BadFactoryType; overload;
 class function make(doc_id: TObjectId;
  para_id: TParaId): BadFactoryType; overload;
-class function make(journal_bookmark): BadFactoryType; overload;
+class function make(const journal_bookmark): BadFactoryType; overload;
 class function make(doc_id: Cardinal;
  const topic: TTopic;
  redaction_id: TRedactionID): BadFactoryType; overload;
@@ -825,7 +825,7 @@ uses
  l3ImplUses
 ;
 
-class function make(pid): BadFactoryType;
+class function make(const pid): BadFactoryType;
 var
  l_Inst : IMissingInfo;
 begin
@@ -837,7 +837,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(diff_data): BadFactoryType;
+class function make(const diff_data): BadFactoryType;
 var
  l_Inst : IDiffIterator;
 begin
@@ -849,7 +849,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(list): BadFactoryType;
+class function make(const list): BadFactoryType;
 var
  l_Inst : IFoundContext;
 begin
@@ -861,8 +861,8 @@ begin
  end;//try..finally
 end;//make
 
-class function make(server_doc;
- handle;
+class function make(const server_doc;
+ const handle;
  all_at_once: Boolean): BadFactoryType;
 var
  l_Inst : IDocumentTextProvider;
@@ -875,7 +875,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(server_doc;
+class function make(const server_doc;
  handle: Cardinal;
  all_at_once: Boolean): BadFactoryType;
 var
@@ -889,8 +889,8 @@ begin
  end;//try..finally
 end;//make
 
-class function make(bookmark;
- doc_bookmark;
+class function make(const bookmark;
+ const doc_bookmark;
  var folders_node: IFoldersNode): BadFactoryType;
 var
  l_Inst : IBookmark;
@@ -940,7 +940,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(journal_bookmark): BadFactoryType;
+class function make(const journal_bookmark): BadFactoryType;
 var
  l_Inst : IJournalBookmark;
 begin

@@ -1,68 +1,53 @@
 unit l3ValueMapManager;
+ {* базовая реализация менеджера мап "строка"-что-то. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Лукьянец Р.В. / Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ValueMapManager.pas"
-// Начат: 30.03.2006 10:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3ValueMapManager
-//
-// базовая реализация менеджера мап "строка"-что-то.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ValueMapManager.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ValueMap,
-  l3ValueMapManagerPrim,
-  l3Types
-  ;
+ l3IntfUses
+ , l3ValueMapManagerPrim
+ , l3Interfaces
+ , l3ValueMap
+ , l3Types
+;
 
 type
  _FindDataType_ = Tl3ValueMapID;
  _l3Searcher_Parent_ = Tl3ValueMapManagerPrim;
- {$Include ..\L3\l3Searcher.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3ValueMapManager = class(_l3Searcher_)
   {* базовая реализация менеджера мап "строка"-что-то. }
- protected
- // property methods
-   function pm_GetMap(const aID: Tl3ValueMapID): Il3ValueMap;
- protected
- // protected methods
+  protected
+   function pm_GetMap(const aID: Tl3ValueMapID): Il3ValueMap; { can raise El3ValueMap }
    function MakeDefaultMap(const aID: Tl3ValueMapID): Il3ValueMap; virtual;
- public
- // public properties
+  public
    property Map[const aID: Tl3ValueMapID]: Il3ValueMap
-     read pm_GetMap;
+    read pm_GetMap;
  end;//Tl3ValueMapManager
 
 implementation
 
 uses
-  SysUtils,
-  l3Base,
-  l3Memory
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Memory
+;
+
+{$If not Declared(_ItemType_)}type _ItemType_ = Il3ValueMap;{$IfEnd}
 
 {$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
-// start class Tl3ValueMapManager
-
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_478E372C025D_var*
 //#UC END# *47B9BAFD01F4_478E372C025D_var*
 begin
@@ -75,11 +60,9 @@ end;//CompareItemWithData
 
 type _Instance_R_ = Tl3ValueMapManager;
 
-{$Include ..\L3\l3Searcher.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
-// start class Tl3ValueMapManager
-
-function Tl3ValueMapManager.pm_GetMap(const aID: Tl3ValueMapID): Il3ValueMap;
+function Tl3ValueMapManager.pm_GetMap(const aID: Tl3ValueMapID): Il3ValueMap; { can raise El3ValueMap }
 //#UC START# *47A1C3DA01BE_478E372C025Dget_var*
 var
  l_Index: Integer;

@@ -82,6 +82,10 @@ begin
 //#UC END# *47A1D86D015C_478E35650120_impl*
 end;//l3IntegerMapManager
 
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 type _Instance_R_ = Tl3IntegerValueMapFactories;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}

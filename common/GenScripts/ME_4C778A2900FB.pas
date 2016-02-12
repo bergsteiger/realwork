@@ -21,7 +21,7 @@ type
   protected
    function alloc_new_view: ViewBase; override;
   public
-   constructor make(tree); reintroduce;
+   constructor make(const tree); reintroduce;
  end;//ContentsTree
 
 implementation
@@ -31,7 +31,7 @@ uses
  , ContentsView
 ;
 
-constructor ContentsTree.make(tree);
+constructor ContentsTree.make(const tree);
 //#UC START# *4C778AE80242_4C778A2900FB_var*
 //#UC END# *4C778AE80242_4C778A2900FB_var*
 begin

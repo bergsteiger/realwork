@@ -1,77 +1,63 @@
 {$IfNDef l3ThreadNotifier_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3ThreadNotifier.imp.pas"
-// Начат: 2005/11/22 16:19:33
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3ThreadNotifier
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3ThreadNotifier.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3ThreadNotifier_imp}
+
+type
  Tl3DataHolder = class(Tl3CacheableBase)
- private
- // private fields
-   f_Intf : array of IUnknown;
-   f_Data : Pointer;
-    {* Поле для свойства Data}
- protected
- // overridden protected methods
+  private
+   f_Intf: array of IUnknown;
+   f_Data: Pointer;
+    {* Поле для свойства Data }
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(aData: Pointer;
     aDataSize: Integer;
     const anIntf: array of IUnknown); reintroduce;
- public
- // public properties
+  public
    property Data: Pointer
-     read f_Data;
+    read f_Data;
  end;//Tl3DataHolder
 
  Rl3DataHolder = class of Tl3DataHolder;
 
- TnsOnChangeInOtherThreadMethod = procedure (aDataPtr: Tl3DataHolder) of object;
+ TnsOnChangeInOtherThreadMethod = procedure(aDataPtr: Tl3DataHolder) of object;
 
- _l3ThreadNotifier_ = {mixin} class(_l3ThreadNotifier_Parent_)
- private
- // private fields
-   f_CustomChangeWindow : hWnd;
-   f_PostMessageCounter : Integer;
- private
- // private methods
+ _l3ThreadNotifier_ = class(_l3ThreadNotifier_Parent_)
+  private
+   f_CustomChangeWindow: hWnd;
+   f_PostMessageCounter: Integer;
+  private
    class function SynchronizeMessage: Longword;
    procedure WndProc(var aMessage: TMessage);
- protected
- // protected methods
+  protected
    function HolderClass: Rl3DataHolder; virtual;
    procedure InitFields; override;
    procedure Cleanup; override;
    procedure Synchronize(aOnChangeInOtherThread: TnsOnChangeInOtherThreadMethod;
     aDataPtr: Pointer;
     aDataSize: Integer;
-    const anIntf: array of IUnknown); overload; 
+    const anIntf: array of IUnknown); overload;
    procedure Synchronize(aOnChangeInOtherThread: TnsOnChangeInOtherThreadMethod;
     aDataPtr: Pointer;
-    aDataSize: Integer); overload; 
+    aDataSize: Integer); overload;
    procedure Synchronize(aOnChangeInOtherThread: TnsOnChangeInOtherThreadMethod;
-    aDataPtr: Tl3DataHolder = nil); overload; 
+    aDataPtr: Tl3DataHolder = nil); overload;
  end;//_l3ThreadNotifier_
 
 {$Else l3ThreadNotifier_imp}
 
-// start class Tl3DataHolder
+{$IfNDef l3ThreadNotifier_imp_impl}
+
+{$Define l3ThreadNotifier_imp_impl}
 
 constructor Tl3DataHolder.Create(aData: Pointer;
-  aDataSize: Integer;
-  const anIntf: array of IUnknown);
+ aDataSize: Integer;
+ const anIntf: array of IUnknown);
 //#UC START# *48FD94F00280_48FD94080208_var*
 //#UC END# *48FD94F00280_48FD94080208_var*
 begin
@@ -81,6 +67,7 @@ begin
 end;//Tl3DataHolder.Create
 
 procedure Tl3DataHolder.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48FD94080208_var*
 //#UC END# *479731C50290_48FD94080208_var*
 begin
@@ -135,9 +122,9 @@ begin
 end;//_l3ThreadNotifier_.Cleanup
 
 procedure _l3ThreadNotifier_.Synchronize(aOnChangeInOtherThread: TnsOnChangeInOtherThreadMethod;
-  aDataPtr: Pointer;
-  aDataSize: Integer;
-  const anIntf: array of IUnknown);
+ aDataPtr: Pointer;
+ aDataSize: Integer;
+ const anIntf: array of IUnknown);
 //#UC START# *48FD98230314_48FD8E460027_var*
 //#UC END# *48FD98230314_48FD8E460027_var*
 begin
@@ -147,8 +134,8 @@ begin
 end;//_l3ThreadNotifier_.Synchronize
 
 procedure _l3ThreadNotifier_.Synchronize(aOnChangeInOtherThread: TnsOnChangeInOtherThreadMethod;
-  aDataPtr: Pointer;
-  aDataSize: Integer);
+ aDataPtr: Pointer;
+ aDataSize: Integer);
 //#UC START# *48FD989D02FB_48FD8E460027_var*
 //#UC END# *48FD989D02FB_48FD8E460027_var*
 begin
@@ -158,7 +145,7 @@ begin
 end;//_l3ThreadNotifier_.Synchronize
 
 procedure _l3ThreadNotifier_.Synchronize(aOnChangeInOtherThread: TnsOnChangeInOtherThreadMethod;
-  aDataPtr: Tl3DataHolder = nil);
+ aDataPtr: Tl3DataHolder = nil);
 //#UC START# *48FD98BB0289_48FD8E460027_var*
 //#UC END# *48FD98BB0289_48FD8E460027_var*
 begin
@@ -167,4 +154,7 @@ begin
 //#UC END# *48FD98BB0289_48FD8E460027_impl*
 end;//_l3ThreadNotifier_.Synchronize
 
+{$EndIf l3ThreadNotifier_imp_impl}
+
 {$EndIf l3ThreadNotifier_imp}
+

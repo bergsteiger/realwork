@@ -35,6 +35,7 @@ uses
  , l3_String
  , l3Chars
  , l3String
+ , Windows
 ;
 
 constructor Tl3CStringDataObject.Create(const aString: Il3CString);

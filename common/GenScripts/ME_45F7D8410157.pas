@@ -26,7 +26,7 @@ type
    procedure close; virtual;
    procedure set_name(name: PAnsiChar); virtual;
    procedure set_value; virtual;
-   procedure set_entity(entity); virtual;
+   procedure set_entity(const entity); virtual;
    procedure transaction_data; virtual;
  end;//NodeChangeTransaction
 
@@ -52,26 +52,26 @@ type
    function apply_change_delta(var delta): Boolean; override;
   public
    procedure fill_value(var value); virtual;
-   procedure fill_entity(entity); virtual;
+   procedure fill_entity(const entity); virtual;
    procedure init(var owner_tree: TreeBase); virtual;
    procedure reset(owner_tree: TreeBase); virtual;
    procedure init_inserted(var owner: TreeBase;
-    data); virtual;
+    const data); virtual;
    procedure draw_node(level: unsigned integer;
     index: unsigned integer); virtual;
-   function is_equal(e): Boolean; virtual;
+   function is_equal(const e): Boolean; virtual;
    function get_current_transaction: NodeChangeTransaction; virtual;
    procedure delete_current_transaction; virtual;
    procedure commit_and_remove_transaction; virtual;
-   procedure paste_node(ptype;
+   procedure paste_node(const ptype;
     var node: DefaultNodeBase); virtual;
-   procedure paste_nodes(ptype;
-    holder); virtual;
+   procedure paste_nodes(const ptype;
+    const holder); virtual;
    procedure apply_transaction; virtual;
-   procedure change_node_value(value); virtual;
-   procedure change_node_entity(entity); virtual;
+   procedure change_node_value(const value); virtual;
+   procedure change_node_entity(const entity); virtual;
    constructor make(var owner_tree: TreeBase;
-    snode); reintroduce; overload; virtual;
+    const snode); reintroduce; overload; virtual;
    procedure get_server_pointer; override;
    function node_name: PAnsiChar; override;
   protected
@@ -133,7 +133,7 @@ begin
 //#UC END# *45FF9837030D_45FF97A70109_impl*
 end;//NodeChangeTransaction.set_value
 
-procedure NodeChangeTransaction.set_entity(entity);
+procedure NodeChangeTransaction.set_entity(const entity);
 //#UC START# *45FF990800AB_45FF97A70109_var*
 //#UC END# *45FF990800AB_45FF97A70109_var*
 begin
@@ -187,7 +187,7 @@ begin
 //#UC END# *45FFDF2B03B9_45F7D8410157_impl*
 end;//RealNodeBase.fill_value
 
-procedure RealNodeBase.fill_entity(entity);
+procedure RealNodeBase.fill_entity(const entity);
 //#UC START# *45FFDF540213_45F7D8410157_var*
 //#UC END# *45FFDF540213_45F7D8410157_var*
 begin
@@ -215,7 +215,7 @@ begin
 end;//RealNodeBase.reset
 
 procedure RealNodeBase.init_inserted(var owner: TreeBase;
- data);
+ const data);
 //#UC START# *45FFDFBA003E_45F7D8410157_var*
 //#UC END# *45FFDFBA003E_45F7D8410157_var*
 begin
@@ -234,7 +234,7 @@ begin
 //#UC END# *45FFE07E034B_45F7D8410157_impl*
 end;//RealNodeBase.draw_node
 
-function RealNodeBase.is_equal(e): Boolean;
+function RealNodeBase.is_equal(const e): Boolean;
 //#UC START# *45FFE0D503D8_45F7D8410157_var*
 //#UC END# *45FFE0D503D8_45F7D8410157_var*
 begin
@@ -270,7 +270,7 @@ begin
 //#UC END# *45FFE12C031C_45F7D8410157_impl*
 end;//RealNodeBase.commit_and_remove_transaction
 
-procedure RealNodeBase.paste_node(ptype;
+procedure RealNodeBase.paste_node(const ptype;
  var node: DefaultNodeBase);
 //#UC START# *45FFE20201C5_45F7D8410157_var*
 //#UC END# *45FFE20201C5_45F7D8410157_var*
@@ -280,8 +280,8 @@ begin
 //#UC END# *45FFE20201C5_45F7D8410157_impl*
 end;//RealNodeBase.paste_node
 
-procedure RealNodeBase.paste_nodes(ptype;
- holder);
+procedure RealNodeBase.paste_nodes(const ptype;
+ const holder);
 //#UC START# *45FFE26E001F_45F7D8410157_var*
 //#UC END# *45FFE26E001F_45F7D8410157_var*
 begin
@@ -299,7 +299,7 @@ begin
 //#UC END# *45FFE2AF035B_45F7D8410157_impl*
 end;//RealNodeBase.apply_transaction
 
-procedure RealNodeBase.change_node_value(value);
+procedure RealNodeBase.change_node_value(const value);
 //#UC START# *45FFE2BC03A9_45F7D8410157_var*
 //#UC END# *45FFE2BC03A9_45F7D8410157_var*
 begin
@@ -308,7 +308,7 @@ begin
 //#UC END# *45FFE2BC03A9_45F7D8410157_impl*
 end;//RealNodeBase.change_node_value
 
-procedure RealNodeBase.change_node_entity(entity);
+procedure RealNodeBase.change_node_entity(const entity);
 //#UC START# *45FFE2FB038A_45F7D8410157_var*
 //#UC END# *45FFE2FB038A_45F7D8410157_var*
 begin
@@ -327,7 +327,7 @@ begin
 end;//RealNodeBase.make
 
 constructor RealNodeBase.make(var owner_tree: TreeBase;
- snode);
+ const snode);
 //#UC START# *45FFF06B0157_45F7D8410157_var*
 //#UC END# *45FFF06B0157_45F7D8410157_var*
 begin

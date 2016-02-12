@@ -1,83 +1,72 @@
 unit l3ClassCacheEntry;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ClassCacheEntry.pas"
-// Начат: 21.03.2000 09:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3ClassCacheEntry
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ClassCacheEntry.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ProtoDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
  {$Define l3Items_NoSort}
- { Сортировка в кеше нам не нужна }
 
 type
  _ItemType_ = TObject;
  _l3ObjectRefListPrim_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3ObjectRefListPrim.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
  Tl3ClassCacheEntry = class(_l3ObjectRefListPrim_)
- public
- // public methods
+  public
    constructor Create; reintroduce;
    function Add(Item: TObject): Integer;
    function DeleteTailWithoutFree: Pointer;
-     {* удалить последний элемент, без его отпускания }
+    {* удалить последний элемент, без его отпускания }
  end;//Tl3ClassCacheEntry
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-// start class Tl3ClassCacheEntry
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  ); forward;
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  ); forward;
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_47A9A53001F6_var*
 //#UC END# *47B2C42A0163_47A9A53001F6_var*
 begin
@@ -85,15 +74,15 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_47A9A53001F6_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  );
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
+ {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_47A9A53001F6_var*
 //#UC END# *47B935AF0066_47A9A53001F6_var*
 begin
@@ -103,11 +92,11 @@ begin
 end;//FillItem
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  );
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
+ {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_47A9A53001F6_var*
 //#UC END# *47B94A5C006E_47A9A53001F6_var*
 begin
@@ -117,6 +106,7 @@ begin
 end;//FreeItem
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_47A9A53001F6_var*
 //#UC END# *47B99D4503A2_47A9A53001F6_var*
 begin
@@ -130,9 +120,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ClassCacheEntry;
 
-{$Include ..\L3\l3ObjectRefListPrim.imp.pas}
-
-// start class Tl3ClassCacheEntry
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
 
 constructor Tl3ClassCacheEntry.Create;
 //#UC START# *47B5A114039E_47A9A53001F6_var*
@@ -165,6 +153,7 @@ begin
 end;//Tl3ClassCacheEntry.Add
 
 function Tl3ClassCacheEntry.DeleteTailWithoutFree: Pointer;
+ {* удалить последний элемент, без его отпускания }
 //#UC START# *47B5A15003B3_47A9A53001F6_var*
 var
  l_Pt : PItemType;

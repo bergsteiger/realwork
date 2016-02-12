@@ -1,56 +1,39 @@
 unit l3OneByteCString;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3OneByteCString.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3OneByteCString
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3OneByteCString.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3Interfaces
+;
 
 type
  Tl3OneByteCString = class(Tl3CProtoObject, Il3CString)
- private
- // private fields
-   f_Ch : AnsiChar;
- protected
- // realized methods
+  private
+   f_Ch: AnsiChar;
+  protected
    function pm_GetAsWStr: Tl3WString;
- public
- // public methods
+  public
    constructor Create(aChar: AnsiChar); reintroduce;
    class function Make(aChar: AnsiChar): Il3CString; reintroduce;
-     {* Сигнатура фабрики Tl3OneByteCString.Make }
  end;//Tl3OneByteCString
 
 implementation
 
 uses
-  l3String,
-  l3Chars
-  {$If not defined(NoScripts)}
-  ,
-  tfwIl3CStringPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class Tl3OneByteCString
+ l3ImplUses
+ , l3String
+ , l3Chars
+ {$If NOT Defined(NoScripts)}
+ , tfwIl3CStringPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor Tl3OneByteCString.Create(aChar: AnsiChar);
 //#UC START# *4F5CBC4003A2_4F5CBB9600F6_var*
@@ -72,7 +55,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3OneByteCString.Make
 
 function Tl3OneByteCString.pm_GetAsWStr: Tl3WString;
 //#UC START# *46780DEF03E5_4F5CBB9600F6get_var*

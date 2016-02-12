@@ -63,7 +63,7 @@ type
  end;//IComplectInfo
 
 class function make(var owner_tree: IFakeFacetForFactory;
- snode): BadFactoryType;
+ const snode): BadFactoryType;
 class function make: BadFactoryType;
 
 implementation
@@ -73,7 +73,7 @@ uses
 ;
 
 class function make(var owner_tree: IFakeFacetForFactory;
- snode): BadFactoryType;
+ const snode): BadFactoryType;
 var
  l_Inst : IComplectInfoNode;
 begin

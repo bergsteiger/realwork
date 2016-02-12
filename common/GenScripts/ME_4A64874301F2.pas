@@ -34,7 +34,10 @@ uses
  l3ImplUses
  , k2Base
  , k2NullTagImpl
+ , l3BitArr
 ;
+
+{$If not Declared(_HashType_)}type _HashType_ = Tl3OneBytePtrHash;{$IfEnd}
 
 {$Include w:\common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas}
 

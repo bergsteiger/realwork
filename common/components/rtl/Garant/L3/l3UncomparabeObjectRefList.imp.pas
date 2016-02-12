@@ -1,41 +1,39 @@
 {$IfNDef l3UncomparabeObjectRefList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3UncomparabeObjectRefList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3UncomparabeObjectRefList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3UncomparabeObjectRefList_imp}
+
  _l3ObjectRefListPrim_Parent_ = _l3UncomparabeObjectRefList_Parent_;
- {$Include ..\L3\l3ObjectRefListPrim.imp.pas}
- _l3UncomparabeObjectRefList_ = {abstract mixin} class(_l3ObjectRefListPrim_)
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
+ _l3UncomparabeObjectRefList_ = {abstract} class(_l3ObjectRefListPrim_)
  end;//_l3UncomparabeObjectRefList_
 
 {$Else l3UncomparabeObjectRefList_imp}
 
-// start class _l3UncomparabeObjectRefList_
+{$IfNDef l3UncomparabeObjectRefList_imp_impl}
+
+{$Define l3UncomparabeObjectRefList_imp_impl}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  ); forward;
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  );
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
+ {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_47B99E920196_var*
 //#UC END# *47B935AF0066_47B99E920196_var*
 begin
@@ -45,11 +43,11 @@ begin
 end;//FillItem
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  );
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
+ {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_47B99E920196_var*
 //#UC END# *47B94A5C006E_47B99E920196_var*
 begin
@@ -58,8 +56,9 @@ begin
 //#UC END# *47B94A5C006E_47B99E920196_impl*
 end;//FreeItem
 
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas}
 
-{$Include ..\L3\l3ObjectRefListPrim.imp.pas}
-
+{$EndIf l3UncomparabeObjectRefList_imp_impl}
 
 {$EndIf l3UncomparabeObjectRefList_imp}
+

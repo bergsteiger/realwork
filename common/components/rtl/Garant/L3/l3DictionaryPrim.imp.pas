@@ -1,71 +1,56 @@
 {$IfNDef l3DictionaryPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DictionaryPrim.imp.pas"
-// Начат: 01.03.2010 15:52
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3DictionaryPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DictionaryPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3DictionaryPrim_imp}
+
+ // _IDIndexType_
+
  _l3DictionaryPrimPrim_Parent_ = _l3DictionaryPrim_Parent_;
- {$Include ..\L3\l3DictionaryPrimPrim.imp.pas}
- _l3DictionaryPrim_ = {abstract mixin} class(_l3DictionaryPrimPrim_)
- private
- // private fields
-   f_IDIndex : _IDIndexType_;
- protected
- // property methods
+ {$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrimPrim.imp.pas}
+ _l3DictionaryPrim_ = {abstract} class(_l3DictionaryPrimPrim_)
+  private
+   f_IDIndex: _IDIndexType_;
+  protected
    function pm_GetDRByID(anID: Integer): _StringType_; virtual;
- protected
- // overridden protected methods
+   function ControlFindByID: Boolean; virtual;
    procedure Release; override;
    procedure InitFields; override;
    procedure DirectInsert(anIndex: Integer;
     const aData: _ItemType_); override;
-     {* Непосредственное удаление элемента. Без проверки валидности индекса. }
-   {$If not defined(l3Items_NoSort)}
+    {* Непосредственное удаление элемента. Без проверки валидности индекса. }
+   {$If NOT Defined(l3Items_NoSort)}
    function DoFindInsertionPlace(const aFindData: _ItemType_;
     out theIndex: Integer): Boolean; override;
-     {* Ищет ПОСЛЕДНЕЕ вхождение элемента в список. Если не находит - возвращает место предполагаемой вставки. }
-   {$IfEnd} //not l3Items_NoSort
-   {$If defined(l3Items_NeedsBeforeFreeItem)}
+    {* Ищет ПОСЛЕДНЕЕ вхождение элемента в список. Если не находит - возвращает место предполагаемой вставки. }
+   {$IfEnd} // NOT Defined(l3Items_NoSort)
+   {$If Defined(l3Items_NeedsBeforeFreeItem)}
    procedure BeforeFreeItem(var aPlace: _ItemType_); override;
-     {* Нотификация потомкам об освобождении элемента списка }
-   {$IfEnd} //l3Items_NeedsBeforeFreeItem
- public
- // overridden public methods
+    {* Нотификация потомкам об освобождении элемента списка }
+   {$IfEnd} // Defined(l3Items_NeedsBeforeFreeItem)
+  public
    procedure Clear; override;
    procedure Sort; override;
-     {* сортирует хранилище. }
- protected
- // protected methods
-   function ControlFindByID: Boolean; virtual;
- public
- // public properties
+    {* сортирует хранилище. }
+  public
    property DRByID[anID: Integer]: _StringType_
-     read pm_GetDRByID;
-     {* Элемент по идентификатору }
+    read pm_GetDRByID;
+    {* Элемент по идентификатору }
  end;//_l3DictionaryPrim_
 
 {$Else l3DictionaryPrim_imp}
 
+{$IfNDef l3DictionaryPrim_imp_impl}
 
-{$Include ..\L3\l3DictionaryPrimPrim.imp.pas}
+{$Define l3DictionaryPrim_imp_impl}
 
 type
-  THackIndex = class(_IDIndexType_)
-   {* Хак }
-  end;//THackIndex
+ THackIndex = class(_IDIndexType_)
+  {* Хак }
+ end;//THackIndex
 
-// start class _l3DictionaryPrim_
+{$Include w:\common\components\rtl\Garant\L3\l3DictionaryPrimPrim.imp.pas}
 
 function _l3DictionaryPrim_.pm_GetDRByID(anID: Integer): _StringType_;
 //#UC START# *4B8BBA220048_4B8BB87A0089get_var*
@@ -123,7 +108,8 @@ begin
 end;//_l3DictionaryPrim_.Clear
 
 procedure _l3DictionaryPrim_.DirectInsert(anIndex: Integer;
-  const aData: _ItemType_);
+ const aData: _ItemType_);
+ {* Непосредственное удаление элемента. Без проверки валидности индекса. }
 //#UC START# *47B49EC50034_4B8BB87A0089_var*
 //#UC END# *47B49EC50034_4B8BB87A0089_var*
 begin
@@ -134,6 +120,7 @@ begin
 end;//_l3DictionaryPrim_.DirectInsert
 
 procedure _l3DictionaryPrim_.Sort;
+ {* сортирует хранилище. }
 //#UC START# *47B5AE6B0294_4B8BB87A0089_var*
 //#UC END# *47B5AE6B0294_4B8BB87A0089_var*
 begin
@@ -144,9 +131,10 @@ begin
 //#UC END# *47B5AE6B0294_4B8BB87A0089_impl*
 end;//_l3DictionaryPrim_.Sort
 
-{$If not defined(l3Items_NoSort)}
+{$If NOT Defined(l3Items_NoSort)}
 function _l3DictionaryPrim_.DoFindInsertionPlace(const aFindData: _ItemType_;
-  out theIndex: Integer): Boolean;
+ out theIndex: Integer): Boolean;
+ {* Ищет ПОСЛЕДНЕЕ вхождение элемента в список. Если не находит - возвращает место предполагаемой вставки. }
 //#UC START# *47B98F7E03A7_4B8BB87A0089_var*
 var
  l_Index : Integer;
@@ -175,10 +163,11 @@ begin
  end;//not Result
 //#UC END# *47B98F7E03A7_4B8BB87A0089_impl*
 end;//_l3DictionaryPrim_.DoFindInsertionPlace
-{$IfEnd} //not l3Items_NoSort
+{$IfEnd} // NOT Defined(l3Items_NoSort)
 
-{$If defined(l3Items_NeedsBeforeFreeItem)}
+{$If Defined(l3Items_NeedsBeforeFreeItem)}
 procedure _l3DictionaryPrim_.BeforeFreeItem(var aPlace: _ItemType_);
+ {* Нотификация потомкам об освобождении элемента списка }
 //#UC START# *4B87FCF8038B_4B8BB87A0089_var*
 //#UC END# *4B87FCF8038B_4B8BB87A0089_var*
 begin
@@ -188,6 +177,9 @@ begin
  inherited;
 //#UC END# *4B87FCF8038B_4B8BB87A0089_impl*
 end;//_l3DictionaryPrim_.BeforeFreeItem
-{$IfEnd} //l3Items_NeedsBeforeFreeItem
+{$IfEnd} // Defined(l3Items_NeedsBeforeFreeItem)
+
+{$EndIf l3DictionaryPrim_imp_impl}
 
 {$EndIf l3DictionaryPrim_imp}
+

@@ -1,60 +1,46 @@
 unit l3RTTI;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Костицын
-// Модуль: "w:/common/components/rtl/Garant/L3/l3RTTI.pas"
-// Начат: 27.07.2012
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3TestUtils::l3RTTI
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3RTTI.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  SysUtils
-  ;
+ l3IntfUses
+ , SysUtils
+;
 
 type
- TRTTIInfoObjectPropertyFoundCallBack = procedure (anObject: TObject;
+ TRTTIInfoObjectPropertyFoundCallBack = procedure(anObject: TObject;
   var aValue: AnsiString) of object;
 
  ERTTIInfoSkipProperty = class(Exception)
  end;//ERTTIInfoSkipProperty
-function L3FormatRTTIInfo(anObject: TObject;
-  aSkipEvents: Boolean = True;
-  anObjectPropertyFoundCallBack: TRTTIInfoObjectPropertyFoundCallBack = nil;
-  aEscapeSpecialChars: Boolean = False): AnsiString;
+
+function l3FormatRTTIInfo(anObject: TObject;
+ aSkipEvents: Boolean = True;
+ anObjectPropertyFoundCallBack: TRTTIInfoObjectPropertyFoundCallBack = nil;
+ aEscapeSpecialChars: Boolean = False): AnsiString;
 
 implementation
 
 uses
-  TypInfo,
-  l3StringList,
-  l3Base
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Graphics
-  ;
+ l3ImplUses
+ , TypInfo
+ , l3StringList
+ , l3Base
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Graphics
+;
 
-// unit methods
-
-function L3FormatRTTIInfo(anObject: TObject;
-  aSkipEvents: Boolean = True;
-  anObjectPropertyFoundCallBack: TRTTIInfoObjectPropertyFoundCallBack = nil;
-  aEscapeSpecialChars: Boolean = False): AnsiString;
+function l3FormatRTTIInfo(anObject: TObject;
+ aSkipEvents: Boolean = True;
+ anObjectPropertyFoundCallBack: TRTTIInfoObjectPropertyFoundCallBack = nil;
+ aEscapeSpecialChars: Boolean = False): AnsiString;
 //#UC START# *5012C016039F_5012BFDC0300_var*
  function PropAsString(const aProp: TPropInfo): AnsiString;
 
@@ -246,6 +232,6 @@ begin
   FreeMem(l_List);
  end;
 //#UC END# *5012C016039F_5012BFDC0300_impl*
-end;//L3FormatRTTIInfo
+end;//l3FormatRTTIInfo
 
 end.

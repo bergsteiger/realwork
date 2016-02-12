@@ -1,718 +1,601 @@
 unit l3Variant;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Variant.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3Variant
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Variant.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Types,
-  Classes,
-  l3Const,
-  k2BaseTypes,
-  l3ProtoObject,
-  l3DataContainerWithoutIUnknownPrim,
-  l3Variants,
-  l3PureMixIns
-  ;
-
-(*
- Mk2Storable = PureMixIn
-  {* Методы тега отвечающие за сохранение/восстановление }
-   procedure DoLoad;
-   procedure ForceStore;
- end;//Mk2Storable
-*)
+ l3IntfUses
+ , l3Interfaces
+ , Classes
+ , l3Variants
+ , l3Types
+ , l3DataContainerWithoutIUnknownPrim
+ , l3Const
+ , k2BaseTypes
+ , l3PureMixIns
+ , l3ProtoObject
+;
 
 type
+ Pl3Variant = ^Tl3Variant;
+
+ (*
+ Mk2Storable = interface
+  {* Методы тега отвечающие за сохранение/восстановление }
+  procedure DoLoad;
+  procedure ForceStore;
+ end;//Mk2Storable
+ *)
+
  Tk2VarKind = (
-   k2_vkInteger
- , k2_vkString
- , k2_vkTransparent
- , k2_vkStream
+  k2_vkInteger
+  , k2_vkString
+  , k2_vkTransparent
+  , k2_vkStream
  );//Tk2VarKind
 
  Il3OpPack = interface;
- { - предварительное описание Il3OpPack. }
 
  Ik2Variant = interface;
- { - предварительное описание Ik2Variant. }
-
 
  Tl3Variant = class;
 
-
  Tl3VariantDef = class;
 
- Ik2TagGenerator = interface(IUnknown)
+ Ik2TagGenerator = interface
   {* Генератор тегов }
-   ['{694DAEA5-80F3-4E12-9CCF-2B9950479734}']
-   procedure pm_SetCharsInLine(aValue: Integer);
-   function pm_GetCurrentStartLevel: Integer;
-   function pm_GetContext: Il3OpPack;
-   function pm_GetNextGenerator: Ik2TagGenerator;
-   procedure pm_SetNextGenerator(const aValue: Ik2TagGenerator);
-   function Get_CurrentVersion: Integer;
-   procedure Set_CurrentVersion(aValue: Integer);
-   procedure AddStringAtom(TagID: Integer;
-    const Value: AnsiString;
-    aCodePage: Integer = CP_ANSI); overload; 
-     {* добавить строковый атом. }
-   procedure AddStringAtom(TagID: Integer;
-    const Value: Tl3WString); overload; 
-     {* добавить строковый атом. }
-   procedure AddStreamAtom(TagID: Integer;
-    aStream: TStream);
-     {* добавить атом из потока. }
-   procedure AddTransparentAtom(TagID: Integer);
-     {* добавить "прозрачный" атом. }
-   procedure AddIntegerAtom(TagID: Integer;
-    Value: Integer);
-     {* добавить целочисленный атом. }
-   procedure AddBoolAtom(TagID: Integer;
-    Value: Boolean);
-   procedure AddAtom(AtomIndex: Integer;
-    aValue: Tl3Variant);
-     {* добавить атом. }
-   procedure AddAtomEx(AtomIndex: Integer;
-    const Value: Ik2Variant);
-   procedure Start;
-     {* начать генерацию. }
-   procedure StartChild(TypeID: Tl3VariantDef);
-     {* начать дочерний объект тега. }
-   procedure StartDefaultChild;
-     {* начать дочерний объект тега с типом по-умолчанию. }
-   procedure StartTag(TagID: Integer);
-     {* начать вложеный тег. }
-   procedure Finish(NeedUndo: Boolean = false);
-     {* закрыть скобку этапа генерации. }
-   procedure Rollback(CheckBrackets: Boolean = false);
-     {* откатить все открытые "скобки". }
-   function Pixel2Char(Pixel: Integer): Integer;
-   procedure AddInt64Atom(aTagID: Integer;
-    aValue: Int64);
-     {* Добавляет 64-битный атом }
-   function Char2Pixel(aCh: Integer): Integer;
-   property CharsInLine: Integer
-     write pm_SetCharsInLine;
-   property CurrentStartLevel: Integer
-     read pm_GetCurrentStartLevel;
-   property Context: Il3OpPack
-     read pm_GetContext;
-   property NextGenerator: Ik2TagGenerator
-     read pm_GetNextGenerator
-     write pm_SetNextGenerator;
-     {* следующий генератор в цепочке. }
-   property CurrentVersion: Integer
-     read Get_CurrentVersion
-     write Set_CurrentVersion;
-     {* Текущая версия формата }
+  ['{694DAEA5-80F3-4E12-9CCF-2B9950479734}']
+  procedure pm_SetCharsInLine(aValue: Integer);
+  function pm_GetCurrentStartLevel: Integer;
+  function pm_GetContext: Il3OpPack;
+  function pm_GetNextGenerator: Ik2TagGenerator;
+  procedure pm_SetNextGenerator(const aValue: Ik2TagGenerator);
+  function Get_CurrentVersion: Integer;
+  procedure Set_CurrentVersion(aValue: Integer);
+  procedure AddStringAtom(TagID: Integer;
+   const Value: AnsiString;
+   aCodePage: Integer = CP_ANSI); overload;
+   {* добавить строковый атом. }
+  procedure AddStringAtom(TagID: Integer;
+   const Value: Tl3WString); overload;
+   {* добавить строковый атом. }
+  procedure AddStreamAtom(TagID: Integer;
+   aStream: TStream);
+   {* добавить атом из потока. }
+  procedure AddTransparentAtom(TagID: Integer);
+   {* добавить "прозрачный" атом. }
+  procedure AddIntegerAtom(TagID: Integer;
+   Value: Integer);
+   {* добавить целочисленный атом. }
+  procedure AddBoolAtom(TagID: Integer;
+   Value: Boolean);
+  procedure AddAtom(AtomIndex: Integer;
+   aValue: Tl3Variant);
+   {* добавить атом. }
+  procedure AddAtomEx(AtomIndex: Integer;
+   const Value: Ik2Variant);
+  procedure Start;
+   {* начать генерацию. }
+  procedure StartChild(TypeID: Tl3VariantDef);
+   {* начать дочерний объект тега. }
+  procedure StartDefaultChild;
+   {* начать дочерний объект тега с типом по-умолчанию. }
+  procedure StartTag(TagID: Integer);
+   {* начать вложеный тег. }
+  procedure Finish(NeedUndo: Boolean = False);
+   {* закрыть скобку этапа генерации. }
+  procedure Rollback(CheckBrackets: Boolean = False);
+   {* откатить все открытые "скобки". }
+  function Pixel2Char(Pixel: Integer): Integer;
+  procedure AddInt64Atom(aTagID: Integer;
+   aValue: Int64);
+   {* Добавляет 64-битный атом }
+  function Char2Pixel(aCh: Integer): Integer;
+  property CharsInLine: Integer
+   write pm_SetCharsInLine;
+  property CurrentStartLevel: Integer
+   read pm_GetCurrentStartLevel;
+  property Context: Il3OpPack
+   read pm_GetContext;
+  property NextGenerator: Ik2TagGenerator
+   read pm_GetNextGenerator
+   write pm_SetNextGenerator;
+   {* следующий генератор в цепочке. }
+  property CurrentVersion: Integer
+   read Get_CurrentVersion
+   write Set_CurrentVersion;
+   {* Текущая версия формата }
  end;//Ik2TagGenerator
 
  Ik2Processor = interface;
- { - предварительное описание Ik2Processor. }
 
- Ik2UndoBuffer = interface(IUnknown)
+ Ik2UndoBuffer = interface
   {* Undo-буфер }
-   ['{957F4AF4-F09C-40BA-B4C1-030462DC0F2C}']
-   function pm_GetCanUndo: Boolean;
-   function pm_GetCanRedo: Boolean;
-   function Get_Last: TObject;
-   function Get_Empty: Boolean;
-   function Get_Disabled: Boolean;
-   procedure Set_Disabled(aValue: Boolean);
-   function GetActiveObject(aSucc: Boolean): TObject;
-   procedure ExecutedOperation(aContainer: TObject);
-     {* нотификация буферу о новой пачке операций. }
-   function Undo(const aProcessor: Ik2Processor): Boolean;
-     {* отменить предыдущую операцию. }
-   function Redo(const aProcessor: Ik2Processor): Boolean;
-     {* вернуть отмененную операцию. }
-   procedure Clear;
-     {* Очистить буфер операций. }
-   property CanUndo: Boolean
-     read pm_GetCanUndo;
-     {* можно ли отменить операцию? }
-   property CanRedo: Boolean
-     read pm_GetCanRedo;
-     {* можно ли вернуть операцию? }
-   property Last: TObject
-     read Get_Last;
-   property Empty: Boolean
-     read Get_Empty;
-     {* объект "пустой"? }
-   property Disabled: Boolean
-     read Get_Disabled
-     write Set_Disabled;
+  ['{957F4AF4-F09C-40BA-B4C1-030462DC0F2C}']
+  function pm_GetCanUndo: Boolean;
+  function pm_GetCanRedo: Boolean;
+  function Get_Last: TObject;
+  function Get_Empty: Boolean;
+  function Get_Disabled: Boolean;
+  procedure Set_Disabled(aValue: Boolean);
+  function GetActiveObject(aSucc: Boolean): TObject;
+  procedure ExecutedOperation(aContainer: TObject);
+   {* нотификация буферу о новой пачке операций. }
+  function Undo(const aProcessor: Ik2Processor): Boolean;
+   {* отменить предыдущую операцию. }
+  function Redo(const aProcessor: Ik2Processor): Boolean;
+   {* вернуть отмененную операцию. }
+  procedure Clear;
+   {* Очистить буфер операций. }
+  property CanUndo: Boolean
+   read pm_GetCanUndo;
+   {* можно ли отменить операцию? }
+  property CanRedo: Boolean
+   read pm_GetCanRedo;
+   {* можно ли вернуть операцию? }
+  property Last: TObject
+   read Get_Last;
+  property Empty: Boolean
+   read Get_Empty;
+   {* объект "пустой"? }
+  property Disabled: Boolean
+   read Get_Disabled
+   write Set_Disabled;
  end;//Ik2UndoBuffer
 
  Ik2Processor = interface(Il3ChangeNotifier)
   {* Процессор операций. }
-   ['{D7993D78-8C13-45D0-8000-F65721D67FC7}']
-   function pm_GetDefaultStyle: Tl3StyleId;
-   procedure pm_SetDefaultStyle(aValue: Tl3StyleId);
-   function pm_GetCanUndo: Boolean;
-   function pm_GetCanRedo: Boolean;
-   function Get_UndoBuffer: Ik2UndoBuffer;
-   function StartOp(OpCode: Integer = 0;
-    DoLock: Boolean = true): Il3OpPack;
-     {* начать операцию. }
-   function FinishOp(anOp: TObject): Boolean;
-     {* закончить операцию. }
-   function LastOp: Il3OpPack;
-     {* предыдущая операция. }
-   function InOp: Boolean;
-     {* Пачка операций открыта. }
-   procedure Lock;
-     {* закрыть. }
-   procedure Unlock;
-     {* открыть. }
-   function Undo: Boolean;
-     {* отменить предыдущую операцию. }
-   function Redo: Boolean;
-     {* вернуть отмененную операцию. }
-   procedure CheckInsert(aParent: Tl3Variant;
-    var aChild: Tl3Variant;
-    var anIndex: Integer);
-     {* проверить операцию с параграфом. }
-   procedure CheckDelete(aParent: Tl3Variant;
-    aChild: Tl3Variant;
-    anIndex: Integer);
-     {* проверить операцию с параграфом. }
-   procedure NotifyCompleted(aList: Tl3Variant;
-    aChild: Tl3Variant);
-   procedure NotifyInsert(aList: Tl3Variant;
-    aProp: TObject;
-    aChild: Tl3Variant;
-    anIndex: Integer;
-    const anOpPack: Il3OpPack);
-   procedure NotifyDelete(aList: Tl3Variant;
-    aProp: TObject;
-    aChild: Tl3Variant;
-    anIndex: Integer;
-    const anOpPack: Il3OpPack);
-   function NeedReplaceQuotes: Boolean;
-     {* Опрелеляет - нужно ли заменять кавычки при вводе. }
-   procedure NotifyPropChanged(aProp: TObject;
-    const aValues;
-    const anOp: Il3OpPack);
-     {* Сообщает об изменении свойства объекта }
-   property DefaultStyle: Tl3StyleId
-     read pm_GetDefaultStyle
-     write pm_SetDefaultStyle;
-     {* Стиль по-умолчанию. }
-   property CanUndo: Boolean
-     read pm_GetCanUndo;
-     {* возможно ли Undo. }
-   property CanRedo: Boolean
-     read pm_GetCanRedo;
-     {* возможно ли Redo. }
-   property UndoBuffer: Ik2UndoBuffer
-     read Get_UndoBuffer;
+  ['{D7993D78-8C13-45D0-8000-F65721D67FC7}']
+  function pm_GetDefaultStyle: Tl3StyleId;
+  procedure pm_SetDefaultStyle(aValue: Tl3StyleId);
+  function pm_GetCanUndo: Boolean;
+  function pm_GetCanRedo: Boolean;
+  function Get_UndoBuffer: Ik2UndoBuffer;
+  function StartOp(OpCode: Integer = 0;
+   DoLock: Boolean = True): Il3OpPack;
+   {* начать операцию. }
+  function FinishOp(anOp: TObject): Boolean;
+   {* закончить операцию. }
+  function LastOp: Il3OpPack;
+   {* предыдущая операция. }
+  function InOp: Boolean;
+   {* Пачка операций открыта. }
+  procedure Lock;
+   {* закрыть. }
+  procedure Unlock;
+   {* открыть. }
+  function Undo: Boolean;
+   {* отменить предыдущую операцию. }
+  function Redo: Boolean;
+   {* вернуть отмененную операцию. }
+  procedure CheckInsert(aParent: Tl3Variant;
+   var aChild: Tl3Variant;
+   var anIndex: Integer);
+   {* проверить операцию с параграфом. }
+  procedure CheckDelete(aParent: Tl3Variant;
+   aChild: Tl3Variant;
+   anIndex: Integer);
+   {* проверить операцию с параграфом. }
+  procedure NotifyCompleted(aList: Tl3Variant;
+   aChild: Tl3Variant);
+  procedure NotifyInsert(aList: Tl3Variant;
+   aProp: TObject;
+   aChild: Tl3Variant;
+   anIndex: Integer;
+   const anOpPack: Il3OpPack);
+  procedure NotifyDelete(aList: Tl3Variant;
+   aProp: TObject;
+   aChild: Tl3Variant;
+   anIndex: Integer;
+   const anOpPack: Il3OpPack);
+  function NeedReplaceQuotes: Boolean;
+   {* Опрелеляет - нужно ли заменять кавычки при вводе. }
+  procedure NotifyPropChanged(aProp: TObject;
+   const aValues;
+   const anOp: Il3OpPack);
+   {* Сообщает об изменении свойства объекта }
+  property DefaultStyle: Tl3StyleId
+   read pm_GetDefaultStyle
+   write pm_SetDefaultStyle;
+   {* Стиль по-умолчанию. }
+  property CanUndo: Boolean
+   read pm_GetCanUndo;
+   {* возможно ли Undo. }
+  property CanRedo: Boolean
+   read pm_GetCanRedo;
+   {* возможно ли Redo. }
+  property UndoBuffer: Ik2UndoBuffer
+   read Get_UndoBuffer;
  end;//Ik2Processor
 
- Il3OpPackMode = interface(IUnknown)
+ Il3OpPackMode = interface
   {* Пачка операций. }
-   ['{5A1F0786-3718-4890-BB08-5CC705FF8CEE}']
-   function Get_InUndo: Boolean;
-   function Get_SaveUndo: Boolean;
-   procedure Set_SaveUndo(aValue: Boolean);
-   function pm_GetDeleteMapped: Boolean;
-   procedure pm_SetDeleteMapped(aValue: Boolean);
-   function pm_GetOptimize: Boolean;
-   procedure pm_SetOptimize(aValue: Boolean);
-   function pm_GetInIOProcess: Boolean;
-   procedure pm_SetInIOProcess(aValue: Boolean);
-   procedure pm_SetReadOnly(aValue: Boolean);
-   function pm_GetProcessor: Ik2Processor;
-   procedure MarkModified(aTarget: Tl3Variant);
-   procedure InvertModified;
-   function GetModified: Boolean;
-   procedure CheckReadOnly;
-   procedure DisableReadonly;
-     {* Выключает режим проверки ReadOnly }
-   procedure EnableReadOnly;
-     {* Включает режим проверки ReadOnly }
-   procedure CheckOn;
-   procedure CheckOff;
-   function IsCheckOff: Boolean;
-   property InUndo: Boolean
-     read Get_InUndo;
-   property SaveUndo: Boolean
-     read Get_SaveUndo
-     write Set_SaveUndo;
-   property DeleteMapped: Boolean
-     read pm_GetDeleteMapped
-     write pm_SetDeleteMapped;
-   property Optimize: Boolean
-     read pm_GetOptimize
-     write pm_SetOptimize;
-   property InIOProcess: Boolean
-     read pm_GetInIOProcess
-     write pm_SetInIOProcess;
-   property ReadOnly: Boolean
-     write pm_SetReadOnly;
-   property Processor: Ik2Processor
-     read pm_GetProcessor;
-     {* процессор операций в контексте которого выполняется данная пачка. }
+  ['{5A1F0786-3718-4890-BB08-5CC705FF8CEE}']
+  function Get_InUndo: Boolean;
+  function Get_SaveUndo: Boolean;
+  procedure Set_SaveUndo(aValue: Boolean);
+  function pm_GetDeleteMapped: Boolean;
+  procedure pm_SetDeleteMapped(aValue: Boolean);
+  function pm_GetOptimize: Boolean;
+  procedure pm_SetOptimize(aValue: Boolean);
+  function pm_GetInIOProcess: Boolean;
+  procedure pm_SetInIOProcess(aValue: Boolean);
+  procedure pm_SetReadOnly(aValue: Boolean);
+  function pm_GetProcessor: Ik2Processor;
+  procedure MarkModified(aTarget: Tl3Variant);
+  procedure InvertModified;
+  function GetModified: Boolean;
+  procedure CheckReadOnly;
+  procedure DisableReadonly;
+   {* Выключает режим проверки ReadOnly }
+  procedure EnableReadOnly;
+   {* Включает режим проверки ReadOnly }
+  procedure CheckOn;
+  procedure CheckOff;
+  function IsCheckOff: Boolean;
+  property InUndo: Boolean
+   read Get_InUndo;
+  property SaveUndo: Boolean
+   read Get_SaveUndo
+   write Set_SaveUndo;
+  property DeleteMapped: Boolean
+   read pm_GetDeleteMapped
+   write pm_SetDeleteMapped;
+  property Optimize: Boolean
+   read pm_GetOptimize
+   write pm_SetOptimize;
+  property InIOProcess: Boolean
+   read pm_GetInIOProcess
+   write pm_SetInIOProcess;
+  property ReadOnly: Boolean
+   write pm_SetReadOnly;
+  property Processor: Ik2Processor
+   read pm_GetProcessor;
+   {* процессор операций в контексте которого выполняется данная пачка. }
  end;//Il3OpPackMode
 
  Il3OpPack = interface(Il3OpPackMode)
   {* Пачка операций. }
-   ['{EA3D40DD-EE9F-4E2E-ABE1-B414C09E87FD}']
-   function Get_Code: Integer;
-   function Undo(const aProcessor: Ik2Processor): Integer;
-     {* откатывает все операции и возвращает их количество. }
-   function Redo(const aProcessor: Ik2Processor): Integer;
-     {* возвращает все операции и возвращает их количество. }
-   procedure Lock;
-     {* закрыть. }
-   procedure Unlock;
-     {* открыть. }
-   property Code: Integer
-     read Get_Code;
-     {* Код операции }
+  ['{EA3D40DD-EE9F-4E2E-ABE1-B414C09E87FD}']
+  function Get_Code: Integer;
+  function Undo(const aProcessor: Ik2Processor): Integer;
+   {* откатывает все операции и возвращает их количество. }
+  function Redo(const aProcessor: Ik2Processor): Integer;
+   {* возвращает все операции и возвращает их количество. }
+  procedure Lock;
+   {* закрыть. }
+  procedure Unlock;
+   {* открыть. }
+  property Code: Integer
+   read Get_Code;
+   {* Код операции }
  end;//Il3OpPack
+
+ Mk2Children_IterateChildrenF_Action = function(anItem: Tl3Variant;
+  anIndex: Integer): Boolean;
+  {* Тип подитеративной функции для Mk2Children.IterateChildrenF }
+
+ Mk2Children_IterateChildrenBack_Action = function(anItem: Tl3Variant;
+  anIndex: Integer): Boolean;
+  {* Тип подитеративной функции для Mk2Children.IterateChildrenBack }
+
  Il3TagRef = interface;
- { - предварительное описание Il3TagRef. }
 
-
-  Mk2Children_IterateChildrenF_Action = function (anItem: Tl3Variant;
-  anIndex: Integer): Boolean;
-   {* Тип подитеративной функции для Mk2Children.IterateChildrenF }
-
-  Mk2Children_IterateChildrenBack_Action = function (anItem: Tl3Variant;
-  anIndex: Integer): Boolean;
-   {* Тип подитеративной функции для Mk2Children.IterateChildrenBack }
-
-(*
- Mk2Children = PureMixIn
+ (*
+ Mk2Children = interface
   {* Хранилище детей }
-   {iterator} function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-    aLo: Tl3Index = l3MinIndex;
-    aHi: Tl3Index = l3MaxIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3MaxIndex;
-    aLo: Tl3Index = l3MinIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3MaxIndex;
-    aLo: Tl3Index = l3MinIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   function Get_ChildrenCount: Integer;
-   function pm_GetChild(anIndex: Integer): Tl3Variant;
-   procedure Set_ChildrenCapacity(aValue: Integer);
-   function AddChild(aChild: Tl3Variant;
-    const aContext: Il3OpPack = nil): Integer;
-     {* добавить ребенка. }
-   function DeleteChild(anIndex: Integer;
-    const anOp: Il3OpPack;
-    out theChild: Il3TagRef): Boolean; overload; 
-     {* удалить ребенка. }
-   function DeleteChild(aChild: Tl3Variant;
-    const Context: Il3OpPack = nil): Boolean; overload; 
-     {* удалить ребенка. }
-   function DeleteChild(anIndex: Integer;
-    const anOp: Il3OpPack = nil): Boolean; overload; 
-   property ChildrenCount: Integer
-     read Get_ChildrenCount;
-     {* Количество дочерних тегов. }
-   property Child[anIndex: Integer]: Tl3Variant
-     read pm_GetChild;
-   property ChildrenCapacity: Integer
-     write Set_ChildrenCapacity;
-     {* Потенциально возможное число детей }
+  function Get_ChildrenCount: Integer;
+  function pm_GetChild(anIndex: Integer): Tl3Variant;
+  procedure Set_ChildrenCapacity(aValue: Integer);
+  function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
+   aLo: Tl3Index = l3MinIndex;
+   aHi: Tl3Index = l3MaxIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
+   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
+   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function AddChild(aChild: Tl3Variant;
+   const aContext: Il3OpPack = nil): Integer;
+   {* добавить ребенка. }
+  function DeleteChild(anIndex: Integer;
+   const anOp: Il3OpPack;
+   out theChild: Il3TagRef): Boolean; overload;
+   {* удалить ребенка. }
+  function DeleteChild(aChild: Tl3Variant;
+   const Context: Il3OpPack = nil): Boolean; overload;
+   {* удалить ребенка. }
+  function DeleteChild(anIndex: Integer;
+   const anOp: Il3OpPack = nil): Boolean; overload;
+  property ChildrenCount: Integer
+   read Get_ChildrenCount;
+   {* Количество дочерних тегов. }
+  property Child[anIndex: Integer]: Tl3Variant
+   read pm_GetChild;
+  property ChildrenCapacity: Integer
+   write Set_ChildrenCapacity;
+   {* Потенциально возможное число детей }
  end;//Mk2Children
-*)
+ *)
 
-(*
- Mk2RefCount = PureMixIn
+ (*
+ Mk2RefCount = interface
   {* Подсчёт ссылок }
-   procedure SetRef(var aRef: Tl3Variant);
+  procedure SetRef(var aRef: Tl3Variant);
  end;//Mk2RefCount
-*)
+ *)
 
-(*
- Mk2TypeInfoEx = PureMixIn(Mk2TypeInfo)
-   function IsSame(aType: Tl3VariantDef): Boolean;
+ (*
+ Mk2TypeInfoEx = interface(Mk2TypeInfo)
+  function IsSame(aType: Tl3VariantDef): Boolean;
  end;//Mk2TypeInfoEx
-*)
+ *)
 
-(*
- Mk2Owned = PureMixIn
-   function Get_Owner: Tl3Variant;
-   procedure Set_Owner(aValue: Tl3Variant);
-   property Owner: Tl3Variant
-     read Get_Owner
-     write Set_Owner;
+ (*
+ Mk2Owned = interface
+  function Get_Owner: Tl3Variant;
+  procedure Set_Owner(aValue: Tl3Variant);
+  property Owner: Tl3Variant
+   read Get_Owner
+   write Set_Owner;
  end;//Mk2Owned
-*)
+ *)
 
-(*
- Mk2IntegerHolder = PureMixIn
-   function pm_GetIntA(anIndex: Integer): Integer;
-   procedure pm_SetIntA(anIndex: Integer; aValue: Integer);
-   procedure pm_SetIntW(anIndex: Integer; const aContext: Il3OpPack; aValue: Integer);
-   function RLong(anIndex: Integer;
-    aDefault: Integer): Integer;
-   property IntA[anIndex: Integer]: Integer
-     read pm_GetIntA
-     write pm_SetIntA;
-   property IntW[anIndex: Integer; const aContext: Il3OpPack]: Integer
-     write pm_SetIntW;
+ (*
+ Mk2IntegerHolder = interface
+  function pm_GetIntA(anIndex: Integer): Integer;
+  procedure pm_SetIntA(anIndex: Integer;
+   aValue: Integer);
+  procedure pm_SetIntW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   aValue: Integer);
+  function rLong(anIndex: Integer;
+   aDefault: Integer): Integer;
+  property IntA[anIndex: Integer]: Integer
+   read pm_GetIntA
+   write pm_SetIntA;
+  property IntW[anIndex: Integer; const aContext: Il3OpPack]: Integer
+   write pm_SetIntW;
  end;//Mk2IntegerHolder
-*)
+ *)
 
-(*
- Mk2PCharLenHolder = PureMixIn
-   function pm_GetPCharLenA(anIndex: Integer): Tl3PCharLen;
-   procedure pm_SetPCharLenA(anIndex: Integer; const aValue: Tl3PCharLen);
-   procedure pm_SetPCharLenW(anIndex: Integer; const aContext: Il3OpPack; const aValue: Tl3WString);
-   property PCharLenA[anIndex: Integer]: Tl3PCharLen
-     read pm_GetPCharLenA
-     write pm_SetPCharLenA;
-   property PCharLenW[anIndex: Integer; const aContext: Il3OpPack]: Tl3WString
-     write pm_SetPCharLenW;
+ (*
+ Mk2PCharLenHolder = interface
+  function pm_GetPCharLenA(anIndex: Integer): Tl3PCharLen;
+  procedure pm_SetPCharLenA(anIndex: Integer;
+   const aValue: Tl3PCharLen);
+  procedure pm_SetPCharLenW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   const aValue: Tl3WString);
+  property PCharLenA[anIndex: Integer]: Tl3PCharLen
+   read pm_GetPCharLenA
+   write pm_SetPCharLenA;
+  property PCharLenW[anIndex: Integer; const aContext: Il3OpPack]: Tl3WString
+   write pm_SetPCharLenW;
  end;//Mk2PCharLenHolder
-*)
+ *)
 
-(*
- Mk2BooleanHolder = PureMixIn
-   function pm_GetBoolA(anIndex: Integer): Boolean;
-   procedure pm_SetBoolA(anIndex: Integer; aValue: Boolean);
-   procedure pm_SetBoolW(anIndex: Integer; const aContext: Il3OpPack; aValue: Boolean);
-   property BoolA[anIndex: Integer]: Boolean
-     read pm_GetBoolA
-     write pm_SetBoolA;
-   property BoolW[anIndex: Integer; const aContext: Il3OpPack]: Boolean
-     write pm_SetBoolW;
+ (*
+ Mk2BooleanHolder = interface
+  function pm_GetBoolA(anIndex: Integer): Boolean;
+  procedure pm_SetBoolA(anIndex: Integer;
+   aValue: Boolean);
+  procedure pm_SetBoolW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   aValue: Boolean);
+  property BoolA[anIndex: Integer]: Boolean
+   read pm_GetBoolA
+   write pm_SetBoolA;
+  property BoolW[anIndex: Integer; const aContext: Il3OpPack]: Boolean
+   write pm_SetBoolW;
  end;//Mk2BooleanHolder
-*)
+ *)
 
-(*
- Mk2StringHolder = PureMixIn
-   function pm_GetStrA(anIndex: Integer): AnsiString;
-   procedure pm_SetStrA(anIndex: Integer; const aValue: AnsiString);
-   procedure pm_SetStrW(anIndex: Integer; const aContext: Il3OpPack; const aValue: AnsiString);
-   property StrA[anIndex: Integer]: AnsiString
-     read pm_GetStrA
-     write pm_SetStrA;
-   property StrW[anIndex: Integer; const aContext: Il3OpPack]: AnsiString
-     write pm_SetStrW;
+ (*
+ Mk2StringHolder = interface
+  function pm_GetStrA(anIndex: Integer): AnsiString;
+  procedure pm_SetStrA(anIndex: Integer;
+   const aValue: AnsiString);
+  procedure pm_SetStrW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   const aValue: AnsiString);
+  property StrA[anIndex: Integer]: AnsiString
+   read pm_GetStrA
+   write pm_SetStrA;
+  property StrW[anIndex: Integer; const aContext: Il3OpPack]: AnsiString
+   write pm_SetStrW;
  end;//Mk2StringHolder
-*)
+ *)
 
-(*
- Mk2TypeHolder = PureMixIn
-   function pm_GetTagType: Tl3VariantDef;
-   property TagType: Tl3VariantDef
-     read pm_GetTagType;
+ (*
+ Mk2TypeHolder = interface
+  function pm_GetTagType: Tl3VariantDef;
+  property TagType: Tl3VariantDef
+   read pm_GetTagType;
  end;//Mk2TypeHolder
-*)
+ *)
 
-(*
- Mk2TagHolder = PureMixIn
-   function pm_GetAttr(anIndex: Integer): Tl3Variant;
-   function RAtomEx(const Path: array of Integer;
-    theIndex: PLongint = nil): Tl3Variant;
-     {* вернуть подтег. }
-   function CAtom(anIndex: Integer;
-    const aContext: Il3OpPack = nil;
-    anAtomType: Tl3VariantDef = nil): Tl3Variant;
-     {* проверить существование подтега и создать его при необходимости. }
-   function CAtomEx(const aPath: array of Integer;
-    const aContext: Il3OpPack;
-    theIndex: PLongint = nil): Tl3Variant;
-     {* проверить существование подтега и создать его при необходимости. }
-   property Attr[anIndex: Integer]: Tl3Variant
-     read pm_GetAttr;
-     default;
+ (*
+ Mk2TagHolder = interface
+  function pm_GetAttr(anIndex: Integer): Tl3Variant;
+  function rAtomEx(const Path: array of Integer;
+   theIndex: PLongint = nil): Tl3Variant;
+   {* вернуть подтег. }
+  function cAtom(anIndex: Integer;
+   const aContext: Il3OpPack = nil;
+   anAtomType: Tl3VariantDef = nil): Tl3Variant;
+   {* проверить существование подтега и создать его при необходимости. }
+  function cAtomEx(const aPath: array of Integer;
+   const aContext: Il3OpPack;
+   theIndex: PLongint = nil): Tl3Variant;
+   {* проверить существование подтега и создать его при необходимости. }
+  property Attr[anIndex: Integer]: Tl3Variant
+   read pm_GetAttr;
+   default;
  end;//Mk2TagHolder
-*)
+ *)
 
-(*
- Mk2TagToolProvider = PureMixIn
-   function QT(const IID: TGUID;
-    out Obj;
-    const aProcessor: Ik2Processor = nil): Boolean;
-     {* возвращает инструмент для работы с тегом, к которому привязан исходный инструмент. }
+ (*
+ Mk2TagToolProvider = interface
+  function QT(const IID: TGUID;
+   out Obj;
+   const aProcessor: Ik2Processor = nil): Boolean;
+   {* возвращает инструмент для работы с тегом, к которому привязан исходный инструмент. }
  end;//Mk2TagToolProvider
-*)
+ *)
 
-(*
- Mk2Int64Holder = PureMixIn
-   function Get_Int64A(aTagID: Integer): Int64;
-   procedure Set_Int64A(aTagID: Integer; aValue: Int64);
-   procedure Set_Int64W(aTagID: Integer; const aContext: Il3OpPack; aValue: Int64);
-   function Get_DateTimeA(aTagID: Integer): TDateTime;
-   procedure Set_DateTimeA(aTagID: Integer; aValue: TDateTime);
-   procedure Set_DateTimeW(aTagID: Integer; const aContext: Il3OpPack; aValue: TDateTime);
-   property Int64A[aTagID: Integer]: Int64
-     read Get_Int64A
-     write Set_Int64A;
-   property Int64W[aTagID: Integer; const aContext: Il3OpPack]: Int64
-     write Set_Int64W;
-   property DateTimeA[aTagID: Integer]: TDateTime
-     read Get_DateTimeA
-     write Set_DateTimeA;
-   property DateTimeW[aTagID: Integer; const aContext: Il3OpPack]: TDateTime
-     write Set_DateTimeW;
+ (*
+ Mk2Int64Holder = interface
+  function Get_Int64A(aTagID: Integer): Int64;
+  procedure Set_Int64A(aTagID: Integer;
+   aValue: Int64);
+  procedure Set_Int64W(aTagID: Integer;
+   const aContext: Il3OpPack;
+   aValue: Int64);
+  function Get_DateTimeA(aTagID: Integer): TDateTime;
+  procedure Set_DateTimeA(aTagID: Integer;
+   aValue: TDateTime);
+  procedure Set_DateTimeW(aTagID: Integer;
+   const aContext: Il3OpPack;
+   aValue: TDateTime);
+  property Int64A[aTagID: Integer]: Int64
+   read Get_Int64A
+   write Set_Int64A;
+  property Int64W[aTagID: Integer; const aContext: Il3OpPack]: Int64
+   write Set_Int64W;
+  property DateTimeA[aTagID: Integer]: TDateTime
+   read Get_DateTimeA
+   write Set_DateTimeA;
+  property DateTimeW[aTagID: Integer; const aContext: Il3OpPack]: TDateTime
+   write Set_DateTimeW;
  end;//Mk2Int64Holder
-*)
+ *)
 
-(*
- Mk2TypeInfoPrim = PureMixIn
-   function IsKindOf(anID: Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
-   function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
-   function IsKindOf(anAtomTypeID: Tl3VariantDef;
-    const Exclude: array of Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
+ (*
+ Mk2TypeInfoPrim = interface
+  function IsKindOf(anID: Tl3VariantDef): Boolean; overload;
+   {* проверить наследование. }
+  function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload;
+   {* проверить наследование. }
+  function IsKindOf(anAtomTypeID: Tl3VariantDef;
+   const Exclude: array of Tl3VariantDef): Boolean; overload;
+   {* проверить наследование. }
  end;//Mk2TypeInfoPrim
-*)
+ *)
 
-(*
- Ml3VariantSame = PureMixIn
-   function IsSame(anOther: Tl3Variant): Boolean; overload; 
+ (*
+ Ml3VariantSame = interface
+  function IsSame(anOther: Tl3Variant): Boolean; overload;
  end;//Ml3VariantSame
-*)
+ *)
 
-(*
- Ml3Tag = PureMixIn
-   function GetOwnInterface(const IID: TGUID;
-    out Obj): Boolean;
-     {* возвращает интерфейс НЕПОСРЕДСТВЕННО поддерживаемый реализацией инструмента. }
-   function Box: Tl3Variant;
-     {* ссылка на тег - для сохранения. }
+ (*
+ Ml3Tag = interface
+  function GetOwnInterface(const IID: TGUID;
+   out Obj): Boolean;
+   {* возвращает интерфейс НЕПОСРЕДСТВЕННО поддерживаемый реализацией инструмента. }
+  function Box: Tl3Variant;
+   {* ссылка на тег - для сохранения. }
  end;//Ml3Tag
-*)
+ *)
 
-//#UC START# *53319F9C002Fci*
+ //#UC START# *53319F9C002Fci*
  //Tl3VariantDef = class;
-//#UC END# *53319F9C002Fci*
-//#UC START# *53319F9C002Fcit*
-//#UC END# *53319F9C002Fcit*
+ //#UC END# *53319F9C002Fci*
+ //#UC START# *53319F9C002Fcit*
+ //#UC END# *53319F9C002Fcit*
  Tl3VariantPrim = {abstract} class(Tl3DataContainerWithoutIUnknownPrim)
- public
- // realized methods
-   function IsOrd: Boolean;
-   function IsKindOf(anID: Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
-   function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
-   function IsKindOf(anAtomTypeID: Tl3VariantDef;
-    const Exclude: array of Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
- protected
- // protected methods
+  protected
    function GetAsString: AnsiString; virtual;
    function GetIsOrd: Boolean; virtual;
    function GetIsKindOfPrim(aType: Tl3VariantDef): Boolean; virtual;
    function GetAsPCharLen: Tl3WString; virtual;
- public
- // public methods
+  public
    function QI(const aGUID: TGUID;
-     out theObj): Boolean;
-//#UC START# *53319F9C002Fpubl*
-//#UC END# *53319F9C002Fpubl*
+    out theObj): Boolean;
+   function IsOrd: Boolean;
+   function IsKindOf(anID: Tl3VariantDef): Boolean; overload;
+    {* проверить наследование. }
+   function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload;
+    {* проверить наследование. }
+   function IsKindOf(anAtomTypeID: Tl3VariantDef;
+    const Exclude: array of Tl3VariantDef): Boolean; overload;
+    {* проверить наследование. }
+ //#UC START# *53319F9C002Fpubl*
+ //#UC END# *53319F9C002Fpubl*
  end;//Tl3VariantPrim
 
  Tl3VariantDef = {abstract} class(Tl3VariantPrim)
- protected
- // property methods
+  protected
    procedure pm_SetIDw(aValue: Integer); virtual;
    function pm_GetAsString: AnsiString;
    function pm_GetAsWStr: Tl3WString;
- public
- // realized methods
-   function IsSame(aType: Tl3VariantDef): Boolean;
- protected
- // overridden protected methods
-   function GetAsString: AnsiString; override;
- protected
- // protected methods
    function DoDoMakeTag(aRef: Integer): Il3TagRef; virtual;
    function GetIsProp: Boolean; virtual;
- public
- // public methods
+   function GetAsString: AnsiString; override;
+  public
    function IsProp: Boolean;
    function IsNull: Boolean;
    function MakeTag(aRef: Integer = l3NilLong): Il3TagRef;
- public
- // public properties
+   function IsSame(aType: Tl3VariantDef): Boolean;
+  public
    property IDw: Integer
-     write pm_SetIDw;
+    write pm_SetIDw;
    property AsString: AnsiString
-     read pm_GetAsString;
+    read pm_GetAsString;
    property AsWStr: Tl3WString
-     read pm_GetAsWStr;
+    read pm_GetAsWStr;
  end;//Tl3VariantDef
 
-  Ml3TagHolder_IterateProperties_Action = function (anItem: Tl3Variant;
+ Ml3TagHolder_IterateProperties_Action = function(anItem: Tl3Variant;
   anIndex: Tl3VariantDef): Boolean;
-   {* Тип подитеративной функции для Ml3TagHolder.IterateProperties }
+  {* Тип подитеративной функции для Ml3TagHolder.IterateProperties }
 
-(*
- Ml3TagHolder = PureMixIn
-   {iterator} procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
-    anAll: Boolean
-    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные});
-     {* перебирает все существующие свойства }
-   {iterator} procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
-    anAll: Boolean
-    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные});
-     {* перебирает все существующие свойства }
-   procedure pm_SetAttrW(anIndex: Integer; const aContext: Il3OpPack; aValue: Tl3Variant);
-   property AttrW[anIndex: Integer; const aContext: Il3OpPack]: Tl3Variant
-     write pm_SetAttrW;
+ (*
+ Ml3TagHolder = interface
+  procedure pm_SetAttrW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   aValue: Tl3Variant);
+  procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
+   anAll: Boolean
+   {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+   {* перебирает все существующие свойства }
+  procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
+   anAll: Boolean
+   {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+   {* перебирает все существующие свойства }
+  property AttrW[anIndex: Integer; const aContext: Il3OpPack]: Tl3Variant
+   write pm_SetAttrW;
  end;//Ml3TagHolder
-*)
+ *)
 
-(*
- Ml3TagBox = PureMixIn
-   function AsObject: Tl3Variant;
+ (*
+ Ml3TagBox = interface
+  function AsObject: Tl3Variant;
  end;//Ml3TagBox
-*)
+ *)
 
-//#UC START# *532031160122ci*
-//#UC END# *532031160122ci*
+ //#UC START# *532031160122ci*
+ //#UC END# *532031160122ci*
  _l3Changing_Parent_ = Tl3VariantPrim;
- {$Include ..\L3\l3Changing.imp.pas}
-//#UC START# *532031160122cit*
-//#UC END# *532031160122cit*
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
+ //#UC START# *532031160122cit*
+ //#UC END# *532031160122cit*
  Tl3Variant = {abstract} class(_l3Changing_)
- protected
- // property methods
+  protected
    function pm_GetTagOwner: Tl3Variant; virtual;
    procedure pm_SetTagOwner(aValue: Tl3Variant); virtual;
    function pm_GetChildrenCount: Integer; virtual;
    procedure pm_SetChildrenCapacity(aValue: Integer); virtual;
    function pm_GetChildPrim(anIndex: Integer): Tl3Variant; virtual;
- protected
- // realized methods
-   function pm_GetAttr(anIndex: Integer): Tl3Variant;
-   function pm_GetBoolA(anIndex: Integer): Boolean;
-   procedure pm_SetBoolA(anIndex: Integer; aValue: Boolean);
-   function pm_GetIntA(anIndex: Integer): Integer;
-   procedure pm_SetIntA(anIndex: Integer; aValue: Integer);
-   function pm_GetStrA(anIndex: Integer): AnsiString;
-   procedure pm_SetStrA(anIndex: Integer; const aValue: AnsiString);
-   function pm_GetChild(anIndex: Integer): Tl3Variant;
-   procedure pm_SetBoolW(anIndex: Integer; const aContext: Il3OpPack; aValue: Boolean);
-   procedure pm_SetIntW(anIndex: Integer; const aContext: Il3OpPack; aValue: Integer);
-   procedure pm_SetStrW(anIndex: Integer; const aContext: Il3OpPack; const aValue: AnsiString);
-   function pm_GetPCharLenA(anIndex: Integer): Tl3PCharLen;
-   procedure pm_SetPCharLenA(anIndex: Integer; const aValue: Tl3PCharLen);
-   procedure pm_SetPCharLenW(anIndex: Integer; const aContext: Il3OpPack; const aValue: Tl3WString);
-   function pm_GetAsString: AnsiString;
-   function pm_GetAsWStr: Tl3WString;
-   function Get_ChildrenCount: Integer;
-   procedure Set_ChildrenCapacity(aValue: Integer);
-   function Get_Owner: Tl3Variant;
-   procedure Set_Owner(aValue: Tl3Variant);
-   function Get_Int64A(aTagID: Integer): Int64;
-   procedure Set_Int64A(aTagID: Integer; aValue: Int64);
-   procedure Set_Int64W(aTagID: Integer; const aContext: Il3OpPack; aValue: Int64);
-   procedure pm_SetAttrW(anIndex: Integer; const aContext: Il3OpPack; aValue: Tl3Variant);
-   function pm_GetTagType: Tl3VariantDef;
-   function Get_DateTimeA(aTagID: Integer): TDateTime;
-   procedure Set_DateTimeA(aTagID: Integer; aValue: TDateTime);
-   procedure Set_DateTimeW(aTagID: Integer; const aContext: Il3OpPack; aValue: TDateTime);
- public
- // realized methods
-   function Box: Tl3Variant;
-     {* ссылка на тег - для сохранения. }
-   function AsBool: Boolean;
-     {* преобразовать к Boolean. }
-   function AsLong: Integer;
-   function AsObject: Tl3Variant;
-   function AddChild(aChild: Tl3Variant;
-    const aContext: Il3OpPack = nil): Integer;
-     {* добавить ребенка. }
-   procedure SetRef(var aRef: Tl3Variant);
-   function DeleteChild(anIndex: Integer;
-    const anOp: Il3OpPack;
-    out theChild: Il3TagRef): Boolean; overload; 
-     {* удалить ребенка. }
-   function DeleteChild(aChild: Tl3Variant;
-    const Context: Il3OpPack = nil): Boolean; overload; 
-     {* удалить ребенка. }
-   function DeleteChild(anIndex: Integer;
-    const anOp: Il3OpPack = nil): Boolean; overload; 
-   procedure DoLoad;
-   procedure ForceStore;
-   function MarkModified: Boolean;
-   {iterator} function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-    aLo: Tl3Index = l3MinIndex;
-    aHi: Tl3Index = l3MaxIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3MaxIndex;
-    aLo: Tl3Index = l3MinIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3MaxIndex;
-    aLo: Tl3Index = l3MinIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
-    anAll: Boolean
-    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные});
-     {* перебирает все существующие свойства }
-   {iterator} procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
-    anAll: Boolean
-    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные});
-     {* перебирает все существующие свойства }
-   function RLong(anIndex: Integer;
-    aDefault: Integer): Integer;
-   function RAtomEx(const Path: array of Integer;
-    theIndex: PLongint = nil): Tl3Variant;
-     {* вернуть подтег. }
-   function CAtom(anIndex: Integer;
-    const aContext: Il3OpPack = nil;
-    anAtomType: Tl3VariantDef = nil): Tl3Variant;
-     {* проверить существование подтега и создать его при необходимости. }
-   function CAtomEx(const aPath: array of Integer;
-    const aContext: Il3OpPack;
-    theIndex: PLongint = nil): Tl3Variant;
-     {* проверить существование подтега и создать его при необходимости. }
-   function HasSubAtom(anIndex: Integer): Boolean;
-   function IsNull: Boolean;
-     {* пустой тег? }
-   function IsValid: Boolean;
-     {* тег имеет значение? }
-   function IsTransparent: Boolean;
-     {* тег "прозрачный"? }
-   function IsStream(out theStream: IStream): Boolean;
-     {* Проверяет может ли тег приводиться к потоку. И приводит к потоку - если указатель на поток - не нулевой. }
-   function QT(const IID: TGUID;
-    out Obj;
-    const aProcessor: Ik2Processor = nil): Boolean;
-     {* возвращает инструмент для работы с тегом, к которому привязан исходный инструмент. }
-   function GetOwnInterface(const IID: TGUID;
-    out Obj): Boolean;
-     {* возвращает интерфейс НЕПОСРЕДСТВЕННО поддерживаемый реализацией инструмента. }
-   function IsSame(anOther: Tl3Variant): Boolean; overload; 
- protected
- // overridden protected methods
-   function GetIsKindOfPrim(aType: Tl3VariantDef): Boolean; override;
- protected
- // protected methods
    function GetAsLong: Integer; virtual;
    function GetIsNull: Boolean; virtual;
    function GetIsTransparent: Boolean; virtual;
@@ -721,40 +604,40 @@ type
    procedure DoSetRef(var theRef: Tl3Variant); virtual;
    function GetTagType: Tl3VariantDef; virtual;
    procedure SetAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Tl3Variant); virtual;
+    const aContext: Il3OpPack;
+    aValue: Tl3Variant); virtual;
    function GetAttr(anIndex: Integer;
-     out theValue: Tl3Variant): Boolean; virtual;
+    out theValue: Tl3Variant): Boolean; virtual;
    procedure SetBoolAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Boolean); virtual;
+    const aContext: Il3OpPack;
+    aValue: Boolean); virtual;
    procedure SetIntAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Integer); virtual;
+    const aContext: Il3OpPack;
+    aValue: Integer); virtual;
    procedure SetWStrAttr(anIndex: Integer;
-     const aContext: Il3OpPack;
-     const aValue: Tl3WString); virtual;
+    const aContext: Il3OpPack;
+    const aValue: Tl3WString); virtual;
    procedure DoDoLoad; virtual;
    procedure DoForceStore; virtual;
    function DoIterateChildrenBack(Action: Mk2Children_IterateChildrenBack_Action;
-     aHi: Tl3Index;
-     aLo: Tl3Index;
-     aLoadedOnly: Boolean): Integer; virtual;
+    aHi: Tl3Index;
+    aLo: Tl3Index;
+    aLoadedOnly: Boolean): Integer; virtual;
    function DoAddChild(aChild: Tl3Variant;
-     const aContext: Il3OpPack): Integer; virtual;
+    const aContext: Il3OpPack): Integer; virtual;
    function CheckAttr(const aPath: array of Integer;
-     const aContext: Il3OpPack;
-     DoCheck: Boolean;
-     theIndex: PLongint): Tl3Variant; virtual;
+    const aContext: Il3OpPack;
+    DoCheck: Boolean;
+    theIndex: PLongint): Tl3Variant; virtual;
    function DoCAtom(anIndex: Integer;
-     const aContext: Il3OpPack;
-     anAtomType: Tl3VariantDef): Tl3Variant; virtual;
+    const aContext: Il3OpPack;
+    anAtomType: Tl3VariantDef): Tl3Variant; virtual;
    function GetAsBox: Tl3Variant; virtual;
    function GetAsRef: Il3TagRef; virtual;
    function GetInt64A(anIndex: Integer): Int64; virtual;
    procedure SetInt64A(anIndex: Integer;
-     const aContext: Il3OpPack;
-     aValue: Int64); virtual;
+    const aContext: Il3OpPack;
+    aValue: Int64); virtual;
    function DoMarkModified: Boolean; virtual;
    procedure DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
     All: Boolean); virtual;
@@ -765,13 +648,61 @@ type
     aLo: Tl3Index;
     aHi: Tl3Index;
     aLoadedOnly: Boolean): Integer; virtual;
- public
- // public methods
+   function pm_GetAttr(anIndex: Integer): Tl3Variant;
+   function pm_GetBoolA(anIndex: Integer): Boolean;
+   procedure pm_SetBoolA(anIndex: Integer;
+    aValue: Boolean);
+   function pm_GetIntA(anIndex: Integer): Integer;
+   procedure pm_SetIntA(anIndex: Integer;
+    aValue: Integer);
+   function pm_GetStrA(anIndex: Integer): AnsiString;
+   procedure pm_SetStrA(anIndex: Integer;
+    const aValue: AnsiString);
+   function pm_GetChild(anIndex: Integer): Tl3Variant;
+   procedure pm_SetBoolW(anIndex: Integer;
+    const aContext: Il3OpPack;
+    aValue: Boolean);
+   procedure pm_SetIntW(anIndex: Integer;
+    const aContext: Il3OpPack;
+    aValue: Integer);
+   procedure pm_SetStrW(anIndex: Integer;
+    const aContext: Il3OpPack;
+    const aValue: AnsiString);
+   function pm_GetPCharLenA(anIndex: Integer): Tl3PCharLen;
+   procedure pm_SetPCharLenA(anIndex: Integer;
+    const aValue: Tl3PCharLen);
+   procedure pm_SetPCharLenW(anIndex: Integer;
+    const aContext: Il3OpPack;
+    const aValue: Tl3WString);
+   function pm_GetAsString: AnsiString;
+   function pm_GetAsWStr: Tl3WString;
+   function Get_ChildrenCount: Integer;
+   procedure Set_ChildrenCapacity(aValue: Integer);
+   function Get_Owner: Tl3Variant;
+   procedure Set_Owner(aValue: Tl3Variant);
+   function Get_Int64A(aTagID: Integer): Int64;
+   procedure Set_Int64A(aTagID: Integer;
+    aValue: Int64);
+   procedure Set_Int64W(aTagID: Integer;
+    const aContext: Il3OpPack;
+    aValue: Int64);
+   procedure pm_SetAttrW(anIndex: Integer;
+    const aContext: Il3OpPack;
+    aValue: Tl3Variant);
+   function pm_GetTagType: Tl3VariantDef;
+   function Get_DateTimeA(aTagID: Integer): TDateTime;
+   procedure Set_DateTimeA(aTagID: Integer;
+    aValue: TDateTime);
+   procedure Set_DateTimeW(aTagID: Integer;
+    const aContext: Il3OpPack;
+    aValue: TDateTime);
+   function GetIsKindOfPrim(aType: Tl3VariantDef): Boolean; override;
+  public
    function TagType: Tl3VariantDef;
    function AsRef: Il3TagRef;
    function DoQT(const IID: TGUID;
-     out Obj;
-     const aProcessor: Ik2Processor): Boolean; virtual;
+    out Obj;
+    const aProcessor: Ik2Processor): Boolean; virtual;
    procedure CheckSort(aProp: Tl3VariantDef); virtual;
    function FindChild(anAtom: Integer;
     aValue: Integer;
@@ -782,7 +713,7 @@ type
    procedure WriteTag(const G: Ik2TagGenerator;
     Flags: Tk2StorePropertyFlags = l3_spfAll;
     Exclude: TByteSet = []); virtual;
-     {* записать тег в генератор. }
+    {* записать тег в генератор. }
    function AssignTag(Source: Tl3Variant;
     AssignMode: Tk2AssignModes = k2_amAll;
     const Context: Il3OpPack = nil): Boolean; virtual;
@@ -790,34 +721,104 @@ type
     AssignMode: Tk2AssignModes = k2_amAll;
     const Context: Il3OpPack = nil); virtual;
    procedure DeleteChildren(const Context: Il3OpPack = nil); virtual;
-     {* удалить всех детей. }
+    {* удалить всех детей. }
    procedure InsertChildTag(anIndex: Integer;
     aChild: Tl3Variant;
     const aContext: Il3OpPack = nil); virtual;
-     {* вставить ребенка. }
+    {* вставить ребенка. }
    function IndexOfChild(aChild: Tl3Variant): Integer; virtual;
-   function ROwnAtom(anIndex: Integer): Tl3Variant; virtual;
+   function rOwnAtom(anIndex: Integer): Tl3Variant; virtual;
    function GetLinkedInterface(const IID: TGUID;
     out Obj): Boolean; virtual;
    function CompareWithInt(aValue: Integer;
     anIndex: Integer): Integer; virtual;
-     {* Сравнивает тег с целым. }
+    {* Сравнивает тег с целым. }
    function CompareWithTag(aTag: Tl3Variant;
     aSortIndex: Tl3SortIndex): Integer; virtual;
- protected
- // protected properties
+   function Box: Tl3Variant;
+    {* ссылка на тег - для сохранения. }
+   function AsBool: Boolean;
+    {* преобразовать к Boolean. }
+   function AsLong: Integer;
+   function AsObject: Tl3Variant;
+   function AddChild(aChild: Tl3Variant;
+    const aContext: Il3OpPack = nil): Integer;
+    {* добавить ребенка. }
+   procedure SetRef(var aRef: Tl3Variant);
+   function DeleteChild(anIndex: Integer;
+    const anOp: Il3OpPack;
+    out theChild: Il3TagRef): Boolean; overload;
+    {* удалить ребенка. }
+   function DeleteChild(aChild: Tl3Variant;
+    const Context: Il3OpPack = nil): Boolean; overload;
+    {* удалить ребенка. }
+   function DeleteChild(anIndex: Integer;
+    const anOp: Il3OpPack = nil): Boolean; overload;
+   procedure DoLoad;
+   procedure ForceStore;
+   function MarkModified: Boolean;
+   function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
+    aLo: Tl3Index = l3MinIndex;
+    aHi: Tl3Index = l3MaxIndex;
+    aLoadedOnly: Boolean = False): Integer;
+   function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
+    aHi: Tl3Index = l3MaxIndex;
+    aLo: Tl3Index = l3MinIndex;
+    aLoadedOnly: Boolean = False): Integer;
+   function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
+    aHi: Tl3Index = l3MaxIndex;
+    aLo: Tl3Index = l3MinIndex;
+    aLoadedOnly: Boolean = False): Integer;
+   procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
+    anAll: Boolean
+    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+    {* перебирает все существующие свойства }
+   procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
+    anAll: Boolean
+    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+    {* перебирает все существующие свойства }
+   function rLong(anIndex: Integer;
+    aDefault: Integer): Integer;
+   function rAtomEx(const Path: array of Integer;
+    theIndex: PLongint = nil): Tl3Variant;
+    {* вернуть подтег. }
+   function cAtom(anIndex: Integer;
+    const aContext: Il3OpPack = nil;
+    anAtomType: Tl3VariantDef = nil): Tl3Variant;
+    {* проверить существование подтега и создать его при необходимости. }
+   function cAtomEx(const aPath: array of Integer;
+    const aContext: Il3OpPack;
+    theIndex: PLongint = nil): Tl3Variant;
+    {* проверить существование подтега и создать его при необходимости. }
+   function HasSubAtom(anIndex: Integer): Boolean;
+   function IsNull: Boolean;
+    {* пустой тег? }
+   function IsValid: Boolean;
+    {* тег имеет значение? }
+   function IsTransparent: Boolean;
+    {* тег "прозрачный"? }
+   function IsStream(out theStream: IStream): Boolean;
+    {* Проверяет может ли тег приводиться к потоку. И приводит к потоку - если указатель на поток - не нулевой. }
+   function QT(const IID: TGUID;
+    out Obj;
+    const aProcessor: Ik2Processor = nil): Boolean;
+    {* возвращает инструмент для работы с тегом, к которому привязан исходный инструмент. }
+   function GetOwnInterface(const IID: TGUID;
+    out Obj): Boolean;
+    {* возвращает интерфейс НЕПОСРЕДСТВЕННО поддерживаемый реализацией инструмента. }
+   function IsSame(anOther: Tl3Variant): Boolean; overload;
+  protected
    property TagOwner: Tl3Variant
-     read pm_GetTagOwner
-     write pm_SetTagOwner;
- public
- // public properties
+    read pm_GetTagOwner
+    write pm_SetTagOwner;
+  public
    property ChildrenCount: Integer
-     read pm_GetChildrenCount;
+    read pm_GetChildrenCount;
    property ChildrenCapacity: Integer
-     write pm_SetChildrenCapacity;
+    write pm_SetChildrenCapacity;
    property ChildPrim[anIndex: Integer]: Tl3Variant
-     read pm_GetChildPrim;
-//#UC START# *532031160122publ*
+    read pm_GetChildPrim;
+ //#UC START# *532031160122publ*
  public
    property Child[anIndex: Integer]: Tl3Variant
      read pm_GetChild;
@@ -877,14 +878,13 @@ type
     write Set_DateTimeA;
   property DateTimeW[aTagID: Integer; const aContext: Il3OpPack]: TDateTime
     write Set_DateTimeW;
-//#UC END# *532031160122publ*
+ //#UC END# *532031160122publ*
  end;//Tl3Variant
 
  Tl3Tag = Tl3Variant;
 
  Tl3PrimString = {abstract} class(Tl3Tag)
- protected
- // property methods
+  protected
    function pm_GetAsString: AnsiString;
    procedure pm_SetAsString(const aValue: AnsiString);
    function pm_GetAsWStr: Tl3WString;
@@ -893,337 +893,344 @@ type
    procedure pm_SetStringID(aValue: Integer); virtual;
    function pm_GetLinkedObject: TObject; virtual;
    procedure pm_SetLinkedObject(aValue: TObject); virtual;
- protected
- // overridden protected methods
+   procedure DoSetAsPCharLen(const Value: Tl3PCharLen); virtual;
    function GetAsPCharLen: Tl3WString; override;
    function GetEmpty: Boolean; override;
    function GetAsString: AnsiString; override;
- protected
- // protected methods
-   procedure DoSetAsPCharLen(const Value: Tl3PCharLen); virtual;
- public
- // public methods
+  public
    procedure Clear; virtual;
-     {* Функция очистки объекта.  Для перекрытия в потомках. }
+    {* Функция очистки объекта.  Для перекрытия в потомках. }
    procedure AssignString(aStr: Tl3PrimString); virtual;
-     {* Присвает другую строку данной. }
+    {* Присвает другую строку данной. }
    function Clone: Pointer; virtual;
-     {* Создайт копию строки. }
- public
- // public properties
+    {* Создайт копию строки. }
+  public
    property AsString: AnsiString
-     read pm_GetAsString
-     write pm_SetAsString;
-     {* свойство для преобразования к строкам Delphi и обратно. }
+    read pm_GetAsString
+    write pm_SetAsString;
+    {* свойство для преобразования к строкам Delphi и обратно. }
    property AsWStr: Tl3WString
-     read pm_GetAsWStr
-     write pm_SetAsWStr;
+    read pm_GetAsWStr
+    write pm_SetAsWStr;
    property StringID: Integer
-     read pm_GetStringID
-     write pm_SetStringID;
-     {* Идентификатор. }
+    read pm_GetStringID
+    write pm_SetStringID;
+    {* Идентификатор. }
    property LinkedObject: TObject
-     read pm_GetLinkedObject
-     write pm_SetLinkedObject;
-     {* Объект, привязанный к строке. }
+    read pm_GetLinkedObject
+    write pm_SetLinkedObject;
+    {* Объект, привязанный к строке. }
  end;//Tl3PrimString
 
- Ik2Variant = interface(IUnknown)
-   ['{20DEC442-9EE5-44F0-9864-C00BA36614BD}']
-   function Get_AsString: Tl3PrimString;
-   function Get_AsInteger: Integer;
-   function Get_AsStream: TStream;
-   function Get_AsVariant: Tl3Variant;
-   function Get_Kind: Tk2VarKind;
-   property AsString: Tl3PrimString
-     read Get_AsString;
-   property AsInteger: Integer
-     read Get_AsInteger;
-   property AsStream: TStream
-     read Get_AsStream;
-   property AsVariant: Tl3Variant
-     read Get_AsVariant;
-   property Kind: Tk2VarKind
-     read Get_Kind;
+ Ik2Variant = interface
+  ['{20DEC442-9EE5-44F0-9864-C00BA36614BD}']
+  function Get_AsString: Tl3PrimString;
+  function Get_AsInteger: Integer;
+  function Get_AsStream: TStream;
+  function Get_AsVariant: Tl3Variant;
+  function Get_Kind: Tk2VarKind;
+  property AsString: Tl3PrimString
+   read Get_AsString;
+  property AsInteger: Integer
+   read Get_AsInteger;
+  property AsStream: TStream
+   read Get_AsStream;
+  property AsVariant: Tl3Variant
+   read Get_AsVariant;
+  property Kind: Tk2VarKind
+   read Get_Kind;
  end;//Ik2Variant
 
- Il3TagRef = interface(IUnknown)
-   ['{16D0331A-45FA-4609-B8AC-C7C1B101B169}']
-  // Ml3TagBox
-   function AsObject: Tl3Variant;
+ Il3TagRef = interface
+  ['{16D0331A-45FA-4609-B8AC-C7C1B101B169}']
+  function AsObject: Tl3Variant;
  end;//Il3TagRef
 
  Tl3Type = Tl3VariantDef;
 
  Ik2Tag = interface(Il3TagRef)
   {* Объект содержащий подъобекты и атомарные атрибуты }
-   ['{2345D08B-36E3-4B6A-ABA8-82C74B3431DF}']
-  // Mk2TypeInfo
-   function IsOrd: Boolean;
-  // Mk2Children
-   {iterator} function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-    aLo: Tl3Index = l3MinIndex;
-    aHi: Tl3Index = l3MaxIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3MaxIndex;
-    aLo: Tl3Index = l3MinIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   {iterator} function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3MaxIndex;
-    aLo: Tl3Index = l3MinIndex;
-    aLoadedOnly: Boolean = false): Integer;
-   function Get_ChildrenCount: Integer;
-   function pm_GetChild(anIndex: Integer): Tl3Variant;
-   procedure Set_ChildrenCapacity(aValue: Integer);
-   function AddChild(aChild: Tl3Variant;
-    const aContext: Il3OpPack = nil): Integer;
-     {* добавить ребенка. }
-   function DeleteChild(anIndex: Integer;
-    const anOp: Il3OpPack;
-    out theChild: Il3TagRef): Boolean; overload; 
-     {* удалить ребенка. }
-   function DeleteChild(aChild: Tl3Variant;
-    const Context: Il3OpPack = nil): Boolean; overload; 
-     {* удалить ребенка. }
-   function DeleteChild(anIndex: Integer;
-    const anOp: Il3OpPack = nil): Boolean; overload; 
-   property ChildrenCount: Integer
-     read Get_ChildrenCount;
-     {* Количество дочерних тегов. }
-   property Child[anIndex: Integer]: Tl3Variant
-     read pm_GetChild;
-   property ChildrenCapacity: Integer
-     write Set_ChildrenCapacity;
-     {* Потенциально возможное число детей }
-  // Mk2RefCount
-   procedure SetRef(var aRef: Tl3Variant);
-  // Mk2Storable
-   procedure DoLoad;
-   procedure ForceStore;
-  // Mk2Owned
-   function Get_Owner: Tl3Variant;
-   procedure Set_Owner(aValue: Tl3Variant);
-   property Owner: Tl3Variant
-     read Get_Owner
-     write Set_Owner;
-  // Mk2IntegerHolder
-   function pm_GetIntA(anIndex: Integer): Integer;
-   procedure pm_SetIntA(anIndex: Integer; aValue: Integer);
-   procedure pm_SetIntW(anIndex: Integer; const aContext: Il3OpPack; aValue: Integer);
-   function RLong(anIndex: Integer;
-    aDefault: Integer): Integer;
-   property IntA[anIndex: Integer]: Integer
-     read pm_GetIntA
-     write pm_SetIntA;
-   property IntW[anIndex: Integer; const aContext: Il3OpPack]: Integer
-     write pm_SetIntW;
-  // Mk2PCharLenHolder
-   function pm_GetPCharLenA(anIndex: Integer): Tl3PCharLen;
-   procedure pm_SetPCharLenA(anIndex: Integer; const aValue: Tl3PCharLen);
-   procedure pm_SetPCharLenW(anIndex: Integer; const aContext: Il3OpPack; const aValue: Tl3WString);
-   property PCharLenA[anIndex: Integer]: Tl3PCharLen
-     read pm_GetPCharLenA
-     write pm_SetPCharLenA;
-   property PCharLenW[anIndex: Integer; const aContext: Il3OpPack]: Tl3WString
-     write pm_SetPCharLenW;
-  // Mk2BooleanHolder
-   function pm_GetBoolA(anIndex: Integer): Boolean;
-   procedure pm_SetBoolA(anIndex: Integer; aValue: Boolean);
-   procedure pm_SetBoolW(anIndex: Integer; const aContext: Il3OpPack; aValue: Boolean);
-   property BoolA[anIndex: Integer]: Boolean
-     read pm_GetBoolA
-     write pm_SetBoolA;
-   property BoolW[anIndex: Integer; const aContext: Il3OpPack]: Boolean
-     write pm_SetBoolW;
-  // Mk2StringHolder
-   function pm_GetStrA(anIndex: Integer): AnsiString;
-   procedure pm_SetStrA(anIndex: Integer; const aValue: AnsiString);
-   procedure pm_SetStrW(anIndex: Integer; const aContext: Il3OpPack; const aValue: AnsiString);
-   property StrA[anIndex: Integer]: AnsiString
-     read pm_GetStrA
-     write pm_SetStrA;
-   property StrW[anIndex: Integer; const aContext: Il3OpPack]: AnsiString
-     write pm_SetStrW;
-  // Mk2TypeHolder
-   function pm_GetTagType: Tl3VariantDef;
-   property TagType: Tl3VariantDef
-     read pm_GetTagType;
-  // Mk2TagHolder
-   function pm_GetAttr(anIndex: Integer): Tl3Variant;
-   function RAtomEx(const Path: array of Integer;
-    theIndex: PLongint = nil): Tl3Variant;
-     {* вернуть подтег. }
-   function CAtom(anIndex: Integer;
-    const aContext: Il3OpPack = nil;
-    anAtomType: Tl3VariantDef = nil): Tl3Variant;
-     {* проверить существование подтега и создать его при необходимости. }
-   function CAtomEx(const aPath: array of Integer;
-    const aContext: Il3OpPack;
-    theIndex: PLongint = nil): Tl3Variant;
-     {* проверить существование подтега и создать его при необходимости. }
-   property Attr[anIndex: Integer]: Tl3Variant
-     read pm_GetAttr;
-     default;
-  // Mk2AtomHolder
-   function HasSubAtom(anIndex: Integer): Boolean;
-  // Mk2TagToolProvider
-   function QT(const IID: TGUID;
-    out Obj;
-    const aProcessor: Ik2Processor = nil): Boolean;
-     {* возвращает инструмент для работы с тегом, к которому привязан исходный инструмент. }
-  // Mk2Int64Holder
-   function Get_Int64A(aTagID: Integer): Int64;
-   procedure Set_Int64A(aTagID: Integer; aValue: Int64);
-   procedure Set_Int64W(aTagID: Integer; const aContext: Il3OpPack; aValue: Int64);
-   function Get_DateTimeA(aTagID: Integer): TDateTime;
-   procedure Set_DateTimeA(aTagID: Integer; aValue: TDateTime);
-   procedure Set_DateTimeW(aTagID: Integer; const aContext: Il3OpPack; aValue: TDateTime);
-   property Int64A[aTagID: Integer]: Int64
-     read Get_Int64A
-     write Set_Int64A;
-   property Int64W[aTagID: Integer; const aContext: Il3OpPack]: Int64
-     write Set_Int64W;
-   property DateTimeA[aTagID: Integer]: TDateTime
-     read Get_DateTimeA
-     write Set_DateTimeA;
-   property DateTimeW[aTagID: Integer; const aContext: Il3OpPack]: TDateTime
-     write Set_DateTimeW;
-  // Ml3Variant
-   function pm_GetAsWStr: Tl3WString;
-   function pm_GetAsString: AnsiString;
-   function AsBool: Boolean;
-     {* преобразовать к Boolean. }
-   function AsLong: Integer;
-   function IsNull: Boolean;
-     {* пустой тег? }
-   function IsTransparent: Boolean;
-     {* тег "прозрачный"? }
-   function IsValid: Boolean;
-     {* тег имеет значение? }
-   function IsStream(out theStream: IStream): Boolean;
-     {* Проверяет может ли тег приводиться к потоку. И приводит к потоку - если указатель на поток - не нулевой. }
-   function MarkModified: Boolean;
-   property AsWStr: Tl3WString
-     read pm_GetAsWStr;
-     {* свойство для преобразования к типу Tl3PCharLen }
-   property AsString: AnsiString
-     read pm_GetAsString;
-     {* свойство для преобразования к строкам Delphi }
-  // Mk2TypeInfoPrim
-   function IsKindOf(anID: Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
-   function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
-   function IsKindOf(anAtomTypeID: Tl3VariantDef;
-    const Exclude: array of Tl3VariantDef): Boolean; overload; 
-     {* проверить наследование. }
-  // Ml3VariantSame
-   function IsSame(anOther: Tl3Variant): Boolean; overload; 
-  // Ml3Tag
-   function GetOwnInterface(const IID: TGUID;
-    out Obj): Boolean;
-     {* возвращает интерфейс НЕПОСРЕДСТВЕННО поддерживаемый реализацией инструмента. }
-   function Box: Tl3Variant;
-     {* ссылка на тег - для сохранения. }
-  // Ml3TagHolder
-   {iterator} procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
-    anAll: Boolean
-    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные});
-     {* перебирает все существующие свойства }
-   {iterator} procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
-    anAll: Boolean
-    {* Перебирать все возможные свойства или только РЕАЛЬНО заданные});
-     {* перебирает все существующие свойства }
-   procedure pm_SetAttrW(anIndex: Integer; const aContext: Il3OpPack; aValue: Tl3Variant);
-   property AttrW[anIndex: Integer; const aContext: Il3OpPack]: Tl3Variant
-     write pm_SetAttrW;
+  ['{2345D08B-36E3-4B6A-ABA8-82C74B3431DF}']
+  function Get_ChildrenCount: Integer;
+  function pm_GetChild(anIndex: Integer): Tl3Variant;
+  procedure Set_ChildrenCapacity(aValue: Integer);
+  function Get_Owner: Tl3Variant;
+  procedure Set_Owner(aValue: Tl3Variant);
+  function pm_GetIntA(anIndex: Integer): Integer;
+  procedure pm_SetIntA(anIndex: Integer;
+   aValue: Integer);
+  procedure pm_SetIntW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   aValue: Integer);
+  function pm_GetPCharLenA(anIndex: Integer): Tl3PCharLen;
+  procedure pm_SetPCharLenA(anIndex: Integer;
+   const aValue: Tl3PCharLen);
+  procedure pm_SetPCharLenW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   const aValue: Tl3WString);
+  function pm_GetBoolA(anIndex: Integer): Boolean;
+  procedure pm_SetBoolA(anIndex: Integer;
+   aValue: Boolean);
+  procedure pm_SetBoolW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   aValue: Boolean);
+  function pm_GetStrA(anIndex: Integer): AnsiString;
+  procedure pm_SetStrA(anIndex: Integer;
+   const aValue: AnsiString);
+  procedure pm_SetStrW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   const aValue: AnsiString);
+  function pm_GetTagType: Tl3VariantDef;
+  function pm_GetAttr(anIndex: Integer): Tl3Variant;
+  function Get_Int64A(aTagID: Integer): Int64;
+  procedure Set_Int64A(aTagID: Integer;
+   aValue: Int64);
+  procedure Set_Int64W(aTagID: Integer;
+   const aContext: Il3OpPack;
+   aValue: Int64);
+  function Get_DateTimeA(aTagID: Integer): TDateTime;
+  procedure Set_DateTimeA(aTagID: Integer;
+   aValue: TDateTime);
+  procedure Set_DateTimeW(aTagID: Integer;
+   const aContext: Il3OpPack;
+   aValue: TDateTime);
+  function pm_GetAsWStr: Tl3WString;
+  function pm_GetAsString: AnsiString;
+  procedure pm_SetAttrW(anIndex: Integer;
+   const aContext: Il3OpPack;
+   aValue: Tl3Variant);
+  function IsOrd: Boolean;
+  function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
+   aLo: Tl3Index = l3MinIndex;
+   aHi: Tl3Index = l3MaxIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
+   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
+   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
+   aLoadedOnly: Boolean = False): Integer;
+  function AddChild(aChild: Tl3Variant;
+   const aContext: Il3OpPack = nil): Integer;
+   {* добавить ребенка. }
+  function DeleteChild(anIndex: Integer;
+   const anOp: Il3OpPack;
+   out theChild: Il3TagRef): Boolean; overload;
+   {* удалить ребенка. }
+  function DeleteChild(aChild: Tl3Variant;
+   const Context: Il3OpPack = nil): Boolean; overload;
+   {* удалить ребенка. }
+  function DeleteChild(anIndex: Integer;
+   const anOp: Il3OpPack = nil): Boolean; overload;
+  procedure SetRef(var aRef: Tl3Variant);
+  procedure DoLoad;
+  procedure ForceStore;
+  function rLong(anIndex: Integer;
+   aDefault: Integer): Integer;
+  function rAtomEx(const Path: array of Integer;
+   theIndex: PLongint = nil): Tl3Variant;
+   {* вернуть подтег. }
+  function cAtom(anIndex: Integer;
+   const aContext: Il3OpPack = nil;
+   anAtomType: Tl3VariantDef = nil): Tl3Variant;
+   {* проверить существование подтега и создать его при необходимости. }
+  function cAtomEx(const aPath: array of Integer;
+   const aContext: Il3OpPack;
+   theIndex: PLongint = nil): Tl3Variant;
+   {* проверить существование подтега и создать его при необходимости. }
+  function HasSubAtom(anIndex: Integer): Boolean;
+  function QT(const IID: TGUID;
+   out Obj;
+   const aProcessor: Ik2Processor = nil): Boolean;
+   {* возвращает инструмент для работы с тегом, к которому привязан исходный инструмент. }
+  function AsBool: Boolean;
+   {* преобразовать к Boolean. }
+  function AsLong: Integer;
+  function IsNull: Boolean;
+   {* пустой тег? }
+  function IsTransparent: Boolean;
+   {* тег "прозрачный"? }
+  function IsValid: Boolean;
+   {* тег имеет значение? }
+  function IsStream(out theStream: IStream): Boolean;
+   {* Проверяет может ли тег приводиться к потоку. И приводит к потоку - если указатель на поток - не нулевой. }
+  function MarkModified: Boolean;
+  function IsKindOf(anID: Tl3VariantDef): Boolean; overload;
+   {* проверить наследование. }
+  function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload;
+   {* проверить наследование. }
+  function IsKindOf(anAtomTypeID: Tl3VariantDef;
+   const Exclude: array of Tl3VariantDef): Boolean; overload;
+   {* проверить наследование. }
+  function IsSame(anOther: Tl3Variant): Boolean; overload;
+  function GetOwnInterface(const IID: TGUID;
+   out Obj): Boolean;
+   {* возвращает интерфейс НЕПОСРЕДСТВЕННО поддерживаемый реализацией инструмента. }
+  function Box: Tl3Variant;
+   {* ссылка на тег - для сохранения. }
+  procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
+   anAll: Boolean
+   {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+   {* перебирает все существующие свойства }
+  procedure IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
+   anAll: Boolean
+   {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+   {* перебирает все существующие свойства }
+  property ChildrenCount: Integer
+   read Get_ChildrenCount;
+   {* Количество дочерних тегов. }
+  property Child[anIndex: Integer]: Tl3Variant
+   read pm_GetChild;
+  property ChildrenCapacity: Integer
+   write Set_ChildrenCapacity;
+   {* Потенциально возможное число детей }
+  property Owner: Tl3Variant
+   read Get_Owner
+   write Set_Owner;
+  property IntA[anIndex: Integer]: Integer
+   read pm_GetIntA
+   write pm_SetIntA;
+  property IntW[anIndex: Integer; const aContext: Il3OpPack]: Integer
+   write pm_SetIntW;
+  property PCharLenA[anIndex: Integer]: Tl3PCharLen
+   read pm_GetPCharLenA
+   write pm_SetPCharLenA;
+  property PCharLenW[anIndex: Integer; const aContext: Il3OpPack]: Tl3WString
+   write pm_SetPCharLenW;
+  property BoolA[anIndex: Integer]: Boolean
+   read pm_GetBoolA
+   write pm_SetBoolA;
+  property BoolW[anIndex: Integer; const aContext: Il3OpPack]: Boolean
+   write pm_SetBoolW;
+  property StrA[anIndex: Integer]: AnsiString
+   read pm_GetStrA
+   write pm_SetStrA;
+  property StrW[anIndex: Integer; const aContext: Il3OpPack]: AnsiString
+   write pm_SetStrW;
+  property TagType: Tl3VariantDef
+   read pm_GetTagType;
+  property Attr[anIndex: Integer]: Tl3Variant
+   read pm_GetAttr;
+   default;
+  property Int64A[aTagID: Integer]: Int64
+   read Get_Int64A
+   write Set_Int64A;
+  property Int64W[aTagID: Integer; const aContext: Il3OpPack]: Int64
+   write Set_Int64W;
+  property DateTimeA[aTagID: Integer]: TDateTime
+   read Get_DateTimeA
+   write Set_DateTimeA;
+  property DateTimeW[aTagID: Integer; const aContext: Il3OpPack]: TDateTime
+   write Set_DateTimeW;
+  property AsWStr: Tl3WString
+   read pm_GetAsWStr;
+   {* свойство для преобразования к типу Tl3PCharLen }
+  property AsString: AnsiString
+   read pm_GetAsString;
+   {* свойство для преобразования к строкам Delphi }
+  property AttrW[anIndex: Integer; const aContext: Il3OpPack]: Tl3Variant
+   write pm_SetAttrW;
  end;//Ik2Tag
 
- Pl3Variant = ^Tl3Variant;
-
  Tl3NullTag = class(Tl3ProtoObject, Il3TagRef)
- public
- // realized methods
-   function AsObject: Tl3Variant;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
+   function AsObject: Tl3Variant;
    class function Instance: Tl3NullTag;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3NullTag }
  end;//Tl3NullTag
 
  Tl3TagRef = class(Tl3ProtoObject, Il3TagRef)
- private
- // private fields
-   f_Tag : Tl3Tag;
- public
- // realized methods
-   function AsObject: Tl3Variant;
- protected
- // overridden protected methods
+  private
+   f_Tag: Tl3Tag;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(DesignTimeLibrary)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // overridden public methods
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; override;
-     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(aTag: Tl3Tag); reintroduce;
    class function Make(aTag: Tl3Tag): Il3TagRef; reintroduce;
-     {* Сигнатура фабрики Tl3TagRef.Make }
+   function AsObject: Tl3Variant;
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+    {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
  end;//Tl3TagRef
 
  Tk2In64Converter = packed record
-   rLo : Integer;
-   rHi : Integer;
+  rLo: Integer;
+  rHi: Integer;
  end;//Tk2In64Converter
-function Supports(anObject: Tl3VariantPrim;
-  const aGUID: TGUID;
-  out theObj): Boolean; overload; 
+
 function L2Mk2ChildrenIterateChildrenFAction(anAction: pointer): Mk2Children_IterateChildrenF_Action;
-   {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenF }
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenF }
 function L2Mk2ChildrenIterateChildrenBackAction(anAction: pointer): Mk2Children_IterateChildrenBack_Action;
-   {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenBack }
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenBack }
 function L2Ml3TagHolderIteratePropertiesAction(anAction: pointer): Ml3TagHolder_IterateProperties_Action;
-   {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3TagHolder.IterateProperties }
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3TagHolder.IterateProperties }
+function Supports(anObject: Tl3VariantPrim;
+ const aGUID: TGUID;
+ out theObj): Boolean; overload;
 
 implementation
 
 uses
-  l3Base,
-  Windows,
-  l3IID,
-  l3InterfacesMisc,
-  l3String,
-  l3Chars,
-  SysUtils,
-  l3Date
-  ;
+ l3ImplUses
+ , l3Base
+ , Windows
+ , l3String
+ , l3Chars
+ , SysUtils
+ , l3Date
+;
 
-// start class Mk2Children
+var g_Tl3NullTag: Tl3NullTag = nil;
+ {* Экземпляр синглетона Tl3NullTag }
 
 function L2Mk2ChildrenIterateChildrenFAction(anAction: pointer): Mk2Children_IterateChildrenF_Action;
- {-}
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenF }
 asm
  jmp l3LocalStub
 end;//L2Mk2ChildrenIterateChildrenFAction
 
 function L2Mk2ChildrenIterateChildrenBackAction(anAction: pointer): Mk2Children_IterateChildrenBack_Action;
- {-}
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Mk2Children.IterateChildrenBack }
 asm
  jmp l3LocalStub
 end;//L2Mk2ChildrenIterateChildrenBackAction
-// start class Tl3VariantPrim
+
+function L2Ml3TagHolderIteratePropertiesAction(anAction: pointer): Ml3TagHolder_IterateProperties_Action;
+ {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для Ml3TagHolder.IterateProperties }
+asm
+ jmp l3LocalStub
+end;//L2Ml3TagHolderIteratePropertiesAction
+
+procedure Tl3NullTagFree;
+ {* Метод освобождения экземпляра синглетона Tl3NullTag }
+begin
+ l3Free(g_Tl3NullTag);
+end;//Tl3NullTagFree
+
+function Supports(anObject: Tl3VariantPrim;
+ const aGUID: TGUID;
+ out theObj): Boolean;
+//#UC START# *5342A452039F_53317D14019D_var*
+var
+ l_Unknown : IUnknown;
+//#UC END# *5342A452039F_53317D14019D_var*
+begin
+//#UC START# *5342A452039F_53317D14019D_impl*
+ Result := SysUtils.Supports(anObject, aGUID, theObj);
+ Assert(Result OR (anObject = nil) OR anObject.GetInterface(IUnknown, l_Unknown));
+ if not Result then
+  Result := anObject.QI(aGUID, theObj);
+//#UC END# *5342A452039F_53317D14019D_impl*
+end;//Supports
 
 function Tl3VariantPrim.GetAsString: AnsiString;
 //#UC START# *5329CD1A020E_53319F9C002F_var*
@@ -1256,7 +1263,7 @@ begin
 end;//Tl3VariantPrim.GetIsKindOfPrim
 
 function Tl3VariantPrim.QI(const aGUID: TGUID;
-  out theObj): Boolean;
+ out theObj): Boolean;
 //#UC START# *5342ACBB023A_53319F9C002F_var*
 //#UC END# *5342ACBB023A_53319F9C002F_var*
 begin
@@ -1294,6 +1301,7 @@ begin
 end;//Tl3VariantPrim.IsOrd
 
 function Tl3VariantPrim.IsKindOf(anID: Tl3VariantDef): Boolean;
+ {* проверить наследование. }
 //#UC START# *4A421BED00FF_53319F9C002F_var*
 //#UC END# *4A421BED00FF_53319F9C002F_var*
 begin
@@ -1306,6 +1314,7 @@ begin
 end;//Tl3VariantPrim.IsKindOf
 
 function Tl3VariantPrim.IsKindOf(const anIDs: array of Tl3VariantDef): Boolean;
+ {* проверить наследование. }
 //#UC START# *4A421BF200BF_53319F9C002F_var*
 var
  l_Index : Integer;
@@ -1323,7 +1332,8 @@ begin
 end;//Tl3VariantPrim.IsKindOf
 
 function Tl3VariantPrim.IsKindOf(anAtomTypeID: Tl3VariantDef;
-  const Exclude: array of Tl3VariantDef): Boolean;
+ const Exclude: array of Tl3VariantDef): Boolean;
+ {* проверить наследование. }
 //#UC START# *4A421C12034A_53319F9C002F_var*
 var
  l_Index : Integer;
@@ -1343,7 +1353,39 @@ end;//Tl3VariantPrim.IsKindOf
 
 //#UC START# *53319F9C002Fimpl*
 //#UC END# *53319F9C002Fimpl*
-// start class Tl3VariantDef
+
+procedure Tl3VariantDef.pm_SetIDw(aValue: Integer);
+//#UC START# *5331A12D0103_5331A06F028Aset_var*
+//#UC END# *5331A12D0103_5331A06F028Aset_var*
+begin
+//#UC START# *5331A12D0103_5331A06F028Aset_impl*
+ Assert(false, 'Невозможно присвоить идентификатор в ' + ClassName)
+//#UC END# *5331A12D0103_5331A06F028Aset_impl*
+end;//Tl3VariantDef.pm_SetIDw
+
+function Tl3VariantDef.pm_GetAsString: AnsiString;
+//#UC START# *5331A15E00B3_5331A06F028Aget_var*
+//#UC END# *5331A15E00B3_5331A06F028Aget_var*
+begin
+//#UC START# *5331A15E00B3_5331A06F028Aget_impl*
+ if (Self = nil) then
+  Result := ''
+ else
+  Result := GetAsString;
+//#UC END# *5331A15E00B3_5331A06F028Aget_impl*
+end;//Tl3VariantDef.pm_GetAsString
+
+function Tl3VariantDef.pm_GetAsWStr: Tl3WString;
+//#UC START# *5331A8F1002E_5331A06F028Aget_var*
+//#UC END# *5331A8F1002E_5331A06F028Aget_var*
+begin
+//#UC START# *5331A8F1002E_5331A06F028Aget_impl*
+ if (Self = nil) then
+  l3AssignNil(Result)
+ else
+  Result := GetAsPCharLen;
+//#UC END# *5331A8F1002E_5331A06F028Aget_impl*
+end;//Tl3VariantDef.pm_GetAsWStr
 
 function Tl3VariantDef.IsProp: Boolean;
 //#UC START# *4A4DE21A0276_5331A06F028A_var*
@@ -1383,39 +1425,6 @@ begin
 //#UC END# *5356910A0042_5331A06F028A_impl*
 end;//Tl3VariantDef.DoDoMakeTag
 
-procedure Tl3VariantDef.pm_SetIDw(aValue: Integer);
-//#UC START# *5331A12D0103_5331A06F028Aset_var*
-//#UC END# *5331A12D0103_5331A06F028Aset_var*
-begin
-//#UC START# *5331A12D0103_5331A06F028Aset_impl*
- Assert(false, 'Невозможно присвоить идентификатор в ' + ClassName)
-//#UC END# *5331A12D0103_5331A06F028Aset_impl*
-end;//Tl3VariantDef.pm_SetIDw
-
-function Tl3VariantDef.pm_GetAsString: AnsiString;
-//#UC START# *5331A15E00B3_5331A06F028Aget_var*
-//#UC END# *5331A15E00B3_5331A06F028Aget_var*
-begin
-//#UC START# *5331A15E00B3_5331A06F028Aget_impl*
- if (Self = nil) then
-  Result := ''
- else
-  Result := GetAsString;
-//#UC END# *5331A15E00B3_5331A06F028Aget_impl*
-end;//Tl3VariantDef.pm_GetAsString
-
-function Tl3VariantDef.pm_GetAsWStr: Tl3WString;
-//#UC START# *5331A8F1002E_5331A06F028Aget_var*
-//#UC END# *5331A8F1002E_5331A06F028Aget_var*
-begin
-//#UC START# *5331A8F1002E_5331A06F028Aget_impl*
- if (Self = nil) then
-  l3AssignNil(Result)
- else
-  Result := GetAsPCharLen;
-//#UC END# *5331A8F1002E_5331A06F028Aget_impl*
-end;//Tl3VariantDef.pm_GetAsWStr
-
 function Tl3VariantDef.GetIsProp: Boolean;
 //#UC START# *4A4DE1FE035C_5331A06F028A_var*
 //#UC END# *4A4DE1FE035C_5331A06F028A_var*
@@ -1449,14 +1458,54 @@ begin
 //#UC END# *5329CD1A020E_5331A06F028A_impl*
 end;//Tl3VariantDef.GetAsString
 
-function L2Ml3TagHolderIteratePropertiesAction(anAction: pointer): Ml3TagHolder_IterateProperties_Action;
- {-}
-asm
- jmp l3LocalStub
-end;//L2Ml3TagHolderIteratePropertiesAction
-{$Include ..\L3\l3Changing.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
-// start class Tl3Variant
+function Tl3Variant.pm_GetTagOwner: Tl3Variant;
+//#UC START# *53343980014A_532031160122get_var*
+//#UC END# *53343980014A_532031160122get_var*
+begin
+//#UC START# *53343980014A_532031160122get_impl*
+ Result := nil;
+//#UC END# *53343980014A_532031160122get_impl*
+end;//Tl3Variant.pm_GetTagOwner
+
+procedure Tl3Variant.pm_SetTagOwner(aValue: Tl3Variant);
+//#UC START# *53343980014A_532031160122set_var*
+//#UC END# *53343980014A_532031160122set_var*
+begin
+//#UC START# *53343980014A_532031160122set_impl*
+ Assert(false, 'pm_SetTagOwner должен быть перекрыт в ' + ClassName);
+//#UC END# *53343980014A_532031160122set_impl*
+end;//Tl3Variant.pm_SetTagOwner
+
+function Tl3Variant.pm_GetChildrenCount: Integer;
+//#UC START# *5335815D03DC_532031160122get_var*
+//#UC END# *5335815D03DC_532031160122get_var*
+begin
+//#UC START# *5335815D03DC_532031160122get_impl*
+ Result := 0;
+ Assert(false, 'pm_GetChildrenCount должен быть перекрыт в ' + ClassName);
+//#UC END# *5335815D03DC_532031160122get_impl*
+end;//Tl3Variant.pm_GetChildrenCount
+
+procedure Tl3Variant.pm_SetChildrenCapacity(aValue: Integer);
+//#UC START# *533581770377_532031160122set_var*
+//#UC END# *533581770377_532031160122set_var*
+begin
+//#UC START# *533581770377_532031160122set_impl*
+ Assert(false, 'pm_SetChildrenCapacity должен быть перекрыт в ' + ClassName);
+//#UC END# *533581770377_532031160122set_impl*
+end;//Tl3Variant.pm_SetChildrenCapacity
+
+function Tl3Variant.pm_GetChildPrim(anIndex: Integer): Tl3Variant;
+//#UC START# *53358545012C_532031160122get_var*
+//#UC END# *53358545012C_532031160122get_var*
+begin
+//#UC START# *53358545012C_532031160122get_impl*
+ Result := nil;
+ Assert(false, 'pm_GetChildPrim должен быть перекрыт в ' + ClassName);
+//#UC END# *53358545012C_532031160122get_impl*
+end;//Tl3Variant.pm_GetChildPrim
 
 function Tl3Variant.GetAsLong: Integer;
 //#UC START# *5326D7B603A3_532031160122_var*
@@ -1538,8 +1587,8 @@ begin
 end;//Tl3Variant.DoSetRef
 
 function Tl3Variant.DoQT(const IID: TGUID;
-  out Obj;
-  const aProcessor: Ik2Processor): Boolean;
+ out Obj;
+ const aProcessor: Ik2Processor): Boolean;
 //#UC START# *532C4D4102D8_532031160122_var*
 //#UC END# *532C4D4102D8_532031160122_var*
 begin
@@ -1559,8 +1608,8 @@ begin
 end;//Tl3Variant.GetTagType
 
 procedure Tl3Variant.SetAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Tl3Variant);
+ const aContext: Il3OpPack;
+ aValue: Tl3Variant);
 //#UC START# *5331961F0280_532031160122_var*
 //#UC END# *5331961F0280_532031160122_var*
 begin
@@ -1570,7 +1619,7 @@ begin
 end;//Tl3Variant.SetAttr
 
 function Tl3Variant.GetAttr(anIndex: Integer;
-  out theValue: Tl3Variant): Boolean;
+ out theValue: Tl3Variant): Boolean;
 //#UC START# *53319C270138_532031160122_var*
 //#UC END# *53319C270138_532031160122_var*
 begin
@@ -1582,8 +1631,8 @@ begin
 end;//Tl3Variant.GetAttr
 
 procedure Tl3Variant.SetBoolAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Boolean);
+ const aContext: Il3OpPack;
+ aValue: Boolean);
 //#UC START# *5331B00B02DD_532031160122_var*
 //#UC END# *5331B00B02DD_532031160122_var*
 begin
@@ -1593,8 +1642,8 @@ begin
 end;//Tl3Variant.SetBoolAttr
 
 procedure Tl3Variant.SetIntAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Integer);
+ const aContext: Il3OpPack;
+ aValue: Integer);
 //#UC START# *5332CD8801A6_532031160122_var*
 //#UC END# *5332CD8801A6_532031160122_var*
 begin
@@ -1604,8 +1653,8 @@ begin
 end;//Tl3Variant.SetIntAttr
 
 procedure Tl3Variant.SetWStrAttr(anIndex: Integer;
-  const aContext: Il3OpPack;
-  const aValue: Tl3WString);
+ const aContext: Il3OpPack;
+ const aValue: Tl3WString);
 //#UC START# *5332FB8403B6_532031160122_var*
 //#UC END# *5332FB8403B6_532031160122_var*
 begin
@@ -1633,9 +1682,9 @@ begin
 end;//Tl3Variant.DoForceStore
 
 function Tl3Variant.DoIterateChildrenBack(Action: Mk2Children_IterateChildrenBack_Action;
-  aHi: Tl3Index;
-  aLo: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aHi: Tl3Index;
+ aLo: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *5081632303E6_532031160122_var*
 //#UC END# *5081632303E6_532031160122_var*
 begin
@@ -1646,7 +1695,7 @@ begin
 end;//Tl3Variant.DoIterateChildrenBack
 
 function Tl3Variant.DoAddChild(aChild: Tl3Variant;
-  const aContext: Il3OpPack): Integer;
+ const aContext: Il3OpPack): Integer;
 //#UC START# *533D587B0359_532031160122_var*
 //#UC END# *533D587B0359_532031160122_var*
 begin
@@ -1657,9 +1706,9 @@ begin
 end;//Tl3Variant.DoAddChild
 
 function Tl3Variant.CheckAttr(const aPath: array of Integer;
-  const aContext: Il3OpPack;
-  DoCheck: Boolean;
-  theIndex: PLongint): Tl3Variant;
+ const aContext: Il3OpPack;
+ DoCheck: Boolean;
+ theIndex: PLongint): Tl3Variant;
 //#UC START# *533D6FD80051_532031160122_var*
 //#UC END# *533D6FD80051_532031160122_var*
 begin
@@ -1670,8 +1719,8 @@ begin
 end;//Tl3Variant.CheckAttr
 
 function Tl3Variant.DoCAtom(anIndex: Integer;
-  const aContext: Il3OpPack;
-  anAtomType: Tl3VariantDef): Tl3Variant;
+ const aContext: Il3OpPack;
+ anAtomType: Tl3VariantDef): Tl3Variant;
 //#UC START# *533D791300DA_532031160122_var*
 //#UC END# *533D791300DA_532031160122_var*
 begin
@@ -1711,8 +1760,8 @@ begin
 end;//Tl3Variant.GetInt64A
 
 procedure Tl3Variant.SetInt64A(anIndex: Integer;
-  const aContext: Il3OpPack;
-  aValue: Int64);
+ const aContext: Il3OpPack;
+ aValue: Int64);
 //#UC START# *5360CE910025_532031160122_var*
 //#UC END# *5360CE910025_532031160122_var*
 begin
@@ -1720,53 +1769,6 @@ begin
  Assert(false, 'Не переопределён метод SetInt64A в ' + ClassName);
 //#UC END# *5360CE910025_532031160122_impl*
 end;//Tl3Variant.SetInt64A
-
-function Tl3Variant.pm_GetTagOwner: Tl3Variant;
-//#UC START# *53343980014A_532031160122get_var*
-//#UC END# *53343980014A_532031160122get_var*
-begin
-//#UC START# *53343980014A_532031160122get_impl*
- Result := nil;
-//#UC END# *53343980014A_532031160122get_impl*
-end;//Tl3Variant.pm_GetTagOwner
-
-procedure Tl3Variant.pm_SetTagOwner(aValue: Tl3Variant);
-//#UC START# *53343980014A_532031160122set_var*
-//#UC END# *53343980014A_532031160122set_var*
-begin
-//#UC START# *53343980014A_532031160122set_impl*
- Assert(false, 'pm_SetTagOwner должен быть перекрыт в ' + ClassName);
-//#UC END# *53343980014A_532031160122set_impl*
-end;//Tl3Variant.pm_SetTagOwner
-
-function Tl3Variant.pm_GetChildrenCount: Integer;
-//#UC START# *5335815D03DC_532031160122get_var*
-//#UC END# *5335815D03DC_532031160122get_var*
-begin
-//#UC START# *5335815D03DC_532031160122get_impl*
- Result := 0;
- Assert(false, 'pm_GetChildrenCount должен быть перекрыт в ' + ClassName);
-//#UC END# *5335815D03DC_532031160122get_impl*
-end;//Tl3Variant.pm_GetChildrenCount
-
-procedure Tl3Variant.pm_SetChildrenCapacity(aValue: Integer);
-//#UC START# *533581770377_532031160122set_var*
-//#UC END# *533581770377_532031160122set_var*
-begin
-//#UC START# *533581770377_532031160122set_impl*
- Assert(false, 'pm_SetChildrenCapacity должен быть перекрыт в ' + ClassName);
-//#UC END# *533581770377_532031160122set_impl*
-end;//Tl3Variant.pm_SetChildrenCapacity
-
-function Tl3Variant.pm_GetChildPrim(anIndex: Integer): Tl3Variant;
-//#UC START# *53358545012C_532031160122get_var*
-//#UC END# *53358545012C_532031160122get_var*
-begin
-//#UC START# *53358545012C_532031160122get_impl*
- Result := nil;
- Assert(false, 'pm_GetChildPrim должен быть перекрыт в ' + ClassName);
-//#UC END# *53358545012C_532031160122get_impl*
-end;//Tl3Variant.pm_GetChildPrim
 
 function Tl3Variant.DoMarkModified: Boolean;
 //#UC START# *4C6D1C29031F_532031160122_var*
@@ -1779,7 +1781,7 @@ begin
 end;//Tl3Variant.DoMarkModified
 
 procedure Tl3Variant.DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
-  All: Boolean);
+ All: Boolean);
 //#UC START# *49A545D501F6_532031160122_var*
 //#UC END# *49A545D501F6_532031160122_var*
 begin
@@ -1789,8 +1791,8 @@ begin
 end;//Tl3Variant.DoIterateProperties
 
 function Tl3Variant.DeleteChildPrim(anIndex: Integer;
-  aChild: Tl3Variant;
-  const aContext: Il3OpPack): Boolean;
+ aChild: Tl3Variant;
+ const aContext: Il3OpPack): Boolean;
 //#UC START# *4C6CE735026E_532031160122_var*
 //#UC END# *4C6CE735026E_532031160122_var*
 begin
@@ -1801,9 +1803,9 @@ begin
 end;//Tl3Variant.DeleteChildPrim
 
 function Tl3Variant.DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
-  aLo: Tl3Index;
-  aHi: Tl3Index;
-  aLoadedOnly: Boolean): Integer;
+ aLo: Tl3Index;
+ aHi: Tl3Index;
+ aLoadedOnly: Boolean): Integer;
 //#UC START# *48CF96D80241_532031160122_var*
 //#UC END# *48CF96D80241_532031160122_var*
 begin
@@ -1823,10 +1825,10 @@ begin
 end;//Tl3Variant.CheckSort
 
 function Tl3Variant.FindChild(anAtom: Integer;
-  aValue: Integer;
-  const aContext: Il3OpPack;
-  aNeedCreate: Boolean;
-  theIndex: PLongint): Tl3Variant;
+ aValue: Integer;
+ const aContext: Il3OpPack;
+ aNeedCreate: Boolean;
+ theIndex: PLongint): Tl3Variant;
 //#UC START# *4A42374B0371_532031160122_var*
 //#UC END# *4A42374B0371_532031160122_var*
 begin
@@ -1847,8 +1849,9 @@ begin
 end;//Tl3Variant.CloneTag
 
 procedure Tl3Variant.WriteTag(const G: Ik2TagGenerator;
-  Flags: Tk2StorePropertyFlags = l3_spfAll;
-  Exclude: TByteSet = []);
+ Flags: Tk2StorePropertyFlags = l3_spfAll;
+ Exclude: TByteSet = []);
+ {* записать тег в генератор. }
 //#UC START# *4761324203B8_532031160122_var*
 //#UC END# *4761324203B8_532031160122_var*
 begin
@@ -1858,8 +1861,8 @@ begin
 end;//Tl3Variant.WriteTag
 
 function Tl3Variant.AssignTag(Source: Tl3Variant;
-  AssignMode: Tk2AssignModes = k2_amAll;
-  const Context: Il3OpPack = nil): Boolean;
+ AssignMode: Tk2AssignModes = k2_amAll;
+ const Context: Il3OpPack = nil): Boolean;
 //#UC START# *47612DD0012B_532031160122_var*
 //#UC END# *47612DD0012B_532031160122_var*
 begin
@@ -1870,8 +1873,8 @@ begin
 end;//Tl3Variant.AssignTag
 
 procedure Tl3Variant.AssignCloneParams(aSource: Tl3Variant;
-  AssignMode: Tk2AssignModes = k2_amAll;
-  const Context: Il3OpPack = nil);
+ AssignMode: Tk2AssignModes = k2_amAll;
+ const Context: Il3OpPack = nil);
 //#UC START# *47612E530082_532031160122_var*
 //#UC END# *47612E530082_532031160122_var*
 begin
@@ -1881,6 +1884,7 @@ begin
 end;//Tl3Variant.AssignCloneParams
 
 procedure Tl3Variant.DeleteChildren(const Context: Il3OpPack = nil);
+ {* удалить всех детей. }
 //#UC START# *4A42378D0030_532031160122_var*
 //#UC END# *4A42378D0030_532031160122_var*
 begin
@@ -1890,8 +1894,9 @@ begin
 end;//Tl3Variant.DeleteChildren
 
 procedure Tl3Variant.InsertChildTag(anIndex: Integer;
-  aChild: Tl3Variant;
-  const aContext: Il3OpPack = nil);
+ aChild: Tl3Variant;
+ const aContext: Il3OpPack = nil);
+ {* вставить ребенка. }
 //#UC START# *4A42358A00C2_532031160122_var*
 //#UC END# *4A42358A00C2_532031160122_var*
 begin
@@ -1910,7 +1915,7 @@ begin
 //#UC END# *4A4235B70288_532031160122_impl*
 end;//Tl3Variant.IndexOfChild
 
-function Tl3Variant.ROwnAtom(anIndex: Integer): Tl3Variant;
+function Tl3Variant.rOwnAtom(anIndex: Integer): Tl3Variant;
 //#UC START# *4BC843C40240_532031160122_var*
 //#UC END# *4BC843C40240_532031160122_var*
 begin
@@ -1918,10 +1923,10 @@ begin
  Result := nil;
  Assert(false, 'ROwnAtom должен быть перекрыт в ' + ClassName);
 //#UC END# *4BC843C40240_532031160122_impl*
-end;//Tl3Variant.ROwnAtom
+end;//Tl3Variant.rOwnAtom
 
 function Tl3Variant.GetLinkedInterface(const IID: TGUID;
-  out Obj): Boolean;
+ out Obj): Boolean;
 //#UC START# *4BC84CF702F5_532031160122_var*
 //#UC END# *4BC84CF702F5_532031160122_var*
 begin
@@ -1931,7 +1936,8 @@ begin
 end;//Tl3Variant.GetLinkedInterface
 
 function Tl3Variant.CompareWithInt(aValue: Integer;
-  anIndex: Integer): Integer;
+ anIndex: Integer): Integer;
+ {* Сравнивает тег с целым. }
 //#UC START# *4BC8415802B6_532031160122_var*
 //#UC END# *4BC8415802B6_532031160122_var*
 begin
@@ -1942,7 +1948,7 @@ begin
 end;//Tl3Variant.CompareWithInt
 
 function Tl3Variant.CompareWithTag(aTag: Tl3Variant;
-  aSortIndex: Tl3SortIndex): Integer;
+ aSortIndex: Tl3SortIndex): Integer;
 //#UC START# *4BC8415E021A_532031160122_var*
 //#UC END# *4BC8415E021A_532031160122_var*
 begin
@@ -1953,6 +1959,7 @@ begin
 end;//Tl3Variant.CompareWithTag
 
 function Tl3Variant.Box: Tl3Variant;
+ {* ссылка на тег - для сохранения. }
 //#UC START# *47612ACF0081_532031160122_var*
 //#UC END# *47612ACF0081_532031160122_var*
 begin
@@ -1991,7 +1998,8 @@ begin
 //#UC END# *4761365402FF_532031160122get_impl*
 end;//Tl3Variant.pm_GetBoolA
 
-procedure Tl3Variant.pm_SetBoolA(anIndex: Integer; aValue: Boolean);
+procedure Tl3Variant.pm_SetBoolA(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *4761365402FF_532031160122set_var*
 //#UC END# *4761365402FF_532031160122set_var*
 begin
@@ -2014,7 +2022,8 @@ begin
 //#UC END# *4761368701AB_532031160122get_impl*
 end;//Tl3Variant.pm_GetIntA
 
-procedure Tl3Variant.pm_SetIntA(anIndex: Integer; aValue: Integer);
+procedure Tl3Variant.pm_SetIntA(anIndex: Integer;
+ aValue: Integer);
 //#UC START# *4761368701AB_532031160122set_var*
 //#UC END# *4761368701AB_532031160122set_var*
 begin
@@ -2037,7 +2046,8 @@ begin
 //#UC END# *4761370F0048_532031160122get_impl*
 end;//Tl3Variant.pm_GetStrA
 
-procedure Tl3Variant.pm_SetStrA(anIndex: Integer; const aValue: AnsiString);
+procedure Tl3Variant.pm_SetStrA(anIndex: Integer;
+ const aValue: AnsiString);
 //#UC START# *4761370F0048_532031160122set_var*
 //#UC END# *4761370F0048_532031160122set_var*
 begin
@@ -2058,7 +2068,9 @@ begin
 //#UC END# *47613B8303CC_532031160122get_impl*
 end;//Tl3Variant.pm_GetChild
 
-procedure Tl3Variant.pm_SetBoolW(anIndex: Integer; const aContext: Il3OpPack; aValue: Boolean);
+procedure Tl3Variant.pm_SetBoolW(anIndex: Integer;
+ const aContext: Il3OpPack;
+ aValue: Boolean);
 //#UC START# *47613C0F02F4_532031160122set_var*
 //#UC END# *47613C0F02F4_532031160122set_var*
 begin
@@ -2067,7 +2079,9 @@ begin
 //#UC END# *47613C0F02F4_532031160122set_impl*
 end;//Tl3Variant.pm_SetBoolW
 
-procedure Tl3Variant.pm_SetIntW(anIndex: Integer; const aContext: Il3OpPack; aValue: Integer);
+procedure Tl3Variant.pm_SetIntW(anIndex: Integer;
+ const aContext: Il3OpPack;
+ aValue: Integer);
 //#UC START# *47613C6A001F_532031160122set_var*
 //#UC END# *47613C6A001F_532031160122set_var*
 begin
@@ -2076,7 +2090,9 @@ begin
 //#UC END# *47613C6A001F_532031160122set_impl*
 end;//Tl3Variant.pm_SetIntW
 
-procedure Tl3Variant.pm_SetStrW(anIndex: Integer; const aContext: Il3OpPack; const aValue: AnsiString);
+procedure Tl3Variant.pm_SetStrW(anIndex: Integer;
+ const aContext: Il3OpPack;
+ const aValue: AnsiString);
 //#UC START# *47613D4E02B3_532031160122set_var*
 //#UC END# *47613D4E02B3_532031160122set_var*
 begin
@@ -2102,7 +2118,8 @@ begin
 //#UC END# *47613DB001A3_532031160122get_impl*
 end;//Tl3Variant.pm_GetPCharLenA
 
-procedure Tl3Variant.pm_SetPCharLenA(anIndex: Integer; const aValue: Tl3PCharLen);
+procedure Tl3Variant.pm_SetPCharLenA(anIndex: Integer;
+ const aValue: Tl3PCharLen);
 //#UC START# *47613DB001A3_532031160122set_var*
 //#UC END# *47613DB001A3_532031160122set_var*
 begin
@@ -2111,7 +2128,9 @@ begin
 //#UC END# *47613DB001A3_532031160122set_impl*
 end;//Tl3Variant.pm_SetPCharLenA
 
-procedure Tl3Variant.pm_SetPCharLenW(anIndex: Integer; const aContext: Il3OpPack; const aValue: Tl3WString);
+procedure Tl3Variant.pm_SetPCharLenW(anIndex: Integer;
+ const aContext: Il3OpPack;
+ const aValue: Tl3WString);
 //#UC START# *47613E120125_532031160122set_var*
 //#UC END# *47613E120125_532031160122set_var*
 begin
@@ -2145,6 +2164,7 @@ begin
 end;//Tl3Variant.pm_GetAsWStr
 
 function Tl3Variant.AsBool: Boolean;
+ {* преобразовать к Boolean. }
 //#UC START# *4A42195A0244_532031160122_var*
 //#UC END# *4A42195A0244_532031160122_var*
 begin
@@ -2182,7 +2202,8 @@ begin
 end;//Tl3Variant.AsObject
 
 function Tl3Variant.AddChild(aChild: Tl3Variant;
-  const aContext: Il3OpPack = nil): Integer;
+ const aContext: Il3OpPack = nil): Integer;
+ {* добавить ребенка. }
 //#UC START# *4A422C1D00FE_532031160122_var*
 //#UC END# *4A422C1D00FE_532031160122_var*
 begin
@@ -2216,8 +2237,9 @@ begin
 end;//Tl3Variant.SetRef
 
 function Tl3Variant.DeleteChild(anIndex: Integer;
-  const anOp: Il3OpPack;
-  out theChild: Il3TagRef): Boolean;
+ const anOp: Il3OpPack;
+ out theChild: Il3TagRef): Boolean;
+ {* удалить ребенка. }
 //#UC START# *4A423EC900C2_532031160122_var*
 //#UC END# *4A423EC900C2_532031160122_var*
 begin
@@ -2230,7 +2252,8 @@ begin
 end;//Tl3Variant.DeleteChild
 
 function Tl3Variant.DeleteChild(aChild: Tl3Variant;
-  const Context: Il3OpPack = nil): Boolean;
+ const Context: Il3OpPack = nil): Boolean;
+ {* удалить ребенка. }
 //#UC START# *4A423ECE03A6_532031160122_var*
 var
  l_Index : Integer;
@@ -2246,7 +2269,7 @@ begin
 end;//Tl3Variant.DeleteChild
 
 function Tl3Variant.DeleteChild(anIndex: Integer;
-  const anOp: Il3OpPack = nil): Boolean;
+ const anOp: Il3OpPack = nil): Boolean;
 //#UC START# *4A423F0002E2_532031160122_var*
 var
  l_Child : Il3TagRef;
@@ -2323,10 +2346,10 @@ begin
 //#UC END# *4A6475C4026D_532031160122set_impl*
 end;//Tl3Variant.Set_Owner
 
-{iterator} function Tl3Variant.IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-  aLo: Tl3Index = l3MinIndex;
-  aHi: Tl3Index = l3MaxIndex;
-  aLoadedOnly: Boolean = false): Integer;
+function Tl3Variant.IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
+ aLo: Tl3Index = l3MinIndex;
+ aHi: Tl3Index = l3MaxIndex;
+ aLoadedOnly: Boolean = False): Integer;
 //#UC START# *4BB21F9D022F_532031160122_var*
 //#UC END# *4BB21F9D022F_532031160122_var*
 begin
@@ -2335,10 +2358,10 @@ begin
 //#UC END# *4BB21F9D022F_532031160122_impl*
 end;//Tl3Variant.IterateChildrenF
 
-{iterator} function Tl3Variant.IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-  aHi: Tl3Index = l3MaxIndex;
-  aLo: Tl3Index = l3MinIndex;
-  aLoadedOnly: Boolean = false): Integer;
+function Tl3Variant.IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
+ aHi: Tl3Index = l3MaxIndex;
+ aLo: Tl3Index = l3MinIndex;
+ aLoadedOnly: Boolean = False): Integer;
 //#UC START# *4BBF49EB0260_532031160122_var*
 //#UC END# *4BBF49EB0260_532031160122_var*
 begin
@@ -2347,10 +2370,10 @@ begin
 //#UC END# *4BBF49EB0260_532031160122_impl*
 end;//Tl3Variant.IterateChildrenBack
 
-{iterator} function Tl3Variant.IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-  aHi: Tl3Index = l3MaxIndex;
-  aLo: Tl3Index = l3MinIndex;
-  aLoadedOnly: Boolean = false): Integer;
+function Tl3Variant.IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
+ aHi: Tl3Index = l3MaxIndex;
+ aLo: Tl3Index = l3MinIndex;
+ aLoadedOnly: Boolean = False): Integer;
 var
  Hack : Pointer absolute anAction;
 begin
@@ -2359,11 +2382,12 @@ begin
  finally
   l3FreeLocalStub(Hack);
  end;//try..finally
-end;
+end;//Tl3Variant.IterateChildrenBackF
 
-{iterator} procedure Tl3Variant.IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
-  anAll: Boolean
-  {* Перебирать все возможные свойства или только РЕАЛЬНО заданные});
+procedure Tl3Variant.IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
+ anAll: Boolean
+ {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+ {* перебирает все существующие свойства }
 //#UC START# *4BC31A730293_532031160122_var*
 //#UC END# *4BC31A730293_532031160122_var*
 begin
@@ -2372,9 +2396,10 @@ begin
 //#UC END# *4BC31A730293_532031160122_impl*
 end;//Tl3Variant.IterateProperties
 
-{iterator} procedure Tl3Variant.IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
-  anAll: Boolean
-  {* Перебирать все возможные свойства или только РЕАЛЬНО заданные});
+procedure Tl3Variant.IteratePropertiesF(anAction: Ml3TagHolder_IterateProperties_Action;
+ anAll: Boolean
+ {* Перебирать все возможные свойства или только РЕАЛЬНО заданные });
+ {* перебирает все существующие свойства }
 var
  Hack : Pointer absolute anAction;
 begin
@@ -2383,10 +2408,10 @@ begin
  finally
   l3FreeLocalStub(Hack);
  end;//try..finally
-end;
+end;//Tl3Variant.IteratePropertiesF
 
-function Tl3Variant.RLong(anIndex: Integer;
-  aDefault: Integer): Integer;
+function Tl3Variant.rLong(anIndex: Integer;
+ aDefault: Integer): Integer;
 //#UC START# *4BC71B0A028C_532031160122_var*
 var
  l_Value : Tl3Variant;
@@ -2398,21 +2423,23 @@ begin
  else
   Result := aDefault;
 //#UC END# *4BC71B0A028C_532031160122_impl*
-end;//Tl3Variant.RLong
+end;//Tl3Variant.rLong
 
-function Tl3Variant.RAtomEx(const Path: array of Integer;
-  theIndex: PLongint = nil): Tl3Variant;
+function Tl3Variant.rAtomEx(const Path: array of Integer;
+ theIndex: PLongint = nil): Tl3Variant;
+ {* вернуть подтег. }
 //#UC START# *4BC843A5011F_532031160122_var*
 //#UC END# *4BC843A5011F_532031160122_var*
 begin
 //#UC START# *4BC843A5011F_532031160122_impl*
  Result := CheckAttr(Path, nil, false, theIndex);
 //#UC END# *4BC843A5011F_532031160122_impl*
-end;//Tl3Variant.RAtomEx
+end;//Tl3Variant.rAtomEx
 
-function Tl3Variant.CAtom(anIndex: Integer;
-  const aContext: Il3OpPack = nil;
-  anAtomType: Tl3VariantDef = nil): Tl3Variant;
+function Tl3Variant.cAtom(anIndex: Integer;
+ const aContext: Il3OpPack = nil;
+ anAtomType: Tl3VariantDef = nil): Tl3Variant;
+ {* проверить существование подтега и создать его при необходимости. }
 //#UC START# *4BC843C80301_532031160122_var*
 //#UC END# *4BC843C80301_532031160122_var*
 begin
@@ -2420,18 +2447,19 @@ begin
  Result := DoCAtom(anIndex, aContext, anAtomType);
  Assert(Result.TagType <> nil);
 //#UC END# *4BC843C80301_532031160122_impl*
-end;//Tl3Variant.CAtom
+end;//Tl3Variant.cAtom
 
-function Tl3Variant.CAtomEx(const aPath: array of Integer;
-  const aContext: Il3OpPack;
-  theIndex: PLongint = nil): Tl3Variant;
+function Tl3Variant.cAtomEx(const aPath: array of Integer;
+ const aContext: Il3OpPack;
+ theIndex: PLongint = nil): Tl3Variant;
+ {* проверить существование подтега и создать его при необходимости. }
 //#UC START# *4BC843CE00EF_532031160122_var*
 //#UC END# *4BC843CE00EF_532031160122_var*
 begin
 //#UC START# *4BC843CE00EF_532031160122_impl*
  Result := CheckAttr(aPath, aContext, true, theIndex);
 //#UC END# *4BC843CE00EF_532031160122_impl*
-end;//Tl3Variant.CAtomEx
+end;//Tl3Variant.cAtomEx
 
 function Tl3Variant.HasSubAtom(anIndex: Integer): Boolean;
 //#UC START# *4BC8441500B7_532031160122_var*
@@ -2446,6 +2474,7 @@ begin
 end;//Tl3Variant.HasSubAtom
 
 function Tl3Variant.IsNull: Boolean;
+ {* пустой тег? }
 //#UC START# *4BC8446D010E_532031160122_var*
 //#UC END# *4BC8446D010E_532031160122_var*
 begin
@@ -2458,6 +2487,7 @@ begin
 end;//Tl3Variant.IsNull
 
 function Tl3Variant.IsValid: Boolean;
+ {* тег имеет значение? }
 //#UC START# *4BC8447200B0_532031160122_var*
 //#UC END# *4BC8447200B0_532031160122_var*
 begin
@@ -2467,6 +2497,7 @@ begin
 end;//Tl3Variant.IsValid
 
 function Tl3Variant.IsTransparent: Boolean;
+ {* тег "прозрачный"? }
 //#UC START# *4BC8447501CB_532031160122_var*
 //#UC END# *4BC8447501CB_532031160122_var*
 begin
@@ -2479,6 +2510,7 @@ begin
 end;//Tl3Variant.IsTransparent
 
 function Tl3Variant.IsStream(out theStream: IStream): Boolean;
+ {* Проверяет может ли тег приводиться к потоку. И приводит к потоку - если указатель на поток - не нулевой. }
 //#UC START# *4BC8447A0046_532031160122_var*
 //#UC END# *4BC8447A0046_532031160122_var*
 begin
@@ -2491,8 +2523,9 @@ begin
 end;//Tl3Variant.IsStream
 
 function Tl3Variant.QT(const IID: TGUID;
-  out Obj;
-  const aProcessor: Ik2Processor = nil): Boolean;
+ out Obj;
+ const aProcessor: Ik2Processor = nil): Boolean;
+ {* возвращает инструмент для работы с тегом, к которому привязан исходный инструмент. }
 //#UC START# *4BC84CA1035B_532031160122_var*
 //#UC END# *4BC84CA1035B_532031160122_var*
 begin
@@ -2505,7 +2538,8 @@ begin
 end;//Tl3Variant.QT
 
 function Tl3Variant.GetOwnInterface(const IID: TGUID;
-  out Obj): Boolean;
+ out Obj): Boolean;
+ {* возвращает интерфейс НЕПОСРЕДСТВЕННО поддерживаемый реализацией инструмента. }
 //#UC START# *4BC84CEE0329_532031160122_var*
 //#UC END# *4BC84CEE0329_532031160122_var*
 begin
@@ -2526,7 +2560,8 @@ begin
 //#UC END# *4E2EA8B10353_532031160122get_impl*
 end;//Tl3Variant.Get_Int64A
 
-procedure Tl3Variant.Set_Int64A(aTagID: Integer; aValue: Int64);
+procedure Tl3Variant.Set_Int64A(aTagID: Integer;
+ aValue: Int64);
 //#UC START# *4E2EA8B10353_532031160122set_var*
 //#UC END# *4E2EA8B10353_532031160122set_var*
 begin
@@ -2535,7 +2570,9 @@ begin
 //#UC END# *4E2EA8B10353_532031160122set_impl*
 end;//Tl3Variant.Set_Int64A
 
-procedure Tl3Variant.Set_Int64W(aTagID: Integer; const aContext: Il3OpPack; aValue: Int64);
+procedure Tl3Variant.Set_Int64W(aTagID: Integer;
+ const aContext: Il3OpPack;
+ aValue: Int64);
 //#UC START# *4E2EA93E029A_532031160122set_var*
 //#UC END# *4E2EA93E029A_532031160122set_var*
 begin
@@ -2575,7 +2612,9 @@ begin
 //#UC END# *532C4B8E00CC_532031160122_impl*
 end;//Tl3Variant.IsSame
 
-procedure Tl3Variant.pm_SetAttrW(anIndex: Integer; const aContext: Il3OpPack; aValue: Tl3Variant);
+procedure Tl3Variant.pm_SetAttrW(anIndex: Integer;
+ const aContext: Il3OpPack;
+ aValue: Tl3Variant);
 //#UC START# *533195830003_532031160122set_var*
 //#UC END# *533195830003_532031160122set_var*
 begin
@@ -2610,7 +2649,8 @@ begin
 //#UC END# *53B444D80378_532031160122get_impl*
 end;//Tl3Variant.Get_DateTimeA
 
-procedure Tl3Variant.Set_DateTimeA(aTagID: Integer; aValue: TDateTime);
+procedure Tl3Variant.Set_DateTimeA(aTagID: Integer;
+ aValue: TDateTime);
 //#UC START# *53B444D80378_532031160122set_var*
 //#UC END# *53B444D80378_532031160122set_var*
 begin
@@ -2619,7 +2659,9 @@ begin
 //#UC END# *53B444D80378_532031160122set_impl*
 end;//Tl3Variant.Set_DateTimeA
 
-procedure Tl3Variant.Set_DateTimeW(aTagID: Integer; const aContext: Il3OpPack; aValue: TDateTime);
+procedure Tl3Variant.Set_DateTimeW(aTagID: Integer;
+ const aContext: Il3OpPack;
+ aValue: TDateTime);
 //#UC START# *53B52B130172_532031160122set_var*
 (*var
  l_DT : TStDateTimeRec;*)
@@ -2647,7 +2689,6 @@ end;//Tl3Variant.GetIsKindOfPrim
 
 //#UC START# *532031160122impl*
 //#UC END# *532031160122impl*
-// start class Tl3PrimString
 
 function Tl3PrimString.pm_GetAsString: AnsiString;
 //#UC START# *47A869930282_47A8693601A1get_var*
@@ -2742,6 +2783,7 @@ begin
 end;//Tl3PrimString.DoSetAsPCharLen
 
 procedure Tl3PrimString.Clear;
+ {* Функция очистки объекта.  Для перекрытия в потомках. }
 //#UC START# *47BC02A50131_47A8693601A1_var*
 //#UC END# *47BC02A50131_47A8693601A1_var*
 begin
@@ -2751,6 +2793,7 @@ begin
 end;//Tl3PrimString.Clear
 
 procedure Tl3PrimString.AssignString(aStr: Tl3PrimString);
+ {* Присвает другую строку данной. }
 //#UC START# *47BC3C950296_47A8693601A1_var*
 //#UC END# *47BC3C950296_47A8693601A1_var*
 begin
@@ -2762,6 +2805,7 @@ begin
 end;//Tl3PrimString.AssignString
 
 function Tl3PrimString.Clone: Pointer;
+ {* Создайт копию строки. }
 //#UC START# *47BC3FC40111_47A8693601A1_var*
 type
   Rl3PrimString = class of Tl3PrimString;
@@ -2806,44 +2850,8 @@ begin
 //#UC END# *5329CD1A020E_47A8693601A1_impl*
 end;//Tl3PrimString.GetAsString
 
-function Supports(anObject: Tl3VariantPrim;
-  const aGUID: TGUID;
-  out theObj): Boolean;
-//#UC START# *5342A452039F_53317D14019D_var*
-var
- l_Unknown : IUnknown;
-//#UC END# *5342A452039F_53317D14019D_var*
-begin
-//#UC START# *5342A452039F_53317D14019D_impl*
- Result := SysUtils.Supports(anObject, aGUID, theObj);
- Assert(Result OR (anObject = nil) OR anObject.GetInterface(IUnknown, l_Unknown));
- if not Result then
-  Result := anObject.QI(aGUID, theObj);
-//#UC END# *5342A452039F_53317D14019D_impl*
-end;//Supports
-
-// start class Tl3NullTag
-
-var g_Tl3NullTag : Tl3NullTag = nil;
-
-procedure Tl3NullTagFree;
-begin
- l3Free(g_Tl3NullTag);
-end;
-
-class function Tl3NullTag.Instance: Tl3NullTag;
-begin
- if (g_Tl3NullTag = nil) then
- begin
-  l3System.AddExitProc(Tl3NullTagFree);
-  g_Tl3NullTag := Create;
- end;
- Result := g_Tl3NullTag;
-end;
-
-
 class function Tl3NullTag.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3NullTag <> nil;
 end;//Tl3NullTag.Exists
@@ -2856,7 +2864,17 @@ begin
  Result := nil;
 //#UC END# *4A42196C01CE_5347F19F0007_impl*
 end;//Tl3NullTag.AsObject
-// start class Tl3TagRef
+
+class function Tl3NullTag.Instance: Tl3NullTag;
+ {* Метод получения экземпляра синглетона Tl3NullTag }
+begin
+ if (g_Tl3NullTag = nil) then
+ begin
+  l3System.AddExitProc(Tl3NullTagFree);
+  g_Tl3NullTag := Create;
+ end;
+ Result := g_Tl3NullTag;
+end;//Tl3NullTag.Instance
 
 constructor Tl3TagRef.Create(aTag: Tl3Tag);
 //#UC START# *535FD1080328_535FD0BB03C3_var*
@@ -2879,7 +2897,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3TagRef.Make
 
 function Tl3TagRef.AsObject: Tl3Variant;
 //#UC START# *4A42196C01CE_535FD0BB03C3_var*
@@ -2891,6 +2909,7 @@ begin
 end;//Tl3TagRef.AsObject
 
 procedure Tl3TagRef.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_535FD0BB03C3_var*
 //#UC END# *479731C50290_535FD0BB03C3_var*
 begin
@@ -2901,7 +2920,8 @@ begin
 end;//Tl3TagRef.Cleanup
 
 function Tl3TagRef.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
+ {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }
 //#UC START# *47A0AD3A01F7_535FD0BB03C3_var*
 //#UC END# *47A0AD3A01F7_535FD0BB03C3_var*
 begin
@@ -2913,8 +2933,9 @@ begin
 //#UC END# *47A0AD3A01F7_535FD0BB03C3_impl*
 end;//Tl3TagRef.QueryInterface
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3TagRef.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_535FD0BB03C3_var*
 //#UC END# *47A6FEE600FC_535FD0BB03C3_var*
 begin
@@ -2922,6 +2943,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_535FD0BB03C3_impl*
 end;//Tl3TagRef.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

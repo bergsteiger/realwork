@@ -111,6 +111,8 @@ type
    {* Текущая версия формата }
  end;//Ik2TagGenerator
 
+ Ik2Processor = interface;
+
  Ik2UndoBuffer = interface
   {* Undo-буфер }
   ['{957F4AF4-F09C-40BA-B4C1-030462DC0F2C}']
@@ -193,7 +195,7 @@ type
   function NeedReplaceQuotes: Boolean;
    {* Опрелеляет - нужно ли заменять кавычки при вводе. }
   procedure NotifyPropChanged(aProp: TObject;
-   aValues;
+   const aValues;
    const anOp: Il3OpPack);
    {* Сообщает об изменении свойства объекта }
   property DefaultStyle: Tl3StyleId
@@ -290,16 +292,16 @@ type
   function pm_GetChild(anIndex: Integer): Tl3Variant;
   procedure Set_ChildrenCapacity(aValue: Integer);
   function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-   aLo: Tl3Index = l3Interfaces.l3MinIndex;
-   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
+   aHi: Tl3Index = l3MaxIndex;
    aLoadedOnly: Boolean = False): Integer;
   function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
-   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
    aLoadedOnly: Boolean = False): Integer;
   function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
-   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
    aLoadedOnly: Boolean = False): Integer;
   function AddChild(aChild: Tl3Variant;
    const aContext: Il3OpPack = nil): Integer;
@@ -424,14 +426,14 @@ type
  (*
  Mk2TagHolder = interface
   function pm_GetAttr(anIndex: Integer): Tl3Variant;
-  function rAtomEx(const Path: TOpenLongArray;
+  function rAtomEx(const Path: array of Integer;
    theIndex: PLongint = nil): Tl3Variant;
    {* вернуть подтег. }
   function cAtom(anIndex: Integer;
    const aContext: Il3OpPack = nil;
    anAtomType: Tl3VariantDef = nil): Tl3Variant;
    {* проверить существование подтега и создать его при необходимости. }
-  function cAtomEx(const aPath: TOpenLongArray;
+  function cAtomEx(const aPath: array of Integer;
    const aContext: Il3OpPack;
    theIndex: PLongint = nil): Tl3Variant;
    {* проверить существование подтега и создать его при необходимости. }
@@ -481,10 +483,10 @@ type
  Mk2TypeInfoPrim = interface
   function IsKindOf(anID: Tl3VariantDef): Boolean; overload;
    {* проверить наследование. }
-  function IsKindOf(const anIDs: array of Tk2TypePrim): Boolean; overload;
+  function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload;
    {* проверить наследование. }
   function IsKindOf(anAtomTypeID: Tl3VariantDef;
-   const Exclude: array of Tk2TypePrim): Boolean; overload;
+   const Exclude: array of Tl3VariantDef): Boolean; overload;
    {* проверить наследование. }
  end;//Mk2TypeInfoPrim
  *)
@@ -522,10 +524,10 @@ type
    function IsOrd: Boolean;
    function IsKindOf(anID: Tl3VariantDef): Boolean; overload;
     {* проверить наследование. }
-   function IsKindOf(const anIDs: array of Tk2TypePrim): Boolean; overload;
+   function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload;
     {* проверить наследование. }
    function IsKindOf(anAtomTypeID: Tl3VariantDef;
-    const Exclude: array of Tk2TypePrim): Boolean; overload;
+    const Exclude: array of Tl3VariantDef): Boolean; overload;
     {* проверить наследование. }
  //#UC START# *53319F9C002Fpubl*
  //#UC END# *53319F9C002Fpubl*
@@ -709,14 +711,14 @@ type
     theIndex: PLongint): Tl3Variant; virtual;
    function CloneTag: Il3TagRef; virtual;
    procedure WriteTag(const G: Ik2TagGenerator;
-    Flags: Tk2StorePropertyFlags = k2BaseTypes.l3_spfAll;
+    Flags: Tk2StorePropertyFlags = l3_spfAll;
     Exclude: TByteSet = []); virtual;
     {* записать тег в генератор. }
    function AssignTag(Source: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
+    AssignMode: Tk2AssignModes = k2_amAll;
     const Context: Il3OpPack = nil): Boolean; virtual;
    procedure AssignCloneParams(aSource: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
+    AssignMode: Tk2AssignModes = k2_amAll;
     const Context: Il3OpPack = nil); virtual;
    procedure DeleteChildren(const Context: Il3OpPack = nil); virtual;
     {* удалить всех детей. }
@@ -756,16 +758,16 @@ type
    procedure ForceStore;
    function MarkModified: Boolean;
    function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-    aLo: Tl3Index = l3Interfaces.l3MinIndex;
-    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+    aLo: Tl3Index = l3MinIndex;
+    aHi: Tl3Index = l3MaxIndex;
     aLoadedOnly: Boolean = False): Integer;
    function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
-    aLo: Tl3Index = l3Interfaces.l3MinIndex;
+    aHi: Tl3Index = l3MaxIndex;
+    aLo: Tl3Index = l3MinIndex;
     aLoadedOnly: Boolean = False): Integer;
    function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-    aHi: Tl3Index = l3Interfaces.l3MaxIndex;
-    aLo: Tl3Index = l3Interfaces.l3MinIndex;
+    aHi: Tl3Index = l3MaxIndex;
+    aLo: Tl3Index = l3MinIndex;
     aLoadedOnly: Boolean = False): Integer;
    procedure IterateProperties(anAction: Ml3TagHolder_IterateProperties_Action;
     anAll: Boolean
@@ -777,14 +779,14 @@ type
     {* перебирает все существующие свойства }
    function rLong(anIndex: Integer;
     aDefault: Integer): Integer;
-   function rAtomEx(const Path: TOpenLongArray;
+   function rAtomEx(const Path: array of Integer;
     theIndex: PLongint = nil): Tl3Variant;
     {* вернуть подтег. }
    function cAtom(anIndex: Integer;
     const aContext: Il3OpPack = nil;
     anAtomType: Tl3VariantDef = nil): Tl3Variant;
     {* проверить существование подтега и создать его при необходимости. }
-   function cAtomEx(const aPath: TOpenLongArray;
+   function cAtomEx(const aPath: array of Integer;
     const aContext: Il3OpPack;
     theIndex: PLongint = nil): Tl3Variant;
     {* проверить существование подтега и создать его при необходимости. }
@@ -999,16 +1001,16 @@ type
    aValue: Tl3Variant);
   function IsOrd: Boolean;
   function IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
-   aLo: Tl3Index = l3Interfaces.l3MinIndex;
-   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
+   aHi: Tl3Index = l3MaxIndex;
    aLoadedOnly: Boolean = False): Integer;
   function IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
-   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
-   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
    aLoadedOnly: Boolean = False): Integer;
   function IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
-   aHi: Tl3Index = l3Interfaces.l3MaxIndex;
-   aLo: Tl3Index = l3Interfaces.l3MinIndex;
+   aHi: Tl3Index = l3MaxIndex;
+   aLo: Tl3Index = l3MinIndex;
    aLoadedOnly: Boolean = False): Integer;
   function AddChild(aChild: Tl3Variant;
    const aContext: Il3OpPack = nil): Integer;
@@ -1027,14 +1029,14 @@ type
   procedure ForceStore;
   function rLong(anIndex: Integer;
    aDefault: Integer): Integer;
-  function rAtomEx(const Path: TOpenLongArray;
+  function rAtomEx(const Path: array of Integer;
    theIndex: PLongint = nil): Tl3Variant;
    {* вернуть подтег. }
   function cAtom(anIndex: Integer;
    const aContext: Il3OpPack = nil;
    anAtomType: Tl3VariantDef = nil): Tl3Variant;
    {* проверить существование подтега и создать его при необходимости. }
-  function cAtomEx(const aPath: TOpenLongArray;
+  function cAtomEx(const aPath: array of Integer;
    const aContext: Il3OpPack;
    theIndex: PLongint = nil): Tl3Variant;
    {* проверить существование подтега и создать его при необходимости. }
@@ -1057,10 +1059,10 @@ type
   function MarkModified: Boolean;
   function IsKindOf(anID: Tl3VariantDef): Boolean; overload;
    {* проверить наследование. }
-  function IsKindOf(const anIDs: array of Tk2TypePrim): Boolean; overload;
+  function IsKindOf(const anIDs: array of Tl3VariantDef): Boolean; overload;
    {* проверить наследование. }
   function IsKindOf(anAtomTypeID: Tl3VariantDef;
-   const Exclude: array of Tk2TypePrim): Boolean; overload;
+   const Exclude: array of Tl3VariantDef): Boolean; overload;
    {* проверить наследование. }
   function IsSame(anOther: Tl3Variant): Boolean; overload;
   function GetOwnInterface(const IID: TGUID;
@@ -1311,7 +1313,7 @@ begin
 //#UC END# *4A421BED00FF_53319F9C002F_impl*
 end;//Tl3VariantPrim.IsKindOf
 
-function Tl3VariantPrim.IsKindOf(const anIDs: array of Tk2TypePrim): Boolean;
+function Tl3VariantPrim.IsKindOf(const anIDs: array of Tl3VariantDef): Boolean;
  {* проверить наследование. }
 //#UC START# *4A421BF200BF_53319F9C002F_var*
 var
@@ -1330,7 +1332,7 @@ begin
 end;//Tl3VariantPrim.IsKindOf
 
 function Tl3VariantPrim.IsKindOf(anAtomTypeID: Tl3VariantDef;
- const Exclude: array of Tk2TypePrim): Boolean;
+ const Exclude: array of Tl3VariantDef): Boolean;
  {* проверить наследование. }
 //#UC START# *4A421C12034A_53319F9C002F_var*
 var
@@ -1847,7 +1849,7 @@ begin
 end;//Tl3Variant.CloneTag
 
 procedure Tl3Variant.WriteTag(const G: Ik2TagGenerator;
- Flags: Tk2StorePropertyFlags = k2BaseTypes.l3_spfAll;
+ Flags: Tk2StorePropertyFlags = l3_spfAll;
  Exclude: TByteSet = []);
  {* записать тег в генератор. }
 //#UC START# *4761324203B8_532031160122_var*
@@ -1859,7 +1861,7 @@ begin
 end;//Tl3Variant.WriteTag
 
 function Tl3Variant.AssignTag(Source: Tl3Variant;
- AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
+ AssignMode: Tk2AssignModes = k2_amAll;
  const Context: Il3OpPack = nil): Boolean;
 //#UC START# *47612DD0012B_532031160122_var*
 //#UC END# *47612DD0012B_532031160122_var*
@@ -1871,7 +1873,7 @@ begin
 end;//Tl3Variant.AssignTag
 
 procedure Tl3Variant.AssignCloneParams(aSource: Tl3Variant;
- AssignMode: Tk2AssignModes = k2BaseTypes.k2_amAll;
+ AssignMode: Tk2AssignModes = k2_amAll;
  const Context: Il3OpPack = nil);
 //#UC START# *47612E530082_532031160122_var*
 //#UC END# *47612E530082_532031160122_var*
@@ -2345,8 +2347,8 @@ begin
 end;//Tl3Variant.Set_Owner
 
 function Tl3Variant.IterateChildrenF(anAction: Mk2Children_IterateChildrenF_Action;
- aLo: Tl3Index = l3Interfaces.l3MinIndex;
- aHi: Tl3Index = l3Interfaces.l3MaxIndex;
+ aLo: Tl3Index = l3MinIndex;
+ aHi: Tl3Index = l3MaxIndex;
  aLoadedOnly: Boolean = False): Integer;
 //#UC START# *4BB21F9D022F_532031160122_var*
 //#UC END# *4BB21F9D022F_532031160122_var*
@@ -2357,8 +2359,8 @@ begin
 end;//Tl3Variant.IterateChildrenF
 
 function Tl3Variant.IterateChildrenBack(anAction: Mk2Children_IterateChildrenBack_Action;
- aHi: Tl3Index = l3Interfaces.l3MaxIndex;
- aLo: Tl3Index = l3Interfaces.l3MinIndex;
+ aHi: Tl3Index = l3MaxIndex;
+ aLo: Tl3Index = l3MinIndex;
  aLoadedOnly: Boolean = False): Integer;
 //#UC START# *4BBF49EB0260_532031160122_var*
 //#UC END# *4BBF49EB0260_532031160122_var*
@@ -2369,8 +2371,8 @@ begin
 end;//Tl3Variant.IterateChildrenBack
 
 function Tl3Variant.IterateChildrenBackF(anAction: Mk2Children_IterateChildrenBack_Action;
- aHi: Tl3Index = l3Interfaces.l3MaxIndex;
- aLo: Tl3Index = l3Interfaces.l3MinIndex;
+ aHi: Tl3Index = l3MaxIndex;
+ aLo: Tl3Index = l3MinIndex;
  aLoadedOnly: Boolean = False): Integer;
 var
  Hack : Pointer absolute anAction;
@@ -2423,7 +2425,7 @@ begin
 //#UC END# *4BC71B0A028C_532031160122_impl*
 end;//Tl3Variant.rLong
 
-function Tl3Variant.rAtomEx(const Path: TOpenLongArray;
+function Tl3Variant.rAtomEx(const Path: array of Integer;
  theIndex: PLongint = nil): Tl3Variant;
  {* вернуть подтег. }
 //#UC START# *4BC843A5011F_532031160122_var*
@@ -2447,7 +2449,7 @@ begin
 //#UC END# *4BC843C80301_532031160122_impl*
 end;//Tl3Variant.cAtom
 
-function Tl3Variant.cAtomEx(const aPath: TOpenLongArray;
+function Tl3Variant.cAtomEx(const aPath: array of Integer;
  const aContext: Il3OpPack;
  theIndex: PLongint = nil): Tl3Variant;
  {* проверить существование подтега и создать его при необходимости. }

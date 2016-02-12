@@ -29,7 +29,7 @@ type
   function is_same(const other: IFilterFromQuery): Boolean;
    {* возвращает true, если оригинальный и переданный фильтры совпадают }
   procedure get_server_query;
-  procedure save_to_server(query);
+  procedure save_to_server(const query);
   function check: Boolean;
    {* проверить атрибуты в фильтре }
   function marked_to_erase: Boolean;
@@ -109,7 +109,7 @@ type
   procedure clear_cache(pharm: Boolean);
  end;//IFiltersManager
 
-class function make(filter): BadFactoryType;
+class function make(const filter): BadFactoryType;
 class function make: BadFactoryType;
 
 implementation
@@ -118,7 +118,7 @@ uses
  l3ImplUses
 ;
 
-class function make(filter): BadFactoryType;
+class function make(const filter): BadFactoryType;
 var
  l_Inst : IFilterFromQuery;
 begin

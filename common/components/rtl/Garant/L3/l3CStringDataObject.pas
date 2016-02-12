@@ -1,61 +1,42 @@
 unit l3CStringDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CStringDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3DataObject::Tl3CStringDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CStringDataObject.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3StorableDataObject,
-  ActiveX,
-  Windows
-  ;
+ l3IntfUses
+ , l3StorableDataObject
+ , l3Interfaces
+;
 
 type
  Tl3CStringDataObject = class(Tl3StorableDataObject, Il3DataObjectInfo)
- private
- // private fields
-   f_String : Il3CString;
- protected
- // realized methods
+  private
+   f_String: Il3CString;
+  protected
    function pm_GetIsQuestionNeedBeforeFlush: Boolean;
    function Store(aFormat: Tl3ClipboardFormat;
     const aPool: IStream): Boolean; override;
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- public
- // public methods
+  public
    constructor Create(const aString: Il3CString); reintroduce;
    class function Make(const aString: Il3CString): IDataObject; reintroduce;
-     {* Сигнатура фабрики Tl3CStringDataObject.Make }
  end;//Tl3CStringDataObject
 
 implementation
 
 uses
-  SysUtils,
-  l3_String,
-  l3Chars,
-  l3String
-  ;
-
-// start class Tl3CStringDataObject
+ l3ImplUses
+ , SysUtils
+ , l3_String
+ , l3Chars
+ , l3String
+ , Windows
+;
 
 constructor Tl3CStringDataObject.Create(const aString: Il3CString);
 //#UC START# *55E5CB0A0231_55E5CAA801A1_var*
@@ -83,7 +64,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3CStringDataObject.Make
 
 function Tl3CStringDataObject.pm_GetIsQuestionNeedBeforeFlush: Boolean;
 //#UC START# *4680FC190114_55E5CAA801A1get_var*
@@ -95,7 +76,7 @@ begin
 end;//Tl3CStringDataObject.pm_GetIsQuestionNeedBeforeFlush
 
 function Tl3CStringDataObject.Store(aFormat: Tl3ClipboardFormat;
-  const aPool: IStream): Boolean;
+ const aPool: IStream): Boolean;
 //#UC START# *48F37AC50290_55E5CAA801A1_var*
 
  function DoStore(aCodePage : Integer; const aStr: Tl3WString): Boolean;
@@ -160,7 +141,6 @@ begin
 end;//Tl3CStringDataObject.Store
 
 procedure Tl3CStringDataObject.ClearFields;
- {-}
 begin
  f_String := nil;
  inherited;

@@ -393,7 +393,7 @@ parent_path - путь к УЗЛУ в котором произашли изменения (если delta < 0 - удален
    {* устанавливает и снимает флаг раскрытия всех нод в дереве }
   class function make: BadFactoryType; overload; { can raise CanNotFindData }
   class function make(var owner_tree: IFakeFacetForFactory;
-   snode): BadFactoryType; overload;
+   const snode): BadFactoryType; overload;
   function iterate_all_nodes(with_flag: TFlagMask): INodeIterator;
   procedure set_all_flag_except_first_children_of_root_children(flag: TFlagMask;
    value: Boolean);
@@ -555,9 +555,9 @@ const
  NT_UNKNOWN: TNodeType = 0;
 
 class function make: BadFactoryType;
-class function make(iterator): BadFactoryType;
+class function make(const iterator): BadFactoryType;
 class function make: BadFactoryType; overload;
-class function make(node_holder): BadFactoryType; overload;
+class function make(const node_holder): BadFactoryType; overload;
 class function make: BadFactoryType;
 class function make(const country: INodeBase): BadFactoryType;
 class function make(leaf_count: Cardinal): BadFactoryType;
@@ -582,7 +582,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(iterator): BadFactoryType;
+class function make(const iterator): BadFactoryType;
 var
  l_Inst : IFindIterator;
 begin
@@ -606,7 +606,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(node_holder): BadFactoryType;
+class function make(const node_holder): BadFactoryType;
 var
  l_Inst : INodesClipboard;
 begin

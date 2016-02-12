@@ -479,7 +479,7 @@ class function make(result_type: TSearchResultType;
  entry_count: size;
  edition_count: size): BadFactoryType; overload;
  {* фабрика }
-class function make(search_entity): BadFactoryType; overload;
+class function make(const search_entity): BadFactoryType; overload;
  {* фабрика }
 class function make: BadFactoryType;
  {* фабрика }
@@ -538,7 +538,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(search_entity): BadFactoryType;
+class function make(const search_entity): BadFactoryType;
  {* фабрика }
 var
  l_Inst : ISearchEntity;

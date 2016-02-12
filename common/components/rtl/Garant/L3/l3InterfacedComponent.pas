@@ -1,76 +1,59 @@
 unit l3InterfacedComponent;
+ {* Базовый класс компонентов, поддерживающих счетчик ссылок и интерфейсы IUnknown. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В. ©
-// Модуль: "w:/common/components/rtl/Garant/L3/l3InterfacedComponent.pas"
-// Начат: 20.10.1998 11:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3InterfacedComponent
-//
-// Базовый класс компонентов, поддерживающих счетчик ссылок и интерфейсы IUnknown.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  Classes,
-  l3IID,
-  l3PureMixIns
-  ;
+ l3IntfUses
+ , Classes
+ , l3IID
+ , l3PureMixIns
+;
 
 type
-//#UC START# *47541E17024Eci*
+ //#UC START# *47541E17024Eci*
  {$Define _UnknownIsBaseComponent}
-//#UC END# *47541E17024Eci*
+ //#UC END# *47541E17024Eci*
  _l3Unknown_Parent_ = TComponent;
- {$Include ..\L3\l3Unknown.imp.pas}
-//#UC START# *47541E17024Ecit*
-//#UC END# *47541E17024Ecit*
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
+ //#UC START# *47541E17024Ecit*
+ //#UC END# *47541E17024Ecit*
  Tl3InterfacedComponent = class(_l3Unknown_)
   {* Базовый класс компонентов, поддерживающих счетчик ссылок и интерфейсы IUnknown. }
- protected
- // overridden protected methods
-   function QueryInterface(const IID: TGUID;
-    out Obj): HResult; override;
- protected
- // protected methods
+  protected
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; virtual;
-     {* метод для реализации QueryInterface (Для перекрытия в потомках). }
- public
- // public methods
-   constructor CreateX;
-//#UC START# *47541E17024Epubl*
-//#UC END# *47541E17024Epubl*
+    {* метод для реализации QueryInterface (Для перекрытия в потомках). }
+   function QueryInterface(const IID: TGUID;
+    out Obj): HResult; override;
+  public
+   constructor CreateX; reintroduce;
+ //#UC START# *47541E17024Epubl*
+ //#UC END# *47541E17024Epubl*
  end;//Tl3InterfacedComponent
 
 implementation
 
 uses
-  SysUtils,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , l3MemUtils
+ , l3Interlocked
+;
 
-{$Include ..\L3\l3Unknown.imp.pas}
-
-// start class Tl3InterfacedComponent
+{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
 function Tl3InterfacedComponent.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* метод для реализации QueryInterface (Для перекрытия в потомках). }
 //#UC START# *47D16038003C_47541E17024E_var*
 //#UC END# *47D16038003C_47541E17024E_var*
 begin
@@ -90,7 +73,7 @@ begin
 end;//Tl3InterfacedComponent.CreateX
 
 function Tl3InterfacedComponent.QueryInterface(const IID: TGUID;
-  out Obj): HResult;
+ out Obj): HResult;
 //#UC START# *47D160620295_47541E17024E_var*
 var
  l_Res : Tl3HResult;

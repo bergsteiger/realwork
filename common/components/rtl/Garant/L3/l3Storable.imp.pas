@@ -1,46 +1,38 @@
 {$IfNDef l3Storable_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Storable.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3Storable
-//
-// Объект умеющий писать/читать себя.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Storable.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3Storable_imp}
- _l3Storable_ = {abstract mixin} class(_l3Storable_Parent_)
+
+ _l3Storable_ = {abstract} class(_l3Storable_Parent_)
   {* Объект умеющий писать/читать себя. }
- public
- // public methods
+  public
    procedure SaveToFile(const aFileName: AnsiString);
-     {* Сохранить в файл. }
-   procedure SaveToStream(const aStream: IStream); overload; 
-     {* Сохранить в поток. }
-   procedure SaveToStream(aStream: TStream); overload;  virtual; abstract; // can raise El3Exception
-     {* Сохраняет в поток. }
+    {* Сохранить в файл. }
+   procedure SaveToStream(const aStream: IStream); overload;
+    {* Сохранить в поток. }
+   procedure SaveToStream(aStream: TStream); overload; virtual; abstract; { can raise El3Exception }
+    {* Сохраняет в поток. }
    procedure LoadFromFile(const aFileName: AnsiString;
-    aNeedSort: Boolean = true);
-     {* Загружает из файла. }
+    aNeedSort: Boolean = True);
+    {* Загружает из файла. }
    procedure LoadFromStream(const aStream: IStream;
-    aNeedSort: Boolean); overload; 
-     {* Загружает из потока. }
+    aNeedSort: Boolean); overload;
+    {* Загружает из потока. }
    procedure LoadFromStream(aStream: TStream;
-    aNeedSort: Boolean); overload;  virtual; abstract; // can raise El3Exception
-     {* Загружает из потока. }
+    aNeedSort: Boolean); overload; virtual; abstract; { can raise El3Exception }
+    {* Загружает из потока. }
  end;//_l3Storable_
 
 {$Else l3Storable_imp}
 
-// start class _l3Storable_
+{$IfNDef l3Storable_imp_impl}
+
+{$Define l3Storable_imp_impl}
 
 procedure _l3Storable_.SaveToFile(const aFileName: AnsiString);
+ {* Сохранить в файл. }
 //#UC START# *47B17CE4033C_47B17CBC0356_var*
 var
  l_Stream : TStream;
@@ -57,6 +49,7 @@ begin
 end;//_l3Storable_.SaveToFile
 
 procedure _l3Storable_.SaveToStream(const aStream: IStream);
+ {* Сохранить в поток. }
 //#UC START# *47B17D240289_47B17CBC0356_var*
 var
  l_Stream : TStream;
@@ -73,7 +66,8 @@ begin
 end;//_l3Storable_.SaveToStream
 
 procedure _l3Storable_.LoadFromFile(const aFileName: AnsiString;
-  aNeedSort: Boolean = true);
+ aNeedSort: Boolean = True);
+ {* Загружает из файла. }
 //#UC START# *47B19B0D0201_47B17CBC0356_var*
 var
  l_Stream : TStream;
@@ -94,7 +88,8 @@ begin
 end;//_l3Storable_.LoadFromFile
 
 procedure _l3Storable_.LoadFromStream(const aStream: IStream;
-  aNeedSort: Boolean);
+ aNeedSort: Boolean);
+ {* Загружает из потока. }
 //#UC START# *47B19B58033C_47B17CBC0356_var*
 var
  l_Stream : TStream;
@@ -110,4 +105,7 @@ begin
 //#UC END# *47B19B58033C_47B17CBC0356_impl*
 end;//_l3Storable_.LoadFromStream
 
+{$EndIf l3Storable_imp_impl}
+
 {$EndIf l3Storable_imp}
+

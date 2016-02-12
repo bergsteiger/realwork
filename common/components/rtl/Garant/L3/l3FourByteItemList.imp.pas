@@ -1,37 +1,31 @@
 {$IfNDef l3FourByteItemList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3FourByteItemList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3FourByteItemList
-//
-// Список элементов размером в 4 байта.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3FourByteItemList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3FourByteItemList_imp}
+
  _l3TypedList_Parent_ = _l3FourByteItemList_Parent_;
- {$Include ..\L3\l3TypedList.imp.pas}
- _l3FourByteItemList_ = {abstract mixin} class(_l3TypedList_)
+ {$Include w:\common\components\rtl\Garant\L3\l3TypedList.imp.pas}
+ _l3FourByteItemList_ = {abstract} class(_l3TypedList_)
   {* Список элементов размером в 4 байта. }
  end;//_l3FourByteItemList_
 
 {$Else l3FourByteItemList_imp}
 
-// start class _l3FourByteItemList_
+{$IfNDef l3FourByteItemList_imp_impl}
+
+{$Define l3FourByteItemList_imp_impl}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 procedure DoExchange(var A: _ItemType_;
-  var B: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  );
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
+ {* Меняет элементы списка местами. Без всяких проверок. }
 //#UC START# *47B5C4080270_47B5C2EA02CB_var*
 {$IfDef l3Items_IsAtomic}
 var
@@ -59,8 +53,9 @@ begin
 //#UC END# *47B5C4080270_47B5C2EA02CB_impl*
 end;//DoExchange
 
+{$Include w:\common\components\rtl\Garant\L3\l3TypedList.imp.pas}
 
-{$Include ..\L3\l3TypedList.imp.pas}
-
+{$EndIf l3FourByteItemList_imp_impl}
 
 {$EndIf l3FourByteItemList_imp}
+

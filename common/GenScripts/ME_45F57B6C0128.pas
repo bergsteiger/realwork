@@ -26,17 +26,17 @@ type
    function master_tree: TreeBase; override;
   public
    constructor make; reintroduce; virtual;
-   procedure build_node(snode;
+   procedure build_node(const snode;
     var current_stub: FlagNodeBase); virtual;
    procedure init(mode: TFlagMask;
     levels: unsigned integer;
     auto_open: Boolean;
     parent_tree: TreeBase;
-    server_tree); virtual;
+    const server_tree); virtual;
    function get_change_mutex: mutex; override;
    function is_mode(shared_flags: TFlagMask): Boolean; override;
-   procedure load_nodes_from_server(parent_point;
-    child_point;
+   procedure load_nodes_from_server(const parent_point;
+    const child_point;
     from: Integer;
     in_block_position: Cardinal;
     var current_stub); override; { can raise InvalidOwnerTree }
@@ -106,7 +106,7 @@ begin
 //#UC END# *46025BAC02FD_45F57B6C0128_impl*
 end;//ViewBase.make
 
-procedure ViewBase.build_node(snode;
+procedure ViewBase.build_node(const snode;
  var current_stub: FlagNodeBase);
 //#UC START# *46272A80037A_45F57B6C0128_var*
 //#UC END# *46272A80037A_45F57B6C0128_var*
@@ -120,7 +120,7 @@ procedure ViewBase.init(mode: TFlagMask;
  levels: unsigned integer;
  auto_open: Boolean;
  parent_tree: TreeBase;
- server_tree);
+ const server_tree);
 //#UC START# *46025D6F0000_45F57B6C0128_var*
 //#UC END# *46025D6F0000_45F57B6C0128_var*
 begin
@@ -156,8 +156,8 @@ begin
 //#UC END# *4601221600DA_45F57B6C0128_impl*
 end;//ViewBase.is_mode
 
-procedure ViewBase.load_nodes_from_server(parent_point;
- child_point;
+procedure ViewBase.load_nodes_from_server(const parent_point;
+ const child_point;
  from: Integer;
  in_block_position: Cardinal;
  var current_stub); { can raise InvalidOwnerTree }

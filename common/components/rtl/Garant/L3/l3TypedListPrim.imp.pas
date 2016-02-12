@@ -1,124 +1,120 @@
 {$IfNDef l3TypedListPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3TypedListPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3TypedListPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3TypedListPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3TypedListPrim_imp}
+
 const
-  { Sizes }
  cItemSize = SizeOf(_ItemType_);
 
-type
+ //#UC START# *47A74A5F0123ci*
+type 
+ //#UC END# *47A74A5F0123ci*
  _l3Items_Parent_ = _l3TypedListPrim_Parent_;
- {$Include ..\L3\l3Items.imp.pas}
- _l3TypedListPrim_ = {abstract mixin} class(_l3Items_)
- private
- // private fields
-  {$If defined(l3Items_HasCustomSort) AND not defined(l3Items_NoSort)}
-   f_SortIndex : Tl3SortIndex;
-  {$IfEnd} //l3Items_HasCustomSort AND not l3Items_NoSort
-  {$If not defined(l3Items_HasCustomSort) AND not defined(l3Items_NoSort)}
-   f_Sorted : Boolean;
-  {$IfEnd} //not l3Items_HasCustomSort AND not l3Items_NoSort
- protected
- // property methods
+ {$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
+ //#UC START# *47A74A5F0123cit*
+ //#UC END# *47A74A5F0123cit*
+ _l3TypedListPrim_ = {abstract} class(_l3Items_)
+  private
+   {$If Defined(l3Items_HasCustomSort) AND NOT Defined(l3Items_NoSort)}
+   f_SortIndex: Tl3SortIndex;
+   {$IfEnd} // Defined(l3Items_HasCustomSort) AND NOT Defined(l3Items_NoSort)
+   {$If NOT Defined(l3Items_HasCustomSort) AND NOT Defined(l3Items_NoSort)}
+   f_Sorted: Boolean;
+   {$IfEnd} // NOT Defined(l3Items_HasCustomSort) AND NOT Defined(l3Items_NoSort)
+  protected
    function pm_GetLast: _ItemType_;
    procedure pm_SetLast(const aValue: _ItemType_);
    function pm_GetFirst: _ItemType_;
- protected
- // realized methods
-   procedure pm_SetCount(aValue: Integer); override;
- protected
- // overridden protected methods
-   function DoGetSortIndex: Tl3SortIndex; override;
-   procedure DoSetSortIndex(Value: Tl3SortIndex); override;
- protected
- // protected methods
    function GetItem(Index: Integer): _ItemType_; virtual;
-   function DoAdd(const aData: _ItemType_): Integer; // can raise El3DuplicateItem
-     {* Добавляет элемент в список. }
+   function DoAdd(const aData: _ItemType_): Integer; { can raise El3DuplicateItem }
+    {* Добавляет элемент в список. }
    procedure DoInsert(anIndex: Integer;
-    const aData: _ItemType_); // can raise EListError
+    const aData: _ItemType_); { can raise EListError }
    procedure DoSetItem(anIndex: Integer;
     const anItem: _ItemType_); virtual;
- public
- // public methods
-    {$If defined(l3Items_IsProto)}
-   function Clone: Pointer; overload; 
-    {$IfEnd} //l3Items_IsProto
-    {$If defined(l3Items_IsProto)}
-   procedure Assign(anOther: _l3TypedListPrim_); overload; 
-    {$IfEnd} //l3Items_IsProto
+   procedure pm_SetCount(aValue: Integer); override; { can raise EListError }
+   function DoGetSortIndex: Tl3SortIndex; override;
+   procedure DoSetSortIndex(Value: Tl3SortIndex); override;
+  public
+   {$If Defined(l3Items_IsProto)}
+   function Clone: Pointer; overload;
+   {$IfEnd} // Defined(l3Items_IsProto)
+   {$If Defined(l3Items_IsProto)}
+   procedure Assign(anOther: _l3TypedListPrim_); overload;
+   {$IfEnd} // Defined(l3Items_IsProto)
    function GrowByOne: PItemType;
-     {* Увеличивает размер списка на единицу и возвращает указатель на последний элемент для заполнения. Этот элемент инициализирован нулями. }
+    {* Увеличивает размер списка на единицу и возвращает указатель на последний элемент для заполнения. Этот элемент инициализирован нулями. }
    procedure Insert(anIndex: Integer;
     const anItem: _ItemType_);
-     {* Вставляет элемент в список. }
+    {* Вставляет элемент в список. }
    function IndexOf(const anItem: _ItemType_): Integer; virtual;
-     {* Возвращает индекс элемента списка или -1, если элемента в списке нет. }
+    {* Возвращает индекс элемента списка или -1, если элемента в списке нет. }
    function Remove(const anItem: _ItemType_): Integer;
-     {* Удаляет элемент из списка и возвращает его индекс. }
+    {* Удаляет элемент из списка и возвращает его индекс. }
    function Add(const anItem: _ItemType_): Integer; virtual;
-     {* Добавляет элемент списка. }
+    {* Добавляет элемент списка. }
    procedure Move(CurIndex: Integer;
     NewIndex: Integer);
-     {* передвигает элементы списка. }
+    {* передвигает элементы списка. }
    function IterateBackF(aHi: Tl3Index;
     aLo: Tl3Index;
     anAction: Tl3IteratorAction): Integer;
-     {* перебирает элементы списка в обратном порядке и освобождает заглушку для anAction. }
+    {* перебирает элементы списка в обратном порядке и освобождает заглушку для anAction. }
    function IterateBack(aHi: Tl3Index;
     aLo: Tl3Index;
     anAction: Tl3IteratorAction): Integer;
-     {* перебирает элементы списка в обратном порядке. }
-   {$If not defined(l3Items_IsProto)}
-   procedure Assign(Source: TPersistent); overload;  override;
-   {$IfEnd} //not l3Items_IsProto
-   function JoinWith(aList: _l3TypedListPrim_): Integer; overload;  virtual;
-     {* Объединяет один список с другим. }
+    {* перебирает элементы списка в обратном порядке. }
+   {$If NOT Defined(l3Items_IsProto)}
+   procedure Assign(Source: TPersistent); override;
+   {$IfEnd} // NOT Defined(l3Items_IsProto)
+   function JoinWith(aList: _l3TypedListPrim_): Integer; overload; virtual;
+    {* Объединяет один список с другим. }
    function Iterate(aLo: Tl3Index;
     aHi: Tl3Index;
     Action: Tl3IteratorAction): Integer;
-     {* перебирает все элементы хранилища с aLo по aHi. }
+    {* перебирает все элементы хранилища с aLo по aHi. }
    function IterateAll(Action: Tl3IteratorAction): Integer;
-     {* перебирает все элементы хранилища. }
+    {* перебирает все элементы хранилища. }
    procedure Clear; virtual;
    procedure DeleteLast;
-     {* Удаляет последний элемент списка. }
+    {* Удаляет последний элемент списка. }
    constructor Create; reintroduce; virtual;
-   {$If not defined(l3Items_IsProto)}
-   function Clone: Pointer; overload; 
-     {* функция для получения копии объекта. }
-   {$IfEnd} //not l3Items_IsProto
- public
- // public properties
+   {$If NOT Defined(l3Items_IsProto)}
+   function Clone: Pointer; overload;
+    {* функция для получения копии объекта. }
+   {$IfEnd} // NOT Defined(l3Items_IsProto)
+  public
    property Last: _ItemType_
-     read pm_GetLast
-     write pm_SetLast;
+    read pm_GetLast
+    write pm_SetLast;
    property First: _ItemType_
-     read pm_GetFirst;
+    read pm_GetFirst;
+ //#UC START# *47A74A5F0123publ*
+ //#UC END# *47A74A5F0123publ*
  end;//_l3TypedListPrim_
 
 {$Else l3TypedListPrim_imp}
 
-// start class _l3TypedListPrim_
+{$IfNDef l3TypedListPrim_imp_impl}
+
+{$Define l3TypedListPrim_imp_impl}
+
+type
+ PLong = ^Integer;
+  {* Указатель на целое. }
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 function GetCapacity(aList: _l3Items_): Integer; forward;
 
 function GetItemSlot(anIndex: Integer;
-  aList: _l3Items_): PItemType; forward;
+ aList: _l3Items_): PItemType; forward;
 
 procedure ReAllocList(NewCapacity: Integer;
-  aList: _l3Items_);
+ aList: _l3Items_);
+ {* изменяет мощность списка. }
 //#UC START# *47B5976F024E_47A74A5F0123_var*
 var
  l_Cap : Integer;
@@ -145,7 +141,7 @@ begin
 end;//GetCapacity
 
 function GetItemSlot(anIndex: Integer;
-  aList: _l3Items_): PItemType;
+ aList: _l3Items_): PItemType;
 //#UC START# *47BEDF2A02EA_47A74A5F0123_var*
 //#UC END# *47BEDF2A02EA_47A74A5F0123_var*
 begin
@@ -155,59 +151,7 @@ begin
 //#UC END# *47BEDF2A02EA_47A74A5F0123_impl*
 end;//GetItemSlot
 
-
-{$Include ..\L3\l3Items.imp.pas}
-
-type
-  PLong = ^Integer;
-   {* Указатель на целое. }
-
-// start class _l3TypedListPrim_
-
-{$If defined(l3Items_IsProto)}
-function _l3TypedListPrim_.Clone: Pointer;
-//#UC START# *4DD3D80A01FD_47A74A5F0123_var*
-type
- R_l3TypedListPrim_ = class of _l3TypedListPrim_;
-//#UC END# *4DD3D80A01FD_47A74A5F0123_var*
-begin
-//#UC START# *4DD3D80A01FD_47A74A5F0123_impl*
- Result := R_l3TypedListPrim_(ClassType).Create;
- _l3TypedListPrim_(Result).JoinWith(Self);
-//#UC END# *4DD3D80A01FD_47A74A5F0123_impl*
-end;//_l3TypedListPrim_.Clone
-{$IfEnd} //l3Items_IsProto
-
-{$If defined(l3Items_IsProto)}
-procedure _l3TypedListPrim_.Assign(anOther: _l3TypedListPrim_);
-//#UC START# *4DD3E9CC0301_47A74A5F0123_var*
-//#UC END# *4DD3E9CC0301_47A74A5F0123_var*
-begin
-//#UC START# *4DD3E9CC0301_47A74A5F0123_impl*
- {$If not defined(l3Items_NoSort)}
- if (Duplicates <> l3_dupAssign) then
- {$IfEnd} 
-  Clear;
- JoinWith(anOther);
-//#UC END# *4DD3E9CC0301_47A74A5F0123_impl*
-end;//_l3TypedListPrim_.Assign
-{$IfEnd} //l3Items_IsProto
-
-function _l3TypedListPrim_.GrowByOne: PItemType;
-//#UC START# *56011BE502EB_47A74A5F0123_var*
-var
- l_Value : Integer;
-//#UC END# *56011BE502EB_47A74A5F0123_var*
-begin
-//#UC START# *56011BE502EB_47A74A5F0123_impl*
- l_Value := f_Count + 1;
- if (l_Value > GetCapacity(Self)) then
-  ReAllocList(ExpandSize(l_Value), Self);
- Result := ItemSlot(f_Count);
- l3ZeroMemory(Result, cItemSize);
- f_Count := l_Value;
-//#UC END# *56011BE502EB_47A74A5F0123_impl*
-end;//_l3TypedListPrim_.GrowByOne
+{$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
 
 function _l3TypedListPrim_.pm_GetLast: _ItemType_;
 //#UC START# *47AAC9AF02F5_47A74A5F0123get_var*
@@ -236,8 +180,55 @@ begin
 //#UC END# *47AB36DA024C_47A74A5F0123get_impl*
 end;//_l3TypedListPrim_.pm_GetFirst
 
+{$If Defined(l3Items_IsProto)}
+function _l3TypedListPrim_.Clone: Pointer;
+//#UC START# *4DD3D80A01FD_47A74A5F0123_var*
+type
+ R_l3TypedListPrim_ = class of _l3TypedListPrim_;
+//#UC END# *4DD3D80A01FD_47A74A5F0123_var*
+begin
+//#UC START# *4DD3D80A01FD_47A74A5F0123_impl*
+ Result := R_l3TypedListPrim_(ClassType).Create;
+ _l3TypedListPrim_(Result).JoinWith(Self);
+//#UC END# *4DD3D80A01FD_47A74A5F0123_impl*
+end;//_l3TypedListPrim_.Clone
+{$IfEnd} // Defined(l3Items_IsProto)
+
+{$If Defined(l3Items_IsProto)}
+procedure _l3TypedListPrim_.Assign(anOther: _l3TypedListPrim_);
+//#UC START# *4DD3E9CC0301_47A74A5F0123_var*
+//#UC END# *4DD3E9CC0301_47A74A5F0123_var*
+begin
+//#UC START# *4DD3E9CC0301_47A74A5F0123_impl*
+ {$If not defined(l3Items_NoSort)}
+ if (Duplicates <> l3_dupAssign) then
+ {$IfEnd} 
+  Clear;
+ JoinWith(anOther);
+//#UC END# *4DD3E9CC0301_47A74A5F0123_impl*
+end;//_l3TypedListPrim_.Assign
+{$IfEnd} // Defined(l3Items_IsProto)
+
+function _l3TypedListPrim_.GrowByOne: PItemType;
+ {* Увеличивает размер списка на единицу и возвращает указатель на последний элемент для заполнения. Этот элемент инициализирован нулями. }
+//#UC START# *56011BE502EB_47A74A5F0123_var*
+var
+ l_Value : Integer;
+//#UC END# *56011BE502EB_47A74A5F0123_var*
+begin
+//#UC START# *56011BE502EB_47A74A5F0123_impl*
+ l_Value := f_Count + 1;
+ if (l_Value > GetCapacity(Self)) then
+  ReAllocList(ExpandSize(l_Value), Self);
+ Result := ItemSlot(f_Count);
+ l3ZeroMemory(Result, cItemSize);
+ f_Count := l_Value;
+//#UC END# *56011BE502EB_47A74A5F0123_impl*
+end;//_l3TypedListPrim_.GrowByOne
+
 procedure _l3TypedListPrim_.Insert(anIndex: Integer;
-  const anItem: _ItemType_);
+ const anItem: _ItemType_);
+ {* Вставляет элемент в список. }
 //#UC START# *47A74F2F017B_47A74A5F0123_var*
 //#UC END# *47A74F2F017B_47A74A5F0123_var*
 begin
@@ -247,6 +238,7 @@ begin
 end;//_l3TypedListPrim_.Insert
 
 function _l3TypedListPrim_.IndexOf(const anItem: _ItemType_): Integer;
+ {* Возвращает индекс элемента списка или -1, если элемента в списке нет. }
 //#UC START# *47A74F62037A_47A74A5F0123_var*
 
  function FindItem(P: PItemType; Index: Integer): Boolean;
@@ -273,6 +265,7 @@ begin
 end;//_l3TypedListPrim_.IndexOf
 
 function _l3TypedListPrim_.Remove(const anItem: _ItemType_): Integer;
+ {* Удаляет элемент из списка и возвращает его индекс. }
 //#UC START# *47A74F810201_47A74A5F0123_var*
 //#UC END# *47A74F810201_47A74A5F0123_var*
 begin
@@ -308,6 +301,7 @@ begin
 end;//_l3TypedListPrim_.Remove
 
 function _l3TypedListPrim_.Add(const anItem: _ItemType_): Integer;
+ {* Добавляет элемент списка. }
 //#UC START# *47A750E70096_47A74A5F0123_var*
 //#UC END# *47A750E70096_47A74A5F0123_var*
 begin
@@ -317,7 +311,8 @@ begin
 end;//_l3TypedListPrim_.Add
 
 procedure _l3TypedListPrim_.Move(CurIndex: Integer;
-  NewIndex: Integer);
+ NewIndex: Integer);
+ {* передвигает элементы списка. }
 //#UC START# *47AC544B01F8_47A74A5F0123_var*
 {$IfNDef l3Items_IsAtomic}
 {$If SizeOf(_ItemType_) > 4}
@@ -384,8 +379,9 @@ begin
 end;//_l3TypedListPrim_.Move
 
 function _l3TypedListPrim_.IterateBackF(aHi: Tl3Index;
-  aLo: Tl3Index;
-  anAction: Tl3IteratorAction): Integer;
+ aLo: Tl3Index;
+ anAction: Tl3IteratorAction): Integer;
+ {* перебирает элементы списка в обратном порядке и освобождает заглушку для anAction. }
 //#UC START# *47ACAC9C0153_47A74A5F0123_var*
 //#UC END# *47ACAC9C0153_47A74A5F0123_var*
 begin
@@ -399,8 +395,9 @@ begin
 end;//_l3TypedListPrim_.IterateBackF
 
 function _l3TypedListPrim_.IterateBack(aHi: Tl3Index;
-  aLo: Tl3Index;
-  anAction: Tl3IteratorAction): Integer;
+ aLo: Tl3Index;
+ anAction: Tl3IteratorAction): Integer;
+ {* перебирает элементы списка в обратном порядке. }
 //#UC START# *47ACB5C200C5_47A74A5F0123_var*
 var
  i, j, k : Integer;
@@ -427,7 +424,7 @@ begin
 //#UC END# *47ACB5C200C5_47A74A5F0123_impl*
 end;//_l3TypedListPrim_.IterateBack
 
-{$If not defined(l3Items_IsProto)}
+{$If NOT Defined(l3Items_IsProto)}
 procedure _l3TypedListPrim_.Assign(Source: TPersistent);
 //#UC START# *47B09CD5029B_47A74A5F0123_var*
 //#UC END# *47B09CD5029B_47A74A5F0123_var*
@@ -445,9 +442,10 @@ begin
   inherited;
 //#UC END# *47B09CD5029B_47A74A5F0123_impl*
 end;//_l3TypedListPrim_.Assign
-{$IfEnd} //not l3Items_IsProto
+{$IfEnd} // NOT Defined(l3Items_IsProto)
 
 function _l3TypedListPrim_.JoinWith(aList: _l3TypedListPrim_): Integer;
+ {* Объединяет один список с другим. }
 //#UC START# *47B09DF302A7_47A74A5F0123_var*
 var
  i   : Integer;
@@ -469,8 +467,9 @@ begin
 end;//_l3TypedListPrim_.JoinWith
 
 function _l3TypedListPrim_.Iterate(aLo: Tl3Index;
-  aHi: Tl3Index;
-  Action: Tl3IteratorAction): Integer;
+ aHi: Tl3Index;
+ Action: Tl3IteratorAction): Integer;
+ {* перебирает все элементы хранилища с aLo по aHi. }
 //#UC START# *47B1BD39008B_47A74A5F0123_var*
 var
  i, k      : Integer;
@@ -551,6 +550,7 @@ begin
 end;//_l3TypedListPrim_.Iterate
 
 function _l3TypedListPrim_.IterateAll(Action: Tl3IteratorAction): Integer;
+ {* перебирает все элементы хранилища. }
 //#UC START# *47B1BDA202C3_47A74A5F0123_var*
 var
  i, k      : Integer;
@@ -682,7 +682,8 @@ begin
 //#UC END# *47B1CCC901BE_47A74A5F0123_impl*
 end;//_l3TypedListPrim_.GetItem
 
-function _l3TypedListPrim_.DoAdd(const aData: _ItemType_): Integer; // can raise El3DuplicateItem
+function _l3TypedListPrim_.DoAdd(const aData: _ItemType_): Integer; { can raise El3DuplicateItem }
+ {* Добавляет элемент в список. }
 //#UC START# *47B1D68E0219_47A74A5F0123_var*
 
  {$If not defined(l3Items_NoSort)}
@@ -741,7 +742,7 @@ begin
 end;//_l3TypedListPrim_.DoAdd
 
 procedure _l3TypedListPrim_.DoInsert(anIndex: Integer;
-  const aData: _ItemType_); // can raise EListError
+ const aData: _ItemType_); { can raise EListError }
 //#UC START# *47B1DB3C01D6_47A74A5F0123_var*
 
  procedure _Error;
@@ -759,7 +760,7 @@ begin
 end;//_l3TypedListPrim_.DoInsert
 
 procedure _l3TypedListPrim_.DoSetItem(anIndex: Integer;
-  const anItem: _ItemType_);
+ const anItem: _ItemType_);
 //#UC START# *47B2CC7E01F6_47A74A5F0123_var*
 {$IfNDef l3Items_IsAtomic}
 var
@@ -783,6 +784,7 @@ begin
 end;//_l3TypedListPrim_.DoSetItem
 
 procedure _l3TypedListPrim_.DeleteLast;
+ {* Удаляет последний элемент списка. }
 //#UC START# *47B49C9600E9_47A74A5F0123_var*
 var
  l_P  : PItemType;
@@ -827,8 +829,9 @@ begin
 //#UC END# *47B9866E034D_47A74A5F0123_impl*
 end;//_l3TypedListPrim_.Create
 
-{$If not defined(l3Items_IsProto)}
+{$If NOT Defined(l3Items_IsProto)}
 function _l3TypedListPrim_.Clone: Pointer;
+ {* функция для получения копии объекта. }
 //#UC START# *47BAC7A50039_47A74A5F0123_var*
 type
  R_l3TypedListPrim_ = class of _l3TypedListPrim_;
@@ -839,9 +842,9 @@ begin
  _l3TypedListPrim_(Result).Assign(Self);
 //#UC END# *47BAC7A50039_47A74A5F0123_impl*
 end;//_l3TypedListPrim_.Clone
-{$IfEnd} //not l3Items_IsProto
+{$IfEnd} // NOT Defined(l3Items_IsProto)
 
-procedure _l3TypedListPrim_.pm_SetCount(aValue: Integer);
+procedure _l3TypedListPrim_.pm_SetCount(aValue: Integer); { can raise EListError }
 //#UC START# *47BEE088001A_47A74A5F0123set_var*
 
  procedure SayBadCount(aNewCount: LongInt);
@@ -929,4 +932,10 @@ begin
 //#UC END# *47B9843903DB_47A74A5F0123_impl*
 end;//_l3TypedListPrim_.DoSetSortIndex
 
+//#UC START# *47A74A5F0123impl*
+//#UC END# *47A74A5F0123impl*
+
+{$EndIf l3TypedListPrim_imp_impl}
+
 {$EndIf l3TypedListPrim_imp}
+

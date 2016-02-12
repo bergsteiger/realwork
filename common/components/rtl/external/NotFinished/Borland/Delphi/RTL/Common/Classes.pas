@@ -100,7 +100,7 @@ type
   public
    function Read(var Buffer;
     Count: Integer): Integer; virtual; abstract;
-   function Write(Buffer;
+   function Write(const Buffer;
     Count: Integer): Integer; virtual; abstract;
    function Seek(Offset: Integer;
     Origin: Word): Integer; overload; virtual;
@@ -113,7 +113,7 @@ type
   public
    function Read(var Buffer;
     Count: Integer): Integer; override;
-   function Write(Buffer;
+   function Write(const Buffer;
     Count: Integer): Integer; override;
  end;//TCustomMemoryStream
 
@@ -430,7 +430,7 @@ begin
 //#UC END# *49BE656C006E_483FF4CA0307_impl*
 end;//TCustomMemoryStream.Read
 
-function TCustomMemoryStream.Write(Buffer;
+function TCustomMemoryStream.Write(const Buffer;
  Count: Integer): Integer;
 //#UC START# *49BE658C0261_483FF4CA0307_var*
 //#UC END# *49BE658C0261_483FF4CA0307_var*

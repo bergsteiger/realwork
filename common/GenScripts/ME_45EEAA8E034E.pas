@@ -296,7 +296,7 @@ class function make(attribute_tag: TAttributeTag): BadFactoryType;
 class function make(tag: TAttributeTag): BadFactoryType;
 class function make(type: TQueryType): BadFactoryType;
 class function make: BadFactoryType;
-class function make(full_info): BadFactoryType;
+class function make(const full_info): BadFactoryType;
 class function make: BadFactoryType;
 
 implementation
@@ -448,7 +448,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(full_info): BadFactoryType;
+class function make(const full_info): BadFactoryType;
 var
  l_Inst : IFullAttributeInfo;
 begin

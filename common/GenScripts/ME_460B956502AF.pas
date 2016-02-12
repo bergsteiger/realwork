@@ -16,30 +16,30 @@ uses
 ;
 
 procedure adapter_to_server(const adap: TPId); overload;
-procedure server_to_adapter(serv;
+procedure server_to_adapter(const serv;
  var adap: TPosition); overload; { can raise Unsupported }
 procedure adapter_to_server(const adap: TPosition;
  var serv); overload; { can raise Unsupported }
-procedure server_to_adapter(serv;
+procedure server_to_adapter(const serv;
  out adap: IPositionList); overload; { can raise Unsupported }
 procedure adapter_to_server(const adap: IPositionList;
  var serv); overload; { can raise Unsupported }
-procedure server_to_adapter(serv;
+procedure server_to_adapter(const serv;
  var adap: ILanguagesList); overload;
 procedure category_to_query(const category: INodeBase;
  var query);
 procedure convert(const adapter_from: TNodePosition;
  var srv_from);
 procedure adapter_to_server(const adapter_index_path: INodeIndexPath); overload;
-procedure server_to_adapter(index_path;
+procedure server_to_adapter(const index_path;
  var adap_path: INodeIndexPath); overload;
 procedure adapter_to_server(adapter_status: TConsultationStatus); overload;
-function server_to_adapter(server_status): TConsultationStatus; overload;
-function consultation_status_to_folders_flag(server_status): Cardinal;
+function server_to_adapter(const server_status): TConsultationStatus; overload;
+function consultation_status_to_folders_flag(const server_status): Cardinal;
 procedure adapter_to_server(adapter_order: TFindOrder); overload;
 procedure adapter_to_server(adapter_area: TSearchArea); overload;
 procedure adapter_to_server(adapter_place: TContextPlace); overload;
-procedure server_to_adapter(serv;
+procedure server_to_adapter(const serv;
  var adap: IDocPointList); overload;
  {* Преобразование серверного списка вида Документ, Саб в адаптерный }
 
@@ -59,7 +59,7 @@ begin
 //#UC END# *460B95A600CB_460B956502AF_impl*
 end;//adapter_to_server
 
-procedure server_to_adapter(serv;
+procedure server_to_adapter(const serv;
  var adap: TPosition); { can raise Unsupported }
 //#UC START# *460BAC17029F_460B956502AF_var*
 //#UC END# *460BAC17029F_460B956502AF_var*
@@ -79,7 +79,7 @@ begin
 //#UC END# *460CCAA201E4_460B956502AF_impl*
 end;//adapter_to_server
 
-procedure server_to_adapter(serv;
+procedure server_to_adapter(const serv;
  out adap: IPositionList); { can raise Unsupported }
 //#UC START# *460BADAA00EA_460B956502AF_var*
 //#UC END# *460BADAA00EA_460B956502AF_var*
@@ -99,7 +99,7 @@ begin
 //#UC END# *460BAE0903B9_460B956502AF_impl*
 end;//adapter_to_server
 
-procedure server_to_adapter(serv;
+procedure server_to_adapter(const serv;
  var adap: ILanguagesList);
 //#UC START# *460BB2AF01C5_460B956502AF_var*
 //#UC END# *460BB2AF01C5_460B956502AF_var*
@@ -138,7 +138,7 @@ begin
 //#UC END# *47B6D48902FA_460B956502AF_impl*
 end;//adapter_to_server
 
-procedure server_to_adapter(index_path;
+procedure server_to_adapter(const index_path;
  var adap_path: INodeIndexPath);
 //#UC START# *47B6D5B502D3_460B956502AF_var*
 //#UC END# *47B6D5B502D3_460B956502AF_var*
@@ -157,7 +157,7 @@ begin
 //#UC END# *486B36420166_460B956502AF_impl*
 end;//adapter_to_server
 
-function server_to_adapter(server_status): TConsultationStatus;
+function server_to_adapter(const server_status): TConsultationStatus;
 //#UC START# *486B3685024C_460B956502AF_var*
 //#UC END# *486B3685024C_460B956502AF_var*
 begin
@@ -166,7 +166,7 @@ begin
 //#UC END# *486B3685024C_460B956502AF_impl*
 end;//server_to_adapter
 
-function consultation_status_to_folders_flag(server_status): Cardinal;
+function consultation_status_to_folders_flag(const server_status): Cardinal;
 //#UC START# *486B4C8900FE_460B956502AF_var*
 //#UC END# *486B4C8900FE_460B956502AF_var*
 begin
@@ -202,7 +202,7 @@ begin
 //#UC END# *4D3EAD0C00A5_460B956502AF_impl*
 end;//adapter_to_server
 
-procedure server_to_adapter(serv;
+procedure server_to_adapter(const serv;
  var adap: IDocPointList);
  {* Преобразование серверного списка вида Документ, Саб в адаптерный }
 //#UC START# *4DCCD8970014_460B956502AF_var*

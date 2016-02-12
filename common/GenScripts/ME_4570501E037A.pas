@@ -187,10 +187,10 @@ type
    {* Произошло изменение папки. При этом необходимо перечитать только непосредственное содержимое папки, исключая рекурсивную прогрузку дочерних папок. }
  end;//IExternalFoldersChangeNotifier
 
-class function make(content;
+class function make(const content;
  var folders: IFolders): BadFactoryType;
 class function make: BadFactoryType;
-class function make(folder_content;
+class function make(const folder_content;
  var folders_node: IFoldersNode): INamedElement;
 
 implementation
@@ -199,7 +199,7 @@ uses
  l3ImplUses
 ;
 
-class function make(content;
+class function make(const content;
  var folders: IFolders): BadFactoryType;
 var
  l_Inst : IFoldersNode;
@@ -224,7 +224,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(folder_content;
+class function make(const folder_content;
  var folders_node: IFoldersNode): INamedElement;
 var
  l_Inst : IFolder;

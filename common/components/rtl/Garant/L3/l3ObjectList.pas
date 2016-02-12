@@ -1,66 +1,56 @@
 unit l3ObjectList;
+ {* Списсок указателей на объект. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ObjectList.pas"
-// Начат: 05.02.2008 22:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3ObjectList
-//
-// Списсок указателей на объект.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3SimpleDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3SimpleDataContainer
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
 type
  _ItemType_ = TObject;
  _l3ObjectPtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3ObjectPtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
  Tl3ObjectList = class(_l3ObjectPtrList_)
   {* Списсок указателей на объект. }
- protected
- // overridden protected methods
+  protected
    procedure DoDelete(Index: Integer); override;
-     {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
+    {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
  end;//Tl3ObjectList
 
 implementation
 
 uses
-  RTLConsts,
-  l3Base,
-  l3MinMax,
-  SysUtils
-  ;
+ l3ImplUses
+ , RTLConsts
+ , l3Base
+ , l3MinMax
+ , SysUtils
+;
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 type _Instance_R_ = Tl3ObjectList;
 
-{$Include ..\L3\l3ObjectPtrList.imp.pas}
-
-// start class Tl3ObjectList
+{$Include w:\common\components\rtl\Garant\L3\l3ObjectPtrList.imp.pas}
 
 procedure Tl3ObjectList.DoDelete(Index: Integer);
+ {* Удаляет элемент с индексом Index. Не проверяет валидность индекса. }
 //#UC START# *47B4895F01BE_4773DBBD000D_var*
 var
  l_P : PItemType;

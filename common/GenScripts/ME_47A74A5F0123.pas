@@ -8,8 +8,13 @@
 const
  cItemSize = SizeOf(_ItemType_);
 
+ //#UC START# *47A74A5F0123ci*
+type 
+ //#UC END# *47A74A5F0123ci*
  _l3Items_Parent_ = _l3TypedListPrim_Parent_;
  {$Include w:\common\components\rtl\Garant\L3\l3Items.imp.pas}
+ //#UC START# *47A74A5F0123cit*
+ //#UC END# *47A74A5F0123cit*
  _l3TypedListPrim_ = {abstract} class(_l3Items_)
   private
    {$If Defined(l3Items_HasCustomSort) AND NOT Defined(l3Items_NoSort)}
@@ -86,6 +91,8 @@ const
     write pm_SetLast;
    property First: _ItemType_
     read pm_GetFirst;
+ //#UC START# *47A74A5F0123publ*
+ //#UC END# *47A74A5F0123publ*
  end;//_l3TypedListPrim_
 
 {$Else l3TypedListPrim_imp}
@@ -97,6 +104,8 @@ const
 type
  PLong = ^Integer;
   {* ”казатель на целое. }
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 function GetCapacity(aList: _l3Items_): Integer; forward;
 
@@ -922,6 +931,9 @@ begin
  {$IfEnd}
 //#UC END# *47B9843903DB_47A74A5F0123_impl*
 end;//_l3TypedListPrim_.DoSetSortIndex
+
+//#UC START# *47A74A5F0123impl*
+//#UC END# *47A74A5F0123impl*
 
 {$EndIf l3TypedListPrim_imp_impl}
 

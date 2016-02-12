@@ -24,7 +24,7 @@ type
 
 class function make: BadFactoryType; overload; { can raise CanNotFindData }
 class function make(var owner_tree: IFakeFacetForFactory;
- snode): BadFactoryType; overload;
+ const snode): BadFactoryType; overload;
 
 implementation
 
@@ -45,7 +45,7 @@ begin
 end;//make
 
 class function make(var owner_tree: IFakeFacetForFactory;
- snode): BadFactoryType;
+ const snode): BadFactoryType;
 var
  l_Inst : IPrefixNode;
 begin

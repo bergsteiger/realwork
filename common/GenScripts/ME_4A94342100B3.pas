@@ -13,7 +13,7 @@ uses
 ;
 
 procedure translate(adapter_type: TJournalObjectType); overload;
-function translate(server_type): TJournalObjectType; overload;
+function translate(const server_type): TJournalObjectType; overload;
 
 implementation
 
@@ -30,7 +30,7 @@ begin
 //#UC END# *4A9434510206_4A94342100B3_impl*
 end;//translate
 
-function translate(server_type): TJournalObjectType;
+function translate(const server_type): TJournalObjectType;
 //#UC START# *4A94348F01E6_4A94342100B3_var*
 //#UC END# *4A94348F01E6_4A94342100B3_var*
 begin

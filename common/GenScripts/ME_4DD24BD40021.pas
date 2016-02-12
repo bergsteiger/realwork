@@ -66,7 +66,7 @@ type
    {* Получить дерево секции ОМ по типу }
  end;//IMainMenu
 
-class function make(section_item): BadFactoryType;
+class function make(const section_item): BadFactoryType;
 class function make: BadFactoryType;
 
 implementation
@@ -75,7 +75,7 @@ uses
  l3ImplUses
 ;
 
-class function make(section_item): BadFactoryType;
+class function make(const section_item): BadFactoryType;
 var
  l_Inst : ISectionItem;
 begin

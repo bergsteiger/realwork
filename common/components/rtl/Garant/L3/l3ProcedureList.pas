@@ -1,35 +1,24 @@
 unit l3ProcedureList;
+ {* Список процедур. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ProcedureList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3ProcedureList
-//
-// Список процедур.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ProcedureList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  SysUtils,
-  l3SimpleDataContainer,
-  l3Memory,
-  l3Interfaces,
-  l3Types,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3SimpleDataContainer
+ , SysUtils
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+ , l3Except
+ , Classes
+;
 
  {$Define l3Items_Uncomparable}
 
@@ -37,7 +26,7 @@ type
  _ItemType_ = TProcedure;
  _l3StandardMemTypedList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3StandardMemTypedList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas}
  Tl3ProcedureList = class(_l3StandardMemTypedList_)
   {* Список процедур. }
  end;//Tl3ProcedureList
@@ -45,47 +34,49 @@ type
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+;
 
-// start class Tl3ProcedureList
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 procedure DoExchange(var A: _ItemType_;
-  var B: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  ); forward;
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  ); forward;
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  ); forward;
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_47BB38C40154_var*
 //#UC END# *47B07CF403D0_47BB38C40154_var*
 begin
@@ -93,11 +84,11 @@ begin
  Result := (PPointer(@A)^ = PPointer(@B)^);
 //#UC END# *47B07CF403D0_47BB38C40154_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_47BB38C40154_var*
 //#UC END# *47B2C42A0163_47BB38C40154_var*
 begin
@@ -105,15 +96,15 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_47BB38C40154_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 procedure DoExchange(var A: _ItemType_;
-  var B: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  );
+ var B: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
+ {* Меняет элементы списка местами. Без всяких проверок. }
 //#UC START# *47B5C4080270_47BB38C40154_var*
 var
  l_Tmp : _ItemType_;
@@ -127,12 +118,12 @@ begin
 end;//DoExchange
 
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  );
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
+ {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_47BB38C40154_var*
 //#UC END# *47B935AF0066_47BB38C40154_var*
 begin
@@ -142,11 +133,11 @@ begin
 end;//FillItem
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  );
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
+ {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_47BB38C40154_var*
 //#UC END# *47B94A5C006E_47BB38C40154_var*
 begin
@@ -156,6 +147,7 @@ begin
 end;//FreeItem
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_47BB38C40154_var*
 //#UC END# *47B99D4503A2_47BB38C40154_var*
 begin
@@ -167,6 +159,6 @@ end;//CompareExistingItems
 
 type _Instance_R_ = Tl3ProcedureList;
 
-{$Include ..\L3\l3StandardMemTypedList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas}
 
 end.

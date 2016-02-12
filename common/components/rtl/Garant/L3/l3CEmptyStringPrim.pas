@@ -1,52 +1,36 @@
 unit l3CEmptyStringPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CEmptyStringPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3CEmptyStringPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CEmptyStringPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3Interfaces
+;
 
 type
  Tl3CEmptyStringPrim = class(Tl3CProtoObject, Il3CString)
- protected
- // realized methods
+  protected
    function pm_GetAsWStr: Tl3WString;
- public
- // public methods
+  public
    constructor Create; reintroduce;
    class function Make: Il3CString; reintroduce;
-     {* Сигнатура фабрики Tl3CEmptyStringPrim.Make }
  end;//Tl3CEmptyStringPrim
 
 implementation
 
 uses
-  l3String
-  {$If not defined(NoScripts)}
-  ,
-  tfwIl3CStringPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class Tl3CEmptyStringPrim
+ l3ImplUses
+ , l3String
+ {$If NOT Defined(NoScripts)}
+ , tfwIl3CStringPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 constructor Tl3CEmptyStringPrim.Create;
 //#UC START# *4F5CBE92035B_4F5CBD4201BE_var*
@@ -67,7 +51,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3CEmptyStringPrim.Make
 
 function Tl3CEmptyStringPrim.pm_GetAsWStr: Tl3WString;
 //#UC START# *46780DEF03E5_4F5CBD4201BEget_var*

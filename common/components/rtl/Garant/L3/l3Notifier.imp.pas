@@ -1,37 +1,28 @@
 {$IfNDef l3Notifier_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Notifier.imp.pas"
-// Начат: 31.03.2008 09:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3Notifier
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3Notifier_imp}
+
  _l3NotifierBase_Parent_ = _l3Notifier_Parent_;
- {$Include ..\L3\l3NotifierBase.imp.pas}
- _l3Notifier_ = {mixin} class(_l3NotifierBase_)
- protected
- // protected methods
+ {$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
+ _l3Notifier_ = class(_l3NotifierBase_)
+  protected
    procedure CallNotify(aOperation: Integer;
     aIndex: Integer);
  end;//_l3Notifier_
 
 {$Else l3Notifier_imp}
 
-{$Include ..\L3\l3NotifierBase.imp.pas}
+{$IfNDef l3Notifier_imp_impl}
 
-// start class _l3Notifier_
+{$Define l3Notifier_imp_impl}
+
+{$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
 
 procedure _l3Notifier_.CallNotify(aOperation: Integer;
-  aIndex: Integer);
+ aIndex: Integer);
 //#UC START# *47F08013024E_47F07B3E02E4_var*
 var
  l_Index : Integer;
@@ -60,4 +51,7 @@ begin
 //#UC END# *47F08013024E_47F07B3E02E4_impl*
 end;//_l3Notifier_.CallNotify
 
+{$EndIf l3Notifier_imp_impl}
+
 {$EndIf l3Notifier_imp}
+

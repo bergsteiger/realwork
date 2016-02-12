@@ -1,56 +1,51 @@
 {$IfNDef l3DataRefList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DataRefList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3DataRefList
-//
-// Список ссылок на данные. Управляет жизненным циклом указателей.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DataRefList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3DataRefList_imp}
+
  _l3RefList_Parent_ = _l3DataRefList_Parent_;
- {$Include ..\L3\l3RefList.imp.pas}
- _l3DataRefList_ = {mixin} class(_l3RefList_)
+ {$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
+ _l3DataRefList_ = class(_l3RefList_)
   {* Список ссылок на данные. Управляет жизненным циклом указателей. }
  end;//_l3DataRefList_
 
 {$Else l3DataRefList_imp}
 
-// start class _l3DataRefList_
+{$IfNDef l3DataRefList_imp_impl}
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$Define l3DataRefList_imp_impl}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  ); forward;
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)}
+;
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+); forward;
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  ); forward;
+{$If Defined(l3Items_FreeItem_NeedsList)}
+;
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+); forward;
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_47B5877A02EE_var*
 //#UC END# *47B07CF403D0_47B5877A02EE_var*
 begin
@@ -58,11 +53,11 @@ begin
  Result := (A = B);
 //#UC END# *47B07CF403D0_47B5877A02EE_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_47B5877A02EE_var*
 //#UC END# *47B2C42A0163_47B5877A02EE_var*
 begin
@@ -70,15 +65,15 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_47B5877A02EE_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 procedure FillItem(var aPlace: _ItemType_;
-  const anItem: _ItemType_
-  {$If defined(l3Items_FillItem_NeedsList)}
-  ;
-  anItems: _l3Items_
-  {$IfEnd} //l3Items_FillItem_NeedsList
-  );
+ const anItem: _ItemType_
+{$If Defined(l3Items_FillItem_NeedsList)};
+ anItems: _l3Items_
+{$IfEnd} // Defined(l3Items_FillItem_NeedsList)
+);
+ {* Заполняет элемент списка. }
 //#UC START# *47B935AF0066_47B5877A02EE_var*
 //#UC END# *47B935AF0066_47B5877A02EE_var*
 begin
@@ -88,11 +83,11 @@ begin
 end;//FillItem
 
 procedure FreeItem(var aPlace: _ItemType_
-  {$If defined(l3Items_FreeItem_NeedsList)}
-  ;
-  aList: _l3Items_
-  {$IfEnd} //l3Items_FreeItem_NeedsList
-  );
+{$If Defined(l3Items_FreeItem_NeedsList)};
+ aList: _l3Items_
+{$IfEnd} // Defined(l3Items_FreeItem_NeedsList)
+);
+ {* Очищает элемент списка }
 //#UC START# *47B94A5C006E_47B5877A02EE_var*
 //#UC END# *47B94A5C006E_47B5877A02EE_var*
 begin
@@ -102,6 +97,7 @@ begin
 end;//FreeItem
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_47B5877A02EE_var*
 //#UC END# *47B99D4503A2_47B5877A02EE_var*
 begin
@@ -114,8 +110,9 @@ begin
 //#UC END# *47B99D4503A2_47B5877A02EE_impl*
 end;//CompareExistingItems
 
+{$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
 
-{$Include ..\L3\l3RefList.imp.pas}
-
+{$EndIf l3DataRefList_imp_impl}
 
 {$EndIf l3DataRefList_imp}
+

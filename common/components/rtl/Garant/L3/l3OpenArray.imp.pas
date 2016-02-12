@@ -1,33 +1,23 @@
 {$IfNDef l3OpenArray_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3OpenArray.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3OpenArray
-//
-// "Открытый массив". Список, который автоматически расширяется при добавлении элемента за гранецей
-// диапазона
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3OpenArray.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3OpenArray_imp}
- _l3OpenArray_ = {mixin} class(_l3OpenArray_Parent_)
+
+ _l3OpenArray_ = class(_l3OpenArray_Parent_)
   {* "Открытый массив". Список, который автоматически расширяется при добавлении элемента за гранецей диапазона }
- protected
- // overridden protected methods
+  protected
    function GetItem(Index: Integer): _ItemType_; override;
    procedure CheckSetItem(anIndex: Integer); override;
-     {* Проверяет валидность индекса при вставке. }
+    {* Проверяет валидность индекса при вставке. }
  end;//_l3OpenArray_
 
 {$Else l3OpenArray_imp}
 
-// start class _l3OpenArray_
+{$IfNDef l3OpenArray_imp_impl}
+
+{$Define l3OpenArray_imp_impl}
 
 function _l3OpenArray_.GetItem(Index: Integer): _ItemType_;
 //#UC START# *47B1CCC901BE_4B86890E0307_var*
@@ -42,6 +32,7 @@ begin
 end;//_l3OpenArray_.GetItem
 
 procedure _l3OpenArray_.CheckSetItem(anIndex: Integer);
+ {* Проверяет валидность индекса при вставке. }
 //#UC START# *47B49FF70034_4B86890E0307_var*
 //#UC END# *47B49FF70034_4B86890E0307_var*
 begin
@@ -53,4 +44,7 @@ begin
 //#UC END# *47B49FF70034_4B86890E0307_impl*
 end;//_l3OpenArray_.CheckSetItem
 
+{$EndIf l3OpenArray_imp_impl}
+
 {$EndIf l3OpenArray_imp}
+

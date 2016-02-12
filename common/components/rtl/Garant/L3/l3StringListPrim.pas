@@ -1,37 +1,25 @@
 unit l3StringListPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3StringListPrim.pas"
-// Начат: 12.02.2008 21:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3StringListPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StringListPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Base,
-  l3CustomString,
-  l3ProtoPersistentDataContainer,
-  l3Variant,
-  l3Types,
-  l3Memory,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3ProtoPersistentDataContainer
+ , l3CustomString
+ , l3Base
+ , l3Interfaces
+ , l3Variant
+ , Classes
+ , l3Except
+ , l3Core
+ , l3Memory
+ , l3Types
+;
 
  {$Undef l3Items_NeedsBeforeFreeItem}
 
@@ -41,58 +29,55 @@ uses
 
 type
  _l3StringList_Parent_ = Tl3ProtoPersistentDataContainer;
- {$Include ..\L3\l3StringList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
  _l3Storable_Parent_ = _l3StringList_;
- {$Include ..\L3\l3Storable.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Storable.imp.pas}
  Tl3StringListPrim = class(_l3Storable_)
- protected
- // realized methods
-   procedure SaveToStream(aStream: TStream); override; // can raise El3Exception
-     {* Сохраняет в поток. }
-   procedure LoadFromStream(aStream: TStream;
-    aNeedSort: Boolean); override; // can raise El3Exception
-     {* Загружает из потока. }
- protected
- // overridden protected methods
-   procedure AssignTo(Dest: TPersistent); override;
- public
- // overridden public methods
-   {$If not defined(l3Items_IsProto)}
-   procedure Assign(Source: TPersistent); override;
-   {$IfEnd} //not l3Items_IsProto
- protected
- // protected methods
+  protected
    function WStrToItem(const aStr: Tl3WString): Tl3CustomString; virtual;
    function StringItemClass: Rl3String; virtual;
- public
- // public methods
-   function Add(const Item: Tl3WString): Integer; overload; 
-   function Add(anItem: Tl3PrimString): Integer; overload; 
-   function IndexOf(anItem: Tl3PrimString): Integer; overload; 
+   procedure AssignTo(Dest: TPersistent); override;
+  public
+   function Add(const Item: Tl3WString): Integer; overload;
+   function Add(anItem: Tl3PrimString): Integer; overload;
+   function IndexOf(anItem: Tl3PrimString): Integer; overload;
+   procedure SaveToStream(aStream: TStream); override; { can raise El3Exception }
+    {* Сохраняет в поток. }
+   procedure LoadFromStream(aStream: TStream;
+    aNeedSort: Boolean); override; { can raise El3Exception }
+    {* Загружает из потока. }
+   {$If NOT Defined(l3Items_IsProto)}
+   procedure Assign(Source: TPersistent); override;
+   {$IfEnd} // NOT Defined(l3Items_IsProto)
  end;//Tl3StringListPrim
 
 implementation
 
 uses
-  l3Filer,
-  l3Chars,
-  l3String,
-  l3_String,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3Stream,
-  l3IID,
-  l3InterfacesMisc
-  ;
+ l3ImplUses
+ , l3Filer
+ , l3Chars
+ , l3String
+ , l3_String
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+ , l3Stream
+ , l3IID
+ , l3InterfacesMisc
+;
+
+{$If not Declared(_ItemType_)}type _ItemType_ = Tl3PrimString;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 type _Instance_R_ = Tl3StringListPrim;
 
-{$Include ..\L3\l3StringList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3StringList.imp.pas}
 
-{$Include ..\L3\l3Storable.imp.pas}
-
-// start class Tl3StringListPrim
+{$Include w:\common\components\rtl\Garant\L3\l3Storable.imp.pas}
 
 function Tl3StringListPrim.Add(const Item: Tl3WString): Integer;
 //#UC START# *47B1E3CD0239_47B1DFC40250_var*
@@ -146,7 +131,8 @@ begin
 //#UC END# *47B1E7D900FE_47B1DFC40250_impl*
 end;//Tl3StringListPrim.IndexOf
 
-procedure Tl3StringListPrim.SaveToStream(aStream: TStream); // can raise El3Exception
+procedure Tl3StringListPrim.SaveToStream(aStream: TStream); { can raise El3Exception }
+ {* Сохраняет в поток. }
 //#UC START# *47B17EEC020C_47B1DFC40250_var*
   
  function _WriteWord(aWord: PItemType; anIndex: Long): Bool;
@@ -166,7 +152,8 @@ begin
 end;//Tl3StringListPrim.SaveToStream
 
 procedure Tl3StringListPrim.LoadFromStream(aStream: TStream;
-  aNeedSort: Boolean); // can raise El3Exception
+ aNeedSort: Boolean); { can raise El3Exception }
+ {* Загружает из потока. }
 //#UC START# *47B19BBB00BA_47B1DFC40250_var*
 var
  l_Filer : Tl3CustomFiler;
@@ -228,7 +215,7 @@ begin
 //#UC END# *478CF372010B_47B1DFC40250_impl*
 end;//Tl3StringListPrim.AssignTo
 
-{$If not defined(l3Items_IsProto)}
+{$If NOT Defined(l3Items_IsProto)}
 procedure Tl3StringListPrim.Assign(Source: TPersistent);
 //#UC START# *47B09CD5029B_47B1DFC40250_var*
 var
@@ -258,6 +245,6 @@ begin
   inherited;
 //#UC END# *47B09CD5029B_47B1DFC40250_impl*
 end;//Tl3StringListPrim.Assign
-{$IfEnd} //not l3Items_IsProto
+{$IfEnd} // NOT Defined(l3Items_IsProto)
 
 end.

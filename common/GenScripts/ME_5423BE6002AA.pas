@@ -16,6 +16,10 @@
 
 {$Define l3RevertedAtomicList_imp_impl}
 
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
  {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_5423BE6002AA_var*

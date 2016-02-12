@@ -1,26 +1,22 @@
 {$IfNDef l3DelphiStringSearcher_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DelphiStringSearcher.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3DelphiStringSearcher
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DelphiStringSearcher.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3DelphiStringSearcher_imp}
+
  _l3DelphiStringSearcherPrim_Parent_ = _l3DelphiStringSearcher_Parent_;
- {$Include ..\L3\l3DelphiStringSearcherPrim.imp.pas}
- _l3DelphiStringSearcher_ = {abstract mixin} class(_l3DelphiStringSearcherPrim_)
+ {$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas}
+ _l3DelphiStringSearcher_ = {abstract} class(_l3DelphiStringSearcherPrim_)
  end;//_l3DelphiStringSearcher_
 
 {$Else l3DelphiStringSearcher_imp}
 
-// start class _l3DelphiStringSearcher_
+{$IfNDef l3DelphiStringSearcher_imp_impl}
+
+{$Define l3DelphiStringSearcher_imp_impl}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = AnsiString;{$IfEnd}
 
 function ItemToWStr(const anItem: _ItemType_): Tl3WString;
 //#UC START# *5304D6C5002B_5304D68D03B2_var*
@@ -31,8 +27,9 @@ begin
 //#UC END# *5304D6C5002B_5304D68D03B2_impl*
 end;//ItemToWStr
 
+{$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas}
 
-{$Include ..\L3\l3DelphiStringSearcherPrim.imp.pas}
-
+{$EndIf l3DelphiStringSearcher_imp_impl}
 
 {$EndIf l3DelphiStringSearcher_imp}
+

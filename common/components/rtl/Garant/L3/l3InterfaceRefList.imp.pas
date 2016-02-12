@@ -1,41 +1,36 @@
 {$IfNDef l3InterfaceRefList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3InterfaceRefList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3InterfaceRefList
-//
-// Список ссылок на интерфейсы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3InterfaceRefList_imp}
+
  _l3InterfaceRefListPrim_Parent_ = _l3InterfaceRefList_Parent_;
- {$Include ..\L3\l3InterfaceRefListPrim.imp.pas}
- _l3InterfaceRefList_ = {mixin} class(_l3InterfaceRefListPrim_)
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
+ _l3InterfaceRefList_ = class(_l3InterfaceRefListPrim_)
   {* Список ссылок на интерфейсы. }
  end;//_l3InterfaceRefList_
 
 {$Else l3InterfaceRefList_imp}
 
-// start class _l3InterfaceRefList_
+{$IfNDef l3InterfaceRefList_imp_impl}
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$Define l3InterfaceRefList_imp_impl}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_); forward;
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
-
-
+ const aFrom: _ItemType_); forward;
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 function CompareExistingItems(const CI: CompareItemsRec): Integer; forward;
 
-{$If not defined(l3Items_IsAtomic)}
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_47B57D830369_var*
 //#UC END# *47B07CF403D0_47B57D830369_var*
 begin
@@ -43,11 +38,11 @@ begin
  Result := (A = B);
 //#UC END# *47B07CF403D0_47B57D830369_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
-{$If defined(l3Items_NeedsAssignItem) AND not defined(l3Items_NoSort)}
+{$If Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)}
 procedure AssignItem(const aTo: _ItemType_;
-  const aFrom: _ItemType_);
+ const aFrom: _ItemType_);
 //#UC START# *47B2C42A0163_47B57D830369_var*
 //#UC END# *47B2C42A0163_47B57D830369_var*
 begin
@@ -55,9 +50,10 @@ begin
  Assert(false);
 //#UC END# *47B2C42A0163_47B57D830369_impl*
 end;//AssignItem
-{$IfEnd} //l3Items_NeedsAssignItem AND not l3Items_NoSort
+{$IfEnd} // Defined(l3Items_NeedsAssignItem) AND NOT Defined(l3Items_NoSort)
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_47B57D830369_var*
 //#UC END# *47B99D4503A2_47B57D830369_var*
 begin
@@ -69,8 +65,9 @@ begin
 //#UC END# *47B99D4503A2_47B57D830369_impl*
 end;//CompareExistingItems
 
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefListPrim.imp.pas}
 
-{$Include ..\L3\l3InterfaceRefListPrim.imp.pas}
-
+{$EndIf l3InterfaceRefList_imp_impl}
 
 {$EndIf l3InterfaceRefList_imp}
+

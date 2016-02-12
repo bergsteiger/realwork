@@ -1,87 +1,61 @@
 unit l3MouseWheelHelper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3MouseWheelHelper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Listeners::Tl3MouseWheelHelper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3MouseWheelHelper.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ProtoObject,
-  Windows
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+ , Windows
+;
 
 type
  Tl3MouseWheelHelper = {final} class(Tl3ProtoObject, Il3MouseWheelListener)
- protected
- // realized methods
+  protected
    procedure MouseWheelListenerNotify(Msg: PMsg;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
+    var theResult: Tl3HookProcResult);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3MouseWheelHelper;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3MouseWheelHelper }
  end;//Tl3MouseWheelHelper
 
 implementation
 
 uses
-  l3Base {a},
-  l3ListenersManager,
-  Messages
-  ;
+ l3ImplUses
+ , l3ListenersManager
+ , Messages
+ , SysUtils
+ , l3Base
+;
 
-
-// start class Tl3MouseWheelHelper
-
-var g_Tl3MouseWheelHelper : Tl3MouseWheelHelper = nil;
+var g_Tl3MouseWheelHelper: Tl3MouseWheelHelper = nil;
+ {* Экземпляр синглетона Tl3MouseWheelHelper }
 
 procedure Tl3MouseWheelHelperFree;
+ {* Метод освобождения экземпляра синглетона Tl3MouseWheelHelper }
 begin
  l3Free(g_Tl3MouseWheelHelper);
-end;
-
-class function Tl3MouseWheelHelper.Instance: Tl3MouseWheelHelper;
-begin
- if (g_Tl3MouseWheelHelper = nil) then
- begin
-  l3System.AddExitProc(Tl3MouseWheelHelperFree);
-  g_Tl3MouseWheelHelper := Create;
- end;
- Result := g_Tl3MouseWheelHelper;
-end;
-
+end;//Tl3MouseWheelHelperFree
 
 class function Tl3MouseWheelHelper.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3MouseWheelHelper <> nil;
 end;//Tl3MouseWheelHelper.Exists
 
 procedure Tl3MouseWheelHelper.MouseWheelListenerNotify(Msg: PMsg;
-  var theResult: Tl3HookProcResult);
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F79D08A02C7_4F7ACCBE02AF_var*
 var
  l_Pos: TPoint;
@@ -101,7 +75,19 @@ begin
 //#UC END# *4F79D08A02C7_4F7ACCBE02AF_impl*
 end;//Tl3MouseWheelHelper.MouseWheelListenerNotify
 
+class function Tl3MouseWheelHelper.Instance: Tl3MouseWheelHelper;
+ {* Метод получения экземпляра синглетона Tl3MouseWheelHelper }
+begin
+ if (g_Tl3MouseWheelHelper = nil) then
+ begin
+  l3System.AddExitProc(Tl3MouseWheelHelperFree);
+  g_Tl3MouseWheelHelper := Create;
+ end;
+ Result := g_Tl3MouseWheelHelper;
+end;//Tl3MouseWheelHelper.Instance
+
 procedure Tl3MouseWheelHelper.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F7ACCBE02AF_var*
 //#UC END# *479731C50290_4F7ACCBE02AF_var*
 begin

@@ -81,7 +81,7 @@ type
   function as_evd(style: TEVDGeneratorStyle): IStream;
   function get_short_name: IString;
    {* получить "короткое" имя списка, используется при выводе на печать }
-  procedure set_list_storage(saved_list);
+  procedure set_list_storage(const saved_list);
   procedure get_full_list(var progress: IProgressIndicatorForSearch;
    out cancel_process: ICancelSearch); { can raise CanNotFindData }
    {* Получить полный список }
@@ -146,18 +146,18 @@ InvalidType - в файле некорректные данные }
    {* Получить идентифкатор документа из ноды списка }
  end;//IDynListNode
 
-class function make(info;
+class function make(const info;
  const root: INodeBase): BadFactoryType; overload;
-class function make(info): BadFactoryType; overload;
-class function make(server_list): ICatalogBase; overload;
-class function make(legal_document;
- query;
+class function make(const info): BadFactoryType; overload;
+class function make(const server_list): ICatalogBase; overload;
+class function make(const legal_document;
+ const query;
  type: TDynListType): ICatalogBase; overload;
 class function make(key: TSpecialListKey): ICatalogBase; overload;
-class function make(search_doc_list): BadFactoryType;
+class function make(const search_doc_list): BadFactoryType;
 class function make: BadFactoryType;
 class function make(var owner_tree: IFakeFacetForFactory;
- snode): BadFactoryType;
+ const snode): BadFactoryType;
 
 implementation
 
@@ -165,7 +165,7 @@ uses
  l3ImplUses
 ;
 
-class function make(info;
+class function make(const info;
  const root: INodeBase): BadFactoryType;
 var
  l_Inst : IListEntryInfo;
@@ -178,7 +178,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(info): BadFactoryType;
+class function make(const info): BadFactoryType;
 var
  l_Inst : IListEntryInfo;
 begin
@@ -190,7 +190,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(server_list): ICatalogBase;
+class function make(const server_list): ICatalogBase;
 var
  l_Inst : IDynList;
 begin
@@ -202,8 +202,8 @@ begin
  end;//try..finally
 end;//make
 
-class function make(legal_document;
- query;
+class function make(const legal_document;
+ const query;
  type: TDynListType): ICatalogBase;
 var
  l_Inst : IDynList;
@@ -228,7 +228,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(search_doc_list): BadFactoryType;
+class function make(const search_doc_list): BadFactoryType;
 var
  l_Inst : ISearchDynList;
 begin
@@ -253,7 +253,7 @@ begin
 end;//make
 
 class function make(var owner_tree: IFakeFacetForFactory;
- snode): BadFactoryType;
+ const snode): BadFactoryType;
 var
  l_Inst : IDynListNode;
 begin

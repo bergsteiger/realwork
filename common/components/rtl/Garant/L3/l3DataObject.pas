@@ -1,48 +1,42 @@
 unit l3DataObject;
+ {* Базовый класс для работы с IDataObject. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DataObject.pas"
-// Начат: 13.12.2006 14:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3DataObject::Tl3DataObject
-//
-// Базовый класс для работы с IDataObject.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DataObject.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3StringList,
-  l3LongintList,
-  l3SimpleObject,
-  ActiveX,
-  Windows
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , l3Interfaces
+ , l3InternalInterfaces
+ , l3LongintList
+ , l3StringList
+ , ActiveX
+ , Windows
+;
 
 type
  Tl3DataObject = class(Tl3SimpleObject, IDataObject, Il3DragImageSource)
   {* Базовый класс для работы с IDataObject. }
- private
- // private fields
-   f_DragBitmap : Il3Bitmap;
-   f_FilesNames : Tl3StringList;
-   f_Formats : Tl3LongintList;
-    {* Поле для свойства Formats}
- protected
- // realized methods
+  private
+   f_DragBitmap: Il3Bitmap;
+   f_FilesNames: Tl3StringList;
+   f_Formats: Tl3LongintList;
+    {* Поле для свойства Formats }
+  protected
+   function DoGetData(const aFormatEtcIn: TFormatEtc;
+    var medium: Tl3StoragePlace): HResult; virtual;
+   function DoGetDataHere(const aFormatEtcIn: TFormatEtc;
+    const medium: Tl3StoragePlace): HResult; virtual;
+   procedure WriteFilesAndSetNames(aNames: Tl3StringList); virtual;
+   function Bitmap: Il3Bitmap; virtual;
+   procedure CheckFormats;
+   function DoQueryGetData(const aFormatEtc: TFormatEtc): HResult; virtual;
+   procedure SetDragBitmap(const aBitmap: Il3Bitmap);
    function Image: Il3Bitmap;
    function GetData(const formatetcIn: TFormatEtc;
     out medium: TStgMedium): HResult; stdcall;
@@ -62,42 +56,26 @@ type
     out dwConnection: Integer): HResult; stdcall;
    function DUnadvise(dwConnection: Integer): HResult; stdcall;
    function EnumDAdvise(out enumAdvise: IEnumStatData): HResult; stdcall;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- protected
- // protected methods
-   function DoGetData(const aFormatEtcIn: TFormatEtc;
-    var medium: Tl3StoragePlace): HResult; virtual;
-   function DoGetDataHere(const aFormatEtcIn: TFormatEtc;
-    const medium: Tl3StoragePlace): HResult; virtual;
-   procedure WriteFilesAndSetNames(aNames: Tl3StringList); virtual;
-   function Bitmap: Il3Bitmap; virtual;
-   procedure CheckFormats;
-   function DoQueryGetData(const aFormatEtc: TFormatEtc): HResult; virtual;
-   procedure SetDragBitmap(const aBitmap: Il3Bitmap);
- public
- // public methods
+  public
    constructor Create(const aFormats: Tl3ClipboardFormats); reintroduce;
    function AcceptableTymed: Integer; virtual;
- public
- // public properties
+  public
    property Formats: Tl3LongintList
-     read f_Formats;
+    read f_Formats;
  end;//Tl3DataObject
 
 implementation
 
 uses
-  l3DataObjectEnum,
-  l3Base,
-  SysUtils,
-  ShlObj
-  ;
-
-// start class Tl3DataObject
+ l3ImplUses
+ , l3DataObjectEnum
+ , l3Base
+ , SysUtils
+ , ShlObj
+;
 
 constructor Tl3DataObject.Create(const aFormats: Tl3ClipboardFormats);
 //#UC START# *48F340C901DE_4680F5AA0274_var*
@@ -117,7 +95,7 @@ begin
 end;//Tl3DataObject.Create
 
 function Tl3DataObject.DoGetData(const aFormatEtcIn: TFormatEtc;
-  var medium: Tl3StoragePlace): HResult;
+ var medium: Tl3StoragePlace): HResult;
 //#UC START# *48F3495D0398_4680F5AA0274_var*
 const
  c_Inch = 2540;
@@ -256,7 +234,7 @@ begin
 end;//Tl3DataObject.DoGetData
 
 function Tl3DataObject.DoGetDataHere(const aFormatEtcIn: TFormatEtc;
-  const medium: Tl3StoragePlace): HResult;
+ const medium: Tl3StoragePlace): HResult;
 //#UC START# *48F349AE00F1_4680F5AA0274_var*
 //#UC END# *48F349AE00F1_4680F5AA0274_var*
 begin
@@ -369,7 +347,7 @@ begin
 end;//Tl3DataObject.Image
 
 function Tl3DataObject.GetData(const formatetcIn: TFormatEtc;
-  out medium: TStgMedium): HResult;
+ out medium: TStgMedium): HResult;
 //#UC START# *48F32DD50284_4680F5AA0274_var*
 var
  l_HObject : hGlobal;
@@ -415,7 +393,7 @@ begin
 end;//Tl3DataObject.GetData
 
 function Tl3DataObject.GetDataHere(const formatetc: TFormatEtc;
-  out medium: TStgMedium): HResult;
+ out medium: TStgMedium): HResult;
 //#UC START# *48F32E0200AF_4680F5AA0274_var*
 var
  l_P : PInteger;
@@ -457,7 +435,7 @@ begin
 end;//Tl3DataObject.QueryGetData
 
 function Tl3DataObject.GetCanonicalFormatEtc(const formatetc: TFormatEtc;
-  out formatetcOut: TFormatEtc): HResult;
+ out formatetcOut: TFormatEtc): HResult;
 //#UC START# *48F32E330154_4680F5AA0274_var*
 //#UC END# *48F32E330154_4680F5AA0274_var*
 begin
@@ -469,8 +447,8 @@ begin
 end;//Tl3DataObject.GetCanonicalFormatEtc
 
 function Tl3DataObject.SetData(const formatetc: TFormatEtc;
-  var medium: TStgMedium;
-  fRelease: BOOL): HResult;
+ var medium: TStgMedium;
+ fRelease: BOOL): HResult;
 //#UC START# *48F32E4D0179_4680F5AA0274_var*
 //#UC END# *48F32E4D0179_4680F5AA0274_var*
 begin
@@ -480,7 +458,7 @@ begin
 end;//Tl3DataObject.SetData
 
 function Tl3DataObject.EnumFormatEtc(dwDirection: Integer;
-  out enumFormatEtc: IEnumFormatEtc): HResult;
+ out enumFormatEtc: IEnumFormatEtc): HResult;
 //#UC START# *48F330A10257_4680F5AA0274_var*
 //#UC END# *48F330A10257_4680F5AA0274_var*
 begin
@@ -496,9 +474,9 @@ begin
 end;//Tl3DataObject.EnumFormatEtc
 
 function Tl3DataObject.DAdvise(const formatetc: TFormatEtc;
-  advf: Integer;
-  const advSink: IAdviseSink;
-  out dwConnection: Integer): HResult;
+ advf: Integer;
+ const advSink: IAdviseSink;
+ out dwConnection: Integer): HResult;
 //#UC START# *48F330C40367_4680F5AA0274_var*
 //#UC END# *48F330C40367_4680F5AA0274_var*
 begin
@@ -526,6 +504,7 @@ begin
 end;//Tl3DataObject.EnumDAdvise
 
 procedure Tl3DataObject.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4680F5AA0274_var*
 //#UC END# *479731C50290_4680F5AA0274_var*
 begin

@@ -72,7 +72,7 @@ type
   {* Консультации, проходящие через СК. Имеют уникальный идентификатор. }
   ['{43387100-5C41-4CCB-83EB-4EE5BB99C443}']
   class function make(var xml_stream: IStream;
-   consultation_id): BadFactoryType;
+   const consultation_id): BadFactoryType;
    {* фабрика для получения интерфейса }
  end;//IOnlineData
 

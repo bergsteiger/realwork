@@ -18,7 +18,7 @@ type
    NodeType_: ;
    NodeDelegateType_: ;
   public
-   constructor make(tree); reintroduce;
+   constructor make(const tree); reintroduce;
  end;//TipsTree
 
 implementation
@@ -27,7 +27,7 @@ uses
  l3ImplUses
 ;
 
-constructor TipsTree.make(tree);
+constructor TipsTree.make(const tree);
 //#UC START# *4ABB4D2800C9_47B71BF6005C_var*
 //#UC END# *4ABB4D2800C9_47B71BF6005C_var*
 begin

@@ -1,30 +1,29 @@
 {$IfNDef l3ObjectRefListPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ObjectRefListPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3ObjectRefListPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ObjectRefListPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3ObjectRefListPrim_imp}
+
  _l3RefList_Parent_ = _l3ObjectRefListPrim_Parent_;
- {$Include ..\L3\l3RefList.imp.pas}
- _l3ObjectRefListPrim_ = {abstract mixin} class(_l3RefList_)
+ {$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
+ _l3ObjectRefListPrim_ = {abstract} class(_l3RefList_)
  end;//_l3ObjectRefListPrim_
 
 {$Else l3ObjectRefListPrim_imp}
 
-// start class _l3ObjectRefListPrim_
+{$IfNDef l3ObjectRefListPrim_imp_impl}
 
-{$If not defined(l3Items_IsAtomic)}
+{$Define l3ObjectRefListPrim_imp_impl}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
+{$If NOT Defined(l3Items_IsAtomic)}
 function IsSameItems(const A: _ItemType_;
-  const B: _ItemType_): Boolean;
+ const B: _ItemType_): Boolean;
+ {* Сравнивает элементы списка }
 //#UC START# *47B07CF403D0_47B5A0AE03CC_var*
 //#UC END# *47B07CF403D0_47B5A0AE03CC_var*
 begin
@@ -32,10 +31,11 @@ begin
  Result := (A = B);
 //#UC END# *47B07CF403D0_47B5A0AE03CC_impl*
 end;//IsSameItems
-{$IfEnd} //not l3Items_IsAtomic
+{$IfEnd} // NOT Defined(l3Items_IsAtomic)
 
+{$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
 
-{$Include ..\L3\l3RefList.imp.pas}
-
+{$EndIf l3ObjectRefListPrim_imp_impl}
 
 {$EndIf l3ObjectRefListPrim_imp}
+

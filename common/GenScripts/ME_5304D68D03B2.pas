@@ -16,6 +16,8 @@
 
 {$Define l3DelphiStringSearcher_imp_impl}
 
+{$If not Declared(_FindDataType_)}type _FindDataType_ = AnsiString;{$IfEnd}
+
 function ItemToWStr(const anItem: _ItemType_): Tl3WString;
 //#UC START# *5304D6C5002B_5304D68D03B2_var*
 //#UC END# *5304D6C5002B_5304D68D03B2_var*

@@ -1,33 +1,27 @@
 unit NOT_FINISHED_l3CharSkipper;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3CharSkipper.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3CharSkipper
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3CharSkipper.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  Tl3CharSkipper = class
- public
- // public methods
+  public
    function GetChar: AnsiChar; virtual;
  end;//Tl3CharSkipper
 
 implementation
 
-// start class Tl3CharSkipper
+uses
+ l3ImplUses
+;
 
 function Tl3CharSkipper.GetChar: AnsiChar;
 //#UC START# *5604FBB600CF_5604FB3502B9_var*

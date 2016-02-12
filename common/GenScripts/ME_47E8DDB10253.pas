@@ -21,7 +21,7 @@ type
   function get_document: IDocument;
  end;//IPharmFirmListEntry
 
-class function make(id): BadFactoryType;
+class function make(const id): BadFactoryType;
 
 implementation
 
@@ -29,7 +29,7 @@ uses
  l3ImplUses
 ;
 
-class function make(id): BadFactoryType;
+class function make(const id): BadFactoryType;
 var
  l_Inst : IPharmFirmListEntry;
 begin

@@ -1,82 +1,63 @@
 unit l3StringValueMapManager;
+ {* реализация менеджера мап "строка"-"строка" }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Лукьянец Р.В. / Люлин А.В. ©
-// Модуль: "w:/common/components/rtl/Garant/L3/l3StringValueMapManager.pas"
-// Начат: 30.03.2006 10:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3StringValueMapManager
-//
-// реализация менеджера мап "строка"-"строка"
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StringValueMapManager.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3ValueMapManager,
-  l3SimpleDataContainer,
-  l3Types,
-  l3Memory,
-  l3Core,
-  l3Except,
-  Classes
-  ;
+ l3IntfUses
+ , l3Interfaces
+ , l3SimpleDataContainer
+ , l3Memory
+ , l3Types
+ , l3Core
+ , l3Except
+ , Classes
+ , l3ValueMapManager
+;
 
 type
  _ItemType_ = Il3StringValueMapFactory;
  _l3InterfaceRefList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  Tl3StringValueMapFactories = class(_l3InterfaceRefList_)
  end;//Tl3StringValueMapFactories
 
  Tl3StringValueMapManager = class(Tl3ValueMapManager, Il3StringValueMapManager)
- private
- // private fields
-   f_Factories : Tl3StringValueMapFactories;
- protected
- // realized methods
+  private
+   f_Factories: Tl3StringValueMapFactories;
+  protected
    procedure RegisterFactory(const aFactory: Il3StringValueMapFactory;
     aPreferred: Boolean);
-     {* aPreferred - Фабрика будет вызываться как можно раньше. }
+    {* aPreferred - Фабрика будет вызываться как можно раньше. }
    procedure UnRegisterFactory(const aFactory: Il3StringValueMapFactory);
    function pm_GetMap(const aID: Tl3ValueMapID): Il3StringValueMap;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
    function MakeDefaultMap(const aID: Tl3ValueMapID): Il3ValueMap; override;
- public
- // public methods
+  public
    class function Make: Il3StringValueMapManager; reintroduce;
  end;//Tl3StringValueMapManager
 
-function L3StringMapManager: Il3StringValueMapManager;
+function l3StringMapManager: Il3StringValueMapManager;
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
-var g_l3StringMapManager : Tl3StringValueMapManager;
-
-// unit methods
+var g_l3StringMapManager: Tl3StringValueMapManager;
 
 procedure DoneManager;
 //#UC START# *47A1E97500BB_478E359802F6_var*
@@ -86,11 +67,28 @@ begin
  l3Free(g_l3StringMapManager);
 //#UC END# *47A1E97500BB_478E359802F6_impl*
 end;//DoneManager
+
+function l3StringMapManager: Il3StringValueMapManager;
+//#UC START# *47A1E96201B4_478E359802F6_var*
+//#UC END# *47A1E96201B4_478E359802F6_var*
+begin
+//#UC START# *47A1E96201B4_478E359802F6_impl*
+ if g_l3StringMapManager = nil then
+ begin
+  g_l3StringMapManager := Tl3StringValueMapManager.Create;
+  l3System.AddExitProc(DoneManager);
+ end;
+ Result := g_l3StringMapManager;
+//#UC END# *47A1E96201B4_478E359802F6_impl*
+end;//l3StringMapManager
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 type _Instance_R_ = Tl3StringValueMapFactories;
 
-{$Include ..\L3\l3InterfaceRefList.imp.pas}
-
-// start class Tl3StringValueMapManager
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 class function Tl3StringValueMapManager.Make: Il3StringValueMapManager;
 var
@@ -102,10 +100,11 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3StringValueMapManager.Make
 
 procedure Tl3StringValueMapManager.RegisterFactory(const aFactory: Il3StringValueMapFactory;
-  aPreferred: Boolean);
+ aPreferred: Boolean);
+ {* aPreferred - Фабрика будет вызываться как можно раньше. }
 //#UC START# *46A5F1EC031F_47A1E9B503DD_var*
 //#UC END# *46A5F1EC031F_47A1E9B503DD_var*
 begin
@@ -139,6 +138,7 @@ begin
 end;//Tl3StringValueMapManager.pm_GetMap
 
 procedure Tl3StringValueMapManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47A1E9B503DD_var*
 //#UC END# *479731C50290_47A1E9B503DD_var*
 begin
@@ -178,19 +178,5 @@ begin
  Result := inherited MakeDefaultMap(aID);
 //#UC END# *47A1C42301B5_47A1E9B503DD_impl*
 end;//Tl3StringValueMapManager.MakeDefaultMap
-
-function L3StringMapManager: Il3StringValueMapManager;
-//#UC START# *47A1E96201B4_478E359802F6_var*
-//#UC END# *47A1E96201B4_478E359802F6_var*
-begin
-//#UC START# *47A1E96201B4_478E359802F6_impl*
- if g_l3StringMapManager = nil then
- begin
-  g_l3StringMapManager := Tl3StringValueMapManager.Create;
-  l3System.AddExitProc(DoneManager);
- end;
- Result := g_l3StringMapManager;
-//#UC END# *47A1E96201B4_478E359802F6_impl*
-end;//L3StringMapManager
 
 end.

@@ -1,50 +1,35 @@
 {$IfNDef l3NotifierBase_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3NotifierBase.imp.pas"
-// Начат: 31.03.2008 09:48
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3NotifierBase
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3NotifierBase_imp}
- _l3NotifierBase_ = {mixin} class(_l3NotifierBase_Parent_, Il3ChangeNotifier)
- private
- // private fields
-   f_NotifiedObjList : Tl3NotifyPtrList;
-    {* Поле для свойства NotifiedObjList}
- protected
- // property methods
+
+ _l3NotifierBase_ = class(_l3NotifierBase_Parent_, Il3ChangeNotifier)
+  private
+   f_NotifiedObjList: Tl3NotifyPtrList;
+    {* Поле для свойства NotifiedObjList }
+  protected
    function pm_GetHasNotified: Boolean;
- protected
- // realized methods
    procedure Subscribe(const aRecipient: Il3Notify);
-     {* подписка на извещения. }
+    {* подписка на извещения. }
    procedure Unsubscribe(const aRecipient: Il3Notify);
-     {* "отписка" от извещений. }
- protected
- // overridden protected methods
+    {* "отписка" от извещений. }
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected properties
+    {* Функция очистки полей объекта. }
+  protected
    property HasNotified: Boolean
-     read pm_GetHasNotified;
-     {* наличие уведомляемых объектов. }
+    read pm_GetHasNotified;
+    {* наличие уведомляемых объектов. }
    property NotifiedObjList: Tl3NotifyPtrList
-     read f_NotifiedObjList;
+    read f_NotifiedObjList;
  end;//_l3NotifierBase_
 
 {$Else l3NotifierBase_imp}
 
-// start class _l3NotifierBase_
+{$IfNDef l3NotifierBase_imp_impl}
+
+{$Define l3NotifierBase_imp_impl}
 
 function _l3NotifierBase_.pm_GetHasNotified: Boolean;
 //#UC START# *47F07CCE0379_47F07AE10156get_var*
@@ -56,6 +41,7 @@ begin
 end;//_l3NotifierBase_.pm_GetHasNotified
 
 procedure _l3NotifierBase_.Subscribe(const aRecipient: Il3Notify);
+ {* подписка на извещения. }
 //#UC START# *46A44F6B035E_47F07AE10156_var*
 //#UC END# *46A44F6B035E_47F07AE10156_var*
 begin
@@ -69,6 +55,7 @@ begin
 end;//_l3NotifierBase_.Subscribe
 
 procedure _l3NotifierBase_.Unsubscribe(const aRecipient: Il3Notify);
+ {* "отписка" от извещений. }
 //#UC START# *46A44FFE0143_47F07AE10156_var*
 //#UC END# *46A44FFE0143_47F07AE10156_var*
 begin
@@ -79,6 +66,7 @@ begin
 end;//_l3NotifierBase_.Unsubscribe
 
 procedure _l3NotifierBase_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_47F07AE10156_var*
 //#UC END# *479731C50290_47F07AE10156_var*
 begin
@@ -88,4 +76,7 @@ begin
 //#UC END# *479731C50290_47F07AE10156_impl*
 end;//_l3NotifierBase_.Cleanup
 
+{$EndIf l3NotifierBase_imp_impl}
+
 {$EndIf l3NotifierBase_imp}
+

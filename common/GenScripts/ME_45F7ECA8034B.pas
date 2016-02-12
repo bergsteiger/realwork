@@ -29,12 +29,12 @@ type
     l: Integer); virtual;
    class procedure print_path(node_to_find: DefaultNodeBase;
     const path: INodeIndexPath); virtual;
-   class procedure server_layers_id_list_to_adapter(srv;
+   class procedure server_layers_id_list_to_adapter(const srv;
     var adap: ILayerIdList); virtual;
   protected
    function pm_Getchildren_flags: TFlagMask; virtual;
    procedure pm_Setowner_tree(aValue: TreeBase); overload; virtual;
-   class function get_real_interface(node_): DefaultNodeBase; virtual;
+   class function get_real_interface(const node_): DefaultNodeBase; virtual;
    constructor make; reintroduce; overload; virtual;
    procedure invalidate_children_count; virtual;
    procedure create_view_ex(const filter: IFilterList;
@@ -58,10 +58,10 @@ type
    procedure set_children_flag(flag: TFlagMask;
     value: Boolean); virtual;
    function find_node_by_interface(const node_to_find: INodeBase): DefaultNodeBase; virtual;
-   function find_node(node_to_find): DefaultNodeBase; virtual;
+   function find_node(const node_to_find): DefaultNodeBase; virtual;
    function find_node_path(var node_to_find: INodeBase): INodeIndexPath; virtual;
    function get_visible_delta(var node: DefaultNodeBase): TVisibleIndex; overload; virtual;
-   function get_visible_delta(node_path): TVisibleIndex; overload; virtual;
+   function get_visible_delta(const node_path): TVisibleIndex; overload; virtual;
    function get_visible_delta(const entity: IEntityBase): TVisibleIndex; overload; virtual;
    function get_index_from_parent: TVisibleIndex; virtual;
     {* TODO: упростить, выкинув этот метод
@@ -78,7 +78,7 @@ type
    function is_relevance_search_supported: Boolean; virtual;
    function get_node_by_path(const path: INodeIndexPath): INodeBase; virtual;
     {* Дублирует с CatalogBase }
-   procedure node_path_to_index_path(path); virtual;
+   procedure node_path_to_index_path(const path); virtual;
    procedure entity; virtual; { can raise NoEntity }
    function apply_reset_delta(var delta): Boolean; virtual;
    function apply_change_delta(var delta): Boolean; virtual; abstract;
@@ -89,19 +89,19 @@ type
    function is_all_expanded: Boolean; virtual;
    procedure expand_all_nodes(expand: Boolean); virtual;
   public
-   class procedure srv_path_to_adapter(index_path;
+   class procedure srv_path_to_adapter(const index_path;
     var adap_path: INodeIndexPath); virtual;
    class procedure adapter_path_to_srv(const adapter_index_path: INodeIndexPath); virtual;
    constructor make(var owner_tree: TreeBase); reintroduce; overload; virtual;
    procedure get_server_pointer; virtual; abstract;
-   function find_node_by_path(node_path): DefaultNodeBase; overload; virtual;
-   function find_node_by_path(node_index_path): DefaultNodeBase; overload; virtual;
-   function find_loaded_node_by_path(node_index_path): DefaultNodeBase; virtual;
+   function find_node_by_path(const node_path): DefaultNodeBase; overload; virtual;
+   function find_node_by_path(const node_index_path): DefaultNodeBase; overload; virtual;
+   function find_loaded_node_by_path(const node_index_path): DefaultNodeBase; virtual;
    function get_tree_name: PAnsiChar; virtual;
    function get_settings_root_id: AnsiString; virtual;
    function node_name: PAnsiChar; virtual; abstract;
    procedure server_data_version; virtual;
-   procedure get_server_path(path_type = PT_POINTER); virtual;
+   procedure get_server_path(const path_type = PT_POINTER); virtual;
    function get_tree_owner: TreeBase; virtual;
    function get_visible_index: TVisibleIndex; virtual;
    function owner_tree: TreeBase; overload; virtual;
@@ -164,7 +164,7 @@ begin
 //#UC END# *45F9675A000F_45F7ECA8034Bset_impl*
 end;//DefaultNodeBase.pm_Setowner_tree
 
-class procedure DefaultNodeBase.srv_path_to_adapter(index_path;
+class procedure DefaultNodeBase.srv_path_to_adapter(const index_path;
  var adap_path: INodeIndexPath);
 //#UC START# *45F945FC02DE_45F7ECA8034B_var*
 //#UC END# *45F945FC02DE_45F7ECA8034B_var*
@@ -204,7 +204,7 @@ begin
 //#UC END# *45FA6BAB0109_45F7ECA8034B_impl*
 end;//DefaultNodeBase.print_path
 
-class procedure DefaultNodeBase.server_layers_id_list_to_adapter(srv;
+class procedure DefaultNodeBase.server_layers_id_list_to_adapter(const srv;
  var adap: ILayerIdList);
 //#UC START# *45FA84E40213_45F7ECA8034B_var*
 //#UC END# *45FA84E40213_45F7ECA8034B_var*
@@ -214,7 +214,7 @@ begin
 //#UC END# *45FA84E40213_45F7ECA8034B_impl*
 end;//DefaultNodeBase.server_layers_id_list_to_adapter
 
-class function DefaultNodeBase.get_real_interface(node_): DefaultNodeBase;
+class function DefaultNodeBase.get_real_interface(const node_): DefaultNodeBase;
 //#UC START# *45F94AF8031C_45F7ECA8034B_var*
 //#UC END# *45F94AF8031C_45F7ECA8034B_var*
 begin
@@ -241,7 +241,7 @@ begin
 //#UC END# *45F94B5D0399_45F7ECA8034B_impl*
 end;//DefaultNodeBase.make
 
-function DefaultNodeBase.find_node_by_path(node_path): DefaultNodeBase;
+function DefaultNodeBase.find_node_by_path(const node_path): DefaultNodeBase;
 //#UC START# *45F94BE501E4_45F7ECA8034B_var*
 //#UC END# *45F94BE501E4_45F7ECA8034B_var*
 begin
@@ -250,7 +250,7 @@ begin
 //#UC END# *45F94BE501E4_45F7ECA8034B_impl*
 end;//DefaultNodeBase.find_node_by_path
 
-function DefaultNodeBase.find_node_by_path(node_index_path): DefaultNodeBase;
+function DefaultNodeBase.find_node_by_path(const node_index_path): DefaultNodeBase;
 //#UC START# *45F94C8E0109_45F7ECA8034B_var*
 //#UC END# *45F94C8E0109_45F7ECA8034B_var*
 begin
@@ -259,7 +259,7 @@ begin
 //#UC END# *45F94C8E0109_45F7ECA8034B_impl*
 end;//DefaultNodeBase.find_node_by_path
 
-function DefaultNodeBase.find_loaded_node_by_path(node_index_path): DefaultNodeBase;
+function DefaultNodeBase.find_loaded_node_by_path(const node_index_path): DefaultNodeBase;
 //#UC START# *45F94CBE030D_45F7ECA8034B_var*
 //#UC END# *45F94CBE030D_45F7ECA8034B_var*
 begin
@@ -295,7 +295,7 @@ begin
 //#UC END# *45F94D760203_45F7ECA8034B_impl*
 end;//DefaultNodeBase.server_data_version
 
-procedure DefaultNodeBase.get_server_path(path_type = PT_POINTER);
+procedure DefaultNodeBase.get_server_path(const path_type = PT_POINTER);
 //#UC START# *45F94DB201C5_45F7ECA8034B_var*
 //#UC END# *45F94DB201C5_45F7ECA8034B_var*
 begin
@@ -416,7 +416,7 @@ begin
 //#UC END# *45F952A602DE_45F7ECA8034B_impl*
 end;//DefaultNodeBase.find_node_by_interface
 
-function DefaultNodeBase.find_node(node_to_find): DefaultNodeBase;
+function DefaultNodeBase.find_node(const node_to_find): DefaultNodeBase;
 //#UC START# *45F9533D02AF_45F7ECA8034B_var*
 //#UC END# *45F9533D02AF_45F7ECA8034B_var*
 begin
@@ -443,7 +443,7 @@ begin
 //#UC END# *45F953BF005D_45F7ECA8034B_impl*
 end;//DefaultNodeBase.get_visible_delta
 
-function DefaultNodeBase.get_visible_delta(node_path): TVisibleIndex;
+function DefaultNodeBase.get_visible_delta(const node_path): TVisibleIndex;
 //#UC START# *45F95412037A_45F7ECA8034B_var*
 //#UC END# *45F95412037A_45F7ECA8034B_var*
 begin
@@ -564,7 +564,7 @@ begin
 //#UC END# *45F958030280_45F7ECA8034B_impl*
 end;//DefaultNodeBase.get_node_by_path
 
-procedure DefaultNodeBase.node_path_to_index_path(path);
+procedure DefaultNodeBase.node_path_to_index_path(const path);
 //#UC START# *45F958740203_45F7ECA8034B_var*
 //#UC END# *45F958740203_45F7ECA8034B_var*
 begin

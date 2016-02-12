@@ -208,7 +208,7 @@ const
 
 class function make: BadFactoryType;
  {* фабрика }
-class function make(server_consultation;
+class function make(const server_consultation;
  var folders_node: IFoldersNode): BadFactoryType;
  {* фабрика }
 class function make: BadFactoryType;
@@ -234,7 +234,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(server_consultation;
+class function make(const server_consultation;
  var folders_node: IFoldersNode): BadFactoryType;
  {* фабрика }
 var

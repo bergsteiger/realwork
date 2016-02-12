@@ -18,7 +18,7 @@ type
    NodeType_: ;
    NodeDelegateType_: ;
   public
-   constructor make(stree); reintroduce;
+   constructor make(const stree); reintroduce;
  end;//GroupsTree
 
 implementation
@@ -27,7 +27,7 @@ uses
  l3ImplUses
 ;
 
-constructor GroupsTree.make(stree);
+constructor GroupsTree.make(const stree);
 //#UC START# *49DF2E710165_49DF2E21014A_var*
 //#UC END# *49DF2E710165_49DF2E21014A_var*
 begin

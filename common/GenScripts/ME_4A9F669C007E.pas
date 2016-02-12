@@ -26,7 +26,7 @@ type
    NodeType_: ;
    NodeDelegateType_: ;
   public
-   constructor make(stree); reintroduce;
+   constructor make(const stree); reintroduce;
    procedure add_notifier(var root;
     var notifier: INodeNotifier); override;
  end;//ListAnalysisTree
@@ -38,7 +38,7 @@ uses
  , ApplicationHelper
 ;
 
-constructor ListAnalysisTree.make(stree);
+constructor ListAnalysisTree.make(const stree);
 //#UC START# *4A9F727601E7_4A9F669C007E_var*
 //#UC END# *4A9F727601E7_4A9F669C007E_var*
 begin

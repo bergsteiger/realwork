@@ -21,7 +21,7 @@ type
    NodeType_: ;
    NodeDelegateType_: ;
   public
-   constructor make(tree); reintroduce;
+   constructor make(const tree); reintroduce;
    procedure register_listener(var profile: IUserProfile); virtual;
  end;//UsersTree
 
@@ -31,7 +31,7 @@ uses
  l3ImplUses
 ;
 
-constructor UsersTree.make(tree);
+constructor UsersTree.make(const tree);
 //#UC START# *49DF1C4A00F4_49DF198B015D_var*
 //#UC END# *49DF1C4A00F4_49DF198B015D_var*
 begin

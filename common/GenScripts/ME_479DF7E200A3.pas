@@ -15,13 +15,13 @@ uses
 type
  Tl3BaseRecList = class(Tl3ProtoPtrRecList)
   protected
-   function DoCompare(A;
-    B;
+   function DoCompare(const A;
+    const B;
     DataSize: Cardinal): Integer; override;
     {* Сравнивает элементы. }
   public
    function CompareItem(A: Integer;
-    B;
+    const B;
     aDataSize: Cardinal): Integer;
     {* aDataSize - размер сравниваемой части записи, если 0, то вся запись }
  end;//Tl3BaseRecList
@@ -34,7 +34,7 @@ uses
 ;
 
 function Tl3BaseRecList.CompareItem(A: Integer;
- B;
+ const B;
  aDataSize: Cardinal): Integer;
  {* aDataSize - размер сравниваемой части записи, если 0, то вся запись }
 //#UC START# *47BF07D000E6_479DF7E200A3_var*
@@ -45,8 +45,8 @@ begin
 //#UC END# *47BF07D000E6_479DF7E200A3_impl*
 end;//Tl3BaseRecList.CompareItem
 
-function Tl3BaseRecList.DoCompare(A;
- B;
+function Tl3BaseRecList.DoCompare(const A;
+ const B;
  DataSize: Cardinal): Integer;
  {* Сравнивает элементы. }
 //#UC START# *47BC677E02B1_479DF7E200A3_var*

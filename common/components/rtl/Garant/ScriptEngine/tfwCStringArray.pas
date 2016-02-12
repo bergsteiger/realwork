@@ -25,7 +25,12 @@ implementation
 uses
  l3ImplUses
  , l3Base
+ , l3Memory
 ;
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = Tl3WString;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 type _Instance_R_ = TtfwCStringArray;
 

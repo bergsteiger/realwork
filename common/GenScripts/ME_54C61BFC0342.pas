@@ -360,12 +360,12 @@ type
     {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    constructor Create(const anExternalNode: Il3SimpleNode = nil); reintroduce;
    class function Make(const anExternalNode: Il3SimpleNode = nil): Il3Node; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//Tl3CacheableNode
 
  Tl3HandleNode = class(Tl3PlaceNode, Il3HandleNode)

@@ -1,58 +1,42 @@
 unit l3_Base;
+ {* ! Базовый класс объектов библиотеки L3. Рекомендуется для наследования от него остальных разрабатываемых объектов. Поддерживает контроль за распределением памяти и освобождением объектов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3_Base.pas"
-// Начат: 05.02.2008 16:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3_Base
-//
-// ! Базовый класс объектов библиотеки L3. Рекомендуется для наследования от него остальных
-// разрабатываемых объектов. Поддерживает контроль за распределением памяти и освобождением
-// объектов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3_Base.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3SimpleObject,
-  l3PureMixIns
-  ;
+ l3IntfUses
+ , l3SimpleObject
+ , l3PureMixIns
+;
 
 type
  _l3Changing_Parent_ = Tl3SimpleObject;
- {$Include ..\L3\l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  Tl3_Base = class(_l3Changing_)
   {* ! Базовый класс объектов библиотеки L3. Рекомендуется для наследования от него остальных разрабатываемых объектов. Поддерживает контроль за распределением памяти и освобождением объектов. }
- public
- // public methods
+  public
    function OCompare(anObject: Tl3_Base): Integer; virtual;
-     {* функция сравнения объекта с другим объектом. }
+    {* функция сравнения объекта с другим объектом. }
    constructor Create; reintroduce; virtual;
-     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
+    {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
  end;//Tl3_Base
 
 implementation
 
 uses
-  l3Base
-  ;
+ l3ImplUses
+ , l3Base
+;
 
-{$Include ..\L3\l3Changing.imp.pas}
-
-// start class Tl3_Base
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 function Tl3_Base.OCompare(anObject: Tl3_Base): Integer;
+ {* функция сравнения объекта с другим объектом. }
 //#UC START# *478CEE670214_47879856035F_var*
 //#UC END# *478CEE670214_47879856035F_var*
 begin
@@ -63,6 +47,7 @@ begin
 end;//Tl3_Base.OCompare
 
 constructor Tl3_Base.Create;
+ {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
 //#UC START# *47914F960008_47879856035F_var*
 //#UC END# *47914F960008_47879856035F_var*
 begin

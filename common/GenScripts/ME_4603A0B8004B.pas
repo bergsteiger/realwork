@@ -23,9 +23,9 @@ type
    function alloc_new_view: ViewBase; override;
   public
    constructor make(active_changeable: Boolean); reintroduce; virtual;
-   procedure add_block_position(pointer;
+   procedure add_block_position(const pointer;
     position: Cardinal);
-   function get_block_position(pointer): Cardinal;
+   function get_block_position(const pointer): Cardinal;
    procedure clear_block_positions;
  end;//ListTree
 
@@ -46,7 +46,7 @@ begin
 //#UC END# *4603AC6A0320_4603A0B8004B_impl*
 end;//ListTree.make
 
-procedure ListTree.add_block_position(pointer;
+procedure ListTree.add_block_position(const pointer;
  position: Cardinal);
 //#UC START# *4603C5FF036D_4603A0B8004B_var*
 //#UC END# *4603C5FF036D_4603A0B8004B_var*
@@ -56,7 +56,7 @@ begin
 //#UC END# *4603C5FF036D_4603A0B8004B_impl*
 end;//ListTree.add_block_position
 
-function ListTree.get_block_position(pointer): Cardinal;
+function ListTree.get_block_position(const pointer): Cardinal;
 //#UC START# *4603C55B00DE_4603A0B8004B_var*
 //#UC END# *4603C55B00DE_4603A0B8004B_var*
 begin

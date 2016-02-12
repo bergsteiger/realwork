@@ -1,66 +1,48 @@
 unit l3StorableDataObject;
+ {* Класс для реализации интерфейса IDataObject для выделения текста редактора. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3StorableDataObject.pas"
-// Начат: 13.12.2006 14:32
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3DataObject::Tl3StorableDataObject
-//
-// Класс для реализации интерфейса IDataObject для выделения текста редактора.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3StorableDataObject.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3DataObject,
-  Classes
-  ;
+ l3IntfUses
+ , l3DataObject
+ , l3Interfaces
+ , Classes
+;
 
 type
  Tl3StorableDataObject = class(Tl3DataObject)
   {* Класс для реализации интерфейса IDataObject для выделения текста редактора. }
- protected
- // overridden protected methods
+  protected
+   function Store(aFormat: Tl3ClipboardFormat;
+    aPool: TStream): Boolean; overload;
+   function Store(aFormat: Tl3ClipboardFormat;
+    const aPool: IStream): Boolean; overload; virtual; abstract;
    function DoGetData(const aFormatEtcIn: TFormatEtc;
     var medium: Tl3StoragePlace): HResult; override;
    function DoGetDataHere(const aFormatEtcIn: TFormatEtc;
     const medium: Tl3StoragePlace): HResult; override;
- public
- // overridden public methods
+  public
    function AcceptableTymed: Integer; override;
- protected
- // protected methods
-   function Store(aFormat: Tl3ClipboardFormat;
-    aPool: TStream): Boolean; overload; 
-   function Store(aFormat: Tl3ClipboardFormat;
-    const aPool: IStream): Boolean; overload;  virtual; abstract;
  end;//Tl3StorableDataObject
 
 implementation
 
 uses
-  l3Stream,
-  l3Memory,
-  l3Base,
-  l3Chars
-  ;
-
-// start class Tl3StorableDataObject
+ l3ImplUses
+ , l3Stream
+ , l3Memory
+ , l3Base
+ , l3Chars
+;
 
 function Tl3StorableDataObject.Store(aFormat: Tl3ClipboardFormat;
-  aPool: TStream): Boolean;
+ aPool: TStream): Boolean;
 //#UC START# *48F37AAF012F_4680F7E70110_var*
 var
  l_Pool : IStream;
@@ -77,7 +59,7 @@ begin
 end;//Tl3StorableDataObject.Store
 
 function Tl3StorableDataObject.DoGetData(const aFormatEtcIn: TFormatEtc;
-  var medium: Tl3StoragePlace): HResult;
+ var medium: Tl3StoragePlace): HResult;
 //#UC START# *48F3495D0398_4680F7E70110_var*
 var
  l_Handle       : THandle;
@@ -140,7 +122,7 @@ begin
 end;//Tl3StorableDataObject.DoGetData
 
 function Tl3StorableDataObject.DoGetDataHere(const aFormatEtcIn: TFormatEtc;
-  const medium: Tl3StoragePlace): HResult;
+ const medium: Tl3StoragePlace): HResult;
 //#UC START# *48F349AE00F1_4680F7E70110_var*
 var
  l_MemoryStream : Tl3MemoryStream;

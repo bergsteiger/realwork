@@ -18,7 +18,7 @@ type
    NodeDelegateType_: ;
    NodeType_: ;
   public
-   constructor make(tree); reintroduce;
+   constructor make(const tree); reintroduce;
    procedure clear; virtual;
     {* Очистить дерево }
  end;//JournalTree
@@ -30,7 +30,7 @@ uses
  , ApplicationHelper
 ;
 
-constructor JournalTree.make(tree);
+constructor JournalTree.make(const tree);
 //#UC START# *4A92A941032E_4A92A8F2022D_var*
 //#UC END# *4A92A941032E_4A92A8F2022D_var*
 begin

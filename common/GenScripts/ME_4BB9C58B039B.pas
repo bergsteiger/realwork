@@ -31,7 +31,12 @@ uses
  l3ImplUses
  , l3String
  , SysUtils
+ , l3Memory
 ;
+
+{$If not Declared(_ItemType_)}type _ItemType_ = Pl3StringIDEx;{$IfEnd}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;

@@ -31,7 +31,7 @@ type
   public
    function Read(var Buffer;
     Count: Integer): Integer; override;
-   function Write(Buffer;
+   function Write(const Buffer;
     Count: Integer): Integer; override;
  end;//Tl3Stream
 
@@ -80,7 +80,7 @@ begin
 //#UC END# *49BE656C006E_48F4748E0192_impl*
 end;//Tl3Stream.Read
 
-function Tl3Stream.Write(Buffer;
+function Tl3Stream.Write(const Buffer;
  Count: Integer): Integer;
 //#UC START# *49BE658C0261_48F4748E0192_var*
 //#UC END# *49BE658C0261_48F4748E0192_var*

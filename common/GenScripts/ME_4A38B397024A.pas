@@ -24,7 +24,7 @@ type
   procedure finish_process(const entity: ISearchEntity);
  end;//IProgressIndicatorForSearch
 
-class function make(search_manager): BadFactoryType;
+class function make(const search_manager): BadFactoryType;
 
 implementation
 
@@ -32,7 +32,7 @@ uses
  l3ImplUses
 ;
 
-class function make(search_manager): BadFactoryType;
+class function make(const search_manager): BadFactoryType;
 var
  l_Inst : ICancelSearch;
 begin

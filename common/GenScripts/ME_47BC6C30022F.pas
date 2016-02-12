@@ -24,7 +24,7 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
  Tl3RecListWithPartialFind = class(_l3Searcher_)
   public
-   function FindPart(aData;
+   function FindPart(const aData;
     aDataSize: Cardinal;
     out theIndex: Integer): Boolean;
     {* поиск по началу записи, размер сравниваемых данных в aDataSize }
@@ -34,7 +34,10 @@ implementation
 
 uses
  l3ImplUses
+ , l3Memory
 ;
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;
@@ -54,7 +57,7 @@ type _Instance_R_ = Tl3RecListWithPartialFind;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
-function Tl3RecListWithPartialFind.FindPart(aData;
+function Tl3RecListWithPartialFind.FindPart(const aData;
  aDataSize: Cardinal;
  out theIndex: Integer): Boolean;
  {* поиск по началу записи, размер сравниваемых данных в aDataSize }

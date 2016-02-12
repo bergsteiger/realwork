@@ -32,7 +32,7 @@ type
     {* Освобождает внутренний поток }
    function Read(var Buffer;
     Count: Integer): Integer; override;
-   function Write(Buffer;
+   function Write(const Buffer;
     Count: Integer): Integer; override;
    function Seek(const Offset: Int64;
     Origin: TSeekOrigin): Int64; override;
@@ -101,7 +101,7 @@ begin
 //#UC END# *49BE656C006E_49BE68B201D1_impl*
 end;//Tl3ProxyStream.Read
 
-function Tl3ProxyStream.Write(Buffer;
+function Tl3ProxyStream.Write(const Buffer;
  Count: Integer): Integer;
 //#UC START# *49BE658C0261_49BE68B201D1_var*
 //#UC END# *49BE658C0261_49BE68B201D1_var*

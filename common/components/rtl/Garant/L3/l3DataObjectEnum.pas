@@ -1,54 +1,38 @@
 unit l3DataObjectEnum;
+ {* Реализация итератора для данных Tl3DataObject. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DataObjectEnum.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3DataObject::Tl3DataObjectEnum
-//
-// Реализация итератора для данных Tl3DataObject.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DataObjectEnum.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3DataObject,
-  l3ProtoObject,
-  Windows,
-  ActiveX
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+ , l3DataObject
+ , Windows
+ , ActiveX
+;
 
 type
  Tl3DataObjectEnum = class(Tl3ProtoObject, IEnumFormatEtc)
   {* Реализация итератора для данных Tl3DataObject. }
- private
- // private fields
-   f_DataObject : Tl3DataObject;
-   f_Index : Integer;
- protected
- // realized methods
+  private
+   f_DataObject: Tl3DataObject;
+   f_Index: Integer;
+  protected
    function Next(celt: Integer;
     out elt;
     pceltFetched: PLongint): HResult; stdcall;
    function Skip(celt: Integer): HResult; stdcall;
    function Reset: HResult; stdcall;
    function Clone(out Enum: IEnumFORMATETC): HResult; stdcall;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    class function Make(aDataObject: Tl3DataObject): IEnumFormatEtc; reintroduce;
    constructor Create(aDataObject: Tl3DataObject); reintroduce;
  end;//Tl3DataObjectEnum
@@ -56,11 +40,10 @@ type
 implementation
 
 uses
-  l3MinMax,
-  SysUtils
-  ;
-
-// start class Tl3DataObjectEnum
+ l3ImplUses
+ , l3MinMax
+ , SysUtils
+;
 
 class function Tl3DataObjectEnum.Make(aDataObject: Tl3DataObject): IEnumFormatEtc;
 var
@@ -72,7 +55,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3DataObjectEnum.Make
 
 constructor Tl3DataObjectEnum.Create(aDataObject: Tl3DataObject);
 //#UC START# *48F33CE302EC_4680F5FF01EA_var*
@@ -85,8 +68,8 @@ begin
 end;//Tl3DataObjectEnum.Create
 
 function Tl3DataObjectEnum.Next(celt: Integer;
-  out elt;
-  pceltFetched: PLongint): HResult;
+ out elt;
+ pceltFetched: PLongint): HResult;
 //#UC START# *48F33755005D_4680F5FF01EA_var*
 var
  l_Index : Integer;
@@ -165,6 +148,7 @@ begin
 end;//Tl3DataObjectEnum.Clone
 
 procedure Tl3DataObjectEnum.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4680F5FF01EA_var*
 //#UC END# *479731C50290_4680F5FF01EA_var*
 begin

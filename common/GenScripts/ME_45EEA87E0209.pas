@@ -38,7 +38,7 @@ type
    read Get_news_line_root;
  end;//IMonitoring
 
-class function make(server_list;
+class function make(const server_list;
  document_count: Cardinal): IDynList;
 class function make: BadFactoryType;
 
@@ -48,7 +48,7 @@ uses
  l3ImplUses
 ;
 
-class function make(server_list;
+class function make(const server_list;
  document_count: Cardinal): IDynList;
 var
  l_Inst : IMonitoringList;

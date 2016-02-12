@@ -1168,7 +1168,7 @@ type
  Il3CommandProcessor = interface(Il3Base)
   {* Процессор команд. }
   ['{E5E0F6F4-2947-40E5-9911-9F6266EB3906}']
-  function TranslateUsing(const Tables: TOpenStringArray;
+  function TranslateUsing(const Tables: array of AnsiString;
    var Msg: TMessage;
    aTime: Cardinal;
    const aTarget: Il3CommandTarget = nil): Word;

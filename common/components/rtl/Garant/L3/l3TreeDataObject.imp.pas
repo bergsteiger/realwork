@@ -1,45 +1,29 @@
 {$IfNDef l3TreeDataObject_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3TreeDataObject.imp.pas"
-// Начат: 14.12.2006 14:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3DataObject::l3TreeDataObject
-//
-// Объект данных дерева
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3TreeDataObject.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3TreeDataObject_imp}
- {$Include ..\L3\l3InterfacedDataObject.imp.pas}
- _l3TreeDataObject_ = {mixin} class(_l3InterfacedDataObject_)
+
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacedDataObject.imp.pas}
+ _l3TreeDataObject_ = class(_l3InterfacedDataObject_)
   {* Объект данных дерева }
- protected
- // overridden protected methods
+  protected
+   function GetFormats: Tl3ClipboardFormats; virtual;
    function DoGetData(const aFormatEtcIn: TFormatEtc;
     var medium: Tl3StoragePlace): HResult; override;
- public
- // overridden public methods
-   function AcceptableTymed: Integer; override;
- protected
- // protected methods
-   function GetFormats: Tl3ClipboardFormats; virtual;
- public
- // public methods
+  public
    constructor Create(const aData: _DataType_); reintroduce; virtual;
+   function AcceptableTymed: Integer; override;
  end;//_l3TreeDataObject_
 
 {$Else l3TreeDataObject_imp}
 
-{$Include ..\L3\l3InterfacedDataObject.imp.pas}
+{$IfNDef l3TreeDataObject_imp_impl}
 
-// start class _l3TreeDataObject_
+{$Define l3TreeDataObject_imp_impl}
+
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacedDataObject.imp.pas}
 
 function _l3TreeDataObject_.GetFormats: Tl3ClipboardFormats;
 //#UC START# *48F4B33501DE_4680F8DE02E2_var*
@@ -60,7 +44,7 @@ begin
 end;//_l3TreeDataObject_.Create
 
 function _l3TreeDataObject_.DoGetData(const aFormatEtcIn: TFormatEtc;
-  var medium: Tl3StoragePlace): HResult;
+ var medium: Tl3StoragePlace): HResult;
 //#UC START# *48F3495D0398_4680F8DE02E2_var*
 var
  l_Handle : THandle;
@@ -115,4 +99,7 @@ begin
 //#UC END# *48F351BE0015_4680F8DE02E2_impl*
 end;//_l3TreeDataObject_.AcceptableTymed
 
+{$EndIf l3TreeDataObject_imp_impl}
+
 {$EndIf l3TreeDataObject_imp}
+

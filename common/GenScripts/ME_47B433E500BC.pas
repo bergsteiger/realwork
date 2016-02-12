@@ -22,13 +22,13 @@ type
  _l3UntypedList_ = {abstract} class(_l3Items_)
   protected
    function pm_GetItemSize: Integer; virtual; abstract;
-   function DoCompare(A;
-    B;
+   function DoCompare(const A;
+    const B;
     DataSize: Cardinal): Integer; virtual; abstract;
     {* Сравнивает элементы. }
    procedure DoInsert(anIndex: Integer;
-    aData); { can raise EListError }
-   function DoAdd(aData): Integer; { can raise El3DuplicateItem }
+    const aData); { can raise EListError }
+   function DoAdd(const aData): Integer; { can raise El3DuplicateItem }
    procedure pm_SetCount(aValue: Integer); override; { can raise EListError }
   public
    procedure Clear;
@@ -39,12 +39,12 @@ type
     {* перебирает все элементы хранилища с aLo по aHi. }
    function IterateAll(Action: Tl3IteratorAction): Integer;
     {* перебирает все элементы хранилища. }
-   function Add(aData): Integer;
-   function Find(aData;
+   function Add(const aData): Integer;
+   function Find(const aData;
     out theIndex: Integer): Boolean;
     {* Находит данные, при помощи основной операции сравнения. }
    procedure Insert(anIndex: Integer;
-    aData);
+    const aData);
   public
    property ItemSize: Integer
     read pm_GetItemSize;
@@ -55,6 +55,8 @@ type
 {$IfNDef l3UntypedList_imp_impl}
 
 {$Define l3UntypedList_imp_impl}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 procedure ReAllocList(NewCapacity: Integer;
  aList: _l3Items_); forward;
@@ -280,7 +282,7 @@ begin
 end;//_l3UntypedList_.IterateAll
 
 procedure _l3UntypedList_.DoInsert(anIndex: Integer;
- aData); { can raise EListError }
+ const aData); { can raise EListError }
 //#UC START# *47BEF05C0032_47B433E500BC_var*
 
  procedure _Error;
@@ -297,7 +299,7 @@ begin
 //#UC END# *47BEF05C0032_47B433E500BC_impl*
 end;//_l3UntypedList_.DoInsert
 
-function _l3UntypedList_.DoAdd(aData): Integer; { can raise El3DuplicateItem }
+function _l3UntypedList_.DoAdd(const aData): Integer; { can raise El3DuplicateItem }
 //#UC START# *47BEF3910285_47B433E500BC_var*
 
  procedure SayDup(anIndex: Integer);
@@ -350,7 +352,7 @@ begin
 //#UC END# *47BEF3910285_47B433E500BC_impl*
 end;//_l3UntypedList_.DoAdd
 
-function _l3UntypedList_.Add(aData): Integer;
+function _l3UntypedList_.Add(const aData): Integer;
 //#UC START# *47BEF5130164_47B433E500BC_var*
 //#UC END# *47BEF5130164_47B433E500BC_var*
 begin
@@ -359,7 +361,7 @@ begin
 //#UC END# *47BEF5130164_47B433E500BC_impl*
 end;//_l3UntypedList_.Add
 
-function _l3UntypedList_.Find(aData;
+function _l3UntypedList_.Find(const aData;
  out theIndex: Integer): Boolean;
  {* Находит данные, при помощи основной операции сравнения. }
 //#UC START# *47BF0A3100F6_47B433E500BC_var*
@@ -371,7 +373,7 @@ begin
 end;//_l3UntypedList_.Find
 
 procedure _l3UntypedList_.Insert(anIndex: Integer;
- aData);
+ const aData);
 //#UC START# *47BF0C7C01D6_47B433E500BC_var*
 //#UC END# *47BF0C7C01D6_47B433E500BC_var*
 begin

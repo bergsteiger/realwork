@@ -1,31 +1,28 @@
 {$IfNDef l3AtomicList_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3AtomicList.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3AtomicList
-//
-// Список АТОМАРНЫХ элементов, без всякого подсчёта ссылок и управления временем жизни
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3AtomicList_imp}
+
  _l3AtomicListPrim_Parent_ = _l3AtomicList_Parent_;
- {$Include ..\L3\l3AtomicListPrim.imp.pas}
- _l3AtomicList_ = {mixin} class(_l3AtomicListPrim_)
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
+ _l3AtomicList_ = class(_l3AtomicListPrim_)
   {* Список АТОМАРНЫХ элементов, без всякого подсчёта ссылок и управления временем жизни }
  end;//_l3AtomicList_
 
 {$Else l3AtomicList_imp}
 
-// start class _l3AtomicList_
+{$IfNDef l3AtomicList_imp_impl}
+
+{$Define l3AtomicList_imp_impl}
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 function CompareExistingItems(const CI: CompareItemsRec): Integer;
+ {* Сравнивает два существующих элемента. }
 //#UC START# *47B99D4503A2_47A1B04702C2_var*
 //#UC END# *47B99D4503A2_47A1B04702C2_var*
 begin
@@ -43,8 +40,9 @@ begin
 //#UC END# *47B99D4503A2_47A1B04702C2_impl*
 end;//CompareExistingItems
 
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicListPrim.imp.pas}
 
-{$Include ..\L3\l3AtomicListPrim.imp.pas}
-
+{$EndIf l3AtomicList_imp_impl}
 
 {$EndIf l3AtomicList_imp}
+

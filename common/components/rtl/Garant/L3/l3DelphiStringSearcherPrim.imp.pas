@@ -1,32 +1,27 @@
 {$IfNDef l3DelphiStringSearcherPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DelphiStringSearcherPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3DelphiStringSearcherPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3DelphiStringSearcherPrim_imp}
+
  _FindDataType_ = AnsiString;
  _l3Searcher_Parent_ = _l3DelphiStringSearcherPrim_Parent_;
- {$Include ..\L3\l3Searcher.imp.pas}
- _l3DelphiStringSearcherPrim_ = {abstract mixin} class(_l3Searcher_)
+ {$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
+ _l3DelphiStringSearcherPrim_ = {abstract} class(_l3Searcher_)
  end;//_l3DelphiStringSearcherPrim_
 
 {$Else l3DelphiStringSearcherPrim_imp}
 
-// start class _l3DelphiStringSearcherPrim_
+{$IfNDef l3DelphiStringSearcherPrim_imp_impl}
+
+{$Define l3DelphiStringSearcherPrim_imp_impl}
 
 function CompareItemWithData(const anItem: _ItemType_;
-  const aData: _FindDataType_;
-  aSortIndex: Tl3SortIndex;
-  aList: _l3Searcher_): Integer;
+ const aData: _FindDataType_;
+ aSortIndex: Tl3SortIndex;
+ aList: _l3Searcher_): Integer;
+ {* Сравнивает существующий элемент с искомым. }
 //#UC START# *47B9BAFD01F4_4B891136016F_var*
 //#UC END# *47B9BAFD01F4_4B891136016F_var*
 begin
@@ -35,8 +30,9 @@ begin
 //#UC END# *47B9BAFD01F4_4B891136016F_impl*
 end;//CompareItemWithData
 
+{$Include w:\common\components\rtl\Garant\L3\l3Searcher.imp.pas}
 
-{$Include ..\L3\l3Searcher.imp.pas}
-
+{$EndIf l3DelphiStringSearcherPrim_imp_impl}
 
 {$EndIf l3DelphiStringSearcherPrim_imp}
+

@@ -1,46 +1,37 @@
 unit l3CObjectList;
+ {* Кешируемый список указателей на объекты. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3CObjectList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3CObjectList
-//
-// Кешируемый список указателей на объекты.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3CObjectList.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ObjectList
-  ;
+ l3IntfUses
+ , l3ObjectList
+;
 
 type
  Tl3CObjectList = class(Tl3ObjectList)
   {* Кешируемый список указателей на объекты. }
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
  end;//Tl3CObjectList
 
 implementation
 
-// start class Tl3CObjectList
+uses
+ l3ImplUses
+;
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3CObjectList.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4773DBEA0260_var*
 //#UC END# *47A6FEE600FC_4773DBEA0260_var*
 begin
@@ -48,6 +39,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4773DBEA0260_impl*
 end;//Tl3CObjectList.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

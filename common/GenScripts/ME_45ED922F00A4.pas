@@ -87,7 +87,7 @@ type
 
 class function make(url: PAnsiChar): BadFactoryType;
 class function make: BadFactoryType; overload;
-class function make(obj): BadFactoryType; overload;
+class function make(const obj): BadFactoryType; overload;
 class function make(is_start: Boolean;
  x: short;
  y: short;
@@ -126,7 +126,7 @@ begin
  end;//try..finally
 end;//make
 
-class function make(obj): BadFactoryType;
+class function make(const obj): BadFactoryType;
 var
  l_Inst : IExternalObject;
 begin

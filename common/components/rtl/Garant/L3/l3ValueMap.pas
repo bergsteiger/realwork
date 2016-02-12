@@ -1,32 +1,19 @@
 unit l3ValueMap;
+ {* базовая реализация мап "строка"-что-то. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Лукьянец Р.В. / Люлин А.В. ©
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ValueMap.pas"
-// Начат: 30.03.2006 10:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3ValueMap
-//
-// базовая реализация мап "строка"-что-то.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ValueMap.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Except,
-  l3BaseWithIDList
-  ;
+ l3IntfUses
+ , l3BaseWithIDList
+ , l3Interfaces
+ , l3Except
+;
 
 type
  El3ValueMap = class(El3Error)
@@ -37,41 +24,31 @@ type
 
  Tl3ValueMap = class(Tl3BaseWithIDList, Il3ValueMap)
   {* базовая реализация мап "строка"-что-то. }
- private
- // private fields
-   f_rMapID : Tl3ValueMapID;
-    {* Поле для свойства rMapID}
- protected
- // realized methods
-   function pm_GetMapID: Tl3ValueMapID;
-   procedure GetDisplayNames(const aList: Il3StringsEx);
-     {* заполняет список значениями "UI-строка" }
-   function MapSize: Integer;
-     {* количество элементов в мапе. }
- protected
- // overridden protected methods
-   procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
- protected
- // protected methods
+  private
+   f_rMapID: Tl3ValueMapID;
+    {* Поле для свойства rMapID }
+  protected
    procedure DoGetDisplayNames(const aList: Il3StringsEx); virtual;
    function GetMapSize: Integer; virtual;
- public
- // public methods
+   function pm_GetMapID: Tl3ValueMapID;
+   procedure GetDisplayNames(const aList: Il3StringsEx);
+    {* заполняет список значениями "UI-строка" }
+   function MapSize: Integer;
+    {* количество элементов в мапе. }
+   procedure ClearFields; override;
+  public
    constructor Create(const aID: Tl3ValueMapID); reintroduce; virtual;
- protected
- // protected properties
+  protected
    property rMapID: Tl3ValueMapID
-     read f_rMapID;
+    read f_rMapID;
  end;//Tl3ValueMap
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class Tl3ValueMap
+ l3ImplUses
+ , l3Base
+;
 
 procedure Tl3ValueMap.DoGetDisplayNames(const aList: Il3StringsEx);
 //#UC START# *478CFFBA017D_478797300345_var*
@@ -111,6 +88,7 @@ begin
 end;//Tl3ValueMap.pm_GetMapID
 
 procedure Tl3ValueMap.GetDisplayNames(const aList: Il3StringsEx);
+ {* заполняет список значениями "UI-строка" }
 //#UC START# *46A5F0130365_478797300345_var*
 //#UC END# *46A5F0130365_478797300345_var*
 begin
@@ -120,6 +98,7 @@ begin
 end;//Tl3ValueMap.GetDisplayNames
 
 function Tl3ValueMap.MapSize: Integer;
+ {* количество элементов в мапе. }
 //#UC START# *46A5F03800A2_478797300345_var*
 //#UC END# *46A5F03800A2_478797300345_var*
 begin
@@ -129,7 +108,6 @@ begin
 end;//Tl3ValueMap.MapSize
 
 procedure Tl3ValueMap.ClearFields;
- {-}
 begin
  Finalize(f_rMapID);
  inherited;

@@ -36,12 +36,12 @@ type
    function pm_Gettree_name: AnsiString; virtual;
    procedure pm_Settree_name(const aValue: AnsiString); virtual;
    class procedure create_uid(new_node: RealNodeBase); virtual;
-   function alloc_new_node(snode): DefaultNodeBase; override;
+   function alloc_new_node(const snode): DefaultNodeBase; override;
    function alloc_new_view: ViewBase; override;
    function pm_Gettree_name: AnsiString; override;
   public
    constructor make(is_active_changeable: Boolean); reintroduce; virtual;
-   function apply_created_node(data): RealNodeBase; override;
+   function apply_created_node(const data): RealNodeBase; override;
    procedure find_created_uid(var node: RealNodeBase); override;
    procedure associate_node_with_uid(var node: RealNodeBase); override;
    procedure disassociate_node_with_uid(var node: RealNodeBase); override;
@@ -97,7 +97,7 @@ begin
 //#UC END# *4602552E0157_45F585F802AF_impl*
 end;//Tree.create_uid
 
-function Tree.apply_created_node(data): RealNodeBase;
+function Tree.apply_created_node(const data): RealNodeBase;
 //#UC START# *460125E60203_45F585F802AF_var*
 //#UC END# *460125E60203_45F585F802AF_var*
 begin
@@ -133,7 +133,7 @@ begin
 //#UC END# *4601267E0177_45F585F802AF_impl*
 end;//Tree.disassociate_node_with_uid
 
-function Tree.alloc_new_node(snode): DefaultNodeBase;
+function Tree.alloc_new_node(const snode): DefaultNodeBase;
 //#UC START# *460127AC0157_45F585F802AF_var*
 //#UC END# *460127AC0157_45F585F802AF_var*
 begin

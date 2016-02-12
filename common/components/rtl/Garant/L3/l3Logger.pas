@@ -1,47 +1,34 @@
 unit l3Logger;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3Logger.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3Logger
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3Logger.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3ProtoObject,
-  l3ExceptionsLogEx
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3ExceptionsLogEx
+;
 
 type
  Tl3Logger = class(Tl3ProtoObject)
- private
- // private fields
-   f_Log : Tl3ExceptionsLogEx;
-   f_EXEName : AnsiString;
- protected
- // overridden protected methods
+  private
+   f_Log: Tl3ExceptionsLogEx;
+   f_EXEName: AnsiString;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Release; override;
    procedure BeforeAddToCache; override;
-     {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
-   {$If not defined(DesignTimeLibrary)}
+    {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    constructor Create(const aFileName: AnsiString); reintroduce;
    procedure ToLog(const aString: AnsiString);
  end;//Tl3Logger
@@ -49,11 +36,10 @@ type
 implementation
 
 uses
-  SysUtils,
-  l3ExceptionsLog
-  ;
-
-// start class Tl3Logger
+ l3ImplUses
+ , SysUtils
+ , l3ExceptionsLog
+;
 
 constructor Tl3Logger.Create(const aFileName: AnsiString);
 //#UC START# *540EE374018F_540EE3000176_var*
@@ -85,6 +71,7 @@ begin
 end;//Tl3Logger.ToLog
 
 procedure Tl3Logger.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_540EE3000176_var*
 //#UC END# *479731C50290_540EE3000176_var*
 begin
@@ -106,6 +93,7 @@ begin
 end;//Tl3Logger.Release
 
 procedure Tl3Logger.BeforeAddToCache;
+ {* функция, вызываемая перед добавлением объекта в кэш повторного использования. }
 //#UC START# *479F2B3302C1_540EE3000176_var*
 //#UC END# *479F2B3302C1_540EE3000176_var*
 begin
@@ -116,8 +104,9 @@ begin
 //#UC END# *479F2B3302C1_540EE3000176_impl*
 end;//Tl3Logger.BeforeAddToCache
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3Logger.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_540EE3000176_var*
 //#UC END# *47A6FEE600FC_540EE3000176_var*
 begin
@@ -125,6 +114,6 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_540EE3000176_impl*
 end;//Tl3Logger.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 end.

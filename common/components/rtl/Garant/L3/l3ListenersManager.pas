@@ -1,72 +1,55 @@
 unit l3ListenersManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Костицын
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ListenersManager.pas"
-// Начат: 19.03.2012
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Listeners::Tl3ListenersManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ListenersManager.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  Windows,
-  l3ProtoObject,
-  l3CBTListenersList,
-  l3GetMessageListenersList,
-  l3WndProcListenersList,
-  l3WndProcRetListenersList,
-  l3MouseListenersList,
-  l3MouseWheelListenersList
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , l3WndProcListenersList
+ , l3CBTListenersList
+ , l3GetMessageListenersList
+ , Windows
+ , l3WndProcRetListenersList
+ , l3MouseListenersList
+ , l3MouseWheelListenersList
+ , l3Interfaces
+;
 
 type
  Tl3ListenersManager = class(Tl3ProtoObject)
- private
- // private fields
-   f_WndProcListeners : Tl3WndProcListenersList;
-    {* Поле для свойства WndProcListeners}
-   f_CBTListeners : Tl3CBTListenersList;
-    {* Поле для свойства CBTListeners}
-   f_GetMessageListeners : Tl3GetMessageListenersList;
-    {* Поле для свойства GetMessageListeners}
-   f_WndProcHook : HHOOK;
-    {* Поле для свойства WndProcHook}
-   f_CBTHook : HHOOK;
-    {* Поле для свойства CBTHook}
-   f_GetMessageHook : HHOOK;
-    {* Поле для свойства GetMessageHook}
-   f_WndProcRetListeners : Tl3WndProcRetListenersList;
-    {* Поле для свойства WndProcRetListeners}
-   f_WndProcRetHook : HHOOK;
-    {* Поле для свойства WndProcRetHook}
-   f_MouseHook : HHOOK;
-    {* Поле для свойства MouseHook}
-   f_MouseListeners : Tl3MouseListenersList;
-    {* Поле для свойства MouseListeners}
-   f_MouseWheelListeners : Tl3MouseWheelListenersList;
-    {* Поле для свойства MouseWheelListeners}
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
+  private
+   f_WndProcListeners: Tl3WndProcListenersList;
+    {* Поле для свойства WndProcListeners }
+   f_CBTListeners: Tl3CBTListenersList;
+    {* Поле для свойства CBTListeners }
+   f_GetMessageListeners: Tl3GetMessageListenersList;
+    {* Поле для свойства GetMessageListeners }
+   f_WndProcHook: HHOOK;
+    {* Поле для свойства WndProcHook }
+   f_CBTHook: HHOOK;
+    {* Поле для свойства CBTHook }
+   f_GetMessageHook: HHOOK;
+    {* Поле для свойства GetMessageHook }
+   f_WndProcRetListeners: Tl3WndProcRetListenersList;
+    {* Поле для свойства WndProcRetListeners }
+   f_WndProcRetHook: HHOOK;
+    {* Поле для свойства WndProcRetHook }
+   f_MouseHook: HHOOK;
+    {* Поле для свойства MouseHook }
+   f_MouseListeners: Tl3MouseListenersList;
+    {* Поле для свойства MouseListeners }
+   f_MouseWheelListeners: Tl3MouseWheelListenersList;
+    {* Поле для свойства MouseWheelListeners }
+  protected
    procedure UpdateHooks;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+  public
    class procedure AddCBTListener(const aListener: Il3CBTListener);
    class procedure AddWndProcListener(const aListener: Il3WndProcListener);
    class procedure AddGetMessageListener(const aListener: Il3GetMessageListener);
@@ -82,65 +65,51 @@ type
    class procedure Add(const aListener: Il3Listener);
    class procedure Remove(const aListener: Il3Listener);
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // public properties
-   property WndProcListeners: Tl3WndProcListenersList
-     read f_WndProcListeners;
-   property CBTListeners: Tl3CBTListenersList
-     read f_CBTListeners;
-   property GetMessageListeners: Tl3GetMessageListenersList
-     read f_GetMessageListeners;
-   property WndProcHook: HHOOK
-     read f_WndProcHook;
-   property CBTHook: HHOOK
-     read f_CBTHook;
-   property GetMessageHook: HHOOK
-     read f_GetMessageHook;
-   property WndProcRetListeners: Tl3WndProcRetListenersList
-     read f_WndProcRetListeners;
-   property WndProcRetHook: HHOOK
-     read f_WndProcRetHook;
-   property MouseHook: HHOOK
-     read f_MouseHook;
-   property MouseListeners: Tl3MouseListenersList
-     read f_MouseListeners;
-   property MouseWheelListeners: Tl3MouseWheelListenersList
-     read f_MouseWheelListeners;
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3ListenersManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона Tl3ListenersManager }
+  public
+   property WndProcListeners: Tl3WndProcListenersList
+    read f_WndProcListeners;
+   property CBTListeners: Tl3CBTListenersList
+    read f_CBTListeners;
+   property GetMessageListeners: Tl3GetMessageListenersList
+    read f_GetMessageListeners;
+   property WndProcHook: HHOOK
+    read f_WndProcHook;
+   property CBTHook: HHOOK
+    read f_CBTHook;
+   property GetMessageHook: HHOOK
+    read f_GetMessageHook;
+   property WndProcRetListeners: Tl3WndProcRetListenersList
+    read f_WndProcRetListeners;
+   property WndProcRetHook: HHOOK
+    read f_WndProcRetHook;
+   property MouseHook: HHOOK
+    read f_MouseHook;
+   property MouseListeners: Tl3MouseListenersList
+    read f_MouseListeners;
+   property MouseWheelListeners: Tl3MouseWheelListenersList
+    read f_MouseWheelListeners;
  end;//Tl3ListenersManager
 
 implementation
 
 uses
-  l3Base {a},
-  SysUtils,
-  l3ListenersHooks
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3ListenersHooks
+ , l3Base
+;
 
-
-// start class Tl3ListenersManager
-
-var g_Tl3ListenersManager : Tl3ListenersManager = nil;
+var g_Tl3ListenersManager: Tl3ListenersManager = nil;
+ {* Экземпляр синглетона Tl3ListenersManager }
 
 procedure Tl3ListenersManagerFree;
+ {* Метод освобождения экземпляра синглетона Tl3ListenersManager }
 begin
  l3Free(g_Tl3ListenersManager);
-end;
-
-class function Tl3ListenersManager.Instance: Tl3ListenersManager;
-begin
- if (g_Tl3ListenersManager = nil) then
- begin
-  l3System.AddExitProc(Tl3ListenersManagerFree);
-  g_Tl3ListenersManager := Create;
- end;
- Result := g_Tl3ListenersManager;
-end;
-
+end;//Tl3ListenersManagerFree
 
 class procedure Tl3ListenersManager.AddCBTListener(const aListener: Il3CBTListener);
 //#UC START# *4F636B3003E5_4F636139008F_var*
@@ -489,12 +458,24 @@ begin
 end;//Tl3ListenersManager.Remove
 
 class function Tl3ListenersManager.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_Tl3ListenersManager <> nil;
 end;//Tl3ListenersManager.Exists
 
+class function Tl3ListenersManager.Instance: Tl3ListenersManager;
+ {* Метод получения экземпляра синглетона Tl3ListenersManager }
+begin
+ if (g_Tl3ListenersManager = nil) then
+ begin
+  l3System.AddExitProc(Tl3ListenersManagerFree);
+  g_Tl3ListenersManager := Create;
+ end;
+ Result := g_Tl3ListenersManager;
+end;//Tl3ListenersManager.Instance
+
 procedure Tl3ListenersManager.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4F636139008F_var*
 //#UC END# *479731C50290_4F636139008F_var*
 begin

@@ -1,43 +1,32 @@
 {$IfNDef l3ChangingWithLock_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ChangingWithLock.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3ChangingWithLock
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ChangingWithLock.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3ChangingWithLock_imp}
+
  _l3ChangingChangedNotifier_Parent_ = _l3ChangingWithLock_Parent_;
- {$Include ..\L3\l3ChangingChangedNotifier.imp.pas}
- _l3ChangingWithLock_ = {mixin} class(_l3ChangingChangedNotifier_)
- private
- // private fields
-   f_NotificationLockCount : Integer;
-   f_NeedFireChanged : Boolean;
-   f_CanFireChanging : Boolean;
- protected
- // overridden protected methods
+ {$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
+ _l3ChangingWithLock_ = class(_l3ChangingChangedNotifier_)
+  private
+   f_NotificationLockCount: Integer;
+   f_NeedFireChanged: Boolean;
+   f_CanFireChanging: Boolean;
+  protected
    procedure DoChanged; override;
-     {* Сигнатура метода DoChanged }
    procedure DoChanging; override;
-     {* Сигнатура метода DoChanging }
- public
- // public methods
+  public
    procedure LockNotification;
    procedure UnLockNotification;
  end;//_l3ChangingWithLock_
 
 {$Else l3ChangingWithLock_imp}
 
-{$Include ..\L3\l3ChangingChangedNotifier.imp.pas}
+{$IfNDef l3ChangingWithLock_imp_impl}
 
-// start class _l3ChangingWithLock_
+{$Define l3ChangingWithLock_imp_impl}
+
+{$Include w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas}
 
 procedure _l3ChangingWithLock_.LockNotification;
 //#UC START# *54CB3F2A02B0_54CB3F0F01C0_var*
@@ -97,4 +86,7 @@ begin
 //#UC END# *54D9E09D018D_54CB3F0F01C0_impl*
 end;//_l3ChangingWithLock_.DoChanging
 
+{$EndIf l3ChangingWithLock_imp_impl}
+
 {$EndIf l3ChangingWithLock_imp}
+

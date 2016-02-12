@@ -1,36 +1,25 @@
 {$IfNDef l3ChangingChangedNotifier_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ChangingChangedNotifier.imp.pas"
-// Начат: 20.10.2008 19:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3ChangingChangedNotifier
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ChangingChangedNotifier.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3ChangingChangedNotifier_imp}
+
  _l3Notifier_Parent_ = _l3ChangingChangedNotifier_Parent_;
- {$Include ..\L3\l3Notifier.imp.pas}
- _l3ChangingChangedNotifier_ = {mixin} class(_l3Notifier_)
- protected
- // overridden protected methods
+ {$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
+ _l3ChangingChangedNotifier_ = class(_l3Notifier_)
+  protected
    procedure DoChanged; override;
-     {* Сигнатура метода DoChanged }
    procedure DoChanging; override;
-     {* Сигнатура метода DoChanging }
  end;//_l3ChangingChangedNotifier_
 
 {$Else l3ChangingChangedNotifier_imp}
 
-{$Include ..\L3\l3Notifier.imp.pas}
+{$IfNDef l3ChangingChangedNotifier_imp_impl}
 
-// start class _l3ChangingChangedNotifier_
+{$Define l3ChangingChangedNotifier_imp_impl}
+
+{$Include w:\common\components\rtl\Garant\L3\l3Notifier.imp.pas}
 
 procedure _l3ChangingChangedNotifier_.DoChanged;
 //#UC START# *54D9E08D0212_48FCA1F20259_var*
@@ -100,4 +89,7 @@ begin
 //#UC END# *54D9E09D018D_48FCA1F20259_impl*
 end;//_l3ChangingChangedNotifier_.DoChanging
 
+{$EndIf l3ChangingChangedNotifier_imp_impl}
+
 {$EndIf l3ChangingChangedNotifier_imp}
+

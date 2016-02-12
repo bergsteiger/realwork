@@ -77,6 +77,8 @@ type
    rData: Tl3MessageData;
   private
    procedure DoInit;
+  protected
+   function pm_GetAsMessage: Tl3Message;
   public
    procedure AddChoice(const aChoice: Tl3StringIDEx);
     {* Добавляет выбор у диалога }
@@ -286,6 +288,15 @@ begin
 //  Result := l3Str(rMessage);
 //#UC END# *4F8EA27801A4_4E08A63701DB_impl*
 end;//Tl3Message.CheckCaption
+
+function Tl3MessageID.pm_GetAsMessage: Tl3Message;
+//#UC START# *4E0B01570024_4E01D1E002AEget_var*
+//#UC END# *4E0B01570024_4E01D1E002AEget_var*
+begin
+//#UC START# *4E0B01570024_4E01D1E002AEget_impl*
+ Result := Tl3Message_C(Self);
+//#UC END# *4E0B01570024_4E01D1E002AEget_impl*
+end;//Tl3MessageID.pm_GetAsMessage
 
 procedure Tl3MessageID.DoInit;
 //#UC START# *4E01D26702F9_4E01D1E002AE_var*

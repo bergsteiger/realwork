@@ -1,91 +1,77 @@
 unit l3LongintListPrim;
+ {* Список целых чисел. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3LongintListPrim.pas"
-// Начат: 07.02.2008 11:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3LongintListPrim
-//
-// Список целых чисел.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3LongintListPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  Classes,
-  l3SimpleDataContainer,
-  l3Types,
-  l3Memory,
-  l3Interfaces,
-  l3Core,
-  l3Except
-  ;
+ l3IntfUses
+ , l3SimpleDataContainer
+ , Classes
+ , l3Except
+ , l3Memory
+ , l3Types
+ , l3Interfaces
+ , l3Core
+;
 
 type
-//#UC START# *4773DC930147ci*
+ //#UC START# *4773DC930147ci*
  {$Define l3Items_NoChanging}
-//#UC END# *4773DC930147ci*
+ //#UC END# *4773DC930147ci*
  _ItemType_ = Integer;
  _l3AtomicList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include ..\L3\l3AtomicList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
  _l3Storable_Parent_ = _l3AtomicList_;
- {$Include ..\L3\l3Storable.imp.pas}
-//#UC START# *4773DC930147cit*
-//#UC END# *4773DC930147cit*
+ {$Include w:\common\components\rtl\Garant\L3\l3Storable.imp.pas}
+ //#UC START# *4773DC930147cit*
+ //#UC END# *4773DC930147cit*
  Tl3LongintListPrim = class(_l3Storable_)
   {* Список целых чисел. }
- protected
- // realized methods
-   procedure SaveToStream(aStream: TStream); override; // can raise El3Exception
-     {* Сохраняет в поток. }
-   procedure LoadFromStream(aStream: TStream;
-    aNeedSort: Boolean); override; // can raise El3Exception
-     {* Загружает из потока. }
- protected
- // overridden protected methods
-   {$If not defined(DesignTimeLibrary)}
+  protected
+   {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
-     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
-   {$IfEnd} //not DesignTimeLibrary
- public
- // public methods
+    {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
+   {$IfEnd} // NOT Defined(DesignTimeLibrary)
+  public
    procedure Load(aStream: TStream);
    procedure Save(aStream: TStream);
    function Delete(anIndex: Integer): Integer;
-     {* удалить элемент с индексом Index. }
-//#UC START# *4773DC930147publ*
-//#UC END# *4773DC930147publ*
+    {* удалить элемент с индексом Index. }
+   procedure SaveToStream(aStream: TStream); override; { can raise El3Exception }
+    {* Сохраняет в поток. }
+   procedure LoadFromStream(aStream: TStream;
+    aNeedSort: Boolean); override; { can raise El3Exception }
+    {* Загружает из потока. }
+ //#UC START# *4773DC930147publ*
+ //#UC END# *4773DC930147publ*
  end;//Tl3LongintListPrim
 
 implementation
 
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3Stream
-  ;
+ l3ImplUses
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+ , l3Stream
+;
+
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
 
 type _Instance_R_ = Tl3LongintListPrim;
 
-{$Include ..\L3\l3AtomicList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3AtomicList.imp.pas}
 
-{$Include ..\L3\l3Storable.imp.pas}
-
-// start class Tl3LongintListPrim
+{$Include w:\common\components\rtl\Garant\L3\l3Storable.imp.pas}
 
 procedure Tl3LongintListPrim.Load(aStream: TStream);
 //#UC START# *47AAC5B30149_4773DC930147_var*
@@ -123,6 +109,7 @@ begin
 end;//Tl3LongintListPrim.Save
 
 function Tl3LongintListPrim.Delete(anIndex: Integer): Integer;
+ {* удалить элемент с индексом Index. }
 //#UC START# *47AAC7E50323_4773DC930147_var*
 var
  l_P : PItemType;
@@ -149,7 +136,8 @@ begin
 //#UC END# *47AAC7E50323_4773DC930147_impl*
 end;//Tl3LongintListPrim.Delete
 
-procedure Tl3LongintListPrim.SaveToStream(aStream: TStream); // can raise El3Exception
+procedure Tl3LongintListPrim.SaveToStream(aStream: TStream); { can raise El3Exception }
+ {* Сохраняет в поток. }
 //#UC START# *47B17EEC020C_4773DC930147_var*
 
  function _WriteInteger(aWord: PObject; anIndex: Long): Bool;
@@ -166,7 +154,8 @@ begin
 end;//Tl3LongintListPrim.SaveToStream
 
 procedure Tl3LongintListPrim.LoadFromStream(aStream: TStream;
-  aNeedSort: Boolean); // can raise El3Exception
+ aNeedSort: Boolean); { can raise El3Exception }
+ {* Загружает из потока. }
 //#UC START# *47B19BBB00BA_4773DC930147_var*
 
  procedure LoadFromStreamError;
@@ -197,8 +186,9 @@ begin
 //#UC END# *47B19BBB00BA_4773DC930147_impl*
 end;//Tl3LongintListPrim.LoadFromStream
 
-{$If not defined(DesignTimeLibrary)}
+{$If NOT Defined(DesignTimeLibrary)}
 class function Tl3LongintListPrim.IsCacheable: Boolean;
+ {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
 //#UC START# *47A6FEE600FC_4773DC930147_var*
 //#UC END# *47A6FEE600FC_4773DC930147_var*
 begin
@@ -206,7 +196,7 @@ begin
  Result := true;
 //#UC END# *47A6FEE600FC_4773DC930147_impl*
 end;//Tl3LongintListPrim.IsCacheable
-{$IfEnd} //not DesignTimeLibrary
+{$IfEnd} // NOT Defined(DesignTimeLibrary)
 
 //#UC START# *4773DC930147impl*
 //#UC END# *4773DC930147impl*

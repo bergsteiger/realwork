@@ -1,51 +1,41 @@
 {$IfNDef l3DictionaryPrimPrim_imp}
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3DictionaryPrimPrim.imp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Impurity::Class>> Shared Delphi Low Level::L3::l3CoreObjects::l3DictionaryPrimPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3DictionaryPrimPrim.imp.pas"
+// Стереотип: "Impurity"
 
 {$Define l3DictionaryPrimPrim_imp}
+
+ // _StringType_
+
  _l3DelphiStringSearcherPrim_Parent_ = _l3DictionaryPrimPrim_Parent_;
- {$Include ..\L3\l3DelphiStringSearcherPrim.imp.pas}
- _l3DictionaryPrimPrim_ = {abstract mixin} class(_l3DelphiStringSearcherPrim_)
- private
- // private fields
-   f_Default : _StringType_;
-    {* Поле для свойства Default}
- protected
- // property methods
+ {$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas}
+ _l3DictionaryPrimPrim_ = {abstract} class(_l3DelphiStringSearcherPrim_)
+  private
+   f_Default: _StringType_;
+    {* Поле для свойства Default }
+  protected
    procedure pm_SetDefault(const aValue: _StringType_); virtual;
    function pm_GetDRByName(const aName: AnsiString): _StringType_; virtual;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public properties
+  public
    property Default: _StringType_
-     read f_Default
-     write pm_SetDefault;
-     {* Элемент по умолчанию }
+    read f_Default
+    write pm_SetDefault;
+    {* Элемент по умолчанию }
    property DRByName[const aName: AnsiString]: _StringType_
-     read pm_GetDRByName;
-     {* Элемент по имени }
+    read pm_GetDRByName;
+    {* Элемент по имени }
  end;//_l3DictionaryPrimPrim_
 
 {$Else l3DictionaryPrimPrim_imp}
 
+{$IfNDef l3DictionaryPrimPrim_imp_impl}
 
-{$Include ..\L3\l3DelphiStringSearcherPrim.imp.pas}
+{$Define l3DictionaryPrimPrim_imp_impl}
 
-// start class _l3DictionaryPrimPrim_
+{$Include w:\common\components\rtl\Garant\L3\l3DelphiStringSearcherPrim.imp.pas}
 
 procedure _l3DictionaryPrimPrim_.pm_SetDefault(const aValue: _StringType_);
 //#UC START# *5314900300F1_53148D6A00AEset_var*
@@ -76,6 +66,7 @@ begin
 end;//_l3DictionaryPrimPrim_.pm_GetDRByName
 
 procedure _l3DictionaryPrimPrim_.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_53148D6A00AE_var*
 //#UC END# *479731C50290_53148D6A00AE_var*
 begin
@@ -95,4 +86,7 @@ begin
 //#UC END# *47A042E100E2_53148D6A00AE_impl*
 end;//_l3DictionaryPrimPrim_.InitFields
 
+{$EndIf l3DictionaryPrimPrim_imp_impl}
+
 {$EndIf l3DictionaryPrimPrim_imp}
+

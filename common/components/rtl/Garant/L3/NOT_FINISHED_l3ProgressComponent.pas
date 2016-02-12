@@ -1,64 +1,53 @@
 unit NOT_FINISHED_l3ProgressComponent;
+ {* Базовый класс компонентов, имеющих индикатор прогресса. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В. ©
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3ProgressComponent.pas"
-// Начат: 18.05.2000 14:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3CoreObjects::Tl3ProgressComponent
-//
-// Базовый класс компонентов, имеющих индикатор прогресса.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3ProgressComponent.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3InterfacedComponent
-  ;
+ l3IntfUses
+ , l3InterfacedComponent
+ , l3Interfaces
+;
 
 type
  Tl3ProgressComponent = class(Tl3InterfacedComponent, Il3Progress)
   {* Базовый класс компонентов, имеющих индикатор прогресса. }
- protected
- // realized methods
+  protected
    procedure Start(Count: Integer;
-    const aMsg: Il3CString); overload; 
-     {* начать процесс. }
+    const aMsg: Il3CString); overload;
+    {* начать процесс. }
    procedure Start(Count: Large;
-    const aMsg: Il3CString); overload; 
-     {* начать процесс. }
+    const aMsg: Il3CString); overload;
+    {* начать процесс. }
    procedure Finish;
-     {* закончить процесс. }
-   procedure Progress(Current: Integer); overload; 
-     {* изменить текущее состояние. }
-   procedure Progress(Current: Large); overload; 
-     {* изменить текущее состояние. }
+    {* закончить процесс. }
+   procedure Progress(Current: Integer); overload;
+    {* изменить текущее состояние. }
+   procedure Progress(Current: Large); overload;
+    {* изменить текущее состояние. }
    procedure ProgressEx(Current: Integer;
     const aMsg: Il3CString);
    procedure ChangeIO(Start: Boolean);
-     {* изменить флаг InIO. }
+    {* изменить флаг InIO. }
    function InIO: Boolean;
-     {* в процессе ввода/вывода? }
+    {* в процессе ввода/вывода? }
    function InUse: Boolean;
  end;//Tl3ProgressComponent
 
 implementation
 
-// start class Tl3ProgressComponent
+uses
+ l3ImplUses
+;
 
 procedure Tl3ProgressComponent.Start(Count: Integer;
-  const aMsg: Il3CString);
+ const aMsg: Il3CString);
+ {* начать процесс. }
 //#UC START# *476F75DE01E9_4754200F029E_var*
 //#UC END# *476F75DE01E9_4754200F029E_var*
 begin
@@ -68,7 +57,8 @@ begin
 end;//Tl3ProgressComponent.Start
 
 procedure Tl3ProgressComponent.Start(Count: Large;
-  const aMsg: Il3CString);
+ const aMsg: Il3CString);
+ {* начать процесс. }
 //#UC START# *476F75F60302_4754200F029E_var*
 //#UC END# *476F75F60302_4754200F029E_var*
 begin
@@ -78,6 +68,7 @@ begin
 end;//Tl3ProgressComponent.Start
 
 procedure Tl3ProgressComponent.Finish;
+ {* закончить процесс. }
 //#UC START# *476F7608002D_4754200F029E_var*
 //#UC END# *476F7608002D_4754200F029E_var*
 begin
@@ -87,6 +78,7 @@ begin
 end;//Tl3ProgressComponent.Finish
 
 procedure Tl3ProgressComponent.Progress(Current: Integer);
+ {* изменить текущее состояние. }
 //#UC START# *476F76160143_4754200F029E_var*
 //#UC END# *476F76160143_4754200F029E_var*
 begin
@@ -96,6 +88,7 @@ begin
 end;//Tl3ProgressComponent.Progress
 
 procedure Tl3ProgressComponent.Progress(Current: Large);
+ {* изменить текущее состояние. }
 //#UC START# *476F7637011A_4754200F029E_var*
 //#UC END# *476F7637011A_4754200F029E_var*
 begin
@@ -105,7 +98,7 @@ begin
 end;//Tl3ProgressComponent.Progress
 
 procedure Tl3ProgressComponent.ProgressEx(Current: Integer;
-  const aMsg: Il3CString);
+ const aMsg: Il3CString);
 //#UC START# *476F76450378_4754200F029E_var*
 //#UC END# *476F76450378_4754200F029E_var*
 begin
@@ -115,6 +108,7 @@ begin
 end;//Tl3ProgressComponent.ProgressEx
 
 procedure Tl3ProgressComponent.ChangeIO(Start: Boolean);
+ {* изменить флаг InIO. }
 //#UC START# *476F76550369_4754200F029E_var*
 //#UC END# *476F76550369_4754200F029E_var*
 begin
@@ -124,6 +118,7 @@ begin
 end;//Tl3ProgressComponent.ChangeIO
 
 function Tl3ProgressComponent.InIO: Boolean;
+ {* в процессе ввода/вывода? }
 //#UC START# *476F76660313_4754200F029E_var*
 //#UC END# *476F76660313_4754200F029E_var*
 begin

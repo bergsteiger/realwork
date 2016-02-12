@@ -1,57 +1,46 @@
 unit l3ListenersHooks;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3ListenersHooks.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Listeners::l3ListenersHooks
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3ListenersHooks.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include l3Define.inc}
 
 interface
 
 uses
-  Windows
-  ;
+ l3IntfUses
+ , Windows
+;
 
 function CBTHookFunc(Code: Integer;
-  WParam: WPARAM;
-  LParam: LPARAM): LongInt; stdcall;
+ WParam: WPARAM;
+ LParam: LPARAM): LongInt;
 function CallWndProcHookFunc(Code: Integer;
-  WParam: WPARAM;
-  Msg: PCWPStruct): LongInt; stdcall;
+ WParam: WPARAM;
+ Msg: PCWPStruct): LongInt;
 function GetMessageHookFunc(Code: Integer;
-  WParam: WPARAM;
-  Msg: PMsg): LongInt; stdcall;
+ WParam: WPARAM;
+ Msg: PMsg): LongInt;
 function CallWndProcRetHookFunc(Code: Integer;
-  WParam: WPARAM;
-  Msg: PCWPRetStruct): LongInt; stdcall;
+ WParam: WPARAM;
+ Msg: PCWPRetStruct): LongInt;
 function MouseHookFunc(Code: Integer;
-  WParam: WPARAM;
-  HookStruct: PMouseHookStruct): LongInt; stdcall;
+ WParam: WPARAM;
+ HookStruct: PMouseHookStruct): LongInt;
 
 implementation
 
 uses
-  l3ListenersManager,
-  l3Base,
-  l3Interfaces,
-  Messages
-  ;
-
-// unit methods
+ l3ImplUses
+ , l3ListenersManager
+ , l3Base
+ , l3Interfaces
+ , Messages
+;
 
 function CBTHookFunc(Code: Integer;
-  WParam: WPARAM;
-  LParam: LPARAM): LongInt;
+ WParam: WPARAM;
+ LParam: LPARAM): LongInt;
 //#UC START# *4F6714B90103_4F67149B024A_var*
 var
  l_Index: Integer;
@@ -83,8 +72,8 @@ begin
 end;//CBTHookFunc
 
 function CallWndProcHookFunc(Code: Integer;
-  WParam: WPARAM;
-  Msg: PCWPStruct): LongInt;
+ WParam: WPARAM;
+ Msg: PCWPStruct): LongInt;
 //#UC START# *4F67157402EF_4F67149B024A_var*
 var
  l_Index : Integer;
@@ -119,8 +108,8 @@ begin
 end;//CallWndProcHookFunc
 
 function GetMessageHookFunc(Code: Integer;
-  WParam: WPARAM;
-  Msg: PMsg): LongInt;
+ WParam: WPARAM;
+ Msg: PMsg): LongInt;
 //#UC START# *4F6715D20141_4F67149B024A_var*
 var
  l_Index: Integer;
@@ -170,8 +159,8 @@ begin
 end;//GetMessageHookFunc
 
 function CallWndProcRetHookFunc(Code: Integer;
-  WParam: WPARAM;
-  Msg: PCWPRetStruct): LongInt;
+ WParam: WPARAM;
+ Msg: PCWPRetStruct): LongInt;
 //#UC START# *4F73208D0297_4F67149B024A_var*
 var
  l_Index : Integer;
@@ -206,8 +195,8 @@ begin
 end;//CallWndProcRetHookFunc
 
 function MouseHookFunc(Code: Integer;
-  WParam: WPARAM;
-  HookStruct: PMouseHookStruct): LongInt;
+ WParam: WPARAM;
+ HookStruct: PMouseHookStruct): LongInt;
 //#UC START# *4F74214D035A_4F67149B024A_var*
 var
  l_Index: Integer;

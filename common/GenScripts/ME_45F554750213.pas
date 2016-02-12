@@ -88,22 +88,22 @@ type
    all_expanded: Boolean;
   private
    procedure calc_from_position(offset: Integer;
-    child_point;
+    const child_point;
     var current_stub;
     out from: Integer;
     out in_block_position: Cardinal); virtual;
    procedure onedir_calc_from_position(offset: Integer;
-    child_point;
+    const child_point;
     var current_stub;
     out from: Integer;
     out in_block_position: Cardinal); virtual;
    procedure bidir_calc_from_position(offset: Integer;
-    child_point;
+    const child_point;
     var current_stub;
     out from: Integer;
     out in_block_position: Cardinal); virtual;
    procedure add_to_loaded(var node: RealNodeBase); virtual;
-   procedure load_children(parent); virtual;
+   procedure load_children(const parent); virtual;
    procedure load_stub_node(var node);
   protected
    function pm_Getactive_changeble: Boolean; virtual;
@@ -118,7 +118,7 @@ type
    function is_load_in_one_direction: Boolean; virtual;
    procedure set_load_in_one_direction(yes: Boolean); virtual;
    function master_tree: TreeBase; virtual;
-   function alloc_new_node(snode): DefaultNodeBase; virtual; abstract;
+   function alloc_new_node(const snode): DefaultNodeBase; virtual; abstract;
    function alloc_new_view: ViewBase; virtual; abstract;
    procedure clear; virtual;
    procedure safety_remove; virtual;
@@ -128,7 +128,7 @@ type
     {* [timestamp_sync] }
   public
    constructor make(active_changeable: Boolean); reintroduce; overload; virtual;
-   function is_loaded_node(node_pointer): Boolean; virtual;
+   function is_loaded_node(const node_pointer): Boolean; virtual;
    procedure adapter_filters_to_server(var adap: IFilterList;
     var serv); virtual;
    procedure flush_counter_delta; virtual;
@@ -141,18 +141,18 @@ type
     flag: TFlagMask): Cardinal; virtual;
    function get_all_flags_count(node: FlagNodeBase;
     flag: TFlagMask): Cardinal; virtual;
-   procedure pointer_path_to_index_path(pointer_path); virtual;
-   procedure pointer_to_index_path(pointer); virtual;
-   procedure name_path_to_index_path(name_path); virtual;
+   procedure pointer_path_to_index_path(const pointer_path); virtual;
+   procedure pointer_to_index_path(const pointer); virtual;
+   procedure name_path_to_index_path(const name_path); virtual;
    procedure server_data_version; virtual;
    procedure add_notifier(var root;
     var notifier: INodeNotifier); virtual;
    procedure remove_notifier(var root;
     var notifier: INodeNotifier); virtual;
-   procedure create_view(root;
-    filter;
+   procedure create_view(const root;
+    const filter;
     shared_flags: TFlagMask;
-    sync_node;
+    const sync_node;
     out sync_index: TVisibleIndex;
     levels: unsigned integer;
     unfiltered: Boolean;
@@ -160,16 +160,16 @@ type
     truncate_this_view: Boolean); virtual;
    procedure pre_find(var filters: IFilterList); virtual;
    function is_relevance_search_supported: Boolean; virtual;
-   procedure get_first_fit(from_node;
+   procedure get_first_fit(const from_node;
     var filter: IFilterList); virtual;
-   procedure find(find_from;
+   procedure find(const find_from;
     var filter: IFilterList); virtual;
    function is_mode(shared_flags: TFlagMask): Boolean; virtual;
-   procedure build_node(snode;
+   procedure build_node(const snode;
     var current_stub: FlagNodeBase;
     master_index: Integer); virtual;
-   procedure load_nodes_from_server(parent_point;
-    child_point;
+   procedure load_nodes_from_server(const parent_point;
+    const child_point;
     from: Integer;
     in_block_position: Cardinal;
     var current_stub); virtual; { can raise InvalidOwnerTree }
@@ -191,8 +191,8 @@ type
    procedure invalidate(const index_path: INodeIndexPath); virtual;
    procedure changing; virtual;
    procedure changed; virtual;
-   procedure apply_server_tree(server_tree); virtual;
-   function apply_created_node(data): RealNodeBase; virtual; abstract;
+   procedure apply_server_tree(const server_tree); virtual;
+   function apply_created_node(const data): RealNodeBase; virtual; abstract;
    procedure find_created_uid(var node: RealNodeBase); virtual; abstract;
    procedure associate_node_with_uid(var node: RealNodeBase); virtual; abstract;
    procedure disassociate_node_with_uid(var node: RealNodeBase); virtual; abstract;
@@ -201,7 +201,7 @@ type
    procedure expand_all(expand: Boolean); virtual;
    function is_root_visible: Boolean; virtual;
    procedure reset_children_count; virtual;
-   procedure reset_by_server_tree(new_tree); virtual;
+   procedure reset_by_server_tree(const new_tree); virtual;
    procedure reset_by_root(new_root_ch_count: Cardinal); virtual;
    procedure set_changed(state: Boolean); virtual;
    function get_change_mutex: mutex; virtual; abstract;
@@ -345,7 +345,7 @@ begin
 end;//TreeBase.make
 
 procedure TreeBase.calc_from_position(offset: Integer;
- child_point;
+ const child_point;
  var current_stub;
  out from: Integer;
  out in_block_position: Cardinal);
@@ -358,7 +358,7 @@ begin
 end;//TreeBase.calc_from_position
 
 procedure TreeBase.onedir_calc_from_position(offset: Integer;
- child_point;
+ const child_point;
  var current_stub;
  out from: Integer;
  out in_block_position: Cardinal);
@@ -371,7 +371,7 @@ begin
 end;//TreeBase.onedir_calc_from_position
 
 procedure TreeBase.bidir_calc_from_position(offset: Integer;
- child_point;
+ const child_point;
  var current_stub;
  out from: Integer;
  out in_block_position: Cardinal);
@@ -419,7 +419,7 @@ begin
 //#UC END# *460119830119_45F554750213_impl*
 end;//TreeBase.set_load_in_one_direction
 
-function TreeBase.is_loaded_node(node_pointer): Boolean;
+function TreeBase.is_loaded_node(const node_pointer): Boolean;
 //#UC START# *46011A2B0203_45F554750213_var*
 //#UC END# *46011A2B0203_45F554750213_var*
 begin
@@ -496,7 +496,7 @@ begin
 //#UC END# *46011D4001A5_45F554750213_impl*
 end;//TreeBase.get_all_flags_count
 
-procedure TreeBase.pointer_path_to_index_path(pointer_path);
+procedure TreeBase.pointer_path_to_index_path(const pointer_path);
 //#UC START# *46011D5D00EA_45F554750213_var*
 //#UC END# *46011D5D00EA_45F554750213_var*
 begin
@@ -505,7 +505,7 @@ begin
 //#UC END# *46011D5D00EA_45F554750213_impl*
 end;//TreeBase.pointer_path_to_index_path
 
-procedure TreeBase.pointer_to_index_path(pointer);
+procedure TreeBase.pointer_to_index_path(const pointer);
 //#UC START# *46011DEE0148_45F554750213_var*
 //#UC END# *46011DEE0148_45F554750213_var*
 begin
@@ -514,7 +514,7 @@ begin
 //#UC END# *46011DEE0148_45F554750213_impl*
 end;//TreeBase.pointer_to_index_path
 
-procedure TreeBase.name_path_to_index_path(name_path);
+procedure TreeBase.name_path_to_index_path(const name_path);
 //#UC START# *46011E200290_45F554750213_var*
 //#UC END# *46011E200290_45F554750213_var*
 begin
@@ -552,10 +552,10 @@ begin
 //#UC END# *46011F2C005D_45F554750213_impl*
 end;//TreeBase.remove_notifier
 
-procedure TreeBase.create_view(root;
- filter;
+procedure TreeBase.create_view(const root;
+ const filter;
  shared_flags: TFlagMask;
- sync_node;
+ const sync_node;
  out sync_index: TVisibleIndex;
  levels: unsigned integer;
  unfiltered: Boolean;
@@ -587,7 +587,7 @@ begin
 //#UC END# *4601213B0000_45F554750213_impl*
 end;//TreeBase.is_relevance_search_supported
 
-procedure TreeBase.get_first_fit(from_node;
+procedure TreeBase.get_first_fit(const from_node;
  var filter: IFilterList);
 //#UC START# *460121C103B9_45F554750213_var*
 //#UC END# *460121C103B9_45F554750213_var*
@@ -597,7 +597,7 @@ begin
 //#UC END# *460121C103B9_45F554750213_impl*
 end;//TreeBase.get_first_fit
 
-procedure TreeBase.find(find_from;
+procedure TreeBase.find(const find_from;
  var filter: IFilterList);
 //#UC START# *460121EC029F_45F554750213_var*
 //#UC END# *460121EC029F_45F554750213_var*
@@ -616,7 +616,7 @@ begin
 //#UC END# *4601221600DA_45F554750213_impl*
 end;//TreeBase.is_mode
 
-procedure TreeBase.build_node(snode;
+procedure TreeBase.build_node(const snode;
  var current_stub: FlagNodeBase;
  master_index: Integer);
 //#UC START# *46012315033C_45F554750213_var*
@@ -627,8 +627,8 @@ begin
 //#UC END# *46012315033C_45F554750213_impl*
 end;//TreeBase.build_node
 
-procedure TreeBase.load_nodes_from_server(parent_point;
- child_point;
+procedure TreeBase.load_nodes_from_server(const parent_point;
+ const child_point;
  from: Integer;
  in_block_position: Cardinal;
  var current_stub); { can raise InvalidOwnerTree }
@@ -738,7 +738,7 @@ begin
 //#UC END# *4601255202FD_45F554750213_impl*
 end;//TreeBase.changed
 
-procedure TreeBase.apply_server_tree(server_tree);
+procedure TreeBase.apply_server_tree(const server_tree);
 //#UC START# *4601257D0148_45F554750213_var*
 //#UC END# *4601257D0148_45F554750213_var*
 begin
@@ -846,7 +846,7 @@ begin
 //#UC END# *4601281502FD_45F554750213_impl*
 end;//TreeBase.dump_flags_map
 
-procedure TreeBase.reset_by_server_tree(new_tree);
+procedure TreeBase.reset_by_server_tree(const new_tree);
 //#UC START# *4601284400DA_45F554750213_var*
 //#UC END# *4601284400DA_45F554750213_var*
 begin
@@ -912,7 +912,7 @@ begin
 //#UC END# *466956AA02DE_45F554750213_impl*
 end;//TreeBase.load_all_tree
 
-procedure TreeBase.load_children(parent);
+procedure TreeBase.load_children(const parent);
 //#UC START# *466957D20290_45F554750213_var*
 //#UC END# *466957D20290_45F554750213_var*
 begin

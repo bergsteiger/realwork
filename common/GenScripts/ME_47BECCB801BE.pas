@@ -106,7 +106,7 @@ type
 
 class function make(key: TPrimeKey;
  name: PAnsiChar;
- query): BadFactoryType;
+ const query): BadFactoryType;
 class function make: BadFactoryType;
 class function make: BadFactoryType;
  {* фабрика }
@@ -121,7 +121,7 @@ uses
 
 class function make(key: TPrimeKey;
  name: PAnsiChar;
- query): BadFactoryType;
+ const query): BadFactoryType;
 var
  l_Inst : IPrime;
 begin

@@ -103,7 +103,7 @@ type
     {* Собственно строка. }
    SLen: Integer;
     {* Длина. }
-   SCodePage: SmallInt;
+   SCodePage: Integer;
     {* Кодовая страница. }
  end;//Tl3WString
 
@@ -1189,7 +1189,7 @@ type
    {* Строка. }
   SLen: Integer;
    {* Длина. }
-  SCodePage: SmallInt;
+  SCodePage: Integer;
    {* Кодовая страница. }
  end;//Tl3PtrRecLen
 
@@ -1202,7 +1202,7 @@ type
  Tl3WStrCast = packed record
   {* Переходник между Tl3PtrRec и Tl3WStr. }
   Case Byte of
-   0: (S: Tl3PtrRec; SLen: Integer; SCodePage: SmallInt);
+   0: (S: Tl3PtrRec; SLen: Integer; SCodePage: Integer);
     {* Распределенная строка. }
    1: (Flag: Tl3MemoryFlag; WS: Tl3WString);
  end;//Tl3WStrCast

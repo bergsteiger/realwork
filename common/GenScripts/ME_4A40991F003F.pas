@@ -46,7 +46,7 @@ type
    {* удалить пользователя из списка контактов }
   procedure register_listener_for_notify(var listener: IListener);
    {* зарегестрировать слушателя }
-  procedure receive_message(message);
+  procedure receive_message(const message);
    {* получить сообщение с сервера }
   procedure take_unreaded_messages(uid: TUid);
    {* выбрать все непрочитанные сообщения }

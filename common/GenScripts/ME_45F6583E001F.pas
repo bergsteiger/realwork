@@ -21,11 +21,11 @@ type
  //#UC END# *45F6583E001Fcit*
  View = {abstract} class(ViewBase)
   protected
-   function alloc_new_node(snode): DefaultNodeBase; override;
+   function alloc_new_node(const snode): DefaultNodeBase; override;
    function alloc_new_view: ViewBase; override;
   public
    constructor make; reintroduce; virtual;
-   function apply_created_node(data): RealNodeBase; override;
+   function apply_created_node(const data): RealNodeBase; override;
    procedure find_created_uid(var node: RealNodeBase); override;
    procedure associate_node_with_uid(var node: RealNodeBase); override;
    procedure disassociate_node_with_uid(var node: RealNodeBase); override;
@@ -48,7 +48,7 @@ begin
 //#UC END# *45F65B2F01B5_45F6583E001F_impl*
 end;//View.make
 
-function View.apply_created_node(data): RealNodeBase;
+function View.apply_created_node(const data): RealNodeBase;
 //#UC START# *460125E60203_45F6583E001F_var*
 //#UC END# *460125E60203_45F6583E001F_var*
 begin
@@ -84,7 +84,7 @@ begin
 //#UC END# *4601267E0177_45F6583E001F_impl*
 end;//View.disassociate_node_with_uid
 
-function View.alloc_new_node(snode): DefaultNodeBase;
+function View.alloc_new_node(const snode): DefaultNodeBase;
 //#UC START# *460127AC0157_45F6583E001F_var*
 //#UC END# *460127AC0157_45F6583E001F_var*
 begin

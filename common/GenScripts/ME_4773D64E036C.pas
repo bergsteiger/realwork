@@ -114,7 +114,7 @@ procedure l3CStringArrayEmpty;
 function l3InterlockedDecrement(var aAddend: Integer): Integer; register;
 procedure l3ZeroMemory(aDest: Pointer;
  aLen: Cardinal);
-procedure l3Move(Source;
+procedure l3Move(const Source;
  var Dest;
  Count: Cardinal);
 
@@ -250,7 +250,7 @@ begin
 //#UC END# *479F31620390_4773D64E036C_impl*
 end;//l3ZeroMemory
 
-procedure l3Move(Source;
+procedure l3Move(const Source;
  var Dest;
  Count: Cardinal);
 //#UC START# *479F3B35038C_4773D64E036C_var*
