@@ -49,9 +49,9 @@ type
  _InitDataType_ = InsCompareEditionsInfo;
  _SetDataType_ = IsdsCompareEditionsState;
  _SetType_ = IsdsCompareEditions;
- {$Include vcmFormSetDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
  _VScroll_Parent_ = _vcmFormSetDataSource_;
- {$Include VScroll.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
  TsdsCompareEditions = {final} class(_VScroll_, IsdsCompareEditions, InsVScrollController, InsDocumentTextProviderFactory, IsdsPrimDocument, IsdsEditionsHolder)
   {* Реализация прецедента "Сравнение редакций документа" }
   private
@@ -125,9 +125,9 @@ uses
 
 type _Instance_R_ = TsdsCompareEditions;
 
-{$Include vcmFormSetDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormSetDataSource.imp.pas}
 
-{$Include VScroll.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
 
 procedure TsdsCompareEditions.NotifyEditionChanged;
  {* Нотификация о смене редакции }

@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _Text_Parent_ = _BaseTextOperations_Parent_;
- {$Include Text.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas}
  _BaseTextOperations_ = {abstract} class(_Text_)
   {* Базовые операции с текстом }
   private
@@ -82,7 +82,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _Text_Parent_ = _BaseTextOperations_Parent_;
-{$Include Text.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas}
 _BaseTextOperations_ = _Text_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -93,7 +93,7 @@ _BaseTextOperations_ = _Text_;
 {$Define BaseTextOperations_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include Text.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Text.imp.pas}
 
 function _BaseTextOperations_.DocumentExport(anExportKind: TnsExportKind;
  aExportSelection: Boolean;

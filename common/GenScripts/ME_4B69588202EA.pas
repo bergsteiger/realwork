@@ -22,9 +22,9 @@ uses
 
 type
  _IvcmRealData_ = IsdsCompareEditionsState;
- {$Include vcmData.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
  _afwApplicationDataUpdate_Parent_ = _vcmData_;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TsdsCompareEditionsState = class(_afwApplicationDataUpdate_, IsdsCompareEditionsState)
   private
    f_EditionForCompare: TRedactionID;
@@ -66,9 +66,9 @@ uses
 
 type _Instance_R_ = TsdsCompareEditionsState;
 
-{$Include vcmData.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmData.imp.pas}
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 constructor TsdsCompareEditionsState.Create(const aUseCaseData: InsCompareEditionsInfo;
  anEditionForCompare: TRedactionID);

@@ -38,7 +38,7 @@ uses
 ;
 
 type
- {$Include dsEditionDiff.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
  TdsLeftEdition = {final} class(_dsEditionDiff_, IdsLeftEdition)
   {* Предыдущая редакция }
   private
@@ -83,7 +83,7 @@ uses
 
 type _Instance_R_ = TdsLeftEdition;
 
-{$Include dsEditionDiff.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
 
 function TdsLeftEdition.pm_GetOriginalDocument: IDocument;
 //#UC START# *4A83D53600CD_4A717F9600F4get_var*

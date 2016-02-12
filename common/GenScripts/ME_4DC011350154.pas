@@ -34,7 +34,7 @@ uses
 
 type
  _SetType_ = IsdsMainWindow;
- {$Include vcmTinyUseCaseController.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
  TsdsMainWindow = class(_vcmTinyUseCaseController_, IsdsMainWindow, InsWarningGenerator)
   private
    f_OldBaseWarning: Il3CString;
@@ -113,7 +113,7 @@ const
 
 type _Instance_R_ = TsdsMainWindow;
 
-{$Include vcmTinyUseCaseController.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
 
 function TsdsMainWindow.pm_GetOldBaseWarning: Il3CString;
 //#UC START# *4DC03F5B00A1_4DC011350154get_var*

@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _HyperlinkProcessor_Parent_ = _HyperlinkProcessorWithOwnLocalLink_Parent_;
- {$Include HyperlinkProcessor.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
  _HyperlinkProcessorWithOwnLocalLink_ = {abstract} class(_HyperlinkProcessor_)
   {* Обработчик ссылок с собственной обработкой локальных ссылок (сейчас пустой) }
   protected
@@ -22,7 +22,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _HyperlinkProcessor_Parent_ = _HyperlinkProcessorWithOwnLocalLink_Parent_;
-{$Include HyperlinkProcessor.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
 _HyperlinkProcessorWithOwnLocalLink_ = _HyperlinkProcessor_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -33,7 +33,7 @@ _HyperlinkProcessorWithOwnLocalLink_ = _HyperlinkProcessor_;
 {$Define HyperlinkProcessorWithOwnLocalLink_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include HyperlinkProcessor.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessor.imp.pas}
 
 function _HyperlinkProcessorWithOwnLocalLink_.DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean;
  {* Обработчик внешней операции }

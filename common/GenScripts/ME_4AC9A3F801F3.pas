@@ -101,7 +101,7 @@ type
  _ItemType_ = InsQueryNode;
  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfaceRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TnsQueryHistory = class(_l3InterfaceRefList_)
   {* История запросов }
   private
@@ -529,7 +529,7 @@ end;//TnsTreeStyleManager.Create
 
 type _Instance_R_ = TnsQueryHistory;
 
-{$Include l3InterfaceRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 procedure TnsQueryHistory.LoadQueries;
 //#UC START# *559BC7B5001A_559BC4A30149_var*

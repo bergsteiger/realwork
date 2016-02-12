@@ -27,7 +27,7 @@ uses
 
 type
  _SetType_ = IsdsInpharmMainMenu;
- {$Include vcmTinyUseCaseController.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
  TsdsInpharmMainMenu = class(_vcmTinyUseCaseController_, IsdsInpharmMainMenu)
   private
    f_dsInpharmMainMenuData: IvcmViewAreaControllerRef;
@@ -56,7 +56,7 @@ uses
 
 type _Instance_R_ = TsdsInpharmMainMenu;
 
-{$Include vcmTinyUseCaseController.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas}
 
 function TsdsInpharmMainMenu.pm_GetdsInpharmMainMenuData: IdsInpharmMainMenu;
 //#UC START# *550C0D1A00CC_550AAEE001B7get_var*

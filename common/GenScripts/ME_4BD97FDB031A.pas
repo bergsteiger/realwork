@@ -103,12 +103,8 @@ end;//Tkw_Form_QueryCard_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_QueryCard_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_9C995D4F8407_var*
-//#UC END# *4DDFD2EA0116_9C995D4F8407_var*
 begin
-//#UC START# *4DDFD2EA0116_9C995D4F8407_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_9C995D4F8407_impl*
+ Result := 'enQueryCard';
 end;//Tkw_Form_QueryCard_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -121,12 +117,8 @@ end;//Tkw_Form_Preview_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_Preview_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_6334FE49477F_var*
-//#UC END# *4DDFD2EA0116_6334FE49477F_var*
 begin
-//#UC START# *4DDFD2EA0116_6334FE49477F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_6334FE49477F_impl*
+ Result := 'efPreviewForm';
 end;//Tkw_Form_Preview_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -139,12 +131,8 @@ end;//Tkw_Form_SaveLoad_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_SaveLoad_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_863CC8E7A493_var*
-//#UC END# *4DDFD2EA0116_863CC8E7A493_var*
 begin
-//#UC START# *4DDFD2EA0116_863CC8E7A493_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_863CC8E7A493_impl*
+ Result := 'cfSaveLoad';
 end;//Tkw_Form_SaveLoad_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 

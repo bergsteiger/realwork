@@ -24,7 +24,7 @@ type
  _ItemType_ = InsSearchWindow;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TnsSearchWindowList = class(_l3InterfacePtrList_)
  end;//TnsSearchWindowList
 
@@ -67,7 +67,7 @@ end;//TnsSearchWindowManagerFree
 
 type _Instance_R_ = TnsSearchWindowList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 
 procedure TnsSearchWindowManager.Subscribe(const aListener: InsSearchWindow);
 //#UC START# *56163C39024C_56163B0902D7_var*

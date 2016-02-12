@@ -29,7 +29,7 @@ uses
 
 type
  _InitDataType_ = InsEditionsContainerData;
- {$Include dsEdition.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
  TdsEditionsContainerData = {final} class(_dsEdition_, IdsEditionsContainerData)
   {* Контейнер для сравниваемых редакций }
   protected
@@ -55,7 +55,7 @@ uses
 
 type _Instance_R_ = TdsEditionsContainerData;
 
-{$Include dsEdition.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
 
 function TdsEditionsContainerData.Get_DocumentNameForCaption: Il3CString;
 //#UC START# *4A800ED00011_4A717F6E0327get_var*

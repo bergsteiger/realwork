@@ -24,7 +24,7 @@ type
  _ItemType_ = InsContextSearchHistoryNotifier;
  _l3InterfacePtrList_Parent_ = Tl3SimpleDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3InterfacePtrList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
  TInsContextSearchHistoryNotifierList = class(_l3InterfacePtrList_)
  end;//TInsContextSearchHistoryNotifierList
 {$IfEnd} // NOT Defined(Admin)
@@ -42,7 +42,7 @@ uses
 
 type _Instance_R_ = TInsContextSearchHistoryNotifierList;
 
-{$Include l3InterfacePtrList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}
 {$IfEnd} // NOT Defined(Admin)
 
 end.

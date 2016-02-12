@@ -7,7 +7,7 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _BaseSearchPresentation_Parent_ = _BaseSearchPresentationFor296635421_Parent_;
- {$Include BaseSearchPresentation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
  _BaseSearchPresentationFor296635421_ = {abstract} class(_BaseSearchPresentation_)
   protected
    {$If NOT Defined(NoVCM)}
@@ -19,7 +19,7 @@
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
 _BaseSearchPresentation_Parent_ = _BaseSearchPresentationFor296635421_Parent_;
-{$Include BaseSearchPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 _BaseSearchPresentationFor296635421_ = _BaseSearchPresentation_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -30,7 +30,7 @@ _BaseSearchPresentationFor296635421_ = _BaseSearchPresentation_;
 {$Define BaseSearchPresentationFor296635421_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include BaseSearchPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 procedure _BaseSearchPresentationFor296635421_.DoInit(aFromHistory: Boolean);

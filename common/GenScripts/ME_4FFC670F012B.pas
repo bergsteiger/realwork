@@ -103,12 +103,8 @@ end;//Tkw_Form_LeftEdition_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_LeftEdition_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_BB00F0241328_var*
-//#UC END# *4DDFD2EA0116_BB00F0241328_var*
 begin
-//#UC START# *4DDFD2EA0116_BB00F0241328_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_BB00F0241328_impl*
+ Result := 'LeftEditionForm';
 end;//Tkw_Form_LeftEdition_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -121,12 +117,8 @@ end;//Tkw_Form_RightEdition_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_RightEdition_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_41833232BDCF_var*
-//#UC END# *4DDFD2EA0116_41833232BDCF_var*
 begin
-//#UC START# *4DDFD2EA0116_41833232BDCF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_41833232BDCF_impl*
+ Result := 'RightEditionForm';
 end;//Tkw_Form_RightEdition_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -139,12 +131,8 @@ end;//Tkw_Form_EditionsContainer_ID.GetWordNameForRegister
 
 {$If NOT Defined(NoScripts)}
 function Tkw_Form_EditionsContainer_ID.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_F5E275A94BC4_var*
-//#UC END# *4DDFD2EA0116_F5E275A94BC4_var*
 begin
-//#UC START# *4DDFD2EA0116_F5E275A94BC4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_F5E275A94BC4_impl*
+ Result := 'EditionsContainerForm';
 end;//Tkw_Form_EditionsContainer_ID.GetString
 {$IfEnd} // NOT Defined(NoScripts)
 

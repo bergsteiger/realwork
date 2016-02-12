@@ -92,25 +92,25 @@ type
  );//TnsCompareEditionKind
 
  _DocumentPresentation_Parent_ = TvcmEntityForm;
- {$Include DocumentPresentation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
  _TextWithComments_Parent_ = _DocumentPresentation_;
- {$Include TextWithComments.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
  _HyperlinkProcessorWithOwnLocalLink_Parent_ = _TextWithComments_;
- {$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
  _BaseSearchPresentation_Parent_ = _HyperlinkProcessorWithOwnLocalLink_;
- {$Include BaseSearchPresentation.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
  _BaseTextOperations_Parent_ = _BaseSearchPresentation_;
- {$Include BaseTextOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
  _DocumentBaseSearcher_Parent_ = _BaseTextOperations_;
- {$Include DocumentBaseSearcher.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
  _UnderControlResetter_Parent_ = _DocumentBaseSearcher_;
- {$Include UnderControlResetter.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
  _BlockSelector_Parent_ = _UnderControlResetter_;
- {$Include BlockSelector.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas}
  _HyperlinkProcessorForDocumentCompare_Parent_ = _BlockSelector_;
- {$Include HyperlinkProcessorForDocumentCompare.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas}
  _HyperlinkOperations_Parent_ = _HyperlinkProcessorForDocumentCompare_;
- {$Include HyperlinkOperations.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
  TDiffForm = {abstract} class(_HyperlinkOperations_, InsBaseSearchPresentation, InsVScrollListener, InsEditionListener)
   {* Форма для отображения результатов сравнения }
   private
@@ -448,25 +448,25 @@ end;//TnsChangedParaWaiter.TrySelectPara
 
 type _Instance_R_ = TDiffForm;
 
-{$Include DocumentPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentPresentation.imp.pas}
 
-{$Include TextWithComments.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas}
 
-{$Include HyperlinkProcessorWithOwnLocalLink.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas}
 
-{$Include BaseSearchPresentation.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearchPresentation.imp.pas}
 
-{$Include BaseTextOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BaseTextOperations.imp.pas}
 
-{$Include DocumentBaseSearcher.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas}
 
-{$Include UnderControlResetter.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\UnderControlResetter.imp.pas}
 
-{$Include BlockSelector.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas}
 
-{$Include HyperlinkProcessorForDocumentCompare.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorForDocumentCompare.imp.pas}
 
-{$Include HyperlinkOperations.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\HyperlinkOperations.imp.pas}
 
 function TDiffForm.pm_GetHeader: TvtPanel;
 //#UC START# *4A83EEAC00B7_4A6EBE900233get_var*

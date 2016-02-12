@@ -27,7 +27,8 @@ type
    f_CardType: TlgQueryType;
     {* Тип карточки }
   public
-   constructor Create; reintroduce;
+   constructor Create(aCardType: TlgQueryType;
+    const aModel: IevAdapterModel); reintroduce;
    class function Make(aCardType: TlgQueryType;
     const aModel: IevAdapterModel): InevDocumentContainer; reintroduce;
  end;//Tf1QueryDocumentContainer
@@ -60,11 +61,12 @@ uses
  , nsINodeWrap
 ;
 
-constructor Tf1QueryDocumentContainer.Create;
+constructor Tf1QueryDocumentContainer.Create(aCardType: TlgQueryType;
+ const aModel: IevAdapterModel);
 var l_S: IStream;
 var l_L: IAttributeList;
 
- procedure ProcessRow;
+ function ProcessRow(aRow: Tl3Tag): Boolean;
  var l_A: IFullAttributeInfo;
  var l_T: IString;
  var l_TN: Il3CString;

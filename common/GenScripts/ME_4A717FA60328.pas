@@ -38,7 +38,7 @@ uses
 ;
 
 type
- {$Include dsEditionDiff.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
  TdsRightEdition = {final} class(_dsEditionDiff_, IdsRightEdition)
   {* Текущая редакция }
   private
@@ -70,7 +70,7 @@ uses
 
 type _Instance_R_ = TdsRightEdition;
 
-{$Include dsEditionDiff.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEditionDiff.imp.pas}
 
 function TdsRightEdition.IsLeft: Boolean;
 //#UC START# *4A8443C30125_4A717FA60328_var*

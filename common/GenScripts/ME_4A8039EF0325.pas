@@ -18,7 +18,7 @@ uses
 
 type
  _MnsDocument_Parent_ = TnsRedactionCurrentPara;
- {$Include MnsDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas}
  TnsCompareEditionsInfoPrim = class(_MnsDocument_)
   public
    constructor Create(const aDoc: IDocument;
@@ -34,7 +34,7 @@ uses
  l3ImplUses
 ;
 
-{$Include MnsDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas}
 
 constructor TnsCompareEditionsInfoPrim.Create(const aDoc: IDocument;
  const aPara: IeeLeafPara;

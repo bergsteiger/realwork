@@ -105,12 +105,8 @@ begin
 end;//Tkw_Form_ChatHistory.GetWordNameForRegister
 
 function Tkw_Form_ChatHistory.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_82F1C54029D7_var*
-//#UC END# *4DDFD2EA0116_82F1C54029D7_var*
 begin
-//#UC START# *4DDFD2EA0116_82F1C54029D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_82F1C54029D7_impl*
+ Result := 'ChatHistoryForm';
 end;//Tkw_Form_ChatHistory.GetString
 
 class function Tkw_ChatHistory_Control_HistoryEditor.GetWordNameForRegister: AnsiString;
@@ -119,21 +115,14 @@ begin
 end;//Tkw_ChatHistory_Control_HistoryEditor.GetWordNameForRegister
 
 function Tkw_ChatHistory_Control_HistoryEditor.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_E5862B29503B_var*
-//#UC END# *4DDFD2EA0116_E5862B29503B_var*
 begin
-//#UC START# *4DDFD2EA0116_E5862B29503B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_E5862B29503B_impl*
+ Result := 'HistoryEditor';
 end;//Tkw_ChatHistory_Control_HistoryEditor.GetString
 
 class procedure Tkw_ChatHistory_Control_HistoryEditor.RegisterInEngine;
-//#UC START# *52A086150180_E5862B29503B_var*
-//#UC END# *52A086150180_E5862B29503B_var*
 begin
-//#UC START# *52A086150180_E5862B29503B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_E5862B29503B_impl*
+ inherited;
+ TtfwClassRef.Register(TnscChatMemo);
 end;//Tkw_ChatHistory_Control_HistoryEditor.RegisterInEngine
 
 procedure Tkw_ChatHistory_Control_HistoryEditor_Push.DoDoIt(const aCtx: TtfwContext);
@@ -153,21 +142,23 @@ end;//Tkw_ChatHistory_Control_HistoryEditor_Push.GetWordNameForRegister
 function TkwChatHistoryFormHistoryEditor.HistoryEditor(const aCtx: TtfwContext;
  aChatHistoryForm: TChatHistoryForm): TnscChatMemo;
  {* Реализация слова скрипта .TChatHistoryForm.HistoryEditor }
-//#UC START# *AF9CC47CF2D1_07D7665942C7_var*
-//#UC END# *AF9CC47CF2D1_07D7665942C7_var*
 begin
-//#UC START# *AF9CC47CF2D1_07D7665942C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *AF9CC47CF2D1_07D7665942C7_impl*
+ Result := aChatHistoryForm.HistoryEditor;
 end;//TkwChatHistoryFormHistoryEditor.HistoryEditor
 
 procedure TkwChatHistoryFormHistoryEditor.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_07D7665942C7_var*
-//#UC END# *4DAEEDE10285_07D7665942C7_var*
+var l_aChatHistoryForm: TChatHistoryForm;
 begin
-//#UC START# *4DAEEDE10285_07D7665942C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_07D7665942C7_impl*
+ try
+  l_aChatHistoryForm := TChatHistoryForm(aCtx.rEngine.PopObjAs(TChatHistoryForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aChatHistoryForm: TChatHistoryForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(HistoryEditor(aCtx, l_aChatHistoryForm));
 end;//TkwChatHistoryFormHistoryEditor.DoDoIt
 
 class function TkwChatHistoryFormHistoryEditor.GetWordNameForRegister: AnsiString;
@@ -177,12 +168,8 @@ end;//TkwChatHistoryFormHistoryEditor.GetWordNameForRegister
 
 procedure TkwChatHistoryFormHistoryEditor.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_07D7665942C7_var*
-//#UC END# *52D00B00031A_07D7665942C7_var*
 begin
-//#UC START# *52D00B00031A_07D7665942C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_07D7665942C7_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству HistoryEditor', aCtx);
 end;//TkwChatHistoryFormHistoryEditor.SetValuePrim
 
 function TkwChatHistoryFormHistoryEditor.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -197,7 +184,7 @@ end;//TkwChatHistoryFormHistoryEditor.GetAllParamsCount
 
 function TkwChatHistoryFormHistoryEditor.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TChatHistoryForm)]);
 end;//TkwChatHistoryFormHistoryEditor.ParamsTypes
 
 initialization

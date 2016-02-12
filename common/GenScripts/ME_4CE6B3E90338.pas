@@ -35,7 +35,7 @@ type
  _ItemType_ = TnsFindIteratorDef;
  _l3RecordWithEQList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3RecordWithEQList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
  TnsIFindIteratorList = class(_l3RecordWithEQList_)
   {* Список IFindIterator }
  end;//TnsIFindIteratorList
@@ -166,7 +166,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TnsIFindIteratorList;
 
-{$Include l3RecordWithEQList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3RecordWithEQList.imp.pas}
 
 constructor TnsFindIteratorNewForAutoreferatFindPositionList.Create(const aDoc: InevObjectPrim;
  const aList: IFindPositionList);

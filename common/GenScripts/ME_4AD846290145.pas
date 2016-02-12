@@ -21,7 +21,7 @@ uses
 
 type
  _nsContextHistoryPrim_Parent_ = Tl3SimpleObject;
- {$Include nsContextHistoryPrim.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistoryPrim.imp.pas}
  TnsInpharmContextHistoryPrim = class(_nsContextHistoryPrim_, InsContextSearchHistory)
   public
    constructor Create; reintroduce;
@@ -44,7 +44,7 @@ uses
  , l3String
 ;
 
-{$Include nsContextHistoryPrim.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistoryPrim.imp.pas}
 
 constructor TnsInpharmContextHistoryPrim.Create;
 //#UC START# *4AD846560013_4AD846290145_var*

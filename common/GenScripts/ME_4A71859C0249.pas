@@ -6,9 +6,9 @@
 {$Define dsEdition_imp}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- {$Include vcmFormDataSource.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
  _VScroll_Parent_ = _vcmFormDataSource_;
- {$Include VScroll.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
  _dsEdition_ = {abstract} class(_VScroll_, IdsEdition, InsVScrollListener)
   {* Базовая область ввода, для работы с редакциями }
   protected
@@ -24,9 +24,9 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 _VScroll_Parent_ = _vcmFormDataSource_;
-{$Include VScroll.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
 _dsEdition_ = _VScroll_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -37,9 +37,9 @@ _dsEdition_ = _VScroll_;
 {$Define dsEdition_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include vcmFormDataSource.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSource.imp.pas}
 
-{$Include VScroll.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\VScroll.imp.pas}
 
 function _dsEdition_.As_InsVScrollListener: InsVScrollListener;
  {* Метод приведения нашего интерфейса к InsVScrollListener }

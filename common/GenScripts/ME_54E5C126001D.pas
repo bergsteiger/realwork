@@ -134,7 +134,7 @@ type
  _ItemType_ = TqaAttrInfo;
  _l3UncomparabeObjectRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
- {$Include l3UncomparabeObjectRefList.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
  TqaAttrInfoList = class(_l3UncomparabeObjectRefList_)
   {* Список описателей атрибутов. }
  end;//TqaAttrInfoList
@@ -525,7 +525,7 @@ type
  end;//TqaMgrSearchForNewsLine
 
  _afwApplicationDataUpdate_Parent_ = Tl3CacheableBase;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  TqaHistory = class(_afwApplicationDataUpdate_, IqaHistory{$If NOT Defined(NoVCM)}
  , IvcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -1122,7 +1122,7 @@ end;//CompareExistingItems
 
 type _Instance_R_ = TqaAttrInfoList;
 
-{$Include l3UncomparabeObjectRefList.imp.pas}
+{$Include w:\common\components\rtl\Garant\L3\l3UncomparabeObjectRefList.imp.pas}
 
 function TqaEventReq.pm_GetAdditionalFilter: TnsFilterType;
 //#UC START# *54F3492A02D7_4683A2660291get_var*
@@ -4156,7 +4156,7 @@ begin
 //#UC END# *54F590B7028F_54F59C4D00FF_impl*
 end;//TqaMgrSearchForNewsLine.DoFocusStartField
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
 function TqaHistory.Get_Query: IQuery;
 //#UC START# *468396BC0323_4683A6A4010Cget_var*

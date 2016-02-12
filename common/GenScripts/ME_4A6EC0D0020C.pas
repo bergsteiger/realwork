@@ -46,11 +46,11 @@ type
  // Right
 
  _vcmChromeLikeTabCaptionProvider_Parent_ = TvcmContainerForm;
- {$Include vcmChromeLikeTabCaptionProvider.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
  _StatusBarItems_Parent_ = _vcmChromeLikeTabCaptionProvider_;
- {$Include StatusBarItems.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
  _EditionsListCaller_Parent_ = _StatusBarItems_;
- {$Include EditionsListCaller.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\EditionsListCaller.imp.pas}
  TPrimEditionsContainerForm = class(_EditionsListCaller_, InsVScrollListener)
   {* Контейнер для двух редакций }
   private
@@ -154,11 +154,11 @@ const
 
 type _Instance_R_ = TPrimEditionsContainerForm;
 
-{$Include vcmChromeLikeTabCaptionProvider.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabCaptionProvider.imp.pas}
 
-{$Include StatusBarItems.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\StatusBarItems.imp.pas}
 
-{$Include EditionsListCaller.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\View\EditionsListCaller.imp.pas}
 
 procedure TPrimEditionsContainerForm.UpdateCaptionFromDS;
  {* Обновляет заголовок формы }

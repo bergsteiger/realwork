@@ -397,12 +397,8 @@ begin
 end;//Tkw_Form_RightEdition.GetWordNameForRegister
 
 function Tkw_Form_RightEdition.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_930646B67F25_var*
-//#UC END# *4DDFD2EA0116_930646B67F25_var*
 begin
-//#UC START# *4DDFD2EA0116_930646B67F25_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_930646B67F25_impl*
+ Result := 'RightEditionForm';
 end;//Tkw_Form_RightEdition.GetString
 
 class function Tkw_RightEdition_Control_Header.GetWordNameForRegister: AnsiString;
@@ -411,21 +407,14 @@ begin
 end;//Tkw_RightEdition_Control_Header.GetWordNameForRegister
 
 function Tkw_RightEdition_Control_Header.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_C8BF4BB99E0D_var*
-//#UC END# *4DDFD2EA0116_C8BF4BB99E0D_var*
 begin
-//#UC START# *4DDFD2EA0116_C8BF4BB99E0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_C8BF4BB99E0D_impl*
+ Result := 'Header';
 end;//Tkw_RightEdition_Control_Header.GetString
 
 class procedure Tkw_RightEdition_Control_Header.RegisterInEngine;
-//#UC START# *52A086150180_C8BF4BB99E0D_var*
-//#UC END# *52A086150180_C8BF4BB99E0D_var*
 begin
-//#UC START# *52A086150180_C8BF4BB99E0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_C8BF4BB99E0D_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_RightEdition_Control_Header.RegisterInEngine
 
 procedure Tkw_RightEdition_Control_Header_Push.DoDoIt(const aCtx: TtfwContext);
@@ -448,21 +437,14 @@ begin
 end;//Tkw_RightEdition_Control_pnLeft.GetWordNameForRegister
 
 function Tkw_RightEdition_Control_pnLeft.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_633301B88295_var*
-//#UC END# *4DDFD2EA0116_633301B88295_var*
 begin
-//#UC START# *4DDFD2EA0116_633301B88295_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_633301B88295_impl*
+ Result := 'pnLeft';
 end;//Tkw_RightEdition_Control_pnLeft.GetString
 
 class procedure Tkw_RightEdition_Control_pnLeft.RegisterInEngine;
-//#UC START# *52A086150180_633301B88295_var*
-//#UC END# *52A086150180_633301B88295_var*
 begin
-//#UC START# *52A086150180_633301B88295_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_633301B88295_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_RightEdition_Control_pnLeft.RegisterInEngine
 
 procedure Tkw_RightEdition_Control_pnLeft_Push.DoDoIt(const aCtx: TtfwContext);
@@ -485,21 +467,14 @@ begin
 end;//Tkw_RightEdition_Control_EditionLink.GetWordNameForRegister
 
 function Tkw_RightEdition_Control_EditionLink.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_8CAA62C48C38_var*
-//#UC END# *4DDFD2EA0116_8CAA62C48C38_var*
 begin
-//#UC START# *4DDFD2EA0116_8CAA62C48C38_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_8CAA62C48C38_impl*
+ Result := 'EditionLink';
 end;//Tkw_RightEdition_Control_EditionLink.GetString
 
 class procedure Tkw_RightEdition_Control_EditionLink.RegisterInEngine;
-//#UC START# *52A086150180_8CAA62C48C38_var*
-//#UC END# *52A086150180_8CAA62C48C38_var*
 begin
-//#UC START# *52A086150180_8CAA62C48C38_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_8CAA62C48C38_impl*
+ inherited;
+ TtfwClassRef.Register(TvtFocusLabel);
 end;//Tkw_RightEdition_Control_EditionLink.RegisterInEngine
 
 procedure Tkw_RightEdition_Control_EditionLink_Push.DoDoIt(const aCtx: TtfwContext);
@@ -522,21 +497,14 @@ begin
 end;//Tkw_RightEdition_Control_pbIcon.GetWordNameForRegister
 
 function Tkw_RightEdition_Control_pbIcon.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_1062238C93F1_var*
-//#UC END# *4DDFD2EA0116_1062238C93F1_var*
 begin
-//#UC START# *4DDFD2EA0116_1062238C93F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_1062238C93F1_impl*
+ Result := 'pbIcon';
 end;//Tkw_RightEdition_Control_pbIcon.GetString
 
 class procedure Tkw_RightEdition_Control_pbIcon.RegisterInEngine;
-//#UC START# *52A086150180_1062238C93F1_var*
-//#UC END# *52A086150180_1062238C93F1_var*
 begin
-//#UC START# *52A086150180_1062238C93F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_1062238C93F1_impl*
+ inherited;
+ TtfwClassRef.Register(TPaintBox);
 end;//Tkw_RightEdition_Control_pbIcon.RegisterInEngine
 
 procedure Tkw_RightEdition_Control_pbIcon_Push.DoDoIt(const aCtx: TtfwContext);
@@ -559,21 +527,14 @@ begin
 end;//Tkw_RightEdition_Control_pnCaption.GetWordNameForRegister
 
 function Tkw_RightEdition_Control_pnCaption.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_5252D867215B_var*
-//#UC END# *4DDFD2EA0116_5252D867215B_var*
 begin
-//#UC START# *4DDFD2EA0116_5252D867215B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_5252D867215B_impl*
+ Result := 'pnCaption';
 end;//Tkw_RightEdition_Control_pnCaption.GetString
 
 class procedure Tkw_RightEdition_Control_pnCaption.RegisterInEngine;
-//#UC START# *52A086150180_5252D867215B_var*
-//#UC END# *52A086150180_5252D867215B_var*
 begin
-//#UC START# *52A086150180_5252D867215B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_5252D867215B_impl*
+ inherited;
+ TtfwClassRef.Register(TvtPanel);
 end;//Tkw_RightEdition_Control_pnCaption.RegisterInEngine
 
 procedure Tkw_RightEdition_Control_pnCaption_Push.DoDoIt(const aCtx: TtfwContext);
@@ -596,21 +557,14 @@ begin
 end;//Tkw_RightEdition_Control_EditionChoose.GetWordNameForRegister
 
 function Tkw_RightEdition_Control_EditionChoose.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_EAD4B54CACBA_var*
-//#UC END# *4DDFD2EA0116_EAD4B54CACBA_var*
 begin
-//#UC START# *4DDFD2EA0116_EAD4B54CACBA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_EAD4B54CACBA_impl*
+ Result := 'EditionChoose';
 end;//Tkw_RightEdition_Control_EditionChoose.GetString
 
 class procedure Tkw_RightEdition_Control_EditionChoose.RegisterInEngine;
-//#UC START# *52A086150180_EAD4B54CACBA_var*
-//#UC END# *52A086150180_EAD4B54CACBA_var*
 begin
-//#UC START# *52A086150180_EAD4B54CACBA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_EAD4B54CACBA_impl*
+ inherited;
+ TtfwClassRef.Register(TvtComboBoxQS);
 end;//Tkw_RightEdition_Control_EditionChoose.RegisterInEngine
 
 procedure Tkw_RightEdition_Control_EditionChoose_Push.DoDoIt(const aCtx: TtfwContext);
@@ -633,21 +587,14 @@ begin
 end;//Tkw_RightEdition_Control_Text.GetWordNameForRegister
 
 function Tkw_RightEdition_Control_Text.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_69AFFFB9B3A0_var*
-//#UC END# *4DDFD2EA0116_69AFFFB9B3A0_var*
 begin
-//#UC START# *4DDFD2EA0116_69AFFFB9B3A0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_69AFFFB9B3A0_impl*
+ Result := 'Text';
 end;//Tkw_RightEdition_Control_Text.GetString
 
 class procedure Tkw_RightEdition_Control_Text.RegisterInEngine;
-//#UC START# *52A086150180_69AFFFB9B3A0_var*
-//#UC END# *52A086150180_69AFFFB9B3A0_var*
 begin
-//#UC START# *52A086150180_69AFFFB9B3A0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_69AFFFB9B3A0_impl*
+ inherited;
+ TtfwClassRef.Register(TnscEditor);
 end;//Tkw_RightEdition_Control_Text.RegisterInEngine
 
 procedure Tkw_RightEdition_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
@@ -670,41 +617,36 @@ begin
 end;//Tkw_RightEdition_Component_TextSource.GetWordNameForRegister
 
 function Tkw_RightEdition_Component_TextSource.GetString: AnsiString;
-//#UC START# *4DDFD2EA0116_387F257C4B92_var*
-//#UC END# *4DDFD2EA0116_387F257C4B92_var*
 begin
-//#UC START# *4DDFD2EA0116_387F257C4B92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DDFD2EA0116_387F257C4B92_impl*
+ Result := 'TextSource';
 end;//Tkw_RightEdition_Component_TextSource.GetString
 
 class procedure Tkw_RightEdition_Component_TextSource.RegisterInEngine;
-//#UC START# *52A086150180_387F257C4B92_var*
-//#UC END# *52A086150180_387F257C4B92_var*
 begin
-//#UC START# *52A086150180_387F257C4B92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52A086150180_387F257C4B92_impl*
+ inherited;
+ TtfwClassRef.Register(TnscTextSource);
 end;//Tkw_RightEdition_Component_TextSource.RegisterInEngine
 
 function TkwRightEditionFormHeader.Header(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TvtPanel;
  {* Реализация слова скрипта .TRightEditionForm.Header }
-//#UC START# *26E3CABB4B89_AE860CA93B6E_var*
-//#UC END# *26E3CABB4B89_AE860CA93B6E_var*
 begin
-//#UC START# *26E3CABB4B89_AE860CA93B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *26E3CABB4B89_AE860CA93B6E_impl*
+ Result := aRightEditionForm.Header;
 end;//TkwRightEditionFormHeader.Header
 
 procedure TkwRightEditionFormHeader.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AE860CA93B6E_var*
-//#UC END# *4DAEEDE10285_AE860CA93B6E_var*
+var l_aRightEditionForm: TRightEditionForm;
 begin
-//#UC START# *4DAEEDE10285_AE860CA93B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AE860CA93B6E_impl*
+ try
+  l_aRightEditionForm := TRightEditionForm(aCtx.rEngine.PopObjAs(TRightEditionForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRightEditionForm: TRightEditionForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Header(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormHeader.DoDoIt
 
 class function TkwRightEditionFormHeader.GetWordNameForRegister: AnsiString;
@@ -714,12 +656,8 @@ end;//TkwRightEditionFormHeader.GetWordNameForRegister
 
 procedure TkwRightEditionFormHeader.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AE860CA93B6E_var*
-//#UC END# *52D00B00031A_AE860CA93B6E_var*
 begin
-//#UC START# *52D00B00031A_AE860CA93B6E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AE860CA93B6E_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Header', aCtx);
 end;//TkwRightEditionFormHeader.SetValuePrim
 
 function TkwRightEditionFormHeader.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -734,27 +672,29 @@ end;//TkwRightEditionFormHeader.GetAllParamsCount
 
 function TkwRightEditionFormHeader.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormHeader.ParamsTypes
 
 function TkwRightEditionFormPnLeft.pnLeft(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TvtPanel;
  {* Реализация слова скрипта .TRightEditionForm.pnLeft }
-//#UC START# *BE4C45D8DF9C_7E1E7EBF838A_var*
-//#UC END# *BE4C45D8DF9C_7E1E7EBF838A_var*
 begin
-//#UC START# *BE4C45D8DF9C_7E1E7EBF838A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BE4C45D8DF9C_7E1E7EBF838A_impl*
+ Result := aRightEditionForm.pnLeft;
 end;//TkwRightEditionFormPnLeft.pnLeft
 
 procedure TkwRightEditionFormPnLeft.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7E1E7EBF838A_var*
-//#UC END# *4DAEEDE10285_7E1E7EBF838A_var*
+var l_aRightEditionForm: TRightEditionForm;
 begin
-//#UC START# *4DAEEDE10285_7E1E7EBF838A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7E1E7EBF838A_impl*
+ try
+  l_aRightEditionForm := TRightEditionForm(aCtx.rEngine.PopObjAs(TRightEditionForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRightEditionForm: TRightEditionForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnLeft(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormPnLeft.DoDoIt
 
 class function TkwRightEditionFormPnLeft.GetWordNameForRegister: AnsiString;
@@ -764,12 +704,8 @@ end;//TkwRightEditionFormPnLeft.GetWordNameForRegister
 
 procedure TkwRightEditionFormPnLeft.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_7E1E7EBF838A_var*
-//#UC END# *52D00B00031A_7E1E7EBF838A_var*
 begin
-//#UC START# *52D00B00031A_7E1E7EBF838A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_7E1E7EBF838A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnLeft', aCtx);
 end;//TkwRightEditionFormPnLeft.SetValuePrim
 
 function TkwRightEditionFormPnLeft.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -784,27 +720,29 @@ end;//TkwRightEditionFormPnLeft.GetAllParamsCount
 
 function TkwRightEditionFormPnLeft.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormPnLeft.ParamsTypes
 
 function TkwRightEditionFormEditionLink.EditionLink(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TvtFocusLabel;
  {* Реализация слова скрипта .TRightEditionForm.EditionLink }
-//#UC START# *BA269A730909_D2C7803A2AFF_var*
-//#UC END# *BA269A730909_D2C7803A2AFF_var*
 begin
-//#UC START# *BA269A730909_D2C7803A2AFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *BA269A730909_D2C7803A2AFF_impl*
+ Result := aRightEditionForm.EditionLink;
 end;//TkwRightEditionFormEditionLink.EditionLink
 
 procedure TkwRightEditionFormEditionLink.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D2C7803A2AFF_var*
-//#UC END# *4DAEEDE10285_D2C7803A2AFF_var*
+var l_aRightEditionForm: TRightEditionForm;
 begin
-//#UC START# *4DAEEDE10285_D2C7803A2AFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D2C7803A2AFF_impl*
+ try
+  l_aRightEditionForm := TRightEditionForm(aCtx.rEngine.PopObjAs(TRightEditionForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRightEditionForm: TRightEditionForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(EditionLink(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormEditionLink.DoDoIt
 
 class function TkwRightEditionFormEditionLink.GetWordNameForRegister: AnsiString;
@@ -814,12 +752,8 @@ end;//TkwRightEditionFormEditionLink.GetWordNameForRegister
 
 procedure TkwRightEditionFormEditionLink.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_D2C7803A2AFF_var*
-//#UC END# *52D00B00031A_D2C7803A2AFF_var*
 begin
-//#UC START# *52D00B00031A_D2C7803A2AFF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_D2C7803A2AFF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству EditionLink', aCtx);
 end;//TkwRightEditionFormEditionLink.SetValuePrim
 
 function TkwRightEditionFormEditionLink.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -834,27 +768,29 @@ end;//TkwRightEditionFormEditionLink.GetAllParamsCount
 
 function TkwRightEditionFormEditionLink.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormEditionLink.ParamsTypes
 
 function TkwRightEditionFormPbIcon.pbIcon(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TPaintBox;
  {* Реализация слова скрипта .TRightEditionForm.pbIcon }
-//#UC START# *02860D7C7AA1_E1580AA1F7C8_var*
-//#UC END# *02860D7C7AA1_E1580AA1F7C8_var*
 begin
-//#UC START# *02860D7C7AA1_E1580AA1F7C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *02860D7C7AA1_E1580AA1F7C8_impl*
+ Result := aRightEditionForm.pbIcon;
 end;//TkwRightEditionFormPbIcon.pbIcon
 
 procedure TkwRightEditionFormPbIcon.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E1580AA1F7C8_var*
-//#UC END# *4DAEEDE10285_E1580AA1F7C8_var*
+var l_aRightEditionForm: TRightEditionForm;
 begin
-//#UC START# *4DAEEDE10285_E1580AA1F7C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E1580AA1F7C8_impl*
+ try
+  l_aRightEditionForm := TRightEditionForm(aCtx.rEngine.PopObjAs(TRightEditionForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRightEditionForm: TRightEditionForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pbIcon(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormPbIcon.DoDoIt
 
 class function TkwRightEditionFormPbIcon.GetWordNameForRegister: AnsiString;
@@ -864,12 +800,8 @@ end;//TkwRightEditionFormPbIcon.GetWordNameForRegister
 
 procedure TkwRightEditionFormPbIcon.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_E1580AA1F7C8_var*
-//#UC END# *52D00B00031A_E1580AA1F7C8_var*
 begin
-//#UC START# *52D00B00031A_E1580AA1F7C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_E1580AA1F7C8_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pbIcon', aCtx);
 end;//TkwRightEditionFormPbIcon.SetValuePrim
 
 function TkwRightEditionFormPbIcon.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -884,27 +816,29 @@ end;//TkwRightEditionFormPbIcon.GetAllParamsCount
 
 function TkwRightEditionFormPbIcon.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormPbIcon.ParamsTypes
 
 function TkwRightEditionFormPnCaption.pnCaption(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TvtPanel;
  {* Реализация слова скрипта .TRightEditionForm.pnCaption }
-//#UC START# *C3C1B12CA022_AE83AF2A976A_var*
-//#UC END# *C3C1B12CA022_AE83AF2A976A_var*
 begin
-//#UC START# *C3C1B12CA022_AE83AF2A976A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C3C1B12CA022_AE83AF2A976A_impl*
+ Result := aRightEditionForm.pnCaption;
 end;//TkwRightEditionFormPnCaption.pnCaption
 
 procedure TkwRightEditionFormPnCaption.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AE83AF2A976A_var*
-//#UC END# *4DAEEDE10285_AE83AF2A976A_var*
+var l_aRightEditionForm: TRightEditionForm;
 begin
-//#UC START# *4DAEEDE10285_AE83AF2A976A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AE83AF2A976A_impl*
+ try
+  l_aRightEditionForm := TRightEditionForm(aCtx.rEngine.PopObjAs(TRightEditionForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRightEditionForm: TRightEditionForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(pnCaption(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormPnCaption.DoDoIt
 
 class function TkwRightEditionFormPnCaption.GetWordNameForRegister: AnsiString;
@@ -914,12 +848,8 @@ end;//TkwRightEditionFormPnCaption.GetWordNameForRegister
 
 procedure TkwRightEditionFormPnCaption.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_AE83AF2A976A_var*
-//#UC END# *52D00B00031A_AE83AF2A976A_var*
 begin
-//#UC START# *52D00B00031A_AE83AF2A976A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_AE83AF2A976A_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству pnCaption', aCtx);
 end;//TkwRightEditionFormPnCaption.SetValuePrim
 
 function TkwRightEditionFormPnCaption.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -934,27 +864,29 @@ end;//TkwRightEditionFormPnCaption.GetAllParamsCount
 
 function TkwRightEditionFormPnCaption.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormPnCaption.ParamsTypes
 
 function TkwRightEditionFormText.Text(const aCtx: TtfwContext;
  aRightEditionForm: TRightEditionForm): TnscEditor;
  {* Реализация слова скрипта .TRightEditionForm.Text }
-//#UC START# *31C1B3653D64_39642DBB84EF_var*
-//#UC END# *31C1B3653D64_39642DBB84EF_var*
 begin
-//#UC START# *31C1B3653D64_39642DBB84EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *31C1B3653D64_39642DBB84EF_impl*
+ Result := aRightEditionForm.Text;
 end;//TkwRightEditionFormText.Text
 
 procedure TkwRightEditionFormText.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_39642DBB84EF_var*
-//#UC END# *4DAEEDE10285_39642DBB84EF_var*
+var l_aRightEditionForm: TRightEditionForm;
 begin
-//#UC START# *4DAEEDE10285_39642DBB84EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_39642DBB84EF_impl*
+ try
+  l_aRightEditionForm := TRightEditionForm(aCtx.rEngine.PopObjAs(TRightEditionForm));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aRightEditionForm: TRightEditionForm : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(Text(aCtx, l_aRightEditionForm));
 end;//TkwRightEditionFormText.DoDoIt
 
 class function TkwRightEditionFormText.GetWordNameForRegister: AnsiString;
@@ -964,12 +896,8 @@ end;//TkwRightEditionFormText.GetWordNameForRegister
 
 procedure TkwRightEditionFormText.SetValuePrim(const aValue: TtfwStackValue;
  const aCtx: TtfwContext);
-//#UC START# *52D00B00031A_39642DBB84EF_var*
-//#UC END# *52D00B00031A_39642DBB84EF_var*
 begin
-//#UC START# *52D00B00031A_39642DBB84EF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *52D00B00031A_39642DBB84EF_impl*
+ RunnerError('Нельзя присваивать значение readonly свойству Text', aCtx);
 end;//TkwRightEditionFormText.SetValuePrim
 
 function TkwRightEditionFormText.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
@@ -984,7 +912,7 @@ end;//TkwRightEditionFormText.GetAllParamsCount
 
 function TkwRightEditionFormText.ParamsTypes: PTypeInfoArray;
 begin
- Result := OpenTypesToTypes([]);
+ Result := OpenTypesToTypes([TypeInfo(TRightEditionForm)]);
 end;//TkwRightEditionFormText.ParamsTypes
 
 initialization

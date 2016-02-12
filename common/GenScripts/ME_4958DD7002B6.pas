@@ -42,9 +42,9 @@ uses
 
 type
  _evStyleTableListener_Parent_ = TvcmContainerForm;
- {$Include evStyleTableListener.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
  _nsUserSettingsListener_Parent_ = _evStyleTableListener_;
- {$Include nsUserSettingsListener.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
  TPrimMainMenuForm = {abstract} class(_nsUserSettingsListener_, InsWorkJournalListener)
   {* Основное меню }
   private
@@ -178,9 +178,9 @@ begin
  end;//try..finally
 end;//TPrimMainMenuState.Make
 
-{$Include evStyleTableListener.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\evStyleTableListener.imp.pas}
 
-{$Include nsUserSettingsListener.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUserSettingsListener.imp.pas}
 
 function TPrimMainMenuForm.pm_GetTreeStyle: TnsTreeStyleManager;
 //#UC START# *4AC9C93202F7_4958DD7002B6get_var*

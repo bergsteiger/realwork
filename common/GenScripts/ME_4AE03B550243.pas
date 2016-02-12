@@ -17,7 +17,7 @@ uses
 
 type
  _MnsDocument_Parent_ = Tl3ProtoObject;
- {$Include MnsDocument.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas}
  TnsEditionsContainerData = class(_MnsDocument_, InsEditionsContainerData)
   public
    constructor Create(const aDoc: IDocument;
@@ -34,7 +34,7 @@ uses
  l3ImplUses
 ;
 
-{$Include MnsDocument.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas}
 
 constructor TnsEditionsContainerData.Create(const aDoc: IDocument;
  const aDocumentForReturn: TnsDocumentForReturnInfo);

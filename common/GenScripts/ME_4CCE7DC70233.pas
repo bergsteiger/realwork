@@ -23,9 +23,9 @@ uses
 
 type
  _afwApplicationDataUpdate_Parent_ = TnsF1DocumentContainerPrim;
- {$Include afwApplicationDataUpdate.imp.pas}
+ {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
  _nsEditionsDecorationRules_Parent_ = _afwApplicationDataUpdate_;
- {$Include nsEditionsDecorationRules.imp.pas}
+ {$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
  TnsEditionFromDTPDocumentContainer = class(_nsEditionsDecorationRules_, If1EditionDocumentContainer)
   private
    f_Provider: IDocumentTextProvider;
@@ -57,9 +57,9 @@ uses
  , k2Tags
 ;
 
-{$Include afwApplicationDataUpdate.imp.pas}
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-{$Include nsEditionsDecorationRules.imp.pas}
+{$Include w:\common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas}
 
 constructor TnsEditionFromDTPDocumentContainer.Create(aIsLeft: Boolean;
  const aProviderFactory: InsDocumentTextProviderFactory);

@@ -26,7 +26,7 @@ uses
 ;
 
 type
- {$Include vcmFormDataSourcePrim.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
  TdsInpharmMainMenu = {final} class(_vcmFormDataSourcePrim_, IdsInpharmMainMenu)
   protected
    {$If NOT Defined(NoVCM)}
@@ -49,7 +49,7 @@ uses
 
 type _Instance_R_ = TdsInpharmMainMenu;
 
-{$Include vcmFormDataSourcePrim.imp.pas}
+{$Include w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas}
 
 {$If NOT Defined(NoVCM)}
 function TdsInpharmMainMenu.GetIsDataAvailable: Boolean;

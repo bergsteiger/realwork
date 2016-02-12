@@ -7,11 +7,11 @@
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  _InitDataType_ = InsEditionDiffData;
- {$Include dsEdition.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
  _UnderControlBehaviour_Parent_ = _dsEdition_;
- {$Include UnderControlBehaviour.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
  _ucpHAFMacroReplacerFactory_Parent_ = _UnderControlBehaviour_;
- {$Include ucpHAFMacroReplacerFactory.imp.pas}
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas}
  _dsEditionDiff_ = {abstract} class(_ucpHAFMacroReplacerFactory_, IdsEditionDiff, InsEditionListener, IucpHAFMacroReplacerFactory, IucpFilterInfoFactory)
   {* Разница редакций }
   private
@@ -46,11 +46,11 @@
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}
 
-{$Include dsEdition.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
 _UnderControlBehaviour_Parent_ = _dsEdition_;
-{$Include UnderControlBehaviour.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
 _ucpHAFMacroReplacerFactory_Parent_ = _UnderControlBehaviour_;
-{$Include ucpHAFMacroReplacerFactory.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas}
 _dsEditionDiff_ = _ucpHAFMacroReplacerFactory_;
 
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
@@ -61,11 +61,11 @@ _dsEditionDiff_ = _ucpHAFMacroReplacerFactory_;
 {$Define dsEditionDiff_imp_impl}
 
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
-{$Include dsEdition.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Editions\dsEdition.imp.pas}
 
-{$Include UnderControlBehaviour.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas}
 
-{$Include ucpHAFMacroReplacerFactory.imp.pas}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\Presentation\ucpHAFMacroReplacerFactory.imp.pas}
 
 function _dsEditionDiff_.DoGetDocument: IDocument;
  {* Возвращает документ сответствующий данной редакции }
