@@ -33,7 +33,7 @@ function TddRTFReaderSpec.GetdestNormClass: RdestNorm;
 //#UC END# *56BB204702E6_56BB14B90213_var*
 begin
 //#UC START# *56BB204702E6_56BB14B90213_impl*
- !!! Needs to be implemented !!!
+ Result := TdestNormSpec;
 //#UC END# *56BB204702E6_56BB14B90213_impl*
 end;//TddRTFReaderSpec.GetdestNormClass
 

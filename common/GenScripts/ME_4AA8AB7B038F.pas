@@ -150,7 +150,7 @@ type
    function pm_GetStDate: TStDate; virtual;
    {$IfEnd} // Defined(SupportStDate)
    {$If Defined(SupportStDate)}
-   procedure pm_SetStDate(aValue: TStDate); virtual;
+   procedure pm_SetStDate(const aValue: TStDate); virtual;
    {$IfEnd} // Defined(SupportStDate)
    procedure DoExecute; virtual;
    procedure TriggerAutoCorrectDate; virtual;
@@ -971,7 +971,7 @@ end;//TvtCustomDateEdit.pm_GetStDate
 {$IfEnd} // Defined(SupportStDate)
 
 {$If Defined(SupportStDate)}
-procedure TvtCustomDateEdit.pm_SetStDate(aValue: TStDate);
+procedure TvtCustomDateEdit.pm_SetStDate(const aValue: TStDate);
 //#UC START# *554C924B03A3_52A9ACFF0183set_var*
 //#UC END# *554C924B03A3_52A9ACFF0183set_var*
 begin

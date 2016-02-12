@@ -4098,6 +4098,8 @@ BOOLEAN elem_func ReadsField
  RULES
   ( Self .IsControlPrim )
    ( Self .NeedPutToDFM ! )
+  ( Self .IsWriteonlyProperty )
+   false 
   ( Self .UPisTrue "reads field" )
    true
   DEFAULT
@@ -4107,7 +4109,15 @@ BOOLEAN elem_func ReadsField
 ; // elem_func ReadsField
 
 BOOLEAN elem_func WritesField
- Self .UPisTrue "writes field" >>> Result
+ RULES
+  ( Self .IsReadonlyProperty )
+   false
+  ( Self .UPisTrue "writes field" )
+   true
+  DEFAULT
+   false
+ ; // RULES   
+ >>> Result
 ; // elem_func WritesField
 
 elem: AsSetterDo:

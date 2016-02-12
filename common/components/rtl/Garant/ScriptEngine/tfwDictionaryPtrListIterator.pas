@@ -34,6 +34,8 @@ uses
  , tfwDictionary
 ;
 
+{$If not Declared(_ItemType_)}type _ItemType_ = TtfwStackValue;{$IfEnd}
+
 {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
 
 class function TtfwDictionaryPtrListIterator.Make(aDictionary: TtfwDictionaryEx): ItfwValueList;

@@ -15,8 +15,8 @@
    procedure DoSaveParam(const aTarget: _SettingsClass_;
     const aSettingId: TafwSettingId;
     aType: byte;
-    aValue;
-    aDefault;
+    const aValue;
+    const aDefault;
     aSetAsDefault: Boolean); virtual;
    procedure DoSetAsDefault(const aTarget: _SettingsClass_;
     const aSettingId: TafwSettingId); virtual;
@@ -30,7 +30,7 @@
    function LoadParam(const aSettingId: TafwSettingId;
     aType: byte;
     out aValue;
-    aDefault;
+    const aDefault;
     aRestoreDefault: Boolean): Boolean;
    function LoadString(const aSettingId: TafwSettingId;
     const aDefault: AnsiString = '';
@@ -46,8 +46,8 @@
     {* aValue - текущее значение, aDefault - значение по умолчанию, устанавливается для восстанвления настроек. }
    procedure SaveParam(const aSettingId: TafwSettingId;
     aType: byte;
-    aValue;
-    aDefault;
+    const aValue;
+    const aDefault;
     aSetAsDefault: Boolean);
    procedure SaveString(const aSettingId: TafwSettingId;
     const aValue: IafwCString;
@@ -104,8 +104,8 @@ end;//_nsAbstractSettingsPrim_.TryToRestore
 procedure _nsAbstractSettingsPrim_.DoSaveParam(const aTarget: _SettingsClass_;
  const aSettingId: TafwSettingId;
  aType: byte;
- aValue;
- aDefault;
+ const aValue;
+ const aDefault;
  aSetAsDefault: Boolean);
 //#UC START# *4AD59C2C027D_4AD58B6C0289_var*
 
@@ -183,7 +183,7 @@ end;//_nsAbstractSettingsPrim_.LoadInteger
 function _nsAbstractSettingsPrim_.LoadParam(const aSettingId: TafwSettingId;
  aType: byte;
  out aValue;
- aDefault;
+ const aDefault;
  aRestoreDefault: Boolean): Boolean;
 //#UC START# *4AD59EC20349_4AD58B6C0289_var*
 var
@@ -327,8 +327,8 @@ end;//_nsAbstractSettingsPrim_.SaveInteger
 
 procedure _nsAbstractSettingsPrim_.SaveParam(const aSettingId: TafwSettingId;
  aType: byte;
- aValue;
- aDefault;
+ const aValue;
+ const aDefault;
  aSetAsDefault: Boolean);
 //#UC START# *4AD59ED60126_4AD58B6C0289_var*
 //#UC END# *4AD59ED60126_4AD58B6C0289_var*

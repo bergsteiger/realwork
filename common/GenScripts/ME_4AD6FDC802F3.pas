@@ -62,16 +62,13 @@ type
     aSetAsDefault: Boolean = False);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure NotifySettingChanged(const aSettingID: TafwSettingId); override;
    function TryToRestore(const aSettingID: TafwSettingId): Boolean; override;
    procedure DoSaveParam(const aTarget: _SettingsClass_;
     const aSettingId: TafwSettingId;
     aType: byte;
-    aValue;
-    aDefault;
+    const aValue;
+    const aDefault;
     aSetAsDefault: Boolean); override;
    procedure DoSetAsDefault(const aTarget: _SettingsClass_;
     const aSettingId: TafwSettingId); override;
@@ -80,6 +77,9 @@ type
     const aManager: IConfigurationManager); reintroduce;
    class function Make(const aSettings: ISettingsManager;
     const aManager: IConfigurationManager): IafwSettings; reintroduce;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//TnsSettings
 
 implementation
@@ -96,6 +96,12 @@ uses
  , l3String
  , l3VCLStrings
 ;
+
+{$If not Declared(_IStringType_)}type _IStringType_ = IString;{$IfEnd}
+
+{$If not Declared(_KeyType_)}type _KeyType_ = PAnsiChar;{$IfEnd}
+
+{$If not Declared(_BooleanType_)}type _BooleanType_ = ByteBool;{$IfEnd}
 
 {$Include w:\common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas}
 
@@ -365,8 +371,8 @@ end;//TnsSettings.TryToRestore
 procedure TnsSettings.DoSaveParam(const aTarget: _SettingsClass_;
  const aSettingId: TafwSettingId;
  aType: byte;
- aValue;
- aDefault;
+ const aValue;
+ const aDefault;
  aSetAsDefault: Boolean);
 //#UC START# *4AD59C2C027D_4AD6FDC802F3_var*
 

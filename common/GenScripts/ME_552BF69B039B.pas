@@ -53,9 +53,9 @@ implementation
 
 uses
  l3ImplUses
- {$If NOT Defined(NoScripts)}
+ {$If Defined(Archi) AND NOT Defined(NoScripts)}
  , AutolinkFilterWordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ {$IfEnd} // Defined(Archi) AND NOT Defined(NoScripts)
  , SysUtils
  , l3Base
 ;

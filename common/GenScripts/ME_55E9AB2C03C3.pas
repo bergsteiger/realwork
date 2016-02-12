@@ -34,6 +34,8 @@ _tfwDictionaryListIterator_ = _tfwDictionaryListIteratorPrim_;
 {$Define tfwDictionaryListIterator_imp_impl}
 
 {$If NOT Defined(NoScripts)}
+{$If not Declared(_ItemType_)}type _ItemType_ = TtfwStackValue;{$IfEnd}
+
 {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas}
 
 constructor _tfwDictionaryListIterator_.Create(const aListToIterate: _ListType_);

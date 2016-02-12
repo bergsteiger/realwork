@@ -208,7 +208,7 @@ type
    {* находимся в процессе построения печати? }
   procedure Update(const aPanel: IafwPreviewPanel);
    {* установить preview на панель для отображения. }
-  procedure Print(anInterval: TafwPagesInterval = afwTypes.afw_piAll;
+  procedure Print(anInterval: TafwPagesInterval = afw_piAll;
    const aRange: Il3RangeManager = nil;
    aCopies: Integer = 1;
    const aFileName: AnsiString = '';
@@ -382,7 +382,7 @@ type
   function LoadParam(const aSettingId: TafwSettingId;
    aType: byte;
    out aValue;
-   aDefault;
+   const aDefault;
    aRestoreDefault: Boolean): Boolean;
   function LoadString(const aSettingId: TafwSettingId;
    const aDefault: AnsiString = '';
@@ -398,8 +398,8 @@ type
    {* aValue - текущее значение, aDefault - значение по умолчанию, устанавливается для восстанвления настроек. }
   procedure SaveParam(const aSettingId: TafwSettingId;
    aType: byte;
-   aValue;
-   aDefault;
+   const aValue;
+   const aDefault;
    aSetAsDefault: Boolean);
   procedure SaveString(const aSettingId: TafwSettingId;
    const aValue: IafwCString;
@@ -646,7 +646,7 @@ type
   function LoadParam(const aSettingId: TafwSettingId;
    aType: byte;
    out aValue;
-   aDefault;
+   const aDefault;
    aRestoreDefault: Boolean): Boolean;
   function LoadString(const aSettingId: TafwSettingId;
    const aDefault: AnsiString = '';
@@ -662,8 +662,8 @@ type
    {* aValue - текущее значение, aDefault - значение по умолчанию, устанавливается для восстанвления настроек. }
   procedure SaveParam(const aSettingId: TafwSettingId;
    aType: byte;
-   aValue;
-   aDefault;
+   const aValue;
+   const aDefault;
    aSetAsDefault: Boolean);
   procedure SaveString(const aSettingId: TafwSettingId;
    const aValue: IafwCString;
@@ -851,6 +851,8 @@ type
  IafwMainFormProvider = interface(IafwBase)
   ['{86D8BAFB-92AB-45E0-8A82-5405716DF65A}']
  end;//IafwMainFormProvider
+
+ IafwApplication = interface;
 
  {$If NOT Defined(NoVCL)}
  (*

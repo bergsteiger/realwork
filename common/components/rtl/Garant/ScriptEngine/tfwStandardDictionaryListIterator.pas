@@ -31,6 +31,8 @@ uses
  , tfwDictionary
 ;
 
+{$If not Declared(_ItemType_)}type _ItemType_ = TtfwStackValue;{$IfEnd}
+
 {$Include w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIterator.imp.pas}
 {$IfEnd} // NOT Defined(NoScripts)
 

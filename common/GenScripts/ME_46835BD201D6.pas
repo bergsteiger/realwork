@@ -145,6 +145,10 @@ uses
 type
  RnsFilterableTreeStruct = class of TnsFilterableTreeStruct;
 
+{$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
+
+{$If not Declared(_FindDataType_)}type _FindDataType_ = _ItemType_;{$IfEnd}
+
 type _Instance_R_ = TIl3ContextFilterNotifierList;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfacePtrList.imp.pas}

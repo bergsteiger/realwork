@@ -240,9 +240,7 @@ class function TafwFormsService.Exists: Boolean;
 begin
  Result := g_TafwFormsService <> nil;
 end;//TafwFormsService.Exists
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 function TafwFormsService.GetAnotherParentForm(Component: TPersistent): TCustomForm;
 //#UC START# *1077E9580F6F_5506D5FB0019_var*
 //#UC END# *1077E9580F6F_5506D5FB0019_var*
@@ -251,9 +249,7 @@ begin
  Result := afw.GetAnotherParentForm(Component);
 //#UC END# *1077E9580F6F_5506D5FB0019_impl*
 end;//TafwFormsService.GetAnotherParentForm
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 function TafwFormsService.GetMainForm(Component: TPersistent): TCustomForm;
 //#UC START# *207716257CFB_5506D5FB0019_var*
 //#UC END# *207716257CFB_5506D5FB0019_var*
@@ -262,9 +258,7 @@ begin
  Result := afw.GetMainForm(Component);
 //#UC END# *207716257CFB_5506D5FB0019_impl*
 end;//TafwFormsService.GetMainForm
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 function TafwFormsService.GetParentForm(Component: TPersistent): TCustomForm;
 //#UC START# *32D6965B86E7_5506D5FB0019_var*
 //#UC END# *32D6965B86E7_5506D5FB0019_var*
@@ -273,9 +267,7 @@ begin
  Result := afw.GetParentForm(Component);
 //#UC END# *32D6965B86E7_5506D5FB0019_impl*
 end;//TafwFormsService.GetParentForm
-{$IfEnd} // NOT Defined(NoVCL)
 
-{$If NOT Defined(NoVCL)}
 function TafwFormsService.GetTopParentForm(Component: TPersistent): TCustomForm;
 //#UC START# *D9663D6CD433_5506D5FB0019_var*
 //#UC END# *D9663D6CD433_5506D5FB0019_var*
@@ -284,7 +276,6 @@ begin
  Result := afw.GetTopParentForm(Component);
 //#UC END# *D9663D6CD433_5506D5FB0019_impl*
 end;//TafwFormsService.GetTopParentForm
-{$IfEnd} // NOT Defined(NoVCL)
 
 class function TafwFormsService.Instance: TafwFormsService;
  {* Метод получения экземпляра синглетона TafwFormsService }
@@ -296,6 +287,7 @@ begin
  end;
  Result := g_TafwFormsService;
 end;//TafwFormsService.Instance
+{$IfEnd} // NOT Defined(NoVCL)
 
 class function TafwKeyboardLayoutService.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }

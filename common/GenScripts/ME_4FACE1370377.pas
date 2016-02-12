@@ -73,6 +73,7 @@ type
    procedure ApplyExternalCellPropsDef(aRow: TddTableRow);
    procedure ApplyCellProperty(aCEP: TddCellProperty);
    procedure SetVMerged2LastCell(aFirst: Boolean);
+   function InsertCell(anIndex: Integer): TddTableCell;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
     LiteVersion: Boolean); override;
@@ -600,6 +601,23 @@ begin
  f_HasMerged := True;
 //#UC END# *54EC68190248_4FACE1370377_impl*
 end;//TddTableRow.SetVMerged2LastCell
+
+function TddTableRow.InsertCell(anIndex: Integer): TddTableCell;
+//#UC START# *56BD92CC03B8_4FACE1370377_var*
+var
+ l_Cell: TddTableCell;
+//#UC END# *56BD92CC03B8_4FACE1370377_var*
+begin
+//#UC START# *56BD92CC03B8_4FACE1370377_impl*
+ l_Cell := TddTableCell.Create(f_Destination);
+ try
+  f_CellList.Insert(anIndex, l_Cell);
+  Result := l_Cell;
+ finally
+  FreeAndNil(l_Cell);
+ end;
+//#UC END# *56BD92CC03B8_4FACE1370377_impl*
+end;//TddTableRow.InsertCell
 
 procedure TddTableRow.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;

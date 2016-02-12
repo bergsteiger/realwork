@@ -35,6 +35,7 @@ implementation
 uses
  l3ImplUses
  , l3String
+ , tfwMainDictionary
  , SysUtils
  , l3Base
 ;
@@ -47,6 +48,8 @@ procedure TtfwMainDictionaryCacheFree;
 begin
  l3Free(g_TtfwMainDictionaryCache);
 end;//TtfwMainDictionaryCacheFree
+
+{$If not Declared(_ItemType_)}type _ItemType_ = TtfwMainDictionary;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;

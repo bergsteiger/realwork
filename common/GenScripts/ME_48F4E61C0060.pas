@@ -36,7 +36,7 @@ type
   function Store(aFormat: TevdClipboardFormat;
    const aPool: IStream;
    const aFilters: TevdTagGenerator;
-   aFlags: TevdStoreFlags = evd_DefaultStoreFlags): Boolean; overload;
+   aFlags: TevdStoreFlags = DefaultStoreFlags): Boolean; overload;
    {* сохраняет выделение в формате aFormat в Pool, который должен реализовывать IStream. }
  end;//IevdDataObject
 

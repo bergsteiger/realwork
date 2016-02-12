@@ -48,7 +48,6 @@ type
     {* Поле для свойства TextBuffer }
   private
    procedure AddTable(aLevel: Integer);
-   procedure Try2AddTable(aLevel: Integer);
    function FindNestedLastTable: TddTable;
    procedure ApplyToCell(aWhat: TIProp;
     aValue: LongInt;
@@ -59,14 +58,9 @@ type
    procedure ApplyToFrame(aWhat: TIProp;
     aValue: LongInt;
     aState: TddRTFState);
-   procedure ApplyToPAP(What: TIProp;
-    aValue: Integer;
-    aPAP: TddParagraphProperty);
    procedure ApplyToRow(aWhat: TIProp;
     aValue: LongInt;
     aState: TddRTFState);
-   procedure ApplyToSep(aWhat: TIProp;
-    aValue: LongInt);
    procedure ApplyToStyle(aWhat: TIProp;
     aValue: LongInt;
     aState: TddRTFState);
@@ -87,7 +81,6 @@ type
     aPara: TddTextParagraph;
     aWasPara: Boolean);
    function GetFirstTableWidth: Integer;
-   procedure AddPageBreak(aSymbol: Integer);
    function CheckAnsiChar(aText: AnsiChar;
     aState: TddRTFState): Boolean;
    procedure SimpleAddShape(aShape: TddDocumentAtom);
@@ -96,10 +89,17 @@ type
    function pm_GetLastAtom: TddDocumentAtom;
    function pm_GetLastParagraph: TddTextParagraph;
    function pm_GetParagraph(anIndex: Integer): TddDocumentAtom;
+   procedure Try2AddTable(aLevel: Integer);
+   procedure ApplyToPAP(What: TIProp;
+    aValue: Integer;
+    aPAP: TddParagraphProperty); virtual;
+   procedure ApplyToSep(aWhat: TIProp;
+    aValue: LongInt); virtual;
    function GetFontEvent(aFontID: Integer): TddFontEntry;
    function GetColor(aColorIndex: Integer): TColor;
    function AddTextPara(aInTable: Boolean;
     anItap: Integer): TddTextParagraph; overload;
+   procedure AddPageBreak(aSymbol: Integer); virtual;
    procedure AddFormula(const aTextPara: TddTextParagraph;
     const aFormulaText: Tl3WString);
    function CanAddTable: Boolean; virtual;
@@ -111,6 +111,10 @@ type
    procedure AfterAddPara(const anAtom: TddDocumentAtom); virtual;
    procedure CloseTextPara(aPara: TddTextParagraph); virtual;
    function InTable(aPAP: TddParagraphProperty): Boolean; virtual;
+    {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
+   procedure DeleteLastAtom(aPrev: Boolean);
+   function Itap(aPAP: TddParagraphProperty): Integer; virtual;
+    {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -1566,6 +1570,7 @@ begin
 end;//TdestNorm.CloseTextPara
 
 function TdestNorm.InTable(aPAP: TddParagraphProperty): Boolean;
+ {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
 //#UC START# *56BC304D02E0_51D278280093_var*
 //#UC END# *56BC304D02E0_51D278280093_var*
 begin
@@ -1573,6 +1578,28 @@ begin
  Result := aPAP.InTable;
 //#UC END# *56BC304D02E0_51D278280093_impl*
 end;//TdestNorm.InTable
+
+procedure TdestNorm.DeleteLastAtom(aPrev: Boolean);
+//#UC START# *56BD9F790092_51D278280093_var*
+//#UC END# *56BD9F790092_51D278280093_var*
+begin
+//#UC START# *56BD9F790092_51D278280093_impl*
+ if aPrev then
+  f_Paragraphs.Delete(f_Paragraphs.Count - 2)
+ else
+  f_Paragraphs.DeleteLast;
+//#UC END# *56BD9F790092_51D278280093_impl*
+end;//TdestNorm.DeleteLastAtom
+
+function TdestNorm.Itap(aPAP: TddParagraphProperty): Integer;
+ {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
+//#UC START# *56BDB2CD037F_51D278280093_var*
+//#UC END# *56BDB2CD037F_51D278280093_var*
+begin
+//#UC START# *56BDB2CD037F_51D278280093_impl*
+ Result := aPAP.itap;
+//#UC END# *56BDB2CD037F_51D278280093_impl*
+end;//TdestNorm.Itap
 
 procedure TdestNorm.Close(aState: TddRTFState;
  aNewDest: TddRTFDestination);

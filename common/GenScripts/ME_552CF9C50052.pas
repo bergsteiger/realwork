@@ -7,7 +7,7 @@ unit AutolinkFilterWordsPack;
 
 interface
 
-{$If NOT Defined(NoScripts)}
+{$If Defined(Archi) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
  , l3Variant
@@ -15,11 +15,11 @@ uses
  , tfwScriptingInterfaces
  , TypInfo
 ;
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Archi) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If NOT Defined(NoScripts)}
+{$If Defined(Archi) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
  , l3AutolinkService
@@ -29,7 +29,6 @@ uses
 ;
 
 type
- {$If Defined(Archi)}
  TkwFilterAutolinkFilter = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта filter:AutolinkFilter
 [panel]Создаёт на стеке фильтр TddAutolinkFilter (в виде Ik2TagGenerator).[panel]
@@ -50,9 +49,7 @@ INTERFACE VAR l_Ik2TagGenerator
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwFilterAutolinkFilter
- {$IfEnd} // Defined(Archi)
 
- {$If Defined(Archi)}
  TkwFilterCleanAutolinkFilter = {final} class(TtfwGlobalKeyWord)
   {* Слово скрипта filter:CleanAutolinkFilter
 [panel]Поскольку TddAutolinkFilter создаётся один на всё приложение, от него нужно отрезать Generator после использования. А иначе цепочка сохранится и будет мешать другим тестам.[panel]
@@ -67,9 +64,7 @@ INTERFACE VAR l_Ik2TagGenerator
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
  end;//TkwFilterCleanAutolinkFilter
- {$IfEnd} // Defined(Archi)
 
-{$If Defined(Archi)}
 function TkwFilterAutolinkFilter.filter_AutolinkFilter(const aCtx: TtfwContext): Ik2TagGenerator;
  {* Реализация слова скрипта filter:AutolinkFilter }
 //#UC START# *F9D10A107F51_115E7EFB89B4_var*
@@ -79,7 +74,6 @@ begin
  Result := Tl3AutolinkService.Instance.GetAutolinkFilter;
 //#UC END# *F9D10A107F51_115E7EFB89B4_impl*
 end;//TkwFilterAutolinkFilter.filter_AutolinkFilter
-{$IfEnd} // Defined(Archi)
 
 procedure TkwFilterAutolinkFilter.DoDoIt(const aCtx: TtfwContext);
 begin
@@ -131,18 +125,14 @@ begin
 end;//TkwFilterCleanAutolinkFilter.GetAllParamsCount
 
 initialization
-{$If Defined(Archi)}
  TkwFilterAutolinkFilter.RegisterInEngine;
  {* Регистрация filter_AutolinkFilter }
-{$IfEnd} // Defined(Archi)
-{$If Defined(Archi)}
  TkwFilterCleanAutolinkFilter.RegisterInEngine;
  {* Регистрация filter_CleanAutolinkFilter }
-{$IfEnd} // Defined(Archi)
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
  {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ik2TagGenerator));
  {* Регистрация типа Ik2TagGenerator }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(Archi) AND NOT Defined(NoScripts)
 
 end.

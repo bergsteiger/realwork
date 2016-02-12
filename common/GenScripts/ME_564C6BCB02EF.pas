@@ -25,7 +25,10 @@ implementation
 uses
  l3ImplUses
  , l3String
+ , ddPipeOutInterfaces
 ;
+
+{$If not Declared(_ItemType_)}type _ItemType_ = IddAnnoKindSortItem;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;

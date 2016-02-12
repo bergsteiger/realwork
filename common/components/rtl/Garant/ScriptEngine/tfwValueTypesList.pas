@@ -28,7 +28,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwValueTypes
 ;
+
+{$If not Declared(_ItemType_)}type _ItemType_ = TtfwValueTypes;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;

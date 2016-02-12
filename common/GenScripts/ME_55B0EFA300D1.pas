@@ -29,7 +29,10 @@ implementation
 uses
  l3ImplUses
  , l3String
+ , tfwStandardDictionary
 ;
+
+{$If not Declared(_ItemType_)}type _ItemType_ = TtfwStandardDictionary;{$IfEnd}
 
 function CompareItemWithData(const anItem: _ItemType_;
  const aData: _FindDataType_;

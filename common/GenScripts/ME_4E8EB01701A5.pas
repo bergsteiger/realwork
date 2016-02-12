@@ -33,7 +33,7 @@ type
    function Get_Num: Il3CString;
    procedure Set_Num(const aValue: Il3CString);
    function Get_Date: TStDate;
-   procedure Set_Date(aValue: TStDate);
+   procedure Set_Date(const aValue: TStDate);
    procedure AddSource(aSource: Integer);
    procedure DelSource(anIndex: Integer);
    procedure Clear;
@@ -50,12 +50,12 @@ type
     {* Функция очистки полей объекта. }
   public
    constructor Create(aDocType: Integer;
-    aDate: TStDate;
+    const aDate: TStDate;
     const aNum: Tl3PCharLen;
     aSources: Tl3LongintList;
     const aDocID: TddALDocRec); reintroduce;
    class function Make(aDocType: Integer;
-    aDate: TStDate;
+    const aDate: TStDate;
     const aNum: Tl3PCharLen;
     aSources: Tl3LongintList;
     const aDocID: TddALDocRec): IddAutolinkDocEntry; reintroduce;
@@ -71,7 +71,7 @@ uses
 ;
 
 constructor TddAutolinkDocEntry.Create(aDocType: Integer;
- aDate: TStDate;
+ const aDate: TStDate;
  const aNum: Tl3PCharLen;
  aSources: Tl3LongintList;
  const aDocID: TddALDocRec);
@@ -90,7 +90,7 @@ begin
 end;//TddAutolinkDocEntry.Create
 
 class function TddAutolinkDocEntry.Make(aDocType: Integer;
- aDate: TStDate;
+ const aDate: TStDate;
  const aNum: Tl3PCharLen;
  aSources: Tl3LongintList;
  const aDocID: TddALDocRec): IddAutolinkDocEntry;
@@ -159,7 +159,7 @@ begin
 //#UC END# *4E8EE02D0168_4E8EB01701A5get_impl*
 end;//TddAutolinkDocEntry.Get_Date
 
-procedure TddAutolinkDocEntry.Set_Date(aValue: TStDate);
+procedure TddAutolinkDocEntry.Set_Date(const aValue: TStDate);
 //#UC START# *4E8EE02D0168_4E8EB01701A5set_var*
 //#UC END# *4E8EE02D0168_4E8EB01701A5set_var*
 begin

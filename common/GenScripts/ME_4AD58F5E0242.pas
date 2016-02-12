@@ -36,6 +36,12 @@ uses
  , l3Base
 ;
 
+{$If not Declared(_IStringType_)}type _IStringType_ = IString;{$IfEnd}
+
+{$If not Declared(_KeyType_)}type _KeyType_ = PAnsiChar;{$IfEnd}
+
+{$If not Declared(_BooleanType_)}type _BooleanType_ = ByteBool;{$IfEnd}
+
 {$Include w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsSettings.imp.pas}
 
 class function TnsSettingsPrim.Make(const aSettings: IBaseSettingsManager): IafwSettingsPrim;
