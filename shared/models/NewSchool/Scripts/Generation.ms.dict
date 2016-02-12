@@ -1329,12 +1329,22 @@ BOOLEAN elem_func IsMixInParamType
  @SELF
 ; // g_MixInParamTypes
   
+ModelElement elem_func FirstAttribute
+ Cached:
+ (
+  Self .Attributes .FirstElement
+ )
+ >>> Result
+; // FirstAttribute
+
 STRING elem_func TypeName
  Cached:
  (
   RULES
    ( Self IsString )
     Self
+   ( Self .IsOpenArray )
+    ( [ 'array of ' Self .FirstAttribute .Target call.me ] strings:Cat )
    DEFAULT  
     (
      STRING VAR l_ExtName
@@ -1612,6 +1622,23 @@ STRING elem_func IfDefStr
     end // ( Result IsNil )
    end // ( l_ParentIfDefStr IsNil ! )
   end // ( l_Parent IsNil ! )
+  Self .Implementor >>> l_Parent
+  if ( l_Parent IsNil ! ) then
+  begin
+   VAR l_ParentIfDefStr
+   l_Parent call.me >>> l_ParentIfDefStr
+   if ( l_ParentIfDefStr IsNil ! ) then
+   begin
+    if ( Result IsNil ) then
+    begin
+     l_ParentIfDefStr >>> Result
+    end // ( Result IsNil )
+    else
+    begin
+     l_ParentIfDefStr ',' Result Cat Cat >>> Result
+    end // ( Result IsNil )
+   end // ( l_ParentIfDefStr IsNil ! )
+  end // ( l_Parent IsNil ! )
   Result RemoveDuplicatedIfDef
  )
  >>> Result 
@@ -1624,6 +1651,23 @@ STRING elem_func IfNDefStr
   
   VAR l_Parent
   Self .Parent >>> l_Parent
+  if ( l_Parent IsNil ! ) then
+  begin
+   VAR l_ParentIfDefStr
+   l_Parent call.me >>> l_ParentIfDefStr
+   if ( l_ParentIfDefStr IsNil ! ) then
+   begin
+    if ( Result IsNil ) then
+    begin
+     l_ParentIfDefStr >>> Result
+    end // ( Result IsNil )
+    else
+    begin
+     l_ParentIfDefStr ',' Result Cat Cat >>> Result
+    end // ( Result IsNil )
+   end // ( l_ParentIfDefStr IsNil ! )
+  end // ( l_Parent IsNil ! )
+  Self .Implementor >>> l_Parent
   if ( l_Parent IsNil ! ) then
   begin
    VAR l_ParentIfDefStr
@@ -2555,8 +2599,25 @@ BOOLEAN elem_func IsAcceptableForScripts
  Self .UPisTrue 'extprop:rc:isAcceptableForScripts' >>> Result
 ; // IsAcceptableForScripts
 
+BOOLEAN elem_func InheritsOrImplementsAcceptableForScripts
+ Cached:
+ (
+  RULES
+   ( Self .Inherits .filter> .IsAcceptableForScripts .CountIt > 0 )
+    true
+   ( Self .Implements .filter> .IsAcceptableForScripts .CountIt > 0 )
+    true
+   DEFAULT
+    false
+  ; // RULES 
+ )
+ >>> Result
+; // InheritsOrImplementsAcceptableForScripts
+
 BOOLEAN elem_func HasSelf
  RULES
+  ( Self .Parent .InheritsOrImplementsAcceptableForScripts ! )
+   false
   ( Self .IsCreator )
    false
   ( Self .IsKeyWord )
@@ -3421,6 +3482,34 @@ elem_iterator OperationsUsed
  >>> Result
 ; // OperationsUsed
 
+elem_iterator MixInValues
+ Self .Attributes
+ .filter> ( .IsStereotype st_impurity_value::Attribute )
+ >>> Result
+; // MixInValues
+
+BOOLEAN elem_func InheritsOrImplementsMixIn
+ Cached:
+ (
+  RULES
+   ( Self .Inherits .filter> .IsMixIn .CountIt > 0 )
+    true
+   ( Self .Implements .filter> .IsMixIn .CountIt > 0 )
+    true
+   DEFAULT
+    false
+  ; // RULES 
+ )
+ >>> Result
+; // InheritsOrImplementsMixIn
+
+elem_iterator OtherMixinValuesUses
+ [empty]
+ .joinWithLambded> ( Self .Inherits ) ( .MixInValues .mapToTarget> )
+ .joinWithLambded> ( Self .Inherits ) call.me
+ >>> Result
+; // OtherMixinValuesUses
+
 elem_iterator Used
  Cached:
  (
@@ -3433,6 +3522,11 @@ elem_iterator Used
   .joinWithLambded> ( Self .Inherits .filter> .IsMixIn ) call.me
   .joinWithLambded> ( Self .Implements .filter> .IsMixIn ) call.me
   .join> ( Self .OperationsUsed )
+  
+  if ( Self .InheritsOrImplementsMixIn ) then
+  begin
+   .join> ( Self .OtherMixinValuesUses )
+  end // ( Self .InheritsOrImplementsMixIn )
   
   if ( Self .IsSingleton ) then
   begin
@@ -3498,14 +3592,6 @@ BOOLEAN elem_func IsClass
  Self .IsSimpleClass >>> Result
 ; // IsClass
 
-ModelElement elem_func FirstAttribute
- Cached:
- (
-  Self .Attributes .FirstElement
- )
- >>> Result
-; // FirstAttribute
-
 ModelElement elem_func SecondAttribute
  Cached:
  (
@@ -3557,6 +3643,8 @@ STRING elem_func InPrefix
  Cached:
  (
   RULES
+   ( Self IsNil )
+    cConstPrefix
    ( Self .IsRecord )
     cConstPrefix
    ( Self .IsUnion )
@@ -3906,7 +3994,8 @@ elem_proc MethodInterfacePrim
      end // ( l_Type IsNil ! )
      
      VAR l_Value
-     aParam .ExtValue >>> l_Value
+     //aParam .ExtValue >>> l_Value
+     aParam .GetUP 'Value' >>> l_Value
      if ( l_Value .IsValueValid ) then
      begin
       ' = ' l_Value
@@ -4377,7 +4466,10 @@ elem_iterator AllOperationsForDefine
     ( Self .Properties )
    ( Self .IsInterface )
     ( Self .InterfacePropertiesTotal )
-   ( Self .IsClassOrMixIn )
+   ( 
+    ( Self .IsStaticObject )
+    OR ( Self .IsClassOrMixIn )
+   ) 
     ( 
      Self .Properties
      .filter> ( IN anItem
@@ -4530,12 +4622,6 @@ elem_proc OutProperty
    ( Self .OutDocumentation )
  ) // Self .IfDef:
 ; // OutProperty
-
-elem_iterator MixInValues
- Self .Attributes
- .filter> ( .IsStereotype st_impurity_value::Attribute )
- >>> Result
-; // MixInValues
 
 PROCEDURE .ByVisibility>
   ARRAY IN anArray
@@ -4833,6 +4919,29 @@ elem_proc UndefineImplementedMixInValues
  Self .Implements .filter> .IsInterface .for> .UndefineMixInValues
 ; // DefineImplementedMixInValues
 
+ARRAY CompileTime-VAR g_MixInValues nil
+
+elem_proc OutOtherMixinValues
+ Self .Inherits .for> (
+   IN aG
+  aG .MixInValues .for> (
+    IN aValue
+   if ( g_MixInValues aValue .Name array:HasText ! ) then
+   begin
+    aValue .Name array:AddTo g_MixInValues
+    [ 
+     '{$If not Declared(' '_' aValue .Name '_' ')' '}'
+     'type' ' '
+     '_' aValue .Name '_' ' = ' aValue .Target .TypeName ';' 
+     '{$IfEnd}'
+     \n
+    ] .Out
+   end // ( g_MixInValues aValue .Name array:HasText ! )
+  ) // aG .MixInValues .for>
+  aG call.me
+ ) // Self .Inherits .for>
+; // OutOtherMixinValues
+
 elem_proc OutClass
 
  Self .DefineImplementedMixInValues
@@ -4844,6 +4953,7 @@ elem_proc OutClass
 
  Self .MixInValues .for> (
    IN aValue
+  aValue .Name array:AddTo g_MixInValues 
   [ '_' aValue .Name '_' ' = ' aValue .Target .TypeName ';' ] .Out
  )
  
@@ -5204,7 +5314,7 @@ elem_proc OutArray
  end // ( Self .IsOpenArray ! )
 ; // OutArray
 
-ARRAY CompileTime-VAR g_OutedTypes []
+ARRAY CompileTime-VAR g_OutedTypes nil
 
 elem_proc OutForward
  if ( Self g_OutedTypes array:Has ! ) then
@@ -5219,6 +5329,15 @@ elem_proc OutForward
   ; // RULES  
  end // ( Self g_OutedTypes array:Has ! )
 ; // OutForward
+
+elem_iterator ForwardedEx
+ Self .Forwarded >>> Result
+ if ( Self .IsInterface ) then
+  if ( Self .Parent .IsInterface ) then
+  begin
+   Result .join> [ Self .Parent ] >>> Result
+  end // ( Self .Parent .IsInterface )
+; // ForwardedEx
 
 elem_proc OutType
  RULES
@@ -5245,7 +5364,7 @@ elem_proc OutType
     if ( Self g_OutedTypes array:Has ! ) then
     begin
      Self array:AddTo g_OutedTypes
-     Self .Forwarded .for> .OutForward
+     Self .ForwardedEx .for> .OutForward
      Self .IfDef:
      (
       RULES
@@ -5884,78 +6003,84 @@ BOOLEAN elem_func NeedsInstanceR
 ; // NeedsInstanceR
 
 elem_proc OutClassImplementation
- Self .DefineImplementedMixInValues
- 
- BOOLEAN VAR l_WasFirst
- false >>> l_WasFirst
- TF g_EnableAutoEOL (
-  false >>> g_EnableAutoEOL
-  TF g_EnableMethodDocumentation (
-   false >>> g_EnableMethodDocumentation
-   Self .AllInlinedOperations 
-   .filter> (
-     IN aMethod
-    if l_WasFirst then
-     true
-    else
-    begin
-     true >>> l_WasFirst
-     false
-    end
-   ) // .filter>
-   .for> .MethodInterfaceForEx: nil (
-     IN aMethod
-    ' forward;' .Out
-    OutLn
-    OutLn
-   ) // .for> .MethodInterfaceForEx: nil
-  ) // TF g_EnableMethodDocumentation
- ) // TF g_EnableAutoEOL 
- Self .AllInlinedOperations .for> .MethodInterfaceForEx: nil .MethodBody
- 
- VAR l_WasInstanceR
- Self .IsMixIn >>> l_WasInstanceR
- 
- Self .Inherits 
- .join> ( Self .Implements )
- .filter> .IsMixIn 
- .for> ( 
-   IN aG
-   
-  if ( l_WasInstanceR ! ) then
-  begin
-   if ( aG .NeedsInstanceR ) then
-   begin
-    true >>> l_WasInstanceR
-    [ 'type _Instance_R_ = ' Self .TypeName ';' ] .Out
-    OutLn
-   end // ( aG .NeedsInstanceR )
-  end // ( l_WasInstanceR ! )
+ Self .IfDef:
+ (
+  Self .DefineImplementedMixInValues
   
-  aG .OutMixInInclude
-  OutLn
- ) // .for>
+  if ( Self .InheritsOrImplementsMixIn ) then
+  begin
+   Self .OutOtherMixinValues
+  end // ( Self .InheritsOrImplementsMixIn )
+  
+  BOOLEAN VAR l_WasFirst
+  false >>> l_WasFirst
+  TF g_EnableAutoEOL (
+   false >>> g_EnableAutoEOL
+   TF g_EnableMethodDocumentation (
+    false >>> g_EnableMethodDocumentation
+    Self .AllInlinedOperations 
+    .filter> (
+      IN aMethod
+     if l_WasFirst then
+      true
+     else
+     begin
+      true >>> l_WasFirst
+      false
+     end
+    ) // .filter>
+    .for> .MethodInterfaceForEx: nil (
+      IN aMethod
+     ' forward;' .Out
+     OutLn
+     OutLn
+    ) // .for> .MethodInterfaceForEx: nil
+   ) // TF g_EnableMethodDocumentation
+  ) // TF g_EnableAutoEOL 
+  Self .AllInlinedOperations .for> .MethodInterfaceForEx: nil .MethodBody
+  
+  VAR l_WasInstanceR
+  Self .IsMixIn >>> l_WasInstanceR
+  
+  Self .Inherits 
+  .join> ( Self .Implements )
+  .filter> .IsMixIn 
+  .for> ( 
+    IN aG
+    
+   if ( l_WasInstanceR ! ) then
+   begin
+    if ( aG .NeedsInstanceR ) then
+    begin
+     true >>> l_WasInstanceR
+     [ 'type _Instance_R_ = ' Self .TypeName ';' ] .Out
+     OutLn
+    end // ( aG .NeedsInstanceR )
+   end // ( l_WasInstanceR ! )
+   
+   aG .OutMixInInclude
+   OutLn
+  ) // .for>
+  
+  TF g_MethodParentPrefix (
+   Self .TypeName >>> g_MethodParentPrefix
+   g_MethodParentPrefix '.' Cat >>> g_MethodParentPrefix
+   TF g_EnableMethodDirectives (
+    false >>> g_EnableMethodDirectives
+    Self .AllOperationsForDefine 
+    .filter> ( .MethodAbstraction at_abstract != )
+    .for> .MethodInterfaceForEx: nil .MethodBody
+   ) // TF g_EnableMethodDirectives
+  ) // TF g_MethodParentPrefix
+  
+  if ( Self .UPisTrue "need UC" ) then
+  begin
+   Self .UserCode: 'impl' ()
+   OutLn
+  end // ( Self .UPisTrue "need UC" ) 
  
- TF g_MethodParentPrefix (
-  Self .TypeName >>> g_MethodParentPrefix
-  g_MethodParentPrefix '.' Cat >>> g_MethodParentPrefix
-  TF g_EnableMethodDirectives (
-   false >>> g_EnableMethodDirectives
-   Self .AllOperationsForDefine 
-   .filter> ( .MethodAbstraction at_abstract != )
-   .for> .MethodInterfaceForEx: nil .MethodBody
-  ) // TF g_EnableMethodDirectives
- ) // TF g_MethodParentPrefix
- 
-//	%f_clear_list(CAST_METHODS)\
- if ( Self .UPisTrue "need UC" ) then
- begin
-  Self .UserCode: 'impl' ()
-  OutLn
- end // ( Self .UPisTrue "need UC" ) 
-//      [\n\n%S%f_close_ifdef()]\
-
- Self .UndefineImplementedMixInValues
+  Self .UndefineImplementedMixInValues
+ ) // Self .IfDef:
 
 ; // OutClassImplementation
 
@@ -6176,81 +6301,85 @@ elem_proc OutUnitHeader
 ; // OutUnitHeader
 
 elem_proc OutUnit
- TF g_DefaultInterfaceAncestor (
- 
-  Self .Children .filter> ( .UPisTrue "is default ancestor" ) .FirstElement >>> g_DefaultInterfaceAncestor
+ TF g_MixInValues (
+  [] >>> g_MixInValues
+  TF g_DefaultInterfaceAncestor (
   
-  TF g_OutedTypes (
-   [ 
-    RULES
-     ( Self .IsDLL )
-      'library'
-     ( Self .IsExe )
-      'program'
-     DEFAULT
-      'unit' 
-    ; // RULES  
-    cSpace
-    Self .UnitNamePrim ';' 
-   ] .Out
-   Self .OutDocumentation
-   OutLn
+   Self .Children .filter> ( .UPisTrue "is default ancestor" ) .FirstElement >>> g_DefaultInterfaceAncestor
    
-   Self .OutUnitHeader
-   
-   VAR l_Defines
-   Self .Defines >>> l_Defines
-   if ( l_Defines IsNil ! ) then
-   begin
-    [ cOpenComment '$Include ' l_Defines cCloseComment ] .Out
+   TF g_OutedTypes (
+    [] >>> g_OutedTypes
+    [ 
+     RULES
+      ( Self .IsDLL )
+       'library'
+      ( Self .IsExe )
+       'program'
+      DEFAULT
+       'unit' 
+     ; // RULES  
+     cSpace
+     Self .UnitNamePrim ';' 
+    ] .Out
+    Self .OutDocumentation
     OutLn
-   end // ( l_Defines IsNil ! )
-   
-   'interface' .Out
-   OutLn
-   
-   ARRAY VAR l_Used
-   [] >>> l_Used
-   
-   Self .IfDef: ( 
-    Self 'intf_uses' .OutUses: l_Used ( Self .IntfUses )
-   
-    Self .OutInterfaceSection
     
-    if ( Self .IsElementProxy ) then
+    Self .OutUnitHeader
+    
+    VAR l_Defines
+    Self .Defines >>> l_Defines
+    if ( l_Defines IsNil ! ) then
     begin
-     Self .UserCode: 'intf_code' ()
+     [ cOpenComment '$Include ' l_Defines cCloseComment ] .Out
      OutLn
-    end // ( Self .IsElementProxy )
-   ) // Self .IfDef:
-   
-   'implementation' .Out
-   OutLn
-   
-   Self .IfDef: ( 
-    Self 'impl_uses' .OutUses: l_Used ( Self .ImplUses )
-   
-    Self .OutImplementationSection
+    end // ( l_Defines IsNil ! )
     
-    RULES
-     ( Self .IsElementProxy )
-      (
-       Self .UserCode: 'impl_code' ()
-       OutLn
-      )
-     ( Self .IsDLL )
-      (
-       'exports' .Out
-       Self .UserCode: 'exports' ( )
-       ';' .Out
-       OutLn
-      )
-    ; // RULES
-   ) // Self .IfDef:
-   
-   'end.' .Out
-  ) // TF g_OutedTypes
- ) // TF g_DefaultInterfaceAncestor 
+    'interface' .Out
+    OutLn
+    
+    ARRAY VAR l_Used
+    [] >>> l_Used
+    
+    Self .IfDef: ( 
+     Self 'intf_uses' .OutUses: l_Used ( Self .IntfUses )
+    
+     Self .OutInterfaceSection
+     
+     if ( Self .IsElementProxy ) then
+     begin
+      Self .UserCode: 'intf_code' ()
+      OutLn
+     end // ( Self .IsElementProxy )
+    ) // Self .IfDef:
+    
+    'implementation' .Out
+    OutLn
+    
+    Self .IfDef: ( 
+     Self 'impl_uses' .OutUses: l_Used ( Self .ImplUses )
+    
+     Self .OutImplementationSection
+     
+     RULES
+      ( Self .IsElementProxy )
+       (
+        Self .UserCode: 'impl_code' ()
+        OutLn
+       )
+      ( Self .IsDLL )
+       (
+        'exports' .Out
+        Self .UserCode: 'exports' ( )
+        ';' .Out
+        OutLn
+       )
+     ; // RULES
+    ) // Self .IfDef:
+    
+    'end.' .Out
+   ) // TF g_OutedTypes
+  ) // TF g_DefaultInterfaceAncestor 
+ ) // TF g_MixInValues 
 ; // OutUnit
 
 STRING elem_func DefineName
@@ -6262,50 +6391,54 @@ STRING elem_func DefineName
 ; // DefineName
 
 elem_proc OutMixIn
- TF g_OutedTypes (
-  
-  VAR l_DefineName
-  Self .DefineName >>> l_DefineName
-  
-  [ cOpenComment '$IfNDef ' l_DefineName cCloseComment \n ] .Out
-  
-  Self .OutUnitHeader
-  
-  [ cOpenComment '$Define ' l_DefineName cCloseComment \n ] .Out
-  
-  Self .IfDefElse: 
-  ( 
-   Self .OutInterfaceSection
-  ) 
-  (
-   VAR l_Parent
-   Self .CalcParentAndInclude >>> l_Parent
-   [ Self .TypeName ' = ' l_Parent .TypeName ';' \n ] .Out
-  )
-  // Self .IfDefElse:
-  
-  [ cOpenComment '$Else ' l_DefineName cCloseComment \n ] .Out
-  
-  VAR l_DefineNameImpl
-  [ l_DefineName '_impl' ] >>> l_DefineNameImpl
-  
-  [ cOpenComment '$IfNDef ' l_DefineNameImpl cCloseComment \n ] .Out
-  
-  [ cOpenComment '$Define ' l_DefineNameImpl cCloseComment \n ] .Out
-  
-  TF g_DeferredInitialization (
-   [ cOpenComment '$Else ' l_DefineNameImpl cCloseComment \n ] >>> g_DeferredInitialization
+ TF g_MixInValues (
+  [] >>> g_MixInValues
+  TF g_OutedTypes (
+   [] >>> g_OutedTypes
    
-   Self .IfDef: ( 
-    Self .OutImplementationSection
-   ) // Self .IfDef:
-  )
-  
-  [ cOpenComment '$EndIf ' l_DefineNameImpl cCloseComment \n ] .Out
-  
-  [ cOpenComment '$EndIf ' l_DefineName cCloseComment \n ] .Out
-  
- ) // TF g_OutedTypes
+   VAR l_DefineName
+   Self .DefineName >>> l_DefineName
+   
+   [ cOpenComment '$IfNDef ' l_DefineName cCloseComment \n ] .Out
+   
+   Self .OutUnitHeader
+   
+   [ cOpenComment '$Define ' l_DefineName cCloseComment \n ] .Out
+   
+   Self .IfDefElse: 
+   ( 
+    Self .OutInterfaceSection
+   ) 
+   (
+    VAR l_Parent
+    Self .CalcParentAndInclude >>> l_Parent
+    [ Self .TypeName ' = ' l_Parent .TypeName ';' \n ] .Out
+   )
+   // Self .IfDefElse:
+   
+   [ cOpenComment '$Else ' l_DefineName cCloseComment \n ] .Out
+   
+   VAR l_DefineNameImpl
+   [ l_DefineName '_impl' ] >>> l_DefineNameImpl
+   
+   [ cOpenComment '$IfNDef ' l_DefineNameImpl cCloseComment \n ] .Out
+   
+   [ cOpenComment '$Define ' l_DefineNameImpl cCloseComment \n ] .Out
+   
+   TF g_DeferredInitialization (
+    [ cOpenComment '$Else ' l_DefineNameImpl cCloseComment \n ] >>> g_DeferredInitialization
+    
+    Self .IfDef: ( 
+     Self .OutImplementationSection
+    ) // Self .IfDef:
+   )
+   
+   [ cOpenComment '$EndIf ' l_DefineNameImpl cCloseComment \n ] .Out
+   
+   [ cOpenComment '$EndIf ' l_DefineName cCloseComment \n ] .Out
+   
+  ) // TF g_OutedTypes
+ ) // TF g_MixInValues
 ; // OutMixIn
 
 BOOLEAN elem_func UseNewGen

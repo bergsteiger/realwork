@@ -11913,6 +11913,52 @@ ref; // ME_54EC683D025F DoIt
 
 ref; // ME_54EC68190248 SetVMerged2LastCell
 
+FORWARD ME_56BD92CC03B8
+
+: ME_56BDA8600346
+ CONST UID '56BDA8600346'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56BDA8600346 anIndex
+
+: ME_56BD92FF02EC
+ CONST UID '56BD92FF02EC'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BD92CC03B8 // InsertCell
+ ;
+ : Target ME_4FACE127032F // TddTableCell
+ ;
+ : Parameters
+   Seq: ( ME_56BDA8600346 // anIndex
+ )
+ ; // Parameters
+
+ref; // ME_56BD92FF02EC DoIt
+
+: ME_56BD92CC03B8
+ CONST UID '56BD92CC03B8'
+ CONST Name 'InsertCell'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4FACE1370377 // TddTableRow
+ ;
+ : Operations
+   Seq: ( ME_56BD92FF02EC // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56BD92CC03B8 InsertCell
+
 : ME_518A58AD023C
  CONST UID '518A58AD023C'
  CONST Class class_Dependency
@@ -12179,6 +12225,7 @@ ref; // ME_528C8C2F02D9_ME_4FACE1370377 Assign
  ME_51E657D90184 // DoApplyCellProps
  ME_5236E3050196 // ApplyCellProperty
  ME_54EC68190248 // SetVMerged2LastCell
+ ME_56BD92CC03B8 // InsertCell
  )
  ; // Operations
  : Implemented

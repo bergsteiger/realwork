@@ -131,9 +131,11 @@ p ifndef:s=NoScripts ?
 
 //	%f_warning(%CN)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
 	 TtfwTypeRegistrator.RegisterType(%t_TypeInfo(%C));\
 	)\
+	]\
 	>\
 	]\
 
@@ -272,6 +274,7 @@ f _SpellWordByOp
 	[{"%{TtfwCompilingWord.SupressNextImmediate}N"=""}%f_find_element(4F3AB3B101FC,TtfwCompilingWord.SupressNextImmediate)]\
 	%{Class_Inst}%f_add_override(%{TtfwCompilingWord.SupressNextImmediate}U)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwCompilingWord.SupressNextImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwCompilingWord.SupressNextImmediate},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -279,6 +282,7 @@ f _SpellWordByOp
 	%{TtfwCompilingWord.SupressNextImmediate}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwCompilingWord.SupressNextImmediate},%{Class_Inst})_impl,\
 	 Result := tfw_sni%1{SupressNextImmediate};\
 	)\
+	]\
 
 	]\
 
@@ -288,6 +292,7 @@ f _SpellWordByOp
 	[{"%{TtfwWord.GetResultTypeInfo}N"=""}%f_find_element(551544E2001A,TtfwWord.GetResultTypeInfo)]\
 	%{Class_Inst}%f_add_override(%{TtfwWord.GetResultTypeInfo}U)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.GetResultTypeInfo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetResultTypeInfo},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -299,6 +304,7 @@ f _SpellWordByOp
 	 Result := %t_TypeInfo(%{GEN});\
 	]\
 	)\
+	]\
 
 	%f_set_var(Op_Instance,"")\
 
@@ -374,6 +380,7 @@ f _SpellWordByOp
 
 	%{Class_Inst}%f_add_override(%{TtfwWord.GetAllParamsCount}U)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.GetAllParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.GetAllParamsCount},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -389,12 +396,14 @@ f _SpellWordByOp
 	]\
 	;\
 	)\
+	]\
 
 	[{%1#f_IsVarWorker()=true}\
 	[{"%{TtfwWord.RightParamsCount}N"=""}%f_find_element(52E9282B0271,TtfwWord.RightParamsCount)]\
 
 	%{Class_Inst}%f_add_override(%{TtfwWord.RightParamsCount}U)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.RightParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.RightParamsCount},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -402,6 +411,7 @@ f _SpellWordByOp
 	%{TtfwWord.RightParamsCount}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.RightParamsCount},%{Class_Inst})_impl,\
 	 Result := 1;\
 	)\
+	]\
 
 	]\
 
@@ -410,6 +420,7 @@ f _SpellWordByOp
 
 	%{Class_Inst}%f_add_override(%{TtfwClassLike.BindParams}U)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwClassLike.BindParams}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwClassLike.BindParams},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -417,6 +428,7 @@ f _SpellWordByOp
 	%{TtfwClassLike.BindParams}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwClassLike.BindParams},%{Class_Inst})_impl,\
 	 Result := true;\
 	)\
+	]\
 
 //	[{"%{TtfwWord.LeftWordRefParamsCount}N"=""}%f_find_element(53E4914101D2,TtfwWord.LeftWordRefParamsCount)]\
 
@@ -444,6 +456,7 @@ f _SpellWordByOp
 
 	%{Class_Inst}%f_add_override(%{TtfwWord.LeftParamsTypes}U)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.LeftParamsTypes}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.LeftParamsTypes},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -452,7 +465,9 @@ f _SpellWordByOp
 	 Result := OpenTypesToTypes(\[%{Op_Instance}<{, }{%CS!=out}{+%C}%t_TypeInfo(%C%T)>\]);\
 	)\
 	]\
+	]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{MyDo}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{MyDo},%{Class_Inst})_var,\
 	 {-}\
 	[{%{Op_Instance}<{}{}{+%CC}>!=0}\
@@ -500,9 +515,11 @@ f _SpellWordByOp
 	]\
 	>\
 	)\
+	]\
 
 	[{%1{mapped}=true}\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -520,6 +537,7 @@ f _SpellWordByOp
 	]\
 	;\
 	)\
+	]\
 
 	]\
 
@@ -540,6 +558,7 @@ f _SpellWordByOp
 	[{"%{TtfwWord.SetValue}N"=""}%f_find_element(52D00B00031A,TtfwWord.SetValue)]\
 	%{Class_Inst}%f_add_override(%{TtfwWord.SetValue}U)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwWord.SetValue}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.SetValue},%{Class_Inst})_var,\
 	[{"%1{prop_stereo}"="readonly"}{\
 	var
@@ -592,6 +611,7 @@ f _SpellWordByOp
 	 RunnerError('Ќельз€ присваивать значение readonly свойству %1{prop_name}'%f_comma(%S) aCtx);\
 	]\
 	)\
+	]\
 
 	]\
 	]\
