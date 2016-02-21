@@ -4,7 +4,7 @@ unit kwDualCompiledWordContainer;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwDualCompiledWordContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

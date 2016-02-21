@@ -10,7 +10,7 @@ aFileName test:ResolveInputFilePath
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTestResolveInputFilePath.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit m3EndingReplaceList;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3EndingReplaceList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 

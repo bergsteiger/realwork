@@ -3,7 +3,7 @@ unit PrimPostingsListOptions_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\Forms\PrimPostingsListOptions_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -15,7 +15,6 @@ uses
  , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , PostingOrder_Strange_Controls
- , PrimPostingsList_MyPostingList_UserType
 ;
 
 type
@@ -39,6 +38,7 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ , PrimPostingsList_MyPostingList_UserType
  , Windows
  {$If NOT Defined(NoVCL)}
  , Controls

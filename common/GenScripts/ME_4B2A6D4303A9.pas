@@ -3,7 +3,7 @@ unit KTestRunner;
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\KTestRunner.pas"
 // Стереотип: "UtilityPack"
 
-{$Include tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 
@@ -26,6 +26,8 @@ uses
 
 type
  PTimeInfo = ^TTimeInfo;
+
+ RTestResultsPlace = class of TTestResultsPlace;
 
  TKFileOperation = (
   {* Операция с файлом в К }
@@ -119,7 +121,7 @@ type
    function GetLabels: AnsiString;
     {* Возвращает метки страницы с тестами }
    class procedure write(const aStr: AnsiString); override;
-   class procedure writeln(const aStr: AnsiString = ''); override;
+   class procedure writeln(const aStr: AnsiString); override;
    procedure Cleanup; override;
    procedure InitFields; override;
    function NeedsMilliseconds: Boolean; override;
@@ -141,8 +143,6 @@ type
    procedure AddError(error: TTestFailure); override;
    procedure AddFailure(failure: TTestFailure); override;
  end;//TKTestListener
-
- RTestResultsPlace = class of TTestResultsPlace;
 
  TTestResultsPlaces = array of RTestResultsPlace;
 
@@ -2124,7 +2124,7 @@ begin
 //#UC END# *4B2A6CBC008B_4B2A6CEB0377_impl*
 end;//TKTestListener.write
 
-class procedure TKTestListener.writeln(const aStr: AnsiString = '');
+class procedure TKTestListener.writeln(const aStr: AnsiString);
 //#UC START# *4B2A6CCF00BB_4B2A6CEB0377_var*
 //#UC END# *4B2A6CCF00BB_4B2A6CEB0377_var*
 begin

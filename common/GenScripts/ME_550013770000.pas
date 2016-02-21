@@ -3,7 +3,7 @@ unit l3PopupMenuHelper;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3PopupMenuHelper.pas"
 // Стереотип: "Service"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
@@ -14,7 +14,6 @@ uses
  , Menus
  , Classes
  , Types
- , Controls
 ;
 
 type
@@ -70,6 +69,7 @@ implementation
 {$If NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , Controls
  , SysUtils
  , l3Base
 ;

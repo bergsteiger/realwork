@@ -4,7 +4,7 @@ unit tfwBeginLikeWord;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwBeginLikeWord.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

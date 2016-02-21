@@ -3,7 +3,7 @@ unit htDataSchemeHelper;
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataSchemeHelper.pas"
 // Стереотип: "SimpleClass"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit MainWindowInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\MainWindowInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit PrimStyleEditorFont_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorFont_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -30,8 +30,6 @@ uses
  , vtColorBox
  , l3Interfaces
  , Classes
- , l3MessageID
- , l3StringIDEx
 ;
 
 const
@@ -239,6 +237,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3MessageID
+ , l3StringIDEx
  , nsTypes
  , Graphics
  {$If NOT Defined(NoVCL)}

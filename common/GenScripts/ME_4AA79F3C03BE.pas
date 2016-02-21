@@ -4,7 +4,7 @@ unit moSettings;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moSettings.pas"
 // Стереотип: "VCMUseCaseRealization"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

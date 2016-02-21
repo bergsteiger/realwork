@@ -3,7 +3,7 @@ unit toK64;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toK64.pas"
 // Стереотип: "TestResults"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

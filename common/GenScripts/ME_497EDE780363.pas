@@ -4,7 +4,7 @@ unit PrimDocumentWithFlash_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlash_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -59,7 +59,6 @@ uses
  , OfficeLike_Usual_Controls
  {$IfEnd} // NOT Defined(NoVCM)
  , l3SimpleObject
- , DocumentWithFlashUserTypes_dwftSynchro_UserType
 ;
 
 const
@@ -260,6 +259,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , DocumentWithFlashUserTypes_dwftSynchro_UserType
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

@@ -3,7 +3,7 @@ unit pgTableQueryFactory;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgTableQueryFactory.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

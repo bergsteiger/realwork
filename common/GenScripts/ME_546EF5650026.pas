@@ -3,7 +3,7 @@ unit ncsFileDescHelper;
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsFileDescHelper.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

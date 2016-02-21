@@ -3,7 +3,7 @@ unit tfwIl3CStringPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIl3CStringPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,12 +11,6 @@ interface
 uses
  l3IntfUses
  , l3Interfaces
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
- , tfwRegisterableWord
- , tfwWordWorkerEx
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwRegisterableWord
+ , tfwWordWorkerEx
  , l3String
  , l3Types
  , l3Chars

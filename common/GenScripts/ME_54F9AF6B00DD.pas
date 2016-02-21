@@ -3,7 +3,7 @@ unit htDataProviderParams;
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataProviderParams.pas"
 // Стереотип: "SimpleClass"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 

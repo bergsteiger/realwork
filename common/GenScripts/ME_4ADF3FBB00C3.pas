@@ -3,7 +3,7 @@ unit PrimeDomainInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimeDomainInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit tfwAxiomaticsResNameGetter;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

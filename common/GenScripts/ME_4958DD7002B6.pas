@@ -4,7 +4,7 @@ unit PrimMainMenu_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenu_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -37,7 +37,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , afwInterfaces
  , bsInterfaces
- , l3ProtoObject
 ;
 
 type
@@ -129,6 +128,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3ProtoObject
  , SysUtils
  , nsConst
  {$If NOT Defined(NoVCM)}

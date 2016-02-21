@@ -3,7 +3,7 @@ unit pgUtils;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

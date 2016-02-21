@@ -3,7 +3,7 @@ unit F1AutoTestSuite;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_AutoTests\F1AutoTestSuite.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit StatusBarButtonWords;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\StatusBarButtonWords.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,9 +11,6 @@ interface
 uses
  l3IntfUses
  , nscStatusBarButton
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
 
@@ -22,6 +19,9 @@ implementation
 {$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

@@ -5,7 +5,7 @@ unit bsDocumentMissingMessage;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\bsDocumentMissingMessage.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -13,8 +13,6 @@ interface
 uses
  l3IntfUses
  , DocumentUnit
- , l3StringIDEx
- , l3MessageID
 ;
 
 type
@@ -33,6 +31,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)

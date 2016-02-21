@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsAppConfig;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Config\NOT_FINISHED_nsAppConfig.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -170,24 +170,24 @@ type
     {* Функция очистки полей объекта. }
   public
    constructor Create(const aSettings: IvcmSettings = nil); reintroduce;
-   function Get_Section: AnsiString;
+   function Get_Section: AnsiString; stdcall;
    function ReadBool(const Alias: AnsiString;
-    Default: Boolean): Boolean; overload;
+    Default: Boolean): Boolean; overload; stdcall;
    function ReadDateTime(const Alias: AnsiString;
-    Default: TDateTime): TDateTime; overload;
+    Default: TDateTime): TDateTime; overload; stdcall;
    function ReadInteger(const Alias: AnsiString;
-    Default: Integer): Integer; overload;
+    Default: Integer): Integer; overload; stdcall;
    function ReadString(const Alias: AnsiString;
-    const Default: AnsiString): Il3CString; overload;
-   procedure Set_Section(const Value: AnsiString);
+    const Default: AnsiString): Il3CString; overload; stdcall;
+   procedure Set_Section(const Value: AnsiString); stdcall;
    function WriteBool(const Alias: AnsiString;
-    Default: Boolean): Boolean; overload;
+    Default: Boolean): Boolean; overload; stdcall;
    procedure WriteDateTime(const Alias: AnsiString;
-    DT: TDateTime); overload;
+    DT: TDateTime); overload; stdcall;
    procedure WriteInteger(const Alias: AnsiString;
-    I: Integer); overload;
+    I: Integer); overload; stdcall;
    procedure WriteString(const Alias: AnsiString;
-    const S: AnsiString); overload;
+    const S: AnsiString); overload; stdcall;
  end;//TnsConfigStorage
 
  TstgTextSelection = class(TddComboBoxConfigItem)

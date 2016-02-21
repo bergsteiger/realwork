@@ -3,7 +3,7 @@ unit RoundedControlsTest;
 // Модуль: "w:\common\components\SandBox\RoundedControlsTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

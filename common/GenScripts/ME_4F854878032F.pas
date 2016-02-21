@@ -3,7 +3,7 @@ unit WinUtilsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\WinUtilsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -14,12 +14,10 @@ uses
  , tfwScriptingInterfaces
  , Types
  , tfwTypeInfo
- , tfwGlobalKeyWord
- , TypInfo
 ;
 
 function IterateWindowsMethod(hWindow: THandle;
- aData: PtfwWordCallContext): Boolean;
+ aData: PtfwWordCallContext): Boolean; stdcall;
 procedure MakeScreenshot(aWnd: THandle;
  const aRect: TRect;
  const aFileName: AnsiString;
@@ -33,6 +31,8 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoWindows)}
 uses
  l3ImplUses
+ , tfwGlobalKeyWord
+ , TypInfo
  , SysUtils
  , Messages
  , CommCtrl

@@ -4,7 +4,7 @@ unit F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType.pas"
 // Стереотип: "UserType"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -12,9 +12,6 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
- {$If NOT Defined(NoScripts)}
- , tfwInteger
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const
@@ -30,6 +27,9 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

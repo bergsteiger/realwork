@@ -3,7 +3,7 @@ unit daTypes;
 // Модуль: "w:\common\components\rtl\Garant\DA\daTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

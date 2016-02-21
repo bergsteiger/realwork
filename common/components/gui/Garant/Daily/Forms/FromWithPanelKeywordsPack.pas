@@ -4,7 +4,7 @@ unit FromWithPanelKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\FromWithPanelKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -13,14 +13,6 @@ uses
  l3IntfUses
  , FromWithPanel_Form
  , vtPanel
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -29,6 +21,14 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -124,12 +124,9 @@ begin
 end;//Tkw_FromWithPanel_Control_WorkSpace.RegisterInEngine
 
 procedure Tkw_FromWithPanel_Control_WorkSpace_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B42BC0D3240E_var*
-//#UC END# *4DAEEDE10285_B42BC0D3240E_var*
 begin
-//#UC START# *4DAEEDE10285_B42BC0D3240E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B42BC0D3240E_impl*
+ aCtx.rEngine.PushString('WorkSpace');
+ inherited;
 end;//Tkw_FromWithPanel_Control_WorkSpace_Push.DoDoIt
 
 class function Tkw_FromWithPanel_Control_WorkSpace_Push.GetWordNameForRegister: AnsiString;

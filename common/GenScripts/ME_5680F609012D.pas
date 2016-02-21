@@ -3,7 +3,7 @@ unit daSortFieldList;
 // Модуль: "w:\common\components\rtl\Garant\DA\daSortFieldList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

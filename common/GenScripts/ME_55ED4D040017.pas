@@ -3,7 +3,7 @@ unit tfwWordsIterator;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordsIterator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit Base_Operations_Strange_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Strange_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -18,7 +18,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3CProtoObject
  , l3Tree_TLB
  , FoldersUnit
  , DocumentUnit
@@ -819,6 +818,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3CProtoObject
 ;
 
 type

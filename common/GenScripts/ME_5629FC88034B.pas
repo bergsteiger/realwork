@@ -3,7 +3,7 @@ unit pgUserManager;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgUserManager.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

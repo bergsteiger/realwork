@@ -4,7 +4,7 @@ unit F1LikeTextLoadKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeTextLoadKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -17,14 +17,6 @@ uses
  , eeTextSourceExport
  {$IfEnd} // Defined(Nemesis)
  , evLoadDocumentManager
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -33,6 +25,14 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -202,12 +202,9 @@ begin
 end;//Tkw_F1LikeTextLoad_Control_Text.RegisterInEngine
 
 procedure Tkw_F1LikeTextLoad_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_244CB8ED63D3_var*
-//#UC END# *4DAEEDE10285_244CB8ED63D3_var*
 begin
-//#UC START# *4DAEEDE10285_244CB8ED63D3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_244CB8ED63D3_impl*
+ aCtx.rEngine.PushString('Text');
+ inherited;
 end;//Tkw_F1LikeTextLoad_Control_Text_Push.DoDoIt
 
 class function Tkw_F1LikeTextLoad_Control_Text_Push.GetWordNameForRegister: AnsiString;

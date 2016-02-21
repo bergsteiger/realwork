@@ -3,7 +3,7 @@ unit nsEditionDiffData;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\nsEditionDiffData.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

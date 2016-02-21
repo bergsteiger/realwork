@@ -3,7 +3,7 @@ unit CsDataPipePrim;
 // Модуль: "w:\common\components\rtl\Garant\cs\CsDataPipePrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
@@ -41,14 +41,14 @@ type
    function ReadLn: AnsiString; override;
    function ReadInt64: Int64; override;
    procedure ReadStream(aStream: TStream;
-    aSize: Int64 = -1); override;
+    aSize: Int64); override;
    function ReadInteger: Integer; override;
    function ReadSmallInt: SmallInt; override;
    procedure WriteLn(const aString: AnsiString); override;
    procedure WriteCardinal(aValue: Cardinal); override;
    procedure WriteInt64(aValue: Int64); override;
    procedure WriteStream(aStream: TStream;
-    aByteCount: Int64 = 0); override;
+    aByteCount: Int64); override;
    procedure WriteChar(aValue: AnsiChar); override;
    procedure WriteSmallInt(aValue: SmallInt); override;
    procedure WriteInteger(aValue: Integer); override;
@@ -166,7 +166,7 @@ begin
 end;//TCsDataPipePrim.ReadInt64
 
 procedure TCsDataPipePrim.ReadStream(aStream: TStream;
- aSize: Int64 = -1);
+ aSize: Int64);
 //#UC START# *538DB69000E7_538DC31F03A5_var*
 //#UC END# *538DB69000E7_538DC31F03A5_var*
 begin
@@ -233,7 +233,7 @@ begin
 end;//TCsDataPipePrim.WriteInt64
 
 procedure TCsDataPipePrim.WriteStream(aStream: TStream;
- aByteCount: Int64 = 0);
+ aByteCount: Int64);
 //#UC START# *538DB86700DB_538DC31F03A5_var*
 //#UC END# *538DB86700DB_538DC31F03A5_var*
 begin

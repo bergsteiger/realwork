@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsSearchClasses;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\QueryCardProcessing\NOT_FINISHED_nsSearchClasses.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

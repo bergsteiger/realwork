@@ -3,7 +3,7 @@ unit IntStackTest;
 // Модуль: "w:\common\components\SandBox\IntStackTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

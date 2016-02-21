@@ -4,7 +4,7 @@ unit QFLikeTextLoad_Form;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -17,7 +17,6 @@ uses
  , evQueryCardEditor
  , evCustomTextSource
  , evCustomEditor
- , l3StringIDEx
  , vcmInterfaces
 ;
 
@@ -61,6 +60,7 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , evQueryDocumentContainer
  , evControlContainerEX
  , nevTools

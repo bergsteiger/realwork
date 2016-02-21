@@ -3,7 +3,7 @@ unit nsPostingsLine;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsPostingsLine.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

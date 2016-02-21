@@ -4,7 +4,7 @@ unit moList;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moList.pas"
 // Стереотип: "VCMUseCaseRealization"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

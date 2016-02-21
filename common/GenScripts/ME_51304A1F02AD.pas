@@ -3,7 +3,7 @@ unit kwKeyWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\kwKeyWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include dsDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 
 interface
 
@@ -13,12 +13,6 @@ uses
  , GUITestRunner
  , TestFrameWork
  , ComCtrls
- , tfwAxiomaticsResNameGetter
- , tfwRegisterableWord
- , tfwScriptingInterfaces
- , TypInfo
- , tfwClassLike
- , tfwGlobalKeyWord
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -27,6 +21,12 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwRegisterableWord
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwClassLike
+ , tfwGlobalKeyWord
  , ITestWordsPack
  , TTreeNodeForTestsWordsPack
  , TestForm4Scripts

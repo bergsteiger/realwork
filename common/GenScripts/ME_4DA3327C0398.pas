@@ -3,7 +3,7 @@ unit toK;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toK.pas"
 // Стереотип: "TestResults"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

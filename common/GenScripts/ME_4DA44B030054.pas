@@ -4,7 +4,7 @@ unit moDocumentListFromFile;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moDocumentListFromFile.pas"
 // Стереотип: "VCMUseCaseRealization"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

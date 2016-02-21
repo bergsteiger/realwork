@@ -4,7 +4,7 @@ unit Base_Operations_Editions_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Editions_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -13,7 +13,6 @@ uses
  l3IntfUses
  , eeInterfaces
  , bsTypesNew
- , l3CProtoObject
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -113,6 +112,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3CProtoObject
 ;
 
 type

@@ -3,7 +3,7 @@ unit TextLoad;
 // Модуль: "w:\common\components\gui\Garant\Daily\TextLoad.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

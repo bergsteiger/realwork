@@ -4,7 +4,7 @@ unit KBridge;
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\KBridge.pas"
 // Стереотип: "SimpleClass"
 
-{$Include tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 

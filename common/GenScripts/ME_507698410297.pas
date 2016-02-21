@@ -3,7 +3,7 @@ unit ObjectFromstackWords;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ObjectFromstackWords.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,9 +11,6 @@ interface
 uses
  l3IntfUses
  , tfwScriptingInterfaces
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -22,6 +19,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , TypInfo
  , kwPopClassInherits
  , SysUtils
  , l3RTTI

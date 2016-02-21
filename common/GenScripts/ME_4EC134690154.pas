@@ -4,7 +4,7 @@ unit kwF1BaseDate;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1BaseDate.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit htDataProviderFactory;
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataProviderFactory.pas"
 // Стереотип: "SimpleClass"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
@@ -27,19 +27,19 @@ type
     out aParams: TdaDataProviderParams); override;
    procedure FillInConfig(aConfig: TddAppConfiguration;
     aParams: TdaDataProviderParams;
-    ForInfoOnly: Boolean = False); override;
+    ForInfoOnly: Boolean); override;
    procedure BuildConfig(aConfig: TddAppConfiguration;
-    const aProviderKey: AnsiString = '';
-    ForInfoOnly: Boolean = False); override;
+    const aProviderKey: AnsiString;
+    ForInfoOnly: Boolean); override;
    procedure LoadDBVersion(aParams: TdaDataProviderParams); override;
    function DoMakeProvider(aParams: TdaDataProviderParams;
     ForCheckLogin: Boolean;
     AllowClearLocks: Boolean;
-    SetGlobalProvider: Boolean = True): IdaDataProvider; override;
+    SetGlobalProvider: Boolean): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
    procedure CorrectByClient(aParams: TdaDataProviderParams); override;
    function IsParamsValid(aParams: TdaDataProviderParams;
-    Quiet: Boolean = False): Boolean; override;
+    Quiet: Boolean): Boolean; override;
  end;//ThtDataProviderFactory
 
 implementation
@@ -151,7 +151,7 @@ end;//ThtDataProviderFactory.FillOutConfig
 
 procedure ThtDataProviderFactory.FillInConfig(aConfig: TddAppConfiguration;
  aParams: TdaDataProviderParams;
- ForInfoOnly: Boolean = False);
+ ForInfoOnly: Boolean);
 //#UC START# *5512BB030346_54FEAD4402AB_var*
 //#UC END# *5512BB030346_54FEAD4402AB_var*
 begin
@@ -177,8 +177,8 @@ begin
 end;//ThtDataProviderFactory.FillInConfig
 
 procedure ThtDataProviderFactory.BuildConfig(aConfig: TddAppConfiguration;
- const aProviderKey: AnsiString = '';
- ForInfoOnly: Boolean = False);
+ const aProviderKey: AnsiString;
+ ForInfoOnly: Boolean);
 //#UC START# *5512BB1F023F_54FEAD4402AB_var*
 var
  l_Item: TddBaseConfigItem;
@@ -251,7 +251,7 @@ end;//ThtDataProviderFactory.LoadDBVersion
 function ThtDataProviderFactory.DoMakeProvider(aParams: TdaDataProviderParams;
  ForCheckLogin: Boolean;
  AllowClearLocks: Boolean;
- SetGlobalProvider: Boolean = True): IdaDataProvider;
+ SetGlobalProvider: Boolean): IdaDataProvider;
 //#UC START# *551D06D402AF_54FEAD4402AB_var*
 //#UC END# *551D06D402AF_54FEAD4402AB_var*
 begin
@@ -293,7 +293,7 @@ begin
 end;//ThtDataProviderFactory.CorrectByClient
 
 function ThtDataProviderFactory.IsParamsValid(aParams: TdaDataProviderParams;
- Quiet: Boolean = False): Boolean;
+ Quiet: Boolean): Boolean;
 //#UC START# *551166B40046_54FEAD4402AB_var*
 var
  l_Storage: IhtParamsStorage;

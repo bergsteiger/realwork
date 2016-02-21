@@ -3,7 +3,7 @@ unit daDataProviderFactoryList;
 // Модуль: "w:\common\components\rtl\Garant\DA\daDataProviderFactoryList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

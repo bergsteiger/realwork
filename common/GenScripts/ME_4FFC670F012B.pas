@@ -3,7 +3,7 @@ unit CompareEditions_FormDefinitions_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\CompareEditions_FormDefinitions_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , tfwString
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const
@@ -49,6 +46,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwString
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

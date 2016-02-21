@@ -4,7 +4,7 @@ unit moTasksPanelMenu;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\moTasksPanelMenu.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

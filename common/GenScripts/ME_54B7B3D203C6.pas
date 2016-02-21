@@ -3,7 +3,7 @@ unit ncsGetFilePartExecutor;
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsGetFilePartExecutor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

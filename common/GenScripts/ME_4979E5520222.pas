@@ -4,7 +4,7 @@ unit PrimWarning_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimWarning_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -68,7 +68,7 @@ type
   protected
    procedure PositionOnRequestedSub(aSubID: TnsWarningSub);
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -179,7 +179,7 @@ begin
 end;//TPrimWarningForm.MakeDocumentContainer
 
 procedure TPrimWarningForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4979E5520222_var*
 //#UC END# *4A8164E801AE_4979E5520222_var*

@@ -3,7 +3,7 @@ unit nsContentsListForFiltering;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsContentsListForFiltering.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

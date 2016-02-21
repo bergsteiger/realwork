@@ -3,7 +3,7 @@ unit pgDataProviderParams;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgDataProviderParams.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

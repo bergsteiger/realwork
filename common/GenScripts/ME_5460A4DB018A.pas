@@ -3,7 +3,7 @@ unit ncsMessageInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsMessageInterfaces.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

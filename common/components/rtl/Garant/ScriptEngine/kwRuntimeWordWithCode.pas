@@ -3,7 +3,7 @@ unit kwRuntimeWordWithCode;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwRuntimeWordWithCode.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

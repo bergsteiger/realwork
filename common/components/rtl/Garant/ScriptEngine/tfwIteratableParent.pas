@@ -3,7 +3,7 @@ unit tfwIteratableParent;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

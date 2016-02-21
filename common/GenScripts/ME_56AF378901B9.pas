@@ -3,7 +3,7 @@ unit arBelaPubList;
 // Модуль: "w:\common\components\rtl\Garant\ar\arBelaPubList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\l3Define.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit PrimDockedWarning_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDockedWarning_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -12,10 +12,6 @@ uses
  l3IntfUses
  , PrimWarningOptions_Form
  , Document_Strange_Controls
- , WarningUserTypes_Warning_UserType
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Usual_Controls
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -40,6 +36,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , WarningUserTypes_Warning_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  , F1Like_InternalOperations_Controls
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

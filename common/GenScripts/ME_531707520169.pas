@@ -3,7 +3,7 @@ unit NOT_FINISHED_csBaseStatusRequest;
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csBaseStatusRequest.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

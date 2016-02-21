@@ -4,7 +4,7 @@ unit PrimConfigurationList_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -29,7 +29,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Interfaces
  , SettingsUnit
- , l3StringIDEx
 ;
 
 type
@@ -99,6 +98,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , ConfigInterfaces
  , SysUtils
  , nsConfigurationList

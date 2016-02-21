@@ -3,7 +3,7 @@ unit NewWordDefinitorPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\NewWordDefinitorPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -15,9 +15,6 @@ uses
  , kwCompiledVar
  , kwCompiledWordPrim
  , tfwTypeInfo
- , tfwClassLike
- , TypInfo
- , tfwPropertyLike
 ;
 
 type
@@ -56,6 +53,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , TypInfo
+ , tfwPropertyLike
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , l3Base

@@ -3,7 +3,7 @@ unit MenuWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\MenuWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,12 +11,6 @@ interface
 uses
  l3IntfUses
  , Menus
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
- , tfwPropertyLike
- , tfwTypeInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwPropertyLike
+ , tfwTypeInfo
  , Controls
  , Forms
  , l3ScreenService

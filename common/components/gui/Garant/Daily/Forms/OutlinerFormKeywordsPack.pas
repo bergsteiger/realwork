@@ -4,7 +4,7 @@ unit OutlinerFormKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\OutlinerFormKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -13,14 +13,6 @@ uses
  l3IntfUses
  , Outliner_Form
  , vtOutlinerControl
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -29,6 +21,14 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -124,12 +124,9 @@ begin
 end;//Tkw_OutlinerForm_Control_TreeControl.RegisterInEngine
 
 procedure Tkw_OutlinerForm_Control_TreeControl_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B86AAC3D28B3_var*
-//#UC END# *4DAEEDE10285_B86AAC3D28B3_var*
 begin
-//#UC START# *4DAEEDE10285_B86AAC3D28B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B86AAC3D28B3_impl*
+ aCtx.rEngine.PushString('TreeControl');
+ inherited;
 end;//Tkw_OutlinerForm_Control_TreeControl_Push.DoDoIt
 
 class function Tkw_OutlinerForm_Control_TreeControl_Push.GetWordNameForRegister: AnsiString;

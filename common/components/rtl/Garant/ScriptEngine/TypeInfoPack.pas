@@ -3,7 +3,7 @@ unit TypeInfoPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TypeInfoPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -15,10 +15,6 @@ uses
  , tfwScriptingInterfaces
  , tfwMainDictionary
  , tfwScriptingTypes
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , TypInfo
- , tfwGlobalKeyWord
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -27,6 +23,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , TypInfo
+ , tfwGlobalKeyWord
  , l3String
  , tfwScriptEngineExInterfaces
  , tfwStandardDictionaries

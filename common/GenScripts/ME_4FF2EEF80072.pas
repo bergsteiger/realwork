@@ -3,7 +3,7 @@ unit dsAACContainer;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\dsAACContainer.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit F1LikeFormWithBSKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeFormWithBSKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -20,14 +20,6 @@ uses
  , eeTextSourceExport
  {$IfEnd} // Defined(Nemesis)
  , evLoadDocumentManager
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -36,6 +28,14 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -254,12 +254,9 @@ begin
 end;//Tkw_F1LikeFormWithBS_Control_BaseSearchControl.RegisterInEngine
 
 procedure Tkw_F1LikeFormWithBS_Control_BaseSearchControl_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A2A08F87EBF9_var*
-//#UC END# *4DAEEDE10285_A2A08F87EBF9_var*
 begin
-//#UC START# *4DAEEDE10285_A2A08F87EBF9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A2A08F87EBF9_impl*
+ aCtx.rEngine.PushString('BaseSearchControl');
+ inherited;
 end;//Tkw_F1LikeFormWithBS_Control_BaseSearchControl_Push.DoDoIt
 
 class function Tkw_F1LikeFormWithBS_Control_BaseSearchControl_Push.GetWordNameForRegister: AnsiString;
@@ -284,12 +281,9 @@ begin
 end;//Tkw_F1LikeFormWithBS_Control_Text.RegisterInEngine
 
 procedure Tkw_F1LikeFormWithBS_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_63B6777B2481_var*
-//#UC END# *4DAEEDE10285_63B6777B2481_var*
 begin
-//#UC START# *4DAEEDE10285_63B6777B2481_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_63B6777B2481_impl*
+ aCtx.rEngine.PushString('Text');
+ inherited;
 end;//Tkw_F1LikeFormWithBS_Control_Text_Push.DoDoIt
 
 class function Tkw_F1LikeFormWithBS_Control_Text_Push.GetWordNameForRegister: AnsiString;

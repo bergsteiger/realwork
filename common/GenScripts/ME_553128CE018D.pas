@@ -3,7 +3,7 @@ unit tfwIntegerToEnumName;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIntegerToEnumName.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

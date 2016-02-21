@@ -3,7 +3,7 @@ unit NOT_FINISHED_CsServer;
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsServer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

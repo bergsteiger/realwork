@@ -3,7 +3,7 @@ unit kwCloseBracket;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCloseBracket.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit htTabledQuery;
 // Модуль: "w:\common\components\rtl\Garant\HT\htTabledQuery.pas"
 // Стереотип: "SimpleClass"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
@@ -22,7 +22,7 @@ type
    function FindTable(const anAlias: AnsiString): IhtFromTable;
   protected
    function MakeFromTable(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromTable; override;
+    const anAlias: AnsiString): IdaFromTable; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -99,7 +99,7 @@ begin
 end;//ThtTabledQuery.FindTable
 
 function ThtTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromTable;
+ const anAlias: AnsiString): IdaFromTable;
 //#UC START# *5600FFF80332_5551AB1602F4_var*
 //#UC END# *5600FFF80332_5551AB1602F4_var*
 begin

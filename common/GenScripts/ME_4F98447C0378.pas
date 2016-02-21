@@ -3,7 +3,7 @@ unit nsFiltersListenersDocManager;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersListenersDocManager.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

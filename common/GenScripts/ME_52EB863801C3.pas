@@ -3,7 +3,7 @@ unit tfwIteratorFromFunctor;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIteratorFromFunctor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

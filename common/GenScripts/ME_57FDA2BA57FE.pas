@@ -4,7 +4,7 @@ unit CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType.pas"
 // Стереотип: "UserType"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
@@ -12,9 +12,6 @@ interface
 uses
  l3IntfUses
  , vcmUserControls
- {$If NOT Defined(NoScripts)}
- , tfwInteger
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const
@@ -30,6 +27,9 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

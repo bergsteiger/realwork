@@ -3,7 +3,7 @@ unit dsCRWarning;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Document\dsCRWarning.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

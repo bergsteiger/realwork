@@ -10,7 +10,7 @@ unit kwEmitString;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEmitString.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

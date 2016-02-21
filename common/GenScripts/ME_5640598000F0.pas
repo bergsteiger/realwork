@@ -3,7 +3,7 @@ unit daLogicCondition;
 // Модуль: "w:\common\components\rtl\Garant\DA\daLogicCondition.pas"
 // Стереотип: "SimpleClass"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

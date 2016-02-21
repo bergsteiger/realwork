@@ -3,7 +3,7 @@ unit m3PluginSupport;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3PluginSupport.pas"
 // Стереотип: "UtilityPack"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
@@ -16,16 +16,16 @@ function _CoCreateInstance(const aCLSID: TCLSID;
  aUnknown: IUnknown;
  aContext: LongInt;
  const aIID: TIID;
- out aResult): hResult;
-function _CoInitialize(_unused: Pointer): hResult;
-procedure _CoTaskMemFree(APointer: Pointer);
-procedure _CoUninitialize;
+ out aResult): hResult; stdcall;
+function _CoInitialize(_unused: Pointer): hResult; stdcall;
+procedure _CoTaskMemFree(APointer: Pointer); stdcall;
+procedure _CoUninitialize; stdcall;
 function _StgOpenStorage(aName: PWideChar;
  aPriority: IStorage;
  aStatStgMode: LongInt;
  aExclude: TSNB;
  _unused: LongInt;
- out AStorage: IStorage): hResult;
+ out AStorage: IStorage): hResult; stdcall;
 
 implementation
 

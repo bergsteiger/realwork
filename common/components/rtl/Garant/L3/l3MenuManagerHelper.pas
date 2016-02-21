@@ -3,7 +3,7 @@ unit l3MenuManagerHelper;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MenuManagerHelper.pas"
 // Стереотип: "Service"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

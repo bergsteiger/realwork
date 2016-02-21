@@ -4,7 +4,7 @@ unit sdsAAC;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\sdsAAC.pas"
 // Стереотип: "UseCaseControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

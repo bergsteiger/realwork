@@ -3,7 +3,7 @@ unit NOT_FINISHED_ddServerTask;
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_ddServerTask.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ TddTaskClass = class of TddTaskItem;
+
  TddTaskItem = class(TddTaskItemPrim)
   protected
    procedure DoLoadFrom(aStream: TStream;
@@ -27,8 +29,6 @@ type
    procedure DoSaveTo(aStream: TStream;
     aIsPipe: Boolean); virtual;
  end;//TddTaskItem
-
- TddTaskClass = class of TddTaskItem;
 
 procedure RegisterTaskClass;
 {$IfEnd} // NOT Defined(Nemesis)

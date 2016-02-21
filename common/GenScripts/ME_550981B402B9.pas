@@ -3,7 +3,7 @@ unit htInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\HT\htInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 

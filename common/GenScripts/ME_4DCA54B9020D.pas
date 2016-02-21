@@ -3,7 +3,7 @@ unit F1ShellWordsPack;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\F1ShellWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
@@ -11,9 +11,6 @@ interface
 uses
  l3IntfUses
  , l3Interfaces
- , tfwGlobalKeyWord
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -22,6 +19,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
+ , TypInfo
  , kwF1ImportConsultation
  , kwConfigRestore
  , kwStyleTableRestore

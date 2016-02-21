@@ -4,7 +4,7 @@ unit ChangesBetweenEditions_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\ChangesBetweenEditions_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -12,13 +12,12 @@ interface
 uses
  l3IntfUses
  , DocumentUnit
- , l3MessageID
  , PrimChangesBetweenEditons_Form
  {$If NOT Defined(NoVCM)}
- , vcmInterfaces
+ , vcmFormSetFactory
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
- , vcmFormSetFactory
+ , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
@@ -80,6 +79,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3MessageID
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

@@ -3,7 +3,7 @@ unit TableToolsTestPrim;
 // Модуль: "w:\common\components\gui\Garant\Daily\TableToolsTestPrim.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

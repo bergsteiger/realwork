@@ -3,7 +3,7 @@ unit PrimTextLoad_Form;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\PrimTextLoad_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

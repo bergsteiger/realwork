@@ -3,7 +3,7 @@ unit tfwGlobalKeyWord;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwGlobalKeyWord.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

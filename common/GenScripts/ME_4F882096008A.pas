@@ -4,7 +4,7 @@ unit MemoryUsage_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MemoryUsage_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , MemoryUsagePrim_Form
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -38,6 +37,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

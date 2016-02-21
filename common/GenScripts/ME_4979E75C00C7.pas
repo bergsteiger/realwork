@@ -4,7 +4,7 @@ unit PrimSynchroView_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimSynchroView_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -17,8 +17,6 @@ uses
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
- , nsLogEvent
- , DynamicDocListUnit
 ;
 
 type
@@ -57,6 +55,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , nsLogEvent
+ , DynamicDocListUnit
  , F1Like_InternalOperations_Controls
  {$If NOT Defined(NoVCL)}
  , Forms

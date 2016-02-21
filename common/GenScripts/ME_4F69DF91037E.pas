@@ -3,7 +3,7 @@ unit ControlsProcessingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ControlsProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -17,12 +17,6 @@ uses
  , Menus
  , Forms
  , Windows
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
- , tfwRegisterableWord
- , tfwPropertyLike
- , tfwTypeInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -31,6 +25,12 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwRegisterableWord
+ , tfwPropertyLike
+ , tfwTypeInfo
  , kwBynameControlPush
  , Messages
  , l3PopupMenuHelper

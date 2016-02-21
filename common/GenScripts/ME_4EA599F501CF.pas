@@ -3,7 +3,7 @@ unit PrimWarningBaloonOptions_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimWarningBaloonOptions_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -11,10 +11,6 @@ interface
 uses
  l3IntfUses
  , PrimWarningOptions_Form
- , BaloonWarningUserTypes_Fake_UserType
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Usual_Controls
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 
 type
@@ -34,6 +30,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , BaloonWarningUserTypes_Fake_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Usual_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

@@ -3,7 +3,7 @@ unit tfwTruncatedArrayView;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTruncatedArrayView.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

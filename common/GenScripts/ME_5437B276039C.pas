@@ -3,7 +3,7 @@ unit daUtils;
 // Модуль: "w:\common\components\rtl\Garant\DA\daUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit PrimBaseSearchCard_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchCard_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -44,7 +44,6 @@ uses
  , nscInterfaces
  {$IfEnd} // Defined(Nemesis)
  , Messages
- , l3StringIDEx
 ;
 
 type
@@ -151,6 +150,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , l3Defaults
  , SearchUnit
  {$If NOT Defined(NoVCM)}

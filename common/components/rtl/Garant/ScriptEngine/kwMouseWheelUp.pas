@@ -3,7 +3,7 @@ unit kwMouseWheelUp;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseWheelUp.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit PrimStyleEditorNavigator_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimStyleEditorNavigator_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -21,7 +21,6 @@ uses
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
  , eeInterfaces
- , l3StringIDEx
 ;
 
 const
@@ -71,6 +70,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , evStyleInterface
  , eeNode
  , l3Nodes

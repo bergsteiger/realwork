@@ -3,7 +3,7 @@ unit dsListAnalize;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\dsListAnalize.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

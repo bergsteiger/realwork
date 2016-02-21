@@ -3,7 +3,7 @@ unit RefcountedTest;
 // Модуль: "w:\common\components\SandBox\RefcountedTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

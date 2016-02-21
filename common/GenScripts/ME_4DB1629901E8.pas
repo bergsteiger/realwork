@@ -3,7 +3,7 @@ unit NOT_FINISHED_tfwScriptDebugger;
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\NOT_FINISHED_tfwScriptDebugger.pas"
 // Стереотип: "UtilityPack"
 
-{$Include tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 

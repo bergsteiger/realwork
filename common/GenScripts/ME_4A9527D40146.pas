@@ -4,7 +4,7 @@ unit NemesisRes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\NemesisRes.pas"
 // Стереотип: "VCMApplication"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

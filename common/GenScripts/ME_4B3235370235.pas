@@ -3,7 +3,7 @@ unit VCMBaseTest;
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\VCMBaseTest.pas"
 // Стереотип: "UtilityPack"
 
-{$Include tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 

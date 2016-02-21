@@ -12,7 +12,7 @@ focused:control:push pop:editor:EditFormula
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorEditFormula.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit toK;
 // Модуль: "w:\archi\source\projects\Archi\toK.pas"
 // Стереотип: "TestResults"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

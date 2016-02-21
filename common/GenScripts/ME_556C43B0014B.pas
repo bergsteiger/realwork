@@ -4,7 +4,7 @@ unit NOT_FINISHED_LibPQ;
 // Модуль: "w:\common\components\rtl\Garant\PG\NOT_FINISHED_LibPQ.pas"
 // Стереотип: "UtilityPack"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

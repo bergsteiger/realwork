@@ -3,7 +3,7 @@ unit InterfacedNodeWords;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,11 +13,6 @@ uses
  , l3Tree_TLB
  , l3Interfaces
  , l3TreeInterfaces
- , tfwAxiomaticsResNameGetter
- , tfwPropertyLike
- , tfwScriptingInterfaces
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -26,6 +21,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

@@ -3,7 +3,7 @@ unit nsHyperLinkProcessor;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsHyperLinkProcessor.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -17,13 +17,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , DocumentUnit
  , afwInterfaces
- , bsHyperLinkProcessorPrim
- , DocumentDomainInterfaces
- , DynamicDocListUnit
- , ExternalObjectUnit
- , SearchUnit
- , ExternalOperationUnit
- , bsTypesNew
 ;
 
 function nsProcessHyperLink(const aHyperLink: IevHyperlink;
@@ -50,6 +43,13 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , bsHyperLinkProcessorPrim
+ , DocumentDomainInterfaces
+ , DynamicDocListUnit
+ , ExternalObjectUnit
+ , SearchUnit
+ , ExternalOperationUnit
+ , bsTypesNew
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine
  {$IfEnd} // NOT Defined(NoScripts)

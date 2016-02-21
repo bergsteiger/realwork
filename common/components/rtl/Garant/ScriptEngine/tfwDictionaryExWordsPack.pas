@@ -3,7 +3,7 @@ unit tfwDictionaryExWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryExWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  , tfwDictionaryEx
  , l3Interfaces
  , tfwScriptingInterfaces
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -24,6 +21,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , TypInfo
  , tfwDictionaryDataIteratorPrim
  , tfwExportedDictionariesIterator
  , tfwUsedDictionariesIterator

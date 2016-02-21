@@ -4,7 +4,7 @@ unit NOT_FINISHED_arArchiTestAdapter2;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\NOT_FINISHED_arArchiTestAdapter2.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

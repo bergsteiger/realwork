@@ -3,7 +3,7 @@ unit ncsFileTransferReg;
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsFileTransferReg.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit nsTrialSupport;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsTrialSupport.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

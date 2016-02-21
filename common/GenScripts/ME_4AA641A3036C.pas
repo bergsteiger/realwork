@@ -4,7 +4,7 @@ unit Search_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Search_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -37,22 +37,21 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactoryPrim
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
+ , PrimDefineSearchDate_Form
+ , PrimOldSituationSearchOptions_Form
+ , PrimTreeAttributeFirstLevel_Form
+ , Common_FormDefinitions_Controls
  , PrimSaveLoadUserTypes_slqtKW_UserType
  , Search_FormDefinitions_Controls
  , SearchInterfaces
  , l3TreeInterfaces
+ , FiltersUserTypes_utFilters_UserType
+ , PrimTreeAttributeFirstLevel_flSituation_UserType
  , PrimAttributeSelect_utSingleSearch_UserType
  , SearchLite_FormDefinitions_Controls
  , PrimTreeAttributeSelect_astNone_UserType
  , PrimSelectedAttributes_utSelectedAttributes_UserType
- , FiltersUserTypes_utFilters_UserType
- , Common_FormDefinitions_Controls
- , PrimTreeAttributeFirstLevel_flSituation_UserType
  , PrimSaveLoadUserTypes_slqtFilters_UserType
- , PrimDefineSearchDate_Form
- , PrimOldSituationSearchOptions_Form
- , PrimTreeAttributeFirstLevel_Form
 ;
 
 const
@@ -272,6 +271,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , PrimSaveLoadUserTypes_slqtAttribute_UserType
  , PrimSaveLoadUserTypes_slqtOldKW_UserType
  , PrimSaveLoadUserTypes_slqtPublishSource_UserType

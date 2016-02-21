@@ -3,7 +3,7 @@ unit daParam;
 // Модуль: "w:\common\components\rtl\Garant\DA\daParam.pas"
 // Стереотип: "SimpleClass"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
@@ -32,9 +32,9 @@ type
    function Get_AsString: AnsiString;
    procedure Set_AsString(const aValue: AnsiString);
    function Get_AsStDate: TStDate;
-   procedure Set_AsStDate(aValue: TStDate);
+   procedure Set_AsStDate(const aValue: TStDate);
    function Get_AsStTime: TStTime;
-   procedure Set_AsStTime(aValue: TStTime);
+   procedure Set_AsStTime(const aValue: TStTime);
    function Get_ParamType: TdaParamType;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -167,7 +167,7 @@ begin
 //#UC END# *563C8B50016A_5555AD2A0004get_impl*
 end;//TdaParam.Get_AsStDate
 
-procedure TdaParam.Set_AsStDate(aValue: TStDate);
+procedure TdaParam.Set_AsStDate(const aValue: TStDate);
 //#UC START# *563C8B50016A_5555AD2A0004set_var*
 //#UC END# *563C8B50016A_5555AD2A0004set_var*
 begin
@@ -185,7 +185,7 @@ begin
 //#UC END# *564C37CF00C4_5555AD2A0004get_impl*
 end;//TdaParam.Get_AsStTime
 
-procedure TdaParam.Set_AsStTime(aValue: TStTime);
+procedure TdaParam.Set_AsStTime(const aValue: TStTime);
 //#UC START# *564C37CF00C4_5555AD2A0004set_var*
 //#UC END# *564C37CF00C4_5555AD2A0004set_var*
 begin

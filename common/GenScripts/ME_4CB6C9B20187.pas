@@ -3,7 +3,7 @@ unit dsCreateFilter;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\dsCreateFilter.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

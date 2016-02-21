@@ -4,7 +4,7 @@ unit moAAC;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moAAC.pas"
 // Стереотип: "VCMUseCaseRealization"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

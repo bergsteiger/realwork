@@ -3,7 +3,7 @@ unit PrimToolbarMenu_Module;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\PrimToolbarMenu_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
@@ -14,7 +14,6 @@ uses
  , vcmBaseMenuManager
  , Classes
  , PrimCustomizeTools_Form
- , l3StringIDEx
  , l3ProtoDataContainer
  , l3Memory
  , l3Types
@@ -76,6 +75,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , afwFacade
  , vcmToolbarMenuRes
  , vcmExternalInterfaces

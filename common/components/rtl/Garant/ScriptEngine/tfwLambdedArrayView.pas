@@ -3,7 +3,7 @@ unit tfwLambdedArrayView;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwLambdedArrayView.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ RtfwTwoLambdas = class of TtfwTwoLambdas;
+
  TtfwTwoLambdas = {abstract} class(TkwCompiledWordWorker)
   private
    f_ItemsCountInSlice: Integer;
@@ -38,8 +40,6 @@ type
    property ItemsCountInSlice: Integer
     read f_ItemsCountInSlice;
  end;//TtfwTwoLambdas
-
- RtfwTwoLambdas = class of TtfwTwoLambdas;
 
  TtfwLambdedArrayView = class(TtfwArrayView)
   protected

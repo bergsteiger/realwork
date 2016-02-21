@@ -3,7 +3,7 @@ unit F1LikeTextLoad_Form;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\F1LikeTextLoad_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -17,7 +17,6 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , evCustomTextSource
  , evCustomEditor
- , l3StringIDEx
  , vcmInterfaces
 ;
 
@@ -53,6 +52,7 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

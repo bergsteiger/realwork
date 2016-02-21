@@ -4,7 +4,7 @@ unit csTaskedAction;
 // Модуль: "w:\common\components\rtl\Garant\cs\csTaskedAction.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

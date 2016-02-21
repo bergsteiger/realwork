@@ -3,7 +3,7 @@ unit tfwTypeInfo;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwTypeInfo.pas"
 // Стереотип: "InternalInterfaces"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit moMainMenu;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moMainMenu.pas"
 // Стереотип: "VCMUseCaseRealization"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

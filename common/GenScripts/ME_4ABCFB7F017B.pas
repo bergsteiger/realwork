@@ -4,7 +4,7 @@ unit Consultation_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Consultation_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -27,21 +27,20 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactoryPrim
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
+ , PrimConsultationMarkOptions_Form
+ , Common_FormDefinitions_Controls
  , PrimSaveLoadUserTypes_slqtConsult_UserType
  , Search_FormDefinitions_Controls
  , ConsultationInterfaces
  , QueryCardInterfaces
  , PrimQueryCard_utqcSendConsultation_UserType
  , DocumentUserTypes_dftConsultation_UserType
- , Common_FormDefinitions_Controls
  , DocumentInterfaces
  , DocumentAndListInterfaces
  , DocumentUnit
  , bsTypesNew
  , ListUserTypes_lftConsultation_UserType
  , PrimConsultationMark_utcmMain_UserType
- , PrimConsultationMarkOptions_Form
 ;
 
 type
@@ -123,6 +122,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

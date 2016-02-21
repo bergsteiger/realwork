@@ -3,7 +3,7 @@ unit PreviewTestBefore278833302;
 // Модуль: "w:\common\components\gui\Garant\Daily\PreviewTestBefore278833302.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

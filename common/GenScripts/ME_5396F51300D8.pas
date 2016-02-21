@@ -3,7 +3,7 @@ unit NOT_FINISHED_CustomizeTasksPanelRes;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\NOT_FINISHED_CustomizeTasksPanelRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

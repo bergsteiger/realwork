@@ -3,7 +3,7 @@ unit tfwClassRef;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwClassRef.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit myInterfacedObjectTest;
 // Модуль: "w:\common\components\SandBox\myInterfacedObjectTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

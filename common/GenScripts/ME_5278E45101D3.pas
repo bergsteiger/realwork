@@ -3,14 +3,13 @@ unit Search_ScalingSupport_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search_ScalingSupport_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 {$If NOT Defined(Admin)}
 uses
  l3IntfUses
- , l3CProtoObject
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -92,6 +91,7 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ , l3CProtoObject
 ;
 
 type

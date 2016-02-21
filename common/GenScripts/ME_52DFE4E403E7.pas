@@ -4,7 +4,7 @@ unit kwTemporaryCompiledCode;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwTemporaryCompiledCode.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

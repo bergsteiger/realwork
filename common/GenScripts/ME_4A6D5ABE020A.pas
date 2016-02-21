@@ -4,7 +4,7 @@ unit PrimRightEdition_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimRightEdition_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -22,7 +22,6 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  , nevTools
- , l3StringIDEx
  , evSubWaiter
  , bsTypesNew
 ;
@@ -103,6 +102,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , l3String
  , evdTypes
  {$If NOT Defined(NoVCM)}

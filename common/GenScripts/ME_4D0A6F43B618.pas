@@ -4,7 +4,7 @@ unit CustomizeTasksPanelKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\CustomizeTasksPanelKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
@@ -26,14 +26,6 @@ uses
  , Buttons
  {$IfEnd} // NOT Defined(NoVCL)
  , eeCheckBox
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -42,6 +34,14 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -1957,12 +1957,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_spRight.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_spRight_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EB29C7EA3DE5_var*
-//#UC END# *4DAEEDE10285_EB29C7EA3DE5_var*
 begin
-//#UC START# *4DAEEDE10285_EB29C7EA3DE5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EB29C7EA3DE5_impl*
+ aCtx.rEngine.PushString('spRight');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_spRight_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_spRight_Push.GetWordNameForRegister: AnsiString;
@@ -1987,12 +1984,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_pnlBottom.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_pnlBottom_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_434F7D0E25A1_var*
-//#UC END# *4DAEEDE10285_434F7D0E25A1_var*
 begin
-//#UC START# *4DAEEDE10285_434F7D0E25A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_434F7D0E25A1_impl*
+ aCtx.rEngine.PushString('pnlBottom');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_pnlBottom_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_pnlBottom_Push.GetWordNameForRegister: AnsiString;
@@ -2017,12 +2011,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_lblConfirmSave.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_02E2B4659307_var*
-//#UC END# *4DAEEDE10285_02E2B4659307_var*
 begin
-//#UC START# *4DAEEDE10285_02E2B4659307_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_02E2B4659307_impl*
+ aCtx.rEngine.PushString('lblConfirmSave');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_lblConfirmSave_Push.GetWordNameForRegister: AnsiString;
@@ -2047,12 +2038,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F5061FEDAF43_var*
-//#UC END# *4DAEEDE10285_F5061FEDAF43_var*
 begin
-//#UC START# *4DAEEDE10285_F5061FEDAF43_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F5061FEDAF43_impl*
+ aCtx.rEngine.PushString('lblAvailableOpsCaption');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_lblAvailableOpsCaption_Push.GetWordNameForRegister: AnsiString;
@@ -2077,12 +2065,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btOk.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btOk_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DAF9298D8BB9_var*
-//#UC END# *4DAEEDE10285_DAF9298D8BB9_var*
 begin
-//#UC START# *4DAEEDE10285_DAF9298D8BB9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DAF9298D8BB9_impl*
+ aCtx.rEngine.PushString('btOk');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btOk_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btOk_Push.GetWordNameForRegister: AnsiString;
@@ -2107,12 +2092,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btCancel.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btCancel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FB733C0BDD97_var*
-//#UC END# *4DAEEDE10285_FB733C0BDD97_var*
 begin
-//#UC START# *4DAEEDE10285_FB733C0BDD97_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FB733C0BDD97_impl*
+ aCtx.rEngine.PushString('btCancel');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btCancel_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btCancel_Push.GetWordNameForRegister: AnsiString;
@@ -2137,12 +2119,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btApply.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btApply_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_324C1AF2E387_var*
-//#UC END# *4DAEEDE10285_324C1AF2E387_var*
 begin
-//#UC START# *4DAEEDE10285_324C1AF2E387_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_324C1AF2E387_impl*
+ aCtx.rEngine.PushString('btApply');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btApply_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btApply_Push.GetWordNameForRegister: AnsiString;
@@ -2167,12 +2146,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_pnlRep.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_pnlRep_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D4F2CAF6DCF1_var*
-//#UC END# *4DAEEDE10285_D4F2CAF6DCF1_var*
 begin
-//#UC START# *4DAEEDE10285_D4F2CAF6DCF1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D4F2CAF6DCF1_impl*
+ aCtx.rEngine.PushString('pnlRep');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_pnlRep_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_pnlRep_Push.GetWordNameForRegister: AnsiString;
@@ -2197,12 +2173,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_splRep.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_splRep_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B9FC60DAC749_var*
-//#UC END# *4DAEEDE10285_B9FC60DAC749_var*
 begin
-//#UC START# *4DAEEDE10285_B9FC60DAC749_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B9FC60DAC749_impl*
+ aCtx.rEngine.PushString('splRep');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_splRep_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_splRep_Push.GetWordNameForRegister: AnsiString;
@@ -2227,12 +2200,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_gbAvailableGroups.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_145A433A21E8_var*
-//#UC END# *4DAEEDE10285_145A433A21E8_var*
 begin
-//#UC START# *4DAEEDE10285_145A433A21E8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_145A433A21E8_impl*
+ aCtx.rEngine.PushString('gbAvailableGroups');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_gbAvailableGroups_Push.GetWordNameForRegister: AnsiString;
@@ -2257,12 +2227,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_tvRepGroups.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_779F75A12583_var*
-//#UC END# *4DAEEDE10285_779F75A12583_var*
 begin
-//#UC START# *4DAEEDE10285_779F75A12583_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_779F75A12583_impl*
+ aCtx.rEngine.PushString('tvRepGroups');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_tvRepGroups_Push.GetWordNameForRegister: AnsiString;
@@ -2287,12 +2254,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_vtPanel1.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_vtPanel1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_054F5CE71A55_var*
-//#UC END# *4DAEEDE10285_054F5CE71A55_var*
 begin
-//#UC START# *4DAEEDE10285_054F5CE71A55_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_054F5CE71A55_impl*
+ aCtx.rEngine.PushString('vtPanel1');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_vtPanel1_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_vtPanel1_Push.GetWordNameForRegister: AnsiString;
@@ -2317,12 +2281,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_cbGroupName.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_cbGroupName_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_42F13BB32A28_var*
-//#UC END# *4DAEEDE10285_42F13BB32A28_var*
 begin
-//#UC START# *4DAEEDE10285_42F13BB32A28_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_42F13BB32A28_impl*
+ aCtx.rEngine.PushString('cbGroupName');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_cbGroupName_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_cbGroupName_Push.GetWordNameForRegister: AnsiString;
@@ -2347,12 +2308,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btnAddGroup.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_95FBA27EB55C_var*
-//#UC END# *4DAEEDE10285_95FBA27EB55C_var*
 begin
-//#UC START# *4DAEEDE10285_95FBA27EB55C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_95FBA27EB55C_impl*
+ aCtx.rEngine.PushString('btnAddGroup');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btnAddGroup_Push.GetWordNameForRegister: AnsiString;
@@ -2377,12 +2335,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btnChangeGroup.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6DF61535F5AB_var*
-//#UC END# *4DAEEDE10285_6DF61535F5AB_var*
 begin
-//#UC START# *4DAEEDE10285_6DF61535F5AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6DF61535F5AB_impl*
+ aCtx.rEngine.PushString('btnChangeGroup');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btnChangeGroup_Push.GetWordNameForRegister: AnsiString;
@@ -2407,12 +2362,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btnDeleteGroup.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_22AC03E5AF2D_var*
-//#UC END# *4DAEEDE10285_22AC03E5AF2D_var*
 begin
-//#UC START# *4DAEEDE10285_22AC03E5AF2D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_22AC03E5AF2D_impl*
+ aCtx.rEngine.PushString('btnDeleteGroup');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btnDeleteGroup_Push.GetWordNameForRegister: AnsiString;
@@ -2437,12 +2389,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_gbAvailableOperations.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9C3E29B0CCC6_var*
-//#UC END# *4DAEEDE10285_9C3E29B0CCC6_var*
 begin
-//#UC START# *4DAEEDE10285_9C3E29B0CCC6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9C3E29B0CCC6_impl*
+ aCtx.rEngine.PushString('gbAvailableOperations');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_gbAvailableOperations_Push.GetWordNameForRegister: AnsiString;
@@ -2467,12 +2416,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_tvRepOps.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_tvRepOps_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_951B1F0CABF6_var*
-//#UC END# *4DAEEDE10285_951B1F0CABF6_var*
 begin
-//#UC START# *4DAEEDE10285_951B1F0CABF6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_951B1F0CABF6_impl*
+ aCtx.rEngine.PushString('tvRepOps');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_tvRepOps_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_tvRepOps_Push.GetWordNameForRegister: AnsiString;
@@ -2497,12 +2443,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_pnlForms.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_pnlForms_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9796678C7184_var*
-//#UC END# *4DAEEDE10285_9796678C7184_var*
 begin
-//#UC START# *4DAEEDE10285_9796678C7184_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9796678C7184_impl*
+ aCtx.rEngine.PushString('pnlForms');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_pnlForms_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_pnlForms_Push.GetWordNameForRegister: AnsiString;
@@ -2527,12 +2470,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_lblForms.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_lblForms_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BE7E44BBD571_var*
-//#UC END# *4DAEEDE10285_BE7E44BBD571_var*
 begin
-//#UC START# *4DAEEDE10285_BE7E44BBD571_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BE7E44BBD571_impl*
+ aCtx.rEngine.PushString('lblForms');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_lblForms_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_lblForms_Push.GetWordNameForRegister: AnsiString;
@@ -2557,12 +2497,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_cbForms.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_cbForms_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9BEC4D6F77EB_var*
-//#UC END# *4DAEEDE10285_9BEC4D6F77EB_var*
 begin
-//#UC START# *4DAEEDE10285_9BEC4D6F77EB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9BEC4D6F77EB_impl*
+ aCtx.rEngine.PushString('cbForms');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_cbForms_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_cbForms_Push.GetWordNameForRegister: AnsiString;
@@ -2587,12 +2524,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_pnlMain.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2DC2AB688E9A_var*
-//#UC END# *4DAEEDE10285_2DC2AB688E9A_var*
 begin
-//#UC START# *4DAEEDE10285_2DC2AB688E9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2DC2AB688E9A_impl*
+ aCtx.rEngine.PushString('pnlMain');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_pnlMain_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_pnlMain_Push.GetWordNameForRegister: AnsiString;
@@ -2617,12 +2551,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_pnlLeft.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_pnlLeft_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DFE657D62DD8_var*
-//#UC END# *4DAEEDE10285_DFE657D62DD8_var*
 begin
-//#UC START# *4DAEEDE10285_DFE657D62DD8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DFE657D62DD8_impl*
+ aCtx.rEngine.PushString('pnlLeft');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_pnlLeft_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_pnlLeft_Push.GetWordNameForRegister: AnsiString;
@@ -2647,12 +2578,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_44C5D250782F_var*
-//#UC END# *4DAEEDE10285_44C5D250782F_var*
 begin
-//#UC START# *4DAEEDE10285_44C5D250782F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_44C5D250782F_impl*
+ aCtx.rEngine.PushString('btnMoveOpToPanel');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btnMoveOpToPanel_Push.GetWordNameForRegister: AnsiString;
@@ -2677,12 +2605,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_833340E8F50A_var*
-//#UC END# *4DAEEDE10285_833340E8F50A_var*
 begin
-//#UC START# *4DAEEDE10285_833340E8F50A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_833340E8F50A_impl*
+ aCtx.rEngine.PushString('btnMoveOpToRep');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btnMoveOpToRep_Push.GetWordNameForRegister: AnsiString;
@@ -2707,12 +2632,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0541B32DD50F_var*
-//#UC END# *4DAEEDE10285_0541B32DD50F_var*
 begin
-//#UC START# *4DAEEDE10285_0541B32DD50F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0541B32DD50F_impl*
+ aCtx.rEngine.PushString('btnMoveGroupToPanel');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToPanel_Push.GetWordNameForRegister: AnsiString;
@@ -2737,12 +2659,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9DCBB6C956C7_var*
-//#UC END# *4DAEEDE10285_9DCBB6C956C7_var*
 begin
-//#UC START# *4DAEEDE10285_9DCBB6C956C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9DCBB6C956C7_impl*
+ aCtx.rEngine.PushString('btnMoveGroupToRep');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btnMoveGroupToRep_Push.GetWordNameForRegister: AnsiString;
@@ -2767,12 +2686,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_pnlTasksPanel.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_98669D2F119F_var*
-//#UC END# *4DAEEDE10285_98669D2F119F_var*
 begin
-//#UC START# *4DAEEDE10285_98669D2F119F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_98669D2F119F_impl*
+ aCtx.rEngine.PushString('pnlTasksPanel');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_pnlTasksPanel_Push.GetWordNameForRegister: AnsiString;
@@ -2797,12 +2713,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_gbTasksPanel.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FD7C1F723427_var*
-//#UC END# *4DAEEDE10285_FD7C1F723427_var*
 begin
-//#UC START# *4DAEEDE10285_FD7C1F723427_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FD7C1F723427_impl*
+ aCtx.rEngine.PushString('gbTasksPanel');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_gbTasksPanel_Push.GetWordNameForRegister: AnsiString;
@@ -2827,12 +2740,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_tvTasksPanel.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3DFD722F9F33_var*
-//#UC END# *4DAEEDE10285_3DFD722F9F33_var*
 begin
-//#UC START# *4DAEEDE10285_3DFD722F9F33_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3DFD722F9F33_impl*
+ aCtx.rEngine.PushString('tvTasksPanel');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_tvTasksPanel_Push.GetWordNameForRegister: AnsiString;
@@ -2857,12 +2767,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_vtGroupBox3.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DE29A49DDE57_var*
-//#UC END# *4DAEEDE10285_DE29A49DDE57_var*
 begin
-//#UC START# *4DAEEDE10285_DE29A49DDE57_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DE29A49DDE57_impl*
+ aCtx.rEngine.PushString('vtGroupBox3');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_vtGroupBox3_Push.GetWordNameForRegister: AnsiString;
@@ -2887,12 +2794,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_lblCaption.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_lblCaption_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CEE6A63FB624_var*
-//#UC END# *4DAEEDE10285_CEE6A63FB624_var*
 begin
-//#UC START# *4DAEEDE10285_CEE6A63FB624_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CEE6A63FB624_impl*
+ aCtx.rEngine.PushString('lblCaption');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_lblCaption_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_lblCaption_Push.GetWordNameForRegister: AnsiString;
@@ -2917,12 +2821,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_edChange.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_edChange_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_52CF08BE1976_var*
-//#UC END# *4DAEEDE10285_52CF08BE1976_var*
 begin
-//#UC START# *4DAEEDE10285_52CF08BE1976_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_52CF08BE1976_impl*
+ aCtx.rEngine.PushString('edChange');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_edChange_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_edChange_Push.GetWordNameForRegister: AnsiString;
@@ -2947,12 +2848,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_cbForAllUseCases.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D744CBBE2A67_var*
-//#UC END# *4DAEEDE10285_D744CBBE2A67_var*
 begin
-//#UC START# *4DAEEDE10285_D744CBBE2A67_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D744CBBE2A67_impl*
+ aCtx.rEngine.PushString('cbForAllUseCases');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_cbForAllUseCases_Push.GetWordNameForRegister: AnsiString;
@@ -2977,12 +2875,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_btnChangeItem.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BC90F088843C_var*
-//#UC END# *4DAEEDE10285_BC90F088843C_var*
 begin
-//#UC START# *4DAEEDE10285_BC90F088843C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BC90F088843C_impl*
+ aCtx.rEngine.PushString('btnChangeItem');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_btnChangeItem_Push.GetWordNameForRegister: AnsiString;
@@ -3007,12 +2902,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_pnlOperationPos.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_921C11567D29_var*
-//#UC END# *4DAEEDE10285_921C11567D29_var*
 begin
-//#UC START# *4DAEEDE10285_921C11567D29_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_921C11567D29_impl*
+ aCtx.rEngine.PushString('pnlOperationPos');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_pnlOperationPos_Push.GetWordNameForRegister: AnsiString;
@@ -3037,12 +2929,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_UpBitBtn.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_UpBitBtn_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4EE8408A13DD_var*
-//#UC END# *4DAEEDE10285_4EE8408A13DD_var*
 begin
-//#UC START# *4DAEEDE10285_4EE8408A13DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4EE8408A13DD_impl*
+ aCtx.rEngine.PushString('UpBitBtn');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_UpBitBtn_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_UpBitBtn_Push.GetWordNameForRegister: AnsiString;
@@ -3067,12 +2956,9 @@ begin
 end;//Tkw_CustomizeTasksPanel_Control_DownBitBtn.RegisterInEngine
 
 procedure Tkw_CustomizeTasksPanel_Control_DownBitBtn_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DEFE16F7CEDF_var*
-//#UC END# *4DAEEDE10285_DEFE16F7CEDF_var*
 begin
-//#UC START# *4DAEEDE10285_DEFE16F7CEDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DEFE16F7CEDF_impl*
+ aCtx.rEngine.PushString('DownBitBtn');
+ inherited;
 end;//Tkw_CustomizeTasksPanel_Control_DownBitBtn_Push.DoDoIt
 
 class function Tkw_CustomizeTasksPanel_Control_DownBitBtn_Push.GetWordNameForRegister: AnsiString;

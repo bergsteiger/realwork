@@ -4,7 +4,7 @@ unit EditionsInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Editions\EditionsInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

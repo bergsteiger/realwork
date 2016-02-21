@@ -3,7 +3,7 @@ unit StringStackTest;
 // Модуль: "w:\common\components\SandBox\StringStackTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

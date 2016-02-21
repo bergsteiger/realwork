@@ -4,7 +4,7 @@ unit PrimContents_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimContents_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -51,8 +51,6 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
- , nsLogEvent
- , ContentsUserTypes_utDrugContents_UserType
 ;
 
 const
@@ -255,6 +253,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , nsLogEvent
+ , ContentsUserTypes_utDrugContents_UserType
  , eeTreeView
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces

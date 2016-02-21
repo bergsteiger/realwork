@@ -4,7 +4,7 @@ unit PrimPicture_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimPicture_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -34,7 +34,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
  , Graphics
  , l3Interfaces
  , SysUtils
@@ -181,6 +180,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , l3Stream
  , Classes
  , l3String

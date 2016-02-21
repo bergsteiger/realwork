@@ -3,7 +3,7 @@ unit PrimBaseSearch_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearch_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -43,9 +43,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Graphics
  , l3Region
- , l3StringIDEx
- , l3ProtoObject
- , afwInterfaces
  , nsCounterEvent
  , LoggingUnit
 ;
@@ -278,6 +275,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
+ , l3ProtoObject
+ , afwInterfaces
  , SysUtils
  , nsContextHistory
  , l3String

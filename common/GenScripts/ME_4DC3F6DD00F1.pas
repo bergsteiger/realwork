@@ -4,7 +4,7 @@ unit F1AutoScripter;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1AutoScripter.pas"
 // Стереотип: "TestCase"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

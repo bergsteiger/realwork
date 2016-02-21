@@ -3,7 +3,7 @@ unit csUserEditQueryPrim;
 // Модуль: "w:\common\components\rtl\Garant\cs\csUserEditQueryPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

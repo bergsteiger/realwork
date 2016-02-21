@@ -3,7 +3,7 @@ unit tfwStringConstantRegistrator;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStringConstantRegistrator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

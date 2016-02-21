@@ -3,7 +3,7 @@ unit htField;
 // Модуль: "w:\common\components\rtl\Garant\HT\htField.pas"
 // Стереотип: "SimpleClass"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit K338003978;
 // Модуль: "w:\archi\source\projects\Archi\Tests\K338003978.pas"
 // Стереотип: "TestCase"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

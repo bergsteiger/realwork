@@ -3,7 +3,7 @@ unit Settings_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Settings\Settings_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -16,7 +16,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , PrimStyleEditorContainerOptions_Form
  , PrimStyleEditorFont_Form
- , l3StringIDEx
  , PrimStyleEditorNavigator_Form
  , PrimConfigurationList_Form
  , Common_FormDefinitions_Controls
@@ -138,6 +137,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , PrimStyleEditorExample_utStyleEditorExample_UserType
  {$If NOT Defined(NoVCM)}
  , vcmBase

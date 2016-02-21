@@ -4,7 +4,7 @@ unit TextViaEditorProcessorPrim;
 // Модуль: "w:\common\components\gui\Garant\Daily\TextViaEditorProcessorPrim.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

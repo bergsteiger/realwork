@@ -3,7 +3,7 @@ unit nsConfigurationProperties;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Config\nsConfigurationProperties.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

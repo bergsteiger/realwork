@@ -3,7 +3,7 @@ unit kwArchiEverestWordsPack;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiEverestWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit FileProcessingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -16,12 +16,6 @@ uses
  , tfwTypeInfo
  , l3CProtoObject
  , l3Filer
- , tfwAxiomaticsResNameGetter
- , tfwRegisterableWord
- , TypInfo
- , tfwClassLike
- , tfwWordWorkerEx
- , tfwGlobalKeyWord
 ;
 
 type
@@ -55,6 +49,12 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwRegisterableWord
+ , TypInfo
+ , tfwClassLike
+ , tfwWordWorkerEx
+ , tfwGlobalKeyWord
  , l3String
  , SysUtils
  , l3FileUtils

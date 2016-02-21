@@ -3,7 +3,7 @@ unit kwKeyValues;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwKeyValues.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

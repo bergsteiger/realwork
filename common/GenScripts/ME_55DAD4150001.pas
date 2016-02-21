@@ -3,7 +3,7 @@ unit pgInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

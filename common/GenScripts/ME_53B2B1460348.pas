@@ -3,7 +3,7 @@ unit kwPermanentFilterExists;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwPermanentFilterExists.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

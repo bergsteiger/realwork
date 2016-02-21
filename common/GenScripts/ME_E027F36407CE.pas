@@ -4,7 +4,7 @@ unit CustomizeToolsKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\CustomizeToolsKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , PrimToolbarMenu_Module
- , tfwControlString
 ;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -21,6 +20,7 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
  , tfwScriptingTypes
  , TtfwClassRef_Proxy
 ;

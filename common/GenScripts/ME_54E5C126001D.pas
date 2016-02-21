@@ -3,7 +3,7 @@ unit nsQueryAttribute;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryAttribute.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -34,12 +34,14 @@ uses
  , SearchUnit
  , ContextHistoryInterfaces
  , nevTools
- , BaseSearchInterfaces
  , BaseTreeSupportUnit
  , afwInterfaces
+ , BaseSearchInterfaces
 ;
 
 type
+ TqaReqClass = class of TqaReq;
+
  TqaReq = class(Tl3CacheableBase, IqaReq)
   {* Реквизит. }
   private
@@ -309,8 +311,6 @@ type
     read Get_Number
     write Set_Number;
  end;//TqaReqPhone
-
- TqaReqClass = class of TqaReq;
 
  TqaDateReqDataHolder = class(TvcmBase, IqaDateReqDataHolder)
   private

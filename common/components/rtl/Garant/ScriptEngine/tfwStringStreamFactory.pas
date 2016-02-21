@@ -3,7 +3,7 @@ unit tfwStringStreamFactory;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStringStreamFactory.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

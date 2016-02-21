@@ -3,7 +3,7 @@ unit tfwParserInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwParserInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

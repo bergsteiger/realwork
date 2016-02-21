@@ -3,7 +3,7 @@ unit pgConnection;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgConnection.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

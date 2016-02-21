@@ -6,10 +6,10 @@
 {$Define FormProducer_imp}
 
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
- // _FormClass_
-
 type
  FormClassRef = class of _FormClass_;
+
+ // _FormClass_
 
  _FormProducer_ = class(_FormProducer_Parent_)
   protected

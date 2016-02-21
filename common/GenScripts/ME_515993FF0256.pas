@@ -3,7 +3,7 @@ unit IntStackTestViaMixIn;
 // Модуль: "w:\common\components\SandBox\IntStackTestViaMixIn.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

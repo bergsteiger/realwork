@@ -4,7 +4,7 @@ unit AdminAppRes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminAppRes.pas"
 // Стереотип: "VCMApplication"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

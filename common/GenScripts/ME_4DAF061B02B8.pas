@@ -3,7 +3,7 @@ unit F1ScriptEngine;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ScriptEngine\F1ScriptEngine.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

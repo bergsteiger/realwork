@@ -4,7 +4,7 @@ unit ScrollBackByLineTest;
 // Модуль: "w:\common\components\gui\Garant\Daily\ScrollBackByLineTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

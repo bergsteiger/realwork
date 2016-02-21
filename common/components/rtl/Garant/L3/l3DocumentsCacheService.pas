@@ -3,7 +3,7 @@ unit l3DocumentsCacheService;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3DocumentsCacheService.pas"
 // Стереотип: "Service"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

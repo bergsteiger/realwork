@@ -3,7 +3,7 @@ unit BasicsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\BasicsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -14,13 +14,7 @@ uses
  , tfwTypeInfo
  , tfwParserInterfaces
  , l3Interfaces
- , tfwConstLike
- , kwCompiledWordPrim
  , kwCompiledWordWorker
- , tfwAxiomaticsResNameGetter
- , tfwGlobalKeyWord
- , TypInfo
- , tfwWordWorkerEx
 ;
 
 type
@@ -43,6 +37,12 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwConstLike
+ , kwCompiledWordPrim
+ , tfwAxiomaticsResNameGetter
+ , tfwGlobalKeyWord
+ , TypInfo
+ , tfwWordWorkerEx
  , l3Chars
  , Windows
  , l3String

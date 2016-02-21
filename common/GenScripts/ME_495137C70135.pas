@@ -4,7 +4,7 @@ unit bsDocumentContextSearcher;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\bsDocumentContextSearcher.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

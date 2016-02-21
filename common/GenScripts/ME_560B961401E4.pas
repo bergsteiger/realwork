@@ -3,7 +3,7 @@ unit pgResultSet;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgResultSet.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit l3ScriptService;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\l3ScriptService.pas"
 // Стереотип: "Service"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

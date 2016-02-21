@@ -3,7 +3,7 @@ unit OutlinerTest;
 // Модуль: "w:\common\components\gui\Garant\Daily\OutlinerTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit daJournal;
 // Модуль: "w:\common\components\rtl\Garant\DA\daJournal.pas"
 // Стереотип: "SimpleClass"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
@@ -29,6 +29,7 @@ type
     {* Поле для свойства CurSessionID }
   private
    function GetNewSessionID: TdaSessionID;
+   procedure AnalyseLog(const aLog: IdaResultSet);
   protected
    procedure LogEvent(aOperation: TdaJournalOperation;
     aFamilyID: TdaFamilyID;
@@ -39,17 +40,16 @@ type
    procedure SessionChanged; virtual; abstract;
    procedure DoStartCaching; virtual; abstract;
    procedure DoStopCaching; virtual; abstract;
-   procedure AnalyseLog(const aLog: IdaResultSet);
-   function MakeResultSet(FromDate: TStDate;
-    ToDate: TStDate;
+   function MakeResultSet(const FromDate: TStDate;
+    const ToDate: TStDate;
     aDocID: TdaDocID;
     UserOrGroupID: TdaUserID;
     UserGr: Boolean): IdaResultSet; virtual; abstract;
    procedure CorrectDates(var FromDate: TStDate;
-    ToDate: TStDate);
+    const ToDate: TStDate);
    function Get_CurStatisticTreeRoot: Il3RootNode;
-   procedure CalcStatistics(FromDate: TStDate;
-    ToDate: TStDate;
+   procedure CalcStatistics(const FromDate: TStDate;
+    const ToDate: TStDate;
     aDocID: TdaDocID;
     UserOrGroupID: TdaUserID;
     UserGr: Boolean);
@@ -414,7 +414,7 @@ begin
 end;//TdaJournal.AnalyseLog
 
 procedure TdaJournal.CorrectDates(var FromDate: TStDate;
- ToDate: TStDate);
+ const ToDate: TStDate);
 //#UC START# *55657CD20360_559A3BD901CC_var*
 //#UC END# *55657CD20360_559A3BD901CC_var*
 begin
@@ -435,8 +435,8 @@ begin
 //#UC END# *554092F701E2_559A3BD901CCget_impl*
 end;//TdaJournal.Get_CurStatisticTreeRoot
 
-procedure TdaJournal.CalcStatistics(FromDate: TStDate;
- ToDate: TStDate;
+procedure TdaJournal.CalcStatistics(const FromDate: TStDate;
+ const ToDate: TStDate;
  aDocID: TdaDocID;
  UserOrGroupID: TdaUserID;
  UserGr: Boolean);

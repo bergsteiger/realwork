@@ -4,7 +4,7 @@ unit kwMain;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMain.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -15,7 +15,6 @@ uses
  , tfwScriptingInterfaces
  , kwCompiledWordPrim
  , tfwStreamFactory
- , tfwAxiomaticsResNameGetter
 ;
 
 type
@@ -55,6 +54,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
  , SysUtils
  , l3Base
  , kwSystemIncluded

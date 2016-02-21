@@ -4,7 +4,7 @@ unit QFLikeTextLoadKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\QFLikeTextLoadKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -15,14 +15,6 @@ uses
  , evTextSource
  , evQueryCardEditor
  , evLoadDocumentManager
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -31,6 +23,14 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -216,12 +216,9 @@ begin
 end;//Tkw_QFLikeTextLoad_Control_Text.RegisterInEngine
 
 procedure Tkw_QFLikeTextLoad_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E1E0431EACD4_var*
-//#UC END# *4DAEEDE10285_E1E0431EACD4_var*
 begin
-//#UC START# *4DAEEDE10285_E1E0431EACD4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E1E0431EACD4_impl*
+ aCtx.rEngine.PushString('Text');
+ inherited;
 end;//Tkw_QFLikeTextLoad_Control_Text_Push.DoDoIt
 
 class function Tkw_QFLikeTextLoad_Control_Text_Push.GetWordNameForRegister: AnsiString;

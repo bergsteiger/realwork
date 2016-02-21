@@ -3,7 +3,7 @@ unit nsNewsLine;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\nsNewsLine.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

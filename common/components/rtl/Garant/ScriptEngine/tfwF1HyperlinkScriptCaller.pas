@@ -3,7 +3,7 @@ unit tfwF1HyperlinkScriptCaller;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwF1HyperlinkScriptCaller.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , tfwHyperlinkScriptCaller
- , tfwAxiomaticsResNameGetter
 ;
 
 type
@@ -26,6 +25,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
 ;
 
 type

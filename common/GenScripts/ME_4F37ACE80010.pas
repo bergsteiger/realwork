@@ -3,7 +3,7 @@ unit CompilationPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CompilationPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

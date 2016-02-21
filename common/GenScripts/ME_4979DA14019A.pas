@@ -4,7 +4,7 @@ unit PrimAttributes_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimAttributes_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -16,8 +16,6 @@ uses
  {$If Defined(Nemesis)}
  , nscNewInterfaces
  {$IfEnd} // Defined(Nemesis)
- , nsLogEvent
- , DocumentUnit
 ;
 
 type
@@ -49,6 +47,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , nsLogEvent
+ , DocumentUnit
  , nsSingleAttributeData
  , F1Like_InternalOperations_Controls
  , Common_Strange_Controls

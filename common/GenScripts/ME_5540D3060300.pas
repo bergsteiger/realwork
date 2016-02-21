@@ -3,7 +3,7 @@ unit htJournal;
 // Модуль: "w:\common\components\rtl\Garant\HT\htJournal.pas"
 // Стереотип: "SimpleClass"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 
@@ -31,12 +31,12 @@ type
    f_Table: TBigBrotherTbl;
   private
    function BigBrother: TBigBrotherAccess;
-   function GetUserStatistic(FromDate: TStDate;
-    ToDate: TStDate;
+   function GetUserStatistic(const FromDate: TStDate;
+    const ToDate: TStDate;
     UserOrGroupID: TdaUserID;
     UserGr: Boolean): ISab;
-   function GetDocStatistic(FromDate: TStDate;
-    ToDate: TStDate;
+   function GetDocStatistic(const FromDate: TStDate;
+    const ToDate: TStDate;
     aDocID: TdaDocID): ISab;
   protected
    procedure LogEvent(aOperation: TdaJournalOperation;
@@ -48,8 +48,8 @@ type
    procedure SessionChanged; override;
    procedure DoStartCaching; override;
    procedure DoStopCaching; override;
-   function MakeResultSet(FromDate: TStDate;
-    ToDate: TStDate;
+   function MakeResultSet(const FromDate: TStDate;
+    const ToDate: TStDate;
     aDocID: TdaDocID;
     UserOrGroupID: TdaUserID;
     UserGr: Boolean): IdaResultSet; override;
@@ -117,8 +117,8 @@ begin
 //#UC END# *5549F376004F_5540D3060300_impl*
 end;//ThtJournal.BigBrother
 
-function ThtJournal.GetUserStatistic(FromDate: TStDate;
- ToDate: TStDate;
+function ThtJournal.GetUserStatistic(const FromDate: TStDate;
+ const ToDate: TStDate;
  UserOrGroupID: TdaUserID;
  UserGr: Boolean): ISab;
 //#UC START# *5563286A0387_5540D3060300_var*
@@ -167,8 +167,8 @@ begin
 //#UC END# *5563286A0387_5540D3060300_impl*
 end;//ThtJournal.GetUserStatistic
 
-function ThtJournal.GetDocStatistic(FromDate: TStDate;
- ToDate: TStDate;
+function ThtJournal.GetDocStatistic(const FromDate: TStDate;
+ const ToDate: TStDate;
  aDocID: TdaDocID): ISab;
 //#UC START# *556328D003C8_5540D3060300_var*
 var
@@ -312,8 +312,8 @@ begin
 //#UC END# *559B88B00126_5540D3060300_impl*
 end;//ThtJournal.DoStopCaching
 
-function ThtJournal.MakeResultSet(FromDate: TStDate;
- ToDate: TStDate;
+function ThtJournal.MakeResultSet(const FromDate: TStDate;
+ const ToDate: TStDate;
  aDocID: TdaDocID;
  UserOrGroupID: TdaUserID;
  UserGr: Boolean): IdaResultSet;

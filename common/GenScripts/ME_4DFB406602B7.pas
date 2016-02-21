@@ -3,7 +3,7 @@ unit arEditorUtils;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\arEditorUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit htDataConverter;
 // Модуль: "w:\common\components\rtl\Garant\HT\htDataConverter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 

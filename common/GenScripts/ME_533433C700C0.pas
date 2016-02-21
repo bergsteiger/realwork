@@ -4,7 +4,7 @@ unit kwClearFindDialog;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

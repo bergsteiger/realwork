@@ -3,7 +3,7 @@ unit daTableDescription;
 // Модуль: "w:\common\components\rtl\Garant\DA\daTableDescription.pas"
 // Стереотип: "UtilityPack"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

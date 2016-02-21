@@ -3,7 +3,7 @@ unit InterfacedNodeWordsPack;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\InterfacedNodeWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
@@ -13,11 +13,6 @@ uses
  {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
  , nsFiltersInterfaces
  {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
- , tfwAxiomaticsResNameGetter
- , tfwPropertyLike
- , tfwScriptingInterfaces
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -26,6 +21,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
  , FiltersUnit
  , tfwScriptingTypes
  , tfwTypeRegistrator

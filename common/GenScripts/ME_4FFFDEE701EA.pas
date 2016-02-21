@@ -3,7 +3,7 @@ unit ModalDialogsKeywordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ModalDialogsKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

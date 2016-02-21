@@ -3,7 +3,7 @@ unit NewBaseSearchForDFM_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\NewBaseSearchForDFM_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -28,7 +28,6 @@ uses
  {$IfEnd} // NOT Defined(NoVGScene)
  , l3Interfaces
  , BaseSearchInterfaces
- , l3StringIDEx
  , l3ProtoDataContainer
  , l3Memory
  , l3Types
@@ -200,6 +199,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , l3String
  , nsConst
  {$If NOT Defined(NoVCL)}

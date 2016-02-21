@@ -3,7 +3,7 @@ unit csTaskChangeHelper;
 // Модуль: "w:\common\components\rtl\Garant\cs\csTaskChangeHelper.pas"
 // Стереотип: "Service"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

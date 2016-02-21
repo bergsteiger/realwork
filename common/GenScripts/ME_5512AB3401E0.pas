@@ -3,7 +3,7 @@ unit VarWorkingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VarWorkingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , tfwTypeInfo
- , tfwConst
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,6 +19,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwConst
  , tfwScriptingTypes
 ;
 

@@ -3,7 +3,7 @@ unit NOT_FINISHED_CsNotification;
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_CsNotification.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit kwString;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwString.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit pgFreeIDHelper;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgFreeIDHelper.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit TestDocumentList;
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestDocumentList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 

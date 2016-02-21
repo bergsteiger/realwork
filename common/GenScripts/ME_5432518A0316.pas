@@ -3,7 +3,7 @@ unit daInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\DA\daInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 
@@ -150,8 +150,8 @@ type
   function Get_CurStatisticTreeRoot: Il3RootNode;
   function Get_UserID: TdaUserID;
   procedure Set_UserID(aValue: TdaUserID);
-  procedure CalcStatistics(FromDate: TStDate;
-   ToDate: TStDate;
+  procedure CalcStatistics(const FromDate: TStDate;
+   const ToDate: TStDate;
    aDocID: TdaDocID;
    UserOrGroupID: TdaUserID;
    UserGr: Boolean);
@@ -276,9 +276,9 @@ type
   function Get_AsString: AnsiString;
   procedure Set_AsString(const aValue: AnsiString);
   function Get_AsStDate: TStDate;
-  procedure Set_AsStDate(aValue: TStDate);
+  procedure Set_AsStDate(const aValue: TStDate);
   function Get_AsStTime: TStTime;
-  procedure Set_AsStTime(aValue: TStTime);
+  procedure Set_AsStTime(const aValue: TStTime);
   function Get_ParamType: TdaParamType;
   function IsSameType(const aDesc: IdaParamDescription): Boolean;
   property Name: AnsiString
@@ -545,6 +545,10 @@ type
   procedure RegisterFreeExtObjID(anID: TdaDocID);
   procedure RegisterFreeExtDocID(anID: TdaDocID);
  end;//IdaComboAccessDataProviderHelper
+
+ IdaComboAccessJournalHelper = interface
+  ['{9C5AF6B0-E3D5-419F-9136-E0280619B32D}']
+ end;//IdaComboAccessJournalHelper
 
 function L2daTableDescriptionIteratorIterateFieldsFAction(anAction: pointer): daTableDescriptionIterator_IterateFieldsF_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для daTableDescriptionIterator.IterateFieldsF }

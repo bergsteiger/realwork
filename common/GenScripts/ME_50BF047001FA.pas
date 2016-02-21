@@ -3,7 +3,7 @@ unit seThreadSupport;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\seThreadSupport.pas"
 // Стереотип: "UtilityPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

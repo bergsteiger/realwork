@@ -3,7 +3,7 @@ unit BaseEditions_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\BaseEditions_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -17,7 +17,6 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , bsTypesNew
- , l3StringIDEx
  , PrimLeftEdition_Form
  , CompareEditions_FormDefinitions_Controls
  , PrimRightEdition_Form
@@ -126,6 +125,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)

@@ -3,7 +3,7 @@ unit arDialogsPack;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\arDialogsPack.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

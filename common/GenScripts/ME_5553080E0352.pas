@@ -3,7 +3,7 @@ unit daFromTableListPrim;
 // Модуль: "w:\common\components\rtl\Garant\DA\daFromTableListPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit htTableQueryFactory;
 // Модуль: "w:\common\components\rtl\Garant\HT\htTableQueryFactory.pas"
 // Стереотип: "SimpleClass"
 
-{$Include htDefineDA.inc}
+{$Include w:\common\components\rtl\Garant\HT\htDefineDA.inc}
 
 interface
 

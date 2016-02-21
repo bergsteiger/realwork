@@ -4,7 +4,7 @@ library stg32;
 // Модуль: "w:\common\components\stg32\stg32.dpr"
 // Стереотип: "AdapterTarget"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\l3Define.inc}
 
 interface
 

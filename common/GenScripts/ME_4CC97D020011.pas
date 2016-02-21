@@ -4,7 +4,7 @@ unit BaseSearch_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\BaseSearch_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -21,7 +21,6 @@ uses
  , BaseSearchInterfaces
  , SearchUnit
  , PrimBaseSearchCard_Form
- , l3StringIDEx
  , NewBaseSearchForDFM_Form
  , Common_FormDefinitions_Controls
  , PrimBaseSearchContainer_Form
@@ -70,6 +69,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

@@ -3,16 +3,13 @@ unit EtalonsWorkingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\EtalonsWorkingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , tfwGlobalKeyWord
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -21,6 +18,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
+ , TypInfo
  , kwCheckOutputWithInput
  , kwCheckEtalon
  , kwTestResolveInputFilePath

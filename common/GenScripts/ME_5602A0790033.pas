@@ -3,7 +3,7 @@ unit pgJournal;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgJournal.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
@@ -40,8 +40,8 @@ type
    procedure SessionChanged; override;
    procedure DoStartCaching; override;
    procedure DoStopCaching; override;
-   function MakeResultSet(FromDate: TStDate;
-    ToDate: TStDate;
+   function MakeResultSet(const FromDate: TStDate;
+    const ToDate: TStDate;
     aDocID: TdaDocID;
     UserOrGroupID: TdaUserID;
     UserGr: Boolean): IdaResultSet; override;
@@ -174,8 +174,8 @@ begin
 //#UC END# *559B88B00126_5602A0790033_impl*
 end;//TpgJournal.DoStopCaching
 
-function TpgJournal.MakeResultSet(FromDate: TStDate;
- ToDate: TStDate;
+function TpgJournal.MakeResultSet(const FromDate: TStDate;
+ const ToDate: TStDate;
  aDocID: TdaDocID;
  UserOrGroupID: TdaUserID;
  UserGr: Boolean): IdaResultSet;

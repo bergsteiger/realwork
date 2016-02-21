@@ -3,7 +3,7 @@ unit nsExportToWordEvent;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsExportToWordEvent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

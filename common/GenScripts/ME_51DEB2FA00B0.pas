@@ -3,7 +3,7 @@ unit IntegerListTest;
 // Модуль: "w:\common\components\SandBox\IntegerListTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

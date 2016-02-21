@@ -3,7 +3,7 @@ unit ControlStatusUtils;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\UnderControl\ControlStatusUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , l3Interfaces
  , UnderControlInterfaces
- , l3StringIDEx
  , l3MessageID
+ , l3StringIDEx
 ;
 
 const

@@ -3,7 +3,7 @@ unit ncsProfile;
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsProfile.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

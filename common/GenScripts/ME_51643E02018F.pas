@@ -3,7 +3,7 @@ unit ReallocMemTest;
 // Модуль: "w:\common\components\SandBox\ReallocMemTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit kwBaseExport;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwBaseExport.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
@@ -13,7 +13,6 @@ uses
  l3IntfUses
  , tfwRegisterableWord
  , tfwScriptingInterfaces
- , SewerPipe
 ;
 
 type
@@ -30,6 +29,7 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , SewerPipe
  , SysUtils
  , dt_Types
  , dt_AttrSchema

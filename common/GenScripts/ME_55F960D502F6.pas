@@ -3,7 +3,7 @@ unit pgTabledQuery;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgTabledQuery.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 
@@ -26,7 +26,7 @@ type
    function BuildSQL: AnsiString;
   protected
    function MakeFromTable(const aTable: IdaTableDescription;
-    const anAlias: AnsiString = ''): IdaFromTable; override;
+    const anAlias: AnsiString): IdaFromTable; override;
    procedure PrepareTable; override;
    procedure UnPrepareTable; override;
    procedure Cleanup; override;
@@ -50,12 +50,12 @@ implementation
 {$If Defined(UsePostgres)}
 uses
  l3ImplUses
- , pgFromTable
  , SysUtils
  , LibPQ
  , pgUtils
  , pgParamList
  , pgResultSet
+ , daFromTable
 ;
 
 constructor TpgTabledQuery.Create(const aDataConverter: IpgDataConverter;
@@ -96,7 +96,7 @@ begin
 end;//TpgTabledQuery.BuildSQL
 
 function TpgTabledQuery.MakeFromTable(const aTable: IdaTableDescription;
- const anAlias: AnsiString = ''): IdaFromTable;
+ const anAlias: AnsiString): IdaFromTable;
 //#UC START# *5600FFF80332_55F960D502F6_var*
 //#UC END# *5600FFF80332_55F960D502F6_var*
 begin

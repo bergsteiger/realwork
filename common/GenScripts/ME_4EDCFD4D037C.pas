@@ -3,7 +3,7 @@ unit nsListWarningGenerator;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -18,7 +18,6 @@ uses
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
  , UnderControlInterfaces
- , l3StringIDEx
 ;
 
 type
@@ -37,6 +36,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , nsDocumentWarningGenerator
  , BaloonWarningUserTypes_remListModified_UserType
  {$If NOT Defined(NoVCM)}

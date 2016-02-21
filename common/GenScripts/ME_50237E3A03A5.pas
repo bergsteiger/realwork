@@ -3,7 +3,7 @@ unit kwF1ComplectOwner;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\kwF1ComplectOwner.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit CsClientInfo;
 // Модуль: "w:\common\components\rtl\Garant\cs\CsClientInfo.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

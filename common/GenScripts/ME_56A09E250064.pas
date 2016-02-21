@@ -3,7 +3,7 @@ unit kwClearConfig;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearConfig.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

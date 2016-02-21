@@ -4,7 +4,7 @@ unit TwoSpaceForOneReplacerTest;
 // Модуль: "w:\common\components\gui\Garant\Daily\TwoSpaceForOneReplacerTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

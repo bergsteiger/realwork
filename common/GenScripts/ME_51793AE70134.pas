@@ -3,7 +3,7 @@ unit kwPopControlScrollInfo;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopControlScrollInfo.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

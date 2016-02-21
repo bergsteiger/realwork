@@ -3,7 +3,7 @@ unit QueryCardInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\QueryCardInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

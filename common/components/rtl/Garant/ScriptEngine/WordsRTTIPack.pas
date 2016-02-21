@@ -3,7 +3,7 @@ unit WordsRTTIPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -14,11 +14,6 @@ uses
  , l3Interfaces
  , tfwDictionary
  , l3CProtoObject
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , TypInfo
- , tfwPropertyLike
- , tfwTypeInfo
 ;
 
 type
@@ -47,6 +42,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , TypInfo
+ , tfwPropertyLike
+ , tfwTypeInfo
  , seWordsInfo
  , tfwMembersIterator
  , kwForwardDeclaration

@@ -3,7 +3,7 @@ unit kwMouseSetCursorPosition;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMouseSetCursorPosition.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

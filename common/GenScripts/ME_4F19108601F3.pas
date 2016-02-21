@@ -3,7 +3,7 @@ unit m3StorageIndexAdapter;
 // Модуль: "w:\common\components\rtl\Garant\TestsSupport\m3StorageIndexAdapter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\l3Define.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit arEditorControl;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\arEditorControl.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

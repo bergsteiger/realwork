@@ -3,7 +3,7 @@ unit dsChangesBetweenEditions;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\dsChangesBetweenEditions.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -28,7 +28,6 @@ uses
  , l3Interfaces
  , l3NotifyPtrList
  , DocumentInterfaces
- , l3StringIDEx
 ;
 
 type
@@ -55,6 +54,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , nsChangesBetweenEditionsDocumentContainer
  , evFormatHAFMacroReplacer
  , nsDocInfoHAFMacroReplacer

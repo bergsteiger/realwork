@@ -3,7 +3,7 @@ unit tfwScriptingExceptions;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingExceptions.pas"
 // Стереотип: "InternalInterfaces"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

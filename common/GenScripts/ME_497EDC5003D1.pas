@@ -4,7 +4,7 @@ unit PrimConsultationMark_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMark_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -21,7 +21,6 @@ uses
  , vtLabel
  , eeMemoWithEditOperations
  , bsTypes
- , l3StringIDEx
 ;
 
 const
@@ -84,6 +83,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)

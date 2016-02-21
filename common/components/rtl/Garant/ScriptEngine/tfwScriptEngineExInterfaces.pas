@@ -3,7 +3,7 @@ unit tfwScriptEngineExInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngineExInterfaces.pas"
 // Стереотип: "UtilityPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

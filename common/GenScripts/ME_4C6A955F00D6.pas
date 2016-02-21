@@ -29,7 +29,7 @@
    function CanBePlacedInDocumentsCache: Boolean; override;
    function MakeDocumentPreview(const aKey: TevPreviewCacheKey;
     const aMacroReplacer: IafwHAFMacroReplacer;
-    const aRange: InevRange = nil): IafwDocumentPreview; override;
+    const aRange: InevRange): IafwDocumentPreview; override;
    function MakeInfoPreview(const aKey: TevPreviewCacheKey;
     const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview; override;
    function GetIsSame(const aContainer: InevDocumentContainer): Boolean; override;
@@ -258,7 +258,7 @@ end;//_nsDocumentContainer_.CanBePlacedInDocumentsCache
 
 function _nsDocumentContainer_.MakeDocumentPreview(const aKey: TevPreviewCacheKey;
  const aMacroReplacer: IafwHAFMacroReplacer;
- const aRange: InevRange = nil): IafwDocumentPreview;
+ const aRange: InevRange): IafwDocumentPreview;
 //#UC START# *47F1112A0183_4C6A955F00D6_var*
 var
  l_Event: InsEventHolder;

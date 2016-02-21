@@ -3,7 +3,7 @@ unit caDataProviderParams;
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataProviderParams.pas"
 // Стереотип: "SimpleClass"
 
-{$Include caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 

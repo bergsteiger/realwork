@@ -4,7 +4,7 @@ unit CommentAndScrollTest;
 // Модуль: "w:\common\components\gui\Garant\Daily\CommentAndScrollTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit TextLoadKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\TextLoadKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -15,14 +15,6 @@ uses
  , evEditor
  , evTextSource
  , evLoadDocumentManager
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -31,6 +23,14 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -200,12 +200,9 @@ begin
 end;//Tkw_TextLoad_Control_Text.RegisterInEngine
 
 procedure Tkw_TextLoad_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_59B3098A6C26_var*
-//#UC END# *4DAEEDE10285_59B3098A6C26_var*
 begin
-//#UC START# *4DAEEDE10285_59B3098A6C26_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_59B3098A6C26_impl*
+ aCtx.rEngine.PushString('Text');
+ inherited;
 end;//Tkw_TextLoad_Control_Text_Push.DoDoIt
 
 class function Tkw_TextLoad_Control_Text_Push.GetWordNameForRegister: AnsiString;

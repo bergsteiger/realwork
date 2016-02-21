@@ -4,7 +4,7 @@ unit sdsList;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\List\sdsList.pas"
 // Стереотип: "UseCaseControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

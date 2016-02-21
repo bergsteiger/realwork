@@ -3,7 +3,7 @@ unit ncsMessage;
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsMessage.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 
@@ -20,6 +20,8 @@ uses
 ;
 
 type
+ TncsMessageClass = class of TncsMessage;
+
  _evdTagHolder_Parent_ = Tl3Tag;
  {$Include w:\common\components\rtl\Garant\EVD\evdTagHolder.imp.pas}
  TncsMessage = class(_evdTagHolder_)
@@ -47,8 +49,6 @@ type
     read pm_GetTimeStamp
     write pm_SetTimeStamp;
  end;//TncsMessage
-
- TncsMessageClass = class of TncsMessage;
 
  TncsInvalidMessage = class(TncsMessage)
  end;//TncsInvalidMessage

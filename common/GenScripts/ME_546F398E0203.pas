@@ -3,7 +3,7 @@ unit ncsFileListDeliverer;
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsFileListDeliverer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

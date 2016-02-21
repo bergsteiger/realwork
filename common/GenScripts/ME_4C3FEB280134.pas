@@ -4,7 +4,7 @@ unit ChangeAllTablesTest;
 // Модуль: "w:\common\components\gui\Garant\Daily\ChangeAllTablesTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

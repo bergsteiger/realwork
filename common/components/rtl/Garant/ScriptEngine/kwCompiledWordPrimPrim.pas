@@ -3,7 +3,7 @@ unit kwCompiledWordPrimPrim;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrimPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

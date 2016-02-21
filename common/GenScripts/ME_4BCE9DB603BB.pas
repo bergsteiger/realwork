@@ -4,7 +4,7 @@ unit K204114253;
 // Модуль: "w:\common\components\gui\Garant\Daily\K204114253.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -16,7 +16,6 @@ uses
  {$IfEnd} // NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)
  , elCustomEdit_Form
  , Types
- , elCustomEdit
 ;
 
 type
@@ -40,6 +39,7 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , elCustomEdit
  , evdSchema
  , TestFrameWork
  , vcmBase

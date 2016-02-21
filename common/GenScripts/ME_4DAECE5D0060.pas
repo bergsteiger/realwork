@@ -4,7 +4,7 @@ unit vcmInsiderTest;
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\vcmInsiderTest.pas"
 // Стереотип: "SimpleClass"
 
-{$Include tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit nsWarningDocumentContainer;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsWarningDocumentContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

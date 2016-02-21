@@ -3,7 +3,7 @@ unit tfwStandardDictionaries;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaries.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

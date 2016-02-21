@@ -4,7 +4,7 @@ unit moToolbarMenu;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\moToolbarMenu.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

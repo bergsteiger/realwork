@@ -3,7 +3,7 @@ unit ByteListTest;
 // Модуль: "w:\common\components\SandBox\ByteListTest.pas"
 // Стереотип: "TestCase"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\sbtDefine.inc}
 
 interface
 

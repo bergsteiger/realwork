@@ -3,7 +3,7 @@ unit PrimCustomizeTools_Form;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ToolbarMenu\Forms\PrimCustomizeTools_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

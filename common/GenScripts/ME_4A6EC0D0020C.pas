@@ -4,7 +4,7 @@ unit PrimEditionsContainer_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimEditionsContainer_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -37,7 +37,6 @@ uses
  , afwInterfaces
  , Common_Strange_Controls
  , DocumentAndListInterfaces
- , l3StringIDEx
 ;
 
 type
@@ -116,6 +115,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

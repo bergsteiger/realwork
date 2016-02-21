@@ -3,7 +3,7 @@ unit l3MessagesService;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MessagesService.pas"
 // Стереотип: "Service"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

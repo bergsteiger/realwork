@@ -3,7 +3,7 @@ unit pgFunctionFactory;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgFunctionFactory.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

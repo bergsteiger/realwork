@@ -3,7 +3,7 @@ unit tfwWordInfoWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordInfoWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -15,9 +15,6 @@ uses
  , tfwValueTypes
  , tfwScriptingTypes
  , tfwTypeInfo
- , tfwClassLike
- , TypInfo
- , tfwPropertyLike
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -26,6 +23,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , TypInfo
+ , tfwPropertyLike
  , tfwTypeRegistrator
  , SysUtils
 ;

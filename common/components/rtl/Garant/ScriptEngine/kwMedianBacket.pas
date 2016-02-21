@@ -3,7 +3,7 @@ unit kwMedianBacket;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwMedianBacket.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

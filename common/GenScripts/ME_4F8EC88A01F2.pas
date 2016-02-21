@@ -3,7 +3,7 @@ unit MouseInputPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\MouseInputPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

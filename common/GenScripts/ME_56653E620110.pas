@@ -3,7 +3,7 @@ unit pgParamDecsriptionList;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgParamDecsriptionList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

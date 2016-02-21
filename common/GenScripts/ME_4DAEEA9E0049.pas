@@ -4,7 +4,7 @@ unit tfwScriptEngine;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngine.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

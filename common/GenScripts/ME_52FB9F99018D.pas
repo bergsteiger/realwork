@@ -3,7 +3,7 @@ unit NOT_FINISHED_csMessageManager;
 // Модуль: "w:\common\components\rtl\Garant\cs\NOT_FINISHED_csMessageManager.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

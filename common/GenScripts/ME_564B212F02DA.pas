@@ -3,7 +3,7 @@ unit pgTableModifier;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgTableModifier.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

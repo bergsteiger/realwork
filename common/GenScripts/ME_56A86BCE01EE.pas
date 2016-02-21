@@ -3,7 +3,7 @@ unit caDataProvider;
 // Модуль: "w:\common\components\rtl\Garant\ComboAccess\caDataProvider.pas"
 // Стереотип: "SimpleClass"
 
-{$Include caDefine.inc}
+{$Include w:\common\components\rtl\Garant\ComboAccess\caDefine.inc}
 
 interface
 
@@ -13,6 +13,7 @@ uses
  , l3ProtoObject
  , daInterfaces
  , caDataProviderParams
+ , caInterfaces
  , daTypes
  , l3Languages
  , l3DatLst
@@ -26,6 +27,10 @@ type
    f_PGProvider: IdaDataProvider;
    f_IsStarted: Boolean;
    f_NeedClearGlobalDataProvider: Boolean;
+   f_Journal: IdaJournal;
+   f_DataConverter: IcaDataConverter;
+   f_UserManager: IdaUserManager;
+   f_Factory: IdaTableQueryFactory;
   protected
    function Get_UserID: TdaUserID;
    function Get_RegionID: TdaRegionID;
@@ -88,6 +93,12 @@ uses
  l3ImplUses
  , SysUtils
  , daDataProvider
+ , caJournal
+ , caDataConverter
+ , htInterfaces
+ , pgInterfaces
+ , caUserManager
+ , caTableQueryFactory
 ;
 
 constructor TcaDataProvider.Create(aParams: TcaDataProviderParams;
@@ -103,6 +114,7 @@ begin
  aParams.SetRefTo(f_Params);
  f_HTProvider := aHTProvider;
  f_PGProvider := aPGProvider;
+ f_DataConverter := TcaDataConverter.Make(f_HTProvider.DataConverter as IhtDataConverter, f_PGProvider.DataConverter as IpgDataConverter);
 //#UC END# *56BB1FC50359_56A86BCE01EE_impl*
 end;//TcaDataProvider.Create
 
@@ -469,20 +481,27 @@ begin
   SetGlobalDataProvider(nil);
  f_HTProvider.Stop;
  f_PGProvider.Stop;
-// f_Journal := nil;
+ f_Journal := nil;
  f_IsStarted := False;
-//!! !!! Needs to be implemented !!!
 //#UC END# *5526538202A5_56A86BCE01EE_impl*
 end;//TcaDataProvider.Stop
 
 function TcaDataProvider.Get_Journal: IdaJournal;
 //#UC START# *55409258013F_56A86BCE01EEget_var*
+var
+ l_HTJournalHelper: IdaComboAccessJournalHelper;
+ l_PGJournalHelper: IdaComboAccessJournalHelper;
 //#UC END# *55409258013F_56A86BCE01EEget_var*
 begin
 //#UC START# *55409258013F_56A86BCE01EEget_impl*
- Result := nil;
- Assert(False);
+ if f_Journal = nil then
+ begin
+//  f_Journal := TcaJournal.Make(Get_TableQueryFactory);
+//  f_Journal.UserID := Get_UserID;
+  Assert(False);
 //!! !!! Needs to be implemented !!!
+ end;
+ Result := f_Journal;
 //#UC END# *55409258013F_56A86BCE01EEget_impl*
 end;//TcaDataProvider.Get_Journal
 
@@ -491,9 +510,9 @@ function TcaDataProvider.Get_TableQueryFactory: IdaTableQueryFactory;
 //#UC END# *554C7A3002BF_56A86BCE01EEget_var*
 begin
 //#UC START# *554C7A3002BF_56A86BCE01EEget_impl*
- Result := nil;
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ if f_Factory = nil then
+  f_Factory := TcaTableQueryFactory.Make(f_DataConverter, f_HTProvider.TableQueryFactory, f_PGProvider.TableQueryFactory);
+ Result := f_Factory;
 //#UC END# *554C7A3002BF_56A86BCE01EEget_impl*
 end;//TcaDataProvider.Get_TableQueryFactory
 
@@ -502,9 +521,7 @@ function TcaDataProvider.Get_DataConverter: IdaDataConverter;
 //#UC END# *555995CF0292_56A86BCE01EEget_var*
 begin
 //#UC START# *555995CF0292_56A86BCE01EEget_impl*
- Result := nil;
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ Result := f_DataConverter;
 //#UC END# *555995CF0292_56A86BCE01EEget_impl*
 end;//TcaDataProvider.Get_DataConverter
 
@@ -546,9 +563,9 @@ function TcaDataProvider.Get_UserManager: IdaUserManager;
 //#UC END# *5628D25600E6_56A86BCE01EEget_var*
 begin
 //#UC START# *5628D25600E6_56A86BCE01EEget_impl*
- Result := nil;
- Assert(False);
-//!! !!! Needs to be implemented !!!
+ if f_UserManager = nil then
+  f_UserManager := TcaUserManager.Make(f_HTProvider.UserManager, f_PGProvider.UserManager);
+ Result := f_UserManager;
 //#UC END# *5628D25600E6_56A86BCE01EEget_impl*
 end;//TcaDataProvider.Get_UserManager
 
@@ -559,6 +576,10 @@ procedure TcaDataProvider.Cleanup;
 begin
 //#UC START# *479731C50290_56A86BCE01EE_impl*
  FreeAndNil(f_Params);
+ f_Journal := nil;
+ f_DataConverter := nil;
+ f_UserManager := nil;
+ f_Factory := nil;
  f_HTProvider := nil;
  f_PGProvider := nil;
  inherited;

@@ -4,7 +4,7 @@ unit tfwIncludeLike;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwIncludeLike.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

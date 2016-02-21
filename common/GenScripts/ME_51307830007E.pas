@@ -3,7 +3,7 @@ unit AutoTestSuiteWithDUnitSupport;
 // Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\AutoTestSuiteWithDUnitSupport.pas"
 // Стереотип: "SimpleClass"
 
-{$Include dsDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 
 interface
 

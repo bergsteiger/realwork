@@ -3,7 +3,7 @@ unit InsiderOwnScripter;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InsiderOwnScripter.pas"
 // Стереотип: "TestCase"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

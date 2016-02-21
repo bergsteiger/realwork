@@ -4,7 +4,7 @@ unit TestNameList;
 // Модуль: "w:\common\components\rtl\Garant\DUnitTuning\TestNameList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include tfwDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnitTuning\tfwDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit daProgressProcHolder;
 // Модуль: "w:\common\components\rtl\Garant\DA\daProgressProcHolder.pas"
 // Стереотип: "SimpleClass"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

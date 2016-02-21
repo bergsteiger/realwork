@@ -4,7 +4,7 @@ unit PrimChangesBetweenEditons_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\Forms\PrimChangesBetweenEditons_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -66,7 +66,6 @@ uses
  , Common_Strange_Controls
  , Base_Operations_Strange_Controls
  , evdTypes
- , l3StringIDEx
 ;
 
 type
@@ -115,7 +114,7 @@ type
    function RedactionCurrentPara: IeeLeafPara; override;
     {* Текущий параграф редакции для синхронизации с окном сравннения редакций }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -164,6 +163,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -395,7 +395,7 @@ begin
 end;//TPrimChangesBetweenEditonsForm.RedactionCurrentPara
 
 procedure TPrimChangesBetweenEditonsForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4DDCD636016C_var*
 var

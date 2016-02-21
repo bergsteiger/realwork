@@ -4,7 +4,7 @@ unit Diff_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\Diff_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -78,10 +78,6 @@ uses
  , nsFoundBlocksList
  , Base_Operations_Strange_Controls
  , evdTypes
- , evSubWaiter
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 type
@@ -206,7 +202,7 @@ type
    function DocumentIsValid: Boolean; override;
     {* Есть ли документ, готовый к работе }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -282,6 +278,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , evSubWaiter
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , evEditorWithOperations
  , deDocInfo
  , Graphics
@@ -1280,7 +1280,7 @@ begin
 end;//TDiffForm.DocumentIsValid
 
 procedure TDiffForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4A6EBE900233_var*
 var

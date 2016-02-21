@@ -3,7 +3,7 @@ unit tfwScriptingInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwScriptingInterfaces.pas"
 // Стереотип: "InternalInterfaces"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -80,6 +80,8 @@ type
  PtfwStoredValue = ^TtfwStoredValue;
 
  PtfwWordCallContext = ^TtfwWordCallContext;
+
+ RtfwWord = class of TtfwWord;
 
  (*
  ScriptCaller = interface
@@ -398,8 +400,6 @@ type
  end;//EtfwRunner
 
  PTypeInfoArray = array of PTypeInfo;
-
- RtfwWord = class of TtfwWord;
 
  TtfwWord = {abstract} class(TtfwWordPrim)
   {* Элемент словаря }

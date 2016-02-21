@@ -3,7 +3,7 @@ unit ItfwParserWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  , tfwParserInterfaces
  , l3Interfaces
  , l3Parser
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -24,6 +21,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , ItfwKeywordFinderWordsPack
  , tfwScriptingTypes
  , tfwTypeRegistrator

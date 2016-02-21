@@ -3,7 +3,7 @@ unit DefineSearchDateUtils;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\DefineSearchDateUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

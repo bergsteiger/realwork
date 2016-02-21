@@ -4,7 +4,7 @@ unit DailyAutoTest;
 // Модуль: "w:\common\components\rtl\Garant\DUnit_Script_Support\DailyAutoTest.pas"
 // Стереотип: "SimpleClass"
 
-{$Include dsDefine.inc}
+{$Include w:\common\components\rtl\Garant\DUnit_Script_Support\dsDefine.inc}
 
 interface
 

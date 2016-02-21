@@ -4,7 +4,7 @@ unit toKT;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKT.pas"
 // Стереотип: "TestResults"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

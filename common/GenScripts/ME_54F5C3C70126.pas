@@ -3,7 +3,7 @@ unit ScrollInfoProcessingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ScrollInfoProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

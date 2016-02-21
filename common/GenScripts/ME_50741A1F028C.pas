@@ -3,7 +3,7 @@ unit FormsProcessingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\FormsProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -14,10 +14,6 @@ uses
  , Menus
  , ActnList
  , tfwScriptingInterfaces
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , TypInfo
- , tfwGlobalKeyWord
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -26,6 +22,10 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , TypInfo
+ , tfwGlobalKeyWord
  , l3ObjectList
  , Classes
  , CustomFormProcessingPack

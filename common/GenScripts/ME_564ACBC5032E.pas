@@ -3,7 +3,7 @@ unit pgJournalCache;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgJournalCache.pas"
 // Стереотип: "UtilityPack"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

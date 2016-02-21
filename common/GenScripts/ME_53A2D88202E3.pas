@@ -3,7 +3,7 @@ unit csMessageRecepientList;
 // Модуль: "w:\common\components\rtl\Garant\cs\csMessageRecepientList.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

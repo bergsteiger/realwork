@@ -3,7 +3,7 @@ unit nsFiltersInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

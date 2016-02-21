@@ -3,7 +3,7 @@ unit ddClientMessageSortableList;
 // Модуль: "w:\common\components\rtl\Garant\cs\ddClientMessageSortableList.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

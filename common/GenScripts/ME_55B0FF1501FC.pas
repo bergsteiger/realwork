@@ -3,7 +3,7 @@ unit tfwStandardDictionaryListPrim;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwStandardDictionaryListPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

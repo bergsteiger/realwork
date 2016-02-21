@@ -3,7 +3,7 @@ unit kwPopTreeViewExportSelectionWithFormat;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Shell_Words\kwPopTreeViewExportSelectionWithFormat.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 
@@ -15,9 +15,6 @@ uses
  , nscTreeView
  {$IfEnd} // Defined(Nemesis)
  , tfwScriptingInterfaces
- {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- , PrimListOptions_Form
- {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 ;
 
 type
@@ -34,6 +31,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , PrimListOptions_Form
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
  , nsTypes
  , bsTypes
  , afwFacade

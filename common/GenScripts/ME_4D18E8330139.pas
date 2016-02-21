@@ -4,7 +4,7 @@ unit nsFindPositionListList;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFindPositionListList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

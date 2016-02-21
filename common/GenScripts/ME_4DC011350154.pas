@@ -3,7 +3,7 @@ unit sdsMainWindow;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\sdsMainWindow.pas"
 // Стереотип: "UseCaseControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -29,7 +29,6 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3NotifyPtrList
- , l3StringIDEx
 ;
 
 type
@@ -66,6 +65,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , dsWarning
  , Document_Const
  , bsUtils

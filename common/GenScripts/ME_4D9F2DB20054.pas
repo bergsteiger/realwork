@@ -3,7 +3,7 @@ program NemesisAppTest;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\NemesisAppTest.dpr"
 // Стереотип: "VCMTestTarget"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

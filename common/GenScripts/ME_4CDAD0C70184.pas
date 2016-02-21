@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsObjectPreview;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Printing\NOT_FINISHED_nsObjectPreview.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

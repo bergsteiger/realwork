@@ -4,7 +4,7 @@ unit OldNSRCFlagCnahge;
 // Модуль: "w:\common\components\gui\Garant\Daily\OldNSRCFlagCnahge.pas"
 // Стереотип: "TestCase"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 

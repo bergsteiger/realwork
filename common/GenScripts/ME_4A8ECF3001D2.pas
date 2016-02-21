@@ -3,7 +3,7 @@ unit PrimMonitorings_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -15,8 +15,6 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , MonitoringUnit
- , l3StringIDEx
- , l3MessageID
  , PrimNewsLineOptions_Form
  , Common_FormDefinitions_Controls
  {$If NOT Defined(NoVCM)}
@@ -28,15 +26,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactoryPrim
  {$IfEnd} // NOT Defined(NoVCM)
+ , nsLogEvent
+ , l3ProtoObject
+ , f1StartupCompletedService
  , DocumentUserTypes_dftAutoreferat_UserType
  , AutoreferatInterfaces
  , DocumentInterfaces
  , bsTypesNew
  , PrimNewsLine_nltMain_UserType
  , DocumentUserTypes_dftAutoreferatAfterSearch_UserType
- , nsLogEvent
- , l3ProtoObject
- , f1StartupCompletedService
 ;
 
 type
@@ -123,6 +121,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
+ , l3MessageID
  , Autoreferat_InternalOperations_Controls
  , nsOpenUtils
  , nsConst

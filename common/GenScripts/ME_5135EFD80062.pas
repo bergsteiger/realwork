@@ -3,7 +3,7 @@ unit Integration;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\F1_Words\Integration.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

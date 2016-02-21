@@ -3,7 +3,7 @@ unit tfwWordInfoList;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwWordInfoList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit Base_Operations_AAC_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_AAC_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , vtScrollBar
- , l3CProtoObject
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -82,6 +81,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3CProtoObject
 ;
 
 type

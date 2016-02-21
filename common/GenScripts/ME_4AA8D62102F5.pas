@@ -3,7 +3,7 @@ unit nsHooks;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsHooks.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

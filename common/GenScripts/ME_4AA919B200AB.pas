@@ -4,7 +4,7 @@ unit CommonPost_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\CommonPost_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

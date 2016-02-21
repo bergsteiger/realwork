@@ -3,7 +3,7 @@ unit tfwCStringList;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tfwCStringList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

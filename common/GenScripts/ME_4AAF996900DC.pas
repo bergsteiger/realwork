@@ -3,7 +3,7 @@ unit nsFindSelectDialog;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Monitorings\nsFindSelectDialog.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -33,7 +33,7 @@ uses
 ;
 
 function FindSelectDialog(aWnd: hWnd;
- aParam: Pointer): WinBool; stdcall;
+ aParam: Pointer): WinBool;
 //#UC START# *4AAF99C703C7_4AAF996900DC_var*
 var
  ProcessID: Cardinal;

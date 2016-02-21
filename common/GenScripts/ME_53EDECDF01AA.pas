@@ -3,7 +3,7 @@ unit csDecisionPhrasesHelper;
 // Модуль: "w:\common\components\rtl\Garant\cs\csDecisionPhrasesHelper.pas"
 // Стереотип: "UtilityPack"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

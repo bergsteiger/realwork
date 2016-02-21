@@ -3,7 +3,7 @@ unit kwWaitOk;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWaitOk.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

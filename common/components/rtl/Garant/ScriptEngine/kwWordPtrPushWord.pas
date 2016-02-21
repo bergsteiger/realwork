@@ -3,7 +3,7 @@ unit kwWordPtrPushWord;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwWordPtrPushWord.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

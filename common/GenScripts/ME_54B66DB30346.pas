@@ -3,7 +3,7 @@ unit ncsGetPartialTaskDescription;
 // Модуль: "w:\common\components\rtl\Garant\cs\ncsGetPartialTaskDescription.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

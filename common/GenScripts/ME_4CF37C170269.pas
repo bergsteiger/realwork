@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsConsultationHAFPainterImages_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\NOT_FINISHED_nsConsultationHAFPainterImages_Form.pas"
 // Стереотип: "VCMDataModule"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

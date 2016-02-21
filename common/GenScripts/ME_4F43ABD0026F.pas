@@ -3,17 +3,13 @@ unit WordsDefinitionPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\WordsDefinitionPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , tfwProcedure
- , kwCompiledWordPrim
- , tfwScriptingInterfaces
- , l3Interfaces
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -22,6 +18,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwProcedure
+ , kwCompiledWordPrim
+ , tfwScriptingInterfaces
+ , l3Interfaces
  , tfwScriptingTypes
  , kwCompiledFunction
  , SysUtils

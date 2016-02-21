@@ -4,7 +4,7 @@ unit AACPrim_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\AACPrim_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -26,6 +26,10 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactoryPrim
  {$IfEnd} // NOT Defined(NoVCM)
+ , fsAbstractDocument
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
  , AACContainerPrim_AACContentsContainer_UserType
  , WorkWithDocumentInterfaces
  , Common_FormDefinitions_Controls
@@ -39,17 +43,12 @@ uses
  , bsTypesNew
  , l3Interfaces
  , DocumentUserTypes_dftAACContentsRight_UserType
- , fsAbstractDocument
- {$If NOT Defined(NoVCM)}
- , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
  , AACContainerPrim_AACContainer_UserType
  , DocumentUserTypes_dftAACLeft_UserType
+ , DocumentUserTypes_dftAACRight_UserType
  , BaloonWarningUserTypes_WarnJuror_UserType
  , nsTypes
  , nevBase
- , DocumentUserTypes_dftAACRight_UserType
 ;
 
 const
@@ -173,6 +172,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

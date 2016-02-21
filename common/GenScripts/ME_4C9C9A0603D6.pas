@@ -3,7 +3,7 @@ unit l3ProtoObjectForTie;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\l3ProtoObjectForTie.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

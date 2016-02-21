@@ -3,7 +3,7 @@ unit ddServerStatusRequestPrim;
 // Модуль: "w:\common\components\rtl\Garant\cs\ddServerStatusRequestPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include CsDefine.inc}
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
 
 interface
 

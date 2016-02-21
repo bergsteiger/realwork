@@ -3,7 +3,7 @@ unit dsAACDocumentRight;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentRight.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

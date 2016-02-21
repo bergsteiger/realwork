@@ -3,7 +3,7 @@ unit daLongProcessSubscriberList;
 // Модуль: "w:\common\components\rtl\Garant\DA\daLongProcessSubscriberList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include daDefine.inc}
+{$Include w:\common\components\rtl\Garant\DA\daDefine.inc}
 
 interface
 

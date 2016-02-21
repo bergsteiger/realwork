@@ -3,7 +3,7 @@ unit SysUtilsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  , l3Interfaces
  , tfwScriptingInterfaces
  , tfwTypeInfo
- , tfwAxiomaticsResNameGetter
- , tfwGlobalKeyWord
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -24,6 +21,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwGlobalKeyWord
+ , TypInfo
  , l3TabService
  , l3SysUtils
  , Windows

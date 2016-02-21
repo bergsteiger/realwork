@@ -3,7 +3,7 @@ unit pgFamilyHelper;
 // Модуль: "w:\common\components\rtl\Garant\PG\pgFamilyHelper.pas"
 // Стереотип: "SimpleClass"
 
-{$Include pgDefine.inc}
+{$Include w:\common\components\rtl\Garant\PG\pgDefine.inc}
 
 interface
 

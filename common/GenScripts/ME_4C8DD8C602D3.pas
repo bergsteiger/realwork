@@ -3,7 +3,7 @@ unit PrimTasksPanelMenu_Module;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\PrimTasksPanelMenu_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
@@ -17,7 +17,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , Classes
  , PrimCustomizeTasksPanel_Form
- , l3StringIDEx
 ;
 
 type
@@ -52,6 +51,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , vcmInterfaces
  , vcmBase
  , SysUtils

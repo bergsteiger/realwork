@@ -3,7 +3,7 @@ unit ArrayProcessingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ArrayProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,25 +13,7 @@ uses
  , tfwScriptingInterfaces
  , tfwTypeInfo
  , l3PureMixIns
- , tfwBeginLikeWord
- , kwCompiledWordPrim
- , kwBeginLikeCompiledCode
- , TypInfo
- , kwCloseBracket
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwRegisterableWord
- , tfwPropertyLike
 ;
-
-type
- TkwCompiledArray = class(TkwBeginLikeCompiledCode)
-  protected
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
- end;//TkwCompiledArray
 {$IfEnd} // NOT Defined(NoScripts)
 
 implementation
@@ -39,6 +21,15 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwBeginLikeWord
+ , kwCompiledWordPrim
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , TypInfo
+ , tfwRegisterableWord
+ , tfwPropertyLike
+ , kwBeginLikeCompiledCode
+ , kwCloseBracket
  , tfwRevertedArrayView
  , tfwFilteredArrayView
  , tfwMappedArrayView
@@ -53,6 +44,14 @@ uses
 ;
 
 type
+ TkwCompiledArray = class(TkwBeginLikeCompiledCode)
+  protected
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+   function pm_GetResultTypeInfo(const aCtx: TtfwContext): TtfwWordInfo; override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+ end;//TkwCompiledArray
+
  TkwCloseArray = {final} class(TkwCloseBracket)
   protected
    class function GetWordNameForRegister: AnsiString; override;

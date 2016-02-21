@@ -4,7 +4,7 @@ unit Outliner_Form;
 // Модуль: "w:\common\components\gui\Garant\Daily\Forms\Outliner_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include sdotDefine.inc}
+{$Include w:\common\components\gui\sdotDefine.inc}
 
 interface
 
@@ -13,7 +13,6 @@ uses
  l3IntfUses
  , vcmEntityForm
  , vtOutlinerControl
- , l3StringIDEx
  , vcmInterfaces
 ;
 
@@ -46,6 +45,7 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

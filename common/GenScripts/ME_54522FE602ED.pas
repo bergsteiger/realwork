@@ -3,7 +3,7 @@ unit nscTreeViewForNewsLine;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Tree\nscTreeViewForNewsLine.pas"
 // Стереотип: "GuiControl"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

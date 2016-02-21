@@ -3,7 +3,7 @@ unit AACTextContainerPrim_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACTextContainerPrim_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -23,7 +23,6 @@ uses
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
  , evCustomEditorWindow
- , l3StringIDEx
 ;
 
 const
@@ -83,6 +82,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
