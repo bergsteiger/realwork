@@ -3,7 +3,7 @@ unit Meta_Schema;
 // Модуль: "w:\common\components\SandBox\Meta_Schema.pas"
 // Стереотип: "TagTable"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

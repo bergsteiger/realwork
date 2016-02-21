@@ -4,7 +4,7 @@ unit nscFixedHeightControlCell;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscFixedHeightControlCell.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit nsLangToContextMap;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLangToContextMap.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -12,11 +12,13 @@ uses
  , atOperationParametersList
  , atOperationParameter
  , atOperationEnv
- , SysUtils
  , Contnrs
+ , SysUtils
 ;
 
 type
+ CTatOperationBase = class of TatOperationBase;
+
  EInvalidOpParams = class(Exception)
  end;//EInvalidOpParams
 
@@ -61,8 +63,6 @@ type
  {$Include w:\quality\test\garant6x\AdapterTest\MixIns\atTypedObjectList.imp.pas}
  TatOperationsList = class(_atTypedObjectList_)
  end;//TatOperationsList
-
- CTatOperationBase = class of TatOperationBase;
 
 implementation
 

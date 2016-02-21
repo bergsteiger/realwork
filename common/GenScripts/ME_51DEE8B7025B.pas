@@ -3,7 +3,7 @@ unit Int64List;
 // Модуль: "w:\common\components\SandBox\Int64List.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

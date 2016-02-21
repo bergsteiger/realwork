@@ -4,7 +4,7 @@ unit nscTaskPanelInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTaskPanelInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

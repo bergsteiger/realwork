@@ -4,7 +4,7 @@ unit nsInternetUtils;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nsInternetUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

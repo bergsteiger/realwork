@@ -3,7 +3,7 @@ unit myInterfacedObject;
 // Модуль: "w:\common\components\SandBox\myInterfacedObject.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit StatusBarUtils;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\StatusBarUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit Pure;
 // Модуль: "w:\common\components\SandBox\Pure.pas"
 // Стереотип: "Interfaces"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

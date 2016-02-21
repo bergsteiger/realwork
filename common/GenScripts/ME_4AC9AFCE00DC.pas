@@ -3,7 +3,7 @@ unit NOT_FINISHED_nscInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

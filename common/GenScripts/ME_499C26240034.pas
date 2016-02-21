@@ -3,7 +3,7 @@ unit nscTreeView;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeView.pas"
 // Стереотип: "GuiControl"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

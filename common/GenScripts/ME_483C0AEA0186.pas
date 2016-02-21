@@ -9,7 +9,6 @@ uses
  l3IntfUses
  , atInterfaces
  , NotifyUnit
- , atNotifier
  , GblAdapter
  , StartUnit
  , FoldersUnit
@@ -135,6 +134,7 @@ implementation
 
 uses
  l3ImplUses
+ , atNotifier
  , atLogger
  , IOUnit
  , SysUtils

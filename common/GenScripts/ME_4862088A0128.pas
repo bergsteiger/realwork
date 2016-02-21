@@ -3,7 +3,7 @@ unit attribute_Const;
 // Модуль: "w:\common\components\SandBox\attribute_Const.pas"
 // Стереотип: "Tag"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

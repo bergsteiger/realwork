@@ -3,7 +3,7 @@ unit nsDictCachePrim;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDictCachePrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

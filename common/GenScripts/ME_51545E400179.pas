@@ -3,7 +3,7 @@ unit StringStack;
 // Модуль: "w:\common\components\SandBox\StringStack.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

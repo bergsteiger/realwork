@@ -12,8 +12,8 @@ uses
  , DynamicTreeUnit
  , BaseTypesUnit
  , DocumentUnit
- , SysUtils
  , Contnrs
+ , SysUtils
 ;
 
 type

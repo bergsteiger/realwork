@@ -4,7 +4,7 @@ unit nscContextFilterRes;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscContextFilterRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

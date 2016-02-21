@@ -3,7 +3,7 @@ unit nscCustomChatMemoContainer;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomChatMemoContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

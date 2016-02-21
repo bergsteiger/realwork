@@ -3,7 +3,7 @@ unit IntStack;
 // Модуль: "w:\common\components\SandBox\IntStack.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

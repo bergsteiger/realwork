@@ -3,7 +3,7 @@ unit nsDayTipsDictCache;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsDayTipsDictCache.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

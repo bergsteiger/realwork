@@ -3,7 +3,7 @@ unit RoundedEdit;
 // Модуль: "w:\common\components\SandBox\RoundedEdit.pas"
 // Стереотип: "GuiControl"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

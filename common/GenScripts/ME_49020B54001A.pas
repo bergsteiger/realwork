@@ -3,7 +3,7 @@ unit nsLayeredTreeFilters;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsLayeredTreeFilters.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit nscCustomChatMemoDocumentPartGenerator;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomChatMemoDocumentPartGenerator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
@@ -13,7 +13,6 @@ uses
  , evDocumentPartGenerator
  , l3Variant
  , k2DocumentGenerator
- , l3StringIDEx
 ;
 
 type
@@ -41,6 +40,7 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , k2Tags
  , Document_Const
  , Para_Const

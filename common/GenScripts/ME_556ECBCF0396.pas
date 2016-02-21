@@ -3,7 +3,7 @@ unit f1ExternalHyperlinkEliminator;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\f1ExternalHyperlinkEliminator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

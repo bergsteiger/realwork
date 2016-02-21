@@ -3,7 +3,7 @@ unit RoundedButton;
 // Модуль: "w:\common\components\SandBox\RoundedButton.pas"
 // Стереотип: "GuiControl"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

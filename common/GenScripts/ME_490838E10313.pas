@@ -4,7 +4,7 @@ unit nscNewInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscNewInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

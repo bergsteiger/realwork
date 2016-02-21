@@ -3,7 +3,7 @@ unit Concret;
 // Модуль: "w:\common\components\SandBox\Concret.pas"
 // Стереотип: "Interfaces"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

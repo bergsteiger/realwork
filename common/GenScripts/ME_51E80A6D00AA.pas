@@ -4,7 +4,7 @@ unit IUnknownPtrList;
 // Модуль: "w:\common\components\SandBox\IUnknownPtrList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit IntegerList;
 // Модуль: "w:\common\components\SandBox\IntegerList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

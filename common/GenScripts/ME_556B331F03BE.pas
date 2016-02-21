@@ -3,7 +3,7 @@ unit nsMedicDictCache;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\nsMedicDictCache.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

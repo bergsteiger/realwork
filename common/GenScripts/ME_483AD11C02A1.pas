@@ -11,8 +11,6 @@ uses
  , SearchUnit
  , BaseTypesUnit
  , DynamicDocListUnit
- , SearchProgressIndicatorUnit
- , SyncObjs
 ;
 
 type
@@ -46,6 +44,8 @@ implementation
 
 uses
  l3ImplUses
+ , SearchProgressIndicatorUnit
+ , SyncObjs
  , atLogger
  , SysUtils
  , Windows

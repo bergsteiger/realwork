@@ -3,7 +3,7 @@ unit IterateableService;
 // Модуль: "w:\common\components\SandBox\IterateableService.pas"
 // Стереотип: "Service"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

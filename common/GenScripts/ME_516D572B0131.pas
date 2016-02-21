@@ -4,7 +4,7 @@ unit myReferenceCountGuard;
 // Модуль: "w:\common\components\SandBox\myReferenceCountGuard.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\sbDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit nsSingleAttributeDataObject;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSingleAttributeDataObject.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
