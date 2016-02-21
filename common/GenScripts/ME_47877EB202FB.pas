@@ -11,6 +11,8 @@ uses
 ;
 
 type
+ ExceptClass = class of Exception;
+
  TMultiReadExclusiveWriteSynchronizer = class
   {* TMultiReadExclusiveWriteSynchronizer protects memory in a multi-threaded application. }
  end;//TMultiReadExclusiveWriteSynchronizer
@@ -33,8 +35,6 @@ type
     read f_HelpContext
     write f_HelpContext;
  end;//Exception
-
- ExceptClass = class of Exception;
 
  EOSError = class(Exception)
  end;//EOSError

@@ -3,7 +3,7 @@ unit nsUserProperty;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserProperty.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

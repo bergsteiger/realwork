@@ -4,7 +4,7 @@ unit dsDocumentList;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\dsDocumentList.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

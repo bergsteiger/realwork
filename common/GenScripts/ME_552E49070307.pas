@@ -3,7 +3,7 @@ unit PageControlWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -12,9 +12,6 @@ uses
  l3IntfUses
  , ElPgCtl
  , l3Interfaces
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -23,6 +20,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , l3String
  , tfwScriptingTypes
  , tfwTypeRegistrator

@@ -3,7 +3,7 @@ unit kwStyleTableSaveToFile;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStyleTableSaveToFile.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

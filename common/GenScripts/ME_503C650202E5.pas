@@ -9,7 +9,7 @@ unit kwPopEditorDP2LP;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDP2LP.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

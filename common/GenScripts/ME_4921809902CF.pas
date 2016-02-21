@@ -3,7 +3,7 @@ unit dsEditions;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsEditions.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

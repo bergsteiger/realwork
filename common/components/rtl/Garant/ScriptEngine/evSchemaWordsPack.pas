@@ -3,7 +3,7 @@ unit evSchemaWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

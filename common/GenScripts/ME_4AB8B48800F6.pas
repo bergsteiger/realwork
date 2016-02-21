@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsENOIntegration;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsENOIntegration.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

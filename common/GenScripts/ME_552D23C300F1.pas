@@ -3,7 +3,7 @@ unit CheckListBoxWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , CheckLst
  {$IfEnd} // NOT Defined(NoVCL)
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -24,6 +21,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

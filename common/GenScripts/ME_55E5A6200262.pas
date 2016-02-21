@@ -3,7 +3,7 @@ unit IedTableWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\IedTableWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -15,11 +15,6 @@ uses
  , nevBase
  , k2Interfaces
  , nevTools
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
- , tfwPropertyLike
- , tfwTypeInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -28,6 +23,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwPropertyLike
+ , tfwTypeInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

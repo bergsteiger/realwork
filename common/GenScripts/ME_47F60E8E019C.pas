@@ -4,7 +4,7 @@ unit NOT_FINISHED_nsNodes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_FINISHED_nsNodes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

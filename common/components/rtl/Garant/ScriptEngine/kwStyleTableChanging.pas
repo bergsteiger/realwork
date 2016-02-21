@@ -3,7 +3,7 @@ unit kwStyleTableChanging;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwStyleTableChanging.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

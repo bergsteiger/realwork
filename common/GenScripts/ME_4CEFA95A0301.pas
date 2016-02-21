@@ -3,7 +3,7 @@ unit nsParaListNodeModelPart;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParaListNodeModelPart.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

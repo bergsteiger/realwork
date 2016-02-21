@@ -3,7 +3,7 @@ unit nsUserTreeStruct;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsUserTreeStruct.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -27,7 +27,7 @@ type
   public
    constructor Create(const aRoot: INodeBase;
     aShowRoot: Boolean;
-    aOneLevel: Boolean = False); override;
+    aOneLevel: Boolean); override;
  end;//TnsUserTreeStruct
 
 implementation
@@ -53,7 +53,7 @@ end;//TnsUserTreeStruct.ReAqurieUnfilteredRoot
 
 constructor TnsUserTreeStruct.Create(const aRoot: INodeBase;
  aShowRoot: Boolean;
- aOneLevel: Boolean = False);
+ aOneLevel: Boolean);
 //#UC START# *48FDD9270194_4906E96C0364_var*
 //#UC END# *48FDD9270194_4906E96C0364_var*
 begin

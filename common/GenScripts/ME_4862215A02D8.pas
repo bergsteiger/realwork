@@ -3,7 +3,7 @@ unit f1TextStyle_Const;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\f1TextStyle_Const.pas"
 // Стереотип: "TagOverride"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
@@ -13,8 +13,8 @@ uses
  , evTextStyle_Const
  , evdTypes
  , evdTextStyle_Const
- , Graphics
  , evdStyles
+ , Graphics
 ;
 
 type

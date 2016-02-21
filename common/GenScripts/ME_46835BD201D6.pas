@@ -4,7 +4,7 @@ unit nsFilterableTreeStruct;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsFilterableTreeStruct.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -118,7 +118,7 @@ ApplyEmptyFilter: Boolean
     const aSource: Il3CString): Boolean;
    constructor Create(const aRoot: INodeBase;
     aShowRoot: Boolean;
-    aOneLevel: Boolean = False); override;
+    aOneLevel: Boolean); override;
   protected
    property Filters: Il3TreeFilters
     read pm_GetFilters;
@@ -646,7 +646,7 @@ end;//TnsFilterableTreeStruct.Cleanup
 
 constructor TnsFilterableTreeStruct.Create(const aRoot: INodeBase;
  aShowRoot: Boolean;
- aOneLevel: Boolean = False);
+ aOneLevel: Boolean);
 //#UC START# *48FDD9270194_46835BD201D6_var*
 //#UC END# *48FDD9270194_46835BD201D6_var*
 begin

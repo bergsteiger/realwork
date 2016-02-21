@@ -3,7 +3,7 @@ unit m3BaseStorage;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BaseStorage.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
@@ -38,13 +38,13 @@ type
     out theReturn: hResult;
     aUseCompression: Boolean); virtual;
   public
-   function DestroyElement(aName: PWideChar): HResult;
+   function DestroyElement(aName: PWideChar): HResult; stdcall;
    function EnumElements(unused1: Integer;
     unused2: Pointer;
     unused3: Integer;
-    out theStatStg: IEnumStatStg): HResult;
+    out theStatStg: IEnumStatStg): HResult; stdcall;
    function Stat(out theStatStg: TStatStg;
-    aStatFlag: Integer): HResult;
+    aStatFlag: Integer): HResult; stdcall;
  //#UC START# *4FA2766F02A5publ*
     private
     // IStorage

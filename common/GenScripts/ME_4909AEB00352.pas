@@ -4,7 +4,7 @@ unit nsINodeWrap;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsINodeWrap.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

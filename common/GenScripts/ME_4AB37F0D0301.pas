@@ -4,7 +4,7 @@ unit m4Word;
 // Модуль: "w:\common\components\rtl\Garant\m4\m4Word.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m4Define.inc}
+{$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 
 interface
 

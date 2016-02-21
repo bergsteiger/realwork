@@ -3,7 +3,7 @@ unit SubPanelWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SubPanelWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

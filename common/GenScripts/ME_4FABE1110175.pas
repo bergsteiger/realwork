@@ -3,7 +3,7 @@ unit kwPopEditorCursorCoordsToScreen;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCursorCoordsToScreen.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -15,7 +15,6 @@ uses
  , l3Units
  , nevTools
  , tfwScriptingInterfaces
- , nevControl
 ;
 
 type
@@ -38,6 +37,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , nevControl
  , Types
  , Windows
  {$If NOT Defined(NoVCL)}

@@ -3,7 +3,7 @@ unit m3CustomNewStorage;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3CustomNewStorage.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
@@ -17,7 +17,6 @@ uses
  , ActiveX
  , m3StoreHeader
  , m3RootStreamManagerPrim
- , m3StoreHeaderDataPrim
 ;
 
 type
@@ -135,6 +134,7 @@ implementation
 
 uses
  l3ImplUses
+ , m3StoreHeaderDataPrim
  , m3Const
  , l3String
  , SysUtils

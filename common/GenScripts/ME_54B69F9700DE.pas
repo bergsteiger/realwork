@@ -3,7 +3,7 @@ unit l3BaseBoxMemoryManager;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3BaseBoxMemoryManager.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

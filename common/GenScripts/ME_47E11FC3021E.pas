@@ -23,6 +23,10 @@ const
  mrNone = 0;
 
 type
+ TControlActionLinkClass = class of ;
+
+ TControlClass = class of TControl;
+
  TAlign = (
   alNone
   , alTop
@@ -70,8 +74,6 @@ type
  );//TMouseButton
 
  TModalResult = ShortInt;
-
- TControlActionLinkClass = class of ;
 
  TDragImageList = class
  end;//TDragImageList
@@ -262,8 +264,6 @@ type
 
  TCMDockNotification = record
  end;//TCMDockNotification
-
- TControlClass = class of TControl;
 
  TBevelKind = (
  );//TBevelKind

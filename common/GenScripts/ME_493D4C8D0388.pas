@@ -3,7 +3,7 @@ unit NOT_FINISHED_bsFrozenNode;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_FINISHED_bsFrozenNode.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

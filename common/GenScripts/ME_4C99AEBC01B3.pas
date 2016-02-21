@@ -3,7 +3,7 @@ unit nsPrimeSettings;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Settings\nsPrimeSettings.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

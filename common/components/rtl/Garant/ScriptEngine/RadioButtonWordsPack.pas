@@ -3,7 +3,7 @@ unit RadioButtonWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,10 +13,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
- , tfwPropertyLike
- , tfwScriptingInterfaces
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -25,6 +21,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

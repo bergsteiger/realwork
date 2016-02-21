@@ -3,7 +3,7 @@ unit eeTagEditorTool;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeTagEditorTool.pas"
 // Стереотип: "SimpleClass"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

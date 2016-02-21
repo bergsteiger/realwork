@@ -13,6 +13,8 @@ uses
 ;
 
 type
+ TFormClass = class of TForm;
+
  TApplication = class(TComponent)
   {* TApplication is the type used for a GUI windowed application. }
  end;//TApplication
@@ -73,8 +75,6 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
  TForm = class(TCustomForm)
   {* TForm represents a standard application window (form). }
  end;//TForm
-
- TFormClass = class of TForm;
 
  TScrollBarKind = (
  );//TScrollBarKind

@@ -3,7 +3,7 @@ unit nsDocumentWithSnippetNode;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDocumentWithSnippetNode.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

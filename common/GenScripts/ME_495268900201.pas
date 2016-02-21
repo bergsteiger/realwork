@@ -3,7 +3,7 @@ unit eeEditor;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditor.pas"
 // Стереотип: "GuiControl"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

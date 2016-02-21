@@ -4,7 +4,7 @@ unit l3InternalInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3InternalInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
@@ -941,6 +941,9 @@ type
   private
    f_Il3Canvas: Il3Canvas;
     {* Ссылка на интерфейс Il3Canvas }
+  private
+   procedure Fake; virtual;
+    {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
   protected
    function pxAverageCharWidth: Integer;
     {* средняя ширина символов контекста в пикселях. }
@@ -1152,6 +1155,7 @@ type
    procedure PopClipRect;
    procedure PushLineSpacing;
    procedure PopLineSpacing;
+   constructor Init(const aIl3Canvas: Il3Canvas); reintroduce;
  end;//Hl3Canvas
 
  Il3DragImageSource = interface(Il3Base)
@@ -2607,5 +2611,16 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *55CC51CE0059_4A4479E503D5_impl*
 end;//Hl3Canvas.EndDarkColor
+
+procedure Hl3Canvas.Fake;
+ {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
+begin
+ Assert(false);
+end;//Hl3Canvas.Fake
+
+constructor Hl3Canvas.Init(const aIl3Canvas: Il3Canvas);
+begin
+ f_Il3Canvas := aIl3Canvas;
+end;//Hl3Canvas.Init
 
 end.

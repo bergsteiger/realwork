@@ -3,7 +3,7 @@ unit kwVcmOpCaption;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpCaption.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

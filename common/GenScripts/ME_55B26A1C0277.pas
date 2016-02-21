@@ -3,7 +3,7 @@ unit nsStartupSupport;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsStartupSupport.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

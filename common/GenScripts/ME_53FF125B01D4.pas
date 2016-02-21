@@ -3,7 +3,7 @@ unit m3LinkedStream;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3LinkedStream.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 

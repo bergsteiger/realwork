@@ -3,7 +3,7 @@ unit m3StorageService;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageService.pas"
 // Стереотип: "Service"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 

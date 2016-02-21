@@ -4,7 +4,7 @@ unit eeEditorExportModelPart;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeEditorExportModelPart.pas"
 // Стереотип: "GuiControl"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

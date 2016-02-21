@@ -3,7 +3,7 @@ unit QueryCardProcessingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\QueryCardProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

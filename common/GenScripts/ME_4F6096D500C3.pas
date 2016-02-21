@@ -3,7 +3,7 @@ unit kwVTControlsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwVTControlsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,9 +11,6 @@ interface
 uses
  l3IntfUses
  , DragData
- , tfwGlobalKeyWord
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -22,6 +19,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

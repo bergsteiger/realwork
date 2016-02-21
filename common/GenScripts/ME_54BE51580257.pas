@@ -3,7 +3,7 @@ unit eeDocument_InterfaceFactory;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocument_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

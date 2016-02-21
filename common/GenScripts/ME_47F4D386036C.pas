@@ -4,7 +4,7 @@ unit bsListTreeStruct;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\List\bsListTreeStruct.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

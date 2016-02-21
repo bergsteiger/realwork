@@ -3,7 +3,7 @@ unit VGSceneAndWinControlPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VGSceneAndWinControlPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -14,9 +14,6 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , vgObject
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)
 
@@ -25,6 +22,9 @@ implementation
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , vg_controls
  , tfwScriptingTypes
  , tfwTypeRegistrator

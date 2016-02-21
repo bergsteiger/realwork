@@ -3,7 +3,7 @@ unit Document;
 // Модуль: ""
 // Стереотип: "TagOverride"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

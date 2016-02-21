@@ -8,7 +8,7 @@ aSubDescrObj subdescriptor:GetVisible
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwSubdescriptorGetVisible.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

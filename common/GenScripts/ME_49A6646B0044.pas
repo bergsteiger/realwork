@@ -4,7 +4,7 @@ unit k2BaseTypes;
 // Модуль: "w:\common\components\rtl\Garant\L3\k2BaseTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

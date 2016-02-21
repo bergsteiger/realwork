@@ -3,7 +3,7 @@ unit m4DictTypes;
 // Модуль: "w:\common\components\rtl\Garant\m4\m4DictTypes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include m4Define.inc}
+{$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 
 interface
 

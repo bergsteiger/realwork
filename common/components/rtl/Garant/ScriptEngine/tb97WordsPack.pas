@@ -3,7 +3,7 @@ unit tb97WordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\tb97WordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,10 +11,6 @@ interface
 uses
  l3IntfUses
  , tb97Ctls
- , tfwPropertyLike
- , tfwScriptingInterfaces
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoTB97)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoTB97)}
 uses
  l3ImplUses
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

@@ -3,7 +3,7 @@ unit vtComboTreeWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtComboTreeWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -12,9 +12,6 @@ uses
  l3IntfUses
  , vtComboTree
  , l3TreeInterfaces
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -23,6 +20,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

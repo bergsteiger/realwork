@@ -3,7 +3,7 @@ unit nsPrimCacheableNode;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsPrimCacheableNode.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

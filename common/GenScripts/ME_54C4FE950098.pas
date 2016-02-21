@@ -3,7 +3,7 @@ unit eeNodeUtils;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeNodeUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

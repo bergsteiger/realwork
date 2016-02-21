@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsDocInfoHAFMacroReplacer;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\NOT_FINISHED_nsDocInfoHAFMacroReplacer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

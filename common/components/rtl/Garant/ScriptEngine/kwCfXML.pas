@@ -3,7 +3,7 @@ unit kwCFXML;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCFXML.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit ReminderWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ReminderWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -18,11 +18,6 @@ uses
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
  , Types
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
- , tfwPropertyLike
- , tfwTypeInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)
 
@@ -31,6 +26,11 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVGScene) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwPropertyLike
+ , tfwTypeInfo
  {$If NOT Defined(NoVCL)}
  , l3PopupMenuHelper
  {$IfEnd} // NOT Defined(NoVCL)

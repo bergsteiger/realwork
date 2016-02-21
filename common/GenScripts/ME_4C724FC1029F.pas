@@ -3,7 +3,7 @@ unit nsOwnedDocumentTagNodePrim;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsOwnedDocumentTagNodePrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

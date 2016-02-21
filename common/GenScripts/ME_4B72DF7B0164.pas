@@ -3,7 +3,7 @@ unit eeRenderFormula;
 // Модуль: "w:\common\components\rtl\Garant\RenderEVD\eeRenderFormula.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\rtl\Garant\RenderEVD\evDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ uses
  , l3InternalInterfaces
  , l3Variant
  , ActiveX
- , nevDocumentContainer
 ;
 
 type
@@ -26,18 +25,19 @@ function RenderFormula(aBuf: PAnsiChar;
  aSize: Integer;
  aNumber: Integer;
  aZoom: Integer;
- const aPicture: IStream): Boolean;
+ const aPicture: IStream): Boolean; stdcall;
 function RenderFormulaPrim(aBuf: PAnsiChar;
  aSize: Integer;
  aNumber: Integer;
  aZoom: Integer;
  const aPicture: IStream;
- aTarget: TeeRenderTarget): Boolean;
+ aTarget: TeeRenderTarget): Boolean; stdcall;
 
 implementation
 
 uses
  l3ImplUses
+ , nevDocumentContainer
  , evdSchema
  , l3StringIDEx
  , Table_Const

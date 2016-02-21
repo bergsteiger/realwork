@@ -3,7 +3,7 @@ unit VGComboBoxPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VGComboBoxPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,10 +11,6 @@ interface
 uses
  l3IntfUses
  , vg_listbox
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

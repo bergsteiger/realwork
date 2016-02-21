@@ -3,7 +3,7 @@ unit NOT_FINISHED_eeExceptions;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeExceptions.pas"
 // Стереотип: "Interfaces"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

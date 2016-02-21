@@ -4,7 +4,7 @@ unit l3StringValueMapManager;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3StringValueMapManager.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

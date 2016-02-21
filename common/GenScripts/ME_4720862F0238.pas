@@ -4,7 +4,7 @@ unit m3StorageInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
@@ -171,13 +171,13 @@ type
    {* Проверяет существование элемента с указанным именем }
   function As_IStorage: IStorage;
    {* Метод приведения нашего интерфейса к IStorage }
-  function DestroyElement(aName: PWideChar): HResult;
+  function DestroyElement(aName: PWideChar): HResult; stdcall;
   function EnumElements(unused1: Integer;
    unused2: Pointer;
    unused3: Integer;
-   out theStatStg: IEnumStatStg): HResult;
+   out theStatStg: IEnumStatStg): HResult; stdcall;
   function Stat(out theStatStg: TStatStg;
-   aStatFlag: Integer): HResult;
+   aStatFlag: Integer): HResult; stdcall;
   procedure IterateIndexedF(anAction: Mm3StorageIterators_IterateIndexedF_Action);
   procedure IterateAllF(anAction: Mm3StorageIterators_IterateAllF_Action);
  end;//Im3IndexedStorage

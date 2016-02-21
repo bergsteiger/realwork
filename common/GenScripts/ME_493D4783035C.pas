@@ -4,7 +4,7 @@ unit dsAnnotation;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsAnnotation.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit kwVcmOpHint;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpHint.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

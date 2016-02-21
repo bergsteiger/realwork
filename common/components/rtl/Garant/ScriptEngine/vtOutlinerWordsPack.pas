@@ -3,7 +3,7 @@ unit vtOutlinerWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtOutlinerWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  , vtOutliner
  , l3TreeInterfaces
  , tfwScriptingInterfaces
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -24,6 +21,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , TypInfo
  , l3Nodes
  , l3String
  , l3Interfaces

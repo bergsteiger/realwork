@@ -3,7 +3,7 @@ unit eeMemo;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeMemo.pas"
 // Стереотип: "GuiControl"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

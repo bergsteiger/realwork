@@ -9,7 +9,7 @@ Test.rtf CF_RTF  focused:control:push pop:editor:InsertStream
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorInsertStream.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

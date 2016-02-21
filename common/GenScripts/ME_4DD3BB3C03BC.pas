@@ -3,7 +3,7 @@ unit l3ProtoPersistentDataContainer;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

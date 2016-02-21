@@ -3,7 +3,7 @@ unit eeCustomMemo;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCustomMemo.pas"
 // Стереотип: "UtilityPack"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

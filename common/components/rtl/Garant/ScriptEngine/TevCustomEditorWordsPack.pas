@@ -3,7 +3,7 @@ unit TevCustomEditorWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\TevCustomEditorWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,10 +13,6 @@ uses
  , evCustomEditor
  , evEditorInterfaces
  , evdTypes
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -25,6 +21,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , l3Interfaces
  , IedRangeWordsPack
  , tfwScriptingTypes

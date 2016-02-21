@@ -4,7 +4,7 @@ unit nsGroupFilter;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Users\nsGroupFilter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

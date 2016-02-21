@@ -3,7 +3,7 @@ unit nsDataExchangeRealization;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsDataExchangeRealization.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

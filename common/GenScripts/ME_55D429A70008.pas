@@ -3,7 +3,7 @@ unit nsUnderControlNotificationManager;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\nsUnderControlNotificationManager.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

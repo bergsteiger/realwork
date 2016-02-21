@@ -4,7 +4,7 @@ unit m3Interfaces;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3Interfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 

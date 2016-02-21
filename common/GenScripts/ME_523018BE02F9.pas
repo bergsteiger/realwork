@@ -3,7 +3,7 @@ unit kwVcmOpShortcut;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpShortcut.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit eeEVDtoRTF;
 // Модуль: "w:\common\components\rtl\Garant\RenderEVD\eeEVDtoRTF.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\rtl\Garant\RenderEVD\evDefine.inc}
 
 interface
 
@@ -21,14 +21,14 @@ function EVDtoRTFWithoutCommentDecor(const aEVD: IStream;
  const aRTF: IStream;
  Hidden: PLong;
  HiddenCount: Integer;
- aHost: PAnsiChar): Boolean;
+ aHost: PAnsiChar): Boolean; stdcall;
 function EVDtoRTF(const aEVD: IStream;
  const aRTF: IStream;
  Hidden: PLong;
  HiddenCount: Integer;
- aHost: PAnsiChar): Boolean;
+ aHost: PAnsiChar): Boolean; stdcall;
 function SetStyleTable(aStyleBuf: PAnsiChar;
- aStyleBufSize: Integer): Boolean;
+ aStyleBufSize: Integer): Boolean; stdcall;
 
 implementation
 

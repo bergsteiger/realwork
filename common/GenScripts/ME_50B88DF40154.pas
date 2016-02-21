@@ -3,7 +3,7 @@ unit kwEditorFromStackCursorWord;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWord.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit l3ProtoPersistentRefList;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoPersistentRefList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

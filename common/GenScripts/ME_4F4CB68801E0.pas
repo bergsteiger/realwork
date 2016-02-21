@@ -3,7 +3,7 @@ unit EditorFromStackKeyWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\EditorFromStackKeyWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -13,12 +13,6 @@ uses
  , evCustomEditorWindow
  , nevBase
  , nevTools
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
- , tfwPropertyLike
- , tfwTypeInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -27,6 +21,12 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
+ , tfwPropertyLike
+ , tfwTypeInfo
  , kwPopEditorSelectCells
  , kwPopEditorWheelScroll
  , kwPopEditorSelectColumn

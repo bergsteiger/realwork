@@ -4,7 +4,7 @@ unit l3Metafile;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Metafile.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
@@ -14,7 +14,6 @@ uses
  , l3Interfaces
  , Classes
  , l3PureMixIns
- , Windows
 ;
 
 type
@@ -40,6 +39,7 @@ implementation
 
 uses
  l3ImplUses
+ , Windows
  , l3Stream
  , SysUtils
  , l3Base

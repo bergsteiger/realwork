@@ -3,7 +3,7 @@ unit l3ValueMapManagerPrim;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ValueMapManagerPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

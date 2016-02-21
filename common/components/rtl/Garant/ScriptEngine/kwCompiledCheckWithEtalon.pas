@@ -3,7 +3,7 @@ unit kwCompiledCheckWithEtalon;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwCompiledCheckWithEtalon.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit NOT_FINISHED_m4DB;
 // Модуль: "w:\common\components\rtl\Garant\m4\NOT_FINISHED_m4DB.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m4Define.inc}
+{$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 
 interface
 

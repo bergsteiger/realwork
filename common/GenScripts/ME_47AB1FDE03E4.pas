@@ -4,7 +4,7 @@ unit NOT_FINISHED_l3Memory;
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Memory.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
@@ -18,6 +18,10 @@ uses
 type
  Pl3MemoryChain = ^Tl3MemoryChain;
 
+ Rl3MemoryPoolAdapter = class of Tl3MemoryPoolAdapter;
+
+ Rl3MemoryStream = class of Tl3MemoryStream;
+
  Tl3Ptr = record
   {* Smart-указатель на память. }
  end;//Tl3Ptr
@@ -30,8 +34,6 @@ type
 
  Tl3MemoryPoolAdapter = class(Tl3ProtoObject)
  end;//Tl3MemoryPoolAdapter
-
- Rl3MemoryPoolAdapter = class of Tl3MemoryPoolAdapter;
 
  Tl3ConstMemoryStream = class(Tl3CustomMemoryStream)
   {* Константный поток в памяти (без перераспределения памяти) }
@@ -54,8 +56,6 @@ type
 
  Tl3IStreamAdapter = class(Tl3Stream)
  end;//Tl3IStreamAdapter
-
- Rl3MemoryStream = class of Tl3MemoryStream;
 
  Tl3MemoryPoolPrim = class(Tl3ProtoDataContainerWithCOMQI)
   protected

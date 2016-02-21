@@ -3,7 +3,7 @@ unit EditorParaCoordsToScreenPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\EditorParaCoordsToScreenPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

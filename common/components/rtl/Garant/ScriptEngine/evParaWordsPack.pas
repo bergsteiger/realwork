@@ -3,7 +3,7 @@ unit evParaWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\evParaWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -18,10 +18,6 @@ uses
  , k2Interfaces
  , nevBase
  , k2Prim
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -30,6 +26,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , k2Tags
  , l3Base
  , l3String

@@ -3,7 +3,7 @@ unit SpinEditWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\SpinEditWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -11,10 +11,6 @@ interface
 uses
  l3IntfUses
  , vtSpinEdit
- , tfwPropertyLike
- , tfwScriptingInterfaces
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

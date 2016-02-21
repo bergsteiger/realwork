@@ -3,7 +3,7 @@ unit eeSubDescriptorsExport;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeSubDescriptorsExport.pas"
 // Стереотип: "UtilityPack"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ uses
  l3IntfUses
  , evSubPanel
  , eeInterfaces
- , l3CacheableBase
 ;
 
 type
@@ -29,6 +28,7 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ , l3CacheableBase
  , evdTypes
 ;
 

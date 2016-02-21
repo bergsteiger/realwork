@@ -4,7 +4,7 @@ unit m3BackupTools;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3BackupTools.pas"
 // Стереотип: "UtilityPack"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 

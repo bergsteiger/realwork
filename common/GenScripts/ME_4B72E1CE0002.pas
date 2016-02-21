@@ -3,7 +3,7 @@ unit eeDocument_Schema;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocument_Schema.pas"
 // Стереотип: "TagTable"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit l3ProtoDataContainer;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ProtoDataContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

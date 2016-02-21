@@ -3,7 +3,7 @@ unit vtComboBoxWordsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -14,10 +14,6 @@ uses
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , vtComboTree
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -26,6 +22,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwAxiomaticsResNameGetters
  , vtComboBoxQS
  , l3TreeInterfaces

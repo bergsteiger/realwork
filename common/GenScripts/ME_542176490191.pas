@@ -3,7 +3,7 @@ unit m3CommonStorage;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3CommonStorage.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
@@ -19,6 +19,8 @@ uses
 ;
 
 type
+ Rm3CommonStorage = class of Tm3CommonStorage;
+
  Tm3IndexInfo = packed record
   {* Информация об индексе }
  //#UC START# *542177F90247publ*
@@ -34,8 +36,6 @@ type
   , m3_soCreate
   , m3_soDelete
  );//Tm3StoreOperation
-
- Rm3CommonStorage = class of Tm3CommonStorage;
 
  Tm3CommonStorage = {abstract} class(Tm3StoragePrim)
   protected

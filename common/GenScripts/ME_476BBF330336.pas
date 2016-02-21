@@ -4,7 +4,7 @@ unit m4DBInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\m4\m4DBInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include m4Define.inc}
+{$Include w:\common\components\rtl\Garant\m4\m4Define.inc}
 
 interface
 

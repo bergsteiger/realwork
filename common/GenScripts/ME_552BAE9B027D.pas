@@ -3,7 +3,7 @@ unit VCMApllicationSettingsPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VCMApllicationSettingsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\vcmDefine.inc}
 
 interface
 
@@ -12,9 +12,6 @@ uses
  l3IntfUses
  , vcmToolbarMenuRes
  , vcmMenuManager
- , tfwGlobalKeyWord
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -23,6 +20,9 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

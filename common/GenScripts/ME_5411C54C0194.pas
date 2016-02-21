@@ -3,7 +3,7 @@ unit m3StorageBlock;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3StorageBlock.pas"
 // Стереотип: "UtilityPack"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
@@ -21,6 +21,8 @@ const
  m3ClusterSize = 256;
 
 type
+ Rm3StorageBlock = class of Tm3StorageBlock;
+
  Tm3StorageBlockHeaderData = packed record
  //#UC START# *544F7C6800E1publ*
    rNextPosition: Int64;
@@ -44,8 +46,6 @@ type
   rForRead: Boolean;
   rRegion: Tm3FileRegion;
  end;//Tm3LockedRegion
-
- Rm3StorageBlock = class of Tm3StorageBlock;
 
  Tm3StorageBlock = class(Tl3CProtoObject)
   private

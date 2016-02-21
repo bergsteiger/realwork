@@ -3,7 +3,7 @@ unit eeCursorTools;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeCursorTools.pas"
 // Стереотип: "UtilityPack"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit kwParaCoordsToScreen;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreen.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 
@@ -15,7 +15,6 @@ uses
  , tfwScriptingInterfaces
  , evCustomEditorWindow
  , l3Units
- , nevControl
 ;
 
 type
@@ -40,6 +39,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , nevControl
  , Types
  , Windows
  {$If NOT Defined(NoVCL)}

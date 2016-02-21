@@ -9,7 +9,7 @@ Test.rtf  focused:control:push pop:editor:PasteRTF
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteRTF.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

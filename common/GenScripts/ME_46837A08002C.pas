@@ -4,7 +4,7 @@ unit nsQueryInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsQueryInterfaces.pas"
 // Стереотип: "InternalInterfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -26,6 +26,8 @@ uses
 ;
 
 type
+ EaqExceptionClass = class of EqaException;
+
  IqaReq = interface(IqaReqPrim)
   {* Реквизит. }
   ['{B9BA7D8C-0C61-4A22-9EDC-B70335A54A59}']
@@ -224,8 +226,6 @@ type
 
  EqaSilentAbort = class(EqaException)
  end;//EqaSilentAbort
-
- EaqExceptionClass = class of EqaException;
 
  IqaMgrSearch = interface(InevBase)
   ['{9FE88AB2-D21E-42CF-8982-B95BBA19075B}']

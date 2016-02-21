@@ -3,7 +3,7 @@ unit NOT_FINISHED_m2MemLib;
 // Модуль: "w:\common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2MemLib.pas"
 // Стереотип: "UtilityPack"
 
-{$Include m2Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\m2\m2Define.inc}
 
 interface
 

@@ -4,7 +4,7 @@ library RenderEVD;
 // Модуль: "w:\common\components\RenderEVD\RenderEVD.dpr"
 // Стереотип: "AdapterTarget"
 
-{$Include l3XE.inc}
+{$Include w:\common\components\l3XE.inc}
 
 interface
 

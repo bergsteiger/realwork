@@ -12,7 +12,7 @@ unit kwPopEditorSelectCellsVertical;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellsVertical.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

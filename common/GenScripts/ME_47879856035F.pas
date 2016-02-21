@@ -4,7 +4,7 @@ unit l3_Base;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3_Base.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

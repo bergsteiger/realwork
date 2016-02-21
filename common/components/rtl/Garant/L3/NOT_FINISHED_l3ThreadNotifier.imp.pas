@@ -6,6 +6,8 @@
 {$Define l3ThreadNotifier_imp}
 
 type
+ Rl3DataHolder = class of Tl3DataHolder;
+
  Tl3DataHolder = class(Tl3CacheableBase)
   private
    f_Intf: array of IUnknown;
@@ -22,8 +24,6 @@ type
    property Data: Pointer
     read f_Data;
  end;//Tl3DataHolder
-
- Rl3DataHolder = class of Tl3DataHolder;
 
  TnsOnChangeInOtherThreadMethod = procedure(aDataPtr: Tl3DataHolder) of object;
 

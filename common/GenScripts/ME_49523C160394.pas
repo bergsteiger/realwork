@@ -3,7 +3,7 @@ unit NOT_FINISHED_eeParaTools;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeParaTools.pas"
 // Стереотип: "UtilityPack"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit l3UnitsTools;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3UnitsTools.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

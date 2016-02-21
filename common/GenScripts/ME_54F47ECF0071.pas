@@ -3,7 +3,7 @@ unit ImageEnViewRegistrator;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\ImageEnViewRegistrator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

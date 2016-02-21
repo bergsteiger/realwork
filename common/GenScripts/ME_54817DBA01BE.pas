@@ -3,7 +3,7 @@ unit eeDocumentTool;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentTool.pas"
 // Стереотип: "SimpleClass"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

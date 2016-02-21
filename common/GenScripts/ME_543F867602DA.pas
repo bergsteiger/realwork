@@ -3,7 +3,7 @@ unit m3FileRegion;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3FileRegion.pas"
 // Стереотип: "UtilityPack"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 

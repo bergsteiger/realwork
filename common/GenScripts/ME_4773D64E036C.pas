@@ -4,7 +4,7 @@ unit NOT_FINISHED_l3Base;
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Base.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
@@ -23,11 +23,13 @@ uses
 type
  Pl3CustomString = ^Tl3CustomString;
 
+ Rl3ObjectRefList = class of Tl3ObjectRefList1;
+
+ Rl3String = class of Tl3String;
+
  Tl3Base = class(Tl3_Base)
   {* Базовый класс библиотеки L3. Реализует интерфейс IUnknown и подсчет ссылок. }
  end;//Tl3Base
-
- Rl3ObjectRefList = class of Tl3ObjectRefList1;
 
  Tl3String = Tl3_String;
   {* Строка. }
@@ -70,8 +72,6 @@ type
   public
    procedure SetClipboardData;
  end;//Tl3System
-
- Rl3String = class of Tl3String;
 
  Tl3ThreadContainer = class(Tl3_Base)
   protected
@@ -231,7 +231,7 @@ begin
 //#UC END# *503DFD9B0044_4773D64E036C_impl*
 end;//l3CStringArrayEmpty
 
-function l3InterlockedDecrement(var aAddend: Integer): Integer; register;
+function l3InterlockedDecrement(var aAddend: Integer): Integer;
 //#UC START# *4799F0A60236_4773D64E036C_var*
 //#UC END# *4799F0A60236_4773D64E036C_var*
 begin

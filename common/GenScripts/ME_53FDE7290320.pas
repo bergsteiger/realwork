@@ -3,7 +3,7 @@ unit m3RootStream;
 // Модуль: "w:\common\components\rtl\Garant\m3\m3RootStream.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
@@ -15,6 +15,8 @@ uses
 ;
 
 type
+ Rm3RootStream = class of Tm3RootStream;
+
  Tm3RootStreamHeader = packed record
   {* Заголовок потока в котором живет IStorage.
 
@@ -34,8 +36,6 @@ type
       {* - размер корневого потока. }
  //#UC END# *53FEFB4C03AEpubl*
  end;//Tm3RootStreamHeader
-
- Rm3RootStream = class of Tm3RootStream;
 
  _HeaderType_ = Tm3RootStreamHeader;
  {$Include w:\common\components\rtl\Garant\m3\m3RootStream.imp.pas}

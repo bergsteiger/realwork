@@ -3,7 +3,7 @@ unit eeDocumentCursor;
 // Модуль: "w:\common\components\gui\Garant\Everest_Engine\eeDocumentCursor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 

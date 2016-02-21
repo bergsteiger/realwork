@@ -8,7 +8,7 @@ aDelta aTop anEditor  pop:editor:BlockResize
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResize.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include seDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\seDefine.inc}
 
 interface
 

@@ -20,6 +20,9 @@ type
 
  PWideChar = ^WideChar;
 
+ TClass = class of TObject;
+  {* Сылка на RTTI класса. }
+
  TObject = class
   protected
    procedure FreeInstance; virtual;
@@ -43,9 +46,6 @@ The AfterConstruction method implemented in TObject does nothing. Override this 
  TObject = class
   {* Базовый объект Delphi. Предок всех других классов }
  end;//TObject
-
- TClass = class of TObject;
-  {* Сылка на RTTI класса. }
 
  Variant = record
  end;//Variant

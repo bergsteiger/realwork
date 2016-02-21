@@ -92,26 +92,26 @@ type
 
  (*
  MCommonStorage = interface
-  function DestroyElement(aName: PWideChar): HResult;
+  function DestroyElement(aName: PWideChar): HResult; stdcall;
   function EnumElements(unused1: Integer;
    unused2: Pointer;
    unused3: Integer;
-   out theStatStg: IEnumStatStg): HResult;
+   out theStatStg: IEnumStatStg): HResult; stdcall;
   function Stat(out theStatStg: TStatStg;
-   aStatFlag: Integer): HResult;
+   aStatFlag: Integer): HResult; stdcall;
  end;//MCommonStorage
  *)
 
  IStorage = interface
   {* Структурированное хранилище. }
   ['{DBD1670E-4A5F-4030-896C-85BCA17997B1}']
-  function DestroyElement(aName: PWideChar): HResult;
+  function DestroyElement(aName: PWideChar): HResult; stdcall;
   function EnumElements(unused1: Integer;
    unused2: Pointer;
    unused3: Integer;
-   out theStatStg: IEnumStatStg): HResult;
+   out theStatStg: IEnumStatStg): HResult; stdcall;
   function Stat(out theStatStg: TStatStg;
-   aStatFlag: Integer): HResult;
+   aStatFlag: Integer): HResult; stdcall;
  end;//IStorage
 
  TIID = record

@@ -3,7 +3,7 @@ unit VCMFormsProcessingPack;
 // Модуль: "w:\common\components\rtl\Garant\ScriptEngine\VCMFormsProcessingPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\rtl\Garant\ScriptEngine\vcmDefine.inc}
 
 interface
 
@@ -11,10 +11,6 @@ interface
 uses
  l3IntfUses
  , vcmEntityForm
- , tfwPropertyLike
- , tfwScriptingInterfaces
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , tfwPropertyLike
+ , tfwScriptingInterfaces
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

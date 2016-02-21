@@ -14,6 +14,8 @@ uses
 ;
 
 type
+ TCollectionItemClass = class of TCollectionItem;
+
  TFiler = class(TObject)
  end;//TFiler
 
@@ -214,8 +216,6 @@ type
    function GetItemAttr(Index: Integer;
     ItemIndex: Integer): AnsiString; virtual;
  end;//TCollection
-
- TCollectionItemClass = class of TCollectionItem;
 
  TInterfacedPersistent = class(TPersistent)
   {* TInterfacedPersistent is an ancestor for persistent objects that implement interfaces. }

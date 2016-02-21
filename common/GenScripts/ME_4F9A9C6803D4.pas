@@ -3,14 +3,14 @@ unit nsQuestions;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\nsQuestions.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
  l3IntfUses
- , l3StringIDEx
  , l3MessageID
+ , l3StringIDEx
 ;
 
 const

@@ -3,7 +3,7 @@ unit nsListExceptions;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\nsListExceptions.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

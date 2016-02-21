@@ -3,7 +3,7 @@ unit NOT_FINISHED_m3FileStreamMapView;
 // Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3FileStreamMapView.pas"
 // Стереотип: "SimpleClass"
 
-{$Include m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
