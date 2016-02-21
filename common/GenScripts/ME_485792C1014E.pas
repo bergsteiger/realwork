@@ -4,7 +4,7 @@ unit evBitmapPara_Wrap;
 // Модуль: "w:\common\components\gui\Garant\Everest\evBitmapPara_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -17,14 +17,14 @@ uses
 ;
 
 type
+ RevBitmapParaPictureGetter = class of TevBitmapParaPictureGetter;
+
  TevBitmapParaPictureGetter = class
   public
    class function GetPicture(aTag: Tl3Variant;
     aProp: Tk2Prop;
     out Data: Tl3Variant): Boolean; virtual;
  end;//TevBitmapParaPictureGetter
-
- RevBitmapParaPictureGetter = class of TevBitmapParaPictureGetter;
 
  WevBitmapPara = class(WevPara)
   {* Wrapper для параграфов с картинками. }

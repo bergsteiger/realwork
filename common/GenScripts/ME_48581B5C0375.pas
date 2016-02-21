@@ -4,7 +4,7 @@ unit AttrValue_Const;
 // Модуль: "w:\common\components\gui\Garant\Everest\AttrValue_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

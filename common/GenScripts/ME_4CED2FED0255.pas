@@ -4,7 +4,7 @@ unit evCommentPara_Wrap;
 // Модуль: "w:\common\components\gui\Garant\Everest\evCommentPara_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -16,18 +16,18 @@ uses
 ;
 
 type
+ RevCommentStorer = class of TevCommentStorer;
+
+ RevCommentModifier = class of TevCommentModifier;
+
  TevCommentStorer = class
   {* Объект умеющий сохранять комментарии }
   protected
    class procedure ForceStore(aTag: Tl3Variant); virtual;
  end;//TevCommentStorer
 
- RevCommentStorer = class of TevCommentStorer;
-
  TevCommentModifier = class(TevdParaModifier)
  end;//TevCommentModifier
-
- RevCommentModifier = class of TevCommentModifier;
 
  WevCommentPara = class(WevPara)
   {* Обёртка для CommentPara }

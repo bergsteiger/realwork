@@ -4,7 +4,7 @@ unit evCursorTools;
 // Модуль: "w:\common\components\gui\Garant\Everest\evCursorTools.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

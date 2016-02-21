@@ -4,7 +4,7 @@ unit evEditorInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit evStandardStylesListPrim;
 // Модуль: "w:\common\components\gui\Garant\Everest\evStandardStylesListPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

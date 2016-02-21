@@ -4,7 +4,7 @@ unit nevFormatInfoUtils;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatInfoUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

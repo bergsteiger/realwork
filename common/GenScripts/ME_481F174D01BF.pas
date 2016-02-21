@@ -3,7 +3,7 @@ unit nevTextParaRenderInfo;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextParaRenderInfo.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

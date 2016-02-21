@@ -4,7 +4,7 @@ unit evStylesPrintAndExportSettingRes;
 // Модуль: "w:\common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

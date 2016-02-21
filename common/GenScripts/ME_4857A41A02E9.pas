@@ -4,7 +4,7 @@ unit Header_Const;
 // Модуль: "w:\common\components\gui\Garant\Everest\Header_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

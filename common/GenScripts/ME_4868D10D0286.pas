@@ -3,7 +3,7 @@ unit dsgnTextStyle_Const;
 // Модуль: "w:\common\components\gui\Garant\Everest\dsgnTextStyle_Const.pas"
 // Стереотип: "TagOverride"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

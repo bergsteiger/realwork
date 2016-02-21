@@ -3,7 +3,7 @@ unit evFormula_Wrap;
 // Модуль: "w:\common\components\gui\Garant\Everest\evFormula_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit evStdInt;
 // Модуль: "w:\common\components\gui\Garant\Everest\evStdInt.pas"
 // Стереотип: "InterfaceFactoryPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit nevNavigation;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevNavigation.pas"
 // Стереотип: "Interfaces"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -52,8 +52,6 @@ type
    write pm_SetName;
    {* Cписок имен по индексу }
  end;//IevAddressList
-
- IevHyperlink = interface;
 
  IevAddressHolder = interface
   ['{C22FA607-035B-44DE-B592-054CB05175DE}']

@@ -111,8 +111,6 @@ type
    {* проверить и добавить новое значение }
  );//TnevCheckType
 
- IevPainter = interface;
-
  IevTablePainter = interface(InevBaseTool)
   {* Интерфейс инструмента рисования таблицы. }
   ['{1F693F22-31C3-49CE-BDCE-7E9001DC432C}']
@@ -126,8 +124,6 @@ type
    {* Проверка была ли отрисована начальная ячейка объединения. }
   function HasOwnStyle: Boolean;
  end;//IevTablePainter
-
- IevPainter = interface;
 
  IevTableRowPainter = interface(InevBaseTool)
   {* Интерфейс инструмента рисования строки. }

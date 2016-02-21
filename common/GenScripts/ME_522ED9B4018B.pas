@@ -4,15 +4,13 @@ unit evStyles_SH;
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyles_SH.pas"
 // Стереотип: "SettingsHolder"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
  l3IntfUses
  , evInterface
- , l3ProtoObject
- , afwInterfaces
 ;
 
 type
@@ -35,6 +33,8 @@ implementation
 
 uses
  l3ImplUses
+ , l3ProtoObject
+ , afwInterfaces
  {$If NOT Defined(DesignTimeLibrary)}
  , evStyleTableSpy
  {$IfEnd} // NOT Defined(DesignTimeLibrary)

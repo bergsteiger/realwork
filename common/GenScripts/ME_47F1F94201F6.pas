@@ -4,7 +4,7 @@ unit NOT_FINISHED_evSearch;
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSearch.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

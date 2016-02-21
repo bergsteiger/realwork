@@ -4,7 +4,7 @@ unit nevTableRowRenderInfo;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableRowRenderInfo.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -48,7 +48,7 @@ type
     var sPH: Integer); override;
   public
    procedure wForce(aParts: TnevRenderingInfoParts); override;
-   function GreatestObjPID(anInLines: Boolean = True): Integer; override;
+   function GreatestObjPID(anInLines: Boolean): Integer; override;
  end;//TnevTableRowRenderInfo
 
 implementation
@@ -415,7 +415,7 @@ begin
 //#UC END# *4E7096D600BD_4848EBFB00B0_impl*
 end;//TnevTableRowRenderInfo.HRecalcChild
 
-function TnevTableRowRenderInfo.GreatestObjPID(anInLines: Boolean = True): Integer;
+function TnevTableRowRenderInfo.GreatestObjPID(anInLines: Boolean): Integer;
 //#UC START# *55794BA600EA_4848EBFB00B0_var*
 //#UC END# *55794BA600EA_4848EBFB00B0_var*
 begin

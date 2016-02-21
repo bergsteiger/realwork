@@ -3,7 +3,7 @@ unit nevDocumentFormatInfo;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentFormatInfo.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

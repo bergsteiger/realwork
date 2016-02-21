@@ -3,7 +3,7 @@ unit NOT_FINISHED_evParaFrame;
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evParaFrame.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

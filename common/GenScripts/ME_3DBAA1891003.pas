@@ -4,7 +4,7 @@ unit Design_AttrValues;
 // Модуль: "w:\common\components\gui\Garant\Everest\Design_AttrValues.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

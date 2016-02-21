@@ -3,7 +3,7 @@ unit DocumentContainer_Const;
 // Модуль: "w:\common\components\gui\Garant\Everest\DocumentContainer_Const.pas"
 // Стереотип: "Atom"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

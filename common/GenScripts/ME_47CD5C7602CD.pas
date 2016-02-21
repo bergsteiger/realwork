@@ -4,7 +4,7 @@ unit evQueryCardInt;
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evQueryCardInt.pas"
 // Стереотип: "Interfaces"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit NOT_FINISHED_evDef;
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evDef.pas"
 // Стереотип: "Interfaces"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

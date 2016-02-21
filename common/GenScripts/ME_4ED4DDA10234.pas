@@ -3,7 +3,7 @@ unit NodeGroup_Const;
 // Модуль: "w:\common\components\gui\Garant\Everest\NodeGroup_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

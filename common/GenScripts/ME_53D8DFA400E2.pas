@@ -3,7 +3,7 @@ unit evParaInterfaceFactoryPrim;
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaInterfaceFactoryPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

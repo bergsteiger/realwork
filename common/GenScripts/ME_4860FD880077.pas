@@ -3,7 +3,7 @@ unit evTextStyle_Const;
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextStyle_Const.pas"
 // Стереотип: "TagOverride"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -12,11 +12,11 @@ uses
  , evdTextStyle_Const
  , evdTypes
  , evdStyles
+ , evdFrame_Const
  , TextPara_Const
  , HyperLink_Const
  , ObjectSegment_Const
  , ImageListBitmap_Const
- , evdFrame_Const
 ;
 
 type

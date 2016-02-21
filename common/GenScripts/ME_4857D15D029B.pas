@@ -4,7 +4,7 @@ unit SBSCell_Const;
 // Модуль: "w:\common\components\gui\Garant\Everest\SBSCell_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

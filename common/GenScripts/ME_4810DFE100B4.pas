@@ -3,7 +3,7 @@ unit nevFormatInfo;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevFormatInfo.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -18,6 +18,8 @@ uses
 ;
 
 type
+ RnevFormatInfo = class of TnevFormatInfo;
+
  TnevFormatInfoRec = record
   rHeight: Integer;
   rWidth: Integer;
@@ -58,8 +60,6 @@ type
   rValue: TnevRect;
   rIsCached: Boolean;
  end;//TnevCahcedSpacing
-
- RnevFormatInfo = class of TnevFormatInfo;
 
  TnevFormatInfo = class(TnevFormatInfoPrim)
   private
@@ -170,9 +170,9 @@ type
    function DecorObj(aType: TnevDecorType): Tl3Variant; override;
    function DecorHeight(aType: TnevDecorType): Integer; override;
    function ClientToParent(anX: Integer;
-    aParentLevel: TnevParaLevel = nev_plTopmost): Integer; override;
+    aParentLevel: TnevParaLevel): Integer; override;
    function ParentToClient(const aPt: TnevPoint;
-    aParentLevel: TnevParaLevel = nev_plTopmost): TnevPoint; override;
+    aParentLevel: TnevParaLevel): TnevPoint; override;
    function GetObjFont(aCorrectItalic: Boolean): IevResultFont; override;
    function IsHidden(aRecursive: Boolean;
     aNeedCheckCollapsed: Boolean): Boolean; override;
@@ -181,7 +181,7 @@ type
     {* Находится ли объект в родителе указанного типа или сам является таковым }
    function VerticalAlignmentMargin: Integer; override;
     {* Возвращает смещение параграфа от верхней границы, в зависимости от вертикального выравнивания. }
-   function GreatestObjPID(anInLines: Boolean = True): Integer; override;
+   function GreatestObjPID(anInLines: Boolean): Integer; override;
   protected
    property locDeltaHeight: Integer
     read pm_GetlocDeltaHeight;
@@ -1111,7 +1111,7 @@ begin
 end;//TnevFormatInfo.DecorHeight
 
 function TnevFormatInfo.ClientToParent(anX: Integer;
- aParentLevel: TnevParaLevel = nev_plTopmost): Integer;
+ aParentLevel: TnevParaLevel): Integer;
 //#UC START# *4E5F6E480332_4810DFE100B4_var*
 var
  l_Para : TnevFormatInfo;
@@ -1131,7 +1131,7 @@ begin
 end;//TnevFormatInfo.ClientToParent
 
 function TnevFormatInfo.ParentToClient(const aPt: TnevPoint;
- aParentLevel: TnevParaLevel = nev_plTopmost): TnevPoint;
+ aParentLevel: TnevParaLevel): TnevPoint;
 //#UC START# *4E5F6E6D0264_4810DFE100B4_var*
 var
  l_Para : TnevFormatInfo;
@@ -1566,7 +1566,7 @@ begin
 //#UC END# *52021CDE00B2_4810DFE100B4_impl*
 end;//TnevFormatInfo.VerticalAlignmentMargin
 
-function TnevFormatInfo.GreatestObjPID(anInLines: Boolean = True): Integer;
+function TnevFormatInfo.GreatestObjPID(anInLines: Boolean): Integer;
 //#UC START# *55794BA600EA_4810DFE100B4_var*
 //#UC END# *55794BA600EA_4810DFE100B4_var*
 begin

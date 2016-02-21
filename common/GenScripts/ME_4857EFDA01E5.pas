@@ -3,7 +3,7 @@ unit evStyleInterfaceEx;
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleInterfaceEx.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -14,7 +14,6 @@ uses
  , nevInternalInterfaces
  , Classes
  , k2TagGen
- , k2Dictionary
 ;
 
 type
@@ -45,6 +44,7 @@ implementation
 
 uses
  l3ImplUses
+ , k2Dictionary
  , k2Tags
  , l3Variant
  , Style_Const

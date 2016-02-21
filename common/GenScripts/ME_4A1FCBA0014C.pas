@@ -4,7 +4,7 @@ unit nevGUIInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevGUIInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -99,8 +99,6 @@ type
   , ev_oaDragPoint
   , ev_oaHeader
  );//TevObjectArea
-
- IevAdvancedHotSpot = interface;
 
  IevHotSpotDelta = interface
   {* Точность "горячей точки" (IevAdvancedHotSpot) }

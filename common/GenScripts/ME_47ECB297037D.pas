@@ -4,7 +4,7 @@ unit evStyleTableSpy;
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleTableSpy.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

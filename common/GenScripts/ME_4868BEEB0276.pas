@@ -3,7 +3,7 @@ unit TextStyle;
 // Модуль: ""
 // Стереотип: "TagOverride"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
