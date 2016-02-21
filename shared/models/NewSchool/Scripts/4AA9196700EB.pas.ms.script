@@ -619,8 +619,8 @@ ref; // ME_528262650131 tvPostingsGetItemImage
 
 FORWARD ME_5282636A000F
 
-: ME_1BF4EFD4F476
- CONST UID '1BF4EFD4F476'
+: ME_271A63081835
+ CONST UID '271A63081835'
  CONST Name 'Sender'
  CONST IsSummoned true
  CONST Class class_Parameter
@@ -628,39 +628,51 @@ FORWARD ME_5282636A000F
  : Target WL 'ME_4807745602C8' '4AB0C3C60310.pas.ms.script' // TObject
  ;
 
-ref; // ME_1BF4EFD4F476 Sender
+ref; // ME_271A63081835 Sender
 
-: ME_E9010EBB97A0
- CONST UID 'E9010EBB97A0'
- CONST Name 'Index'
+: ME_B7445742DBB3
+ CONST UID 'B7445742DBB3'
+ CONST Name 'aNewCurrent'
  CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
  ;
 
-ref; // ME_E9010EBB97A0 Index
+ref; // ME_B7445742DBB3 aNewCurrent
 
-: ME_4E3E3A39F1DD
- CONST UID '4E3E3A39F1DD'
+: ME_5CA6E8ADD2E0
+ CONST UID '5CA6E8ADD2E0'
+ CONST Name 'aOldCurrent'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.pas.ms.script' // LongInt
+ ;
+
+ref; // ME_5CA6E8ADD2E0 aOldCurrent
+
+: ME_9506F6C6975F
+ CONST UID '9506F6C6975F'
  CONST Name 'DoIt'
  CONST IsSummoned true
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_5282636A000F // tvPostingsActionElement
+ : Parent ME_5282636A000F // tvPostingsCurrentChanged
  ;
  : Parameters
-   Seq: ( ME_1BF4EFD4F476 // Sender
- ME_E9010EBB97A0 // Index
+   Seq: ( ME_271A63081835 // Sender
+ ME_B7445742DBB3 // aNewCurrent
+ ME_5CA6E8ADD2E0 // aOldCurrent
  )
  ; // Parameters
 
-ref; // ME_4E3E3A39F1DD DoIt
+ref; // ME_9506F6C6975F DoIt
 
 : ME_5282636A000F
  CONST UID '5282636A000F'
- CONST Name 'tvPostingsActionElement'
+ CONST Name 'tvPostingsCurrentChanged'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -669,15 +681,15 @@ ref; // ME_4E3E3A39F1DD DoIt
  : Parent ME_4AAFA13C01B0 // PrimPostingsList
  ;
  : Inherits
-   Seq: ( WL 'ME_51432026033F' '4B97E7FD006C.pas.ms.script' // TActionElement
+   Seq: ( WL 'ME_5143220D002B' '4B97E7FD006C.pas.ms.script' // TCurrentChanged
  )
  ; // Inherits
  : Operations
-   Seq: ( ME_4E3E3A39F1DD // DoIt
+   Seq: ( ME_9506F6C6975F // DoIt
  )
  ; // Operations
 
-ref; // ME_5282636A000F tvPostingsActionElement
+ref; // ME_5282636A000F tvPostingsCurrentChanged
 
 FORWARD ME_5282655D0103
 
@@ -1360,7 +1372,7 @@ ref; // ME_4A8E8F2E0195_ME_4AAFA13C01B0 InitControls
  : Operations
    Seq: ( ME_4C84F272012A // Save
  ME_528262650131 // tvPostingsGetItemImage
- ME_5282636A000F // tvPostingsActionElement
+ ME_5282636A000F // tvPostingsCurrentChanged
  ME_5282655D0103 // OnAddNode
  ME_528265720097 // OnDeleteNode
  ME_52826586022D // OnCaptionChange
@@ -2206,6 +2218,8 @@ ref; // ME_4DB0614603C8_ME_7241BE7680A1 GetWordNameForRegister
  CONST "register in scripts" 'undefined'
  CONST extprop:rc:SelfName '_PostingsList_Control_tvPostings_Push'
  CONST extprop:rc:isAcceptableForScripts true
+ : SpelledFor ME_4C84F2B3000F // tvPostings
+ ;
 
 ref; // ME_7241BE7680A1 Tkw_PostingsList_Control_tvPostings_Push
 
@@ -2615,6 +2629,7 @@ ref; // ME_4BDAF7B803CF_ME_1C12379D921C Wrap
  ME_9D3405BDD726 // 
  )
  ; // Dependencies
+ CONST "UseNewGen" true
  CONST "ifndef" 'NoScripts'
  CONST "needs script" 'undefined'
  CONST "no class name" 'undefined'

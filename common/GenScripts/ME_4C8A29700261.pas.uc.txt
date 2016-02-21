@@ -1,0 +1,304 @@
+//#UC START# *4C762C910358_4C8A29700261exec_impl*
+ Dispatcher.History.Back;
+//#UC END# *4C762C910358_4C8A29700261exec_impl*
+//#UC START# *4C762C910358_4C8A29700261exec_var*
+//#UC END# *4C762C910358_4C8A29700261exec_var*
+//#UC START# *4C762C910358_4C8A29700261test_impl*
+ aParams.Op.Flag[vcm_ofVisible] := False;
+//#UC END# *4C762C910358_4C8A29700261test_impl*
+//#UC START# *4C762C910358_4C8A29700261test_var*
+//#UC END# *4C762C910358_4C8A29700261test_var*
+//#UC START# *4C8A2A5C03E4_4C8A29700261exec_impl*
+ ChangeDefaultFontSize;
+//#UC END# *4C8A2A5C03E4_4C8A29700261exec_impl*
+//#UC START# *4C8A2A5C03E4_4C8A29700261exec_var*
+//#UC END# *4C8A2A5C03E4_4C8A29700261exec_var*
+//#UC START# *4C8A2A5C03E4_4C8A29700261test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanChangeDefaultFontSize;
+//#UC END# *4C8A2A5C03E4_4C8A29700261test_impl*
+//#UC START# *4C8A2A5C03E4_4C8A29700261test_var*
+//#UC END# *4C8A2A5C03E4_4C8A29700261test_var*
+//#UC START# *4C8A2A72034C_4C8A29700261exec_impl*
+ ChangeDefaultFontSize(False);
+//#UC END# *4C8A2A72034C_4C8A29700261exec_impl*
+//#UC START# *4C8A2A72034C_4C8A29700261exec_var*
+//#UC END# *4C8A2A72034C_4C8A29700261exec_var*
+//#UC START# *4C8A2A72034C_4C8A29700261test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := CanChangeDefaultFontSize(False);
+//#UC END# *4C8A2A72034C_4C8A29700261test_impl*
+//#UC START# *4C8A2A72034C_4C8A29700261test_var*
+//#UC END# *4C8A2A72034C_4C8A29700261test_var*
+//#UC START# *4C8A33C301CA_4C8A29700261_impl*
+ if not defDataAdapter.AdministratorLogin then
+ begin
+  if (g_Dispatcher.FormDispatcher.MainFormsCount > 1) or
+     not lp_CheckCommandLine then
+   (Self As InsIntegrationProcessor).ProcessCommand(ConvertOpenOnStartSetting, False, aParams.Container);
+ end//not defDataAdapter.AdministratorLogin
+ else
+  Assert(false);       
+(*  Dispatcher._ModuleOperation(mop_Admin_OpenUserList,
+                             vcmCleanUserParams(aParams));*)
+//#UC END# *4C8A33C301CA_4C8A29700261_impl*
+//#UC START# *4C8A33C301CA_4C8A29700261_var*
+
+ function lp_CheckCommandLine: Boolean;
+ var
+  l_Document             : IDocument;
+  l_Idx                  : Integer;
+  l_DocPos               : String;
+  l_NeedSilentRunAndExit : Boolean;
+  l_CanCloseApp          : Boolean;
+ const
+  c_OpenByNumberParamName = '-OpenByNumber';
+  c_ShellSilentRunAndExitParam = '-SilentRunAndExit';
+ begin//lp_CheckCommandLine
+  Result := false;
+  //http://mdp.garant.ru/pages/viewpage.action?pageId=481813781
+  l_NeedSilentRunAndExit := False;
+  for l_Idx := 1 to ParamCount do
+   if (ANSICompareText(ParamStr(l_Idx), c_ShellSilentRunAndExitParam) = 0) then
+   begin
+    l_NeedSilentRunAndExit := True;
+    Break;
+   end;
+  for l_Idx := 1 to ParamCount do
+   if (ANSICompareText(ParamStr(l_Idx),c_OpenByNumberParamName) = 0) then
+   begin
+    if (l_Idx < ParamCount) then
+    begin
+     l_DocPos := ParamStr(l_Idx + 1);
+     // http://mdp.garant.ru/pages/viewpage.action?pageId=483399976
+     Result := nsOpenDocumentByNumber(l_DocPos, True, False);
+     //http://mdp.garant.ru/pages/viewpage.action?pageId=480833251
+     if not Result then
+      Result := nsOpenLink(l_DocPos, True, (not l_NeedSilentRunAndExit),
+       (not l_NeedSilentRunAndExit));
+    end;//l_Idx < ParamCount
+    Break;
+   end;//ANSICompareText(ParamStr(l_Idx),c_OpenByNumberParamName)
+ end;//lp_CheckCommandLine
+
+//#UC END# *4C8A33C301CA_4C8A29700261_var*
+//#UC START# *4C8A43B3015E_4C8A29700261exec_impl*
+ l_HotInformation := TnsBaseMainMenuTree.nsFindNavigatorItem(ns_nipHotInformation);
+ try
+  Assert(l_HotInformation <> nil);
+  nsOpenNavigatorItem(l_HotInformation, Self, l_HotInformation, nil);
+ finally
+  l_HotInformation := nil;
+ end;//try..finally
+//#UC END# *4C8A43B3015E_4C8A29700261exec_impl*
+//#UC START# *4C8A43B3015E_4C8A29700261exec_var*
+var
+ l_HotInformation: INodeBase;
+//#UC END# *4C8A43B3015E_4C8A29700261exec_var*
+//#UC START# *4C8A43B3015E_4C8A29700261test_impl*
+ l_HotInformation := TnsBaseMainMenuTree.nsFindNavigatorItem(ns_nipHotInformation);
+ try
+  aParams.Op.Flag[vcm_ofEnabled] := (l_HotInformation <> nil) and
+   not lp_IsAlreadyShow;
+ finally
+  l_HotInformation := nil;
+ end;//try..finally
+//#UC END# *4C8A43B3015E_4C8A29700261test_impl*
+//#UC START# *4C8A43B3015E_4C8A29700261test_var*
+var
+ l_HotInformation: INodeBase;
+
+ function lp_IsAlreadyShow: Boolean;
+ {* Да, если на экране форма рубрикатора с горячей информацией. }
+ var
+  l_Form : IvcmEntityForm;
+  l_Node : INodeBase;
+ begin
+  HasForm(fm_efRubricator.rFormID, vcm_ztParent, True, @l_Form);
+  if l_Form <> nil then
+   Result := Supports(Op_Rubricator_GetRoot.Call(l_Form), INodeBase, l_Node) and
+             l_Node.IsSameNode(l_HotInformation)
+  else
+   Result := False;
+ end;//lp_IsAlreadyShow
+
+//#UC END# *4C8A43B3015E_4C8A29700261test_var*
+//#UC START# *4C8A43C40120_4C8A29700261exec_impl*
+ Application.HelpSystem.ShowTopicHelp(cHelpShortcutPage, '');
+//#UC END# *4C8A43C40120_4C8A29700261exec_impl*
+//#UC START# *4C8A43C40120_4C8A29700261exec_var*
+//#UC END# *4C8A43C40120_4C8A29700261exec_var*
+//#UC START# *4C8A43E30011_4C8A29700261exec_impl*
+ ShowWhatsNewHelpPage;
+//#UC END# *4C8A43E30011_4C8A29700261exec_impl*
+//#UC START# *4C8A43E30011_4C8A29700261exec_var*
+//#UC END# *4C8A43E30011_4C8A29700261exec_var*
+//#UC START# *4C8A43FE01BD_4C8A29700261exec_impl*
+ Say(inf_AnyInformation, [DefDataAdapter.GetDealerInfo]);
+//#UC END# *4C8A43FE01BD_4C8A29700261exec_impl*
+//#UC START# *4C8A43FE01BD_4C8A29700261exec_var*
+//#UC END# *4C8A43FE01BD_4C8A29700261exec_var*
+//#UC START# *4C8A440F025D_4C8A29700261exec_impl*
+ nsDoShellExecute(nsCStr(cInternetReplyBook));
+//#UC END# *4C8A440F025D_4C8A29700261exec_impl*
+//#UC START# *4C8A440F025D_4C8A29700261exec_var*
+//#UC END# *4C8A440F025D_4C8A29700261exec_var*
+//#UC START# *4C8A4428006F_4C8A29700261exec_impl*
+ l_CurOpIndex := aParams.ItemIndex;
+ if (l_CurOpIndex <= 0) then
+  Exit
+ else
+  Dec(l_CurOpIndex);
+ // - индекс первого элемента в меню 1, поэтому подкорректируем индекс:
+ l_Container := Self As IvcmContainer;
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=598934256
+ Assert(l_Container <> nil);
+ nsDoShellExecute(f_InternetMap.DisplayNameToValue(g_InternerMapStrings.ItemC[l_CurOpIndex]),
+  False, l_Container);
+//#UC END# *4C8A4428006F_4C8A29700261exec_impl*
+//#UC START# *4C8A4428006F_4C8A29700261exec_var*
+var
+ l_CurOpIndex : Integer;
+ l_Container: IvcmContainer;
+ l_Maker: IvcmContainerMaker;
+//#UC END# *4C8A4428006F_4C8A29700261exec_var*
+//#UC START# *4C8A4428006F_4C8A29700261test_impl*
+ with aParams do
+ begin
+  Op.Flag[vcm_ofEnabled] := true;
+  l_Strings := Op.SubItems;
+  if (l_Strings <> nil) and
+     (l_Strings.Count = 0) then
+  begin
+   if Supports(f_InternetMap, InsStringsSource, l_StringSource) then
+    l_StringSource.FillStrings(l_Strings);
+   l_Strings.AddOp(TdmStdRes.mod_opcode_Common_LetterToDevelopers);
+   g_InternerMapStrings := l_Strings;
+  end;//l_Strings <> nil
+ end;
+//#UC END# *4C8A4428006F_4C8A29700261test_impl*
+//#UC START# *4C8A4428006F_4C8A29700261test_var*
+var
+ l_Strings      : IvcmItems;
+ l_StringSource : InsStringsSource;
+//#UC END# *4C8A4428006F_4C8A29700261test_var*
+//#UC START# *4C8A4442036F_4C8A29700261exec_impl*
+ TdmStdRes.About;
+//#UC END# *4C8A4442036F_4C8A29700261exec_impl*
+//#UC START# *4C8A4442036F_4C8A29700261exec_var*
+//#UC END# *4C8A4442036F_4C8A29700261exec_var*
+//#UC START# *4C8A44DD0291_4C8A29700261exec_impl*
+ TdmStdRes.SelectOpen(Self.As_IvcmEntityForm,
+                      TnsFolderFilterInfo.Make(ffBookmark, ns_ffNone),
+                      str_OpenBookmark);
+//#UC END# *4C8A44DD0291_4C8A29700261exec_impl*
+//#UC START# *4C8A44DD0291_4C8A29700261exec_var*
+//#UC END# *4C8A44DD0291_4C8A29700261exec_var*
+//#UC START# *4C8A454E0063_4C8A29700261exec_impl*
+ TdmStdRes.BuildUnderControlList((aParams As IvcmExecuteParams).Container);
+//#UC END# *4C8A454E0063_4C8A29700261exec_impl*
+//#UC START# *4C8A454E0063_4C8A29700261exec_var*
+//#UC END# *4C8A454E0063_4C8A29700261exec_var*
+//#UC START# *4C8A456A0188_4C8A29700261exec_impl*
+ OpenUnderControl;
+//#UC END# *4C8A456A0188_4C8A29700261exec_impl*
+//#UC START# *4C8A456A0188_4C8A29700261exec_var*
+//#UC END# *4C8A456A0188_4C8A29700261exec_var*
+//#UC START# *4C8A4584039B_4C8A29700261exec_impl*
+ f_IsControlledObjectsChanging := False;
+//#UC END# *4C8A4584039B_4C8A29700261exec_impl*
+//#UC START# *4C8A4584039B_4C8A29700261exec_var*
+//#UC END# *4C8A4584039B_4C8A29700261exec_var*
+//#UC START# *4C8A47F102D1*
+//#UC END# *4C8A47F102D1*
+//#UC START# *4C8A47FA036C*
+ g_InternerMapStrings := nil;
+//#UC END# *4C8A47FA036C*
+//#UC START# *4C8A4B95003E_4C8A29700261_impl*
+ // Открываем форму с документами на контроле
+ TdmStdRes.OpenUnderControl(Self);
+ // Выдадим сообщение:
+ MessageDlg(l3Cat(ControlledChangingWarning.Hint, '.'),
+            'TnsMainWindow.OpenUnderControl', mtInformation);
+ // Убираем значок предупреждения
+ f_IsControlledObjectsChanging := False;
+//#UC END# *4C8A4B95003E_4C8A29700261_impl*
+//#UC START# *4C8A4B95003E_4C8A29700261_var*
+//#UC END# *4C8A4B95003E_4C8A29700261_var*
+//#UC START# *4C8A4C9B00F9_4C8A29700261_impl*
+ Application.HelpSystem.ShowTopicHelp(c_HelpWhatsNewPage, '');
+//#UC END# *4C8A4C9B00F9_4C8A29700261_impl*
+//#UC START# *4C8A4C9B00F9_4C8A29700261_var*
+const
+ c_HelpWhatsNewPage ='page-whatsnew.htm';
+//#UC END# *4C8A4C9B00F9_4C8A29700261_var*
+//#UC START# *4F7AE85E01EF_4C8A29700261_impl*
+ inherited;
+ DoInitContainedForm(aForm);
+//#UC END# *4F7AE85E01EF_4C8A29700261_impl*
+//#UC START# *4F7AE85E01EF_4C8A29700261_var*
+//#UC END# *4F7AE85E01EF_4C8A29700261_var*
+//#UC START# *4F7AEC7F03CB_4C8A29700261_impl*
+ inherited;
+ if aForm.SameName(fm_NewBaseSearchForm.rFormID) then
+ begin
+  if (aForm.VCLWinControl.Height <= 0) then
+  // костыль для http://mdp.garant.ru/pages/viewpage.action?pageId=333552196
+  begin
+   aForm.VCLWinControl.Parent.Height := cBSHeight;
+   aForm.VCLWinControl.Height := cBSHeight;
+  end;//aForm.VCLWinControl.Height <= 0
+ end;//aForm.SameName(fm_NewBaseSearchForm)
+//#UC END# *4F7AEC7F03CB_4C8A29700261_impl*
+//#UC START# *4F7AEC7F03CB_4C8A29700261_var*
+const
+ cBSHeight = 107;
+ // - так в dfm написано
+//#UC END# *4F7AEC7F03CB_4C8A29700261_var*
+//#UC START# *4F7AED150304_4C8A29700261_impl*
+ inherited;
+ TdmStdRes.DropChangeStatusToOpened(Self.as_IvcmEntityForm);
+//#UC END# *4F7AED150304_4C8A29700261_impl*
+//#UC START# *4F7AED150304_4C8A29700261_var*
+//#UC END# *4F7AED150304_4C8A29700261_var*
+//#UC START# *4F86CBED00E7_4C8A29700261_impl*
+ l_Str := afw.Settings.LoadString(pi_OpenOnStart, dv_OpenOnStart);
+ if l3Same(l_Str, li_OpenOnStartAttributeSearch) then
+  Result := GC_ATTRIBUTES_SEARCH
+ else
+ if l3Same(l_Str, li_OpenOnStartSituationSearch) then
+  Result := GC_SITUATION_SEARCH
+ else
+ if l3Same(l_Str, li_OpenOnStartMainMenu) then
+  Result := GC_MAIN_MENU
+ else
+ if l3Same(l_Str, li_OpenOnStartNavigator) then
+  Result := GC_NAVIGATOR
+ else
+ if l3Same(l_Str, li_OpenOnStartInpharmSearch) then
+  Result := GC_INPHARM_SEARCH
+ else
+ if l3Same(l_Str, li_OpenOnStartFullDrugList) then
+  Result := GC_DRUG_LIST
+ else
+ if l3Same(l_Str, li_OpenOnStartInpharmMainMenu) then
+  Result := GC_INPHARM_MAIN_MENU
+ else
+  Result := GC_LAST + 1;
+//#UC END# *4F86CBED00E7_4C8A29700261_impl*
+//#UC START# *4F86CBED00E7_4C8A29700261_var*
+var
+ l_Str : Il3CString;
+//#UC END# *4F86CBED00E7_4C8A29700261_var*
+//#UC START# *538C374A00B7_4C8A29700261_impl*
+ inherited;
+ if Supports(f_RemindersLine, IvcmResourceHolder, l_RH) then
+  l_RH.ReleaseResources;
+//#UC END# *538C374A00B7_4C8A29700261_impl*
+//#UC START# *538C374A00B7_4C8A29700261_var*
+var
+ l_RH: IvcmResourceHolder;
+//#UC END# *538C374A00B7_4C8A29700261_var*
+//#UC START# *546464260137_4C8A29700261_impl*
+ LoadStartState(vcmMakeParams(nil, aForm, aForm));
+//#UC END# *546464260137_4C8A29700261_impl*
+//#UC START# *546464260137_4C8A29700261_var*
+//#UC END# *546464260137_4C8A29700261_var*

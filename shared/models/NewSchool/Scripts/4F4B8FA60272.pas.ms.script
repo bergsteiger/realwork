@@ -580,6 +580,19 @@ ref; // ME_075140AD19DD Exists
 
 ref; // ME_52D669BA02CC TnsExternalObject
 
+FORWARD ME_56C55BFD0199
+
+: ME_56C55C0B008B
+ CONST UID '56C55C0B008B'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_53F6EC0200BF // nsBrowserInfo
+ ;
+ : Target ME_56C55BFD0199 // nsRegistryHelper
+ ;
+
+ref; // ME_56C55C0B008B 
+
 : ME_53F6EC0200BF
  CONST UID '53F6EC0200BF'
  CONST Name 'nsBrowserInfo'
@@ -590,6 +603,10 @@ ref; // ME_52D669BA02CC TnsExternalObject
  CONST Abstraction at_final
  : Parent ME_4F4B8FA60272 // Implementation
  ;
+ : Dependencies
+   Seq: ( ME_56C55C0B008B // 
+ )
+ ; // Dependencies
  CONST "finished" false
  CONST "no hands" false
  CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ExternalObjects\NOT_FINISHED_nsBrowserInfo.pas'
@@ -645,6 +662,23 @@ ref; // ME_55A388000158 ItemType
 
 ref; // ME_55A387E502D7 TnsDocumentStreamList
 
+: ME_56C55BFD0199
+ CONST UID '56C55BFD0199'
+ CONST Name 'nsRegistryHelper'
+ CONST Class class_Class
+ : Stereotype st_UtilityPack ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_4F4B8FA60272 // Implementation
+ ;
+ CONST "finished" false
+ CONST "no hands" false
+ CONST intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ExternalObjects\NOT_FINISHED_nsRegistryHelper.pas'
+ CONST extprop:rc:SelfName 'RegistryHelper'
+
+ref; // ME_56C55BFD0199 nsRegistryHelper
+
 : ME_4F4B8FA60272
  CONST UID '4F4B8FA60272'
  CONST Name 'Implementation'
@@ -660,6 +694,7 @@ ref; // ME_55A387E502D7 TnsDocumentStreamList
  ME_52D669BA02CC // TnsExternalObject
  ME_53F6EC0200BF // nsBrowserInfo
  ME_55A387E502D7 // TnsDocumentStreamList
+ ME_56C55BFD0199 // nsRegistryHelper
  )
  ; // Children
  : Depends

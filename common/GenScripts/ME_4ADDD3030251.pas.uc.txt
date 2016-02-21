@@ -1,0 +1,79 @@
+//#UC START# *47D1602000C6_4ADDD3030251_impl*
+ // http://mdp.garant.ru/pages/viewpage.action?pageId=470847610
+{$If defined(Admin)}
+ with dmStdRes.MenuManager.GetItemByName('enHistory') do
+ begin
+  with TvcmBaseOperationsCollectionItem(Operations.FindItemByName('opBack')) do
+   Options := Options - [vcm_ooShowInMainMenu, vcm_ooShowInMainToolbar];
+  with TvcmBaseOperationsCollectionItem(Operations.FindItemByName('opForward')) do
+   Options := Options - [vcm_ooShowInMainMenu, vcm_ooShowInMainToolbar];
+ end;
+{$IfEnd defined(Admin)}
+ inherited;
+//#UC END# *47D1602000C6_4ADDD3030251_impl*
+//#UC START# *47D1602000C6_4ADDD3030251_var*
+//#UC END# *47D1602000C6_4ADDD3030251_var*
+//#UC START# *4ADDD31E0091_4ADDD3030251_impl*
+ Result := false;
+//#UC END# *4ADDD31E0091_4ADDD3030251_impl*
+//#UC START# *4ADDD31E0091_4ADDD3030251_var*
+//#UC END# *4ADDD31E0091_4ADDD3030251_var*
+//#UC START# *4ADDD377028F_4ADDD3030251exec_impl*
+ if not NeedTerminateOnExit then
+ begin
+  if AskMayExit then
+   DoExitApplication;
+ end//not NeedTerminateOnExit
+ else
+  TerminateProcess(GetCurrentProcess, 255);
+//#UC END# *4ADDD377028F_4ADDD3030251exec_impl*
+//#UC START# *4ADDD377028F_4ADDD3030251exec_var*
+//#UC END# *4ADDD377028F_4ADDD3030251exec_var*
+//#UC START# *4ADDD377028F_4ADDD3030251test_impl*
+ // - ничего не делаем
+//#UC END# *4ADDD377028F_4ADDD3030251test_impl*
+//#UC START# *4ADDD377028F_4ADDD3030251test_var*
+//#UC END# *4ADDD377028F_4ADDD3030251test_var*
+//#UC START# *4ADDD5A30139_4ADDD3030251_impl*
+ Result := true;
+//#UC END# *4ADDD5A30139_4ADDD3030251_impl*
+//#UC START# *4ADDD5A30139_4ADDD3030251_var*
+//#UC END# *4ADDD5A30139_4ADDD3030251_var*
+//#UC START# *4ADDDC550118_4ADDD3030251exec_impl*
+ DoBack(aParams);
+//#UC END# *4ADDDC550118_4ADDD3030251exec_impl*
+//#UC START# *4ADDDC550118_4ADDD3030251exec_var*
+//#UC END# *4ADDDC550118_4ADDD3030251exec_var*
+//#UC START# *4ADDDC550118_4ADDD3030251test_impl*
+ l_History := Self.History;
+ aParams.Op.Flag[vcm_ofEnabled] := l_History.CanBack;
+ l_History.GetBackStrings(aParams);
+//#UC END# *4ADDDC550118_4ADDD3030251test_impl*
+//#UC START# *4ADDDC550118_4ADDD3030251test_var*
+var
+ l_History: IvcmHistory;
+//#UC END# *4ADDDC550118_4ADDD3030251test_var*
+//#UC START# *4ADDDC630097_4ADDD3030251exec_impl*
+ DoForward(aParams);
+//#UC END# *4ADDDC630097_4ADDD3030251exec_impl*
+//#UC START# *4ADDDC630097_4ADDD3030251exec_var*
+//#UC END# *4ADDDC630097_4ADDD3030251exec_var*
+//#UC START# *4ADDDC630097_4ADDD3030251test_impl*
+ l_History := Self.History;
+ aParams.Op.Flag[vcm_ofEnabled] := l_History.CanForward;
+ l_History.GetForwardStrings(aParams);
+//#UC END# *4ADDDC630097_4ADDD3030251test_impl*
+//#UC START# *4ADDDC630097_4ADDD3030251test_var*
+var
+ l_History: IvcmHistory;
+//#UC END# *4ADDDC630097_4ADDD3030251test_var*
+//#UC START# *4C8DDE6B01A6_4ADDD3030251_impl*
+ Self.History.Back(aParams);
+//#UC END# *4C8DDE6B01A6_4ADDD3030251_impl*
+//#UC START# *4C8DDE6B01A6_4ADDD3030251_var*
+//#UC END# *4C8DDE6B01A6_4ADDD3030251_var*
+//#UC START# *4C8DDEA5007E_4ADDD3030251_impl*
+ Self.History.Forward(aParams);
+//#UC END# *4C8DDEA5007E_4ADDD3030251_impl*
+//#UC START# *4C8DDEA5007E_4ADDD3030251_var*
+//#UC END# *4C8DDEA5007E_4ADDD3030251_var*

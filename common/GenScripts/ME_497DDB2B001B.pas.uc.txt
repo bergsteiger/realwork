@@ -165,7 +165,9 @@
 //#UC START# *497469C90140_497DDB2B001B_impl*
  inherited;
  f_AllowCallCurrentChangedOnTest := True;
- f_NeedDirtyHackForScrollbar := True;
+
+ tvList.SelfDrawNodes := Assigned(dsDocumentList) and dsDocumentList.IsSnippet;
+ PostMessage(tvList.Handle, msg_vtInvalidateNCArea, 0, 0);
 //#UC END# *497469C90140_497DDB2B001B_impl*
 //#UC START# *497469C90140_497DDB2B001B_var*
 //#UC END# *497469C90140_497DDB2B001B_var*
@@ -581,7 +583,6 @@ var
 //#UC END# *4A8E5E4702C6_497DDB2B001B_var*
 //#UC START# *4A8E8F2E0195_497DDB2B001B_impl*
  inherited;
- f_NeedDirtyHackForScrollbar := True;
  ActiveControl := tvList;
  tvList.NonTrackScroll := true;
  tvList.StyleId := ev_saTxtNormalANSI;
@@ -597,50 +598,50 @@ var
  end;//with ListPanel
  with cfList do
  begin
-   Left := 0;
-   Top := 0;
-   Width := 399;
-   Height := 35;
-   ImageIndex := 77;
-   ContextFilterTarget := tvList;
-   OnChange := cfListChange;
-   OnWrongContext := cfListWrongContext;
+  Left := 0;
+  Top := 0;
+  Width := 399;
+  Height := 35;
+  ImageIndex := 77;
+  ContextFilterTarget := tvList;
+  OnChange := cfListChange;
+  OnWrongContext := cfListWrongContext;
  end;
  with tvList do
  begin
-   Left := 0;
-   Top := 35;
-   Width := 399;
-   Height := 458;
-   OnCountChanged := tvListCountChanged;
-   OnAfterFirstPaint := tvListAfterFirstPaint;
-   OnCurrentIndexChanged := tvListCurrentIndexChanged;
-   Align := alClient;
-   BorderStyle := bsNone;
-   TabOrder := 0;
-   MultiSelect := True;
-   MultiStrokeItem := True;
-   ActionElementMode := l3_amSecondSingleClick;
-   NeedStatus := True;
-   OnGetItemIconHint := tvListGetItemIconHint;
-   OnMakeTreeSource := tvListMakeTreeSource;
-   OnGetItemImage := tvListGetItemImage;
-   OnActionElement := tvListActionElement;
-   OnCurrentChanged := tvListCurrentChanged;
-   OnTreeChanged := tvListTreeChanged;
-   OnRootChanged := tvListRootChanged;
-   OnSelectCountChanged := tvListSelectCountChanged;
-   OnFormatStatusInfo := tvListFormatStatusInfo;
-   OnNewCharPressed := tvListNewCharPressed;
-   OnCheckFocusedInPaint := tvListCheckFocusedInPaint;
-   OnGetNodeType := TvListGetNodeType;
-   DragAndDropSupported := True;
-   FooterCaption := str_ListFooterCaption.AsStr;
-   OnFooterClick := tvListFooterClick;
-   SettingId := 'stidListTree';
-   InterRowMultiplier := 2;             
-   OpenChipColor := $ADADAD; //414849886 
-   OpenChipBorderColor := $ADADAD;
+  Left := 0;
+  Top := 35;
+  Width := 399;
+  Height := 458;
+  OnCountChanged := tvListCountChanged;
+  OnAfterFirstPaint := tvListAfterFirstPaint;
+  OnCurrentIndexChanged := tvListCurrentIndexChanged;
+  Align := alClient;
+  BorderStyle := bsNone;
+  TabOrder := 0;
+  MultiSelect := True;
+  MultiStrokeItem := True;
+  ActionElementMode := l3_amSecondSingleClick;
+  NeedStatus := True;
+  OnGetItemIconHint := tvListGetItemIconHint;
+  OnMakeTreeSource := tvListMakeTreeSource;
+  OnGetItemImage := tvListGetItemImage;
+  OnActionElement := tvListActionElement;
+  OnCurrentChanged := tvListCurrentChanged;
+  OnTreeChanged := tvListTreeChanged;
+  OnRootChanged := tvListRootChanged;
+  OnSelectCountChanged := tvListSelectCountChanged;
+  OnFormatStatusInfo := tvListFormatStatusInfo;
+  OnNewCharPressed := tvListNewCharPressed;
+  OnCheckFocusedInPaint := tvListCheckFocusedInPaint;
+  OnGetNodeType := TvListGetNodeType;
+  DragAndDropSupported := True;
+  FooterCaption := str_ListFooterCaption.AsStr;
+  OnFooterClick := tvListFooterClick;
+  SettingId := 'stidListTree';
+  InterRowMultiplier := 2;             
+  OpenChipColor := $ADADAD; //414849886 
+  OpenChipBorderColor := $ADADAD;
  end;
 //#UC END# *4A8E8F2E0195_497DDB2B001B_impl*
 //#UC START# *4A8E8F2E0195_497DDB2B001B_var*
