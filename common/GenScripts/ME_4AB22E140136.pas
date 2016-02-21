@@ -3,7 +3,7 @@ unit vcmApplication;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmApplication.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

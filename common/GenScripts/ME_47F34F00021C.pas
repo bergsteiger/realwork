@@ -3,7 +3,7 @@ unit nevPrintableDocumentContainer;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevPrintableDocumentContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -32,7 +32,7 @@ type
    function Info: InevStorable; virtual;
    function MakeDocumentPreview(const aKey: TevPreviewCacheKey;
     const aMacroReplacer: IafwHAFMacroReplacer;
-    const aRange: InevRange = nil): IafwDocumentPreview; override;
+    const aRange: InevRange): IafwDocumentPreview; override;
    function MakeInfoPreview(const aKey: TevPreviewCacheKey;
     const aMacroReplacer: IafwHAFMacroReplacer): IafwDocumentPreview; override;
    procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); override;
@@ -116,7 +116,7 @@ end;//TnevPrintableDocumentContainer.Info
 
 function TnevPrintableDocumentContainer.MakeDocumentPreview(const aKey: TevPreviewCacheKey;
  const aMacroReplacer: IafwHAFMacroReplacer;
- const aRange: InevRange = nil): IafwDocumentPreview;
+ const aRange: InevRange): IafwDocumentPreview;
 //#UC START# *47F1112A0183_47F34F00021C_var*
 
  function lp_CheckAreaReplacer(const aReplacer: IafwHAFMacroReplacer): IafwHAFMacroReplacer;

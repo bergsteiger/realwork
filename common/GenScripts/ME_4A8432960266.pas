@@ -3,7 +3,7 @@ unit NOT_FINISHED_ctTypes;
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\NOT_FINISHED_ctTypes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

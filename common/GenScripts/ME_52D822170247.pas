@@ -3,7 +3,7 @@ unit NOT_FINISHED_evParaPackOperation;
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evParaPackOperation.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

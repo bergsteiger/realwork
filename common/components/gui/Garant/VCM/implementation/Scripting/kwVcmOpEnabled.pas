@@ -3,7 +3,7 @@ unit kwVcmOpEnabled;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\kwVcmOpEnabled.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

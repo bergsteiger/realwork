@@ -3,7 +3,7 @@ unit vcmBaseMenuManager;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmBaseMenuManager.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -51,9 +51,6 @@ uses
  , l3ProtoObject
  {$If NOT Defined(NoVCL)}
  , l3PopupMenuHelper
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoVCL)}
- , Controls
  {$IfEnd} // NOT Defined(NoVCL)
 ;
 
@@ -317,7 +314,7 @@ type
    procedure EndOp; virtual;
    procedure FastenToolbars; virtual;
    function GetFastenMode: Boolean; virtual;
-   function BuildVirtualForm(aFormClass: RvcmEntityForm;
+   function BuildVirtualForm(const aFormClass: RvcmEntityForm;
     out NeedFreeForm: Boolean;
     aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
    function ObjectByType(anObject: TvcmObject;
@@ -449,6 +446,9 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , vtUtils
  , vcmBaseMenuManagerRes
  , l3ConstStrings
@@ -2431,7 +2431,7 @@ begin
 //#UC END# *52A1FE730278_4AD5DBBD0147_impl*
 end;//TvcmBaseMenuManagerPrim.GetFastenMode
 
-function TvcmBaseMenuManagerPrim.BuildVirtualForm(aFormClass: RvcmEntityForm;
+function TvcmBaseMenuManagerPrim.BuildVirtualForm(const aFormClass: RvcmEntityForm;
  out NeedFreeForm: Boolean;
  aUserType: TvcmUserType = vcm_utAny): TvcmEntityForm;
 //#UC START# *52A1FEC30321_4AD5DBBD0147_var*

@@ -4,7 +4,7 @@ unit nevTextPara;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTextPara.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -15,8 +15,6 @@ uses
  , nevTools
  , l3Variant
  , nevBase
- , l3CacheableBase
- , l3Interfaces
 ;
 
 type
@@ -41,6 +39,8 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ , l3CacheableBase
+ , l3Interfaces
  , k2Tags
  , evdTypes
  , evTabStops

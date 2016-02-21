@@ -3,7 +3,7 @@ unit vcmHistory;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmHistory.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -18,10 +18,6 @@ uses
  , vcmBase
  , vcmHistoryItemList
  , vcmIEntityFormPtrList
- , vcmHistoryFormNode
- , vcmEntityForm
- , l3IID
- , SysUtils
  , l3PureMixIns
  , l3ProtoDataContainer
  , l3Memory
@@ -167,9 +163,6 @@ type
     const aData: IvcmData): IvcmHistoryItem; reintroduce;
  end;//TvcmObjectWithDataHistoryItem
 
- EvcmFormWasClosedInSave = class(Exception)
- end;//EvcmFormWasClosedInSave
-
  //_ItemType_ = IvcmFormHistoryItem;
  IvcmFormHistoryItemList = interface
   ['{59876B02-DA96-4D06-80B6-6ACA9E7CE378}']
@@ -235,6 +228,10 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , vcmHistoryFormNode
+ , vcmEntityForm
+ , l3IID
+ , SysUtils
  , l3String
  , l3MinMax
  , Windows
@@ -255,6 +252,9 @@ uses
 ;
 
 type
+ EvcmFormWasClosedInSave = class(Exception)
+ end;//EvcmFormWasClosedInSave
+
  TvcmHistoryItemBase = class(TvcmCacheableBase, IvcmFormHistoryItem)
   private
    f_PathNode: TvcmHistoryFormNode;

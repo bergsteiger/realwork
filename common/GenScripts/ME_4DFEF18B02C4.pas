@@ -3,7 +3,7 @@ unit evContentsSubNode;
 // Модуль: "w:\common\components\gui\Garant\Everest\evContentsSubNode.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

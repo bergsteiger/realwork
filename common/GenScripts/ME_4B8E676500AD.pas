@@ -3,7 +3,7 @@ unit vcmDialogs;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmDialogs.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -52,6 +52,8 @@ const
  );
 
 type
+ TMessageFormClass = class of TMessageForm;
+
  TvtEffectiveDialogButton = class(TvtVGButton)
   protected
    function pm_GetCaption: WideString;
@@ -106,7 +108,7 @@ type
    constructor Create(AOwner: TComponent); override;
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); override;
+    Dummy: Integer); override;
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    function ShowModal: Integer; override;
@@ -116,8 +118,6 @@ type
     read pm_GetNeedShowInTaskBar
     write pm_SetNeedShowInTaskBar;
  end;//TMessageForm
-
- TMessageFormClass = class of TMessageForm;
 
 function vcmMessageDlgPrim(const aMsg: Tl3Message;
  out Checked: Boolean;
@@ -1218,7 +1218,7 @@ end;//TMessageForm.DoShow
 
 {$If NOT Defined(NoVCL)}
 constructor TMessageForm.CreateNew(AOwner: TComponent;
- Dummy: Integer = 0);
+ Dummy: Integer);
 //#UC START# *4F9007B20376_4F9000EA02E5_var*
 //#UC END# *4F9007B20376_4F9000EA02E5_var*
 begin

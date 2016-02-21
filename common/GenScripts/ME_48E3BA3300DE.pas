@@ -4,7 +4,7 @@ unit NOT_FINISHED_evRangeTools;
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evRangeTools.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

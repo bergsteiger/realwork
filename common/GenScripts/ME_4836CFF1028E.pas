@@ -4,7 +4,7 @@ unit evNSRCPlusWriter;
 // Модуль: "w:\common\components\gui\Garant\Everest\evNSRCPlusWriter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

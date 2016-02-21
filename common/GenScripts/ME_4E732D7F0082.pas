@@ -3,7 +3,7 @@ unit vtHideField;
 // Модуль: "w:\common\components\gui\Garant\VT\vtHideField.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
@@ -145,7 +145,7 @@ type
    procedure CNKeyDown(var Msg: TWMKeyDown);
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
   protected
-   procedure pm_SetStyleId(aValue: TevStyleId);
+   procedure pm_SetStyleId(const aValue: TevStyleId);
    procedure pm_SetShowHeight(aValue: Integer);
    function pm_GetHeaderHeight: Integer;
    procedure pm_SetTopHeaderIndent(aValue: Integer);
@@ -380,7 +380,7 @@ const
  cstidState = 'State';
   {* идентификатор настройки для состояния }
 
-procedure TvtCustomHideField.pm_SetStyleId(aValue: TevStyleId);
+procedure TvtCustomHideField.pm_SetStyleId(const aValue: TevStyleId);
 //#UC START# *5110DC1F02C4_4E732D8B0291set_var*
 //#UC END# *5110DC1F02C4_4E732D8B0291set_var*
 begin

@@ -3,7 +3,7 @@ unit vcmMessageFormPrim;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessageFormPrim.pas"
 // Стереотип: "GuiControl"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -18,10 +18,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoVCL)}
- , StdCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vgVisualObject
 ;
 
 type
@@ -49,6 +45,10 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vgVisualObject
  , Windows
  , vg_controls
  , vtDialogsResEx

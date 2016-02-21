@@ -4,7 +4,7 @@ unit evDocumentContainerWithProcessor;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\evDocumentContainerWithProcessor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -29,8 +29,8 @@ type
    procedure MakeProcessor(out theProcessor: TevCustomUndoProcessor); virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function StartOp(Op: Integer = 0;
-    DoLock: Boolean = True): InevOp; override;
+   function StartOp(Op: Integer;
+    DoLock: Boolean): InevOp; override;
     {* открывает пачку операций с кодом Op. }
    function DoGetProcessor: InevProcessor; override;
    function DoGetDocumentLimits: InevDocumentLimits; override;
@@ -109,8 +109,8 @@ begin
 //#UC END# *479731C50290_47F3513A017F_impl*
 end;//TevDocumentContainerWithProcessor.Cleanup
 
-function TevDocumentContainerWithProcessor.StartOp(Op: Integer = 0;
- DoLock: Boolean = True): InevOp;
+function TevDocumentContainerWithProcessor.StartOp(Op: Integer;
+ DoLock: Boolean): InevOp;
  {* открывает пачку операций с кодом Op. }
 //#UC START# *47F10A0502B8_47F3513A017F_var*
 //#UC END# *47F10A0502B8_47F3513A017F_var*

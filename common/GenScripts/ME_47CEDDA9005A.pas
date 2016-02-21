@@ -3,7 +3,7 @@ unit evEditorControlFieldList;
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evEditorControlFieldList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

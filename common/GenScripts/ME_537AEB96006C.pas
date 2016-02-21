@@ -3,7 +3,7 @@ unit vcmTabbedContainerFormDispatcher;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerFormDispatcher.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -38,7 +38,6 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , l3InternalInterfaces
- , Windows
 ;
 
 type
@@ -296,6 +295,7 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ , Windows
  , SysUtils
  {$If NOT Defined(NoVCL)}
  , Menus

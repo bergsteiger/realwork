@@ -4,7 +4,7 @@ unit evSubPanel;
 // Модуль: "w:\common\components\gui\Garant\Everest\evSubPanel.pas"
 // Стереотип: "GuiControl"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -28,7 +28,6 @@ uses
  , l3InterfacedComponent
  , l3ProtoPersistentWithHandleRefList
  , l3ObjectList
- , l3ProtoObjectWithHandle
  , evSubPanelSub
  , evLinkedToolPanel
  , evInternalInterfaces
@@ -514,6 +513,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3ProtoObjectWithHandle
  , evFont
  , l3Base
  , l3MinMax

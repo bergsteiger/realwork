@@ -4,7 +4,7 @@ unit nevSolidParaAnchor;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevSolidParaAnchor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 

@@ -3,16 +3,13 @@ unit vcmTabsWordsPack;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmTabsWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
 uses
  l3IntfUses
- , tfwGlobalKeyWord
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
 
@@ -21,6 +18,9 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
+ , TypInfo
  , l3TabbedContainersDispatcher
  , tfwScriptingTypes
  , tfwTypeRegistrator

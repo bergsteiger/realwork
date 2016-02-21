@@ -3,7 +3,7 @@ unit evHotSpot;
 // Модуль: "w:\common\components\gui\Garant\Everest\evHotSpot.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

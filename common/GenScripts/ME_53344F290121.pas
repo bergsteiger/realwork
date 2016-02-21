@@ -3,7 +3,7 @@ unit vgReminderConsts;
 // Модуль: "w:\common\components\gui\Garant\VT\vgReminderConsts.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

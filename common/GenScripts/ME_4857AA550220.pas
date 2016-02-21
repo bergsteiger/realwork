@@ -4,7 +4,7 @@ unit evBlock_InterfaceFactory;
 // Модуль: "w:\common\components\gui\Garant\Everest\evBlock_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

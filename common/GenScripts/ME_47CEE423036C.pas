@@ -3,7 +3,7 @@ unit evDescriptionReqList;
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evDescriptionReqList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit NOT_FINISHED_evCustomTextPainter;
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTextPainter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

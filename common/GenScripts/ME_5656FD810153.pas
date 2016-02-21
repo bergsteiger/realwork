@@ -3,7 +3,7 @@ unit evSCCollectFilter;
 // Модуль: "w:\common\components\gui\Garant\Everest\evSCCollectFilter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -40,7 +40,7 @@ type
     aTagId: Integer;
     aNeedCloseBracket: Boolean); override;
   public
-   constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
+   constructor Create(anOwner: Tk2TagGeneratorOwner); override;
   public
    property SubList: TevSCSubList
     read f_SubList;
@@ -235,7 +235,7 @@ begin
 //#UC END# *4D53D8BF00D5_5656FD810153_impl*
 end;//TevSCCollectFilter.DoFlushBuffer
 
-constructor TevSCCollectFilter.Create(anOwner: Tk2TagGeneratorOwner = nil);
+constructor TevSCCollectFilter.Create(anOwner: Tk2TagGeneratorOwner);
 //#UC START# *538C1F9A00C7_5656FD810153_var*
 //#UC END# *538C1F9A00C7_5656FD810153_var*
 begin

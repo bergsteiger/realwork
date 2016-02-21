@@ -3,7 +3,7 @@ unit nevActiveHyperlinkProxy;
 // Модуль: "w:\common\components\gui\Garant\Everest\nevActiveHyperlinkProxy.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

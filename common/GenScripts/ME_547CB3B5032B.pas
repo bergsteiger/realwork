@@ -3,7 +3,7 @@ unit evToolPanel;
 // Модуль: "w:\common\components\gui\Garant\Everest\evToolPanel.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

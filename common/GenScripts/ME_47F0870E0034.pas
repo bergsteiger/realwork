@@ -4,7 +4,7 @@ unit nevDocumentContainer;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevDocumentContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -30,8 +30,6 @@ uses
  , evGeneratorsInterfaces
  , evdInterfaces
  , l3IID
- , k2Op
- , k2Prim
  , evDocumentPartGenerator
 ;
 
@@ -340,6 +338,8 @@ implementation
 
 uses
  l3ImplUses
+ , k2Op
+ , k2Prim
  , l3Types
  , Classes
  , l3Stream

@@ -3,7 +3,7 @@ unit evBlocksEliminator;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evBlocksEliminator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

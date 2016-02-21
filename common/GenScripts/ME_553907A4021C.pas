@@ -3,7 +3,7 @@ unit NOT_FINISHED_vtColorBoxStrings;
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtColorBoxStrings.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

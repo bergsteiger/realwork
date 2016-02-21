@@ -4,7 +4,7 @@ unit evTextParaHeaderHotSpot;
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextParaHeaderHotSpot.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -16,7 +16,6 @@ uses
  , nevTools
  , nevBase
  , afwInterfaces
- , l3StringIDEx
 ;
 
 type
@@ -71,6 +70,7 @@ implementation
 {$If Defined(evNeedHotSpot)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , l3MessageID
  {$If Defined(k2ForEditor)}
  , evParaTools

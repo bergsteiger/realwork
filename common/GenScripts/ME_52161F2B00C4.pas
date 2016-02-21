@@ -3,7 +3,7 @@ unit ddAppConfigTypes;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -38,6 +38,10 @@ uses
 ;
 
 type
+ RddBaseConfigItem = class of TddBaseConfigItem;
+
+ RddBaseConfigNode = class of TddCustomConfigNode;
+
  IddMasterItem = interface
   ['{7186411A-F177-458A-802C-2A40BE15A74A}']
   function pm_GetBooleanValue: Boolean;
@@ -383,7 +387,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
   protected
    property FirstLabel: TvtLabel
     read f_FirstLabel
@@ -439,7 +443,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    procedure ClearControl; override;
@@ -507,8 +511,6 @@ type
     read f_ValueMap;
  end;//TddMapValueConfigItem
 
- RddBaseConfigItem = class of TddBaseConfigItem;
-
  TddRadioGroupConfigItem = class(TddIntegerConfigItem)
   private
    f_Items: TStrings;
@@ -532,7 +534,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
    procedure SetValueToControl(aDefault: Boolean); override;
@@ -561,7 +563,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    function MinWidth(aParent: TWinControl): Integer; override;
  end;//TddRadioConfigItem
 
@@ -605,7 +607,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    function HasValue(const anAlias: AnsiString;
     out theItem: TddBaseConfigItem): Boolean; override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
@@ -646,7 +648,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
  end;//TddFontConfigItem
@@ -680,8 +682,6 @@ type
    property ControlStrings: Il3StringsEx
     read pm_GetControlStrings;
  end;//TddBaseStringsConfigItem
-
- RddBaseConfigNode = class of TddCustomConfigNode;
 
  TddCustomConfigNode = class(TddBaseConfigItem, IddConfigNode)
   private
@@ -802,7 +802,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function MinWidth(aParent: TWinControl): Integer; override;
@@ -879,7 +879,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    function ControlHeight(aParent: TWinControl): Integer; override;
    procedure GetValueFromControl; override;
    procedure SetValueToControl(aDefault: Boolean); override;
@@ -903,7 +903,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function LabelWidth(aParent: TWinControl): Integer; override;
@@ -1029,7 +1029,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    procedure SetValueToControl(aDefault: Boolean); override;
@@ -1075,7 +1075,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function ControlHeight(aParent: TWinControl): Integer; override;
@@ -1188,7 +1188,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
    function ControlHeight(aParent: TWinControl): Integer; override;
@@ -2610,7 +2610,7 @@ end;//TddVisualConfigItem.pm_SetValue
 constructor TddVisualConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_4E302F24003F_var*
 //#UC END# *5217273F000F_4E302F24003F_var*
 begin
@@ -2858,7 +2858,7 @@ end;//TddIntegerConfigItem.Assign
 constructor TddIntegerConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_5220BFBC0399_var*
 //#UC END# *5217273F000F_5220BFBC0399_var*
 begin
@@ -3224,7 +3224,7 @@ end;//TddRadioGroupConfigItem.Cleanup
 constructor TddRadioGroupConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_52260D9A0238_var*
 //#UC END# *5217273F000F_52260D9A0238_var*
 begin
@@ -3419,7 +3419,7 @@ end;//TddRadioConfigItem.SetValueToControl
 constructor TddRadioConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_522446F90281_var*
 //#UC END# *5217273F000F_522446F90281_var*
 begin
@@ -3766,7 +3766,7 @@ end;//TddGroupConfigItem.Reset
 constructor TddGroupConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_5227064102D9_var*
 //#UC END# *5217273F000F_5227064102D9_var*
 begin
@@ -4033,7 +4033,7 @@ end;//TddFontConfigItem.SetValueToControl
 constructor TddFontConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_4B9E682C038E_var*
 //#UC END# *5217273F000F_4B9E682C038E_var*
 begin
@@ -4794,7 +4794,7 @@ end;//TddBooleanConfigItem.MayBeRequired
 constructor TddBooleanConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_5225E4F80224_var*
 //#UC END# *5217273F000F_5225E4F80224_var*
 begin
@@ -5129,7 +5129,7 @@ end;//TddCheckListConfigItem.Assign
 constructor TddCheckListConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_5226188001A3_var*
 //#UC END# *5217273F000F_5226188001A3_var*
 begin
@@ -5285,7 +5285,7 @@ end;//TddDividerConfigItem.MayBeRequired
 constructor TddDividerConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_522623110098_var*
 //#UC END# *5217273F000F_522623110098_var*
 begin
@@ -6275,7 +6275,7 @@ end;//TddMasterSlaveConfigItem.Cleanup
 constructor TddMasterSlaveConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_5227065901DC_var*
 //#UC END# *5217273F000F_5227065901DC_var*
 begin
@@ -6559,7 +6559,7 @@ end;//TddContainerConfigItem.MayBeRequired
 constructor TddContainerConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_5227066903AF_var*
 var
  l_Value : TddConfigValue;
@@ -7327,7 +7327,7 @@ end;//TddContainerComboConfigItem.MayBeRequired
 constructor TddContainerComboConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_5440C8300216_var*
 var
  l_Value : TddConfigValue;

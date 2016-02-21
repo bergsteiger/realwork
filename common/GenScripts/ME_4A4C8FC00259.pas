@@ -3,7 +3,7 @@ unit evDocumentMarkers;
 // Модуль: "w:\common\components\gui\Garant\Everest\evDocumentMarkers.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

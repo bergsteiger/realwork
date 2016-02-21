@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmCustomizeAvailableToolbarOps;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmCustomizeAvailableToolbarOps.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

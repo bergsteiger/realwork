@@ -4,7 +4,7 @@ unit NOT_FINISHED_evPrevVersion;
 // Модуль: "w:\common\components\gui\Garant\Everest\ext\NOT_FINISHED_evPrevVersion.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

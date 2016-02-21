@@ -3,7 +3,7 @@ unit ddAppConfigLists;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigLists.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -72,7 +72,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
   public
@@ -500,7 +500,7 @@ end;//TddListConfigItem.pm_SetValue
 constructor TddListConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_4B9E5DF90347_var*
 //#UC END# *5217273F000F_4B9E5DF90347_var*
 begin

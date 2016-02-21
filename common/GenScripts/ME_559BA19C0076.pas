@@ -3,7 +3,7 @@ unit vcmHistoryService;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmHistoryService.pas"
 // Стереотип: "Service"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

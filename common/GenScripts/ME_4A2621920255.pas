@@ -4,7 +4,7 @@ unit NOT_FINISHED_evStubs;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\NOT_FINISHED_evStubs.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

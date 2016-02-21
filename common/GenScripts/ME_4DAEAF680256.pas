@@ -3,7 +3,7 @@ unit NOT_FINISHED_nevVScroller;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevVScroller.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

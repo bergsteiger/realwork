@@ -4,7 +4,7 @@ unit NOT_FINISHED_evOldEverestTypes;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\NOT_FINISHED_evOldEverestTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

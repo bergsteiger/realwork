@@ -3,7 +3,7 @@ unit NOT_FINISHED_eeCheckBox;
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_eeCheckBox.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

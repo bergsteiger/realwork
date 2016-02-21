@@ -3,14 +3,13 @@ unit vcmMainFormRes;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
 {$If NOT Defined(NoVCM)}
 uses
  l3IntfUses
- , l3StringIDEx
  , l3MessageID
 ;
 
@@ -25,6 +24,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Dialogs
  {$IfEnd} // NOT Defined(NoVCL)

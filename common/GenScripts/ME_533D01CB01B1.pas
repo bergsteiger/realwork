@@ -20,14 +20,14 @@ uses
 ;
 
 type
+ RChromeLikeWindowCaptionbuttonClass = class of TChromeLikeBaseWindowCaptionButton;
+
  TChromeLikeWindowCaptionButtonState = (
   cbsDisabled
   , cbsHot
   , cbsNormal
   , cbsPushed
  );//TChromeLikeWindowCaptionButtonState
-
- RChromeLikeWindowCaptionbuttonClass = class of TChromeLikeBaseWindowCaptionButton;
 
  TChromeLikeBaseWindowCaptionButton = class(TCustomControl)
   private

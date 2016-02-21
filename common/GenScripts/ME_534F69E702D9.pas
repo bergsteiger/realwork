@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmTabbedContainerForm;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmTabbedContainerForm.pas"
 // Стереотип: "GuiControl"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -145,7 +145,7 @@ type
    {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); override;
+    Dummy: Integer); override;
    {$IfEnd} // NOT Defined(NoVCL)
    function NeedShowSystemContextMenuOnPoint(const aPoint: TPoint): Boolean; override;
   public
@@ -768,7 +768,7 @@ end;//TvcmTabbedContainerForm.NeedAutoScroll
 
 {$If NOT Defined(NoVCL)}
 constructor TvcmTabbedContainerForm.CreateNew(AOwner: TComponent;
- Dummy: Integer = 0);
+ Dummy: Integer);
 //#UC START# *4F9007B20376_534F69E702D9_var*
 //#UC END# *4F9007B20376_534F69E702D9_var*
 begin

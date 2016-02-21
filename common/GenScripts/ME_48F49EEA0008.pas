@@ -3,7 +3,7 @@ unit evConstStringStorable;
 // Модуль: "w:\common\components\gui\Garant\Everest\evConstStringStorable.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

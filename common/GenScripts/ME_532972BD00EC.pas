@@ -3,7 +3,7 @@ unit NewRemindersInterfaces;
 // Модуль: "w:\common\components\gui\Garant\VT\NewRemindersInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

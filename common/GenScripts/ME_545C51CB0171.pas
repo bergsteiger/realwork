@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmBaseMenuForChromeLike;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmBaseMenuForChromeLike.pas"
 // Стереотип: "GuiControl"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

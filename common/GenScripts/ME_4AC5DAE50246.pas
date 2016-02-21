@@ -3,7 +3,7 @@ unit vtDblClickDateEdit;
 // Модуль: "w:\common\components\gui\Garant\VT\vtDblClickDateEdit.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

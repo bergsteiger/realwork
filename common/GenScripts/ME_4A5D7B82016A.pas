@@ -4,7 +4,7 @@ unit nevTableRowAnchor;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableRowAnchor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 
@@ -65,7 +65,7 @@ type
     var aFirst: Boolean;
     aMode: TnevAddInnerMode); override;
    procedure DoCompareWithOtherInner(const aView: InevView;
-    anMaxID: Integer = -1); override;
+    anMaxID: Integer); override;
    procedure DoInitByCursor(const aView: InevView;
     const anInnerPoint: InevBasePoint); override;
     {* Инициализируем базовую линию по курсору. }
@@ -413,7 +413,7 @@ begin
 end;//TnevTableRowAnchor.DoAddInner
 
 procedure TnevTableRowAnchor.DoCompareWithOtherInner(const aView: InevView;
- anMaxID: Integer = -1);
+ anMaxID: Integer);
 //#UC START# *4B9625260325_4A5D7B82016A_var*
 //#UC END# *4B9625260325_4A5D7B82016A_var*
 begin

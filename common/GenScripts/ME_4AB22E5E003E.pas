@@ -4,7 +4,7 @@ unit vcmApplicationRef;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Design\vcmApplicationRef.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

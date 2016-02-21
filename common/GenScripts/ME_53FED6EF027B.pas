@@ -4,7 +4,7 @@ unit evCustomPDFWriter;
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomPDFWriter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit evTunedEditor;
 // Модуль: "w:\common\components\gui\Garant\Everest\evTunedEditor.pas"
 // Стереотип: "GuiControl"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

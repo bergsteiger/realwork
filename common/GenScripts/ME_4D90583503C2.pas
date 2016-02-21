@@ -3,7 +3,7 @@ unit vtPopupForm;
 // Модуль: "w:\common\components\gui\Garant\VT\vtPopupForm.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
@@ -77,7 +77,7 @@ type
     {* По ширине и высоте вдоченного редактора высчитываем ширину и высоту всего баллона. }
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); override;
+    Dummy: Integer); override;
    {$IfEnd} // NOT Defined(NoVCL)
   public
    property AfterBaloonHidden: TNotifyEvent
@@ -299,7 +299,7 @@ end;//TvtPopupForm.SetBounds
 
 {$If NOT Defined(NoVCL)}
 constructor TvtPopupForm.CreateNew(AOwner: TComponent;
- Dummy: Integer = 0);
+ Dummy: Integer);
 //#UC START# *4F9007B20376_4D90583503C2_var*
 {$IfDef IsVCMProject}
 var

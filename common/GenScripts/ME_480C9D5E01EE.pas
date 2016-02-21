@@ -4,7 +4,7 @@ unit evPageBreakPainter;
 // Модуль: "w:\common\components\gui\Garant\Everest\evPageBreakPainter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -14,7 +14,6 @@ uses
  , evLeafParaPainter
  , l3Interfaces
  , l3Units
- , l3StringIDEx
 ;
 
 type
@@ -37,6 +36,7 @@ implementation
 {$If Defined(evNeedPainters)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , k2Tags
  , l3Const
  , nevBase

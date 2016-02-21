@@ -3,7 +3,7 @@ unit evCustomStyleManager;
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomStyleManager.pas"
 // Стереотип: "Service"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

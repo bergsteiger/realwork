@@ -4,7 +4,7 @@ unit evdCustomHyperlinkCorrector;
 // Модуль: "w:\common\components\gui\Garant\Everest\evdCustomHyperlinkCorrector.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

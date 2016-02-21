@@ -3,7 +3,7 @@ unit NOT_FINISHED_evSubWaiter;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evSubWaiter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

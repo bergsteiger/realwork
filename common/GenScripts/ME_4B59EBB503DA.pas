@@ -3,7 +3,7 @@ unit NOT_FINISHED_evdNSRCReader;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\NOT_FINISHED_evdNSRCReader.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

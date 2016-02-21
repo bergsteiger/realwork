@@ -3,7 +3,7 @@ unit VCMWordsPack;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Scripting\VCMWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

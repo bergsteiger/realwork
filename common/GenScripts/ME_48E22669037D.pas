@@ -3,7 +3,7 @@ unit evQueryCardEditor;
 // Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardEditor.pas"
 // Стереотип: "GuiControl"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -96,7 +96,7 @@ type
    function AllowDrawDocumentEdge: Boolean; override;
    procedure DoBeforeRMouseClick; override;
    function WantEnter: Boolean; override;
-   function WantTab(aKeyPressed: Boolean = False): Boolean; override;
+   function WantTab(aKeyPressed: Boolean): Boolean; override;
    function DefineProvideOperations: TevEditorProvideOperationTypes; override;
     {* Какие операции публикуются компонентом. }
    function DoDoDrop(aFormat: Tl3ClipboardFormat;
@@ -756,7 +756,7 @@ begin
 //#UC END# *482BFCA000E4_48E22669037D_impl*
 end;//TevQueryCardEditor.WantEnter
 
-function TevQueryCardEditor.WantTab(aKeyPressed: Boolean = False): Boolean;
+function TevQueryCardEditor.WantTab(aKeyPressed: Boolean): Boolean;
 //#UC START# *482BFCAE0072_48E22669037D_var*
 
  function CheckWantTab: Boolean;

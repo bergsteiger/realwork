@@ -4,7 +4,7 @@ unit evGeneratorsInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Everest\evGeneratorsInterfaces.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

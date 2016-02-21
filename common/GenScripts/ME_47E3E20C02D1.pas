@@ -4,7 +4,7 @@ unit evSavedCursor;
 // Модуль: "w:\common\components\gui\Garant\Everest\evSavedCursor.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

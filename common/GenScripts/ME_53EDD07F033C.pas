@@ -3,7 +3,7 @@ unit NOT_FINISHED_ElUxTheme;
 // Модуль: "w:\common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElUxTheme.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit vtNavigatorForm;
 // Модуль: "w:\common\components\gui\Garant\VT\vtNavigatorForm.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

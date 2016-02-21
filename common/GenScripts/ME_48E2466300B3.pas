@@ -3,7 +3,7 @@ unit evQueryCardSelection;
 // Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardSelection.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit nevTableCellAnchor;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevTableCellAnchor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 

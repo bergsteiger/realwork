@@ -3,7 +3,7 @@ unit vtDateEditRes;
 // Модуль: "w:\common\components\gui\Garant\VT\vtDateEditRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

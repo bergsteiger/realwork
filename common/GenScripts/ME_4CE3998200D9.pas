@@ -4,7 +4,7 @@ unit evAdjustNSRCToPage;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\Tools\evAdjustNSRCToPage.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

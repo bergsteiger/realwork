@@ -3,7 +3,7 @@ unit vtLabel;
 // Модуль: "w:\common\components\gui\Garant\VT\vtLabel.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , l3PureMixIns
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , afwInterfaces
  , l3Interfaces
  , evdTypes
@@ -181,6 +178,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

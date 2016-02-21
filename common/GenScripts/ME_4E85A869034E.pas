@@ -5,7 +5,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=278837126 }
 // Модуль: "w:\common\components\gui\Garant\Everest\evStyleHeaderAdder.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

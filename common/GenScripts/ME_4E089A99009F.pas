@@ -3,7 +3,7 @@ unit vcmMessageQueuePrim;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessageQueuePrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

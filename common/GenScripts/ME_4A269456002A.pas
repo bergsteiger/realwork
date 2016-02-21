@@ -4,7 +4,7 @@ unit evHotSpotMisc;
 // Модуль: "w:\common\components\gui\Garant\Everest\evHotSpotMisc.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit evSolidParaCursor;
 // Модуль: "w:\common\components\gui\Garant\Everest\evSolidParaCursor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -41,7 +41,7 @@ type
     aMap: TnevFormatInfoPrim): Integer; override;
   public
    procedure DoSetEntryPointPrim(Value: Integer;
-    const Context: IevCursorContext = nil); override;
+    const Context: IevCursorContext); override;
  end;//TevSolidParaCursor
 {$IfEnd} // Defined(evUseVisibleCursors)
 
@@ -121,7 +121,7 @@ begin
 end;//TevSolidParaCursor.DoInitPointByPt
 
 procedure TevSolidParaCursor.DoSetEntryPointPrim(Value: Integer;
- const Context: IevCursorContext = nil);
+ const Context: IevCursorContext);
 //#UC START# *49E2F8F80062_49DF6D3F02F9_var*
 //#UC END# *49E2F8F80062_49DF6D3F02F9_var*
 begin

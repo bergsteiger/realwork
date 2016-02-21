@@ -3,7 +3,7 @@ unit evControlContainer;
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\evControlContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -17,7 +17,6 @@ uses
  , l3Variant
  , Messages
  , l3Interfaces
- , l3CProtoObject
 ;
 
 type
@@ -172,6 +171,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3CProtoObject
  , k2Tags
  , evControlParaTools
  , evControlParaConst

@@ -3,7 +3,7 @@ unit vcmFormSetFactory;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmFormSetFactory.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -26,6 +26,8 @@ uses
 ;
 
 type
+ RvcmFormSetFactory = class of TvcmFormSetFactory;
+
  TsfsOnGetMainCaption = procedure(aSender: TObject;
   const aDataSource: IvcmFormSetDataSource;
   var aCaption: Il3CString) of object;
@@ -33,8 +35,6 @@ type
  TsfsOnGetMainImageIndex = procedure(aSender: TObject;
   const aDataSource: IvcmFormSetDataSource;
   var aImageIndex: Integer) of object;
-
- RvcmFormSetFactory = class of TvcmFormSetFactory;
 
  TvcmFormSetFactory = class(TvcmFormSetFactoryPrim, IvcmFormSetFactory)
   private

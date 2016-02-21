@@ -3,7 +3,7 @@ unit ddAppConfig;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfig.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

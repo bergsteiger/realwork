@@ -3,7 +3,7 @@ unit NOT_FINISHED_evDropCalendar;
 // Модуль: "w:\common\components\gui\Garant\Everest\qf\NOT_FINISHED_evDropCalendar.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

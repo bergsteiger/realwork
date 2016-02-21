@@ -5,10 +5,10 @@
 
 {$Define evDataObjectFromStorable_imp}
 
- // _StorableClass_
-
 type
  RStorable = class of _StorableClass_;
+
+ // _StorableClass_
 
  _evDataObjectFromStorable_ = class(TevPersistentDataObjectEx)
   private

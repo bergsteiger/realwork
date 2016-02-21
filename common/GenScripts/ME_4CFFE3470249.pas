@@ -4,7 +4,7 @@ unit vtLister;
 // Модуль: "w:\common\components\gui\Garant\VT\vtLister.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
@@ -36,6 +36,7 @@ uses
  , Types
  , Messages
  , afwTypes
+ , l3DatLst
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
@@ -43,7 +44,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
- , l3DatLst
 ;
 
 const

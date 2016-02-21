@@ -3,7 +3,7 @@ unit evLeafParaCursor;
 // Модуль: "w:\common\components\gui\Garant\Everest\evLeafParaCursor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

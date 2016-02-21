@@ -4,7 +4,7 @@ unit evOEMTableFlagFilter;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evOEMTableFlagFilter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

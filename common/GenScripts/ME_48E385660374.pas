@@ -4,7 +4,7 @@ unit evRange;
 // Модуль: "w:\common\components\gui\Garant\Everest\evRange.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

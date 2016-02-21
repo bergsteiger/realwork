@@ -4,7 +4,7 @@ unit NOT_FINISHED_evList_InterfaceFactory;
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evList_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

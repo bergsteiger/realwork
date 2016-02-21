@@ -4,7 +4,7 @@ unit evCursorPair;
 // Модуль: "w:\common\components\gui\Garant\Everest\evCursorPair.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -58,9 +58,9 @@ type
    function DoSearchReplace(const aSearcher: IevSearcher;
     const aReplacer: IevReplacer;
     const aConfirm: InevConfirm;
-    const Cursor: InevBasePoint = nil;
-    const anOpPack: InevOp = nil;
-    aNeedProgress: Boolean = True): Boolean; override;
+    const Cursor: InevBasePoint;
+    const anOpPack: InevOp;
+    aNeedProgress: Boolean): Boolean; override;
    procedure DoForceStore; override;
   public
    function COMQueryInterface(const IID: Tl3GUID;
@@ -332,9 +332,9 @@ end;//TevCursorPair.DoGetBorderPoints
 function TevCursorPair.DoSearchReplace(const aSearcher: IevSearcher;
  const aReplacer: IevReplacer;
  const aConfirm: InevConfirm;
- const Cursor: InevBasePoint = nil;
- const anOpPack: InevOp = nil;
- aNeedProgress: Boolean = True): Boolean;
+ const Cursor: InevBasePoint;
+ const anOpPack: InevOp;
+ aNeedProgress: Boolean): Boolean;
 //#UC START# *52D7CCD70340_4A2D2D5D0114_var*
 var
  l_Start          : InevBasePoint;

@@ -3,7 +3,7 @@ unit evCommonTypes;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evCommonTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

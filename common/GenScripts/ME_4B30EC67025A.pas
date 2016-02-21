@@ -3,7 +3,7 @@ unit vcmMenuManager;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManager.pas"
 // Стереотип: "GuiControl"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -30,9 +30,7 @@ uses
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , vcmInterfaces
- , vcmToolbarMenuRes
  , vcmOperationAction
- , vcmWinControlActionLink
  , vcmBaseMenuManager
  {$If NOT Defined(NoVCL)}
  , ImgList
@@ -40,6 +38,7 @@ uses
  {$If NOT Defined(NoVCL)}
  , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
+ , vcmToolbarMenuRes
  , vcmMenuItemsCollection
  , vcmUserTypeDefList
  , l3ProtoObjectRefList
@@ -65,10 +64,9 @@ uses
  , vcmBaseCollectionItem
  , afwInterfaces
  , Types
- , l3ProtoObject
  , l3Interfaces
  , vtDblClickDateEdit
- , Windows
+ , l3ProtoObject
  , l3MenuManagerHelper
  , l3DispatcherHelper
  , l3ProtoDataContainer
@@ -76,6 +74,7 @@ uses
  , l3Types
  , l3Core
  , l3Except
+ , vcmWinControlActionLink
 ;
 
 const
@@ -520,7 +519,7 @@ type
    function GetPopupMenu: TPopupMenu; override;
    procedure ReloadToolbars(const aForm: IvcmEntityForm); override;
    procedure PostBuild(aForm: TvcmEntityForm;
-    aFollowDocks: Boolean = False); override;
+    aFollowDocks: Boolean); override;
    procedure BackupOpStatus; override;
    procedure RestoreOpStatus; override;
    procedure BeginOp; override;
@@ -530,8 +529,8 @@ type
    function GetFastenMode: Boolean; override;
    function ObjectByType(anObject: TvcmObject;
     const anObjectName: AnsiString;
-    const aSubName: AnsiString = '';
-    ForceCreate: Boolean = False): TvcmBaseCollectionItem; override;
+    const aSubName: AnsiString;
+    ForceCreate: Boolean): TvcmBaseCollectionItem; override;
    function UnlockInProgress: Boolean; override;
    procedure AddControlForUnlockPostBuild(const aControl: IafwMenuUnlockedPostBuild); override;
    procedure ListenerControlDestroying(const aControl: IafwMenuUnlockedPostBuild); override;
@@ -701,6 +700,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , Windows
  , vcmEntitiesDefIteratorForContextMenu
  , vcmMenuManagerUtils
  , vcmMessages
@@ -3548,7 +3548,7 @@ begin
 end;//TvcmCustomMenuManager.ReloadToolbars
 
 procedure TvcmCustomMenuManager.PostBuild(aForm: TvcmEntityForm;
- aFollowDocks: Boolean = False);
+ aFollowDocks: Boolean);
 //#UC START# *52A1FD7301A8_4B30EC81021A_var*
 {$IfDef vcmUseSettings}
 var
@@ -3873,8 +3873,8 @@ end;//TvcmCustomMenuManager.GetFastenMode
 
 function TvcmCustomMenuManager.ObjectByType(anObject: TvcmObject;
  const anObjectName: AnsiString;
- const aSubName: AnsiString = '';
- ForceCreate: Boolean = False): TvcmBaseCollectionItem;
+ const aSubName: AnsiString;
+ ForceCreate: Boolean): TvcmBaseCollectionItem;
 //#UC START# *52A1FF0902CE_4B30EC81021A_var*
 //#UC END# *52A1FF0902CE_4B30EC81021A_var*
 begin

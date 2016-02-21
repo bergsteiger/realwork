@@ -4,7 +4,7 @@ unit evCollapserHyperlink;
 // Модуль: "w:\common\components\gui\Garant\Everest\evCollapserHyperlink.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

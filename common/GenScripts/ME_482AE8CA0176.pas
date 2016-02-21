@@ -3,7 +3,7 @@ unit ctButtonEdit;
 // Модуль: "w:\common\components\gui\Garant\Everest\ctButtonEdit.pas"
 // Стереотип: "GuiControl"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

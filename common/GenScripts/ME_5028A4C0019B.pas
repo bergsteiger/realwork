@@ -3,7 +3,7 @@ unit vcmToolbar;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas"
 // Стереотип: "GuiControl"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -70,7 +70,7 @@ type
    procedure ExecuteDefered; override;
    {$IfEnd} // NOT Defined(NoTB97)
    {$If NOT Defined(NoTB97)}
-   procedure UpdateEmpty(aUpdateVisibility: Boolean = True); override;
+   procedure UpdateEmpty(aUpdateVisibility: Boolean); override;
    {$IfEnd} // NOT Defined(NoTB97)
   public
    procedure vcmDeleteLastIfSeparator;
@@ -446,7 +446,7 @@ end;//TvcmToolbarDef.ExecuteDefered
 {$IfEnd} // NOT Defined(NoTB97)
 
 {$If NOT Defined(NoTB97)}
-procedure TvcmToolbarDef.UpdateEmpty(aUpdateVisibility: Boolean = True);
+procedure TvcmToolbarDef.UpdateEmpty(aUpdateVisibility: Boolean);
 //#UC START# *5028A1220383_50289DB9036F_var*
 var
  I: Integer;

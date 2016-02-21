@@ -4,7 +4,7 @@ unit EditableBox;
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\EditableBox.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

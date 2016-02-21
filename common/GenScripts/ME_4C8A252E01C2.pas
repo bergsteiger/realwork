@@ -6,7 +6,7 @@ unit vtNavigator;
 // Модуль: "w:\common\components\gui\Garant\VT\vtNavigator.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
@@ -14,7 +14,6 @@ interface
 uses
  l3IntfUses
  , ElPgCtlConsts
- , l3StringIDEx
  , l3ProtoObject
  , afwCustomCommonControl
  , vtCustomCommonPanel
@@ -62,6 +61,12 @@ const
  PM_ISACTIVECONTROL = ElPgCtlConsts.PM_ISACTIVECONTROL;
 
 type
+ RnpPageControl = class of TnpPageControl;
+
+ RnpFloatingWindow = class of TnpFloatingWindow;
+
+ RvtNavigator = class of TvtNavigatorPrim;
+
  TnpObject = class(Tl3ProtoObject)
  end;//TnpObject
 
@@ -152,8 +157,6 @@ type
    {$IfEnd} // NOT Defined(NoVCL)
    procedure DoActivePrevPage; override;
  end;//TnpPageControl
-
- RnpPageControl = class of TnpPageControl;
 
  TnpButtonType = (
   {* Тип кнопки }
@@ -963,7 +966,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
   public
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); override;
+    Dummy: Integer); override;
    {$IfEnd} // NOT Defined(NoVCL)
   public
    property Navigator: TvtNavigatorPrim
@@ -977,10 +980,6 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
     read f_FloatID
     write f_FloatID;
  end;//TnpFloatingWindow
-
- RnpFloatingWindow = class of TnpFloatingWindow;
-
- RvtNavigator = class of TvtNavigatorPrim;
 
  //#UC START# *52BAC7A10261ci*
  //#UC END# *52BAC7A10261ci*
@@ -1111,6 +1110,7 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , vtNavigatorFormList
  , vtNavigatorRes
  , npControlsList
@@ -6832,7 +6832,7 @@ end;//TnpFloatingWindow.CloseQuery
 
 {$If NOT Defined(NoVCL)}
 constructor TnpFloatingWindow.CreateNew(AOwner: TComponent;
- Dummy: Integer = 0);
+ Dummy: Integer);
 //#UC START# *4F9007B20376_52BACEF001CB_var*
 //#UC END# *4F9007B20376_52BACEF001CB_var*
 begin

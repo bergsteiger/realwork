@@ -19,7 +19,6 @@ uses
  , l3Core
  , l3Except
  , Classes
- , l3ProtoObject
 ;
 
 type
@@ -49,6 +48,7 @@ implementation
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ , l3ProtoObject
  , l3Base
  , l3MinMax
  , RTLConsts

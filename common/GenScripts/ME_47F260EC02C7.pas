@@ -4,7 +4,7 @@ unit NOT_FINISHED_StdRes;
 // Модуль: "w:\common\components\gui\Garant\VCM\NOT_FINISHED_StdRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

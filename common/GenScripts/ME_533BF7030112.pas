@@ -3,7 +3,7 @@ unit vgRemindersLineWithState;
 // Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineWithState.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

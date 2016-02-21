@@ -3,7 +3,7 @@ unit NOT_FINISHED_vtForm;
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtForm.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

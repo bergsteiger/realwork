@@ -3,7 +3,7 @@ unit evContentsNode;
 // Модуль: "w:\common\components\gui\Garant\Everest\evContentsNode.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -65,7 +65,7 @@ type
    function HasChildNode: Boolean; override;
    function IterateChild(Action: Tl3NodeAction;
     IterMode: Integer;
-    const aFromNode: Il3Node = nil): Il3Node; override;
+    const aFromNode: Il3Node): Il3Node; override;
    procedure DoReleaseChilds; override;
    procedure DoIncAllChildrenCount(aInc: Integer); override;
   public
@@ -350,7 +350,7 @@ end;//TevContentsNode.HasChildNode
 
 function TevContentsNode.IterateChild(Action: Tl3NodeAction;
  IterMode: Integer;
- const aFromNode: Il3Node = nil): Il3Node;
+ const aFromNode: Il3Node): Il3Node;
 //#UC START# *54C8DFF102DD_4DFEF11703D8_var*
 //#UC END# *54C8DFF102DD_4DFEF11703D8_var*
 begin

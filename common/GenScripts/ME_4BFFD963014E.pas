@@ -3,7 +3,7 @@ unit evQueryCardCursor;
 // Модуль: "w:\common\components\gui\Garant\Everest\evQueryCardCursor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

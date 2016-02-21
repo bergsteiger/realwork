@@ -3,7 +3,7 @@ unit vcmMessagesSupport;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMessagesSupport.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

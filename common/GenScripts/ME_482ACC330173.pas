@@ -3,7 +3,7 @@ unit elCustomEdit;
 // Модуль: "w:\common\components\gui\Garant\Everest\elCustomEdit.pas"
 // Стереотип: "GuiControl"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -21,7 +21,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , l3StringIDEx
 ;
 
 type
@@ -189,6 +188,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3StringIDEx
  , l3String
  , l3Base
  {$If NOT Defined(NoVCL)}

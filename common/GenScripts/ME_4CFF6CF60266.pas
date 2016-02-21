@@ -3,7 +3,7 @@ unit nscSimpleEditor;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscSimpleEditor.pas"
 // Стереотип: "GuiControl"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

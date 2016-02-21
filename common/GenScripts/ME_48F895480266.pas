@@ -5,10 +5,10 @@
 
 {$Define evTreeData_imp}
 
- // _DataClass_
-
 type
  RDataClass = class of _DataClass_;
+
+ // _DataClass_
 
  {$Include w:\common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas}
  _evTreeData_ = {abstract} class(_ddTreeDataObject_)

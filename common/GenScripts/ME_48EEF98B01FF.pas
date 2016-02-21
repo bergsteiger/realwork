@@ -3,7 +3,7 @@ unit evFacadeUtils;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadeUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

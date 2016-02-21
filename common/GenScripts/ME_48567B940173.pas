@@ -3,7 +3,7 @@ unit evSolidPara_InterfaceFactory;
 // Модуль: "w:\common\components\gui\Garant\Everest\evSolidPara_InterfaceFactory.pas"
 // Стереотип: "InterfaceFactory"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

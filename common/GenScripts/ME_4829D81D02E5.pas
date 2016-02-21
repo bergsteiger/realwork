@@ -4,7 +4,7 @@ unit evCustomMemo;
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomMemo.pas"
 // Стереотип: "GuiControl"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -72,7 +72,7 @@ type
    function AllowDrawDocumentEdge: Boolean; override;
    function RightIndentMul: Integer; override;
    function WantEnter: Boolean; override;
-   function WantTab(aKeyPressed: Boolean = False): Boolean; override;
+   function WantTab(aKeyPressed: Boolean): Boolean; override;
    procedure TextChange; override;
     {* вызывается при смене текста. }
    procedure SetTextColor(const aCanvas: Il3Canvas); override;
@@ -595,7 +595,7 @@ begin
 //#UC END# *482BFCA000E4_4829D81D02E5_impl*
 end;//TevCustomMemo.WantEnter
 
-function TevCustomMemo.WantTab(aKeyPressed: Boolean = False): Boolean;
+function TevCustomMemo.WantTab(aKeyPressed: Boolean): Boolean;
 //#UC START# *482BFCAE0072_4829D81D02E5_var*
 //#UC END# *482BFCAE0072_4829D81D02E5_var*
 begin

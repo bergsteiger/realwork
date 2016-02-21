@@ -4,7 +4,7 @@ unit evParaListCursorPrim;
 // Модуль: "w:\common\components\gui\Garant\Everest\evParaListCursorPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -60,7 +60,7 @@ type
    function DoJoinWithNext(const aView: InevView;
     const anOp: InevOp): Boolean; override;
    procedure DoSetEntryPoint(aValue: Integer;
-    const anOp: IevCursorContext = nil); override;
+    const anOp: IevCursorContext); override;
    function DoMovePrim(const aView: InevView;
     aCode: Integer;
     const anOp: InevOp;
@@ -491,7 +491,7 @@ begin
 end;//TevParaListCursorPrim.DoJoinWithNext
 
 procedure TevParaListCursorPrim.DoSetEntryPoint(aValue: Integer;
- const anOp: IevCursorContext = nil);
+ const anOp: IevCursorContext);
 //#UC START# *49E3126B030A_4A3A237A01C0_var*
 var
  l_PC : Integer;

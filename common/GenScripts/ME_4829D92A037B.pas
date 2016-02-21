@@ -4,7 +4,7 @@ unit NOT_FINISHED_evCustomEditorWindow;
 // Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditorWindow.pas"
 // Стереотип: "GuiControl"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

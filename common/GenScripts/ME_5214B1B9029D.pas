@@ -3,13 +3,12 @@ unit ddAppConfigDates;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigDates.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
  l3IntfUses
- , l3Interfaces
  , ddAppConfigTypes
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -35,7 +34,7 @@ type
    constructor Create(const aAlias: AnsiString;
     const aCaption: AnsiString;
     const aDefaultValue: TddConfigValue;
-    aMasterItem: TddBaseConfigItem = nil); override;
+    aMasterItem: TddBaseConfigItem); override;
    procedure LoadValue(const aStorage: IddConfigStorage); override;
    procedure SaveValue(const aStorage: IddConfigStorage); override;
  end;//TddDateTimeConfigItem
@@ -181,6 +180,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3Interfaces
  {$If NOT Defined(NoVCL)}
  , ComCtrls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -263,7 +263,7 @@ end;//TddDateTimeConfigItem.SetValueToControl
 constructor TddDateTimeConfigItem.Create(const aAlias: AnsiString;
  const aCaption: AnsiString;
  const aDefaultValue: TddConfigValue;
- aMasterItem: TddBaseConfigItem = nil);
+ aMasterItem: TddBaseConfigItem);
 //#UC START# *5217273F000F_522F0FB3004F_var*
 var
  l_DefValue: TddConfigValue;

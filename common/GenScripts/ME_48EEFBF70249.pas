@@ -3,7 +3,7 @@ unit evFacadTextSource;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evFacadTextSource.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

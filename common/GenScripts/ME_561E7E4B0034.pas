@@ -3,7 +3,7 @@ unit evUnicodeFormulasToUnicodeConverter;
 // Модуль: "w:\common\components\gui\Garant\Everest\evUnicodeFormulasToUnicodeConverter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

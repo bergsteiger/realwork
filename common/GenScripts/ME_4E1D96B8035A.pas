@@ -3,7 +3,7 @@ unit nevDecorActiveHyperlink;
 // Модуль: "w:\common\components\gui\Garant\Everest\nevDecorActiveHyperlink.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -16,14 +16,14 @@ uses
 ;
 
 type
+ RnevDecorActiveHyperlinkClass = class of TnevDecorActiveHyperlink;
+
  InevDecorActiveHyperlink = interface
   ['{F090F594-9901-43C4-A1BF-64F448F2ECEA}']
   function Get_Obj: InevObjectPrim;
   property Obj: InevObjectPrim
    read Get_Obj;
  end;//InevDecorActiveHyperlink
-
- RnevDecorActiveHyperlinkClass = class of TnevDecorActiveHyperlink;
 
  TnevDecorActiveHyperlink = class(TnevActiveHyperlinkProxy, InevDecorActiveHyperlink)
   private

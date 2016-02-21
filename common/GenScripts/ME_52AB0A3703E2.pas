@@ -3,7 +3,7 @@ unit vcmMenuManagerUtils;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManagerUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

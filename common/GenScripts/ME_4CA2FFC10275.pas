@@ -4,7 +4,7 @@ unit evStrictContentsElementEliminator;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evStrictContentsElementEliminator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

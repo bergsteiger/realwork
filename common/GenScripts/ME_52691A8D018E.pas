@@ -3,7 +3,7 @@ unit NOT_FINISHED_vtNavigatorUtils;
 // Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtNavigatorUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

@@ -3,16 +3,13 @@ unit FakeBox;
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\FakeBox.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
  l3IntfUses
  , Messages
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , EditableBox
  , Classes
  , l3TreeInterfaces
@@ -149,6 +146,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , ctTypes
  , l3Tree_TLB
  , SysUtils

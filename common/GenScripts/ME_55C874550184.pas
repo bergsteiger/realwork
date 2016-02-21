@@ -3,7 +3,7 @@ unit vcmTabbedMenuWordsPack;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -16,10 +16,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
- , tfwAxiomaticsResNameGetter
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
 
@@ -28,6 +24,10 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ , tfwAxiomaticsResNameGetter
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

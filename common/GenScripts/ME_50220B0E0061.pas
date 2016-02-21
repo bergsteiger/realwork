@@ -3,7 +3,7 @@ unit vtScrollBar;
 // Модуль: "w:\common\components\gui\Garant\VT\vtScrollBar.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

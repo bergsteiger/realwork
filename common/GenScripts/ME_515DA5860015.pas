@@ -3,7 +3,7 @@ unit vtOutliner;
 // Модуль: "w:\common\components\gui\Garant\VT\vtOutliner.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
@@ -304,7 +304,7 @@ type
     {* draw the focus rectangle }
    function vlbItemHitTest(aIndex: Integer;
     const aPt: TPoint;
-    fromScreen: Boolean = False): Byte; override;
+    fromScreen: Boolean): Byte; override;
    function DoOnGetItem(Index: LongInt): Il3CString; override;
    function DoOnGetItemPickImage(aItemIndex: LongInt;
     var aImages: TCustomImageList): Integer; override;
@@ -3227,7 +3227,7 @@ end;//TvtCustomOutliner.vlbDrawFocusRect
 
 function TvtCustomOutliner.vlbItemHitTest(aIndex: Integer;
  const aPt: TPoint;
- fromScreen: Boolean = False): Byte;
+ fromScreen: Boolean): Byte;
 //#UC START# *5152C09F00DB_4CFFBEEA0109_var*
 var
  l_CurImages   : TCustomImageList;

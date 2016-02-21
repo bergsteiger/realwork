@@ -3,7 +3,7 @@ unit ddAppConfigBase;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAppConfigBase.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

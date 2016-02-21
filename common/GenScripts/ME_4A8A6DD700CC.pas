@@ -4,7 +4,7 @@ unit evCustomChatMemo;
 // Модуль: "w:\common\components\gui\Garant\Everest\evCustomChatMemo.pas"
 // Стереотип: "GuiControl"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

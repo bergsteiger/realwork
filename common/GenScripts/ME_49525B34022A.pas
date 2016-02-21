@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmEntityForm;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmEntityForm.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -21,11 +21,6 @@ uses
  , vcmUserTypesCollectionItem
  , l3Core
  , vcmEntityFormImplementationModelPart
- , l3ProtoDataContainer
- , l3Memory
- , l3Types
- , l3Except
- , Classes
 ;
 
 type
@@ -132,6 +127,11 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Except
+ , Classes
  , l3VCLFormPtrList
  , vcmFormsUtils
  , vcmControlList

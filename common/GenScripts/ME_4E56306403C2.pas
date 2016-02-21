@@ -4,7 +4,7 @@ unit evSearcherAndReplacerPairList;
 // Модуль: "w:\common\components\gui\Garant\EverestCommon\evSearcherAndReplacerPairList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 

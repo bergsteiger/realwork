@@ -3,7 +3,7 @@ unit evVisualInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Everest\evVisualInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 

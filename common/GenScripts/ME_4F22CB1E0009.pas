@@ -3,7 +3,7 @@ unit vcmEntityFormModelPart;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\vcmEntityFormModelPart.pas"
 // Стереотип: "GuiControl"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

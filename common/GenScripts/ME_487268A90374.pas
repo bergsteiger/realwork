@@ -3,7 +3,7 @@ unit ctFakeBoxStrings;
 // Модуль: "w:\common\components\gui\Garant\VT\ComboTree\ctFakeBoxStrings.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 

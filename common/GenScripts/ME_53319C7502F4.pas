@@ -3,7 +3,7 @@ unit vgRemindersLineForm;
 // Модуль: "w:\common\components\gui\Garant\VT\vgRemindersLineForm.pas"
 // Стереотип: "GuiControl"
 
-{$Include vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
@@ -73,7 +73,7 @@ As implemented in TCustomForm, CloseQuery polls any MDI children by calling thei
    {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); override;
+    Dummy: Integer); override;
    {$IfEnd} // NOT Defined(NoVCL)
   private
    property IsActivateProcessingLocked: Boolean
@@ -296,7 +296,7 @@ end;//TvgRemindersLineForm.DockDrop
 
 {$If NOT Defined(NoVCL)}
 constructor TvgRemindersLineForm.CreateNew(AOwner: TComponent;
- Dummy: Integer = 0);
+ Dummy: Integer);
 //#UC START# *4F9007B20376_53319C7502F4_var*
 //#UC END# *4F9007B20376_53319C7502F4_var*
 begin

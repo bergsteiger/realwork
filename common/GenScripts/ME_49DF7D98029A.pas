@@ -4,7 +4,7 @@ unit evTextParaCursor;
 // Модуль: "w:\common\components\gui\Garant\Everest\evTextParaCursor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -110,7 +110,7 @@ type
     const anOp: InevOp): Boolean; override;
   public
    procedure DoSetEntryPointPrim(Value: Integer;
-    const Context: IevCursorContext = nil); override;
+    const Context: IevCursorContext); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
@@ -875,7 +875,7 @@ begin
 end;//TevTextParaCursor.DoInitPointByPt
 
 procedure TevTextParaCursor.DoSetEntryPointPrim(Value: Integer;
- const Context: IevCursorContext = nil);
+ const Context: IevCursorContext);
 //#UC START# *49E2F8F80062_49DF7D98029A_var*
 //#UC END# *49E2F8F80062_49DF7D98029A_var*
 begin

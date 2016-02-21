@@ -3,7 +3,7 @@ unit vcmTabbedContainersService;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmTabbedContainersService.pas"
 // Стереотип: "Service"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

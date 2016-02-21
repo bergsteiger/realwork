@@ -3,7 +3,7 @@ unit nevControlPara;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevControlPara.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
@@ -17,7 +17,6 @@ uses
  , l3Interfaces
  , evdTypes
  , nevBase
- , l3StringIDEx
 ;
 
 type
@@ -48,6 +47,7 @@ implementation
 {$If Defined(k2ForEditor)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , k2Tags
  , l3String
  , afwFacade
