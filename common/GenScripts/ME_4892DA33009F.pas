@@ -3,7 +3,7 @@ unit nsTreeMultiDocumentPreviewContainer;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsTreeMultiDocumentPreviewContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -17,7 +17,6 @@ uses
  , afwTypes
  , l3Interfaces
  , l3Core
- , DynamicTreeUnit
 ;
 
 type
@@ -90,6 +89,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , DynamicTreeUnit
  , evMultiDocumentPreview
  , bsUtils
  , nsDocumentTools

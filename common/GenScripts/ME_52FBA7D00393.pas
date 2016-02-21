@@ -3,7 +3,7 @@ unit ArchiUserList;
 // Модуль: "w:\common\components\rtl\Garant\DT\ArchiUserList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 

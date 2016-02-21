@@ -3,7 +3,7 @@ unit nsTypesNew;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\nsTypesNew.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

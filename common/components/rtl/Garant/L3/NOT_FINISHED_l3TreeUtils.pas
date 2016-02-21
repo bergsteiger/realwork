@@ -1,24 +1,20 @@
 unit NOT_FINISHED_l3TreeUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3TreeUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Trees::l3TreeUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3TreeUtils.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -4,7 +4,7 @@ unit DataAdapterInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\DataAdapterInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

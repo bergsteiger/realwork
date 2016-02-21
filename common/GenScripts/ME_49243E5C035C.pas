@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsLogicOperationToFlags;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\NOT_FINISHED_nsLogicOperationToFlags.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

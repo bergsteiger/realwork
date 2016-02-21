@@ -4,7 +4,7 @@ unit l3MessageID;
 // ћодуль: "w:\common\components\rtl\Garant\L3\l3MessageID.pas"
 // —тереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
@@ -77,6 +77,8 @@ type
    rData: Tl3MessageData;
   private
    procedure DoInit;
+   procedure Fake; virtual;
+    {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
   protected
    function pm_GetAsMessage: Tl3Message;
   public
@@ -92,6 +94,7 @@ type
    procedure SetLongHint(const aValue: Tl3StringIDEx);
    procedure SetNeedCheck(aValue: Boolean);
    procedure Cleanup;
+   constructor Init; reintroduce;
   public
    property AsMessage: Tl3Message
     read pm_GetAsMessage;
@@ -418,6 +421,19 @@ begin
  Finalize(Self);
 //#UC END# *4F9BCBC101F7_4E01D1E002AE_impl*
 end;//Tl3MessageID.Cleanup
+
+procedure Tl3MessageID.Fake;
+ {* это нужно чтобы правильно генерировались вызовы методов доступа к свойствам }
+begin
+ Assert(false);
+end;//Tl3MessageID.Fake
+
+constructor Tl3MessageID.Init;
+begin
+//#UC START# *4E01D1E002AEInit_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4E01D1E002AEInit_impl*
+end;//Tl3MessageID.Init
 
 initialization
  str_vcmRememberChoice.Init;

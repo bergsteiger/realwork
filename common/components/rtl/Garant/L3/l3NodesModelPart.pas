@@ -1,40 +1,32 @@
 unit l3NodesModelPart;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/l3NodesModelPart.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Trees::l3NodesModelPart
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3NodesModelPart.pas"
+// Стереотип: "UtilityPack"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3InternalInterfaces,
-  l3TreeInterfaces,
-  l3Tree_TLB,
-  l3Base,
-  l3CustomString,
-  SysUtils,
-  Classes,
-  l3LongintList,
-  l3DatLst,
-  l3PureMixIns,
-  l3Types,
-  l3IID
-  ;
+ l3IntfUses
+ , SysUtils
+ , l3CustomString
+ , l3TreeInterfaces
+ , l3Tree_TLB
+ , l3Interfaces
+ , l3PureMixIns
+ , l3LongintList
+ , l3Base
+ , l3IID
+ , l3Types
+ , Classes
+ , l3DatLst
+ , l3InternalInterfaces
+;
 
 type
+ Tl3NodeClass = class of Tl3Node;
+
  ESkipIterateChilds = class(Exception)
  end;//ESkipIterateChilds
 
@@ -45,55 +37,12 @@ type
  end;//El3InsertDenied
 
  Tl3PrimNode = class(Tl3CustomString, Il3SimpleNode, Il3SimpleRootNode, IUnknown)
- protected
- // property methods
+  protected
    function pm_GetFlags: Integer; virtual;
    procedure pm_SetFlags(aValue: Integer); virtual;
    function pm_GetFlag(anIndex: Integer): Boolean; virtual; abstract;
-   procedure pm_SetFlag(anIndex: Integer; aValue: Boolean); virtual; abstract;
- protected
- // realized methods
-   function IsFirst: Boolean;
-     {* это первый узел внутри родителя? }
-   function IsLast: Boolean;
-     {* это последний узел внутри родителя? }
-   function HasChild: Boolean;
-     {* есть ли дочерние узлы? }
-   function MaybeChild: Boolean;
-     {* может ли иметь дочерние узлы? }
-   function GetLevel: Integer;
-   function GetLevelFor(const aNode: Il3SimpleNode): Integer;
-   function IsSame(const aNode: Il3SimpleNode): Boolean;
-     {* сравнивает ноды. }
-   function IsDisappeared: Boolean;
-     {* True если интерфейс на удаленную ноду,
-             применяется в виртуальных нодах - указателях на данные. }
-   procedure BeginMove(var aUserParam: Pointer);
-     {* начать перемещение узла. }
-   procedure EndMove(aUserParam: Pointer);
-     {* закончить перемещение узла. }
-   procedure Delete;
-     {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
-   function Get_Text: Tl3PCharLenPrim;
-   function Get_Parent: Il3SimpleNode;
-   function Get_Child: Il3SimpleNode;
-   function Get_Next: Il3SimpleNode;
-   function Get_Flag(anIndex: Integer): Boolean;
-   procedure Set_Flag(anIndex: Integer; aValue: Boolean);
-   function Get_Flags: Integer;
-   function Get_ThisChildrenCount: Integer;
-   function pm_GetIndexInParent: Integer;
-   function CanExpandCollapseAll: Boolean;
-   procedure ExpandCollapseAll(anExpand: Boolean);
-   function CanAcceptData(const aData: Tl3TreeData): Boolean;
-     {* может ли узел принять данные }
-   function DropData(const aData: Tl3TreeData): Boolean;
-     {* принять данные }
-   function CanMove: Boolean;
-     {* определяет возможность перемещения узла }
-   function Get_Prev: Il3SimpleNode;
- protected
- // protected methods
+   procedure pm_SetFlag(anIndex: Integer;
+    aValue: Boolean); virtual; abstract;
    function DoGetIndexInParent: Integer; virtual; abstract;
    function Get_AllChildrenCount: Integer; virtual; abstract;
    function DoGetThisChildrenCount: Integer; virtual; abstract;
@@ -108,94 +57,145 @@ type
    function IsLastNode: Boolean; virtual; abstract;
    function HasChildNode: Boolean; virtual; abstract;
    function GetMaybeChild: Boolean; virtual;
-     {* может ли иметь дочерние узлы? }
+    {* может ли иметь дочерние узлы? }
    function GetIsDisappeared: Boolean; virtual; abstract;
-     {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
+    {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
    procedure DoBeginMove(var theUserParam: Pointer); virtual; abstract;
    procedure DoEndMove(aUserParam: Pointer); virtual; abstract;
    procedure DoExpandCollapseAll(anExpand: Boolean); virtual;
    function GetCanExpandCollapseAll: Boolean; virtual;
    procedure DoDelete; virtual;
-     {* Сигнатура метода DoDelete }
    procedure Remove; virtual; abstract;
-     {* Сигнатура метода Remove }
    function GetCanAcceptData(const aData: Tl3TreeData): Boolean; virtual;
    function DoDropData(const aData: Tl3TreeData): Boolean; virtual;
    function GetCanMove: Boolean; virtual;
- public
- // public properties
+   function IsFirst: Boolean;
+    {* это первый узел внутри родителя? }
+   function IsLast: Boolean;
+    {* это последний узел внутри родителя? }
+   function HasChild: Boolean;
+    {* есть ли дочерние узлы? }
+   function MaybeChild: Boolean;
+    {* может ли иметь дочерние узлы? }
+   function GetLevel: Integer;
+   function GetLevelFor(const aNode: Il3SimpleNode): Integer;
+   function IsSame(const aNode: Il3SimpleNode): Boolean;
+    {* сравнивает ноды. }
+   function IsDisappeared: Boolean;
+    {* True если интерфейс на удаленную ноду,
+             применяется в виртуальных нодах - указателях на данные. }
+   procedure BeginMove(var aUserParam: Pointer);
+    {* начать перемещение узла. }
+   procedure EndMove(aUserParam: Pointer);
+    {* закончить перемещение узла. }
+   procedure Delete;
+    {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
+   function Get_Text: Tl3PCharLenPrim;
+   function Get_Parent: Il3SimpleNode;
+   function Get_Child: Il3SimpleNode;
+   function Get_Next: Il3SimpleNode;
+   function Get_Flag(anIndex: Integer): Boolean;
+   procedure Set_Flag(anIndex: Integer;
+    aValue: Boolean);
+   function Get_Flags: Integer;
+   function Get_ThisChildrenCount: Integer;
+   function pm_GetIndexInParent: Integer;
+   function CanExpandCollapseAll: Boolean;
+   procedure ExpandCollapseAll(anExpand: Boolean);
+   function CanAcceptData(const aData: Tl3TreeData): Boolean;
+    {* может ли узел принять данные }
+   function DropData(const aData: Tl3TreeData): Boolean;
+    {* принять данные }
+   function CanMove: Boolean;
+    {* определяет возможность перемещения узла }
+   function Get_Prev: Il3SimpleNode;
+  public
    property Flags: Integer
-     read pm_GetFlags
-     write pm_SetFlags;
+    read pm_GetFlags
+    write pm_SetFlags;
    property Flag[anIndex: Integer]: Boolean
-     read pm_GetFlag
-     write pm_SetFlag;
+    read pm_GetFlag
+    write pm_SetFlag;
  end;//Tl3PrimNode
-
 
  Tl3CustomNode = class;
 
-
- Tl3NodeClass = class of Tl3Node;
  Il3NodeWrap = interface(Il3Base)
-   ['{A7B003A3-ED64-402B-81B2-F9ABCAFB0989}']
-   function GetSelf: Tl3CustomNode;
-   function InheritFrom(aClassType: Tl3NodeClass): Boolean;
+  ['{A7B003A3-ED64-402B-81B2-F9ABCAFB0989}']
+  function GetSelf: Tl3CustomNode;
+  function InheritFrom(aClassType: Tl3NodeClass): Boolean;
  end;//Il3NodeWrap
 
  _l3Changing_Parent_ = Tl3PrimNode;
- {$Include ..\L3\l3Changing.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
  Tl3CustomNode = class(_l3Changing_, Il3Node, Il3NodeWrap)
- private
- // private fields
-   f_MoveEnterCount : Integer;
-   f_ChildSortMode : Integer;
- protected
- // property methods
+  private
+   f_MoveEnterCount: Integer;
+   f_ChildSortMode: Integer;
+  protected
    procedure Set_AllChildrenCount(aValue: Integer); virtual;
    function pm_GetChildSorted: Boolean; virtual;
    procedure pm_SetChildSorted(aValue: Boolean); virtual;
    function pm_GetChildSortedFromParent: Boolean; virtual;
    procedure pm_SetChildSortedFromParent(aValue: Boolean); virtual;
- protected
- // realized methods
+   function IterateChild(Action: Tl3NodeAction;
+    IterMode: Integer;
+    const aFromNode: Il3Node = nil): Il3Node; virtual; abstract;
+   function DoCompareChild(const aChildrenNode1: Il3Node;
+    const aChildrenNode2: Il3Node): Integer; virtual;
+   procedure DoSortChilds(const aChild: Il3Node = nil); virtual;
+   procedure DoSort; virtual;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; virtual; abstract;
+   procedure DoReleaseChilds; virtual; abstract;
+   function DoMove(aDirection: Tl3Direction): Boolean; virtual;
+   procedure DoIncAllChildrenCount(aInc: Integer); virtual; abstract;
+   procedure DoNotify(aOperation: Integer;
+    const aNode: Il3Node); virtual;
+   function DoGetNodeByNumber(aNum: Integer): Il3Node; virtual;
+   function DoGetChildByNumber(aNum: Integer): Il3Node; virtual; abstract;
+   function DoIterate(Action: Tl3NodeAction;
+    IterMode: Integer = 0;
+    const aFromNode: Il3Node = nil): Il3Node; virtual; abstract;
+   function DoInsertChildBefore(const aNextChild: Il3Node;
+    const aChild: Il3Node): Il3Node; virtual; abstract;
+   function GetIsAcceptChild(const aChild: Il3Node): Boolean; virtual;
    function InsertChild(const aNode: Il3Node): Il3Node;
    function InsertChildBefore(const aNextChild: Il3Node;
     const aNode: Il3Node): Il3Node;
    function IsAcceptChild(const aChild: Il3Node): Boolean;
    function GetChildByNumber(aNum: Integer): Il3Node;
-     {* получить дочерний узел по номеру. }
+    {* получить дочерний узел по номеру. }
    function GetNodeByNumber(aNum: Integer): Il3Node;
-     {* получить узел по номеру. 0 = Self, остальные дочерние, }
-   function GetNumInParent(aOnlyOneLevel: Boolean = false): Integer;
-     {* получить порядковый номер узла в родительском узле.
+    {* получить узел по номеру. 0 = Self, остальные дочерние, }
+   function GetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
+    {* получить порядковый номер узла в родительском узле.
           aOnlyOneLevel - считаем только непосредственных "детей",
           без учета вложенных }
    procedure Notify(aOperation: Integer;
     const aNode: Il3Node);
-     {* нотификация об операции над узлом. anOperation см. ntNone etc. }
+    {* нотификация об операции над узлом. anOperation см. ntNone etc. }
    procedure IncAllChildrenCount(aInc: Integer);
    function Move(aDirection: Tl3Direction): Boolean;
-     {* переместить узел. }
+    {* переместить узел. }
    function Iterate(Action: Tl3NodeAction;
     IterMode: Integer = 0;
     const aFromNode: Il3Node = nil): Il3Node;
-     {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
+    {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
    function IterateF(Action: Tl3NodeAction;
     IterMode: Integer = 0;
     const aFromNode: Il3Node = nil): Il3Node;
-     {* перебрать все дочерние узлы и освободить заглушку для Action. }
+    {* перебрать все дочерние узлы и освободить заглушку для Action. }
    procedure ReleaseChilds;
-     {* освободить дочерние узлы. }
+    {* освободить дочерние узлы. }
    function CompareChild(const aChildrenNode1: Il3Node;
     const aChildrenNode2: Il3Node): Integer;
-     {* сравнивает aChildrenNode1 и aChildrenNode2 (обычно Text), используется при сортировке ветки дерева. }
+    {* сравнивает aChildrenNode1 и aChildrenNode2 (обычно Text), используется при сортировке ветки дерева. }
    procedure SortChilds(const aChild: Il3Node = nil);
-     {* пересортировывает aChild относительно других Nodes на том же уровне,
+    {* пересортировывает aChild относительно других Nodes на том же уровне,
          обычно в случае изменения Text,
           если aChild = nil пересортировывает всю ветку (один уровень). }
    procedure Sort;
-     {* пересортировывает себя относительно других Nodes на том же уровне. }
+    {* пересортировывает себя относительно других Nodes на том же уровне. }
    function Get_Text: Tl3PCharLenPrim;
    procedure Set_Text(const aValue: Tl3PCharLenPrim);
    function Get_ChildSorted: Boolean;
@@ -210,79 +210,45 @@ type
    function DoGetThisChildrenCount: Integer; override;
    function HasChildNode: Boolean; override;
    function GetIsDisappeared: Boolean; override;
-     {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
+    {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
    procedure DoBeginMove(var theUserParam: Pointer); override;
    procedure DoEndMove(aUserParam: Pointer); override;
- protected
- // overridden protected methods
    procedure DoChanged; override;
-     {* Сигнатура метода DoChanged }
    procedure DoChanging; override;
-     {* Сигнатура метода DoChanging }
- protected
- // protected methods
-   function IterateChild(Action: Tl3NodeAction;
-     IterMode: Integer;
-     const aFromNode: Il3Node = nil): Il3Node; virtual; abstract;
-   function DoCompareChild(const aChildrenNode1: Il3Node;
-     const aChildrenNode2: Il3Node): Integer; virtual;
-   procedure DoSortChilds(const aChild: Il3Node = nil); virtual;
-   procedure DoSort; virtual;
-     {* Сигнатура метода DoSort }
-   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; virtual; abstract;
-   procedure DoReleaseChilds; virtual; abstract;
-     {* Сигнатура метода DoReleaseChilds }
-   function DoMove(aDirection: Tl3Direction): Boolean; virtual;
-   procedure DoIncAllChildrenCount(aInc: Integer); virtual; abstract;
-   procedure DoNotify(aOperation: Integer;
-     const aNode: Il3Node); virtual;
-   function DoGetNodeByNumber(aNum: Integer): Il3Node; virtual;
-   function DoGetChildByNumber(aNum: Integer): Il3Node; virtual; abstract;
-   function DoIterate(Action: Tl3NodeAction;
-     IterMode: Integer = 0;
-     const aFromNode: Il3Node = nil): Il3Node; virtual; abstract;
-   function DoInsertChildBefore(const aNextChild: Il3Node;
-     const aChild: Il3Node): Il3Node; virtual; abstract;
-   function GetIsAcceptChild(const aChild: Il3Node): Boolean; virtual;
- public
- // public methods
+  public
    procedure ReleaseChildsPrim; virtual; abstract;
-     {* Сигнатура метода ReleaseChildsPrim }
    procedure MovingStarted(var theUserParam: Pointer); virtual;
    procedure MovingStopped(aUserParam: Pointer); virtual;
- public
- // public properties
+  public
    property Text: Tl3PCharLenPrim
-     read Get_Text
-     write Set_Text;
+    read Get_Text
+    write Set_Text;
    property AllChildrenCount: Integer
-     read Get_AllChildrenCount
-     write Set_AllChildrenCount;
+    read Get_AllChildrenCount
+    write Set_AllChildrenCount;
    property ChildSorted: Boolean
-     read pm_GetChildSorted
-     write pm_SetChildSorted;
+    read pm_GetChildSorted
+    write pm_SetChildSorted;
    property ChildSortedFromParent: Boolean
-     read pm_GetChildSortedFromParent
-     write pm_SetChildSortedFromParent;
+    read pm_GetChildSortedFromParent
+    write pm_SetChildSortedFromParent;
    property NextNode: Il3Node
-     read Get_NextNode;
+    read Get_NextNode;
    property PrevNode: Il3Node
-     read Get_PrevNode;
+    read Get_PrevNode;
    property ParentNode: Il3Node
-     read Get_ParentNode;
+    read Get_ParentNode;
    property ChildNode: Il3Node
-     read Get_ChildNode;
+    read Get_ChildNode;
    property ThisChildrenCount: Integer
-     read Get_ThisChildrenCount;
+    read Get_ThisChildrenCount;
  end;//Tl3CustomNode
 
  Tl3Node = class(Tl3CustomNode, Il3ChangeNotifier, Il3RootNode)
- private
- // private fields
-   f_NotifiedObjList : Tl3LongintList;
-    {* Поле для свойства NotifiedObjList}
- protected
- // property methods
+  private
+   f_NotifiedObjList: Tl3LongintList;
+    {* Поле для свойства NotifiedObjList }
+  protected
    function pm_GetNext: Tl3Node; virtual; abstract;
    procedure pm_SetNext(aValue: Tl3Node); virtual; abstract;
    function pm_GetPrev: Tl3Node; virtual; abstract;
@@ -291,12 +257,15 @@ type
    procedure pm_SetParent(aValue: Tl3Node); virtual; abstract;
    function pm_GetChild: Tl3Node; virtual; abstract;
    procedure pm_SetChild(aValue: Tl3Node); virtual; abstract;
- protected
- // realized methods
+   function IterateNoParent(Action: Tl3NodeAction;
+    IterMode: Integer;
+    const aFromNode: Il3Node = nil): Il3Node; virtual;
+   function As_Il3ChangeNotifier: Il3ChangeNotifier;
+    {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
    procedure Subscribe(const aRecipient: Il3Notify);
-     {* подписка на извещения. }
+    {* подписка на извещения. }
    procedure Unsubscribe(const aRecipient: Il3Notify);
-     {* "отписка" от извещений. }
+    {* "отписка" от извещений. }
    function DoGetIndexInParent: Integer; override;
    function Get_ParentNode: Il3Node; override;
    function Get_ChildNode: Il3Node; override;
@@ -304,74 +273,58 @@ type
    function Get_PrevNode: Il3Node; override;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; override;
    procedure Remove; override;
-     {* Сигнатура метода Remove }
    function IterateChild(Action: Tl3NodeAction;
-     IterMode: Integer;
-     const aFromNode: Il3Node = nil): Il3Node; override;
-   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
+    IterMode: Integer;
+    const aFromNode: Il3Node): Il3Node; override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean): Integer; override;
    procedure DoReleaseChilds; override;
-     {* Сигнатура метода DoReleaseChilds }
-   procedure ReleaseChildsPrim; override;
-     {* Сигнатура метода ReleaseChildsPrim }
    function DoGetChildByNumber(aNum: Integer): Il3Node; override;
    function DoIterate(Action: Tl3NodeAction;
-     IterMode: Integer = 0;
-     const aFromNode: Il3Node = nil): Il3Node; override;
+    IterMode: Integer;
+    const aFromNode: Il3Node): Il3Node; override;
    function DoInsertChildBefore(const aNextChild: Il3Node;
-     const aChild: Il3Node): Il3Node; override;
- protected
- // overridden protected methods
+    const aChild: Il3Node): Il3Node; override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure DoSortChilds(const aChild: Il3Node = nil); override;
+    {* Функция очистки полей объекта. }
+   procedure DoSortChilds(const aChild: Il3Node); override;
    function DoMove(aDirection: Tl3Direction): Boolean; override;
    procedure DoNotify(aOperation: Integer;
-     const aNode: Il3Node); override;
+    const aNode: Il3Node); override;
    function GetIsAcceptChild(const aChild: Il3Node): Boolean; override;
    procedure DoChanged; override;
-     {* Сигнатура метода DoChanged }
    procedure DoChanging; override;
-     {* Сигнатура метода DoChanging }
- protected
- // protected methods
-   function IterateNoParent(Action: Tl3NodeAction;
-     IterMode: Integer;
-     const aFromNode: Il3Node = nil): Il3Node; virtual;
- protected
- // protected properties
+  public
+   procedure ReleaseChildsPrim; override;
+  protected
    property NotifiedObjList: Tl3LongintList
-     read f_NotifiedObjList;
+    read f_NotifiedObjList;
    property Next: Tl3Node
-     read pm_GetNext
-     write pm_SetNext;
+    read pm_GetNext
+    write pm_SetNext;
    property Prev: Tl3Node
-     read pm_GetPrev
-     write pm_SetPrev;
+    read pm_GetPrev
+    write pm_SetPrev;
    property Parent: Tl3Node
-     read pm_GetParent
-     write pm_SetParent;
+    read pm_GetParent
+    write pm_SetParent;
    property Child: Tl3Node
-     read pm_GetChild
-     write pm_SetChild;
- protected
- // Методы преобразования к реализуемым интерфейсам
-   function As_Il3ChangeNotifier: Il3ChangeNotifier;
+    read pm_GetChild
+    write pm_SetChild;
  end;//Tl3Node
 
  Tl3PlaceNode = class(Tl3Node)
- private
- // private fields
-   f_Flags : Integer;
-   f_Next : Tl3Node;
-   f_Prev : Tl3Node;
-   f_Parent : Tl3Node;
-   f_Child : Tl3Node;
-   f_Childcount : Integer;
-    {* Поле для свойства Childcount}
- protected
- // realized methods
+  private
+   f_Flags: Integer;
+   f_Next: Tl3Node;
+   f_Prev: Tl3Node;
+   f_Parent: Tl3Node;
+   f_Child: Tl3Node;
+   f_Childcount: Integer;
+    {* Поле для свойства Childcount }
+  protected
    function pm_GetFlag(anIndex: Integer): Boolean; override;
-   procedure pm_SetFlag(anIndex: Integer; aValue: Boolean); override;
+   procedure pm_SetFlag(anIndex: Integer;
+    aValue: Boolean); override;
    function IsFirstNode: Boolean; override;
    function IsLastNode: Boolean; override;
    procedure DoIncAllChildrenCount(aInc: Integer); override;
@@ -383,405 +336,351 @@ type
    procedure pm_SetParent(aValue: Tl3Node); override;
    function pm_GetChild: Tl3Node; override;
    procedure pm_SetChild(aValue: Tl3Node); override;
- protected
- // overridden property methods
    function pm_GetFlags: Integer; override;
    procedure pm_SetFlags(aValue: Integer); override;
- protected
- // overridden protected methods
    function Get_AllChildrenCount: Integer; override;
    function HasChildNode: Boolean; override;
    function GetMaybeChild: Boolean; override;
-     {* может ли иметь дочерние узлы? }
+    {* может ли иметь дочерние узлы? }
    procedure DoReleaseChilds; override;
-     {* Сигнатура метода DoReleaseChilds }
- public
- // public methods
+  public
    constructor Create; reintroduce;
-     {* Сигнатура метода Create }
    class function Make: Il3Node; reintroduce;
-     {* Сигнатура фабрики Tl3PlaceNode.Make }
- protected
- // protected properties
+  protected
    property Childcount: Integer
-     read f_Childcount;
+    read f_Childcount;
  end;//Tl3PlaceNode
 
  Tl3CacheableNode = class(Tl3PlaceNode)
- private
- // private fields
-   f_ExternalNode : Il3SimpleNode;
-   f_Text : Tl3String;
- protected
- // overridden protected methods
+  private
+   f_ExternalNode: Il3SimpleNode;
+   f_Text: Tl3String;
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-     {* Реализация запроса интерфейса }
- public
- // public methods
+  public
    constructor Create(const anExternalNode: Il3SimpleNode = nil); reintroduce;
    class function Make(const anExternalNode: Il3SimpleNode = nil): Il3Node; reintroduce;
-     {* Сигнатура фабрики Tl3CacheableNode.Make }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
  end;//Tl3CacheableNode
 
  Tl3HandleNode = class(Tl3PlaceNode, Il3HandleNode)
- protected
- // property methods
+  protected
    function pm_GetHandle: Integer; virtual; abstract;
    procedure pm_SetHandle(aValue: Integer); virtual; abstract;
- protected
- // realized methods
    function Get_Handle: Integer;
    procedure Set_Handle(aValue: Integer);
- protected
- // overridden property methods
    function pm_GetStringID: Integer; override;
    procedure pm_SetStringID(aValue: Integer); override;
- public
- // public properties
+  public
    property Handle: Integer
-     read pm_GetHandle
-     write pm_SetHandle;
+    read pm_GetHandle
+    write pm_SetHandle;
  end;//Tl3HandleNode
 
  Tl3UsualNode = class(Tl3HandleNode)
- private
- // private fields
-   f_Text : Tl3String;
-   f_Handle : Integer;
- protected
- // realized methods
+  private
+   f_Text: Tl3String;
+   f_Handle: Integer;
+  protected
    function pm_GetHandle: Integer; override;
    procedure pm_SetHandle(aValue: Integer); override;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
  end;//Tl3UsualNode
 
  Tl3RootNode = Tl3UsualNode;
 
-
  Tl3ListItemNode = class;
 
  Tl3CustomListContainerNode = class(Tl3UsualNode, Il3ChangeRecipient, Il3ItemNotifyRecipient)
   {* Базовый узел - контейнер списков }
- private
- // private fields
-   f_UpdateCount : Integer;
- protected
- // property methods
+  private
+   f_UpdateCount: Integer;
+  protected
    function pm_GetStrings(aIndex: Integer): Tl3WString; virtual; abstract;
-   procedure pm_SetStrings(aIndex: Integer; const aValue: Tl3WString); virtual; abstract;
+   procedure pm_SetStrings(aIndex: Integer;
+    const aValue: Tl3WString); virtual; abstract;
    function pm_GetItemParam(aIndex: Integer): Integer; virtual; abstract;
-   procedure pm_SetItemParam(aIndex: Integer; aValue: Integer); virtual; abstract;
+   procedure pm_SetItemParam(aIndex: Integer;
+    aValue: Integer); virtual; abstract;
    function pm_GetItemFlag(aIndex: Integer): Integer; virtual; abstract;
-   procedure pm_SetItemFlag(aIndex: Integer; aValue: Integer); virtual; abstract;
- protected
- // realized methods
+   procedure pm_SetItemFlag(aIndex: Integer;
+    aValue: Integer); virtual; abstract;
+   function GetItemsCount: Integer; virtual; abstract;
+   procedure DeleteChildItem(aIndex: Integer;
+    const aDelete: Il3Node); virtual;
+   procedure SubscribeChild(aChildNode: Tl3ListItemNode);
+    {* подписка на извещения ноды - обертки вокруг элемента листа }
+   procedure UnsubscribeChild(aChildNode: Tl3ListItemNode);
+    {* "отписка" от извещений ноды - обертки вокруг элемента листа }
+   function MakeChildNode: Tl3ListItemNode; virtual; abstract;
+   procedure MoveChildItemPrim(aCurIndex: Integer;
+    aNewIndex: Integer); virtual; abstract;
+   function MoveChildItem(aChildNode: Tl3ListItemNode;
+    aDirection: Tl3Direction): Boolean;
+   procedure ItemNotify(const aNotifier: Il3ChangeNotifier;
+    aOperation: Integer;
+    aIndex: Integer); virtual;
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;
     aIndex: Integer);
-     {* прошла операция. }
- protected
- // overridden property methods
-   function pm_GetChild: Tl3Node; override;
-   procedure pm_SetChild(aValue: Tl3Node); override;
- protected
- // overridden protected methods
+    {* прошла операция. }
    function Get_AllChildrenCount: Integer; override;
    function Get_ChildNode: Il3Node; override;
    function HasChildNode: Boolean; override;
    function IterateChild(Action: Tl3NodeAction;
-     IterMode: Integer;
-     const aFromNode: Il3Node = nil): Il3Node; override;
+    IterMode: Integer;
+    const aFromNode: Il3Node): Il3Node; override;
    procedure DoNotify(aOperation: Integer;
-     const aNode: Il3Node); override;
+    const aNode: Il3Node); override;
    function DoGetChildByNumber(aNum: Integer): Il3Node; override;
    function DoInsertChildBefore(const aNextChild: Il3Node;
-     const aChild: Il3Node): Il3Node; override;
+    const aChild: Il3Node): Il3Node; override;
    function GetIsAcceptChild(const aChild: Il3Node): Boolean; override;
+   function pm_GetChild: Tl3Node; override;
+   procedure pm_SetChild(aValue: Tl3Node); override;
    procedure DoChanged; override;
-     {* Сигнатура метода DoChanged }
    procedure DoChanging; override;
-     {* Сигнатура метода DoChanging }
- protected
- // protected methods
-   function GetItemsCount: Integer; virtual; abstract;
-   procedure DeleteChildItem(aIndex: Integer;
-     const aDelete: Il3Node); virtual;
-   procedure SubscribeChild(aChildNode: Tl3ListItemNode);
-     {* подписка на извещения ноды - обертки вокруг элемента листа }
-   procedure UnsubscribeChild(aChildNode: Tl3ListItemNode);
-     {* "отписка" от извещений ноды - обертки вокруг элемента листа }
-   function MakeChildNode: Tl3ListItemNode; virtual; abstract;
-   procedure MoveChildItemPrim(aCurIndex: Integer;
-     aNewIndex: Integer); virtual; abstract;
-   function MoveChildItem(aChildNode: Tl3ListItemNode;
-     aDirection: Tl3Direction): Boolean;
-   procedure ItemNotify(const aNotifier: Il3ChangeNotifier;
-     aOperation: Integer;
-     aIndex: Integer); virtual;
- public
- // public properties
+  public
    property Strings[aIndex: Integer]: Tl3WString
-     read pm_GetStrings
-     write pm_SetStrings;
+    read pm_GetStrings
+    write pm_SetStrings;
    property ItemParam[aIndex: Integer]: Integer
-     read pm_GetItemParam
-     write pm_SetItemParam;
+    read pm_GetItemParam
+    write pm_SetItemParam;
    property ItemFlag[aIndex: Integer]: Integer
-     read pm_GetItemFlag
-     write pm_SetItemFlag;
+    read pm_GetItemFlag
+    write pm_SetItemFlag;
  end;//Tl3CustomListContainerNode
 
  Tl3ListItemNode = class(Tl3CustomNode, Il3HandleNode, Il3NodeNotifyRecipient)
- private
- // private fields
-   f_ListNode : Tl3CustomListContainerNode;
-    {* Поле для свойства ListNode}
-   f_ListItem : Integer;
-    {* Поле для свойства ListItem}
- protected
- // property methods
+  private
+   f_ListNode: Tl3CustomListContainerNode;
+    {* Поле для свойства ListNode }
+   f_ListItem: Integer;
+    {* Поле для свойства ListItem }
+  protected
    procedure pm_SetListNode(aValue: Tl3CustomListContainerNode); virtual;
    function pm_GetHandle: Integer; virtual;
    procedure pm_SetHandle(aValue: Integer); virtual;
- protected
- // realized methods
    function Get_Handle: Integer;
    procedure Set_Handle(aValue: Integer);
    procedure Notify(aOperation: Integer;
     const aNode: Il3SimpleNode);
-     {* прошла операция. }
+    {* прошла операция. }
    function Get_ParentNode: Il3Node; override;
    function Get_ChildNode: Il3Node; override;
    function Get_NextNode: Il3Node; override;
    function Get_PrevNode: Il3Node; override;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; override;
    function pm_GetFlag(anIndex: Integer): Boolean; override;
-   procedure pm_SetFlag(anIndex: Integer; aValue: Boolean); override;
+   procedure pm_SetFlag(anIndex: Integer;
+    aValue: Boolean); override;
    function IsFirstNode: Boolean; override;
    function IsLastNode: Boolean; override;
-   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean): Integer; override;
    function DoIterate(Action: Tl3NodeAction;
-     IterMode: Integer = 0;
-     const aFromNode: Il3Node = nil): Il3Node; override;
- protected
- // overridden property methods
+    IterMode: Integer;
+    const aFromNode: Il3Node): Il3Node; override;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   procedure Release; override;
+   function GetAsPCharLen: Tl3WString; override;
+   procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
    function pm_GetStringID: Integer; override;
    procedure pm_SetStringID(aValue: Integer); override;
    function pm_GetFlags: Integer; override;
    procedure pm_SetFlags(aValue: Integer); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   procedure Release; override;
-   function GetAsPCharLen: Tl3WString; override;
-   procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
    function GetIsDisappeared: Boolean; override;
-     {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
+    {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
    procedure DoDelete; override;
-     {* Сигнатура метода DoDelete }
    function DoMove(aDirection: Tl3Direction): Boolean; override;
- public
- // public properties
+  public
    property ListNode: Tl3CustomListContainerNode
-     read f_ListNode
-     write pm_SetListNode;
+    read f_ListNode
+    write pm_SetListNode;
    property ListItem: Integer
-     read f_ListItem
-     write f_ListItem;
+    read f_ListItem
+    write f_ListItem;
    property Handle: Integer
-     read pm_GetHandle
-     write pm_SetHandle;
+    read pm_GetHandle
+    write pm_SetHandle;
  end;//Tl3ListItemNode
 
  Tl3StrListItemNode = class(Tl3ListItemNode)
  end;//Tl3StrListItemNode
 
  Tl3ListContainerNode = class(Tl3CustomListContainerNode)
- private
- // private fields
-   f_Items : TStringList;
-    {* Поле для свойства Items}
- protected
- // property methods
+  private
+   f_Items: TStringList;
+    {* Поле для свойства Items }
+  protected
    function pm_GetItems: TStringList;
    procedure pm_SetItems(aValue: TStringList);
- protected
- // realized methods
+   procedure ListChanged(Sender: TObject);
+   procedure ListChanging(Sender: TObject);
    function pm_GetStrings(aIndex: Integer): Tl3WString; override;
-   procedure pm_SetStrings(aIndex: Integer; const aValue: Tl3WString); override;
+   procedure pm_SetStrings(aIndex: Integer;
+    const aValue: Tl3WString); override;
    function pm_GetItemParam(aIndex: Integer): Integer; override;
-   procedure pm_SetItemParam(aIndex: Integer; aValue: Integer); override;
+   procedure pm_SetItemParam(aIndex: Integer;
+    aValue: Integer); override;
    function pm_GetItemFlag(aIndex: Integer): Integer; override;
-   procedure pm_SetItemFlag(aIndex: Integer; aValue: Integer); override;
+   procedure pm_SetItemFlag(aIndex: Integer;
+    aValue: Integer); override;
    function GetItemsCount: Integer; override;
    function MakeChildNode: Tl3ListItemNode; override;
    procedure MoveChildItemPrim(aCurIndex: Integer;
-     aNewIndex: Integer); override;
- protected
- // overridden protected methods
+    aNewIndex: Integer); override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoReleaseChilds; override;
-     {* Сигнатура метода DoReleaseChilds }
    procedure DeleteChildItem(aIndex: Integer;
-     const aDelete: Il3Node); override;
- protected
- // protected methods
-   procedure ListChanged(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ListChanging(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // public properties
+    const aDelete: Il3Node); override;
+  public
    property Items: TStringList
-     read pm_GetItems
-     write pm_SetItems;
+    read pm_GetItems
+    write pm_SetItems;
  end;//Tl3ListContainerNode
 
  Tl3DataListContainerNode = class(Tl3CustomListContainerNode)
- private
- // private fields
-   f_Items : Tl3StringDataList;
-    {* Поле для свойства Items}
- protected
- // property methods
+  private
+   f_Items: Tl3StringDataList;
+    {* Поле для свойства Items }
+  protected
    function pm_GetItems: Tl3StringDataList;
    procedure pm_SetItems(aValue: Tl3StringDataList);
    function pm_GetItemData(aIndex: Integer): PAnsiChar; virtual;
-   procedure pm_SetItemData(aIndex: Integer; aValue: PAnsiChar); virtual;
+   procedure pm_SetItemData(aIndex: Integer;
+    aValue: PAnsiChar); virtual;
    function pm_GetItemDataSize(aIndex: Integer): Cardinal; virtual;
-   procedure pm_SetItemDataSize(aIndex: Integer; aValue: Cardinal); virtual;
- protected
- // realized methods
+   procedure pm_SetItemDataSize(aIndex: Integer;
+    aValue: Cardinal); virtual;
    function pm_GetStrings(aIndex: Integer): Tl3WString; override;
-   procedure pm_SetStrings(aIndex: Integer; const aValue: Tl3WString); override;
+   procedure pm_SetStrings(aIndex: Integer;
+    const aValue: Tl3WString); override;
    function pm_GetItemParam(aIndex: Integer): Integer; override;
-   procedure pm_SetItemParam(aIndex: Integer; aValue: Integer); override;
+   procedure pm_SetItemParam(aIndex: Integer;
+    aValue: Integer); override;
    function pm_GetItemFlag(aIndex: Integer): Integer; override;
-   procedure pm_SetItemFlag(aIndex: Integer; aValue: Integer); override;
+   procedure pm_SetItemFlag(aIndex: Integer;
+    aValue: Integer); override;
    function GetItemsCount: Integer; override;
    function MakeChildNode: Tl3ListItemNode; override;
    procedure MoveChildItemPrim(aCurIndex: Integer;
-     aNewIndex: Integer); override;
- protected
- // overridden protected methods
+    aNewIndex: Integer); override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure DoReleaseChilds; override;
-     {* Сигнатура метода DoReleaseChilds }
    procedure DeleteChildItem(aIndex: Integer;
-     const aDelete: Il3Node); override;
- public
- // public properties
+    const aDelete: Il3Node); override;
+  public
    property Items: Tl3StringDataList
-     read pm_GetItems
-     write pm_SetItems;
+    read pm_GetItems
+    write pm_SetItems;
    property ItemData[aIndex: Integer]: PAnsiChar
-     read pm_GetItemData
-     write pm_SetItemData;
+    read pm_GetItemData
+    write pm_SetItemData;
    property ItemDataSize[aIndex: Integer]: Cardinal
-     read pm_GetItemDataSize
-     write pm_SetItemDataSize;
+    read pm_GetItemDataSize
+    write pm_SetItemDataSize;
  end;//Tl3DataListContainerNode
 
  Tl3IListContainerNode = class(Tl3CustomListContainerNode)
- private
- // private fields
-   f_Items : Il3HandledStringList;
-    {* Поле для свойства Items}
- protected
- // property methods
+  private
+   f_Items: Il3HandledStringList;
+    {* Поле для свойства Items }
+  protected
    function pm_GetItems: Il3HandledStringList;
    procedure pm_SetItems(const aValue: Il3HandledStringList);
- protected
- // realized methods
+   procedure ListChanged(Sender: TObject);
+   procedure ListChanging(Sender: TObject);
    function pm_GetStrings(aIndex: Integer): Tl3WString; override;
-   procedure pm_SetStrings(aIndex: Integer; const aValue: Tl3WString); override;
+   procedure pm_SetStrings(aIndex: Integer;
+    const aValue: Tl3WString); override;
    function pm_GetItemParam(aIndex: Integer): Integer; override;
-   procedure pm_SetItemParam(aIndex: Integer; aValue: Integer); override;
+   procedure pm_SetItemParam(aIndex: Integer;
+    aValue: Integer); override;
    function pm_GetItemFlag(aIndex: Integer): Integer; override;
-   procedure pm_SetItemFlag(aIndex: Integer; aValue: Integer); override;
+   procedure pm_SetItemFlag(aIndex: Integer;
+    aValue: Integer); override;
    function GetItemsCount: Integer; override;
    function MakeChildNode: Tl3ListItemNode; override;
    procedure MoveChildItemPrim(aCurIndex: Integer;
-     aNewIndex: Integer); override;
- protected
- // overridden protected methods
+    aNewIndex: Integer); override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
    procedure DoReleaseChilds; override;
-     {* Сигнатура метода DoReleaseChilds }
    procedure DeleteChildItem(aIndex: Integer;
-     const aDelete: Il3Node); override;
- protected
- // protected methods
-   procedure ListChanged(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
-   procedure ListChanging(Sender: TObject);
-     {* TNotifyEvent is used for events that do not require parameters. }
- public
- // public properties
+    const aDelete: Il3Node); override;
+  public
    property Items: Il3HandledStringList
-     read pm_GetItems
-     write pm_SetItems;
+    read pm_GetItems
+    write pm_SetItems;
  end;//Tl3IListContainerNode
 
  Tl3DataListItemNode = class(Tl3ListItemNode)
- protected
- // property methods
+  protected
    function Get_Data: PAnsiChar; virtual;
    procedure Set_Data(aValue: PAnsiChar); virtual;
    function Get_DataSize: Cardinal; virtual;
    procedure Set_DataSize(aValue: Cardinal); virtual;
- public
- // public properties
+  public
    property Data: PAnsiChar
-     read Get_Data
-     write Set_Data;
+    read Get_Data
+    write Set_Data;
    property DataSize: Cardinal
-     read Get_DataSize
-     write Set_DataSize;
+    read Get_DataSize
+    write Set_DataSize;
  end;//Tl3DataListItemNode
 
  Tl3CustomUsualNode = Tl3Node;
 
-var cDefCodePage : Integer = CP_ANSI;
+var cDefCodePage: Integer = CP_ANSI;
 
 implementation
 
 uses
-  l3InterfacesMisc
-  {$If not defined(NoScripts)}
-  ,
-  l3NodesKeyWordsPack
-  {$IfEnd} //not NoScripts
-  ,
-  l3String,
-  l3Bits
-  {$If not defined(NoScripts)}
-  ,
-  InterfacedNodeWords
-  {$IfEnd} //not NoScripts
-  ,
-  l3Nodes,
-  l3Chars
-  ;
+ l3ImplUses
+ , l3Nodes
+ , l3Chars
+ , l3InterfacesMisc
+ {$If NOT Defined(NoScripts)}
+ , l3NodesKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3String
+ , l3Bits
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-// start class Tl3PrimNode
+function Tl3PrimNode.pm_GetFlags: Integer;
+//#UC START# *54C78756019B_4ADDDFE60236get_var*
+//#UC END# *54C78756019B_4ADDDFE60236get_var*
+begin
+//#UC START# *54C78756019B_4ADDDFE60236get_impl*
+
+//#UC END# *54C78756019B_4ADDDFE60236get_impl*
+end;//Tl3PrimNode.pm_GetFlags
+
+procedure Tl3PrimNode.pm_SetFlags(aValue: Integer);
+//#UC START# *54C78756019B_4ADDDFE60236set_var*
+//#UC END# *54C78756019B_4ADDDFE60236set_var*
+begin
+//#UC START# *54C78756019B_4ADDDFE60236set_impl*
+
+//#UC END# *54C78756019B_4ADDDFE60236set_impl*
+end;//Tl3PrimNode.pm_SetFlags
 
 function Tl3PrimNode.DoGetLevel: Integer;
 //#UC START# *54C78D4603D6_4ADDDFE60236_var*
@@ -810,6 +709,7 @@ begin
 end;//Tl3PrimNode.GetIsSame
 
 function Tl3PrimNode.GetMaybeChild: Boolean;
+ {* может ли иметь дочерние узлы? }
 //#UC START# *54C79013011B_4ADDDFE60236_var*
 //#UC END# *54C79013011B_4ADDDFE60236_var*
 begin
@@ -872,25 +772,8 @@ begin
 //#UC END# *54C7927D0085_4ADDDFE60236_impl*
 end;//Tl3PrimNode.GetCanMove
 
-function Tl3PrimNode.pm_GetFlags: Integer;
-//#UC START# *54C78756019B_4ADDDFE60236get_var*
-//#UC END# *54C78756019B_4ADDDFE60236get_var*
-begin
-//#UC START# *54C78756019B_4ADDDFE60236get_impl*
-
-//#UC END# *54C78756019B_4ADDDFE60236get_impl*
-end;//Tl3PrimNode.pm_GetFlags
-
-procedure Tl3PrimNode.pm_SetFlags(aValue: Integer);
-//#UC START# *54C78756019B_4ADDDFE60236set_var*
-//#UC END# *54C78756019B_4ADDDFE60236set_var*
-begin
-//#UC START# *54C78756019B_4ADDDFE60236set_impl*
-
-//#UC END# *54C78756019B_4ADDDFE60236set_impl*
-end;//Tl3PrimNode.pm_SetFlags
-
 function Tl3PrimNode.IsFirst: Boolean;
+ {* это первый узел внутри родителя? }
 //#UC START# *47723CDB00A4_4ADDDFE60236_var*
 //#UC END# *47723CDB00A4_4ADDDFE60236_var*
 begin
@@ -900,6 +783,7 @@ begin
 end;//Tl3PrimNode.IsFirst
 
 function Tl3PrimNode.IsLast: Boolean;
+ {* это последний узел внутри родителя? }
 //#UC START# *47723CFF0148_4ADDDFE60236_var*
 //#UC END# *47723CFF0148_4ADDDFE60236_var*
 begin
@@ -909,6 +793,7 @@ begin
 end;//Tl3PrimNode.IsLast
 
 function Tl3PrimNode.HasChild: Boolean;
+ {* есть ли дочерние узлы? }
 //#UC START# *47723D0F0392_4ADDDFE60236_var*
 //#UC END# *47723D0F0392_4ADDDFE60236_var*
 begin
@@ -918,6 +803,7 @@ begin
 end;//Tl3PrimNode.HasChild
 
 function Tl3PrimNode.MaybeChild: Boolean;
+ {* может ли иметь дочерние узлы? }
 //#UC START# *47723D1D03D6_4ADDDFE60236_var*
 //#UC END# *47723D1D03D6_4ADDDFE60236_var*
 begin
@@ -945,6 +831,7 @@ begin
 end;//Tl3PrimNode.GetLevelFor
 
 function Tl3PrimNode.IsSame(const aNode: Il3SimpleNode): Boolean;
+ {* сравнивает ноды. }
 //#UC START# *47723D4C0360_4ADDDFE60236_var*
 //#UC END# *47723D4C0360_4ADDDFE60236_var*
 begin
@@ -954,6 +841,8 @@ begin
 end;//Tl3PrimNode.IsSame
 
 function Tl3PrimNode.IsDisappeared: Boolean;
+ {* True если интерфейс на удаленную ноду,
+             применяется в виртуальных нодах - указателях на данные. }
 //#UC START# *47723DB901CA_4ADDDFE60236_var*
 //#UC END# *47723DB901CA_4ADDDFE60236_var*
 begin
@@ -963,6 +852,7 @@ begin
 end;//Tl3PrimNode.IsDisappeared
 
 procedure Tl3PrimNode.BeginMove(var aUserParam: Pointer);
+ {* начать перемещение узла. }
 //#UC START# *47723DD1008F_4ADDDFE60236_var*
 //#UC END# *47723DD1008F_4ADDDFE60236_var*
 begin
@@ -972,6 +862,7 @@ begin
 end;//Tl3PrimNode.BeginMove
 
 procedure Tl3PrimNode.EndMove(aUserParam: Pointer);
+ {* закончить перемещение узла. }
 //#UC START# *47723DE0009F_4ADDDFE60236_var*
 //#UC END# *47723DE0009F_4ADDDFE60236_var*
 begin
@@ -981,6 +872,7 @@ begin
 end;//Tl3PrimNode.EndMove
 
 procedure Tl3PrimNode.Delete;
+ {* удалить узел из дерева, а его данные с постоянного носителя (например из БД) или связанные объекты. }
 //#UC START# *47723DED006A_4ADDDFE60236_var*
 //#UC END# *47723DED006A_4ADDDFE60236_var*
 begin
@@ -1034,7 +926,8 @@ begin
 //#UC END# *4772423302AF_4ADDDFE60236get_impl*
 end;//Tl3PrimNode.Get_Flag
 
-procedure Tl3PrimNode.Set_Flag(anIndex: Integer; aValue: Boolean);
+procedure Tl3PrimNode.Set_Flag(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *4772423302AF_4ADDDFE60236set_var*
 //#UC END# *4772423302AF_4ADDDFE60236set_var*
 begin
@@ -1088,6 +981,7 @@ begin
 end;//Tl3PrimNode.ExpandCollapseAll
 
 function Tl3PrimNode.CanAcceptData(const aData: Tl3TreeData): Boolean;
+ {* может ли узел принять данные }
 //#UC START# *47A86F070101_4ADDDFE60236_var*
 //#UC END# *47A86F070101_4ADDDFE60236_var*
 begin
@@ -1097,6 +991,7 @@ begin
 end;//Tl3PrimNode.CanAcceptData
 
 function Tl3PrimNode.DropData(const aData: Tl3TreeData): Boolean;
+ {* принять данные }
 //#UC START# *47A86F1C016B_4ADDDFE60236_var*
 //#UC END# *47A86F1C016B_4ADDDFE60236_var*
 begin
@@ -1106,6 +1001,7 @@ begin
 end;//Tl3PrimNode.DropData
 
 function Tl3PrimNode.CanMove: Boolean;
+ {* определяет возможность перемещения узла }
 //#UC START# *47ADA09C019B_4ADDDFE60236_var*
 //#UC END# *47ADA09C019B_4ADDDFE60236_var*
 begin
@@ -1122,103 +1018,8 @@ begin
  Result := Get_PrevNode;
 //#UC END# *47B5759A03C0_4ADDDFE60236get_impl*
 end;//Tl3PrimNode.Get_Prev
-{$Include ..\L3\l3Changing.imp.pas}
 
-// start class Tl3CustomNode
-
-function Tl3CustomNode.DoCompareChild(const aChildrenNode1: Il3Node;
-  const aChildrenNode2: Il3Node): Integer;
-//#UC START# *54C8E03003CD_4ADDDFD50118_var*
-//#UC END# *54C8E03003CD_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E03003CD_4ADDDFD50118_impl*
- Result := l3Compare(aChildrenNode1.Text, aChildrenNode2.Text);
-//#UC END# *54C8E03003CD_4ADDDFD50118_impl*
-end;//Tl3CustomNode.DoCompareChild
-
-procedure Tl3CustomNode.DoSortChilds(const aChild: Il3Node = nil);
-//#UC START# *54C8E0850062_4ADDDFD50118_var*
-//#UC END# *54C8E0850062_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E0850062_4ADDDFD50118_impl*
-//#UC END# *54C8E0850062_4ADDDFD50118_impl*
-end;//Tl3CustomNode.DoSortChilds
-
-procedure Tl3CustomNode.DoSort;
-//#UC START# *54C8E0D301F8_4ADDDFD50118_var*
-//#UC END# *54C8E0D301F8_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E0D301F8_4ADDDFD50118_impl*
- if (ParentNode <> nil) and (ParentNode.ChildSorted) then
-  ParentNode.SortChilds(Self);
-//#UC END# *54C8E0D301F8_4ADDDFD50118_impl*
-end;//Tl3CustomNode.DoSort
-
-procedure Tl3CustomNode.MovingStarted(var theUserParam: Pointer);
-//#UC START# *54C8E3CA008E_4ADDDFD50118_var*
-//#UC END# *54C8E3CA008E_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E3CA008E_4ADDDFD50118_impl*
-//#UC END# *54C8E3CA008E_4ADDDFD50118_impl*
-end;//Tl3CustomNode.MovingStarted
-
-procedure Tl3CustomNode.MovingStopped(aUserParam: Pointer);
-//#UC START# *54C8E3DE0029_4ADDDFD50118_var*
-//#UC END# *54C8E3DE0029_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E3DE0029_4ADDDFD50118_impl*
-//#UC END# *54C8E3DE0029_4ADDDFD50118_impl*
-end;//Tl3CustomNode.MovingStopped
-
-function Tl3CustomNode.DoMove(aDirection: Tl3Direction): Boolean;
-//#UC START# *54C8E45103D9_4ADDDFD50118_var*
-//#UC END# *54C8E45103D9_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E45103D9_4ADDDFD50118_impl*
- Result := False;
-//#UC END# *54C8E45103D9_4ADDDFD50118_impl*
-end;//Tl3CustomNode.DoMove
-
-procedure Tl3CustomNode.DoNotify(aOperation: Integer;
-  const aNode: Il3Node);
-//#UC START# *54C8E4FA0325_4ADDDFD50118_var*
-var
- lNode: Il3Node;
-//#UC END# *54C8E4FA0325_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E4FA0325_4ADDDFD50118_impl*
- lNode := ParentNode;
- if lNode <> nil then
-  lNode.Notify(aOperation, aNode);
-//#UC END# *54C8E4FA0325_4ADDDFD50118_impl*
-end;//Tl3CustomNode.DoNotify
-
-function Tl3CustomNode.DoGetNodeByNumber(aNum: Integer): Il3Node;
-//#UC START# *54C8E54F008C_4ADDDFD50118_var*
-//#UC END# *54C8E54F008C_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E54F008C_4ADDDFD50118_impl*
- if (aNum < 0) or (aNum > AllChildrenCount) then
-  Result := Nil
- else
- if (aNum = 0) then
-  Result := Self
- else
- begin
-  Dec(aNum);
-  Result := GetChildByNumber(aNum);
- end;
-//#UC END# *54C8E54F008C_4ADDDFD50118_impl*
-end;//Tl3CustomNode.DoGetNodeByNumber
-
-function Tl3CustomNode.GetIsAcceptChild(const aChild: Il3Node): Boolean;
-//#UC START# *54C8E65102F8_4ADDDFD50118_var*
-//#UC END# *54C8E65102F8_4ADDDFD50118_var*
-begin
-//#UC START# *54C8E65102F8_4ADDDFD50118_impl*
- Result := True;
-//#UC END# *54C8E65102F8_4ADDDFD50118_impl*
-end;//Tl3CustomNode.GetIsAcceptChild
+{$Include w:\common\components\rtl\Garant\L3\l3Changing.imp.pas}
 
 procedure Tl3CustomNode.Set_AllChildrenCount(aValue: Integer);
 //#UC START# *54C8DD88028F_4ADDDFD50118set_var*
@@ -1284,6 +1085,100 @@ begin
 //#UC END# *54C8DFC602F8_4ADDDFD50118set_impl*
 end;//Tl3CustomNode.pm_SetChildSortedFromParent
 
+function Tl3CustomNode.DoCompareChild(const aChildrenNode1: Il3Node;
+ const aChildrenNode2: Il3Node): Integer;
+//#UC START# *54C8E03003CD_4ADDDFD50118_var*
+//#UC END# *54C8E03003CD_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E03003CD_4ADDDFD50118_impl*
+ Result := l3Compare(aChildrenNode1.Text, aChildrenNode2.Text);
+//#UC END# *54C8E03003CD_4ADDDFD50118_impl*
+end;//Tl3CustomNode.DoCompareChild
+
+procedure Tl3CustomNode.DoSortChilds(const aChild: Il3Node = nil);
+//#UC START# *54C8E0850062_4ADDDFD50118_var*
+//#UC END# *54C8E0850062_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E0850062_4ADDDFD50118_impl*
+//#UC END# *54C8E0850062_4ADDDFD50118_impl*
+end;//Tl3CustomNode.DoSortChilds
+
+procedure Tl3CustomNode.DoSort;
+//#UC START# *54C8E0D301F8_4ADDDFD50118_var*
+//#UC END# *54C8E0D301F8_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E0D301F8_4ADDDFD50118_impl*
+ if (ParentNode <> nil) and (ParentNode.ChildSorted) then
+  ParentNode.SortChilds(Self);
+//#UC END# *54C8E0D301F8_4ADDDFD50118_impl*
+end;//Tl3CustomNode.DoSort
+
+procedure Tl3CustomNode.MovingStarted(var theUserParam: Pointer);
+//#UC START# *54C8E3CA008E_4ADDDFD50118_var*
+//#UC END# *54C8E3CA008E_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E3CA008E_4ADDDFD50118_impl*
+//#UC END# *54C8E3CA008E_4ADDDFD50118_impl*
+end;//Tl3CustomNode.MovingStarted
+
+procedure Tl3CustomNode.MovingStopped(aUserParam: Pointer);
+//#UC START# *54C8E3DE0029_4ADDDFD50118_var*
+//#UC END# *54C8E3DE0029_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E3DE0029_4ADDDFD50118_impl*
+//#UC END# *54C8E3DE0029_4ADDDFD50118_impl*
+end;//Tl3CustomNode.MovingStopped
+
+function Tl3CustomNode.DoMove(aDirection: Tl3Direction): Boolean;
+//#UC START# *54C8E45103D9_4ADDDFD50118_var*
+//#UC END# *54C8E45103D9_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E45103D9_4ADDDFD50118_impl*
+ Result := False;
+//#UC END# *54C8E45103D9_4ADDDFD50118_impl*
+end;//Tl3CustomNode.DoMove
+
+procedure Tl3CustomNode.DoNotify(aOperation: Integer;
+ const aNode: Il3Node);
+//#UC START# *54C8E4FA0325_4ADDDFD50118_var*
+var
+ lNode: Il3Node;
+//#UC END# *54C8E4FA0325_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E4FA0325_4ADDDFD50118_impl*
+ lNode := ParentNode;
+ if lNode <> nil then
+  lNode.Notify(aOperation, aNode);
+//#UC END# *54C8E4FA0325_4ADDDFD50118_impl*
+end;//Tl3CustomNode.DoNotify
+
+function Tl3CustomNode.DoGetNodeByNumber(aNum: Integer): Il3Node;
+//#UC START# *54C8E54F008C_4ADDDFD50118_var*
+//#UC END# *54C8E54F008C_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E54F008C_4ADDDFD50118_impl*
+ if (aNum < 0) or (aNum > AllChildrenCount) then
+  Result := Nil
+ else
+ if (aNum = 0) then
+  Result := Self
+ else
+ begin
+  Dec(aNum);
+  Result := GetChildByNumber(aNum);
+ end;
+//#UC END# *54C8E54F008C_4ADDDFD50118_impl*
+end;//Tl3CustomNode.DoGetNodeByNumber
+
+function Tl3CustomNode.GetIsAcceptChild(const aChild: Il3Node): Boolean;
+//#UC START# *54C8E65102F8_4ADDDFD50118_var*
+//#UC END# *54C8E65102F8_4ADDDFD50118_var*
+begin
+//#UC START# *54C8E65102F8_4ADDDFD50118_impl*
+ Result := True;
+//#UC END# *54C8E65102F8_4ADDDFD50118_impl*
+end;//Tl3CustomNode.GetIsAcceptChild
+
 function Tl3CustomNode.InsertChild(const aNode: Il3Node): Il3Node;
 //#UC START# *47710BBE0052_4ADDDFD50118_var*
 //#UC END# *47710BBE0052_4ADDDFD50118_var*
@@ -1294,7 +1189,7 @@ begin
 end;//Tl3CustomNode.InsertChild
 
 function Tl3CustomNode.InsertChildBefore(const aNextChild: Il3Node;
-  const aNode: Il3Node): Il3Node;
+ const aNode: Il3Node): Il3Node;
 //#UC START# *47710BCC0099_4ADDDFD50118_var*
 //#UC END# *47710BCC0099_4ADDDFD50118_var*
 begin
@@ -1313,6 +1208,7 @@ begin
 end;//Tl3CustomNode.IsAcceptChild
 
 function Tl3CustomNode.GetChildByNumber(aNum: Integer): Il3Node;
+ {* получить дочерний узел по номеру. }
 //#UC START# *47710BFD00A6_4ADDDFD50118_var*
 //#UC END# *47710BFD00A6_4ADDDFD50118_var*
 begin
@@ -1322,6 +1218,7 @@ begin
 end;//Tl3CustomNode.GetChildByNumber
 
 function Tl3CustomNode.GetNodeByNumber(aNum: Integer): Il3Node;
+ {* получить узел по номеру. 0 = Self, остальные дочерние, }
 //#UC START# *47710C0E00D9_4ADDDFD50118_var*
 //#UC END# *47710C0E00D9_4ADDDFD50118_var*
 begin
@@ -1330,7 +1227,10 @@ begin
 //#UC END# *47710C0E00D9_4ADDDFD50118_impl*
 end;//Tl3CustomNode.GetNodeByNumber
 
-function Tl3CustomNode.GetNumInParent(aOnlyOneLevel: Boolean = false): Integer;
+function Tl3CustomNode.GetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
+ {* получить порядковый номер узла в родительском узле.
+          aOnlyOneLevel - считаем только непосредственных "детей",
+          без учета вложенных }
 //#UC START# *47710C1F0389_4ADDDFD50118_var*
 //#UC END# *47710C1F0389_4ADDDFD50118_var*
 begin
@@ -1340,7 +1240,8 @@ begin
 end;//Tl3CustomNode.GetNumInParent
 
 procedure Tl3CustomNode.Notify(aOperation: Integer;
-  const aNode: Il3Node);
+ const aNode: Il3Node);
+ {* нотификация об операции над узлом. anOperation см. ntNone etc. }
 //#UC START# *47710C4A017A_4ADDDFD50118_var*
 //#UC END# *47710C4A017A_4ADDDFD50118_var*
 begin
@@ -1359,6 +1260,7 @@ begin
 end;//Tl3CustomNode.IncAllChildrenCount
 
 function Tl3CustomNode.Move(aDirection: Tl3Direction): Boolean;
+ {* переместить узел. }
 //#UC START# *47710C8C007B_4ADDDFD50118_var*
 //#UC END# *47710C8C007B_4ADDDFD50118_var*
 begin
@@ -1368,8 +1270,9 @@ begin
 end;//Tl3CustomNode.Move
 
 function Tl3CustomNode.Iterate(Action: Tl3NodeAction;
-  IterMode: Integer = 0;
-  const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer = 0;
+ const aFromNode: Il3Node = nil): Il3Node;
+ {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
 //#UC START# *47710C9F001E_4ADDDFD50118_var*
 //#UC END# *47710C9F001E_4ADDDFD50118_var*
 begin
@@ -1379,8 +1282,9 @@ begin
 end;//Tl3CustomNode.Iterate
 
 function Tl3CustomNode.IterateF(Action: Tl3NodeAction;
-  IterMode: Integer = 0;
-  const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer = 0;
+ const aFromNode: Il3Node = nil): Il3Node;
+ {* перебрать все дочерние узлы и освободить заглушку для Action. }
 //#UC START# *47710CC30122_4ADDDFD50118_var*
 //#UC END# *47710CC30122_4ADDDFD50118_var*
 begin
@@ -1394,6 +1298,7 @@ begin
 end;//Tl3CustomNode.IterateF
 
 procedure Tl3CustomNode.ReleaseChilds;
+ {* освободить дочерние узлы. }
 //#UC START# *47710CE400B0_4ADDDFD50118_var*
 //#UC END# *47710CE400B0_4ADDDFD50118_var*
 begin
@@ -1403,7 +1308,8 @@ begin
 end;//Tl3CustomNode.ReleaseChilds
 
 function Tl3CustomNode.CompareChild(const aChildrenNode1: Il3Node;
-  const aChildrenNode2: Il3Node): Integer;
+ const aChildrenNode2: Il3Node): Integer;
+ {* сравнивает aChildrenNode1 и aChildrenNode2 (обычно Text), используется при сортировке ветки дерева. }
 //#UC START# *47710DC10100_4ADDDFD50118_var*
 //#UC END# *47710DC10100_4ADDDFD50118_var*
 begin
@@ -1413,6 +1319,9 @@ begin
 end;//Tl3CustomNode.CompareChild
 
 procedure Tl3CustomNode.SortChilds(const aChild: Il3Node = nil);
+ {* пересортировывает aChild относительно других Nodes на том же уровне,
+         обычно в случае изменения Text,
+          если aChild = nil пересортировывает всю ветку (один уровень). }
 //#UC START# *47710DE4027E_4ADDDFD50118_var*
 //#UC END# *47710DE4027E_4ADDDFD50118_var*
 begin
@@ -1422,6 +1331,7 @@ begin
 end;//Tl3CustomNode.SortChilds
 
 procedure Tl3CustomNode.Sort;
+ {* пересортировывает себя относительно других Nodes на том же уровне. }
 //#UC START# *47710DF70238_4ADDDFD50118_var*
 //#UC END# *47710DF70238_4ADDDFD50118_var*
 begin
@@ -1560,6 +1470,7 @@ begin
 end;//Tl3CustomNode.HasChildNode
 
 function Tl3CustomNode.GetIsDisappeared: Boolean;
+ {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
 //#UC START# *54C7905B00BA_4ADDDFD50118_var*
 //#UC END# *54C7905B00BA_4ADDDFD50118_var*
 begin
@@ -1617,11 +1528,10 @@ begin
   lNode.Changing;
 //#UC END# *54D9E09D018D_4ADDDFD50118_impl*
 end;//Tl3CustomNode.DoChanging
-// start class Tl3Node
 
 function Tl3Node.IterateNoParent(Action: Tl3NodeAction;
-  IterMode: Integer;
-  const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer;
+ const aFromNode: Il3Node = nil): Il3Node;
 //#UC START# *54CA26F7039B_4ADDDFC50302_var*
 var
  lNext: Il3Node;
@@ -1652,7 +1562,14 @@ begin
 //#UC END# *54CA26F7039B_4ADDDFC50302_impl*
 end;//Tl3Node.IterateNoParent
 
+function Tl3Node.As_Il3ChangeNotifier: Il3ChangeNotifier;
+ {* Метод приведения нашего интерфейса к Il3ChangeNotifier }
+begin
+ Result := Self;
+end;//Tl3Node.As_Il3ChangeNotifier
+
 procedure Tl3Node.Subscribe(const aRecipient: Il3Notify);
+ {* подписка на извещения. }
 //#UC START# *46A44F6B035E_4ADDDFC50302_var*
 //#UC END# *46A44F6B035E_4ADDDFC50302_var*
 begin
@@ -1664,6 +1581,7 @@ begin
 end;//Tl3Node.Subscribe
 
 procedure Tl3Node.Unsubscribe(const aRecipient: Il3Notify);
+ {* "отписка" от извещений. }
 //#UC START# *46A44FFE0143_4ADDDFC50302_var*
 //#UC END# *46A44FFE0143_4ADDDFC50302_var*
 begin
@@ -1780,8 +1698,8 @@ begin
 end;//Tl3Node.Remove
 
 function Tl3Node.IterateChild(Action: Tl3NodeAction;
-  IterMode: Integer;
-  const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer;
+ const aFromNode: Il3Node): Il3Node;
 //#UC START# *54C8DFF102DD_4ADDDFC50302_var*
 var
  lCurNode : Il3Node;
@@ -1817,7 +1735,7 @@ begin
 //#UC END# *54C8DFF102DD_4ADDDFC50302_impl*
 end;//Tl3Node.IterateChild
 
-function Tl3Node.DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
+function Tl3Node.DoGetNumInParent(aOnlyOneLevel: Boolean): Integer;
 //#UC START# *54C8E1F30128_4ADDDFC50302_var*
 var
  lNode : Tl3Node;
@@ -1902,8 +1820,8 @@ begin
 end;//Tl3Node.DoGetChildByNumber
 
 function Tl3Node.DoIterate(Action: Tl3NodeAction;
-  IterMode: Integer = 0;
-  const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer;
+ const aFromNode: Il3Node): Il3Node;
 //#UC START# *54C8E5AF00F8_4ADDDFC50302_var*
 var
  lCurNode : Il3Node;
@@ -1994,7 +1912,7 @@ begin
 end;//Tl3Node.DoIterate
 
 function Tl3Node.DoInsertChildBefore(const aNextChild: Il3Node;
-  const aChild: Il3Node): Il3Node;
+ const aChild: Il3Node): Il3Node;
 //#UC START# *54C8E60703B6_4ADDDFC50302_var*
 var
  lNewChild : Tl3Node;
@@ -2069,6 +1987,7 @@ begin
 end;//Tl3Node.DoInsertChildBefore
 
 procedure Tl3Node.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDDFC50302_var*
 //#UC END# *479731C50290_4ADDDFC50302_var*
 begin
@@ -2079,7 +1998,7 @@ begin
 //#UC END# *479731C50290_4ADDDFC50302_impl*
 end;//Tl3Node.Cleanup
 
-procedure Tl3Node.DoSortChilds(const aChild: Il3Node = nil);
+procedure Tl3Node.DoSortChilds(const aChild: Il3Node);
 //#UC START# *54C8E0850062_4ADDDFC50302_var*
 var
  lChild : Tl3Node;
@@ -2431,7 +2350,7 @@ begin
 end;//Tl3Node.DoMove
 
 procedure Tl3Node.DoNotify(aOperation: Integer;
-  const aNode: Il3Node);
+ const aNode: Il3Node);
 //#UC START# *54C8E4FA0325_4ADDDFC50302_var*
 var
  l_Index : Integer;
@@ -2530,14 +2449,6 @@ begin
 //#UC END# *54D9E09D018D_4ADDDFC50302_impl*
 end;//Tl3Node.DoChanging
 
-// Методы преобразования к реализуемым интерфейсам
-
-function Tl3Node.As_Il3ChangeNotifier: Il3ChangeNotifier;
-begin
- Result := Self;
-end;
-// start class Tl3PlaceNode
-
 constructor Tl3PlaceNode.Create;
 //#UC START# *54CBB0C901D6_4A573D2F00C6_var*
 //#UC END# *54CBB0C901D6_4A573D2F00C6_var*
@@ -2557,7 +2468,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3PlaceNode.Make
 
 function Tl3PlaceNode.pm_GetFlag(anIndex: Integer): Boolean;
 //#UC START# *54C78F15023E_4A573D2F00C6get_var*
@@ -2568,7 +2479,8 @@ begin
 //#UC END# *54C78F15023E_4A573D2F00C6get_impl*
 end;//Tl3PlaceNode.pm_GetFlag
 
-procedure Tl3PlaceNode.pm_SetFlag(anIndex: Integer; aValue: Boolean);
+procedure Tl3PlaceNode.pm_SetFlag(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *54C78F15023E_4A573D2F00C6set_var*
 //#UC END# *54C78F15023E_4A573D2F00C6set_var*
 begin
@@ -2738,6 +2650,7 @@ begin
 end;//Tl3PlaceNode.HasChildNode
 
 function Tl3PlaceNode.GetMaybeChild: Boolean;
+ {* может ли иметь дочерние узлы? }
 //#UC START# *54C79013011B_4A573D2F00C6_var*
 //#UC END# *54C79013011B_4A573D2F00C6_var*
 begin
@@ -2755,7 +2668,6 @@ begin
  f_ChildCount := 0;
 //#UC END# *54C8E22F0223_4A573D2F00C6_impl*
 end;//Tl3PlaceNode.DoReleaseChilds
-// start class Tl3CacheableNode
 
 constructor Tl3CacheableNode.Create(const anExternalNode: Il3SimpleNode = nil);
 //#UC START# *54CBABF301A7_4ADDE0C8004E_var*
@@ -2777,9 +2689,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3CacheableNode.Make
 
 procedure Tl3CacheableNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDE0C8004E_var*
 //#UC END# *479731C50290_4ADDE0C8004E_var*
 begin
@@ -2812,7 +2725,8 @@ begin
 end;//Tl3CacheableNode.DoSetAsPCharLen
 
 function Tl3CacheableNode.COMQueryInterface(const IID: Tl3GUID;
-  out Obj): Tl3HResult;
+ out Obj): Tl3HResult;
+ {* Реализация запроса интерфейса }
 //#UC START# *4A60B23E00C3_4ADDE0C8004E_var*
 //#UC END# *4A60B23E00C3_4ADDE0C8004E_var*
 begin
@@ -2827,7 +2741,6 @@ begin
  end;//l3IFail(Result)
 //#UC END# *4A60B23E00C3_4ADDE0C8004E_impl*
 end;//Tl3CacheableNode.COMQueryInterface
-// start class Tl3HandleNode
 
 function Tl3HandleNode.Get_Handle: Integer;
 //#UC START# *46827CAF03CD_4ADDDFB20186get_var*
@@ -2864,7 +2777,6 @@ begin
  Set_Handle(aValue);
 //#UC END# *47BC3BFD017F_4ADDDFB20186set_impl*
 end;//Tl3HandleNode.pm_SetStringID
-// start class Tl3UsualNode
 
 function Tl3UsualNode.pm_GetHandle: Integer;
 //#UC START# *54CBB9F8036D_4ADDDF9B0101get_var*
@@ -2891,6 +2803,7 @@ begin
 end;//Tl3UsualNode.pm_SetHandle
 
 procedure Tl3UsualNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDDF9B0101_var*
 //#UC END# *479731C50290_4ADDDF9B0101_var*
 begin
@@ -2917,10 +2830,9 @@ begin
  l3Set(f_Text, Value);
 //#UC END# *47A869D10074_4ADDDF9B0101_impl*
 end;//Tl3UsualNode.DoSetAsPCharLen
-// start class Tl3CustomListContainerNode
 
 procedure Tl3CustomListContainerNode.DeleteChildItem(aIndex: Integer;
-  const aDelete: Il3Node);
+ const aDelete: Il3Node);
 //#UC START# *54CBBF3C0184_4ADDE0F50179_var*
 //#UC END# *54CBBF3C0184_4ADDE0F50179_var*
 begin
@@ -2931,6 +2843,7 @@ begin
 end;//Tl3CustomListContainerNode.DeleteChildItem
 
 procedure Tl3CustomListContainerNode.SubscribeChild(aChildNode: Tl3ListItemNode);
+ {* подписка на извещения ноды - обертки вокруг элемента листа }
 //#UC START# *54CBBF9F00FA_4ADDE0F50179_var*
 var
  l_NotifyRecipient: Il3NodeNotifyRecipient;
@@ -2947,6 +2860,7 @@ begin
 end;//Tl3CustomListContainerNode.SubscribeChild
 
 procedure Tl3CustomListContainerNode.UnsubscribeChild(aChildNode: Tl3ListItemNode);
+ {* "отписка" от извещений ноды - обертки вокруг элемента листа }
 //#UC START# *54CBBFB203CE_4ADDE0F50179_var*
 var
  l_NotifyRecipient: Il3NodeNotifyRecipient;
@@ -2963,7 +2877,7 @@ begin
 end;//Tl3CustomListContainerNode.UnsubscribeChild
 
 function Tl3CustomListContainerNode.MoveChildItem(aChildNode: Tl3ListItemNode;
-  aDirection: Tl3Direction): Boolean;
+ aDirection: Tl3Direction): Boolean;
 //#UC START# *54CBC049028E_4ADDE0F50179_var*
 var
  lNewIndex : Integer;
@@ -3012,8 +2926,8 @@ begin
 end;//Tl3CustomListContainerNode.MoveChildItem
 
 procedure Tl3CustomListContainerNode.ItemNotify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
 //#UC START# *54CF6FEC023C_4ADDE0F50179_var*
 var
  lNode : Il3Node;
@@ -3047,8 +2961,9 @@ begin
 end;//Tl3CustomListContainerNode.ItemNotify
 
 procedure Tl3CustomListContainerNode.Notify(const aNotifier: Il3ChangeNotifier;
-  aOperation: Integer;
-  aIndex: Integer);
+ aOperation: Integer;
+ aIndex: Integer);
+ {* прошла операция. }
 //#UC START# *46A4504B03C4_4ADDE0F50179_var*
 //#UC END# *46A4504B03C4_4ADDE0F50179_var*
 begin
@@ -3088,8 +3003,8 @@ begin
 end;//Tl3CustomListContainerNode.HasChildNode
 
 function Tl3CustomListContainerNode.IterateChild(Action: Tl3NodeAction;
-  IterMode: Integer;
-  const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer;
+ const aFromNode: Il3Node): Il3Node;
 //#UC START# *54C8DFF102DD_4ADDE0F50179_var*
 var
  I : Integer;
@@ -3141,7 +3056,7 @@ begin
 end;//Tl3CustomListContainerNode.IterateChild
 
 procedure Tl3CustomListContainerNode.DoNotify(aOperation: Integer;
-  const aNode: Il3Node);
+ const aNode: Il3Node);
 //#UC START# *54C8E4FA0325_4ADDE0F50179_var*
 var
  I : Integer;
@@ -3186,7 +3101,7 @@ begin
 end;//Tl3CustomListContainerNode.DoGetChildByNumber
 
 function Tl3CustomListContainerNode.DoInsertChildBefore(const aNextChild: Il3Node;
-  const aChild: Il3Node): Il3Node;
+ const aChild: Il3Node): Il3Node;
 //#UC START# *54C8E60703B6_4ADDE0F50179_var*
 //#UC END# *54C8E60703B6_4ADDE0F50179_var*
 begin
@@ -3249,7 +3164,6 @@ begin
  Inc(f_UpdateCount);
 //#UC END# *54D9E09D018D_4ADDE0F50179_impl*
 end;//Tl3CustomListContainerNode.DoChanging
-// start class Tl3ListItemNode
 
 procedure Tl3ListItemNode.pm_SetListNode(aValue: Tl3CustomListContainerNode);
 //#UC START# *54CBC0C80360_4ADDE17D0077set_var*
@@ -3303,7 +3217,8 @@ begin
 end;//Tl3ListItemNode.Set_Handle
 
 procedure Tl3ListItemNode.Notify(aOperation: Integer;
-  const aNode: Il3SimpleNode);
+ const aNode: Il3SimpleNode);
+ {* прошла операция. }
 //#UC START# *477244190062_4ADDE17D0077_var*
 var
  lListIndex : Integer;
@@ -3420,7 +3335,8 @@ begin
 //#UC END# *54C78F15023E_4ADDE17D0077get_impl*
 end;//Tl3ListItemNode.pm_GetFlag
 
-procedure Tl3ListItemNode.pm_SetFlag(anIndex: Integer; aValue: Boolean);
+procedure Tl3ListItemNode.pm_SetFlag(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *54C78F15023E_4ADDE17D0077set_var*
 var
  l_Flags: Integer;
@@ -3455,7 +3371,7 @@ begin
 //#UC END# *54C78F8902C6_4ADDE17D0077_impl*
 end;//Tl3ListItemNode.IsLastNode
 
-function Tl3ListItemNode.DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
+function Tl3ListItemNode.DoGetNumInParent(aOnlyOneLevel: Boolean): Integer;
 //#UC START# *54C8E1F30128_4ADDE17D0077_var*
 //#UC END# *54C8E1F30128_4ADDE17D0077_var*
 begin
@@ -3465,8 +3381,8 @@ begin
 end;//Tl3ListItemNode.DoGetNumInParent
 
 function Tl3ListItemNode.DoIterate(Action: Tl3NodeAction;
-  IterMode: Integer = 0;
-  const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer;
+ const aFromNode: Il3Node): Il3Node;
 //#UC START# *54C8E5AF00F8_4ADDE17D0077_var*
 var
  lCurNode : Il3Node;
@@ -3508,6 +3424,7 @@ begin
 end;//Tl3ListItemNode.DoIterate
 
 procedure Tl3ListItemNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDE17D0077_var*
 //#UC END# *479731C50290_4ADDE17D0077_var*
 begin
@@ -3613,6 +3530,7 @@ begin
 end;//Tl3ListItemNode.GetIsSame
 
 function Tl3ListItemNode.GetIsDisappeared: Boolean;
+ {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
 //#UC START# *54C7905B00BA_4ADDE17D0077_var*
 //#UC END# *54C7905B00BA_4ADDE17D0077_var*
 begin
@@ -3638,25 +3556,6 @@ begin
  Result := ListNode.MoveChildItem(Self, aDirection);
 //#UC END# *54C8E45103D9_4ADDE17D0077_impl*
 end;//Tl3ListItemNode.DoMove
-// start class Tl3ListContainerNode
-
-procedure Tl3ListContainerNode.ListChanged(Sender: TObject);
-//#UC START# *54CF8E8F0079_4ADDE1300362_var*
-//#UC END# *54CF8E8F0079_4ADDE1300362_var*
-begin
-//#UC START# *54CF8E8F0079_4ADDE1300362_impl*
- Changed;
-//#UC END# *54CF8E8F0079_4ADDE1300362_impl*
-end;//Tl3ListContainerNode.ListChanged
-
-procedure Tl3ListContainerNode.ListChanging(Sender: TObject);
-//#UC START# *54CF8E9B0330_4ADDE1300362_var*
-//#UC END# *54CF8E9B0330_4ADDE1300362_var*
-begin
-//#UC START# *54CF8E9B0330_4ADDE1300362_impl*
- Changing;
-//#UC END# *54CF8E9B0330_4ADDE1300362_impl*
-end;//Tl3ListContainerNode.ListChanging
 
 function Tl3ListContainerNode.pm_GetItems: TStringList;
 //#UC START# *54CF8E1E02AA_4ADDE1300362get_var*
@@ -3695,6 +3594,24 @@ begin
 //#UC END# *54CF8E1E02AA_4ADDE1300362set_impl*
 end;//Tl3ListContainerNode.pm_SetItems
 
+procedure Tl3ListContainerNode.ListChanged(Sender: TObject);
+//#UC START# *54CF8E8F0079_4ADDE1300362_var*
+//#UC END# *54CF8E8F0079_4ADDE1300362_var*
+begin
+//#UC START# *54CF8E8F0079_4ADDE1300362_impl*
+ Changed;
+//#UC END# *54CF8E8F0079_4ADDE1300362_impl*
+end;//Tl3ListContainerNode.ListChanged
+
+procedure Tl3ListContainerNode.ListChanging(Sender: TObject);
+//#UC START# *54CF8E9B0330_4ADDE1300362_var*
+//#UC END# *54CF8E9B0330_4ADDE1300362_var*
+begin
+//#UC START# *54CF8E9B0330_4ADDE1300362_impl*
+ Changing;
+//#UC END# *54CF8E9B0330_4ADDE1300362_impl*
+end;//Tl3ListContainerNode.ListChanging
+
 function Tl3ListContainerNode.pm_GetStrings(aIndex: Integer): Tl3WString;
 //#UC START# *54CBBE4F02F4_4ADDE1300362get_var*
 //#UC END# *54CBBE4F02F4_4ADDE1300362get_var*
@@ -3704,7 +3621,8 @@ begin
 //#UC END# *54CBBE4F02F4_4ADDE1300362get_impl*
 end;//Tl3ListContainerNode.pm_GetStrings
 
-procedure Tl3ListContainerNode.pm_SetStrings(aIndex: Integer; const aValue: Tl3WString);
+procedure Tl3ListContainerNode.pm_SetStrings(aIndex: Integer;
+ const aValue: Tl3WString);
 //#UC START# *54CBBE4F02F4_4ADDE1300362set_var*
 //#UC END# *54CBBE4F02F4_4ADDE1300362set_var*
 begin
@@ -3722,7 +3640,8 @@ begin
 //#UC END# *54CBBE830320_4ADDE1300362get_impl*
 end;//Tl3ListContainerNode.pm_GetItemParam
 
-procedure Tl3ListContainerNode.pm_SetItemParam(aIndex: Integer; aValue: Integer);
+procedure Tl3ListContainerNode.pm_SetItemParam(aIndex: Integer;
+ aValue: Integer);
 //#UC START# *54CBBE830320_4ADDE1300362set_var*
 //#UC END# *54CBBE830320_4ADDE1300362set_var*
 begin
@@ -3740,7 +3659,8 @@ begin
 //#UC END# *54CBBEAD001E_4ADDE1300362get_impl*
 end;//Tl3ListContainerNode.pm_GetItemFlag
 
-procedure Tl3ListContainerNode.pm_SetItemFlag(aIndex: Integer; aValue: Integer);
+procedure Tl3ListContainerNode.pm_SetItemFlag(aIndex: Integer;
+ aValue: Integer);
 //#UC START# *54CBBEAD001E_4ADDE1300362set_var*
 //#UC END# *54CBBEAD001E_4ADDE1300362set_var*
 begin
@@ -3770,7 +3690,7 @@ begin
 end;//Tl3ListContainerNode.MakeChildNode
 
 procedure Tl3ListContainerNode.MoveChildItemPrim(aCurIndex: Integer;
-  aNewIndex: Integer);
+ aNewIndex: Integer);
 //#UC START# *54CBC0240017_4ADDE1300362_var*
 //#UC END# *54CBC0240017_4ADDE1300362_var*
 begin
@@ -3780,6 +3700,7 @@ begin
 end;//Tl3ListContainerNode.MoveChildItemPrim
 
 procedure Tl3ListContainerNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDE1300362_var*
 //#UC END# *479731C50290_4ADDE1300362_var*
 begin
@@ -3805,7 +3726,7 @@ begin
 end;//Tl3ListContainerNode.DoReleaseChilds
 
 procedure Tl3ListContainerNode.DeleteChildItem(aIndex: Integer;
-  const aDelete: Il3Node);
+ const aDelete: Il3Node);
 //#UC START# *54CBBF3C0184_4ADDE1300362_var*
 //#UC END# *54CBBF3C0184_4ADDE1300362_var*
 begin
@@ -3814,7 +3735,6 @@ begin
  inherited DeleteChildItem(aIndex, aDelete);
 //#UC END# *54CBBF3C0184_4ADDE1300362_impl*
 end;//Tl3ListContainerNode.DeleteChildItem
-// start class Tl3DataListContainerNode
 
 function Tl3DataListContainerNode.pm_GetItems: Tl3StringDataList;
 //#UC START# *54CF8FD00391_4ADDE144032Aget_var*
@@ -3867,7 +3787,8 @@ begin
 //#UC END# *54CF8FFC02A4_4ADDE144032Aget_impl*
 end;//Tl3DataListContainerNode.pm_GetItemData
 
-procedure Tl3DataListContainerNode.pm_SetItemData(aIndex: Integer; aValue: PAnsiChar);
+procedure Tl3DataListContainerNode.pm_SetItemData(aIndex: Integer;
+ aValue: PAnsiChar);
 //#UC START# *54CF8FFC02A4_4ADDE144032Aset_var*
 //#UC END# *54CF8FFC02A4_4ADDE144032Aset_var*
 begin
@@ -3885,7 +3806,8 @@ begin
 //#UC END# *54CF9024028A_4ADDE144032Aget_impl*
 end;//Tl3DataListContainerNode.pm_GetItemDataSize
 
-procedure Tl3DataListContainerNode.pm_SetItemDataSize(aIndex: Integer; aValue: Cardinal);
+procedure Tl3DataListContainerNode.pm_SetItemDataSize(aIndex: Integer;
+ aValue: Cardinal);
 //#UC START# *54CF9024028A_4ADDE144032Aset_var*
 //#UC END# *54CF9024028A_4ADDE144032Aset_var*
 begin
@@ -3902,7 +3824,8 @@ begin
 //#UC END# *54CBBE4F02F4_4ADDE144032Aget_impl*
 end;//Tl3DataListContainerNode.pm_GetStrings
 
-procedure Tl3DataListContainerNode.pm_SetStrings(aIndex: Integer; const aValue: Tl3WString);
+procedure Tl3DataListContainerNode.pm_SetStrings(aIndex: Integer;
+ const aValue: Tl3WString);
 //#UC START# *54CBBE4F02F4_4ADDE144032Aset_var*
 //#UC END# *54CBBE4F02F4_4ADDE144032Aset_var*
 begin
@@ -3920,7 +3843,8 @@ begin
 //#UC END# *54CBBE830320_4ADDE144032Aget_impl*
 end;//Tl3DataListContainerNode.pm_GetItemParam
 
-procedure Tl3DataListContainerNode.pm_SetItemParam(aIndex: Integer; aValue: Integer);
+procedure Tl3DataListContainerNode.pm_SetItemParam(aIndex: Integer;
+ aValue: Integer);
 //#UC START# *54CBBE830320_4ADDE144032Aset_var*
 //#UC END# *54CBBE830320_4ADDE144032Aset_var*
 begin
@@ -3938,7 +3862,8 @@ begin
 //#UC END# *54CBBEAD001E_4ADDE144032Aget_impl*
 end;//Tl3DataListContainerNode.pm_GetItemFlag
 
-procedure Tl3DataListContainerNode.pm_SetItemFlag(aIndex: Integer; aValue: Integer);
+procedure Tl3DataListContainerNode.pm_SetItemFlag(aIndex: Integer;
+ aValue: Integer);
 //#UC START# *54CBBEAD001E_4ADDE144032Aset_var*
 //#UC END# *54CBBEAD001E_4ADDE144032Aset_var*
 begin
@@ -3969,7 +3894,7 @@ begin
 end;//Tl3DataListContainerNode.MakeChildNode
 
 procedure Tl3DataListContainerNode.MoveChildItemPrim(aCurIndex: Integer;
-  aNewIndex: Integer);
+ aNewIndex: Integer);
 //#UC START# *54CBC0240017_4ADDE144032A_var*
 //#UC END# *54CBC0240017_4ADDE144032A_var*
 begin
@@ -3979,6 +3904,7 @@ begin
 end;//Tl3DataListContainerNode.MoveChildItemPrim
 
 procedure Tl3DataListContainerNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDE144032A_var*
 //#UC END# *479731C50290_4ADDE144032A_var*
 begin
@@ -4004,7 +3930,7 @@ begin
 end;//Tl3DataListContainerNode.DoReleaseChilds
 
 procedure Tl3DataListContainerNode.DeleteChildItem(aIndex: Integer;
-  const aDelete: Il3Node);
+ const aDelete: Il3Node);
 //#UC START# *54CBBF3C0184_4ADDE144032A_var*
 //#UC END# *54CBBF3C0184_4ADDE144032A_var*
 begin
@@ -4012,25 +3938,6 @@ begin
  f_Items.Delete(aIndex);
 //#UC END# *54CBBF3C0184_4ADDE144032A_impl*
 end;//Tl3DataListContainerNode.DeleteChildItem
-// start class Tl3IListContainerNode
-
-procedure Tl3IListContainerNode.ListChanged(Sender: TObject);
-//#UC START# *54CF91B400ED_4ADDE158034A_var*
-//#UC END# *54CF91B400ED_4ADDE158034A_var*
-begin
-//#UC START# *54CF91B400ED_4ADDE158034A_impl*
- Changed;
-//#UC END# *54CF91B400ED_4ADDE158034A_impl*
-end;//Tl3IListContainerNode.ListChanged
-
-procedure Tl3IListContainerNode.ListChanging(Sender: TObject);
-//#UC START# *54CF91C20055_4ADDE158034A_var*
-//#UC END# *54CF91C20055_4ADDE158034A_var*
-begin
-//#UC START# *54CF91C20055_4ADDE158034A_impl*
- Changing;
-//#UC END# *54CF91C20055_4ADDE158034A_impl*
-end;//Tl3IListContainerNode.ListChanging
 
 function Tl3IListContainerNode.pm_GetItems: Il3HandledStringList;
 //#UC START# *54CF91550398_4ADDE158034Aget_var*
@@ -4078,6 +3985,24 @@ begin
 //#UC END# *54CF91550398_4ADDE158034Aset_impl*
 end;//Tl3IListContainerNode.pm_SetItems
 
+procedure Tl3IListContainerNode.ListChanged(Sender: TObject);
+//#UC START# *54CF91B400ED_4ADDE158034A_var*
+//#UC END# *54CF91B400ED_4ADDE158034A_var*
+begin
+//#UC START# *54CF91B400ED_4ADDE158034A_impl*
+ Changed;
+//#UC END# *54CF91B400ED_4ADDE158034A_impl*
+end;//Tl3IListContainerNode.ListChanged
+
+procedure Tl3IListContainerNode.ListChanging(Sender: TObject);
+//#UC START# *54CF91C20055_4ADDE158034A_var*
+//#UC END# *54CF91C20055_4ADDE158034A_var*
+begin
+//#UC START# *54CF91C20055_4ADDE158034A_impl*
+ Changing;
+//#UC END# *54CF91C20055_4ADDE158034A_impl*
+end;//Tl3IListContainerNode.ListChanging
+
 function Tl3IListContainerNode.pm_GetStrings(aIndex: Integer): Tl3WString;
 //#UC START# *54CBBE4F02F4_4ADDE158034Aget_var*
 //#UC END# *54CBBE4F02F4_4ADDE158034Aget_var*
@@ -4087,7 +4012,8 @@ begin
 //#UC END# *54CBBE4F02F4_4ADDE158034Aget_impl*
 end;//Tl3IListContainerNode.pm_GetStrings
 
-procedure Tl3IListContainerNode.pm_SetStrings(aIndex: Integer; const aValue: Tl3WString);
+procedure Tl3IListContainerNode.pm_SetStrings(aIndex: Integer;
+ const aValue: Tl3WString);
 //#UC START# *54CBBE4F02F4_4ADDE158034Aset_var*
 //#UC END# *54CBBE4F02F4_4ADDE158034Aset_var*
 begin
@@ -4105,7 +4031,8 @@ begin
 //#UC END# *54CBBE830320_4ADDE158034Aget_impl*
 end;//Tl3IListContainerNode.pm_GetItemParam
 
-procedure Tl3IListContainerNode.pm_SetItemParam(aIndex: Integer; aValue: Integer);
+procedure Tl3IListContainerNode.pm_SetItemParam(aIndex: Integer;
+ aValue: Integer);
 //#UC START# *54CBBE830320_4ADDE158034Aset_var*
 //#UC END# *54CBBE830320_4ADDE158034Aset_var*
 begin
@@ -4123,7 +4050,8 @@ begin
 //#UC END# *54CBBEAD001E_4ADDE158034Aget_impl*
 end;//Tl3IListContainerNode.pm_GetItemFlag
 
-procedure Tl3IListContainerNode.pm_SetItemFlag(aIndex: Integer; aValue: Integer);
+procedure Tl3IListContainerNode.pm_SetItemFlag(aIndex: Integer;
+ aValue: Integer);
 //#UC START# *54CBBEAD001E_4ADDE158034Aset_var*
 //#UC END# *54CBBEAD001E_4ADDE158034Aset_var*
 begin
@@ -4153,7 +4081,7 @@ begin
 end;//Tl3IListContainerNode.MakeChildNode
 
 procedure Tl3IListContainerNode.MoveChildItemPrim(aCurIndex: Integer;
-  aNewIndex: Integer);
+ aNewIndex: Integer);
 //#UC START# *54CBC0240017_4ADDE158034A_var*
 //#UC END# *54CBC0240017_4ADDE158034A_var*
 begin
@@ -4162,6 +4090,7 @@ begin
 end;//Tl3IListContainerNode.MoveChildItemPrim
 
 procedure Tl3IListContainerNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDE158034A_var*
 //#UC END# *479731C50290_4ADDE158034A_var*
 begin
@@ -4172,7 +4101,6 @@ begin
 end;//Tl3IListContainerNode.Cleanup
 
 procedure Tl3IListContainerNode.ClearFields;
- {-}
 begin
  Items := nil;
  inherited;
@@ -4194,7 +4122,7 @@ begin
 end;//Tl3IListContainerNode.DoReleaseChilds
 
 procedure Tl3IListContainerNode.DeleteChildItem(aIndex: Integer;
-  const aDelete: Il3Node);
+ const aDelete: Il3Node);
 //#UC START# *54CBBF3C0184_4ADDE158034A_var*
 //#UC END# *54CBBF3C0184_4ADDE158034A_var*
 begin
@@ -4202,7 +4130,6 @@ begin
  Items.Delete(aIndex);
 //#UC END# *54CBBF3C0184_4ADDE158034A_impl*
 end;//Tl3IListContainerNode.DeleteChildItem
-// start class Tl3DataListItemNode
 
 function Tl3DataListItemNode.Get_Data: PAnsiChar;
 //#UC START# *54CF92730021_4ADDE1D8022Fget_var*

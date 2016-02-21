@@ -3,7 +3,7 @@ unit l3Tool;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Tool.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

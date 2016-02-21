@@ -1,57 +1,41 @@
 unit l3TreeFilters;
+ {* Содержит фильтры дерева. [$96481887] }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Р. Лукьянец
-// Модуль: "w:/common/components/rtl/Garant/L3/l3TreeFilters.pas"
-// Начат: 2007/03/13 10:03:58
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Trees::Tl3TreeFilters
-//
-// Содержит фильтры дерева. [$96481887]
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3TreeFilters.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3CacheableBase,
-  l3TreeInterfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , l3TreeInterfaces
+ , l3Interfaces
+;
 
 type
  Tl3TreeFilters = class(Tl3CacheableBase, Il3TreeFilters)
   {* Содержит фильтры дерева. [$96481887] }
- private
- // private fields
-   f_Context : Il3CString;
- protected
- // realized methods
+  private
+   f_Context: Il3CString;
+  protected
    function SetContext(const aValue: Il3CString): Il3TreeFilters;
    function Clone: Il3TreeFilters;
    function pm_GetContext: Il3CString;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aSource: Il3TreeFilters); reintroduce; virtual;
    class function Make(const aSource: Il3TreeFilters = nil): Il3TreeFilters; reintroduce;
  end;//Tl3TreeFilters
 
 implementation
 
-// start class Tl3TreeFilters
+uses
+ l3ImplUses
+;
 
 constructor Tl3TreeFilters.Create(const aSource: Il3TreeFilters);
 //#UC START# *48FF4F47010F_48FF4EC501F6_var*
@@ -74,7 +58,7 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3TreeFilters.Make
 
 function Tl3TreeFilters.SetContext(const aValue: Il3CString): Il3TreeFilters;
 //#UC START# *47724B790382_48FF4EC501F6_var*
@@ -105,6 +89,7 @@ begin
 end;//Tl3TreeFilters.pm_GetContext
 
 procedure Tl3TreeFilters.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48FF4EC501F6_var*
 //#UC END# *479731C50290_48FF4EC501F6_var*
 begin

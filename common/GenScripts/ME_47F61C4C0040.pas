@@ -4,7 +4,7 @@ unit NOT_FINISHED_nsDocumentTools;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsDocumentTools.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

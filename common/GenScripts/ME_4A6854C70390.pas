@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsTypes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\NOT_FINISHED_nsTypes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

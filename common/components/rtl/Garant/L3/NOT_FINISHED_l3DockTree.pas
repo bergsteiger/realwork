@@ -1,27 +1,24 @@
 unit NOT_FINISHED_l3DockTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3DockTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Trees::Tl3DockTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3DockTree.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  Tl3DockTree = class(TInterfacedObject)
  end;//Tl3DockTree
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

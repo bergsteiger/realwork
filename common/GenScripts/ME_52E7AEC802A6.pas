@@ -3,7 +3,7 @@ unit NOT_FINISHED_l3SimpleCalc;
 // Модуль: "w:\common\components\rtl\Garant\L3\ext\NOT_FINISHED_l3SimpleCalc.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

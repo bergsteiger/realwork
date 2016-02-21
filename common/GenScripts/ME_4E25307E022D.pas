@@ -3,7 +3,7 @@ unit NOT_FINISHED_DictsSup;
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_DictsSup.pas"
 // Стереотип: "UtilityPack"
 
-{$Include DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 

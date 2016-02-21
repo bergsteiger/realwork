@@ -1,112 +1,99 @@
 unit l3SimpleTree;
+ {* "Простое" дерево. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/l3SimpleTree.pas"
-// Начат: 07.07.2008 21:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Trees::Tl3SimpleTree
-//
-// "Простое" дерево.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\l3SimpleTree.pas"
+// Стереотип: "SimpleClass"
 
-// ! Полностью генерируется с модели. Править руками - нельзя. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  l3TreeInterfaces,
-  l3Interfaces,
-  l3NotifyPtrList
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , l3TreeInterfaces
+ , l3Interfaces
+ , l3NotifyPtrList
+;
 
 type
  _l3NotifierBase_Parent_ = Tl3CacheableBase;
- {$Include ..\L3\l3NotifierBase.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
  Tl3SimpleTree = class(_l3NotifierBase_, Il3SimpleTree)
   {* "Простое" дерево. }
- private
- // private fields
-   f_ShowRoot : Boolean;
-   f_Root : Il3SimpleRootNode;
-    {* Корень дерева}
- protected
- // realized methods
+  private
+   f_ShowRoot: Boolean;
+   f_Root: Il3SimpleRootNode;
+    {* Корень дерева }
+  protected
+   procedure RootChanged(const aOld: Il3SimpleRootNode;
+    const aNew: Il3SimpleRootNode);
    function Get_RootNode: Il3SimpleRootNode;
    procedure Set_RootNode(const aValue: Il3SimpleRootNode);
    procedure CursorTop;
-     {* переставить курсор на первый видимый элемент. }
+    {* переставить курсор на первый видимый элемент. }
    function GetIndex(const aNode: Il3SimpleNode;
     const aSubRootNode: Il3SimpleNode = nil): Integer;
-     {* возвращает видимый индекс aNode относительно aSubRootNode или корня. }
+    {* возвращает видимый индекс aNode относительно aSubRootNode или корня. }
    function GetLevel(const aNode: Il3SimpleNode): Integer;
-     {* возвращает уровень узла относительно корня. }
+    {* возвращает уровень узла относительно корня. }
    procedure SelectAllNodes(aMode: Tl3SetBitType);
-     {* выделяет/развыделяет все узлы. }
+    {* выделяет/развыделяет все узлы. }
    procedure SelectInterval(aFirstIndex: Integer;
     aLastIndex: Integer;
     aMode: Tl3SetBitType;
     aCleanOther: Boolean);
-     {* выделяет/развыделяет узлы на указанном интервале. }
+    {* выделяет/развыделяет узлы на указанном интервале. }
    function ChangeExpand(const aNode: Il3SimpleNode;
     aMode: Tl3SetBitType;
-    aForceMode: Boolean = false): Boolean;
-     {* меняет развернутость узла. }
+    aForceMode: Boolean = False): Boolean;
+    {* меняет развернутость узла. }
    procedure ExpandSubDir(const aNode: Il3SimpleNode = nil;
-    anExpand: Boolean = true;
+    anExpand: Boolean = True;
     aDeepLevel: Byte = 0);
-     {* развернуть/свернуть узлы. }
+    {* развернуть/свернуть узлы. }
    procedure SetBranchFlag(const aParentNode: Il3SimpleNode;
     aMode: Tl3SetBitType;
     aFlagsMask: Integer;
     anIterMode: Integer);
-     {* зачем-то используется визуалкой в ExpandNode. }
+    {* зачем-то используется визуалкой в ExpandNode. }
    function CountViewItemsInSubDir(const aNode: Il3SimpleNode): Integer;
-     {* зачем-то используется визуалкой в ShowMoreChildrenOnScreen. }
+    {* зачем-то используется визуалкой в ShowMoreChildrenOnScreen. }
    function IsRoot(const aNode: Il3SimpleNode): Boolean;
-     {* является ли узел корневым для дерева. }
+    {* является ли узел корневым для дерева. }
    function IsExpanded(const aNode: Il3SimpleNode): Boolean;
-     {* раскрыт ли узел. }
+    {* раскрыт ли узел. }
    function IsFirstVis(const aNode: Il3SimpleNode): Boolean;
-     {* является ли узел первым видимым в ветке. }
+    {* является ли узел первым видимым в ветке. }
    function IsLastVis(const aNode: Il3SimpleNode): Boolean;
-     {* является ли узел последним видимым в ветке. }
+    {* является ли узел последним видимым в ветке. }
    function HasVisibleChildren(const aNode: Il3SimpleNode): Boolean;
-     {* есть ли видимые дети у aNode. }
+    {* есть ли видимые дети у aNode. }
    function GetLines(const aNode: Il3SimpleNode): Integer;
-     {* маска для рисования линий (надо смотреть реализацию). }
+    {* маска для рисования линий (надо смотреть реализацию). }
    function Wake: Boolean;
-     {* проснись!!! Типа начали рисовать. }
+    {* проснись!!! Типа начали рисовать. }
    function MoveNode(const aNode: Il3SimpleNode;
     aDirection: Tl3Direction): Boolean;
-     {* переместить узел. }
+    {* переместить узел. }
    function SearchNameBegin(const aFirstNode: Il3SimpleNode;
     aSrchStr: PAnsiChar;
     aIterMode: Integer): Il3SimpleNode;
-     {* зачем-то используется визуалкой в CharToItem. }
+    {* зачем-то используется визуалкой в CharToItem. }
    function SearchNameOccur(const aFirstNode: Il3SimpleNode;
     aSrchStr: PAnsiChar;
     aIterMode: Integer): Il3SimpleNode;
-     {* зачем-то используется визуалкой в SearchOccurStr,  который сейчас никем не используется. }
+    {* зачем-то используется визуалкой в SearchOccurStr,  который сейчас никем не используется. }
    function MakeNodeVisible(const aNode: Il3SimpleNode): Integer;
-     {* зачем-то используется визуалкой в CharToItem, видимо для перемещения курсора на узел. }
+    {* зачем-то используется визуалкой в CharToItem, видимо для перемещения курсора на узел. }
    function GetPrev(const aNode: Il3SimpleNode): Il3SimpleNode;
-     {* предыдущий узел. Зачем-то используется в CharToItem. }
+    {* предыдущий узел. Зачем-то используется в CharToItem. }
    function SimpleIterateF(Action: Tl3SimpleNodeAction;
     IterMode: Integer = 0;
     const aSubRootNode: Il3SimpleNode = nil): Il3SimpleNode;
-     {* перебрать все узлы и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
+    {* перебрать все узлы и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
    function IsChanging: Boolean;
-     {* дерево находится в фазе обновления. }
+    {* дерево находится в фазе обновления. }
    procedure Changing;
    procedure Changed;
    function Get_ShowRoot: Boolean;
@@ -115,25 +102,19 @@ type
    function Get_SelectCount: Integer;
    function Get_Flags(anIndex: Integer): Integer;
    function Get_Select(anIndex: Integer): Boolean;
-   procedure Set_Select(anIndex: Integer; aValue: Boolean);
+   procedure Set_Select(anIndex: Integer;
+    aValue: Boolean);
    function Get_Nodes(anIndex: Integer): Il3SimpleNode;
    function MakeDataObject(const aNode: Il3SimpleNode;
     const aBitmap: IUnknown): IDataObject;
-     {* сделать объект данных дерева, используется при перемещении элементов дерева в другие компоненты }
+    {* сделать объект данных дерева, используется при перемещении элементов дерева в другие компоненты }
    function CanAcceptData(const aTargetNode: Il3SimpleNode;
     const aData: Tl3TreeData): Boolean;
    function DropData(const aTargetNode: Il3SimpleNode;
     const aData: Tl3TreeData): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- protected
- // protected methods
-   procedure RootChanged(const aOld: Il3SimpleRootNode;
-    const aNew: Il3SimpleRootNode);
- public
- // public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create(const aRoot: Il3SimpleRootNode); reintroduce;
    class function Make(const aRoot: Il3SimpleRootNode): Il3SimpleTree; reintroduce;
  end;//Tl3SimpleTree
@@ -141,16 +122,15 @@ type
 implementation
 
 uses
-  l3InterfacesMisc,
-  l3Bits,
-  l3Types,
-  l3Base,
-  SysUtils
-  ;
+ l3ImplUses
+ , l3InterfacesMisc
+ , l3Bits
+ , l3Types
+ , l3Base
+ , SysUtils
+;
 
-{$Include ..\L3\l3NotifierBase.imp.pas}
-
-// start class Tl3SimpleTree
+{$Include w:\common\components\rtl\Garant\L3\l3NotifierBase.imp.pas}
 
 constructor Tl3SimpleTree.Create(const aRoot: Il3SimpleRootNode);
 //#UC START# *48724FD5009D_48724DAD02E0_var*
@@ -172,10 +152,10 @@ begin
  finally
   l_Inst.Free;
  end;//try..finally
-end;
+end;//Tl3SimpleTree.Make
 
 procedure Tl3SimpleTree.RootChanged(const aOld: Il3SimpleRootNode;
-  const aNew: Il3SimpleRootNode);
+ const aNew: Il3SimpleRootNode);
 //#UC START# *487252020055_48724DAD02E0_var*
 var
  l_Index : Integer;
@@ -226,6 +206,7 @@ begin
 end;//Tl3SimpleTree.Set_RootNode
 
 procedure Tl3SimpleTree.CursorTop;
+ {* переставить курсор на первый видимый элемент. }
 //#UC START# *4772448C01D2_48724DAD02E0_var*
 //#UC END# *4772448C01D2_48724DAD02E0_var*
 begin
@@ -235,7 +216,8 @@ begin
 end;//Tl3SimpleTree.CursorTop
 
 function Tl3SimpleTree.GetIndex(const aNode: Il3SimpleNode;
-  const aSubRootNode: Il3SimpleNode = nil): Integer;
+ const aSubRootNode: Il3SimpleNode = nil): Integer;
+ {* возвращает видимый индекс aNode относительно aSubRootNode или корня. }
 //#UC START# *4772449B00A1_48724DAD02E0_var*
 var
  l_Root : Il3SimpleNode;
@@ -261,6 +243,7 @@ begin
 end;//Tl3SimpleTree.GetIndex
 
 function Tl3SimpleTree.GetLevel(const aNode: Il3SimpleNode): Integer;
+ {* возвращает уровень узла относительно корня. }
 //#UC START# *477244BA0074_48724DAD02E0_var*
 //#UC END# *477244BA0074_48724DAD02E0_var*
 begin
@@ -278,6 +261,7 @@ begin
 end;//Tl3SimpleTree.GetLevel
 
 procedure Tl3SimpleTree.SelectAllNodes(aMode: Tl3SetBitType);
+ {* выделяет/развыделяет все узлы. }
 //#UC START# *477244CE02AE_48724DAD02E0_var*
 //#UC END# *477244CE02AE_48724DAD02E0_var*
 begin
@@ -287,9 +271,10 @@ begin
 end;//Tl3SimpleTree.SelectAllNodes
 
 procedure Tl3SimpleTree.SelectInterval(aFirstIndex: Integer;
-  aLastIndex: Integer;
-  aMode: Tl3SetBitType;
-  aCleanOther: Boolean);
+ aLastIndex: Integer;
+ aMode: Tl3SetBitType;
+ aCleanOther: Boolean);
+ {* выделяет/развыделяет узлы на указанном интервале. }
 //#UC START# *477244DD0292_48724DAD02E0_var*
 //#UC END# *477244DD0292_48724DAD02E0_var*
 begin
@@ -299,8 +284,9 @@ begin
 end;//Tl3SimpleTree.SelectInterval
 
 function Tl3SimpleTree.ChangeExpand(const aNode: Il3SimpleNode;
-  aMode: Tl3SetBitType;
-  aForceMode: Boolean = false): Boolean;
+ aMode: Tl3SetBitType;
+ aForceMode: Boolean = False): Boolean;
+ {* меняет развернутость узла. }
 //#UC START# *47724512002D_48724DAD02E0_var*
 //#UC END# *47724512002D_48724DAD02E0_var*
 begin
@@ -311,8 +297,9 @@ begin
 end;//Tl3SimpleTree.ChangeExpand
 
 procedure Tl3SimpleTree.ExpandSubDir(const aNode: Il3SimpleNode = nil;
-  anExpand: Boolean = true;
-  aDeepLevel: Byte = 0);
+ anExpand: Boolean = True;
+ aDeepLevel: Byte = 0);
+ {* развернуть/свернуть узлы. }
 //#UC START# *4772452E002D_48724DAD02E0_var*
 //#UC END# *4772452E002D_48724DAD02E0_var*
 begin
@@ -322,9 +309,10 @@ begin
 end;//Tl3SimpleTree.ExpandSubDir
 
 procedure Tl3SimpleTree.SetBranchFlag(const aParentNode: Il3SimpleNode;
-  aMode: Tl3SetBitType;
-  aFlagsMask: Integer;
-  anIterMode: Integer);
+ aMode: Tl3SetBitType;
+ aFlagsMask: Integer;
+ anIterMode: Integer);
+ {* зачем-то используется визуалкой в ExpandNode. }
 //#UC START# *477245520298_48724DAD02E0_var*
 //#UC END# *477245520298_48724DAD02E0_var*
 begin
@@ -334,6 +322,7 @@ begin
 end;//Tl3SimpleTree.SetBranchFlag
 
 function Tl3SimpleTree.CountViewItemsInSubDir(const aNode: Il3SimpleNode): Integer;
+ {* зачем-то используется визуалкой в ShowMoreChildrenOnScreen. }
 //#UC START# *4772457D032A_48724DAD02E0_var*
 //#UC END# *4772457D032A_48724DAD02E0_var*
 begin
@@ -344,6 +333,7 @@ begin
 end;//Tl3SimpleTree.CountViewItemsInSubDir
 
 function Tl3SimpleTree.IsRoot(const aNode: Il3SimpleNode): Boolean;
+ {* является ли узел корневым для дерева. }
 //#UC START# *477245A20228_48724DAD02E0_var*
 //#UC END# *477245A20228_48724DAD02E0_var*
 begin
@@ -353,6 +343,7 @@ begin
 end;//Tl3SimpleTree.IsRoot
 
 function Tl3SimpleTree.IsExpanded(const aNode: Il3SimpleNode): Boolean;
+ {* раскрыт ли узел. }
 //#UC START# *477245B301DE_48724DAD02E0_var*
 //#UC END# *477245B301DE_48724DAD02E0_var*
 begin
@@ -362,6 +353,7 @@ begin
 end;//Tl3SimpleTree.IsExpanded
 
 function Tl3SimpleTree.IsFirstVis(const aNode: Il3SimpleNode): Boolean;
+ {* является ли узел первым видимым в ветке. }
 //#UC START# *477245C40171_48724DAD02E0_var*
 //#UC END# *477245C40171_48724DAD02E0_var*
 begin
@@ -374,6 +366,7 @@ begin
 end;//Tl3SimpleTree.IsFirstVis
 
 function Tl3SimpleTree.IsLastVis(const aNode: Il3SimpleNode): Boolean;
+ {* является ли узел последним видимым в ветке. }
 //#UC START# *477245D9031B_48724DAD02E0_var*
 //#UC END# *477245D9031B_48724DAD02E0_var*
 begin
@@ -386,6 +379,7 @@ begin
 end;//Tl3SimpleTree.IsLastVis
 
 function Tl3SimpleTree.HasVisibleChildren(const aNode: Il3SimpleNode): Boolean;
+ {* есть ли видимые дети у aNode. }
 //#UC START# *477245F301AE_48724DAD02E0_var*
 //#UC END# *477245F301AE_48724DAD02E0_var*
 begin
@@ -398,6 +392,7 @@ begin
 end;//Tl3SimpleTree.HasVisibleChildren
 
 function Tl3SimpleTree.GetLines(const aNode: Il3SimpleNode): Integer;
+ {* маска для рисования линий (надо смотреть реализацию). }
 //#UC START# *477246040221_48724DAD02E0_var*
 var
  lCNode  : Il3SimpleNode;
@@ -429,6 +424,7 @@ begin
 end;//Tl3SimpleTree.GetLines
 
 function Tl3SimpleTree.Wake: Boolean;
+ {* проснись!!! Типа начали рисовать. }
 //#UC START# *4772461601C6_48724DAD02E0_var*
 //#UC END# *4772461601C6_48724DAD02E0_var*
 begin
@@ -438,7 +434,8 @@ begin
 end;//Tl3SimpleTree.Wake
 
 function Tl3SimpleTree.MoveNode(const aNode: Il3SimpleNode;
-  aDirection: Tl3Direction): Boolean;
+ aDirection: Tl3Direction): Boolean;
+ {* переместить узел. }
 //#UC START# *477246270133_48724DAD02E0_var*
 //#UC END# *477246270133_48724DAD02E0_var*
 begin
@@ -448,8 +445,9 @@ begin
 end;//Tl3SimpleTree.MoveNode
 
 function Tl3SimpleTree.SearchNameBegin(const aFirstNode: Il3SimpleNode;
-  aSrchStr: PAnsiChar;
-  aIterMode: Integer): Il3SimpleNode;
+ aSrchStr: PAnsiChar;
+ aIterMode: Integer): Il3SimpleNode;
+ {* зачем-то используется визуалкой в CharToItem. }
 //#UC START# *477246440037_48724DAD02E0_var*
 //#UC END# *477246440037_48724DAD02E0_var*
 begin
@@ -459,8 +457,9 @@ begin
 end;//Tl3SimpleTree.SearchNameBegin
 
 function Tl3SimpleTree.SearchNameOccur(const aFirstNode: Il3SimpleNode;
-  aSrchStr: PAnsiChar;
-  aIterMode: Integer): Il3SimpleNode;
+ aSrchStr: PAnsiChar;
+ aIterMode: Integer): Il3SimpleNode;
+ {* зачем-то используется визуалкой в SearchOccurStr,  который сейчас никем не используется. }
 //#UC START# *4772465F0276_48724DAD02E0_var*
 //#UC END# *4772465F0276_48724DAD02E0_var*
 begin
@@ -470,6 +469,7 @@ begin
 end;//Tl3SimpleTree.SearchNameOccur
 
 function Tl3SimpleTree.MakeNodeVisible(const aNode: Il3SimpleNode): Integer;
+ {* зачем-то используется визуалкой в CharToItem, видимо для перемещения курсора на узел. }
 //#UC START# *477246860169_48724DAD02E0_var*
 //#UC END# *477246860169_48724DAD02E0_var*
 begin
@@ -479,6 +479,7 @@ begin
 end;//Tl3SimpleTree.MakeNodeVisible
 
 function Tl3SimpleTree.GetPrev(const aNode: Il3SimpleNode): Il3SimpleNode;
+ {* предыдущий узел. Зачем-то используется в CharToItem. }
 //#UC START# *477246A40174_48724DAD02E0_var*
 //#UC END# *477246A40174_48724DAD02E0_var*
 begin
@@ -488,8 +489,9 @@ begin
 end;//Tl3SimpleTree.GetPrev
 
 function Tl3SimpleTree.SimpleIterateF(Action: Tl3SimpleNodeAction;
-  IterMode: Integer = 0;
-  const aSubRootNode: Il3SimpleNode = nil): Il3SimpleNode;
+ IterMode: Integer = 0;
+ const aSubRootNode: Il3SimpleNode = nil): Il3SimpleNode;
+ {* перебрать все узлы и освободить заглушку для Action. IterMode: imCheckResult, imParentNeed }
 //#UC START# *477246C70141_48724DAD02E0_var*
 var
  l_RootNode : Il3SimpleNode;
@@ -517,6 +519,7 @@ begin
 end;//Tl3SimpleTree.SimpleIterateF
 
 function Tl3SimpleTree.IsChanging: Boolean;
+ {* дерево находится в фазе обновления. }
 //#UC START# *477246E802B1_48724DAD02E0_var*
 //#UC END# *477246E802B1_48724DAD02E0_var*
 begin
@@ -653,7 +656,8 @@ begin
 //#UC END# *477249AB0057_48724DAD02E0get_impl*
 end;//Tl3SimpleTree.Get_Select
 
-procedure Tl3SimpleTree.Set_Select(anIndex: Integer; aValue: Boolean);
+procedure Tl3SimpleTree.Set_Select(anIndex: Integer;
+ aValue: Boolean);
 //#UC START# *477249AB0057_48724DAD02E0set_var*
 //#UC END# *477249AB0057_48724DAD02E0set_var*
 begin
@@ -687,7 +691,8 @@ begin
 end;//Tl3SimpleTree.Get_Nodes
 
 function Tl3SimpleTree.MakeDataObject(const aNode: Il3SimpleNode;
-  const aBitmap: IUnknown): IDataObject;
+ const aBitmap: IUnknown): IDataObject;
+ {* сделать объект данных дерева, используется при перемещении элементов дерева в другие компоненты }
 //#UC START# *47A86EA80292_48724DAD02E0_var*
 //#UC END# *47A86EA80292_48724DAD02E0_var*
 begin
@@ -697,7 +702,7 @@ begin
 end;//Tl3SimpleTree.MakeDataObject
 
 function Tl3SimpleTree.CanAcceptData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData): Boolean;
+ const aData: Tl3TreeData): Boolean;
 //#UC START# *47BAD3080349_48724DAD02E0_var*
 //#UC END# *47BAD3080349_48724DAD02E0_var*
 begin
@@ -707,7 +712,7 @@ begin
 end;//Tl3SimpleTree.CanAcceptData
 
 function Tl3SimpleTree.DropData(const aTargetNode: Il3SimpleNode;
-  const aData: Tl3TreeData): Boolean;
+ const aData: Tl3TreeData): Boolean;
 //#UC START# *47BAD32501E2_48724DAD02E0_var*
 //#UC END# *47BAD32501E2_48724DAD02E0_var*
 begin
@@ -717,6 +722,7 @@ begin
 end;//Tl3SimpleTree.DropData
 
 procedure Tl3SimpleTree.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_48724DAD02E0_var*
 //#UC END# *479731C50290_48724DAD02E0_var*
 begin

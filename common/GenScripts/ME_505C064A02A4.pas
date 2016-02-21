@@ -3,7 +3,7 @@ unit NOT_FINISHED_ddAutoLinkFilter;
 // Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_ddAutoLinkFilter.pas"
 // Стереотип: "UtilityPack"
 
-{$Include DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit sdsDrugList;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Drug\sdsDrugList.pas"
 // Стереотип: "UseCaseControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

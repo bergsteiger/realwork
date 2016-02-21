@@ -6,10 +6,10 @@
 {$Define atNamedParametersList_imp}
 
 type
+ CNamedParameter = class of _NamedParameter_;
+
  EParameterNotExists = class(Exception)
  end;//EParameterNotExists
-
- CNamedParameter = class of _NamedParameter_;
 
  _atNamedParametersList_ = class(_atNamedParametersList_Parent_)
   private

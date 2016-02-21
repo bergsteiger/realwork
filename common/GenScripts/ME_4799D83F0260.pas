@@ -3,17 +3,15 @@ unit l3Printer;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Printer.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
  l3IntfUses
- , l3PrinterInterfaces
- , Classes
  , Printers
- , Windows
  , l3Interfaces
+ , l3PrinterInterfaces
  , l3Units
  , l3PureMixIns
 ;
@@ -70,6 +68,8 @@ implementation
 
 uses
  l3ImplUses
+ , Classes
+ , Windows
  , l3PrinterIC
  , l3InternalInterfaces
  , l3Defaults

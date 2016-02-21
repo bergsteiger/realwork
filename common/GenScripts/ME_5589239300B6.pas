@@ -3,7 +3,7 @@ unit l3ExceptionHandler;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ExceptionHandler.pas"
 // Стереотип: "Service"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

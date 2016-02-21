@@ -4,7 +4,7 @@ unit dtDictItems;
 // Модуль: "w:\common\components\rtl\Garant\DT\dtDictItems.pas"
 // Стереотип: "SimpleClass"
 
-{$Include DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 

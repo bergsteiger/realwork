@@ -14,7 +14,6 @@ uses
  , SyncObjs
  , BaseTypesUnit
  , NotifyUnit
- , SysUtils
 ;
 
 type
@@ -106,6 +105,7 @@ implementation
 
 uses
  l3ImplUses
+ , SysUtils
  , atLogger
  , atGblAdapterWorker
  , DynamicTreeUnit

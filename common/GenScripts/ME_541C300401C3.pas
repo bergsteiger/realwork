@@ -3,7 +3,7 @@ unit l3Int64List;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3Int64List.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit l3ScreenService;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ScreenService.pas"
 // Стереотип: "Service"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

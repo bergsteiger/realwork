@@ -3,7 +3,7 @@ unit l3ListenersHooks;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3ListenersHooks.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
@@ -14,19 +14,19 @@ uses
 
 function CBTHookFunc(Code: Integer;
  WParam: WPARAM;
- LParam: LPARAM): LongInt;
+ LParam: LPARAM): LongInt; stdcall;
 function CallWndProcHookFunc(Code: Integer;
  WParam: WPARAM;
- Msg: PCWPStruct): LongInt;
+ Msg: PCWPStruct): LongInt; stdcall;
 function GetMessageHookFunc(Code: Integer;
  WParam: WPARAM;
- Msg: PMsg): LongInt;
+ Msg: PMsg): LongInt; stdcall;
 function CallWndProcRetHookFunc(Code: Integer;
  WParam: WPARAM;
- Msg: PCWPRetStruct): LongInt;
+ Msg: PCWPRetStruct): LongInt; stdcall;
 function MouseHookFunc(Code: Integer;
  WParam: WPARAM;
- HookStruct: PMouseHookStruct): LongInt;
+ HookStruct: PMouseHookStruct): LongInt; stdcall;
 
 implementation
 

@@ -3,7 +3,7 @@ unit QueryListPrim;
 // Модуль: "w:\common\components\rtl\Garant\DT\QueryListPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 

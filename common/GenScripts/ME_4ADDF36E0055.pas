@@ -3,7 +3,7 @@ unit NOT_FINISHED_l3VirtualNode;
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3VirtualNode.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
@@ -15,6 +15,8 @@ uses
 ;
 
 type
+ Rl3CustomVirtualNode = class of Tl3CustomVirtualNode;
+
  Tl3CustomVirtualNode = class(Tl3CustomNode)
   protected
    procedure Set_ChildNode(const aValue: Il3Node); virtual;
@@ -44,21 +46,19 @@ type
    procedure Remove; override;
    function IterateChild(Action: Tl3NodeAction;
     IterMode: Integer;
-    const aFromNode: Il3Node = nil): Il3Node; override;
-   function DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer; override;
+    const aFromNode: Il3Node): Il3Node; override;
+   function DoGetNumInParent(aOnlyOneLevel: Boolean): Integer; override;
    procedure DoReleaseChilds; override;
    procedure DoIncAllChildrenCount(aInc: Integer); override;
    function DoGetChildByNumber(aNum: Integer): Il3Node; override;
    function DoIterate(Action: Tl3NodeAction;
-    IterMode: Integer = 0;
-    const aFromNode: Il3Node = nil): Il3Node; override;
+    IterMode: Integer;
+    const aFromNode: Il3Node): Il3Node; override;
    function DoInsertChildBefore(const aNextChild: Il3Node;
     const aChild: Il3Node): Il3Node; override;
   public
    procedure ReleaseChildsPrim; override;
  end;//Tl3CustomVirtualNode
-
- Rl3CustomVirtualNode = class of Tl3CustomVirtualNode;
 
  Tl3VirtualFlagsNode = class(Tl3CustomVirtualNode)
   protected
@@ -257,7 +257,7 @@ end;//Tl3CustomVirtualNode.Remove
 
 function Tl3CustomVirtualNode.IterateChild(Action: Tl3NodeAction;
  IterMode: Integer;
- const aFromNode: Il3Node = nil): Il3Node;
+ const aFromNode: Il3Node): Il3Node;
 //#UC START# *54C8DFF102DD_4ADDF3930121_var*
 //#UC END# *54C8DFF102DD_4ADDF3930121_var*
 begin
@@ -266,7 +266,7 @@ begin
 //#UC END# *54C8DFF102DD_4ADDF3930121_impl*
 end;//Tl3CustomVirtualNode.IterateChild
 
-function Tl3CustomVirtualNode.DoGetNumInParent(aOnlyOneLevel: Boolean = False): Integer;
+function Tl3CustomVirtualNode.DoGetNumInParent(aOnlyOneLevel: Boolean): Integer;
 //#UC START# *54C8E1F30128_4ADDF3930121_var*
 //#UC END# *54C8E1F30128_4ADDF3930121_var*
 begin
@@ -312,8 +312,8 @@ begin
 end;//Tl3CustomVirtualNode.DoGetChildByNumber
 
 function Tl3CustomVirtualNode.DoIterate(Action: Tl3NodeAction;
- IterMode: Integer = 0;
- const aFromNode: Il3Node = nil): Il3Node;
+ IterMode: Integer;
+ const aFromNode: Il3Node): Il3Node;
 //#UC START# *54C8E5AF00F8_4ADDF3930121_var*
 //#UC END# *54C8E5AF00F8_4ADDF3930121_var*
 begin

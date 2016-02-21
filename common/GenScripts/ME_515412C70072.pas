@@ -3,7 +3,7 @@ unit NOT_FINISHED_l3DatLst;
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3DatLst.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

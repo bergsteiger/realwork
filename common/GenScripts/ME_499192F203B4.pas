@@ -4,7 +4,7 @@ unit L10nInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\L10nInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

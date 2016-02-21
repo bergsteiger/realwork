@@ -3,7 +3,7 @@ unit ddAutoLinkServices;
 // Модуль: "w:\common\components\rtl\Garant\DT\ddAutoLinkServices.pas"
 // Стереотип: "UtilityPack"
 
-{$Include DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 

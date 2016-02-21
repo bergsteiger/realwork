@@ -4,7 +4,7 @@ unit AdminDomainInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Model\AdminDomainInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
