@@ -3,7 +3,7 @@ unit evdCustomNativeWriterServices;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdCustomNativeWriterServices.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit vcmEntitiesDefIteratorForContextMenu;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmEntitiesDefIteratorForContextMenu.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

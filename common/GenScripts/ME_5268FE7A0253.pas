@@ -3,7 +3,7 @@ unit ddParaList;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddParaList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -38,7 +38,7 @@ type
    procedure CloseLevel;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
    constructor Create(aDetination: TddCustomDestination); override;
    function GetLastPara: TddDocumentAtom; override;
   public
@@ -106,7 +106,7 @@ end;//TddParaList.CloseLevel
 
 procedure TddParaList.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_5268FE7A0253_var*
 var
   l_A: TddDocumentAtom;

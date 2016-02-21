@@ -3,7 +3,7 @@ unit afwPreviewPageList;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

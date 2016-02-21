@@ -3,7 +3,7 @@ unit ddNSRCSubList;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddNSRCSubList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

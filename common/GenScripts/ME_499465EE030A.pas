@@ -4,7 +4,7 @@ unit vcmToolbarsInterfaces;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmToolbarsInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

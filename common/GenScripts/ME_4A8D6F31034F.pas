@@ -4,7 +4,7 @@ unit vcmCommandIDsListPrim;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmCommandIDsListPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

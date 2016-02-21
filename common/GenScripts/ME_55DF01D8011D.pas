@@ -3,7 +3,7 @@ unit ddDoc2DocLinkRecList;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddDoc2DocLinkRecList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

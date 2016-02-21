@@ -3,7 +3,7 @@ unit ddTypes;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -168,6 +168,12 @@ type
   , dd_wuPercentage
   , dd_wuTwips
  );//TddRTFWidthUnits
+
+ TddLiteVersion = (
+  dd_lvNone
+  , dd_lvStyleOnly
+  , dd_lvTextAlign
+ );//TddLiteVersion
 
 implementation
 

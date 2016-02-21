@@ -3,7 +3,7 @@ unit evdDTTypes;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdDTTypes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

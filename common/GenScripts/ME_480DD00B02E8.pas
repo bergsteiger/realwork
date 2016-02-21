@@ -4,7 +4,7 @@ unit afwSingleCaret;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwSingleCaret.pas"
 // Стереотип: "SimpleClass"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit Address_Const;
 // Модуль: "w:\common\components\rtl\Garant\EVD\Address_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

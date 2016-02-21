@@ -3,7 +3,7 @@ unit vcmHistoryRes;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmHistoryRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

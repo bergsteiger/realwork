@@ -4,7 +4,7 @@ unit afwTypedIntegerValueMap;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwTypedIntegerValueMap.pas"
 // Стереотип: "UtilityPack"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

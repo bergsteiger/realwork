@@ -3,7 +3,7 @@ unit vcmUserTypesIterator;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmUserTypesIterator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

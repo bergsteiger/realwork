@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmDefaultOperations;
 // Модуль: "w:\common\components\gui\Garant\VCM\NOT_FINISHED_vcmDefaultOperations.pas"
 // Стереотип: "Interfaces"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

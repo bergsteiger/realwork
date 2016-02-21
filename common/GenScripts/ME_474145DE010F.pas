@@ -4,7 +4,7 @@ unit afwPreviewCanvas;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewCanvas.pas"
 // Стереотип: "SimpleClass"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
@@ -18,7 +18,6 @@ uses
  , l3Interfaces
  , l3Units
  , l3BaseWithLargeIDList
- , l3BaseWithID
 ;
 
 type
@@ -98,6 +97,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3BaseWithID
  , SysUtils
  , afwFacade
  , afwPreviewPage

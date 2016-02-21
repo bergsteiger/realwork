@@ -3,7 +3,7 @@ unit vcmToolbarUtils;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmToolbarUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

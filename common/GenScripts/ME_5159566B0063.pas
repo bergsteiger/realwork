@@ -3,7 +3,7 @@ unit NOT_FINISHED_OvcData;
 // Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcData.pas"
 // Стереотип: "UtilityPack"
 
-{$Include OVC.INC}
+{$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 
 interface
 

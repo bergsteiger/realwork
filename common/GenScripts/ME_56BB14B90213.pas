@@ -4,7 +4,7 @@ unit ddRTFReaderSpec;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFReaderSpec.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

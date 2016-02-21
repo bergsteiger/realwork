@@ -4,7 +4,7 @@ unit afwApplication;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwApplication.pas"
 // Стереотип: "UtilityPack"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
@@ -21,6 +21,9 @@ const
  afw_dlDefault = 'ru_RU.CP1251';
 
 type
+ TafwApplicationClass = class of TafwApplication;
+  {* Ссылка на TafwApplication. }
+
  TafwApplication = class(Tl3CacheableBase, IafwSettingsSource, IafwApplication)
   {* "Стандартная" реализация приложения AFW. }
   private
@@ -76,9 +79,6 @@ type
     anImageIndex: Integer = -1): IafwLongProcessVisualizer;
    {$IfEnd} // NOT Defined(NoVCL)
  end;//TafwApplication
-
- TafwApplicationClass = class of TafwApplication;
-  {* Ссылка на TafwApplication. }
 
  TafwImplementation = class(Tafw)
   {* Метакласс, реализующий "стандартным" образом точку входа в интерфейсы библиотеки AFW. }

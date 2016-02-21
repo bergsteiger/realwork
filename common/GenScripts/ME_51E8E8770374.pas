@@ -3,7 +3,7 @@ unit destFootnote;
 // Модуль: "w:\common\components\rtl\Garant\dd\destFootnote.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -57,6 +57,7 @@ uses
  , evdStyles
  , l3String
  , ddTextParagraph
+ , ddTypes
 ;
 
 procedure TdestFootnote.Try2AddFootNote(anInClose: Boolean);

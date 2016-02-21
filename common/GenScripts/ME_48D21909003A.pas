@@ -3,7 +3,7 @@ unit NOT_FINISHED_OvcConst;
 // Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcConst.pas"
 // Стереотип: "Interfaces"
 
-{$Include OVC.INC}
+{$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 
 interface
 

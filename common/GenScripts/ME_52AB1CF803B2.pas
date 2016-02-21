@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmMenuItemsCollectionItem;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmMenuItemsCollectionItem.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

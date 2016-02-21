@@ -3,7 +3,7 @@ unit NOT_FINISHED_SynZip;
 // Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynZip.pas"
 // Стереотип: "UtilityPack"
 
-{$Include Synopse.inc}
+{$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
 interface
 

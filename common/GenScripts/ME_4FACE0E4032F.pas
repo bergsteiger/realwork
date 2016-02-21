@@ -3,7 +3,7 @@ unit ddDocumentAtom;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddDocumentAtom.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -12,6 +12,7 @@ uses
  , l3ProtoDataContainer
  , ddCustomDestination
  , k2Interfaces
+ , ddTypes
  , l3ProtoObject
 ;
 
@@ -38,7 +39,7 @@ type
    procedure Clear; virtual;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); virtual; abstract;
+    LiteVersion: TddLiteVersion); virtual; abstract;
    function JoinWith(P: TObject;
     aCorrectSegment: Boolean = False): Integer; virtual;
    function HasSoftEnter: Boolean; virtual;
@@ -66,7 +67,6 @@ implementation
 
 uses
  l3ImplUses
- , ddTypes
 ;
 
 {$Include w:\common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas}

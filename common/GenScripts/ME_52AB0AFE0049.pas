@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmMessages;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmMessages.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

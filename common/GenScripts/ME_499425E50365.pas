@@ -4,7 +4,7 @@ unit vcmProfilerInterfaces;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmProfilerInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

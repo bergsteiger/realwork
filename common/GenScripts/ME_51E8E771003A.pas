@@ -3,7 +3,7 @@ unit destPicture;
 // Модуль: "w:\common\components\rtl\Garant\dd\destPicture.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

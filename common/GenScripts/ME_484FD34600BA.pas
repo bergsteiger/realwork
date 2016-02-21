@@ -3,7 +3,7 @@ unit evPara_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evPara_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
@@ -15,12 +15,12 @@ uses
 ;
 
 type
+ RevdParaModifier = class of TevdParaModifier;
+
  TevdParaModifier = class
   public
    class function MarkModified(aTag: Tl3Variant): Boolean; virtual;
  end;//TevdParaModifier
-
- RevdParaModifier = class of TevdParaModifier;
 
  WevPara = class(Wk2Tag)
   public

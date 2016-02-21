@@ -3,7 +3,7 @@ unit NOT_FINISHED_vg_controls;
 // Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vg_controls.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 

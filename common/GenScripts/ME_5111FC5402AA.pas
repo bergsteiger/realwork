@@ -3,7 +3,7 @@ unit ddTextSegment;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTextSegment.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -16,6 +16,7 @@ uses
  , ddHyperlinkTarget
  , ddHyperlinkTargetList
  , k2Interfaces
+ , ddTypes
  , l3ProtoObject
 ;
 
@@ -52,7 +53,7 @@ type
    procedure DoWriteSegmentProps(const Generator: Ik2TagGenerator;
     aCHP: TddCharacterProperty;
     aParentCHP: TddCharacterProperty;
-    LiteVersion: Boolean); virtual;
+    aLiteVersion: TddLiteVersion); virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -63,10 +64,10 @@ type
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aCHP: TddCharacterProperty;
     aParentCHP: TddCharacterProperty;
-    LiteVersion: Boolean); virtual; abstract;
+    aLiteVersion: TddLiteVersion); virtual; abstract;
    function Clone: TddTextSegment; virtual; abstract;
    function SkipSegment(aDiffCHP: TddCharacterProperty;
-    LiteVersion: Boolean): Boolean; virtual; abstract;
+    aLiteVersion: TddLiteVersion): Boolean; virtual; abstract;
    function IsHyperlink: Boolean; virtual;
    function IsObjectSegment: Boolean; virtual;
    procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
@@ -108,7 +109,6 @@ implementation
 
 uses
  l3ImplUses
- , ddTypes
  , ddEVDTypesSupport
  , k2Tags
 ;
@@ -192,7 +192,7 @@ end;//TddTextSegment.Create
 procedure TddTextSegment.DoWriteSegmentProps(const Generator: Ik2TagGenerator;
  aCHP: TddCharacterProperty;
  aParentCHP: TddCharacterProperty;
- LiteVersion: Boolean);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54D9B0300325_5111FC5402AA_var*
 //#UC END# *54D9B0300325_5111FC5402AA_var*
 begin

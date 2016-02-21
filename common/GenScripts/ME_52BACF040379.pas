@@ -3,7 +3,7 @@ unit ddBaseObject;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddBaseObject.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -11,6 +11,7 @@ uses
  l3IntfUses
  , l3ProtoObject
  , k2Interfaces
+ , ddTypes
 ;
 
 type
@@ -19,7 +20,7 @@ type
    procedure Assign(anObject: TddBaseObject); virtual;
    constructor Create; reintroduce; virtual;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-    aLiteVersion: Boolean); virtual; abstract;
+    aLiteVersion: TddLiteVersion); virtual; abstract;
  end;//TddBaseObject
 
 implementation

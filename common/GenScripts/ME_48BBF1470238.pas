@@ -3,7 +3,7 @@ unit afwTextControl;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControl.pas"
 // Стереотип: "GuiControl"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
@@ -11,9 +11,6 @@ uses
  l3IntfUses
  , afwTextControlPrim
  , afwInterfaces
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 type
@@ -40,6 +37,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , l3String
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

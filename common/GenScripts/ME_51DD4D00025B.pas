@@ -3,7 +3,7 @@ unit destListOverrideTable;
 // Модуль: "w:\common\components\rtl\Garant\dd\destListOverrideTable.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

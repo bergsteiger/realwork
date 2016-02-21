@@ -3,7 +3,7 @@ unit l3StringMapPrim;
 // Модуль: "w:\common\components\gui\Garant\VCM\Implementation\l3StringMapPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

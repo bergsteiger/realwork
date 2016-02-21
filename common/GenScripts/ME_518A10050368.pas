@@ -3,7 +3,7 @@ unit ddRowProperty;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRowProperty.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

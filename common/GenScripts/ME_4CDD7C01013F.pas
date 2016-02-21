@@ -4,7 +4,7 @@ unit evdTextToFirstParaAdder;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTextToFirstParaAdder.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

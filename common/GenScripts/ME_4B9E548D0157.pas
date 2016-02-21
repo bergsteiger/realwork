@@ -3,7 +3,7 @@ unit ddHTMLWriterRes;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddHTMLWriterRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

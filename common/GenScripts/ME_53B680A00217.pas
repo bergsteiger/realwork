@@ -3,7 +3,7 @@ unit LineRequest_Const;
 // Модуль: "w:\common\components\rtl\Garant\EVD\LineRequest_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

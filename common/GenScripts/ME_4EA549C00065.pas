@@ -3,7 +3,7 @@ unit NOT_FINISHED_dd_lcSourceConverter;
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcSourceConverter.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

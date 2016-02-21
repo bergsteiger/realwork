@@ -3,7 +3,7 @@ unit NOT_FINISHED_ddFileIterator;
 // Модуль: "w:\common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddFileIterator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

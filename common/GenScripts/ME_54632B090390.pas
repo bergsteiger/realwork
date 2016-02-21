@@ -4,7 +4,7 @@ unit GarantPDFDocument;
 // Модуль: "w:\common\components\rtl\external\SynPDF\GarantPDFDocument.pas"
 // Стереотип: "SimpleClass"
 
-{$Include Synopse.inc}
+{$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
 interface
 

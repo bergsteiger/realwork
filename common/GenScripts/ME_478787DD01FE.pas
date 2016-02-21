@@ -4,7 +4,7 @@ unit afwStatus;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\afwStatus.pas"
 // Стереотип: "SimpleClass"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

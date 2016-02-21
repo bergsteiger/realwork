@@ -3,7 +3,7 @@ unit ddFormulaSegment;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddFormulaSegment.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

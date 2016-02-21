@@ -3,7 +3,7 @@ unit exprTokensList;
 // Модуль: "w:\common\components\rtl\external\Expr\exprTokensList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\external\Expr\l3Define.inc}
 
 interface
 

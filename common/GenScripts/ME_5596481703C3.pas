@@ -4,7 +4,7 @@ unit ddRTFShape;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFShape.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -17,6 +17,7 @@ uses
  , ddPicture
  , ddTextParagraph
  , k2Interfaces
+ , ddTypes
  , ddCustomDestination
 ;
 
@@ -50,7 +51,7 @@ type
    function LastPara: TddTextParagraph;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
    procedure Clear; override;
    constructor Create(aDetination: TddCustomDestination); override;
   public
@@ -249,7 +250,7 @@ end;//TddRTFShape.LastPara
 
 procedure TddRTFShape.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_5596481703C3_var*
 var
  i: Integer;

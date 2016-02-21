@@ -4,7 +4,7 @@ unit NOT_FINISHED_evNSRCConst;
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_evNSRCConst.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

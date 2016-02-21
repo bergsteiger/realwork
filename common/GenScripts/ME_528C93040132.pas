@@ -3,7 +3,7 @@ unit vcmBaseTypes;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmBaseTypes.pas"
 // Стереотип: "InternalInterfaces"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit destWrite2Parent;
 // Модуль: "w:\common\components\rtl\Garant\dd\destWrite2Parent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

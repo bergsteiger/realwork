@@ -3,7 +3,7 @@ unit ddRTFUnits;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFUnits.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

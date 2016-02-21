@@ -3,7 +3,7 @@ unit evdProcessTask_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdProcessTask_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

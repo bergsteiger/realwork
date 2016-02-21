@@ -3,7 +3,7 @@ unit dd_lcHiddenTextExtractor;
 // Модуль: "w:\common\components\rtl\Garant\dd\dd_lcHiddenTextExtractor.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -28,7 +28,7 @@ type
    function NeedWritePara(aLeaf: Tl3Variant): Boolean; override;
     {* Определяет нужно ли фильтровать переданный абзац }
   public
-   constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
+   constructor Create(anOwner: Tk2TagGeneratorOwner); override;
   public
    property ClearFont: Boolean
     read f_ClearFont
@@ -166,7 +166,7 @@ begin
 //#UC END# *49E48829016F_538C1D82017A_impl*
 end;//Tdd_lcHiddenTextExtractor.NeedWritePara
 
-constructor Tdd_lcHiddenTextExtractor.Create(anOwner: Tk2TagGeneratorOwner = nil);
+constructor Tdd_lcHiddenTextExtractor.Create(anOwner: Tk2TagGeneratorOwner);
 //#UC START# *538C1F9A00C7_538C1D82017A_var*
 //#UC END# *538C1F9A00C7_538C1D82017A_var*
 begin

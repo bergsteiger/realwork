@@ -3,7 +3,7 @@ unit NOT_FINISHED_TB97Tlbr;
 // Модуль: "w:\common\components\rtl\external\tb97\NOT_FINISHED_TB97Tlbr.pas"
 // Стереотип: "UtilityPack"
 
-{$Include TB97VER.INC}
+{$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 
 interface
 

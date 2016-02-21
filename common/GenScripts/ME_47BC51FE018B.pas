@@ -3,7 +3,7 @@ unit NOT_FINISHED_dt_Types;
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dt_Types.pas"
 // Стереотип: "Interfaces"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

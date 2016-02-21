@@ -3,7 +3,7 @@ unit destStyleSheet;
 // Модуль: "w:\common\components\rtl\Garant\dd\destStyleSheet.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

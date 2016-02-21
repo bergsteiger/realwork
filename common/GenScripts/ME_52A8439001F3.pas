@@ -3,7 +3,7 @@ unit TB97ExtInterfaces;
 // Модуль: "w:\common\components\rtl\external\tb97\TB97ExtInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include TB97VER.INC}
+{$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 
 interface
 

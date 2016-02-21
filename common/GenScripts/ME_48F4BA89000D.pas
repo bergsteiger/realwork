@@ -3,7 +3,7 @@ unit NOT_FINISHED_ddRTFWriter;
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFWriter.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -23,13 +23,13 @@ type
     anIgnoreLeftIndent: Boolean): AnsiString; override;
    function CHP2RTF(aCHP: TddCharacterProperty;
     aParent: TddCharacterProperty;
-    const WithStyle: Boolean = True): AnsiString; override;
+    const WithStyle: Boolean): AnsiString; override;
    function DIffCHP2RTF(aCHP1: TddCharacterProperty;
     aCHP2: TddCharacterProperty): AnsiString; override;
    function PAP2RTF(aPAP: TddParagraphProperty;
     aBlockIndent: Integer;
     anIgnoreLeftIndent: Boolean;
-    WithStyle: Boolean = True): AnsiString; override;
+    WithStyle: Boolean): AnsiString; override;
  end;//TCustomRTFObjectGenerator
 
  TevRTFObjectGenerator = class(TCustomRTFObjectGenerator)
@@ -55,7 +55,7 @@ end;//TCustomRTFObjectGenerator.Style2RTF
 
 function TCustomRTFObjectGenerator.CHP2RTF(aCHP: TddCharacterProperty;
  aParent: TddCharacterProperty;
- const WithStyle: Boolean = True): AnsiString;
+ const WithStyle: Boolean): AnsiString;
 //#UC START# *52DCEC4C0176_52DCDACA038A_var*
 //#UC END# *52DCEC4C0176_52DCDACA038A_var*
 begin
@@ -77,7 +77,7 @@ end;//TCustomRTFObjectGenerator.DIffCHP2RTF
 function TCustomRTFObjectGenerator.PAP2RTF(aPAP: TddParagraphProperty;
  aBlockIndent: Integer;
  anIgnoreLeftIndent: Boolean;
- WithStyle: Boolean = True): AnsiString;
+ WithStyle: Boolean): AnsiString;
 //#UC START# *52DCF547032A_52DCDACA038A_var*
 //#UC END# *52DCF547032A_52DCDACA038A_var*
 begin

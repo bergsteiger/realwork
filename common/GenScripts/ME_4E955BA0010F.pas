@@ -3,7 +3,7 @@ unit ddAutolinkDocHistory;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkDocHistory.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

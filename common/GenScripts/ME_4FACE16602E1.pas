@@ -3,7 +3,7 @@ unit ddTablePrim;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTablePrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -100,9 +100,10 @@ type
    procedure AddPicture(aPicture: TddPicture;
     aPAP: TddParagraphProperty;
     anAssign2Last: Boolean);
+   function RowIndex(aRow: TddTableRow): Integer;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
    procedure Clear; override;
    constructor Create(aDetination: TddCustomDestination); override;
    function IsTable: Boolean; override;
@@ -1019,9 +1020,18 @@ begin
 //#UC END# *5616479402CF_4FACE16602E1_impl*
 end;//TddTablePrim.Try2AlignRowWidth
 
+function TddTablePrim.RowIndex(aRow: TddTableRow): Integer;
+//#UC START# *56C56E1C0271_4FACE16602E1_var*
+//#UC END# *56C56E1C0271_4FACE16602E1_var*
+begin
+//#UC START# *56C56E1C0271_4FACE16602E1_impl*
+ Result := f_RowList.IndexOf(aRow);
+//#UC END# *56C56E1C0271_4FACE16602E1_impl*
+end;//TddTablePrim.RowIndex
+
 procedure TddTablePrim.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE16602E1_var*
 var
  i         : Integer;

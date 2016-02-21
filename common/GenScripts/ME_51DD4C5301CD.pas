@@ -4,7 +4,7 @@ unit NOT_FINISHED_rtfListTable;
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_rtfListTable.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

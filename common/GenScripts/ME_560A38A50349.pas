@@ -3,7 +3,7 @@ unit ddExportFilerMap;
 // Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\ddExportFilerMap.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

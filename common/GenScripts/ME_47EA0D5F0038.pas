@@ -3,7 +3,7 @@ unit afwConsts;
 // Модуль: "w:\common\components\gui\Garant\AFW\afwConsts.pas"
 // Стереотип: "UtilityPack"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

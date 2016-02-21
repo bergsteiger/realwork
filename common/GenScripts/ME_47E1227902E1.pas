@@ -3,7 +3,7 @@ unit afwVCL;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwVCL.pas"
 // Стереотип: "UtilityPack"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
@@ -14,7 +14,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , afwFont
  , Graphics
- , Classes
 ;
 
 procedure afwHackControlFont(aControl: TControl;
@@ -31,6 +30,7 @@ implementation
 
 uses
  l3ImplUses
+ , Classes
  , SysUtils
  , Windows
  , Messages

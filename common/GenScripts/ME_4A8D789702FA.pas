@@ -4,7 +4,7 @@ unit vcmOVCCommands;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmOVCCommands.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

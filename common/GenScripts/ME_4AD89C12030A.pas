@@ -3,7 +3,7 @@ unit vcmMakeParams;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmMakeParams.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

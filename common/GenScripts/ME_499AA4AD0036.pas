@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmProfiler;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmProfiler.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

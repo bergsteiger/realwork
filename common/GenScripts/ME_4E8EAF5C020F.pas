@@ -4,7 +4,7 @@ unit ddAutolinkInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddAutolinkInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -26,7 +26,7 @@ type
   function Get_Num: Il3CString;
   procedure Set_Num(const aValue: Il3CString);
   function Get_Date: TStDate;
-  procedure Set_Date(aValue: TStDate);
+  procedure Set_Date(const aValue: TStDate);
   function Get_SourceCount: Integer;
   function Get_DocID: TddALDocRec;
   procedure Set_DocID(const aValue: TddALDocRec);

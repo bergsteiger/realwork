@@ -3,7 +3,7 @@ unit RegionImportTaskResult_Const;
 // Модуль: "w:\common\components\rtl\Garant\EVD\RegionImportTaskResult_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

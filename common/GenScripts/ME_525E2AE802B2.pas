@@ -3,7 +3,7 @@ unit ddBorderPart;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddBorderPart.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -12,6 +12,7 @@ uses
  , ddBaseObject
  , RTFtypes
  , k2Interfaces
+ , ddTypes
 ;
 
 type
@@ -31,7 +32,7 @@ type
   public
    procedure Clear;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-    aLiteVersion: Boolean); override;
+    aLiteVersion: TddLiteVersion); override;
    procedure Assign(anObject: TddBaseObject); override;
   public
    property Width: Integer
@@ -100,7 +101,7 @@ begin
 end;//TddBorderPart.Clear
 
 procedure TddBorderPart.Write2Generator(const Generator: Ik2TagGenerator;
- aLiteVersion: Boolean);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_525E2AE802B2_var*
 //#UC END# *54DC9795018B_525E2AE802B2_var*
 begin

@@ -3,7 +3,7 @@ unit vg_services;
 // Модуль: "w:\common\components\rtl\external\VGScene\vg_services.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit ddDocumentAtomList;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddDocumentAtomList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

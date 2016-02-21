@@ -3,7 +3,7 @@ unit destList;
 // Модуль: "w:\common\components\rtl\Garant\dd\destList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

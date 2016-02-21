@@ -3,7 +3,7 @@ unit ddTab;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTab.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -27,7 +27,7 @@ type
     {* Поле для свойства TabPos }
   public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-    aLiteVersion: Boolean); override;
+    aLiteVersion: TddLiteVersion); override;
    procedure Assign(anObject: TddBaseObject); override;
    constructor Create; override;
   public
@@ -54,7 +54,7 @@ uses
 ;
 
 procedure TddTab.Write2Generator(const Generator: Ik2TagGenerator;
- aLiteVersion: Boolean);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_51E8CE5402CC_var*
 //#UC END# *54DC9795018B_51E8CE5402CC_var*
 begin

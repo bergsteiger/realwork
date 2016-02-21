@@ -3,7 +3,7 @@ unit ddBreak;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddBreak.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -13,6 +13,7 @@ uses
  , RTFtypes
  , ddSectionProperty
  , k2Interfaces
+ , ddTypes
  , ddCustomDestination
 ;
 
@@ -30,7 +31,7 @@ type
    function HasDefaultParams: Boolean;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
    constructor Create(aDetination: TddCustomDestination); override;
    function IsBreak: Boolean; override;
   public
@@ -65,7 +66,7 @@ end;//TddBreak.HasDefaultParams
 
 procedure TddBreak.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_51E8EFD50162_var*
 //#UC END# *518A504F00F5_51E8EFD50162_var*
 begin

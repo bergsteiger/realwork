@@ -3,7 +3,7 @@ unit csTaskListening;
 // Модуль: "w:\common\components\rtl\Garant\EVD\csTaskListening.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

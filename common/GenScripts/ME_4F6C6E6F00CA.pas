@@ -3,7 +3,7 @@ unit afwSettingsPrimPrim;
 // Модуль: "w:\common\components\gui\Garant\AFW\afwSettingsPrimPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

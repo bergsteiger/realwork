@@ -4,7 +4,7 @@ unit PageProperties_Const;
 // Модуль: "w:\common\components\rtl\Garant\EVD\PageProperties_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

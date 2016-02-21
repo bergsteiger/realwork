@@ -3,7 +3,7 @@ unit afwAString;
 // Модуль: "w:\common\components\gui\Garant\AFW\afwAString.pas"
 // Стереотип: "SimpleClass"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

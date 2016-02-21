@@ -4,7 +4,7 @@ unit afwComplexDocumentPreviewFactory;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreviewFactory.pas"
 // Стереотип: "SimpleClass"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
@@ -14,7 +14,6 @@ uses
  , afwInterfaces
  , l3ObjectList
  , Classes
- , afwComplexDocumentPreview
 ;
 
 type
@@ -38,6 +37,7 @@ implementation
 
 uses
  l3ImplUses
+ , afwComplexDocumentPreview
  , l3Printer
  , SysUtils
  , RTLConsts

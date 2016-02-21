@@ -3,7 +3,7 @@ unit evdNcsTypes;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdNcsTypes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

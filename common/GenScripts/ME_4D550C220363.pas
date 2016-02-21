@@ -3,7 +3,7 @@ unit vgInterfaces;
 // Модуль: "w:\common\components\rtl\external\VGScene\vgInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 

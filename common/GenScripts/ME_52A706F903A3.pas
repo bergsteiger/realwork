@@ -3,7 +3,7 @@ unit NOT_FINISHED_vcmContentConst;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmContentConst.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

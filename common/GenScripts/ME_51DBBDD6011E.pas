@@ -3,7 +3,7 @@ unit NOT_FINISHED_ddParagraphProperty;
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddParagraphProperty.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

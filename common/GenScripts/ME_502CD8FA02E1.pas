@@ -3,7 +3,7 @@ unit NOT_FINISHED_tb97GraphicControl;
 // Модуль: "w:\common\components\rtl\external\tb97\NOT_FINISHED_tb97GraphicControl.pas"
 // Стереотип: "SimpleClass"
 
-{$Include TB97VER.INC}
+{$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 
 interface
 

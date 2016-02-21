@@ -3,7 +3,7 @@ unit NOT_FINISHED_SPHTMLHelp;
 // Модуль: "w:\common\components\gui\Garant\AFW\NOT_FINISHED_SPHTMLHelp.pas"
 // Стереотип: "UtilityPack"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

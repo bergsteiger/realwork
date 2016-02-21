@@ -3,7 +3,7 @@ unit ddPicture;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddPicture.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -17,6 +17,7 @@ uses
  , ddParagraphProperty
  , ddCustomDestination
  , k2Interfaces
+ , ddTypes
  , ddDocumentAtom
  , l3ProtoObject
 ;
@@ -102,7 +103,7 @@ type
    procedure Clear; override;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
    constructor Create(aDetination: TddCustomDestination); override;
    function IsTextPara: Boolean; override;
    function IsPicture: Boolean; override;
@@ -184,7 +185,6 @@ uses
  , k2Tags
  , l3Math
  , evdTypes
- , ddTypes
  , ddEVDTypesSupport
  , ddConst
  , l3ImageUtils
@@ -801,7 +801,7 @@ end;//TddPicture.Clear
 
 procedure TddPicture.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_51E8DC3E0361_var*
 var
  l_Width  : Integer;

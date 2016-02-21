@@ -3,7 +3,7 @@ unit NOT_FINISHED_RTFtypes;
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_RTFtypes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

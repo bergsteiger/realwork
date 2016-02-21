@@ -3,7 +3,7 @@ unit afwFont;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwFont.pas"
 // Стереотип: "UtilityPack"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ RafwFont = class of TafwFont;
+
  _l3Castable_Parent_ = TFont;
  {$Include w:\common\components\rtl\Garant\L3\l3Castable.imp.pas}
  TafwCastableFont = class(_l3Castable_)
@@ -90,8 +92,6 @@ type
      {-}
  //#UC END# *47E1233D01CDpubl*
  end;//TafwFont
-
- RafwFont = class of TafwFont;
 
 implementation
 

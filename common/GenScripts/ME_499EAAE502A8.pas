@@ -4,7 +4,7 @@ unit vcmUserControls;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmUserControls.pas"
 // Стереотип: "Interfaces"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit NOT_FINISHED_ExportPipe;
 // Модуль: "w:\common\components\rtl\Garant\dd\PipeOut\NOT_FINISHED_ExportPipe.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

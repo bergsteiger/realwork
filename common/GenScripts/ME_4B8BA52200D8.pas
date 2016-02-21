@@ -3,7 +3,7 @@ unit nevInterfaces;
 // Модуль: "w:\common\components\gui\Garant\Everest\new\nevInterfaces.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nevDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\new\nevDefine.inc}
 
 interface
 

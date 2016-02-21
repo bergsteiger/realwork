@@ -3,7 +3,7 @@ unit evdNativeReaderServices;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdNativeReaderServices.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

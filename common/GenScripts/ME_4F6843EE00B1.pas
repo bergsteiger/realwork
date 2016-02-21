@@ -3,7 +3,7 @@ unit ddBorder;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddBorder.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

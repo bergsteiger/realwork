@@ -3,7 +3,7 @@ unit evFrame_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evFrame_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

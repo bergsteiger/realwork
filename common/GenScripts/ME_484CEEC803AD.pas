@@ -4,7 +4,7 @@ unit evFont_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evFont_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

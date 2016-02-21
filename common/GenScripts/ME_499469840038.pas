@@ -4,7 +4,7 @@ unit vcmFormDispatcherInterfaces;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmFormDispatcherInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit ddTable;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTable.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

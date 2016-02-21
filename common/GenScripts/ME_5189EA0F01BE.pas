@@ -3,7 +3,7 @@ unit ddCellList;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddCellList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

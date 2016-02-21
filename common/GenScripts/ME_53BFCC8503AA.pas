@@ -3,7 +3,7 @@ unit File_Const;
 // Модуль: "w:\common\components\rtl\Garant\EVD\File_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

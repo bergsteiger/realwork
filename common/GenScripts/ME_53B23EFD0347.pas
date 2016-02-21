@@ -3,7 +3,7 @@ unit OvcKeyDataListenerList;
 // Модуль: "w:\common\components\rtl\external\Orpheus\OvcKeyDataListenerList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include OVC.INC}
+{$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 
 interface
 

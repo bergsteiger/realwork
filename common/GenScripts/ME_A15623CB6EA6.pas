@@ -4,7 +4,7 @@ unit evdNative_AttrValues;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdNative_AttrValues.pas"
 // Стереотип: "UtilityPack"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

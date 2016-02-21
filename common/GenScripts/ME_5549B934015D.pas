@@ -3,7 +3,7 @@ unit NOT_FINISHED_SynGdiPlus;
 // Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynGdiPlus.pas"
 // Стереотип: "UtilityPack"
 
-{$Include Synopse.inc}
+{$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
 interface
 

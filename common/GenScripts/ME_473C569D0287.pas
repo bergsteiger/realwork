@@ -4,7 +4,7 @@ unit afwTypes;
 // Модуль: "w:\common\components\gui\Garant\AFW\afwTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

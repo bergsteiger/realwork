@@ -4,7 +4,7 @@ unit NOT_FINISHED_OvcBase;
 // Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcBase.pas"
 // Стереотип: "GuiControl"
 
-{$Include OVC.INC}
+{$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 
 interface
 

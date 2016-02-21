@@ -4,7 +4,7 @@ unit vcmFormDataSourceRef;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\vcmFormDataSourceRef.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

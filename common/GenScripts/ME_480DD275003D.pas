@@ -3,7 +3,7 @@ unit afwInsCaretType;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwInsCaretType.pas"
 // Стереотип: "SimpleClass"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

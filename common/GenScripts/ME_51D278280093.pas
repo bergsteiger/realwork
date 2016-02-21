@@ -3,7 +3,7 @@ unit destNorm;
 // Модуль: "w:\common\components\rtl\Garant\dd\destNorm.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -77,9 +77,6 @@ type
     out aNewPara: Boolean): TddTextParagraph;
    procedure JoinPAPWithLastParaPAP(aPAP: TddParagraphProperty;
     aNeedClose: Boolean);
-   procedure Try2ApplyParaProperty(aState: TddRTFState;
-    aPara: TddTextParagraph;
-    aWasPara: Boolean);
    function GetFirstTableWidth: Integer;
    function CheckAnsiChar(aText: AnsiChar;
     aState: TddRTFState): Boolean;
@@ -87,7 +84,7 @@ type
    function Try2CloseNestedTable(anItap: Integer): Boolean;
   protected
    function pm_GetLastAtom: TddDocumentAtom;
-   function pm_GetLastParagraph: TddTextParagraph;
+   function pm_GetLastParagraph: TddTextParagraph; virtual;
    function pm_GetParagraph(anIndex: Integer): TddDocumentAtom;
    procedure Try2AddTable(aLevel: Integer);
    procedure ApplyToPAP(What: TIProp;
@@ -97,24 +94,29 @@ type
     aValue: LongInt); virtual;
    function GetFontEvent(aFontID: Integer): TddFontEntry;
    function GetColor(aColorIndex: Integer): TColor;
-   function AddTextPara(aInTable: Boolean;
-    anItap: Integer): TddTextParagraph; overload;
+   function InternalAddTextPara(aPAP: TddParagraphProperty): TddTextParagraph; virtual;
+   procedure Try2ApplyParaProperty(aState: TddRTFState;
+    aPara: TddTextParagraph;
+    aWasPara: Boolean); virtual;
    procedure AddPageBreak(aSymbol: Integer); virtual;
    procedure AddFormula(const aTextPara: TddTextParagraph;
     const aFormulaText: Tl3WString);
    function CanAddTable: Boolean; virtual;
-   function AddTextPara(aPAP: TddParagraphProperty): TddTextParagraph; overload;
+   function AddTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
    function FindFootnoteSymbol(aState: TddRTFState;
     aSymbol: Integer): Boolean; virtual;
    procedure ParagraphsClear;
    procedure ClearTextBuffer;
    procedure AfterAddPara(const anAtom: TddDocumentAtom); virtual;
-   procedure CloseTextPara(aPara: TddTextParagraph); virtual;
+   procedure CloseTextPara(aPAP: TddParagraphProperty;
+    aPara: TddTextParagraph); virtual;
    function InTable(aPAP: TddParagraphProperty): Boolean; virtual;
     {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
    procedure DeleteLastAtom(aPrev: Boolean);
    function Itap(aPAP: TddParagraphProperty): Integer; virtual;
     {* Хак того, чтобы параграф при добавлении помещался в таблицу, а не в основной текст. }
+   procedure DoAddTabStop(aPAP: TddParagraphProperty); virtual;
+   function AddTextPara2Document: TddTextParagraph;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -677,8 +679,7 @@ begin
 //#UC END# *51E8D7A401F0_51D278280093_impl*
 end;//TdestNorm.GetColor
 
-function TdestNorm.AddTextPara(aInTable: Boolean;
- anItap: Integer): TddTextParagraph;
+function TdestNorm.InternalAddTextPara(aPAP: TddParagraphProperty): TddTextParagraph;
 //#UC START# *51E8D7E60235_51D278280093_var*
 var
  l_Table    : TddTable;
@@ -708,7 +709,7 @@ begin
   end;
  end;
 //#UC END# *51E8D7E60235_51D278280093_impl*
-end;//TdestNorm.AddTextPara
+end;//TdestNorm.InternalAddTextPara
 
 procedure TdestNorm.AddPicture(aPicture: TddPicture;
  aState: TddRTFState;
@@ -1560,7 +1561,8 @@ begin
 //#UC END# *56A9F2670380_51D278280093_impl*
 end;//TdestNorm.AddSub
 
-procedure TdestNorm.CloseTextPara(aPara: TddTextParagraph);
+procedure TdestNorm.CloseTextPara(aPAP: TddParagraphProperty;
+ aPara: TddTextParagraph);
 //#UC START# *56BC3011019B_51D278280093_var*
 //#UC END# *56BC3011019B_51D278280093_var*
 begin
@@ -1600,6 +1602,32 @@ begin
  Result := aPAP.itap;
 //#UC END# *56BDB2CD037F_51D278280093_impl*
 end;//TdestNorm.Itap
+
+procedure TdestNorm.DoAddTabStop(aPAP: TddParagraphProperty);
+//#UC START# *56C574EA022E_51D278280093_var*
+//#UC END# *56C574EA022E_51D278280093_var*
+begin
+//#UC START# *56C574EA022E_51D278280093_impl*
+
+//#UC END# *56C574EA022E_51D278280093_impl*
+end;//TdestNorm.DoAddTabStop
+
+function TdestNorm.AddTextPara2Document: TddTextParagraph;
+//#UC START# *56C5946F0006_51D278280093_var*
+var
+ l_TextPara : TddTextParagraph;
+//#UC END# *56C5946F0006_51D278280093_var*
+begin
+//#UC START# *56C5946F0006_51D278280093_impl*
+ l_TextPara := TddTextParagraph.Create(Self);
+ try
+  AddParagraph(l_TextPara);
+  Result := TddTextParagraph(LastAtom);
+ finally
+  FreeAndNil(l_TextPara);
+ end;
+//#UC END# *56C5946F0006_51D278280093_impl*
+end;//TdestNorm.AddTextPara2Document
 
 procedure TdestNorm.Close(aState: TddRTFState;
  aNewDest: TddRTFDestination);

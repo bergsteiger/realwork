@@ -3,7 +3,7 @@ unit ddTableCell;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTableCell.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -14,6 +14,7 @@ uses
  , ddTextParagraph
  , ddDocumentAtomList
  , k2Interfaces
+ , ddTypes
  , ddCustomDestination
  , l3ProtoObject
 ;
@@ -44,7 +45,7 @@ type
    function IsCellEmpty: Boolean;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
    procedure Clear; override;
    constructor Create(aDetination: TddCustomDestination); override;
    procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
@@ -72,7 +73,6 @@ uses
  , ddTableRow
  , SysUtils
  , ddTable
- , ddTypes
  , k2Tags
  , evdTypes
  , ddBase
@@ -230,7 +230,7 @@ end;//TddTableCell.IsCellEmpty
 
 procedure TddTableCell.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE127032F_var*
 var
  j          : Integer;

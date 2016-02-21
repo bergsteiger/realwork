@@ -3,7 +3,7 @@ unit ddExceptionHandler;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddExceptionHandler.pas"
 // Стереотип: "ServiceImplementation"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

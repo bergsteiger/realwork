@@ -4,7 +4,7 @@ unit Type_Const;
 // Модуль: "w:\common\components\rtl\Garant\EVD\Type_Const.pas"
 // Стереотип: "Atom"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

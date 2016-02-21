@@ -3,7 +3,7 @@ unit ddHTMLTag;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddHTMLTag.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -738,7 +738,7 @@ begin
  f_ParamCount := aTag.f_ParamCount;
  f_Start := aTag.f_Start;
 //#UC END# *56BC693D00CE_524159C700FE_impl*
-end;//TddHTMLTag.Assign(aTag: TddHTMLTag)
+end;//TddHTMLTag.Assign
 
 procedure TddHTMLTag.Cleanup;
  {* Функция очистки полей объекта. }

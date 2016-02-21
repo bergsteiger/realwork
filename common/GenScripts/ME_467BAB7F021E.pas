@@ -4,7 +4,7 @@ unit vcmExternalInterfaces;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmExternalInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

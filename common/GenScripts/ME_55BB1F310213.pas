@@ -3,7 +3,7 @@ unit ddRTFExpandedTextWriter;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddRTFExpandedTextWriter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

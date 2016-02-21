@@ -3,7 +3,7 @@ unit NOT_FINISHED_ddTextParagraph;
 // Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddTextParagraph.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -18,6 +18,7 @@ uses
  , ddTextSegment
  , k2Interfaces
  , rtfListTable
+ , ddTypes
  , ddCustomDestination
  , l3ProtoObject
 ;
@@ -107,9 +108,9 @@ type
     const StartIndex: Integer = -1): TddTextSegment;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
    function JoinWith(P: TObject;
-    aCorrectSegment: Boolean = False): Integer; override;
+    aCorrectSegment: Boolean): Integer; override;
    constructor Create(aDetination: TddCustomDestination); override;
    function HasSoftEnter: Boolean; override;
    function IsTextPara: Boolean; override;
@@ -535,7 +536,7 @@ end;//TddTextParagraph.SegmentByCharIndex
 
 procedure TddTextParagraph.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE14F0231_var*
 //#UC END# *518A504F00F5_4FACE14F0231_var*
 begin
@@ -564,7 +565,7 @@ begin
 end;//TddTextParagraph.GetEmpty
 
 function TddTextParagraph.JoinWith(P: TObject;
- aCorrectSegment: Boolean = False): Integer;
+ aCorrectSegment: Boolean): Integer;
 //#UC START# *51921142034B_4FACE14F0231_var*
 //#UC END# *51921142034B_4FACE14F0231_var*
 begin

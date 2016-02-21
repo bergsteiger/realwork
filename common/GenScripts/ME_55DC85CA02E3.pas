@@ -3,7 +3,7 @@ unit ddNSRCStackItemList;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddNSRCStackItemList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

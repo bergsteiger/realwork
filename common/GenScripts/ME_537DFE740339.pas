@@ -4,7 +4,7 @@ unit evdTasks_Schema;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTasks_Schema.pas"
 // Стереотип: "TagTable"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

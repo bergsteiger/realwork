@@ -3,7 +3,7 @@ unit ddStyleSegment;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddStyleSegment.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -12,6 +12,7 @@ uses
  , ddTextSegment
  , k2Interfaces
  , ddCharacterProperty
+ , ddTypes
 ;
 
 type
@@ -20,22 +21,21 @@ type
    procedure DoWriteSegmentProps(const Generator: Ik2TagGenerator;
     aCHP: TddCharacterProperty;
     aParentCHP: TddCharacterProperty;
-    LiteVersion: Boolean); override;
+    aLiteVersion: TddLiteVersion); override;
   public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aCHP: TddCharacterProperty;
     aParentCHP: TddCharacterProperty;
-    LiteVersion: Boolean); override;
+    aLiteVersion: TddLiteVersion); override;
    function Clone: TddTextSegment; override;
    function SkipSegment(aDiffCHP: TddCharacterProperty;
-    LiteVersion: Boolean): Boolean; override;
+    aLiteVersion: TddLiteVersion): Boolean; override;
  end;//TddStyleSegment
 
 implementation
 
 uses
  l3ImplUses
- , ddTypes
  , ddRTFConst
  , l3String
  , l3Types
@@ -50,7 +50,7 @@ uses
 procedure TddStyleSegment.Write2Generator(const Generator: Ik2TagGenerator;
  aCHP: TddCharacterProperty;
  aParentCHP: TddCharacterProperty;
- LiteVersion: Boolean);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54D888450259_54D9B8E801EA_var*
 //#UC END# *54D888450259_54D9B8E801EA_var*
 begin
@@ -75,7 +75,7 @@ begin
 end;//TddStyleSegment.Clone
 
 function TddStyleSegment.SkipSegment(aDiffCHP: TddCharacterProperty;
- LiteVersion: Boolean): Boolean;
+ aLiteVersion: TddLiteVersion): Boolean;
 //#UC START# *54E4325C00BE_54D9B8E801EA_var*
 
  procedure lp_ConvertkBold2Style;
@@ -99,7 +99,7 @@ end;//TddStyleSegment.SkipSegment
 procedure TddStyleSegment.DoWriteSegmentProps(const Generator: Ik2TagGenerator;
  aCHP: TddCharacterProperty;
  aParentCHP: TddCharacterProperty;
- LiteVersion: Boolean);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54D9B0300325_54D9B8E801EA_var*
 var
  l_CharSet: LongInt;

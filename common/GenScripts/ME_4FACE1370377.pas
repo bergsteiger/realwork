@@ -3,7 +3,7 @@ unit ddTableRow;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddTableRow.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -74,9 +74,10 @@ type
    procedure ApplyCellProperty(aCEP: TddCellProperty);
    procedure SetVMerged2LastCell(aFirst: Boolean);
    function InsertCell(anIndex: Integer): TddTableCell;
+   function CellIndex(aCell: TddTableCell): Integer;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
    procedure Clear; override;
    constructor Create(aDetination: TddCustomDestination); override;
    function IsRow: Boolean; override;
@@ -619,9 +620,18 @@ begin
 //#UC END# *56BD92CC03B8_4FACE1370377_impl*
 end;//TddTableRow.InsertCell
 
+function TddTableRow.CellIndex(aCell: TddTableCell): Integer;
+//#UC START# *56C56DDB01F7_4FACE1370377_var*
+//#UC END# *56C56DDB01F7_4FACE1370377_var*
+begin
+//#UC START# *56C56DDB01F7_4FACE1370377_impl*
+ Result := f_CellList.IndexOf(aCell);
+//#UC END# *56C56DDB01F7_4FACE1370377_impl*
+end;//TddTableRow.CellIndex
+
 procedure TddTableRow.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE1370377_var*
 var
  i     : Integer;

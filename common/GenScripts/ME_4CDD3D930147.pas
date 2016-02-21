@@ -3,7 +3,7 @@ unit evdHyperlinkInfo;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdHyperlinkInfo.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

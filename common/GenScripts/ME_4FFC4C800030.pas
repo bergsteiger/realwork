@@ -3,7 +3,7 @@ unit vcmBaseCollection;
 // Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\vcmBaseCollection.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -17,14 +17,14 @@ uses
  , l3PureMixIns
 ;
 
+type
+ RvcmBaseCollection = class of TvcmBaseCollection;
+
  {$Define _UnknownNeedsQI}
 
  {$If NOT Defined(vcmNeedL3)}
  {$Define _UnknownNotNeedL3}
  {$IfEnd} // NOT Defined(vcmNeedL3)
-
-type
- RvcmBaseCollection = class of TvcmBaseCollection;
 
  //#UC START# *4FFC4C800030ci*
  THackCollection = class(TPersistent)

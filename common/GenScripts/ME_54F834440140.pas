@@ -3,7 +3,7 @@ unit ddFormulaParagraph;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddFormulaParagraph.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -12,6 +12,7 @@ uses
  , ddTextParagraph
  , l3Base
  , k2Interfaces
+ , ddTypes
 ;
 
 type
@@ -21,7 +22,7 @@ type
   public
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aNeedProcessRow: Boolean;
-    LiteVersion: Boolean); override;
+    LiteVersion: TddLiteVersion); override;
   public
    property FormulaText: Tl3String
     read pm_GetFormulaText;
@@ -46,7 +47,7 @@ end;//TddFormulaParagraph.pm_GetFormulaText
 
 procedure TddFormulaParagraph.Write2Generator(const Generator: Ik2TagGenerator;
  aNeedProcessRow: Boolean;
- LiteVersion: Boolean);
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_54F834440140_var*
 //#UC END# *518A504F00F5_54F834440140_var*
 begin

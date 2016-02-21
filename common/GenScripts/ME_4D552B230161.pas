@@ -3,7 +3,7 @@ unit vgSortableObjectList;
 // Модуль: "w:\common\components\rtl\external\VGScene\vgSortableObjectList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 

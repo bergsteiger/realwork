@@ -3,7 +3,7 @@ unit vgTypesPrim;
 // Модуль: "w:\common\components\rtl\external\VGScene\vgTypesPrim.pas"
 // Стереотип: "UtilityPack"
 
-{$Include vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 

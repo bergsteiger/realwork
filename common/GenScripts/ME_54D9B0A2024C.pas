@@ -3,7 +3,7 @@ unit ddObjectSegment;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddObjectSegment.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -12,6 +12,7 @@ uses
  , ddTextSegment
  , k2Interfaces
  , ddCharacterProperty
+ , ddTypes
 ;
 
 type
@@ -20,9 +21,9 @@ type
    procedure Write2Generator(const Generator: Ik2TagGenerator;
     aCHP: TddCharacterProperty;
     aParentCHP: TddCharacterProperty;
-    LiteVersion: Boolean); override;
+    aLiteVersion: TddLiteVersion); override;
    function SkipSegment(aDiffCHP: TddCharacterProperty;
-    LiteVersion: Boolean): Boolean; override;
+    aLiteVersion: TddLiteVersion): Boolean; override;
    function IsObjectSegment: Boolean; override;
  end;//TddObjectSegment
 
@@ -30,13 +31,12 @@ implementation
 
 uses
  l3ImplUses
- , ddTypes
 ;
 
 procedure TddObjectSegment.Write2Generator(const Generator: Ik2TagGenerator;
  aCHP: TddCharacterProperty;
  aParentCHP: TddCharacterProperty;
- LiteVersion: Boolean);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54D888450259_54D9B0A2024C_var*
 //#UC END# *54D888450259_54D9B0A2024C_var*
 begin
@@ -53,7 +53,7 @@ begin
 end;//TddObjectSegment.Write2Generator
 
 function TddObjectSegment.SkipSegment(aDiffCHP: TddCharacterProperty;
- LiteVersion: Boolean): Boolean;
+ aLiteVersion: TddLiteVersion): Boolean;
 //#UC START# *54E4325C00BE_54D9B0A2024C_var*
 //#UC END# *54E4325C00BE_54D9B0A2024C_var*
 begin

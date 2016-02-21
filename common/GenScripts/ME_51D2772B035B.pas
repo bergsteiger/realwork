@@ -4,7 +4,7 @@ unit dd_rtfFields;
 // Модуль: "w:\common\components\rtl\Garant\dd\dd_rtfFields.pas"
 // Стереотип: "UtilityPack"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

@@ -581,8 +581,6 @@ type
   function CheckS(i: Integer): Tl3CustomString;
  end;//InevStringCache
 
- InevObjectPrim = interface;
-
  (*
  MnevObjectData = interface
   function pm_GetText: TnevStr;

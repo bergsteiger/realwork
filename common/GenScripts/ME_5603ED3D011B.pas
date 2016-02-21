@@ -3,7 +3,7 @@ unit ddPipeOutInterfaces;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddPipeOutInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

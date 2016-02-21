@@ -3,7 +3,7 @@ unit afwControlPrim;
 // Модуль: "w:\common\components\gui\Garant\AFW\implementation\Visual\afwControlPrim.pas"
 // Стереотип: "GuiControl"
 
-{$Include afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit AnnotationTask_Const;
 // Модуль: "w:\common\components\rtl\Garant\EVD\AnnotationTask_Const.pas"
 // Стереотип: "Tag"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

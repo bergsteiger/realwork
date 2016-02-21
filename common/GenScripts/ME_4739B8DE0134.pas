@@ -3,7 +3,7 @@ unit NOT_FINISHED_ExprDraw;
 // Модуль: "w:\common\components\rtl\external\Expr\NOT_FINISHED_ExprDraw.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\external\Expr\l3Define.inc}
 
 interface
 

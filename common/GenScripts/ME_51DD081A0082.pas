@@ -4,7 +4,7 @@ unit destWord6Number;
 // Модуль: "w:\common\components\rtl\Garant\dd\destWord6Number.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 

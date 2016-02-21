@@ -3,7 +3,7 @@ unit vgCustomObjectList;
 // Модуль: "w:\common\components\rtl\external\VGScene\vgCustomObjectList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 

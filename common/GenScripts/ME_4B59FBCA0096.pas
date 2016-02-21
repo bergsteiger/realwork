@@ -3,7 +3,7 @@ unit NOT_FINISHED_ddNSRCGenerator;
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_ddNSRCGenerator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

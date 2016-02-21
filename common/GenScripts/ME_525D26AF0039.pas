@@ -3,7 +3,7 @@ unit ddHyperlinkTarget;
 // Модуль: "w:\common\components\rtl\Garant\dd\ddHyperlinkTarget.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
@@ -11,6 +11,7 @@ uses
  l3IntfUses
  , ddBaseObject
  , k2Interfaces
+ , ddTypes
 ;
 
 type
@@ -27,7 +28,7 @@ type
     aDocID: Integer;
     aSubID: Integer); reintroduce;
    procedure Write2Generator(const Generator: Ik2TagGenerator;
-    aLiteVersion: Boolean); override;
+    aLiteVersion: TddLiteVersion); override;
    procedure Assign(anObject: TddBaseObject); override;
   public
    property DocID: LongInt
@@ -60,7 +61,7 @@ begin
 end;//TddHyperlinkTarget.Create
 
 procedure TddHyperlinkTarget.Write2Generator(const Generator: Ik2TagGenerator;
- aLiteVersion: Boolean);
+ aLiteVersion: TddLiteVersion);
 //#UC START# *54DC9795018B_525D26AF0039_var*
 //#UC END# *54DC9795018B_525D26AF0039_var*
 begin

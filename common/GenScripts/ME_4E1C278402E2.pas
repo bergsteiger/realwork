@@ -3,7 +3,7 @@ unit evdAllParaEliminator;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdAllParaEliminator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit NOT_FINISHED_evdPageParamsFilter;
 // Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdPageParamsFilter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
