@@ -3,7 +3,7 @@ unit NOT_FINISHED_AdminRes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\NOT_FINISHED_AdminRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit PrimContactList_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\PrimContactList_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -37,11 +37,6 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
- , PrimContactList_chatAddContact_UserType
- , PrimContactList_chatContacts_UserType
- {$If NOT Defined(NoVCM)}
- , vcmBase
- {$IfEnd} // NOT Defined(NoVCM)
  , afwInterfaces
 ;
 
@@ -160,6 +155,11 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , PrimContactList_chatAddContact_UserType
+ , PrimContactList_chatContacts_UserType
+ {$If NOT Defined(NoVCM)}
+ , vcmBase
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

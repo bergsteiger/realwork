@@ -4,7 +4,7 @@ unit smLawNewsTree;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smLawNewsTree.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

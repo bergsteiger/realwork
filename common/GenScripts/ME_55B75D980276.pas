@@ -3,16 +3,13 @@ unit LoggingWordsPack;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , tfwGlobalKeyWord
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -21,6 +18,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwGlobalKeyWord
+ , tfwScriptingInterfaces
+ , TypInfo
  , nsLoggingTestService
  , tfwScriptingTypes
  , tfwTypeRegistrator

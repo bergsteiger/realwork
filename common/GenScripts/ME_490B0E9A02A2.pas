@@ -3,7 +3,7 @@ unit smTree;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\MainMenu\smTree.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

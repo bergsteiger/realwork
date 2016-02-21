@@ -4,7 +4,7 @@ unit PrimInternetAgent_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\Forms\PrimInternetAgent_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -32,24 +32,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , l3ProtoObject
 ;
 
 type
- InsInternetAgentState = interface
-  {* Состояние Интернет-агента }
-  ['{D4ACF593-E6B2-403E-BF8B-88C3E553312B}']
-  function Get_URL: WideString;
-  procedure SetParams(const anURL: WideString);
-   {* Устанавливает новые параметры состояния Интернет-агента }
-  function As_IvcmBase: IvcmBase;
-   {* Метод приведения нашего интерфейса к IvcmBase }
-  property URL: WideString
-   read Get_URL;
-   {* Путь к странице }
- end;//InsInternetAgentState
-
  _vcmChromeLikeTabIconUpdater_Parent_ = TvcmEntityForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas}
  TPrimInternetAgentForm = class(_vcmChromeLikeTabIconUpdater_)
@@ -224,6 +209,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
+ , l3ProtoObject
  , SysUtils
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -263,6 +250,19 @@ uses
 ;
 
 type
+ InsInternetAgentState = interface
+  {* Состояние Интернет-агента }
+  ['{D4ACF593-E6B2-403E-BF8B-88C3E553312B}']
+  function Get_URL: WideString;
+  procedure SetParams(const anURL: WideString);
+   {* Устанавливает новые параметры состояния Интернет-агента }
+  function As_IvcmBase: IvcmBase;
+   {* Метод приведения нашего интерфейса к IvcmBase }
+  property URL: WideString
+   read Get_URL;
+   {* Путь к странице }
+ end;//InsInternetAgentState
+
  TnsInternetAgentState = class(Tl3ProtoObject, InsInternetAgentState{$If NOT Defined(NoVCM)}
  , IvcmBase
  {$IfEnd} // NOT Defined(NoVCM)

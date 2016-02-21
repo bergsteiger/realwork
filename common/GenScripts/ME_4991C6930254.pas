@@ -4,7 +4,7 @@ unit DayTipsInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\DayTipsInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit vcmMenuForChromeLikeItemWrap;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmMenuForChromeLikeItemWrap.pas"
 // Стереотип: "SimpleClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
@@ -32,7 +32,7 @@ type
    function pm_GetrRectStub: TRectWrap; virtual;
    function pm_GetrItemStub: TMenuItem; virtual;
   public
-   constructor Create(anItem: TvcmMenuForChromeLikeItem); reintroduce;
+   constructor Create(const anItem: TvcmMenuForChromeLikeItem); reintroduce;
   public
    property rRectStub: TRectWrap
     read pm_GetrRectStub;
@@ -73,7 +73,7 @@ begin
 //#UC END# *5478712A0083_5477971800CEget_impl*
 end;//TvcmMenuForChromeLikeItemWrap.pm_GetrItemStub
 
-constructor TvcmMenuForChromeLikeItemWrap.Create(anItem: TvcmMenuForChromeLikeItem);
+constructor TvcmMenuForChromeLikeItemWrap.Create(const anItem: TvcmMenuForChromeLikeItem);
 //#UC START# *5477A63901A9_5477971800CE_var*
 //#UC END# *5477A63901A9_5477971800CE_var*
 begin

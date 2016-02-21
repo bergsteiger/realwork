@@ -4,7 +4,7 @@ unit sdsSendConsultation;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\sdsSendConsultation.pas"
 // Стереотип: "UseCaseControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit TableToolsTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\TableToolsTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

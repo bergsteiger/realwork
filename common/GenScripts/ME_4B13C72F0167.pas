@@ -3,7 +3,7 @@ unit PrimTasksPanel_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTasksPanel_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -15,7 +15,6 @@ uses
  , nscTasksPanelView
  {$IfEnd} // Defined(Nemesis)
  , Messages
- , l3StringIDEx
  , nsCounterEvent
  , LoggingUnit
 ;
@@ -57,6 +56,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmTaskPanelInterfaces
  {$IfEnd} // NOT Defined(NoVCM)

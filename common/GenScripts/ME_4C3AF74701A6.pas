@@ -4,7 +4,7 @@ unit MergeTablesTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\MergeTablesTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

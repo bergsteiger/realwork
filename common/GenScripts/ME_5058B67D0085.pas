@@ -3,7 +3,7 @@ unit nscSizeGripPanel;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscSizeGripPanel.pas"
 // Стереотип: "GuiControl"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

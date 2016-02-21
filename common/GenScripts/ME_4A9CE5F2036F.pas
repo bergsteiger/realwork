@@ -4,7 +4,7 @@ unit Diction_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -35,7 +35,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
+ , nsLogEvent
+ , PrimDictionContainer_Form
+ , PrimCommonDictionOptions_Form
  , DictionContainerUserTypes_slqtDiction_UserType
  , CommonDictionInterfaces
  , DocumentUserTypes_dftDictEntry_UserType
@@ -56,9 +58,6 @@ uses
  , DictionInterfacesPrim
  , AttributesUserTypes_fDocAttribute_UserType
  , BaseDocumentWithAttributesInterfaces
- , nsLogEvent
- , PrimDictionContainer_Form
- , PrimCommonDictionOptions_Form
 ;
 
 type
@@ -168,6 +167,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , Base_Operations_Strange_Controls
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport

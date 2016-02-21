@@ -3,7 +3,7 @@ unit Inpharm_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Inpharm_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -25,12 +25,15 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactoryPrim
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
+ , InpharmMainMenu_Form
  , Common_FormDefinitions_Controls
+ , PrimMedicFirmListOptions_Form
+ , PrimMedicListSynchroView_Form
+ , nsLogEvent
+ , DocumentUnit
  , DictionContainerUserTypes_slqtMedicDiction_UserType
  , PrimCommonDiction_utMedicDiction_UserType
  , DynamicTreeUnit
- , DocumentUnit
  , bsTypesNew
  , DocumentUserTypes_dftMedDictEntry_UserType
  , DocumentAndListInterfaces
@@ -56,17 +59,17 @@ uses
  , WorkWithDocumentInterfaces
  , ListUserTypes_lftDrugInternationalNameSynonyms_UserType
  , PrimMedicListSynchroView_mlsfDrugList_UserType
+ , ListUserTypes_lftDrugList_UserType
+ , FiltersUserTypes_utFilters_UserType
+ , SimpleListInterfaces
+ , ListInfoUserTypes_liListInfo_UserType
  , DocumentUserTypes_dftDrugSynchroView_UserType
  , ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType
  , AttributesUserTypes_fAttributeSynchroView_UserType
- , ListUserTypes_lftDrugList_UserType
  , BaloonWarningUserTypes_remListModified_UserType
  , nevBase
  , BaloonWarningUserTypes_remListFiltered_UserType
  , BaloonWarningUserTypes_remTimeMachineWarning_UserType
- , FiltersUserTypes_utFilters_UserType
- , SimpleListInterfaces
- , ListInfoUserTypes_liListInfo_UserType
  , PrimMedicFirmList_mflMain_UserType
  {$If Defined(Nemesis)}
  , nscNewInterfaces
@@ -74,10 +77,6 @@ uses
  , PrimMedicListSynchroView_mlsfMedicFirm_UserType
  , DocumentUserTypes_dftMedicFirmSynchroView_UserType
  , ListUserTypes_lftProducedDrugsSynchroForm_UserType
- , InpharmMainMenu_Form
- , PrimMedicFirmListOptions_Form
- , PrimMedicListSynchroView_Form
- , nsLogEvent
  , InpharmMainMenu_ut_mmmMain_UserType
  , InpharmInterfaces
 ;
@@ -394,6 +393,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , sdsInpharmMainMenu
  {$If NOT Defined(NoVCM)}
  , vcmBase

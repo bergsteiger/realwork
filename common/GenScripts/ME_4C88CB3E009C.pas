@@ -3,7 +3,7 @@ unit PrimListInfoOptions_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListInfoOptions_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

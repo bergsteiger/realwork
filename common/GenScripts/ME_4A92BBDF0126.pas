@@ -4,7 +4,7 @@ unit PrimF1Res;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimF1Res.pas"
 // Стереотип: "VCMApplication"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -25,9 +25,8 @@ uses
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
- , l3MessageID
- , nsPrimCachedEvent
  , F1_Application_Template_InternalOperations_Controls
+ , l3MessageID
 ;
 
 const
@@ -65,8 +64,6 @@ type
    procedure ActivateDefKeyboardLayout; override;
  end;//TPrimMainForm
 
- TnsActiviryArray = array [TvcmOperationCallType] of Cardinal;
-
  TPrimMainOptionsForm = class(TPrimMainForm)
   public
    procedure HelpTopics; override;
@@ -103,6 +100,7 @@ implementation
 
 uses
  l3ImplUses
+ , nsPrimCachedEvent
  , moLiteSearch
  , moRealCommon
  , vtStdRes
@@ -156,6 +154,8 @@ uses
 ;
 
 type
+ TnsActiviryArray = array [TvcmOperationCallType] of Cardinal;
+
  TnsUserOperationEvent = {final} class(TnsPrimCachedEvent)
   private
    f_Counters: TnsActiviryArray;

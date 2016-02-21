@@ -4,7 +4,7 @@ unit nsWindowNode;
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowNode.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

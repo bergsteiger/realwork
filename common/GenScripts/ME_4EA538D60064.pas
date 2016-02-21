@@ -3,7 +3,7 @@ unit K294595323Suite;
 // Модуль: "w:\common\components\rtl\Garant\Archi_Tests\K294595323Suite.pas"
 // Стереотип: "SimpleClass"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Archi_Tests\TestDefine.inc.pas}
 
 interface
 

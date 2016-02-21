@@ -4,7 +4,7 @@ unit dsSendConsultation;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsSendConsultation.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

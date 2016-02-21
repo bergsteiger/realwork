@@ -3,7 +3,7 @@ unit NOT_FINISHED_DictionRes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\NOT_FINISHED_DictionRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

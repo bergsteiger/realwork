@@ -3,7 +3,7 @@ unit nsContactListNotifiers;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsContactListNotifiers.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

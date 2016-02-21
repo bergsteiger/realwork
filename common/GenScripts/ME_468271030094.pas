@@ -3,7 +3,7 @@ unit nsNodeStorable;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nsNodeStorable.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

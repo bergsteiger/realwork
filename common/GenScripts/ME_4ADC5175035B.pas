@@ -4,7 +4,7 @@ unit nsWindowsList;
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\nsWindowsList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

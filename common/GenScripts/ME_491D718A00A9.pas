@@ -4,7 +4,7 @@ unit deSearchInfo;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\deSearchInfo.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

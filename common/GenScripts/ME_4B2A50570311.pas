@@ -3,7 +3,7 @@ unit TestGlobals;
 // Модуль: "w:\common\components\rtl\Garant\Daily\TestGlobals.pas"
 // Стереотип: "UtilityPack"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

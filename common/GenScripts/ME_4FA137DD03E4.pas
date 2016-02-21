@@ -3,7 +3,7 @@ unit ArchiStorageTest;
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Archi_Tests\ArchiStorageTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Archi_Tests\TestDefine.inc.pas}
 
 interface
 

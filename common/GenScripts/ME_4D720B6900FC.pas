@@ -4,7 +4,7 @@ unit ScrollerParamsTestPrim;
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\ScrollerParamsTestPrim.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 

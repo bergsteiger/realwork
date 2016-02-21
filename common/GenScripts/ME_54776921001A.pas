@@ -3,7 +3,7 @@ unit vcmBaseMenuForChromeLike_p;
 // Модуль: "w:\common\components\gui\Garant\VCM\vcmBaseMenuForChromeLike_p.pas"
 // Стереотип: "TestClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 

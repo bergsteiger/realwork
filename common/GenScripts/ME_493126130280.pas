@@ -4,7 +4,7 @@ unit sdsAdmin;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\sdsAdmin.pas"
 // Стереотип: "UseCaseControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

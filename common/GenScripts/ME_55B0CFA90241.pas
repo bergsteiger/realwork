@@ -3,7 +3,7 @@ unit f1StartupCompletedService;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\f1StartupCompletedService.pas"
 // Стереотип: "Service"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

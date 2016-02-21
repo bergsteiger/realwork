@@ -4,7 +4,7 @@ unit K569230238_EVD2EVD;
 // Модуль: "w:\common\components\rtl\Garant\Daily\K569230238_EVD2EVD.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

@@ -4,7 +4,7 @@ unit NOT_FINISHED_nsExternalObjectPrim;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\NOT_FINISHED_nsExternalObjectPrim.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

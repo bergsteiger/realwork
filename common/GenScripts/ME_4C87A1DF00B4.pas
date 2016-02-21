@@ -3,7 +3,7 @@ unit PrimCommonDictionOptions_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDictionOptions_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -34,7 +34,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , PrimCommonDiction_utTips_UserType
 ;
 
 type
@@ -130,6 +129,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , PrimCommonDiction_utTips_UserType
  , DictionRes
  , l3String
  , vtSizeablePanel

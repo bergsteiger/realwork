@@ -3,7 +3,7 @@ unit l3IntegerToIntegerMapTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\l3IntegerToIntegerMapTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

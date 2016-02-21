@@ -3,7 +3,7 @@ unit PrimAttributeSelect_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimAttributeSelect_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -31,8 +31,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , PrimAttributeSelect_utSingleSearch_UserType
 ;
 
 type
@@ -128,6 +126,8 @@ implementation
 
 uses
  l3ImplUses
+ , l3StringIDEx
+ , PrimAttributeSelect_utSingleSearch_UserType
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

@@ -3,7 +3,7 @@ unit nsDocumentMainMenuNode;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsDocumentMainMenuNode.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

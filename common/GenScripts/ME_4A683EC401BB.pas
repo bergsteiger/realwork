@@ -3,7 +3,7 @@ unit bsChatDispatcher;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\bsChatDispatcher.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

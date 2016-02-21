@@ -3,7 +3,7 @@ unit nsChatHistoryList;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\nsChatHistoryList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit WrongSearchTest;
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\WrongSearchTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 

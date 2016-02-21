@@ -3,7 +3,7 @@ unit nscStatusBar;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBar.pas"
 // Стереотип: "GuiControl"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 
@@ -24,7 +24,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , l3ProtoObject
  {$If NOT Defined(NoTB97)}
  , TB97
  {$IfEnd} // NOT Defined(NoTB97)
@@ -89,6 +88,7 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ , l3ProtoObject
  , SysUtils
  , afwFacade
  {$If NOT Defined(NoTB97)}

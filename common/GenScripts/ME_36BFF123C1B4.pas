@@ -4,7 +4,7 @@ unit GroupPropertyKeywordsPack;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\GroupPropertyKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -16,14 +16,6 @@ uses
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
  , vtLabel
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -32,6 +24,14 @@ implementation
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy

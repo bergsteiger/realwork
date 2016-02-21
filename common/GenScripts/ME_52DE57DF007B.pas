@@ -3,7 +3,7 @@ unit nscTreeViewWithAdapterDragDrop;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nscTreeViewWithAdapterDragDrop.pas"
 // Стереотип: "GuiControl"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

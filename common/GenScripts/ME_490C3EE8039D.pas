@@ -4,7 +4,7 @@ unit mmmReferencesAndDictionaries;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\mmmReferencesAndDictionaries.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -13,7 +13,6 @@ uses
  l3IntfUses
  , mmmTree
  , l3Tree_TLB
- , l3StringIDEx
 ;
 
 type
@@ -30,6 +29,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , nsTypes
  , nsConst
  , DynamicTreeUnit

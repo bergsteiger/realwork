@@ -3,7 +3,7 @@ unit CustomFolderTestSuite;
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\CustomFolderTestSuite.pas"
 // Стереотип: "SimpleClass"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 

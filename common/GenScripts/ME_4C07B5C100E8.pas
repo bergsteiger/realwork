@@ -3,7 +3,7 @@ unit EVDWriterTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDWriterTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsSelectedTreeStruct;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\NOT_FINISHED_nsSelectedTreeStruct.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

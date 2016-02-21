@@ -3,7 +3,7 @@ unit bsConsultationManager;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultationManager.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

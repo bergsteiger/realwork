@@ -4,7 +4,7 @@ unit OfficeLike_Result_Controls;
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Result_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

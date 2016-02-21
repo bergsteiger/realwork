@@ -3,7 +3,7 @@ unit NOT_FINISHED_ChatRes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\NOT_FINISHED_ChatRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

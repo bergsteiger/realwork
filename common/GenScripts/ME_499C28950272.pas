@@ -4,7 +4,7 @@ unit TestDocListUtils;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\TestDocListUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

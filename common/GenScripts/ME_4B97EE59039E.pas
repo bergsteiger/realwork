@@ -4,7 +4,7 @@ unit nscCustomTreeComboWithHistoryRes;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscCustomTreeComboWithHistoryRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

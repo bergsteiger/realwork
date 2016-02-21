@@ -3,7 +3,7 @@ unit Diction_Strange_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction_Strange_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

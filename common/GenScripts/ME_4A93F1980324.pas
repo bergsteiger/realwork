@@ -4,7 +4,7 @@ unit PrimProgressIndicator_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -26,7 +26,6 @@ uses
  , ComCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , Messages
- , l3StringIDEx
 ;
 
 const
@@ -79,6 +78,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , l3Defaults
  {$If NOT Defined(NoVCM)}
  , vcmBase

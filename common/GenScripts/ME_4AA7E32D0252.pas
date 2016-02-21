@@ -3,13 +3,12 @@ unit NOT_FINISHED_Logo_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\NOT_FINISHED_Logo_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
  l3IntfUses
- , l3StringIDEx
 ;
 
 type
@@ -20,6 +19,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

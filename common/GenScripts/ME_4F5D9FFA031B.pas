@@ -3,7 +3,7 @@ unit PrimSaveLoadOptionsWithUserTypes_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptionsWithUserTypes_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -11,6 +11,20 @@ interface
 uses
  l3IntfUses
  , PrimSaveLoadOptions_Form
+;
+
+type
+ _PrimSaveLoadUserTypes_Parent_ = TPrimSaveLoadOptionsForm;
+ {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes.imp.pas}
+ TPrimSaveLoadOptionsWithUserTypesForm = class(_PrimSaveLoadUserTypes_)
+ end;//TPrimSaveLoadOptionsWithUserTypesForm
+{$IfEnd} // NOT Defined(Admin)
+
+implementation
+
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
  , Search_Strange_Controls
  {$If NOT Defined(NoVCM)}
  , OfficeLike_ResultEx_Controls
@@ -27,20 +41,6 @@ uses
  , PrimSaveLoadUserTypes_slqtKW_UserType
  , PrimSaveLoadUserTypes_slqtPublishSource_UserType
  , PrimSaveLoadUserTypes_slqtInpharmSearch_UserType
-;
-
-type
- _PrimSaveLoadUserTypes_Parent_ = TPrimSaveLoadOptionsForm;
- {$Include w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes.imp.pas}
- TPrimSaveLoadOptionsWithUserTypesForm = class(_PrimSaveLoadUserTypes_)
- end;//TPrimSaveLoadOptionsWithUserTypesForm
-{$IfEnd} // NOT Defined(Admin)
-
-implementation
-
-{$If NOT Defined(Admin)}
-uses
- l3ImplUses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

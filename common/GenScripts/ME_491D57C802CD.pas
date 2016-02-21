@@ -4,7 +4,7 @@ unit DictionInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\DictionInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

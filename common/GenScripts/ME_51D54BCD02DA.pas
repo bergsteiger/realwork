@@ -4,7 +4,7 @@ unit ConfigStorageStub;
 // Модуль: "w:\common\components\rtl\Garant\Daily\ConfigStorageStub.pas"
 // Стереотип: "SimpleClass"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

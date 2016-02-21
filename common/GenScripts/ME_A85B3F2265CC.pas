@@ -4,7 +4,7 @@ unit InternetAgentKeywordsPack;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\InternetAgentKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , PrimInternetAgent_Module
- , tfwControlString
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +20,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
  , tfwScriptingTypes
 ;
 

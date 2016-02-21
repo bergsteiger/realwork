@@ -3,7 +3,7 @@ unit nsEditionNodes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsEditionNodes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -11,14 +11,13 @@ interface
 uses
  l3IntfUses
  , DocumentUnit
- , l3TreeInterfaces
  , nsNodes
+ , l3TreeInterfaces
  , l3Tree_TLB
  , l3IID
  , l3VirtualNode
  , l3Types
  , l3Variant
- , l3StringIDEx
 ;
 
 type
@@ -164,6 +163,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , l3Base
  , nsTypes
  , SysUtils

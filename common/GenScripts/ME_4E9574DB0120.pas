@@ -3,7 +3,7 @@ unit nsWebBrowserHelper;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserHelper.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -14,7 +14,7 @@ uses
 ;
 
 function EnumChildWindowProc(hwnd: HWND;
- lParam: LPARAM): Boolean;
+ lParam: LPARAM): Boolean; stdcall;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation

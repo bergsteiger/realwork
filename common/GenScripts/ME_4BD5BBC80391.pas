@@ -4,7 +4,7 @@ unit PrimSaveLoadUserTypes_slqtFilters_UserType;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtFilters_UserType.pas"
 // Стереотип: "UserType"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -15,9 +15,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , tfwInteger
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const
@@ -33,6 +30,9 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

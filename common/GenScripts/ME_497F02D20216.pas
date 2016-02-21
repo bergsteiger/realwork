@@ -3,7 +3,7 @@ unit PrimUserProperty_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimUserProperty_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -27,7 +27,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , l3StringIDEx
 ;
 
 type
@@ -130,6 +129,7 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , DataAdapter
  , nsGroupTreeStruct
  , l3Base

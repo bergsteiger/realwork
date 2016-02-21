@@ -4,7 +4,7 @@ unit BaseHistoryWindow_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseHistoryWindow_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -14,7 +14,6 @@ uses
  , AbstractHistory_Form
  , ChatInterfaces
  , Base_Operations_Chat_Controls
- , l3StringIDEx
 ;
 
 type
@@ -34,6 +33,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , Windows
  {$If NOT Defined(NoVCM)}
  , StdRes

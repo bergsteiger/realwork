@@ -4,7 +4,7 @@ unit ExText_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExText_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -92,31 +92,6 @@ uses
  , Hypertext_Controls_Controls
  , evdTypes
  , l3StringIDEx
- , DocumentUserTypes_dftRelatedDoc_UserType
- , DocumentUserTypes_dftAnnotation_UserType
- , DocumentUserTypes_dftRelatedSynchroView_UserType
- , DocumentUserTypes_dftDictSubEntry_UserType
- , DocumentUserTypes_dftConsultation_UserType
- , DocumentUserTypes_dftTranslation_UserType
- , DocumentUserTypes_dftChronology_UserType
- , DocumentUserTypes_dftAutoreferatAfterSearch_UserType
- , DocumentUserTypes_dftTips_UserType
- , DocumentUserTypes_dftAutoreferat_UserType
- , DocumentUserTypes_dftMedicFirmSynchroView_UserType
- , DocumentUserTypes_dftDrugSynchroView_UserType
- , DocumentUserTypes_dftDocSynchroView_UserType
- , DocumentUserTypes_dftAnnotationSynchroView_UserType
- , DocumentUserTypes_dftNone_UserType
- , DocumentUserTypes_dftDocument_UserType
- , DocumentUserTypes_dftAACLeft_UserType
- , DocumentUserTypes_dftAACRight_UserType
- , DocumentUserTypes_dftAACContentsLeft_UserType
- , DocumentUserTypes_dftAACContentsRight_UserType
- , DocumentUserTypes_dftDrug_UserType
- , DocumentUserTypes_dftDictEntry_UserType
- , DocumentUserTypes_dftMedDictEntry_UserType
- , DocumentUserTypes_dftMedicFirm_UserType
- , evSubWaiter
  , l3ProtoObject
 ;
 
@@ -365,7 +340,7 @@ type
    function DoProcessExternalOperation(const anOperation: IExternalOperation): Boolean; override;
     {* Обработчик внешней операции }
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType); override;
     {* Переход на точку в документе }
    procedure OpenRedactionLocalLink(const aDocument: IDocument;
     aSub: Cardinal;
@@ -691,6 +666,31 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , DocumentUserTypes_dftRelatedDoc_UserType
+ , DocumentUserTypes_dftAnnotation_UserType
+ , DocumentUserTypes_dftRelatedSynchroView_UserType
+ , DocumentUserTypes_dftDictSubEntry_UserType
+ , DocumentUserTypes_dftConsultation_UserType
+ , DocumentUserTypes_dftTranslation_UserType
+ , DocumentUserTypes_dftChronology_UserType
+ , DocumentUserTypes_dftAutoreferatAfterSearch_UserType
+ , DocumentUserTypes_dftTips_UserType
+ , DocumentUserTypes_dftAutoreferat_UserType
+ , DocumentUserTypes_dftMedicFirmSynchroView_UserType
+ , DocumentUserTypes_dftDrugSynchroView_UserType
+ , DocumentUserTypes_dftDocSynchroView_UserType
+ , DocumentUserTypes_dftAnnotationSynchroView_UserType
+ , DocumentUserTypes_dftNone_UserType
+ , DocumentUserTypes_dftDocument_UserType
+ , DocumentUserTypes_dftAACLeft_UserType
+ , DocumentUserTypes_dftAACRight_UserType
+ , DocumentUserTypes_dftAACContentsLeft_UserType
+ , DocumentUserTypes_dftAACContentsRight_UserType
+ , DocumentUserTypes_dftDrug_UserType
+ , DocumentUserTypes_dftDictEntry_UserType
+ , DocumentUserTypes_dftMedDictEntry_UserType
+ , DocumentUserTypes_dftMedicFirm_UserType
+ , evSubWaiter
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
@@ -3000,7 +3000,7 @@ begin
 end;//TExTextForm.DoProcessExternalOperation
 
 procedure TExTextForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_49539DBA029D_var*
 var

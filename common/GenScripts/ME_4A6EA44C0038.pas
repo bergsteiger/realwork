@@ -4,7 +4,7 @@ unit BaseChatWindow_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseChatWindow_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -23,7 +23,6 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , vtPanel
  , Messages
- , l3StringIDEx
 ;
 
 type
@@ -76,6 +75,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , Windows
  {$If NOT Defined(NoVCM)}
  , StdRes

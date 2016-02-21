@@ -4,7 +4,7 @@ unit K258610458;
 // Модуль: "w:\common\components\rtl\Garant\Daily\K258610458.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

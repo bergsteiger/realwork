@@ -3,7 +3,7 @@ unit OfficeLikeAppInterfaces;
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeAppInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

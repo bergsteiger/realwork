@@ -3,7 +3,7 @@ unit PrimFoldersInfo_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersInfo_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -15,7 +15,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , Folders_Strange_Controls
  , vtPanel
- , l3StringIDEx
 ;
 
 type
@@ -44,6 +43,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , nsFolders
  {$If NOT Defined(NoVCM)}
  , vcmBase

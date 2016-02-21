@@ -4,7 +4,7 @@ unit dsInternetAgent;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\InternetAgent\dsInternetAgent.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

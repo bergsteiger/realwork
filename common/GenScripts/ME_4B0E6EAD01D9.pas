@@ -3,7 +3,7 @@ unit nsSwitchVersionCommentsEvent;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\nsSwitchVersionCommentsEvent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

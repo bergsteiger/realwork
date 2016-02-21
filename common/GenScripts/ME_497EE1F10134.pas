@@ -4,7 +4,7 @@ unit PrimMedicListSynchroView_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -19,7 +19,6 @@ uses
  , SimpleListInterfaces
  , vtPanel
  , l3Interfaces
- , l3StringIDEx
 ;
 
 type
@@ -72,6 +71,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , F1Like_InternalOperations_Controls
  , afwFacade
  {$If NOT Defined(NoVCL)}

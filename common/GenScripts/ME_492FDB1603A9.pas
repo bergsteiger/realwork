@@ -4,7 +4,7 @@ unit sdsAutoreferat;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\sdsAutoreferat.pas"
 // Стереотип: "UseCaseControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

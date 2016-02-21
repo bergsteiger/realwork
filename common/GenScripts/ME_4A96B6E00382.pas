@@ -4,7 +4,7 @@ unit moFolders;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\moFolders.pas"
 // Стереотип: "VCMUseCaseRealization"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

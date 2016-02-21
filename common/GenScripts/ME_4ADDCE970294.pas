@@ -3,7 +3,7 @@ unit OfficeLikeRes;
 // Модуль: "w:\common\components\gui\Garant\VCM\UserInteraction\OfficeLikeRes.pas"
 // Стереотип: "VCMApplication"
 
-{$Include sdoDefine.inc}
+{$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 

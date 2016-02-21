@@ -4,7 +4,7 @@ unit SplashInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Splash\SplashInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

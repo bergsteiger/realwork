@@ -3,7 +3,7 @@ unit Admin_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Admin_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -23,19 +23,18 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactoryPrim
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , PrimAdmin_utAdmin_UserType
- , Admin_FormDefinitions_Controls
- , l3TreeInterfaces
- , PrimUserList_admUserList_UserType
- , PrimUserProperty_admUseProperties_UserType
- , PrimGroupList_admGroupList_UserType
  , PrimGroupPropertyOptions_Form
  , PrimForbidAutoregistrationOptions_Form
  , PrimUserListOptions_Form
+ , Admin_FormDefinitions_Controls
  , PrimUserPropertyOptions_Form
  , PrimGroupListOptions_Form
  , PrimAdminOptions_Form
+ , PrimAdmin_utAdmin_UserType
+ , l3TreeInterfaces
+ , PrimGroupList_admGroupList_UserType
+ , PrimUserList_admUserList_UserType
+ , PrimUserProperty_admUseProperties_UserType
 ;
 
 const
@@ -129,6 +128,7 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , PrimGroupProperty_admCreateGroup_UserType
  , PrimGroupProperty_admRenameGroup_UserType
  {$If NOT Defined(NoVCM)}

@@ -3,7 +3,7 @@ unit SearchLite_Strange_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\SearchLite_Strange_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ uses
  , SearchUnit
  , FiltersUnit
  , l3Interfaces
- , l3CProtoObject
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -659,6 +658,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3CProtoObject
 ;
 
 type

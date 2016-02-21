@@ -4,7 +4,7 @@ unit nsTipsDocumentContainer;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\nsTipsDocumentContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

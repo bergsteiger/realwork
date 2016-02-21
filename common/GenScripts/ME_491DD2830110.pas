@@ -4,7 +4,7 @@ unit TreeInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Tree\TreeInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

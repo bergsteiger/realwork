@@ -4,7 +4,7 @@ unit nsBaseMainMenuTree;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\nsBaseMainMenuTree.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

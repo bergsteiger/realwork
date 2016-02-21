@@ -3,7 +3,7 @@ unit dsQuery;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Consultation\dsQuery.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

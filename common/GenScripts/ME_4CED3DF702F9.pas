@@ -3,7 +3,7 @@ unit nsNativeCommentPara;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsNativeCommentPara.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -15,7 +15,6 @@ uses
  , l3Interfaces
  , l3IID
  , k2Base
- , l3ProtoObject
 ;
 
 type
@@ -44,6 +43,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3ProtoObject
  , SysUtils
  , k2Facade
  , nsStyleParser

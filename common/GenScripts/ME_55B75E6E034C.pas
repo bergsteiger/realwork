@@ -3,7 +3,7 @@ unit LoggingWrapperInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWrapperInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

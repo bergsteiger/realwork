@@ -3,7 +3,7 @@ unit BaseChat_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\BaseChat_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -14,11 +14,11 @@ uses
  , ChatTypes
  , l3Interfaces
  , PrimContactListOptions_Form
+ , BaseChatWindowOptions_Form
+ , BaseHistoryWindow_Form
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , BaseChatWindowOptions_Form
- , BaseHistoryWindow_Form
 ;
 
 const

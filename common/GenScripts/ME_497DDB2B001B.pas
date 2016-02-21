@@ -4,7 +4,7 @@ unit PrimList_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimList_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -45,7 +45,6 @@ uses
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , bsTypes
- , Messages
  , DocumentUnit
  , DynamicTreeUnit
  , PreviewInterfaces
@@ -68,20 +67,6 @@ uses
  , l3StringIDEx
  , nsLogEvent
  , DynamicDocListUnit
- , ListUserTypes_lftNone_UserType
- , ListUserTypes_lftConsultation_UserType
- , ListUserTypes_lftDrugInternationalNameSynonyms_UserType
- , ListUserTypes_lftProducedDrugs_UserType
- , ListUserTypes_lftProducedDrugsSynchroForm_UserType
- , ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType
- , ListUserTypes_lftDrugList_UserType
- , ListUserTypes_lftRespondent_UserType
- , ListUserTypes_lftCorrespondent_UserType
- , ListUserTypes_lftSynchroView_UserType
- , ListUserTypes_lftCToPart_UserType
- , ListUserTypes_lftSimilarDocumentsSynchroView_UserType
- , ListUserTypes_lftCorrespondentsSynchroForm_UserType
- , ListUserTypes_lftRToPart_UserType
  , bsInterfaces
  , l3ProtoObject
 ;
@@ -236,8 +221,6 @@ type
  TPrimListForm = {abstract} class(_HyperlinkToDocumentProducer_, InsContextSearcher, InsBaseSearchPresentation, InsBaseSearchVisibleWatcher, InsTurnOffTimeMachine)
   {* Список документов }
   private
-   f_NeedDirtyHackForScrollbar: Boolean;
-    {* http://mdp.garant.ru/pages/viewpage.action?pageId=527687338 }
    f_AllowCallCurrentChangedOnTest: Boolean;
    f_ListPanel: TvtPanel;
     {* Поле для свойства ListPanel }
@@ -300,10 +283,7 @@ type
     var aFocused: Boolean);
    procedure tvListFooterClick(Sender: TObject);
    function tvListGetNodeType(anIndex: Integer): TbsListNodeType;
-   procedure DirtyHackForScrollbar;
-    {* http://mdp.garant.ru/pages/viewpage.action?pageId=527687338 }
    procedure CallCurrentChanged;
-   procedure WMWindowPosChanged(var Msg: TMessage);
   protected
    function pm_GetNoMoreThanOneSelected: Boolean;
    function pm_GetOnlyOneSelected: Boolean;
@@ -640,6 +620,20 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , ListUserTypes_lftNone_UserType
+ , ListUserTypes_lftConsultation_UserType
+ , ListUserTypes_lftDrugInternationalNameSynonyms_UserType
+ , ListUserTypes_lftProducedDrugs_UserType
+ , ListUserTypes_lftProducedDrugsSynchroForm_UserType
+ , ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType
+ , ListUserTypes_lftDrugList_UserType
+ , ListUserTypes_lftRespondent_UserType
+ , ListUserTypes_lftCorrespondent_UserType
+ , ListUserTypes_lftSynchroView_UserType
+ , ListUserTypes_lftCToPart_UserType
+ , ListUserTypes_lftSimilarDocumentsSynchroView_UserType
+ , ListUserTypes_lftCorrespondentsSynchroForm_UserType
+ , ListUserTypes_lftRToPart_UserType
  , bsUtils
  , BaseTreeSupportUnit
  , nsUtils
@@ -679,6 +673,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , Windows
  , nscDocumentHistory
+ , vtLister
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -1797,23 +1792,6 @@ begin
 //#UC END# *543E272E0005_497DDB2B001B_impl*
 end;//TPrimListForm.InitNewContainerBaseSearch
 
-procedure TPrimListForm.DirtyHackForScrollbar;
- {* http://mdp.garant.ru/pages/viewpage.action?pageId=527687338 }
-//#UC START# *54464CC601D1_497DDB2B001B_var*
-//#UC END# *54464CC601D1_497DDB2B001B_var*
-begin
-//#UC START# *54464CC601D1_497DDB2B001B_impl*
- if Assigned(tvList) then
-  if tvList.HandleAllocated then
-   if f_NeedDirtyHackForScrollbar then
-   begin
-    SetWindowPos(tvList.Handle, 0, 0, 0, 0, 0, SWP_NOSIZE or SWP_NOMOVE or
-     SWP_NOZORDER or SWP_NOACTIVATE or SWP_FRAMECHANGED);
-    f_NeedDirtyHackForScrollbar := False;
-   end;
-//#UC END# *54464CC601D1_497DDB2B001B_impl*
-end;//TPrimListForm.DirtyHackForScrollbar
-
 procedure TPrimListForm.CallCurrentChanged;
 //#UC START# *5527D24201E7_497DDB2B001B_var*
 //#UC END# *5527D24201E7_497DDB2B001B_var*
@@ -1965,16 +1943,6 @@ begin
   not IsListEmpty and HasCurrent;
 //#UC END# *4B5580C902B0_497DDB2B001B_impl*
 end;//TPrimListForm.ListOpsTest
-
-procedure TPrimListForm.WMWindowPosChanged(var Msg: TMessage);
-//#UC START# *54464C55009D_497DDB2B001B_var*
-//#UC END# *54464C55009D_497DDB2B001B_var*
-begin
-//#UC START# *54464C55009D_497DDB2B001B_impl*
- inherited;
- DirtyHackForScrollbar;
-//#UC END# *54464C55009D_497DDB2B001B_impl*
-end;//TPrimListForm.WMWindowPosChanged
 
 procedure TPrimListForm.lftRespondentsSynchroFormQueryMaximized(aSender: TObject);
  {* Обработчик события lftRespondentsSynchroForm.OnQueryMaximized }

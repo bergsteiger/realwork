@@ -4,7 +4,7 @@ unit CommonDictionInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\CommonDictionInterfaces.pas"
 // Стереотип: "ControllerInterfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

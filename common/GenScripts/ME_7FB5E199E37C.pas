@@ -4,7 +4,7 @@ unit ShutDownKeywordsPack;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\ShutDownKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -18,14 +18,6 @@ uses
  , vtPanel
  , vtLabel
  , vtButton
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -34,6 +26,14 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy

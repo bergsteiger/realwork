@@ -4,7 +4,7 @@ unit AbstractHistory_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\AbstractHistory_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -58,7 +58,7 @@ type
    function Get_UserID: TbsUserID;
    procedure ActivateChatWindow;
    procedure GotoPoint(aPointID: Cardinal;
-    aPointType: TDocumentPositionType = Sub); override;
+    aPointType: TDocumentPositionType); override;
     {* Переход на точку в документе }
    function HyperlinkDocument: IDocument; override;
     {* Документ ИЗ которого ведёт ссылка }
@@ -266,7 +266,7 @@ begin
 end;//TAbstractHistoryForm.ActivateChatWindow
 
 procedure TAbstractHistoryForm.GotoPoint(aPointID: Cardinal;
- aPointType: TDocumentPositionType = Sub);
+ aPointType: TDocumentPositionType);
  {* Переход на точку в документе }
 //#UC START# *4A8164E801AE_4A6EA4310035_var*
 //#UC END# *4A8164E801AE_4A6EA4310035_var*

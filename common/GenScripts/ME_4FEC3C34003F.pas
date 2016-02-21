@@ -3,7 +3,7 @@ unit nscStatusBarItemDef;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarItemDef.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

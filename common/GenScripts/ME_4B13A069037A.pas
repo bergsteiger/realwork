@@ -3,7 +3,7 @@ unit nsPrimCachedEvent;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsPrimCachedEvent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

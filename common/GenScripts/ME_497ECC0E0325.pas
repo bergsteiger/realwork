@@ -3,7 +3,7 @@ unit PrimTreeAttributeSelect_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimTreeAttributeSelect_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -43,8 +43,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , PrimTreeAttributeSelect_astOneLevel_UserType
 ;
 
 type
@@ -203,6 +201,8 @@ implementation
 
 uses
  l3ImplUses
+ , l3StringIDEx
+ , PrimTreeAttributeSelect_astOneLevel_UserType
  , l3String
  , SysUtils
  , nsLogicOperationToFlags

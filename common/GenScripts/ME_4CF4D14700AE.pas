@@ -3,7 +3,7 @@ unit nscTreeComboWithHistoryAndOperations;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTreeComboWithHistoryAndOperations.pas"
 // Стереотип: "GuiControl"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit dsUserProperty;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsUserProperty.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

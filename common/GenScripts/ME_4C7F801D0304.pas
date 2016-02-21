@@ -3,7 +3,7 @@ unit ExTextOptions_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\ExTextOptions_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -141,7 +141,7 @@ type
     aY: Integer;
     out theTarget: IUnknown): Boolean;
    procedure ReloadRedaction(aChangeType: TnsChangeRedactionType;
-    aRedaction: TRedactionID = 0); override;
+    aRedaction: TRedactionID); override;
    function ReloadRedaction(const aDate: AdapterDate): Boolean; override;
    procedure SetActualRedaction; override;
    function ExtractRangeFromContents(const aData: IUnknown;
@@ -158,7 +158,7 @@ type
    procedure InitHyperLink(const aHyperLink: IevHyperlink;
     const aBaseEntity: IUnknown); override;
    function EnableRedactionOps(const aParams: IvcmTestParamsPrim): Boolean; override;
-   procedure OpenInWindow(aNew: Boolean = True); override;
+   procedure OpenInWindow(aNew: Boolean); override;
    procedure CreateTOC(const aTOC: IdeSimpleTree); override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -455,6 +455,7 @@ uses
  , BaloonWarningUserTypes_WarnTimeMachineWarning_UserType
  , BaloonWarningUserTypes_WarnInactualDocument_UserType
  , nsUseDocumentSubPanelOperationEvent
+ , bsUtilsConst
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
@@ -1119,7 +1120,7 @@ begin
 end;//TExTextOptionsForm.SubPanelEntitiesGetTarget
 
 procedure TExTextOptionsForm.ReloadRedaction(aChangeType: TnsChangeRedactionType;
- aRedaction: TRedactionID = 0);
+ aRedaction: TRedactionID);
 //#UC START# *4AE7354E03A4_4C7F801D0304_var*
 var
  l_Para   : IeePara;
@@ -1363,7 +1364,7 @@ begin
 //#UC END# *4AFAF4620059_4C7F801D0304_impl*
 end;//TExTextOptionsForm.EnableRedactionOps
 
-procedure TExTextOptionsForm.OpenInWindow(aNew: Boolean = True);
+procedure TExTextOptionsForm.OpenInWindow(aNew: Boolean);
 //#UC START# *4B04318202FC_4C7F801D0304_var*
 var
  l_Cont : IvcmContainer;

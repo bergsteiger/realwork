@@ -4,7 +4,7 @@ unit Document_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Document_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -35,7 +35,14 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactoryPrim
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
+ , PrimPictureOptions_Form
+ , PrimPictureInfoOptions_Form
+ , PrimDocNumberQueryOptions_Form
+ , PrimDockedWarning_Form
+ , PrimAttributesOptions_Form
+ , PrimSynchroViewOptions_Form
+ , PrimTurnOnTimeMachineOptions_Form
+ , PrimWarningBaloonOptions_Form
  , DocumentUserTypes_dftDocument_UserType
  , nevTools
  , bsTypes
@@ -58,15 +65,6 @@ uses
  , DocumentWithFlashUserTypes_dwftMain_UserType
  , DocInfoInterfaces
  , evdInterfaces
- , PrimPictureOptions_Form
- , PrimPictureInfoOptions_Form
- , PrimDocNumberQueryOptions_Form
- , PrimDockedWarning_Form
- , PrimAttributesOptions_Form
- , PrimSynchroViewOptions_Form
- , PrimTurnOnTimeMachineOptions_Form
- , nsLogEvent
- , PrimWarningBaloonOptions_Form
 ;
 
 const
@@ -296,6 +294,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , nsLogEvent
+ , l3StringIDEx
  , Document_Strange_Controls
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport

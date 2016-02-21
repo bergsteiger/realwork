@@ -4,7 +4,7 @@ unit PrimQueryCard_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimQueryCard_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -32,11 +32,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , PrimQueryCard_utqcSendConsultation_UserType
- , PrimQueryCard_utqcAttributeSearch_UserType
- , PrimQueryCard_utqcLegislationReview_UserType
- , PrimQueryCard_utqcInpharmSearch_UserType
  , nsLogEvent
 ;
 
@@ -168,6 +163,11 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
+ , PrimQueryCard_utqcSendConsultation_UserType
+ , PrimQueryCard_utqcAttributeSearch_UserType
+ , PrimQueryCard_utqcLegislationReview_UserType
+ , PrimQueryCard_utqcInpharmSearch_UserType
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

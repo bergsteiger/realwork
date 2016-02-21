@@ -3,7 +3,7 @@ unit PrimPreview_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPreview_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -34,7 +34,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
 ;
 
 type
@@ -114,6 +113,7 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

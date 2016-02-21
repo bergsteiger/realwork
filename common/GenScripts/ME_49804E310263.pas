@@ -4,7 +4,7 @@ unit PresentationInterfaces;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\PresentationInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 

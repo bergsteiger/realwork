@@ -3,19 +3,18 @@ unit PrimCommon_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\PrimCommon_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
  l3IntfUses
  , PrimShutDown_Form
+ , PrimLogin_Form
+ , PrimLongProcess_Form
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , PrimLogin_Form
- , l3StringIDEx
- , PrimLongProcess_Form
 ;
 
 const
@@ -77,6 +76,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)

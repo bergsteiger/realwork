@@ -3,7 +3,7 @@ unit PrimFolders_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\PrimFolders_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -38,14 +38,13 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSetFactoryPrim
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , PrimFolders_utFolders_UserType
- , PrimFoldersTree_utFoldersTree_UserType
- , PrimFoldersElementInfo_utFoldersProperty_UserType
  , PrimFoldersInfoOptions_Form
  , PrimFoldersTreeOptions_Form
  , PrimFoldersElementInfoOptions_Form
  , nsLogEvent
+ , PrimFolders_utFolders_UserType
+ , PrimFoldersTree_utFoldersTree_UserType
+ , PrimFoldersElementInfo_utFoldersProperty_UserType
 ;
 
 const
@@ -172,6 +171,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , Search_Strange_Controls
  , PrimFoldersTree_utSaveOpen_UserType
  {$If NOT Defined(NoVCM)}

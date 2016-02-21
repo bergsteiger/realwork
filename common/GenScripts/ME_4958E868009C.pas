@@ -4,7 +4,7 @@ unit InpharmMainMenu_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\InpharmMainMenu_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -28,11 +28,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , InpharmMainMenu_ut_mmmMain_UserType
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -87,6 +82,11 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
+ , InpharmMainMenu_ut_mmmMain_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscArrangeGrid
  {$IfEnd} // Defined(Nemesis)

@@ -4,7 +4,7 @@ unit nsHAFPainter;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\nsHAFPainter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

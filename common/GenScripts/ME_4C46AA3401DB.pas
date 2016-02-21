@@ -3,7 +3,7 @@ unit PrimListOptions_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListOptions_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -106,11 +106,11 @@ type
    function Get_SearchList: IDynList;
    procedure ShowEditorOrList(const aTree: Il3SimpleTree); override;
    function ApplyFilter(const aFilter: IFilterFromQuery;
-    aAdd: Boolean = False): Boolean; override;
+    aAdd: Boolean): Boolean; override;
    function IsListEmpty: Boolean; override;
    procedure QueryMaximized; override;
    procedure QueryOpen; override;
-   procedure SaveToFolders(aOperation: Integer = 0); override;
+   procedure SaveToFolders(aOperation: Integer); override;
    function MakeFilterInfo(aType: TnsFolderFilter): InsFolderFilterInfo; override;
    procedure ResetSaveToFolderOperations; override;
    function CheckValidSortTypes(aSortType: TbsValidSortTypes): Boolean; override;
@@ -885,7 +885,7 @@ begin
 end;//TPrimListOptionsForm.ShowEditorOrList
 
 function TPrimListOptionsForm.ApplyFilter(const aFilter: IFilterFromQuery;
- aAdd: Boolean = False): Boolean;
+ aAdd: Boolean): Boolean;
 //#UC START# *4AEF0A9403DD_4C46AA3401DB_var*
 
  procedure lp_ResetTree;
@@ -1018,7 +1018,7 @@ begin
 end;//TPrimListOptionsForm.Wrap
 {$IfEnd} // NOT Defined(NoVCM)
 
-procedure TPrimListOptionsForm.SaveToFolders(aOperation: Integer = 0);
+procedure TPrimListOptionsForm.SaveToFolders(aOperation: Integer);
 //#UC START# *4C3418190372_4C46AA3401DB_var*
 var
  l_CurEntity: IEntityBase;

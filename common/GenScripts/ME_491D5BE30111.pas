@@ -4,7 +4,7 @@ unit dsDictionDocument;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Diction\dsDictionDocument.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

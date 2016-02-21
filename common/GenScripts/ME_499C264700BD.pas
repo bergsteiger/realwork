@@ -4,7 +4,7 @@ unit nsDocumentsList_p;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\nsDocumentsList_p.pas"
 // Стереотип: "TestClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

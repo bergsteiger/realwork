@@ -3,7 +3,7 @@ unit deMedicFirmList;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\deMedicFirmList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

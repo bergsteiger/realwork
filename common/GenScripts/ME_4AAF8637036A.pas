@@ -4,7 +4,7 @@ unit PrimPageSetup_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetup_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -19,7 +19,6 @@ uses
  {$If Defined(Nemesis)}
  , nscPageControl
  {$IfEnd} // Defined(Nemesis)
- , l3StringIDEx
 ;
 
 type
@@ -57,6 +56,7 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , nsPageSetup
  , l3MessageID
  {$If NOT Defined(NoScripts)}

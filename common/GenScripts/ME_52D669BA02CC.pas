@@ -3,7 +3,7 @@ unit nsExternalObject;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsExternalObject.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit dsChild;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\CommonDiction\dsChild.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

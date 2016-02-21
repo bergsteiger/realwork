@@ -4,7 +4,7 @@ unit EVDwithFormulasToRTFWriterTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDwithFormulasToRTFWriterTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

@@ -3,7 +3,7 @@ unit moRealCommon;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\moRealCommon.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit LogoKeywordsPack;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\LogoKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , Logo_Form
- , tfwControlString
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -21,6 +20,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
  , tfwScriptingTypes
  , TtfwClassRef_Proxy
 ;

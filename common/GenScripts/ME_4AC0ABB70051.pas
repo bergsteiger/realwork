@@ -3,7 +3,7 @@ unit nsFormCoordinates;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\nsFormCoordinates.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

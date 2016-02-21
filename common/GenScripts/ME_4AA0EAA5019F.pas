@@ -3,7 +3,7 @@ unit moLiteSearch;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\moLiteSearch.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

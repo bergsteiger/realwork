@@ -4,13 +4,12 @@ unit F1_Application_Template_InternalOperations_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_InternalOperations_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
  l3IntfUses
- , l3CProtoObject
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
@@ -59,6 +58,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3CProtoObject
 ;
 
 type

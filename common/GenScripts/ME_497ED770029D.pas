@@ -3,7 +3,7 @@ unit PrimCommonDiction_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ uses
  l3IntfUses
  , CommonDictionInterfaces
  , DocumentAndListInterfaces
- , l3StringIDEx
 ;
 
 type
@@ -39,6 +38,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , Common_FormDefinitions_Controls
  , DataAdapter
  {$If NOT Defined(NoVCM)}

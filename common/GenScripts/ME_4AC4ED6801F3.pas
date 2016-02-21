@@ -4,7 +4,7 @@ unit PrimGroupProperty_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupProperty_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -22,7 +22,6 @@ uses
  , nscComboBox
  {$IfEnd} // Defined(Nemesis)
  , vtLabel
- , l3StringIDEx
 ;
 
 type
@@ -74,6 +73,7 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

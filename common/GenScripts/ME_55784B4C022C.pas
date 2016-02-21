@@ -3,7 +3,7 @@ unit tfwParserTokenListTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\tfwParserTokenListTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

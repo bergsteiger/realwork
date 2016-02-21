@@ -3,7 +3,7 @@ unit nsLogManager;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogManager.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

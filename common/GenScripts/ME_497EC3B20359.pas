@@ -3,7 +3,7 @@ unit PrimSelectedAttributes_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\Forms\PrimSelectedAttributes_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -29,7 +29,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
 ;
 
 type
@@ -99,6 +98,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3StringIDEx
  , nsTreeAttributeNodesNew
  , SearchRes
  , nsSelectedTreeStruct

@@ -3,7 +3,7 @@ unit nsLogEvent;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

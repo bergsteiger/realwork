@@ -3,7 +3,7 @@ unit nscStatusBarSep;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscStatusBarSep.pas"
 // Стереотип: "GuiControl"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

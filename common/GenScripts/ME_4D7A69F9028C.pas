@@ -3,7 +3,7 @@ unit PrimDictionContainer_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimDictionContainer_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -21,15 +21,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , DictionContainerUserTypes_slqtDiction_UserType
- , DictionContainerUserTypes_slqtMedicDiction_UserType
- , Search_Strange_Controls
- {$If NOT Defined(NoVCM)}
- , OfficeLike_ResultEx_Controls
- {$IfEnd} // NOT Defined(NoVCM)
- , SearchLite_Strange_Controls
- , PrimPrimListInterfaces
- , bsTypes
 ;
 
 type
@@ -88,6 +79,15 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , DictionContainerUserTypes_slqtDiction_UserType
+ , DictionContainerUserTypes_slqtMedicDiction_UserType
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , PrimPrimListInterfaces
+ , bsTypes
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

@@ -4,7 +4,7 @@ unit sdsMedicFirmList;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Medic\sdsMedicFirmList.pas"
 // Стереотип: "UseCaseControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

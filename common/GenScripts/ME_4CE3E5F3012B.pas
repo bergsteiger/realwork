@@ -4,7 +4,7 @@ unit SelectRowAndDeleteTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\SelectRowAndDeleteTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

@@ -3,7 +3,7 @@ unit nsSaveDocumentToFoldersEvent;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\nsSaveDocumentToFoldersEvent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

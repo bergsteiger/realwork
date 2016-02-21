@@ -4,7 +4,7 @@ unit InsertStreamTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\InsertStreamTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

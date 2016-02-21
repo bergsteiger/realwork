@@ -3,7 +3,7 @@ unit nscDocumentListTreeView;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Components\nscDocumentListTreeView.pas"
 // Стереотип: "GuiControl"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

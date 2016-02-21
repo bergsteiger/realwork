@@ -3,7 +3,7 @@ unit FoldersChangeUserInteraction;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\FoldersChangeUserInteraction.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

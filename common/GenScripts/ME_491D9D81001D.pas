@@ -4,7 +4,7 @@ unit dsForbidAutoregistration;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Admin\dsForbidAutoregistration.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

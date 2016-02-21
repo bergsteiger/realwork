@@ -3,7 +3,7 @@ unit CommonSearch_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\CommonSearch_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -26,7 +26,6 @@ uses
  , PrimPreview_Form
  , PrimPageSetupOptions_Form
  , PrimPrintDialogOptions_Form
- , l3StringIDEx
 ;
 
 type
@@ -47,7 +46,7 @@ type
    procedure ReadPageFormats; override;
    procedure SetColontitulComboBoxItemIndex(aIndex: Integer); override;
    procedure ToGUIMargins; override;
-   procedure Save(SaveAsDefault: Boolean = False); override;
+   procedure Save(SaveAsDefault: Boolean); override;
    procedure SetPageFormat(aOrientation: Integer); override;
    procedure MacroAdd(const aString: AnsiString); override;
    procedure ToGUIColontituls; override;
@@ -104,6 +103,7 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , nsUtils
  , evConst
  , DataAdapter
@@ -204,7 +204,7 @@ begin
 //#UC END# *4AC608AC03C7_4AAF86650309_impl*
 end;//Ten_PageSetup.ToGUIMargins
 
-procedure Ten_PageSetup.Save(SaveAsDefault: Boolean = False);
+procedure Ten_PageSetup.Save(SaveAsDefault: Boolean);
 //#UC START# *4C88D996000B_4AAF86650309_var*
 //#UC END# *4C88D996000B_4AAF86650309_var*
 begin

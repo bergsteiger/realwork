@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsInternalPictureData;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\NOT_FINISHED_nsInternalPictureData.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

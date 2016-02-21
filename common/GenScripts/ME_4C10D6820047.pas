@@ -4,7 +4,7 @@ unit EVDtoEVDSectionRepairTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDSectionRepairTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

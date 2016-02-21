@@ -4,7 +4,7 @@ unit MainMenuDomainInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Common\MainMenuDomainInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit PrimGroupList_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimGroupList_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -30,7 +30,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmControllers
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
 ;
 
 type
@@ -102,6 +101,7 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)

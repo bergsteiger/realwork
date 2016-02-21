@@ -4,7 +4,7 @@ unit List_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -34,7 +34,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmFormSet
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
+ , PrimListAnalize_Form
  , ListUserTypes_lftNone_UserType
  , WorkWithListInterfaces
  , bsTypes
@@ -49,10 +49,6 @@ uses
  , PrimListInterfaces
  , FiltersUnit
  , nsTypes
- , BaloonWarningUserTypes_remListModified_UserType
- , nevBase
- , BaloonWarningUserTypes_remListFiltered_UserType
- , BaloonWarningUserTypes_remTimeMachineWarning_UserType
  , ListInfoUserTypes_liListInfo_UserType
  , FiltersUserTypes_utFilters_UserType
  , SimpleListInterfaces
@@ -62,13 +58,12 @@ uses
  , DocumentAndListInterfaces
  , FoldersDomainInterfaces
  , bsTypesNew
+ , ListAnalizeUserTypes_Analize_UserType
+ , BaloonWarningUserTypes_remListModified_UserType
+ , nevBase
+ , BaloonWarningUserTypes_remListFiltered_UserType
+ , BaloonWarningUserTypes_remTimeMachineWarning_UserType
  , DocumentUserTypes_dftDocSynchroView_UserType
- , BaloonWarningUserTypes_WarnJuror_UserType
- , BaloonWarningUserTypes_WarnPreActive_UserType
- , BaloonWarningUserTypes_WarnIsAbolished_UserType
- , BaloonWarningUserTypes_WarnOnControl_UserType
- , BaloonWarningUserTypes_WarnInactualDocument_UserType
- , BaloonWarningUserTypes_WarnRedaction_UserType
  , AttributesUserTypes_fAttributeSynchroView_UserType
  , BaseDocumentWithAttributesInterfaces
  , DocumentUserTypes_dftRelatedSynchroView_UserType
@@ -80,8 +75,12 @@ uses
  , ListUserTypes_lftCorrespondentsSynchroForm_UserType
  , ListUserTypes_lftRespondentsSynchroForm_UserType
  , DocumentWithFlashUserTypes_dwftSynchro_UserType
- , ListAnalizeUserTypes_Analize_UserType
- , PrimListAnalize_Form
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_WarnPreActive_UserType
+ , BaloonWarningUserTypes_WarnIsAbolished_UserType
+ , BaloonWarningUserTypes_WarnOnControl_UserType
+ , BaloonWarningUserTypes_WarnInactualDocument_UserType
+ , BaloonWarningUserTypes_WarnRedaction_UserType
 ;
 
 const
@@ -296,6 +295,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , DocumentUserTypes_dftDrugSynchroView_UserType
  , DataAdapter
  {$If NOT Defined(NoVCM)}

@@ -3,7 +3,7 @@ unit NOT_FINISHED_nsFlashWindow;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsFlashWindow.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

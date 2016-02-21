@@ -4,7 +4,7 @@ unit dsTips;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\DayTips\dsTips.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit NOT_FINISHED_eeGroupBox;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_eeGroupBox.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

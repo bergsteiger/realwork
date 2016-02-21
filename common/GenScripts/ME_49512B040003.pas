@@ -3,7 +3,7 @@ unit nscTextSource;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTextSource.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

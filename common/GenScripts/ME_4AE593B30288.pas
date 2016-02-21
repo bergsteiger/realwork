@@ -3,7 +3,7 @@ unit deSelectedAttributes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\deSelectedAttributes.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

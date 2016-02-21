@@ -3,7 +3,7 @@ unit ChatInterfaces;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Chat\ChatInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

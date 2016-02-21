@@ -3,7 +3,7 @@ unit PrimSaveLoadOptionsForBaseSearch_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadOptionsForBaseSearch_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -11,15 +11,6 @@ interface
 uses
  l3IntfUses
  , PrimSaveLoadOptions_Form
- , l3StringIDEx
- , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
- , Search_Strange_Controls
- {$If NOT Defined(NoVCM)}
- , OfficeLike_ResultEx_Controls
- {$IfEnd} // NOT Defined(NoVCM)
- , SearchLite_Strange_Controls
- , PrimPrimListInterfaces
- , bsTypes
 ;
 
 type
@@ -34,6 +25,15 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
+ , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
+ , Search_Strange_Controls
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_ResultEx_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
+ , SearchLite_Strange_Controls
+ , PrimPrimListInterfaces
+ , bsTypes
  , l3MessageID
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy

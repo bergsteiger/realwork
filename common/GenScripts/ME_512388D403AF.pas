@@ -3,7 +3,7 @@ unit NOT_FINISHED_nscLister;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\NOT_FINISHED_nscLister.pas"
 // Стереотип: "GuiControl"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

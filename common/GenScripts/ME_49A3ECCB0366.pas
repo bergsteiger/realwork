@@ -3,7 +3,7 @@ unit Menu_p;
 // Модуль: "w:\common\components\gui\Garant\AFW\Menu_p.pas"
 // Стереотип: "TestClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\l3Define.inc}
 
 interface
 

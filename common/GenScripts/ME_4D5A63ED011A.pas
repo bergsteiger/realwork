@@ -4,7 +4,7 @@ unit SplitCellTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\SplitCellTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

@@ -3,7 +3,7 @@ unit PrimFoldersTreeOptions_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\PrimFoldersTreeOptions_Form.pas"
 // Стереотип: "VCMForm"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -43,8 +43,8 @@ type
    procedure ChildNodeAdded(const aNode: Il3SimpleNode);
     {* был добавлен дочерний узел }
    function BeginEdit(const aNode: IeeNode;
-    WithPositioning: Boolean = False;
-    IsNewFolder: Boolean = False): Boolean; override;
+    WithPositioning: Boolean;
+    IsNewFolder: Boolean): Boolean; override;
    procedure EndEdit(const aNode: IeeNode); override;
    function DeleteNode(const aNode: IeeNode;
     aAskConfirmation: Boolean): TnsDeleteResult; override;
@@ -249,8 +249,8 @@ begin
 end;//TPrimFoldersTreeOptionsForm.ChildNodeAdded
 
 function TPrimFoldersTreeOptionsForm.BeginEdit(const aNode: IeeNode;
- WithPositioning: Boolean = False;
- IsNewFolder: Boolean = False): Boolean;
+ WithPositioning: Boolean;
+ IsNewFolder: Boolean): Boolean;
 //#UC START# *4AE718F90254_4C7E651B0179_var*
 var
  l_Coord  : TRect;

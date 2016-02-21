@@ -4,7 +4,7 @@ unit dsAutoreferat;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsAutoreferat.pas"
 // Стереотип: "ViewAreaControllerImp"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

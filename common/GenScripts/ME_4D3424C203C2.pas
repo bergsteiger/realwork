@@ -3,7 +3,7 @@ unit nscTasksPanelView;
 // Модуль: "w:\common\components\gui\Garant\Nemesis\nscTasksPanelView.pas"
 // Стереотип: "GuiControl"
 
-{$Include nscDefine.inc}
+{$Include w:\common\components\gui\Garant\Nemesis\nscDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit SelectCommentAndDelete;
 // Модуль: "w:\common\components\rtl\Garant\Abstract_Tests\SelectCommentAndDelete.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Abstract_Tests\TestDefine.inc.pas}
 
 interface
 

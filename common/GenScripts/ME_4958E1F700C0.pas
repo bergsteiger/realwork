@@ -3,7 +3,7 @@ unit PrimMainMenuNew_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\PrimMainMenuNew_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -48,11 +48,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
  , vcmExternalInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
- , PrimMainMenuNew_utMainMenuNew_UserType
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Tree_Controls
  {$IfEnd} // NOT Defined(NoVCM)
 ;
 
@@ -187,6 +182,11 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
+ , PrimMainMenuNew_utMainMenuNew_UserType
+ {$If NOT Defined(NoVCM)}
+ , OfficeLike_Tree_Controls
+ {$IfEnd} // NOT Defined(NoVCM)
  {$If Defined(Nemesis)}
  , nscArrangeGrid
  {$IfEnd} // Defined(Nemesis)

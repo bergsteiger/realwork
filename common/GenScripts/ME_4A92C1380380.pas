@@ -4,7 +4,7 @@ unit PrimF1Common_Module;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -29,7 +29,6 @@ uses
  , AdapterFacade
  , PresentationInterfaces
  , PrimRememberPassword_Form
- , l3StringIDEx
  , PrimProgressIndicator_Form
  , PrimEULA_Form
  {$If NOT Defined(NoVCL)}
@@ -281,6 +280,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , Search_Strange_Controls
  , Common_Rubricator_Controls
  , PrimTasksPanel_tpMain_UserType

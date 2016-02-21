@@ -3,7 +3,7 @@ unit DiffTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\DiffTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

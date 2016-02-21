@@ -3,7 +3,7 @@ unit PrimAdmin_Form;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\PrimAdmin_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -16,7 +16,6 @@ uses
  , vtProportionalPanel
  , vtSizeablePanel
  , vtPanel
- , l3StringIDEx
 ;
 
 type
@@ -49,6 +48,7 @@ implementation
 {$If Defined(Admin)}
 uses
  l3ImplUses
+ , l3StringIDEx
  , Admin_Users_Controls
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Result_Controls

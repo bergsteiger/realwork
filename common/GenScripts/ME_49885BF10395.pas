@@ -4,7 +4,7 @@ unit Document_F1Lite_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document_F1Lite_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

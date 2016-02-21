@@ -4,7 +4,7 @@ unit nsAutoreferatDocumentContainer;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Autoreferat\nsAutoreferatDocumentContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

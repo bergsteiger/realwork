@@ -4,7 +4,7 @@ unit K598136171_Restore;
 // Модуль: "w:\common\components\rtl\Garant\Daily\K598136171_Restore.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

@@ -3,7 +3,7 @@ unit EVDtoEVDBlockNameAdderTest;
 // Модуль: "w:\common\components\rtl\Garant\Daily\EVDtoEVDBlockNameAdderTest.pas"
 // Стереотип: "TestCase"
 
-{$Include TestDefine.inc.pas}
+{$Include w:\common\components\rtl\Garant\Daily\TestDefine.inc.pas}
 
 interface
 

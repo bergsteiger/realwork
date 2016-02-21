@@ -3,7 +3,7 @@ unit ChromeLikeTab_p;
 // Модуль: "w:\common\components\gui\Garant\VCM\ChromeLikeTab_p.pas"
 // Стереотип: "TestClass"
 
-{$Include vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
