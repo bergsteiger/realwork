@@ -3,7 +3,7 @@ unit k2VariantImpl;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2VariantImpl.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit k2NonOptimizeContext;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2NonOptimizeContext.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

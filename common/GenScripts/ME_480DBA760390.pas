@@ -4,7 +4,7 @@ unit NOT_FINISHED_k2Facade;
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2Facade.pas"
 // Стереотип: "UtilityPack"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

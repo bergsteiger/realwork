@@ -3,7 +3,7 @@ unit k2TagByHandleView;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TagByHandleView.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

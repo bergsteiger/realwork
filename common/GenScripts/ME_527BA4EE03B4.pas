@@ -3,7 +3,7 @@ unit k2TypedHugeListTag;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TypedHugeListTag.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

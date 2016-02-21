@@ -3,7 +3,7 @@ unit k2MemoryPoolAdapter;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2MemoryPoolAdapter.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

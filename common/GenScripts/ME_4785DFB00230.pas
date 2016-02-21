@@ -3,7 +3,7 @@ library GblAdapterClient;
 // Модуль: "w:\garant6x\implementation\Garant\GblAdapterClient\GblAdapterClient.dpr"
 // Стереотип: "AdapterTarget"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

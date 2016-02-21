@@ -4,7 +4,7 @@ unit k2String_Const;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2String_Const.pas"
 // Стереотип: "Tag"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

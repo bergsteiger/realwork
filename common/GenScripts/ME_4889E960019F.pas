@@ -4,7 +4,7 @@ unit StoreSettingsToServer;
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\StoreSettingsToServer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

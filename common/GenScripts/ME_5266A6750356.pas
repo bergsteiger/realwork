@@ -4,7 +4,7 @@ unit k2Empty_Const;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Empty_Const.pas"
 // Стереотип: "Atom"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

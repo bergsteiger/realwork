@@ -3,7 +3,7 @@ unit k2TypedAtomicTag;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2TypedAtomicTag.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
@@ -21,12 +21,12 @@ uses
  , l3Interfaces
 ;
 
+type
+ Rk2TypedAtomicTag = class of Tk2TypedAtomicTag;
+
  {$Define k2TagIsAtomic}
 
  {$Define k2Tag_No_f_TagType}
-
-type
- Rk2TypedAtomicTag = class of Tk2TypedAtomicTag;
 
  _k2Tag_Parent_ = Tk2AtomicTag;
  {$Include w:\common\components\rtl\Garant\K2\k2Tag.imp.pas}

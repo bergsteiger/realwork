@@ -75,22 +75,22 @@
   public
    function GetRedirect: Tl3Variant;
    function AssignTag(Source: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
-    const Context: Il3OpPack = nil): Boolean; override;
+    AssignMode: Tk2AssignModes;
+    const Context: Il3OpPack): Boolean; override;
    function CloneTag: Il3TagRef; override;
    procedure AssignCloneParams(aSource: Tl3Variant;
-    AssignMode: Tk2AssignModes = k2_amAll;
-    const Context: Il3OpPack = nil); override;
+    AssignMode: Tk2AssignModes;
+    const Context: Il3OpPack); override;
    procedure WriteTag(const G: Ik2TagGenerator;
-    Flags: Tk2StorePropertyFlags = l3_spfAll;
-    Exclude: TByteSet = []); override;
+    Flags: Tk2StorePropertyFlags;
+    Exclude: TByteSet); override;
     {* записать тег в генератор. }
    procedure InsertChildTag(anIndex: Integer;
     aChild: Tl3Variant;
-    const aContext: Il3OpPack = nil); override;
+    const aContext: Il3OpPack); override;
     {* вставить ребенка. }
    function IndexOfChild(aChild: Tl3Variant): Integer; override;
-   procedure DeleteChildren(const Context: Il3OpPack = nil); override;
+   procedure DeleteChildren(const Context: Il3OpPack); override;
     {* удалить всех детей. }
    function CompareWithInt(aValue: Integer;
     anIndex: Integer): Integer; override;
@@ -133,8 +133,8 @@ begin
 end;//_k2TagBox_.GetRedirect
 
 function _k2TagBox_.AssignTag(Source: Tl3Variant;
- AssignMode: Tk2AssignModes = k2_amAll;
- const Context: Il3OpPack = nil): Boolean;
+ AssignMode: Tk2AssignModes;
+ const Context: Il3OpPack): Boolean;
 //#UC START# *47612DD0012B_48CF9748004F_var*
 //#UC END# *47612DD0012B_48CF9748004F_var*
 begin
@@ -153,8 +153,8 @@ begin
 end;//_k2TagBox_.CloneTag
 
 procedure _k2TagBox_.AssignCloneParams(aSource: Tl3Variant;
- AssignMode: Tk2AssignModes = k2_amAll;
- const Context: Il3OpPack = nil);
+ AssignMode: Tk2AssignModes;
+ const Context: Il3OpPack);
 //#UC START# *47612E530082_48CF9748004F_var*
 //#UC END# *47612E530082_48CF9748004F_var*
 begin
@@ -164,8 +164,8 @@ begin
 end;//_k2TagBox_.AssignCloneParams
 
 procedure _k2TagBox_.WriteTag(const G: Ik2TagGenerator;
- Flags: Tk2StorePropertyFlags = l3_spfAll;
- Exclude: TByteSet = []);
+ Flags: Tk2StorePropertyFlags;
+ Exclude: TByteSet);
  {* записать тег в генератор. }
 //#UC START# *4761324203B8_48CF9748004F_var*
 //#UC END# *4761324203B8_48CF9748004F_var*
@@ -208,7 +208,7 @@ end;//_k2TagBox_.DoIterateProperties
 
 procedure _k2TagBox_.InsertChildTag(anIndex: Integer;
  aChild: Tl3Variant;
- const aContext: Il3OpPack = nil);
+ const aContext: Il3OpPack);
  {* вставить ребенка. }
 //#UC START# *4A42358A00C2_48CF9748004F_var*
 //#UC END# *4A42358A00C2_48CF9748004F_var*
@@ -227,7 +227,7 @@ begin
 //#UC END# *4A4235B70288_48CF9748004F_impl*
 end;//_k2TagBox_.IndexOfChild
 
-procedure _k2TagBox_.DeleteChildren(const Context: Il3OpPack = nil);
+procedure _k2TagBox_.DeleteChildren(const Context: Il3OpPack);
  {* удалить всех детей. }
 //#UC START# *4A42378D0030_48CF9748004F_var*
 //#UC END# *4A42378D0030_48CF9748004F_var*

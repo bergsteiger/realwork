@@ -3,7 +3,7 @@ unit k2Core_Schema;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Core_Schema.pas"
 // Стереотип: "TagTable"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

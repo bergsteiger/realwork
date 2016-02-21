@@ -3,7 +3,7 @@ unit k2OperationContainer;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2OperationContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
@@ -13,7 +13,6 @@ uses
  , k2Prim
  , l3Variant
  , k2Op
- , l3StringIDEx
 ;
 
 type
@@ -94,6 +93,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3StringIDEx
  , SysUtils
  , l3Types
  , l3IntegerValueMapManager

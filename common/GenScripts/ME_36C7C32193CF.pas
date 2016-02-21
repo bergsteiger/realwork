@@ -4,7 +4,7 @@ program ReleaseImportExportTest;
 // Модуль: "w:\archi\source\projects\ImportExportTest\ReleaseImportExportTest.dpr"
 // Стереотип: "TestTarget"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 

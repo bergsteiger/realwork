@@ -3,7 +3,7 @@ unit NOT_FINISHED_k2InPlaceGenerator;
 // Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2InPlaceGenerator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

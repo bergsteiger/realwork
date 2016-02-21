@@ -4,7 +4,7 @@ unit l3String_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\K2\l3String_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

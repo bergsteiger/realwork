@@ -3,7 +3,7 @@ unit ContextSearchSupportUnit;
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContextSearchSupportUnit.pas"
 // Стереотип: "Interfaces"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

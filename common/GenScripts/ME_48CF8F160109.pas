@@ -4,7 +4,7 @@ unit k2OpMisc;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2OpMisc.pas"
 // Стереотип: "UtilityPack"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

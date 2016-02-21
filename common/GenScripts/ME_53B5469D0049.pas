@@ -3,7 +3,7 @@ unit k2SizedMemoryPool;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas"
 // Стереотип: "UtilityPack"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

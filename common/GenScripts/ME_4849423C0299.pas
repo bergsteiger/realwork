@@ -4,7 +4,7 @@ unit Long_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\K2\Long_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

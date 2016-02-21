@@ -4,7 +4,7 @@ unit evdTypes;
 // Модуль: "w:\common\components\rtl\Garant\EVD\evdTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 

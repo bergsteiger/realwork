@@ -3,7 +3,7 @@ unit k2Except;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Except.pas"
 // Стереотип: "Interfaces"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

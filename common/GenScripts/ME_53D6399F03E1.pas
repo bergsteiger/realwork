@@ -3,7 +3,7 @@ unit k2InterfaceMapper;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2InterfaceMapper.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

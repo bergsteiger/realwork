@@ -4,7 +4,7 @@ unit k2Types;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Types.pas"
 // Стереотип: "Interfaces"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

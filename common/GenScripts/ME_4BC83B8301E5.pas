@@ -4,7 +4,7 @@ unit k2PureMixIns;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2PureMixIns.pas"
 // Стереотип: "Interfaces"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

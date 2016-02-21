@@ -3,7 +3,7 @@ unit k2InterfaceCache;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2InterfaceCache.pas"
 // Стереотип: "UtilityPack"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit Persistent_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\K2\Persistent_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

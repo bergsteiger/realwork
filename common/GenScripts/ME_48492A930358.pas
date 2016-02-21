@@ -4,7 +4,7 @@ unit k2Color_Const;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Color_Const.pas"
 // Стереотип: "Atom"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

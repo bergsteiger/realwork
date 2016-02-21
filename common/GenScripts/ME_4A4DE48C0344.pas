@@ -3,7 +3,7 @@ unit k2Prim;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Prim.pas"
 // Стереотип: "UtilityPack"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
@@ -14,8 +14,8 @@ uses
  , l3Variant
  , l3Types
  , TypInfo
- , l3ProtoIntegerList
  , l3Interfaces
+ , l3ProtoIntegerList
  , k2PropertyArray
 ;
 

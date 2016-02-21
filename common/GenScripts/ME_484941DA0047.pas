@@ -4,7 +4,7 @@ unit k2Tag_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2Tag_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

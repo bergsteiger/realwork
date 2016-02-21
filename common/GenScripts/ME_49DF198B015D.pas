@@ -4,7 +4,7 @@ unit UsersTree;
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\UsersTree.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

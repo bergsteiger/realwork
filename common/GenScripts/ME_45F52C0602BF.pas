@@ -4,7 +4,7 @@ unit FlagNodeBase;
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FlagNodeBase.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

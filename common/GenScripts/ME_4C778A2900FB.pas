@@ -3,7 +3,7 @@ unit ContentsTree;
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentsTree.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit k2NullTagImplPrim;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2NullTagImplPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit FlagNodeStub;
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FlagNodeStub.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -43,19 +43,19 @@ type
     with_notify: Boolean): Boolean; override;
    function next_visible(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; override;
+    skip_stub: Boolean): FlagNodeBase; override;
    function plane_next(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; override;
+    skip_stub: Boolean): FlagNodeBase; override;
    function plane_next_back(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; override;
+    skip_stub: Boolean): FlagNodeBase; override;
    function prev_visible(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; override;
+    skip_stub: Boolean): FlagNodeBase; override;
    function prev_visible_stop(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var;
-    skip_stub: Boolean = False): FlagNodeBase; override;
+    skip_stub: Boolean): FlagNodeBase; override;
    function next_one_level(out shift_counter: Integer;
     out for_constructed: TGCL::StaticNode_var): FlagNodeBase; override;
    function prev_one_level(out shift_counter: Integer;
@@ -147,7 +147,7 @@ end;//FlagNodeStub.set_flag
 
 function FlagNodeStub.next_visible(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
- skip_stub: Boolean = False): FlagNodeBase;
+ skip_stub: Boolean): FlagNodeBase;
 //#UC START# *45F81F0B02BF_45F6CDFF01C5_var*
 //#UC END# *45F81F0B02BF_45F6CDFF01C5_var*
 begin
@@ -158,7 +158,7 @@ end;//FlagNodeStub.next_visible
 
 function FlagNodeStub.plane_next(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
- skip_stub: Boolean = False): FlagNodeBase;
+ skip_stub: Boolean): FlagNodeBase;
 //#UC START# *45F81F6B01C5_45F6CDFF01C5_var*
 //#UC END# *45F81F6B01C5_45F6CDFF01C5_var*
 begin
@@ -169,7 +169,7 @@ end;//FlagNodeStub.plane_next
 
 function FlagNodeStub.plane_next_back(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
- skip_stub: Boolean = False): FlagNodeBase;
+ skip_stub: Boolean): FlagNodeBase;
 //#UC START# *45F9071F035B_45F6CDFF01C5_var*
 //#UC END# *45F9071F035B_45F6CDFF01C5_var*
 begin
@@ -180,7 +180,7 @@ end;//FlagNodeStub.plane_next_back
 
 function FlagNodeStub.prev_visible(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
- skip_stub: Boolean = False): FlagNodeBase;
+ skip_stub: Boolean): FlagNodeBase;
 //#UC START# *45F9074B034B_45F6CDFF01C5_var*
 //#UC END# *45F9074B034B_45F6CDFF01C5_var*
 begin
@@ -191,7 +191,7 @@ end;//FlagNodeStub.prev_visible
 
 function FlagNodeStub.prev_visible_stop(out shift_counter: Integer;
  out for_constructed: TGCL::StaticNode_var;
- skip_stub: Boolean = False): FlagNodeBase;
+ skip_stub: Boolean): FlagNodeBase;
 //#UC START# *45F9077A003E_45F6CDFF01C5_var*
 //#UC END# *45F9077A003E_45F6CDFF01C5_var*
 begin

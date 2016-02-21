@@ -3,7 +3,7 @@ unit imeStampObjectManager;
 // Модуль: "w:\garant6x\implementation\Garant\tie\Garant\GblAdapterLib\imeStampObjectManager.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

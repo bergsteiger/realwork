@@ -4,7 +4,7 @@ unit k2DictRec_Wrap;
 // Модуль: "w:\common\components\rtl\Garant\K2\k2DictRec_Wrap.pas"
 // Стереотип: "Wrapper"
 
-{$Include k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
