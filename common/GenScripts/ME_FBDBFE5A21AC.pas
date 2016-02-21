@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , BaseSearch_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , NewBaseSearch_Form
  {$If NOT Defined(NoVGScene)}
  , vg_controls
  {$IfEnd} // NOT Defined(NoVGScene)
@@ -33,14 +41,6 @@ uses
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -1070,12 +1070,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_FindBtn.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_FindBtn_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9C6101BC5BF0_var*
-//#UC END# *4DAEEDE10285_9C6101BC5BF0_var*
 begin
-//#UC START# *4DAEEDE10285_9C6101BC5BF0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9C6101BC5BF0_impl*
+ aCtx.rEngine.PushString('FindBtn');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_FindBtn_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_FindBtn_Push.GetWordNameForRegister: AnsiString;
@@ -1100,12 +1097,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_FindBackBtn.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_FindBackBtn_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C6FBEA064468_var*
-//#UC END# *4DAEEDE10285_C6FBEA064468_var*
 begin
-//#UC START# *4DAEEDE10285_C6FBEA064468_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C6FBEA064468_impl*
+ aCtx.rEngine.PushString('FindBackBtn');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_FindBackBtn_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_FindBackBtn_Push.GetWordNameForRegister: AnsiString;
@@ -1130,12 +1124,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_CloseBtn.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_CloseBtn_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_41A637EF5374_var*
-//#UC END# *4DAEEDE10285_41A637EF5374_var*
 begin
-//#UC START# *4DAEEDE10285_41A637EF5374_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_41A637EF5374_impl*
+ aCtx.rEngine.PushString('CloseBtn');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_CloseBtn_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_CloseBtn_Push.GetWordNameForRegister: AnsiString;
@@ -1160,12 +1151,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_AreaCombo.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_AreaCombo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_281BC684F5B6_var*
-//#UC END# *4DAEEDE10285_281BC684F5B6_var*
 begin
-//#UC START# *4DAEEDE10285_281BC684F5B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_281BC684F5B6_impl*
+ aCtx.rEngine.PushString('AreaCombo');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_AreaCombo_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_AreaCombo_Push.GetWordNameForRegister: AnsiString;
@@ -1190,12 +1178,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_QueryExampleLabel.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_QueryExampleLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_63E2719671C9_var*
-//#UC END# *4DAEEDE10285_63E2719671C9_var*
 begin
-//#UC START# *4DAEEDE10285_63E2719671C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_63E2719671C9_impl*
+ aCtx.rEngine.PushString('QueryExampleLabel');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_QueryExampleLabel_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_QueryExampleLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1220,12 +1205,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_DropButton.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_DropButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_14AE50BBEDF2_var*
-//#UC END# *4DAEEDE10285_14AE50BBEDF2_var*
 begin
-//#UC START# *4DAEEDE10285_14AE50BBEDF2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_14AE50BBEDF2_impl*
+ aCtx.rEngine.PushString('DropButton');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_DropButton_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_DropButton_Push.GetWordNameForRegister: AnsiString;
@@ -1250,12 +1232,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_FoundCountLabel.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_FoundCountLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_60EBA3B37CE9_var*
-//#UC END# *4DAEEDE10285_60EBA3B37CE9_var*
 begin
-//#UC START# *4DAEEDE10285_60EBA3B37CE9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_60EBA3B37CE9_impl*
+ aCtx.rEngine.PushString('FoundCountLabel');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_FoundCountLabel_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_FoundCountLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1280,12 +1259,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_ExampleLabel.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_ExampleLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_37D160C15269_var*
-//#UC END# *4DAEEDE10285_37D160C15269_var*
 begin
-//#UC START# *4DAEEDE10285_37D160C15269_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_37D160C15269_impl*
+ aCtx.rEngine.PushString('ExampleLabel');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_ExampleLabel_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_ExampleLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1310,12 +1286,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_ContextEditPanel.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_ContextEditPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D2EBF9DC759D_var*
-//#UC END# *4DAEEDE10285_D2EBF9DC759D_var*
 begin
-//#UC START# *4DAEEDE10285_D2EBF9DC759D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D2EBF9DC759D_impl*
+ aCtx.rEngine.PushString('ContextEditPanel');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_ContextEditPanel_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_ContextEditPanel_Push.GetWordNameForRegister: AnsiString;
@@ -1340,12 +1313,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_Layout1.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Layout1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CF454CAF1D20_var*
-//#UC END# *4DAEEDE10285_CF454CAF1D20_var*
 begin
-//#UC START# *4DAEEDE10285_CF454CAF1D20_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CF454CAF1D20_impl*
+ aCtx.rEngine.PushString('Layout1');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_Layout1_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_Layout1_Push.GetWordNameForRegister: AnsiString;
@@ -1370,12 +1340,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_Layout2.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Layout2_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B8AFA826A71B_var*
-//#UC END# *4DAEEDE10285_B8AFA826A71B_var*
 begin
-//#UC START# *4DAEEDE10285_B8AFA826A71B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B8AFA826A71B_impl*
+ aCtx.rEngine.PushString('Layout2');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_Layout2_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_Layout2_Push.GetWordNameForRegister: AnsiString;
@@ -1400,12 +1367,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_Layout3.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Layout3_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_873491FD86C7_var*
-//#UC END# *4DAEEDE10285_873491FD86C7_var*
 begin
-//#UC START# *4DAEEDE10285_873491FD86C7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_873491FD86C7_impl*
+ aCtx.rEngine.PushString('Layout3');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_Layout3_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_Layout3_Push.GetWordNameForRegister: AnsiString;
@@ -1430,12 +1394,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_vgScene1.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_vgScene1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7FDB5B8D5DD8_var*
-//#UC END# *4DAEEDE10285_7FDB5B8D5DD8_var*
 begin
-//#UC START# *4DAEEDE10285_7FDB5B8D5DD8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7FDB5B8D5DD8_impl*
+ aCtx.rEngine.PushString('vgScene1');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_vgScene1_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_vgScene1_Push.GetWordNameForRegister: AnsiString;
@@ -1460,12 +1421,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_MoreTab.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_MoreTab_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BBDB2A8BC88B_var*
-//#UC END# *4DAEEDE10285_BBDB2A8BC88B_var*
 begin
-//#UC START# *4DAEEDE10285_BBDB2A8BC88B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BBDB2A8BC88B_impl*
+ aCtx.rEngine.PushString('MoreTab');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_MoreTab_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_MoreTab_Push.GetWordNameForRegister: AnsiString;
@@ -1490,12 +1448,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_Border.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Border_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BAE448339058_var*
-//#UC END# *4DAEEDE10285_BAE448339058_var*
 begin
-//#UC START# *4DAEEDE10285_BAE448339058_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BAE448339058_impl*
+ aCtx.rEngine.PushString('Border');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_Border_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_Border_Push.GetWordNameForRegister: AnsiString;
@@ -1520,12 +1475,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_InnerBorder.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_InnerBorder_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3ECBE4FA1D18_var*
-//#UC END# *4DAEEDE10285_3ECBE4FA1D18_var*
 begin
-//#UC START# *4DAEEDE10285_3ECBE4FA1D18_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3ECBE4FA1D18_impl*
+ aCtx.rEngine.PushString('InnerBorder');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_InnerBorder_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_InnerBorder_Push.GetWordNameForRegister: AnsiString;
@@ -1550,12 +1502,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_MostOuterRectangle.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_MostOuterRectangle_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CED4F70215DF_var*
-//#UC END# *4DAEEDE10285_CED4F70215DF_var*
 begin
-//#UC START# *4DAEEDE10285_CED4F70215DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CED4F70215DF_impl*
+ aCtx.rEngine.PushString('MostOuterRectangle');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_MostOuterRectangle_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_MostOuterRectangle_Push.GetWordNameForRegister: AnsiString;
@@ -1580,12 +1529,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_Rectangle1.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_Rectangle1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9D65FE806B68_var*
-//#UC END# *4DAEEDE10285_9D65FE806B68_var*
 begin
-//#UC START# *4DAEEDE10285_9D65FE806B68_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9D65FE806B68_impl*
+ aCtx.rEngine.PushString('Rectangle1');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_Rectangle1_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_Rectangle1_Push.GetWordNameForRegister: AnsiString;
@@ -1610,12 +1556,9 @@ begin
 end;//Tkw_NewBaseSearch_Control_ContextEdit.RegisterInEngine
 
 procedure Tkw_NewBaseSearch_Control_ContextEdit_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E51B3F55D59_var*
-//#UC END# *4DAEEDE10285_4E51B3F55D59_var*
 begin
-//#UC START# *4DAEEDE10285_4E51B3F55D59_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E51B3F55D59_impl*
+ aCtx.rEngine.PushString('ContextEdit');
+ inherited;
 end;//Tkw_NewBaseSearch_Control_ContextEdit_Push.DoDoIt
 
 class function Tkw_NewBaseSearch_Control_ContextEdit_Push.GetWordNameForRegister: AnsiString;

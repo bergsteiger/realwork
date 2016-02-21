@@ -11,7 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,6 +19,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , DocumentWithFlash_Form
  , tfwControlString
  , tfwScriptingTypes
 ;

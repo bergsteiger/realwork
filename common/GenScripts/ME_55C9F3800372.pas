@@ -10,7 +10,6 @@ interface
 {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
- , ComCtrls
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -19,6 +18,7 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , ComCtrls
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces

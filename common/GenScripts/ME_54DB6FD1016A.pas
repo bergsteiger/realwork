@@ -10,7 +10,6 @@ interface
 {$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , nscStatusBarButton
 ;
 {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
 
@@ -19,6 +18,7 @@ implementation
 {$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , nscStatusBarButton
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo

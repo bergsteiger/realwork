@@ -10,13 +10,6 @@ interface
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3IntfUses
- , Controls
- , Graphics
- , l3Interfaces
- , Types
- , Menus
- , Forms
- , Windows
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
@@ -25,6 +18,13 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
 uses
  l3ImplUses
+ , Controls
+ , Graphics
+ , l3Interfaces
+ , Types
+ , Menus
+ , Forms
+ , Windows
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo

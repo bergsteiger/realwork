@@ -11,8 +11,6 @@ interface
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , FromWithPanel_Form
- , vtPanel
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , FromWithPanel_Form
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

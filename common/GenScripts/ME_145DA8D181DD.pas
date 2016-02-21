@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimF1Common_Module
- , vtLabel
- , vtButton
- , eeMemoWithEditOperations
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , EULA_Form
+ , vtLabel
+ , vtButton
+ , eeMemoWithEditOperations
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -224,12 +224,9 @@ begin
 end;//Tkw_EULA_Control_ShellCaptionLabel.RegisterInEngine
 
 procedure Tkw_EULA_Control_ShellCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_44424D6041C9_var*
-//#UC END# *4DAEEDE10285_44424D6041C9_var*
 begin
-//#UC START# *4DAEEDE10285_44424D6041C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_44424D6041C9_impl*
+ aCtx.rEngine.PushString('ShellCaptionLabel');
+ inherited;
 end;//Tkw_EULA_Control_ShellCaptionLabel_Push.DoDoIt
 
 class function Tkw_EULA_Control_ShellCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -254,12 +251,9 @@ begin
 end;//Tkw_EULA_Control_OkButton.RegisterInEngine
 
 procedure Tkw_EULA_Control_OkButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E0554E1E3296_var*
-//#UC END# *4DAEEDE10285_E0554E1E3296_var*
 begin
-//#UC START# *4DAEEDE10285_E0554E1E3296_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E0554E1E3296_impl*
+ aCtx.rEngine.PushString('OkButton');
+ inherited;
 end;//Tkw_EULA_Control_OkButton_Push.DoDoIt
 
 class function Tkw_EULA_Control_OkButton_Push.GetWordNameForRegister: AnsiString;
@@ -284,12 +278,9 @@ begin
 end;//Tkw_EULA_Control_eeMemoWithEditOperations1.RegisterInEngine
 
 procedure Tkw_EULA_Control_eeMemoWithEditOperations1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_243E1D1B0C92_var*
-//#UC END# *4DAEEDE10285_243E1D1B0C92_var*
 begin
-//#UC START# *4DAEEDE10285_243E1D1B0C92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_243E1D1B0C92_impl*
+ aCtx.rEngine.PushString('eeMemoWithEditOperations1');
+ inherited;
 end;//Tkw_EULA_Control_eeMemoWithEditOperations1_Push.DoDoIt
 
 class function Tkw_EULA_Control_eeMemoWithEditOperations1_Push.GetWordNameForRegister: AnsiString;

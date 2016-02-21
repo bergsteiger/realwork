@@ -10,9 +10,6 @@ interface
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- {$If Defined(AppClientSide)}
- , Editwin
- {$IfEnd} // Defined(AppClientSide)
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -21,6 +18,9 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ {$If Defined(AppClientSide)}
+ , Editwin
+ {$IfEnd} // Defined(AppClientSide)
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces

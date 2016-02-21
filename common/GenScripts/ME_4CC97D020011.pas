@@ -20,32 +20,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , BaseSearchInterfaces
  , SearchUnit
- , PrimBaseSearchCard_Form
- , NewBaseSearchForDFM_Form
- , Common_FormDefinitions_Controls
- , PrimBaseSearchContainer_Form
 ;
 
-const
- fm_en_BaseSearchCard: TvcmFormDescriptor = (rFormID : (rName : 'en_BaseSearchCard'; rID : 0); rFactory : nil);
-  {* Идентификатор формы Ten_BaseSearchCard }
-
 type
- BaseSearchCardFormDef = interface
-  {* Идентификатор формы BaseSearchCard }
-  ['{8B9F39A3-2E36-4686-82DA-8C441DE365A3}']
- end;//BaseSearchCardFormDef
-
- Ten_BaseSearchCard = {final} class(TPrimBaseSearchCardForm, BaseSearchCardFormDef)
-  {* Базовый поиск }
- end;//Ten_BaseSearchCard
-
- TNewBaseSearchForm = {final} class(TNewBaseSearchForDFMForm, NewBaseSearchFormDef)
- end;//TNewBaseSearchForm
-
- TBaseSearchContainerForm = {final} class(TPrimBaseSearchContainerForm, BaseSearchContainerFormDef)
- end;//TBaseSearchContainerForm
-
  TBaseSearchModule = class(TvcmModule)
   {* Базовый поиск }
   public
@@ -69,7 +46,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -77,25 +53,7 @@ uses
  , Search_Strange_Controls
  , SearchLite_Strange_Controls
  , PrimSaveLoadOptionsForBaseSearch_slqtBaseSearch_UserType
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , BaseSearchCardKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , NewBaseSearchKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , BaseSearchContainerKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
-
-const
- {* Локализуемые строки ut_BaseSearchCardLocalConstants }
- str_ut_BaseSearchCardCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_BaseSearchCardCaption'; rValue : 'Базовый поиск');
-  {* Заголовок пользовательского типа "Базовый поиск" }
 
 procedure TBaseSearchModule.TryAnotherBaseSearch(const aContainer: IvcmContainer;
  const aProcessor: InsBaseSearchResultProcessor;
@@ -203,24 +161,6 @@ begin
 end;//TBaseSearchModule.MakeBaseSearchCard
 
 initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(Ten_BaseSearchCard);
- {* Регистрация BaseSearchCard }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_en_BaseSearchCard.SetFactory(Ten_BaseSearchCard.Make);
- {* Регистрация фабрики формы BaseSearchCard }
- str_ut_BaseSearchCardCaption.Init;
- {* Инициализация str_ut_BaseSearchCardCaption }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TNewBaseSearchForm);
- {* Регистрация NewBaseSearch }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TBaseSearchContainerForm);
- {* Регистрация BaseSearchContainer }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_BaseSearchContainerForm.SetFactory(TBaseSearchContainerForm.Make);
- {* Регистрация фабрики формы BaseSearchContainer }
  fm_NewBaseSearchForm.SetFactory(TNewBaseSearchForm.Make);
  {* Регистрация фабрики формы NewBaseSearch }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)

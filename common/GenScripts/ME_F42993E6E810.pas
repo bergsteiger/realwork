@@ -11,14 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimFolders_Module
- , vtPanel
- , eeMemoWithEditOperations
- , vtLabel
- {$If Defined(Nemesis)}
- , nscComboBoxWithReadOnly
- {$IfEnd} // Defined(Nemesis)
- , vtCheckBox
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -27,6 +19,14 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , FoldersElementInfo_Form
+ , vtPanel
+ , eeMemoWithEditOperations
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBoxWithReadOnly
+ {$IfEnd} // Defined(Nemesis)
+ , vtCheckBox
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -571,12 +571,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_CommentPanel.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_CommentPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_83ABE026B17E_var*
-//#UC END# *4DAEEDE10285_83ABE026B17E_var*
 begin
-//#UC START# *4DAEEDE10285_83ABE026B17E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_83ABE026B17E_impl*
+ aCtx.rEngine.PushString('CommentPanel');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_CommentPanel_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_CommentPanel_Push.GetWordNameForRegister: AnsiString;
@@ -601,12 +598,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_ElementComment.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_ElementComment_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E60EFBE7D8F_var*
-//#UC END# *4DAEEDE10285_4E60EFBE7D8F_var*
 begin
-//#UC START# *4DAEEDE10285_4E60EFBE7D8F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E60EFBE7D8F_impl*
+ aCtx.rEngine.PushString('ElementComment');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_ElementComment_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_ElementComment_Push.GetWordNameForRegister: AnsiString;
@@ -631,12 +625,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_CaptionPanel.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_CaptionPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_51DDDC067A91_var*
-//#UC END# *4DAEEDE10285_51DDDC067A91_var*
 begin
-//#UC START# *4DAEEDE10285_51DDDC067A91_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_51DDDC067A91_impl*
+ aCtx.rEngine.PushString('CaptionPanel');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_CaptionPanel_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_CaptionPanel_Push.GetWordNameForRegister: AnsiString;
@@ -661,12 +652,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_lblComment.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_lblComment_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A694C1AC6010_var*
-//#UC END# *4DAEEDE10285_A694C1AC6010_var*
 begin
-//#UC START# *4DAEEDE10285_A694C1AC6010_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A694C1AC6010_impl*
+ aCtx.rEngine.PushString('lblComment');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_lblComment_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_lblComment_Push.GetWordNameForRegister: AnsiString;
@@ -691,12 +679,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_TopPanel.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_47BB3C78223A_var*
-//#UC END# *4DAEEDE10285_47BB3C78223A_var*
 begin
-//#UC START# *4DAEEDE10285_47BB3C78223A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_47BB3C78223A_impl*
+ aCtx.rEngine.PushString('TopPanel');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_TopPanel_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_TopPanel_Push.GetWordNameForRegister: AnsiString;
@@ -721,12 +706,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_NamePanel.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_NamePanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9683F822B943_var*
-//#UC END# *4DAEEDE10285_9683F822B943_var*
 begin
-//#UC START# *4DAEEDE10285_9683F822B943_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9683F822B943_impl*
+ aCtx.rEngine.PushString('NamePanel');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_NamePanel_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_NamePanel_Push.GetWordNameForRegister: AnsiString;
@@ -751,12 +733,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_lblElementName.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_lblElementName_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_15D0C8E1E5F3_var*
-//#UC END# *4DAEEDE10285_15D0C8E1E5F3_var*
 begin
-//#UC START# *4DAEEDE10285_15D0C8E1E5F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_15D0C8E1E5F3_impl*
+ aCtx.rEngine.PushString('lblElementName');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_lblElementName_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_lblElementName_Push.GetWordNameForRegister: AnsiString;
@@ -781,12 +760,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_ElementName.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_ElementName_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4FC40930D75D_var*
-//#UC END# *4DAEEDE10285_4FC40930D75D_var*
 begin
-//#UC START# *4DAEEDE10285_4FC40930D75D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4FC40930D75D_impl*
+ aCtx.rEngine.PushString('ElementName');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_ElementName_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_ElementName_Push.GetWordNameForRegister: AnsiString;
@@ -811,12 +787,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_cbShared.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_cbShared_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5D65119DF168_var*
-//#UC END# *4DAEEDE10285_5D65119DF168_var*
 begin
-//#UC START# *4DAEEDE10285_5D65119DF168_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5D65119DF168_impl*
+ aCtx.rEngine.PushString('cbShared');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_cbShared_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_cbShared_Push.GetWordNameForRegister: AnsiString;
@@ -841,12 +814,9 @@ begin
 end;//Tkw_FoldersElementInfo_Control_InfoName.RegisterInEngine
 
 procedure Tkw_FoldersElementInfo_Control_InfoName_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6B4867369118_var*
-//#UC END# *4DAEEDE10285_6B4867369118_var*
 begin
-//#UC START# *4DAEEDE10285_6B4867369118_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6B4867369118_impl*
+ aCtx.rEngine.PushString('InfoName');
+ inherited;
 end;//Tkw_FoldersElementInfo_Control_InfoName_Push.DoDoIt
 
 class function Tkw_FoldersElementInfo_Control_InfoName_Push.GetWordNameForRegister: AnsiString;

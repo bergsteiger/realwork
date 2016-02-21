@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Consultation_Module
- , vtGroupBox
- , vtRadioButton
- , vtPanel
- , vtLabel
- , eeMemoWithEditOperations
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ConsultationMark_Form
+ , vtGroupBox
+ , vtRadioButton
+ , vtPanel
+ , vtLabel
+ , eeMemoWithEditOperations
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -569,12 +569,9 @@ begin
 end;//Tkw_ConsultationMark_Control_gbMark.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_gbMark_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8B30EAB1C18A_var*
-//#UC END# *4DAEEDE10285_8B30EAB1C18A_var*
 begin
-//#UC START# *4DAEEDE10285_8B30EAB1C18A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8B30EAB1C18A_impl*
+ aCtx.rEngine.PushString('gbMark');
+ inherited;
 end;//Tkw_ConsultationMark_Control_gbMark_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_gbMark_Push.GetWordNameForRegister: AnsiString;
@@ -599,12 +596,9 @@ begin
 end;//Tkw_ConsultationMark_Control_rbNotSure.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_rbNotSure_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DD80E9E3BC24_var*
-//#UC END# *4DAEEDE10285_DD80E9E3BC24_var*
 begin
-//#UC START# *4DAEEDE10285_DD80E9E3BC24_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DD80E9E3BC24_impl*
+ aCtx.rEngine.PushString('rbNotSure');
+ inherited;
 end;//Tkw_ConsultationMark_Control_rbNotSure_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_rbNotSure_Push.GetWordNameForRegister: AnsiString;
@@ -629,12 +623,9 @@ begin
 end;//Tkw_ConsultationMark_Control_rbTwo.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_rbTwo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F4BF94F0783C_var*
-//#UC END# *4DAEEDE10285_F4BF94F0783C_var*
 begin
-//#UC START# *4DAEEDE10285_F4BF94F0783C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F4BF94F0783C_impl*
+ aCtx.rEngine.PushString('rbTwo');
+ inherited;
 end;//Tkw_ConsultationMark_Control_rbTwo_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_rbTwo_Push.GetWordNameForRegister: AnsiString;
@@ -659,12 +650,9 @@ begin
 end;//Tkw_ConsultationMark_Control_rbThree.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_rbThree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_227391332298_var*
-//#UC END# *4DAEEDE10285_227391332298_var*
 begin
-//#UC START# *4DAEEDE10285_227391332298_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_227391332298_impl*
+ aCtx.rEngine.PushString('rbThree');
+ inherited;
 end;//Tkw_ConsultationMark_Control_rbThree_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_rbThree_Push.GetWordNameForRegister: AnsiString;
@@ -689,12 +677,9 @@ begin
 end;//Tkw_ConsultationMark_Control_rbFour.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_rbFour_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_661E127E17A8_var*
-//#UC END# *4DAEEDE10285_661E127E17A8_var*
 begin
-//#UC START# *4DAEEDE10285_661E127E17A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_661E127E17A8_impl*
+ aCtx.rEngine.PushString('rbFour');
+ inherited;
 end;//Tkw_ConsultationMark_Control_rbFour_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_rbFour_Push.GetWordNameForRegister: AnsiString;
@@ -719,12 +704,9 @@ begin
 end;//Tkw_ConsultationMark_Control_rbFive.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_rbFive_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_66CFD6054E2B_var*
-//#UC END# *4DAEEDE10285_66CFD6054E2B_var*
 begin
-//#UC START# *4DAEEDE10285_66CFD6054E2B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_66CFD6054E2B_impl*
+ aCtx.rEngine.PushString('rbFive');
+ inherited;
 end;//Tkw_ConsultationMark_Control_rbFive_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_rbFive_Push.GetWordNameForRegister: AnsiString;
@@ -749,12 +731,9 @@ begin
 end;//Tkw_ConsultationMark_Control_pnlHelp.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_pnlHelp_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FC2521E59BA7_var*
-//#UC END# *4DAEEDE10285_FC2521E59BA7_var*
 begin
-//#UC START# *4DAEEDE10285_FC2521E59BA7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FC2521E59BA7_impl*
+ aCtx.rEngine.PushString('pnlHelp');
+ inherited;
 end;//Tkw_ConsultationMark_Control_pnlHelp_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_pnlHelp_Push.GetWordNameForRegister: AnsiString;
@@ -779,12 +758,9 @@ begin
 end;//Tkw_ConsultationMark_Control_lblHelp.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_lblHelp_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ACA53177E8C9_var*
-//#UC END# *4DAEEDE10285_ACA53177E8C9_var*
 begin
-//#UC START# *4DAEEDE10285_ACA53177E8C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ACA53177E8C9_impl*
+ aCtx.rEngine.PushString('lblHelp');
+ inherited;
 end;//Tkw_ConsultationMark_Control_lblHelp_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_lblHelp_Push.GetWordNameForRegister: AnsiString;
@@ -809,12 +785,9 @@ begin
 end;//Tkw_ConsultationMark_Control_gbComment.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_gbComment_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B9AAAEC2E11B_var*
-//#UC END# *4DAEEDE10285_B9AAAEC2E11B_var*
 begin
-//#UC START# *4DAEEDE10285_B9AAAEC2E11B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B9AAAEC2E11B_impl*
+ aCtx.rEngine.PushString('gbComment');
+ inherited;
 end;//Tkw_ConsultationMark_Control_gbComment_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_gbComment_Push.GetWordNameForRegister: AnsiString;
@@ -839,12 +812,9 @@ begin
 end;//Tkw_ConsultationMark_Control_mComment.RegisterInEngine
 
 procedure Tkw_ConsultationMark_Control_mComment_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DBA48F967BE6_var*
-//#UC END# *4DAEEDE10285_DBA48F967BE6_var*
 begin
-//#UC START# *4DAEEDE10285_DBA48F967BE6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DBA48F967BE6_impl*
+ aCtx.rEngine.PushString('mComment');
+ inherited;
 end;//Tkw_ConsultationMark_Control_mComment_Push.DoDoIt
 
 class function Tkw_ConsultationMark_Control_mComment_Push.GetWordNameForRegister: AnsiString;

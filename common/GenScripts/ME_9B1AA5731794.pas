@@ -11,7 +11,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Logo_Form
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,6 +19,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Logo_Form
  , tfwControlString
  , tfwScriptingTypes
  , TtfwClassRef_Proxy

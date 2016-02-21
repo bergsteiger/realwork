@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
- , eeMemoWithEditOperations
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , PictureInfo_Form
+ , eeMemoWithEditOperations
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_PictureInfo_Control_Info.RegisterInEngine
 
 procedure Tkw_PictureInfo_Control_Info_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1AE4BCF9ACB6_var*
-//#UC END# *4DAEEDE10285_1AE4BCF9ACB6_var*
 begin
-//#UC START# *4DAEEDE10285_1AE4BCF9ACB6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1AE4BCF9ACB6_impl*
+ aCtx.rEngine.PushString('Info');
+ inherited;
 end;//Tkw_PictureInfo_Control_Info_Push.DoDoIt
 
 class function Tkw_PictureInfo_Control_Info_Push.GetWordNameForRegister: AnsiString;

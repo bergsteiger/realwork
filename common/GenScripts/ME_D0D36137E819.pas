@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , LiteSearch_Module
- , vtProportionalPanel
- , vtSizeablePanel
- , vtPanel
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , AttributeSelect_Form
+ , vtProportionalPanel
+ , vtSizeablePanel
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -224,12 +224,9 @@ begin
 end;//Tkw_AttributeSelect_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_AttributeSelect_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3153A90F966C_var*
-//#UC END# *4DAEEDE10285_3153A90F966C_var*
 begin
-//#UC START# *4DAEEDE10285_3153A90F966C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3153A90F966C_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_AttributeSelect_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_AttributeSelect_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -254,12 +251,9 @@ begin
 end;//Tkw_AttributeSelect_Control_SelectedZone.RegisterInEngine
 
 procedure Tkw_AttributeSelect_Control_SelectedZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2AB8F1A7EDFE_var*
-//#UC END# *4DAEEDE10285_2AB8F1A7EDFE_var*
 begin
-//#UC START# *4DAEEDE10285_2AB8F1A7EDFE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2AB8F1A7EDFE_impl*
+ aCtx.rEngine.PushString('SelectedZone');
+ inherited;
 end;//Tkw_AttributeSelect_Control_SelectedZone_Push.DoDoIt
 
 class function Tkw_AttributeSelect_Control_SelectedZone_Push.GetWordNameForRegister: AnsiString;
@@ -284,12 +278,9 @@ begin
 end;//Tkw_AttributeSelect_Control_ValuesZone.RegisterInEngine
 
 procedure Tkw_AttributeSelect_Control_ValuesZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_433C953F27DF_var*
-//#UC END# *4DAEEDE10285_433C953F27DF_var*
 begin
-//#UC START# *4DAEEDE10285_433C953F27DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_433C953F27DF_impl*
+ aCtx.rEngine.PushString('ValuesZone');
+ inherited;
 end;//Tkw_AttributeSelect_Control_ValuesZone_Push.DoDoIt
 
 class function Tkw_AttributeSelect_Control_ValuesZone_Push.GetWordNameForRegister: AnsiString;

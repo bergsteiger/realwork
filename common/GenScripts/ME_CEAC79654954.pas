@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimFolders_Module
- , vtProportionalPanel
- , vtPanel
- , vtSizeablePanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Folders_Form
+ , vtProportionalPanel
+ , vtPanel
+ , vtSizeablePanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -224,12 +224,9 @@ begin
 end;//Tkw_Folders_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_Folders_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D50BB6D30706_var*
-//#UC END# *4DAEEDE10285_D50BB6D30706_var*
 begin
-//#UC START# *4DAEEDE10285_D50BB6D30706_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D50BB6D30706_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_Folders_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_Folders_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -254,12 +251,9 @@ begin
 end;//Tkw_Folders_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_Folders_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A985D73A233D_var*
-//#UC END# *4DAEEDE10285_A985D73A233D_var*
 begin
-//#UC START# *4DAEEDE10285_A985D73A233D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A985D73A233D_impl*
+ aCtx.rEngine.PushString('ParentZone');
+ inherited;
 end;//Tkw_Folders_Control_ParentZone_Push.DoDoIt
 
 class function Tkw_Folders_Control_ParentZone_Push.GetWordNameForRegister: AnsiString;
@@ -284,12 +278,9 @@ begin
 end;//Tkw_Folders_Control_ChildZone.RegisterInEngine
 
 procedure Tkw_Folders_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F111B358F604_var*
-//#UC END# *4DAEEDE10285_F111B358F604_var*
 begin
-//#UC START# *4DAEEDE10285_F111B358F604_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F111B358F604_impl*
+ aCtx.rEngine.PushString('ChildZone');
+ inherited;
 end;//Tkw_Folders_Control_ChildZone_Push.DoDoIt
 
 class function Tkw_Folders_Control_ChildZone_Push.GetWordNameForRegister: AnsiString;

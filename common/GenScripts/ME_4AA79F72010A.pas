@@ -14,99 +14,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , PrimStyleEditorContainerOptions_Form
- , PrimStyleEditorFont_Form
- , PrimStyleEditorNavigator_Form
- , PrimConfigurationList_Form
- , Common_FormDefinitions_Controls
- , PrimSettings_Form
- , PrimStyleEditorExample_Form
- , PrimSelfInfo_Form
 ;
 
-const
- fm_StyleEditorContainerForm: TvcmFormDescriptor = (rFormID : (rName : 'StyleEditorContainerForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TStyleEditorContainerForm }
-
-const
- fm_StyleEditorFontForm: TvcmFormDescriptor = (rFormID : (rName : 'StyleEditorFontForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TStyleEditorFontForm }
-
-const
- fm_StyleEditorNavigatorForm: TvcmFormDescriptor = (rFormID : (rName : 'StyleEditorNavigatorForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TStyleEditorNavigatorForm }
-
-const
- fm_cf_Settings: TvcmFormDescriptor = (rFormID : (rName : 'cf_Settings'; rID : 0); rFactory : nil);
-  {* Идентификатор формы Tcf_Settings }
-
-const
- fm_StyleEditorExampleForm: TvcmFormDescriptor = (rFormID : (rName : 'StyleEditorExampleForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TStyleEditorExampleForm }
-
-const
- fm_SelfInfoForm: TvcmFormDescriptor = (rFormID : (rName : 'SelfInfoForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TSelfInfoForm }
-
 type
- StyleEditorContainerFormDef = interface
-  {* Идентификатор формы StyleEditorContainer }
-  ['{27578D68-B109-4681-A8A0-250B1511D051}']
- end;//StyleEditorContainerFormDef
-
- TStyleEditorContainerForm = {final} class(TPrimStyleEditorContainerOptionsForm, StyleEditorContainerFormDef)
-  {* Редактор стилей }
- end;//TStyleEditorContainerForm
-
- StyleEditorFontFormDef = interface
-  {* Идентификатор формы StyleEditorFont }
-  ['{631D935A-F7C1-48C4-ACCC-923697DDB82E}']
- end;//StyleEditorFontFormDef
-
- TStyleEditorFontForm = {final} class(TPrimStyleEditorFontForm, StyleEditorFontFormDef)
-  {* Параметры шрифта }
- end;//TStyleEditorFontForm
-
- StyleEditorNavigatorFormDef = interface
-  {* Идентификатор формы StyleEditorNavigator }
-  ['{CA4048B0-89BD-4120-9949-4497958117C6}']
- end;//StyleEditorNavigatorFormDef
-
- TStyleEditorNavigatorForm = {final} class(TPrimStyleEditorNavigatorForm, StyleEditorNavigatorFormDef)
-  {* Дерево стилей }
- end;//TStyleEditorNavigatorForm
-
- Ten_ConfigurationList = {final} class(TPrimConfigurationListForm, ConfigurationListFormDef)
-  {* Конфигурации }
- end;//Ten_ConfigurationList
-
- SettingsFormDef = interface
-  {* Идентификатор формы Settings }
-  ['{AE03AFD6-01DB-435D-9437-B777E585331E}']
- end;//SettingsFormDef
-
- Tcf_Settings = {final} class(TPrimSettingsForm, SettingsFormDef)
-  {* Настройка конфигурации }
- end;//Tcf_Settings
-
- StyleEditorExampleFormDef = interface
-  {* Идентификатор формы StyleEditorExample }
-  ['{941E9E1B-2C84-4067-938E-6CFE6F2614A7}']
- end;//StyleEditorExampleFormDef
-
- TStyleEditorExampleForm = {final} class(TPrimStyleEditorExampleForm, StyleEditorExampleFormDef)
-  {* Пример текста }
- end;//TStyleEditorExampleForm
-
- SelfInfoFormDef = interface
-  {* Идентификатор формы SelfInfo }
-  ['{58609172-F191-4A45-BABF-5983A3CBE791}']
- end;//SelfInfoFormDef
-
- TSelfInfoForm = {final} class(TPrimSelfInfoForm, SelfInfoFormDef)
-  {* Регистрационные данные }
- end;//TSelfInfoForm
-
  TSettingsModule = class
   protected
    procedure OpenStyleEditorAsModal; overload;
@@ -137,8 +47,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , PrimStyleEditorExample_utStyleEditorExample_UserType
+ , Common_FormDefinitions_Controls
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
@@ -157,45 +67,8 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmEntityForm
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , StyleEditorContainerKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , StyleEditorFontKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , StyleEditorNavigatorKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoVCM)}
- , OfficeLike_Result_Controls
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , ConfigurationListKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , SettingsKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , StyleEditorExampleKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , SelfInfoKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ , SelfInfo_Form
 ;
-
-const
- {* Локализуемые строки ut_StyleEditorFontLocalConstants }
- str_ut_StyleEditorFontCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_StyleEditorFontCaption'; rValue : 'Параметры шрифта');
-  {* Заголовок пользовательского типа "Параметры шрифта" }
-
-const
- {* Локализуемые строки ut_SelfInfoLocalConstants }
- str_ut_SelfInfoCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_SelfInfoCaption'; rValue : 'Регистрационные данные');
-  {* Заголовок пользовательского типа "Регистрационные данные" }
 
 function TSettingsModule.OpenStyleEditorAsModal(const aData: InsStyleTableSettingsInfo): Integer;
 var l_SettingsData: InsStyleTableSettingsInfo;
@@ -353,48 +226,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B506F0902B5_4AA79F72010A_impl*
 end;//TSettingsModule.UserProperties
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TStyleEditorContainerForm);
- {* Регистрация StyleEditorContainer }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TStyleEditorFontForm);
- {* Регистрация StyleEditorFont }
-{$IfEnd} // NOT Defined(NoScripts)
- str_ut_StyleEditorFontCaption.Init;
- {* Инициализация str_ut_StyleEditorFontCaption }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TStyleEditorNavigatorForm);
- {* Регистрация StyleEditorNavigator }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_StyleEditorNavigatorForm.SetFactory(TStyleEditorNavigatorForm.Make);
- {* Регистрация фабрики формы StyleEditorNavigator }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(Ten_ConfigurationList);
- {* Регистрация ConfigurationList }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_en_ConfigurationList.SetFactory(Ten_ConfigurationList.Make);
- {* Регистрация фабрики формы ConfigurationList }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(Tcf_Settings);
- {* Регистрация Settings }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TStyleEditorExampleForm);
- {* Регистрация StyleEditorExample }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_StyleEditorExampleForm.SetFactory(TStyleEditorExampleForm.Make);
- {* Регистрация фабрики формы StyleEditorExample }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TSelfInfoForm);
- {* Регистрация SelfInfo }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_SelfInfoForm.SetFactory(TSelfInfoForm.Make);
- {* Регистрация фабрики формы SelfInfo }
- str_ut_SelfInfoCaption.Init;
- {* Инициализация str_ut_SelfInfoCaption }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Settings_Module
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ConfigurationList_Form
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_ConfigurationList_Control_tvConfs.RegisterInEngine
 
 procedure Tkw_ConfigurationList_Control_tvConfs_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_93DA20A404E5_var*
-//#UC END# *4DAEEDE10285_93DA20A404E5_var*
 begin
-//#UC START# *4DAEEDE10285_93DA20A404E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_93DA20A404E5_impl*
+ aCtx.rEngine.PushString('tvConfs');
+ inherited;
 end;//Tkw_ConfigurationList_Control_tvConfs_Push.DoDoIt
 
 class function Tkw_ConfigurationList_Control_tvConfs_Push.GetWordNameForRegister: AnsiString;

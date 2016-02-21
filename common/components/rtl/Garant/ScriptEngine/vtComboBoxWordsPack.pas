@@ -10,10 +10,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- {$If NOT Defined(NoVCL)}
- , StdCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtComboTree
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -22,6 +18,10 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtComboTree
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces

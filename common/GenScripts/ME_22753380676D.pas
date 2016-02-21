@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Search_Module
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , TreeAttributeFirstLevel_Form
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine
 
 procedure Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_854835E10887_var*
-//#UC END# *4DAEEDE10285_854835E10887_var*
 begin
-//#UC START# *4DAEEDE10285_854835E10887_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_854835E10887_impl*
+ aCtx.rEngine.PushString('FirstLevelContent');
+ inherited;
 end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.DoDoIt
 
 class function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.GetWordNameForRegister: AnsiString;

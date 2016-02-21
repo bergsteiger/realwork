@@ -11,9 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , CommonSearch_Module
- , evQueryCardEditor
- , evTextSource
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -22,6 +19,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , QueryCard_Form
+ , evQueryCardEditor
+ , evTextSource
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -162,12 +162,9 @@ begin
 end;//Tkw_QueryCard_Control_Editor.RegisterInEngine
 
 procedure Tkw_QueryCard_Control_Editor_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9E7B525F6E2E_var*
-//#UC END# *4DAEEDE10285_9E7B525F6E2E_var*
 begin
-//#UC START# *4DAEEDE10285_9E7B525F6E2E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9E7B525F6E2E_impl*
+ aCtx.rEngine.PushString('Editor');
+ inherited;
 end;//Tkw_QueryCard_Control_Editor_Push.DoDoIt
 
 class function Tkw_QueryCard_Control_Editor_Push.GetWordNameForRegister: AnsiString;

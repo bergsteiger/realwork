@@ -10,9 +10,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
- , nsFiltersInterfaces
- {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -21,6 +18,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+ , nsFiltersInterfaces
+ {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
  , tfwAxiomaticsResNameGetter
  , tfwPropertyLike
  , tfwScriptingInterfaces

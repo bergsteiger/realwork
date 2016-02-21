@@ -10,9 +10,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , evCustomEditor
- , evEditorInterfaces
- , evdTypes
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -21,6 +18,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , evCustomEditor
+ , evEditorInterfaces
+ , evdTypes
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces

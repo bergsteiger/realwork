@@ -15,6 +15,7 @@ implementation
 
 uses
  l3ImplUses
+ , nsRegistryHelper
 ;
 
 end.

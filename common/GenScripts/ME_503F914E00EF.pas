@@ -10,9 +10,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , vtOutliner
- , l3TreeInterfaces
- , tfwScriptingInterfaces
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -21,6 +18,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , vtOutliner
+ , l3TreeInterfaces
+ , tfwScriptingInterfaces
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , TypInfo

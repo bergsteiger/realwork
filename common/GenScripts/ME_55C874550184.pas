@@ -10,12 +10,6 @@ interface
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
 uses
  l3IntfUses
- {$If NOT Defined(NoVGScene)}
- , vcmBaseMenuForChromeLike
- {$IfEnd} // NOT Defined(NoVGScene)
- {$If NOT Defined(NoVCL)}
- , Menus
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
 
@@ -24,6 +18,12 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVGScene)}
+ , vcmBaseMenuForChromeLike
+ {$IfEnd} // NOT Defined(NoVGScene)
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces

@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , LiteSearch_Module
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , SelectedAttributes_Form
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_SelectedAttributes_Control_SelectedTree.RegisterInEngine
 
 procedure Tkw_SelectedAttributes_Control_SelectedTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_73A3CA945FEC_var*
-//#UC END# *4DAEEDE10285_73A3CA945FEC_var*
 begin
-//#UC START# *4DAEEDE10285_73A3CA945FEC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_73A3CA945FEC_impl*
+ aCtx.rEngine.PushString('SelectedTree');
+ inherited;
 end;//Tkw_SelectedAttributes_Control_SelectedTree_Push.DoDoIt
 
 class function Tkw_SelectedAttributes_Control_SelectedTree_Push.GetWordNameForRegister: AnsiString;

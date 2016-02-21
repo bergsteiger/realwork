@@ -11,12 +11,6 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Admin_Module
- , vtLabel
- , vtGroupBox
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ForbidAutoregistration_Form
+ , vtLabel
+ , vtGroupBox
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -422,12 +422,9 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_lblReference.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_lblReference_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_05519E0B783D_var*
-//#UC END# *4DAEEDE10285_05519E0B783D_var*
 begin
-//#UC START# *4DAEEDE10285_05519E0B783D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_05519E0B783D_impl*
+ aCtx.rEngine.PushString('lblReference');
+ inherited;
 end;//Tkw_ForbidAutoregistration_Control_lblReference_Push.DoDoIt
 
 class function Tkw_ForbidAutoregistration_Control_lblReference_Push.GetWordNameForRegister: AnsiString;
@@ -452,12 +449,9 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_gbInfo.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_gbInfo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5F41C1545D19_var*
-//#UC END# *4DAEEDE10285_5F41C1545D19_var*
 begin
-//#UC START# *4DAEEDE10285_5F41C1545D19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5F41C1545D19_impl*
+ aCtx.rEngine.PushString('gbInfo');
+ inherited;
 end;//Tkw_ForbidAutoregistration_Control_gbInfo_Push.DoDoIt
 
 class function Tkw_ForbidAutoregistration_Control_gbInfo_Push.GetWordNameForRegister: AnsiString;
@@ -482,12 +476,9 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_lblPhone.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_lblPhone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3767D248436F_var*
-//#UC END# *4DAEEDE10285_3767D248436F_var*
 begin
-//#UC START# *4DAEEDE10285_3767D248436F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3767D248436F_impl*
+ aCtx.rEngine.PushString('lblPhone');
+ inherited;
 end;//Tkw_ForbidAutoregistration_Control_lblPhone_Push.DoDoIt
 
 class function Tkw_ForbidAutoregistration_Control_lblPhone_Push.GetWordNameForRegister: AnsiString;
@@ -512,12 +503,9 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_lblEmail.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_lblEmail_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_954C2765C606_var*
-//#UC END# *4DAEEDE10285_954C2765C606_var*
 begin
-//#UC START# *4DAEEDE10285_954C2765C606_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_954C2765C606_impl*
+ aCtx.rEngine.PushString('lblEmail');
+ inherited;
 end;//Tkw_ForbidAutoregistration_Control_lblEmail_Push.DoDoIt
 
 class function Tkw_ForbidAutoregistration_Control_lblEmail_Push.GetWordNameForRegister: AnsiString;
@@ -542,12 +530,9 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_lblHint.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_lblHint_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1ED3E40D3CBA_var*
-//#UC END# *4DAEEDE10285_1ED3E40D3CBA_var*
 begin
-//#UC START# *4DAEEDE10285_1ED3E40D3CBA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1ED3E40D3CBA_impl*
+ aCtx.rEngine.PushString('lblHint');
+ inherited;
 end;//Tkw_ForbidAutoregistration_Control_lblHint_Push.DoDoIt
 
 class function Tkw_ForbidAutoregistration_Control_lblHint_Push.GetWordNameForRegister: AnsiString;
@@ -572,12 +557,9 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_cbPhone.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_cbPhone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_24968EDE10C3_var*
-//#UC END# *4DAEEDE10285_24968EDE10C3_var*
 begin
-//#UC START# *4DAEEDE10285_24968EDE10C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_24968EDE10C3_impl*
+ aCtx.rEngine.PushString('cbPhone');
+ inherited;
 end;//Tkw_ForbidAutoregistration_Control_cbPhone_Push.DoDoIt
 
 class function Tkw_ForbidAutoregistration_Control_cbPhone_Push.GetWordNameForRegister: AnsiString;
@@ -602,12 +584,9 @@ begin
 end;//Tkw_ForbidAutoregistration_Control_cbEmail.RegisterInEngine
 
 procedure Tkw_ForbidAutoregistration_Control_cbEmail_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4FF7C438CB62_var*
-//#UC END# *4DAEEDE10285_4FF7C438CB62_var*
 begin
-//#UC START# *4DAEEDE10285_4FF7C438CB62_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4FF7C438CB62_impl*
+ aCtx.rEngine.PushString('cbEmail');
+ inherited;
 end;//Tkw_ForbidAutoregistration_Control_cbEmail_Push.DoDoIt
 
 class function Tkw_ForbidAutoregistration_Control_cbEmail_Push.GetWordNameForRegister: AnsiString;

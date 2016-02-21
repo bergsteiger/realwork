@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , LiteSearch_Module
- , vtPanel
- {$If Defined(Nemesis)}
- , nscContextFilter
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
- , nscTreeViewHotTruck
- {$IfEnd} // Defined(Nemesis)
- , SearchLite_Strange_Controls
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -28,6 +19,15 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , TreeAttributeSelect_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ , SearchLite_Strange_Controls
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -229,12 +229,9 @@ begin
 end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_TreeAttributeSelect_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_95E80DC828A3_var*
-//#UC END# *4DAEEDE10285_95E80DC828A3_var*
 begin
-//#UC START# *4DAEEDE10285_95E80DC828A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_95E80DC828A3_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_TreeAttributeSelect_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_TreeAttributeSelect_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -259,12 +256,9 @@ begin
 end;//Tkw_TreeAttributeSelect_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_TreeAttributeSelect_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BF89704B3469_var*
-//#UC END# *4DAEEDE10285_BF89704B3469_var*
 begin
-//#UC START# *4DAEEDE10285_BF89704B3469_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BF89704B3469_impl*
+ aCtx.rEngine.PushString('ContextFilter');
+ inherited;
 end;//Tkw_TreeAttributeSelect_Control_ContextFilter_Push.DoDoIt
 
 class function Tkw_TreeAttributeSelect_Control_ContextFilter_Push.GetWordNameForRegister: AnsiString;
@@ -289,12 +283,9 @@ begin
 end;//Tkw_TreeAttributeSelect_Control_AttributeTree.RegisterInEngine
 
 procedure Tkw_TreeAttributeSelect_Control_AttributeTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1774552B0AC8_var*
-//#UC END# *4DAEEDE10285_1774552B0AC8_var*
 begin
-//#UC START# *4DAEEDE10285_1774552B0AC8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1774552B0AC8_impl*
+ aCtx.rEngine.PushString('AttributeTree');
+ inherited;
 end;//Tkw_TreeAttributeSelect_Control_AttributeTree_Push.DoDoIt
 
 class function Tkw_TreeAttributeSelect_Control_AttributeTree_Push.GetWordNameForRegister: AnsiString;

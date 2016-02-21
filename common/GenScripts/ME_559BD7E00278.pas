@@ -10,14 +10,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , tfwScriptingInterfaces
- , tfwDictionaryEx
- , l3Interfaces
- , tfwTypeInfo
- , l3Variant
- , Types
- , tfwDictionaryPrim
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -26,6 +18,14 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwScriptingInterfaces
+ , tfwDictionaryEx
+ , l3Interfaces
+ , tfwTypeInfo
+ , l3Variant
+ , Types
+ , tfwDictionaryPrim
+ , TypInfo
  , tfwClassLike
  , tfwDictionaryExWordsPack
  , tfwScriptingTypes

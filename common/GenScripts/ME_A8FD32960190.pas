@@ -4,7 +4,7 @@ unit Main_ut_Main_UserType;
 // Модуль: "w:\MDProcess\NewGen\Main_ut_Main_UserType.pas"
 // Стереотип: "UserType"
 
-{$Include w:\common\NewGen\ngDefine.inc}
+{$Include w:\MDProcess\NewGen\ngDefine.inc}
 
 interface
 

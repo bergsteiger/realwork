@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimMonitorings_Module
- , nscTreeViewForNewsLine
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , NewsLine_Form
+ , nscTreeViewForNewsLine
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_NewsLine_Control_DateList.RegisterInEngine
 
 procedure Tkw_NewsLine_Control_DateList_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AC6143611DF2_var*
-//#UC END# *4DAEEDE10285_AC6143611DF2_var*
 begin
-//#UC START# *4DAEEDE10285_AC6143611DF2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AC6143611DF2_impl*
+ aCtx.rEngine.PushString('DateList');
+ inherited;
 end;//Tkw_NewsLine_Control_DateList_Push.DoDoIt
 
 class function Tkw_NewsLine_Control_DateList_Push.GetWordNameForRegister: AnsiString;

@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Inpharm_Module
- , vtPanel
- {$If Defined(Nemesis)}
- , nscContextFilter
- {$IfEnd} // Defined(Nemesis)
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , MedicFirmList_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -226,12 +226,9 @@ begin
 end;//Tkw_MedicFirmList_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_MedicFirmList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82354F1D2C49_var*
-//#UC END# *4DAEEDE10285_82354F1D2C49_var*
 begin
-//#UC START# *4DAEEDE10285_82354F1D2C49_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82354F1D2C49_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_MedicFirmList_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_MedicFirmList_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -256,12 +253,9 @@ begin
 end;//Tkw_MedicFirmList_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_MedicFirmList_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2A735885925E_var*
-//#UC END# *4DAEEDE10285_2A735885925E_var*
 begin
-//#UC START# *4DAEEDE10285_2A735885925E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2A735885925E_impl*
+ aCtx.rEngine.PushString('ContextFilter');
+ inherited;
 end;//Tkw_MedicFirmList_Control_ContextFilter_Push.DoDoIt
 
 class function Tkw_MedicFirmList_Control_ContextFilter_Push.GetWordNameForRegister: AnsiString;
@@ -286,12 +280,9 @@ begin
 end;//Tkw_MedicFirmList_Control_ListTree.RegisterInEngine
 
 procedure Tkw_MedicFirmList_Control_ListTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_249C7444CA07_var*
-//#UC END# *4DAEEDE10285_249C7444CA07_var*
 begin
-//#UC START# *4DAEEDE10285_249C7444CA07_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_249C7444CA07_impl*
+ aCtx.rEngine.PushString('ListTree');
+ inherited;
 end;//Tkw_MedicFirmList_Control_ListTree_Push.DoDoIt
 
 class function Tkw_MedicFirmList_Control_ListTree_Push.GetWordNameForRegister: AnsiString;

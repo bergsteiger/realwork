@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Settings_Module
- , vtProportionalPanel
- , vtPanel
- , vtSizeablePanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , StyleEditorContainer_Form
+ , vtProportionalPanel
+ , vtPanel
+ , vtSizeablePanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -322,12 +322,9 @@ begin
 end;//Tkw_StyleEditorContainer_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A9487958C12C_var*
-//#UC END# *4DAEEDE10285_A9487958C12C_var*
 begin
-//#UC START# *4DAEEDE10285_A9487958C12C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A9487958C12C_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_StyleEditorContainer_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_StyleEditorContainer_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -352,12 +349,9 @@ begin
 end;//Tkw_StyleEditorContainer_Control_MainZone.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_MainZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_15A257ADED1A_var*
-//#UC END# *4DAEEDE10285_15A257ADED1A_var*
 begin
-//#UC START# *4DAEEDE10285_15A257ADED1A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_15A257ADED1A_impl*
+ aCtx.rEngine.PushString('MainZone');
+ inherited;
 end;//Tkw_StyleEditorContainer_Control_MainZone_Push.DoDoIt
 
 class function Tkw_StyleEditorContainer_Control_MainZone_Push.GetWordNameForRegister: AnsiString;
@@ -382,12 +376,9 @@ begin
 end;//Tkw_StyleEditorContainer_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_026D2678402C_var*
-//#UC END# *4DAEEDE10285_026D2678402C_var*
 begin
-//#UC START# *4DAEEDE10285_026D2678402C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_026D2678402C_impl*
+ aCtx.rEngine.PushString('ParentZone');
+ inherited;
 end;//Tkw_StyleEditorContainer_Control_ParentZone_Push.DoDoIt
 
 class function Tkw_StyleEditorContainer_Control_ParentZone_Push.GetWordNameForRegister: AnsiString;
@@ -412,12 +403,9 @@ begin
 end;//Tkw_StyleEditorContainer_Control_ChildZone.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C9AD090A5305_var*
-//#UC END# *4DAEEDE10285_C9AD090A5305_var*
 begin
-//#UC START# *4DAEEDE10285_C9AD090A5305_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C9AD090A5305_impl*
+ aCtx.rEngine.PushString('ChildZone');
+ inherited;
 end;//Tkw_StyleEditorContainer_Control_ChildZone_Push.DoDoIt
 
 class function Tkw_StyleEditorContainer_Control_ChildZone_Push.GetWordNameForRegister: AnsiString;
@@ -442,12 +430,9 @@ begin
 end;//Tkw_StyleEditorContainer_Control_NavigatorZone.RegisterInEngine
 
 procedure Tkw_StyleEditorContainer_Control_NavigatorZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_37F21FB3BC72_var*
-//#UC END# *4DAEEDE10285_37F21FB3BC72_var*
 begin
-//#UC START# *4DAEEDE10285_37F21FB3BC72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_37F21FB3BC72_impl*
+ aCtx.rEngine.PushString('NavigatorZone');
+ inherited;
 end;//Tkw_StyleEditorContainer_Control_NavigatorZone_Push.DoDoIt
 
 class function Tkw_StyleEditorContainer_Control_NavigatorZone_Push.GetWordNameForRegister: AnsiString;

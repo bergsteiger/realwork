@@ -13,7 +13,6 @@ uses
  , vcmToolbarsInterfaces
  , vcmBaseMenuManager
  , Classes
- , PrimCustomizeTools_Form
  , l3ProtoDataContainer
  , l3Memory
  , l3Types
@@ -23,9 +22,6 @@ uses
 ;
 
 type
- TCustomizeToolsForm = {final} class(TPrimCustomizeToolsForm)
- end;//TCustomizeToolsForm
-
  _ItemType_ = IvcmToolbarsCustomizeListener;
  _l3InterfacePtrList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
@@ -75,7 +71,6 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  , afwFacade
  , vcmToolbarMenuRes
  , vcmExternalInterfaces
@@ -89,26 +84,11 @@ uses
  , vcmUserControls
  , vcmMenus
  , vcmToolbar
- {$If Defined(Nemesis)}
- , eeShortCutEdit
- {$IfEnd} // Defined(Nemesis)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , CustomizeToolsKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , l3MinMax
  , RTLConsts
  , SysUtils
 ;
-
-const
- {* Локализуемые строки ut_CustomizeToolsLocalConstants }
- str_ut_CustomizeToolsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeToolsCaption'; rValue : 'CustomizeTools');
-  {* Заголовок пользовательского типа "CustomizeTools" }
 
 {$If not Declared(_DataType_)}type _DataType_ = Tl3Ptr;{$IfEnd}
 
@@ -324,14 +304,6 @@ begin
                    False);
 //#UC END# *47D1602000C6_4C8E340C0148_impl*
 end;//TPrimToolbarMenuModule.Create
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TCustomizeToolsForm);
- {* Регистрация CustomizeTools }
-{$IfEnd} // NOT Defined(NoScripts)
- str_ut_CustomizeToolsCaption.Init;
- {* Инициализация str_ut_CustomizeToolsCaption }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -13,14 +13,9 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , PrimMainMenuNew_Form
- , Common_FormDefinitions_Controls
 ;
 
 type
- Ten_MainMenuNew = {final} class(TPrimMainMenuNewForm, MainMenuNewFormDef)
- end;//Ten_MainMenuNew
-
  TMainMenuModule = class
   public
    procedure OpenMainMenuIfNeeded(const aContainer: IvcmContainer);
@@ -47,12 +42,7 @@ uses
  , nsTypes
  , DataAdapter
  , nsManagers
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , MainMenuNewKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ , Common_FormDefinitions_Controls
  , LoggingUnit
 ;
 
@@ -113,14 +103,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *F62C297CC387_4AA7A1F80027_impl*
 end;//TMainMenuModule.WriteMainMenuChangeableMainMenuTypeSetting
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(Ten_MainMenuNew);
- {* Регистрация MainMenuNew }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_en_MainMenuNew.SetFactory(Ten_MainMenuNew.Make);
- {* Регистрация фабрики формы MainMenuNew }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

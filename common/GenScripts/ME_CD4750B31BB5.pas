@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Rubricator_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Rubricator_Form
  , nscTreeViewWithAdapterDragDrop
  , vtPanel
  {$If NOT Defined(NoVCL)}
@@ -21,14 +29,6 @@ uses
  {$If Defined(Nemesis)}
  , nscTextSource
  {$IfEnd} // Defined(Nemesis)
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -365,12 +365,9 @@ begin
 end;//Tkw_Rubricator_Control_RubricatorList.RegisterInEngine
 
 procedure Tkw_Rubricator_Control_RubricatorList_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B128CAA72BC5_var*
-//#UC END# *4DAEEDE10285_B128CAA72BC5_var*
 begin
-//#UC START# *4DAEEDE10285_B128CAA72BC5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B128CAA72BC5_impl*
+ aCtx.rEngine.PushString('RubricatorList');
+ inherited;
 end;//Tkw_Rubricator_Control_RubricatorList_Push.DoDoIt
 
 class function Tkw_Rubricator_Control_RubricatorList_Push.GetWordNameForRegister: AnsiString;
@@ -395,12 +392,9 @@ begin
 end;//Tkw_Rubricator_Control_TopPanel.RegisterInEngine
 
 procedure Tkw_Rubricator_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_979DF29ED3D8_var*
-//#UC END# *4DAEEDE10285_979DF29ED3D8_var*
 begin
-//#UC START# *4DAEEDE10285_979DF29ED3D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_979DF29ED3D8_impl*
+ aCtx.rEngine.PushString('TopPanel');
+ inherited;
 end;//Tkw_Rubricator_Control_TopPanel_Push.DoDoIt
 
 class function Tkw_Rubricator_Control_TopPanel_Push.GetWordNameForRegister: AnsiString;
@@ -425,12 +419,9 @@ begin
 end;//Tkw_Rubricator_Control_PaintBox.RegisterInEngine
 
 procedure Tkw_Rubricator_Control_PaintBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E55FE733F7B5_var*
-//#UC END# *4DAEEDE10285_E55FE733F7B5_var*
 begin
-//#UC START# *4DAEEDE10285_E55FE733F7B5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E55FE733F7B5_impl*
+ aCtx.rEngine.PushString('PaintBox');
+ inherited;
 end;//Tkw_Rubricator_Control_PaintBox_Push.DoDoIt
 
 class function Tkw_Rubricator_Control_PaintBox_Push.GetWordNameForRegister: AnsiString;
@@ -455,12 +446,9 @@ begin
 end;//Tkw_Rubricator_Control_NewDocLabel.RegisterInEngine
 
 procedure Tkw_Rubricator_Control_NewDocLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_844BA391680A_var*
-//#UC END# *4DAEEDE10285_844BA391680A_var*
 begin
-//#UC START# *4DAEEDE10285_844BA391680A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_844BA391680A_impl*
+ aCtx.rEngine.PushString('NewDocLabel');
+ inherited;
 end;//Tkw_Rubricator_Control_NewDocLabel_Push.DoDoIt
 
 class function Tkw_Rubricator_Control_NewDocLabel_Push.GetWordNameForRegister: AnsiString;
@@ -485,12 +473,9 @@ begin
 end;//Tkw_Rubricator_Control_DelimiterPanel.RegisterInEngine
 
 procedure Tkw_Rubricator_Control_DelimiterPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_09AA1137EEA9_var*
-//#UC END# *4DAEEDE10285_09AA1137EEA9_var*
 begin
-//#UC START# *4DAEEDE10285_09AA1137EEA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_09AA1137EEA9_impl*
+ aCtx.rEngine.PushString('DelimiterPanel');
+ inherited;
 end;//Tkw_Rubricator_Control_DelimiterPanel_Push.DoDoIt
 
 class function Tkw_Rubricator_Control_DelimiterPanel_Push.GetWordNameForRegister: AnsiString;

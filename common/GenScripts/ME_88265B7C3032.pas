@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , MemoryUsage_Form
- , vtPanel
- , eeTreeView
- , vtSizeablePanel
- , evMemo
- , vtLabel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , MemoryUsage_Form
+ , vtPanel
+ , eeTreeView
+ , vtSizeablePanel
+ , evMemo
+ , vtLabel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -667,12 +667,9 @@ begin
 end;//Tkw_MemoryUsage_Control_pnTagTree.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_pnTagTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2B8ADB3E4BAB_var*
-//#UC END# *4DAEEDE10285_2B8ADB3E4BAB_var*
 begin
-//#UC START# *4DAEEDE10285_2B8ADB3E4BAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2B8ADB3E4BAB_impl*
+ aCtx.rEngine.PushString('pnTagTree');
+ inherited;
 end;//Tkw_MemoryUsage_Control_pnTagTree_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_pnTagTree_Push.GetWordNameForRegister: AnsiString;
@@ -697,12 +694,9 @@ begin
 end;//Tkw_MemoryUsage_Control_TagTree.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_TagTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1A6D88D07C3A_var*
-//#UC END# *4DAEEDE10285_1A6D88D07C3A_var*
 begin
-//#UC START# *4DAEEDE10285_1A6D88D07C3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1A6D88D07C3A_impl*
+ aCtx.rEngine.PushString('TagTree');
+ inherited;
 end;//Tkw_MemoryUsage_Control_TagTree_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_TagTree_Push.GetWordNameForRegister: AnsiString;
@@ -727,12 +721,9 @@ begin
 end;//Tkw_MemoryUsage_Control_pnMemClasses.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_pnMemClasses_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E6BD5B751F50_var*
-//#UC END# *4DAEEDE10285_E6BD5B751F50_var*
 begin
-//#UC START# *4DAEEDE10285_E6BD5B751F50_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E6BD5B751F50_impl*
+ aCtx.rEngine.PushString('pnMemClasses');
+ inherited;
 end;//Tkw_MemoryUsage_Control_pnMemClasses_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_pnMemClasses_Push.GetWordNameForRegister: AnsiString;
@@ -757,12 +748,9 @@ begin
 end;//Tkw_MemoryUsage_Control_memClasses.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_memClasses_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7231EC8B5254_var*
-//#UC END# *4DAEEDE10285_7231EC8B5254_var*
 begin
-//#UC START# *4DAEEDE10285_7231EC8B5254_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7231EC8B5254_impl*
+ aCtx.rEngine.PushString('memClasses');
+ inherited;
 end;//Tkw_MemoryUsage_Control_memClasses_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_memClasses_Push.GetWordNameForRegister: AnsiString;
@@ -787,12 +775,9 @@ begin
 end;//Tkw_MemoryUsage_Control_pnSummary.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_pnSummary_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_66C015F95443_var*
-//#UC END# *4DAEEDE10285_66C015F95443_var*
 begin
-//#UC START# *4DAEEDE10285_66C015F95443_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_66C015F95443_impl*
+ aCtx.rEngine.PushString('pnSummary');
+ inherited;
 end;//Tkw_MemoryUsage_Control_pnSummary_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_pnSummary_Push.GetWordNameForRegister: AnsiString;
@@ -817,12 +802,9 @@ begin
 end;//Tkw_MemoryUsage_Control_lbLocalMemory.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_lbLocalMemory_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0149117F15F3_var*
-//#UC END# *4DAEEDE10285_0149117F15F3_var*
 begin
-//#UC START# *4DAEEDE10285_0149117F15F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0149117F15F3_impl*
+ aCtx.rEngine.PushString('lbLocalMemory');
+ inherited;
 end;//Tkw_MemoryUsage_Control_lbLocalMemory_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_lbLocalMemory_Push.GetWordNameForRegister: AnsiString;
@@ -847,12 +829,9 @@ begin
 end;//Tkw_MemoryUsage_Control_lbObjectMemory.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_lbObjectMemory_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E4784471AEA_var*
-//#UC END# *4DAEEDE10285_4E4784471AEA_var*
 begin
-//#UC START# *4DAEEDE10285_4E4784471AEA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E4784471AEA_impl*
+ aCtx.rEngine.PushString('lbObjectMemory');
+ inherited;
 end;//Tkw_MemoryUsage_Control_lbObjectMemory_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_lbObjectMemory_Push.GetWordNameForRegister: AnsiString;
@@ -877,12 +856,9 @@ begin
 end;//Tkw_MemoryUsage_Control_lbObjectCount.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_lbObjectCount_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FBA0A0069B48_var*
-//#UC END# *4DAEEDE10285_FBA0A0069B48_var*
 begin
-//#UC START# *4DAEEDE10285_FBA0A0069B48_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FBA0A0069B48_impl*
+ aCtx.rEngine.PushString('lbObjectCount');
+ inherited;
 end;//Tkw_MemoryUsage_Control_lbObjectCount_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_lbObjectCount_Push.GetWordNameForRegister: AnsiString;
@@ -907,12 +883,9 @@ begin
 end;//Tkw_MemoryUsage_Control_lbGlobalMemory.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_lbGlobalMemory_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E7B3A380F8CB_var*
-//#UC END# *4DAEEDE10285_E7B3A380F8CB_var*
 begin
-//#UC START# *4DAEEDE10285_E7B3A380F8CB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E7B3A380F8CB_impl*
+ aCtx.rEngine.PushString('lbGlobalMemory');
+ inherited;
 end;//Tkw_MemoryUsage_Control_lbGlobalMemory_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_lbGlobalMemory_Push.GetWordNameForRegister: AnsiString;
@@ -937,12 +910,9 @@ begin
 end;//Tkw_MemoryUsage_Control_lbDocumentsInCacheCount.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2DF09D01B920_var*
-//#UC END# *4DAEEDE10285_2DF09D01B920_var*
 begin
-//#UC START# *4DAEEDE10285_2DF09D01B920_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2DF09D01B920_impl*
+ aCtx.rEngine.PushString('lbDocumentsInCacheCount');
+ inherited;
 end;//Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_lbDocumentsInCacheCount_Push.GetWordNameForRegister: AnsiString;
@@ -967,12 +937,9 @@ begin
 end;//Tkw_MemoryUsage_Control_lbAllLocalMemory.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_lbAllLocalMemory_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2114340BE91E_var*
-//#UC END# *4DAEEDE10285_2114340BE91E_var*
 begin
-//#UC START# *4DAEEDE10285_2114340BE91E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2114340BE91E_impl*
+ aCtx.rEngine.PushString('lbAllLocalMemory');
+ inherited;
 end;//Tkw_MemoryUsage_Control_lbAllLocalMemory_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_lbAllLocalMemory_Push.GetWordNameForRegister: AnsiString;
@@ -997,12 +964,9 @@ begin
 end;//Tkw_MemoryUsage_Control_lbTotalMemory.RegisterInEngine
 
 procedure Tkw_MemoryUsage_Control_lbTotalMemory_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1960238DD758_var*
-//#UC END# *4DAEEDE10285_1960238DD758_var*
 begin
-//#UC START# *4DAEEDE10285_1960238DD758_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1960238DD758_impl*
+ aCtx.rEngine.PushString('lbTotalMemory');
+ inherited;
 end;//Tkw_MemoryUsage_Control_lbTotalMemory_Push.DoDoIt
 
 class function Tkw_MemoryUsage_Control_lbTotalMemory_Push.GetWordNameForRegister: AnsiString;

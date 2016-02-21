@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Inpharm_Module
- , vtPanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , MedicListSynchroView_Form
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_MedicListSynchroView_Control_ztChild.RegisterInEngine
 
 procedure Tkw_MedicListSynchroView_Control_ztChild_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_44E9C0B077E7_var*
-//#UC END# *4DAEEDE10285_44E9C0B077E7_var*
 begin
-//#UC START# *4DAEEDE10285_44E9C0B077E7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_44E9C0B077E7_impl*
+ aCtx.rEngine.PushString('ztChild');
+ inherited;
 end;//Tkw_MedicListSynchroView_Control_ztChild_Push.DoDoIt
 
 class function Tkw_MedicListSynchroView_Control_ztChild_Push.GetWordNameForRegister: AnsiString;

@@ -12,58 +12,9 @@ interface
 uses
  l3IntfUses
  , DocumentUnit
- , PrimChangesBetweenEditons_Form
- {$If NOT Defined(NoVCM)}
- , vcmFormSetFactory
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmFormSetFactoryPrim
- {$IfEnd} // NOT Defined(NoVCM)
- , PrimChangesBetweenEditons_DocumentChanges_UserType
- , ChangesBetweenEditionsInterfaces
- , nevTools
- , DocumentInterfaces
 ;
 
-const
- fm_ChangesBetweenEditonsForm: TvcmFormDescriptor = (rFormID : (rName : 'ChangesBetweenEditonsForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TChangesBetweenEditonsForm }
-
 type
- ChangesBetweenEditonsFormDef = interface
-  {* Идентификатор формы ChangesBetweenEditons }
-  ['{E8402096-B641-4FAE-B341-69369D1BB399}']
- end;//ChangesBetweenEditonsFormDef
-
- TChangesBetweenEditonsForm = {final} class(TPrimChangesBetweenEditonsForm, ChangesBetweenEditonsFormDef)
-  {* Изменения в документе }
- end;//TChangesBetweenEditonsForm
-
- // Parent
-
- Tfs_ViewChangedFragments = {final} class(TvcmFormSetFactory)
-  protected
-   procedure InitFields; override;
-   {$If NOT Defined(NoVCM)}
-   class function GetInstance: TvcmFormSetFactoryPrim; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-  public
-   function Parent_Parent_DocumentChanges_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-    out aNew: IvcmFormDataSource;
-    aSubUserType: TvcmUserType): Boolean;
-    {* Обработчик OnNeedMakeForm для Parent }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: Tfs_ViewChangedFragments;
-    {* Метод получения экземпляра синглетона Tfs_ViewChangedFragments }
- end;//Tfs_ViewChangedFragments
-
  TChangesBetweenEditionsModule = class
   {* Просмотр только измененных фрагментов }
   public
@@ -90,81 +41,16 @@ uses
  , DataAdapter
  , sdsChangesBetweenEditions
  , nsChangesBetweenEditionsInfo
+ , fsViewChangedFragments
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ChangesBetweenEditonsKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- , SysUtils
- , l3Base
 ;
-
-var g_Tfs_ViewChangedFragments: Tfs_ViewChangedFragments = nil;
- {* Экземпляр синглетона Tfs_ViewChangedFragments }
 
 const
  {* Локализуемые строки Local }
  str_CannotShowChanges: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'CannotShowChanges'; rValue : 'Изменения не могут быть отображены в сводном обзоре');
   {* 'Изменения не могут быть отображены в сводном обзоре' }
-
-procedure Tfs_ViewChangedFragmentsFree;
- {* Метод освобождения экземпляра синглетона Tfs_ViewChangedFragments }
-begin
- l3Free(g_Tfs_ViewChangedFragments);
-end;//Tfs_ViewChangedFragmentsFree
-
-function Tfs_ViewChangedFragments.Parent_Parent_DocumentChanges_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
- out aNew: IvcmFormDataSource;
- aSubUserType: TvcmUserType): Boolean;
- {* Обработчик OnNeedMakeForm для Parent }
-//#UC START# *9C7EE9D70E75_4DDCBC5C0211_var*
-//#UC END# *9C7EE9D70E75_4DDCBC5C0211_var*
-begin
-//#UC START# *9C7EE9D70E75_4DDCBC5C0211_impl*
- !!! Needs to be implemented !!!
-//#UC END# *9C7EE9D70E75_4DDCBC5C0211_impl*
-end;//Tfs_ViewChangedFragments.Parent_Parent_DocumentChanges_NeedMakeForm
-
-class function Tfs_ViewChangedFragments.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_ViewChangedFragments <> nil;
-end;//Tfs_ViewChangedFragments.Exists
-
-class function Tfs_ViewChangedFragments.Instance: Tfs_ViewChangedFragments;
- {* Метод получения экземпляра синглетона Tfs_ViewChangedFragments }
-begin
- if (g_Tfs_ViewChangedFragments = nil) then
- begin
-  l3System.AddExitProc(Tfs_ViewChangedFragmentsFree);
-  g_Tfs_ViewChangedFragments := Create;
- end;
- Result := g_Tfs_ViewChangedFragments;
-end;//Tfs_ViewChangedFragments.Instance
-
-procedure Tfs_ViewChangedFragments.InitFields;
-//#UC START# *47A042E100E2_4DDCBC5C0211_var*
-//#UC END# *47A042E100E2_4DDCBC5C0211_var*
-begin
-//#UC START# *47A042E100E2_4DDCBC5C0211_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4DDCBC5C0211_impl*
-end;//Tfs_ViewChangedFragments.InitFields
-
-{$If NOT Defined(NoVCM)}
-class function Tfs_ViewChangedFragments.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4DDCBC5C0211_var*
-//#UC END# *4FFE854A009B_4DDCBC5C0211_var*
-begin
-//#UC START# *4FFE854A009B_4DDCBC5C0211_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4DDCBC5C0211_impl*
-end;//Tfs_ViewChangedFragments.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 procedure TChangesBetweenEditionsModule.ViewChangedFragments(const aLeft: IDocument;
  const aRight: IDocument);
@@ -210,12 +96,6 @@ begin
 end;//TChangesBetweenEditionsModule.ViewChangedFragmentsForPrevEdition
 
 initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TChangesBetweenEditonsForm);
- {* Регистрация ChangesBetweenEditons }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_ChangesBetweenEditonsForm.SetFactory(TChangesBetweenEditonsForm.Make);
- {* Регистрация фабрики формы ChangesBetweenEditons }
  str_CannotShowChanges.Init;
 !!! Lost Message ini !!!
  {* Инициализация str_CannotShowChanges }

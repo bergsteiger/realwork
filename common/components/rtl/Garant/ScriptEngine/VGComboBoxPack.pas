@@ -10,7 +10,6 @@ interface
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , vg_listbox
 ;
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)
 
@@ -19,6 +18,7 @@ implementation
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , vg_listbox
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces

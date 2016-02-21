@@ -10,8 +10,6 @@ interface
 {$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , F_AttrExplorer
- , dt_AttrSchema
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)
 
@@ -20,6 +18,8 @@ implementation
 {$If Defined(nsTest) AND Defined(InsiderTest) AND Defined(AppClientSide) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , F_AttrExplorer
+ , dt_AttrSchema
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces

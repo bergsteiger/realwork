@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , MainMenu_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , MainMenuNew_Form
  , vtPanel
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
@@ -31,14 +39,6 @@ uses
  {$If NOT Defined(NoImageEn)}
  , imageenio
  {$IfEnd} // NOT Defined(NoImageEn)
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -1453,12 +1453,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pnlBaseSearch.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pnlBaseSearch_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_291D12F6F906_var*
-//#UC END# *4DAEEDE10285_291D12F6F906_var*
 begin
-//#UC START# *4DAEEDE10285_291D12F6F906_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_291D12F6F906_impl*
+ aCtx.rEngine.PushString('pnlBaseSearch');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pnlBaseSearch_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pnlBaseSearch_Push.GetWordNameForRegister: AnsiString;
@@ -1483,12 +1480,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pnlBaseSearchZone.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pnlBaseSearchZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EA4FDA23998D_var*
-//#UC END# *4DAEEDE10285_EA4FDA23998D_var*
 begin
-//#UC START# *4DAEEDE10285_EA4FDA23998D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EA4FDA23998D_impl*
+ aCtx.rEngine.PushString('pnlBaseSearchZone');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pnlBaseSearchZone_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pnlBaseSearchZone_Push.GetWordNameForRegister: AnsiString;
@@ -1513,12 +1507,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pnlLogo.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pnlLogo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_66F9EE4199B8_var*
-//#UC END# *4DAEEDE10285_66F9EE4199B8_var*
 begin
-//#UC START# *4DAEEDE10285_66F9EE4199B8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_66F9EE4199B8_impl*
+ aCtx.rEngine.PushString('pnlLogo');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pnlLogo_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pnlLogo_Push.GetWordNameForRegister: AnsiString;
@@ -1543,12 +1534,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pbLogo.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pbLogo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3329FF91AD58_var*
-//#UC END# *4DAEEDE10285_3329FF91AD58_var*
 begin
-//#UC START# *4DAEEDE10285_3329FF91AD58_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3329FF91AD58_impl*
+ aCtx.rEngine.PushString('pbLogo');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pbLogo_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pbLogo_Push.GetWordNameForRegister: AnsiString;
@@ -1573,12 +1561,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pnlSearches.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pnlSearches_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F9DDE6D099B3_var*
-//#UC END# *4DAEEDE10285_F9DDE6D099B3_var*
 begin
-//#UC START# *4DAEEDE10285_F9DDE6D099B3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F9DDE6D099B3_impl*
+ aCtx.rEngine.PushString('pnlSearches');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pnlSearches_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pnlSearches_Push.GetWordNameForRegister: AnsiString;
@@ -1603,12 +1588,9 @@ begin
 end;//Tkw_MainMenuNew_Control_flAttributeSearch.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_flAttributeSearch_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FF987E9128FE_var*
-//#UC END# *4DAEEDE10285_FF987E9128FE_var*
 begin
-//#UC START# *4DAEEDE10285_FF987E9128FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FF987E9128FE_impl*
+ aCtx.rEngine.PushString('flAttributeSearch');
+ inherited;
 end;//Tkw_MainMenuNew_Control_flAttributeSearch_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_flAttributeSearch_Push.GetWordNameForRegister: AnsiString;
@@ -1633,12 +1615,9 @@ begin
 end;//Tkw_MainMenuNew_Control_flSituationSearch.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_flSituationSearch_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C638A2D7ADCD_var*
-//#UC END# *4DAEEDE10285_C638A2D7ADCD_var*
 begin
-//#UC START# *4DAEEDE10285_C638A2D7ADCD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C638A2D7ADCD_impl*
+ aCtx.rEngine.PushString('flSituationSearch');
+ inherited;
 end;//Tkw_MainMenuNew_Control_flSituationSearch_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_flSituationSearch_Push.GetWordNameForRegister: AnsiString;
@@ -1663,12 +1642,9 @@ begin
 end;//Tkw_MainMenuNew_Control_flPublishedSourceSearch.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_flPublishedSourceSearch_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6C1A0500E6ED_var*
-//#UC END# *4DAEEDE10285_6C1A0500E6ED_var*
 begin
-//#UC START# *4DAEEDE10285_6C1A0500E6ED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6C1A0500E6ED_impl*
+ aCtx.rEngine.PushString('flPublishedSourceSearch');
+ inherited;
 end;//Tkw_MainMenuNew_Control_flPublishedSourceSearch_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_flPublishedSourceSearch_Push.GetWordNameForRegister: AnsiString;
@@ -1693,12 +1669,9 @@ begin
 end;//Tkw_MainMenuNew_Control_flDictionSearch.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_flDictionSearch_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6D8FCB63C281_var*
-//#UC END# *4DAEEDE10285_6D8FCB63C281_var*
 begin
-//#UC START# *4DAEEDE10285_6D8FCB63C281_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6D8FCB63C281_impl*
+ aCtx.rEngine.PushString('flDictionSearch');
+ inherited;
 end;//Tkw_MainMenuNew_Control_flDictionSearch_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_flDictionSearch_Push.GetWordNameForRegister: AnsiString;
@@ -1723,12 +1696,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pnlExpert.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pnlExpert_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2DF088439F46_var*
-//#UC END# *4DAEEDE10285_2DF088439F46_var*
 begin
-//#UC START# *4DAEEDE10285_2DF088439F46_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2DF088439F46_impl*
+ aCtx.rEngine.PushString('pnlExpert');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pnlExpert_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pnlExpert_Push.GetWordNameForRegister: AnsiString;
@@ -1753,12 +1723,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pbExpert.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pbExpert_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_480FC8E28E3A_var*
-//#UC END# *4DAEEDE10285_480FC8E28E3A_var*
 begin
-//#UC START# *4DAEEDE10285_480FC8E28E3A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_480FC8E28E3A_impl*
+ aCtx.rEngine.PushString('pbExpert');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pbExpert_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pbExpert_Push.GetWordNameForRegister: AnsiString;
@@ -1783,12 +1750,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pnlOnLine.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pnlOnLine_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F29FCB839478_var*
-//#UC END# *4DAEEDE10285_F29FCB839478_var*
 begin
-//#UC START# *4DAEEDE10285_F29FCB839478_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F29FCB839478_impl*
+ aCtx.rEngine.PushString('pnlOnLine');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pnlOnLine_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pnlOnLine_Push.GetWordNameForRegister: AnsiString;
@@ -1813,12 +1777,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pbOnLine.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pbOnLine_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F97D669A3840_var*
-//#UC END# *4DAEEDE10285_F97D669A3840_var*
 begin
-//#UC START# *4DAEEDE10285_F97D669A3840_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F97D669A3840_impl*
+ aCtx.rEngine.PushString('pbOnLine');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pbOnLine_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pbOnLine_Push.GetWordNameForRegister: AnsiString;
@@ -1843,12 +1804,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pbIntranet.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pbIntranet_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5326C967FEE2_var*
-//#UC END# *4DAEEDE10285_5326C967FEE2_var*
 begin
-//#UC START# *4DAEEDE10285_5326C967FEE2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5326C967FEE2_impl*
+ aCtx.rEngine.PushString('pbIntranet');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pbIntranet_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pbIntranet_Push.GetWordNameForRegister: AnsiString;
@@ -1873,12 +1831,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pbCourtsOnline.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pbCourtsOnline_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DD10E210A151_var*
-//#UC END# *4DAEEDE10285_DD10E210A151_var*
 begin
-//#UC START# *4DAEEDE10285_DD10E210A151_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DD10E210A151_impl*
+ aCtx.rEngine.PushString('pbCourtsOnline');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pbCourtsOnline_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pbCourtsOnline_Push.GetWordNameForRegister: AnsiString;
@@ -1903,12 +1858,9 @@ begin
 end;//Tkw_MainMenuNew_Control_hfTaxes.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_hfTaxes_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0EAFCA430F9A_var*
-//#UC END# *4DAEEDE10285_0EAFCA430F9A_var*
 begin
-//#UC START# *4DAEEDE10285_0EAFCA430F9A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0EAFCA430F9A_impl*
+ aCtx.rEngine.PushString('hfTaxes');
+ inherited;
 end;//Tkw_MainMenuNew_Control_hfTaxes_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_hfTaxes_Push.GetWordNameForRegister: AnsiString;
@@ -1933,12 +1885,9 @@ begin
 end;//Tkw_MainMenuNew_Control_tvTaxes.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_tvTaxes_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7E0519E136D7_var*
-//#UC END# *4DAEEDE10285_7E0519E136D7_var*
 begin
-//#UC START# *4DAEEDE10285_7E0519E136D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7E0519E136D7_impl*
+ aCtx.rEngine.PushString('tvTaxes');
+ inherited;
 end;//Tkw_MainMenuNew_Control_tvTaxes_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_tvTaxes_Push.GetWordNameForRegister: AnsiString;
@@ -1963,12 +1912,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pnlBanner.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pnlBanner_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_78F26344F7B2_var*
-//#UC END# *4DAEEDE10285_78F26344F7B2_var*
 begin
-//#UC START# *4DAEEDE10285_78F26344F7B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_78F26344F7B2_impl*
+ aCtx.rEngine.PushString('pnlBanner');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pnlBanner_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pnlBanner_Push.GetWordNameForRegister: AnsiString;
@@ -1993,12 +1939,9 @@ begin
 end;//Tkw_MainMenuNew_Control_ieBanner.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_ieBanner_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_99C70B21362B_var*
-//#UC END# *4DAEEDE10285_99C70B21362B_var*
 begin
-//#UC START# *4DAEEDE10285_99C70B21362B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_99C70B21362B_impl*
+ aCtx.rEngine.PushString('ieBanner');
+ inherited;
 end;//Tkw_MainMenuNew_Control_ieBanner_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_ieBanner_Push.GetWordNameForRegister: AnsiString;
@@ -2023,12 +1966,9 @@ begin
 end;//Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AAE60B265804_var*
-//#UC END# *4DAEEDE10285_AAE60B265804_var*
 begin
-//#UC START# *4DAEEDE10285_AAE60B265804_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AAE60B265804_impl*
+ aCtx.rEngine.PushString('hfLastOpenDocsRightEdge');
+ inherited;
 end;//Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_hfLastOpenDocsRightEdge_Push.GetWordNameForRegister: AnsiString;
@@ -2069,12 +2009,9 @@ begin
 end;//Tkw_MainMenuNew_Control_hfReferences.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_hfReferences_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AD61BB063A8A_var*
-//#UC END# *4DAEEDE10285_AD61BB063A8A_var*
 begin
-//#UC START# *4DAEEDE10285_AD61BB063A8A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AD61BB063A8A_impl*
+ aCtx.rEngine.PushString('hfReferences');
+ inherited;
 end;//Tkw_MainMenuNew_Control_hfReferences_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_hfReferences_Push.GetWordNameForRegister: AnsiString;
@@ -2099,12 +2036,9 @@ begin
 end;//Tkw_MainMenuNew_Control_tvReferences.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_tvReferences_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A6B923DFC979_var*
-//#UC END# *4DAEEDE10285_A6B923DFC979_var*
 begin
-//#UC START# *4DAEEDE10285_A6B923DFC979_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A6B923DFC979_impl*
+ aCtx.rEngine.PushString('tvReferences');
+ inherited;
 end;//Tkw_MainMenuNew_Control_tvReferences_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_tvReferences_Push.GetWordNameForRegister: AnsiString;
@@ -2129,12 +2063,9 @@ begin
 end;//Tkw_MainMenuNew_Control_hfLawNews.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_hfLawNews_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2CB0E984001D_var*
-//#UC END# *4DAEEDE10285_2CB0E984001D_var*
 begin
-//#UC START# *4DAEEDE10285_2CB0E984001D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2CB0E984001D_impl*
+ aCtx.rEngine.PushString('hfLawNews');
+ inherited;
 end;//Tkw_MainMenuNew_Control_hfLawNews_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_hfLawNews_Push.GetWordNameForRegister: AnsiString;
@@ -2159,12 +2090,9 @@ begin
 end;//Tkw_MainMenuNew_Control_tvLawNews.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_tvLawNews_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_03EC88AD0EAA_var*
-//#UC END# *4DAEEDE10285_03EC88AD0EAA_var*
 begin
-//#UC START# *4DAEEDE10285_03EC88AD0EAA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_03EC88AD0EAA_impl*
+ aCtx.rEngine.PushString('tvLawNews');
+ inherited;
 end;//Tkw_MainMenuNew_Control_tvLawNews_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_tvLawNews_Push.GetWordNameForRegister: AnsiString;
@@ -2189,12 +2117,9 @@ begin
 end;//Tkw_MainMenuNew_Control_pnlMain.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_66CE5FFA0EC3_var*
-//#UC END# *4DAEEDE10285_66CE5FFA0EC3_var*
 begin
-//#UC START# *4DAEEDE10285_66CE5FFA0EC3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_66CE5FFA0EC3_impl*
+ aCtx.rEngine.PushString('pnlMain');
+ inherited;
 end;//Tkw_MainMenuNew_Control_pnlMain_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_pnlMain_Push.GetWordNameForRegister: AnsiString;
@@ -2219,12 +2144,9 @@ begin
 end;//Tkw_MainMenuNew_Control_hfLastOpenDocs.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_hfLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0AF17BDCCC68_var*
-//#UC END# *4DAEEDE10285_0AF17BDCCC68_var*
 begin
-//#UC START# *4DAEEDE10285_0AF17BDCCC68_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0AF17BDCCC68_impl*
+ aCtx.rEngine.PushString('hfLastOpenDocs');
+ inherited;
 end;//Tkw_MainMenuNew_Control_hfLastOpenDocs_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_hfLastOpenDocs_Push.GetWordNameForRegister: AnsiString;
@@ -2249,12 +2171,9 @@ begin
 end;//Tkw_MainMenuNew_Control_tvLastOpenDocs.RegisterInEngine
 
 procedure Tkw_MainMenuNew_Control_tvLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F96789E37468_var*
-//#UC END# *4DAEEDE10285_F96789E37468_var*
 begin
-//#UC START# *4DAEEDE10285_F96789E37468_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F96789E37468_impl*
+ aCtx.rEngine.PushString('tvLastOpenDocs');
+ inherited;
 end;//Tkw_MainMenuNew_Control_tvLastOpenDocs_Push.DoDoIt
 
 class function Tkw_MainMenuNew_Control_tvLastOpenDocs_Push.GetWordNameForRegister: AnsiString;

@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Settings_Module
- {$If Defined(Nemesis)}
- , nscTextSource
- {$IfEnd} // Defined(Nemesis)
- , vtPanel
- , eeEditorWithoutOperations
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , StyleEditorExample_Form
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
+ , eeEditorWithoutOperations
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -230,12 +230,9 @@ begin
 end;//Tkw_StyleEditorExample_Control_EditorPanel.RegisterInEngine
 
 procedure Tkw_StyleEditorExample_Control_EditorPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B66BE256676C_var*
-//#UC END# *4DAEEDE10285_B66BE256676C_var*
 begin
-//#UC START# *4DAEEDE10285_B66BE256676C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B66BE256676C_impl*
+ aCtx.rEngine.PushString('EditorPanel');
+ inherited;
 end;//Tkw_StyleEditorExample_Control_EditorPanel_Push.DoDoIt
 
 class function Tkw_StyleEditorExample_Control_EditorPanel_Push.GetWordNameForRegister: AnsiString;
@@ -260,12 +257,9 @@ begin
 end;//Tkw_StyleEditorExample_Control_Editor.RegisterInEngine
 
 procedure Tkw_StyleEditorExample_Control_Editor_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BAB3E2FC4875_var*
-//#UC END# *4DAEEDE10285_BAB3E2FC4875_var*
 begin
-//#UC START# *4DAEEDE10285_BAB3E2FC4875_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BAB3E2FC4875_impl*
+ aCtx.rEngine.PushString('Editor');
+ inherited;
 end;//Tkw_StyleEditorExample_Control_Editor_Push.DoDoIt
 
 class function Tkw_StyleEditorExample_Control_Editor_Push.GetWordNameForRegister: AnsiString;

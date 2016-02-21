@@ -11,13 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimF1Common_Module
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtLabel
- , vtGroupBox
- , vtButton
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -26,6 +19,13 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , About_Form
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLabel
+ , vtGroupBox
+ , vtButton
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -962,12 +962,9 @@ begin
 end;//Tkw_About_Control_pbLogo.RegisterInEngine
 
 procedure Tkw_About_Control_pbLogo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_37B4AAFD0AF0_var*
-//#UC END# *4DAEEDE10285_37B4AAFD0AF0_var*
 begin
-//#UC START# *4DAEEDE10285_37B4AAFD0AF0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_37B4AAFD0AF0_impl*
+ aCtx.rEngine.PushString('pbLogo');
+ inherited;
 end;//Tkw_About_Control_pbLogo_Push.DoDoIt
 
 class function Tkw_About_Control_pbLogo_Push.GetWordNameForRegister: AnsiString;
@@ -992,12 +989,9 @@ begin
 end;//Tkw_About_Control_ShellInfoLabel.RegisterInEngine
 
 procedure Tkw_About_Control_ShellInfoLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F127538486C4_var*
-//#UC END# *4DAEEDE10285_F127538486C4_var*
 begin
-//#UC START# *4DAEEDE10285_F127538486C4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F127538486C4_impl*
+ aCtx.rEngine.PushString('ShellInfoLabel');
+ inherited;
 end;//Tkw_About_Control_ShellInfoLabel_Push.DoDoIt
 
 class function Tkw_About_Control_ShellInfoLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1022,12 +1016,9 @@ begin
 end;//Tkw_About_Control_AdapterInfoLabel.RegisterInEngine
 
 procedure Tkw_About_Control_AdapterInfoLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2B6736356B85_var*
-//#UC END# *4DAEEDE10285_2B6736356B85_var*
 begin
-//#UC START# *4DAEEDE10285_2B6736356B85_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2B6736356B85_impl*
+ aCtx.rEngine.PushString('AdapterInfoLabel');
+ inherited;
 end;//Tkw_About_Control_AdapterInfoLabel_Push.DoDoIt
 
 class function Tkw_About_Control_AdapterInfoLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1052,12 +1043,9 @@ begin
 end;//Tkw_About_Control_UserCountLabel.RegisterInEngine
 
 procedure Tkw_About_Control_UserCountLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_96268F5EEC69_var*
-//#UC END# *4DAEEDE10285_96268F5EEC69_var*
 begin
-//#UC START# *4DAEEDE10285_96268F5EEC69_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_96268F5EEC69_impl*
+ aCtx.rEngine.PushString('UserCountLabel');
+ inherited;
 end;//Tkw_About_Control_UserCountLabel_Push.DoDoIt
 
 class function Tkw_About_Control_UserCountLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1082,12 +1070,9 @@ begin
 end;//Tkw_About_Control_OwnerLabel.RegisterInEngine
 
 procedure Tkw_About_Control_OwnerLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BE4258935FDF_var*
-//#UC END# *4DAEEDE10285_BE4258935FDF_var*
 begin
-//#UC START# *4DAEEDE10285_BE4258935FDF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BE4258935FDF_impl*
+ aCtx.rEngine.PushString('OwnerLabel');
+ inherited;
 end;//Tkw_About_Control_OwnerLabel_Push.DoDoIt
 
 class function Tkw_About_Control_OwnerLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1112,12 +1097,9 @@ begin
 end;//Tkw_About_Control_ShellCaptionLabel.RegisterInEngine
 
 procedure Tkw_About_Control_ShellCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D70133160A3B_var*
-//#UC END# *4DAEEDE10285_D70133160A3B_var*
 begin
-//#UC START# *4DAEEDE10285_D70133160A3B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D70133160A3B_impl*
+ aCtx.rEngine.PushString('ShellCaptionLabel');
+ inherited;
 end;//Tkw_About_Control_ShellCaptionLabel_Push.DoDoIt
 
 class function Tkw_About_Control_ShellCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1142,12 +1124,9 @@ begin
 end;//Tkw_About_Control_OwnerCaptionLabel.RegisterInEngine
 
 procedure Tkw_About_Control_OwnerCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B99344D5A59E_var*
-//#UC END# *4DAEEDE10285_B99344D5A59E_var*
 begin
-//#UC START# *4DAEEDE10285_B99344D5A59E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B99344D5A59E_impl*
+ aCtx.rEngine.PushString('OwnerCaptionLabel');
+ inherited;
 end;//Tkw_About_Control_OwnerCaptionLabel_Push.DoDoIt
 
 class function Tkw_About_Control_OwnerCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1172,12 +1151,9 @@ begin
 end;//Tkw_About_Control_UserInfoGroupBox.RegisterInEngine
 
 procedure Tkw_About_Control_UserInfoGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D842A7CFBD6D_var*
-//#UC END# *4DAEEDE10285_D842A7CFBD6D_var*
 begin
-//#UC START# *4DAEEDE10285_D842A7CFBD6D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D842A7CFBD6D_impl*
+ aCtx.rEngine.PushString('UserInfoGroupBox');
+ inherited;
 end;//Tkw_About_Control_UserInfoGroupBox_Push.DoDoIt
 
 class function Tkw_About_Control_UserInfoGroupBox_Push.GetWordNameForRegister: AnsiString;
@@ -1202,12 +1178,9 @@ begin
 end;//Tkw_About_Control_EMailCaptionLabel.RegisterInEngine
 
 procedure Tkw_About_Control_EMailCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_62E809046E42_var*
-//#UC END# *4DAEEDE10285_62E809046E42_var*
 begin
-//#UC START# *4DAEEDE10285_62E809046E42_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_62E809046E42_impl*
+ aCtx.rEngine.PushString('EMailCaptionLabel');
+ inherited;
 end;//Tkw_About_Control_EMailCaptionLabel_Push.DoDoIt
 
 class function Tkw_About_Control_EMailCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1232,12 +1205,9 @@ begin
 end;//Tkw_About_Control_EMailLabel.RegisterInEngine
 
 procedure Tkw_About_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5D778B24FFDB_var*
-//#UC END# *4DAEEDE10285_5D778B24FFDB_var*
 begin
-//#UC START# *4DAEEDE10285_5D778B24FFDB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5D778B24FFDB_impl*
+ aCtx.rEngine.PushString('EMailLabel');
+ inherited;
 end;//Tkw_About_Control_EMailLabel_Push.DoDoIt
 
 class function Tkw_About_Control_EMailLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1262,12 +1232,9 @@ begin
 end;//Tkw_About_Control_LoginCaptionLabel.RegisterInEngine
 
 procedure Tkw_About_Control_LoginCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D805D506DBD5_var*
-//#UC END# *4DAEEDE10285_D805D506DBD5_var*
 begin
-//#UC START# *4DAEEDE10285_D805D506DBD5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D805D506DBD5_impl*
+ aCtx.rEngine.PushString('LoginCaptionLabel');
+ inherited;
 end;//Tkw_About_Control_LoginCaptionLabel_Push.DoDoIt
 
 class function Tkw_About_Control_LoginCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1292,12 +1259,9 @@ begin
 end;//Tkw_About_Control_UserCaptionLabel.RegisterInEngine
 
 procedure Tkw_About_Control_UserCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0DAB559F8899_var*
-//#UC END# *4DAEEDE10285_0DAB559F8899_var*
 begin
-//#UC START# *4DAEEDE10285_0DAB559F8899_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0DAB559F8899_impl*
+ aCtx.rEngine.PushString('UserCaptionLabel');
+ inherited;
 end;//Tkw_About_Control_UserCaptionLabel_Push.DoDoIt
 
 class function Tkw_About_Control_UserCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1322,12 +1286,9 @@ begin
 end;//Tkw_About_Control_UserNameLabel.RegisterInEngine
 
 procedure Tkw_About_Control_UserNameLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D9552193B919_var*
-//#UC END# *4DAEEDE10285_D9552193B919_var*
 begin
-//#UC START# *4DAEEDE10285_D9552193B919_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D9552193B919_impl*
+ aCtx.rEngine.PushString('UserNameLabel');
+ inherited;
 end;//Tkw_About_Control_UserNameLabel_Push.DoDoIt
 
 class function Tkw_About_Control_UserNameLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1352,12 +1313,9 @@ begin
 end;//Tkw_About_Control_LoginLabel.RegisterInEngine
 
 procedure Tkw_About_Control_LoginLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_08E5B69DD0AB_var*
-//#UC END# *4DAEEDE10285_08E5B69DD0AB_var*
 begin
-//#UC START# *4DAEEDE10285_08E5B69DD0AB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_08E5B69DD0AB_impl*
+ aCtx.rEngine.PushString('LoginLabel');
+ inherited;
 end;//Tkw_About_Control_LoginLabel_Push.DoDoIt
 
 class function Tkw_About_Control_LoginLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1382,12 +1340,9 @@ begin
 end;//Tkw_About_Control_CopyrightCaptionLabel.RegisterInEngine
 
 procedure Tkw_About_Control_CopyrightCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3FC98AF5279D_var*
-//#UC END# *4DAEEDE10285_3FC98AF5279D_var*
 begin
-//#UC START# *4DAEEDE10285_3FC98AF5279D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3FC98AF5279D_impl*
+ aCtx.rEngine.PushString('CopyrightCaptionLabel');
+ inherited;
 end;//Tkw_About_Control_CopyrightCaptionLabel_Push.DoDoIt
 
 class function Tkw_About_Control_CopyrightCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1412,12 +1367,9 @@ begin
 end;//Tkw_About_Control_OkButton.RegisterInEngine
 
 procedure Tkw_About_Control_OkButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82E932F9EB68_var*
-//#UC END# *4DAEEDE10285_82E932F9EB68_var*
 begin
-//#UC START# *4DAEEDE10285_82E932F9EB68_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82E932F9EB68_impl*
+ aCtx.rEngine.PushString('OkButton');
+ inherited;
 end;//Tkw_About_Control_OkButton_Push.DoDoIt
 
 class function Tkw_About_Control_OkButton_Push.GetWordNameForRegister: AnsiString;
@@ -1442,12 +1394,9 @@ begin
 end;//Tkw_About_Control_UserCountCaptionLabel.RegisterInEngine
 
 procedure Tkw_About_Control_UserCountCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_388203CE67B9_var*
-//#UC END# *4DAEEDE10285_388203CE67B9_var*
 begin
-//#UC START# *4DAEEDE10285_388203CE67B9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_388203CE67B9_impl*
+ aCtx.rEngine.PushString('UserCountCaptionLabel');
+ inherited;
 end;//Tkw_About_Control_UserCountCaptionLabel_Push.DoDoIt
 
 class function Tkw_About_Control_UserCountCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1472,12 +1421,9 @@ begin
 end;//Tkw_About_Control_AdapterCaptionLabel.RegisterInEngine
 
 procedure Tkw_About_Control_AdapterCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DC0C8EBE5965_var*
-//#UC END# *4DAEEDE10285_DC0C8EBE5965_var*
 begin
-//#UC START# *4DAEEDE10285_DC0C8EBE5965_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DC0C8EBE5965_impl*
+ aCtx.rEngine.PushString('AdapterCaptionLabel');
+ inherited;
 end;//Tkw_About_Control_AdapterCaptionLabel_Push.DoDoIt
 
 class function Tkw_About_Control_AdapterCaptionLabel_Push.GetWordNameForRegister: AnsiString;

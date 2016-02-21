@@ -11,6 +11,14 @@ interface
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
+;
+{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
  , F1LikeFormWithBS_Form
  {$If Defined(Nemesis)}
  , nscTreeComboWithHistoryAndOperations
@@ -20,14 +28,6 @@ uses
  , eeTextSourceExport
  {$IfEnd} // Defined(Nemesis)
  , evLoadDocumentManager
-;
-{$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimF1Common_Module
- , vtLabel
- , ElPopBtn
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , RememberPassword_Form
+ , vtLabel
+ , ElPopBtn
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -324,12 +324,9 @@ begin
 end;//Tkw_RememberPassword_Control_EMailLabel.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D1D89139FBA9_var*
-//#UC END# *4DAEEDE10285_D1D89139FBA9_var*
 begin
-//#UC START# *4DAEEDE10285_D1D89139FBA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D1D89139FBA9_impl*
+ aCtx.rEngine.PushString('EMailLabel');
+ inherited;
 end;//Tkw_RememberPassword_Control_EMailLabel_Push.DoDoIt
 
 class function Tkw_RememberPassword_Control_EMailLabel_Push.GetWordNameForRegister: AnsiString;
@@ -354,12 +351,9 @@ begin
 end;//Tkw_RememberPassword_Control_HintLabel.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_HintLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ACB988022C21_var*
-//#UC END# *4DAEEDE10285_ACB988022C21_var*
 begin
-//#UC START# *4DAEEDE10285_ACB988022C21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ACB988022C21_impl*
+ aCtx.rEngine.PushString('HintLabel');
+ inherited;
 end;//Tkw_RememberPassword_Control_HintLabel_Push.DoDoIt
 
 class function Tkw_RememberPassword_Control_HintLabel_Push.GetWordNameForRegister: AnsiString;
@@ -384,12 +378,9 @@ begin
 end;//Tkw_RememberPassword_Control_btnCancel.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_btnCancel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B9F8C1B8D657_var*
-//#UC END# *4DAEEDE10285_B9F8C1B8D657_var*
 begin
-//#UC START# *4DAEEDE10285_B9F8C1B8D657_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B9F8C1B8D657_impl*
+ aCtx.rEngine.PushString('btnCancel');
+ inherited;
 end;//Tkw_RememberPassword_Control_btnCancel_Push.DoDoIt
 
 class function Tkw_RememberPassword_Control_btnCancel_Push.GetWordNameForRegister: AnsiString;
@@ -414,12 +405,9 @@ begin
 end;//Tkw_RememberPassword_Control_btnSend.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_btnSend_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_96E7D8DC4FBA_var*
-//#UC END# *4DAEEDE10285_96E7D8DC4FBA_var*
 begin
-//#UC START# *4DAEEDE10285_96E7D8DC4FBA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_96E7D8DC4FBA_impl*
+ aCtx.rEngine.PushString('btnSend');
+ inherited;
 end;//Tkw_RememberPassword_Control_btnSend_Push.DoDoIt
 
 class function Tkw_RememberPassword_Control_btnSend_Push.GetWordNameForRegister: AnsiString;
@@ -444,12 +432,9 @@ begin
 end;//Tkw_RememberPassword_Control_edEmail.RegisterInEngine
 
 procedure Tkw_RememberPassword_Control_edEmail_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_80F8CFC665A3_var*
-//#UC END# *4DAEEDE10285_80F8CFC665A3_var*
 begin
-//#UC START# *4DAEEDE10285_80F8CFC665A3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_80F8CFC665A3_impl*
+ aCtx.rEngine.PushString('edEmail');
+ inherited;
 end;//Tkw_RememberPassword_Control_edEmail_Push.DoDoIt
 
 class function Tkw_RememberPassword_Control_edEmail_Push.GetWordNameForRegister: AnsiString;

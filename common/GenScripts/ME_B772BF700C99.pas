@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , BaseWorkJournal_Module
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , WorkJournal_Form
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_WorkJournal_Control_JournalTree.RegisterInEngine
 
 procedure Tkw_WorkJournal_Control_JournalTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C5BABF360A3C_var*
-//#UC END# *4DAEEDE10285_C5BABF360A3C_var*
 begin
-//#UC START# *4DAEEDE10285_C5BABF360A3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C5BABF360A3C_impl*
+ aCtx.rEngine.PushString('JournalTree');
+ inherited;
 end;//Tkw_WorkJournal_Control_JournalTree_Push.DoDoIt
 
 class function Tkw_WorkJournal_Control_JournalTree_Push.GetWordNameForRegister: AnsiString;

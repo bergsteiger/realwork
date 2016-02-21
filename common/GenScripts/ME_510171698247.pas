@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimCommon_Module
+;
+{$IfEnd} // NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Login_Form
  , vtGroupBox
  , vtLabel
  {$If NOT Defined(NoVCL)}
@@ -27,14 +35,6 @@ uses
  , vtCheckBox
  , ElPopBtn
  , vtPanel
-;
-{$IfEnd} // NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -873,12 +873,9 @@ begin
 end;//Tkw_Login_Control_RegisteredGroupBox.RegisterInEngine
 
 procedure Tkw_Login_Control_RegisteredGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8F4F59817B87_var*
-//#UC END# *4DAEEDE10285_8F4F59817B87_var*
 begin
-//#UC START# *4DAEEDE10285_8F4F59817B87_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8F4F59817B87_impl*
+ aCtx.rEngine.PushString('RegisteredGroupBox');
+ inherited;
 end;//Tkw_Login_Control_RegisteredGroupBox_Push.DoDoIt
 
 class function Tkw_Login_Control_RegisteredGroupBox_Push.GetWordNameForRegister: AnsiString;
@@ -903,12 +900,9 @@ begin
 end;//Tkw_Login_Control_lblLogin.RegisterInEngine
 
 procedure Tkw_Login_Control_lblLogin_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BFB3A4E89D9D_var*
-//#UC END# *4DAEEDE10285_BFB3A4E89D9D_var*
 begin
-//#UC START# *4DAEEDE10285_BFB3A4E89D9D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BFB3A4E89D9D_impl*
+ aCtx.rEngine.PushString('lblLogin');
+ inherited;
 end;//Tkw_Login_Control_lblLogin_Push.DoDoIt
 
 class function Tkw_Login_Control_lblLogin_Push.GetWordNameForRegister: AnsiString;
@@ -933,12 +927,9 @@ begin
 end;//Tkw_Login_Control_lblPassword.RegisterInEngine
 
 procedure Tkw_Login_Control_lblPassword_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FCF20663FE01_var*
-//#UC END# *4DAEEDE10285_FCF20663FE01_var*
 begin
-//#UC START# *4DAEEDE10285_FCF20663FE01_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FCF20663FE01_impl*
+ aCtx.rEngine.PushString('lblPassword');
+ inherited;
 end;//Tkw_Login_Control_lblPassword_Push.DoDoIt
 
 class function Tkw_Login_Control_lblPassword_Push.GetWordNameForRegister: AnsiString;
@@ -963,12 +954,9 @@ begin
 end;//Tkw_Login_Control_EnterPaintBox.RegisterInEngine
 
 procedure Tkw_Login_Control_EnterPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E72615CEFB02_var*
-//#UC END# *4DAEEDE10285_E72615CEFB02_var*
 begin
-//#UC START# *4DAEEDE10285_E72615CEFB02_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E72615CEFB02_impl*
+ aCtx.rEngine.PushString('EnterPaintBox');
+ inherited;
 end;//Tkw_Login_Control_EnterPaintBox_Push.DoDoIt
 
 class function Tkw_Login_Control_EnterPaintBox_Push.GetWordNameForRegister: AnsiString;
@@ -993,12 +981,9 @@ begin
 end;//Tkw_Login_Control_edUserName.RegisterInEngine
 
 procedure Tkw_Login_Control_edUserName_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2835E1A79985_var*
-//#UC END# *4DAEEDE10285_2835E1A79985_var*
 begin
-//#UC START# *4DAEEDE10285_2835E1A79985_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2835E1A79985_impl*
+ aCtx.rEngine.PushString('edUserName');
+ inherited;
 end;//Tkw_Login_Control_edUserName_Push.DoDoIt
 
 class function Tkw_Login_Control_edUserName_Push.GetWordNameForRegister: AnsiString;
@@ -1023,12 +1008,9 @@ begin
 end;//Tkw_Login_Control_edPassword.RegisterInEngine
 
 procedure Tkw_Login_Control_edPassword_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82A423A38F75_var*
-//#UC END# *4DAEEDE10285_82A423A38F75_var*
 begin
-//#UC START# *4DAEEDE10285_82A423A38F75_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82A423A38F75_impl*
+ aCtx.rEngine.PushString('edPassword');
+ inherited;
 end;//Tkw_Login_Control_edPassword_Push.DoDoIt
 
 class function Tkw_Login_Control_edPassword_Push.GetWordNameForRegister: AnsiString;
@@ -1053,12 +1035,9 @@ begin
 end;//Tkw_Login_Control_lblForgetPassword.RegisterInEngine
 
 procedure Tkw_Login_Control_lblForgetPassword_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E86756EBBDCC_var*
-//#UC END# *4DAEEDE10285_E86756EBBDCC_var*
 begin
-//#UC START# *4DAEEDE10285_E86756EBBDCC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E86756EBBDCC_impl*
+ aCtx.rEngine.PushString('lblForgetPassword');
+ inherited;
 end;//Tkw_Login_Control_lblForgetPassword_Push.DoDoIt
 
 class function Tkw_Login_Control_lblForgetPassword_Push.GetWordNameForRegister: AnsiString;
@@ -1083,12 +1062,9 @@ begin
 end;//Tkw_Login_Control_cbAutoLogin.RegisterInEngine
 
 procedure Tkw_Login_Control_cbAutoLogin_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8F1D27BFB76C_var*
-//#UC END# *4DAEEDE10285_8F1D27BFB76C_var*
 begin
-//#UC START# *4DAEEDE10285_8F1D27BFB76C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8F1D27BFB76C_impl*
+ aCtx.rEngine.PushString('cbAutoLogin');
+ inherited;
 end;//Tkw_Login_Control_cbAutoLogin_Push.DoDoIt
 
 class function Tkw_Login_Control_cbAutoLogin_Push.GetWordNameForRegister: AnsiString;
@@ -1113,12 +1089,9 @@ begin
 end;//Tkw_Login_Control_btnOk.RegisterInEngine
 
 procedure Tkw_Login_Control_btnOk_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9790A2AFA59D_var*
-//#UC END# *4DAEEDE10285_9790A2AFA59D_var*
 begin
-//#UC START# *4DAEEDE10285_9790A2AFA59D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9790A2AFA59D_impl*
+ aCtx.rEngine.PushString('btnOk');
+ inherited;
 end;//Tkw_Login_Control_btnOk_Push.DoDoIt
 
 class function Tkw_Login_Control_btnOk_Push.GetWordNameForRegister: AnsiString;
@@ -1143,12 +1116,9 @@ begin
 end;//Tkw_Login_Control_NewUserGroupBox.RegisterInEngine
 
 procedure Tkw_Login_Control_NewUserGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C4771B33CA8F_var*
-//#UC END# *4DAEEDE10285_C4771B33CA8F_var*
 begin
-//#UC START# *4DAEEDE10285_C4771B33CA8F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C4771B33CA8F_impl*
+ aCtx.rEngine.PushString('NewUserGroupBox');
+ inherited;
 end;//Tkw_Login_Control_NewUserGroupBox_Push.DoDoIt
 
 class function Tkw_Login_Control_NewUserGroupBox_Push.GetWordNameForRegister: AnsiString;
@@ -1173,12 +1143,9 @@ begin
 end;//Tkw_Login_Control_NewUserLabel.RegisterInEngine
 
 procedure Tkw_Login_Control_NewUserLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EA4E8E50955A_var*
-//#UC END# *4DAEEDE10285_EA4E8E50955A_var*
 begin
-//#UC START# *4DAEEDE10285_EA4E8E50955A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EA4E8E50955A_impl*
+ aCtx.rEngine.PushString('NewUserLabel');
+ inherited;
 end;//Tkw_Login_Control_NewUserLabel_Push.DoDoIt
 
 class function Tkw_Login_Control_NewUserLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1203,12 +1170,9 @@ begin
 end;//Tkw_Login_Control_NewUserPaintBox.RegisterInEngine
 
 procedure Tkw_Login_Control_NewUserPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C7881C17D0EA_var*
-//#UC END# *4DAEEDE10285_C7881C17D0EA_var*
 begin
-//#UC START# *4DAEEDE10285_C7881C17D0EA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C7881C17D0EA_impl*
+ aCtx.rEngine.PushString('NewUserPaintBox');
+ inherited;
 end;//Tkw_Login_Control_NewUserPaintBox_Push.DoDoIt
 
 class function Tkw_Login_Control_NewUserPaintBox_Push.GetWordNameForRegister: AnsiString;
@@ -1233,12 +1197,9 @@ begin
 end;//Tkw_Login_Control_lblNewUser.RegisterInEngine
 
 procedure Tkw_Login_Control_lblNewUser_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4D2B8E8E3D56_var*
-//#UC END# *4DAEEDE10285_4D2B8E8E3D56_var*
 begin
-//#UC START# *4DAEEDE10285_4D2B8E8E3D56_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4D2B8E8E3D56_impl*
+ aCtx.rEngine.PushString('lblNewUser');
+ inherited;
 end;//Tkw_Login_Control_lblNewUser_Push.DoDoIt
 
 class function Tkw_Login_Control_lblNewUser_Push.GetWordNameForRegister: AnsiString;
@@ -1263,12 +1224,9 @@ begin
 end;//Tkw_Login_Control_HelpPanel.RegisterInEngine
 
 procedure Tkw_Login_Control_HelpPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_46E268D9579B_var*
-//#UC END# *4DAEEDE10285_46E268D9579B_var*
 begin
-//#UC START# *4DAEEDE10285_46E268D9579B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_46E268D9579B_impl*
+ aCtx.rEngine.PushString('HelpPanel');
+ inherited;
 end;//Tkw_Login_Control_HelpPanel_Push.DoDoIt
 
 class function Tkw_Login_Control_HelpPanel_Push.GetWordNameForRegister: AnsiString;
@@ -1293,12 +1251,9 @@ begin
 end;//Tkw_Login_Control_HelpPaintBox.RegisterInEngine
 
 procedure Tkw_Login_Control_HelpPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4C0DF818A1F1_var*
-//#UC END# *4DAEEDE10285_4C0DF818A1F1_var*
 begin
-//#UC START# *4DAEEDE10285_4C0DF818A1F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4C0DF818A1F1_impl*
+ aCtx.rEngine.PushString('HelpPaintBox');
+ inherited;
 end;//Tkw_Login_Control_HelpPaintBox_Push.DoDoIt
 
 class function Tkw_Login_Control_HelpPaintBox_Push.GetWordNameForRegister: AnsiString;
@@ -1323,12 +1278,9 @@ begin
 end;//Tkw_Login_Control_HelpLabel.RegisterInEngine
 
 procedure Tkw_Login_Control_HelpLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F436EE8B42C5_var*
-//#UC END# *4DAEEDE10285_F436EE8B42C5_var*
 begin
-//#UC START# *4DAEEDE10285_F436EE8B42C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F436EE8B42C5_impl*
+ aCtx.rEngine.PushString('HelpLabel');
+ inherited;
 end;//Tkw_Login_Control_HelpLabel_Push.DoDoIt
 
 class function Tkw_Login_Control_HelpLabel_Push.GetWordNameForRegister: AnsiString;

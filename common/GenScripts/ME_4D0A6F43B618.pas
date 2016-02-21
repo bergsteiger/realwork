@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimTasksPanelMenu_Module
+;
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , CustomizeTasksPanel_Form
  , vtCtrls
  , vtPanel
  , vtLabel
@@ -26,14 +34,6 @@ uses
  , Buttons
  {$IfEnd} // NOT Defined(NoVCL)
  , eeCheckBox
-;
-{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

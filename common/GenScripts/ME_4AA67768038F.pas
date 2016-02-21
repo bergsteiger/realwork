@@ -16,15 +16,9 @@ uses
  , l3TreeInterfaces
  , DynamicTreeUnit
  , MainMenuUnit
- , PrimRubricator_Form
- , Common_FormDefinitions_Controls
 ;
 
 type
- TefRubricator = {final} class(TPrimRubricatorForm, RubricatorFormDef)
-  {* Правовой навигатор }
- end;//TefRubricator
-
  TRubricatorModule = class
   public
    procedure OpenRubricator(const aNode: Il3SimpleNode;
@@ -46,12 +40,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , RubricatorKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TRubricatorModule.OpenRubricator(const aNode: Il3SimpleNode;
@@ -123,14 +111,6 @@ begin
  end;//try..finally
 //#UC END# *4AA691690389_4AA67768038F_impl*
 end;//TRubricatorModule.OpenRubricator
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TefRubricator);
- {* Регистрация Rubricator }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_efRubricator.SetFactory(TefRubricator.Make);
- {* Регистрация фабрики формы Rubricator }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

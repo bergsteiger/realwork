@@ -11,10 +11,6 @@ interface
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , TextLoad_Form
- , evEditor
- , evTextSource
- , evLoadDocumentManager
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , TextLoad_Form
+ , evEditor
+ , evTextSource
+ , evLoadDocumentManager
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

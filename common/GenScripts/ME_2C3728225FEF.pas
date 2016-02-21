@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Settings_Module
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , StyleEditorNavigator_Form
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_StyleEditorNavigator_Control_StyleTreeView.RegisterInEngine
 
 procedure Tkw_StyleEditorNavigator_Control_StyleTreeView_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FA614F45F121_var*
-//#UC END# *4DAEEDE10285_FA614F45F121_var*
 begin
-//#UC START# *4DAEEDE10285_FA614F45F121_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FA614F45F121_impl*
+ aCtx.rEngine.PushString('StyleTreeView');
+ inherited;
 end;//Tkw_StyleEditorNavigator_Control_StyleTreeView_Push.DoDoIt
 
 class function Tkw_StyleEditorNavigator_Control_StyleTreeView_Push.GetWordNameForRegister: AnsiString;

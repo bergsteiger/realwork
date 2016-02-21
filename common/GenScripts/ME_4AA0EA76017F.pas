@@ -18,23 +18,9 @@ uses
  , nsTypes
  , l3Interfaces
  , SearchInterfaces
- , PrimTreeAttributeSelectOptions_Form
- , SearchLite_FormDefinitions_Controls
- , PrimAttributeSelectOptions_Form
- , PrimSelectedAttributesOptions_Form
 ;
 
 type
- TefTreeAttributeSelect = {final} class(TPrimTreeAttributeSelectOptionsForm, TreeAttributeSelectFormDef)
-  {* Выбор значений древовидного атрибута }
- end;//TefTreeAttributeSelect
-
- TcfAttributeSelect = {final} class(TPrimAttributeSelectOptionsForm, AttributeSelectFormDef)
- end;//TcfAttributeSelect
-
- TenSelectedAttributes = {final} class(TPrimSelectedAttributesOptionsForm, SelectedAttributesFormDef)
- end;//TenSelectedAttributes
-
  TLiteSearchModule = class
   public
    procedure MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
@@ -62,19 +48,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , TreeAttributeSelectKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- , l3String
- {$If NOT Defined(NoScripts)}
- , AttributeSelectKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , SelectedAttributesKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TLiteSearchModule.MakeTreeAttributeSelect(const aParams: IvcmMakeParams;
@@ -175,25 +148,5 @@ begin
  l_Container := nil;
 //#UC END# *4AAF590401AC_4AA0EA76017F_impl*
 end;//TLiteSearchModule.OpenTreeSelection
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TefTreeAttributeSelect);
- {* Регистрация TreeAttributeSelect }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_efTreeAttributeSelect.SetFactory(TefTreeAttributeSelect.Make);
- {* Регистрация фабрики формы TreeAttributeSelect }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TcfAttributeSelect);
- {* Регистрация AttributeSelect }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_cfAttributeSelect.SetFactory(TcfAttributeSelect.Make);
- {* Регистрация фабрики формы AttributeSelect }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TenSelectedAttributes);
- {* Регистрация SelectedAttributes }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_enSelectedAttributes.SetFactory(TenSelectedAttributes.Make);
- {* Регистрация фабрики формы SelectedAttributes }
 
 end.

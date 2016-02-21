@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Diction_Module
- , vtPanel
- {$If Defined(Nemesis)}
- , nscContextFilter
- {$IfEnd} // Defined(Nemesis)
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Diction_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -226,12 +226,9 @@ begin
 end;//Tkw_Diction_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_Diction_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_98F39DD7DA47_var*
-//#UC END# *4DAEEDE10285_98F39DD7DA47_var*
 begin
-//#UC START# *4DAEEDE10285_98F39DD7DA47_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_98F39DD7DA47_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_Diction_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_Diction_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -256,12 +253,9 @@ begin
 end;//Tkw_Diction_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_Diction_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C4366A10CBC7_var*
-//#UC END# *4DAEEDE10285_C4366A10CBC7_var*
 begin
-//#UC START# *4DAEEDE10285_C4366A10CBC7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C4366A10CBC7_impl*
+ aCtx.rEngine.PushString('ContextFilter');
+ inherited;
 end;//Tkw_Diction_Control_ContextFilter_Push.DoDoIt
 
 class function Tkw_Diction_Control_ContextFilter_Push.GetWordNameForRegister: AnsiString;
@@ -286,12 +280,9 @@ begin
 end;//Tkw_Diction_Control_WordsTree.RegisterInEngine
 
 procedure Tkw_Diction_Control_WordsTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E8445581EFE7_var*
-//#UC END# *4DAEEDE10285_E8445581EFE7_var*
 begin
-//#UC START# *4DAEEDE10285_E8445581EFE7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E8445581EFE7_impl*
+ aCtx.rEngine.PushString('WordsTree');
+ inherited;
 end;//Tkw_Diction_Control_WordsTree_Push.DoDoIt
 
 class function Tkw_Diction_Control_WordsTree_Push.GetWordNameForRegister: AnsiString;

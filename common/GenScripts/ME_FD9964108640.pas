@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimF1Common_Module
- , nscTreeViewWithAdapterDragDrop
- , vtPanel
- , vtLabel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , CompInfo_Form
+ , nscTreeViewWithAdapterDragDrop
+ , vtPanel
+ , vtLabel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -322,12 +322,9 @@ begin
 end;//Tkw_CompInfo_Control_tvComplectInfo.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_tvComplectInfo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_582A15A18474_var*
-//#UC END# *4DAEEDE10285_582A15A18474_var*
 begin
-//#UC START# *4DAEEDE10285_582A15A18474_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_582A15A18474_impl*
+ aCtx.rEngine.PushString('tvComplectInfo');
+ inherited;
 end;//Tkw_CompInfo_Control_tvComplectInfo_Push.DoDoIt
 
 class function Tkw_CompInfo_Control_tvComplectInfo_Push.GetWordNameForRegister: AnsiString;
@@ -352,12 +349,9 @@ begin
 end;//Tkw_CompInfo_Control_pnBottom.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_pnBottom_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F89106EDBEB0_var*
-//#UC END# *4DAEEDE10285_F89106EDBEB0_var*
 begin
-//#UC START# *4DAEEDE10285_F89106EDBEB0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F89106EDBEB0_impl*
+ aCtx.rEngine.PushString('pnBottom');
+ inherited;
 end;//Tkw_CompInfo_Control_pnBottom_Push.DoDoIt
 
 class function Tkw_CompInfo_Control_pnBottom_Push.GetWordNameForRegister: AnsiString;
@@ -382,12 +376,9 @@ begin
 end;//Tkw_CompInfo_Control_pnVisualRepresentationData.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_pnVisualRepresentationData_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_605CF8C2A63A_var*
-//#UC END# *4DAEEDE10285_605CF8C2A63A_var*
 begin
-//#UC START# *4DAEEDE10285_605CF8C2A63A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_605CF8C2A63A_impl*
+ aCtx.rEngine.PushString('pnVisualRepresentationData');
+ inherited;
 end;//Tkw_CompInfo_Control_pnVisualRepresentationData_Push.DoDoIt
 
 class function Tkw_CompInfo_Control_pnVisualRepresentationData_Push.GetWordNameForRegister: AnsiString;
@@ -412,12 +403,9 @@ begin
 end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4D3738B14DF7_var*
-//#UC END# *4DAEEDE10285_4D3738B14DF7_var*
 begin
-//#UC START# *4DAEEDE10285_4D3738B14DF7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4D3738B14DF7_impl*
+ aCtx.rEngine.PushString('pnVisualRepresentationDataCaption');
+ inherited;
 end;//Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push.DoDoIt
 
 class function Tkw_CompInfo_Control_pnVisualRepresentationDataCaption_Push.GetWordNameForRegister: AnsiString;
@@ -442,12 +430,9 @@ begin
 end;//Tkw_CompInfo_Control_lblVisualRepresentationData.RegisterInEngine
 
 procedure Tkw_CompInfo_Control_lblVisualRepresentationData_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BEA5480BA2FA_var*
-//#UC END# *4DAEEDE10285_BEA5480BA2FA_var*
 begin
-//#UC START# *4DAEEDE10285_BEA5480BA2FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BEA5480BA2FA_impl*
+ aCtx.rEngine.PushString('lblVisualRepresentationData');
+ inherited;
 end;//Tkw_CompInfo_Control_lblVisualRepresentationData_Push.DoDoIt
 
 class function Tkw_CompInfo_Control_lblVisualRepresentationData_Push.GetWordNameForRegister: AnsiString;

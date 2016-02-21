@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , BaseChat_Module
- {$If Defined(Nemesis)}
- , nscChatMemo
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ChatHistory_Form
+ {$If Defined(Nemesis)}
+ , nscChatMemo
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -126,12 +126,9 @@ begin
 end;//Tkw_ChatHistory_Control_HistoryEditor.RegisterInEngine
 
 procedure Tkw_ChatHistory_Control_HistoryEditor_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E926DAC9D726_var*
-//#UC END# *4DAEEDE10285_E926DAC9D726_var*
 begin
-//#UC START# *4DAEEDE10285_E926DAC9D726_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E926DAC9D726_impl*
+ aCtx.rEngine.PushString('HistoryEditor');
+ inherited;
 end;//Tkw_ChatHistory_Control_HistoryEditor_Push.DoDoIt
 
 class function Tkw_ChatHistory_Control_HistoryEditor_Push.GetWordNameForRegister: AnsiString;

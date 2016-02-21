@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Redactions_Form
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_Redactions_Control_RedactionTree.RegisterInEngine
 
 procedure Tkw_Redactions_Control_RedactionTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ED029CBD2268_var*
-//#UC END# *4DAEEDE10285_ED029CBD2268_var*
 begin
-//#UC START# *4DAEEDE10285_ED029CBD2268_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ED029CBD2268_impl*
+ aCtx.rEngine.PushString('RedactionTree');
+ inherited;
 end;//Tkw_Redactions_Control_RedactionTree_Push.DoDoIt
 
 class function Tkw_Redactions_Control_RedactionTree_Push.GetWordNameForRegister: AnsiString;

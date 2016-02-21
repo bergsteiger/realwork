@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimF1Common_Module
- {$If Defined(Nemesis)}
- , nscTasksPanelView
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , TasksPanel_Form
+ {$If Defined(Nemesis)}
+ , nscTasksPanelView
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -126,12 +126,9 @@ begin
 end;//Tkw_TasksPanel_Control_tpvMain.RegisterInEngine
 
 procedure Tkw_TasksPanel_Control_tpvMain_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_67D5E9328359_var*
-//#UC END# *4DAEEDE10285_67D5E9328359_var*
 begin
-//#UC START# *4DAEEDE10285_67D5E9328359_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_67D5E9328359_impl*
+ aCtx.rEngine.PushString('tpvMain');
+ inherited;
 end;//Tkw_TasksPanel_Control_tpvMain_Push.DoDoIt
 
 class function Tkw_TasksPanel_Control_tpvMain_Push.GetWordNameForRegister: AnsiString;

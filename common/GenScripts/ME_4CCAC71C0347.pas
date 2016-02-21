@@ -14,15 +14,9 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , UnderControlUnit
- , PrimUnderControlOptions_Form
- , Common_FormDefinitions_Controls
 ;
 
 type
- TenUnderControl = {final} class(TPrimUnderControlOptionsForm, UnderControlFormDef)
-  {* На контроле }
- end;//TenUnderControl
-
  TUnderControlModule = class
   protected
    procedure UnderControlOpen(const aContainer: IvcmContainer);
@@ -57,12 +51,6 @@ uses
  , BaseTypesUnit
  , nsFolders
  , FoldersDomainInterfaces
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , UnderControlKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TUnderControlModule.CloseUnderControl(const aContainer: IvcmContainer);
@@ -173,14 +161,6 @@ begin
     aContainer.HasForm(fm_enUnderControl.rFormID, vcm_ztNavigator, true, @Result);
 //#UC END# *4ABCD31A033C_4CCAC71C0347_impl*
 end;//TUnderControlModule.FindUnderControlForm
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TenUnderControl);
- {* Регистрация UnderControl }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_enUnderControl.SetFactory(TenUnderControl.Make);
- {* Регистрация фабрики формы UnderControl }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

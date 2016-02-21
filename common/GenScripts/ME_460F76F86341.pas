@@ -11,10 +11,6 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Admin_Module
- , vtProportionalPanel
- , vtSizeablePanel
- , vtPanel
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Admin_Form
+ , vtProportionalPanel
+ , vtSizeablePanel
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -224,12 +224,9 @@ begin
 end;//Tkw_AdminForm_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_AdminForm_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_94E74DE6B54B_var*
-//#UC END# *4DAEEDE10285_94E74DE6B54B_var*
 begin
-//#UC START# *4DAEEDE10285_94E74DE6B54B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_94E74DE6B54B_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_AdminForm_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_AdminForm_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -254,12 +251,9 @@ begin
 end;//Tkw_AdminForm_Control_PropertyZone.RegisterInEngine
 
 procedure Tkw_AdminForm_Control_PropertyZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7BA2C418A8AC_var*
-//#UC END# *4DAEEDE10285_7BA2C418A8AC_var*
 begin
-//#UC START# *4DAEEDE10285_7BA2C418A8AC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7BA2C418A8AC_impl*
+ aCtx.rEngine.PushString('PropertyZone');
+ inherited;
 end;//Tkw_AdminForm_Control_PropertyZone_Push.DoDoIt
 
 class function Tkw_AdminForm_Control_PropertyZone_Push.GetWordNameForRegister: AnsiString;
@@ -284,12 +278,9 @@ begin
 end;//Tkw_AdminForm_Control_TreeZone.RegisterInEngine
 
 procedure Tkw_AdminForm_Control_TreeZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D9E0DEB3CCF0_var*
-//#UC END# *4DAEEDE10285_D9E0DEB3CCF0_var*
 begin
-//#UC START# *4DAEEDE10285_D9E0DEB3CCF0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D9E0DEB3CCF0_impl*
+ aCtx.rEngine.PushString('TreeZone');
+ inherited;
 end;//Tkw_AdminForm_Control_TreeZone_Push.DoDoIt
 
 class function Tkw_AdminForm_Control_TreeZone_Push.GetWordNameForRegister: AnsiString;

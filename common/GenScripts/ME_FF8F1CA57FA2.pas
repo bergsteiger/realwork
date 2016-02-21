@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , BaseSearch_Module
- , vtPanel
- {$If Defined(Nemesis)}
- , nscHideField
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
- , nscLister
- {$IfEnd} // Defined(Nemesis)
- , nscSimpleEditor
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -28,6 +19,15 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , BaseSearchCard_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscLister
+ {$IfEnd} // Defined(Nemesis)
+ , nscSimpleEditor
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -278,12 +278,9 @@ begin
 end;//Tkw_BaseSearchCard_Control_pnlMain.RegisterInEngine
 
 procedure Tkw_BaseSearchCard_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A7C66FDE2A79_var*
-//#UC END# *4DAEEDE10285_A7C66FDE2A79_var*
 begin
-//#UC START# *4DAEEDE10285_A7C66FDE2A79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A7C66FDE2A79_impl*
+ aCtx.rEngine.PushString('pnlMain');
+ inherited;
 end;//Tkw_BaseSearchCard_Control_pnlMain_Push.DoDoIt
 
 class function Tkw_BaseSearchCard_Control_pnlMain_Push.GetWordNameForRegister: AnsiString;
@@ -308,12 +305,9 @@ begin
 end;//Tkw_BaseSearchCard_Control_hfBaseSearch.RegisterInEngine
 
 procedure Tkw_BaseSearchCard_Control_hfBaseSearch_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9CE6F7AC81C8_var*
-//#UC END# *4DAEEDE10285_9CE6F7AC81C8_var*
 begin
-//#UC START# *4DAEEDE10285_9CE6F7AC81C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9CE6F7AC81C8_impl*
+ aCtx.rEngine.PushString('hfBaseSearch');
+ inherited;
 end;//Tkw_BaseSearchCard_Control_hfBaseSearch_Push.DoDoIt
 
 class function Tkw_BaseSearchCard_Control_hfBaseSearch_Push.GetWordNameForRegister: AnsiString;
@@ -338,12 +332,9 @@ begin
 end;//Tkw_BaseSearchCard_Control_lrBaseSearch.RegisterInEngine
 
 procedure Tkw_BaseSearchCard_Control_lrBaseSearch_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D965E88B544C_var*
-//#UC END# *4DAEEDE10285_D965E88B544C_var*
 begin
-//#UC START# *4DAEEDE10285_D965E88B544C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D965E88B544C_impl*
+ aCtx.rEngine.PushString('lrBaseSearch');
+ inherited;
 end;//Tkw_BaseSearchCard_Control_lrBaseSearch_Push.DoDoIt
 
 class function Tkw_BaseSearchCard_Control_lrBaseSearch_Push.GetWordNameForRegister: AnsiString;
@@ -368,12 +359,9 @@ begin
 end;//Tkw_BaseSearchCard_Control_CardTextLabel.RegisterInEngine
 
 procedure Tkw_BaseSearchCard_Control_CardTextLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3000A2360AD1_var*
-//#UC END# *4DAEEDE10285_3000A2360AD1_var*
 begin
-//#UC START# *4DAEEDE10285_3000A2360AD1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3000A2360AD1_impl*
+ aCtx.rEngine.PushString('CardTextLabel');
+ inherited;
 end;//Tkw_BaseSearchCard_Control_CardTextLabel_Push.DoDoIt
 
 class function Tkw_BaseSearchCard_Control_CardTextLabel_Push.GetWordNameForRegister: AnsiString;

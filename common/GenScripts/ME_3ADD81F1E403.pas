@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimF1Common_Module
- , vtPanel
- {$If Defined(Nemesis)}
- , nscContextFilter
- {$IfEnd} // Defined(Nemesis)
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Navigator_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -226,12 +226,9 @@ begin
 end;//Tkw_Navigator_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_Navigator_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8A1290B1FFAB_var*
-//#UC END# *4DAEEDE10285_8A1290B1FFAB_var*
 begin
-//#UC START# *4DAEEDE10285_8A1290B1FFAB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8A1290B1FFAB_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_Navigator_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_Navigator_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -256,12 +253,9 @@ begin
 end;//Tkw_Navigator_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_Navigator_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B6A378A35041_var*
-//#UC END# *4DAEEDE10285_B6A378A35041_var*
 begin
-//#UC START# *4DAEEDE10285_B6A378A35041_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B6A378A35041_impl*
+ aCtx.rEngine.PushString('ContextFilter');
+ inherited;
 end;//Tkw_Navigator_Control_ContextFilter_Push.DoDoIt
 
 class function Tkw_Navigator_Control_ContextFilter_Push.GetWordNameForRegister: AnsiString;
@@ -286,12 +280,9 @@ begin
 end;//Tkw_Navigator_Control_NavigatorTree.RegisterInEngine
 
 procedure Tkw_Navigator_Control_NavigatorTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_86F03C36DFB4_var*
-//#UC END# *4DAEEDE10285_86F03C36DFB4_var*
 begin
-//#UC START# *4DAEEDE10285_86F03C36DFB4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_86F03C36DFB4_impl*
+ aCtx.rEngine.PushString('NavigatorTree');
+ inherited;
 end;//Tkw_Navigator_Control_NavigatorTree_Push.DoDoIt
 
 class function Tkw_Navigator_Control_NavigatorTree_Push.GetWordNameForRegister: AnsiString;

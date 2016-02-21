@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , ChangesBetweenEditions_Module
- {$If Defined(Nemesis)}
- , nscEditor
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ChangesBetweenEditons_Form
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -142,12 +142,9 @@ begin
 end;//Tkw_ChangesBetweenEditons_Control_Text.RegisterInEngine
 
 procedure Tkw_ChangesBetweenEditons_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_94A27C77E601_var*
-//#UC END# *4DAEEDE10285_94A27C77E601_var*
 begin
-//#UC START# *4DAEEDE10285_94A27C77E601_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_94A27C77E601_impl*
+ aCtx.rEngine.PushString('Text');
+ inherited;
 end;//Tkw_ChangesBetweenEditons_Control_Text_Push.DoDoIt
 
 class function Tkw_ChangesBetweenEditons_Control_Text_Push.GetWordNameForRegister: AnsiString;

@@ -13,54 +13,9 @@ uses
  , ChatInterfaces
  , ChatTypes
  , l3Interfaces
- , PrimContactListOptions_Form
- , BaseChatWindowOptions_Form
- , BaseHistoryWindow_Form
- {$If NOT Defined(NoVCM)}
- , vcmInterfaces
- {$IfEnd} // NOT Defined(NoVCM)
 ;
 
-const
- fm_ContactListForm: TvcmFormDescriptor = (rFormID : (rName : 'ContactListForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TContactListForm }
-
-const
- fm_ChatWindowForm: TvcmFormDescriptor = (rFormID : (rName : 'ChatWindowForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TChatWindowForm }
-
-const
- fm_ChatHistoryForm: TvcmFormDescriptor = (rFormID : (rName : 'ChatHistoryForm'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TChatHistoryForm }
-
 type
- ContactListFormDef = interface
-  {* Идентификатор формы ContactList }
-  ['{D9641B68-E586-4058-B9BC-9E246E9D0455}']
- end;//ContactListFormDef
-
- TContactListForm = {final} class(TPrimContactListOptionsForm, ContactListFormDef)
-  {* Совещание онлайн }
- end;//TContactListForm
-
- ChatWindowFormDef = interface
-  {* Идентификатор формы ChatWindow }
-  ['{BD39AB6D-74A5-4A07-80BA-F529342D3B8A}']
- end;//ChatWindowFormDef
-
- TChatWindowForm = {final} class(TBaseChatWindowOptionsForm, ChatWindowFormDef)
-  {* Переписка }
- end;//TChatWindowForm
-
- ChatHistoryFormDef = interface
-  {* Идентификатор формы ChatHistory }
-  ['{5B6E40C6-04D1-47E4-B97A-0C7AB1B3D1F9}']
- end;//ChatHistoryFormDef
-
- TChatHistoryForm = {final} class(TBaseHistoryWindowForm, ChatHistoryFormDef)
-  {* История переписки }
- end;//TChatHistoryForm
-
  TBaseChatModule = class
   protected
    procedure OpenContactList;
@@ -97,18 +52,6 @@ uses
  , BaseHistoryWindow_utChatHistory_UserType
  , BaseChatWindow_cwChat_UserType
  , bsChatDispatcher
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ContactListKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ChatWindowKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , ChatHistoryKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TBaseChatModule.MakeChatDispatcher: IbsChatDispatcher;
@@ -165,26 +108,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4A97C2460052_4A6971B802A6_impl*
 end;//TBaseChatModule.OpenContactList
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TContactListForm);
- {* Регистрация ContactList }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_ContactListForm.SetFactory(TContactListForm.Make);
- {* Регистрация фабрики формы ContactList }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TChatWindowForm);
- {* Регистрация ChatWindow }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_ChatWindowForm.SetFactory(TChatWindowForm.Make);
- {* Регистрация фабрики формы ChatWindow }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TChatHistoryForm);
- {* Регистрация ChatHistory }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_ChatHistoryForm.SetFactory(TChatHistoryForm.Make);
- {* Регистрация фабрики формы ChatHistory }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

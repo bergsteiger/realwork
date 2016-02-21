@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimFolders_Module
- , vtPanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , FoldersInfo_Form
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_FoldersInfo_Control_ChildZone.RegisterInEngine
 
 procedure Tkw_FoldersInfo_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_353880F31000_var*
-//#UC END# *4DAEEDE10285_353880F31000_var*
 begin
-//#UC START# *4DAEEDE10285_353880F31000_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_353880F31000_impl*
+ aCtx.rEngine.PushString('ChildZone');
+ inherited;
 end;//Tkw_FoldersInfo_Control_ChildZone_Push.DoDoIt
 
 class function Tkw_FoldersInfo_Control_ChildZone_Push.GetWordNameForRegister: AnsiString;

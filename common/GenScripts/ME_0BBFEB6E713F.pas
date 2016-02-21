@@ -11,11 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , CommonSearch_Module
- , vtGroupBox
- {$If Defined(Nemesis)}
- , nscPageControl
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -24,6 +19,11 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , PageSetup_Form
+ , vtGroupBox
+ {$If Defined(Nemesis)}
+ , nscPageControl
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -183,12 +183,9 @@ begin
 end;//Tkw_PageSetup_Control_PreviewGroupBox.RegisterInEngine
 
 procedure Tkw_PageSetup_Control_PreviewGroupBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1DD6C6686900_var*
-//#UC END# *4DAEEDE10285_1DD6C6686900_var*
 begin
-//#UC START# *4DAEEDE10285_1DD6C6686900_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1DD6C6686900_impl*
+ aCtx.rEngine.PushString('PreviewGroupBox');
+ inherited;
 end;//Tkw_PageSetup_Control_PreviewGroupBox_Push.DoDoIt
 
 class function Tkw_PageSetup_Control_PreviewGroupBox_Push.GetWordNameForRegister: AnsiString;
@@ -213,12 +210,9 @@ begin
 end;//Tkw_PageSetup_Control_SettingsPageControl.RegisterInEngine
 
 procedure Tkw_PageSetup_Control_SettingsPageControl_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E1F674501A77_var*
-//#UC END# *4DAEEDE10285_E1F674501A77_var*
 begin
-//#UC START# *4DAEEDE10285_E1F674501A77_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E1F674501A77_impl*
+ aCtx.rEngine.PushString('SettingsPageControl');
+ inherited;
 end;//Tkw_PageSetup_Control_SettingsPageControl_Push.DoDoIt
 
 class function Tkw_PageSetup_Control_SettingsPageControl_Push.GetWordNameForRegister: AnsiString;

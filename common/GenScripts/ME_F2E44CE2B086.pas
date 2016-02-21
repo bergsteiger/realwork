@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimF1Common_Module
- {$If NOT Defined(NoVCL)}
- , ComCtrls
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ProgressIndicator_Form
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -126,12 +126,9 @@ begin
 end;//Tkw_ProgressIndicator_Control_ProgressBar.RegisterInEngine
 
 procedure Tkw_ProgressIndicator_Control_ProgressBar_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D12519600B94_var*
-//#UC END# *4DAEEDE10285_D12519600B94_var*
 begin
-//#UC START# *4DAEEDE10285_D12519600B94_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D12519600B94_impl*
+ aCtx.rEngine.PushString('ProgressBar');
+ inherited;
 end;//Tkw_ProgressIndicator_Control_ProgressBar_Push.DoDoIt
 
 class function Tkw_ProgressIndicator_Control_ProgressBar_Push.GetWordNameForRegister: AnsiString;

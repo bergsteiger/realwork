@@ -11,11 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Filters_Module
- , vtLabel
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -24,6 +19,11 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , CreateFilter_Form
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -176,12 +176,9 @@ begin
 end;//Tkw_CreateFilter_Control_NameLabel.RegisterInEngine
 
 procedure Tkw_CreateFilter_Control_NameLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_44E18ABC1F46_var*
-//#UC END# *4DAEEDE10285_44E18ABC1F46_var*
 begin
-//#UC START# *4DAEEDE10285_44E18ABC1F46_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_44E18ABC1F46_impl*
+ aCtx.rEngine.PushString('NameLabel');
+ inherited;
 end;//Tkw_CreateFilter_Control_NameLabel_Push.DoDoIt
 
 class function Tkw_CreateFilter_Control_NameLabel_Push.GetWordNameForRegister: AnsiString;
@@ -206,12 +203,9 @@ begin
 end;//Tkw_CreateFilter_Control_FilterName.RegisterInEngine
 
 procedure Tkw_CreateFilter_Control_FilterName_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2DAD804284AD_var*
-//#UC END# *4DAEEDE10285_2DAD804284AD_var*
 begin
-//#UC START# *4DAEEDE10285_2DAD804284AD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2DAD804284AD_impl*
+ aCtx.rEngine.PushString('FilterName');
+ inherited;
 end;//Tkw_CreateFilter_Control_FilterName_Push.DoDoIt
 
 class function Tkw_CreateFilter_Control_FilterName_Push.GetWordNameForRegister: AnsiString;

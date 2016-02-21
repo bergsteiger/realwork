@@ -20,57 +20,9 @@ uses
  , ConfigInterfaces
  , l3Interfaces
  , Classes
- , PrimSaveLoadOptionsWithUserTypes_Form
- , Search_FormDefinitions_Controls
- , PrimQueryCardOptions_Form
- , PrimPreview_Form
- , PrimPageSetupOptions_Form
- , PrimPrintDialogOptions_Form
 ;
 
 type
- TcfSaveLoad = {final} class(TPrimSaveLoadOptionsWithUserTypesForm, SaveLoadFormDef)
- end;//TcfSaveLoad
-
- TenQueryCard = {final} class(TPrimQueryCardOptionsForm, QueryCardFormDef)
-  {* Карточка запросов }
- end;//TenQueryCard
-
- TefPreviewForm = {final} class(TPrimPreviewForm, PreviewFormDef)
-  {* Предварительный просмотр }
- end;//TefPreviewForm
-
- Ten_PageSetup = {final} class(TPrimPageSetupOptionsForm)
-  {* Настройка страницы }
-  protected
-   procedure ReadPageFormats; override;
-   procedure SetColontitulComboBoxItemIndex(aIndex: Integer); override;
-   procedure ToGUIMargins; override;
-   procedure Save(SaveAsDefault: Boolean); override;
-   procedure SetPageFormat(aOrientation: Integer); override;
-   procedure MacroAdd(const aString: AnsiString); override;
-   procedure ToGUIColontituls; override;
-  public
-   {$If NOT Defined(NoVCM)}
-   procedure Save; override;
-    {* Сохранить }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Ok; override;
-    {* OK }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   procedure Cancel; override;
-    {* Отмена }
-   {$IfEnd} // NOT Defined(NoVCM)
- end;//Ten_PageSetup
-
- Ten_PrintDialog = {final} class(TPrimPrintDialogOptionsForm)
-  protected
-   procedure UpdateState; override;
-   function UpdatePrintersList: Boolean; override;
- end;//Ten_PrintDialog
-
  TCommonSearchModule = class(IafwPageSetup, IafwPrintManager)
   protected
    function pm_GetMargins: TafwRect;
@@ -103,7 +55,6 @@ implementation
 {$If NOT Defined(Admin)}
 uses
  l3ImplUses
- , l3StringIDEx
  , nsUtils
  , evConst
  , DataAdapter
@@ -114,149 +65,7 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmBase
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , SaveLoadKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , QueryCardKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , PreviewFormKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , PageSetupKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- , l3RangeManager
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , PrintDialogKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
-
-const
- {* Локализуемые строки ut_PrintDialogLocalConstants }
- str_ut_PrintDialogCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_PrintDialogCaption'; rValue : 'PrintDialog');
-  {* Заголовок пользовательского типа "PrintDialog" }
-
-{$If NOT Defined(NoVCM)}
-procedure Ten_PageSetup.Save;
- {* Сохранить }
-//#UC START# *495235F401C0_4AAF86650309_var*
-//#UC END# *495235F401C0_4AAF86650309_var*
-begin
-//#UC START# *495235F401C0_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *495235F401C0_4AAF86650309_impl*
-end;//Ten_PageSetup.Save
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure Ten_PageSetup.Ok;
- {* OK }
-//#UC START# *4A97EBE702F8_4AAF86650309_var*
-//#UC END# *4A97EBE702F8_4AAF86650309_var*
-begin
-//#UC START# *4A97EBE702F8_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4A97EBE702F8_4AAF86650309_impl*
-end;//Ten_PageSetup.Ok
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-procedure Ten_PageSetup.Cancel;
- {* Отмена }
-//#UC START# *4AC5D61E0284_4AAF86650309_var*
-//#UC END# *4AC5D61E0284_4AAF86650309_var*
-begin
-//#UC START# *4AC5D61E0284_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC5D61E0284_4AAF86650309_impl*
-end;//Ten_PageSetup.Cancel
-{$IfEnd} // NOT Defined(NoVCM)
-
-procedure Ten_PageSetup.ReadPageFormats;
-//#UC START# *4AC608780164_4AAF86650309_var*
-//#UC END# *4AC608780164_4AAF86650309_var*
-begin
-//#UC START# *4AC608780164_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC608780164_4AAF86650309_impl*
-end;//Ten_PageSetup.ReadPageFormats
-
-procedure Ten_PageSetup.SetColontitulComboBoxItemIndex(aIndex: Integer);
-//#UC START# *4AC6089603D4_4AAF86650309_var*
-//#UC END# *4AC6089603D4_4AAF86650309_var*
-begin
-//#UC START# *4AC6089603D4_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC6089603D4_4AAF86650309_impl*
-end;//Ten_PageSetup.SetColontitulComboBoxItemIndex
-
-procedure Ten_PageSetup.ToGUIMargins;
-//#UC START# *4AC608AC03C7_4AAF86650309_var*
-//#UC END# *4AC608AC03C7_4AAF86650309_var*
-begin
-//#UC START# *4AC608AC03C7_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC608AC03C7_4AAF86650309_impl*
-end;//Ten_PageSetup.ToGUIMargins
-
-procedure Ten_PageSetup.Save(SaveAsDefault: Boolean);
-//#UC START# *4C88D996000B_4AAF86650309_var*
-//#UC END# *4C88D996000B_4AAF86650309_var*
-begin
-//#UC START# *4C88D996000B_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D996000B_4AAF86650309_impl*
-end;//Ten_PageSetup.Save
-
-procedure Ten_PageSetup.SetPageFormat(aOrientation: Integer);
-//#UC START# *4C88D9B60023_4AAF86650309_var*
-//#UC END# *4C88D9B60023_4AAF86650309_var*
-begin
-//#UC START# *4C88D9B60023_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D9B60023_4AAF86650309_impl*
-end;//Ten_PageSetup.SetPageFormat
-
-procedure Ten_PageSetup.MacroAdd(const aString: AnsiString);
-//#UC START# *4C88D9D30306_4AAF86650309_var*
-//#UC END# *4C88D9D30306_4AAF86650309_var*
-begin
-//#UC START# *4C88D9D30306_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88D9D30306_4AAF86650309_impl*
-end;//Ten_PageSetup.MacroAdd
-
-procedure Ten_PageSetup.ToGUIColontituls;
-//#UC START# *4C88DCA000DD_4AAF86650309_var*
-//#UC END# *4C88DCA000DD_4AAF86650309_var*
-begin
-//#UC START# *4C88DCA000DD_4AAF86650309_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C88DCA000DD_4AAF86650309_impl*
-end;//Ten_PageSetup.ToGUIColontituls
-
-procedure Ten_PrintDialog.UpdateState;
-//#UC START# *4AC6228101B1_4AAF8EAC01FC_var*
-//#UC END# *4AC6228101B1_4AAF8EAC01FC_var*
-begin
-//#UC START# *4AC6228101B1_4AAF8EAC01FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AC6228101B1_4AAF8EAC01FC_impl*
-end;//Ten_PrintDialog.UpdateState
-
-function Ten_PrintDialog.UpdatePrintersList: Boolean;
-//#UC START# *4AF8271C0033_4AAF8EAC01FC_var*
-//#UC END# *4AF8271C0033_4AAF8EAC01FC_var*
-begin
-//#UC START# *4AF8271C0033_4AAF8EAC01FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4AF8271C0033_4AAF8EAC01FC_impl*
-end;//Ten_PrintDialog.UpdatePrintersList
 
 procedure TCommonSearchModule.MakeSaveLoadForm(const aParams: IvcmMakeParams;
  aZoneType: TvcmZoneType;
@@ -414,34 +223,6 @@ begin
   afw.Application.PrintManager := Self;
 //#UC END# *47D1602000C6_4AA931390118_impl*
 end;//TCommonSearchModule.Create
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TcfSaveLoad);
- {* Регистрация SaveLoad }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_cfSaveLoad.SetFactory(TcfSaveLoad.Make);
- {* Регистрация фабрики формы SaveLoad }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TenQueryCard);
- {* Регистрация QueryCard }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_enQueryCard.SetFactory(TenQueryCard.Make);
- {* Регистрация фабрики формы QueryCard }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TefPreviewForm);
- {* Регистрация PreviewForm }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(Ten_PageSetup);
- {* Регистрация PageSetup }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(Ten_PrintDialog);
- {* Регистрация PrintDialog }
-{$IfEnd} // NOT Defined(NoScripts)
- str_ut_PrintDialogCaption.Init;
- {* Инициализация str_ut_PrintDialogCaption }
 {$IfEnd} // NOT Defined(Admin)
 
 end.

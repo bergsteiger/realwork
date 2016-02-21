@@ -11,8 +11,6 @@ interface
 uses
  l3IntfUses
  , tfwScriptingInterfaces
- , l3Interfaces
- , tfwDictionary
  , l3CProtoObject
 ;
 
@@ -42,6 +40,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , l3Interfaces
+ , tfwDictionary
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , TypInfo

@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , CommonSearch_Module
- , vtPanel
- , vtLabel
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , SaveLoad_Form
+ , vtPanel
+ , vtLabel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -275,12 +275,9 @@ begin
 end;//Tkw_SaveLoad_Control_pnHeader.RegisterInEngine
 
 procedure Tkw_SaveLoad_Control_pnHeader_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_75AC194BB9D8_var*
-//#UC END# *4DAEEDE10285_75AC194BB9D8_var*
 begin
-//#UC START# *4DAEEDE10285_75AC194BB9D8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_75AC194BB9D8_impl*
+ aCtx.rEngine.PushString('pnHeader');
+ inherited;
 end;//Tkw_SaveLoad_Control_pnHeader_Push.DoDoIt
 
 class function Tkw_SaveLoad_Control_pnHeader_Push.GetWordNameForRegister: AnsiString;
@@ -305,12 +302,9 @@ begin
 end;//Tkw_SaveLoad_Control_lbHeader.RegisterInEngine
 
 procedure Tkw_SaveLoad_Control_lbHeader_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D39F699314B6_var*
-//#UC END# *4DAEEDE10285_D39F699314B6_var*
 begin
-//#UC START# *4DAEEDE10285_D39F699314B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D39F699314B6_impl*
+ aCtx.rEngine.PushString('lbHeader');
+ inherited;
 end;//Tkw_SaveLoad_Control_lbHeader_Push.DoDoIt
 
 class function Tkw_SaveLoad_Control_lbHeader_Push.GetWordNameForRegister: AnsiString;
@@ -335,12 +329,9 @@ begin
 end;//Tkw_SaveLoad_Control_pbHeader.RegisterInEngine
 
 procedure Tkw_SaveLoad_Control_pbHeader_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A1445EADEB6F_var*
-//#UC END# *4DAEEDE10285_A1445EADEB6F_var*
 begin
-//#UC START# *4DAEEDE10285_A1445EADEB6F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A1445EADEB6F_impl*
+ aCtx.rEngine.PushString('pbHeader');
+ inherited;
 end;//Tkw_SaveLoad_Control_pbHeader_Push.DoDoIt
 
 class function Tkw_SaveLoad_Control_pbHeader_Push.GetWordNameForRegister: AnsiString;
@@ -365,12 +356,9 @@ begin
 end;//Tkw_SaveLoad_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_SaveLoad_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_158EA2C9A2C9_var*
-//#UC END# *4DAEEDE10285_158EA2C9A2C9_var*
 begin
-//#UC START# *4DAEEDE10285_158EA2C9A2C9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_158EA2C9A2C9_impl*
+ aCtx.rEngine.PushString('ParentZone');
+ inherited;
 end;//Tkw_SaveLoad_Control_ParentZone_Push.DoDoIt
 
 class function Tkw_SaveLoad_Control_ParentZone_Push.GetWordNameForRegister: AnsiString;

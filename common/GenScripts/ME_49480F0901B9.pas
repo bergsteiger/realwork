@@ -163,7 +163,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  , l3Base
  , nsUserNodes
- , Admin_Module
+ , ForbidAutoregistration_Form
  , DataAdapter
  , l3Utils
  , bsTypes

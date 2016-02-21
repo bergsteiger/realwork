@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , List_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , List_Form
  {$If Defined(Nemesis)}
  , nscRemindersLine
  {$IfEnd} // Defined(Nemesis)
@@ -26,14 +34,6 @@ uses
  {$If Defined(Nemesis)}
  , nscContextFilter
  {$IfEnd} // Defined(Nemesis)
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -480,12 +480,9 @@ begin
 end;//Tkw_List_Control_RemindersLine.RegisterInEngine
 
 procedure Tkw_List_Control_RemindersLine_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C03DBBB30146_var*
-//#UC END# *4DAEEDE10285_C03DBBB30146_var*
 begin
-//#UC START# *4DAEEDE10285_C03DBBB30146_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C03DBBB30146_impl*
+ aCtx.rEngine.PushString('RemindersLine');
+ inherited;
 end;//Tkw_List_Control_RemindersLine_Push.DoDoIt
 
 class function Tkw_List_Control_RemindersLine_Push.GetWordNameForRegister: AnsiString;
@@ -510,12 +507,9 @@ begin
 end;//Tkw_List_Control_remListFiltered.RegisterInEngine
 
 procedure Tkw_List_Control_remListFiltered_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D36F3D099A06_var*
-//#UC END# *4DAEEDE10285_D36F3D099A06_var*
 begin
-//#UC START# *4DAEEDE10285_D36F3D099A06_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D36F3D099A06_impl*
+ aCtx.rEngine.PushString('remListFiltered');
+ inherited;
 end;//Tkw_List_Control_remListFiltered_Push.DoDoIt
 
 class function Tkw_List_Control_remListFiltered_Push.GetWordNameForRegister: AnsiString;
@@ -540,12 +534,9 @@ begin
 end;//Tkw_List_Control_remListModified.RegisterInEngine
 
 procedure Tkw_List_Control_remListModified_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5DA3536B17F2_var*
-//#UC END# *4DAEEDE10285_5DA3536B17F2_var*
 begin
-//#UC START# *4DAEEDE10285_5DA3536B17F2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5DA3536B17F2_impl*
+ aCtx.rEngine.PushString('remListModified');
+ inherited;
 end;//Tkw_List_Control_remListModified_Push.DoDoIt
 
 class function Tkw_List_Control_remListModified_Push.GetWordNameForRegister: AnsiString;
@@ -570,12 +561,9 @@ begin
 end;//Tkw_List_Control_remTimeMachineWarning.RegisterInEngine
 
 procedure Tkw_List_Control_remTimeMachineWarning_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F8A4502F0B51_var*
-//#UC END# *4DAEEDE10285_F8A4502F0B51_var*
 begin
-//#UC START# *4DAEEDE10285_F8A4502F0B51_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F8A4502F0B51_impl*
+ aCtx.rEngine.PushString('remTimeMachineWarning');
+ inherited;
 end;//Tkw_List_Control_remTimeMachineWarning_Push.DoDoIt
 
 class function Tkw_List_Control_remTimeMachineWarning_Push.GetWordNameForRegister: AnsiString;
@@ -600,12 +588,9 @@ begin
 end;//Tkw_List_Control_EmptyListEditor.RegisterInEngine
 
 procedure Tkw_List_Control_EmptyListEditor_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_20DA9A8362D5_var*
-//#UC END# *4DAEEDE10285_20DA9A8362D5_var*
 begin
-//#UC START# *4DAEEDE10285_20DA9A8362D5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_20DA9A8362D5_impl*
+ aCtx.rEngine.PushString('EmptyListEditor');
+ inherited;
 end;//Tkw_List_Control_EmptyListEditor_Push.DoDoIt
 
 class function Tkw_List_Control_EmptyListEditor_Push.GetWordNameForRegister: AnsiString;
@@ -630,12 +615,9 @@ begin
 end;//Tkw_List_Control_ListPanel.RegisterInEngine
 
 procedure Tkw_List_Control_ListPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D25792880D3C_var*
-//#UC END# *4DAEEDE10285_D25792880D3C_var*
 begin
-//#UC START# *4DAEEDE10285_D25792880D3C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D25792880D3C_impl*
+ aCtx.rEngine.PushString('ListPanel');
+ inherited;
 end;//Tkw_List_Control_ListPanel_Push.DoDoIt
 
 class function Tkw_List_Control_ListPanel_Push.GetWordNameForRegister: AnsiString;
@@ -660,12 +642,9 @@ begin
 end;//Tkw_List_Control_tvList.RegisterInEngine
 
 procedure Tkw_List_Control_tvList_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0F6D0B8DEFDE_var*
-//#UC END# *4DAEEDE10285_0F6D0B8DEFDE_var*
 begin
-//#UC START# *4DAEEDE10285_0F6D0B8DEFDE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0F6D0B8DEFDE_impl*
+ aCtx.rEngine.PushString('tvList');
+ inherited;
 end;//Tkw_List_Control_tvList_Push.DoDoIt
 
 class function Tkw_List_Control_tvList_Push.GetWordNameForRegister: AnsiString;
@@ -690,12 +669,9 @@ begin
 end;//Tkw_List_Control_cfList.RegisterInEngine
 
 procedure Tkw_List_Control_cfList_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_86A914F861D5_var*
-//#UC END# *4DAEEDE10285_86A914F861D5_var*
 begin
-//#UC START# *4DAEEDE10285_86A914F861D5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_86A914F861D5_impl*
+ aCtx.rEngine.PushString('cfList');
+ inherited;
 end;//Tkw_List_Control_cfList_Push.DoDoIt
 
 class function Tkw_List_Control_cfList_Push.GetWordNameForRegister: AnsiString;

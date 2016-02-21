@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Text_Form
  {$If Defined(Nemesis)}
  , nscRemindersLine
  {$IfEnd} // Defined(Nemesis)
@@ -23,14 +31,6 @@ uses
  {$If Defined(Nemesis)}
  , nscEditor
  {$IfEnd} // Defined(Nemesis)
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -738,12 +738,9 @@ begin
 end;//Tkw_Text_Control_RemindersLine.RegisterInEngine
 
 procedure Tkw_Text_Control_RemindersLine_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_705F38EF6FAD_var*
-//#UC END# *4DAEEDE10285_705F38EF6FAD_var*
 begin
-//#UC START# *4DAEEDE10285_705F38EF6FAD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_705F38EF6FAD_impl*
+ aCtx.rEngine.PushString('RemindersLine');
+ inherited;
 end;//Tkw_Text_Control_RemindersLine_Push.DoDoIt
 
 class function Tkw_Text_Control_RemindersLine_Push.GetWordNameForRegister: AnsiString;
@@ -768,12 +765,9 @@ begin
 end;//Tkw_Text_Control_WarnTimeMachineException.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnTimeMachineException_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7382CA7FCA93_var*
-//#UC END# *4DAEEDE10285_7382CA7FCA93_var*
 begin
-//#UC START# *4DAEEDE10285_7382CA7FCA93_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7382CA7FCA93_impl*
+ aCtx.rEngine.PushString('WarnTimeMachineException');
+ inherited;
 end;//Tkw_Text_Control_WarnTimeMachineException_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnTimeMachineException_Push.GetWordNameForRegister: AnsiString;
@@ -798,12 +792,9 @@ begin
 end;//Tkw_Text_Control_WarnIsAbolished.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnIsAbolished_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9B6B2BD92876_var*
-//#UC END# *4DAEEDE10285_9B6B2BD92876_var*
 begin
-//#UC START# *4DAEEDE10285_9B6B2BD92876_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9B6B2BD92876_impl*
+ aCtx.rEngine.PushString('WarnIsAbolished');
+ inherited;
 end;//Tkw_Text_Control_WarnIsAbolished_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnIsAbolished_Push.GetWordNameForRegister: AnsiString;
@@ -828,12 +819,9 @@ begin
 end;//Tkw_Text_Control_WarnPreActive.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnPreActive_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1A8F30B167E1_var*
-//#UC END# *4DAEEDE10285_1A8F30B167E1_var*
 begin
-//#UC START# *4DAEEDE10285_1A8F30B167E1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1A8F30B167E1_impl*
+ aCtx.rEngine.PushString('WarnPreActive');
+ inherited;
 end;//Tkw_Text_Control_WarnPreActive_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnPreActive_Push.GetWordNameForRegister: AnsiString;
@@ -858,12 +846,9 @@ begin
 end;//Tkw_Text_Control_WarnTimeMachineWarning.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnTimeMachineWarning_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9AAF4745079D_var*
-//#UC END# *4DAEEDE10285_9AAF4745079D_var*
 begin
-//#UC START# *4DAEEDE10285_9AAF4745079D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9AAF4745079D_impl*
+ aCtx.rEngine.PushString('WarnTimeMachineWarning');
+ inherited;
 end;//Tkw_Text_Control_WarnTimeMachineWarning_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnTimeMachineWarning_Push.GetWordNameForRegister: AnsiString;
@@ -888,12 +873,9 @@ begin
 end;//Tkw_Text_Control_WarnOnControl.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnOnControl_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DACA7322E9D7_var*
-//#UC END# *4DAEEDE10285_DACA7322E9D7_var*
 begin
-//#UC START# *4DAEEDE10285_DACA7322E9D7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DACA7322E9D7_impl*
+ aCtx.rEngine.PushString('WarnOnControl');
+ inherited;
 end;//Tkw_Text_Control_WarnOnControl_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnOnControl_Push.GetWordNameForRegister: AnsiString;
@@ -918,12 +900,9 @@ begin
 end;//Tkw_Text_Control_WarnJuror.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnJuror_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_827B012777A0_var*
-//#UC END# *4DAEEDE10285_827B012777A0_var*
 begin
-//#UC START# *4DAEEDE10285_827B012777A0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_827B012777A0_impl*
+ aCtx.rEngine.PushString('WarnJuror');
+ inherited;
 end;//Tkw_Text_Control_WarnJuror_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnJuror_Push.GetWordNameForRegister: AnsiString;
@@ -948,12 +927,9 @@ begin
 end;//Tkw_Text_Control_WarnRedaction.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnRedaction_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_85711541F333_var*
-//#UC END# *4DAEEDE10285_85711541F333_var*
 begin
-//#UC START# *4DAEEDE10285_85711541F333_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_85711541F333_impl*
+ aCtx.rEngine.PushString('WarnRedaction');
+ inherited;
 end;//Tkw_Text_Control_WarnRedaction_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnRedaction_Push.GetWordNameForRegister: AnsiString;
@@ -978,12 +954,9 @@ begin
 end;//Tkw_Text_Control_WarnInactualDocument.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnInactualDocument_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B463B41ABC32_var*
-//#UC END# *4DAEEDE10285_B463B41ABC32_var*
 begin
-//#UC START# *4DAEEDE10285_B463B41ABC32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B463B41ABC32_impl*
+ aCtx.rEngine.PushString('WarnInactualDocument');
+ inherited;
 end;//Tkw_Text_Control_WarnInactualDocument_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnInactualDocument_Push.GetWordNameForRegister: AnsiString;
@@ -1008,12 +981,9 @@ begin
 end;//Tkw_Text_Control_WarnTimeMachineOn.RegisterInEngine
 
 procedure Tkw_Text_Control_WarnTimeMachineOn_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A5FA5EA83009_var*
-//#UC END# *4DAEEDE10285_A5FA5EA83009_var*
 begin
-//#UC START# *4DAEEDE10285_A5FA5EA83009_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A5FA5EA83009_impl*
+ aCtx.rEngine.PushString('WarnTimeMachineOn');
+ inherited;
 end;//Tkw_Text_Control_WarnTimeMachineOn_Push.DoDoIt
 
 class function Tkw_Text_Control_WarnTimeMachineOn_Push.GetWordNameForRegister: AnsiString;
@@ -1038,12 +1008,9 @@ begin
 end;//Tkw_Text_Control_SubPanel.RegisterInEngine
 
 procedure Tkw_Text_Control_SubPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7120B4F0E306_var*
-//#UC END# *4DAEEDE10285_7120B4F0E306_var*
 begin
-//#UC START# *4DAEEDE10285_7120B4F0E306_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7120B4F0E306_impl*
+ aCtx.rEngine.PushString('SubPanel');
+ inherited;
 end;//Tkw_Text_Control_SubPanel_Push.DoDoIt
 
 class function Tkw_Text_Control_SubPanel_Push.GetWordNameForRegister: AnsiString;
@@ -1068,12 +1035,9 @@ begin
 end;//Tkw_Text_Control_HScroll.RegisterInEngine
 
 procedure Tkw_Text_Control_HScroll_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A6BC0890EC0E_var*
-//#UC END# *4DAEEDE10285_A6BC0890EC0E_var*
 begin
-//#UC START# *4DAEEDE10285_A6BC0890EC0E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A6BC0890EC0E_impl*
+ aCtx.rEngine.PushString('HScroll');
+ inherited;
 end;//Tkw_Text_Control_HScroll_Push.DoDoIt
 
 class function Tkw_Text_Control_HScroll_Push.GetWordNameForRegister: AnsiString;
@@ -1098,12 +1062,9 @@ begin
 end;//Tkw_Text_Control_Text.RegisterInEngine
 
 procedure Tkw_Text_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6F8D09395591_var*
-//#UC END# *4DAEEDE10285_6F8D09395591_var*
 begin
-//#UC START# *4DAEEDE10285_6F8D09395591_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6F8D09395591_impl*
+ aCtx.rEngine.PushString('Text');
+ inherited;
 end;//Tkw_Text_Control_Text_Push.DoDoIt
 
 class function Tkw_Text_Control_Text_Push.GetWordNameForRegister: AnsiString;

@@ -10,7 +10,6 @@ interface
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
- , vcmEntityForm
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -19,6 +18,7 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , vcmEntityForm
  , tfwPropertyLike
  , tfwScriptingInterfaces
  , tfwTypeInfo

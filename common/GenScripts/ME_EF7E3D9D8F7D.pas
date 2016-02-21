@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , CommonSearch_Module
- {$If Defined(Nemesis)}
- , nscPreviewPanel
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Preview_Form
+ {$If Defined(Nemesis)}
+ , nscPreviewPanel
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -126,12 +126,9 @@ begin
 end;//Tkw_PreviewForm_Control_PreviewPanel.RegisterInEngine
 
 procedure Tkw_PreviewForm_Control_PreviewPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_679CF569D061_var*
-//#UC END# *4DAEEDE10285_679CF569D061_var*
 begin
-//#UC START# *4DAEEDE10285_679CF569D061_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_679CF569D061_impl*
+ aCtx.rEngine.PushString('PreviewPanel');
+ inherited;
 end;//Tkw_PreviewForm_Control_PreviewPanel_Push.DoDoIt
 
 class function Tkw_PreviewForm_Control_PreviewPanel_Push.GetWordNameForRegister: AnsiString;

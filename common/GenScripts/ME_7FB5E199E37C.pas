@@ -11,13 +11,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimCommon_Module
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtPanel
- , vtLabel
- , vtButton
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -26,6 +19,13 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ShutDown_Form
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtPanel
+ , vtLabel
+ , vtButton
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -574,12 +574,9 @@ begin
 end;//Tkw_ShutDown_Control_vtPanel1.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_vtPanel1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BC834AFD97D9_var*
-//#UC END# *4DAEEDE10285_BC834AFD97D9_var*
 begin
-//#UC START# *4DAEEDE10285_BC834AFD97D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BC834AFD97D9_impl*
+ aCtx.rEngine.PushString('vtPanel1');
+ inherited;
 end;//Tkw_ShutDown_Control_vtPanel1_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_vtPanel1_Push.GetWordNameForRegister: AnsiString;
@@ -604,12 +601,9 @@ begin
 end;//Tkw_ShutDown_Control_LeftPanel.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_LeftPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CC6E30846E09_var*
-//#UC END# *4DAEEDE10285_CC6E30846E09_var*
 begin
-//#UC START# *4DAEEDE10285_CC6E30846E09_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CC6E30846E09_impl*
+ aCtx.rEngine.PushString('LeftPanel');
+ inherited;
 end;//Tkw_ShutDown_Control_LeftPanel_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_LeftPanel_Push.GetWordNameForRegister: AnsiString;
@@ -634,12 +628,9 @@ begin
 end;//Tkw_ShutDown_Control_Image.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_Image_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E8C12B6EF28C_var*
-//#UC END# *4DAEEDE10285_E8C12B6EF28C_var*
 begin
-//#UC START# *4DAEEDE10285_E8C12B6EF28C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E8C12B6EF28C_impl*
+ aCtx.rEngine.PushString('Image');
+ inherited;
 end;//Tkw_ShutDown_Control_Image_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_Image_Push.GetWordNameForRegister: AnsiString;
@@ -664,12 +655,9 @@ begin
 end;//Tkw_ShutDown_Control_CenterPanel.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_CenterPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_76E4DB6B7EE5_var*
-//#UC END# *4DAEEDE10285_76E4DB6B7EE5_var*
 begin
-//#UC START# *4DAEEDE10285_76E4DB6B7EE5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_76E4DB6B7EE5_impl*
+ aCtx.rEngine.PushString('CenterPanel');
+ inherited;
 end;//Tkw_ShutDown_Control_CenterPanel_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_CenterPanel_Push.GetWordNameForRegister: AnsiString;
@@ -694,12 +682,9 @@ begin
 end;//Tkw_ShutDown_Control_TopSpacerPanel.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_TopSpacerPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E5D919676EED_var*
-//#UC END# *4DAEEDE10285_E5D919676EED_var*
 begin
-//#UC START# *4DAEEDE10285_E5D919676EED_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E5D919676EED_impl*
+ aCtx.rEngine.PushString('TopSpacerPanel');
+ inherited;
 end;//Tkw_ShutDown_Control_TopSpacerPanel_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_TopSpacerPanel_Push.GetWordNameForRegister: AnsiString;
@@ -724,12 +709,9 @@ begin
 end;//Tkw_ShutDown_Control_WarningText.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_WarningText_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_69D7D9B24E5D_var*
-//#UC END# *4DAEEDE10285_69D7D9B24E5D_var*
 begin
-//#UC START# *4DAEEDE10285_69D7D9B24E5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_69D7D9B24E5D_impl*
+ aCtx.rEngine.PushString('WarningText');
+ inherited;
 end;//Tkw_ShutDown_Control_WarningText_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_WarningText_Push.GetWordNameForRegister: AnsiString;
@@ -754,12 +736,9 @@ begin
 end;//Tkw_ShutDown_Control_RightSpacerPanel.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_RightSpacerPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_67B257456FD1_var*
-//#UC END# *4DAEEDE10285_67B257456FD1_var*
 begin
-//#UC START# *4DAEEDE10285_67B257456FD1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_67B257456FD1_impl*
+ aCtx.rEngine.PushString('RightSpacerPanel');
+ inherited;
 end;//Tkw_ShutDown_Control_RightSpacerPanel_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_RightSpacerPanel_Push.GetWordNameForRegister: AnsiString;
@@ -784,12 +763,9 @@ begin
 end;//Tkw_ShutDown_Control_pnlBottom.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_pnlBottom_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_28192EC3DA32_var*
-//#UC END# *4DAEEDE10285_28192EC3DA32_var*
 begin
-//#UC START# *4DAEEDE10285_28192EC3DA32_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_28192EC3DA32_impl*
+ aCtx.rEngine.PushString('pnlBottom');
+ inherited;
 end;//Tkw_ShutDown_Control_pnlBottom_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_pnlBottom_Push.GetWordNameForRegister: AnsiString;
@@ -814,12 +790,9 @@ begin
 end;//Tkw_ShutDown_Control_CloseButton.RegisterInEngine
 
 procedure Tkw_ShutDown_Control_CloseButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E77AE64103D9_var*
-//#UC END# *4DAEEDE10285_E77AE64103D9_var*
 begin
-//#UC START# *4DAEEDE10285_E77AE64103D9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E77AE64103D9_impl*
+ aCtx.rEngine.PushString('CloseButton');
+ inherited;
 end;//Tkw_ShutDown_Control_CloseButton_Push.DoDoIt
 
 class function Tkw_ShutDown_Control_CloseButton_Push.GetWordNameForRegister: AnsiString;

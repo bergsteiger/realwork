@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
- , vtPanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , SynchroView_Form
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_SynchroView_Control_DocView.RegisterInEngine
 
 procedure Tkw_SynchroView_Control_DocView_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AAC0F3937C1E_var*
-//#UC END# *4DAEEDE10285_AAC0F3937C1E_var*
 begin
-//#UC START# *4DAEEDE10285_AAC0F3937C1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AAC0F3937C1E_impl*
+ aCtx.rEngine.PushString('DocView');
+ inherited;
 end;//Tkw_SynchroView_Control_DocView_Push.DoDoIt
 
 class function Tkw_SynchroView_Control_DocView_Push.GetWordNameForRegister: AnsiString;

@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , BaseChat_Module
- , vtPanel
- {$If Defined(Nemesis)}
- , nscContextFilter
- {$IfEnd} // Defined(Nemesis)
- , eeTreeView
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ContactList_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , eeTreeView
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -226,12 +226,9 @@ begin
 end;//Tkw_ContactList_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_ContactList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_11C6DB268592_var*
-//#UC END# *4DAEEDE10285_11C6DB268592_var*
 begin
-//#UC START# *4DAEEDE10285_11C6DB268592_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_11C6DB268592_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_ContactList_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_ContactList_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -256,12 +253,9 @@ begin
 end;//Tkw_ContactList_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_ContactList_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AF9DFB9A52B5_var*
-//#UC END# *4DAEEDE10285_AF9DFB9A52B5_var*
 begin
-//#UC START# *4DAEEDE10285_AF9DFB9A52B5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AF9DFB9A52B5_impl*
+ aCtx.rEngine.PushString('ContextFilter');
+ inherited;
 end;//Tkw_ContactList_Control_ContextFilter_Push.DoDoIt
 
 class function Tkw_ContactList_Control_ContextFilter_Push.GetWordNameForRegister: AnsiString;
@@ -286,12 +280,9 @@ begin
 end;//Tkw_ContactList_Control_trContactList.RegisterInEngine
 
 procedure Tkw_ContactList_Control_trContactList_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_89EEF1E5433F_var*
-//#UC END# *4DAEEDE10285_89EEF1E5433F_var*
 begin
-//#UC START# *4DAEEDE10285_89EEF1E5433F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_89EEF1E5433F_impl*
+ aCtx.rEngine.PushString('trContactList');
+ inherited;
 end;//Tkw_ContactList_Control_trContactList_Push.DoDoIt
 
 class function Tkw_ContactList_Control_trContactList_Push.GetWordNameForRegister: AnsiString;

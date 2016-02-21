@@ -10,9 +10,6 @@ interface
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
- {$If Defined(Nemesis)}
- , nscTasksPanelView
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -21,6 +18,9 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ {$If Defined(Nemesis)}
+ , nscTasksPanelView
+ {$IfEnd} // Defined(Nemesis)
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo

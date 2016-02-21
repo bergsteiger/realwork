@@ -10,8 +10,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , vtComboTree
- , l3TreeInterfaces
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,6 +18,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , vtComboTree
+ , l3TreeInterfaces
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo

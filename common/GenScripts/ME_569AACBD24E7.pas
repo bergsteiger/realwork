@@ -11,14 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Diction_Module
- , vtProportionalPanel
- , vtSizeablePanel
- , vtPanel
- , vtLabel
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -27,6 +19,14 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , DictionContainer_Form
+ , vtProportionalPanel
+ , vtSizeablePanel
+ , vtPanel
+ , vtLabel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -473,12 +473,9 @@ begin
 end;//Tkw_DictionContainer_Control_pnBackground.RegisterInEngine
 
 procedure Tkw_DictionContainer_Control_pnBackground_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8549E87000FA_var*
-//#UC END# *4DAEEDE10285_8549E87000FA_var*
 begin
-//#UC START# *4DAEEDE10285_8549E87000FA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8549E87000FA_impl*
+ aCtx.rEngine.PushString('pnBackground');
+ inherited;
 end;//Tkw_DictionContainer_Control_pnBackground_Push.DoDoIt
 
 class function Tkw_DictionContainer_Control_pnBackground_Push.GetWordNameForRegister: AnsiString;
@@ -503,12 +500,9 @@ begin
 end;//Tkw_DictionContainer_Control_NavigatorZone.RegisterInEngine
 
 procedure Tkw_DictionContainer_Control_NavigatorZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1A0DECEDF2FC_var*
-//#UC END# *4DAEEDE10285_1A0DECEDF2FC_var*
 begin
-//#UC START# *4DAEEDE10285_1A0DECEDF2FC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1A0DECEDF2FC_impl*
+ aCtx.rEngine.PushString('NavigatorZone');
+ inherited;
 end;//Tkw_DictionContainer_Control_NavigatorZone_Push.DoDoIt
 
 class function Tkw_DictionContainer_Control_NavigatorZone_Push.GetWordNameForRegister: AnsiString;
@@ -533,12 +527,9 @@ begin
 end;//Tkw_DictionContainer_Control_pnWorkArea.RegisterInEngine
 
 procedure Tkw_DictionContainer_Control_pnWorkArea_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A85B0AA8D5E5_var*
-//#UC END# *4DAEEDE10285_A85B0AA8D5E5_var*
 begin
-//#UC START# *4DAEEDE10285_A85B0AA8D5E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A85B0AA8D5E5_impl*
+ aCtx.rEngine.PushString('pnWorkArea');
+ inherited;
 end;//Tkw_DictionContainer_Control_pnWorkArea_Push.DoDoIt
 
 class function Tkw_DictionContainer_Control_pnWorkArea_Push.GetWordNameForRegister: AnsiString;
@@ -563,12 +554,9 @@ begin
 end;//Tkw_DictionContainer_Control_ChildZone.RegisterInEngine
 
 procedure Tkw_DictionContainer_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_204C48D2F9AA_var*
-//#UC END# *4DAEEDE10285_204C48D2F9AA_var*
 begin
-//#UC START# *4DAEEDE10285_204C48D2F9AA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_204C48D2F9AA_impl*
+ aCtx.rEngine.PushString('ChildZone');
+ inherited;
 end;//Tkw_DictionContainer_Control_ChildZone_Push.DoDoIt
 
 class function Tkw_DictionContainer_Control_ChildZone_Push.GetWordNameForRegister: AnsiString;
@@ -593,12 +581,9 @@ begin
 end;//Tkw_DictionContainer_Control_pnHeader.RegisterInEngine
 
 procedure Tkw_DictionContainer_Control_pnHeader_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F33C85DBBDBA_var*
-//#UC END# *4DAEEDE10285_F33C85DBBDBA_var*
 begin
-//#UC START# *4DAEEDE10285_F33C85DBBDBA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F33C85DBBDBA_impl*
+ aCtx.rEngine.PushString('pnHeader');
+ inherited;
 end;//Tkw_DictionContainer_Control_pnHeader_Push.DoDoIt
 
 class function Tkw_DictionContainer_Control_pnHeader_Push.GetWordNameForRegister: AnsiString;
@@ -623,12 +608,9 @@ begin
 end;//Tkw_DictionContainer_Control_lbHeader.RegisterInEngine
 
 procedure Tkw_DictionContainer_Control_lbHeader_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FEF8B5D3C17D_var*
-//#UC END# *4DAEEDE10285_FEF8B5D3C17D_var*
 begin
-//#UC START# *4DAEEDE10285_FEF8B5D3C17D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FEF8B5D3C17D_impl*
+ aCtx.rEngine.PushString('lbHeader');
+ inherited;
 end;//Tkw_DictionContainer_Control_lbHeader_Push.DoDoIt
 
 class function Tkw_DictionContainer_Control_lbHeader_Push.GetWordNameForRegister: AnsiString;
@@ -653,12 +635,9 @@ begin
 end;//Tkw_DictionContainer_Control_pbHeader.RegisterInEngine
 
 procedure Tkw_DictionContainer_Control_pbHeader_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3C9DDE54E2E5_var*
-//#UC END# *4DAEEDE10285_3C9DDE54E2E5_var*
 begin
-//#UC START# *4DAEEDE10285_3C9DDE54E2E5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3C9DDE54E2E5_impl*
+ aCtx.rEngine.PushString('pbHeader');
+ inherited;
 end;//Tkw_DictionContainer_Control_pbHeader_Push.DoDoIt
 
 class function Tkw_DictionContainer_Control_pbHeader_Push.GetWordNameForRegister: AnsiString;
@@ -683,12 +662,9 @@ begin
 end;//Tkw_DictionContainer_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_DictionContainer_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_900D7D7F4C95_var*
-//#UC END# *4DAEEDE10285_900D7D7F4C95_var*
 begin
-//#UC START# *4DAEEDE10285_900D7D7F4C95_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_900D7D7F4C95_impl*
+ aCtx.rEngine.PushString('ParentZone');
+ inherited;
 end;//Tkw_DictionContainer_Control_ParentZone_Push.DoDoIt
 
 class function Tkw_DictionContainer_Control_ParentZone_Push.GetWordNameForRegister: AnsiString;

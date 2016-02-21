@@ -10,10 +10,6 @@ interface
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
- , vgObject
 ;
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)
 
@@ -22,6 +18,10 @@ implementation
 {$If NOT Defined(NoVGScene) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vgObject
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo

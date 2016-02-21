@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Contents_Form
  , vtPanel
  , vtLister
  , nscTreeViewWithAdapterDragDrop
@@ -21,14 +29,6 @@ uses
  {$If Defined(Nemesis)}
  , nscTasksPanelView
  {$IfEnd} // Defined(Nemesis)
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -426,12 +426,9 @@ begin
 end;//Tkw_Contents_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_Contents_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A6DCC692D7A7_var*
-//#UC END# *4DAEEDE10285_A6DCC692D7A7_var*
 begin
-//#UC START# *4DAEEDE10285_A6DCC692D7A7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A6DCC692D7A7_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_Contents_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_Contents_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -456,12 +453,9 @@ begin
 end;//Tkw_Contents_Control_lstBookmarks.RegisterInEngine
 
 procedure Tkw_Contents_Control_lstBookmarks_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DC2C371B5EC2_var*
-//#UC END# *4DAEEDE10285_DC2C371B5EC2_var*
 begin
-//#UC START# *4DAEEDE10285_DC2C371B5EC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DC2C371B5EC2_impl*
+ aCtx.rEngine.PushString('lstBookmarks');
+ inherited;
 end;//Tkw_Contents_Control_lstBookmarks_Push.DoDoIt
 
 class function Tkw_Contents_Control_lstBookmarks_Push.GetWordNameForRegister: AnsiString;
@@ -486,12 +480,9 @@ begin
 end;//Tkw_Contents_Control_lstComments.RegisterInEngine
 
 procedure Tkw_Contents_Control_lstComments_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4B60A82AAB7C_var*
-//#UC END# *4DAEEDE10285_4B60A82AAB7C_var*
 begin
-//#UC START# *4DAEEDE10285_4B60A82AAB7C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4B60A82AAB7C_impl*
+ aCtx.rEngine.PushString('lstComments');
+ inherited;
 end;//Tkw_Contents_Control_lstComments_Push.DoDoIt
 
 class function Tkw_Contents_Control_lstComments_Push.GetWordNameForRegister: AnsiString;
@@ -516,12 +507,9 @@ begin
 end;//Tkw_Contents_Control_lstExternalObjects.RegisterInEngine
 
 procedure Tkw_Contents_Control_lstExternalObjects_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BCDC18D563E6_var*
-//#UC END# *4DAEEDE10285_BCDC18D563E6_var*
 begin
-//#UC START# *4DAEEDE10285_BCDC18D563E6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BCDC18D563E6_impl*
+ aCtx.rEngine.PushString('lstExternalObjects');
+ inherited;
 end;//Tkw_Contents_Control_lstExternalObjects_Push.DoDoIt
 
 class function Tkw_Contents_Control_lstExternalObjects_Push.GetWordNameForRegister: AnsiString;
@@ -546,12 +534,9 @@ begin
 end;//Tkw_Contents_Control_ContentsTree.RegisterInEngine
 
 procedure Tkw_Contents_Control_ContentsTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CEF92672CF37_var*
-//#UC END# *4DAEEDE10285_CEF92672CF37_var*
 begin
-//#UC START# *4DAEEDE10285_CEF92672CF37_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CEF92672CF37_impl*
+ aCtx.rEngine.PushString('ContentsTree');
+ inherited;
 end;//Tkw_Contents_Control_ContentsTree_Push.DoDoIt
 
 class function Tkw_Contents_Control_ContentsTree_Push.GetWordNameForRegister: AnsiString;
@@ -576,12 +561,9 @@ begin
 end;//Tkw_Contents_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_Contents_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9C078DD36879_var*
-//#UC END# *4DAEEDE10285_9C078DD36879_var*
 begin
-//#UC START# *4DAEEDE10285_9C078DD36879_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9C078DD36879_impl*
+ aCtx.rEngine.PushString('ContextFilter');
+ inherited;
 end;//Tkw_Contents_Control_ContextFilter_Push.DoDoIt
 
 class function Tkw_Contents_Control_ContextFilter_Push.GetWordNameForRegister: AnsiString;
@@ -606,12 +588,9 @@ begin
 end;//Tkw_Contents_Control_Tasks.RegisterInEngine
 
 procedure Tkw_Contents_Control_Tasks_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B74BD809B3F5_var*
-//#UC END# *4DAEEDE10285_B74BD809B3F5_var*
 begin
-//#UC START# *4DAEEDE10285_B74BD809B3F5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B74BD809B3F5_impl*
+ aCtx.rEngine.PushString('Tasks');
+ inherited;
 end;//Tkw_Contents_Control_Tasks_Push.DoDoIt
 
 class function Tkw_Contents_Control_Tasks_Push.GetWordNameForRegister: AnsiString;

@@ -11,13 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Search_Module
- , vtPanel
- {$If Defined(Nemesis)}
- , nscContextFilter
- {$IfEnd} // Defined(Nemesis)
- , vtProportionalPanel
- , vtSizeablePanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -26,6 +19,13 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , OldSituationSearch_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , vtProportionalPanel
+ , vtSizeablePanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -472,12 +472,9 @@ begin
 end;//Tkw_OldSituationSearch_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_OldSituationSearch_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_76B4108B65DF_var*
-//#UC END# *4DAEEDE10285_76B4108B65DF_var*
 begin
-//#UC START# *4DAEEDE10285_76B4108B65DF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_76B4108B65DF_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_OldSituationSearch_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_OldSituationSearch_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -502,12 +499,9 @@ begin
 end;//Tkw_OldSituationSearch_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_OldSituationSearch_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FF019C96AEA7_var*
-//#UC END# *4DAEEDE10285_FF019C96AEA7_var*
 begin
-//#UC START# *4DAEEDE10285_FF019C96AEA7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FF019C96AEA7_impl*
+ aCtx.rEngine.PushString('ContextFilter');
+ inherited;
 end;//Tkw_OldSituationSearch_Control_ContextFilter_Push.DoDoIt
 
 class function Tkw_OldSituationSearch_Control_ContextFilter_Push.GetWordNameForRegister: AnsiString;
@@ -532,12 +526,9 @@ begin
 end;//Tkw_OldSituationSearch_Control_InnerBackgroundPanel.RegisterInEngine
 
 procedure Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2D9C2652E1B6_var*
-//#UC END# *4DAEEDE10285_2D9C2652E1B6_var*
 begin
-//#UC START# *4DAEEDE10285_2D9C2652E1B6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2D9C2652E1B6_impl*
+ aCtx.rEngine.PushString('InnerBackgroundPanel');
+ inherited;
 end;//Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push.DoDoIt
 
 class function Tkw_OldSituationSearch_Control_InnerBackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -562,12 +553,9 @@ begin
 end;//Tkw_OldSituationSearch_Control_BotomPanel.RegisterInEngine
 
 procedure Tkw_OldSituationSearch_Control_BotomPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5F0F569DDD28_var*
-//#UC END# *4DAEEDE10285_5F0F569DDD28_var*
 begin
-//#UC START# *4DAEEDE10285_5F0F569DDD28_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5F0F569DDD28_impl*
+ aCtx.rEngine.PushString('BotomPanel');
+ inherited;
 end;//Tkw_OldSituationSearch_Control_BotomPanel_Push.DoDoIt
 
 class function Tkw_OldSituationSearch_Control_BotomPanel_Push.GetWordNameForRegister: AnsiString;
@@ -592,12 +580,9 @@ begin
 end;//Tkw_OldSituationSearch_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_OldSituationSearch_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C352884AFBA6_var*
-//#UC END# *4DAEEDE10285_C352884AFBA6_var*
 begin
-//#UC START# *4DAEEDE10285_C352884AFBA6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C352884AFBA6_impl*
+ aCtx.rEngine.PushString('ParentZone');
+ inherited;
 end;//Tkw_OldSituationSearch_Control_ParentZone_Push.DoDoIt
 
 class function Tkw_OldSituationSearch_Control_ParentZone_Push.GetWordNameForRegister: AnsiString;
@@ -622,12 +607,9 @@ begin
 end;//Tkw_OldSituationSearch_Control_ZoneContainer.RegisterInEngine
 
 procedure Tkw_OldSituationSearch_Control_ZoneContainer_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1B1D66E28628_var*
-//#UC END# *4DAEEDE10285_1B1D66E28628_var*
 begin
-//#UC START# *4DAEEDE10285_1B1D66E28628_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1B1D66E28628_impl*
+ aCtx.rEngine.PushString('ZoneContainer');
+ inherited;
 end;//Tkw_OldSituationSearch_Control_ZoneContainer_Push.DoDoIt
 
 class function Tkw_OldSituationSearch_Control_ZoneContainer_Push.GetWordNameForRegister: AnsiString;
@@ -652,12 +634,9 @@ begin
 end;//Tkw_OldSituationSearch_Control_ChildZone.RegisterInEngine
 
 procedure Tkw_OldSituationSearch_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B3B6FFAE5AF8_var*
-//#UC END# *4DAEEDE10285_B3B6FFAE5AF8_var*
 begin
-//#UC START# *4DAEEDE10285_B3B6FFAE5AF8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B3B6FFAE5AF8_impl*
+ aCtx.rEngine.PushString('ChildZone');
+ inherited;
 end;//Tkw_OldSituationSearch_Control_ChildZone_Push.DoDoIt
 
 class function Tkw_OldSituationSearch_Control_ChildZone_Push.GetWordNameForRegister: AnsiString;
@@ -682,12 +661,9 @@ begin
 end;//Tkw_OldSituationSearch_Control_MainZone.RegisterInEngine
 
 procedure Tkw_OldSituationSearch_Control_MainZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B98A4E1F0302_var*
-//#UC END# *4DAEEDE10285_B98A4E1F0302_var*
 begin
-//#UC START# *4DAEEDE10285_B98A4E1F0302_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B98A4E1F0302_impl*
+ aCtx.rEngine.PushString('MainZone');
+ inherited;
 end;//Tkw_OldSituationSearch_Control_MainZone_Push.DoDoIt
 
 class function Tkw_OldSituationSearch_Control_MainZone_Push.GetWordNameForRegister: AnsiString;

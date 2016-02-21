@@ -11,9 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , List_Module
- , vtPanel
- , eeTreeView
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -22,6 +19,9 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ListAnalizer_Form
+ , vtPanel
+ , eeTreeView
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -174,12 +174,9 @@ begin
 end;//Tkw_ListAnalizer_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_ListAnalizer_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E7082178026E_var*
-//#UC END# *4DAEEDE10285_E7082178026E_var*
 begin
-//#UC START# *4DAEEDE10285_E7082178026E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E7082178026E_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_ListAnalizer_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_ListAnalizer_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -204,12 +201,9 @@ begin
 end;//Tkw_ListAnalizer_Control_ListTree.RegisterInEngine
 
 procedure Tkw_ListAnalizer_Control_ListTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_23BB0B8843DD_var*
-//#UC END# *4DAEEDE10285_23BB0B8843DD_var*
 begin
-//#UC START# *4DAEEDE10285_23BB0B8843DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_23BB0B8843DD_impl*
+ aCtx.rEngine.PushString('ListTree');
+ inherited;
 end;//Tkw_ListAnalizer_Control_ListTree_Push.DoDoIt
 
 class function Tkw_ListAnalizer_Control_ListTree_Push.GetWordNameForRegister: AnsiString;

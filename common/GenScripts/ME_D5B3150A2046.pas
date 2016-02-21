@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , BaseEditions_Module
- , vtProportionalPanel
- , vtSizeablePanel
- , vtPanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , EditionsContainer_Form
+ , vtProportionalPanel
+ , vtSizeablePanel
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -224,12 +224,9 @@ begin
 end;//Tkw_EditionsContainer_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_EditionsContainer_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D5FE5D3474DD_var*
-//#UC END# *4DAEEDE10285_D5FE5D3474DD_var*
 begin
-//#UC START# *4DAEEDE10285_D5FE5D3474DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D5FE5D3474DD_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_EditionsContainer_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_EditionsContainer_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -254,12 +251,9 @@ begin
 end;//Tkw_EditionsContainer_Control_pnLeft.RegisterInEngine
 
 procedure Tkw_EditionsContainer_Control_pnLeft_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1A3FAB16A745_var*
-//#UC END# *4DAEEDE10285_1A3FAB16A745_var*
 begin
-//#UC START# *4DAEEDE10285_1A3FAB16A745_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1A3FAB16A745_impl*
+ aCtx.rEngine.PushString('pnLeft');
+ inherited;
 end;//Tkw_EditionsContainer_Control_pnLeft_Push.DoDoIt
 
 class function Tkw_EditionsContainer_Control_pnLeft_Push.GetWordNameForRegister: AnsiString;
@@ -284,12 +278,9 @@ begin
 end;//Tkw_EditionsContainer_Control_pnRight.RegisterInEngine
 
 procedure Tkw_EditionsContainer_Control_pnRight_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2482D3157379_var*
-//#UC END# *4DAEEDE10285_2482D3157379_var*
 begin
-//#UC START# *4DAEEDE10285_2482D3157379_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2482D3157379_impl*
+ aCtx.rEngine.PushString('pnRight');
+ inherited;
 end;//Tkw_EditionsContainer_Control_pnRight_Push.DoDoIt
 
 class function Tkw_EditionsContainer_Control_pnRight_Push.GetWordNameForRegister: AnsiString;

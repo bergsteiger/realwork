@@ -10,9 +10,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- {$If NOT Defined(NoFlash)}
- , vtShockwaveFlashEx
- {$IfEnd} // NOT Defined(NoFlash)
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -21,6 +18,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoFlash)}
+ , vtShockwaveFlashEx
+ {$IfEnd} // NOT Defined(NoFlash)
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo

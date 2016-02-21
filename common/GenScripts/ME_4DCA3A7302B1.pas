@@ -107,6 +107,7 @@ uses
  , RTFtypes
  , ddCellProperty
  , k2Tags
+ , ddTypes
  , nevTools
  , l3Filer
  , l3Stream

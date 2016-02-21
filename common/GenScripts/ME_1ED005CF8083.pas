@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimFolders_Module
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , FoldersTree_Form
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_FoldersTree_Control_FoldersTree.RegisterInEngine
 
 procedure Tkw_FoldersTree_Control_FoldersTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EF0DEE51AEA8_var*
-//#UC END# *4DAEEDE10285_EF0DEE51AEA8_var*
 begin
-//#UC START# *4DAEEDE10285_EF0DEE51AEA8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EF0DEE51AEA8_impl*
+ aCtx.rEngine.PushString('FoldersTree');
+ inherited;
 end;//Tkw_FoldersTree_Control_FoldersTree_Push.DoDoIt
 
 class function Tkw_FoldersTree_Control_FoldersTree_Push.GetWordNameForRegister: AnsiString;

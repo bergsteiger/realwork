@@ -10,11 +10,10 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , tfwScriptingInterfaces
- , l3Interfaces
  , kwCompiledVar
  , kwCompiledWordPrim
  , tfwTypeInfo
+ , tfwScriptingInterfaces
 ;
 
 type
@@ -53,6 +52,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , l3Interfaces
  , tfwClassLike
  , TypInfo
  , tfwPropertyLike

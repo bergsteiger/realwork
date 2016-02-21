@@ -1,0 +1,64 @@
+unit TurnOnTimeMachine_Form;
+ {* Включить Машину времени }
+
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachine_Form.pas"
+// Стереотип: "VCMFinalForm"
+
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
+
+interface
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3IntfUses
+ , PrimTurnOnTimeMachineOptions_Form
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
+
+const
+ fm_en_TurnOnTimeMachine: TvcmFormDescriptor = (rFormID : (rName : 'en_TurnOnTimeMachine'; rID : 0); rFactory : nil);
+  {* Идентификатор формы Ten_TurnOnTimeMachine }
+
+type
+ TurnOnTimeMachineFormDef = interface
+  {* Идентификатор формы TurnOnTimeMachine }
+  ['{A410D5AE-D083-4A07-A820-B7E6DCB07A55}']
+ end;//TurnOnTimeMachineFormDef
+
+ Ten_TurnOnTimeMachine = {final} class(TPrimTurnOnTimeMachineOptionsForm, TurnOnTimeMachineFormDef)
+  {* Включить Машину времени }
+ end;//Ten_TurnOnTimeMachine
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
+uses
+ l3ImplUses
+ , l3StringIDEx
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , TurnOnTimeMachineKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
+
+const
+ {* Локализуемые строки ut_TurnOnTimeMachineLocalConstants }
+ str_ut_TurnOnTimeMachineCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_TurnOnTimeMachineCaption'; rValue : 'Включить Машину времени');
+  {* Заголовок пользовательского типа "Включить Машину времени" }
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwClassRef.Register(Ten_TurnOnTimeMachine);
+ {* Регистрация TurnOnTimeMachine }
+{$IfEnd} // NOT Defined(NoScripts)
+ str_ut_TurnOnTimeMachineCaption.Init;
+ {* Инициализация str_ut_TurnOnTimeMachineCaption }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
+
+end.

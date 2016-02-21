@@ -10,10 +10,6 @@ interface
 {$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , nscStatusBar
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)
 
@@ -22,6 +18,10 @@ implementation
 {$If Defined(Nemesis) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , nscStatusBar
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , tfwAxiomaticsResNameGetter
  , tfwClassLike
  , tfwScriptingInterfaces

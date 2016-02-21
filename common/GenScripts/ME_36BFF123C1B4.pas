@@ -11,11 +11,6 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Admin_Module
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
- , vtLabel
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -24,6 +19,11 @@ implementation
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , GroupProperty_Form
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtLabel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -176,12 +176,9 @@ begin
 end;//Tkw_GroupProperty_Control_edName.RegisterInEngine
 
 procedure Tkw_GroupProperty_Control_edName_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CB2BEA77BADC_var*
-//#UC END# *4DAEEDE10285_CB2BEA77BADC_var*
 begin
-//#UC START# *4DAEEDE10285_CB2BEA77BADC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CB2BEA77BADC_impl*
+ aCtx.rEngine.PushString('edName');
+ inherited;
 end;//Tkw_GroupProperty_Control_edName_Push.DoDoIt
 
 class function Tkw_GroupProperty_Control_edName_Push.GetWordNameForRegister: AnsiString;
@@ -206,12 +203,9 @@ begin
 end;//Tkw_GroupProperty_Control_Label1.RegisterInEngine
 
 procedure Tkw_GroupProperty_Control_Label1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FFA6B00B1564_var*
-//#UC END# *4DAEEDE10285_FFA6B00B1564_var*
 begin
-//#UC START# *4DAEEDE10285_FFA6B00B1564_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FFA6B00B1564_impl*
+ aCtx.rEngine.PushString('Label1');
+ inherited;
 end;//Tkw_GroupProperty_Control_Label1_Push.DoDoIt
 
 class function Tkw_GroupProperty_Control_Label1_Push.GetWordNameForRegister: AnsiString;

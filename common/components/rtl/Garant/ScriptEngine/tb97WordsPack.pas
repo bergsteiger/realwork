@@ -10,7 +10,6 @@ interface
 {$If NOT Defined(NoScripts) AND NOT Defined(NoTB97)}
 uses
  l3IntfUses
- , tb97Ctls
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoTB97)
 
@@ -19,6 +18,7 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoTB97)}
 uses
  l3ImplUses
+ , tb97Ctls
  , tfwPropertyLike
  , tfwScriptingInterfaces
  , tfwTypeInfo

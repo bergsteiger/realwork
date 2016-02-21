@@ -11,13 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , BaseChat_Module
- , vtProportionalPanel
- , vtSizeablePanel
- {$If Defined(Nemesis)}
- , nscChatMemo
- {$IfEnd} // Defined(Nemesis)
- , vtPanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -26,6 +19,13 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ChatWindow_Form
+ , vtProportionalPanel
+ , vtSizeablePanel
+ {$If Defined(Nemesis)}
+ , nscChatMemo
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -325,12 +325,9 @@ begin
 end;//Tkw_ChatWindow_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_ChatWindow_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_33101E96BE4D_var*
-//#UC END# *4DAEEDE10285_33101E96BE4D_var*
 begin
-//#UC START# *4DAEEDE10285_33101E96BE4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_33101E96BE4D_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_ChatWindow_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_ChatWindow_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -355,12 +352,9 @@ begin
 end;//Tkw_ChatWindow_Control_BottomPanel.RegisterInEngine
 
 procedure Tkw_ChatWindow_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5B68C8EDDA53_var*
-//#UC END# *4DAEEDE10285_5B68C8EDDA53_var*
 begin
-//#UC START# *4DAEEDE10285_5B68C8EDDA53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5B68C8EDDA53_impl*
+ aCtx.rEngine.PushString('BottomPanel');
+ inherited;
 end;//Tkw_ChatWindow_Control_BottomPanel_Push.DoDoIt
 
 class function Tkw_ChatWindow_Control_BottomPanel_Push.GetWordNameForRegister: AnsiString;
@@ -385,12 +379,9 @@ begin
 end;//Tkw_ChatWindow_Control_BottomEditor.RegisterInEngine
 
 procedure Tkw_ChatWindow_Control_BottomEditor_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_630DFB965025_var*
-//#UC END# *4DAEEDE10285_630DFB965025_var*
 begin
-//#UC START# *4DAEEDE10285_630DFB965025_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_630DFB965025_impl*
+ aCtx.rEngine.PushString('BottomEditor');
+ inherited;
 end;//Tkw_ChatWindow_Control_BottomEditor_Push.DoDoIt
 
 class function Tkw_ChatWindow_Control_BottomEditor_Push.GetWordNameForRegister: AnsiString;
@@ -415,12 +406,9 @@ begin
 end;//Tkw_ChatWindow_Control_TopPanel.RegisterInEngine
 
 procedure Tkw_ChatWindow_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B0CB3AF1B442_var*
-//#UC END# *4DAEEDE10285_B0CB3AF1B442_var*
 begin
-//#UC START# *4DAEEDE10285_B0CB3AF1B442_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B0CB3AF1B442_impl*
+ aCtx.rEngine.PushString('TopPanel');
+ inherited;
 end;//Tkw_ChatWindow_Control_TopPanel_Push.DoDoIt
 
 class function Tkw_ChatWindow_Control_TopPanel_Push.GetWordNameForRegister: AnsiString;
@@ -445,12 +433,9 @@ begin
 end;//Tkw_ChatWindow_Control_HistoryEditor.RegisterInEngine
 
 procedure Tkw_ChatWindow_Control_HistoryEditor_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0F36F099F236_var*
-//#UC END# *4DAEEDE10285_0F36F099F236_var*
 begin
-//#UC START# *4DAEEDE10285_0F36F099F236_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0F36F099F236_impl*
+ aCtx.rEngine.PushString('HistoryEditor');
+ inherited;
 end;//Tkw_ChatWindow_Control_HistoryEditor_Push.DoDoIt
 
 class function Tkw_ChatWindow_Control_HistoryEditor_Push.GetWordNameForRegister: AnsiString;

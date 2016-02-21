@@ -11,14 +11,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimCommon_Module
- , vtPanel
- , vtLabel
- , vtGradientWaitbar
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtButton
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -27,6 +19,14 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , LongProcess_Form
+ , vtPanel
+ , vtLabel
+ , vtGradientWaitbar
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtButton
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -473,12 +473,9 @@ begin
 end;//Tkw_LongProcess_Control_ClientPanel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_ClientPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8A095E715C45_var*
-//#UC END# *4DAEEDE10285_8A095E715C45_var*
 begin
-//#UC START# *4DAEEDE10285_8A095E715C45_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8A095E715C45_impl*
+ aCtx.rEngine.PushString('ClientPanel');
+ inherited;
 end;//Tkw_LongProcess_Control_ClientPanel_Push.DoDoIt
 
 class function Tkw_LongProcess_Control_ClientPanel_Push.GetWordNameForRegister: AnsiString;
@@ -503,12 +500,9 @@ begin
 end;//Tkw_LongProcess_Control_MessageLabel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_MessageLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BB38FEFB196C_var*
-//#UC END# *4DAEEDE10285_BB38FEFB196C_var*
 begin
-//#UC START# *4DAEEDE10285_BB38FEFB196C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BB38FEFB196C_impl*
+ aCtx.rEngine.PushString('MessageLabel');
+ inherited;
 end;//Tkw_LongProcess_Control_MessageLabel_Push.DoDoIt
 
 class function Tkw_LongProcess_Control_MessageLabel_Push.GetWordNameForRegister: AnsiString;
@@ -533,12 +527,9 @@ begin
 end;//Tkw_LongProcess_Control_BottomPanel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_73A2CC14762E_var*
-//#UC END# *4DAEEDE10285_73A2CC14762E_var*
 begin
-//#UC START# *4DAEEDE10285_73A2CC14762E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_73A2CC14762E_impl*
+ aCtx.rEngine.PushString('BottomPanel');
+ inherited;
 end;//Tkw_LongProcess_Control_BottomPanel_Push.DoDoIt
 
 class function Tkw_LongProcess_Control_BottomPanel_Push.GetWordNameForRegister: AnsiString;
@@ -563,12 +554,9 @@ begin
 end;//Tkw_LongProcess_Control_ProgressBar.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_ProgressBar_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FECE38307A18_var*
-//#UC END# *4DAEEDE10285_FECE38307A18_var*
 begin
-//#UC START# *4DAEEDE10285_FECE38307A18_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FECE38307A18_impl*
+ aCtx.rEngine.PushString('ProgressBar');
+ inherited;
 end;//Tkw_LongProcess_Control_ProgressBar_Push.DoDoIt
 
 class function Tkw_LongProcess_Control_ProgressBar_Push.GetWordNameForRegister: AnsiString;
@@ -593,12 +581,9 @@ begin
 end;//Tkw_LongProcess_Control_LeftPanel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_LeftPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4FF3E57F14F3_var*
-//#UC END# *4DAEEDE10285_4FF3E57F14F3_var*
 begin
-//#UC START# *4DAEEDE10285_4FF3E57F14F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4FF3E57F14F3_impl*
+ aCtx.rEngine.PushString('LeftPanel');
+ inherited;
 end;//Tkw_LongProcess_Control_LeftPanel_Push.DoDoIt
 
 class function Tkw_LongProcess_Control_LeftPanel_Push.GetWordNameForRegister: AnsiString;
@@ -623,12 +608,9 @@ begin
 end;//Tkw_LongProcess_Control_Image.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_Image_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C215319A5871_var*
-//#UC END# *4DAEEDE10285_C215319A5871_var*
 begin
-//#UC START# *4DAEEDE10285_C215319A5871_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C215319A5871_impl*
+ aCtx.rEngine.PushString('Image');
+ inherited;
 end;//Tkw_LongProcess_Control_Image_Push.DoDoIt
 
 class function Tkw_LongProcess_Control_Image_Push.GetWordNameForRegister: AnsiString;
@@ -653,12 +635,9 @@ begin
 end;//Tkw_LongProcess_Control_ButtonPanel.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_ButtonPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_545230A3EEC9_var*
-//#UC END# *4DAEEDE10285_545230A3EEC9_var*
 begin
-//#UC START# *4DAEEDE10285_545230A3EEC9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_545230A3EEC9_impl*
+ aCtx.rEngine.PushString('ButtonPanel');
+ inherited;
 end;//Tkw_LongProcess_Control_ButtonPanel_Push.DoDoIt
 
 class function Tkw_LongProcess_Control_ButtonPanel_Push.GetWordNameForRegister: AnsiString;
@@ -683,12 +662,9 @@ begin
 end;//Tkw_LongProcess_Control_btnExit.RegisterInEngine
 
 procedure Tkw_LongProcess_Control_btnExit_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E7E0F6C9E87A_var*
-//#UC END# *4DAEEDE10285_E7E0F6C9E87A_var*
 begin
-//#UC START# *4DAEEDE10285_E7E0F6C9E87A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E7E0F6C9E87A_impl*
+ aCtx.rEngine.PushString('btnExit');
+ inherited;
 end;//Tkw_LongProcess_Control_btnExit_Push.DoDoIt
 
 class function Tkw_LongProcess_Control_btnExit_Push.GetWordNameForRegister: AnsiString;

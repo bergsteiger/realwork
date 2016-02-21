@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , BaseEditions_Module
- , vtPanel
- , vtFocusLabel
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- {$If Defined(Nemesis)}
- , nscEditor
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -28,6 +19,15 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , LeftEdition_Form
+ , vtPanel
+ , vtFocusLabel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -418,12 +418,9 @@ begin
 end;//Tkw_LeftEdition_Control_Header.RegisterInEngine
 
 procedure Tkw_LeftEdition_Control_Header_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_59773F4EFA4D_var*
-//#UC END# *4DAEEDE10285_59773F4EFA4D_var*
 begin
-//#UC START# *4DAEEDE10285_59773F4EFA4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_59773F4EFA4D_impl*
+ aCtx.rEngine.PushString('Header');
+ inherited;
 end;//Tkw_LeftEdition_Control_Header_Push.DoDoIt
 
 class function Tkw_LeftEdition_Control_Header_Push.GetWordNameForRegister: AnsiString;
@@ -448,12 +445,9 @@ begin
 end;//Tkw_LeftEdition_Control_pnLeft.RegisterInEngine
 
 procedure Tkw_LeftEdition_Control_pnLeft_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CB7BEFDBF522_var*
-//#UC END# *4DAEEDE10285_CB7BEFDBF522_var*
 begin
-//#UC START# *4DAEEDE10285_CB7BEFDBF522_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CB7BEFDBF522_impl*
+ aCtx.rEngine.PushString('pnLeft');
+ inherited;
 end;//Tkw_LeftEdition_Control_pnLeft_Push.DoDoIt
 
 class function Tkw_LeftEdition_Control_pnLeft_Push.GetWordNameForRegister: AnsiString;
@@ -478,12 +472,9 @@ begin
 end;//Tkw_LeftEdition_Control_EditionLink.RegisterInEngine
 
 procedure Tkw_LeftEdition_Control_EditionLink_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6C806A6EC517_var*
-//#UC END# *4DAEEDE10285_6C806A6EC517_var*
 begin
-//#UC START# *4DAEEDE10285_6C806A6EC517_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6C806A6EC517_impl*
+ aCtx.rEngine.PushString('EditionLink');
+ inherited;
 end;//Tkw_LeftEdition_Control_EditionLink_Push.DoDoIt
 
 class function Tkw_LeftEdition_Control_EditionLink_Push.GetWordNameForRegister: AnsiString;
@@ -508,12 +499,9 @@ begin
 end;//Tkw_LeftEdition_Control_pbIcon.RegisterInEngine
 
 procedure Tkw_LeftEdition_Control_pbIcon_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_279784090AE0_var*
-//#UC END# *4DAEEDE10285_279784090AE0_var*
 begin
-//#UC START# *4DAEEDE10285_279784090AE0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_279784090AE0_impl*
+ aCtx.rEngine.PushString('pbIcon');
+ inherited;
 end;//Tkw_LeftEdition_Control_pbIcon_Push.DoDoIt
 
 class function Tkw_LeftEdition_Control_pbIcon_Push.GetWordNameForRegister: AnsiString;
@@ -538,12 +526,9 @@ begin
 end;//Tkw_LeftEdition_Control_pnCaption.RegisterInEngine
 
 procedure Tkw_LeftEdition_Control_pnCaption_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_646256617EFD_var*
-//#UC END# *4DAEEDE10285_646256617EFD_var*
 begin
-//#UC START# *4DAEEDE10285_646256617EFD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_646256617EFD_impl*
+ aCtx.rEngine.PushString('pnCaption');
+ inherited;
 end;//Tkw_LeftEdition_Control_pnCaption_Push.DoDoIt
 
 class function Tkw_LeftEdition_Control_pnCaption_Push.GetWordNameForRegister: AnsiString;
@@ -568,12 +553,9 @@ begin
 end;//Tkw_LeftEdition_Control_EditionChoose.RegisterInEngine
 
 procedure Tkw_LeftEdition_Control_EditionChoose_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CB34B6592D45_var*
-//#UC END# *4DAEEDE10285_CB34B6592D45_var*
 begin
-//#UC START# *4DAEEDE10285_CB34B6592D45_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CB34B6592D45_impl*
+ aCtx.rEngine.PushString('EditionChoose');
+ inherited;
 end;//Tkw_LeftEdition_Control_EditionChoose_Push.DoDoIt
 
 class function Tkw_LeftEdition_Control_EditionChoose_Push.GetWordNameForRegister: AnsiString;
@@ -598,12 +580,9 @@ begin
 end;//Tkw_LeftEdition_Control_Text.RegisterInEngine
 
 procedure Tkw_LeftEdition_Control_Text_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B41D8E3EF18D_var*
-//#UC END# *4DAEEDE10285_B41D8E3EF18D_var*
 begin
-//#UC START# *4DAEEDE10285_B41D8E3EF18D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B41D8E3EF18D_impl*
+ aCtx.rEngine.PushString('Text');
+ inherited;
 end;//Tkw_LeftEdition_Control_Text_Push.DoDoIt
 
 class function Tkw_LeftEdition_Control_Text_Push.GetWordNameForRegister: AnsiString;

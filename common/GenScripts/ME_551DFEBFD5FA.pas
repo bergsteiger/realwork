@@ -11,12 +11,6 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Admin_Module
- , vtPanel
- {$If Defined(Nemesis)}
- , nscContextFilter
- {$IfEnd} // Defined(Nemesis)
- , eeTreeView
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , UserList_Form
+ , vtPanel
+ {$If Defined(Nemesis)}
+ , nscContextFilter
+ {$IfEnd} // Defined(Nemesis)
+ , eeTreeView
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -226,12 +226,9 @@ begin
 end;//Tkw_UserList_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_UserList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D43B5AB3BD3E_var*
-//#UC END# *4DAEEDE10285_D43B5AB3BD3E_var*
 begin
-//#UC START# *4DAEEDE10285_D43B5AB3BD3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D43B5AB3BD3E_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_UserList_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_UserList_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -256,12 +253,9 @@ begin
 end;//Tkw_UserList_Control_ContextFilter.RegisterInEngine
 
 procedure Tkw_UserList_Control_ContextFilter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_294600AAB9A4_var*
-//#UC END# *4DAEEDE10285_294600AAB9A4_var*
 begin
-//#UC START# *4DAEEDE10285_294600AAB9A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_294600AAB9A4_impl*
+ aCtx.rEngine.PushString('ContextFilter');
+ inherited;
 end;//Tkw_UserList_Control_ContextFilter_Push.DoDoIt
 
 class function Tkw_UserList_Control_ContextFilter_Push.GetWordNameForRegister: AnsiString;
@@ -286,12 +280,9 @@ begin
 end;//Tkw_UserList_Control_trUserList.RegisterInEngine
 
 procedure Tkw_UserList_Control_trUserList_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_97004F7182CA_var*
-//#UC END# *4DAEEDE10285_97004F7182CA_var*
 begin
-//#UC START# *4DAEEDE10285_97004F7182CA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_97004F7182CA_impl*
+ aCtx.rEngine.PushString('trUserList');
+ inherited;
 end;//Tkw_UserList_Control_trUserList_Push.DoDoIt
 
 class function Tkw_UserList_Control_trUserList_Push.GetWordNameForRegister: AnsiString;

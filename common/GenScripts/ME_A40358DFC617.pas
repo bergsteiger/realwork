@@ -11,12 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
- , vtLabel
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
- , vtCheckBox
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , DocNumberQuery_Form
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtCheckBox
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -226,12 +226,9 @@ begin
 end;//Tkw_DocNumberQuery_Control_Label1.RegisterInEngine
 
 procedure Tkw_DocNumberQuery_Control_Label1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8ADA5550299E_var*
-//#UC END# *4DAEEDE10285_8ADA5550299E_var*
 begin
-//#UC START# *4DAEEDE10285_8ADA5550299E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8ADA5550299E_impl*
+ aCtx.rEngine.PushString('Label1');
+ inherited;
 end;//Tkw_DocNumberQuery_Control_Label1_Push.DoDoIt
 
 class function Tkw_DocNumberQuery_Control_Label1_Push.GetWordNameForRegister: AnsiString;
@@ -256,12 +253,9 @@ begin
 end;//Tkw_DocNumberQuery_Control_edNumber.RegisterInEngine
 
 procedure Tkw_DocNumberQuery_Control_edNumber_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B6EA6A6166BA_var*
-//#UC END# *4DAEEDE10285_B6EA6A6166BA_var*
 begin
-//#UC START# *4DAEEDE10285_B6EA6A6166BA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B6EA6A6166BA_impl*
+ aCtx.rEngine.PushString('edNumber');
+ inherited;
 end;//Tkw_DocNumberQuery_Control_edNumber_Push.DoDoIt
 
 class function Tkw_DocNumberQuery_Control_edNumber_Push.GetWordNameForRegister: AnsiString;
@@ -286,12 +280,9 @@ begin
 end;//Tkw_DocNumberQuery_Control_cbInternal.RegisterInEngine
 
 procedure Tkw_DocNumberQuery_Control_cbInternal_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AF8042A2B433_var*
-//#UC END# *4DAEEDE10285_AF8042A2B433_var*
 begin
-//#UC START# *4DAEEDE10285_AF8042A2B433_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AF8042A2B433_impl*
+ aCtx.rEngine.PushString('cbInternal');
+ inherited;
 end;//Tkw_DocNumberQuery_Control_cbInternal_Push.DoDoIt
 
 class function Tkw_DocNumberQuery_Control_cbInternal_Push.GetWordNameForRegister: AnsiString;

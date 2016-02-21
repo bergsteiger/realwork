@@ -15,77 +15,12 @@ uses
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
  , MonitoringUnit
- , PrimNewsLineOptions_Form
- , Common_FormDefinitions_Controls
- {$If NOT Defined(NoVCM)}
- , vcmFormSetFactory
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmFormSetFactoryPrim
- {$IfEnd} // NOT Defined(NoVCM)
  , nsLogEvent
  , l3ProtoObject
  , f1StartupCompletedService
- , DocumentUserTypes_dftAutoreferat_UserType
- , AutoreferatInterfaces
- , DocumentInterfaces
- , bsTypesNew
- , PrimNewsLine_nltMain_UserType
- , DocumentUserTypes_dftAutoreferatAfterSearch_UserType
 ;
 
 type
- TenNewsLine = {final} class(TPrimNewsLineOptionsForm, NewsLineFormDef)
-  {* ПРАЙМ. Моя новостная лента }
- end;//TenNewsLine
-
- // TextForm
-
- // NewsLine
-
- Tfs_Autoreferat = {final} class(TvcmFormSetFactory)
-  protected
-   procedure InitFields; override;
-   {$If NOT Defined(NoVCM)}
-   class function GetInstance: TvcmFormSetFactoryPrim; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-  public
-   function TextForm_Parent_dftAutoreferat_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-    out aNew: IvcmFormDataSource;
-    aSubUserType: TvcmUserType): Boolean;
-    {* Обработчик OnNeedMakeForm для TextForm }
-   function NewsLine_Navigator_nltMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-    out aNew: IvcmFormDataSource;
-    aSubUserType: TvcmUserType): Boolean;
-    {* Обработчик OnNeedMakeForm для NewsLine }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: Tfs_Autoreferat;
-    {* Метод получения экземпляра синглетона Tfs_Autoreferat }
- end;//Tfs_Autoreferat
-
- // TextForm
-
- Tfs_AutoreferatAfterSearch = {final} class(TvcmFormSetFactory)
-  protected
-   procedure InitFields; override;
-   {$If NOT Defined(NoVCM)}
-   class function GetInstance: TvcmFormSetFactoryPrim; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-  public
-   function TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-    out aNew: IvcmFormDataSource;
-    aSubUserType: TvcmUserType): Boolean;
-    {* Обработчик OnNeedMakeForm для TextForm }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: Tfs_AutoreferatAfterSearch;
-    {* Метод получения экземпляра синглетона Tfs_AutoreferatAfterSearch }
- end;//Tfs_AutoreferatAfterSearch
-
  TnsOpenNewsLineEvent = class(TnsLogEvent)
   public
    class procedure Log;
@@ -152,33 +87,13 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , NewsLineKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
+ , LoggingUnit
  , SysUtils
  , l3Base
- , LoggingUnit
 ;
 
-var g_Tfs_Autoreferat: Tfs_Autoreferat = nil;
- {* Экземпляр синглетона Tfs_Autoreferat }
-var g_Tfs_AutoreferatAfterSearch: Tfs_AutoreferatAfterSearch = nil;
- {* Экземпляр синглетона Tfs_AutoreferatAfterSearch }
 var g_Tf1StartupCompletedServiceImpl: Tf1StartupCompletedServiceImpl = nil;
  {* Экземпляр синглетона Tf1StartupCompletedServiceImpl }
-
-const
- {* Локализуемые строки AutoreferatCaptionLocalConstants }
- str_fsAutoreferatCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsAutoreferatCaption'; rValue : '#1044#1086#1082#1091#1084#1077#1085#1090');
-  {* Заголовок фабрики сборки форм "Autoreferat" }
-
-const
- {* Локализуемые строки AutoreferatAfterSearchCaptionLocalConstants }
- str_fsAutoreferatAfterSearchCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsAutoreferatAfterSearchCaption'; rValue : '#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072');
-  {* Заголовок фабрики сборки форм "AutoreferatAfterSearch" }
 
 const
  {* Варианты выбора для диалога StartupInitPrime }
@@ -198,133 +113,11 @@ const
   {* 'В новой версии изменена используемая по умолчанию конфигурация пользовательского интерфейса. Новые настройки упрощают работу с системой, организуя ее более удобным образом.'#13#10 + 
 'Конфигурация, с которой Вы работали раньше, сохранена. Для обращения к ней выберите в разделе командного меню «Файл» пункт «Выбор конфигурации».' }
 
-procedure Tfs_AutoreferatFree;
- {* Метод освобождения экземпляра синглетона Tfs_Autoreferat }
-begin
- l3Free(g_Tfs_Autoreferat);
-end;//Tfs_AutoreferatFree
-
-procedure Tfs_AutoreferatAfterSearchFree;
- {* Метод освобождения экземпляра синглетона Tfs_AutoreferatAfterSearch }
-begin
- l3Free(g_Tfs_AutoreferatAfterSearch);
-end;//Tfs_AutoreferatAfterSearchFree
-
 procedure Tf1StartupCompletedServiceImplFree;
  {* Метод освобождения экземпляра синглетона Tf1StartupCompletedServiceImpl }
 begin
  l3Free(g_Tf1StartupCompletedServiceImpl);
 end;//Tf1StartupCompletedServiceImplFree
-
-function Tfs_Autoreferat.TextForm_Parent_dftAutoreferat_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
- out aNew: IvcmFormDataSource;
- aSubUserType: TvcmUserType): Boolean;
- {* Обработчик OnNeedMakeForm для TextForm }
-//#UC START# *FDD93F11843B_4AA4B279031D_var*
-//#UC END# *FDD93F11843B_4AA4B279031D_var*
-begin
-//#UC START# *FDD93F11843B_4AA4B279031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FDD93F11843B_4AA4B279031D_impl*
-end;//Tfs_Autoreferat.TextForm_Parent_dftAutoreferat_NeedMakeForm
-
-function Tfs_Autoreferat.NewsLine_Navigator_nltMain_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
- out aNew: IvcmFormDataSource;
- aSubUserType: TvcmUserType): Boolean;
- {* Обработчик OnNeedMakeForm для NewsLine }
-//#UC START# *28B4B9654C1B_4AA4B279031D_var*
-//#UC END# *28B4B9654C1B_4AA4B279031D_var*
-begin
-//#UC START# *28B4B9654C1B_4AA4B279031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *28B4B9654C1B_4AA4B279031D_impl*
-end;//Tfs_Autoreferat.NewsLine_Navigator_nltMain_NeedMakeForm
-
-class function Tfs_Autoreferat.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Autoreferat <> nil;
-end;//Tfs_Autoreferat.Exists
-
-class function Tfs_Autoreferat.Instance: Tfs_Autoreferat;
- {* Метод получения экземпляра синглетона Tfs_Autoreferat }
-begin
- if (g_Tfs_Autoreferat = nil) then
- begin
-  l3System.AddExitProc(Tfs_AutoreferatFree);
-  g_Tfs_Autoreferat := Create;
- end;
- Result := g_Tfs_Autoreferat;
-end;//Tfs_Autoreferat.Instance
-
-procedure Tfs_Autoreferat.InitFields;
-//#UC START# *47A042E100E2_4AA4B279031D_var*
-//#UC END# *47A042E100E2_4AA4B279031D_var*
-begin
-//#UC START# *47A042E100E2_4AA4B279031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA4B279031D_impl*
-end;//Tfs_Autoreferat.InitFields
-
-{$If NOT Defined(NoVCM)}
-class function Tfs_Autoreferat.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA4B279031D_var*
-//#UC END# *4FFE854A009B_4AA4B279031D_var*
-begin
-//#UC START# *4FFE854A009B_4AA4B279031D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA4B279031D_impl*
-end;//Tfs_Autoreferat.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
-
-function Tfs_AutoreferatAfterSearch.TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
- out aNew: IvcmFormDataSource;
- aSubUserType: TvcmUserType): Boolean;
- {* Обработчик OnNeedMakeForm для TextForm }
-//#UC START# *CAF00B32945C_4AA4B28D02A1_var*
-//#UC END# *CAF00B32945C_4AA4B28D02A1_var*
-begin
-//#UC START# *CAF00B32945C_4AA4B28D02A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *CAF00B32945C_4AA4B28D02A1_impl*
-end;//Tfs_AutoreferatAfterSearch.TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm
-
-class function Tfs_AutoreferatAfterSearch.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_AutoreferatAfterSearch <> nil;
-end;//Tfs_AutoreferatAfterSearch.Exists
-
-class function Tfs_AutoreferatAfterSearch.Instance: Tfs_AutoreferatAfterSearch;
- {* Метод получения экземпляра синглетона Tfs_AutoreferatAfterSearch }
-begin
- if (g_Tfs_AutoreferatAfterSearch = nil) then
- begin
-  l3System.AddExitProc(Tfs_AutoreferatAfterSearchFree);
-  g_Tfs_AutoreferatAfterSearch := Create;
- end;
- Result := g_Tfs_AutoreferatAfterSearch;
-end;//Tfs_AutoreferatAfterSearch.Instance
-
-procedure Tfs_AutoreferatAfterSearch.InitFields;
-//#UC START# *47A042E100E2_4AA4B28D02A1_var*
-//#UC END# *47A042E100E2_4AA4B28D02A1_var*
-begin
-//#UC START# *47A042E100E2_4AA4B28D02A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA4B28D02A1_impl*
-end;//Tfs_AutoreferatAfterSearch.InitFields
-
-{$If NOT Defined(NoVCM)}
-class function Tfs_AutoreferatAfterSearch.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA4B28D02A1_var*
-//#UC END# *4FFE854A009B_4AA4B28D02A1_var*
-begin
-//#UC START# *4FFE854A009B_4AA4B28D02A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA4B28D02A1_impl*
-end;//Tfs_AutoreferatAfterSearch.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
 
 class procedure TnsOpenNewsLineEvent.Log;
 //#UC START# *4B14ED2F033E_4B14ED130233_var*
@@ -571,16 +364,6 @@ begin
 end;//TPrimMonitoringsModule.OpenNewsLinePrim
 
 initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TenNewsLine);
- {* Регистрация NewsLine }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_enNewsLine.SetFactory(TenNewsLine.Make);
- {* Регистрация фабрики формы NewsLine }
- str_fsAutoreferatCaption.Init;
- {* Инициализация str_fsAutoreferatCaption }
- str_fsAutoreferatAfterSearchCaption.Init;
- {* Инициализация str_fsAutoreferatAfterSearchCaption }
  Tf1StartupCompletedService.Instance.Alien := Tf1StartupCompletedServiceImpl.Instance;
  {* Регистрация Tf1StartupCompletedServiceImpl }
  str_StartupInitPrime_Choice_Init.Init;

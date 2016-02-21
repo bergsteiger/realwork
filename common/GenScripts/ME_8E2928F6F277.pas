@@ -4,14 +4,22 @@ unit MainKeywordsPack;
 // Модуль: "w:\MDProcess\NewGen\MainKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include w:\common\NewGen\ngDefine.inc}
+{$Include w:\MDProcess\NewGen\ngDefine.inc}
 
 interface
 
 {$If Defined(NewGen) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , NewGenRes
+;
+{$IfEnd} // Defined(NewGen) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If Defined(NewGen) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Main_Form
  {$If Defined(Nemesis)}
  , nscStatusBar
  {$IfEnd} // Defined(Nemesis)
@@ -21,14 +29,6 @@ uses
  {$If Defined(Nemesis)}
  , nscNavigator
  {$IfEnd} // Defined(Nemesis)
-;
-{$IfEnd} // Defined(NewGen) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If Defined(NewGen) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

@@ -17,15 +17,9 @@ uses
  , SearchUnit
  , Messages
  , Classes
- , PrimPostingsListOptions_Form
- , PostingOrder_FormDefinitions_Controls
 ;
 
 type
- TenPostingsList = {final} class(TPrimPostingsListOptionsForm, PostingsListFormDef)
-  {* ПРАЙМ. Моя новостная лента }
- end;//TenPostingsList
-
  TCommonPostModule = class
   {* Новостная лента }
   private
@@ -64,6 +58,7 @@ uses
  , PrimSaveLoadUserTypes_slqtPostingOrder_UserType
  , PrimQueryCard_utqcPostingOrder_UserType
  , Search_FormDefinitions_Controls
+ , PostingOrder_FormDefinitions_Controls
  {$If NOT Defined(NoVCM)}
  , vcmMessagesSupport
  {$IfEnd} // NOT Defined(NoVCM)
@@ -93,12 +88,6 @@ uses
  , vcmTabbedContainerFormDispatcher
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , nsOpenUtils
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , PostingsListKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TCommonPostModule.OpenPostingOrderForm(const anAggregate: IvcmAggregate;
@@ -341,14 +330,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4B71847503BF_4AA919B200AB_impl*
 end;//TCommonPostModule.SavePostList
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TenPostingsList);
- {* Регистрация PostingsList }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_enPostingsList.SetFactory(TenPostingsList.Make);
- {* Регистрация фабрики формы PostingsList }
 {$IfEnd} // NOT Defined(Admin)
 
 end.

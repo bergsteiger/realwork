@@ -11,11 +11,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , ParentAndChildPrim_Module
- {$If Defined(Nemesis)}
- , nscFormsPageControl
- {$IfEnd} // Defined(Nemesis)
- , ElPgCtl
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -24,6 +19,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Child_Form
+ {$If Defined(Nemesis)}
+ , nscFormsPageControl
+ {$IfEnd} // Defined(Nemesis)
+ , ElPgCtl
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

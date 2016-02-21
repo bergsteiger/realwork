@@ -11,12 +11,6 @@ interface
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , F1LikeTextLoad_Form
- , eeEditorExport
- {$If Defined(Nemesis)}
- , eeTextSourceExport
- {$IfEnd} // Defined(Nemesis)
- , evLoadDocumentManager
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -25,6 +19,12 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , F1LikeTextLoad_Form
+ , eeEditorExport
+ {$If Defined(Nemesis)}
+ , eeTextSourceExport
+ {$IfEnd} // Defined(Nemesis)
+ , evLoadDocumentManager
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush

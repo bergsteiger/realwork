@@ -11,10 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
- {$If Defined(Nemesis)}
- , nscEditor
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -23,6 +19,10 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Warning_Form
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -126,12 +126,9 @@ begin
 end;//Tkw_Warning_Control_Viewer.RegisterInEngine
 
 procedure Tkw_Warning_Control_Viewer_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_32D945597E5A_var*
-//#UC END# *4DAEEDE10285_32D945597E5A_var*
 begin
-//#UC START# *4DAEEDE10285_32D945597E5A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_32D945597E5A_impl*
+ aCtx.rEngine.PushString('Viewer');
+ inherited;
 end;//Tkw_Warning_Control_Viewer_Push.DoDoIt
 
 class function Tkw_Warning_Control_Viewer_Push.GetWordNameForRegister: AnsiString;

@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , Picture_Form
  {$If NOT Defined(NoImageEn)}
  , imageenio
  {$IfEnd} // NOT Defined(NoImageEn)
@@ -21,14 +29,6 @@ uses
  {$If NOT Defined(NoImageEn)}
  , imageenproc
  {$IfEnd} // NOT Defined(NoImageEn)
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -222,12 +222,9 @@ begin
 end;//Tkw_Picture_Control_ieViewer.RegisterInEngine
 
 procedure Tkw_Picture_Control_ieViewer_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AB3DE42513C0_var*
-//#UC END# *4DAEEDE10285_AB3DE42513C0_var*
 begin
-//#UC START# *4DAEEDE10285_AB3DE42513C0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AB3DE42513C0_impl*
+ aCtx.rEngine.PushString('ieViewer');
+ inherited;
 end;//Tkw_Picture_Control_ieViewer_Push.DoDoIt
 
 class function Tkw_Picture_Control_ieViewer_Push.GetWordNameForRegister: AnsiString;

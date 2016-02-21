@@ -11,14 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , CommonSearch_Module
- , vtRadioButton
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
- , vtSpinEdit
- , vtCheckBox
- , vtComboBoxQS
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -27,6 +19,14 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , PrintDialog_Form
+ , vtRadioButton
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtSpinEdit
+ , vtCheckBox
+ , vtComboBoxQS
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -676,12 +676,9 @@ begin
 end;//Tkw_PrintDialog_Control_poDocumentNames.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_poDocumentNames_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D91C6C315D12_var*
-//#UC END# *4DAEEDE10285_D91C6C315D12_var*
 begin
-//#UC START# *4DAEEDE10285_D91C6C315D12_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D91C6C315D12_impl*
+ aCtx.rEngine.PushString('poDocumentNames');
+ inherited;
 end;//Tkw_PrintDialog_Control_poDocumentNames_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_poDocumentNames_Push.GetWordNameForRegister: AnsiString;
@@ -706,12 +703,9 @@ begin
 end;//Tkw_PrintDialog_Control_rbPrintSelected.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_rbPrintSelected_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2230ACC8B4F3_var*
-//#UC END# *4DAEEDE10285_2230ACC8B4F3_var*
 begin
-//#UC START# *4DAEEDE10285_2230ACC8B4F3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2230ACC8B4F3_impl*
+ aCtx.rEngine.PushString('rbPrintSelected');
+ inherited;
 end;//Tkw_PrintDialog_Control_rbPrintSelected_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_rbPrintSelected_Push.GetWordNameForRegister: AnsiString;
@@ -736,12 +730,9 @@ begin
 end;//Tkw_PrintDialog_Control_rbPrintCurrent.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_rbPrintCurrent_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_712B86EE28A8_var*
-//#UC END# *4DAEEDE10285_712B86EE28A8_var*
 begin
-//#UC START# *4DAEEDE10285_712B86EE28A8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_712B86EE28A8_impl*
+ aCtx.rEngine.PushString('rbPrintCurrent');
+ inherited;
 end;//Tkw_PrintDialog_Control_rbPrintCurrent_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_rbPrintCurrent_Push.GetWordNameForRegister: AnsiString;
@@ -766,12 +757,9 @@ begin
 end;//Tkw_PrintDialog_Control_edPrintInterval.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_edPrintInterval_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B9E6CD75543D_var*
-//#UC END# *4DAEEDE10285_B9E6CD75543D_var*
 begin
-//#UC START# *4DAEEDE10285_B9E6CD75543D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B9E6CD75543D_impl*
+ aCtx.rEngine.PushString('edPrintInterval');
+ inherited;
 end;//Tkw_PrintDialog_Control_edPrintInterval_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_edPrintInterval_Push.GetWordNameForRegister: AnsiString;
@@ -796,12 +784,9 @@ begin
 end;//Tkw_PrintDialog_Control_edCopyCount.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_edCopyCount_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_65583DDF4B94_var*
-//#UC END# *4DAEEDE10285_65583DDF4B94_var*
 begin
-//#UC START# *4DAEEDE10285_65583DDF4B94_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_65583DDF4B94_impl*
+ aCtx.rEngine.PushString('edCopyCount');
+ inherited;
 end;//Tkw_PrintDialog_Control_edCopyCount_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_edCopyCount_Push.GetWordNameForRegister: AnsiString;
@@ -826,12 +811,9 @@ begin
 end;//Tkw_PrintDialog_Control_CollateCheckBox.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_CollateCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1A6B75D465B2_var*
-//#UC END# *4DAEEDE10285_1A6B75D465B2_var*
 begin
-//#UC START# *4DAEEDE10285_1A6B75D465B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1A6B75D465B2_impl*
+ aCtx.rEngine.PushString('CollateCheckBox');
+ inherited;
 end;//Tkw_PrintDialog_Control_CollateCheckBox_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_CollateCheckBox_Push.GetWordNameForRegister: AnsiString;
@@ -856,12 +838,9 @@ begin
 end;//Tkw_PrintDialog_Control_cbOddEven.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_cbOddEven_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8769F2E9B4DC_var*
-//#UC END# *4DAEEDE10285_8769F2E9B4DC_var*
 begin
-//#UC START# *4DAEEDE10285_8769F2E9B4DC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8769F2E9B4DC_impl*
+ aCtx.rEngine.PushString('cbOddEven');
+ inherited;
 end;//Tkw_PrintDialog_Control_cbOddEven_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_cbOddEven_Push.GetWordNameForRegister: AnsiString;
@@ -886,12 +865,9 @@ begin
 end;//Tkw_PrintDialog_Control_poDocumentTexts.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_poDocumentTexts_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E457D109B53_var*
-//#UC END# *4DAEEDE10285_4E457D109B53_var*
 begin
-//#UC START# *4DAEEDE10285_4E457D109B53_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E457D109B53_impl*
+ aCtx.rEngine.PushString('poDocumentTexts');
+ inherited;
 end;//Tkw_PrintDialog_Control_poDocumentTexts_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_poDocumentTexts_Push.GetWordNameForRegister: AnsiString;
@@ -916,12 +892,9 @@ begin
 end;//Tkw_PrintDialog_Control_rbPrintAll.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_rbPrintAll_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F39604799DD8_var*
-//#UC END# *4DAEEDE10285_F39604799DD8_var*
 begin
-//#UC START# *4DAEEDE10285_F39604799DD8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F39604799DD8_impl*
+ aCtx.rEngine.PushString('rbPrintAll');
+ inherited;
 end;//Tkw_PrintDialog_Control_rbPrintAll_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_rbPrintAll_Push.GetWordNameForRegister: AnsiString;
@@ -946,12 +919,9 @@ begin
 end;//Tkw_PrintDialog_Control_rbPrintInterval.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_rbPrintInterval_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4BF6A6BD3409_var*
-//#UC END# *4DAEEDE10285_4BF6A6BD3409_var*
 begin
-//#UC START# *4DAEEDE10285_4BF6A6BD3409_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4BF6A6BD3409_impl*
+ aCtx.rEngine.PushString('rbPrintInterval');
+ inherited;
 end;//Tkw_PrintDialog_Control_rbPrintInterval_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_rbPrintInterval_Push.GetWordNameForRegister: AnsiString;
@@ -976,12 +946,9 @@ begin
 end;//Tkw_PrintDialog_Control_cbPrinter.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_cbPrinter_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_12F749EE252C_var*
-//#UC END# *4DAEEDE10285_12F749EE252C_var*
 begin
-//#UC START# *4DAEEDE10285_12F749EE252C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_12F749EE252C_impl*
+ aCtx.rEngine.PushString('cbPrinter');
+ inherited;
 end;//Tkw_PrintDialog_Control_cbPrinter_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_cbPrinter_Push.GetWordNameForRegister: AnsiString;
@@ -1006,12 +973,9 @@ begin
 end;//Tkw_PrintDialog_Control_cbPrintInfo.RegisterInEngine
 
 procedure Tkw_PrintDialog_Control_cbPrintInfo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D216CC1D7351_var*
-//#UC END# *4DAEEDE10285_D216CC1D7351_var*
 begin
-//#UC START# *4DAEEDE10285_D216CC1D7351_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D216CC1D7351_impl*
+ aCtx.rEngine.PushString('cbPrintInfo');
+ inherited;
 end;//Tkw_PrintDialog_Control_cbPrintInfo_Push.DoDoIt
 
 class function Tkw_PrintDialog_Control_cbPrintInfo_Push.GetWordNameForRegister: AnsiString;

@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , DayTips_Module
- , vtPanel
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtLabel
- , vtFocusLabel
- , vtCheckBox
- , ElPopBtn
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -28,6 +19,15 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , StartupTips_Form
+ , vtPanel
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLabel
+ , vtFocusLabel
+ , vtCheckBox
+ , ElPopBtn
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -768,12 +768,9 @@ begin
 end;//Tkw_StartupTips_Control_TopPanel.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7DF813516E20_var*
-//#UC END# *4DAEEDE10285_7DF813516E20_var*
 begin
-//#UC START# *4DAEEDE10285_7DF813516E20_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7DF813516E20_impl*
+ aCtx.rEngine.PushString('TopPanel');
+ inherited;
 end;//Tkw_StartupTips_Control_TopPanel_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_TopPanel_Push.GetWordNameForRegister: AnsiString;
@@ -798,12 +795,9 @@ begin
 end;//Tkw_StartupTips_Control_TitlePaintBox.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_TitlePaintBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_81D3F58DE336_var*
-//#UC END# *4DAEEDE10285_81D3F58DE336_var*
 begin
-//#UC START# *4DAEEDE10285_81D3F58DE336_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_81D3F58DE336_impl*
+ aCtx.rEngine.PushString('TitlePaintBox');
+ inherited;
 end;//Tkw_StartupTips_Control_TitlePaintBox_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_TitlePaintBox_Push.GetWordNameForRegister: AnsiString;
@@ -828,12 +822,9 @@ begin
 end;//Tkw_StartupTips_Control_TitleLabel.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_TitleLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A30B38772CD6_var*
-//#UC END# *4DAEEDE10285_A30B38772CD6_var*
 begin
-//#UC START# *4DAEEDE10285_A30B38772CD6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A30B38772CD6_impl*
+ aCtx.rEngine.PushString('TitleLabel');
+ inherited;
 end;//Tkw_StartupTips_Control_TitleLabel_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_TitleLabel_Push.GetWordNameForRegister: AnsiString;
@@ -858,12 +849,9 @@ begin
 end;//Tkw_StartupTips_Control_BottomPanel.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B4899D4E9041_var*
-//#UC END# *4DAEEDE10285_B4899D4E9041_var*
 begin
-//#UC START# *4DAEEDE10285_B4899D4E9041_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B4899D4E9041_impl*
+ aCtx.rEngine.PushString('BottomPanel');
+ inherited;
 end;//Tkw_StartupTips_Control_BottomPanel_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_BottomPanel_Push.GetWordNameForRegister: AnsiString;
@@ -888,12 +876,9 @@ begin
 end;//Tkw_StartupTips_Control_HintPanel.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_HintPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2E0686E9199C_var*
-//#UC END# *4DAEEDE10285_2E0686E9199C_var*
 begin
-//#UC START# *4DAEEDE10285_2E0686E9199C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2E0686E9199C_impl*
+ aCtx.rEngine.PushString('HintPanel');
+ inherited;
 end;//Tkw_StartupTips_Control_HintPanel_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_HintPanel_Push.GetWordNameForRegister: AnsiString;
@@ -918,12 +903,9 @@ begin
 end;//Tkw_StartupTips_Control_TipLabel.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_TipLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7E0783AFF535_var*
-//#UC END# *4DAEEDE10285_7E0783AFF535_var*
 begin
-//#UC START# *4DAEEDE10285_7E0783AFF535_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7E0783AFF535_impl*
+ aCtx.rEngine.PushString('TipLabel');
+ inherited;
 end;//Tkw_StartupTips_Control_TipLabel_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_TipLabel_Push.GetWordNameForRegister: AnsiString;
@@ -948,12 +930,9 @@ begin
 end;//Tkw_StartupTips_Control_DetailLabel.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_DetailLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_864277A10C77_var*
-//#UC END# *4DAEEDE10285_864277A10C77_var*
 begin
-//#UC START# *4DAEEDE10285_864277A10C77_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_864277A10C77_impl*
+ aCtx.rEngine.PushString('DetailLabel');
+ inherited;
 end;//Tkw_StartupTips_Control_DetailLabel_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_DetailLabel_Push.GetWordNameForRegister: AnsiString;
@@ -978,12 +957,9 @@ begin
 end;//Tkw_StartupTips_Control_ShowCheckBox.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_ShowCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7B1198AAB31C_var*
-//#UC END# *4DAEEDE10285_7B1198AAB31C_var*
 begin
-//#UC START# *4DAEEDE10285_7B1198AAB31C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7B1198AAB31C_impl*
+ aCtx.rEngine.PushString('ShowCheckBox');
+ inherited;
 end;//Tkw_StartupTips_Control_ShowCheckBox_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_ShowCheckBox_Push.GetWordNameForRegister: AnsiString;
@@ -1008,12 +984,9 @@ begin
 end;//Tkw_StartupTips_Control_wwwPanel.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_wwwPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D7692CEA3106_var*
-//#UC END# *4DAEEDE10285_D7692CEA3106_var*
 begin
-//#UC START# *4DAEEDE10285_D7692CEA3106_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D7692CEA3106_impl*
+ aCtx.rEngine.PushString('wwwPanel');
+ inherited;
 end;//Tkw_StartupTips_Control_wwwPanel_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_wwwPanel_Push.GetWordNameForRegister: AnsiString;
@@ -1038,12 +1011,9 @@ begin
 end;//Tkw_StartupTips_Control_wwwPaintBox.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_wwwPaintBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_73CE45570DC2_var*
-//#UC END# *4DAEEDE10285_73CE45570DC2_var*
 begin
-//#UC START# *4DAEEDE10285_73CE45570DC2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_73CE45570DC2_impl*
+ aCtx.rEngine.PushString('wwwPaintBox');
+ inherited;
 end;//Tkw_StartupTips_Control_wwwPaintBox_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_wwwPaintBox_Push.GetWordNameForRegister: AnsiString;
@@ -1068,12 +1038,9 @@ begin
 end;//Tkw_StartupTips_Control_wwwLabel.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_wwwLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7C38C3E1D4C5_var*
-//#UC END# *4DAEEDE10285_7C38C3E1D4C5_var*
 begin
-//#UC START# *4DAEEDE10285_7C38C3E1D4C5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7C38C3E1D4C5_impl*
+ aCtx.rEngine.PushString('wwwLabel');
+ inherited;
 end;//Tkw_StartupTips_Control_wwwLabel_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_wwwLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1098,12 +1065,9 @@ begin
 end;//Tkw_StartupTips_Control_NextButton.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_NextButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_11F85FE0D364_var*
-//#UC END# *4DAEEDE10285_11F85FE0D364_var*
 begin
-//#UC START# *4DAEEDE10285_11F85FE0D364_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_11F85FE0D364_impl*
+ aCtx.rEngine.PushString('NextButton');
+ inherited;
 end;//Tkw_StartupTips_Control_NextButton_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_NextButton_Push.GetWordNameForRegister: AnsiString;
@@ -1128,12 +1092,9 @@ begin
 end;//Tkw_StartupTips_Control_PrevButton.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_PrevButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_98BA2132D85E_var*
-//#UC END# *4DAEEDE10285_98BA2132D85E_var*
 begin
-//#UC START# *4DAEEDE10285_98BA2132D85E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_98BA2132D85E_impl*
+ aCtx.rEngine.PushString('PrevButton');
+ inherited;
 end;//Tkw_StartupTips_Control_PrevButton_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_PrevButton_Push.GetWordNameForRegister: AnsiString;
@@ -1158,12 +1119,9 @@ begin
 end;//Tkw_StartupTips_Control_CloseButton.RegisterInEngine
 
 procedure Tkw_StartupTips_Control_CloseButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DE5B5144BBDC_var*
-//#UC END# *4DAEEDE10285_DE5B5144BBDC_var*
 begin
-//#UC START# *4DAEEDE10285_DE5B5144BBDC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DE5B5144BBDC_impl*
+ aCtx.rEngine.PushString('CloseButton');
+ inherited;
 end;//Tkw_StartupTips_Control_CloseButton_Push.DoDoIt
 
 class function Tkw_StartupTips_Control_CloseButton_Push.GetWordNameForRegister: AnsiString;

@@ -10,8 +10,6 @@ interface
 {$If NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , ElPgCtl
- , l3Interfaces
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -20,6 +18,8 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ElPgCtl
+ , l3Interfaces
  , tfwClassLike
  , tfwScriptingInterfaces
  , TypInfo

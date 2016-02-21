@@ -27,83 +27,10 @@ uses
  , l3Interfaces
  , nsTypes
  , BaseTypesUnit
- , PrimFoldersOptions_Form
- , Common_FormDefinitions_Controls
- {$If NOT Defined(NoVCM)}
- , vcmFormSetFactory
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmUserControls
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmFormSetFactoryPrim
- {$IfEnd} // NOT Defined(NoVCM)
- , PrimFoldersInfoOptions_Form
- , PrimFoldersTreeOptions_Form
- , PrimFoldersElementInfoOptions_Form
  , nsLogEvent
- , PrimFolders_utFolders_UserType
- , PrimFoldersTree_utFoldersTree_UserType
- , PrimFoldersElementInfo_utFoldersProperty_UserType
 ;
 
-const
- fm_cfFoldersInfo: TvcmFormDescriptor = (rFormID : (rName : 'cfFoldersInfo'; rID : 0); rFactory : nil);
-  {* Идентификатор формы TcfFoldersInfo }
-
 type
- TcfFolders = {final} class(TPrimFoldersOptionsForm, FoldersFormDef)
-  {* Мои документы }
- end;//TcfFolders
-
- // enFoldersTree_utFoldersTree
-
- // enFoldersElementInfo_utFoldersProperty
-
- // cfFolders
-
- Tfs_Folders = {final} class(TvcmFormSetFactory)
-  protected
-   procedure InitFields; override;
-   {$If NOT Defined(NoVCM)}
-   class function GetInstance: TvcmFormSetFactoryPrim; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   function DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-  public
-   function cfFolders_Navigator_utFolders_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-    out aNew: IvcmFormDataSource;
-    aSubUserType: TvcmUserType): Boolean;
-    {* Обработчик OnNeedMakeForm для cfFolders }
-   function enFoldersTree_utFoldersTree_Parent_utFoldersTree_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-    out aNew: IvcmFormDataSource;
-    aSubUserType: TvcmUserType): Boolean;
-    {* Обработчик OnNeedMakeForm для enFoldersTree_utFoldersTree }
-   function enFoldersElementInfo_utFoldersProperty_Child_utFoldersProperty_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
-    out aNew: IvcmFormDataSource;
-    aSubUserType: TvcmUserType): Boolean;
-    {* Обработчик OnNeedMakeForm для enFoldersElementInfo_utFoldersProperty }
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
-   class function Instance: Tfs_Folders;
-    {* Метод получения экземпляра синглетона Tfs_Folders }
- end;//Tfs_Folders
-
- FoldersInfoFormDef = interface
-  {* Идентификатор формы FoldersInfo }
-  ['{A7FC5777-8418-45E1-9EE1-511BCC3B18B5}']
- end;//FoldersInfoFormDef
-
- TcfFoldersInfo = {final} class(TPrimFoldersInfoOptionsForm, FoldersInfoFormDef)
- end;//TcfFoldersInfo
-
- TenFoldersTree = {final} class(TPrimFoldersTreeOptionsForm, FoldersTreeFormDef)
- end;//TenFoldersTree
-
- TenFoldersElementInfo = {final} class(TPrimFoldersElementInfoOptionsForm, FoldersElementInfoFormDef)
- end;//TenFoldersElementInfo
-
  TnsOpenConsultationEvent = class(TnsLogEvent)
   public
    class procedure Log;
@@ -171,7 +98,6 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
  l3ImplUses
- , l3StringIDEx
  , Search_Strange_Controls
  , PrimFoldersTree_utSaveOpen_UserType
  {$If NOT Defined(NoVCM)}
@@ -193,124 +119,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , FoldersKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
- , SysUtils
- , l3Base
- {$If NOT Defined(NoScripts)}
- , FoldersInfoKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , FoldersTreeKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , FoldersElementInfoKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
  , LoggingUnit
 ;
-
-var g_Tfs_Folders: Tfs_Folders = nil;
- {* Экземпляр синглетона Tfs_Folders }
-
-const
- {* Локализуемые строки Folders$FSFCaptionLocalConstants }
- str_fsFoldersCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'fsFoldersCaption'; rValue : 'Папки');
-  {* Заголовок фабрики сборки форм "Folders$FSF" }
-
-procedure Tfs_FoldersFree;
- {* Метод освобождения экземпляра синглетона Tfs_Folders }
-begin
- l3Free(g_Tfs_Folders);
-end;//Tfs_FoldersFree
-
-function Tfs_Folders.cfFolders_Navigator_utFolders_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
- out aNew: IvcmFormDataSource;
- aSubUserType: TvcmUserType): Boolean;
- {* Обработчик OnNeedMakeForm для cfFolders }
-//#UC START# *C0B08AD85726_4AA4B2ED00FE_var*
-//#UC END# *C0B08AD85726_4AA4B2ED00FE_var*
-begin
-//#UC START# *C0B08AD85726_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C0B08AD85726_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.cfFolders_Navigator_utFolders_NeedMakeForm
-
-function Tfs_Folders.enFoldersTree_utFoldersTree_Parent_utFoldersTree_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
- out aNew: IvcmFormDataSource;
- aSubUserType: TvcmUserType): Boolean;
- {* Обработчик OnNeedMakeForm для enFoldersTree_utFoldersTree }
-//#UC START# *49E15BACC408_4AA4B2ED00FE_var*
-//#UC END# *49E15BACC408_4AA4B2ED00FE_var*
-begin
-//#UC START# *49E15BACC408_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49E15BACC408_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.enFoldersTree_utFoldersTree_Parent_utFoldersTree_NeedMakeForm
-
-function Tfs_Folders.enFoldersElementInfo_utFoldersProperty_Child_utFoldersProperty_NeedMakeForm(const aDataSource: IvcmFormSetDataSource;
- out aNew: IvcmFormDataSource;
- aSubUserType: TvcmUserType): Boolean;
- {* Обработчик OnNeedMakeForm для enFoldersElementInfo_utFoldersProperty }
-//#UC START# *60EE3E3C50F2_4AA4B2ED00FE_var*
-//#UC END# *60EE3E3C50F2_4AA4B2ED00FE_var*
-begin
-//#UC START# *60EE3E3C50F2_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *60EE3E3C50F2_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.enFoldersElementInfo_utFoldersProperty_Child_utFoldersProperty_NeedMakeForm
-
-class function Tfs_Folders.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tfs_Folders <> nil;
-end;//Tfs_Folders.Exists
-
-class function Tfs_Folders.Instance: Tfs_Folders;
- {* Метод получения экземпляра синглетона Tfs_Folders }
-begin
- if (g_Tfs_Folders = nil) then
- begin
-  l3System.AddExitProc(Tfs_FoldersFree);
-  g_Tfs_Folders := Create;
- end;
- Result := g_Tfs_Folders;
-end;//Tfs_Folders.Instance
-
-procedure Tfs_Folders.InitFields;
-//#UC START# *47A042E100E2_4AA4B2ED00FE_var*
-//#UC END# *47A042E100E2_4AA4B2ED00FE_var*
-begin
-//#UC START# *47A042E100E2_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47A042E100E2_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.InitFields
-
-{$If NOT Defined(NoVCM)}
-class function Tfs_Folders.GetInstance: TvcmFormSetFactoryPrim;
-//#UC START# *4FFE854A009B_4AA4B2ED00FE_var*
-//#UC END# *4FFE854A009B_4AA4B2ED00FE_var*
-begin
-//#UC START# *4FFE854A009B_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4FFE854A009B_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.GetInstance
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-function Tfs_Folders.DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
-//#UC START# *55E020470097_4AA4B2ED00FE_var*
-//#UC END# *55E020470097_4AA4B2ED00FE_var*
-begin
-//#UC START# *55E020470097_4AA4B2ED00FE_impl*
- !!! Needs to be implemented !!!
-//#UC END# *55E020470097_4AA4B2ED00FE_impl*
-end;//Tfs_Folders.DoGetCanSaveFormSetToHistory
-{$IfEnd} // NOT Defined(NoVCM)
 
 class procedure TnsOpenConsultationEvent.Log;
 //#UC START# *4B14D5A203B1_4B14D5890031_var*
@@ -683,34 +493,6 @@ begin
  inherited;
 //#UC END# *479731C50290_4A96B68A03B1_impl*
 end;//TPrimFoldersModule.Cleanup
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TcfFolders);
- {* Регистрация Folders }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_cfFolders.SetFactory(TcfFolders.Make);
- {* Регистрация фабрики формы Folders }
- str_fsFoldersCaption.Init;
- {* Инициализация str_fsFoldersCaption }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TcfFoldersInfo);
- {* Регистрация FoldersInfo }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_cfFoldersInfo.SetFactory(TcfFoldersInfo.Make);
- {* Регистрация фабрики формы FoldersInfo }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TenFoldersTree);
- {* Регистрация FoldersTree }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_enFoldersTree.SetFactory(TenFoldersTree.Make);
- {* Регистрация фабрики формы FoldersTree }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TenFoldersElementInfo);
- {* Регистрация FoldersElementInfo }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_enFoldersElementInfo.SetFactory(TenFoldersElementInfo.Make);
- {* Регистрация фабрики формы FoldersElementInfo }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

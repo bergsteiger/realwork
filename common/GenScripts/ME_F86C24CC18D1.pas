@@ -11,14 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Document_Module
- , vtRadioButton
- , vtDblClickDateEdit
- {$If NOT Defined(NoVCL)}
- , ExtCtrls
- {$IfEnd} // NOT Defined(NoVCL)
- , vtLabel
- , vtButton
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -27,6 +19,14 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , TurnOnTimeMachine_Form
+ , vtRadioButton
+ , vtDblClickDateEdit
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vtLabel
+ , vtButton
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -424,12 +424,9 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CFCC6EBD4298_var*
-//#UC END# *4DAEEDE10285_CFCC6EBD4298_var*
 begin
-//#UC START# *4DAEEDE10285_CFCC6EBD4298_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CFCC6EBD4298_impl*
+ aCtx.rEngine.PushString('rb_totmOnDate');
+ inherited;
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push.DoDoIt
 
 class function Tkw_TurnOnTimeMachine_Control_rb_totmOnDate_Push.GetWordNameForRegister: AnsiString;
@@ -454,12 +451,9 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_723237D81DCB_var*
-//#UC END# *4DAEEDE10285_723237D81DCB_var*
 begin
-//#UC START# *4DAEEDE10285_723237D81DCB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_723237D81DCB_impl*
+ aCtx.rEngine.PushString('rb_totmOnCurrentRedation');
+ inherited;
 end;//Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push.DoDoIt
 
 class function Tkw_TurnOnTimeMachine_Control_rb_totmOnCurrentRedation_Push.GetWordNameForRegister: AnsiString;
@@ -484,12 +478,9 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_deDate.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_deDate_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3186ABAE2AA9_var*
-//#UC END# *4DAEEDE10285_3186ABAE2AA9_var*
 begin
-//#UC START# *4DAEEDE10285_3186ABAE2AA9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3186ABAE2AA9_impl*
+ aCtx.rEngine.PushString('deDate');
+ inherited;
 end;//Tkw_TurnOnTimeMachine_Control_deDate_Push.DoDoIt
 
 class function Tkw_TurnOnTimeMachine_Control_deDate_Push.GetWordNameForRegister: AnsiString;
@@ -514,12 +505,9 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_33CAA65DF7D1_var*
-//#UC END# *4DAEEDE10285_33CAA65DF7D1_var*
 begin
-//#UC START# *4DAEEDE10285_33CAA65DF7D1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_33CAA65DF7D1_impl*
+ aCtx.rEngine.PushString('pbDialogIcon');
+ inherited;
 end;//Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push.DoDoIt
 
 class function Tkw_TurnOnTimeMachine_Control_pbDialogIcon_Push.GetWordNameForRegister: AnsiString;
@@ -544,12 +532,9 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6090FF1AC866_var*
-//#UC END# *4DAEEDE10285_6090FF1AC866_var*
 begin
-//#UC START# *4DAEEDE10285_6090FF1AC866_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6090FF1AC866_impl*
+ aCtx.rEngine.PushString('lblTurnOnTimeMachineInfo');
+ inherited;
 end;//Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push.DoDoIt
 
 class function Tkw_TurnOnTimeMachine_Control_lblTurnOnTimeMachineInfo_Push.GetWordNameForRegister: AnsiString;
@@ -574,12 +559,9 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_btnOk.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_btnOk_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_31C7F4871998_var*
-//#UC END# *4DAEEDE10285_31C7F4871998_var*
 begin
-//#UC START# *4DAEEDE10285_31C7F4871998_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_31C7F4871998_impl*
+ aCtx.rEngine.PushString('btnOk');
+ inherited;
 end;//Tkw_TurnOnTimeMachine_Control_btnOk_Push.DoDoIt
 
 class function Tkw_TurnOnTimeMachine_Control_btnOk_Push.GetWordNameForRegister: AnsiString;
@@ -604,12 +586,9 @@ begin
 end;//Tkw_TurnOnTimeMachine_Control_btnCancel.RegisterInEngine
 
 procedure Tkw_TurnOnTimeMachine_Control_btnCancel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_477582858D4D_var*
-//#UC END# *4DAEEDE10285_477582858D4D_var*
 begin
-//#UC START# *4DAEEDE10285_477582858D4D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_477582858D4D_impl*
+ aCtx.rEngine.PushString('btnCancel');
+ inherited;
 end;//Tkw_TurnOnTimeMachine_Control_btnCancel_Push.DoDoIt
 
 class function Tkw_TurnOnTimeMachine_Control_btnCancel_Push.GetWordNameForRegister: AnsiString;

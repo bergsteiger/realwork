@@ -11,11 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Search_Module
- , vtPanel
- , vtLabel
- , vtDblClickDateEdit
- , vtRadioButton
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -24,6 +19,11 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , DefineSearchDate_Form
+ , vtPanel
+ , vtLabel
+ , vtDblClickDateEdit
+ , vtRadioButton
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -715,12 +715,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_Panel1.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_Panel1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A509485B3049_var*
-//#UC END# *4DAEEDE10285_A509485B3049_var*
 begin
-//#UC START# *4DAEEDE10285_A509485B3049_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A509485B3049_impl*
+ aCtx.rEngine.PushString('Panel1');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_Panel1_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_Panel1_Push.GetWordNameForRegister: AnsiString;
@@ -745,12 +742,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_ElLabel1.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_ElLabel1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_6137E3B10823_var*
-//#UC END# *4DAEEDE10285_6137E3B10823_var*
 begin
-//#UC START# *4DAEEDE10285_6137E3B10823_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_6137E3B10823_impl*
+ aCtx.rEngine.PushString('ElLabel1');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_ElLabel1_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_ElLabel1_Push.GetWordNameForRegister: AnsiString;
@@ -775,12 +769,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_ElLabel2.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_ElLabel2_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_61066262B557_var*
-//#UC END# *4DAEEDE10285_61066262B557_var*
 begin
-//#UC START# *4DAEEDE10285_61066262B557_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_61066262B557_impl*
+ aCtx.rEngine.PushString('ElLabel2');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_ElLabel2_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_ElLabel2_Push.GetWordNameForRegister: AnsiString;
@@ -805,12 +796,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_ElLabel3.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_ElLabel3_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_0B9E629060DA_var*
-//#UC END# *4DAEEDE10285_0B9E629060DA_var*
 begin
-//#UC START# *4DAEEDE10285_0B9E629060DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_0B9E629060DA_impl*
+ aCtx.rEngine.PushString('ElLabel3');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_ElLabel3_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_ElLabel3_Push.GetWordNameForRegister: AnsiString;
@@ -835,12 +823,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_dD1EqD2.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_dD1EqD2_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_11F270D3BC7F_var*
-//#UC END# *4DAEEDE10285_11F270D3BC7F_var*
 begin
-//#UC START# *4DAEEDE10285_11F270D3BC7F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_11F270D3BC7F_impl*
+ aCtx.rEngine.PushString('dD1EqD2');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_dD1EqD2_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_dD1EqD2_Push.GetWordNameForRegister: AnsiString;
@@ -865,12 +850,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_rbEq.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_rbEq_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4389194AF7B2_var*
-//#UC END# *4DAEEDE10285_4389194AF7B2_var*
 begin
-//#UC START# *4DAEEDE10285_4389194AF7B2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4389194AF7B2_impl*
+ aCtx.rEngine.PushString('rbEq');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_rbEq_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_rbEq_Push.GetWordNameForRegister: AnsiString;
@@ -895,12 +877,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_rbInt.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_rbInt_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_25A3E40B4FD7_var*
-//#UC END# *4DAEEDE10285_25A3E40B4FD7_var*
 begin
-//#UC START# *4DAEEDE10285_25A3E40B4FD7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_25A3E40B4FD7_impl*
+ aCtx.rEngine.PushString('rbInt');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_rbInt_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_rbInt_Push.GetWordNameForRegister: AnsiString;
@@ -925,12 +904,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_rbD2Only.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_rbD2Only_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7789E33A7A3E_var*
-//#UC END# *4DAEEDE10285_7789E33A7A3E_var*
 begin
-//#UC START# *4DAEEDE10285_7789E33A7A3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7789E33A7A3E_impl*
+ aCtx.rEngine.PushString('rbD2Only');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_rbD2Only_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_rbD2Only_Push.GetWordNameForRegister: AnsiString;
@@ -955,12 +931,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_dD1Only.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_dD1Only_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_97CB6EE725F2_var*
-//#UC END# *4DAEEDE10285_97CB6EE725F2_var*
 begin
-//#UC START# *4DAEEDE10285_97CB6EE725F2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_97CB6EE725F2_impl*
+ aCtx.rEngine.PushString('dD1Only');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_dD1Only_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_dD1Only_Push.GetWordNameForRegister: AnsiString;
@@ -985,12 +958,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_dD2Only.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_dD2Only_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_83BD94DA746B_var*
-//#UC END# *4DAEEDE10285_83BD94DA746B_var*
 begin
-//#UC START# *4DAEEDE10285_83BD94DA746B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_83BD94DA746B_impl*
+ aCtx.rEngine.PushString('dD2Only');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_dD2Only_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_dD2Only_Push.GetWordNameForRegister: AnsiString;
@@ -1015,12 +985,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_dD1.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_dD1_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3DF444DAA12A_var*
-//#UC END# *4DAEEDE10285_3DF444DAA12A_var*
 begin
-//#UC START# *4DAEEDE10285_3DF444DAA12A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3DF444DAA12A_impl*
+ aCtx.rEngine.PushString('dD1');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_dD1_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_dD1_Push.GetWordNameForRegister: AnsiString;
@@ -1045,12 +1012,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_rbD1Only.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_rbD1Only_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_77C7EA25878D_var*
-//#UC END# *4DAEEDE10285_77C7EA25878D_var*
 begin
-//#UC START# *4DAEEDE10285_77C7EA25878D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_77C7EA25878D_impl*
+ aCtx.rEngine.PushString('rbD1Only');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_rbD1Only_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_rbD1Only_Push.GetWordNameForRegister: AnsiString;
@@ -1075,12 +1039,9 @@ begin
 end;//Tkw_DefineSearchDate_Control_dD2.RegisterInEngine
 
 procedure Tkw_DefineSearchDate_Control_dD2_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D3900DCEB73F_var*
-//#UC END# *4DAEEDE10285_D3900DCEB73F_var*
 begin
-//#UC START# *4DAEEDE10285_D3900DCEB73F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D3900DCEB73F_impl*
+ aCtx.rEngine.PushString('dD2');
+ inherited;
 end;//Tkw_DefineSearchDate_Control_dD2_Push.DoDoIt
 
 class function Tkw_DefineSearchDate_Control_dD2_Push.GetWordNameForRegister: AnsiString;

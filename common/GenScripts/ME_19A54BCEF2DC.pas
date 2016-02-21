@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Filters_Module
- , nscTreeViewWithAdapterDragDrop
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , Filters_Form
+ , nscTreeViewWithAdapterDragDrop
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_Filters_Control_FiltersList.RegisterInEngine
 
 procedure Tkw_Filters_Control_FiltersList_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_922109FC93A4_var*
-//#UC END# *4DAEEDE10285_922109FC93A4_var*
 begin
-//#UC START# *4DAEEDE10285_922109FC93A4_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_922109FC93A4_impl*
+ aCtx.rEngine.PushString('FiltersList');
+ inherited;
 end;//Tkw_Filters_Control_FiltersList_Push.DoDoIt
 
 class function Tkw_Filters_Control_FiltersList_Push.GetWordNameForRegister: AnsiString;

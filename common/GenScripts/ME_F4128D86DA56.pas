@@ -11,7 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , UnderControl_Module
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -20,6 +19,7 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , UnderControl_Form
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -95,12 +95,9 @@ begin
 end;//Tkw_UnderControl_Control_UnderControlList.RegisterInEngine
 
 procedure Tkw_UnderControl_Control_UnderControlList_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D9AD25D19806_var*
-//#UC END# *4DAEEDE10285_D9AD25D19806_var*
 begin
-//#UC START# *4DAEEDE10285_D9AD25D19806_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D9AD25D19806_impl*
+ aCtx.rEngine.PushString('UnderControlList');
+ inherited;
 end;//Tkw_UnderControl_Control_UnderControlList_Push.DoDoIt
 
 class function Tkw_UnderControl_Control_UnderControlList_Push.GetWordNameForRegister: AnsiString;

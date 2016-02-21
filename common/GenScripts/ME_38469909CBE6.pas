@@ -11,15 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Inpharm_Module
- {$If Defined(Nemesis)}
- , nscHideField
- {$IfEnd} // Defined(Nemesis)
- , nscTreeViewWithAdapterDragDrop
- {$If Defined(Nemesis)}
- , nscTreeViewHotTruck
- {$IfEnd} // Defined(Nemesis)
- , vtPanel
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -28,6 +19,15 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , MedicMainMenu_Form
+ {$If Defined(Nemesis)}
+ , nscHideField
+ {$IfEnd} // Defined(Nemesis)
+ , nscTreeViewWithAdapterDragDrop
+ {$If Defined(Nemesis)}
+ , nscTreeViewHotTruck
+ {$IfEnd} // Defined(Nemesis)
+ , vtPanel
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -621,12 +621,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AA864DC45F0D_var*
-//#UC END# *4DAEEDE10285_AA864DC45F0D_var*
 begin
-//#UC START# *4DAEEDE10285_AA864DC45F0D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AA864DC45F0D_impl*
+ aCtx.rEngine.PushString('hfReferencesAndDictionaries');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_hfReferencesAndDictionaries_Push.GetWordNameForRegister: AnsiString;
@@ -651,12 +648,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A9026FF1E14E_var*
-//#UC END# *4DAEEDE10285_A9026FF1E14E_var*
 begin
-//#UC START# *4DAEEDE10285_A9026FF1E14E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A9026FF1E14E_impl*
+ aCtx.rEngine.PushString('tvReferencesAndDictionaries');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_tvReferencesAndDictionaries_Push.GetWordNameForRegister: AnsiString;
@@ -681,12 +675,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7437B4A75BAA_var*
-//#UC END# *4DAEEDE10285_7437B4A75BAA_var*
 begin
-//#UC START# *4DAEEDE10285_7437B4A75BAA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7437B4A75BAA_impl*
+ aCtx.rEngine.PushString('hfReferencePharmaceuticalInformation');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_hfReferencePharmaceuticalInformation_Push.GetWordNameForRegister: AnsiString;
@@ -711,12 +702,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_69B758DCA459_var*
-//#UC END# *4DAEEDE10285_69B758DCA459_var*
 begin
-//#UC START# *4DAEEDE10285_69B758DCA459_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_69B758DCA459_impl*
+ aCtx.rEngine.PushString('tvReferencePharmaceuticalInformation');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_tvReferencePharmaceuticalInformation_Push.GetWordNameForRegister: AnsiString;
@@ -741,12 +729,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_hfMainFeatures.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_hfMainFeatures_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C202BA02A91A_var*
-//#UC END# *4DAEEDE10285_C202BA02A91A_var*
 begin
-//#UC START# *4DAEEDE10285_C202BA02A91A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C202BA02A91A_impl*
+ aCtx.rEngine.PushString('hfMainFeatures');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_hfMainFeatures_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_hfMainFeatures_Push.GetWordNameForRegister: AnsiString;
@@ -771,12 +756,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_tvMainFeatures.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_tvMainFeatures_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8D67A2767642_var*
-//#UC END# *4DAEEDE10285_8D67A2767642_var*
 begin
-//#UC START# *4DAEEDE10285_8D67A2767642_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8D67A2767642_impl*
+ aCtx.rEngine.PushString('tvMainFeatures');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_tvMainFeatures_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_tvMainFeatures_Push.GetWordNameForRegister: AnsiString;
@@ -801,12 +783,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_hfRegulatoryInformation.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1B5A2267BE3E_var*
-//#UC END# *4DAEEDE10285_1B5A2267BE3E_var*
 begin
-//#UC START# *4DAEEDE10285_1B5A2267BE3E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1B5A2267BE3E_impl*
+ aCtx.rEngine.PushString('hfRegulatoryInformation');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_hfRegulatoryInformation_Push.GetWordNameForRegister: AnsiString;
@@ -831,12 +810,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_tvRegulatoryInformation.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4E137E3DE3E6_var*
-//#UC END# *4DAEEDE10285_4E137E3DE3E6_var*
 begin
-//#UC START# *4DAEEDE10285_4E137E3DE3E6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4E137E3DE3E6_impl*
+ aCtx.rEngine.PushString('tvRegulatoryInformation');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_tvRegulatoryInformation_Push.GetWordNameForRegister: AnsiString;
@@ -861,12 +837,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_pnlMain.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_pnlMain_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1EEDBAB21711_var*
-//#UC END# *4DAEEDE10285_1EEDBAB21711_var*
 begin
-//#UC START# *4DAEEDE10285_1EEDBAB21711_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1EEDBAB21711_impl*
+ aCtx.rEngine.PushString('pnlMain');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_pnlMain_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_pnlMain_Push.GetWordNameForRegister: AnsiString;
@@ -891,12 +864,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_hfLastOpenDocs.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_hfLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_802324D66017_var*
-//#UC END# *4DAEEDE10285_802324D66017_var*
 begin
-//#UC START# *4DAEEDE10285_802324D66017_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_802324D66017_impl*
+ aCtx.rEngine.PushString('hfLastOpenDocs');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_hfLastOpenDocs_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_hfLastOpenDocs_Push.GetWordNameForRegister: AnsiString;
@@ -921,12 +891,9 @@ begin
 end;//Tkw_MedicMainMenu_Control_tvLastOpenDocs.RegisterInEngine
 
 procedure Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_20643B1309F0_var*
-//#UC END# *4DAEEDE10285_20643B1309F0_var*
 begin
-//#UC START# *4DAEEDE10285_20643B1309F0_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_20643B1309F0_impl*
+ aCtx.rEngine.PushString('tvLastOpenDocs');
+ inherited;
 end;//Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push.DoDoIt
 
 class function Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push.GetWordNameForRegister: AnsiString;

@@ -11,9 +11,6 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Admin_Module
- , vtPanel
- , eeTreeView
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -22,6 +19,9 @@ implementation
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , GroupList_Form
+ , vtPanel
+ , eeTreeView
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -174,12 +174,9 @@ begin
 end;//Tkw_GroupList_Control_BackgroundPanel.RegisterInEngine
 
 procedure Tkw_GroupList_Control_BackgroundPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9A620B3E059C_var*
-//#UC END# *4DAEEDE10285_9A620B3E059C_var*
 begin
-//#UC START# *4DAEEDE10285_9A620B3E059C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9A620B3E059C_impl*
+ aCtx.rEngine.PushString('BackgroundPanel');
+ inherited;
 end;//Tkw_GroupList_Control_BackgroundPanel_Push.DoDoIt
 
 class function Tkw_GroupList_Control_BackgroundPanel_Push.GetWordNameForRegister: AnsiString;
@@ -204,12 +201,9 @@ begin
 end;//Tkw_GroupList_Control_GroupsTree.RegisterInEngine
 
 procedure Tkw_GroupList_Control_GroupsTree_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C8C02444396B_var*
-//#UC END# *4DAEEDE10285_C8C02444396B_var*
 begin
-//#UC START# *4DAEEDE10285_C8C02444396B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C8C02444396B_impl*
+ aCtx.rEngine.PushString('GroupsTree');
+ inherited;
 end;//Tkw_GroupList_Control_GroupsTree_Push.DoDoIt
 
 class function Tkw_GroupList_Control_GroupsTree_Push.GetWordNameForRegister: AnsiString;

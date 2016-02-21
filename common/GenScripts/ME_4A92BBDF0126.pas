@@ -25,19 +25,7 @@ uses
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
  , l3StringIDEx
- , F1_Application_Template_InternalOperations_Controls
- , l3MessageID
 ;
-
-const
- {* Локализуемые строки Local }
- str_MayExit: Tl3MessageID = (rS : -1; rLocalized : false; rKey : 'MayExit'; rValue : 'Вы уверены, что хотите закрыть систему %s?');
-  {* 'Вы уверены, что хотите закрыть систему %s?' }
- str_ApplicationName: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ApplicationName'; rValue : 'ГАРАНТ');
-  {* 'ГАРАНТ' }
- str_MayExit_CheckCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MayExit_CheckCaption'; rValue : 'Всегда выходить без подтверждения');
- str_MayExit_SettingsCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MayExit_SettingsCaption'; rValue : 'Выход из системы');
- str_MayExit_LongHint: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MayExit_LongHint'; rValue : 'Подтверждение при выходе из системы');
 
 const
  {* Локализуемые строки NemesisTitle }
@@ -45,30 +33,6 @@ const
   {* 'ГАРАНТ аэро' }
 
 type
- TPrimMainForm = class(TMainPrimForm)
-  {* Главная форма. Общая для всех приложений F1 }
-  protected
-   {$If NOT Defined(NoVCM)}
-   procedure DoInit(aFromHistory: Boolean); override;
-    {* Инициализация формы. Для перекрытия в потомках }
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   function NeedTerminateOnExit: Boolean; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   function AskMayExit: Boolean; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCL)}
-   procedure DoShow; override;
-   {$IfEnd} // NOT Defined(NoVCL)
-   procedure ActivateDefKeyboardLayout; override;
- end;//TPrimMainForm
-
- TPrimMainOptionsForm = class(TPrimMainForm)
-  public
-   procedure HelpTopics; override;
- end;//TPrimMainOptionsForm
-
  TPrimF1Res = {abstract} class(TF1LikeRes)
   {* Базовое приложение F1 }
   protected
@@ -124,6 +88,7 @@ uses
  , Logo_Form
  , nsAppTitleData
  , f1StartupCompletedService
+ , l3MessageID
  , BaseTypesUnit
  , evDocumentsCache
  {$If NOT Defined(NoVCM)}
@@ -138,19 +103,7 @@ uses
  , SPHTMLHelp
  , GblAdapter
  , SysUtils
- , F1Like_FormDefinitions_Controls
- , nsCustomStyleProcessor
- {$If NOT Defined(NoVCL)}
- , Dialogs
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
  , LoggingUnit
- {$If NOT Defined(NoVCM)}
- , vtNavigator
- {$IfEnd} // NOT Defined(NoVCM)
- , nsConst
 ;
 
 type
@@ -174,13 +127,6 @@ var g_TnsUserOperationEvent: TnsUserOperationEvent = nil;
  {* Экземпляр синглетона TnsUserOperationEvent }
 
 const
- {* Варианты выбора для диалога MayExit }
- str_MayExit_Choice_Exit: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MayExit_Choice_Exit'; rValue : 'Выйти');
-  {* 'Выйти' }
- str_MayExit_Choice_Stay: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'MayExit_Choice_Stay'; rValue : 'Продолжить работу');
-  {* 'Продолжить работу' }
-
-const
  {* Локализуемые строки Local }
  str_ApplicationLoading: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ApplicationLoading'; rValue : 'Идёт загрузка...');
   {* 'Идёт загрузка...' }
@@ -192,60 +138,6 @@ procedure TnsUserOperationEventFree;
 begin
  l3Free(g_TnsUserOperationEvent);
 end;//TnsUserOperationEventFree
-
-{$If NOT Defined(NoVCM)}
-procedure TPrimMainForm.DoInit(aFromHistory: Boolean);
- {* Инициализация формы. Для перекрытия в потомках }
-//#UC START# *49803F5503AA_4A92BD85004D_var*
-//#UC END# *49803F5503AA_4A92BD85004D_var*
-begin
-//#UC START# *49803F5503AA_4A92BD85004D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *49803F5503AA_4A92BD85004D_impl*
-end;//TPrimMainForm.DoInit
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-function TPrimMainForm.NeedTerminateOnExit: Boolean;
-//#UC START# *4ADDD31E0091_4A92BD85004D_var*
-//#UC END# *4ADDD31E0091_4A92BD85004D_var*
-begin
-//#UC START# *4ADDD31E0091_4A92BD85004D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDD31E0091_4A92BD85004D_impl*
-end;//TPrimMainForm.NeedTerminateOnExit
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCM)}
-function TPrimMainForm.AskMayExit: Boolean;
-//#UC START# *4ADDD5A30139_4A92BD85004D_var*
-//#UC END# *4ADDD5A30139_4A92BD85004D_var*
-begin
-//#UC START# *4ADDD5A30139_4A92BD85004D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDD5A30139_4A92BD85004D_impl*
-end;//TPrimMainForm.AskMayExit
-{$IfEnd} // NOT Defined(NoVCM)
-
-{$If NOT Defined(NoVCL)}
-procedure TPrimMainForm.DoShow;
-//#UC START# *4B321D1301DD_4A92BD85004D_var*
-//#UC END# *4B321D1301DD_4A92BD85004D_var*
-begin
-//#UC START# *4B321D1301DD_4A92BD85004D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4B321D1301DD_4A92BD85004D_impl*
-end;//TPrimMainForm.DoShow
-{$IfEnd} // NOT Defined(NoVCL)
-
-procedure TPrimMainForm.ActivateDefKeyboardLayout;
-//#UC START# *4F71FA8102BF_4A92BD85004D_var*
-//#UC END# *4F71FA8102BF_4A92BD85004D_var*
-begin
-//#UC START# *4F71FA8102BF_4A92BD85004D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4F71FA8102BF_4A92BD85004D_impl*
-end;//TPrimMainForm.ActivateDefKeyboardLayout
 
 procedure TnsUserOperationEvent.Log(aKind: TvcmOperationCallType);
 //#UC START# *4B14F21C029D_4B14F1AB03A0_var*
@@ -298,15 +190,6 @@ begin
  end;
  Result := g_TnsUserOperationEvent;
 end;//TnsUserOperationEvent.Instance
-
-procedure TPrimMainOptionsForm.HelpTopics;
-//#UC START# *4C8A27DA0087_4C8A210E018C_var*
-//#UC END# *4C8A27DA0087_4C8A210E018C_var*
-begin
-//#UC START# *4C8A27DA0087_4C8A210E018C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4C8A27DA0087_4C8A210E018C_impl*
-end;//TPrimMainOptionsForm.HelpTopics
 
 class procedure TPrimF1Res.InitDefaults;
 //#UC START# *4AA7BAF10057_4A92BBDF0126_var*
@@ -529,29 +412,6 @@ end;//TPrimF1Res.MakeResources
 {$IfEnd} // NOT Defined(NoVCM)
 
 initialization
- str_MayExit_Choice_Exit.Init;
- {* Инициализация str_MayExit_Choice_Exit }
- str_MayExit_Choice_Stay.Init;
- {* Инициализация str_MayExit_Choice_Stay }
- str_MayExit.Init;
-!!! Lost Message ini !!!
- {* Инициализация str_MayExit }
- str_ApplicationName.Init;
- {* Инициализация str_ApplicationName }
- str_MayExit_CheckCaption.Init;
- {* Инициализация str_MayExit_CheckCaption }
- str_MayExit_SettingsCaption.Init;
- {* Инициализация str_MayExit_SettingsCaption }
- str_MayExit_LongHint.Init;
- {* Инициализация str_MayExit_LongHint }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TPrimMainForm);
- {* Регистрация PrimMain }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TPrimMainOptionsForm);
- {* Регистрация PrimMainOptions }
-{$IfEnd} // NOT Defined(NoScripts)
  str_ApplicationLoading.Init;
  {* Инициализация str_ApplicationLoading }
  str_FullVersionMessage.Init;

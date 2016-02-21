@@ -16,14 +16,9 @@ uses
  , Menus
  {$IfEnd} // NOT Defined(NoVCL)
  , Classes
- , PrimCustomizeTasksPanel_Form
 ;
 
 type
- TCustomizeTasksPanelForm = {final} class(TPrimCustomizeTasksPanelForm)
-  {* Редактор панели задач }
- end;//TCustomizeTasksPanelForm
-
  TPrimTasksPanelMenuModule = {abstract} class
   private
    f_PopupMenu: TvcmPopupMenuPrim;
@@ -51,7 +46,6 @@ implementation
 {$If NOT Defined(NoVCM)}
 uses
  l3ImplUses
- , l3StringIDEx
  , vcmInterfaces
  , vcmBase
  , SysUtils
@@ -59,22 +53,9 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
- , vcmCustOpsRepGroupList
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- , l3MessageID
- {$If NOT Defined(NoScripts)}
- , CustomizeTasksPanelKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 var g_dmTasksPanelMenu: TPrimTasksPanelMenuModule = nil;
-
-const
- {* Локализуемые строки ut_CustomizeTasksPanelLocalConstants }
- str_ut_CustomizeTasksPanelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeTasksPanelCaption'; rValue : 'Редактор панели задач');
-  {* Заголовок пользовательского типа "Редактор панели задач" }
 
 function TPrimTasksPanelMenuModule.pm_GetPopupMenu: TvcmPopupMenuPrim;
 //#UC START# *4C8F78BC0331_4C8DD8C602D3get_var*
@@ -148,14 +129,6 @@ begin
  g_dmTasksPanelMenu := Self;
 //#UC END# *47D1602000C6_4C8DD8C602D3_impl*
 end;//TPrimTasksPanelMenuModule.Create
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TCustomizeTasksPanelForm);
- {* Регистрация CustomizeTasksPanel }
-{$IfEnd} // NOT Defined(NoScripts)
- str_ut_CustomizeTasksPanelCaption.Init;
- {* Инициализация str_ut_CustomizeTasksPanelCaption }
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

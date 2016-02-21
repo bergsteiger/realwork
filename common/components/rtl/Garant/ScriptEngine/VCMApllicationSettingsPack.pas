@@ -10,8 +10,6 @@ interface
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3IntfUses
- , vcmToolbarMenuRes
- , vcmMenuManager
 ;
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -20,6 +18,8 @@ implementation
 {$If NOT Defined(NoScripts) AND NOT Defined(NoVCM)}
 uses
  l3ImplUses
+ , vcmToolbarMenuRes
+ , vcmMenuManager
  , tfwGlobalKeyWord
  , tfwScriptingInterfaces
  , TypInfo

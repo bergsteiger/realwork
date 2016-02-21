@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Settings_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , StyleEditorFont_Form
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
@@ -23,14 +31,6 @@ uses
  , vtCheckBox
  , vtComboBoxQS
  , vtColorBox
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -2290,12 +2290,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontScrollBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontScrollBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1DBD7BDD5568_var*
-//#UC END# *4DAEEDE10285_1DBD7BDD5568_var*
 begin
-//#UC START# *4DAEEDE10285_1DBD7BDD5568_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1DBD7BDD5568_impl*
+ aCtx.rEngine.PushString('FontScrollBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontScrollBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontScrollBox_Push.GetWordNameForRegister: AnsiString;
@@ -2320,12 +2317,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontUnderlineLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1C99D1E380F2_var*
-//#UC END# *4DAEEDE10285_1C99D1E380F2_var*
 begin
-//#UC START# *4DAEEDE10285_1C99D1E380F2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1C99D1E380F2_impl*
+ aCtx.rEngine.PushString('FontUnderlineLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontUnderlineLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2350,12 +2344,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_771F6398352A_var*
-//#UC END# *4DAEEDE10285_771F6398352A_var*
 begin
-//#UC START# *4DAEEDE10285_771F6398352A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_771F6398352A_impl*
+ aCtx.rEngine.PushString('FontStrikeoutLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontStrikeoutLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2380,12 +2371,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontSizeLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontSizeLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C2550EAB57A1_var*
-//#UC END# *4DAEEDE10285_C2550EAB57A1_var*
 begin
-//#UC START# *4DAEEDE10285_C2550EAB57A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C2550EAB57A1_impl*
+ aCtx.rEngine.PushString('FontSizeLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontSizeLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontSizeLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2410,12 +2398,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontNameLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontNameLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ADCEECA6BC83_var*
-//#UC END# *4DAEEDE10285_ADCEECA6BC83_var*
 begin
-//#UC START# *4DAEEDE10285_ADCEECA6BC83_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ADCEECA6BC83_impl*
+ aCtx.rEngine.PushString('FontNameLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontNameLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontNameLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2440,12 +2425,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontItalicLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontItalicLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4BC413040C1C_var*
-//#UC END# *4DAEEDE10285_4BC413040C1C_var*
 begin
-//#UC START# *4DAEEDE10285_4BC413040C1C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4BC413040C1C_impl*
+ aCtx.rEngine.PushString('FontItalicLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontItalicLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontItalicLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2470,12 +2452,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontForeColorLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontForeColorLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BACAFF564190_var*
-//#UC END# *4DAEEDE10285_BACAFF564190_var*
 begin
-//#UC START# *4DAEEDE10285_BACAFF564190_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BACAFF564190_impl*
+ aCtx.rEngine.PushString('FontForeColorLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontForeColorLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontForeColorLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2500,12 +2479,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontBoldLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontBoldLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B8D1937BF947_var*
-//#UC END# *4DAEEDE10285_B8D1937BF947_var*
 begin
-//#UC START# *4DAEEDE10285_B8D1937BF947_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B8D1937BF947_impl*
+ aCtx.rEngine.PushString('FontBoldLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontBoldLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontBoldLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2530,12 +2506,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontBackColorLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontBackColorLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B729D8B965BD_var*
-//#UC END# *4DAEEDE10285_B729D8B965BD_var*
 begin
-//#UC START# *4DAEEDE10285_B729D8B965BD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B729D8B965BD_impl*
+ aCtx.rEngine.PushString('FontBackColorLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontBackColorLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontBackColorLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2560,12 +2533,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontScalableLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontScalableLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DA46B4447652_var*
-//#UC END# *4DAEEDE10285_DA46B4447652_var*
 begin
-//#UC START# *4DAEEDE10285_DA46B4447652_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DA46B4447652_impl*
+ aCtx.rEngine.PushString('FontScalableLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontScalableLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontScalableLabel_Push.GetWordNameForRegister: AnsiString;
@@ -2590,12 +2560,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontScalableBevel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontScalableBevel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1B7B7FC28B1E_var*
-//#UC END# *4DAEEDE10285_1B7B7FC28B1E_var*
 begin
-//#UC START# *4DAEEDE10285_1B7B7FC28B1E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1B7B7FC28B1E_impl*
+ aCtx.rEngine.PushString('FontScalableBevel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontScalableBevel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontScalableBevel_Push.GetWordNameForRegister: AnsiString;
@@ -2620,12 +2587,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E7AB729BF774_var*
-//#UC END# *4DAEEDE10285_E7AB729BF774_var*
 begin
-//#UC START# *4DAEEDE10285_E7AB729BF774_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E7AB729BF774_impl*
+ aCtx.rEngine.PushString('FontStrikeoutInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontStrikeoutInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -2650,12 +2614,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontSizeInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_F59CE8C86100_var*
-//#UC END# *4DAEEDE10285_F59CE8C86100_var*
 begin
-//#UC START# *4DAEEDE10285_F59CE8C86100_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_F59CE8C86100_impl*
+ aCtx.rEngine.PushString('FontSizeInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontSizeInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -2680,12 +2641,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontNameInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5ACF0BDC9B03_var*
-//#UC END# *4DAEEDE10285_5ACF0BDC9B03_var*
 begin
-//#UC START# *4DAEEDE10285_5ACF0BDC9B03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5ACF0BDC9B03_impl*
+ aCtx.rEngine.PushString('FontNameInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontNameInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -2710,12 +2668,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontItalicInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C0628748BEE7_var*
-//#UC END# *4DAEEDE10285_C0628748BEE7_var*
 begin
-//#UC START# *4DAEEDE10285_C0628748BEE7_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C0628748BEE7_impl*
+ aCtx.rEngine.PushString('FontItalicInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontItalicInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -2740,12 +2695,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B4F9F3B82638_var*
-//#UC END# *4DAEEDE10285_B4F9F3B82638_var*
 begin
-//#UC START# *4DAEEDE10285_B4F9F3B82638_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B4F9F3B82638_impl*
+ aCtx.rEngine.PushString('FontForeColorInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontForeColorInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -2770,12 +2722,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontBoldInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C1D87729A506_var*
-//#UC END# *4DAEEDE10285_C1D87729A506_var*
 begin
-//#UC START# *4DAEEDE10285_C1D87729A506_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C1D87729A506_impl*
+ aCtx.rEngine.PushString('FontBoldInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontBoldInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -2800,12 +2749,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1791333715F9_var*
-//#UC END# *4DAEEDE10285_1791333715F9_var*
 begin
-//#UC START# *4DAEEDE10285_1791333715F9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1791333715F9_impl*
+ aCtx.rEngine.PushString('FontBackColorInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontBackColorInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -2830,12 +2776,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_97E134CE280B_var*
-//#UC END# *4DAEEDE10285_97E134CE280B_var*
 begin
-//#UC START# *4DAEEDE10285_97E134CE280B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_97E134CE280B_impl*
+ aCtx.rEngine.PushString('FontUnderlineInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontUnderlineInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -2860,12 +2803,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontUnderlineCheckBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_A153B48FADDB_var*
-//#UC END# *4DAEEDE10285_A153B48FADDB_var*
 begin
-//#UC START# *4DAEEDE10285_A153B48FADDB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_A153B48FADDB_impl*
+ aCtx.rEngine.PushString('FontUnderlineCheckBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontUnderlineCheckBox_Push.GetWordNameForRegister: AnsiString;
@@ -2890,12 +2830,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_281DB890EA72_var*
-//#UC END# *4DAEEDE10285_281DB890EA72_var*
 begin
-//#UC START# *4DAEEDE10285_281DB890EA72_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_281DB890EA72_impl*
+ aCtx.rEngine.PushString('FontStrikeoutCheckBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontStrikeoutCheckBox_Push.GetWordNameForRegister: AnsiString;
@@ -2920,12 +2857,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontSizeComboBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontSizeComboBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_935D3B09FFCD_var*
-//#UC END# *4DAEEDE10285_935D3B09FFCD_var*
 begin
-//#UC START# *4DAEEDE10285_935D3B09FFCD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_935D3B09FFCD_impl*
+ aCtx.rEngine.PushString('FontSizeComboBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontSizeComboBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontSizeComboBox_Push.GetWordNameForRegister: AnsiString;
@@ -2950,12 +2884,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontNameComboBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontNameComboBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_BAE036CA2093_var*
-//#UC END# *4DAEEDE10285_BAE036CA2093_var*
 begin
-//#UC START# *4DAEEDE10285_BAE036CA2093_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_BAE036CA2093_impl*
+ aCtx.rEngine.PushString('FontNameComboBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontNameComboBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontNameComboBox_Push.GetWordNameForRegister: AnsiString;
@@ -2980,12 +2911,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontItalicCheckBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_98E7193D983B_var*
-//#UC END# *4DAEEDE10285_98E7193D983B_var*
 begin
-//#UC START# *4DAEEDE10285_98E7193D983B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_98E7193D983B_impl*
+ aCtx.rEngine.PushString('FontItalicCheckBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontItalicCheckBox_Push.GetWordNameForRegister: AnsiString;
@@ -3010,12 +2938,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontForeColorBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontForeColorBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EA4A4CFDE3FB_var*
-//#UC END# *4DAEEDE10285_EA4A4CFDE3FB_var*
 begin
-//#UC START# *4DAEEDE10285_EA4A4CFDE3FB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EA4A4CFDE3FB_impl*
+ aCtx.rEngine.PushString('FontForeColorBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontForeColorBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontForeColorBox_Push.GetWordNameForRegister: AnsiString;
@@ -3040,12 +2965,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontBoldCheckBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C0C59160AB9E_var*
-//#UC END# *4DAEEDE10285_C0C59160AB9E_var*
 begin
-//#UC START# *4DAEEDE10285_C0C59160AB9E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C0C59160AB9E_impl*
+ aCtx.rEngine.PushString('FontBoldCheckBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontBoldCheckBox_Push.GetWordNameForRegister: AnsiString;
@@ -3070,12 +2992,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontBackColorBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontBackColorBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_77841F020249_var*
-//#UC END# *4DAEEDE10285_77841F020249_var*
 begin
-//#UC START# *4DAEEDE10285_77841F020249_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_77841F020249_impl*
+ aCtx.rEngine.PushString('FontBackColorBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontBackColorBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontBackColorBox_Push.GetWordNameForRegister: AnsiString;
@@ -3100,12 +3019,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FontScalableCheckBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_4168A3C61761_var*
-//#UC END# *4DAEEDE10285_4168A3C61761_var*
 begin
-//#UC START# *4DAEEDE10285_4168A3C61761_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_4168A3C61761_impl*
+ aCtx.rEngine.PushString('FontScalableCheckBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FontScalableCheckBox_Push.GetWordNameForRegister: AnsiString;
@@ -3130,12 +3046,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_LeftIndentLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_LeftIndentLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8765425650CD_var*
-//#UC END# *4DAEEDE10285_8765425650CD_var*
 begin
-//#UC START# *4DAEEDE10285_8765425650CD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8765425650CD_impl*
+ aCtx.rEngine.PushString('LeftIndentLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_LeftIndentLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_LeftIndentLabel_Push.GetWordNameForRegister: AnsiString;
@@ -3160,12 +3073,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_LeftIndentComboBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5450EFA51FB1_var*
-//#UC END# *4DAEEDE10285_5450EFA51FB1_var*
 begin
-//#UC START# *4DAEEDE10285_5450EFA51FB1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5450EFA51FB1_impl*
+ aCtx.rEngine.PushString('LeftIndentComboBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_LeftIndentComboBox_Push.GetWordNameForRegister: AnsiString;
@@ -3190,12 +3100,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_RightIndentLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_RightIndentLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5833EAD4BC79_var*
-//#UC END# *4DAEEDE10285_5833EAD4BC79_var*
 begin
-//#UC START# *4DAEEDE10285_5833EAD4BC79_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5833EAD4BC79_impl*
+ aCtx.rEngine.PushString('RightIndentLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_RightIndentLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_RightIndentLabel_Push.GetWordNameForRegister: AnsiString;
@@ -3220,12 +3127,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_RightIndentComboBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_RightIndentComboBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_52B2566FDE4F_var*
-//#UC END# *4DAEEDE10285_52B2566FDE4F_var*
 begin
-//#UC START# *4DAEEDE10285_52B2566FDE4F_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_52B2566FDE4F_impl*
+ aCtx.rEngine.PushString('RightIndentComboBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_RightIndentComboBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_RightIndentComboBox_Push.GetWordNameForRegister: AnsiString;
@@ -3250,12 +3154,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FirstIndentLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FirstIndentLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ABE01F59B4C2_var*
-//#UC END# *4DAEEDE10285_ABE01F59B4C2_var*
 begin
-//#UC START# *4DAEEDE10285_ABE01F59B4C2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ABE01F59B4C2_impl*
+ aCtx.rEngine.PushString('FirstIndentLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FirstIndentLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FirstIndentLabel_Push.GetWordNameForRegister: AnsiString;
@@ -3280,12 +3181,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FirstIndentComboBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_9C2AFCFE1C6A_var*
-//#UC END# *4DAEEDE10285_9C2AFCFE1C6A_var*
 begin
-//#UC START# *4DAEEDE10285_9C2AFCFE1C6A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_9C2AFCFE1C6A_impl*
+ aCtx.rEngine.PushString('FirstIndentComboBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FirstIndentComboBox_Push.GetWordNameForRegister: AnsiString;
@@ -3310,12 +3208,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E11311671385_var*
-//#UC END# *4DAEEDE10285_E11311671385_var*
 begin
-//#UC START# *4DAEEDE10285_E11311671385_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E11311671385_impl*
+ aCtx.rEngine.PushString('SpaceBeforeLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_SpaceBeforeLabel_Push.GetWordNameForRegister: AnsiString;
@@ -3340,12 +3235,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeComboBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D744A08289F1_var*
-//#UC END# *4DAEEDE10285_D744A08289F1_var*
 begin
-//#UC START# *4DAEEDE10285_D744A08289F1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D744A08289F1_impl*
+ aCtx.rEngine.PushString('SpaceBeforeComboBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_SpaceBeforeComboBox_Push.GetWordNameForRegister: AnsiString;
@@ -3370,12 +3262,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_SpaceAfterLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_812B0D0A9BBC_var*
-//#UC END# *4DAEEDE10285_812B0D0A9BBC_var*
 begin
-//#UC START# *4DAEEDE10285_812B0D0A9BBC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_812B0D0A9BBC_impl*
+ aCtx.rEngine.PushString('SpaceAfterLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_SpaceAfterLabel_Push.GetWordNameForRegister: AnsiString;
@@ -3400,12 +3289,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_SpaceAfterComboBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_290DF23DA32B_var*
-//#UC END# *4DAEEDE10285_290DF23DA32B_var*
 begin
-//#UC START# *4DAEEDE10285_290DF23DA32B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_290DF23DA32B_impl*
+ aCtx.rEngine.PushString('SpaceAfterComboBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_SpaceAfterComboBox_Push.GetWordNameForRegister: AnsiString;
@@ -3430,12 +3316,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FB9E99498FB2_var*
-//#UC END# *4DAEEDE10285_FB9E99498FB2_var*
 begin
-//#UC START# *4DAEEDE10285_FB9E99498FB2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FB9E99498FB2_impl*
+ aCtx.rEngine.PushString('LeftIndentInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_LeftIndentInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -3460,12 +3343,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_RightIndentInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5AC0FA744E64_var*
-//#UC END# *4DAEEDE10285_5AC0FA744E64_var*
 begin
-//#UC START# *4DAEEDE10285_5AC0FA744E64_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5AC0FA744E64_impl*
+ aCtx.rEngine.PushString('RightIndentInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_RightIndentInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -3490,12 +3370,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_34DD8667F219_var*
-//#UC END# *4DAEEDE10285_34DD8667F219_var*
 begin
-//#UC START# *4DAEEDE10285_34DD8667F219_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_34DD8667F219_impl*
+ aCtx.rEngine.PushString('FirstIndentInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_FirstIndentInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -3520,12 +3397,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_36280AA18EEC_var*
-//#UC END# *4DAEEDE10285_36280AA18EEC_var*
 begin
-//#UC START# *4DAEEDE10285_36280AA18EEC_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_36280AA18EEC_impl*
+ aCtx.rEngine.PushString('SpaceBeforeInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_SpaceBeforeInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -3550,12 +3424,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_854FAD6E2C9D_var*
-//#UC END# *4DAEEDE10285_854FAD6E2C9D_var*
 begin
-//#UC START# *4DAEEDE10285_854FAD6E2C9D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_854FAD6E2C9D_impl*
+ aCtx.rEngine.PushString('SpaceAfterInheritanceButton');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_SpaceAfterInheritanceButton_Push.GetWordNameForRegister: AnsiString;
@@ -3580,12 +3451,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_StyleCaptionLabel.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_StyleCaptionLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AB90C98E4049_var*
-//#UC END# *4DAEEDE10285_AB90C98E4049_var*
 begin
-//#UC START# *4DAEEDE10285_AB90C98E4049_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AB90C98E4049_impl*
+ aCtx.rEngine.PushString('StyleCaptionLabel');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_StyleCaptionLabel_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_StyleCaptionLabel_Push.GetWordNameForRegister: AnsiString;
@@ -3610,12 +3478,9 @@ begin
 end;//Tkw_StyleEditorFont_Control_StyleCaptionComboBox.RegisterInEngine
 
 procedure Tkw_StyleEditorFont_Control_StyleCaptionComboBox_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_21B177EE9653_var*
-//#UC END# *4DAEEDE10285_21B177EE9653_var*
 begin
-//#UC START# *4DAEEDE10285_21B177EE9653_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_21B177EE9653_impl*
+ aCtx.rEngine.PushString('StyleCaptionComboBox');
+ inherited;
 end;//Tkw_StyleEditorFont_Control_StyleCaptionComboBox_Push.DoDoIt
 
 class function Tkw_StyleEditorFont_Control_StyleCaptionComboBox_Push.GetWordNameForRegister: AnsiString;

@@ -11,8 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , CommonPost_Module
- , eeTreeView
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -21,6 +19,8 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , PostingsList_Form
+ , eeTreeView
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -124,12 +124,9 @@ begin
 end;//Tkw_PostingsList_Control_tvPostings.RegisterInEngine
 
 procedure Tkw_PostingsList_Control_tvPostings_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7241BE7680A1_var*
-//#UC END# *4DAEEDE10285_7241BE7680A1_var*
 begin
-//#UC START# *4DAEEDE10285_7241BE7680A1_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7241BE7680A1_impl*
+ aCtx.rEngine.PushString('tvPostings');
+ inherited;
 end;//Tkw_PostingsList_Control_tvPostings_Push.DoDoIt
 
 class function Tkw_PostingsList_Control_tvPostings_Push.GetWordNameForRegister: AnsiString;

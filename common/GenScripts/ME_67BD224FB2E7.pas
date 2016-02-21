@@ -11,13 +11,6 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , List_Module
- {$If Defined(Nemesis)}
- , nscEditor
- {$IfEnd} // Defined(Nemesis)
- {$If Defined(Nemesis)}
- , nscTextSource
- {$IfEnd} // Defined(Nemesis)
 ;
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
@@ -26,6 +19,13 @@ implementation
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , ListInfo_Form
+ {$If Defined(Nemesis)}
+ , nscEditor
+ {$IfEnd} // Defined(Nemesis)
+ {$If Defined(Nemesis)}
+ , nscTextSource
+ {$IfEnd} // Defined(Nemesis)
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -166,12 +166,9 @@ begin
 end;//Tkw_ListInfo_Control_ListInfoViewer.RegisterInEngine
 
 procedure Tkw_ListInfo_Control_ListInfoViewer_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_79DCA22F52FF_var*
-//#UC END# *4DAEEDE10285_79DCA22F52FF_var*
 begin
-//#UC START# *4DAEEDE10285_79DCA22F52FF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_79DCA22F52FF_impl*
+ aCtx.rEngine.PushString('ListInfoViewer');
+ inherited;
 end;//Tkw_ListInfo_Control_ListInfoViewer_Push.DoDoIt
 
 class function Tkw_ListInfo_Control_ListInfoViewer_Push.GetWordNameForRegister: AnsiString;

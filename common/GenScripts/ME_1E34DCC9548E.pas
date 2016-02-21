@@ -11,14 +11,6 @@ interface
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , Admin_Module
- , vtPanel
- , vtLabel
- {$If Defined(Nemesis)}
- , nscComboBox
- {$IfEnd} // Defined(Nemesis)
- , vtComboBoxQS
- , vtCheckBox
 ;
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts)
 
@@ -27,6 +19,14 @@ implementation
 {$If Defined(Admin) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , UserProperty_Form
+ , vtPanel
+ , vtLabel
+ {$If Defined(Nemesis)}
+ , nscComboBox
+ {$IfEnd} // Defined(Nemesis)
+ , vtComboBoxQS
+ , vtCheckBox
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -1159,12 +1159,9 @@ begin
 end;//Tkw_UserProperty_Control_pnMainData.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_pnMainData_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_50135E50AB21_var*
-//#UC END# *4DAEEDE10285_50135E50AB21_var*
 begin
-//#UC START# *4DAEEDE10285_50135E50AB21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_50135E50AB21_impl*
+ aCtx.rEngine.PushString('pnMainData');
+ inherited;
 end;//Tkw_UserProperty_Control_pnMainData_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_pnMainData_Push.GetWordNameForRegister: AnsiString;
@@ -1189,12 +1186,9 @@ begin
 end;//Tkw_UserProperty_Control_f_TopPanel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_f_TopPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_EA491586500E_var*
-//#UC END# *4DAEEDE10285_EA491586500E_var*
 begin
-//#UC START# *4DAEEDE10285_EA491586500E_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_EA491586500E_impl*
+ aCtx.rEngine.PushString('f_TopPanel');
+ inherited;
 end;//Tkw_UserProperty_Control_f_TopPanel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_f_TopPanel_Push.GetWordNameForRegister: AnsiString;
@@ -1219,12 +1213,9 @@ begin
 end;//Tkw_UserProperty_Control_UserNameLabel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_UserNameLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2A925860DBF2_var*
-//#UC END# *4DAEEDE10285_2A925860DBF2_var*
 begin
-//#UC START# *4DAEEDE10285_2A925860DBF2_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2A925860DBF2_impl*
+ aCtx.rEngine.PushString('UserNameLabel');
+ inherited;
 end;//Tkw_UserProperty_Control_UserNameLabel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_UserNameLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1249,12 +1240,9 @@ begin
 end;//Tkw_UserProperty_Control_PasswordLabel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_PasswordLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_711F5DD39F73_var*
-//#UC END# *4DAEEDE10285_711F5DD39F73_var*
 begin
-//#UC START# *4DAEEDE10285_711F5DD39F73_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_711F5DD39F73_impl*
+ aCtx.rEngine.PushString('PasswordLabel');
+ inherited;
 end;//Tkw_UserProperty_Control_PasswordLabel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_PasswordLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1279,12 +1267,9 @@ begin
 end;//Tkw_UserProperty_Control_LoginLabel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_LoginLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_C57469C4A812_var*
-//#UC END# *4DAEEDE10285_C57469C4A812_var*
 begin
-//#UC START# *4DAEEDE10285_C57469C4A812_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_C57469C4A812_impl*
+ aCtx.rEngine.PushString('LoginLabel');
+ inherited;
 end;//Tkw_UserProperty_Control_LoginLabel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_LoginLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1309,12 +1294,9 @@ begin
 end;//Tkw_UserProperty_Control_EMailLabel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_EMailLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_E1F89C36862A_var*
-//#UC END# *4DAEEDE10285_E1F89C36862A_var*
 begin
-//#UC START# *4DAEEDE10285_E1F89C36862A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_E1F89C36862A_impl*
+ aCtx.rEngine.PushString('EMailLabel');
+ inherited;
 end;//Tkw_UserProperty_Control_EMailLabel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_EMailLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1339,12 +1321,9 @@ begin
 end;//Tkw_UserProperty_Control_ConfirmPasswordLabel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_ConfirmPasswordLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3B125642BD92_var*
-//#UC END# *4DAEEDE10285_3B125642BD92_var*
 begin
-//#UC START# *4DAEEDE10285_3B125642BD92_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3B125642BD92_impl*
+ aCtx.rEngine.PushString('ConfirmPasswordLabel');
+ inherited;
 end;//Tkw_UserProperty_Control_ConfirmPasswordLabel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_ConfirmPasswordLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1369,12 +1348,9 @@ begin
 end;//Tkw_UserProperty_Control_GroupLabel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_GroupLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B992D07BA86B_var*
-//#UC END# *4DAEEDE10285_B992D07BA86B_var*
 begin
-//#UC START# *4DAEEDE10285_B992D07BA86B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B992D07BA86B_impl*
+ aCtx.rEngine.PushString('GroupLabel');
+ inherited;
 end;//Tkw_UserProperty_Control_GroupLabel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_GroupLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1399,12 +1375,9 @@ begin
 end;//Tkw_UserProperty_Control_edPassword.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edPassword_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_3FE9E65A5C21_var*
-//#UC END# *4DAEEDE10285_3FE9E65A5C21_var*
 begin
-//#UC START# *4DAEEDE10285_3FE9E65A5C21_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_3FE9E65A5C21_impl*
+ aCtx.rEngine.PushString('edPassword');
+ inherited;
 end;//Tkw_UserProperty_Control_edPassword_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edPassword_Push.GetWordNameForRegister: AnsiString;
@@ -1429,12 +1402,9 @@ begin
 end;//Tkw_UserProperty_Control_edUserName.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edUserName_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8CFB802B9A47_var*
-//#UC END# *4DAEEDE10285_8CFB802B9A47_var*
 begin
-//#UC START# *4DAEEDE10285_8CFB802B9A47_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8CFB802B9A47_impl*
+ aCtx.rEngine.PushString('edUserName');
+ inherited;
 end;//Tkw_UserProperty_Control_edUserName_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edUserName_Push.GetWordNameForRegister: AnsiString;
@@ -1459,12 +1429,9 @@ begin
 end;//Tkw_UserProperty_Control_edLogin.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edLogin_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_AABEB29F18DB_var*
-//#UC END# *4DAEEDE10285_AABEB29F18DB_var*
 begin
-//#UC START# *4DAEEDE10285_AABEB29F18DB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_AABEB29F18DB_impl*
+ aCtx.rEngine.PushString('edLogin');
+ inherited;
 end;//Tkw_UserProperty_Control_edLogin_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edLogin_Push.GetWordNameForRegister: AnsiString;
@@ -1489,12 +1456,9 @@ begin
 end;//Tkw_UserProperty_Control_edEmail.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edEmail_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B7407250C325_var*
-//#UC END# *4DAEEDE10285_B7407250C325_var*
 begin
-//#UC START# *4DAEEDE10285_B7407250C325_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B7407250C325_impl*
+ aCtx.rEngine.PushString('edEmail');
+ inherited;
 end;//Tkw_UserProperty_Control_edEmail_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edEmail_Push.GetWordNameForRegister: AnsiString;
@@ -1519,12 +1483,9 @@ begin
 end;//Tkw_UserProperty_Control_edConfirm.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edConfirm_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_FB2E810E7FF3_var*
-//#UC END# *4DAEEDE10285_FB2E810E7FF3_var*
 begin
-//#UC START# *4DAEEDE10285_FB2E810E7FF3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_FB2E810E7FF3_impl*
+ aCtx.rEngine.PushString('edConfirm');
+ inherited;
 end;//Tkw_UserProperty_Control_edConfirm_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edConfirm_Push.GetWordNameForRegister: AnsiString;
@@ -1549,12 +1510,9 @@ begin
 end;//Tkw_UserProperty_Control_edGroup.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edGroup_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7F71423573C3_var*
-//#UC END# *4DAEEDE10285_7F71423573C3_var*
 begin
-//#UC START# *4DAEEDE10285_7F71423573C3_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7F71423573C3_impl*
+ aCtx.rEngine.PushString('edGroup');
+ inherited;
 end;//Tkw_UserProperty_Control_edGroup_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edGroup_Push.GetWordNameForRegister: AnsiString;
@@ -1579,12 +1537,9 @@ begin
 end;//Tkw_UserProperty_Control_f_MiddlePanel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_f_MiddlePanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DBB4909AE4A6_var*
-//#UC END# *4DAEEDE10285_DBB4909AE4A6_var*
 begin
-//#UC START# *4DAEEDE10285_DBB4909AE4A6_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DBB4909AE4A6_impl*
+ aCtx.rEngine.PushString('f_MiddlePanel');
+ inherited;
 end;//Tkw_UserProperty_Control_f_MiddlePanel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_f_MiddlePanel_Push.GetWordNameForRegister: AnsiString;
@@ -1609,12 +1564,9 @@ begin
 end;//Tkw_UserProperty_Control_edPrivilegedUser.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edPrivilegedUser_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_8598C25359C8_var*
-//#UC END# *4DAEEDE10285_8598C25359C8_var*
 begin
-//#UC START# *4DAEEDE10285_8598C25359C8_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_8598C25359C8_impl*
+ aCtx.rEngine.PushString('edPrivilegedUser');
+ inherited;
 end;//Tkw_UserProperty_Control_edPrivilegedUser_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edPrivilegedUser_Push.GetWordNameForRegister: AnsiString;
@@ -1639,12 +1591,9 @@ begin
 end;//Tkw_UserProperty_Control_edBuyConsulting.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edBuyConsulting_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2831C5447AFB_var*
-//#UC END# *4DAEEDE10285_2831C5447AFB_var*
 begin
-//#UC START# *4DAEEDE10285_2831C5447AFB_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2831C5447AFB_impl*
+ aCtx.rEngine.PushString('edBuyConsulting');
+ inherited;
 end;//Tkw_UserProperty_Control_edBuyConsulting_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edBuyConsulting_Push.GetWordNameForRegister: AnsiString;
@@ -1669,12 +1618,9 @@ begin
 end;//Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_43007B2A050B_var*
-//#UC END# *4DAEEDE10285_43007B2A050B_var*
 begin
-//#UC START# *4DAEEDE10285_43007B2A050B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_43007B2A050B_impl*
+ aCtx.rEngine.PushString('f_DontDeleteIdleUserPanel');
+ inherited;
 end;//Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_f_DontDeleteIdleUserPanel_Push.GetWordNameForRegister: AnsiString;
@@ -1699,12 +1645,9 @@ begin
 end;//Tkw_UserProperty_Control_edDontDeleteIdleUser.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edDontDeleteIdleUser_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2E66F53F3A03_var*
-//#UC END# *4DAEEDE10285_2E66F53F3A03_var*
 begin
-//#UC START# *4DAEEDE10285_2E66F53F3A03_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2E66F53F3A03_impl*
+ aCtx.rEngine.PushString('edDontDeleteIdleUser');
+ inherited;
 end;//Tkw_UserProperty_Control_edDontDeleteIdleUser_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edDontDeleteIdleUser_Push.GetWordNameForRegister: AnsiString;
@@ -1729,12 +1672,9 @@ begin
 end;//Tkw_UserProperty_Control_f_BottomPanel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_f_BottomPanel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B231F2147653_var*
-//#UC END# *4DAEEDE10285_B231F2147653_var*
 begin
-//#UC START# *4DAEEDE10285_B231F2147653_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B231F2147653_impl*
+ aCtx.rEngine.PushString('f_BottomPanel');
+ inherited;
 end;//Tkw_UserProperty_Control_f_BottomPanel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_f_BottomPanel_Push.GetWordNameForRegister: AnsiString;
@@ -1759,12 +1699,9 @@ begin
 end;//Tkw_UserProperty_Control_InfoLabel.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_InfoLabel_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_DF3514B51A30_var*
-//#UC END# *4DAEEDE10285_DF3514B51A30_var*
 begin
-//#UC START# *4DAEEDE10285_DF3514B51A30_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_DF3514B51A30_impl*
+ aCtx.rEngine.PushString('InfoLabel');
+ inherited;
 end;//Tkw_UserProperty_Control_InfoLabel_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_InfoLabel_Push.GetWordNameForRegister: AnsiString;
@@ -1789,12 +1726,9 @@ begin
 end;//Tkw_UserProperty_Control_edHasSharedFilters.RegisterInEngine
 
 procedure Tkw_UserProperty_Control_edHasSharedFilters_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7463C928E338_var*
-//#UC END# *4DAEEDE10285_7463C928E338_var*
 begin
-//#UC START# *4DAEEDE10285_7463C928E338_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7463C928E338_impl*
+ aCtx.rEngine.PushString('edHasSharedFilters');
+ inherited;
 end;//Tkw_UserProperty_Control_edHasSharedFilters_Push.DoDoIt
 
 class function Tkw_UserProperty_Control_edHasSharedFilters_Push.GetWordNameForRegister: AnsiString;

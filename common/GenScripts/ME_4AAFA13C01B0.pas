@@ -45,8 +45,9 @@ type
    function tvPostingsGetItemImage(Sender: TObject;
     Index: Integer;
     var aImages: TCustomImageList): Integer;
-   procedure tvPostingsActionElement(Sender: TObject;
-    Index: LongInt);
+   procedure tvPostingsCurrentChanged(Sender: TObject;
+    aNewCurrent: LongInt;
+    aOldCurrent: LongInt);
    procedure OnAddNode(aIndex: Integer);
    procedure OnDeleteNode(aIndex: Integer);
    procedure OnCaptionChange(aIndex: Integer;
@@ -163,15 +164,16 @@ begin
 //#UC END# *528262650131_4AAFA13C01B0_impl*
 end;//TPrimPostingsListForm.tvPostingsGetItemImage
 
-procedure TPrimPostingsListForm.tvPostingsActionElement(Sender: TObject;
- Index: LongInt);
+procedure TPrimPostingsListForm.tvPostingsCurrentChanged(Sender: TObject;
+ aNewCurrent: LongInt;
+ aOldCurrent: LongInt);
 //#UC START# *5282636A000F_4AAFA13C01B0_var*
 //#UC END# *5282636A000F_4AAFA13C01B0_var*
 begin
 //#UC START# *5282636A000F_4AAFA13C01B0_impl*
  PostingToolBar_ptEditPosting_Execute(vcmParams);
 //#UC END# *5282636A000F_4AAFA13C01B0_impl*
-end;//TPrimPostingsListForm.tvPostingsActionElement
+end;//TPrimPostingsListForm.tvPostingsCurrentChanged
 
 procedure TPrimPostingsListForm.OnAddNode(aIndex: Integer);
 //#UC START# *5282655D0103_4AAFA13C01B0_var*

@@ -10,7 +10,6 @@ interface
 {$If Defined(Archi) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , l3Variant
 ;
 {$IfEnd} // Defined(Archi) AND NOT Defined(NoScripts)
 
@@ -19,6 +18,7 @@ implementation
 {$If Defined(Archi) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , l3Variant
  , tfwGlobalKeyWord
  , tfwScriptingInterfaces
  , TypInfo

@@ -1,150 +1,80 @@
 unit TreeAttributeFirstLevelKeywordsPack;
+ {* Набор слов словаря для доступа к экземплярам контролов формы TreeAttributeFirstLevel }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/View/Search/TreeAttributeFirstLevelKeywordsPack.pas"
-// Начат: 08.09.2009 15:35
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<ScriptKeywordsPack::Class>> F1 Основные прецеденты::Search::View::Search::Search::TreeAttributeFirstLevelKeywordsPack
-//
-// Набор слов словаря для доступа к экземплярам контролов формы TreeAttributeFirstLevel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\Search\TreeAttributeFirstLevelKeywordsPack.pas"
+// Стереотип: "ScriptKeywordsPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
-  TreeAttributeFirstLevel_Form,
-  tfwScriptingInterfaces
-  {$If not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  kwBynameControlPush
-  {$IfEnd} //not NoScripts AND not NoVCL
-  ,
-  tfwControlString,
-  nscTreeViewWithAdapterDragDrop,
-  tfwPropertyLike
-  ;
-
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
-  TtfwClassRef_Proxy,
-  tfwScriptingTypes,
-  TypInfo,
-  SysUtils,
-  tfwTypeRegistrator
-  ;
+ l3ImplUses
+ , TreeAttributeFirstLevel_Form
+ , nscTreeViewWithAdapterDragDrop
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
+ , tfwScriptingTypes
+ , tfwTypeRegistrator
+ , TtfwClassRef_Proxy
+ , SysUtils
+;
 
 type
-  Tkw_Form_TreeAttributeFirstLevel = {final scriptword} class(TtfwControlString)
-   {* Слово словаря для идентификатора формы TreeAttributeFirstLevel
+ Tkw_Form_TreeAttributeFirstLevel = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора формы TreeAttributeFirstLevel
 ----
 *Пример использования*:
 [code]
 'aControl' форма::TreeAttributeFirstLevel TryFocus ASSERT
 [code] }
   protected
-  // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
-  end;//Tkw_Form_TreeAttributeFirstLevel
+ end;//Tkw_Form_TreeAttributeFirstLevel
 
-// start class Tkw_Form_TreeAttributeFirstLevel
-
-class function Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'форма::TreeAttributeFirstLevel';
-end;//Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister
-
-function Tkw_Form_TreeAttributeFirstLevel.GetString: AnsiString;
- {-}
-begin
- Result := 'efTreeAttributeFirstLevel';
-end;//Tkw_Form_TreeAttributeFirstLevel.GetString
-
-type
-  Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent = {final scriptword} class(TtfwControlString)
-   {* Слово словаря для идентификатора контрола FirstLevelContent
+ Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent = {final} class(TtfwControlString)
+  {* Слово словаря для идентификатора контрола FirstLevelContent
 ----
 *Пример использования*:
 [code]
 контрол::FirstLevelContent TryFocus ASSERT
 [code] }
   protected
-  // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
    function GetString: AnsiString; override;
    class procedure RegisterInEngine; override;
-  end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent
+ end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent
 
-// start class Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent
-
-class function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'контрол::FirstLevelContent';
-end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister
-
-function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetString: AnsiString;
- {-}
-begin
- Result := 'FirstLevelContent';
-end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetString
-
-class procedure Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine;
- {-}
-begin
- inherited;
- TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
-end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine
-
-type
-  Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push = {final scriptword} class(TkwBynameControlPush)
-   {* Слово словаря для контрола FirstLevelContent
+ Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push = {final} class(TkwBynameControlPush)
+  {* Слово словаря для контрола FirstLevelContent
 ----
 *Пример использования*:
 [code]
 контрол::FirstLevelContent:push pop:control:SetFocus ASSERT
 [code] }
   protected
-  // overridden protected methods
    procedure DoDoIt(const aCtx: TtfwContext); override;
    class function GetWordNameForRegister: AnsiString; override;
-  end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push
+ end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push
 
-// start class Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push
-
-procedure Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.DoDoIt(const aCtx: TtfwContext);
- {-}
-begin
- aCtx.rEngine.PushString('FirstLevelContent');
- inherited;
-end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.DoDoIt
-
-class function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.GetWordNameForRegister: AnsiString;
- {-}
-begin
- Result := 'контрол::FirstLevelContent:push';
-end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.GetWordNameForRegister
-
-type
-  TkwEfTreeAttributeFirstLevelFirstLevelContent = {final scriptword} class(TtfwPropertyLike)
-   {* Слово скрипта .TefTreeAttributeFirstLevel.FirstLevelContent
+ TkwEfTreeAttributeFirstLevelFirstLevelContent = {final} class(TtfwPropertyLike)
+  {* Слово скрипта .TefTreeAttributeFirstLevel.FirstLevelContent
 [panel]Контрол FirstLevelContent формы TefTreeAttributeFirstLevel[panel]
 *Тип результата:* TnscTreeViewWithAdapterDragDrop
 *Пример:*
@@ -153,38 +83,66 @@ OBJECT VAR l_TnscTreeViewWithAdapterDragDrop
  aefTreeAttributeFirstLevel .TefTreeAttributeFirstLevel.FirstLevelContent >>> l_TnscTreeViewWithAdapterDragDrop
 [code]  }
   private
-  // private methods
    function FirstLevelContent(const aCtx: TtfwContext;
-     aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel): TnscTreeViewWithAdapterDragDrop;
-     {* Реализация слова скрипта .TefTreeAttributeFirstLevel.FirstLevelContent }
+    aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel): TnscTreeViewWithAdapterDragDrop;
+    {* Реализация слова скрипта .TefTreeAttributeFirstLevel.FirstLevelContent }
   protected
-  // realized methods
    procedure DoDoIt(const aCtx: TtfwContext); override;
-  protected
-  // overridden protected methods
    class function GetWordNameForRegister: AnsiString; override;
   public
-  // overridden public methods
    procedure SetValuePrim(const aValue: TtfwStackValue;
-     const aCtx: TtfwContext); override;
+    const aCtx: TtfwContext); override;
    function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
-  end;//TkwEfTreeAttributeFirstLevelFirstLevelContent
+ end;//TkwEfTreeAttributeFirstLevelFirstLevelContent
 
-// start class TkwEfTreeAttributeFirstLevelFirstLevelContent
+class function Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'форма::TreeAttributeFirstLevel';
+end;//Tkw_Form_TreeAttributeFirstLevel.GetWordNameForRegister
+
+function Tkw_Form_TreeAttributeFirstLevel.GetString: AnsiString;
+begin
+ Result := 'efTreeAttributeFirstLevel';
+end;//Tkw_Form_TreeAttributeFirstLevel.GetString
+
+class function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FirstLevelContent';
+end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetWordNameForRegister
+
+function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetString: AnsiString;
+begin
+ Result := 'FirstLevelContent';
+end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.GetString
+
+class procedure Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine;
+begin
+ inherited;
+ TtfwClassRef.Register(TnscTreeViewWithAdapterDragDrop);
+end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine
+
+procedure Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.DoDoIt(const aCtx: TtfwContext);
+begin
+ aCtx.rEngine.PushString('FirstLevelContent');
+ inherited;
+end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.DoDoIt
+
+class function Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'контрол::FirstLevelContent:push';
+end;//Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.GetWordNameForRegister
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.FirstLevelContent(const aCtx: TtfwContext;
-  aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel): TnscTreeViewWithAdapterDragDrop;
- {-}
+ aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel): TnscTreeViewWithAdapterDragDrop;
+ {* Реализация слова скрипта .TefTreeAttributeFirstLevel.FirstLevelContent }
 begin
  Result := aefTreeAttributeFirstLevel.FirstLevelContent;
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.FirstLevelContent
 
 procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt(const aCtx: TtfwContext);
- {-}
-var
- l_aefTreeAttributeFirstLevel : TefTreeAttributeFirstLevel;
+var l_aefTreeAttributeFirstLevel: TefTreeAttributeFirstLevel;
 begin
  try
   l_aefTreeAttributeFirstLevel := TefTreeAttributeFirstLevel(aCtx.rEngine.PopObjAs(TefTreeAttributeFirstLevel));
@@ -195,69 +153,50 @@ begin
    Exit;
   end;//on E: Exception
  end;//try..except
- aCtx.rEngine.PushObj((FirstLevelContent(aCtx, l_aefTreeAttributeFirstLevel)));
+ aCtx.rEngine.PushObj(FirstLevelContent(aCtx, l_aefTreeAttributeFirstLevel));
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.DoDoIt
 
 class function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister: AnsiString;
- {-}
 begin
  Result := '.TefTreeAttributeFirstLevel.FirstLevelContent';
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetWordNameForRegister
 
 procedure TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim(const aValue: TtfwStackValue;
-  const aCtx: TtfwContext);
- {-}
+ const aCtx: TtfwContext);
 begin
  RunnerError('Нельзя присваивать значение readonly свойству FirstLevelContent', aCtx);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.SetValuePrim
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
- {-}
 begin
  Result := TypeInfo(TnscTreeViewWithAdapterDragDrop);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetResultTypeInfo
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.GetAllParamsCount(const aCtx: TtfwContext): Integer;
- {-}
 begin
- Result := 0 + 1;
+ Result := 1;
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.GetAllParamsCount
 
 function TkwEfTreeAttributeFirstLevelFirstLevelContent.ParamsTypes: PTypeInfoArray;
- {-}
 begin
  Result := OpenTypesToTypes([TypeInfo(TefTreeAttributeFirstLevel)]);
 end;//TkwEfTreeAttributeFirstLevelFirstLevelContent.ParamsTypes
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
 
 initialization
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_Form_TreeAttributeFirstLevel
  Tkw_Form_TreeAttributeFirstLevel.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent
+ {* Регистрация Tkw_Form_TreeAttributeFirstLevel }
  Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push
+ {* Регистрация Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent }
  Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация efTreeAttributeFirstLevel_FirstLevelContent
+ {* Регистрация Tkw_TreeAttributeFirstLevel_Control_FirstLevelContent_Push }
  TkwEfTreeAttributeFirstLevelFirstLevelContent.RegisterInEngine;
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация типа TtfwContext
+ {* Регистрация efTreeAttributeFirstLevel_FirstLevelContent }
  TtfwTypeRegistrator.RegisterType(@tfw_tiStruct);
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация типа TreeAttributeFirstLevel
+ {* Регистрация типа TtfwContext }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefTreeAttributeFirstLevel));
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
-{$If not defined(Admin) AND not defined(Monitorings) AND not defined(NoScripts)}
-// Регистрация типа TnscTreeViewWithAdapterDragDrop
+ {* Регистрация типа TreeAttributeFirstLevel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
-{$IfEnd} //not Admin AND not Monitorings AND not NoScripts
+ {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
 
 end.

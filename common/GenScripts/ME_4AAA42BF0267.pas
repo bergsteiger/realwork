@@ -14,9 +14,6 @@ uses
 ;
 
 type
- TShellAndMonitoringsMainForm = class(TPrimMainOptionsForm)
- end;//TShellAndMonitoringsMainForm
-
  TShellAndMonitoringsRes = {abstract} class(TPrimF1Res)
  end;//TShellAndMonitoringsRes
 {$IfEnd} // NOT Defined(Admin)
@@ -28,16 +25,7 @@ uses
  l3ImplUses
  , moCommonSearch
  , tasSaveLoadRealization
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
 ;
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TShellAndMonitoringsMainForm);
- {* Регистрация ShellAndMonitoringsMain }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin)
 
 end.

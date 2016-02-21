@@ -11,7 +11,6 @@ interface
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , PrimToolbarMenu_Module
 ;
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts)
 
@@ -20,6 +19,7 @@ implementation
 {$If NOT Defined(NoVCM) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , CustomizeTools_Form
  , tfwControlString
  , tfwScriptingTypes
  , TtfwClassRef_Proxy

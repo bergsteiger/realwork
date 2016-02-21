@@ -17,19 +17,9 @@ uses
  , Classes
  , SearchUnit
  , FiltersUnit
- , PrimFiltersOptions_Form
- , Common_FormDefinitions_Controls
- , PrimCreateFilter_Form
 ;
 
 type
- TenFilters = {final} class(TPrimFiltersOptionsForm, FiltersFormDef)
-  {* Фильтры }
- end;//TenFilters
-
- TCreateFilterForm = {final} class(TPrimCreateFilterForm)
- end;//TCreateFilterForm
-
  TFiltersModule = class
   public
    procedure FiltersOpen(const aData: IucpFilters);
@@ -55,15 +45,6 @@ uses
  , PrimCreateFilter_cfCreate_UserType
  , dsCreateFilter
  , deFilter
- {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , FiltersKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , CreateFilterKeywordsPack
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 procedure TFiltersModule.FiltersOpen(const aData: IucpFilters);
@@ -132,18 +113,6 @@ begin
  end;
 //#UC END# *4CB6AFEE024B_4CCAA9E50274_impl*
 end;//TFiltersModule.RenameFilter
-
-initialization
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TenFilters);
- {* Регистрация Filters }
-{$IfEnd} // NOT Defined(NoScripts)
- fm_enFilters.SetFactory(TenFilters.Make);
- {* Регистрация фабрики формы Filters }
-{$If NOT Defined(NoScripts)}
- TtfwClassRef.Register(TCreateFilterForm);
- {* Регистрация CreateFilter$Form }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

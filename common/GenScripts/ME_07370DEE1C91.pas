@@ -11,7 +11,15 @@ interface
 {$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
 uses
  l3IntfUses
- , AACPrim_Module
+;
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
+
+implementation
+
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+ , AACContainer_Form
  , vtPanel
  , nscSimpleEditorForDialogs
  , vtLabel
@@ -21,14 +29,6 @@ uses
  , vtProportionalPanel
  , vtScrollBar
  , vtSizeablePanel
-;
-{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)
-
-implementation
-
-{$If NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts)}
-uses
- l3ImplUses
  , tfwControlString
  {$If NOT Defined(NoVCL)}
  , kwBynameControlPush
@@ -916,12 +916,9 @@ begin
 end;//Tkw_AACContainer_Control_pnWriteToUs.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnWriteToUs_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_7DF0B8DF2DCD_var*
-//#UC END# *4DAEEDE10285_7DF0B8DF2DCD_var*
 begin
-//#UC START# *4DAEEDE10285_7DF0B8DF2DCD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_7DF0B8DF2DCD_impl*
+ aCtx.rEngine.PushString('pnWriteToUs');
+ inherited;
 end;//Tkw_AACContainer_Control_pnWriteToUs_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnWriteToUs_Push.GetWordNameForRegister: AnsiString;
@@ -946,12 +943,9 @@ begin
 end;//Tkw_AACContainer_Control_edWriteToUs.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_edWriteToUs_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_82C4B474D56A_var*
-//#UC END# *4DAEEDE10285_82C4B474D56A_var*
 begin
-//#UC START# *4DAEEDE10285_82C4B474D56A_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_82C4B474D56A_impl*
+ aCtx.rEngine.PushString('edWriteToUs');
+ inherited;
 end;//Tkw_AACContainer_Control_edWriteToUs_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_edWriteToUs_Push.GetWordNameForRegister: AnsiString;
@@ -976,12 +970,9 @@ begin
 end;//Tkw_AACContainer_Control_pnSeeAlso.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnSeeAlso_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B2A2E7C87FEA_var*
-//#UC END# *4DAEEDE10285_B2A2E7C87FEA_var*
 begin
-//#UC START# *4DAEEDE10285_B2A2E7C87FEA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B2A2E7C87FEA_impl*
+ aCtx.rEngine.PushString('pnSeeAlso');
+ inherited;
 end;//Tkw_AACContainer_Control_pnSeeAlso_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnSeeAlso_Push.GetWordNameForRegister: AnsiString;
@@ -1006,12 +997,9 @@ begin
 end;//Tkw_AACContainer_Control_lblSeeAlso.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_lblSeeAlso_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_D9DE29A03D19_var*
-//#UC END# *4DAEEDE10285_D9DE29A03D19_var*
 begin
-//#UC START# *4DAEEDE10285_D9DE29A03D19_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_D9DE29A03D19_impl*
+ aCtx.rEngine.PushString('lblSeeAlso');
+ inherited;
 end;//Tkw_AACContainer_Control_lblSeeAlso_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_lblSeeAlso_Push.GetWordNameForRegister: AnsiString;
@@ -1036,12 +1024,9 @@ begin
 end;//Tkw_AACContainer_Control_pnLinkToContent.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnLinkToContent_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_35DA3F1ADE99_var*
-//#UC END# *4DAEEDE10285_35DA3F1ADE99_var*
 begin
-//#UC START# *4DAEEDE10285_35DA3F1ADE99_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_35DA3F1ADE99_impl*
+ aCtx.rEngine.PushString('pnLinkToContent');
+ inherited;
 end;//Tkw_AACContainer_Control_pnLinkToContent_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnLinkToContent_Push.GetWordNameForRegister: AnsiString;
@@ -1066,12 +1051,9 @@ begin
 end;//Tkw_AACContainer_Control_pbLinkToContent.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pbLinkToContent_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_25ABF4C25D63_var*
-//#UC END# *4DAEEDE10285_25ABF4C25D63_var*
 begin
-//#UC START# *4DAEEDE10285_25ABF4C25D63_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_25ABF4C25D63_impl*
+ aCtx.rEngine.PushString('pbLinkToContent');
+ inherited;
 end;//Tkw_AACContainer_Control_pbLinkToContent_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pbLinkToContent_Push.GetWordNameForRegister: AnsiString;
@@ -1096,12 +1078,9 @@ begin
 end;//Tkw_AACContainer_Control_pnBack.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnBack_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_CC5D0A7DCE27_var*
-//#UC END# *4DAEEDE10285_CC5D0A7DCE27_var*
 begin
-//#UC START# *4DAEEDE10285_CC5D0A7DCE27_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_CC5D0A7DCE27_impl*
+ aCtx.rEngine.PushString('pnBack');
+ inherited;
 end;//Tkw_AACContainer_Control_pnBack_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnBack_Push.GetWordNameForRegister: AnsiString;
@@ -1126,12 +1105,9 @@ begin
 end;//Tkw_AACContainer_Control_pnRightEx.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnRightEx_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5F995839F215_var*
-//#UC END# *4DAEEDE10285_5F995839F215_var*
 begin
-//#UC START# *4DAEEDE10285_5F995839F215_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5F995839F215_impl*
+ aCtx.rEngine.PushString('pnRightEx');
+ inherited;
 end;//Tkw_AACContainer_Control_pnRightEx_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnRightEx_Push.GetWordNameForRegister: AnsiString;
@@ -1156,12 +1132,9 @@ begin
 end;//Tkw_AACContainer_Control_pnRightForScroll.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnRightForScroll_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_5CAD71F4D219_var*
-//#UC END# *4DAEEDE10285_5CAD71F4D219_var*
 begin
-//#UC START# *4DAEEDE10285_5CAD71F4D219_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_5CAD71F4D219_impl*
+ aCtx.rEngine.PushString('pnRightForScroll');
+ inherited;
 end;//Tkw_AACContainer_Control_pnRightForScroll_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnRightForScroll_Push.GetWordNameForRegister: AnsiString;
@@ -1186,12 +1159,9 @@ begin
 end;//Tkw_AACContainer_Control_pnRight.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnRight_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_ACB773C873FF_var*
-//#UC END# *4DAEEDE10285_ACB773C873FF_var*
 begin
-//#UC START# *4DAEEDE10285_ACB773C873FF_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_ACB773C873FF_impl*
+ aCtx.rEngine.PushString('pnRight');
+ inherited;
 end;//Tkw_AACContainer_Control_pnRight_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnRight_Push.GetWordNameForRegister: AnsiString;
@@ -1216,12 +1186,9 @@ begin
 end;//Tkw_AACContainer_Control_pnlRightTop.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnlRightTop_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_019AD248DA5D_var*
-//#UC END# *4DAEEDE10285_019AD248DA5D_var*
 begin
-//#UC START# *4DAEEDE10285_019AD248DA5D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_019AD248DA5D_impl*
+ aCtx.rEngine.PushString('pnlRightTop');
+ inherited;
 end;//Tkw_AACContainer_Control_pnlRightTop_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnlRightTop_Push.GetWordNameForRegister: AnsiString;
@@ -1246,12 +1213,9 @@ begin
 end;//Tkw_AACContainer_Control_scrRight.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_scrRight_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_239FD95C6900_var*
-//#UC END# *4DAEEDE10285_239FD95C6900_var*
 begin
-//#UC START# *4DAEEDE10285_239FD95C6900_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_239FD95C6900_impl*
+ aCtx.rEngine.PushString('scrRight');
+ inherited;
 end;//Tkw_AACContainer_Control_scrRight_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_scrRight_Push.GetWordNameForRegister: AnsiString;
@@ -1276,12 +1240,9 @@ begin
 end;//Tkw_AACContainer_Control_pnLeftEx.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnLeftEx_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_44D52AF8A329_var*
-//#UC END# *4DAEEDE10285_44D52AF8A329_var*
 begin
-//#UC START# *4DAEEDE10285_44D52AF8A329_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_44D52AF8A329_impl*
+ aCtx.rEngine.PushString('pnLeftEx');
+ inherited;
 end;//Tkw_AACContainer_Control_pnLeftEx_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnLeftEx_Push.GetWordNameForRegister: AnsiString;
@@ -1306,12 +1267,9 @@ begin
 end;//Tkw_AACContainer_Control_pnLeftForScroll.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnLeftForScroll_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_856ED6BCBBB5_var*
-//#UC END# *4DAEEDE10285_856ED6BCBBB5_var*
 begin
-//#UC START# *4DAEEDE10285_856ED6BCBBB5_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_856ED6BCBBB5_impl*
+ aCtx.rEngine.PushString('pnLeftForScroll');
+ inherited;
 end;//Tkw_AACContainer_Control_pnLeftForScroll_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnLeftForScroll_Push.GetWordNameForRegister: AnsiString;
@@ -1336,12 +1294,9 @@ begin
 end;//Tkw_AACContainer_Control_pnlLeftTop.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnlLeftTop_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_00C66E0AF854_var*
-//#UC END# *4DAEEDE10285_00C66E0AF854_var*
 begin
-//#UC START# *4DAEEDE10285_00C66E0AF854_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_00C66E0AF854_impl*
+ aCtx.rEngine.PushString('pnlLeftTop');
+ inherited;
 end;//Tkw_AACContainer_Control_pnlLeftTop_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnlLeftTop_Push.GetWordNameForRegister: AnsiString;
@@ -1366,12 +1321,9 @@ begin
 end;//Tkw_AACContainer_Control_pnLeft.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_pnLeft_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B1743336CB93_var*
-//#UC END# *4DAEEDE10285_B1743336CB93_var*
 begin
-//#UC START# *4DAEEDE10285_B1743336CB93_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B1743336CB93_impl*
+ aCtx.rEngine.PushString('pnLeft');
+ inherited;
 end;//Tkw_AACContainer_Control_pnLeft_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_pnLeft_Push.GetWordNameForRegister: AnsiString;
@@ -1396,12 +1348,9 @@ begin
 end;//Tkw_AACContainer_Control_scrLeft.RegisterInEngine
 
 procedure Tkw_AACContainer_Control_scrLeft_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_679A43F7D2DD_var*
-//#UC END# *4DAEEDE10285_679A43F7D2DD_var*
 begin
-//#UC START# *4DAEEDE10285_679A43F7D2DD_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_679A43F7D2DD_impl*
+ aCtx.rEngine.PushString('scrLeft');
+ inherited;
 end;//Tkw_AACContainer_Control_scrLeft_Push.DoDoIt
 
 class function Tkw_AACContainer_Control_scrLeft_Push.GetWordNameForRegister: AnsiString;

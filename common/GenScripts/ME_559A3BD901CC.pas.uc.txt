@@ -140,8 +140,8 @@ var
   Result:=BlankSession;
   TmpDate:=(CurrentDate - DMYtoStDate(1,1,1998)) mod 24855;
   Result:=TmpDate * 24 * 60 * 60 + CurrentTime;
-  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtJournal)['session_id']));
-  l_Query.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtJournal)['session_id'], da_copEqual, 'p_SessionID');
+  l_Query.AddSelectField(f_Factory.MakeSelectField('', TdaScheme.Instance.Table(da_mtJournal)['ID_Session']));
+  l_Query.WhereCondition := f_Factory.MakeParamsCondition('', TdaScheme.Instance.Table(da_mtJournal)['ID_Session'], da_copEqual, 'p_SessionID');
   l_Query.Prepare;
   try
    Repeat
@@ -164,7 +164,7 @@ var
 //#UC END# *5549F9E70184_559A3BD901CC_impl*
 //#UC START# *5549F9E70184_559A3BD901CC_var*
 var
- l_Query: IdaTabledQuery;
+ l_Query: IdaQuery;
  Uniq    : Boolean;
  TmpDate : TStDate;
  l_ResultSet: IdaResultSet;
