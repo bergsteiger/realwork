@@ -1656,6 +1656,64 @@ ref; // ME_5616188A00B7 dd_wuTwips
 
 ref; // ME_5616180700EC TddRTFWidthUnits
 
+FORWARD ME_56C2B20A03B9
+
+: ME_56C2B3980335
+ CONST UID '56C2B3980335'
+ CONST Name 'dd_lvNone'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C2B20A03B9 // TddLiteVersion
+ ;
+
+ref; // ME_56C2B3980335 dd_lvNone
+
+: ME_56C2B3E10309
+ CONST UID '56C2B3E10309'
+ CONST Name 'dd_lvStyleOnly'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C2B20A03B9 // TddLiteVersion
+ ;
+
+ref; // ME_56C2B3E10309 dd_lvStyleOnly
+
+: ME_56C2C1A401C2
+ CONST UID '56C2C1A401C2'
+ CONST Name 'dd_lvTextAlign'
+ CONST Class class_Attribute
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C2B20A03B9 // TddLiteVersion
+ ;
+
+ref; // ME_56C2C1A401C2 dd_lvTextAlign
+
+: ME_56C2B20A03B9
+ CONST UID '56C2B20A03B9'
+ CONST Name 'TddLiteVersion'
+ CONST Class class_Class
+ : Stereotype st_Enum ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_52CFA9D5031E // ddTypes
+ ;
+ : Attributes
+   Seq: ( ME_56C2B3980335 // dd_lvNone
+ ME_56C2B3E10309 // dd_lvStyleOnly
+ ME_56C2C1A401C2 // dd_lvTextAlign
+ )
+ ; // Attributes
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56C2B20A03B9 TddLiteVersion
+
 : ME_52CFA9D5031E
  CONST UID '52CFA9D5031E'
  CONST Name 'ddTypes'
@@ -1686,6 +1744,7 @@ ref; // ME_5616180700EC TddRTFWidthUnits
  ME_54168DF802EB // TddRowPosition
  ME_54351392038F // TGetLoginPasswordProc
  ME_5616180700EC // TddRTFWidthUnits
+ ME_56C2B20A03B9 // TddLiteVersion
  )
  ; // Children
  : Constants

@@ -3635,21 +3635,6 @@ ref; // ME_4C3AAE7C00D0 OnlyOneSelected
 
 ref; // ME_4C3AB32C00A9 f_NeedDropCRList
 
-: ME_54464C9A0165
- CONST UID '54464C9A0165'
- CONST Name 'f_NeedDirtyHackForScrollbar'
- CONST Class class_Attribute
- %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=527687338' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_regular
- CONST LinkType lt_agr
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
-
-ref; // ME_54464C9A0165 f_NeedDirtyHackForScrollbar
-
 : ME_5527D2660021
  CONST UID '5527D2660021'
  CONST Name 'f_AllowCallCurrentChangedOnTest'
@@ -5884,39 +5869,6 @@ ref; // ME_543E27940271 DoIt
 
 ref; // ME_543E272E0005 InitNewContainerBaseSearch
 
-FORWARD ME_54464CC601D1
-
-: ME_61273AF0EEF5
- CONST UID '61273AF0EEF5'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода DirtyHackForScrollbar' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_54464CC601D1 // DirtyHackForScrollbar
- ;
-
-ref; // ME_61273AF0EEF5 DoIt
-
-: ME_54464CC601D1
- CONST UID '54464CC601D1'
- CONST Name 'DirtyHackForScrollbar'
- CONST Class class_Class
- : Stereotype st_method ;
- CONST Kind kind_NormalClass
- %SUMMARY 'http://mdp.garant.ru/pages/viewpage.action?pageId=527687338' ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Operations
-   Seq: ( ME_61273AF0EEF5 // DoIt
- )
- ; // Operations
-
-ref; // ME_54464CC601D1 DirtyHackForScrollbar
-
 FORWARD ME_5527D24201E7
 
 : ME_749B301AF587
@@ -6262,33 +6214,6 @@ ref; // ME_4C3722F5033C aSortType
  ; // Parameters
 
 ref; // ME_4C3722EE03A8 CheckValidSortTypes
-
-: ME_54464C860095
- CONST UID '54464C860095'
- CONST Name 'Msg'
- CONST Class class_Parameter
- : Stereotype st_inout ;
- : Target WL 'ME_476F78A602B2' '476F78840219.pas.ms.script' // TMessage
- ;
-
-ref; // ME_54464C860095 Msg
-
-: ME_54464C55009D
- CONST UID '54464C55009D'
- CONST Name 'WMWindowPosChanged'
- CONST Class class_Operation
- : Stereotype st_message::Operation ;
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
- : Parent ME_497DDB2B001B // PrimList
- ;
- : Parameters
-   Seq: ( ME_54464C860095 // Msg
- )
- ; // Parameters
- CONST "Message ID" 'WM_WINDOWPOSCHANGED'
-
-ref; // ME_54464C55009D WMWindowPosChanged
 
 : ME_06B509AB0B24
  CONST UID '06B509AB0B24'
@@ -7036,6 +6961,17 @@ ref; // ME_544656FE01F0
  ;
 
 ref; // ME_546B7AED02A0 
+
+: ME_56C72BDA0170
+ CONST UID '56C72BDA0170'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_497DDB2B001B // PrimList
+ ;
+ : Target WL 'ME_4CFFE3470249' '4B97E7FD006C.pas.ms.script' // TvtLister
+ ;
+
+ref; // ME_56C72BDA0170 
 
 : ME_27B321734BC0
  CONST UID '27B321734BC0'
@@ -9066,7 +9002,6 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_4C3AA8E0004C // NoMoreThanOneSelected
  ME_4C3AAE7C00D0 // OnlyOneSelected
  ME_4C3AB32C00A9 // f_NeedDropCRList
- ME_54464C9A0165 // f_NeedDirtyHackForScrollbar
  ME_5527D2660021 // f_AllowCallCurrentChangedOnTest
  ME_50616C139DFB // f_ListPanel
  ME_398C528355F7 // f_tvList
@@ -9115,7 +9050,6 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_4F7EFAA2026F // HasContextFiltration
  ME_51DC1AA10279 // tvListGetNodeType
  ME_543E272E0005 // InitNewContainerBaseSearch
- ME_54464CC601D1 // DirtyHackForScrollbar
  ME_5527D24201E7 // CallCurrentChanged
  ME_4AEAD69A0151 // ShowEditorOrList
  ME_4AEF0A9403DD // ApplyFilter
@@ -9132,7 +9066,6 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_4C34188000A6 // MakeFilterInfo
  ME_4C341C77005C // ResetSaveToFolderOperations
  ME_4C3722EE03A8 // CheckValidSortTypes
- ME_54464C55009D // WMWindowPosChanged
  ME_06B509AB0B24 // Init_Str_ListFooterCaption
  ME_0119986B7FD4 // Init_Str_lntAAC
  ME_5CF780945C06 // Init_Str_lntBlock
@@ -9377,6 +9310,7 @@ ref; // ME_561CB1350027_ME_497DDB2B001B NeedLoadFormStateForClone
  ME_53BF8E520370 // 
  ME_544656FE01F0 // 
  ME_546B7AED02A0 // 
+ ME_56C72BDA0170 // 
  ME_27B321734BC0 // 
  ME_4198CB7509D2 // 
  ME_9C3DC84CAE1B // 

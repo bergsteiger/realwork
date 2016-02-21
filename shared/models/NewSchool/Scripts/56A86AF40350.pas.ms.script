@@ -429,6 +429,62 @@ ref; // ME_56BC71EA022D f_IsStarted
 
 ref; // ME_56BC71FD00B8 f_NeedClearGlobalDataProvider
 
+: ME_56BD8A2F008E
+ CONST UID '56BD8A2F008E'
+ CONST Name 'f_Journal'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
+ ;
+
+ref; // ME_56BD8A2F008E f_Journal
+
+: ME_56C2E7440185
+ CONST UID '56C2E7440185'
+ CONST Name 'f_DataConverter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
+ ;
+
+ref; // ME_56C2E7440185 f_DataConverter
+
+: ME_56C43448015A
+ CONST UID '56C43448015A'
+ CONST Name 'f_UserManager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ ;
+
+ref; // ME_56C43448015A f_UserManager
+
+: ME_56C459A400AD
+ CONST UID '56C459A400AD'
+ CONST Name 'f_Factory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_56C459A400AD f_Factory
+
 FORWARD ME_56BB1FC50359
 
 : ME_56BB1FEB02A1
@@ -658,6 +714,80 @@ ref; // ME_56BC8BC302F9
  ;
 
 ref; // ME_56BC8BCB028F 
+
+FORWARD ME_56BD8F200154
+
+: ME_56BD943D0343
+ CONST UID '56BD943D0343'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target ME_56BD8F200154 // TcaJournal
+ ;
+
+ref; // ME_56BD943D0343 
+
+FORWARD ME_56C2E7040035
+
+: ME_56C2FF910244
+ CONST UID '56C2FF910244'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target ME_56C2E7040035 // TcaDataConverter
+ ;
+
+ref; // ME_56C2FF910244 
+
+: ME_56C3197B02A2
+ CONST UID '56C3197B02A2'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_55C0B2A30315' '550981B402B9.pas.ms.script' // IhtDataConverter
+ ;
+
+ref; // ME_56C3197B02A2 
+
+: ME_56C3198903E3
+ CONST UID '56C3198903E3'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target WL 'ME_55E41C6E00E2' '55DAD4150001.pas.ms.script' // IpgDataConverter
+ ;
+
+ref; // ME_56C3198903E3 
+
+FORWARD ME_56C428E4014A
+
+: ME_56C4298800B8
+ CONST UID '56C4298800B8'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target ME_56C428E4014A // TcaUserManager
+ ;
+
+ref; // ME_56C4298800B8 
+
+FORWARD ME_56C4594703CF
+
+: ME_56C4598902CB
+ CONST UID '56C4598902CB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56A86BCE01EE // TcaDataProvider
+ ;
+ : Target ME_56C4594703CF // TcaTableQueryFactory
+ ;
+
+ref; // ME_56C4598902CB 
 
 : ME_551A929E02D5_ME_56A86BCE01EE
  CONST UID '551A929E02D5'
@@ -1057,6 +1187,10 @@ ref; // ME_479731C50290_ME_56A86BCE01EE Cleanup
  ME_56BB20560341 // f_PGProvider
  ME_56BC71EA022D // f_IsStarted
  ME_56BC71FD00B8 // f_NeedClearGlobalDataProvider
+ ME_56BD8A2F008E // f_Journal
+ ME_56C2E7440185 // f_DataConverter
+ ME_56C43448015A // f_UserManager
+ ME_56C459A400AD // f_Factory
  )
  ; // Attributes
  : Operations
@@ -1110,6 +1244,12 @@ ref; // ME_479731C50290_ME_56A86BCE01EE Cleanup
    Seq: ( ME_56BB2C07036D // 
  ME_56BC8BC302F9 // 
  ME_56BC8BCB028F // 
+ ME_56BD943D0343 // 
+ ME_56C2FF910244 // 
+ ME_56C3197B02A2 // 
+ ME_56C3198903E3 // 
+ ME_56C4298800B8 // 
+ ME_56C4598902CB // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -1468,6 +1608,1557 @@ ref; // ME_479731C50290_ME_56A86C020121 Cleanup
 
 ref; // ME_56A86C020121 TcaDataProviderFactory
 
+: ME_56BDCB8B0200
+ CONST UID '56BDCB8B0200'
+ CONST Name 'f_HTJournal'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BD8F200154 // TcaJournal
+ ;
+ : Target WL 'ME_5540D3060300' '54F9AF550087.pas.ms.script' // ThtJournal
+ ;
+
+ref; // ME_56BDCB8B0200 f_HTJournal
+
+: ME_56BDCB9C0272
+ CONST UID '56BDCB9C0272'
+ CONST Name 'f_PGJournal'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BD8F200154 // TcaJournal
+ ;
+ : Target WL 'ME_5602A0790033' '55D6CF3B014B.pas.ms.script' // TpgJournal
+ ;
+
+ref; // ME_56BDCB9C0272 f_PGJournal
+
+FORWARD ME_56BD9BFD0109
+
+: ME_56BD9C080211
+ CONST UID '56BD9C080211'
+ CONST Name 'aFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_56BD9C080211 aFactory
+
+: ME_56BDCBC5033B
+ CONST UID '56BDCBC5033B'
+ CONST Name 'aHTJournal'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5540D3060300' '54F9AF550087.pas.ms.script' // ThtJournal
+ ;
+
+ref; // ME_56BDCBC5033B aHTJournal
+
+: ME_56BDCBC5035A
+ CONST UID '56BDCBC5035A'
+ CONST Name 'aPGJournal'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5602A0790033' '55D6CF3B014B.pas.ms.script' // TpgJournal
+ ;
+
+ref; // ME_56BDCBC5035A aPGJournal
+
+: ME_56BD9C06005F
+ CONST UID '56BD9C06005F'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BD9BFD0109 // Create
+ ;
+ : Parameters
+   Seq: ( ME_56BD9C080211 // aFactory
+ ME_56BDCBC5033B // aHTJournal
+ ME_56BDCBC5035A // aPGJournal
+ )
+ ; // Parameters
+
+ref; // ME_56BD9C06005F DoIt
+
+: ME_56BD9BFD0109
+ CONST UID '56BD9BFD0109'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56BD8F200154 // TcaJournal
+ ;
+ : Operations
+   Seq: ( ME_56BD9C06005F // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56BD9BFD0109 Create
+
+FORWARD ME_56BD9C15024A
+
+: ME_A15B58D7ACE6
+ CONST UID 'A15B58D7ACE6'
+ CONST Name 'aFactory'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_A15B58D7ACE6 aFactory
+
+: ME_D0BC659DD2D8
+ CONST UID 'D0BC659DD2D8'
+ CONST Name 'aHTJournal'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5540D3060300' '54F9AF550087.pas.ms.script' // ThtJournal
+ ;
+
+ref; // ME_D0BC659DD2D8 aHTJournal
+
+: ME_59467274C700
+ CONST UID '59467274C700'
+ CONST Name 'aPGJournal'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5602A0790033' '55D6CF3B014B.pas.ms.script' // TpgJournal
+ ;
+
+ref; // ME_59467274C700 aPGJournal
+
+: ME_A85939CE1005
+ CONST UID 'A85939CE1005'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TcaJournal.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BD9C15024A // Make
+ ;
+ : Target WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
+ ;
+ : Parameters
+   Seq: ( ME_A15B58D7ACE6 // aFactory
+ ME_D0BC659DD2D8 // aHTJournal
+ ME_59467274C700 // aPGJournal
+ )
+ ; // Parameters
+
+ref; // ME_A85939CE1005 DoIt
+
+: ME_56BD9C15024A
+ CONST UID '56BD9C15024A'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56BD8F200154 // TcaJournal
+ ;
+ : Inherits
+   Seq: ( ME_56BD9BFD0109 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5540922C0376' '5432518A0316.pas.ms.script' // IdaJournal
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_A85939CE1005 // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_56BD9C15024A Make
+
+: ME_5549F6220397_ME_56BD8F200154
+ CONST UID '5549F6220397'
+ CONST Name 'LogEvent'
+ : Original WL 'ME_5549F6220397' '54F85B2500FB.pas.ms.script' // LogEvent
+ ;
+ : Implementor ME_56BD8F200154 // TcaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5549F6220397_ME_56BD8F200154 LogEvent
+
+: ME_559A42120304_ME_56BD8F200154
+ CONST UID '559A42120304'
+ CONST Name 'CurStatTree'
+ : Original WL 'ME_559A42120304' '54F85B2500FB.pas.ms.script' // CurStatTree
+ ;
+ : Implementor ME_56BD8F200154 // TcaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" true
+ CONST "reads field" true
+ref; // ME_559A42120304_ME_56BD8F200154 CurStatTree
+
+: ME_559B6A290200_ME_56BD8F200154
+ CONST UID '559B6A290200'
+ CONST Name 'CheckUser'
+ : Original WL 'ME_559B6A290200' '54F85B2500FB.pas.ms.script' // CheckUser
+ ;
+ : Implementor ME_56BD8F200154 // TcaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559B6A290200_ME_56BD8F200154 CheckUser
+
+: ME_559B6A7C03AA_ME_56BD8F200154
+ CONST UID '559B6A7C03AA'
+ CONST Name 'UserChanged'
+ : Original WL 'ME_559B6A7C03AA' '54F85B2500FB.pas.ms.script' // UserChanged
+ ;
+ : Implementor ME_56BD8F200154 // TcaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559B6A7C03AA_ME_56BD8F200154 UserChanged
+
+: ME_559B6A8C0034_ME_56BD8F200154
+ CONST UID '559B6A8C0034'
+ CONST Name 'SessionChanged'
+ : Original WL 'ME_559B6A8C0034' '54F85B2500FB.pas.ms.script' // SessionChanged
+ ;
+ : Implementor ME_56BD8F200154 // TcaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559B6A8C0034_ME_56BD8F200154 SessionChanged
+
+: ME_559B889B030B_ME_56BD8F200154
+ CONST UID '559B889B030B'
+ CONST Name 'DoStartCaching'
+ : Original WL 'ME_559B889B030B' '54F85B2500FB.pas.ms.script' // DoStartCaching
+ ;
+ : Implementor ME_56BD8F200154 // TcaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559B889B030B_ME_56BD8F200154 DoStartCaching
+
+: ME_559B88B00126_ME_56BD8F200154
+ CONST UID '559B88B00126'
+ CONST Name 'DoStopCaching'
+ : Original WL 'ME_559B88B00126' '54F85B2500FB.pas.ms.script' // DoStopCaching
+ ;
+ : Implementor ME_56BD8F200154 // TcaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559B88B00126_ME_56BD8F200154 DoStopCaching
+
+: ME_559CF9D300FA_ME_56BD8F200154
+ CONST UID '559CF9D300FA'
+ CONST Name 'MakeResultSet'
+ : Original WL 'ME_559CF9D300FA' '54F85B2500FB.pas.ms.script' // MakeResultSet
+ ;
+ : Implementor ME_56BD8F200154 // TcaJournal
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559CF9D300FA_ME_56BD8F200154 MakeResultSet
+
+: ME_56BD8F200154
+ CONST UID '56BD8F200154'
+ CONST Name 'TcaJournal'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A86AF40350 // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_559A3BD901CC' '54F85B2500FB.pas.ms.script' // TdaJournal
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_56BDCB8B0200 // f_HTJournal
+ ME_56BDCB9C0272 // f_PGJournal
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56BD9BFD0109 // Create
+ ME_56BD9C15024A // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5549F6220397_ME_56BD8F200154 // LogEvent
+ ME_559A42120304_ME_56BD8F200154 // CurStatTree
+ ME_559B6A290200_ME_56BD8F200154 // CheckUser
+ ME_559B6A7C03AA_ME_56BD8F200154 // UserChanged
+ ME_559B6A8C0034_ME_56BD8F200154 // SessionChanged
+ ME_559B889B030B_ME_56BD8F200154 // DoStartCaching
+ ME_559B88B00126_ME_56BD8F200154 // DoStopCaching
+ ME_559CF9D300FA_ME_56BD8F200154 // MakeResultSet
+ )
+ ; // Implemented
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caJournal.pas'
+ CONST extprop:rc:SelfName 'caJournal'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'caJournal'
+
+ref; // ME_56BD8F200154 TcaJournal
+
+: ME_56C2EE9F00A9
+ CONST UID '56C2EE9F00A9'
+ CONST Name 'f_HTConverter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C2E7040035 // TcaDataConverter
+ ;
+ : Target WL 'ME_55C0B2A30315' '550981B402B9.pas.ms.script' // IhtDataConverter
+ ;
+
+ref; // ME_56C2EE9F00A9 f_HTConverter
+
+: ME_56C2EEAA0069
+ CONST UID '56C2EEAA0069'
+ CONST Name 'f_PGConverter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C2E7040035 // TcaDataConverter
+ ;
+ : Target WL 'ME_55E41C6E00E2' '55DAD4150001.pas.ms.script' // IpgDataConverter
+ ;
+
+ref; // ME_56C2EEAA0069 f_PGConverter
+
+FORWARD ME_56C2EE30009E
+
+: ME_56C2EE59012A
+ CONST UID '56C2EE59012A'
+ CONST Name 'aHTConverter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55C0B2A30315' '550981B402B9.pas.ms.script' // IhtDataConverter
+ ;
+
+ref; // ME_56C2EE59012A aHTConverter
+
+: ME_56C2EE59013A
+ CONST UID '56C2EE59013A'
+ CONST Name 'aPGConverter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55E41C6E00E2' '55DAD4150001.pas.ms.script' // IpgDataConverter
+ ;
+
+ref; // ME_56C2EE59013A aPGConverter
+
+: ME_56C2EE390023
+ CONST UID '56C2EE390023'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C2EE30009E // Create
+ ;
+ : Parameters
+   Seq: ( ME_56C2EE59012A // aHTConverter
+ ME_56C2EE59013A // aPGConverter
+ )
+ ; // Parameters
+
+ref; // ME_56C2EE390023 DoIt
+
+: ME_56C2EE30009E
+ CONST UID '56C2EE30009E'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56C2E7040035 // TcaDataConverter
+ ;
+ : Operations
+   Seq: ( ME_56C2EE390023 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C2EE30009E Create
+
+FORWARD ME_56C2EE6C022D
+
+: ME_AC8E3D22179E
+ CONST UID 'AC8E3D22179E'
+ CONST Name 'aHTConverter'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55C0B2A30315' '550981B402B9.pas.ms.script' // IhtDataConverter
+ ;
+
+ref; // ME_AC8E3D22179E aHTConverter
+
+: ME_0FCAC3CA8E9E
+ CONST UID '0FCAC3CA8E9E'
+ CONST Name 'aPGConverter'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_55E41C6E00E2' '55DAD4150001.pas.ms.script' // IpgDataConverter
+ ;
+
+ref; // ME_0FCAC3CA8E9E aPGConverter
+
+: ME_2472ABEB7F08
+ CONST UID '2472ABEB7F08'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TcaDataConverter.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C2EE6C022D // Make
+ ;
+ : Target WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
+ ;
+ : Parameters
+   Seq: ( ME_AC8E3D22179E // aHTConverter
+ ME_0FCAC3CA8E9E // aPGConverter
+ )
+ ; // Parameters
+
+ref; // ME_2472ABEB7F08 DoIt
+
+: ME_56C2EE6C022D
+ CONST UID '56C2EE6C022D'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56C2E7040035 // TcaDataConverter
+ ;
+ : Inherits
+   Seq: ( ME_56C2EE30009E // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_2472ABEB7F08 // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_56C2EE6C022D Make
+
+: ME_555995210007_ME_56C2E7040035
+ CONST UID '555995210007'
+ CONST Name 'AllocateParamBuffer'
+ : Original WL 'ME_555995210007' '5432518A0316.pas.ms.script' // AllocateParamBuffer
+ ;
+ : Implementor ME_56C2E7040035 // TcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_555995210007_ME_56C2E7040035 AllocateParamBuffer
+
+: ME_5559955500DF_ME_56C2E7040035
+ CONST UID '5559955500DF'
+ CONST Name 'ParamToDataBase'
+ : Original WL 'ME_5559955500DF' '5432518A0316.pas.ms.script' // ParamToDataBase
+ ;
+ : Implementor ME_56C2E7040035 // TcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5559955500DF_ME_56C2E7040035 ParamToDataBase
+
+: ME_55599596005B_ME_56C2E7040035
+ CONST UID '55599596005B'
+ CONST Name 'ParamFromDataBase'
+ : Original WL 'ME_55599596005B' '5432518A0316.pas.ms.script' // ParamFromDataBase
+ ;
+ : Implementor ME_56C2E7040035 // TcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55599596005B_ME_56C2E7040035 ParamFromDataBase
+
+: ME_5559D14D02D1_ME_56C2E7040035
+ CONST UID '5559D14D02D1'
+ CONST Name 'FreeParamBuffer'
+ : Original WL 'ME_5559D14D02D1' '5432518A0316.pas.ms.script' // FreeParamBuffer
+ ;
+ : Implementor ME_56C2E7040035 // TcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5559D14D02D1_ME_56C2E7040035 FreeParamBuffer
+
+: ME_56C2DED50129_ME_56C2E7040035
+ CONST UID '56C2DED50129'
+ CONST Name 'HTConverter'
+ : Original WL 'ME_56C2DED50129' '56C2DE8D033F.pas.ms.script' // HTConverter
+ ;
+ : Implementor ME_56C2E7040035 // TcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_56C2DED50129_ME_56C2E7040035 HTConverter
+
+: ME_56C2DEED008B_ME_56C2E7040035
+ CONST UID '56C2DEED008B'
+ CONST Name 'PGConverter'
+ : Original WL 'ME_56C2DEED008B' '56C2DE8D033F.pas.ms.script' // PGConverter
+ ;
+ : Implementor ME_56C2E7040035 // TcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_56C2DEED008B_ME_56C2E7040035 PGConverter
+
+: ME_479731C50290_ME_56C2E7040035
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_56C2E7040035 // TcaDataConverter
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_56C2E7040035 Cleanup
+
+: ME_56C2E7040035
+ CONST UID '56C2E7040035'
+ CONST Name 'TcaDataConverter'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A86AF40350 // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_56C2EE9F00A9 // f_HTConverter
+ ME_56C2EEAA0069 // f_PGConverter
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56C2EE30009E // Create
+ ME_56C2EE6C022D // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_555995210007_ME_56C2E7040035 // AllocateParamBuffer
+ ME_5559955500DF_ME_56C2E7040035 // ParamToDataBase
+ ME_55599596005B_ME_56C2E7040035 // ParamFromDataBase
+ ME_5559D14D02D1_ME_56C2E7040035 // FreeParamBuffer
+ ME_56C2DED50129_ME_56C2E7040035 // HTConverter
+ ME_56C2DEED008B_ME_56C2E7040035 // PGConverter
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_56C2E7040035 // Cleanup
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caDataConverter.pas'
+ CONST extprop:rc:SelfName 'caDataConverter'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'caDataConverter'
+
+ref; // ME_56C2E7040035 TcaDataConverter
+
+: ME_56C4291402C3
+ CONST UID '56C4291402C3'
+ CONST Name 'f_HTManager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C428E4014A // TcaUserManager
+ ;
+ : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ ;
+
+ref; // ME_56C4291402C3 f_HTManager
+
+: ME_56C4292001D7
+ CONST UID '56C4292001D7'
+ CONST Name 'f_PGManager'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C428E4014A // TcaUserManager
+ ;
+ : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ ;
+
+ref; // ME_56C4292001D7 f_PGManager
+
+FORWARD ME_56C429340002
+
+: ME_56C42955026F
+ CONST UID '56C42955026F'
+ CONST Name 'aHTManager'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ ;
+
+ref; // ME_56C42955026F aHTManager
+
+: ME_56C42955027F
+ CONST UID '56C42955027F'
+ CONST Name 'aPGManager'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ ;
+
+ref; // ME_56C42955027F aPGManager
+
+: ME_56C4293D019A
+ CONST UID '56C4293D019A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C429340002 // Create
+ ;
+ : Parameters
+   Seq: ( ME_56C42955026F // aHTManager
+ ME_56C42955027F // aPGManager
+ )
+ ; // Parameters
+
+ref; // ME_56C4293D019A DoIt
+
+: ME_56C429340002
+ CONST UID '56C429340002'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56C428E4014A // TcaUserManager
+ ;
+ : Operations
+   Seq: ( ME_56C4293D019A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C429340002 Create
+
+FORWARD ME_56C4295D03C9
+
+: ME_4E199FDF46ED
+ CONST UID '4E199FDF46ED'
+ CONST Name 'aHTManager'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ ;
+
+ref; // ME_4E199FDF46ED aHTManager
+
+: ME_17486813BB4A
+ CONST UID '17486813BB4A'
+ CONST Name 'aPGManager'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ ;
+
+ref; // ME_17486813BB4A aPGManager
+
+: ME_F2B0CE57058C
+ CONST UID 'F2B0CE57058C'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TcaUserManager.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C4295D03C9 // Make
+ ;
+ : Target WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ ;
+ : Parameters
+   Seq: ( ME_4E199FDF46ED // aHTManager
+ ME_17486813BB4A // aPGManager
+ )
+ ; // Parameters
+
+ref; // ME_F2B0CE57058C DoIt
+
+: ME_56C4295D03C9
+ CONST UID '56C4295D03C9'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56C428E4014A // TcaUserManager
+ ;
+ : Inherits
+   Seq: ( ME_56C429340002 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_F2B0CE57058C // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_56C4295D03C9 Make
+
+: ME_5628D14D0151_ME_56C428E4014A
+ CONST UID '5628D14D0151'
+ CONST Name 'CheckPassword'
+ : Original WL 'ME_5628D14D0151' '5432518A0316.pas.ms.script' // CheckPassword
+ ;
+ : Implementor ME_56C428E4014A // TcaUserManager
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5628D14D0151_ME_56C428E4014A CheckPassword
+
+: ME_479731C50290_ME_56C428E4014A
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_56C428E4014A // TcaUserManager
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_56C428E4014A Cleanup
+
+: ME_56C428E4014A
+ CONST UID '56C428E4014A'
+ CONST Name 'TcaUserManager'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A86AF40350 // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5628D14000F6' '5432518A0316.pas.ms.script' // IdaUserManager
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_56C4291402C3 // f_HTManager
+ ME_56C4292001D7 // f_PGManager
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56C429340002 // Create
+ ME_56C4295D03C9 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5628D14D0151_ME_56C428E4014A // CheckPassword
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_56C428E4014A // Cleanup
+ )
+ ; // Overridden
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caUserManager.pas'
+ CONST extprop:rc:SelfName 'caUserManager'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'caUserManager'
+
+ref; // ME_56C428E4014A TcaUserManager
+
+: ME_56C45F2D011A
+ CONST UID '56C45F2D011A'
+ CONST Name 'f_HTFactory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_56C45F2D011A f_HTFactory
+
+: ME_56C45F3701C5
+ CONST UID '56C45F3701C5'
+ CONST Name 'f_PGFactory'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_56C45F3701C5 f_PGFactory
+
+: ME_56C6C09B0112
+ CONST UID '56C6C09B0112'
+ CONST Name 'f_DataConverter'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
+ ;
+
+ref; // ME_56C6C09B0112 f_DataConverter
+
+FORWARD ME_56C45EE801FB
+
+: ME_56C6C8410009
+ CONST UID '56C6C8410009'
+ CONST Name 'aDataConverter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
+ ;
+
+ref; // ME_56C6C8410009 aDataConverter
+
+: ME_56C45F0C01E1
+ CONST UID '56C45F0C01E1'
+ CONST Name 'aHTFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_56C45F0C01E1 aHTFactory
+
+: ME_56C45F0C0200
+ CONST UID '56C45F0C0200'
+ CONST Name 'aPGFactory'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_56C45F0C0200 aPGFactory
+
+: ME_56C45EF40216
+ CONST UID '56C45EF40216'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C45EE801FB // Create
+ ;
+ : Parameters
+   Seq: ( ME_56C6C8410009 // aDataConverter
+ ME_56C45F0C01E1 // aHTFactory
+ ME_56C45F0C0200 // aPGFactory
+ )
+ ; // Parameters
+
+ref; // ME_56C45EF40216 DoIt
+
+: ME_56C45EE801FB
+ CONST UID '56C45EE801FB'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Operations
+   Seq: ( ME_56C45EF40216 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C45EE801FB Create
+
+FORWARD ME_56C45F1003BE
+
+: ME_BB6FC6644BC1
+ CONST UID 'BB6FC6644BC1'
+ CONST Name 'aDataConverter'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_56C2DEAE01B1' '56C2DE8D033F.pas.ms.script' // IcaDataConverter
+ ;
+
+ref; // ME_BB6FC6644BC1 aDataConverter
+
+: ME_F55B832C4035
+ CONST UID 'F55B832C4035'
+ CONST Name 'aHTFactory'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_F55B832C4035 aHTFactory
+
+: ME_15804D1CD4FB
+ CONST UID '15804D1CD4FB'
+ CONST Name 'aPGFactory'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+
+ref; // ME_15804D1CD4FB aPGFactory
+
+: ME_F7DD2C7CA311
+ CONST UID 'F7DD2C7CA311'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TcaTableQueryFactory.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C45F1003BE // Make
+ ;
+ : Target WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ ;
+ : Parameters
+   Seq: ( ME_BB6FC6644BC1 // aDataConverter
+ ME_F55B832C4035 // aHTFactory
+ ME_15804D1CD4FB // aPGFactory
+ )
+ ; // Parameters
+
+ref; // ME_F7DD2C7CA311 DoIt
+
+: ME_56C45F1003BE
+ CONST UID '56C45F1003BE'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Inherits
+   Seq: ( ME_56C45EE801FB // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_F7DD2C7CA311 // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_56C45F1003BE Make
+
+FORWARD ME_56C6DB730289
+
+: ME_56C6DCBE005F
+ CONST UID '56C6DCBE005F'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target ME_56C6DB730289 // TcaTabledQuery
+ ;
+
+ref; // ME_56C6DCBE005F 
+
+: ME_56C814340296
+ CONST UID '56C814340296'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_5640598000F0' '54F85B2500FB.pas.ms.script' // TdaLogicCondition
+ ;
+
+ref; // ME_56C814340296 
+
+: ME_56C8143A00F7
+ CONST UID '56C8143A00F7'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_5551DD0F02A1' '54F85B2500FB.pas.ms.script' // TdaParamsCondition
+ ;
+
+ref; // ME_56C8143A00F7 
+
+: ME_56C8143E0096
+ CONST UID '56C8143E0096'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_5680EF290107' '54F85B2500FB.pas.ms.script' // TdaSortField
+ ;
+
+ref; // ME_56C8143E0096 
+
+: ME_56C814420080
+ CONST UID '56C814420080'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_5551DCD200EE' '54F85B2500FB.pas.ms.script' // TdaSelectField
+ ;
+
+ref; // ME_56C814420080 
+
+: ME_56C81B11021E
+ CONST UID '56C81B11021E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ : Target WL 'ME_5641ED5A01D1' '54F85B2500FB.pas.ms.script' // TdaSubQueryCondition
+ ;
+
+ref; // ME_56C81B11021E 
+
+: ME_5549C65D038D_ME_56C4594703CF
+ CONST UID '5549C65D038D'
+ CONST Name 'MakeTabledQuery'
+ : Original WL 'ME_5549C65D038D' '5432518A0316.pas.ms.script' // MakeTabledQuery
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5549C65D038D_ME_56C4594703CF MakeTabledQuery
+
+: ME_559B80BD00A8_ME_56C4594703CF
+ CONST UID '559B80BD00A8'
+ CONST Name 'MakeSelectField'
+ : Original WL 'ME_559B80BD00A8' '5432518A0316.pas.ms.script' // MakeSelectField
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559B80BD00A8_ME_56C4594703CF MakeSelectField
+
+: ME_559B810003CF_ME_56C4594703CF
+ CONST UID '559B810003CF'
+ CONST Name 'MakeParamsCondition'
+ : Original WL 'ME_559B810003CF' '5432518A0316.pas.ms.script' // MakeParamsCondition
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559B810003CF_ME_56C4594703CF MakeParamsCondition
+
+: ME_559BAF4401C8_ME_56C4594703CF
+ CONST UID '559BAF4401C8'
+ CONST Name 'GetUserNameStr'
+ : Original WL 'ME_559BAF4401C8' '5432518A0316.pas.ms.script' // GetUserNameStr
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_559BAF4401C8_ME_56C4594703CF GetUserNameStr
+
+: ME_55C1BFA402E3_ME_56C4594703CF
+ CONST UID '55C1BFA402E3'
+ CONST Name 'DataConverter'
+ : Original WL 'ME_55C1BFA402E3' '5432518A0316.pas.ms.script' // DataConverter
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Implemented
+ CONST "pm" false
+ref; // ME_55C1BFA402E3_ME_56C4594703CF DataConverter
+
+: ME_56405475021D_ME_56C4594703CF
+ CONST UID '56405475021D'
+ CONST Name 'MakeLogicCondition'
+ : Original WL 'ME_56405475021D' '5432518A0316.pas.ms.script' // MakeLogicCondition
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56405475021D_ME_56C4594703CF MakeLogicCondition
+
+: ME_5641E5DB02C3_ME_56C4594703CF
+ CONST UID '5641E5DB02C3'
+ CONST Name 'MakeSubQueryCondition'
+ : Original WL 'ME_5641E5DB02C3' '5432518A0316.pas.ms.script' // MakeSubQueryCondition
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5641E5DB02C3_ME_56C4594703CF MakeSubQueryCondition
+
+: ME_56811844032C_ME_56C4594703CF
+ CONST UID '56811844032C'
+ CONST Name 'MakeSortField'
+ : Original WL 'ME_56811844032C' '5432518A0316.pas.ms.script' // MakeSortField
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56811844032C_ME_56C4594703CF MakeSortField
+
+: ME_479731C50290_ME_56C4594703CF
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_56C4594703CF // TcaTableQueryFactory
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_56C4594703CF Cleanup
+
+: ME_56C4594703CF
+ CONST UID '56C4594703CF'
+ CONST Name 'TcaTableQueryFactory'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A86AF40350 // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.pas.ms.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_554C78BD038C' '5432518A0316.pas.ms.script' // IdaTableQueryFactory
+ )
+ ; // Implements
+ : Attributes
+   Seq: ( ME_56C45F2D011A // f_HTFactory
+ ME_56C45F3701C5 // f_PGFactory
+ ME_56C6C09B0112 // f_DataConverter
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56C45EE801FB // Create
+ ME_56C45F1003BE // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5549C65D038D_ME_56C4594703CF // MakeTabledQuery
+ ME_559B80BD00A8_ME_56C4594703CF // MakeSelectField
+ ME_559B810003CF_ME_56C4594703CF // MakeParamsCondition
+ ME_559BAF4401C8_ME_56C4594703CF // GetUserNameStr
+ ME_55C1BFA402E3_ME_56C4594703CF // DataConverter
+ ME_56405475021D_ME_56C4594703CF // MakeLogicCondition
+ ME_5641E5DB02C3_ME_56C4594703CF // MakeSubQueryCondition
+ ME_56811844032C_ME_56C4594703CF // MakeSortField
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_56C4594703CF // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_56C6DCBE005F // 
+ ME_56C814340296 // 
+ ME_56C8143A00F7 // 
+ ME_56C8143E0096 // 
+ ME_56C814420080 // 
+ ME_56C81B11021E // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caTableQueryFactory.pas'
+ CONST extprop:rc:SelfName 'caTableQueryFactory'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'caTableQueryFactory'
+
+ref; // ME_56C4594703CF TcaTableQueryFactory
+
+: ME_56C6DC5D00BA
+ CONST UID '56C6DC5D00BA'
+ CONST Name 'f_PGQuery'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C6DB730289 // TcaTabledQuery
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_56C6DC5D00BA f_PGQuery
+
+: ME_56C6DC6603B8
+ CONST UID '56C6DC6603B8'
+ CONST Name 'f_HTQuery'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56C6DB730289 // TcaTabledQuery
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_56C6DC6603B8 f_HTQuery
+
+FORWARD ME_56C6DC070160
+
+: ME_56C6EE770168
+ CONST UID '56C6EE770168'
+ CONST Name 'aDataConverter'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
+ ;
+
+ref; // ME_56C6EE770168 aDataConverter
+
+: ME_56C6E46B02D8
+ CONST UID '56C6E46B02D8'
+ CONST Name 'aTable'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
+ ;
+
+ref; // ME_56C6E46B02D8 aTable
+
+: ME_56C6E46B02E7
+ CONST UID '56C6E46B02E7'
+ CONST Name 'anAlias'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_56C6E46B02E7 anAlias
+
+: ME_56C6DC340213
+ CONST UID '56C6DC340213'
+ CONST Name 'aHTQuery'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_56C6DC340213 aHTQuery
+
+: ME_56C6DC340222
+ CONST UID '56C6DC340222'
+ CONST Name 'aPGQuery'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_56C6DC340222 aPGQuery
+
+: ME_56C6DC1102C6
+ CONST UID '56C6DC1102C6'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6DC070160 // Create
+ ;
+ : Parameters
+   Seq: ( ME_56C6EE770168 // aDataConverter
+ ME_56C6E46B02D8 // aTable
+ ME_56C6E46B02E7 // anAlias
+ ME_56C6DC340213 // aHTQuery
+ ME_56C6DC340222 // aPGQuery
+ )
+ ; // Parameters
+
+ref; // ME_56C6DC1102C6 DoIt
+
+: ME_56C6DC070160
+ CONST UID '56C6DC070160'
+ CONST Name 'Create'
+ CONST Class class_Class
+ : Stereotype st_Constructor ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6DB730289 // TcaTabledQuery
+ ;
+ : Operations
+   Seq: ( ME_56C6DC1102C6 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C6DC070160 Create
+
+FORWARD ME_56C6DC460273
+
+: ME_6AE6DA5C5BB4
+ CONST UID '6AE6DA5C5BB4'
+ CONST Name 'aDataConverter'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
+ ;
+
+ref; // ME_6AE6DA5C5BB4 aDataConverter
+
+: ME_59C48AA0545D
+ CONST UID '59C48AA0545D'
+ CONST Name 'aTable'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_552FADE50173' '5432518A0316.pas.ms.script' // IdaTableDescription
+ ;
+
+ref; // ME_59C48AA0545D aTable
+
+: ME_8E2F359FF102
+ CONST UID '8E2F359FF102'
+ CONST Name 'anAlias'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_476136D3010B' '4AB0C3C60310.pas.ms.script' // String
+ ;
+
+ref; // ME_8E2F359FF102 anAlias
+
+: ME_F1A04AC37E8F
+ CONST UID 'F1A04AC37E8F'
+ CONST Name 'aHTQuery'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_F1A04AC37E8F aHTQuery
+
+: ME_16A6A6CD8A62
+ CONST UID '16A6A6CD8A62'
+ CONST Name 'aPGQuery'
+ CONST IsSummoned true
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+
+ref; // ME_16A6A6CD8A62 aPGQuery
+
+: ME_3D0229CEC690
+ CONST UID '3D0229CEC690'
+ CONST Name 'DoIt'
+ CONST IsSummoned true
+ CONST Class class_Operation
+ %SUMMARY 'Сигнатура фабрики TcaTabledQuery.Make' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6DC460273 // Make
+ ;
+ : Target WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ ;
+ : Parameters
+   Seq: ( ME_6AE6DA5C5BB4 // aDataConverter
+ ME_59C48AA0545D // aTable
+ ME_8E2F359FF102 // anAlias
+ ME_F1A04AC37E8F // aHTQuery
+ ME_16A6A6CD8A62 // aPGQuery
+ )
+ ; // Parameters
+
+ref; // ME_3D0229CEC690 DoIt
+
+: ME_56C6DC460273
+ CONST UID '56C6DC460273'
+ CONST Name 'Make'
+ CONST Class class_Class
+ : Stereotype st_Factory ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6DB730289 // TcaTabledQuery
+ ;
+ : Inherits
+   Seq: ( ME_56C6DC070160 // Create
+ )
+ ; // Inherits
+ : Implements
+   Seq: ( WL 'ME_5549C4060117' '5432518A0316.pas.ms.script' // IdaTabledQuery
+ )
+ ; // Implements
+ : Operations
+   Seq: ( ME_3D0229CEC690 // DoIt
+ )
+ ; // Operations
+ CONST "check nil" false
+ CONST "need AfterCreate" 'undefined'
+ CONST "need Aggregate" 'undefined'
+ CONST "need As" false
+
+ref; // ME_56C6DC460273 Make
+
+: ME_56C857E0010A
+ CONST UID '56C857E0010A'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56C6DB730289 // TcaTabledQuery
+ ;
+ : Target WL 'ME_55FFB14A031C' '54F85B2500FB.pas.ms.script' // TdaFromTable
+ ;
+
+ref; // ME_56C857E0010A 
+
+: ME_5600FFF80332_ME_56C6DB730289
+ CONST UID '5600FFF80332'
+ CONST Name 'MakeFromTable'
+ : Original WL 'ME_5600FFF80332' '54F85B2500FB.pas.ms.script' // MakeFromTable
+ ;
+ : Implementor ME_56C6DB730289 // TcaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5600FFF80332_ME_56C6DB730289 MakeFromTable
+
+: ME_566A892A0191_ME_56C6DB730289
+ CONST UID '566A892A0191'
+ CONST Name 'PrepareTable'
+ : Original WL 'ME_566A892A0191' '54F85B2500FB.pas.ms.script' // PrepareTable
+ ;
+ : Implementor ME_56C6DB730289 // TcaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_566A892A0191_ME_56C6DB730289 PrepareTable
+
+: ME_566A893B03C7_ME_56C6DB730289
+ CONST UID '566A893B03C7'
+ CONST Name 'UnPrepareTable'
+ : Original WL 'ME_566A893B03C7' '54F85B2500FB.pas.ms.script' // UnPrepareTable
+ ;
+ : Implementor ME_56C6DB730289 // TcaTabledQuery
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_566A893B03C7_ME_56C6DB730289 UnPrepareTable
+
+: ME_479731C50290_ME_56C6DB730289
+ CONST UID '479731C50290'
+ CONST Name 'Cleanup'
+ : Original WL 'ME_479731C50290' '51612EBB02F5.pas.ms.script' // Cleanup
+ ;
+ : Implementor ME_56C6DB730289 // TcaTabledQuery
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_479731C50290_ME_56C6DB730289 Cleanup
+
+: ME_56C6DB730289
+ CONST UID '56C6DB730289'
+ CONST Name 'TcaTabledQuery'
+ CONST Class class_Class
+ : Stereotype st_SimpleClass ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56A86AF40350 // Provider
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5600FA2301B9' '54F85B2500FB.pas.ms.script' // TdaTabledQuery
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_56C6DC5D00BA // f_PGQuery
+ ME_56C6DC6603B8 // f_HTQuery
+ )
+ ; // Attributes
+ : Operations
+   Seq: ( ME_56C6DC070160 // Create
+ ME_56C6DC460273 // Make
+ )
+ ; // Operations
+ : Implemented
+   Seq: ( ME_5600FFF80332_ME_56C6DB730289 // MakeFromTable
+ ME_566A892A0191_ME_56C6DB730289 // PrepareTable
+ ME_566A893B03C7_ME_56C6DB730289 // UnPrepareTable
+ )
+ ; // Implemented
+ : Overridden
+   Seq: ( ME_479731C50290_ME_56C6DB730289 // Cleanup
+ )
+ ; // Overridden
+ : Dependencies
+   Seq: ( ME_56C857E0010A // 
+ )
+ ; // Dependencies
+ CONST "needs InstanceR" 'undefined'
+ CONST "needs script" 'undefined'
+ CONST "no hands" false
+ CONST "register in scripts" 'undefined'
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caTabledQuery.pas'
+ CONST extprop:rc:SelfName 'caTabledQuery'
+ CONST extprop:rc:isAcceptableForScripts true
+ CONST extprop:pas:UnitName 'caTabledQuery'
+
+ref; // ME_56C6DB730289 TcaTabledQuery
+
 : ME_56A86AF40350
  CONST UID '56A86AF40350'
  CONST Name 'Provider'
@@ -1481,6 +3172,11 @@ ref; // ME_56A86C020121 TcaDataProviderFactory
    Seq: ( ME_56A86B450218 // TcaDataProviderParams
  ME_56A86BCE01EE // TcaDataProvider
  ME_56A86C020121 // TcaDataProviderFactory
+ ME_56BD8F200154 // TcaJournal
+ ME_56C2E7040035 // TcaDataConverter
+ ME_56C428E4014A // TcaUserManager
+ ME_56C4594703CF // TcaTableQueryFactory
+ ME_56C6DB730289 // TcaTabledQuery
  )
  ; // Children
  : Depends
@@ -1492,8 +3188,10 @@ ref; // ME_56A86C020121 TcaDataProviderFactory
  WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
  WL 'ME_54F85B2500FB' '54F85B2500FB.pas.ms.script' // Provider
  WL 'ME_54F9AF550087' '54F9AF550087.pas.ms.script' // Provider
+ WL 'ME_550981B402B9' '550981B402B9.pas.ms.script' // htInterfaces
  WL 'ME_55D6CF3B014B' '55D6CF3B014B.pas.ms.script' // Provider
  WL 'ME_55DAD4150001' '55DAD4150001.pas.ms.script' // pgInterfaces
+ WL 'ME_56C2DE8D033F' '56C2DE8D033F.pas.ms.script' // caInterfaces
  )
  ; // Depends
 

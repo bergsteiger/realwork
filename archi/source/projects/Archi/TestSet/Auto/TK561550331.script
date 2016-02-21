@@ -1,0 +1,85 @@
+USES
+	QuickTestsUtils.script
+;
+
+PROCEDURE "Фокус на 'Тестовая выборка'"
+	"Установить фокус в контрол с именем" 'SrchResultLister'
+;
+
+PROCEDURE "Фокус на 'Информация о документах'"
+	"Установить фокус в контрол с именем" 'emInfo'
+;
+
+PROCEDURE "Сравнить меню с эталоном расширенно" OBJECT IN aMenu BOOLEAN IN anItemName
+ FORWARD DoItem
+ INTEGER VAR l_Indent 
+ PROCEDURE DoItem OBJECT IN anItem
+  VAR l_Index
+  l_Index := 0
+  anItem menuitem:GetCount LOOP (
+   VAR l_Item
+   l_Index anItem menuitem:GetItem =: l_Item
+   l_Item menuitem:IsVisible ? (
+    [ 
+      l_Indent #32 char:Dupe
+	  anItemName ? ( 'name' l_Item pop:object:GetStrProp ':' Cat )
+      l_Item menuitem:GetCaption
+      l_Item menuitem:IsEnabled ! ? (
+       ' [Запрещён]'
+       ' ' l_Item pop:Component:Name
+      )
+    ] strings:Cat .
+    ++! l_Indent
+    TRY
+     l_Item DoItem
+    FINALLY
+     --! l_Indent
+    END // TRY..FINALLY
+   ) // l_Item menuitem:IsVisible
+   ++! l_Index
+  ) // anItem menuitem:GetCount LOOP
+ ; // DoItem
+ 
+ l_Indent := 0
+ 
+ aMenu DoItem
+; 
+
+PROCEDURE "Вызывать 'Информация о документах'"
+	'Alt+i' key		
+;
+
+PROCEDURE "Сравнить контекстное меню контрола с эталоном расширенно" OBJECT IN aControl
+	OBJECT VAR l_Menu
+	0 0 aControl pop:Control:GetPopupMenu >>> l_Menu
+	"Сравнить меню {(l_Menu)} с эталоном расширенно {(true)}"
+; 
+
+PROCEDURE "Вызов динамического меню в окне 'Информация о документах' и сравнить контекстное меню с эталоном расширенно"
+	OBJECT VAR l_Control 
+	"Контрол по имени {( 'ShowInfoDlg' )}" >>> l_Control	
+	OBJECT VAR l_Result
+	"Найти контрол {('emInfo')} на форме {(l_Control)}" >>> l_Result
+	"Сравнить контекстное меню контрола {(l_Result)} с эталоном расширенно"
+	"Нажать кнопку ОК" 
+;
+
+Тест TK561550331
+	Параметры: ( 
+		"Не открывать документ" 
+		"Закрывать все окна"
+	)
+	Выполнить ( 
+		"Создать выборку и добавить документ {(Конституция)}"
+		"Фокус на 'Тестовая выборка'" 
+		@ (  
+			"Вызывать 'Информация о документах'"
+			) MODAL (
+			"Фокус на 'Информация о документах'"
+			"Вызов динамического меню в окне 'Информация о документах' и сравнить контекстное меню с эталоном расширенно"
+			"Обработать сообщения" 
+		)	
+	)
+;
+
+TK561550331

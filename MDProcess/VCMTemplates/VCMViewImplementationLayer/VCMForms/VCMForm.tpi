@@ -244,7 +244,7 @@ p restrict form def:tribool=undefined ?
 	%f_addG(%{Pack_Inst},%{SELF})\
 	%{Pack_Inst}%f_set_visibility_type(PublicAccess)\
 	%{Pack_Inst}%f_set_documentation(Набор слов словаря для доступа к экземплярам контролов формы %{SELF}N)\
-//	%{Pack_Inst}%f_set_up(UseNewGen,true)\
+	%{Pack_Inst}%f_set_up(UseNewGen,true)\
 	%{Pack_Inst}%f_set_up(noRegistrator,true)\
 	%{Pack_Inst}%f_set_up(no_pop,true)\
 	%{Pack_Inst}%f_set_up(ifdef,%{SELF}{ifdef})\
@@ -396,6 +396,7 @@ f _SpellControl
 	%f_addG(%{Word_Inst},%{TkwControlPush})\
 	%{Word_Inst}%f_make_accessable(%{TtfwContext}U)\
 	%f_addCDep(%{Word_Inst},%{TtfwContext})\
+	%{Word_Inst}%f_set_var(SpelledFor,S)\
 
 	%{Word_Inst}%f_set_up(NameForScript,\
 	[{%SS!=Component}{\

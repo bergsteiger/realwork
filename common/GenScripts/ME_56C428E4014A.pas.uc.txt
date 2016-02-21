@@ -1,0 +1,24 @@
+//#UC START# *479731C50290_56C428E4014A_impl*
+ f_HTManager := nil;
+ f_PGManager := nil;
+ inherited;
+//#UC END# *479731C50290_56C428E4014A_impl*
+//#UC START# *479731C50290_56C428E4014A_var*
+//#UC END# *479731C50290_56C428E4014A_var*
+//#UC START# *5628D14D0151_56C428E4014A_impl*
+ Result := f_HTManager.CheckPassword(aLogin, aPassword, RequireAdminRights, theUserID);
+ l_Result := f_PGManager.CheckPassword(aLogin, aPassword, RequireAdminRights, l_UserID);
+ Assert((Result = l_Result) and (theUserID = l_UserID))
+//#UC END# *5628D14D0151_56C428E4014A_impl*
+//#UC START# *5628D14D0151_56C428E4014A_var*
+var
+ l_Result: TdaLoginError;
+ l_UserID: TdaUserID;
+//#UC END# *5628D14D0151_56C428E4014A_var*
+//#UC START# *56C429340002_56C428E4014A_impl*
+ inherited Create;
+ f_HTManager := aHTManager;
+ f_PGManager := aPGManager;
+//#UC END# *56C429340002_56C428E4014A_impl*
+//#UC START# *56C429340002_56C428E4014A_var*
+//#UC END# *56C429340002_56C428E4014A_var*

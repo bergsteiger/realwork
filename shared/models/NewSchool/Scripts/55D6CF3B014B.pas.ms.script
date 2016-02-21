@@ -2417,19 +2417,6 @@ ref; // ME_560506850208 DoIt
 
 ref; // ME_560506760367 BuildSQL
 
-FORWARD ME_55FFE8B400B0
-
-: ME_55FFEC410273
- CONST UID '55FFEC410273'
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_55F960D502F6 // TpgTabledQuery
- ;
- : Target ME_55FFE8B400B0 // TpgFromTable
- ;
-
-ref; // ME_55FFEC410273 
-
 : ME_5603D0D20050
  CONST UID '5603D0D20050'
  CONST Class class_Dependency
@@ -2490,6 +2477,17 @@ FORWARD ME_560B961401E4
  ;
 
 ref; // ME_560B963D002C 
+
+: ME_56C845AD00C5
+ CONST UID '56C845AD00C5'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_55F960D502F6 // TpgTabledQuery
+ ;
+ : Target WL 'ME_55FFB14A031C' '54F85B2500FB.pas.ms.script' // TdaFromTable
+ ;
+
+ref; // ME_56C845AD00C5 
 
 : ME_5600FFF80332_ME_55F960D502F6
  CONST UID '5600FFF80332'
@@ -2589,12 +2587,12 @@ ref; // ME_560B861302E9_ME_55F960D502F6 MakeParamList
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_55FFEC410273 // 
- ME_5603D0D20050 // 
+   Seq: ( ME_5603D0D20050 // 
  ME_5603E7EC024A // 
  ME_5604F2F901D2 // 
  ME_560B86910177 // 
  ME_560B963D002C // 
+ ME_56C845AD00C5 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -2607,31 +2605,6 @@ ref; // ME_560B861302E9_ME_55F960D502F6 MakeParamList
  CONST extprop:pas:UnitName 'pgTabledQuery'
 
 ref; // ME_55F960D502F6 TpgTabledQuery
-
-: ME_55FFE8B400B0
- CONST UID '55FFE8B400B0'
- CONST Name 'TpgFromTable'
- CONST Class class_Class
- : Stereotype st_SimpleClass ;
- CONST Kind kind_NormalClass
- CONST Visibility PublicAccess
- CONST Abstraction at_regular
- : Parent ME_55D6CF3B014B // Provider
- ;
- : Inherits
-   Seq: ( WL 'ME_55FFB14A031C' '54F85B2500FB.pas.ms.script' // TdaFromTable
- )
- ; // Inherits
- CONST "needs InstanceR" 'undefined'
- CONST "needs script" 'undefined'
- CONST "no hands" false
- CONST "register in scripts" 'undefined'
- CONST intf.pas:Path 'common\components\rtl\Garant\PG\pgFromTable.pas'
- CONST extprop:rc:SelfName 'pgFromTable'
- CONST extprop:rc:isAcceptableForScripts true
- CONST extprop:pas:UnitName 'pgFromTable'
-
-ref; // ME_55FFE8B400B0 TpgFromTable
 
 FORWARD ME_564B212F02DA
 
@@ -9721,7 +9694,6 @@ ref; // ME_5694BA3500C4 TpgCommandExecutor
  ME_5645BD2C03A2 // TpgFamilyHelper
  ME_55F81B3F024D // TpgTableQueryFactory
  ME_55F960D502F6 // TpgTabledQuery
- ME_55FFE8B400B0 // TpgFromTable
  ME_564B212F02DA // TpgTableModifier
  ME_5604F2910025 // pgUtils
  ME_560B866002FB // TpgParamList

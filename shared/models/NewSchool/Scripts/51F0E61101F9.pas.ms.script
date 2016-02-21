@@ -1426,22 +1426,34 @@ ref; // ME_56A071C8034A AnalyseBorder
 
 FORWARD ME_56BC693D00CE
 
-: ME_0F264D62D6C4
- CONST UID '0F264D62D6C4'
- CONST Name 'DoIt'
- CONST IsSummoned true
- CONST Class class_Operation
- %SUMMARY 'Сигнатура метода Assign(aTag: TddHTMLTag)' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_56BC693D00CE // Assign(aTag: TddHTMLTag)
+: ME_56C1709A02D2
+ CONST UID '56C1709A02D2'
+ CONST Name 'aTag'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_524159C700FE // TddHTMLTag
  ;
 
-ref; // ME_0F264D62D6C4 DoIt
+ref; // ME_56C1709A02D2 aTag
+
+: ME_56C17094000E
+ CONST UID '56C17094000E'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BC693D00CE // Assign
+ ;
+ : Parameters
+   Seq: ( ME_56C1709A02D2 // aTag
+ )
+ ; // Parameters
+
+ref; // ME_56C17094000E DoIt
 
 : ME_56BC693D00CE
  CONST UID '56BC693D00CE'
- CONST Name 'Assign(aTag: TddHTMLTag)'
+ CONST Name 'Assign'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
@@ -1450,11 +1462,11 @@ ref; // ME_0F264D62D6C4 DoIt
  : Parent ME_524159C700FE // TddHTMLTag
  ;
  : Operations
-   Seq: ( ME_0F264D62D6C4 // DoIt
+   Seq: ( ME_56C17094000E // DoIt
  )
  ; // Operations
 
-ref; // ME_56BC693D00CE Assign(aTag: TddHTMLTag)
+ref; // ME_56BC693D00CE Assign
 
 : ME_5241662602F1
  CONST UID '5241662602F1'
@@ -1560,7 +1572,7 @@ ref; // ME_479731C50290_ME_524159C700FE Cleanup
  ME_534FC1FC01C3 // CheckServiceDocID
  ME_53984619001D // AddWidthValue
  ME_56A071C8034A // AnalyseBorder
- ME_56BC693D00CE // Assign(aTag: TddHTMLTag)
+ ME_56BC693D00CE // Assign
  )
  ; // Operations
  : Overridden

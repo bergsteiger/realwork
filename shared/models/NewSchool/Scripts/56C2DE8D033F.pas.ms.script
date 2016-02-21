@@ -1,0 +1,136 @@
+// caInterfaces 56C2DE8D033F Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56C2DE8D033F
+
+FORWARD ME_56C2DEAE01B1
+
+: ME_56C2DED50129
+ CONST UID '56C2DED50129'
+ CONST Name 'HTConverter'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56C2DEAE01B1 // IcaDataConverter
+ ;
+ : Target WL 'ME_55C0B2A30315' '550981B402B9.pas.ms.script' // IhtDataConverter
+ ;
+ CONST "pm" false
+
+ref; // ME_56C2DED50129 HTConverter
+
+: ME_56C2DEED008B
+ CONST UID '56C2DEED008B'
+ CONST Name 'PGConverter'
+ CONST Class class_Attribute
+ : Stereotype st_readonly::Attribute ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ CONST LinkType lt_lnk
+ : Parent ME_56C2DEAE01B1 // IcaDataConverter
+ ;
+ : Target WL 'ME_55E41C6E00E2' '55DAD4150001.pas.ms.script' // IpgDataConverter
+ ;
+ CONST "pm" false
+
+ref; // ME_56C2DEED008B PGConverter
+
+: ME_555995210007_ME_56C2DEAE01B1
+ CONST UID '555995210007'
+ CONST Name 'AllocateParamBuffer'
+ : Original WL 'ME_555995210007' '5432518A0316.pas.ms.script' // AllocateParamBuffer
+ ;
+ : Implementor ME_56C2DEAE01B1 // IcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_555995210007_ME_56C2DEAE01B1 AllocateParamBuffer
+
+: ME_5559955500DF_ME_56C2DEAE01B1
+ CONST UID '5559955500DF'
+ CONST Name 'ParamToDataBase'
+ : Original WL 'ME_5559955500DF' '5432518A0316.pas.ms.script' // ParamToDataBase
+ ;
+ : Implementor ME_56C2DEAE01B1 // IcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5559955500DF_ME_56C2DEAE01B1 ParamToDataBase
+
+: ME_55599596005B_ME_56C2DEAE01B1
+ CONST UID '55599596005B'
+ CONST Name 'ParamFromDataBase'
+ : Original WL 'ME_55599596005B' '5432518A0316.pas.ms.script' // ParamFromDataBase
+ ;
+ : Implementor ME_56C2DEAE01B1 // IcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_55599596005B_ME_56C2DEAE01B1 ParamFromDataBase
+
+: ME_5559D14D02D1_ME_56C2DEAE01B1
+ CONST UID '5559D14D02D1'
+ CONST Name 'FreeParamBuffer'
+ : Original WL 'ME_5559D14D02D1' '5432518A0316.pas.ms.script' // FreeParamBuffer
+ ;
+ : Implementor ME_56C2DEAE01B1 // IcaDataConverter
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_5559D14D02D1_ME_56C2DEAE01B1 FreeParamBuffer
+
+: ME_56C2DEAE01B1
+ CONST UID '56C2DEAE01B1'
+ CONST GUID 'FADCE1E5-6997-478B-A413-7A8B0074DD9C'
+ CONST Name 'IcaDataConverter'
+ CONST Class class_Class
+ : Stereotype st_Facet ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent ME_56C2DE8D033F // caInterfaces
+ ;
+ : Inherits
+   Seq: ( WL 'ME_5559950F0013' '5432518A0316.pas.ms.script' // IdaDataConverter
+ )
+ ; // Inherits
+ : Attributes
+   Seq: ( ME_56C2DED50129 // HTConverter
+ ME_56C2DEED008B // PGConverter
+ )
+ ; // Attributes
+ : Implemented
+   Seq: ( ME_555995210007_ME_56C2DEAE01B1 // AllocateParamBuffer
+ ME_5559955500DF_ME_56C2DEAE01B1 // ParamToDataBase
+ ME_55599596005B_ME_56C2DEAE01B1 // ParamFromDataBase
+ ME_5559D14D02D1_ME_56C2DEAE01B1 // FreeParamBuffer
+ )
+ ; // Implemented
+ CONST extprop:rc:SelfName 'caDataConverter'
+ CONST extprop:rc:isAcceptableForScripts true
+
+ref; // ME_56C2DEAE01B1 IcaDataConverter
+
+: ME_56C2DE8D033F
+ CONST UID '56C2DE8D033F'
+ CONST Name 'caInterfaces'
+ CONST Class class_Category
+ : Stereotype st_Interfaces ;
+ CONST Visibility PublicAccess
+ CONST Abstraction at_regular
+ : Parent WL 'ME_56A86AAF02D1' '56A86AAF02D1.pas.ms.script' // ComboAccess
+ ;
+ : Children
+   Seq: ( ME_56C2DEAE01B1 // IcaDataConverter
+ )
+ ; // Children
+ : Depends
+   Seq: ( WL 'ME_5432518A0316' '5432518A0316.pas.ms.script' // daInterfaces
+ WL 'ME_550981B402B9' '550981B402B9.pas.ms.script' // htInterfaces
+ WL 'ME_55DAD4150001' '55DAD4150001.pas.ms.script' // pgInterfaces
+ )
+ ; // Depends
+ CONST "is namespace" true
+ CONST "no hands" false
+ CONST intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caInterfaces.pas'
+
+ref; // ME_56C2DE8D033F caInterfaces

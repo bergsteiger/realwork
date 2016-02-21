@@ -4121,7 +4121,7 @@ ref; // ME_51E8D657026C LastAtom
  CONST Class class_Attribute
  : Stereotype st_readonly::Attribute ;
  CONST Visibility PublicAccess
- CONST Abstraction at_final
+ CONST Abstraction at_regular
  CONST LinkType lt_agr
  : Parent ME_51D278280093 // TdestNorm
  ;
@@ -4957,25 +4957,15 @@ ref; // ME_51E8D7A401F0 GetColor
 
 FORWARD ME_51E8D7E60235
 
-: ME_535E17A40033
- CONST UID '535E17A40033'
- CONST Name 'aInTable'
+: ME_56C59452012E
+ CONST UID '56C59452012E'
+ CONST Name 'aPAP'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ : Target WL 'ME_51DBBDD6011E' '4F6843C101D1.pas.ms.script' // TddParagraphProperty
  ;
 
-ref; // ME_535E17A40033 aInTable
-
-: ME_535E17A40042
- CONST UID '535E17A40042'
- CONST Name 'anItap'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
- ;
-
-ref; // ME_535E17A40042 anItap
+ref; // ME_56C59452012E aPAP
 
 : ME_51E8D7EF010E
  CONST UID '51E8D7EF010E'
@@ -4983,13 +4973,12 @@ ref; // ME_535E17A40042 anItap
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_51E8D7E60235 // AddTextPara
+ : Parent ME_51E8D7E60235 // InternalAddTextPara
  ;
  : Target WL 'ME_4FACE14F0231' '4F6843C101D1.pas.ms.script' // TddTextParagraph
  ;
  : Parameters
-   Seq: ( ME_535E17A40033 // aInTable
- ME_535E17A40042 // anItap
+   Seq: ( ME_56C59452012E // aPAP
  )
  ; // Parameters
 
@@ -4997,12 +4986,12 @@ ref; // ME_51E8D7EF010E DoIt
 
 : ME_51E8D7E60235
  CONST UID '51E8D7E60235'
- CONST Name 'AddTextPara'
+ CONST Name 'InternalAddTextPara'
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
  CONST Visibility ProtectedAccess
- CONST Abstraction at_final
+ CONST Abstraction at_regular
  : Parent ME_51D278280093 // TdestNorm
  ;
  : Operations
@@ -5010,7 +4999,7 @@ ref; // ME_51E8D7EF010E DoIt
  )
  ; // Operations
 
-ref; // ME_51E8D7E60235 AddTextPara
+ref; // ME_51E8D7E60235 InternalAddTextPara
 
 FORWARD ME_51E8D80401F5
 
@@ -5577,8 +5566,8 @@ ref; // ME_521B223602D5 DoIt
  CONST Class class_Class
  : Stereotype st_method ;
  CONST Kind kind_NormalClass
- CONST Visibility PrivateAccess
- CONST Abstraction at_final
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
  : Parent ME_51D278280093 // TdestNorm
  ;
  : Operations
@@ -6138,7 +6127,7 @@ ref; // ME_55C4756D03AC aPAP
  CONST Class class_Operation
  CONST Visibility PrivateAccess
  CONST Abstraction at_final
- : Parent ME_55C4754B00B7 // AddTextPara$1
+ : Parent ME_55C4754B00B7 // AddTextPara
  ;
  : Target WL 'ME_4FACE14F0231' '4F6843C101D1.pas.ms.script' // TddTextParagraph
  ;
@@ -6164,7 +6153,7 @@ ref; // ME_55C4756400CE DoIt
  )
  ; // Operations
 
-ref; // ME_55C4754B00B7 AddTextPara$1
+ref; // ME_55C4754B00B7 AddTextPara
 
 FORWARD ME_560A489E0398
 
@@ -6552,15 +6541,25 @@ ref; // ME_56A9F2670380 AddSub
 
 FORWARD ME_56BC3011019B
 
-: ME_56BC62C6014E
- CONST UID '56BC62C6014E'
+: ME_56C8565801E1
+ CONST UID '56C8565801E1'
+ CONST Name 'aPAP'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51DBBDD6011E' '4F6843C101D1.pas.ms.script' // TddParagraphProperty
+ ;
+
+ref; // ME_56C8565801E1 aPAP
+
+: ME_56C856580200
+ CONST UID '56C856580200'
  CONST Name 'aPara'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_4FACE14F0231' '4F6843C101D1.pas.ms.script' // TddTextParagraph
  ;
 
-ref; // ME_56BC62C6014E aPara
+ref; // ME_56C856580200 aPara
 
 : ME_56BC301E0157
  CONST UID '56BC301E0157'
@@ -6571,7 +6570,8 @@ ref; // ME_56BC62C6014E aPara
  : Parent ME_56BC3011019B // CloseTextPara
  ;
  : Parameters
-   Seq: ( ME_56BC62C6014E // aPara
+   Seq: ( ME_56C8565801E1 // aPAP
+ ME_56C856580200 // aPara
  )
  ; // Parameters
 
@@ -6731,6 +6731,82 @@ ref; // ME_56BDB2EB00D2 DoIt
  ; // Operations
 
 ref; // ME_56BDB2CD037F Itap
+
+FORWARD ME_56C574EA022E
+
+: ME_56C6FB960078
+ CONST UID '56C6FB960078'
+ CONST Name 'aPAP'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51DBBDD6011E' '4F6843C101D1.pas.ms.script' // TddParagraphProperty
+ ;
+
+ref; // ME_56C6FB960078 aPAP
+
+: ME_56C57505033A
+ CONST UID '56C57505033A'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C574EA022E // DoAddTabStop
+ ;
+ : Parameters
+   Seq: ( ME_56C6FB960078 // aPAP
+ )
+ ; // Parameters
+
+ref; // ME_56C57505033A DoIt
+
+: ME_56C574EA022E
+ CONST UID '56C574EA022E'
+ CONST Name 'DoAddTabStop'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_regular
+ : Parent ME_51D278280093 // TdestNorm
+ ;
+ : Operations
+   Seq: ( ME_56C57505033A // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C574EA022E DoAddTabStop
+
+FORWARD ME_56C5946F0006
+
+: ME_56C5948402D8
+ CONST UID '56C5948402D8'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C5946F0006 // AddTextPara2Document
+ ;
+ : Target WL 'ME_4FACE14F0231' '4F6843C101D1.pas.ms.script' // TddTextParagraph
+ ;
+
+ref; // ME_56C5948402D8 DoIt
+
+: ME_56C5946F0006
+ CONST UID '56C5946F0006'
+ CONST Name 'AddTextPara2Document'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_51D278280093 // TdestNorm
+ ;
+ : Operations
+   Seq: ( ME_56C5948402D8 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C5946F0006 AddTextPara2Document
 
 : ME_51E8EC6103DF
  CONST UID '51E8EC6103DF'
@@ -7167,7 +7243,7 @@ ref; // ME_5658453300F6_ME_51D278280093 NextTextPara
  ME_51E8D4200232 // ApplyToTAB
  ME_51E8D7880381 // GetFontEvent
  ME_51E8D7A401F0 // GetColor
- ME_51E8D7E60235 // AddTextPara
+ ME_51E8D7E60235 // InternalAddTextPara
  ME_51E8D80401F5 // AddPicture
  ME_51E8D8250134 // Append
  ME_51E8D84900D6 // BufferEmpty
@@ -7190,7 +7266,7 @@ ref; // ME_5658453300F6_ME_51D278280093 NextTextPara
  ME_559516AA0098 // CanAddTable
  ME_559652250144 // AddShape
  ME_55C4750C02BF // SimpleAddShape
- ME_55C4754B00B7 // AddTextPara$1
+ ME_55C4754B00B7 // AddTextPara
  ME_560A489E0398 // Try2CloseNestedTable
  ME_5620DCA40213 // FindFootnoteSymbol
  ME_5624D64601E3 // AddFooterHyperlink
@@ -7204,6 +7280,8 @@ ref; // ME_5658453300F6_ME_51D278280093 NextTextPara
  ME_56BC304D02E0 // InTable
  ME_56BD9F790092 // DeleteLastAtom
  ME_56BDB2CD037F // Itap
+ ME_56C574EA022E // DoAddTabStop
+ ME_56C5946F0006 // AddTextPara2Document
  )
  ; // Operations
  : Implemented
@@ -9500,6 +9578,17 @@ ref; // ME_552688A103E2
 
 ref; // ME_5624F5080274 
 
+: ME_56C2D80D01D0
+ CONST UID '56C2D80D01D0'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_51E8E8770374 // TdestFootnote
+ ;
+ : Target WL 'ME_56C2B20A03B9' '52CFA9D5031E.pas.ms.script' // TddLiteVersion
+ ;
+
+ref; // ME_56C2D80D01D0 
+
 : ME_479731C50290_ME_51E8E8770374
  CONST UID '479731C50290'
  CONST Name 'Cleanup'
@@ -9647,6 +9736,7 @@ ref; // ME_5624D79C03A8_ME_51E8E8770374 AfterAddPara
  ME_51E9088F0390 // 
  ME_552688A103E2 // 
  ME_5624F5080274 // 
+ ME_56C2D80D01D0 // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'
@@ -12897,6 +12987,7 @@ FORWARD ME_56BB14F503A0
  CONST UID '56BD710803AE'
  CONST Name 'f_PrevColsWidth'
  CONST Class class_Attribute
+ %SUMMARY 'Предыдущая ширина строки.' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
@@ -12911,6 +13002,7 @@ ref; // ME_56BD710803AE f_PrevColsWidth
  CONST UID '56BD714103B3'
  CONST Name 'f_ColIndex'
  CONST Class class_Attribute
+ %SUMMARY 'Номер колонки (из атрибутов RTF).' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
@@ -12925,6 +13017,7 @@ ref; // ME_56BD714103B3 f_ColIndex
  CONST UID '56BD715E01A1'
  CONST Name 'f_ColCount'
  CONST Class class_Attribute
+ %SUMMARY 'Число колонок (из атрибутов RTF).' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
@@ -12939,6 +13032,7 @@ ref; // ME_56BD715E01A1 f_ColCount
  CONST UID '56BD71C102BC'
  CONST Name 'f_ColWidths'
  CONST Class class_Attribute
+ %SUMMARY 'Ширины колонок (из атрибутов RTF).' ;
  CONST Visibility PrivateAccess
  CONST Abstraction at_regular
  CONST LinkType lt_agr
@@ -12963,27 +13057,122 @@ ref; // ME_56BD71C102BC f_ColWidths
 
 ref; // ME_56BD7DCC0246 f_SectProp
 
-FORWARD ME_56BB3E570128
-
-: ME_56BB3E7F01CC
- CONST UID '56BB3E7F01CC'
- CONST Name 'aTable'
- CONST Class class_Parameter
- : Stereotype st_in ;
- : Target WL 'ME_519B719F0019' '4F6843C101D1.pas.ms.script' // TddTable
+: ME_56C31385016D
+ CONST UID '56C31385016D'
+ CONST Name 'f_CurColumn'
+ CONST Class class_Attribute
+ %SUMMARY 'Номер текущей колонки (в которую будет добавляться текст).' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
 
-ref; // ME_56BB3E7F01CC aTable
+ref; // ME_56C31385016D f_CurColumn
 
-: ME_56BB3E7F01DC
- CONST UID '56BB3E7F01DC'
- CONST Name 'aUsePrevWith'
- CONST Class class_Parameter
- : Stereotype st_in ;
+: ME_56C5759F003C
+ CONST UID '56C5759F003C'
+ CONST Name 'f_StartRow'
+ CONST Class class_Attribute
+ %SUMMARY 'Номер строки, с которой начинается колонка.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56C5759F003C f_StartRow
+
+: ME_56C575E203DD
+ CONST UID '56C575E203DD'
+ CONST Name 'f_LastCell'
+ CONST Class class_Attribute
+ %SUMMARY 'Ячейка для добавления текста.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target WL 'ME_4FACE127032F' '4F6843C101D1.pas.ms.script' // TddTableCell
+ ;
+
+ref; // ME_56C575E203DD f_LastCell
+
+: ME_56C57640029E
+ CONST UID '56C57640029E'
+ CONST Name 'f_LastRow'
+ CONST Class class_Attribute
+ %SUMMARY 'Строка для добавления текста.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target WL 'ME_4FACE1370377' '4F6843C101D1.pas.ms.script' // TddTableRow
+ ;
+
+ref; // ME_56C57640029E f_LastRow
+
+: ME_56C6FBE90053
+ CONST UID '56C6FBE90053'
+ CONST Name 'f_SaveInColumns'
+ CONST Class class_Attribute
+ %SUMMARY 'Сохраняем в колонки.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
  : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
  ;
 
-ref; // ME_56BB3E7F01DC aUsePrevWith
+ref; // ME_56C6FBE90053 f_SaveInColumns
+
+: ME_56C6FC1A013D
+ CONST UID '56C6FC1A013D'
+ CONST Name 'f_TabIndex'
+ CONST Class class_Attribute
+ %SUMMARY 'Текущий индекс табуляции параграфа.' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56C6FC1A013D f_TabIndex
+
+: ME_56C6FC490288
+ CONST UID '56C6FC490288'
+ CONST Name 'f_Table'
+ CONST Class class_Attribute
+ %SUMMARY 'Таблица, в которую пишем, даже если колонки кончились...' ;
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target WL 'ME_519B719F0019' '4F6843C101D1.pas.ms.script' // TddTable
+ ;
+
+ref; // ME_56C6FC490288 f_Table
+
+FORWARD ME_56BB3E570128
+
+: ME_56C6FC730189
+ CONST UID '56C6FC730189'
+ CONST Name 'aRowIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56C6FC730189 aRowIndex
 
 : ME_56BB3E7703BA
  CONST UID '56BB3E7703BA'
@@ -12994,8 +13183,7 @@ ref; // ME_56BB3E7F01DC aUsePrevWith
  : Parent ME_56BB3E570128 // AddColumn4Table
  ;
  : Parameters
-   Seq: ( ME_56BB3E7F01CC // aTable
- ME_56BB3E7F01DC // aUsePrevWith
+   Seq: ( ME_56C6FC730189 // aRowIndex
  )
  ; // Parameters
 
@@ -13243,6 +13431,292 @@ ref; // ME_56BD93B501BD DoIt
 
 ref; // ME_56BD93A10343 SetCellProp
 
+FORWARD ME_56C5769301AC
+
+: ME_56C576A10157
+ CONST UID '56C576A10157'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C5769301AC // AddNewRowWithColumn
+ ;
+
+ref; // ME_56C576A10157 DoIt
+
+: ME_56C5769301AC
+ CONST UID '56C5769301AC'
+ CONST Name 'AddNewRowWithColumn'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Operations
+   Seq: ( ME_56C576A10157 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C5769301AC AddNewRowWithColumn
+
+FORWARD ME_56C6FC91019C
+
+: ME_56C6FCB403B4
+ CONST UID '56C6FCB403B4'
+ CONST Name 'aPAP'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_51DBBDD6011E' '4F6843C101D1.pas.ms.script' // TddParagraphProperty
+ ;
+
+ref; // ME_56C6FCB403B4 aPAP
+
+: ME_56C6FCAD0304
+ CONST UID '56C6FCAD0304'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6FC91019C // CheckLeftIndent
+ ;
+ : Parameters
+   Seq: ( ME_56C6FCB403B4 // aPAP
+ )
+ ; // Parameters
+
+ref; // ME_56C6FCAD0304 DoIt
+
+: ME_56C6FC91019C
+ CONST UID '56C6FC91019C'
+ CONST Name 'CheckLeftIndent'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Operations
+   Seq: ( ME_56C6FCAD0304 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C6FC91019C CheckLeftIndent
+
+FORWARD ME_56C6FCC401C7
+
+: ME_56C6FCE10263
+ CONST UID '56C6FCE10263'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56C6FCE10263 anIndex
+
+: ME_56C6FCD90260
+ CONST UID '56C6FCD90260'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6FCC401C7 // ColumnOffset
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+ : Parameters
+   Seq: ( ME_56C6FCE10263 // anIndex
+ )
+ ; // Parameters
+
+ref; // ME_56C6FCD90260 DoIt
+
+: ME_56C6FCC401C7
+ CONST UID '56C6FCC401C7'
+ CONST Name 'ColumnOffset'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Operations
+   Seq: ( ME_56C6FCD90260 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C6FCC401C7 ColumnOffset
+
+FORWARD ME_56C6FCEF0347
+
+: ME_56C6FCF702CD
+ CONST UID '56C6FCF702CD'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6FCEF0347 // CheckNewColumn
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56C6FCF702CD DoIt
+
+: ME_56C6FCEF0347
+ CONST UID '56C6FCEF0347'
+ CONST Name 'CheckNewColumn'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Operations
+   Seq: ( ME_56C6FCF702CD // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C6FCEF0347 CheckNewColumn
+
+FORWARD ME_56C6FD0C03C4
+
+: ME_56C6FD2E0043
+ CONST UID '56C6FD2E0043'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_51D287250128 // TddRTFState
+ ;
+
+ref; // ME_56C6FD2E0043 aState
+
+: ME_56C6FD2500AF
+ CONST UID '56C6FD2500AF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6FD0C03C4 // NeedNewCell
+ ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+ : Parameters
+   Seq: ( ME_56C6FD2E0043 // aState
+ )
+ ; // Parameters
+
+ref; // ME_56C6FD2500AF DoIt
+
+: ME_56C6FD0C03C4
+ CONST UID '56C6FD0C03C4'
+ CONST Name 'NeedNewCell'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Operations
+   Seq: ( ME_56C6FD2500AF // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C6FD0C03C4 NeedNewCell
+
+FORWARD ME_56C6FD3B01A5
+
+: ME_56C6FD5C0373
+ CONST UID '56C6FD5C0373'
+ CONST Name 'aState'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target ME_51D287250128 // TddRTFState
+ ;
+
+ref; // ME_56C6FD5C0373 aState
+
+: ME_56C6FD580157
+ CONST UID '56C6FD580157'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C6FD3B01A5 // AddNewCell
+ ;
+ : Parameters
+   Seq: ( ME_56C6FD5C0373 // aState
+ )
+ ; // Parameters
+
+ref; // ME_56C6FD580157 DoIt
+
+: ME_56C6FD3B01A5
+ CONST UID '56C6FD3B01A5'
+ CONST Name 'AddNewCell'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Operations
+   Seq: ( ME_56C6FD580157 // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C6FD3B01A5 AddNewCell
+
+FORWARD ME_56C846290255
+
+: ME_56C846460346
+ CONST UID '56C846460346'
+ CONST Name 'aPara'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_4FACE14F0231' '4F6843C101D1.pas.ms.script' // TddTextParagraph
+ ;
+
+ref; // ME_56C846460346 aPara
+
+: ME_56C8463B03DF
+ CONST UID '56C8463B03DF'
+ CONST Name 'DoIt'
+ CONST Class class_Operation
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56C846290255 // ClearTextPara4Table
+ ;
+ : Parameters
+   Seq: ( ME_56C846460346 // aPara
+ )
+ ; // Parameters
+
+ref; // ME_56C8463B03DF DoIt
+
+: ME_56C846290255
+ CONST UID '56C846290255'
+ CONST Name 'ClearTextPara4Table'
+ CONST Class class_Class
+ : Stereotype st_method ;
+ CONST Kind kind_NormalClass
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_final
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Operations
+   Seq: ( ME_56C8463B03DF // DoIt
+ )
+ ; // Operations
+
+ref; // ME_56C846290255 ClearTextPara4Table
+
 : ME_56BD936A00AC
  CONST UID '56BD936A00AC'
  CONST Class class_Dependency
@@ -13253,28 +13727,6 @@ ref; // ME_56BD93A10343 SetCellProp
  ;
 
 ref; // ME_56BD936A00AC 
-
-: ME_56BD936F00E2
- CONST UID '56BD936F00E2'
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56BB14F503A0 // TdestNormSpec
- ;
- : Target WL 'ME_4FACE127032F' '4F6843C101D1.pas.ms.script' // TddTableCell
- ;
-
-ref; // ME_56BD936F00E2 
-
-: ME_56BD93740176
- CONST UID '56BD93740176'
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_56BB14F503A0 // TdestNormSpec
- ;
- : Target WL 'ME_4FACE1370377' '4F6843C101D1.pas.ms.script' // TddTableRow
- ;
-
-ref; // ME_56BD93740176 
 
 : ME_56BD9AC301D6
  CONST UID '56BD9AC301D6'
@@ -13319,6 +13771,28 @@ ref; // ME_56BD9EFB01B7
  ;
 
 ref; // ME_56BD9F3A02E7 
+
+: ME_56C847040213
+ CONST UID '56C847040213'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target WL 'ME_51DD5C720260' '52CFA9D5031E.pas.ms.script' // Common
+ ;
+
+ref; // ME_56C847040213 
+
+: ME_56C8472C00AB
+ CONST UID '56C8472C00AB'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_56BB14F503A0 // TdestNormSpec
+ ;
+ : Target WL 'ME_4773DF5703C9' '47913B47006E.pas.ms.script' // Tl3String
+ ;
+
+ref; // ME_56C8472C00AB 
 
 : ME_479731C50290_ME_56BB14F503A0
  CONST UID '479731C50290'
@@ -13390,6 +13864,38 @@ ref; // ME_51E8D2F90025_ME_56BB14F503A0 ApplyToPAP
  CONST OpKind opkind_Overridden
 ref; // ME_51E8D3A20193_ME_56BB14F503A0 ApplyToSep
 
+: ME_51E8D68F0379_ME_56BB14F503A0
+ CONST UID '51E8D68F0379'
+ CONST Name 'LastParagraph'
+ : Original ME_51E8D68F0379 // LastParagraph
+ ;
+ : Implementor ME_56BB14F503A0 // TdestNormSpec
+ ;
+ CONST OpKind opkind_Overridden
+ CONST "needs field" false
+ CONST "pm" true
+ref; // ME_51E8D68F0379_ME_56BB14F503A0 LastParagraph
+
+: ME_51E8D7E60235_ME_56BB14F503A0
+ CONST UID '51E8D7E60235'
+ CONST Name 'InternalAddTextPara'
+ : Original ME_51E8D7E60235 // InternalAddTextPara
+ ;
+ : Implementor ME_56BB14F503A0 // TdestNormSpec
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_51E8D7E60235_ME_56BB14F503A0 InternalAddTextPara
+
+: ME_521B22240197_ME_56BB14F503A0
+ CONST UID '521B22240197'
+ CONST Name 'Try2ApplyParaProperty'
+ : Original ME_521B22240197 // Try2ApplyParaProperty
+ ;
+ : Implementor ME_56BB14F503A0 // TdestNormSpec
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_521B22240197_ME_56BB14F503A0 Try2ApplyParaProperty
+
 : ME_5385C5C802D5_ME_56BB14F503A0
  CONST UID '5385C5C802D5'
  CONST Name 'AddPageBreak'
@@ -13430,6 +13936,16 @@ ref; // ME_56BC304D02E0_ME_56BB14F503A0 InTable
  CONST OpKind opkind_Overridden
 ref; // ME_56BDB2CD037F_ME_56BB14F503A0 Itap
 
+: ME_56C574EA022E_ME_56BB14F503A0
+ CONST UID '56C574EA022E'
+ CONST Name 'DoAddTabStop'
+ : Original ME_56C574EA022E // DoAddTabStop
+ ;
+ : Implementor ME_56BB14F503A0 // TdestNormSpec
+ ;
+ CONST OpKind opkind_Overridden
+ref; // ME_56C574EA022E_ME_56BB14F503A0 DoAddTabStop
+
 : ME_56BB14F503A0
  CONST UID '56BB14F503A0'
  CONST Name 'TdestNormSpec'
@@ -13451,6 +13967,13 @@ ref; // ME_56BDB2CD037F_ME_56BB14F503A0 Itap
  ME_56BD715E01A1 // f_ColCount
  ME_56BD71C102BC // f_ColWidths
  ME_56BD7DCC0246 // f_SectProp
+ ME_56C31385016D // f_CurColumn
+ ME_56C5759F003C // f_StartRow
+ ME_56C575E203DD // f_LastCell
+ ME_56C57640029E // f_LastRow
+ ME_56C6FBE90053 // f_SaveInColumns
+ ME_56C6FC1A013D // f_TabIndex
+ ME_56C6FC490288 // f_Table
  )
  ; // Attributes
  : Operations
@@ -13460,6 +13983,13 @@ ref; // ME_56BDB2CD037F_ME_56BB14F503A0 Itap
  ME_56BB3EE301F6 // CheckColumnTable
  ME_56BD6FDC025E // AppyToColumn
  ME_56BD93A10343 // SetCellProp
+ ME_56C5769301AC // AddNewRowWithColumn
+ ME_56C6FC91019C // CheckLeftIndent
+ ME_56C6FCC401C7 // ColumnOffset
+ ME_56C6FCEF0347 // CheckNewColumn
+ ME_56C6FD0C03C4 // NeedNewCell
+ ME_56C6FD3B01A5 // AddNewCell
+ ME_56C846290255 // ClearTextPara4Table
  )
  ; // Operations
  : Overridden
@@ -13470,20 +14000,24 @@ ref; // ME_56BDB2CD037F_ME_56BB14F503A0 Itap
  ME_51E8CFEF027A_ME_56BB14F503A0 // ParseSymbol
  ME_51E8D2F90025_ME_56BB14F503A0 // ApplyToPAP
  ME_51E8D3A20193_ME_56BB14F503A0 // ApplyToSep
+ ME_51E8D68F0379_ME_56BB14F503A0 // LastParagraph
+ ME_51E8D7E60235_ME_56BB14F503A0 // InternalAddTextPara
+ ME_521B22240197_ME_56BB14F503A0 // Try2ApplyParaProperty
  ME_5385C5C802D5_ME_56BB14F503A0 // AddPageBreak
  ME_56BC3011019B_ME_56BB14F503A0 // CloseTextPara
  ME_56BC304D02E0_ME_56BB14F503A0 // InTable
  ME_56BDB2CD037F_ME_56BB14F503A0 // Itap
+ ME_56C574EA022E_ME_56BB14F503A0 // DoAddTabStop
  )
  ; // Overridden
  : Dependencies
    Seq: ( ME_56BD936A00AC // 
- ME_56BD936F00E2 // 
- ME_56BD93740176 // 
  ME_56BD9AC301D6 // 
  ME_56BD9E91031D // 
  ME_56BD9EFB01B7 // 
  ME_56BD9F3A02E7 // 
+ ME_56C847040213 // 
+ ME_56C8472C00AB // 
  )
  ; // Dependencies
  CONST "needs InstanceR" 'undefined'

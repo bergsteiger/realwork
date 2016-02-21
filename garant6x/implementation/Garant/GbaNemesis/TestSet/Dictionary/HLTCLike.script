@@ -4907,3 +4907,17 @@ PROCEDURE "Установить фокус во вкладку Конфигурации"
 OBJECT FUNCTION "Плашка 'Энциклопедия решений'"
  "Найти контрол {(контрол::pbLinkToContent)} на форме {("Текущая активная вкладка")}" =: Result
 ;
+
+PROCEDURE "Открыть случайный документ из массива " IN aID
+ INTEGER VAR NumDoc
+ ( aID Array:Count Random aID [i] ) =: NumDoc
+ "Открываем {(NumDoc)}"
+;
+
+VOID WORDWORKER "Открыть поочередно документы из массива и выполнить с каждым" IN aID
+ @ ( INTEGER IN NumDoc
+  "Открываем {(NumDoc)}"
+  ( WordToWork DO )
+ ) aID ITERATE
+;
+
