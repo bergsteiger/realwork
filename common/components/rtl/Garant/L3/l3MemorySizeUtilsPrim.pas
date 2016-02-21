@@ -3,7 +3,7 @@ unit l3MemorySizeUtilsPrim;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3MemorySizeUtilsPrim.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

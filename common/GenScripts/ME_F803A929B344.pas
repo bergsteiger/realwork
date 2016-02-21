@@ -4,7 +4,7 @@ unit ListPrintAndExportFontSizeSettingRes;
 // Модуль: "w:\common\components\SandBox\VCM\View\List\ListPrintAndExportFontSizeSettingRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 

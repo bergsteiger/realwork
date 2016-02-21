@@ -4,7 +4,7 @@ unit ListPrintAndExportSettingRes;
 // Модуль: "w:\common\components\SandBox\VCM\View\List\ListPrintAndExportSettingRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 

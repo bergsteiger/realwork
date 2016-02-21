@@ -3,7 +3,7 @@ unit vgVisualObject_p;
 // Модуль: "w:\common\components\rtl\external\VGScene\vgVisualObject_p.pas"
 // Стереотип: "TestClass"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\l3Define.inc}
 
 interface
 

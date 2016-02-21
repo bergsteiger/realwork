@@ -4,7 +4,7 @@ unit ParentKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\ParentKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
@@ -13,14 +13,6 @@ uses
  l3IntfUses
  , ParentAndChildPrim_Module
  , vtPanel
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -29,6 +21,14 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -124,12 +124,9 @@ begin
 end;//Tkw_Parent_Control_ParentZone.RegisterInEngine
 
 procedure Tkw_Parent_Control_ParentZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_B1138181AE50_var*
-//#UC END# *4DAEEDE10285_B1138181AE50_var*
 begin
-//#UC START# *4DAEEDE10285_B1138181AE50_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_B1138181AE50_impl*
+ aCtx.rEngine.PushString('ParentZone');
+ inherited;
 end;//Tkw_Parent_Control_ParentZone_Push.DoDoIt
 
 class function Tkw_Parent_Control_ParentZone_Push.GetWordNameForRegister: AnsiString;

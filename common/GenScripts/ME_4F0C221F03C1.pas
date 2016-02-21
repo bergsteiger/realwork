@@ -4,7 +4,7 @@ unit NOT_FINISHED_VMailWin;
 // Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_VMailWin.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

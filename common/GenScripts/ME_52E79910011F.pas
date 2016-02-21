@@ -4,7 +4,7 @@ unit evCommonRes;
 // Модуль: "w:\archi\source\projects\Common\Utils\evCommonRes.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit ietBaseTest;
 // Модуль: "w:\archi\source\projects\ImportExportTest\ietBaseTest.pas"
 // Стереотип: "TestCase"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit NOT_FINISHED_arTextOfDocument;
 // Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocument.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

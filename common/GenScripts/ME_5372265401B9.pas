@@ -3,7 +3,7 @@ unit alcuImportTest;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\Abstract\alcuImportTest.pas"
 // Стереотип: "TestCase"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

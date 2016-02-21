@@ -3,7 +3,7 @@ unit evTableConverter;
 // Модуль: "w:\archi\source\projects\Common\Utils\evTableConverter.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 

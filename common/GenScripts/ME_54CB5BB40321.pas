@@ -3,7 +3,7 @@ unit alcuTaskListBasePrim;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuTaskListBasePrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

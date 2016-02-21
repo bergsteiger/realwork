@@ -3,7 +3,7 @@ unit NOT_FINISHED_arMacroReplacer;
 // Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arMacroReplacer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

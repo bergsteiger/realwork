@@ -3,7 +3,7 @@ unit alcuDeliveryInterfaces;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuDeliveryInterfaces.pas"
 // Стереотип: "Interfaces"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

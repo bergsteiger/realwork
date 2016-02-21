@@ -4,7 +4,7 @@ program AutoPipeServerTest;
 // Модуль: "w:\archi\source\projects\PipeInAuto\AutoPipeServerTest.dpr"
 // Стереотип: "TestTarget"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

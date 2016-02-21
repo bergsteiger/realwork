@@ -3,7 +3,7 @@ unit VCMSandBoxTestRes;
 // Модуль: "w:\common\components\SandBox\VCM\VCMSandBoxTestRes.pas"
 // Стереотип: "VCMTestApplication"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbtDefine.inc}
 
 interface
 

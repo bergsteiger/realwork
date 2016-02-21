@@ -4,7 +4,7 @@ unit K517772970_TcsSpellCorrectTaskDefault;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TcsSpellCorrectTaskDefault.pas"
 // Стереотип: "TestCase"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit NOT_FINISHED_d_GetContents;
 // Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_d_GetContents.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

@@ -4,7 +4,7 @@ unit stDocumentPrintAndExportFontSizeItem;
 // Модуль: "w:\common\components\SandBox\VCM\View\Document\stDocumentPrintAndExportFontSizeItem.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 

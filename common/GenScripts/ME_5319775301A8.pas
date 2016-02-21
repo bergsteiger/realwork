@@ -4,7 +4,7 @@ unit K517772970_TddCaseCodeTaskDefault;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\K517772970_TddCaseCodeTaskDefault.pas"
 // Стереотип: "TestCase"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

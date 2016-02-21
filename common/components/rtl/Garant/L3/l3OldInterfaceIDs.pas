@@ -3,7 +3,7 @@ unit l3OldInterfaceIDs;
 // Модуль: "w:\common\components\rtl\Garant\L3\l3OldInterfaceIDs.pas"
 // Стереотип: "Interfaces"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

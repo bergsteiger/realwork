@@ -4,7 +4,7 @@ unit arCommonTypes;
 // Модуль: "w:\archi\source\projects\Common\Utils\arCommonTypes.pas"
 // Стереотип: "Interfaces"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 

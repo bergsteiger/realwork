@@ -3,7 +3,7 @@ unit NOT_FINISHED_BottomBtnDlg;
 // Модуль: "w:\archi\source\projects\Archi\MetaForms\NOT_FINISHED_BottomBtnDlg.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

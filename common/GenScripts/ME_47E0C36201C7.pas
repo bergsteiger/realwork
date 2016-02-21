@@ -4,7 +4,7 @@ unit NOT_FINISHED_l3Math;
 // Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Math.pas"
 // Стереотип: "UtilityPack"
 
-{$Include l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 

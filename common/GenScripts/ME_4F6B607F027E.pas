@@ -3,7 +3,7 @@ unit F1LikeRes;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\F1LikeRes.pas"
 // Стереотип: "VCMApplication"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 

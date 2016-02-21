@@ -3,7 +3,7 @@ unit nsDPIEvent;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsDPIEvent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

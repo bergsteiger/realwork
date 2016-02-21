@@ -3,7 +3,7 @@ unit alcuRegionAutoExportTaskPrim;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuRegionAutoExportTaskPrim.pas"
 // Стереотип: "SimpleClass"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

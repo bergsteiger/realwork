@@ -4,7 +4,7 @@ unit ChildKeywordsPack;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\ChildKeywordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
@@ -16,14 +16,6 @@ uses
  , nscFormsPageControl
  {$IfEnd} // Defined(Nemesis)
  , ElPgCtl
- , tfwControlString
- {$If NOT Defined(NoVCL)}
- , kwBynameControlPush
- {$IfEnd} // NOT Defined(NoVCL)
- , tfwScriptingInterfaces
- , tfwPropertyLike
- , tfwTypeInfo
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -32,6 +24,14 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwControlString
+ {$If NOT Defined(NoVCL)}
+ , kwBynameControlPush
+ {$IfEnd} // NOT Defined(NoVCL)
+ , tfwScriptingInterfaces
+ , tfwPropertyLike
+ , tfwTypeInfo
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , TtfwClassRef_Proxy
@@ -176,12 +176,9 @@ begin
 end;//Tkw_Child_Control_ChildZone.RegisterInEngine
 
 procedure Tkw_Child_Control_ChildZone_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_2C415D2A7542_var*
-//#UC END# *4DAEEDE10285_2C415D2A7542_var*
 begin
-//#UC START# *4DAEEDE10285_2C415D2A7542_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_2C415D2A7542_impl*
+ aCtx.rEngine.PushString('ChildZone');
+ inherited;
 end;//Tkw_Child_Control_ChildZone_Push.DoDoIt
 
 class function Tkw_Child_Control_ChildZone_Push.GetWordNameForRegister: AnsiString;
@@ -206,12 +203,9 @@ begin
 end;//Tkw_Child_Control_MainPageTab.RegisterInEngine
 
 procedure Tkw_Child_Control_MainPageTab_Push.DoDoIt(const aCtx: TtfwContext);
-//#UC START# *4DAEEDE10285_1A451665A611_var*
-//#UC END# *4DAEEDE10285_1A451665A611_var*
 begin
-//#UC START# *4DAEEDE10285_1A451665A611_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4DAEEDE10285_1A451665A611_impl*
+ aCtx.rEngine.PushString('MainPageTab');
+ inherited;
 end;//Tkw_Child_Control_MainPageTab_Push.DoDoIt
 
 class function Tkw_Child_Control_MainPageTab_Push.GetWordNameForRegister: AnsiString;

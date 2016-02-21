@@ -3,7 +3,7 @@ unit NOT_FINISHED_DocIntf;
 // Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_DocIntf.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

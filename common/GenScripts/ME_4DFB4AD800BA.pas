@@ -3,7 +3,7 @@ unit NOT_FINISHED_Editwin;
 // Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_Editwin.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

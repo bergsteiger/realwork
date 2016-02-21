@@ -3,7 +3,7 @@ unit nsFormUtils;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\nsFormUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 

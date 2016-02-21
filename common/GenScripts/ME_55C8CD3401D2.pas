@@ -3,7 +3,7 @@ unit TTextSearchDlgWordsPack;
 // Модуль: "w:\archi\source\projects\Common\Dialogs\TTextSearchDlgWordsPack.pas"
 // Стереотип: "ScriptKeywordsPack"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
@@ -11,9 +11,6 @@ interface
 uses
  l3IntfUses
  , D_TxSrch
- , tfwClassLike
- , tfwScriptingInterfaces
- , TypInfo
 ;
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -22,6 +19,9 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , tfwClassLike
+ , tfwScriptingInterfaces
+ , TypInfo
  , tfwScriptingTypes
  , tfwTypeRegistrator
  , SysUtils

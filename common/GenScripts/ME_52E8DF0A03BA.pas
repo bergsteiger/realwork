@@ -3,7 +3,7 @@ unit NOT_FINISHED_AutoPipeServerForm;
 // Модуль: "w:\archi\source\projects\PipeInAuto\NOT_FINISHED_AutoPipeServerForm.pas"
 // Стереотип: "SimpleClass"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit arSubImplementation;
 // Модуль: "w:\archi\source\projects\Archi\Editor\arSubImplementation.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

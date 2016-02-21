@@ -3,7 +3,7 @@ unit alcuDictChangeMDPSynchronizator;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuDictChangeMDPSynchronizator.pas"
 // Стереотип: "SimpleClass"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

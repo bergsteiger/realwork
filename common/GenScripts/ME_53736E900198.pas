@@ -4,7 +4,7 @@ unit K517789752;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\Tasks\Import\K517789752.pas"
 // Стереотип: "TestCase"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

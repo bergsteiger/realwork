@@ -3,7 +3,7 @@ unit PrimeTestRes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimeTestRes.pas"
 // Стереотип: "VCMTestApplication"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit NewGenRes;
 // Модуль: "w:\MDProcess\NewGen\NewGenRes.pas"
 // Стереотип: "VCMApplication"
 
-{$Include ngDefine.inc}
+{$Include w:\common\NewGen\ngDefine.inc}
 
 interface
 

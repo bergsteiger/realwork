@@ -4,7 +4,7 @@ unit moDocument;
 // Модуль: "w:\common\components\SandBox\VCM\View\moDocument.pas"
 // Стереотип: "VCMUseCaseRealization"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 

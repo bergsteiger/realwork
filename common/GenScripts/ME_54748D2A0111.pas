@@ -3,7 +3,7 @@ unit alcuExecutorWithTaskList;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuExecutorWithTaskList.pas"
 // Стереотип: "SimpleClass"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

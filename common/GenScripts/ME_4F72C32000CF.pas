@@ -4,7 +4,7 @@ unit PrimParent_utHistory_UserType;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_utHistory_UserType.pas"
 // Стереотип: "UserType"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , tfwInteger
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const
@@ -29,6 +26,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

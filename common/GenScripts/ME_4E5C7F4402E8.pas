@@ -4,7 +4,7 @@ unit arHyperLinkProcessor;
 // Модуль: "w:\archi\source\projects\Archi\Editor\arHyperLinkProcessor.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
@@ -12,8 +12,6 @@ interface
 uses
  l3IntfUses
  , nevNavigation
- , l3ProtoObject
- , l3Interfaces
 ;
 
 function arOpenHyperLink(const aHyperLink: IevHyperlink): Boolean;
@@ -25,6 +23,8 @@ implementation
 {$If Defined(AppClientSide)}
 uses
  l3ImplUses
+ , l3ProtoObject
+ , l3Interfaces
  , l3String
  , l3Base
  , SysUtils

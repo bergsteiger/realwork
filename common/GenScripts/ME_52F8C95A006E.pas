@@ -3,7 +3,7 @@ unit NOT_FINISHED_alcuAutoPipeServer;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuAutoPipeServer.pas"
 // Стереотип: "UtilityPack"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

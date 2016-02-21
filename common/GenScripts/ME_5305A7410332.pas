@@ -3,7 +3,7 @@ unit NOT_FINISHED_ddCaseCodeMaker;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_ddCaseCodeMaker.pas"
 // Стереотип: "UtilityPack"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

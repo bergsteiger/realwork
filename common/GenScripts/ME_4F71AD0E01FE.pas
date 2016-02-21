@@ -3,7 +3,7 @@ unit F1Like_InternalOperations_Controls;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\F1Like_InternalOperations_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
@@ -12,7 +12,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3CProtoObject
 ;
 
 type
@@ -112,6 +111,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3CProtoObject
 ;
 
 type

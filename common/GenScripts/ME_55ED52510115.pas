@@ -3,7 +3,7 @@ unit ExportPipeTestPrim;
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportPipeTestPrim.pas"
 // Стереотип: "TestCase"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 

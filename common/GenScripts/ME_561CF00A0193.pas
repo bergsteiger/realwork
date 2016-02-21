@@ -3,7 +3,7 @@ unit alcuProcessingEnabledService;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuProcessingEnabledService.pas"
 // Стереотип: "ServiceImplementation"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

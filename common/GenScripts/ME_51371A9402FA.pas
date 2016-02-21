@@ -3,7 +3,7 @@ unit nsIntegrationModelPart;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\nsIntegrationModelPart.pas"
 // Стереотип: "UtilityPack"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -44,7 +44,7 @@ type
 
 function GarantShowLink(aRef: PAnsiChar;
  aOpenInNewWindow: Boolean;
- aTimeOut: DWORD): Integer;
+ aTimeOut: DWORD): Integer; stdcall;
 function AquireGarant(var aWnd: HWND;
  aTimeOut: DWORD;
  out aJustLaunched: Boolean;

@@ -3,7 +3,7 @@ program VCMSandBoxAppTest;
 // Модуль: "w:\common\components\SandBox\VCM\VCMSandBoxAppTest.dpr"
 // Стереотип: "VCMTestTarget"
 
-{$Include sbtDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbtDefine.inc}
 
 interface
 

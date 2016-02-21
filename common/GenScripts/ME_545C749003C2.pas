@@ -3,7 +3,7 @@ unit arResultDeliverer;
 // Модуль: "w:\archi\source\projects\Archi\Processing\arResultDeliverer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

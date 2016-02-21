@@ -4,7 +4,7 @@ unit moList;
 // Модуль: "w:\common\components\SandBox\VCM\View\moList.pas"
 // Стереотип: "VCMUseCaseRealization"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 

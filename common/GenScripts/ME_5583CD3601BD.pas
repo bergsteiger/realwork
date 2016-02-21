@@ -3,7 +3,7 @@ unit alcuTaskChangeHelper;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuTaskChangeHelper.pas"
 // Стереотип: "ServiceImplementation"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit arDBUtils;
 // Модуль: "w:\archi\source\projects\Common\Utils\arDBUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 

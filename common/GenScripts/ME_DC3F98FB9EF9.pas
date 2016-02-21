@@ -4,7 +4,7 @@ unit stListPrintAndExportFontSizeItem;
 // Модуль: "w:\common\components\SandBox\VCM\View\List\stListPrintAndExportFontSizeItem.pas"
 // Стереотип: "SimpleClass"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 

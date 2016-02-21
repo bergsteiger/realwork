@@ -3,7 +3,7 @@ unit PrimParent_Form;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\ParentAndChild\Forms\PrimParent_Form.pas"
 // Стереотип: "VCMContainer"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
@@ -16,7 +16,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- , l3StringIDEx
 ;
 
 type
@@ -54,6 +53,7 @@ implementation
 
 uses
  l3ImplUses
+ , l3StringIDEx
  , Windows
  , Graphics
  , SysUtils

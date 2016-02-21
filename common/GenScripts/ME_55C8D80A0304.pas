@@ -3,7 +3,7 @@ unit NOT_FINISHED_D_spell;
 // Модуль: "w:\archi\source\projects\Common\Dialogs\NOT_FINISHED_D_spell.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit NOT_FINISHED_alcuRelCorrector;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRelCorrector.pas"
 // Стереотип: "UtilityPack"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

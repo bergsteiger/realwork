@@ -3,7 +3,7 @@ unit nsFontSizeEvent;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\nsFontSizeEvent.pas"
 // Стереотип: "SimpleClass"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

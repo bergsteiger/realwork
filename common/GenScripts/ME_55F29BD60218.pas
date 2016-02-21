@@ -4,7 +4,7 @@ unit archiDBTest;
 // Модуль: "w:\archi\source\projects\ImportExportTest\ArchiDBTests\archiDBTest.pas"
 // Стереотип: "SimpleClass"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 

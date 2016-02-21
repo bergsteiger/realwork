@@ -3,7 +3,7 @@ unit arResultDeliveryInterfaces;
 // Модуль: "w:\archi\source\projects\Archi\Processing\arResultDeliveryInterfaces.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ program ImportExportTest;
 // Модуль: "w:\archi\source\projects\ImportExportTest\ImportExportTest.dpr"
 // Стереотип: "TestTarget"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 

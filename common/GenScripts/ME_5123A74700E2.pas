@@ -3,7 +3,7 @@ unit AdminTestRes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\AdminTestRes.pas"
 // Стереотип: "VCMTestApplication"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

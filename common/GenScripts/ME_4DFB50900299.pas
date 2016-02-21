@@ -3,7 +3,7 @@ unit NOT_FINISHED_d_edMSub;
 // Модуль: "w:\archi\source\projects\Common\Dialogs\NOT_FINISHED_d_edMSub.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 

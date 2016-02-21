@@ -3,7 +3,7 @@ unit NOT_FINISHED_F_TextEditor;
 // Модуль: "w:\archi\source\projects\Archi\Frames\NOT_FINISHED_F_TextEditor.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

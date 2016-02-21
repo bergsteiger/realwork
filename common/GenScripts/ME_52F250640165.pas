@@ -3,7 +3,7 @@ unit toK;
 // Модуль: "w:\archi\source\projects\PipeInAuto\toK.pas"
 // Стереотип: "TestResults"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

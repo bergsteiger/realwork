@@ -3,7 +3,7 @@ unit RegisteredRepliesTest;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tests\RegisteredRepliesTest.pas"
 // Стереотип: "TestCase"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

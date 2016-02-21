@@ -4,7 +4,7 @@ unit VCMSandBoxRes;
 // Модуль: "w:\common\components\SandBox\VCM\VCMSandBoxRes.pas"
 // Стереотип: "VCMApplication"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 

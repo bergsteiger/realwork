@@ -4,7 +4,7 @@ unit ExportSeparatedByMainTest;
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportSeparatedByMainTest.pas"
 // Стереотип: "TestCase"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 

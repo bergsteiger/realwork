@@ -4,7 +4,7 @@ unit PrimNemesisRes;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\PrimNemesisRes.pas"
 // Стереотип: "VCMApplication"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -46,7 +46,6 @@ uses
  , vcmTabbedContainerForm
  {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
  , Windows
- , l3StringIDEx
  {$If NOT Defined(NoVCM)}
  , OfficeLike_Result_Controls
  {$IfEnd} // NOT Defined(NoVCM)
@@ -57,13 +56,14 @@ uses
  {$If Defined(Nemesis)}
  , nscReminder
  {$IfEnd} // Defined(Nemesis)
- , nsIntegrationSupport
  , PrimBaseSearchInterfaces
  , BaseSearchInterfaces
  , nsNotificationManager
  , l3TabbedContainersDispatcher
  , Messages
+ , nsIntegrationSupport
  , Classes
+ , l3StringIDEx
 ;
 
 const

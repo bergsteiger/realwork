@@ -3,7 +3,7 @@ unit alcuTaskExecutingList;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Server\alcuTaskExecutingList.pas"
 // Стереотип: "UtilityPack"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

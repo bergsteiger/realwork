@@ -3,7 +3,7 @@ program PrimeAppTest;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\PrimeAppTest.dpr"
 // Стереотип: "VCMTestTarget"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

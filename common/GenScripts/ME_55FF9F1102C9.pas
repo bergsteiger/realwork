@@ -4,7 +4,7 @@ unit ExportToSingleNSRTest;
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportToSingleNSRTest.pas"
 // Стереотип: "TestCase"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 

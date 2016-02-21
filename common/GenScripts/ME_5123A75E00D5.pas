@@ -3,7 +3,7 @@ unit toKAdmin;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKAdmin.pas"
 // Стереотип: "TestResults"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

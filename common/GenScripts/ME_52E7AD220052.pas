@@ -3,7 +3,7 @@ unit NOT_FINISHED_arTextUtils;
 // Модуль: "w:\archi\source\projects\Common\Utils\NOT_FINISHED_arTextUtils.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 

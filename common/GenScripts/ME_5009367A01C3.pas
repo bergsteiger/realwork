@@ -3,7 +3,7 @@ unit fsAbstractDocument;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\fsAbstractDocument.pas"
 // Стереотип: "VCMAbstractFormSetFactory"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
@@ -42,7 +42,6 @@ uses
  , l3Interfaces
  , DocumentUserTypes_dftAnnotation_UserType
  , DocumentUserTypes_dftTranslation_UserType
- , BaloonWarningUserTypes_WarnJuror_UserType
  , ContentsUserTypes_utContents_UserType
  {$If Defined(Nemesis)}
  , nscNewInterfaces
@@ -61,13 +60,14 @@ uses
  , RedactionsUserTypes_utRedaction_UserType
  , ListUserTypes_lftSimilarDocuments_UserType
  , ListUserTypes_lftUserCR1_UserType
- , BaloonWarningUserTypes_remListModified_UserType
  , ListUserTypes_lftUserCR2_UserType
  , ListUserTypes_lftCToPart_UserType
  , ExternalObjectUnit
  , ListUserTypes_lftRToPart_UserType
  , DocumentUserTypes_dftChronology_UserType
  , ListUserTypes_lftSimilarDocumentsToFragment_UserType
+ , BaloonWarningUserTypes_WarnJuror_UserType
+ , BaloonWarningUserTypes_remListModified_UserType
 ;
 
 type

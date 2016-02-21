@@ -3,7 +3,7 @@ unit NOT_FINISHED_alcuFTPBrowser;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Process\NOT_FINISHED_alcuFTPBrowser.pas"
 // Стереотип: "SimpleClass"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

@@ -3,7 +3,7 @@ unit F1_Without_Usecases_DocumentsCacheOperations_Controls;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\View\F1_Without_Usecases_DocumentsCacheOperations_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 

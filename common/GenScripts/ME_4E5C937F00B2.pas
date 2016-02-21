@@ -3,7 +3,7 @@ unit kwDocumentSpravka;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Script_Engine\kwDocumentSpravka.pas"
 // Стереотип: "ScriptKeyword"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

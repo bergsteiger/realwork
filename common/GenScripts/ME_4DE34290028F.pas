@@ -3,7 +3,7 @@ unit ArchiScriptEngine;
 // Модуль: "w:\archi\source\projects\Archi\Archi_Script_Engine\ArchiScriptEngine.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

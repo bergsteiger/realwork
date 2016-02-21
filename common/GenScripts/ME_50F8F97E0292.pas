@@ -3,7 +3,7 @@ unit evArchiLikeDocumentContainer;
 // Модуль: "w:\archi\source\projects\Common\Utils\evArchiLikeDocumentContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arCommon.inc}
+{$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 

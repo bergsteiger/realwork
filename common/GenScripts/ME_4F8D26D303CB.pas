@@ -3,7 +3,7 @@ unit NOT_FINISHED_D_Srch;
 // Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_D_Srch.pas"
 // Стереотип: "UtilityPack"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

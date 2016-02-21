@@ -3,7 +3,7 @@ unit toKTPrime;
 // Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\toKTPrime.pas"
 // Стереотип: "TestResults"
 
-{$Include nsDefine.inc}
+{$Include w:\garant6x\implementation\Garant\GbaNemesis\nsDefine.inc}
 
 interface
 

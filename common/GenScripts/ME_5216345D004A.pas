@@ -4,7 +4,7 @@ unit Document_Module;
 // Модуль: "w:\common\components\SandBox\VCM\View\Document\Document_Module.pas"
 // Стереотип: "VCMFormsPack"
 
-{$Include sbDefine.inc}
+{$Include w:\common\components\SandBox\VCM\sbDefine.inc}
 
 interface
 

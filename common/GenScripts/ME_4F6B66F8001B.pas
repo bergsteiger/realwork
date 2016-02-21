@@ -3,7 +3,7 @@ unit F1Like_FormDefinitions_Controls;
 // Модуль: "w:\common\components\gui\Garant\VCM\View\F1Like_FormDefinitions_Controls.pas"
 // Стереотип: "VCMControls"
 
-{$Include f1LikeAppDefine.inc}
+{$Include w:\common\components\gui\f1LikeAppDefine.inc}
 
 interface
 
@@ -12,9 +12,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , tfwString
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const
@@ -38,6 +35,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwString
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

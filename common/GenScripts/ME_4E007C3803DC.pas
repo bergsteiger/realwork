@@ -3,7 +3,7 @@ unit arDocumentContainer;
 // Модуль: "w:\archi\source\projects\Archi\Editor\arDocumentContainer.pas"
 // Стереотип: "SimpleClass"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 

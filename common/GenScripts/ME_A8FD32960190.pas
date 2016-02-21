@@ -4,7 +4,7 @@ unit Main_ut_Main_UserType;
 // Модуль: "w:\MDProcess\NewGen\Main_ut_Main_UserType.pas"
 // Стереотип: "UserType"
 
-{$Include ngDefine.inc}
+{$Include w:\common\NewGen\ngDefine.inc}
 
 interface
 
@@ -14,9 +14,6 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmUserControls
  {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoScripts)}
- , tfwInteger
- {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 const
@@ -32,6 +29,9 @@ implementation
 {$If Defined(NewGen)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , tfwInteger
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 type

@@ -4,7 +4,7 @@ unit ExportBySizeAndMain;
 // Модуль: "w:\archi\source\projects\ImportExportTest\ExportBySizeAndMain.pas"
 // Стереотип: "TestCase"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 

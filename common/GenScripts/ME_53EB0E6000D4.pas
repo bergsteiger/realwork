@@ -3,7 +3,7 @@ unit alcuAACImportTaskResult;
 // Модуль: "w:\archi\source\projects\PipeInAuto\Tasks\alcuAACImportTaskResult.pas"
 // Стереотип: "SimpleClass"
 
-{$Include alcuDefine.inc}
+{$Include w:\archi\source\projects\PipeInAuto\alcuDefine.inc}
 
 interface
 

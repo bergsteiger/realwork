@@ -3,7 +3,7 @@ unit RegisteredTasksTest;
 // Модуль: "w:\archi\source\projects\Archi\Tests\RegisteredTasksTest.pas"
 // Стереотип: "TestCase"
 
-{$Include arDefine.inc}
+{$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
@@ -13,9 +13,6 @@ uses
  {$If NOT Defined(NotTunedDUnit)}
  , BaseTest
  {$IfEnd} // NOT Defined(NotTunedDUnit)
- {$If NOT Defined(Nemesis)}
- , ddServerTask
- {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 type
@@ -36,6 +33,9 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(Nemesis)}
+ , ddServerTask
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
  , ddTaskClassManager
  {$IfEnd} // NOT Defined(Nemesis)
  , evdTaskTypes
@@ -47,10 +47,10 @@ uses
 ;
 
 type
+ RddTaskItemFriend = class of TddTaskItemFriend;
+
  TddTaskItemFriend = class(TddTaskItem)
  end;//TddTaskItemFriend
-
- RddTaskItemFriend = class of TddTaskItemFriend;
 
 procedure TRegisteredTasksTest.DoIt;
 //#UC START# *53BA902B00C5_53BA8FB5015D_var*

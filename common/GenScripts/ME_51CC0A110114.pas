@@ -3,7 +3,7 @@ unit K465700807;
 // Модуль: "w:\archi\source\projects\ImportExportTest\K465700807.pas"
 // Стереотип: "TestCase"
 
-{$Include ImportExportTest.inc}
+{$Include w:\archi\source\projects\ImportExportTest.inc}
 
 interface
 
