@@ -40,11 +40,11 @@ type
   private
    procedure CorrectStartupTipsPosition;
    procedure NotifyBaseSearcherFormClosing;
-   procedure WMActivate(var Message: TWMActivate);
-   procedure WMActivateApp(var Message: TWMActivateApp);
-   procedure WMCopyData(var aMessage: TWMCopyData);
-   procedure WMDisplayChange(var aMessage: TWMDisplayChange);
-   procedure WMWindowPosChanging(var aMessage: TWMWindowPosChanging);
+   procedure WMActivate(var Message: TWMActivate); message WM_ACTIVATE;
+   procedure WMActivateApp(var Message: TWMActivateApp); message WM_ACTIVATEAPP;
+   procedure WMCopyData(var aMessage: TWMCopyData); message WM_COPYDATA;
+   procedure WMDisplayChange(var aMessage: TWMDisplayChange); message WM_DISPLAYCHANGE;
+   procedure WMWindowPosChanging(var aMessage: TWMWindowPosChanging); message WM_WINDOWPOSCHANGING;
   protected
    procedure UpdateUnreadConsultations;
    procedure InitForm;
