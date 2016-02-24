@@ -269,6 +269,7 @@ f _base_class_collect
 	%S%f_add_operation(%SU_Exists,static,Exists (): %{BOOLEAN}U,Op_Instance)\
 	%{Op_Instance}%f_set_documentation(Проверяет создан экземпляр синглетона или нет)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%S)_var,\
 	 {-}\
 	)\
@@ -276,6 +277,7 @@ f _base_class_collect
 	%{Op_Instance}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{Op_Instance},%S)_impl,\
 	 Result := g_%f_pas_TypeName(%S) \<\> nil;\
 	)\
+	]\
 
 	]\
 	]\
@@ -394,6 +396,7 @@ f _base_class_collect
 	[{"%{l3UnknownPrim.ClearFields}N"=""}%f_find_element(5000565C019C,l3UnknownPrim.ClearFields)]\
 
 	%S%f_add_override(%{l3UnknownPrim.ClearFields}U)\
+	[{%S#f_UseNewGenRec()!=true}\
 	%{l3UnknownPrim.ClearFields}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{l3UnknownPrim.ClearFields},%S)_var,\
 	 {-}\
 	)\
@@ -416,6 +419,7 @@ f _base_class_collect
 	>\
 	 inherited;\
 	)\
+	]\
 
 	]\
 
@@ -447,6 +451,7 @@ f _base_class_collect
 	%{Op_Instance}%f_set_documentation(Регистрация %SN)\
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	[{%S%f_InheritsFrom("TtfwWord")=true}{\
 	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
@@ -454,6 +459,7 @@ f _base_class_collect
 	 %f_pas_TypeName(%S).RegisterClass;\
 	]\
 	)\
+	]\
 
 	]\
 	]\
@@ -479,21 +485,26 @@ f _SpellScriptFramework
 	%f_addG(%{Class_Inst},%{TtfwAxiomaticsResNameGetter})\
 	%{Class_Inst}%f_set_up(need UC,true)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Class_Inst}%f_set_uc_content(intf.pas,impl,\
 	 \{$R %f_pas_FileName(%S).res}\
 	)\
+	]\
 
 	%{Class_Inst}%f_add_operation(%{Class_Inst}U_Reg,ini,RegAxiom (),Reg_Instance)\
 	%{Reg_Instance}%f_set_documentation(Регистрация скриптованой аксиоматики)\
 	%{Reg_Instance}%f_set_abstraction_type(final)\
 	%{Reg_Instance}%f_set_visibility_type(PrivateAccess)\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Reg_Instance}%f_set_uc_content(intf.pas,,\
 	 %f_pas_TypeName(%{Class_Inst}).Register;\
 	)\
+	]\
 
 	[{"%{TtfwAxiomaticsResNameGetter.ResName}N"=""}%f_find_element(55B7A3AF0359,TtfwAxiomaticsResNameGetter.ResName)]\
 
+	[{%S#f_UseNewGenRec()!=true}\
 	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_var,\
 	 {-}\
 	)\
@@ -501,6 +512,7 @@ f _SpellScriptFramework
 	%{TtfwAxiomaticsResNameGetter.ResName}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwAxiomaticsResNameGetter.ResName},%{Class_Inst})_impl,\
 	 Result := '%f_pas_FileName(%S)';\
 	)\
+	]\
 
 	]
 
@@ -535,9 +547,11 @@ f _SpellRegisterInEngine
 	%{Op_Instance}%f_set_documentation(Регистрация %SN)\
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	 %f_pas_TypeName(%S).RegisterInEngine;\
 	)\
+	]\
 	]
 
 f _openBr
@@ -742,7 +756,7 @@ F [{%f_exists_in_list(FORWARDED_INTF,S)!=true}%f_pas_OpenType(%S)#%SN = class;\n
 	%S%f_pas_BeforeCloseUnit()\
 	%f_pas_CloseUnit(%S)\
 	]\
-	<{}{%f_ChildNeedOwnFile(%C)&%C%f_IsClassInner()!=true&"%CO"!=""&%C#f_UseNewGen()!=true}%CX>\
+	<{}{%f_ChildNeedOwnFile(%C)&%C%f_IsClassInner()!=true&"%CO"!=""&%C#f_UseNewGenRec()!=true}%CX>\
 	]
 
 f _ChildNeedOwnFile

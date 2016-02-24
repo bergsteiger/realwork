@@ -227,9 +227,11 @@ p restrict form def:tribool=undefined ?
 	%{Op_Instance}%f_set_abstraction_type(final)\
 	%{Op_Instance}%f_set_visibility_type(PrivateAccess)\
 	%{Op_Instance}%f_set_var(SpelledFor,S)\
+	[{%S#f_UseNewGenRec()!=true}\
 	%{Op_Instance}%f_set_uc_content(intf.pas,,\
 	 fm_%f_cut_prefix(%f_pas_TypeName(%S),T).SetFactory(%f_pas_TypeName(%S).Make);\
 	)\
+	]\
 	]\
 	>\
 
@@ -275,12 +277,12 @@ p restrict form def:tribool=undefined ?
 
 	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
 	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
-	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
-	 {-}\
-	)\
-	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
-	 Result := '%f_cut_prefix(%f_pas_TypeName(%S),T)';\
-	)\
+//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
+//	 {-}\
+//	)\
+//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
+//	 Result := '%f_cut_prefix(%f_pas_TypeName(%S),T)';\
+//	)\
 
 	[{%S{finished}!=true}\
 	[{"%{TtfwClassRef}N"=""}%f_find_element(561F9F9400BC,TtfwClassRef)]\
@@ -290,13 +292,13 @@ p restrict form def:tribool=undefined ?
 
 	[{"%{TtfwRegisterableWordPrim.RegisterInEngine}N"=""}%f_find_element(52A086150180,TtfwRegisterableWordPrim.RegisterInEngine)]\
 	%{Word_Inst}%f_add_override(%{TtfwRegisterableWordPrim.RegisterInEngine}U)\
-	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
-	 {-}\
-	)\
-	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
-	 inherited;
-	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
-	)\
+//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
+//	 {-}\
+//	)\
+//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
+//	 inherited;
+//	 TtfwClassRef.Register(%f_pas_TypeName(%S));\
+//	)\
 	]\
 
 	%{Word_Inst}%f_set_abstraction_type(final)\
@@ -364,12 +366,12 @@ f _SpellControl
 
 	[{"%{TtfwControlString.GetString}N"=""}%f_find_element(4DDFD2EA0116,TtfwControlString.GetString)]\
 	%{Word_Inst}%f_add_override(%{TtfwControlString.GetString}U)\
-	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
-	 {-}\
-	)\
-	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
-	 Result := '%f_N(%S)';\
-	)\
+//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_var,\
+//	 {-}\
+//	)\
+//	%{TtfwControlString.GetString}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwControlString.GetString},%{Word_Inst})_impl,\
+//	 Result := '%f_N(%S)';\
+//	)\
 
 	[{"%{TtfwClassRef}N"=""}%f_find_element(TtfwClassRef,TtfwClassRef)]\
 	%{Word_Inst}%f_make_accessable(%{TtfwClassRef}U)\
@@ -377,13 +379,13 @@ f _SpellControl
 
 	[{"%{TtfwRegisterableWordPrim.RegisterInEngine}N"=""}%f_find_element(52A086150180,TtfwRegisterableWordPrim.RegisterInEngine)]\
 	%{Word_Inst}%f_add_override(%{TtfwRegisterableWordPrim.RegisterInEngine}U)\
-	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
-	 {-}\
-	)\
-	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
-	 inherited;
-	 TtfwClassRef.Register(%S%f_pas_ResultTypeName());\
-	)\
+//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_var,\
+//	 {-}\
+//	)\
+//	%{TtfwRegisterableWordPrim.RegisterInEngine}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwRegisterableWordPrim.RegisterInEngine},%{Word_Inst})_impl,\
+//	 inherited;
+//	 TtfwClassRef.Register(%S%f_pas_ResultTypeName());\
+//	)\
 
 	[{%SS!=Component}\
 	%{PARENT}%f_add_class(%SU_Word_Push,ScriptKeyword,Tkw_%f_N(%{NAMEDPARENT})_[{%SS!=Component}{Component}Control]_%f_N(%S)_Push,Word_Inst)\
@@ -395,7 +397,7 @@ f _SpellControl
 	%{Word_Inst}%f_make_accessable(%{TkwControlPush}U)\
 	%f_addG(%{Word_Inst},%{TkwControlPush})\
 	%{Word_Inst}%f_make_accessable(%{TtfwContext}U)\
-	%f_addCDep(%{Word_Inst},%{TtfwContext})\
+//	%f_addCDep(%{Word_Inst},%{TtfwContext})\
 	%{Word_Inst}%f_set_var(SpelledFor,S)\
 
 	%{Word_Inst}%f_set_up(NameForScript,\
@@ -417,13 +419,13 @@ f _SpellControl
 
 	[{"%{TtfwWord.DoDoIt}N"=""}%f_find_element(4DAEEDE10285,TtfwWord.DoDoIt)]\
 	%{Word_Inst}%f_add_override(%{TtfwWord.DoDoIt}U)\
-	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_var,\
-	 {-}\
-	)\
-	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_impl,\
-	 aCtx.rEngine.PushString('%f_N(%S)');
-	 inherited;\
-	)\
+//	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_var,\
+//	 {-}\
+//	)\
+//	%{TtfwWord.DoDoIt}%f_set_uc_content(intf.pas,_%f_pas_MethodOwnerID(%{TtfwWord.DoDoIt},%{Word_Inst})_impl,\
+//	 aCtx.rEngine.PushString('%f_N(%S)');
+//	 inherited;\
+//	)\
 	]
 
 f _CollectControlsPrim
