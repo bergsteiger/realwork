@@ -49,6 +49,9 @@ type
    procedure DoSetCodePage(aValue: Integer); virtual;
    procedure CheckUnicode;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    function Offset(Delta: Integer): Tl3CustomString; virtual;
    function AssignSt(aSt: PAnsiChar;
@@ -128,9 +131,6 @@ type
    function JoinWith(P: Tl3PrimString): Integer; virtual;
     {* операция объединения двух объектов }
    procedure Assign(Source: TPersistent); override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    property St: PAnsiChar
     read pm_GetSt;

@@ -32,6 +32,8 @@ type
    function Get_PrevNode: Il3Node;
    function Get_ParentNode: Il3Node;
    function Get_ChildNode: Il3Node;
+   function pm_GetFlags: Integer; override;
+   procedure pm_SetFlags(aValue: Integer); override;
    function DoGetIndexInParent: Integer; override;
    function Get_ParentNode: Il3Node; override;
    function Get_ChildNode: Il3Node; override;
@@ -154,6 +156,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *477110A2026C_4ADDF3930121get_impl*
 end;//Tl3CustomVirtualNode.Get_ChildNode
+
+function Tl3CustomVirtualNode.pm_GetFlags: Integer;
+//#UC START# *54C78756019B_4ADDF3930121get_var*
+//#UC END# *54C78756019B_4ADDF3930121get_var*
+begin
+//#UC START# *54C78756019B_4ADDF3930121get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C78756019B_4ADDF3930121get_impl*
+end;//Tl3CustomVirtualNode.pm_GetFlags
+
+procedure Tl3CustomVirtualNode.pm_SetFlags(aValue: Integer);
+//#UC START# *54C78756019B_4ADDF3930121set_var*
+//#UC END# *54C78756019B_4ADDF3930121set_var*
+begin
+//#UC START# *54C78756019B_4ADDF3930121set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C78756019B_4ADDF3930121set_impl*
+end;//Tl3CustomVirtualNode.pm_SetFlags
 
 function Tl3CustomVirtualNode.DoGetIndexInParent: Integer;
 //#UC START# *54C78A1E033E_4ADDF3930121_var*

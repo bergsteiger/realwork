@@ -6,10 +6,11 @@
 {$Define l3COMQueryInterface_imp}
 
  _l3COMQueryInterface_ = class(_l3COMQueryInterface_Parent_)
-  public
+  protected
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; virtual;
     {* Реализация запроса интерфейса }
+  public
    function QueryInterface(const IID: TGUID;
     out Obj): HResult; override;
     {* Приводит базовый интерфейс к запрашиваемуму, если это возможно. }

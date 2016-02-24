@@ -38,8 +38,8 @@ type
 
  Tl3PrimNode = class(Tl3CustomString, Il3SimpleNode, Il3SimpleRootNode, IUnknown)
   protected
-   function pm_GetFlags: Integer; virtual;
-   procedure pm_SetFlags(aValue: Integer); virtual;
+   function pm_GetFlags: Integer; virtual; abstract;
+   procedure pm_SetFlags(aValue: Integer); virtual; abstract;
    function pm_GetFlag(anIndex: Integer): Boolean; virtual; abstract;
    procedure pm_SetFlag(anIndex: Integer;
     aValue: Boolean); virtual; abstract;
@@ -322,6 +322,8 @@ type
    f_Childcount: Integer;
     {* Поле для свойства Childcount }
   protected
+   function pm_GetFlags: Integer; override;
+   procedure pm_SetFlags(aValue: Integer); override;
    function pm_GetFlag(anIndex: Integer): Boolean; override;
    procedure pm_SetFlag(anIndex: Integer;
     aValue: Boolean); override;
@@ -336,8 +338,6 @@ type
    procedure pm_SetParent(aValue: Tl3Node); override;
    function pm_GetChild: Tl3Node; override;
    procedure pm_SetChild(aValue: Tl3Node); override;
-   function pm_GetFlags: Integer; override;
-   procedure pm_SetFlags(aValue: Integer); override;
    function Get_AllChildrenCount: Integer; override;
    function HasChildNode: Boolean; override;
    function GetMaybeChild: Boolean; override;
@@ -360,12 +360,12 @@ type
     {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
-  public
-   constructor Create(const anExternalNode: Il3SimpleNode = nil); reintroduce;
-   class function Make(const anExternalNode: Il3SimpleNode = nil): Il3Node; reintroduce;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+  public
+   constructor Create(const anExternalNode: Il3SimpleNode = nil); reintroduce;
+   class function Make(const anExternalNode: Il3SimpleNode = nil): Il3Node; reintroduce;
  end;//Tl3CacheableNode
 
  Tl3HandleNode = class(Tl3PlaceNode, Il3HandleNode)
@@ -475,6 +475,8 @@ type
    procedure Notify(aOperation: Integer;
     const aNode: Il3SimpleNode);
     {* прошла операция. }
+   function pm_GetFlags: Integer; override;
+   procedure pm_SetFlags(aValue: Integer); override;
    function Get_ParentNode: Il3Node; override;
    function Get_ChildNode: Il3Node; override;
    function Get_NextNode: Il3Node; override;
@@ -496,8 +498,6 @@ type
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
    function pm_GetStringID: Integer; override;
    procedure pm_SetStringID(aValue: Integer); override;
-   function pm_GetFlags: Integer; override;
-   procedure pm_SetFlags(aValue: Integer); override;
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
    function GetIsDisappeared: Boolean; override;
     {* True если интерфейс на удаленную ноду, применяется в виртуальных нодах - указателях на данные. }
@@ -663,24 +663,6 @@ uses
  , InterfacedNodeWords
  {$IfEnd} // NOT Defined(NoScripts)
 ;
-
-function Tl3PrimNode.pm_GetFlags: Integer;
-//#UC START# *54C78756019B_4ADDDFE60236get_var*
-//#UC END# *54C78756019B_4ADDDFE60236get_var*
-begin
-//#UC START# *54C78756019B_4ADDDFE60236get_impl*
-
-//#UC END# *54C78756019B_4ADDDFE60236get_impl*
-end;//Tl3PrimNode.pm_GetFlags
-
-procedure Tl3PrimNode.pm_SetFlags(aValue: Integer);
-//#UC START# *54C78756019B_4ADDDFE60236set_var*
-//#UC END# *54C78756019B_4ADDDFE60236set_var*
-begin
-//#UC START# *54C78756019B_4ADDDFE60236set_impl*
-
-//#UC END# *54C78756019B_4ADDDFE60236set_impl*
-end;//Tl3PrimNode.pm_SetFlags
 
 function Tl3PrimNode.DoGetLevel: Integer;
 //#UC START# *54C78D4603D6_4ADDDFE60236_var*
@@ -2470,6 +2452,24 @@ begin
  end;//try..finally
 end;//Tl3PlaceNode.Make
 
+function Tl3PlaceNode.pm_GetFlags: Integer;
+//#UC START# *54C78756019B_4A573D2F00C6get_var*
+//#UC END# *54C78756019B_4A573D2F00C6get_var*
+begin
+//#UC START# *54C78756019B_4A573D2F00C6get_impl*
+ Result := f_Flags;
+//#UC END# *54C78756019B_4A573D2F00C6get_impl*
+end;//Tl3PlaceNode.pm_GetFlags
+
+procedure Tl3PlaceNode.pm_SetFlags(aValue: Integer);
+//#UC START# *54C78756019B_4A573D2F00C6set_var*
+//#UC END# *54C78756019B_4A573D2F00C6set_var*
+begin
+//#UC START# *54C78756019B_4A573D2F00C6set_impl*
+ f_Flags := aValue;
+//#UC END# *54C78756019B_4A573D2F00C6set_impl*
+end;//Tl3PlaceNode.pm_SetFlags
+
 function Tl3PlaceNode.pm_GetFlag(anIndex: Integer): Boolean;
 //#UC START# *54C78F15023E_4A573D2F00C6get_var*
 //#UC END# *54C78F15023E_4A573D2F00C6get_var*
@@ -2612,24 +2612,6 @@ begin
  f_Child := aValue;
 //#UC END# *54CA27AF0001_4A573D2F00C6set_impl*
 end;//Tl3PlaceNode.pm_SetChild
-
-function Tl3PlaceNode.pm_GetFlags: Integer;
-//#UC START# *54C78756019B_4A573D2F00C6get_var*
-//#UC END# *54C78756019B_4A573D2F00C6get_var*
-begin
-//#UC START# *54C78756019B_4A573D2F00C6get_impl*
- Result := f_Flags;
-//#UC END# *54C78756019B_4A573D2F00C6get_impl*
-end;//Tl3PlaceNode.pm_GetFlags
-
-procedure Tl3PlaceNode.pm_SetFlags(aValue: Integer);
-//#UC START# *54C78756019B_4A573D2F00C6set_var*
-//#UC END# *54C78756019B_4A573D2F00C6set_var*
-begin
-//#UC START# *54C78756019B_4A573D2F00C6set_impl*
- f_Flags := aValue;
-//#UC END# *54C78756019B_4A573D2F00C6set_impl*
-end;//Tl3PlaceNode.pm_SetFlags
 
 function Tl3PlaceNode.Get_AllChildrenCount: Integer;
 //#UC START# *54C78C200291_4A573D2F00C6_var*
@@ -3267,6 +3249,24 @@ begin
 //#UC END# *477244190062_4ADDE17D0077_impl*
 end;//Tl3ListItemNode.Notify
 
+function Tl3ListItemNode.pm_GetFlags: Integer;
+//#UC START# *54C78756019B_4ADDE17D0077get_var*
+//#UC END# *54C78756019B_4ADDE17D0077get_var*
+begin
+//#UC START# *54C78756019B_4ADDE17D0077get_impl*
+ Result := f_ListNode.ItemFlag[f_ListItem];
+//#UC END# *54C78756019B_4ADDE17D0077get_impl*
+end;//Tl3ListItemNode.pm_GetFlags
+
+procedure Tl3ListItemNode.pm_SetFlags(aValue: Integer);
+//#UC START# *54C78756019B_4ADDE17D0077set_var*
+//#UC END# *54C78756019B_4ADDE17D0077set_var*
+begin
+//#UC START# *54C78756019B_4ADDE17D0077set_impl*
+ f_ListNode.ItemFlag[f_ListItem] := aValue;
+//#UC END# *54C78756019B_4ADDE17D0077set_impl*
+end;//Tl3ListItemNode.pm_SetFlags
+
 function Tl3ListItemNode.Get_ParentNode: Il3Node;
 //#UC START# *54C78E1002BE_4ADDE17D0077_var*
 //#UC END# *54C78E1002BE_4ADDE17D0077_var*
@@ -3479,24 +3479,6 @@ begin
  Set_Handle(aValue);
 //#UC END# *47BC3BFD017F_4ADDE17D0077set_impl*
 end;//Tl3ListItemNode.pm_SetStringID
-
-function Tl3ListItemNode.pm_GetFlags: Integer;
-//#UC START# *54C78756019B_4ADDE17D0077get_var*
-//#UC END# *54C78756019B_4ADDE17D0077get_var*
-begin
-//#UC START# *54C78756019B_4ADDE17D0077get_impl*
- Result := f_ListNode.ItemFlag[f_ListItem];
-//#UC END# *54C78756019B_4ADDE17D0077get_impl*
-end;//Tl3ListItemNode.pm_GetFlags
-
-procedure Tl3ListItemNode.pm_SetFlags(aValue: Integer);
-//#UC START# *54C78756019B_4ADDE17D0077set_var*
-//#UC END# *54C78756019B_4ADDE17D0077set_var*
-begin
-//#UC START# *54C78756019B_4ADDE17D0077set_impl*
- f_ListNode.ItemFlag[f_ListItem] := aValue;
-//#UC END# *54C78756019B_4ADDE17D0077set_impl*
-end;//Tl3ListItemNode.pm_SetFlags
 
 function Tl3ListItemNode.GetIsSame(const aNode: Il3SimpleNode): Boolean;
 //#UC START# *54C78D9201B9_4ADDE17D0077_var*
