@@ -29,6 +29,9 @@ type
     var medium: Tl3StoragePlace): HResult; override;
    function GetFormats: Tl3ClipboardFormats; override;
    function MakeExtData: IDataObject; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap;
@@ -36,9 +39,6 @@ type
    class function Make(const aData: Il3SimpleNode;
     const aBitmap: Il3Bitmap;
     const aListData: IbsListTreeData): IDataObject; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TbsListDataObject
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

@@ -68,7 +68,7 @@ type
    f_LoadingCloneState: Boolean;
     {* Поле для свойства LoadingCloneState }
   private
-   procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk);
+   procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk); message WM_LBUTTONDBLCLK;
   protected
    function pm_GetTreeView: IeeTreeView;
    procedure DoCurrentIndexChanged(aNew: Integer;
@@ -262,14 +262,14 @@ type
    function GetData: TvtOutlinerHystoryData;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aTree: Il3SimpleTree;
     const aData: TvtOutlinerHystoryData); reintroduce;
    class function Make(const aTree: Il3SimpleTree;
     const aData: TvtOutlinerHystoryData): IeeTreeState; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TeeTreeState
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
 

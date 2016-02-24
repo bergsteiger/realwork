@@ -15,14 +15,14 @@
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aData: _DataType_;
     const aFormats: Tl3ClipboardFormats); reintroduce;
    class function Make(const aData: _DataType_;
     const aFormats: Tl3ClipboardFormats): IDataObject; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   private
    property Data: _DataType_
     read f_Data;

@@ -59,12 +59,12 @@ type
    function IsSameNode(const aNode: IeeNode): Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-  public
-   constructor Create(const aNode: Il3SimpleNode); reintroduce;
-   class function Make(const aNode: Il3SimpleNode): IeeNode;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+  public
+   constructor Create(const aNode: Il3SimpleNode); reintroduce;
+   class function Make(const aNode: Il3SimpleNode): IeeNode;
  end;//TeeNode
 
 implementation

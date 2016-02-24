@@ -53,6 +53,9 @@ type
    function Get_Document: IeeDocument;
    function Get_ParentBlock: IeeBlock;
    function IsKindOf(aType: Tk2Type): Boolean;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aDocument: IeeDocumentEx;
     anID: Integer;
@@ -60,9 +63,6 @@ type
    class function Make(const aDocument: IeeDocumentEx;
     anID: Integer;
     aLayerID: Integer): IeeBlock; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TeeBlock
  {$IfEnd} // Defined(Nemesis)
 

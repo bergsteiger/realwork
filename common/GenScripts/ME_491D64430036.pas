@@ -39,13 +39,13 @@
    function GetHasPrevRedaction: Boolean; override;
    function GetHasNextRedaction: Boolean; override;
    function GetCanWorkWithRedactions: Boolean; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    procedure OpenContents(const aTree: IdeSimpleTree;
     anForceOpen: TnsContentsOpenMode;
     const aContainerOfDocument: InevDocumentContainer);
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//_dsDocument_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}

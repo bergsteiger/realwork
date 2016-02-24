@@ -48,6 +48,9 @@ type
     out Data: Tl3Variant): Boolean; override;
    procedure DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
     All: Boolean); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    function DoMarkModified: Boolean; override;
    procedure ClearFields; override;
   public
@@ -59,9 +62,6 @@ type
    class function MakeNodeTag(const aNode: DocTagNodeType;
     aState: TnsNodeStates = []): Il3TagRef;
    function HasTagDataProvider: Boolean;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property TagDataProvider: DocTagNodeType
     read f_TagDataProvider

@@ -126,12 +126,11 @@
    {$If NOT Defined(NoVCM)}
    procedure DoInit; override;
    {$IfEnd} // NOT Defined(NoVCM)
-   function CheckFullList: Boolean; override;
-   procedure ClearFields; override;
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+   function CheckFullList: Boolean; override;
+   procedure ClearFields; override;
   protected
    property DocCount: Integer
     read f_DocCount;

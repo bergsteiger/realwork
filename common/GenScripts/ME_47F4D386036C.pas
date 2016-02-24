@@ -75,12 +75,11 @@ ApplyEmptyFilter: Boolean
     out aSyncIndex: Integer;
     aAutoOpen: Boolean;
     CalcPartialContext: Boolean): Il3SimpleTree; override;
-   function ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase; override;
-    {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+   function ReAqurieUnfilteredRootForMakeResettedSimpleRoot: INodeBase; override;
+    {* ^^^ http://mdp.garant.ru/pages/viewpage.action?pageId=324570732&focusedCommentId=327818238#comment-327818238 }
  end;//TbsListTreeStruct
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
