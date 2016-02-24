@@ -230,8 +230,8 @@ type
   private
    f_InUpdateCation: Boolean;
   private
-   procedure CMTBMouseQuery(var Msg: TMessage);
-   procedure CMTBCheckControl(var Msg: TMessage);
+   procedure CMTBMouseQuery(var Msg: TMessage); message CM_TBMOUSEQUERY;
+   procedure CMTBCheckControl(var Msg: TMessage); message CM_TBCHECKCONTROL;
   protected
    procedure SetCaptionFromAction(anAction: TvcmOperationAction;
     anUpdateIndex: Boolean);
@@ -619,7 +619,7 @@ type
    f_OnSelectDate: TNotifyEvent;
     {* Поле для свойства OnSelectDate }
   private
-   procedure CMTextChanged(var Message: TMessage);
+   procedure CMTextChanged(var Message: TMessage); message CM_TEXTCHANGED;
   protected
    {$If NOT Defined(NoVCL)}
    function GetActionLinkClass: TControlActionLinkClass; override;

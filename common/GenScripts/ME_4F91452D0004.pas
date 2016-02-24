@@ -30,7 +30,7 @@ type
    f_CancelButton: TMsgDlgBtn;
    f_DefaultButton: TMsgDlgBtn;
   private
-   procedure CMDialogKey(var Message: TCMDialogKey);
+   procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
   public
    function NeedSaveInSettings: Boolean; override;
   protected

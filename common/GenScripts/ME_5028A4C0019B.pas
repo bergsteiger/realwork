@@ -105,8 +105,8 @@ type
    f_ToolbarDock: TvcmDockDefPrim;
     {* Поле для свойства ToolbarDock }
   private
-   procedure WMSize(var Message: TWMSize);
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd);
+   procedure WMSize(var Message: TWMSize); message WM_SIZE;
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
   protected
    procedure pm_SetToolbar(aValue: TToolbar);
    procedure pm_SetToolbarDock(aValue: TvcmDockDefPrim);
@@ -152,10 +152,10 @@ type
     {* Поле для свойства DockPanel }
   private
    function SizeGripValid: Boolean;
-   procedure WMSize(var Message: TWMSize);
-   procedure WMNCCalcSize(var Message: TWMNCCalcSize);
-   procedure WMNCPaint(var Message: TMessage);
-   procedure WMNChitTest(var Msg: TWMNCHitTest);
+   procedure WMSize(var Message: TWMSize); message WM_SIZE;
+   procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
+   procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
+   procedure WMNChitTest(var Msg: TWMNCHitTest); message WM_NCHITTEST;
   protected
    function pm_GetFullWidth: Integer;
    function pm_GetFullHeight: Integer;

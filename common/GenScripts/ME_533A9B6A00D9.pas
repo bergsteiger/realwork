@@ -36,7 +36,7 @@ type
     {* Поле для свойства Decorator }
   private
    procedure DoOnNeedRecreateButtons(aDecorator: TFormFrameDecorator);
-   procedure WMSysCommand(var aMessage: TWMSysCommand);
+   procedure WMSysCommand(var aMessage: TWMSysCommand); message WM_SYSCOMMAND;
   protected
    function pm_GetDecorator: TFormFrameDecorator; virtual;
    procedure RecreateButtons; virtual;

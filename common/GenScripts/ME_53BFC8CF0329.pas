@@ -8,9 +8,9 @@
 {$If NOT Defined(NoVCM)}
  _vcmComponentDestroyer_ = class(_vcmComponentDestroyer_Parent_)
   private
-   procedure vcmMsgClearPopup(var aMessage: TMessage);
-   procedure vcmMsgCloseChildForm(var aMessage: TMessage);
-   procedure vcmMsgFreeComponent(var aMessage: TMessage);
+   procedure vcmMsgClearPopup(var aMessage: TMessage); message vcm_msgClearPopup;
+   procedure vcmMsgCloseChildForm(var aMessage: TMessage); message vcm_MsgCloseChildForm;
+   procedure vcmMsgFreeComponent(var aMessage: TMessage); message vcm_msgFreeComponent;
  end;//_vcmComponentDestroyer_
 
 {$Else NOT Defined(NoVCM)}

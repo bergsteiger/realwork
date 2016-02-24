@@ -69,12 +69,12 @@ type
    procedure NotifyComponentsMainFormChanged(aForm: TvcmEntityForm);
    procedure NotifyComponentsSelectionChanged(aNewSelectedForm: TvcmEntityForm);
    procedure NotifyContainedFormsOnClosing;
-   procedure WMClose(var aMessage: TWMClose);
-   procedure WMEnable(var aMessage: TWMEnable);
-   procedure WMCopyData(var aMessage: TWMCopyData);
-   procedure WMWindowPosChanged(var aMessage: TWMWindowPosChanged);
-   procedure WMSetFocus(var aMessage: TWMSetFocus);
-   procedure WMSysCommand(var aMessage: TWMSysCommand);
+   procedure WMClose(var aMessage: TWMClose); message WM_CLOSE;
+   procedure WMEnable(var aMessage: TWMEnable); message WM_ENABLE;
+   procedure WMCopyData(var aMessage: TWMCopyData); message WM_COPYDATA;
+   procedure WMWindowPosChanged(var aMessage: TWMWindowPosChanged); message WM_WINDOWPOSCHANGED;
+   procedure WMSetFocus(var aMessage: TWMSetFocus); message WM_SETFOCUS;
+   procedure WMSysCommand(var aMessage: TWMSysCommand); message WM_SYSCOMMAND;
   protected
    function pm_GetFormCount: Integer;
    function pm_GetForms(Index: Integer): TvcmEntityForm; virtual;

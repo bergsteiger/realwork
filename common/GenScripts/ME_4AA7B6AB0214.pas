@@ -304,6 +304,9 @@ type
    procedure ResetContainer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aForm: IvcmEntityForm;
     aStateType: TvcmStateType;
@@ -323,9 +326,6 @@ type
     aForClone: Boolean): IvcmFormHistoryItem; reintroduce; overload;
    class function Make(const aForm: IvcmEntityForm;
     aStateType: TvcmStateType): IvcmFormHistoryItem; overload;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property SavingClone: Boolean
     read pm_GetSavingClone;
