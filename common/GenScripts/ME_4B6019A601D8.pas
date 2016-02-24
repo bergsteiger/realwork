@@ -11,6 +11,9 @@ interface
 uses
  l3IntfUses
  , vtFocusLabel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
 ;
 
@@ -24,9 +27,9 @@ type
   private
    procedure SetHotTruck(aValue: Boolean);
    procedure UpdateTruckFromCursor;
-   procedure CMMouseEnter(var Message: TMessage);
-   procedure CMMouseLeave(var Message: TMessage);
-   procedure WMWindowPosChanged(var Message: TMessage);
+   procedure CMMouseEnter(var Message: TMessage); message CM_MOUSEENTER;
+   procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
+   procedure WMWindowPosChanged(var Message: TMessage); message WM_WINDOWPOSCHANGED;
   protected
    procedure pm_SetAllowTrucking(aValue: Boolean);
    function NeedUnderLine: Boolean; override;

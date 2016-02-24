@@ -29,14 +29,14 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    class function MakeFromStyle(const aStyle: IStream;
     anOwner: Tl3Tag): Il3TagRef;
    constructor CreateFromStyle(const aStyle: IStream;
     anOwner: Tl3Tag); reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TnsNativeCommentPara
 
 implementation

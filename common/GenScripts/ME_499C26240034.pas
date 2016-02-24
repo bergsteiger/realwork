@@ -48,14 +48,14 @@ type
    function pm_GetWrap: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aAggregate: IUnknown;
     aWrap: Boolean); reintroduce;
    class function Make(const aAggregate: IUnknown;
     aWrap: Boolean): InscTreeState; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TnscTreeViewState
 
  _nsUnknownComponent_Parent_ = TeeTreeView;

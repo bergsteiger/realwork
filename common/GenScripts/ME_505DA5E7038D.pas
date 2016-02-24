@@ -15,7 +15,7 @@ const
    f_ItemDef: InscStatusBarItemDef;
     {* Поле для свойства ItemDef }
   private
-   procedure CMVisibleChanged(var aMessage: TMessage);
+   procedure CMVisibleChanged(var aMessage: TMessage); message CM_VISIBLECHANGED;
   protected
    procedure Subscribe(const aClient: InscStatusBarItem);
    procedure Unsubscribe(const aClient: InscStatusBarItem);

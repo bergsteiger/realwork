@@ -13,6 +13,9 @@ uses
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
  , l3Region
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
 ;
 

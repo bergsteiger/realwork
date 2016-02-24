@@ -34,8 +34,8 @@ type
    f_OnGetNodeType: TdltGetNodeTypeEvent;
     {* Поле для свойства OnGetNodeType }
   private
-   procedure WMGetText(var Msg: TWMGetText);
-   procedure WMGetTextLength(var Msg: TWMGetTextLength);
+   procedure WMGetText(var Msg: TWMGetText); message WM_GetText;
+   procedure WMGetTextLength(var Msg: TWMGetTextLength); message WM_GETTEXTLENGTH;
   protected
    function GetCurrentText: AnsiString; virtual;
    {$If NOT Defined(Admin) AND NOT Defined(Monitorings)}

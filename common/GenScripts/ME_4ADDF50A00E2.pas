@@ -27,12 +27,12 @@ type
    function pm_GetDocCount: Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-  public
-   constructor Create(const aQuery: IQuery); reintroduce;
-   class function Make(const aQuery: IQuery): Il3Node; reintroduce;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+  public
+   constructor Create(const aQuery: IQuery); reintroduce;
+   class function Make(const aQuery: IQuery): Il3Node; reintroduce;
  end;//TnsQueryNode
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

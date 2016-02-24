@@ -24,13 +24,13 @@ type
    f_Caption: Il3CString;
   protected
    function GetAsPCharLen: Tl3WString; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    constructor Create(const aSectionItem: ISectionItem); reintroduce;
    class function Make(const aSectionItem: ISectionItem): Il3Node; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TnsMainMenu2011Node
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

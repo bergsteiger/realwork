@@ -18,6 +18,9 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , StatusBarUtils
  , nscNewInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
 ;
 
@@ -41,9 +44,6 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 {$Include w:\common\components\gui\Garant\Nemesis\nscStatusBarItemNotification.imp.pas}

@@ -47,8 +47,8 @@ type
    f_GroupIndex: Integer;
   private
    function AllVisiblePanelsText: AnsiString;
-   procedure WMGetText(var Msg: TWMGetText);
-   procedure WMGetTextLength(var Msg: TWMGetTextLength);
+   procedure WMGetText(var Msg: TWMGetText); message WM_GETTEXT;
+   procedure WMGetTextLength(var Msg: TWMGetTextLength); message WM_GETTEXTLENGTH;
   protected
    procedure SetLink;
    procedure ReleaseLink;

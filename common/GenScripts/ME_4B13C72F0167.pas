@@ -36,7 +36,7 @@ type
    f_tpvMain: TnscTasksPanelView;
     {* Поле для свойства tpvMain }
   private
-   procedure WMSetFocus(var aMessage: TMessage);
+   procedure WMSetFocus(var aMessage: TMessage); message WM_SETFOCUS;
   protected
    procedure tpvMainOperationExecute(Sender: TObject);
    {$If NOT Defined(NoVCM)}

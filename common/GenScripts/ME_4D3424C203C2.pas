@@ -89,7 +89,7 @@ type
    procedure GrideSizeChanged(aSender: TObject);
    procedure LockView;
    procedure UnlockView;
-   procedure WMEraseBkGnd(var aMessage: TWMEraseBkGnd);
+   procedure WMEraseBkGnd(var aMessage: TWMEraseBkGnd); message WM_ERASEBKGND;
   protected
    procedure pm_SetTasksPanel(const aValue: IvcmCustOps);
    procedure pm_SetGroupImages(aValue: TCustomImageList); virtual;
@@ -203,7 +203,7 @@ type
    function MakeSettingFromTasksPanel: TafwSettingId;
    procedure Subscribe(aSubscribe: Boolean);
    procedure UpdateCaption;
-   procedure AFWCMTextChanged(var aMsg: TMessage);
+   procedure AFWCMTextChanged(var aMsg: TMessage); message afw_CM_TEXTCHANGED;
   protected
    procedure Notify(const aNotifier: Il3ChangeNotifier;
     aOperation: Integer;

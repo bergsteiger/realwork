@@ -38,13 +38,12 @@
    procedure ClearAreas; override;
     {* Очищает ссылки на области ввода }
    {$IfEnd} // NOT Defined(NoVCM)
-   {$If NOT Defined(NoVCM)}
-   function GetDataForClone: _InitDataType_; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+   {$If NOT Defined(NoVCM)}
+   function GetDataForClone: _InitDataType_; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//_sdsCommonDiction_
 
 {$Else NOT Defined(Admin) AND NOT Defined(Monitorings)}

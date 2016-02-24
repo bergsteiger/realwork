@@ -97,6 +97,9 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    function ChildNodeClass: Rl3CustomVirtualNode; override;
    procedure ClearFields; override;
   public
@@ -108,9 +111,6 @@ type
     aOnlyPrevEditions: TnsEditionsTreeKind); reintroduce; overload;
    constructor Create(const aDocument: IDocument); reintroduce; overload;
    class function MakeAsSimpleRoot(const aDocument: IDocument): Il3SimpleRootNode; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TnsEditionsRoot
 
  TnsEditionNode = class(TnsCacheableNode, InsEditionNode)
@@ -146,15 +146,15 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
   public
    constructor Create(aHandle: Integer;
     aEType: TRedactionType); reintroduce;
    class function Make(aHandle: Integer;
     aEType: TRedactionType): Il3Node; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TnsEditionNode
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

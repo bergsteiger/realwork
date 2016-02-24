@@ -79,13 +79,12 @@ type
            новой сборки вернуться как результат для вызова операции модуля }
    procedure BeforeAssignDocument(const aDoc: IdeDocInfo); override;
    procedure AfterAssignDocument; override;
-   {$If NOT Defined(NoVCM)}
-   function DoGetFormSetImageIndex: Integer; override;
-   {$IfEnd} // NOT Defined(NoVCM)
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+   {$If NOT Defined(NoVCM)}
+   function DoGetFormSetImageIndex: Integer; override;
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TsdsDiction
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

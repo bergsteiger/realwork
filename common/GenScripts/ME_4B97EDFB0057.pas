@@ -21,15 +21,15 @@ uses
  {$If NOT Defined(NoVCL)}
  , ExtCtrls
  {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , evEditorWithOperations
  , ctTypes
  , Types
  , Windows
  , l3InternalInterfaces
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , l3Region
  , vtLister
 ;
@@ -50,13 +50,13 @@ type
     {* Поле для свойства YandexLikeBehaviour }
   private
    procedure SetMouseTrackItemIndex(aIndex: Integer);
-   procedure WMNCLButtonDown(var Message: TWMNCLButtonDown);
-   procedure WMNCLButtonUp(var Message: TWMNCLButtonUp);
-   procedure WMNCHitTest(var Message: TWMNCHitTest);
-   procedure WMSetCursor(var Message: TWMSetCursor);
-   procedure WMNCCalcSize(var Message: TWMNCCalcSize);
-   procedure WMMouseMove(var Message: TWMMouseMove);
-   procedure CMMouseLeave(var Message: TMessage);
+   procedure WMNCLButtonDown(var Message: TWMNCLButtonDown); message WM_NCLBUTTONDOWN;
+   procedure WMNCLButtonUp(var Message: TWMNCLButtonUp); message WM_NCLBUTTONUP;
+   procedure WMNCHitTest(var Message: TWMNCHitTest); message WM_NCHITTEST;
+   procedure WMSetCursor(var Message: TWMSetCursor); message WM_SETCURSOR;
+   procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
+   procedure WMMouseMove(var Message: TWMMouseMove); message WM_MOUSEMOVE;
+   procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
   protected
    procedure DrawCloseButton(aDC: hDC;
     const DrawRect: TRect);
@@ -156,9 +156,9 @@ type
    {$If NOT Defined(DesignTimeLibrary)}
    function GetFullPath(const aNode: Il3SimpleNode): Il3CString;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
-   procedure CNKeyDown(var Message: TWMKeyDown);
-   procedure CMFontChanged(var Message: TMessage);
-   procedure WMSysKeyDown(var Message: TWMSysKeyDown);
+   procedure CNKeyDown(var Message: TWMKeyDown); message CN_KEYDOWN;
+   procedure CMFontChanged(var Message: TMessage); message CM_FONTCHANGED;
+   procedure WMSysKeyDown(var Message: TWMSysKeyDown); message WM_SYSKEYDOWN;
   protected
    procedure pm_SetHistoryItems(aValue: Tl3Strings);
    {$If NOT Defined(DesignTimeLibrary)}

@@ -11,6 +11,9 @@ interface
 uses
  l3IntfUses
  , nscTreeView
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , Classes
  , l3Interfaces
@@ -34,7 +37,7 @@ type
   private
    procedure SetHotTruckIndex(aValue: Integer);
    procedure UpdateTruckFromCursor;
-   procedure CMMouseLeave(var Message: TMessage);
+   procedure CMMouseLeave(var Message: TMessage); message CM_MOUSELEAVE;
   protected
    procedure pm_SetAllowTrucking(aValue: Boolean);
    procedure DoOnGetItemStyle(aItemIndex: Integer;

@@ -50,8 +50,8 @@ type
   private
    procedure VcmEntityFormRefCloseQuery(Sender: TObject;
     var CanClose: Boolean);
-   procedure WMUserSetCurrent(var Message: TMessage);
-   procedure WMUserFinishProcess(var Message: TMessage);
+   procedure WMUserSetCurrent(var Message: TMessage); message WM_USER_SET_CURRENT;
+   procedure WMUserFinishProcess(var Message: TMessage); message WM_USER_FINISH_PROCESS;
   protected
    function pm_GetProgressBar: TProgressBar;
    procedure Cleanup; override;
