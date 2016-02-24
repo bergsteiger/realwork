@@ -67,7 +67,7 @@ type
    procedure ActionElement(Sender: TObject;
     Index: Integer);
    procedure pnlMainResize(aSender: TObject);
-   procedure WMMouseWheel(var Message: TWMMouseWheel);
+   procedure WMMouseWheel(var Message: TWMMouseWheel); message WM_MOUSEWHEEL;
   protected
    function pm_GetTreeStyle: TnsTreeStyleManager;
    function pm_GetContainerForBaseSearch: IvcmContainer; virtual;

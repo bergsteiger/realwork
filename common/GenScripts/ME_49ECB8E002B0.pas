@@ -43,7 +43,7 @@ type
    procedure DocumentCompleteXE(Sender: TObject;
     const pDisp: IDispatch;
     const URL: OleVariant);
-   procedure WMSize(var aMsg: TWMSize);
+   procedure WMSize(var aMsg: TWMSize); message WM_Size;
   protected
    procedure pm_SetScale(aValue: Integer);
    {$If NOT Defined(DesignTimeLibrary)}

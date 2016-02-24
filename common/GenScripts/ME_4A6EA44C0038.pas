@@ -42,7 +42,7 @@ type
    f_TopPanel: TvtPanel;
     {* Поле для свойства TopPanel }
   private
-   procedure WMActivate(var Message: TWMActivate);
+   procedure WMActivate(var Message: TWMActivate); message WM_ACTIVATE;
   protected
    procedure NewMessagesReceived;
    procedure RegisterInDispatcher; override;

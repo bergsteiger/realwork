@@ -103,7 +103,7 @@ type
    procedure RepositionControls;
    procedure Save;
    procedure CheckForm;
-   procedure CMDialogKey(var Message: TCMDialogKey);
+   procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
   protected
    function pm_GetLogin: Il3CString;
    procedure pm_SetLogin(const aValue: Il3CString);

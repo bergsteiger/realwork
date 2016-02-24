@@ -99,7 +99,7 @@ type
    procedure vcmEntityFormRefPaint(Sender: TObject);
    procedure Save;
    procedure RepositionControls;
-   procedure CMDialogKey(var Message: TCMDialogKey);
+   procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
   protected
    function pm_GetLogin: Il3CString;
    function pm_GetPassword: Il3CString;

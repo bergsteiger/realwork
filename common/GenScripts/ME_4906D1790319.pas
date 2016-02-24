@@ -57,7 +57,6 @@ type
    {$IfEnd} // Defined(Nemesis)
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }

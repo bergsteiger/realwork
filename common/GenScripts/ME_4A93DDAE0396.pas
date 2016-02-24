@@ -64,7 +64,7 @@ type
    procedure btnExitClick(Sender: TObject);
    procedure vcmEntityFormCloseQuery(Sender: TObject;
     var CanClose: Boolean);
-   procedure WMSysCommand(var Message: TWMSysCommand);
+   procedure WMSysCommand(var Message: TWMSysCommand); message WM_SYSCOMMAND;
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
