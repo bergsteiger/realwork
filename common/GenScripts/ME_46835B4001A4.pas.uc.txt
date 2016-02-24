@@ -317,6 +317,7 @@ var
   l_Node.SetFlag(FM_SELECTION, aValue);
   if (RootNode <> nil) then
   begin
+   DoSelectionChanged(anIndex, aValue);
    l_CurSelectCount := RootNode.GetFlagCount(FM_SELECTION);
    if aValue then
     SelectCountChanged(l_CurSelectCount - 1, l_CurSelectCount)
@@ -398,6 +399,7 @@ var
  l_Root         : Il3SimpleNode;
 //#UC END# *47724AB70207_46835B4001A4_var*
 //#UC START# *479731C50290_46835B4001A4_impl*
+ FreeAndNil(f_SelectedIndexList);
  Root := nil;
  inherited;
 //#UC END# *479731C50290_46835B4001A4_impl*
@@ -607,6 +609,7 @@ var
 //#UC END# *48FDA30E0390_46835B4001A4_var*
 //#UC START# *48FDD9270194_46835B4001A4_impl*
  inherited Create;
+ f_SelectedIndexList := Tl3LongintList.Create;
  Self.OneLevel := aOneLevel;
  f_ShowRoot := aShowRoot;
  MakeRootNode(aRoot);
