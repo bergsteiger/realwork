@@ -62,6 +62,9 @@ type
     aSetAsDefault: Boolean = False);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure NotifySettingChanged(const aSettingID: TafwSettingId); override;
    function TryToRestore(const aSettingID: TafwSettingId): Boolean; override;
    procedure DoSaveParam(const aTarget: _SettingsClass_;
@@ -77,9 +80,6 @@ type
     const aManager: IConfigurationManager); reintroduce;
    class function Make(const aSettings: ISettingsManager;
     const aManager: IConfigurationManager): IafwSettings; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TnsSettings
 
 implementation

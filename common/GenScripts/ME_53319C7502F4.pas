@@ -37,11 +37,11 @@ type
    f_RemindersLine: Pointer;
     {* Поле для свойства RemindersLine }
   private
-   procedure WMMouseActivate(var Msg: TWMMouseActivate);
-   procedure WMActivate(var Msg: TWMActivate);
-   procedure WMContextMenu(var Msg: TMessage);
-   procedure WMSyncPos(var Msg: TMessage);
-   procedure CMShowingChanged(var Msg: TMessage);
+   procedure WMMouseActivate(var Msg: TWMMouseActivate); message WM_MOUSEACTIVATE;
+   procedure WMActivate(var Msg: TWMActivate); message WM_ACTIVATE;
+   procedure WMContextMenu(var Msg: TMessage); message WM_CONTEXTMENU ;
+   procedure WMSyncPos(var Msg: TMessage); message WM_SYNCPOS;
+   procedure CMShowingChanged(var Msg: TMessage); message CM_SHOWINGCHANGED;
   protected
    function pm_GetIsActivateProcessingLocked: Boolean;
    {$If NOT Defined(NoVCL)}

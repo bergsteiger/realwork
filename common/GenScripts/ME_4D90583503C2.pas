@@ -18,10 +18,10 @@ uses
  , vg_layouts
  , Classes
  , vtPanel
- , Messages
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
  , Types
 ;
 
@@ -55,7 +55,7 @@ type
     var InfluenceRect: TRect;
     MousePos: TPoint;
     var CanDock: Boolean);
-   procedure CMVisibleChanged(var Message: TMessage);
+   procedure CMVisibleChanged(var Message: TMessage); message CM_VISIBLECHANGED;
   protected
    procedure pm_SetTailPosition(aValue: TvtTailPosition);
    {$If NOT Defined(NoVCL)}

@@ -24,15 +24,15 @@ type
     {* Функция очистки полей объекта. }
    function DoGetData(const aFormatEtcIn: TFormatEtc;
     var medium: Tl3StoragePlace): HResult; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aData: _DataType_;
     const aBitmap: Il3Bitmap); reintroduce;
    class function Make(const aData: _DataType_;
     const aBitmap: Il3Bitmap): IDataObject; reintroduce;
    function AcceptableTymed: Integer; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property Ext: Boolean
     read f_Ext;

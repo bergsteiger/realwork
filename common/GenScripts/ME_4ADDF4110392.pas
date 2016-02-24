@@ -23,15 +23,15 @@ type
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
    function GetLevelForParent(const aNode: Il3SimpleNode): Integer; override;
   public
    constructor Create(const aNode: INode;
     aNumInParent: Integer); reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property AdapterNode: INode
     read f_AdapterNode

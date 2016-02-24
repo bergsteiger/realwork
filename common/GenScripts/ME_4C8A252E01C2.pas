@@ -128,15 +128,15 @@ type
   private
    f_Navigator: TvtNavigatorPrim;
   private
-   procedure CMDockNotification(var Message: TCMDockNotification);
+   procedure CMDockNotification(var Message: TCMDockNotification); message CM_DOCKNOTIFICATION;
     {* при изменении видимости первого пристыковыванного компонента показываем навигатор }
-   procedure PMIsActiveControl(var Message: TMessage);
+   procedure PMIsActiveControl(var Message: TMessage); message PM_ISACTIVECONTROL;
     {* определяет активен ли компонент. Если навигатор находится в свернутом состоянии, то компонент в любом случае не активен }
-   procedure PMSetActivePageWithControl(var Message: TMessage);
+   procedure PMSetActivePageWithControl(var Message: TMessage); message PM_SETACTIVEPAGEWITHCONTROL;
     {* при активации закладки, если навигатор был свернут, то он разворачивается }
-   procedure WMKeyDown(var Msg: TWMKeyDown);
-   procedure WMSysKeyDown(var Msg: TWMSysKeyDown);
-   procedure WMEraseBkgnd(var Message: TMessage);
+   procedure WMKeyDown(var Msg: TWMKeyDown); message WM_KEYDOWN;
+   procedure WMSysKeyDown(var Msg: TWMSysKeyDown); message WM_SYSKEYDOWN;
+   procedure WMEraseBkgnd(var Message: TMessage); message WM_ERASEBKGND;
   protected
    function IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
    procedure Notification(AComponent: TComponent;
@@ -171,8 +171,8 @@ type
    f_BtnType: TnpButtonType;
    f_Navigator: TvtNavigatorPrim;
   private
-   procedure CMHintShow(var Message: TCMHintShow);
-   procedure WMMouseMove(var Message: TWMMouseMove);
+   procedure CMHintShow(var Message: TCMHintShow); message CM_HINTSHOW;
+   procedure WMMouseMove(var Message: TWMMouseMove); message WM_MOUSEMOVE;
   public
    constructor Create(aOwner: TComponent;
     aNavigator: TvtNavigatorPrim;
@@ -389,12 +389,12 @@ type
    procedure NormalUpdateSize;
    procedure ModeShow;
    procedure DoActivate(aActive: Boolean);
-   procedure CMnpChangeActivate(var Message: TMessage);
-   procedure CMAfterUndock(var Message: TMessage);
-   procedure CMDelNavFromList(var Message: TMessage);
-   procedure CMNPDoActionWithFormControls(var Message: TMessage);
-   procedure CMnpDockToFloatWindow(var Message: TMessage);
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd);
+   procedure CMnpChangeActivate(var Message: TMessage); message CM_npChangeActivate;
+   procedure CMAfterUndock(var Message: TMessage); message CM_npAfterUndock;
+   procedure CMDelNavFromList(var Message: TMessage); message CM_npDeleteFromList;
+   procedure CMNPDoActionWithFormControls(var Message: TMessage); message CM_npDoActionWithFormControls;
+   procedure CMnpDockToFloatWindow(var Message: TMessage); message CM_npDockToFloatWindow;
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
   protected
    function pm_GetRelativeNavigator: TvtNavigatorPrim;
    function pm_GetClientControl: TWinControl;
@@ -690,7 +690,7 @@ type
    function GetRectLines: TRect;
    procedure DoStateChanged;
    procedure OnStateChanged(Sender: TObject);
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd);
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
   protected
    function pm_GetAlign: TAlign;
    procedure pm_SetAlign(aValue: TAlign);
@@ -799,7 +799,7 @@ type
    procedure InitAutoHidePosition;
     {* обновить Left окна }
    procedure OnStateChanged(Sender: TObject);
-   procedure WMEraseBkgnd(var Message: TMessage);
+   procedure WMEraseBkgnd(var Message: TMessage); message WM_ERASEBKGND;
   protected
    procedure pm_SetPageControl(aValue: TnpPageControl);
    procedure pm_SetHeader(aValue: TnpHeaderPrim);
@@ -833,7 +833,7 @@ type
    f_Surface: TnpSurface;
     {* Поле для свойства Surface }
   private
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd);
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
     {* иначе границы toolbar-ов не прорисовываются }
   protected
    procedure pm_SetSurface(aValue: TnpSurface);
@@ -869,11 +869,11 @@ type
    procedure SetSizeCursor;
     {* устанавливает курсор для изменения размеров }
    function IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
-   procedure WMKeyDown(var Msg: TWMKeyDown);
-   procedure WMSysKeyDown(var Msg: TWMSysKeyDown);
-   procedure CNKeyDown(var Msg: TWMKeyDown);
-   procedure CNSysKeyDown(var Msg: TWMSysKeyDown);
-   procedure WMMouseLeave(var Msg: TMessage);
+   procedure WMKeyDown(var Msg: TWMKeyDown); message WM_KEYDOWN;
+   procedure WMSysKeyDown(var Msg: TWMSysKeyDown); message WM_SYSKEYDOWN;
+   procedure CNKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
+   procedure CNSysKeyDown(var Msg: TWMSysKeyDown); message CN_SYSKEYDOWN;
+   procedure WMMouseLeave(var Msg: TMessage); message WM_MOUSELEAVE;
   protected
    procedure pm_SetIsHideButtonDown(aValue: Boolean);
    procedure Cleanup; override;
@@ -943,10 +943,10 @@ type
     Source: TDragDockObject;
     X: Integer;
     Y: Integer);
-   procedure WMNCCalcSize(var Message: TWMNCCalcSize);
-   procedure WMNCPaint(var Message: TMessage);
-   procedure WMNCHitTest(var Message: TWMNCHitTest);
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd);
+   procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
+   procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
+   procedure WMNCHitTest(var Message: TWMNCHitTest); message WM_NCHITTEST;
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
   protected
    procedure pm_SetState(aValue: TnpFloatWindowState); virtual;
    function GetNavigatorClass: RvtNavigator; virtual;

@@ -229,9 +229,9 @@ constructor TnsTreeStructState.Create(const aSimpleTree: Il3SimpleTree);
 begin
 //#UC START# *56A887A200DE_56A8877600AB_impl*
  inherited Create;
- Assert(aSimpleTree <> nil);
+ Assert(aSelectedIndexList <> nil);
  f_SelectedIndexList := Tl3LongIntList.Create;
- FillList(aSimpleTree);
+ FillList(aSelectedIndexList);
 //#UC END# *56A887A200DE_56A8877600AB_impl*
 end;//TnsTreeStructState.Create
 
@@ -254,9 +254,8 @@ var
 //#UC END# *56A892DC0298_56A8877600AB_var*
 begin
 //#UC START# *56A892DC0298_56A8877600AB_impl*
- for l_Index := 0 to Pred(aSimpleTree.CountView) do
-  if aSimpleTree.Select[l_Index] then
-   f_SelectedIndexList.Add(l_Index);
+ for l_Index := 0 to Pred(aSelectedIndexList.Count) do
+  f_SelectedIndexList.Add(aSelectedIndexList[l_Index]);
 //#UC END# *56A892DC0298_56A8877600AB_impl*
 end;//TnsTreeStructState.FillList
 
@@ -1294,7 +1293,7 @@ function TnsTreeStruct.MakeState: InsTreeStructState;
 //#UC END# *56A873120383_46835B4001A4_var*
 begin
 //#UC START# *56A873120383_46835B4001A4_impl*
- Result := TnsTreeStructState.Make(Self);
+ Result := TnsTreeStructState.Make(f_SelectedIndexList);
 //#UC END# *56A873120383_46835B4001A4_impl*
 end;//TnsTreeStruct.MakeState
 
@@ -1302,14 +1301,15 @@ procedure TnsTreeStruct.AssignState(const aState: InsTreeStructState);
 //#UC START# *56A89F6B03A5_46835B4001A4_var*
 var
  l_Index: Integer;
- l_Selected: Boolean;
+ l_SelectedNodeIndex: Integer;
 //#UC END# *56A89F6B03A5_46835B4001A4_var*
 begin
 //#UC START# *56A89F6B03A5_46835B4001A4_impl*
- for l_Index := 0 to Pred(Get_CountView) do
+ Assert(aState <> nil);
+ for l_Index := 0 to Pred(aState.GetSelectedNodeCount) do
  begin
-  l_Selected := aState.GetIsSelected(l_Index);
-  Set_Select(l_Index, l_Selected);
+  l_SelectedNodeIndex := aState.GetSelectedNodeVisibleIndex(l_Index);
+  Set_Select(l_SelectedNodeIndex, True);
  end;  
 //#UC END# *56A89F6B03A5_46835B4001A4_impl*
 end;//TnsTreeStruct.AssignState

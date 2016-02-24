@@ -87,15 +87,15 @@ type
    function Get_Prev: Il3SimpleNode;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    constructor Create(const aNode: INodeBase); reintroduce; virtual;
     {* Создаёт экземпляр узла дерева }
    class function Make(const aNode: INodeBase): Il3SimpleNode;
     {* Создаёт экземпляр узла дерева }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property AdapterNode: INodeBase
     read f_AdapterNode;
