@@ -12,6 +12,9 @@ uses
  , elCustomEdit
  , Classes
  , CustomElGraphicButton
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , l3Core
 ;
@@ -24,11 +27,11 @@ type
    f_Button: TCustomElGraphicButton;
     {* Поле для свойства Button }
   private
-   procedure WMKeyDown(var Message: TWMKey);
-   procedure CMEnabledChanged(var Msg: TMessage);
+   procedure WMKeyDown(var Message: TWMKey); message WM_KEYDOWN;
+   procedure CMEnabledChanged(var Msg: TMessage); message CM_ENABLEDCHANGED;
    procedure ButtonClickTransfer(Sender: TObject);
     {* TNotifyEvent. }
-   procedure WMWindowPosChanged(var Message: TWMWindowPosChanged);
+   procedure WMWindowPosChanged(var Message: TWMWindowPosChanged); message WM_WindowPosChanged;
   protected
    function Get_ButtonWidth: Integer;
    procedure AdjustWidth; virtual;

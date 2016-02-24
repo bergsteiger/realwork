@@ -45,14 +45,14 @@ type
    procedure PaintBuffer;
    procedure FlushBuffer(aDC: hDC;
     const aRect: TRect);
-   procedure WMNCHitTest(var aMessage: TWMNCHitTest);
-   procedure WMMouseActivate(var aMessage: TWMMouseActivate);
-   procedure WMEraseBkgnd(var aMessage: TWMEraseBkGnd);
-   procedure WMPaint(var aMessage: TWMPaint);
-   procedure WMSize(var aMessage: TWMSize);
-   procedure CMMouseLeave(var aMessage: TMessage);
-   procedure CMHintShow(var aMessage: TMessage);
-   procedure CMMouseEnter(var aMessage: TMessage);
+   procedure WMNCHitTest(var aMessage: TWMNCHitTest); message WM_NCHITTEST;
+   procedure WMMouseActivate(var aMessage: TWMMouseActivate); message WM_MOUSEACTIVATE;
+   procedure WMEraseBkgnd(var aMessage: TWMEraseBkGnd); message WM_ERASEBKGND;
+   procedure WMPaint(var aMessage: TWMPaint); message WM_PAINT;
+   procedure WMSize(var aMessage: TWMSize); message WM_SIZE;
+   procedure CMMouseLeave(var aMessage: TMessage); message CM_MOUSELEAVE;
+   procedure CMHintShow(var aMessage: TMessage); message CM_HINTSHOW;
+   procedure CMMouseEnter(var aMessage: TMessage); message CM_MOUSEENTER;
   protected
    function pm_GetBufferBitmap: Tl3Bitmap;
    function pm_GetBackgroundBitmap: Tl3Bitmap;

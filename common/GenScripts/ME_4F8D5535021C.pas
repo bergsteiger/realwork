@@ -29,12 +29,12 @@ type
    f_CustomMinSizeX: Integer;
     {* Поле для свойства CustomMinSizeX }
   private
-   procedure WMNCPaint(var Message: TMessage);
-   procedure WMMouseActivate(var Msg: TMessage);
-   procedure WMNChitTest(var Msg: TWMNCHitTest);
-   procedure WMNCCalcSize(var Message: TWMNCCalcSize);
-   procedure WMSize(var Message: TWMSize);
-   procedure WMGetMinMaxInfo(var Message: TMessage);
+   procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
+   procedure WMMouseActivate(var Msg: TMessage); message WM_MOUSEACTIVATE;
+   procedure WMNChitTest(var Msg: TWMNCHitTest); message WM_NCHITTEST;
+   procedure WMNCCalcSize(var Message: TWMNCCalcSize); message WM_NCCALCSIZE;
+   procedure WMSize(var Message: TWMSize); message WM_SIZE;
+   procedure WMGetMinMaxInfo(var Message: TMessage); message WM_GETMINMAXINFO;
   protected
    function IsSizeableTree: Boolean; virtual; abstract;
    function IsShowGripper: Boolean; virtual; abstract;

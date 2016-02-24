@@ -15,13 +15,13 @@ uses
  , ImgList
  {$IfEnd} // NOT Defined(NoVCL)
  , l3TreeInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , ctTypes
  , Types
  , Windows
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , nevTools
  , Classes
  {$If NOT Defined(NoVCM)}
@@ -62,11 +62,11 @@ type
    f_DropWidth: Integer;
     {* Поле для свойства DropWidth }
   private
-   procedure WMLButtonDown(var Message: TWMLButtonDown);
-   procedure WMLButtonUp(var Message: TWMLButtonDown);
-   procedure WMKillFocus(var Message: TWMKillFocus);
-   procedure WMSetFocus(var Message: TWMSetFocus);
-   procedure CMArtfulBehaviour(var Message: TMessage);
+   procedure WMLButtonDown(var Message: TWMLButtonDown); message WM_LBUTTONDOWN;
+   procedure WMLButtonUp(var Message: TWMLButtonDown); message WM_LBUTTONUP;
+   procedure WMKillFocus(var Message: TWMKillFocus); message WM_KILLFOCUS;
+   procedure WMSetFocus(var Message: TWMSetFocus); message WM_SETFOCUS;
+   procedure CMArtfulBehaviour(var Message: TMessage); message CM_ARTFULBEHAVIOUR;
   protected
    procedure pm_SetSizeableTree(aValue: Boolean);
    procedure pm_SetShowGripper(aValue: Boolean);
@@ -184,9 +184,9 @@ type
   protected
    f_SubOwner: TDropDownTreePrim;
   private
-   procedure WMSetFocus(var Message: TMessage);
-   procedure WMExitSizeMove(var Message: TMessage);
-   procedure WMEnterSizeMove(var Message: TMessage);
+   procedure WMSetFocus(var Message: TMessage); message WM_SETFOCUS;
+   procedure WMExitSizeMove(var Message: TMessage); message WM_EXITSIZEMOVE;
+   procedure WMEnterSizeMove(var Message: TMessage); message WM_ENTERSIZEMOVE;
   protected
    function IsSizeableTree: Boolean; override;
    function IsShowGripper: Boolean; override;

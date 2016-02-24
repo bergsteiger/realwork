@@ -132,17 +132,17 @@ type
    {$If NOT Defined(DesignTimeLibrary)}
    function IsHandledShortcut(var Msg: TWMKeyDown): Boolean;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
-   procedure CMControlChange(var Message: TMessage);
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd);
-   procedure CMTextChanged(var Message: TMessage);
-   procedure CMFontChanged(var Message: TMessage);
-   procedure WMKillFocus(var Message: TMessage);
-   procedure WMSetFocus(var Message: TMessage);
+   procedure CMControlChange(var Message: TMessage); message CM_CONTROLCHANGE;
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
+   procedure CMTextChanged(var Message: TMessage); message CM_TEXTCHANGED;
+   procedure CMFontChanged(var Message: TMessage); message CM_FONTCHANGED;
+   procedure WMKillFocus(var Message: TMessage); message WM_KILLFOCUS;
+   procedure WMSetFocus(var Message: TMessage); message WM_SETFOCUS;
    {$If NOT Defined(DesignTimeLibrary)}
-   procedure WMSysKeyDown(var Msg: TWMSysKeyDown);
+   procedure WMSysKeyDown(var Msg: TWMSysKeyDown); message WM_SYSKEYDOWN;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    {$If NOT Defined(DesignTimeLibrary)}
-   procedure CNKeyDown(var Msg: TWMKeyDown);
+   procedure CNKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
   protected
    procedure pm_SetStyleId(const aValue: TevStyleId);

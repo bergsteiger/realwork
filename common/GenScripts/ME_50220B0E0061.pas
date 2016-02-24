@@ -50,8 +50,8 @@ type
    f_OnScroll: TScrollEvent;
     {* Поле для свойства OnScroll }
   private
-   procedure WMHScroll(var Msg: TWMHScroll);
-   procedure WMVScroll(var Msg: TWMVScroll);
+   procedure WMHScroll(var Msg: TWMHScroll); message WM_HSCROLL;
+   procedure WMVScroll(var Msg: TWMVScroll); message WM_VSCROLL;
   protected
    function Get_ScrollBarKind: TScrollBarKind;
    procedure Set_ScrollBarKind(aValue: TScrollBarKind);

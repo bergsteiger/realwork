@@ -29,7 +29,7 @@
     const aParams: Il3TabParams;
     aInsertAfter: TForm;
     aNeedSelect: Boolean);
-   procedure WMMove(var aMessage: TMessage);
+   procedure WMMove(var aMessage: TMessage); message WM_MOVE;
   protected
    function pm_GetTabSetParent: TWinControl;
    function pm_GetFormDockSite: TWinControl;

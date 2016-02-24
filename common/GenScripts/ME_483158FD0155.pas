@@ -9,6 +9,9 @@ interface
 
 uses
  l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , EditableBox
  , Classes
@@ -125,17 +128,17 @@ type
  //#UC END# *483158FD0155cit*
  TFakeBox = {abstract} class(TFakeBoxPrim)
   private
-   procedure CNKeyDown(var Message: TWMKeyDown);
-   procedure WMChar(var Message: TWMChar);
-   procedure WMClear(var Msg: TMessage);
-   procedure WMPaint(var Message: TMessage);
+   procedure CNKeyDown(var Message: TWMKeyDown); message CN_KEYDOWN;
+   procedure WMChar(var Message: TWMChar); message WM_CHAR;
+   procedure WMClear(var Msg: TMessage); message WM_CLEAR;
+   procedure WMPaint(var Message: TMessage); message WM_PAINT;
    {$If NOT Defined(DesignTimeLibrary)}
-   procedure WMNCPaint(var Message: TMessage);
+   procedure WMNCPaint(var Message: TMessage); message WM_NCPAINT;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    {$If NOT Defined(DesignTimeLibrary)}
-   procedure WMSetText(var Msg: TMessage);
+   procedure WMSetText(var Msg: TMessage); message WM_SETTEXT;
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
-   procedure CMParentFontChanged(var Message: TMessage);
+   procedure CMParentFontChanged(var Message: TMessage); message CM_PARENTFONTCHANGED;
  //#UC START# *483158FD0155publ*
   property ErrorColor default clRed;
   property ItemIndex default -1;
@@ -146,9 +149,6 @@ implementation
 
 uses
  l3ImplUses
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , ctTypes
  , l3Tree_TLB
  , SysUtils

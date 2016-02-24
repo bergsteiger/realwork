@@ -62,9 +62,9 @@ type
    f_Caption: Tl3DString;
     {* Поле для свойства Caption }
   private
-   procedure WMGetText(var Msg: TMessage);
-   procedure WMGetTextLength(var Msg: TMessage);
-   procedure WMSetText(var Msg: TMessage);
+   procedure WMGetText(var Msg: TMessage); message WM_GetText;
+   procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
+   procedure WMSetText(var Msg: TMessage); message WM_SetText;
   protected
    procedure pm_SetEndEllipsis(aValue: Boolean);
    procedure pm_SetDrawDirection(aValue: TvtDrawDirection);

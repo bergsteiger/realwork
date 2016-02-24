@@ -19,10 +19,10 @@ uses
  {$If NOT Defined(NoVCL)}
  , StdCtrls
  {$IfEnd} // NOT Defined(NoVCL)
- , Messages
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
  , Windows
  , ElUxTheme
 ;
@@ -56,13 +56,13 @@ type
    f_IgnoreFocus: Boolean;
    f_IgnoreDrop: Boolean;
   private
-   procedure WMSetFocus(var Message: TWMSetFocus);
-   procedure CNKeyDown(var Message: TWMKeyDown);
-   procedure WMKillFocus(var Message: TWMKillFocus);
-   procedure WMActivateApp(var Message: TWMActivateApp);
-   procedure WMMouseWheel(var Msg: TWMMouseWheel);
-   procedure CMEnabledChanged(var Msg: TMessage);
-   procedure ELThemeChanged(var Message: TMessage);
+   procedure WMSetFocus(var Message: TWMSetFocus); message WM_SETFOCUS;
+   procedure CNKeyDown(var Message: TWMKeyDown); message CN_KEYDOWN;
+   procedure WMKillFocus(var Message: TWMKillFocus); message WM_KILLFOCUS;
+   procedure WMActivateApp(var Message: TWMActivateApp); message WM_ACTIVATEAPP;
+   procedure WMMouseWheel(var Msg: TWMMouseWheel); message WM_MOUSEWHEEL;
+   procedure CMEnabledChanged(var Msg: TMessage); message CM_ENABLEDCHANGED;
+   procedure ELThemeChanged(var Message: TMessage); message EL_THEMECHANGED;
   protected
    procedure pm_SetComboStyle(aValue: TComboStyle); virtual;
    function pm_GetStyle: TComboBoxStyle; virtual;

@@ -26,7 +26,7 @@ type
    f_Theme: HTHEME;
     {* Поле для свойства Theme }
   private
-   procedure WMThemeChanged(var aMessage: TMessage);
+   procedure WMThemeChanged(var aMessage: TMessage); message WM_THEMECHANGED;
   protected
    function pm_GetTheme: HTHEME;
    function GetPaintParams: TChromeLikeThemedWindowCaptionButtonPaintParams; virtual;

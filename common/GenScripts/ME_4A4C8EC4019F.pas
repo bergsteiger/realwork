@@ -39,11 +39,10 @@ type
    {$IfEnd} // Defined(evNeedMarkers)
    procedure DoDisableListener; override;
    procedure DoEnableListener; override;
-   function CheckFirst(aChildPID: Integer): Boolean; override;
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+   function CheckFirst(aChildPID: Integer): Boolean; override;
  end;//TevDocumentCursor
 {$IfEnd} // Defined(evUseVisibleCursors)
 

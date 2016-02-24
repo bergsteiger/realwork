@@ -370,11 +370,11 @@ type
    f_SubDescriptors: TevSubDescriptors;
     {* Поле для свойства SubDescriptors }
   private
-   procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk);
-   procedure WMLButtonUp(var Msg: TWMLButtonUp);
-   procedure WMRButtonDown(var Msg: TWMRButtonDown);
-   procedure WMNCHitTest(var Msg: TWMNCHitTest);
-   procedure WMSetCursor(var Msg: TWMSetCursor);
+   procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk); message WM_LBUTTONDBLCLK;
+   procedure WMLButtonUp(var Msg: TWMLButtonUp); message WM_LBUTTONUP;
+   procedure WMRButtonDown(var Msg: TWMRButtonDown); message WM_RBUTTONDOWN;
+   procedure WMNCHitTest(var Msg: TWMNCHitTest); message WM_NCHITTEST;
+   procedure WMSetCursor(var Msg: TWMSetCursor); message WM_SETCURSOR;
   protected
    function pm_GetSubDescriptors: TevSubDescriptors;
    procedure pm_SetSubDescriptors(aValue: TevSubDescriptors);

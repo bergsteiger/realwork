@@ -15,6 +15,9 @@ uses
  , ctTypes
  , l3TreeInterfaces
  , l3VCLStrings
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , l3Interfaces
  {$If NOT Defined(NoVCM)}
@@ -74,7 +77,7 @@ type
    f_TreeIsFiltered: Boolean;
     {* дерево было отфильтровано (чтобы не делать лишний раз Deselect Hidden) }
   private
-   procedure CMEnabledChanged(var Msg: TMessage);
+   procedure CMEnabledChanged(var Msg: TMessage); message CM_ENABLEDCHANGED;
   protected
    function pm_GetFullWidth: Integer;
    procedure pm_SetAutoWidth(aValue: TAutoWidthMode);

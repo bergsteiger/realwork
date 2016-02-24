@@ -12,6 +12,9 @@ uses
  l3IntfUses
  , vcmForm
  , vcmInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , vcmControllers
 ;
@@ -24,8 +27,8 @@ type
    f_ZoneType: TvcmZoneType;
     {* Поле для свойства ZoneType }
   private
-   procedure WMSetFocus(var Message: TMessage);
-   procedure CMVisibleChanged(var Message: TMessage);
+   procedure WMSetFocus(var Message: TMessage); message WM_SETFOCUS;
+   procedure CMVisibleChanged(var Message: TMessage); message CM_VISIBLECHANGED;
   protected
    procedure pm_SetZoneType(aValue: TvcmZoneType);
    function pm_GetCaptionForSaving: AnsiString;

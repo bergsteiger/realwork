@@ -137,10 +137,10 @@ type
   private
    function FourDigitYear: Boolean;
    function FormatSettingsChange(var Message: TMessage): Boolean;
-   procedure CMExit(var Message: TCMExit);
-   procedure CMEnter(var Message: TCMEnter);
-   procedure WMMouseWheel(var Message: TMessage);
-   procedure WMPaste(var Message: TMessage);
+   procedure CMExit(var Message: TCMExit); message CM_EXIT;
+   procedure CMEnter(var Message: TCMEnter); message CM_ENTER;
+   procedure WMMouseWheel(var Message: TMessage); message WM_MOUSEWHEEL;
+   procedure WMPaste(var Message: TMessage); message WM_PASTE;
   protected
    procedure pm_SetBlanksChar(aValue: AnsiChar);
    procedure pm_SetYearDigits(aValue: TYearDigits);

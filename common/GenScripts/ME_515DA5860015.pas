@@ -187,8 +187,8 @@ type
    procedure UpdateImagesOptions;
     {* проверяет настройку voWithoutImages. }
    function CompileTabstopsFromMultipartText(const aMT: Il3MultipartText): Tl3String;
-   procedure WMLButtonDown(var Msg: TWMLButtonDown);
-   procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk);
+   procedure WMLButtonDown(var Msg: TWMLButtonDown); message WM_LBUTTONDOWN;
+   procedure WMLButtonDblClk(var Msg: TWMLButtonDblClk); message WM_LBUTTONDBLCLK;
   protected
    procedure pm_SetViewOptions(aValue: TvtViewOptions);
    procedure pm_SetEditOptions(aValue: TvtEditOptions);

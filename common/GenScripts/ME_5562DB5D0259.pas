@@ -38,11 +38,11 @@ type
    f_OldDay: Integer;
     {* Поле для свойства OldDay }
   private
-   procedure WMGetDlgCode(var Msg: TWMGetDlgCode);
-   procedure WMLButtonDown(var Message: TWMLButtonDown);
-   procedure WMLButtonUp(var Message: TWMLButtonUp);
-   procedure WMMouseMove(var Message: TWMMouseMove);
-   procedure WMShowWindow(var Message: TWMShowWindow);
+   procedure WMGetDlgCode(var Msg: TWMGetDlgCode); message WM_GETDLGCODE;
+   procedure WMLButtonDown(var Message: TWMLButtonDown); message WM_LBUTTONDOWN;
+   procedure WMLButtonUp(var Message: TWMLButtonUp); message WM_LBUTTONUP;
+   procedure WMMouseMove(var Message: TWMMouseMove); message WM_MOUSEMOVE;
+   procedure WMShowWindow(var Message: TWMShowWindow); message WM_SHOWWINDOW;
   protected
    function pm_GetDate: TDateTime;
    procedure pm_SetDate(aValue: TDateTime);

@@ -52,7 +52,7 @@ type
    FRestrictOnTextChange: Integer;
   private
    procedure NotifyPosChange;
-   procedure WMNCPaint(var Message: TWMNCPaint);
+   procedure WMNCPaint(var Message: TWMNCPaint); message WM_NCPAINT;
   protected
    function pm_GetSelStart: Integer;
    procedure pm_SetSelStart(aValue: Integer);

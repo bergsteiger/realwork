@@ -68,6 +68,9 @@ type
     pSource: Tl3Variant;
     const anOp: InevOp): Boolean; override;
    function DoDeleteSegments(const anOpPack: InevOp): Boolean; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure DoStore(const aView: InevView;
     const G: Ik2TagGenerator;
     aFlags: TevStoreFlags); override;
@@ -92,9 +95,6 @@ type
    function DoBottomChildBlock(const aView: InevView): InevRange; override;
    procedure GetBlockBorders; override;
   public
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure DoInit(const aStart: InevBasePoint;
     const aFinish: InevBasePoint;
     aSharp: Boolean); override;

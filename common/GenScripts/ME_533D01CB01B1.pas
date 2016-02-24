@@ -40,10 +40,10 @@ type
    f_OnClick: TNotifyEvent;
     {* Поле для свойства OnClick }
   private
-   procedure CMMouseEnter(var aMessage: TMessage);
-   procedure CMMouseLeave(var aMessage: TMessage);
-   procedure WMEraseBkgnd(var aMessage: TWMEraseBkgnd);
-   procedure CMEnabledChanged(var aMessage: TMessage);
+   procedure CMMouseEnter(var aMessage: TMessage); message CM_MOUSEENTER;
+   procedure CMMouseLeave(var aMessage: TMessage); message CM_MOUSELEAVE;
+   procedure WMEraseBkgnd(var aMessage: TWMEraseBkgnd); message WM_ERASEBKGND;
+   procedure CMEnabledChanged(var aMessage: TMessage); message CM_ENABLEDCHANGED;
   protected
    function pm_GetState: TChromeLikeWindowCaptionButtonState; virtual;
    procedure pm_SetState(aValue: TChromeLikeWindowCaptionButtonState); virtual;

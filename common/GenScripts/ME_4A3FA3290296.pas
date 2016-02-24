@@ -46,13 +46,12 @@ type
     const aList: IevMarkersList); override;
    {$IfEnd} // Defined(evNeedMarkers)
    function pm_GetHasInner: Boolean; override;
-   function DoDiff(const aView: InevView;
-    const aPoint: InevBasePoint;
-    aMap: TnevFormatInfoPrim): Integer; override;
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+   function DoDiff(const aView: InevView;
+    const aPoint: InevBasePoint;
+    aMap: TnevFormatInfoPrim): Integer; override;
  end;//TevDocumentPartCursor
 {$IfEnd} // Defined(evUseVisibleCursors)
 

@@ -42,7 +42,6 @@ type
    procedure DoGetMarkers(const aView: InevView;
     const aList: IevMarkersList); override;
    {$IfEnd} // Defined(evNeedMarkers)
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }

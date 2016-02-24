@@ -14,10 +14,10 @@ uses
  , l3Interfaces
  , afwCustomCaretType
  , nevTools
- , Messages
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , Messages
  , nevBase
  , l3Core
  , evEditorWithOperations
@@ -54,13 +54,13 @@ type
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    f_TabState: TTabState;
   private
-   procedure WMKeyDown(var Msg: TWMKeyDown);
-   procedure WMKillFocus(var Msg: TWMKillFocus);
-   procedure WMChar(var Msg: TWMChar);
-   procedure WMSetFocus(var Msg: TWMSetFocus);
-   procedure CMCancelMode(var Msg: TCMCancelMode);
-   procedure WMLButtonDown(var Msg: TWMLButtonDown);
-   procedure WMRButtonDown(var Msg: TWMRButtonDown);
+   procedure WMKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
+   procedure WMKillFocus(var Msg: TWMKillFocus); message WM_KILLFOCUS;
+   procedure WMChar(var Msg: TWMChar); message WM_CHAR;
+   procedure WMSetFocus(var Msg: TWMSetFocus); message WM_SETFOCUS;
+   procedure CMCancelMode(var Msg: TCMCancelMode); message CM_CANCELMODE;
+   procedure WMLButtonDown(var Msg: TWMLButtonDown); message WM_LBUTTONDOWN;
+   procedure WMRButtonDown(var Msg: TWMRButtonDown); message WM_RBUTTONDOWN;
   protected
    function GetQueryDocumentContainer: InevQueryDocumentContainer;
    procedure DoEditorChangeState(CanSetFocus: Boolean);

@@ -42,10 +42,10 @@ type
    f_OnChooseItem: TChooseItem;
     {* Поле для свойства OnChooseItem }
   private
-   procedure WMExitSizeMove(var Message: TMessage);
-   procedure WMEnterSizeMove(var Message: TMessage);
-   procedure WMActivate(var Message: TWMActivate);
-   procedure WMLButtonDown(var Msg: TWMLButtonDown);
+   procedure WMExitSizeMove(var Message: TMessage); message WM_EXITSIZEMOVE;
+   procedure WMEnterSizeMove(var Message: TMessage); message WM_ENTERSIZEMOVE;
+   procedure WMActivate(var Message: TWMActivate); message WM_ACTIVATE;
+   procedure WMLButtonDown(var Msg: TWMLButtonDown); message WM_LBUTTONDOWN;
   protected
    function IsSizeableTree: Boolean; override;
    function IsShowGripper: Boolean; override;
