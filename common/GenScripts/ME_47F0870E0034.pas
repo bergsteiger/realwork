@@ -303,14 +303,14 @@ type
     const V: TnevValues;
     const anOpPack: InevOp); override;
    function GetSubCache: IevSubCache; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    function DoGetControlImg(const aControl: TnevControlInfo;
     var theImageInfo: TnevControlImageInfo): Boolean; override;
    procedure ClearFields; override;
   public
    class function Make: InevDocumentContainer; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property Loading: Boolean
     read f_Loading;

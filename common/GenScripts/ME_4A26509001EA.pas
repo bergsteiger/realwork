@@ -49,8 +49,8 @@ type
    f_PersistentSelection: Boolean;
     {* Поле для свойства PersistentSelection }
   private
-   procedure WMNCMouseLeave(var Msg: TMessage);
-   procedure WMNCMouseMove(var Msg: TWMNCMouseMove);
+   procedure WMNCMouseLeave(var Msg: TMessage); message WM_NCMouseLeave;
+   procedure WMNCMouseMove(var Msg: TWMNCMouseMove); message WM_NCMouseMove;
   protected
    procedure pm_SetActiveElement(const aValue: InevActiveElement);
    function pm_GetForceDrawFocusRect: Boolean; virtual;

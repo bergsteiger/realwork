@@ -55,11 +55,11 @@ type
  TevCustomEditorWindow = class(TevCustomEditorWindowPrim)
   {* Реализация базового оконного элемента для отображения содержимого документа }
   private
-   procedure WMEraseBkGnd(var Msg: TWMEraseBkGnd);
-   procedure WMPaint(var Msg: TWMPaint);
-   procedure WMGetDlgCode(var Msg: TWMGetDlgCode);
-   procedure WMChar(var Msg: TWMChar);
-   procedure WMKeyDown(var Msg: TWMKeyDown);
+   procedure WMEraseBkGnd(var Msg: TWMEraseBkGnd); message WM_ERASEBKGND;
+   procedure WMPaint(var Msg: TWMPaint); message WM_Paint;
+   procedure WMGetDlgCode(var Msg: TWMGetDlgCode); message WM_GETDLGCODE;
+   procedure WMChar(var Msg: TWMChar); message WM_CHAR;
+   procedure WMKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
   protected
    function pm_GetPlainText: Boolean; virtual;
    procedure pm_SetPlainText(aValue: Boolean); virtual;

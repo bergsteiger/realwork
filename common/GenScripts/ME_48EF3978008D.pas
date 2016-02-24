@@ -30,14 +30,14 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function DoQueryGetData(const aFormatEtc: TFormatEtc): HResult; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    constructor Create(const aBlock: IevdDataObject;
     const aFormats: Tl3ClipboardFormats;
     const aFilters: InevTagGenerator); reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   public
    property Block: IevdDataObject
     read f_Block;

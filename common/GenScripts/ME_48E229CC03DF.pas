@@ -114,6 +114,9 @@ type
    function CanDrag: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    constructor Create(const anOwner: Il3ToolOwner;
@@ -123,9 +126,6 @@ type
    procedure HitTest(const aView: InevControlView;
     const aState: TafwCursorState;
     var theInfo: TafwCursorInfo);
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property ForeignHotSpot: IevHotSpot
     read f_ForeignHotSpot;

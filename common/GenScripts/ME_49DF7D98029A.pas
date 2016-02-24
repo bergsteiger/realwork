@@ -108,12 +108,12 @@ type
    function DoDeleteChar(const aView: InevView;
     aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
-  public
-   procedure DoSetEntryPointPrim(Value: Integer;
-    const Context: IevCursorContext); override;
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }
+  public
+   procedure DoSetEntryPointPrim(Value: Integer;
+    const Context: IevCursorContext); override;
  end;//TevTextParaCursor
 {$IfEnd} // Defined(evUseVisibleCursors)
 

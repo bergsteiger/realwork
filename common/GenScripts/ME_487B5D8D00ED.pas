@@ -109,6 +109,9 @@ type
    function UpdateCursor(const aCursor: InevBasePoint): Boolean; override;
    function pm_GetCollapsed: Boolean; override;
    function IsBlockCursor(const aCursor: InevBasePoint): Boolean; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    function SetAtom(anIndex: Cardinal;
@@ -128,9 +131,6 @@ type
     const anOpPack: InevOp = nil): Boolean;
    procedure SetFocus; override;
     {* Окно получило фокус }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure ForceStore; override;
   public
    property NoCaret: Boolean

@@ -13,11 +13,11 @@ uses
  , evEditorWithOperations
  , l3Interfaces
  , l3Memory
- , l3Core
- , Messages
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
+ , l3Core
+ , Messages
  , nevBase
  , evCustomEditorModelPart
  , Classes
@@ -50,13 +50,13 @@ type
    f_NeedReplaceQuotes: Boolean;
     {* Поле для свойства NeedReplaceQuotes }
   private
-   procedure WMGetText(var Msg: TMessage);
-   procedure WMGetTextLength(var Msg: TMessage);
-   procedure WMSetText(var Msg: TMessage);
-   procedure CMFONTCHANGED(var Msg: TMessage);
-   procedure WMKeyDown(var Msg: TWMKeyDown);
-   procedure CMEnter(var Message: TCMEnter);
-   procedure CMExit(var Message: TCMExit);
+   procedure WMGetText(var Msg: TMessage); message WM_GetText;
+   procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
+   procedure WMSetText(var Msg: TMessage); message WM_SetText;
+   procedure CMFONTCHANGED(var Msg: TMessage); message CM_FONTCHANGED;
+   procedure WMKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
+   procedure CMEnter(var Message: TCMEnter); message CM_ENTER;
+   procedure CMExit(var Message: TCMExit); message CM_EXIT;
   protected
    procedure pm_SetNeedDefaultPopupMenu(aValue: Boolean);
    function pm_GetTextLen: Integer;

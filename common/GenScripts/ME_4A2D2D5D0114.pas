@@ -49,6 +49,9 @@ type
    function DoDeleteChar(const aView: InevView;
     aDrawLines: Boolean;
     const anOp: InevOp): Boolean; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure DoRefreshBorders; override;
    function IsCollapsed(const aView: InevView): Boolean; override;
    function TagReader: InevTagReader; override;
@@ -63,9 +66,6 @@ type
     aNeedProgress: Boolean): Boolean; override;
    procedure DoForceStore; override;
   public
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure DoInit(const aStart: InevBasePoint;
     const aFinish: InevBasePoint;
     aSharp: Boolean); override;

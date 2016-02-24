@@ -25,7 +25,6 @@ type
     aLevelTag: Integer;
     aIndent: Integer);
     {* Сохраняет ноду дерева в G }
-  public
    function COMQueryInterface(const IID: Tl3GUID;
     out Obj): Tl3HResult; override;
     {* Реализация запроса интерфейса }

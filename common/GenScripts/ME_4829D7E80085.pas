@@ -14,6 +14,9 @@ uses
  , Classes
  , l3InternalInterfaces
  , l3Region
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , evDef
 ;

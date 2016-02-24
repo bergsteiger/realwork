@@ -73,6 +73,9 @@
    function GetRange: InevRange; override;
    function GetAsPoint: InevBasePoint; override;
    function GetCanBeDeleted: Boolean; override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure DoForceStore; override;
   public
    procedure DoSetEntryPointPrim(Value: Integer;
@@ -104,9 +107,6 @@
    procedure EnableListener;
     {* Включает нотификацию об изменении }
    class function StoreToOldCache: Boolean; override;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    procedure Assign(Source: Tk2ToolPrim); override;
   protected
    property AsLeaf: InevLeafPoint

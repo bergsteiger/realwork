@@ -18,7 +18,7 @@ type
  TevTunedEditor = class(TevEditorWithOperations)
   {* Промежуточный класс для реализации полноценного редактора (но без published-свойств). }
   private
-   procedure WMKeyDown(var Msg: TWMKeyDown);
+   procedure WMKeyDown(var Msg: TWMKeyDown); message WM_KEYDOWN;
   public
    function Tabulate: Boolean; override;
     {* эквивалетно нажатию Tab. }

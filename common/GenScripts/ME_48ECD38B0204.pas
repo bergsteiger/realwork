@@ -64,6 +64,9 @@ type
     {* Обновляет границы блока. http://mdp.garant.ru/pages/viewpage.action?pageId=409750147 }
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(aTagWrap: Tl3Variant;
     aBlocks: TnevRangeList); reintroduce;
@@ -86,9 +89,6 @@ type
     out cFFinish: InevBasePoint): Boolean;
     {* ищет в выделении критерий ОnSearch
              и возвращает начало и конец найденного фрагмента в (cFStart, cFFinish). }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property Blocks: TnevRangeList
     read f_Blocks;

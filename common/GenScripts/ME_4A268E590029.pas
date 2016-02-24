@@ -101,6 +101,9 @@ type
    procedure DoHitTest(const aView: InevControlView;
     const aState: TafwCursorState;
     var theInfo: TafwCursorInfo); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aDownPoint: InevBasePoint;
     aTarget: Tl3Variant;
@@ -111,9 +114,6 @@ type
     aLayerHandle: Integer;
     const aProcessor: InevProcessor): IevHotSpot; reintroduce;
     {* Сознаёт горячую точку для сегмента }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TevSegmentHotSpot
 {$IfEnd} // Defined(evNeedHotSpot)
 

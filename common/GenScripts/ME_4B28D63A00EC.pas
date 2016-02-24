@@ -39,7 +39,7 @@ type
   protected
    f_LockForceRepaint: Integer;
   private
-   procedure WMMOUSEACTIVATE(var aMsg: TWMMouseActivate);
+   procedure WMMOUSEACTIVATE(var aMsg: TWMMouseActivate); message WM_MOUSEACTIVATE;
   protected
    procedure pm_SetZoom(aValue: Integer);
    function GetDocumentPartByPoint(const aPoint: InevBasePoint): IevDocumentPart; virtual;

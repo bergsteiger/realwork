@@ -63,6 +63,9 @@ type
    procedure DoHitTest(const aView: InevControlView;
     const aState: TafwCursorState;
     var theInfo: TafwCursorInfo); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    function DoGetAdvancedHotSpot(const aView: InevControlView;
     const aState: TevCursorState;
     const aPt: InevBasePoint;
@@ -75,9 +78,6 @@ type
     anAction: TevMouseAction;
     const Keys: TevMouseState;
     var Effect: TevMouseEffect): Boolean; virtual;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property Area: TevObjectArea
     read f_Area;
