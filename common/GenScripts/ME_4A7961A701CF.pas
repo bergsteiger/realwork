@@ -108,10 +108,10 @@ type
    f_FixW2kWMSize: Boolean;
     {* Поле для свойства FixW2kWMSize }
   private
-   procedure CMTextChanged(var Message: TMessage);
-   procedure WMSize(var Message: TWMSize);
-   procedure WMWindowPosChanged(var Message: TWMWindowPosChanged);
-   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd);
+   procedure CMTextChanged(var Message: TMessage); message CM_TEXTCHANGED;
+   procedure WMSize(var Message: TWMSize); message WM_SIZE;
+   procedure WMWindowPosChanged(var Message: TWMWindowPosChanged); message WM_WINDOWPOSCHANGED;
+   procedure WMEraseBkgnd(var Message: TWMEraseBkgnd); message WM_ERASEBKGND;
   protected
    {$If NOT Defined(Delphi7)}
    procedure Resize; virtual;
