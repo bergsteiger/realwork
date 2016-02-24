@@ -119,7 +119,7 @@ type
   private
    procedure AfterSearcherSet;
    function MainMenuLikeBaseSearch: Boolean;
-   procedure CMVisibleChanged(var Msg: TMessage);
+   procedure CMVisibleChanged(var Msg: TMessage); message CM_VISIBLECHANGED;
   protected
    function pm_GetContextEdit: TnscTreeComboWithHistoryAndOperations;
    procedure pm_SetFindBtnEnabled(aValue: Boolean); virtual; abstract;
