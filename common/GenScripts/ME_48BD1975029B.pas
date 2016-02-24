@@ -75,11 +75,11 @@ type
    f_Canvas: Tl3WinControlCanvas;
   private
    procedure RevokeDragDrop;
-   procedure WMDestroy(var Message: TWMDestroy);
-   procedure CMCOLORCHANGED(var Msg: TMessage);
-   procedure CMCtl3DChanged(var Message: TMessage);
-   procedure WMSetFocus(var Msg: TWMSetFocus);
-   procedure WMKillFocus(var Msg: TWMKillFocus);
+   procedure WMDestroy(var Message: TWMDestroy); message WM_DESTROY;
+   procedure CMCOLORCHANGED(var Msg: TMessage); message CM_COLORCHANGED;
+   procedure CMCtl3DChanged(var Message: TMessage); message CM_CTL3DCHANGED;
+   procedure WMSetFocus(var Msg: TWMSetFocus); message WM_SETFOCUS;
+   procedure WMKillFocus(var Msg: TWMKillFocus); message WM_KILLFOCUS;
   protected
    function pm_GetCanvas: Tl3WinControlCanvas;
    procedure pm_SetCanvas(aValue: Tl3WinControlCanvas);

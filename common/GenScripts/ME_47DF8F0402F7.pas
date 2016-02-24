@@ -90,14 +90,14 @@ type
    function pm_GetPagesInfo: TafwPagesInfo;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
   public
    constructor Create(const aDocument: IafwDocumentPreview;
     const anInfo: IafwDocumentPreview); reintroduce;
    class function Make(const aDocument: IafwDocumentPreview;
     const anInfo: IafwDocumentPreview = nil): IafwComplexDocumentPreview; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TafwComplexDocumentPreview
 
 implementation

@@ -21,9 +21,9 @@ type
    f_CCaption: IafwCString;
     {* Поле для свойства CCaption }
   private
-   procedure WMGetText(var Msg: TMessage);
-   procedure WMGetTextLength(var Msg: TMessage);
-   procedure WMSetText(var Msg: TMessage);
+   procedure WMGetText(var Msg: TMessage); message WM_GetText;
+   procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
+   procedure WMSetText(var Msg: TMessage); message WM_SetText;
   protected
    procedure pm_SetCCaption(const aValue: IafwCString); virtual;
    function pm_GetCaption: Tl3DString;

@@ -63,6 +63,9 @@
     aLoadedOnly: Boolean): Integer; override;
    procedure DoIterateProperties(Action: Ml3TagHolder_IterateProperties_Action;
     All: Boolean); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    function DeleteChildPrim(anIndex: Integer;
     aChild: Tl3Variant;
     const aContext: Il3OpPack): Boolean; override;
@@ -128,9 +131,6 @@
     theIndex: PLongint): Tl3Variant; override;
    procedure DeleteChildren(const Context: Il3OpPack); override;
     {* удалить всех детей. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
    function CompareWithInt(aValue: Integer;
     anIndex: Integer): Integer; override;
     {* Сравнивает тег с целым. }

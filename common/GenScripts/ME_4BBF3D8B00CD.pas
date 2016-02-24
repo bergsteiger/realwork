@@ -31,15 +31,15 @@ type
     {* Функция очистки полей объекта. }
    procedure DoFire(const anEvent: Tk2Event;
     const anOp: Ik2Op); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    procedure ClearFields; override;
   public
    constructor Create(aTag: Tl3Variant;
     const aProcessor: Ik2Processor); reintroduce;
    class function Make(aTag: Tl3Variant;
     const aProcessor: Ik2Processor): Ik2TagTool; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
   protected
    property Processor: Ik2Processor
     read pm_GetProcessor;

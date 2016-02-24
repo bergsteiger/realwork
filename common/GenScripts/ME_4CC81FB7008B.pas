@@ -12,7 +12,7 @@
   private
    procedure UpdateRegion;
    procedure ClearRegion;
-   procedure CMVisibleChanged(var Message: TMessage);
+   procedure CMVisibleChanged(var Message: TMessage); message CM_VISIBLECHANGED;
   protected
    procedure TuneRegion(aRegion: Tl3Region); virtual;
    procedure Cleanup; override;
