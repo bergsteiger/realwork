@@ -69,7 +69,7 @@ const
  DefProtectBack = clRed;
  DefProtectText = clWhite;
  DefRowHeight = 16;
- DefScrollBars = ssVertical;
+ DefScrollBars = StdCtrls.ssVertical;
  DefSelectBack = clHighlight;
  DefSelectNFBack = clBtnFace;
  DefSelectText = clHighlightText;
