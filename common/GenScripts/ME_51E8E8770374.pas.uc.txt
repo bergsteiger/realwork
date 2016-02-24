@@ -48,7 +48,7 @@
  for i := 0 to GetParagraphsCount - 1 do
  begin
   l_Para := Paragraph[i];
-  l_Para.Write2Generator(aGenerator, True, dd_lvStyleOnly); // Грохаем все стили у сносок: http://mdp.garant.ru/pages/viewpage.action?pageId=596626773
+  l_Para.Write2Generator(aGenerator, True, True); // Грохаем все стили у сносок: http://mdp.garant.ru/pages/viewpage.action?pageId=596626773
  end; { for Paragraphs.Count }
 //#UC END# *51E8D04603DF_51E8E8770374_impl*
 //#UC START# *51E8D04603DF_51E8E8770374_var*
@@ -78,7 +78,7 @@ var
 //#UC START# *5526883F0018_51E8E8770374_impl*
  if (f_PrevNumber = f_CustomRTFReader.NextFootnoteNumber) then Exit;
  if f_ParaID = -1 then
-  AddTextPara2Document;
+  AddTextPara(False, 1);
  l_Atom := Paragraph[f_ParaID];
  if l_Atom.IsTextPara then
   l_Para := TddTextParagraph(l_Atom)
