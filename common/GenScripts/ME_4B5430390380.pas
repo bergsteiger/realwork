@@ -85,7 +85,7 @@ type
    procedure CheckFields;
    procedure InitUserFields;
    procedure Save;
-   procedure CMDialogKey(var Message: TCMDialogKey);
+   procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }

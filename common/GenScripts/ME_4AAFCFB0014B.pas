@@ -27,6 +27,9 @@ uses
  {$If NOT Defined(NoImageEn)}
  , imageenproc
  {$IfEnd} // NOT Defined(NoImageEn)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  {$If NOT Defined(NoVCM)}
  , vcmInterfaces
@@ -119,7 +122,7 @@ type
    f_Info: InsLinkedObjectDescription;
    f_ValueMap: InsSpecialStringValueMap;
   private
-   procedure AfterInit(var Message: TMessage);
+   procedure AfterInit(var Message: TMessage); message CM_AFTER_INIT;
   protected
    function Get_Scale: Integer;
    procedure Set_Scale(aValue: Integer);
@@ -187,9 +190,6 @@ uses
  , Windows
  , l3ValueMap
  , nsTypes
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , afwFacade
  , nsTrialSupport
  {$If NOT Defined(NoVCL)}

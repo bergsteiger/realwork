@@ -45,7 +45,7 @@ type
    function GetStyleIdFromTreeByIndex(aIndex: Integer): Integer;
    procedure SendToAggregateSetNewContentNotify(aStyleId: Integer);
    function GetStyleIdFromNode(const aNode: IeeNode): Integer;
-   procedure WMAfterInsert(var aMsg: TMessage);
+   procedure WMAfterInsert(var aMsg: TMessage); message WM_AFTERINSERT;
   protected
    procedure InitFields; override;
    {$If NOT Defined(NoVCM)}

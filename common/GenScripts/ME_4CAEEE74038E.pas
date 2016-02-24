@@ -39,13 +39,13 @@ type
     {* Функция очистки полей объекта. }
    function GetAsPCharLen: Tl3WString; override;
    procedure DoSetAsPCharLen(const Value: Tl3PCharLen); override;
+   function COMQueryInterface(const IID: Tl3GUID;
+    out Obj): Tl3HResult; override;
+    {* Реализация запроса интерфейса }
    function GetIsSame(const aNode: Il3SimpleNode): Boolean; override;
   public
    constructor Create(const aFilter: IFilterFromQuery); reintroduce;
    class function Make(const aFilter: IFilterFromQuery): Il3Node; reintroduce;
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
  end;//TnsFiltersNode
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

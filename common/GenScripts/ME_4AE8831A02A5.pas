@@ -28,6 +28,9 @@ uses
  {$IfEnd} // Defined(Nemesis)
  , vtProportionalPanel
  , vtSizeablePanel
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
  , Messages
  , SearchUnit
  {$If NOT Defined(NoVCM)}
@@ -72,7 +75,7 @@ type
   private
    procedure ContextFilterChange(Sender: TObject);
    procedure ContextFilterWrongContext(Sender: TObject);
-   procedure AfterInit(var Message: TMessage);
+   procedure AfterInit(var Message: TMessage); message CM_AFTER_INIT;
   protected
    function FillQuery: IQuery;
    procedure Cleanup; override;
@@ -124,9 +127,6 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , SysUtils
  , Windows
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  {$If NOT Defined(NoVCM)}
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)

@@ -115,7 +115,7 @@ type
    procedure OpenDocument(aDocID: Integer;
     aPosID: Integer;
     aOpenKind: TvcmMainFormOpenKind);
-   procedure WMSetFocus(var Msg: TWMSetFocus);
+   procedure WMSetFocus(var Msg: TWMSetFocus); message WM_SETFOCUS;
   protected
    function pm_GetDocument: IDocument;
    function pm_GetFlash: TvtShockwaveFlashEx;

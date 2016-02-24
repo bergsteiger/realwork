@@ -83,7 +83,7 @@ type
    procedure rbD1OnlyClick(Sender: TObject);
    procedure ChangeSelection(aControl: TWinControl;
     aForward: Boolean);
-   procedure CMDialogKey(var Message: TCMDialogKey);
+   procedure CMDialogKey(var Message: TCMDialogKey); message CM_DIALOGKEY;
   protected
    procedure pm_SetTypeDate(aValue: TTypeDate); virtual;
    function Save: Boolean;
