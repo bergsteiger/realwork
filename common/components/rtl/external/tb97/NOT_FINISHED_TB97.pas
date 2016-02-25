@@ -1,69 +1,47 @@
 unit NOT_FINISHED_TB97;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "tb97"
-// Модуль: "w:/common/components/rtl/external/tb97/NOT_FINISHED_TB97.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::tb97::tb97utils::TB97
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\tb97\NOT_FINISHED_TB97.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\tb97\TB97VER.INC}
+{$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 
 interface
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  tb97Control
-  ;
+ l3IntfUses
+ , tb97Control
+;
 
 type
  TCustomToolWindow97 = class(Ttb97Control)
- protected
- // protected methods
+  protected
    procedure UpdateEmpty(aUpdateVisibility: Boolean = True); virtual;
    function NeedActivateMainForm: Boolean; virtual;
    procedure ActivateMainForm; virtual;
-     {* Сигнатура метода ActivateMainForm }
- public
- // public methods
+  public
    procedure BeginUpdate; virtual;
-     {* Сигнатура метода BeginUpdate }
    procedure EndUpdate; virtual;
-     {* Сигнатура метода EndUpdate }
  end;//TCustomToolWindow97
 
  TDock97 = class(Ttb97Control)
- protected
- // protected methods
+  protected
    function SizeGripWidth: Integer; virtual;
  end;//TDock97
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 implementation
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TCustomToolWindow97
+ l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TCustomToolWindow97.UpdateEmpty(aUpdateVisibility: Boolean = True);
 //#UC START# *5028A1220383_50288A3D023C_var*
@@ -109,7 +87,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *552E10010067_50288A3D023C_impl*
 end;//TCustomToolWindow97.ActivateMainForm
-// start class TDock97
 
 function TDock97.SizeGripWidth: Integer;
 //#UC START# *5028DD25024B_5028DD12007F_var*
@@ -119,16 +96,16 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5028DD25024B_5028DD12007F_impl*
 end;//TDock97.SizeGripWidth
-{$IfEnd} //not NoTB97
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TCustomToolWindow97
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomToolWindow97);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TDock97
+ {* Регистрация TCustomToolWindow97 }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDock97);
-{$IfEnd} //not NoScripts AND not NoTB97
+ {* Регистрация TDock97 }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
 end.

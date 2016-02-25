@@ -1,57 +1,38 @@
 unit NOT_FINISHED_vgAnimation;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/NOT_FINISHED_vgAnimation.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Impl::TvgAnimation
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgAnimation.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgObject
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgObject
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgAnimation = class(TvgObject)
  end;//TvgAnimation
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVGScene
-
-{$If not defined(NoVGScene)}
-
-
-{$IfEnd} //not NoVGScene
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgAnimation
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgAnimation);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvgAnimation }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

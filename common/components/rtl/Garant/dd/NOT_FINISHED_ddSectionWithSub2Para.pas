@@ -1,27 +1,24 @@
 unit NOT_FINISHED_ddSectionWithSub2Para;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddSectionWithSub2Para.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::Filters::ddSectionWithSub2Para
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddSectionWithSub2Para.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TddSectionWithSub2ParaFilter = class
  end;//TddSectionWithSub2ParaFilter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

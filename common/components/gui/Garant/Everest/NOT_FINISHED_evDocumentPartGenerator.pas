@@ -1,55 +1,41 @@
 unit NOT_FINISHED_evDocumentPartGenerator;
+ {* Реализация генератора для вставки текста в то место куда указывает курсор. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evDocumentPartGenerator.pas"
-// Начат: 09.02.1999 17:29
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevDocumentPartGenerator
-//
-// Реализация генератора для вставки текста в то место куда указывает курсор.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evDocumentPartGenerator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  evDocumentPartGeneratorPrim,
-  l3Variant
-  ;
+ l3IntfUses
+ , evDocumentPartGeneratorPrim
+ , l3Variant
+ , nevTools
+;
 
 type
  TevDocumentPartGenerator = class(TevDocumentPartGeneratorPrim)
   {* Реализация генератора для вставки текста в то место куда указывает курсор. }
- protected
- // realized methods
-   procedure AtEndChanged; override;
- protected
- // protected methods
+  protected
    procedure SetInsertionPoint(const aPoint: InevBasePoint;
-     aPID: Integer); virtual;
+    aPID: Integer); virtual;
    procedure InsertPara(aChild: Tl3Variant); virtual;
    procedure StartInsertion; virtual;
    procedure FinishInsertion; virtual;
    function InsertTable(aChild: Tl3Variant): Boolean; virtual;
+   procedure AtEndChanged; override;
  end;//TevDocumentPartGenerator
 
 implementation
 
-// start class TevDocumentPartGenerator
+uses
+ l3ImplUses
+;
 
 procedure TevDocumentPartGenerator.SetInsertionPoint(const aPoint: InevBasePoint;
-  aPID: Integer);
+ aPID: Integer);
 //#UC START# *4D9359AA01A2_48030DE6002F_var*
 //#UC END# *4D9359AA01A2_48030DE6002F_var*
 begin

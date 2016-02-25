@@ -1,26 +1,16 @@
 unit NOT_FINISHED_evExcept;
+ {* описание исключительных ситуаций }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evExcept.pas"
-// Начат: 03.06.97 17:37
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::Everest::evExcept
-//
-// описание исключительных ситуаций
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evExcept.pas"
+// Стереотип: "Interfaces"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  EevLimitReached = class
@@ -45,5 +35,9 @@ type
  end;//EevTooLargeColumnWidth
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

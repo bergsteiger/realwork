@@ -1,31 +1,25 @@
 unit NOT_FINISHED_evEvdRd;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evEvdRd.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Readers::evEvdRd
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evEvdRd.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdNativeReader
-  ;
+ l3IntfUses
+ , evdNativeReader
+;
 
 type
  TevCustomEvdReader = class(TevdNativeReader)
  end;//TevCustomEvdReader
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

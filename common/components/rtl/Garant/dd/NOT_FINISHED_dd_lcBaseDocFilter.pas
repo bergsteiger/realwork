@@ -1,31 +1,25 @@
 unit NOT_FINISHED_dd_lcBaseDocFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcBaseDocFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcBaseDocFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcBaseDocFilter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddDocumentFilter
-  ;
+ l3IntfUses
+ , ddDocumentFilter
+;
 
 type
  Tdd_lcBaseDocFilter = class(TddDocumentFilter)
  end;//Tdd_lcBaseDocFilter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

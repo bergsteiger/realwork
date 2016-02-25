@@ -15,18 +15,18 @@ uses
 
 const
  {* Алиасы для значений evdDTTypes.TepDivideBy }
- divNone = evdDTTypes.divNone;
- divTopic = evdDTTypes.divTopic;
- divAccRight = evdDTTypes.divAccRight;
- divSize = evdDTTypes.divSize;
+ divNone = divNone;
+ divTopic = divTopic;
+ divAccRight = divAccRight;
+ divSize = divSize;
  {* Алиасы для значений evdDTTypes.TepSupportFileType }
- outEVD = evdDTTypes.outEVD;
- outEVDtext = evdDTTypes.outEVDtext;
- outTXT = evdDTTypes.outTXT;
- outNSRC = evdDTTypes.outNSRC;
- outRTF = evdDTTypes.outRTF;
- outHTML = evdDTTypes.outHTML;
- outXML = evdDTTypes.outXML;
+ outEVD = outEVD;
+ outEVDtext = outEVDtext;
+ outTXT = outTXT;
+ outNSRC = outNSRC;
+ outRTF = outRTF;
+ outHTML = outHTML;
+ outXML = outXML;
 
 type
  TDictID = LongWord;

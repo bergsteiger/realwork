@@ -1,28 +1,17 @@
 unit NOT_FINISHED_dd_lcTextStyleCorrector;
+ {* Преобразование стилей и замена опечаток }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcTextStyleCorrector.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcTextStyleCorrector
-//
-// Преобразование стилей и замена опечаток
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTextStyleCorrector.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  dd_lcTextFormatter2
-  ;
+ l3IntfUses
+ , dd_lcTextFormatter2
+;
 
 type
  Tdd_lcTextStyleCorrector = class(Tdd_lcBaseFormatter)
@@ -30,5 +19,9 @@ type
  end;//Tdd_lcTextStyleCorrector
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

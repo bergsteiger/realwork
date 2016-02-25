@@ -1,57 +1,38 @@
 unit NOT_FINISHED_vcmOperationParams;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Components/NOT_FINISHED_vcmOperationParams.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Components::TvcmOperationParams
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Components\NOT_FINISHED_vcmOperationParams.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmBaseCollectionItem
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmBaseCollectionItem
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmOperationParams = class(TvcmBaseCollectionItem)
  end;//TvcmOperationParams
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmOperationParams
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmOperationParams);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmOperationParams }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

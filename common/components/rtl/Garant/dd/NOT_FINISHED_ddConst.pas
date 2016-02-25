@@ -1,27 +1,23 @@
 unit NOT_FINISHED_ddConst;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddConst.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::dd::ddConst
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddConst.pas"
+// Стереотип: "Interfaces"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  { PictureFormat }
  pictNONE = ioUnknown;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

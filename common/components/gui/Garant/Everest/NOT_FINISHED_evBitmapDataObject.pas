@@ -1,27 +1,24 @@
 unit NOT_FINISHED_evBitmapDataObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evBitmapDataObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Printing::TevBitmapDataObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evBitmapDataObject.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TevBitmapDataObject = class
  end;//TevBitmapDataObject
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

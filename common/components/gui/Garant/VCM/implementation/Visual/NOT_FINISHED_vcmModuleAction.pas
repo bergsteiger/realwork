@@ -1,29 +1,28 @@
 unit NOT_FINISHED_vcmModuleAction;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/NOT_FINISHED_vcmModuleAction.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Actions::TvcmModuleAction
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmModuleAction.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
+uses
+ l3IntfUses
+;
+
 type
  TvcmModuleAction = class
  end;//TvcmModuleAction
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,32 +1,21 @@
 unit NOT_FINISHED_nevScroller;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/NOT_FINISHED_nevScroller.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevScroller
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevScroller.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  nevViewControl
-  ;
+ l3IntfUses
+ , nevViewControl
+ , nevTools
+;
 
 type
  TnevScroller = class(TnevViewControl, InevScroller)
- protected
- // realized methods
+  protected
    procedure Top;
    procedure Bottom;
    procedure PageUp;
@@ -45,7 +34,9 @@ type
 
 implementation
 
-// start class TnevScroller
+uses
+ l3ImplUses
+;
 
 procedure TnevScroller.Top;
 //#UC START# *47C5C2E003A5_4DAEAF42022E_var*

@@ -1,22 +1,15 @@
 unit NOT_FINISHED_SynCrypto;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SynPDF"
-// Модуль: "w:/common/components/rtl/external/SynPDF/NOT_FINISHED_SynCrypto.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::SynPDF::SynPDF::SynCrypto
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynCrypto.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\SynPDF\Synopse.inc}
+{$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TRC4InternalKey = ;
@@ -24,5 +17,9 @@ type
  TMD5Digest = ;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

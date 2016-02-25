@@ -1,31 +1,24 @@
 unit NOT_FINISHED_ddZipUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddZipUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::Misc::ddZipUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddZipUtils.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 procedure ZipFiles;
-   {* Сигнатура метода ZipFiles }
 procedure UnZipFiles;
-   {* Сигнатура метода UnZipFiles }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure ZipFiles;
 //#UC START# *5279FD970204_5279FD7E02F7_var*

@@ -1,38 +1,25 @@
 unit NOT_FINISHED_evSubImplementation;
+ {* Реализация интерфейсов IevSub, IevDocumentPart и IevDocument. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/NOT_FINISHED_evSubImplementation.pas"
-// Начат: 25.10.1999 12:24
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::DocumentContainers::evSubImplementation
-//
-// Реализация интерфейсов IevSub, IevDocumentPart и IevDocument.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evSubImplementation.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  nevBase,
-  k2ProcTagTool,
-  nevTools,
-  l3Variant,
-  l3Interfaces,
-  k2BaseTypes,
-  l3Types,
-  evdTypes
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , nevTools
+ , l3Variant
+ , evdTypes
+ , l3Interfaces
+ , k2BaseTypes
+ , l3Types
+ , k2ProcTagTool
+ , nevBase
+;
 
 type
  TevDocumentImplementation = class
@@ -44,19 +31,18 @@ type
  _k2TagBox_Parent_ = _k2TagHolder_;
  {$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
  TevDocumentPartImplementation = class(_k2TagBox_, IevSub, IevDocumentPart, IevDocumentPoint)
- protected
- // realized methods
+  protected
    procedure SetTo(EntryPoint: Tl3Variant);
-     {* устанавливает метку в EntryPoint. }
-   function Select(const Selection: InevSelection): Boolean;
-     {* перемещает Selection на данную метку. }
+    {* устанавливает метку в EntryPoint. }
+   function Select(const Selection: InevSelection): Boolean; overload;
+    {* перемещает Selection на данную метку. }
    function Delete(const aView: InevView): Boolean;
-     {* удаляет метку. }
+    {* удаляет метку. }
    function IsInIndex: Boolean;
    function Exists: Boolean;
-     {* проверяет существует ли такая метка. }
+    {* проверяет существует ли такая метка. }
    function SubInstance: Tl3Variant;
-     {* собственно Sub. }
+    {* собственно Sub. }
    function pm_GetSubPlace: TevSubPlace;
    function pm_GetName: Tl3WString;
    procedure pm_SetName(const aValue: Tl3WString);
@@ -73,7 +59,7 @@ type
    function pm_GetPara: Tl3Variant;
    function pm_GetDocument: IevDocument;
    function Merge: Boolean;
-     {* объединяет блок со следующим. }
+    {* объединяет блок со следующим. }
    function pm_GetExternalHandle: Integer;
    procedure pm_SetExternalHandle(aValue: Integer);
    function pm_GetObjType: Integer;
@@ -82,29 +68,29 @@ type
    function pm_GetParentDocumentPart: IevDocumentPart;
    function pm_GetContentsRec: TevContentsRec;
    procedure pm_SetContentsRec(const aValue: TevContentsRec);
-   function Select(const Selection: InevSelection): Boolean;
-     {* перемещает Selection на данную метку. }
+   function Select(const Selection: InevSelection): Boolean; overload;
+    {* перемещает Selection на данную метку. }
    function Get_Obj: PInevObject;
    function IsVisibleOnSubPanel: Boolean;
    function GetViewKind: TevBlockViewKind;
  end;//TevDocumentPartImplementation
 
  TevSubImplementation = class(Tk2ProcTagTool)
- protected
- // protected methods
+  protected
    function DoGetFlags(aTag: Tl3Variant;
-     aFlag: LongInt): LongInt; virtual;
+    aFlag: LongInt): LongInt; virtual;
  end;//TevSubImplementation
 
 implementation
 
 uses
-  SysUtils,
-  k2NullTagImpl,
-  k2Tags,
-  k2Base,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , SysUtils
+ , k2NullTagImpl
+ , k2Tags
+ , k2Base
+ , k2InterfaceFactory
+;
 
 {$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
 
@@ -112,9 +98,8 @@ type _Instance_R_ = TevDocumentPartImplementation;
 
 {$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
 
-// start class TevDocumentPartImplementation
-
 procedure TevDocumentPartImplementation.SetTo(EntryPoint: Tl3Variant);
+ {* устанавливает метку в EntryPoint. }
 //#UC START# *47C6BB0B03A1_4A573E210187_var*
 //#UC END# *47C6BB0B03A1_4A573E210187_var*
 begin
@@ -124,6 +109,7 @@ begin
 end;//TevDocumentPartImplementation.SetTo
 
 function TevDocumentPartImplementation.Select(const Selection: InevSelection): Boolean;
+ {* перемещает Selection на данную метку. }
 //#UC START# *47C6BB2001BC_4A573E210187_var*
 //#UC END# *47C6BB2001BC_4A573E210187_var*
 begin
@@ -133,6 +119,7 @@ begin
 end;//TevDocumentPartImplementation.Select
 
 function TevDocumentPartImplementation.Delete(const aView: InevView): Boolean;
+ {* удаляет метку. }
 //#UC START# *47C6BB3401C6_4A573E210187_var*
 //#UC END# *47C6BB3401C6_4A573E210187_var*
 begin
@@ -151,6 +138,7 @@ begin
 end;//TevDocumentPartImplementation.IsInIndex
 
 function TevDocumentPartImplementation.Exists: Boolean;
+ {* проверяет существует ли такая метка. }
 //#UC START# *47C6BB4C01C4_4A573E210187_var*
 //#UC END# *47C6BB4C01C4_4A573E210187_var*
 begin
@@ -160,6 +148,7 @@ begin
 end;//TevDocumentPartImplementation.Exists
 
 function TevDocumentPartImplementation.SubInstance: Tl3Variant;
+ {* собственно Sub. }
 //#UC START# *47C6BB750290_4A573E210187_var*
 //#UC END# *47C6BB750290_4A573E210187_var*
 begin
@@ -304,6 +293,7 @@ begin
 end;//TevDocumentPartImplementation.pm_GetDocument
 
 function TevDocumentPartImplementation.Merge: Boolean;
+ {* объединяет блок со следующим. }
 //#UC START# *47C6BCEE0369_4A573E210187_var*
 //#UC END# *47C6BCEE0369_4A573E210187_var*
 begin
@@ -385,6 +375,7 @@ begin
 end;//TevDocumentPartImplementation.pm_SetContentsRec
 
 function TevDocumentPartImplementation.Select(const Selection: InevSelection): Boolean;
+ {* перемещает Selection на данную метку. }
 //#UC START# *47C7DE650012_4A573E210187_var*
 //#UC END# *47C7DE650012_4A573E210187_var*
 begin
@@ -419,10 +410,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5278BA5C0245_4A573E210187_impl*
 end;//TevDocumentPartImplementation.GetViewKind
-// start class TevSubImplementation
 
 function TevSubImplementation.DoGetFlags(aTag: Tl3Variant;
-  aFlag: LongInt): LongInt;
+ aFlag: LongInt): LongInt;
 //#UC START# *535F5A7D00BB_4C9B0A3D0184_var*
 //#UC END# *535F5A7D00BB_4C9B0A3D0184_var*
 begin

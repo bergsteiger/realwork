@@ -1,33 +1,25 @@
 unit NOT_FINISHED_evTxtReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evTxtReader.pas"
-// Начат: 05.10.1999 17:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Readers::TevTxtReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTxtReader.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evTextParser
-  ;
+ l3IntfUses
+ , evTextParser
+;
 
 type
  TevTxtReader = class(TevTextParser)
  end;//TevTxtReader
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

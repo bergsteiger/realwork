@@ -1,34 +1,20 @@
 unit NOT_FINISHED_evButton;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest$Visual"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evButton.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest$Visual::Buttons::TevButton
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evButton.pas"
+// Стереотип: "GuiControl"
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoTB97)}
-  ,
-  tb97Ctls
-  {$IfEnd} //not NoTB97
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoTB97)}
+ , tb97Ctls
+ {$IfEnd} // NOT Defined(NoTB97)
+;
 
 type
  TevCustomButton = class(TCustomToolbarButton97)
- protected
- // protected methods
+  protected
    function HackCheck: Boolean; virtual;
  end;//TevCustomButton
 
@@ -41,15 +27,11 @@ type
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevCustomButton
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TevCustomButton.HackCheck: Boolean;
 //#UC START# *52A08AF5004B_52A085CE03AC_var*
@@ -61,13 +43,13 @@ begin
 end;//TevCustomButton.HackCheck
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevCustomButton
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomButton);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TevButton
+ {* Регистрация TevCustomButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevButton);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevButton }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

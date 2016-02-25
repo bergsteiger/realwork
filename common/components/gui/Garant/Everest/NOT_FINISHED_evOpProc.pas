@@ -1,41 +1,28 @@
 unit NOT_FINISHED_evOpProc;
+ {* Обработчики операций. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evOpProc.pas"
-// Начат: 07.10.1997 15:22
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Processors::evOpProc
-//
-// Обработчики операций.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evOpProc.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  nevBase,
-  l3_Base,
-  nevTools,
-  l3Variant,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3_Base
+ , nevTools
+ , l3Variant
+ , nevBase
+ , l3Types
+ , l3Interfaces
+;
 
 type
  TevCustomProcessor = class(Tl3_Base, InevDocumentLimits, InevDocumentInfo)
   {* Обработчик операций. }
- protected
- // realized methods
+  protected
+   procedure BeepOnParaLimit; virtual;
    function pm_GetBruttoCharLimit: Integer;
    procedure pm_SetBruttoCharLimit(aValue: Integer);
    function pm_GetTextParaLimit: Integer;
@@ -45,44 +32,51 @@ type
    function pm_GetBruttoCharCount: Integer;
    function pm_GetNettoCharCount: Integer;
    function pm_GetBitmapParaCount: Integer;
- protected
- // protected methods
-   procedure BeepOnParaLimit; virtual;
  end;//TevCustomProcessor
 
  TevCustomUndoProcessor = class(TevCustomProcessor, Il3OpPackMode, InevProcessor)
   {* Обработчик операций с возможностью Undo & Redo. }
- protected
- // realized methods
+  protected
+   function GetNeedReplaceQuotes: Boolean; virtual;
+   procedure DoCheckParaOp(aParent: Tl3Variant;
+    var aChild: Tl3Variant;
+    anOp: Tl3Operation;
+    anIndex: TnevParaIndex); virtual;
+    {* проверить операцию с параграфом }
+   procedure DoAfterUndoRedo; virtual;
+   procedure DoParaOp(Parent: Tl3Variant;
+    Child: Tl3Variant;
+    Op: Tl3Operation); virtual;
+    {* завершить операцию с параграфом }
    procedure Subscribe(const aRecipient: Il3Notify);
-     {* подписка на извещения. }
+    {* подписка на извещения. }
    procedure Unsubscribe(const aRecipient: Il3Notify);
-     {* "отписка" от извещений. }
+    {* "отписка" от извещений. }
    function StartOp(OpCode: Integer = 0;
-    DoLock: Boolean = true): Il3OpPack;
-     {* начать операцию. }
+    DoLock: Boolean = True): Il3OpPack;
+    {* начать операцию. }
    function FinishOp(anOp: TObject): Boolean;
-     {* закончить операцию. }
+    {* закончить операцию. }
    function LastOp: Il3OpPack;
-     {* предыдущая операция. }
+    {* предыдущая операция. }
    function InOp: Boolean;
-     {* Пачка операций открыта. }
+    {* Пачка операций открыта. }
    procedure Lock;
-     {* закрыть. }
+    {* закрыть. }
    procedure Unlock;
-     {* открыть. }
+    {* открыть. }
    function Undo: Boolean;
-     {* отменить предыдущую операцию. }
+    {* отменить предыдущую операцию. }
    function Redo: Boolean;
-     {* вернуть отмененную операцию. }
+    {* вернуть отмененную операцию. }
    procedure CheckInsert(aParent: Tl3Variant;
     var aChild: Tl3Variant;
     var anIndex: Integer);
-     {* проверить операцию с параграфом. }
+    {* проверить операцию с параграфом. }
    procedure CheckDelete(aParent: Tl3Variant;
     aChild: Tl3Variant;
     anIndex: Integer);
-     {* проверить операцию с параграфом. }
+    {* проверить операцию с параграфом. }
    procedure NotifyCompleted(aList: Tl3Variant;
     aChild: Tl3Variant);
    procedure NotifyInsert(aList: Tl3Variant;
@@ -113,39 +107,28 @@ type
    procedure pm_SetInIOProcess(aValue: Boolean);
    function pm_GetProcessor: Ik2Processor;
    function NeedReplaceQuotes: Boolean;
-     {* Опрелеляет - нужно ли заменять кавычки при вводе. }
+    {* Опрелеляет - нужно ли заменять кавычки при вводе. }
    procedure CheckReadOnly;
    procedure DisableReadonly;
-     {* Выключает режим проверки ReadOnly }
+    {* Выключает режим проверки ReadOnly }
    procedure EnableReadOnly;
-     {* Включает режим проверки ReadOnly }
+    {* Включает режим проверки ReadOnly }
    procedure pm_SetReadOnly(aValue: Boolean);
    function Get_UndoBuffer: Ik2UndoBuffer;
    procedure NotifyPropChanged(aProp: TObject;
     const aValues;
     const anOp: Il3OpPack);
-     {* Сообщает об изменении свойства объекта }
+    {* Сообщает об изменении свойства объекта }
    procedure CheckOn;
    procedure CheckOff;
    function IsCheckOff: Boolean;
- protected
- // protected methods
-   function GetNeedReplaceQuotes: Boolean; virtual;
-   procedure DoCheckParaOp(aParent: Tl3Variant;
-    var aChild: Tl3Variant;
-    anOp: Tl3Operation;
-    anIndex: TnevParaIndex); virtual;
-     {* проверить операцию с параграфом }
-   procedure DoAfterUndoRedo; virtual;
-   procedure DoParaOp(Parent: Tl3Variant;
-    Child: Tl3Variant;
-    Op: Tl3Operation); virtual;
-     {* завершить операцию с параграфом }
  end;//TevCustomUndoProcessor
 
 implementation
 
-// start class TevCustomProcessor
+uses
+ l3ImplUses
+;
 
 procedure TevCustomProcessor.BeepOnParaLimit;
 //#UC START# *482D91730258_47F351E50367_var*
@@ -236,7 +219,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D077BE80280_47F351E50367get_impl*
 end;//TevCustomProcessor.pm_GetBitmapParaCount
-// start class TevCustomUndoProcessor
 
 function TevCustomUndoProcessor.GetNeedReplaceQuotes: Boolean;
 //#UC START# *4843D3020153_47F3521002C7_var*
@@ -248,9 +230,10 @@ begin
 end;//TevCustomUndoProcessor.GetNeedReplaceQuotes
 
 procedure TevCustomUndoProcessor.DoCheckParaOp(aParent: Tl3Variant;
-  var aChild: Tl3Variant;
-  anOp: Tl3Operation;
-  anIndex: TnevParaIndex);
+ var aChild: Tl3Variant;
+ anOp: Tl3Operation;
+ anIndex: TnevParaIndex);
+ {* проверить операцию с параграфом }
 //#UC START# *48E4CB990000_47F3521002C7_var*
 //#UC END# *48E4CB990000_47F3521002C7_var*
 begin
@@ -269,8 +252,9 @@ begin
 end;//TevCustomUndoProcessor.DoAfterUndoRedo
 
 procedure TevCustomUndoProcessor.DoParaOp(Parent: Tl3Variant;
-  Child: Tl3Variant;
-  Op: Tl3Operation);
+ Child: Tl3Variant;
+ Op: Tl3Operation);
+ {* завершить операцию с параграфом }
 //#UC START# *48E4CBE8018B_47F3521002C7_var*
 //#UC END# *48E4CBE8018B_47F3521002C7_var*
 begin
@@ -280,6 +264,7 @@ begin
 end;//TevCustomUndoProcessor.DoParaOp
 
 procedure TevCustomUndoProcessor.Subscribe(const aRecipient: Il3Notify);
+ {* подписка на извещения. }
 //#UC START# *46A44F6B035E_47F3521002C7_var*
 //#UC END# *46A44F6B035E_47F3521002C7_var*
 begin
@@ -289,6 +274,7 @@ begin
 end;//TevCustomUndoProcessor.Subscribe
 
 procedure TevCustomUndoProcessor.Unsubscribe(const aRecipient: Il3Notify);
+ {* "отписка" от извещений. }
 //#UC START# *46A44FFE0143_47F3521002C7_var*
 //#UC END# *46A44FFE0143_47F3521002C7_var*
 begin
@@ -298,7 +284,8 @@ begin
 end;//TevCustomUndoProcessor.Unsubscribe
 
 function TevCustomUndoProcessor.StartOp(OpCode: Integer = 0;
-  DoLock: Boolean = true): Il3OpPack;
+ DoLock: Boolean = True): Il3OpPack;
+ {* начать операцию. }
 //#UC START# *46A5BC28010A_47F3521002C7_var*
 //#UC END# *46A5BC28010A_47F3521002C7_var*
 begin
@@ -308,6 +295,7 @@ begin
 end;//TevCustomUndoProcessor.StartOp
 
 function TevCustomUndoProcessor.FinishOp(anOp: TObject): Boolean;
+ {* закончить операцию. }
 //#UC START# *46A5BC7F0065_47F3521002C7_var*
 //#UC END# *46A5BC7F0065_47F3521002C7_var*
 begin
@@ -317,6 +305,7 @@ begin
 end;//TevCustomUndoProcessor.FinishOp
 
 function TevCustomUndoProcessor.LastOp: Il3OpPack;
+ {* предыдущая операция. }
 //#UC START# *46A5BCC4008C_47F3521002C7_var*
 //#UC END# *46A5BCC4008C_47F3521002C7_var*
 begin
@@ -326,6 +315,7 @@ begin
 end;//TevCustomUndoProcessor.LastOp
 
 function TevCustomUndoProcessor.InOp: Boolean;
+ {* Пачка операций открыта. }
 //#UC START# *46A5BCF5008C_47F3521002C7_var*
 //#UC END# *46A5BCF5008C_47F3521002C7_var*
 begin
@@ -335,6 +325,7 @@ begin
 end;//TevCustomUndoProcessor.InOp
 
 procedure TevCustomUndoProcessor.Lock;
+ {* закрыть. }
 //#UC START# *46A5BD1103B8_47F3521002C7_var*
 //#UC END# *46A5BD1103B8_47F3521002C7_var*
 begin
@@ -344,6 +335,7 @@ begin
 end;//TevCustomUndoProcessor.Lock
 
 procedure TevCustomUndoProcessor.Unlock;
+ {* открыть. }
 //#UC START# *46A5BD22025E_47F3521002C7_var*
 //#UC END# *46A5BD22025E_47F3521002C7_var*
 begin
@@ -353,6 +345,7 @@ begin
 end;//TevCustomUndoProcessor.Unlock
 
 function TevCustomUndoProcessor.Undo: Boolean;
+ {* отменить предыдущую операцию. }
 //#UC START# *46A5BD3B0390_47F3521002C7_var*
 //#UC END# *46A5BD3B0390_47F3521002C7_var*
 begin
@@ -362,6 +355,7 @@ begin
 end;//TevCustomUndoProcessor.Undo
 
 function TevCustomUndoProcessor.Redo: Boolean;
+ {* вернуть отмененную операцию. }
 //#UC START# *46A5BD570141_47F3521002C7_var*
 //#UC END# *46A5BD570141_47F3521002C7_var*
 begin
@@ -371,8 +365,9 @@ begin
 end;//TevCustomUndoProcessor.Redo
 
 procedure TevCustomUndoProcessor.CheckInsert(aParent: Tl3Variant;
-  var aChild: Tl3Variant;
-  var anIndex: Integer);
+ var aChild: Tl3Variant;
+ var anIndex: Integer);
+ {* проверить операцию с параграфом. }
 //#UC START# *46A5BD730033_47F3521002C7_var*
 //#UC END# *46A5BD730033_47F3521002C7_var*
 begin
@@ -382,8 +377,9 @@ begin
 end;//TevCustomUndoProcessor.CheckInsert
 
 procedure TevCustomUndoProcessor.CheckDelete(aParent: Tl3Variant;
-  aChild: Tl3Variant;
-  anIndex: Integer);
+ aChild: Tl3Variant;
+ anIndex: Integer);
+ {* проверить операцию с параграфом. }
 //#UC START# *46A5BE7101DD_47F3521002C7_var*
 //#UC END# *46A5BE7101DD_47F3521002C7_var*
 begin
@@ -393,7 +389,7 @@ begin
 end;//TevCustomUndoProcessor.CheckDelete
 
 procedure TevCustomUndoProcessor.NotifyCompleted(aList: Tl3Variant;
-  aChild: Tl3Variant);
+ aChild: Tl3Variant);
 //#UC START# *46A5BEA30171_47F3521002C7_var*
 //#UC END# *46A5BEA30171_47F3521002C7_var*
 begin
@@ -403,10 +399,10 @@ begin
 end;//TevCustomUndoProcessor.NotifyCompleted
 
 procedure TevCustomUndoProcessor.NotifyInsert(aList: Tl3Variant;
-  aProp: TObject;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  const anOpPack: Il3OpPack);
+ aProp: TObject;
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ const anOpPack: Il3OpPack);
 //#UC START# *46A5BEBE0116_47F3521002C7_var*
 //#UC END# *46A5BEBE0116_47F3521002C7_var*
 begin
@@ -416,10 +412,10 @@ begin
 end;//TevCustomUndoProcessor.NotifyInsert
 
 procedure TevCustomUndoProcessor.NotifyDelete(aList: Tl3Variant;
-  aProp: TObject;
-  aChild: Tl3Variant;
-  anIndex: Integer;
-  const anOpPack: Il3OpPack);
+ aProp: TObject;
+ aChild: Tl3Variant;
+ anIndex: Integer;
+ const anOpPack: Il3OpPack);
 //#UC START# *46A5BEF7038F_47F3521002C7_var*
 //#UC END# *46A5BEF7038F_47F3521002C7_var*
 begin
@@ -582,6 +578,7 @@ begin
 end;//TevCustomUndoProcessor.pm_GetProcessor
 
 function TevCustomUndoProcessor.NeedReplaceQuotes: Boolean;
+ {* Опрелеляет - нужно ли заменять кавычки при вводе. }
 //#UC START# *4843CBDB0253_47F3521002C7_var*
 //#UC END# *4843CBDB0253_47F3521002C7_var*
 begin
@@ -600,6 +597,7 @@ begin
 end;//TevCustomUndoProcessor.CheckReadOnly
 
 procedure TevCustomUndoProcessor.DisableReadonly;
+ {* Выключает режим проверки ReadOnly }
 //#UC START# *48A564120005_47F3521002C7_var*
 //#UC END# *48A564120005_47F3521002C7_var*
 begin
@@ -609,6 +607,7 @@ begin
 end;//TevCustomUndoProcessor.DisableReadonly
 
 procedure TevCustomUndoProcessor.EnableReadOnly;
+ {* Включает режим проверки ReadOnly }
 //#UC START# *48A564160056_47F3521002C7_var*
 //#UC END# *48A564160056_47F3521002C7_var*
 begin
@@ -636,8 +635,9 @@ begin
 end;//TevCustomUndoProcessor.Get_UndoBuffer
 
 procedure TevCustomUndoProcessor.NotifyPropChanged(aProp: TObject;
-  const aValues;
-  const anOp: Il3OpPack);
+ const aValues;
+ const anOp: Il3OpPack);
+ {* Сообщает об изменении свойства объекта }
 //#UC START# *4A68941501A3_47F3521002C7_var*
 //#UC END# *4A68941501A3_47F3521002C7_var*
 begin

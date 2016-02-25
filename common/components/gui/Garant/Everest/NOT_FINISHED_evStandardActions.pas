@@ -1,32 +1,28 @@
 unit NOT_FINISHED_evStandardActions;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evStandardActions.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Processors::evStandardActions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evStandardActions.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedDisp)}
+{$If Defined(evNeedDisp)}
+uses
+ l3IntfUses
+;
+
 type
  TevOperation = (
-   
  );//TevOperation
-{$IfEnd} //evNeedDisp
+{$IfEnd} // Defined(evNeedDisp)
 
 implementation
 
-{$If defined(evNeedDisp)}
-{$IfEnd} //evNeedDisp
+{$If Defined(evNeedDisp)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evNeedDisp)
+
 end.

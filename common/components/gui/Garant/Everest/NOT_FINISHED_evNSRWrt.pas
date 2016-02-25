@@ -1,22 +1,15 @@
 unit NOT_FINISHED_evNSRWrt;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evNSRWrt.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Generators::evNSRWrt
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evNSRWrt.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TevCustomNSRCWriter = class
@@ -25,7 +18,8 @@ type
 implementation
 
 uses
-  evNSRCWriterTypes
-  ;
+ l3ImplUses
+ , evNSRCWriterTypes
+;
 
 end.

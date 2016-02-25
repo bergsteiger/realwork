@@ -1,77 +1,67 @@
 unit NOT_FINISHED_ExprDraw;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Expr"
-// Модуль: "w:/common/components/rtl/external/Expr/NOT_FINISHED_ExprDraw.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Expr::ExprDraw::ExprDraw
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\Expr\NOT_FINISHED_ExprDraw.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Expr\l3Define.inc}
+{$Include w:\common\components\rtl\external\Expr\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3Core,
-  l3Base,
-  l3PrinterInterfaces
-  ;
+ l3IntfUses
+ , l3Base
+ , l3Core
+ , l3Interfaces
+ , l3PrinterInterfaces
+;
 
 type
  TExprCapStyle = (
-   ecPoints
- , ecVector
- , ecCap
- , ecTilde
- , ecLine
+  ecPoints
+  , ecVector
+  , ecCap
+  , ecTilde
+  , ecLine
  );//TExprCapStyle
 
  TExprBracket = (
-   ebNone
- , ebRound
- , ebSquare
- , ebFigure
- , ebModule
+  ebNone
+  , ebRound
+  , ebSquare
+  , ebFigure
+  , ebModule
  );//TExprBracket
 
  TExprVertAlign = (
-   evTop
- , evCenter
- , evBottom
+  evTop
+  , evCenter
+  , evBottom
  );//TExprVertAlign
 
  TExprHorAlign = (
-   ehLeft
- , ehCenter
- , ehRight
+  ehLeft
+  , ehCenter
+  , ehRight
  );//TExprHorAlign
 
  TExprOrigin = (
-   eoTop
- , eoBottom
+  eoTop
+  , eoBottom
  );//TExprOrigin
 
  Tl3ExprMetric = (
-   tcWidth
- , tcHeight
- , tcPowerXPos
- , tcPowerYPos
- , tcIndexXPos
- , tcIndexYPos
- , tcCapDX
- , tcCapDY
- , tcMidLineUp
- , tcMidlineDn
- , tcSymbolWidth
- , tcSymbolHeight
+  tcWidth
+  , tcHeight
+  , tcPowerXPos
+  , tcPowerYPos
+  , tcIndexXPos
+  , tcIndexYPos
+  , tcCapDX
+  , tcCapDY
+  , tcMidLineUp
+  , tcMidlineDn
+  , tcSymbolWidth
+  , tcSymbolHeight
  );//Tl3ExprMetric
 
  Tl3Expr = class(Tl3Base)
@@ -91,16 +81,14 @@ PowerYPos, IndexXPos, IndexYPos, CapDXRight, CapDXLeft, CapDY). Если узел не явл
 верхнего или нижнего индекса). Канва также назначается корневому узлу и передаётся всем остальным
 узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены
 шрифт и канва. }
- private
- // private fields
-   f_Next : Tl3Expr;
-    {* Поле для свойства Next}
-   f_Font : TFont;
-    {* Поле для свойства Font}
-   f_Canvas : TCanvas;
-    {* Поле для свойства Canvas}
- protected
- // property methods
+  private
+   f_Next: Tl3Expr;
+    {* Поле для свойства Next }
+   f_Font: TFont;
+    {* Поле для свойства Font }
+   f_Canvas: TCanvas;
+    {* Поле для свойства Canvas }
+  protected
    procedure pm_SetNext(aValue: Tl3Expr); virtual;
    function pm_GetColor: Tl3Color; virtual;
    procedure pm_SetColor(aValue: Tl3Color); virtual;
@@ -117,10 +105,9 @@ PowerYPos, IndexXPos, IndexYPos, CapDXRight, CapDXLeft, CapDY). Если узел не явл
    function pm_GetCapDXLeft: Integer; virtual;
    function pm_GetCapDXRight: Integer; virtual;
    function pm_GetCapDY: Integer; virtual;
- public
- // public methods
+  public
    function FTType: Integer; virtual;
-     {* Функция FTType возвращает комбинацию флагов efXXXX, которые используются в библиотеке ExprMake при
+    {* Функция FTType возвращает комбинацию флагов efXXXX, которые используются в библиотеке ExprMake при
 перемножении выражений с помощью символа "*". Данные флаги показывают, может ли выражение быть
 умножено без знака слева, справа, является ли оно числом и т.д. }
    constructor Create; reintroduce; virtual;
@@ -130,23 +117,22 @@ PowerYPos, IndexXPos, IndexYPos, CapDXRight, CapDXLeft, CapDY). Если узел не явл
     Y: Integer;
     HorAlign: TExprHorAlign;
     VertAlign: TExprVertAlign); virtual;
-     {* Рисует формулу. }
- public
- // public properties
+    {* Рисует формулу. }
+  public
    property Next: Tl3Expr
-     read f_Next
-     write pm_SetNext;
-     {* Свойство Next используется для построения цепочек классов. Изменение шрифта или канвы передаются далее по цепочке. }
+    read f_Next
+    write pm_SetNext;
+    {* Свойство Next используется для построения цепочек классов. Изменение шрифта или канвы передаются далее по цепочке. }
    property Color: Tl3Color
-     read pm_GetColor
-     write pm_SetColor;
-     {* Свойство Color определяет цвет, которым будет отображаться выражение. Если задан цвет clNone,
+    read pm_GetColor
+    write pm_SetColor;
+    {* Свойство Color определяет цвет, которым будет отображаться выражение. Если задан цвет clNone,
 используется цвет родительского узла. Если для корневого узла задан цвет clNone, используется
 чёрный цвет. }
    property Font: TFont
-     read f_Font
-     write pm_SetFont;
-     {* Свойства Font и Canvas
+    read f_Font
+    write pm_SetFont;
+    {* Свойства Font и Canvas
 используются для задания шрифта и канвы отображения. По умолчанию используется шрифт Times New Roman,
 использование других гарнитур нежелательно, так как все размеры отсупов рассчитывались именно для
 этой гарнитуры. Изменение стилей шрифта не имеет смысла, так как каждый узел сам устанавливает себе
@@ -158,9 +144,9 @@ PowerYPos, IndexXPos, IndexYPos, CapDXRight, CapDXLeft, CapDY). Если узел не явл
 узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены
 шрифт и канва. }
    property Canvas: TCanvas
-     read f_Canvas
-     write pm_SetCanvas;
-     {* Свойства Font и Canvas
+    read f_Canvas
+    write pm_SetCanvas;
+    {* Свойства Font и Canvas
 используются для задания шрифта и канвы отображения. По умолчанию используется шрифт Times New Roman,
 использование других гарнитур нежелательно, так как все размеры отсупов рассчитывались именно для
 этой гарнитуры. Изменение стилей шрифта не имеет смысла, так как каждый узел сам устанавливает себе
@@ -172,44 +158,44 @@ PowerYPos, IndexXPos, IndexYPos, CapDXRight, CapDXLeft, CapDY). Если узел не явл
 узлам. Геометрические размеры и параметры не могут быть вычислены до того, как дереву назначены
 шрифт и канва. }
    property Width: Integer
-     read pm_GetWidth;
-     {* Ширина отрендеренной формулы. }
+    read pm_GetWidth;
+    {* Ширина отрендеренной формулы. }
    property Height: Integer
-     read pm_GetHeight;
-     {* Высота отрендеренной формулы. }
+    read pm_GetHeight;
+    {* Высота отрендеренной формулы. }
    property MidLineUp: Integer
-     read pm_GetMidLineUp;
-     {* MidLineUp, MidLineDown - расстояния (в пихелях) от средней линии до верхнего и нижнего края выражения.
+    read pm_GetMidLineUp;
+    {* MidLineUp, MidLineDown - расстояния (в пихелях) от средней линии до верхнего и нижнего края выражения.
 Средняя линия - это линия, на которой должен стоять знак "-", если его поставить перед выражением. }
    property MidLineDn: Integer
-     read pm_GetMidLineDn;
-     {* MidLineUp, MidLineDown - расстояния (в пихелях) от средней линии до верхнего и нижнего края выражения.
+    read pm_GetMidLineDn;
+    {* MidLineUp, MidLineDown - расстояния (в пихелях) от средней линии до верхнего и нижнего края выражения.
 Средняя линия - это линия, на которой должен стоять знак "-", если его поставить перед выражением. }
    property PowerXPos: Integer
-     read pm_GetPowerXPos;
-     {* PowerXPos, PowerYPos - если выражению добавляется верхний индекс, то эти параметры используются при
+    read pm_GetPowerXPos;
+    {* PowerXPos, PowerYPos - если выражению добавляется верхний индекс, то эти параметры используются при
 расчёте его положения. }
    property PowerYPos: Integer
-     read pm_GetPowerYPos;
-     {* PowerXPos, PowerYPos - если выражению добавляется верхний индекс, то эти параметры используются при
+    read pm_GetPowerYPos;
+    {* PowerXPos, PowerYPos - если выражению добавляется верхний индекс, то эти параметры используются при
 расчёте его положения. }
    property IndexXPos: Integer
-     read pm_GetIndexXPos;
-     {* IndexXPos, IndexYPos - аналогичная пара для нижнего индекса. }
+    read pm_GetIndexXPos;
+    {* IndexXPos, IndexYPos - аналогичная пара для нижнего индекса. }
    property IndexYPos: Integer
-     read pm_GetIndexYPos;
-     {* IndexXPos, IndexYPos - аналогичная пара для нижнего индекса. }
+    read pm_GetIndexYPos;
+    {* IndexXPos, IndexYPos - аналогичная пара для нижнего индекса. }
    property CapDXLeft: Integer
-     read pm_GetCapDXLeft;
-     {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
+    read pm_GetCapDXLeft;
+    {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
 (вектора, тильды и т.п.), если он ставится над выражением. }
    property CapDXRight: Integer
-     read pm_GetCapDXRight;
-     {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
+    read pm_GetCapDXRight;
+    {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
 (вектора, тильды и т.п.), если он ставится над выражением. }
    property CapDY: Integer
-     read pm_GetCapDY;
-     {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
+    read pm_GetCapDY;
+    {* CapDXLeft, CapDXRight, CapDY - параметры, использующиеся для позиционирования диакритического знака
 (вектора, тильды и т.п.), если он ставится над выражением. }
  end;//Tl3Expr
 
@@ -543,10 +529,9 @@ TExprChain. Но при автоматизированном построении дерева (например, с помощью биб
 implementation
 
 uses
-  l3Drawer
-  ;
-
-// start class Tl3Expr
+ l3ImplUses
+ , l3Drawer
+;
 
 procedure Tl3Expr.pm_SetNext(aValue: Tl3Expr);
 //#UC START# *473DB85F009F_47398921031Eset_var*
@@ -693,6 +678,9 @@ begin
 end;//Tl3Expr.pm_GetCapDY
 
 function Tl3Expr.FTType: Integer;
+ {* Функция FTType возвращает комбинацию флагов efXXXX, которые используются в библиотеке ExprMake при
+перемножении выражений с помощью символа "*". Данные флаги показывают, может ли выражение быть
+умножено без знака слева, справа, является ли оно числом и т.д. }
 //#UC START# *473DB9890039_47398921031E_var*
 //#UC END# *473DB9890039_47398921031E_var*
 begin
@@ -729,9 +717,10 @@ begin
 end;//Tl3Expr.CutOff
 
 procedure Tl3Expr.Draw(X: Integer;
-  Y: Integer;
-  HorAlign: TExprHorAlign;
-  VertAlign: TExprVertAlign);
+ Y: Integer;
+ HorAlign: TExprHorAlign;
+ VertAlign: TExprVertAlign);
+ {* Рисует формулу. }
 //#UC START# *473DBBB100F1_47398921031E_var*
 //#UC END# *473DBBB100F1_47398921031E_var*
 begin
@@ -739,4 +728,5 @@ begin
  assert(false, 'Tl3Expr.Draw not implemented');
 //#UC END# *473DBBB100F1_47398921031E_impl*
 end;//Tl3Expr.Draw
+
 end.

@@ -1,31 +1,20 @@
 unit NOT_FINISHED_evCustomFont;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCustomFont.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Fonts::TevCustomFont
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomFont.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3Interfaces
+;
 
 type
- TevCustomFont = class(, Il3FontInfo, Il3Font)
- protected
- // realized methods
+ TevCustomFont = class(Il3FontInfo, Il3Font)
+  protected
    function Get_Size: Integer;
    function Get_Name: TFontName;
    function Get_Bold: Boolean;
@@ -64,23 +53,19 @@ type
    procedure Unlock;
    function HF: hFont;
    function IsAtomic: Boolean;
-     {* Строка для нанного шрифта представляет собой единый объект? }
+    {* Строка для нанного шрифта представляет собой единый объект? }
    function FM: Il3FontMetrics;
-     {* Метрики шрифта. }
+    {* Метрики шрифта. }
  end;//TevCustomFont
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  FontWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevCustomFont
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , FontWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TevCustomFont.Get_Size: Integer;
 //#UC START# *46A60D7A02E4_547DB5C300FEget_var*
@@ -416,6 +401,7 @@ begin
 end;//TevCustomFont.HF
 
 function TevCustomFont.IsAtomic: Boolean;
+ {* Строка для нанного шрифта представляет собой единый объект? }
 //#UC START# *475E5BAD0198_547DB5C300FE_var*
 //#UC END# *475E5BAD0198_547DB5C300FE_var*
 begin
@@ -425,6 +411,7 @@ begin
 end;//TevCustomFont.IsAtomic
 
 function TevCustomFont.FM: Il3FontMetrics;
+ {* Метрики шрифта. }
 //#UC START# *475E5BED0118_547DB5C300FE_var*
 //#UC END# *475E5BED0118_547DB5C300FE_var*
 begin

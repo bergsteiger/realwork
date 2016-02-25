@@ -1,40 +1,32 @@
 unit NOT_FINISHED_evList_InterfaceFactory;
+ {* Фабрика интерфейсов для списка строк }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evList_InterfaceFactory.pas"
-// Начат: 18.06.2008 15:13
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<InterfaceFactory::Class>> Shared Delphi::Everest::InterfaceFactories::TevList
-//
-// Фабрика интерфейсов для списка строк
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evList_InterfaceFactory.pas"
+// Стереотип: "InterfaceFactory"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(Archi) AND defined(k2ForEditor)}
+{$If Defined(k2ForEditor) AND Defined(Archi)}
 uses
-  evPara_InterfaceFactory
-  ;
-{$IfEnd} //Archi AND k2ForEditor
+ l3IntfUses
+ , evPara_InterfaceFactory
+ , arList_Const
+;
 
-{$If defined(Archi) AND defined(k2ForEditor)}
 type
  TevListInterfaceFactory = class(TevParaInterfaceFactory)
   {* Фабрика интерфейсов для списка строк }
  end;//TevListInterfaceFactory
-{$IfEnd} //Archi AND k2ForEditor
+{$IfEnd} // Defined(k2ForEditor) AND Defined(Archi)
 
 implementation
+
+{$If Defined(k2ForEditor) AND Defined(Archi)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(k2ForEditor) AND Defined(Archi)
 
 end.

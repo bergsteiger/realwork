@@ -1,35 +1,23 @@
 unit NOT_FINISHED_evNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/NOT_FINISHED_evNode.pas"
-// Начат: 26.08.1999 14:49
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::DocumentContainers::evNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evNode.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  l3TreeInterfaces,
-  l3Variant,
-  l3NodesModelPart,
-  l3Interfaces,
-  k2BaseTypes,
-  l3Types,
-  l3Tree_TLB
-  ;
+ l3IntfUses
+ , nevBase
+ , l3Variant
+ , l3NodesModelPart
+ , l3TreeInterfaces
+ , l3Tree_TLB
+ , l3Interfaces
+ , k2BaseTypes
+ , l3Types
+;
 
 type
  _k2TagHolder_Parent_ = Tl3PlaceNode;
@@ -37,12 +25,11 @@ type
  _k2TagBox_Parent_ = _k2TagHolder_;
  {$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
  TevCustomNode = class(_k2TagBox_, Il3HandleNode)
- protected
- // realized methods
+  protected
    function Get_Handle: Integer;
    procedure Set_Handle(aValue: Integer);
    procedure Remove;
-     {* удалить узел из дерева. }
+    {* удалить узел из дерева. }
    function Get_AllChildrenCount: Integer;
    function Get_NextNode: Il3Node;
    function Get_PrevNode: Il3Node;
@@ -51,26 +38,36 @@ type
  end;//TevCustomNode
 
 function FindNodeByTag(const Parent: InevNode;
-  Param: Tl3Tag;
-  FindMode: Byte = 0): InevNode;
+ Param: Tl3Tag;
+ FindMode: Byte = 0): InevNode;
 
 implementation
 
 uses
-  SysUtils,
-  k2NullTagImpl,
-  k2Tags,
-  k2Base,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , SysUtils
+ , k2NullTagImpl
+ , k2Tags
+ , k2Base
+ , k2InterfaceFactory
+;
+
+function FindNodeByTag(const Parent: InevNode;
+ Param: Tl3Tag;
+ FindMode: Byte = 0): InevNode;
+//#UC START# *47F259C00067_47F259A300DA_var*
+//#UC END# *47F259C00067_47F259A300DA_var*
+begin
+//#UC START# *47F259C00067_47F259A300DA_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47F259C00067_47F259A300DA_impl*
+end;//FindNodeByTag
 
 {$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
 
 type _Instance_R_ = TevCustomNode;
 
 {$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
-
-// start class TevCustomNode
 
 function TevCustomNode.Get_Handle: Integer;
 //#UC START# *46827CAF03CD_4A573D87036Dget_var*
@@ -91,6 +88,7 @@ begin
 end;//TevCustomNode.Set_Handle
 
 procedure TevCustomNode.Remove;
+ {* удалить узел из дерева. }
 //#UC START# *47710C6002AA_4A573D87036D_var*
 //#UC END# *47710C6002AA_4A573D87036D_var*
 begin
@@ -143,16 +141,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *477110A2026C_4A573D87036Dget_impl*
 end;//TevCustomNode.Get_ChildNode
-
-function FindNodeByTag(const Parent: InevNode;
-  Param: Tl3Tag;
-  FindMode: Byte = 0): InevNode;
-//#UC START# *47F259C00067_47F259A300DA_var*
-//#UC END# *47F259C00067_47F259A300DA_var*
-begin
-//#UC START# *47F259C00067_47F259A300DA_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47F259C00067_47F259A300DA_impl*
-end;//FindNodeByTag
 
 end.

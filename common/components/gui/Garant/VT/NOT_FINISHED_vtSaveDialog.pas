@@ -1,50 +1,34 @@
 unit NOT_FINISHED_vtSaveDialog;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Core"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtSaveDialog.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT$Core::Dialogs::TvtSaveDialog
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtSaveDialog.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Dialogs
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Dialogs
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TvtSaveDialog = class(TSaveDialog)
- protected
- // protected methods
+  protected
    function GetFileNameForAdjust: AnsiString; virtual;
-     {* Получить имя файла для корректировки расширения }
    procedure FirstCorrectFileName; virtual;
    procedure SetAdjustedFileName(const aFileName: AnsiString); virtual;
-     {* Установить откорректированное имя файла }
+    {* Установить откорректированное имя файла }
  end;//TvtSaveDialog
 
 implementation
 
 uses
-  l3Base
-  ;
-
-// start class TvtSaveDialog
+ l3ImplUses
+ , l3Base
+;
 
 function TvtSaveDialog.GetFileNameForAdjust: AnsiString;
 //#UC START# *4DCAD2B2008F_4C37236E02A1_var*
@@ -71,6 +55,7 @@ begin
 end;//TvtSaveDialog.FirstCorrectFileName
 
 procedure TvtSaveDialog.SetAdjustedFileName(const aFileName: AnsiString);
+ {* Установить откорректированное имя файла }
 //#UC START# *4DCBC96000E3_4C37236E02A1_var*
 //#UC END# *4DCBC96000E3_4C37236E02A1_var*
 begin

@@ -1,26 +1,16 @@
 unit NOT_FINISHED_ddHTMLWriter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddHTMLWriter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::Writers::ddHTMLWriter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddHTMLWriter.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddDocument
-  ;
+ l3IntfUses
+ , ddDocument
+;
 
 type
  TddHTMLGenerator = class(TddDocumentGenerator)
@@ -29,7 +19,8 @@ type
 implementation
 
 uses
-  ddHTMLWriterRes
-  ;
+ l3ImplUses
+ , ddHTMLWriterRes
+;
 
 end.

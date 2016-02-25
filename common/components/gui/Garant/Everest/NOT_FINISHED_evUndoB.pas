@@ -1,43 +1,30 @@
 unit NOT_FINISHED_evUndoB;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evUndoB.pas"
-// Начат: 05.06.1997 12:07
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Processors::evUndoB
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evUndoB.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Variant
-  ;
+ l3IntfUses
+ , l3Variant
+;
 
 type
- TevCustomUndoBuffer = class(, Ik2UndoBuffer)
+ TevCustomUndoBuffer = class(Ik2UndoBuffer)
   {* Базовый класс для реализации Undo-буфера. }
- protected
- // realized methods
+  protected
    function GetActiveObject(aSucc: Boolean): TObject;
    procedure ExecutedOperation(aContainer: TObject);
-     {* нотификация буферу о новой пачке операций. }
+    {* нотификация буферу о новой пачке операций. }
    function Undo(const aProcessor: Ik2Processor): Boolean;
-     {* отменить предыдущую операцию. }
+    {* отменить предыдущую операцию. }
    function Redo(const aProcessor: Ik2Processor): Boolean;
-     {* вернуть отмененную операцию. }
+    {* вернуть отмененную операцию. }
    procedure Clear;
-     {* Очистить буфер операций. }
+    {* Очистить буфер операций. }
    function pm_GetCanUndo: Boolean;
    function pm_GetCanRedo: Boolean;
    function Get_Last: TObject;
@@ -53,15 +40,11 @@ type
 implementation
 
 uses
-  Classes
-  {$If defined(evNeedDisp)}
-  ,
-  evStandardActions
-  {$IfEnd} //evNeedDisp
-  
-  ;
-
-// start class TevCustomUndoBuffer
+ l3ImplUses
+ {$If Defined(evNeedDisp)}
+ , evStandardActions
+ {$IfEnd} // Defined(evNeedDisp)
+;
 
 function TevCustomUndoBuffer.GetActiveObject(aSucc: Boolean): TObject;
 //#UC START# *47C5B14F00F1_4F5C4EB20139_var*
@@ -73,6 +56,7 @@ begin
 end;//TevCustomUndoBuffer.GetActiveObject
 
 procedure TevCustomUndoBuffer.ExecutedOperation(aContainer: TObject);
+ {* нотификация буферу о новой пачке операций. }
 //#UC START# *47C5B15D0015_4F5C4EB20139_var*
 //#UC END# *47C5B15D0015_4F5C4EB20139_var*
 begin
@@ -82,6 +66,7 @@ begin
 end;//TevCustomUndoBuffer.ExecutedOperation
 
 function TevCustomUndoBuffer.Undo(const aProcessor: Ik2Processor): Boolean;
+ {* отменить предыдущую операцию. }
 //#UC START# *47C5B16C010D_4F5C4EB20139_var*
 //#UC END# *47C5B16C010D_4F5C4EB20139_var*
 begin
@@ -91,6 +76,7 @@ begin
 end;//TevCustomUndoBuffer.Undo
 
 function TevCustomUndoBuffer.Redo(const aProcessor: Ik2Processor): Boolean;
+ {* вернуть отмененную операцию. }
 //#UC START# *47C5B17B0053_4F5C4EB20139_var*
 //#UC END# *47C5B17B0053_4F5C4EB20139_var*
 begin
@@ -100,6 +86,7 @@ begin
 end;//TevCustomUndoBuffer.Redo
 
 procedure TevCustomUndoBuffer.Clear;
+ {* Очистить буфер операций. }
 //#UC START# *47C5B18A0183_4F5C4EB20139_var*
 //#UC END# *47C5B18A0183_4F5C4EB20139_var*
 begin
@@ -161,4 +148,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47C5B1E90326_4F5C4EB20139set_impl*
 end;//TevCustomUndoBuffer.Set_Disabled
+
 end.

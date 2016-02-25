@@ -1,32 +1,21 @@
 unit NOT_FINISHED_evSubWaiter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/new/NOT_FINISHED_evSubWaiter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DocumentContainers::TevSubWaiter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evSubWaiter.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevTools,
-  l3Tool
-  ;
+ l3IntfUses
+ , l3Tool
+ , nevTools
+;
 
 type
  TevSubWaiter = class(Tl3Tool)
- protected
- // protected methods
+  protected
    function TrySelectPara(const aContainer: InevDocumentContainer;
     const aSel: InevSelection;
     aParaID: Integer): Boolean; virtual;
@@ -34,11 +23,13 @@ type
 
 implementation
 
-// start class TevSubWaiter
+uses
+ l3ImplUses
+;
 
 function TevSubWaiter.TrySelectPara(const aContainer: InevDocumentContainer;
-  const aSel: InevSelection;
-  aParaID: Integer): Boolean;
+ const aSel: InevSelection;
+ aParaID: Integer): Boolean;
 //#UC START# *4BFFA0FF01D2_4988405001B5_var*
 //#UC END# *4BFFA0FF01D2_4988405001B5_var*
 begin

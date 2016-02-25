@@ -1,28 +1,17 @@
 unit NOT_FINISHED_dd_lcVASCodeCorrector;
+ {* Добавляет недостающий номер документам ВАС }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcVASCodeCorrector.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcVASCodeCorrector
-//
-// Добавляет недостающий номер документам ВАС
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcVASCodeCorrector.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  dd_lcCodeCorrector
-  ;
+ l3IntfUses
+ , dd_lcCodeCorrector
+;
 
 type
  Tdd_lcVASCodeCorrector = class(Tdd_lcCodeCorrector)
@@ -30,5 +19,9 @@ type
  end;//Tdd_lcVASCodeCorrector
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

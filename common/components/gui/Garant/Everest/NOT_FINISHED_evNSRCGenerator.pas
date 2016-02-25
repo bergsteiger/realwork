@@ -1,30 +1,17 @@
 unit NOT_FINISHED_evNSRCGenerator;
+ {* Фильтр для записи текста в формате NSRC. Для конечного использования. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evNSRCGenerator.pas"
-// Начат: 04.10.1999 17:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevNSRCGenerator
-//
-// Фильтр для записи текста в формате NSRC. Для конечного использования.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evNSRCGenerator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomNSRCWriter
-  ;
+ l3IntfUses
+ , evCustomNSRCWriter
+;
 
 type
  TevNSRCGenerator = class(TevCustomNSRCWriter)
@@ -32,5 +19,9 @@ type
  end;//TevNSRCGenerator
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -1,125 +1,94 @@
 unit NOT_FINISHED_ddTextParagraph;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddTextParagraph.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::ddCommon::ddTextParagraph
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddTextParagraph.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  l3Base,
-  ddDocumentAtom,
-  ddTextSegment,
-  ddCharacterProperty,
-  ddParagraphProperty,
-  rtfListTable,
-  ddTextSegmentsList,
-  ddSubsList,
-  ddCustomDestination,
-  l3ProtoObject
-  ;
+ l3IntfUses
+ , ddDocumentAtom
+ , ddCharacterProperty
+ , ddParagraphProperty
+ , ddTextSegmentsList
+ , ddSubsList
+ , l3Base
+ , ddTextSegment
+ , k2Interfaces
+ , rtfListTable
+ , ddTypes
+ , ddCustomDestination
+ , l3ProtoObject
+;
 
 type
  TddTextParagraph = class(TddDocumentAtom)
- private
- // private fields
-   f_ItemText : Tl3String;
-   f_Offset : Integer;
-   f_CHP : TddCharacterProperty;
-    {* Поле для свойства CHP}
-   f_CharacterStyle : LongInt;
-    {* Поле для свойства CharacterStyle}
-   f_ID : LongInt;
-    {* Поле для свойства ID}
-   f_PAP : TddParagraphProperty;
-    {* Поле для свойства PAP}
-   f_SegmentList : TddTextSegmentsList;
-    {* Поле для свойства SegmentList}
-   f_SubList : TddSubsList;
-    {* Поле для свойства SubList}
-   f_Text : Tl3String;
-    {* Поле для свойства Text}
-   f_Width : Integer;
-    {* Поле для свойства Width}
-   f_Unicode : Boolean;
-    {* Поле для свойства Unicode}
- private
- // private methods
+  private
+   f_ItemText: Tl3String;
+   f_Offset: Integer;
+   f_CHP: TddCharacterProperty;
+    {* Поле для свойства CHP }
+   f_CharacterStyle: LongInt;
+    {* Поле для свойства CharacterStyle }
+   f_ID: LongInt;
+    {* Поле для свойства ID }
+   f_PAP: TddParagraphProperty;
+    {* Поле для свойства PAP }
+   f_SegmentList: TddTextSegmentsList;
+    {* Поле для свойства SegmentList }
+   f_SubList: TddSubsList;
+    {* Поле для свойства SubList }
+   f_Text: Tl3String;
+    {* Поле для свойства Text }
+   f_Width: Integer;
+    {* Поле для свойства Width }
+   f_Unicode: Boolean;
+    {* Поле для свойства Unicode }
+  private
    procedure Process;
    procedure CheckListItem;
    function CheckInTable(const Generator: Ik2TagGenerator;
-     const LiteVersion: Boolean = False): Boolean;
+    const LiteVersion: Boolean = False): Boolean;
    procedure WriteHyperlinks(const Generator: Ik2TagGenerator);
    function WritePAP(const Generator: Ik2TagGenerator;
-     LiteVersion: Boolean;
-     aStyled: Boolean): Boolean;
+    LiteVersion: Boolean;
+    aStyled: Boolean): Boolean;
    procedure WriteSegments(const Generator: Ik2TagGenerator);
    procedure WriteTabStops(const Generator: Ik2TagGenerator);
- protected
- // property methods
+  protected
    procedure pm_SetCHP(aValue: TddCharacterProperty);
    procedure pm_SetPAP(aValue: TddParagraphProperty);
    function pm_GetSegmentCount: LongInt;
    function pm_GetSegmentList: TddTextSegmentsList;
    function pm_GetText: Tl3String;
    procedure pm_SetText(aValue: Tl3String);
-   function pm_GetFInc: Integer;
-   procedure pm_SetFInc(aValue: Integer);
+   function pm_Getf_Inc: Integer;
+   procedure pm_Setf_Inc(aValue: Integer);
    function pm_GetSegments(anIndex: Integer): TddTextSegment;
- protected
- // realized methods
-   procedure Write2Generator(const Generator: Ik2TagGenerator;
-     aNeedProcessRow: Boolean;
-     LiteVersion: Boolean); override;
- protected
- // overridden protected methods
-   procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   function GetEmpty: Boolean; override;
- public
- // overridden public methods
-   function JoinWith(P: TObject;
-     aCorrectSegment: Boolean = False): Integer; override;
-   constructor Create(aDetination: TddCustomDestination); override;
-   function HasSoftEnter: Boolean; override;
-   function IsTextPara: Boolean; override;
-   function GetLastPara: TddDocumentAtom; override;
-   procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
- protected
- // protected methods
    procedure CheckSegments;
    procedure WriteSubs(const aGenerator: Ik2TagGenerator);
    procedure AddOldListItem;
    procedure ClearOldListItem;
- public
- // public methods
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
+   function GetEmpty: Boolean; override;
+  public
    procedure AddItemText(const aItemText: AnsiString);
-     {* Добавить текст пункта, как в Word 6/95. }
+    {* Добавить текст пункта, как в Word 6/95. }
    procedure AddHyperlink(const aText: AnsiString;
-     aDocID: Integer;
-     aSubID: Integer);
+    aDocID: Integer;
+    aSubID: Integer);
    procedure AddListIndex(aList: TrtfList;
-     aLite: Boolean);
+    aLite: Boolean);
    procedure AddPicture(aPicture: TddDocumentAtom);
    procedure AddSegment(aCHP: TddCharacterProperty;
-     const RelativeToText: Boolean = False); overload; 
-   procedure AddSegment(aSegment: TddTextSegment); overload; 
+    const RelativeToText: Boolean = False); overload;
+   procedure AddSegment(aSegment: TddTextSegment); overload;
    procedure AddSub(aSubID: Integer;
-     const aName: AnsiString;
-     aIsRealName: Boolean = True);
+    const aName: AnsiString;
+    aIsRealName: Boolean = True);
    procedure ApplyCHP(aCHP: TddCharacterProperty);
    procedure ApplyPAP(aPAP: TddParagraphProperty);
    procedure CorrectSegments(aPrevPara: TddTextParagraph);
@@ -128,61 +97,149 @@ type
    function HaveObjects: Boolean;
    function HaveSegments: Boolean;
    function HyperlinkByCharIndex(Index: LongInt;
-     const EndSegment: Boolean = False): TddTextSegment;
+    const EndSegment: Boolean = False): TddTextSegment;
    function ObjectByCharIndex(Index: LongInt;
-     const EndSegment: Boolean = False): TddTextSegment;
+    const EndSegment: Boolean = False): TddTextSegment;
    function LastSegment: TddTextSegment;
    procedure PackSegments;
    function PrevCHP(aCurSegment: TddTextSegment): TddCharacterProperty;
    function SegmentByCharIndex(Index: LongInt;
-     const EndSegment: Boolean = False;
-     const StartIndex: Integer = -1): TddTextSegment;
- private
- // private properties
+    const EndSegment: Boolean = False;
+    const StartIndex: Integer = -1): TddTextSegment;
+   procedure Write2Generator(const Generator: Ik2TagGenerator;
+    aNeedProcessRow: Boolean;
+    LiteVersion: TddLiteVersion); override;
+   function JoinWith(P: TObject;
+    aCorrectSegment: Boolean): Integer; override;
+   constructor Create(aDetination: TddCustomDestination); override;
+   function HasSoftEnter: Boolean; override;
+   function IsTextPara: Boolean; override;
+   function GetLastPara: TddDocumentAtom; override;
+   procedure Assign(const aDocAtomObj: Tl3ProtoObject); override;
+  private
    property f_Inc: Integer
-     read pm_GetFInc
-     write pm_SetFInc;
- public
- // public properties
+    read pm_Getf_Inc
+    write pm_Setf_Inc;
+  public
    property CHP: TddCharacterProperty
-     read f_CHP
-     write pm_SetCHP;
+    read f_CHP
+    write pm_SetCHP;
    property CharacterStyle: LongInt
-     read f_CharacterStyle
-     write f_CharacterStyle;
+    read f_CharacterStyle
+    write f_CharacterStyle;
    property ID: LongInt
-     read f_ID
-     write f_ID;
+    read f_ID
+    write f_ID;
    property PAP: TddParagraphProperty
-     read f_PAP
-     write pm_SetPAP;
+    read f_PAP
+    write pm_SetPAP;
    property SegmentCount: LongInt
-     read pm_GetSegmentCount;
+    read pm_GetSegmentCount;
    property SegmentList: TddTextSegmentsList
-     read pm_GetSegmentList;
+    read pm_GetSegmentList;
    property SubList: TddSubsList
-     read f_SubList
-     write f_SubList;
+    read f_SubList
+    write f_SubList;
    property Text: Tl3String
-     read pm_GetText
-     write pm_SetText;
+    read pm_GetText
+    write pm_SetText;
    property Width: Integer
-     read f_Width
-     write f_Width;
+    read f_Width
+    write f_Width;
    property Unicode: Boolean
-     read f_Unicode
-     write f_Unicode;
+    read f_Unicode
+    write f_Unicode;
    property Segments[anIndex: Integer]: TddTextSegment
-     read pm_GetSegments;
+    read pm_GetSegments;
  end;//TddTextParagraph
 
 implementation
 
 uses
-  ddTextParaString
-  ;
+ l3ImplUses
+ , ddTextParaString
+;
 
-// start class TddTextParagraph
+procedure TddTextParagraph.pm_SetCHP(aValue: TddCharacterProperty);
+//#UC START# *534F94C90349_4FACE14F0231set_var*
+//#UC END# *534F94C90349_4FACE14F0231set_var*
+begin
+//#UC START# *534F94C90349_4FACE14F0231set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534F94C90349_4FACE14F0231set_impl*
+end;//TddTextParagraph.pm_SetCHP
+
+procedure TddTextParagraph.pm_SetPAP(aValue: TddParagraphProperty);
+//#UC START# *534FAB090274_4FACE14F0231set_var*
+//#UC END# *534FAB090274_4FACE14F0231set_var*
+begin
+//#UC START# *534FAB090274_4FACE14F0231set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534FAB090274_4FACE14F0231set_impl*
+end;//TddTextParagraph.pm_SetPAP
+
+function TddTextParagraph.pm_GetSegmentCount: LongInt;
+//#UC START# *534FAB2A025A_4FACE14F0231get_var*
+//#UC END# *534FAB2A025A_4FACE14F0231get_var*
+begin
+//#UC START# *534FAB2A025A_4FACE14F0231get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534FAB2A025A_4FACE14F0231get_impl*
+end;//TddTextParagraph.pm_GetSegmentCount
+
+function TddTextParagraph.pm_GetSegmentList: TddTextSegmentsList;
+//#UC START# *534FAD0D0319_4FACE14F0231get_var*
+//#UC END# *534FAD0D0319_4FACE14F0231get_var*
+begin
+//#UC START# *534FAD0D0319_4FACE14F0231get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534FAD0D0319_4FACE14F0231get_impl*
+end;//TddTextParagraph.pm_GetSegmentList
+
+function TddTextParagraph.pm_GetText: Tl3String;
+//#UC START# *534FAE7C0182_4FACE14F0231get_var*
+//#UC END# *534FAE7C0182_4FACE14F0231get_var*
+begin
+//#UC START# *534FAE7C0182_4FACE14F0231get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534FAE7C0182_4FACE14F0231get_impl*
+end;//TddTextParagraph.pm_GetText
+
+procedure TddTextParagraph.pm_SetText(aValue: Tl3String);
+//#UC START# *534FAE7C0182_4FACE14F0231set_var*
+//#UC END# *534FAE7C0182_4FACE14F0231set_var*
+begin
+//#UC START# *534FAE7C0182_4FACE14F0231set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534FAE7C0182_4FACE14F0231set_impl*
+end;//TddTextParagraph.pm_SetText
+
+function TddTextParagraph.pm_Getf_Inc: Integer;
+//#UC START# *534FB22101FE_4FACE14F0231get_var*
+//#UC END# *534FB22101FE_4FACE14F0231get_var*
+begin
+//#UC START# *534FB22101FE_4FACE14F0231get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534FB22101FE_4FACE14F0231get_impl*
+end;//TddTextParagraph.pm_Getf_Inc
+
+procedure TddTextParagraph.pm_Setf_Inc(aValue: Integer);
+//#UC START# *534FB22101FE_4FACE14F0231set_var*
+//#UC END# *534FB22101FE_4FACE14F0231set_var*
+begin
+//#UC START# *534FB22101FE_4FACE14F0231set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534FB22101FE_4FACE14F0231set_impl*
+end;//TddTextParagraph.pm_Setf_Inc
+
+function TddTextParagraph.pm_GetSegments(anIndex: Integer): TddTextSegment;
+//#UC START# *534FB2940195_4FACE14F0231get_var*
+//#UC END# *534FB2940195_4FACE14F0231get_var*
+begin
+//#UC START# *534FB2940195_4FACE14F0231get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *534FB2940195_4FACE14F0231get_impl*
+end;//TddTextParagraph.pm_GetSegments
 
 procedure TddTextParagraph.Process;
 //#UC START# *534FB2F6005C_4FACE14F0231_var*
@@ -203,7 +260,7 @@ begin
 end;//TddTextParagraph.CheckListItem
 
 function TddTextParagraph.CheckInTable(const Generator: Ik2TagGenerator;
-  const LiteVersion: Boolean = False): Boolean;
+ const LiteVersion: Boolean = False): Boolean;
 //#UC START# *534FB35501E0_4FACE14F0231_var*
 //#UC END# *534FB35501E0_4FACE14F0231_var*
 begin
@@ -222,8 +279,8 @@ begin
 end;//TddTextParagraph.WriteHyperlinks
 
 function TddTextParagraph.WritePAP(const Generator: Ik2TagGenerator;
-  LiteVersion: Boolean;
-  aStyled: Boolean): Boolean;
+ LiteVersion: Boolean;
+ aStyled: Boolean): Boolean;
 //#UC START# *534FB3BA00C5_4FACE14F0231_var*
 //#UC END# *534FB3BA00C5_4FACE14F0231_var*
 begin
@@ -287,6 +344,7 @@ begin
 end;//TddTextParagraph.ClearOldListItem
 
 procedure TddTextParagraph.AddItemText(const aItemText: AnsiString);
+ {* Добавить текст пункта, как в Word 6/95. }
 //#UC START# *534FB4E801F5_4FACE14F0231_var*
 //#UC END# *534FB4E801F5_4FACE14F0231_var*
 begin
@@ -296,8 +354,8 @@ begin
 end;//TddTextParagraph.AddItemText
 
 procedure TddTextParagraph.AddHyperlink(const aText: AnsiString;
-  aDocID: Integer;
-  aSubID: Integer);
+ aDocID: Integer;
+ aSubID: Integer);
 //#UC START# *534FB516039F_4FACE14F0231_var*
 //#UC END# *534FB516039F_4FACE14F0231_var*
 begin
@@ -307,7 +365,7 @@ begin
 end;//TddTextParagraph.AddHyperlink
 
 procedure TddTextParagraph.AddListIndex(aList: TrtfList;
-  aLite: Boolean);
+ aLite: Boolean);
 //#UC START# *534FB54003B5_4FACE14F0231_var*
 //#UC END# *534FB54003B5_4FACE14F0231_var*
 begin
@@ -326,7 +384,7 @@ begin
 end;//TddTextParagraph.AddPicture
 
 procedure TddTextParagraph.AddSegment(aCHP: TddCharacterProperty;
-  const RelativeToText: Boolean = False);
+ const RelativeToText: Boolean = False);
 //#UC START# *534FB5B00167_4FACE14F0231_var*
 //#UC END# *534FB5B00167_4FACE14F0231_var*
 begin
@@ -345,8 +403,8 @@ begin
 end;//TddTextParagraph.AddSegment
 
 procedure TddTextParagraph.AddSub(aSubID: Integer;
-  const aName: AnsiString;
-  aIsRealName: Boolean = True);
+ const aName: AnsiString;
+ aIsRealName: Boolean = True);
 //#UC START# *534FC3A90391_4FACE14F0231_var*
 //#UC END# *534FC3A90391_4FACE14F0231_var*
 begin
@@ -419,7 +477,7 @@ begin
 end;//TddTextParagraph.HaveSegments
 
 function TddTextParagraph.HyperlinkByCharIndex(Index: LongInt;
-  const EndSegment: Boolean = False): TddTextSegment;
+ const EndSegment: Boolean = False): TddTextSegment;
 //#UC START# *534FC50503DE_4FACE14F0231_var*
 //#UC END# *534FC50503DE_4FACE14F0231_var*
 begin
@@ -429,7 +487,7 @@ begin
 end;//TddTextParagraph.HyperlinkByCharIndex
 
 function TddTextParagraph.ObjectByCharIndex(Index: LongInt;
-  const EndSegment: Boolean = False): TddTextSegment;
+ const EndSegment: Boolean = False): TddTextSegment;
 //#UC START# *534FC52F0030_4FACE14F0231_var*
 //#UC END# *534FC52F0030_4FACE14F0231_var*
 begin
@@ -466,8 +524,8 @@ begin
 end;//TddTextParagraph.PrevCHP
 
 function TddTextParagraph.SegmentByCharIndex(Index: LongInt;
-  const EndSegment: Boolean = False;
-  const StartIndex: Integer = -1): TddTextSegment;
+ const EndSegment: Boolean = False;
+ const StartIndex: Integer = -1): TddTextSegment;
 //#UC START# *534FC5AF022B_4FACE14F0231_var*
 //#UC END# *534FC5AF022B_4FACE14F0231_var*
 begin
@@ -476,90 +534,9 @@ begin
 //#UC END# *534FC5AF022B_4FACE14F0231_impl*
 end;//TddTextParagraph.SegmentByCharIndex
 
-procedure TddTextParagraph.pm_SetCHP(aValue: TddCharacterProperty);
-//#UC START# *534F94C90349_4FACE14F0231set_var*
-//#UC END# *534F94C90349_4FACE14F0231set_var*
-begin
-//#UC START# *534F94C90349_4FACE14F0231set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534F94C90349_4FACE14F0231set_impl*
-end;//TddTextParagraph.pm_SetCHP
-
-procedure TddTextParagraph.pm_SetPAP(aValue: TddParagraphProperty);
-//#UC START# *534FAB090274_4FACE14F0231set_var*
-//#UC END# *534FAB090274_4FACE14F0231set_var*
-begin
-//#UC START# *534FAB090274_4FACE14F0231set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534FAB090274_4FACE14F0231set_impl*
-end;//TddTextParagraph.pm_SetPAP
-
-function TddTextParagraph.pm_GetSegmentCount: LongInt;
-//#UC START# *534FAB2A025A_4FACE14F0231get_var*
-//#UC END# *534FAB2A025A_4FACE14F0231get_var*
-begin
-//#UC START# *534FAB2A025A_4FACE14F0231get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534FAB2A025A_4FACE14F0231get_impl*
-end;//TddTextParagraph.pm_GetSegmentCount
-
-function TddTextParagraph.pm_GetSegmentList: TddTextSegmentsList;
-//#UC START# *534FAD0D0319_4FACE14F0231get_var*
-//#UC END# *534FAD0D0319_4FACE14F0231get_var*
-begin
-//#UC START# *534FAD0D0319_4FACE14F0231get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534FAD0D0319_4FACE14F0231get_impl*
-end;//TddTextParagraph.pm_GetSegmentList
-
-function TddTextParagraph.pm_GetText: Tl3String;
-//#UC START# *534FAE7C0182_4FACE14F0231get_var*
-//#UC END# *534FAE7C0182_4FACE14F0231get_var*
-begin
-//#UC START# *534FAE7C0182_4FACE14F0231get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534FAE7C0182_4FACE14F0231get_impl*
-end;//TddTextParagraph.pm_GetText
-
-procedure TddTextParagraph.pm_SetText(aValue: Tl3String);
-//#UC START# *534FAE7C0182_4FACE14F0231set_var*
-//#UC END# *534FAE7C0182_4FACE14F0231set_var*
-begin
-//#UC START# *534FAE7C0182_4FACE14F0231set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534FAE7C0182_4FACE14F0231set_impl*
-end;//TddTextParagraph.pm_SetText
-
-function TddTextParagraph.pm_GetFInc: Integer;
-//#UC START# *534FB22101FE_4FACE14F0231get_var*
-//#UC END# *534FB22101FE_4FACE14F0231get_var*
-begin
-//#UC START# *534FB22101FE_4FACE14F0231get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534FB22101FE_4FACE14F0231get_impl*
-end;//TddTextParagraph.pm_GetFInc
-
-procedure TddTextParagraph.pm_SetFInc(aValue: Integer);
-//#UC START# *534FB22101FE_4FACE14F0231set_var*
-//#UC END# *534FB22101FE_4FACE14F0231set_var*
-begin
-//#UC START# *534FB22101FE_4FACE14F0231set_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534FB22101FE_4FACE14F0231set_impl*
-end;//TddTextParagraph.pm_SetFInc
-
-function TddTextParagraph.pm_GetSegments(anIndex: Integer): TddTextSegment;
-//#UC START# *534FB2940195_4FACE14F0231get_var*
-//#UC END# *534FB2940195_4FACE14F0231get_var*
-begin
-//#UC START# *534FB2940195_4FACE14F0231get_impl*
- !!! Needs to be implemented !!!
-//#UC END# *534FB2940195_4FACE14F0231get_impl*
-end;//TddTextParagraph.pm_GetSegments
-
 procedure TddTextParagraph.Write2Generator(const Generator: Ik2TagGenerator;
-  aNeedProcessRow: Boolean;
-  LiteVersion: Boolean);
+ aNeedProcessRow: Boolean;
+ LiteVersion: TddLiteVersion);
 //#UC START# *518A504F00F5_4FACE14F0231_var*
 //#UC END# *518A504F00F5_4FACE14F0231_var*
 begin
@@ -569,6 +546,7 @@ begin
 end;//TddTextParagraph.Write2Generator
 
 procedure TddTextParagraph.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4FACE14F0231_var*
 //#UC END# *479731C50290_4FACE14F0231_var*
 begin
@@ -587,7 +565,7 @@ begin
 end;//TddTextParagraph.GetEmpty
 
 function TddTextParagraph.JoinWith(P: TObject;
-  aCorrectSegment: Boolean = False): Integer;
+ aCorrectSegment: Boolean): Integer;
 //#UC START# *51921142034B_4FACE14F0231_var*
 //#UC END# *51921142034B_4FACE14F0231_var*
 begin

@@ -1,31 +1,19 @@
 unit NOT_FINISHED_vcmModule;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/NOT_FINISHED_vcmModule.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmModule
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmModule.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , Classes
+ , l3PureMixIns
+;
 
-{$If not defined(NoVCM)}
 type
  RvcmModule = class of TvcmModule;
 
@@ -33,25 +21,22 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmModule = class(_l3Unknown_)
  end;//TvcmModule
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , l3MemUtils
+ , l3Interlocked
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
-
-{$IfEnd} //not NoVCM
 end.

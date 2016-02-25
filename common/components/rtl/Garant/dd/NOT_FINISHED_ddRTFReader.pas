@@ -1,42 +1,47 @@
 unit NOT_FINISHED_ddRTFReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddRTFReader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Readers::TddRTFReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFReader.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddCustomRTFReader,
-  ddDocumentAtom
-  ;
+ l3IntfUses
+ , ddCustomRTFReader
+ , destNorm
+ , ddDocumentAtom
+;
 
 type
  TddRTFReader = class(TddCustomRTFReader)
- protected
- // realized methods
-   procedure BeforeClosePara(const aPara: TddDocumentAtom); override;
+  protected
+   function GetdestNormClass: RdestNorm; virtual;
+  public
+   procedure BeforeClosePara(const aPara: TddDocumentAtom;
+    var aNewStyle: Integer); override;
    procedure AddFooterHyperlink; override;
    procedure FootNoteSymbol; override;
  end;//TddRTFReader
 
 implementation
 
-// start class TddRTFReader
+uses
+ l3ImplUses
+;
 
-procedure TddRTFReader.BeforeClosePara(const aPara: TddDocumentAtom);
+function TddRTFReader.GetdestNormClass: RdestNorm;
+//#UC START# *56BB204702E6_4C971BD4031B_var*
+//#UC END# *56BB204702E6_4C971BD4031B_var*
+begin
+//#UC START# *56BB204702E6_4C971BD4031B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56BB204702E6_4C971BD4031B_impl*
+end;//TddRTFReader.GetdestNormClass
+
+procedure TddRTFReader.BeforeClosePara(const aPara: TddDocumentAtom;
+ var aNewStyle: Integer);
 //#UC START# *534F8F4D0317_4C971BD4031B_var*
 //#UC END# *534F8F4D0317_4C971BD4031B_var*
 begin

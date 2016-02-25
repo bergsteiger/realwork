@@ -1,27 +1,24 @@
 unit NOT_FINISHED_SynGdiPlus;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SynPDF"
-// Модуль: "w:/common/components/rtl/external/SynPDF/NOT_FINISHED_SynGdiPlus.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::SynPDF::SynPDF::SynGdiPlus
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynGdiPlus.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\SynPDF\Synopse.inc}
+{$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TJpegImage = class
  end;//TJpegImage
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

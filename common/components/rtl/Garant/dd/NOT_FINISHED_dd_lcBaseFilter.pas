@@ -1,30 +1,19 @@
 unit NOT_FINISHED_dd_lcBaseFilter;
+ {* Базовые фильтры }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcBaseFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::Filters::dd_lcBaseFilter
-//
-// Базовые фильтры
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcBaseFilter.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  evdLeafParaFilter,
-  k2TagFilter,
-  ddHeaderFilter
-  ;
+ l3IntfUses
+ , evdLeafParaFilter
+ , k2TagFilter
+ , ddHeaderFilter
+;
 
 type
  Tdd_lcParaFilter = class(TevdLeafParaFilter)
@@ -40,5 +29,9 @@ type
  end;//Tdd_lcBaseHeaderFilter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

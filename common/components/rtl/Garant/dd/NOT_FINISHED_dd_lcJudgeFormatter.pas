@@ -1,28 +1,17 @@
 unit NOT_FINISHED_dd_lcJudgeFormatter;
+ {* Форматирование подписей судей }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcJudgeFormatter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcJudgeFormatter
-//
-// Форматирование подписей судей
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcJudgeFormatter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  dd_lcTextFormatter2
-  ;
+ l3IntfUses
+ , dd_lcTextFormatter2
+;
 
 type
  Tdd_lcJudgeFormatter = class(Tdd_lcBaseFormatter)
@@ -30,5 +19,9 @@ type
  end;//Tdd_lcJudgeFormatter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

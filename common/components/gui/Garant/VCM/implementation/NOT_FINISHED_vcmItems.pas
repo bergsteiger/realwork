@@ -1,35 +1,29 @@
 unit NOT_FINISHED_vcmItems;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/NOT_FINISHED_vcmItems.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmItems
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmItems.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmStringList
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmStringList
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmItems = class(TvcmStringList)
  end;//TvcmItems
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

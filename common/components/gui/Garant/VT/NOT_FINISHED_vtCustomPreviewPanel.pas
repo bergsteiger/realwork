@@ -1,26 +1,16 @@
 unit NOT_FINISHED_vtCustomPreviewPanel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Panels"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtCustomPreviewPanel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT$Panels:: Panels::TvtCustomPreviewPanel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtCustomPreviewPanel.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  afwCustomCommonControl
-  ;
+ l3IntfUses
+ , afwCustomCommonControl
+;
 
 type
  TvtCustomPreviewPanel = class(TafwCustomCommonControl)
@@ -29,19 +19,16 @@ type
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomPreviewPanel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomPreviewPanel);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtCustomPreviewPanel }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -1,30 +1,17 @@
 unit NOT_FINISHED_evTextFormatter;
+ {* Фильтр для форматирования текста по строкам и пребразования таблиц в псевдографику. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evTextFormatter.pas"
-// Начат: 14.06.1997 12:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevTextFormatter
-//
-// Фильтр для форматирования текста по строкам и пребразования таблиц в псевдографику.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTextFormatter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomTextFormatter
-  ;
+ l3IntfUses
+ , evCustomTextFormatter
+;
 
 type
  TevTextFormatter = class(TevCustomTextFormatter)
@@ -32,5 +19,9 @@ type
  end;//TevTextFormatter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

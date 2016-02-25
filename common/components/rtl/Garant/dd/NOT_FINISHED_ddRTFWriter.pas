@@ -1,46 +1,35 @@
 unit NOT_FINISHED_ddRTFWriter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddRTFWriter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::Writers::ddRTFWriter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFWriter.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddRTFExpandedTextWriter,
-  ddRTFProperties,
-  ddCharacterProperty,
-  ddParagraphProperty
-  ;
+ l3IntfUses
+ , ddRTFExpandedTextWriter
+ , ddRTFProperties
+ , ddCharacterProperty
+ , ddParagraphProperty
+;
 
 type
  TCustomRTFObjectGenerator = class(TddRTFExpandedTextWriter)
- protected
- // realized methods
+  protected
    function Style2RTF(aStyle: TddStyleEntry;
-     aBlockIndent: Integer;
-     anIgnoreLeftIndent: Boolean): AnsiString; override;
+    aBlockIndent: Integer;
+    anIgnoreLeftIndent: Boolean): AnsiString; override;
    function CHP2RTF(aCHP: TddCharacterProperty;
-     aParent: TddCharacterProperty;
-     const WithStyle: Boolean = True): AnsiString; override;
+    aParent: TddCharacterProperty;
+    const WithStyle: Boolean): AnsiString; override;
    function DIffCHP2RTF(aCHP1: TddCharacterProperty;
-     aCHP2: TddCharacterProperty): AnsiString; override;
+    aCHP2: TddCharacterProperty): AnsiString; override;
    function PAP2RTF(aPAP: TddParagraphProperty;
-     aBlockIndent: Integer;
-     anIgnoreLeftIndent: Boolean;
-     WithStyle: Boolean = True): AnsiString; override;
+    aBlockIndent: Integer;
+    anIgnoreLeftIndent: Boolean;
+    WithStyle: Boolean): AnsiString; override;
  end;//TCustomRTFObjectGenerator
 
  TevRTFObjectGenerator = class(TCustomRTFObjectGenerator)
@@ -49,14 +38,13 @@ type
 implementation
 
 uses
-  ddDocument
-  ;
-
-// start class TCustomRTFObjectGenerator
+ l3ImplUses
+ , ddDocument
+;
 
 function TCustomRTFObjectGenerator.Style2RTF(aStyle: TddStyleEntry;
-  aBlockIndent: Integer;
-  anIgnoreLeftIndent: Boolean): AnsiString;
+ aBlockIndent: Integer;
+ anIgnoreLeftIndent: Boolean): AnsiString;
 //#UC START# *52DCEC00024A_52DCDACA038A_var*
 //#UC END# *52DCEC00024A_52DCDACA038A_var*
 begin
@@ -66,8 +54,8 @@ begin
 end;//TCustomRTFObjectGenerator.Style2RTF
 
 function TCustomRTFObjectGenerator.CHP2RTF(aCHP: TddCharacterProperty;
-  aParent: TddCharacterProperty;
-  const WithStyle: Boolean = True): AnsiString;
+ aParent: TddCharacterProperty;
+ const WithStyle: Boolean): AnsiString;
 //#UC START# *52DCEC4C0176_52DCDACA038A_var*
 //#UC END# *52DCEC4C0176_52DCDACA038A_var*
 begin
@@ -77,7 +65,7 @@ begin
 end;//TCustomRTFObjectGenerator.CHP2RTF
 
 function TCustomRTFObjectGenerator.DIffCHP2RTF(aCHP1: TddCharacterProperty;
-  aCHP2: TddCharacterProperty): AnsiString;
+ aCHP2: TddCharacterProperty): AnsiString;
 //#UC START# *52DCEC9D0243_52DCDACA038A_var*
 //#UC END# *52DCEC9D0243_52DCDACA038A_var*
 begin
@@ -87,9 +75,9 @@ begin
 end;//TCustomRTFObjectGenerator.DIffCHP2RTF
 
 function TCustomRTFObjectGenerator.PAP2RTF(aPAP: TddParagraphProperty;
-  aBlockIndent: Integer;
-  anIgnoreLeftIndent: Boolean;
-  WithStyle: Boolean = True): AnsiString;
+ aBlockIndent: Integer;
+ anIgnoreLeftIndent: Boolean;
+ WithStyle: Boolean): AnsiString;
 //#UC START# *52DCF547032A_52DCDACA038A_var*
 //#UC END# *52DCF547032A_52DCDACA038A_var*
 begin
@@ -97,4 +85,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52DCF547032A_52DCDACA038A_impl*
 end;//TCustomRTFObjectGenerator.PAP2RTF
+
 end.

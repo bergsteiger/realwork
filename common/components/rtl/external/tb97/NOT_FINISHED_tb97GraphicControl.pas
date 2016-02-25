@@ -1,39 +1,24 @@
 unit NOT_FINISHED_tb97GraphicControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "tb97"
-// Модуль: "w:/common/components/rtl/external/tb97/NOT_FINISHED_tb97GraphicControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::tb97::tb97utils::Ttb97GraphicControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\tb97\NOT_FINISHED_tb97GraphicControl.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\tb97\TB97VER.INC}
+{$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 
 interface
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoTB97
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3PureMixIns
+;
 
-{$If not defined(NoTB97)}
 type
  _l3Unknown_Parent_ = TGraphicControl;
-{$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
+ {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  Ttb97CustomGraphicControl = class(_l3Unknown_)
  end;//Ttb97CustomGraphicControl
 
@@ -42,45 +27,40 @@ type
 
  Ttb97GraphicControl = class(Ttb97CustomGraphicControl)
  end;//Ttb97GraphicControl
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 implementation
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked
-  ;
-{$IfEnd} //not NoTB97
-
-{$If not defined(NoTB97)}
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
 
-
-{$IfEnd} //not NoTB97
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация Ttb97CustomGraphicControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ttb97CustomGraphicControl);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация Ttb97GraphicTextControl
+ {* Регистрация Ttb97CustomGraphicControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ttb97GraphicTextControl);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация Ttb97GraphicControl
+ {* Регистрация Ttb97GraphicTextControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ttb97GraphicControl);
-{$IfEnd} //not NoScripts AND not NoTB97
+ {* Регистрация Ttb97GraphicControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
 end.

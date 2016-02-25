@@ -1,41 +1,33 @@
 unit NOT_FINISHED_ddLowLevelRTF;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddLowLevelRTF.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::RTFSupport::ddLowLevelRTF
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddLowLevelRTF.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  k2CustomFileParser
-  ;
+ l3IntfUses
+ , k2CustomFileParser
+;
 
 type
  TddRTFParser = class(Tk2CustomFileParser)
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure Read; override;
  end;//TddRTFParser
 
 implementation
 
-// start class TddRTFParser
+uses
+ l3ImplUses
+;
 
 procedure TddRTFParser.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51E7BEC302DB_var*
 //#UC END# *479731C50290_51E7BEC302DB_var*
 begin

@@ -1,30 +1,19 @@
 unit NOT_FINISHED_ExprMake;
+ {* Глобальные методы для разбора формул. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Expr"
-// Модуль: "w:/common/components/rtl/external/Expr/NOT_FINISHED_ExprMake.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Expr::ExprMake::ExprMake
-//
-// Глобальные методы для разбора формул.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\Expr\NOT_FINISHED_ExprMake.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Expr\l3Define.inc}
+{$Include w:\common\components\rtl\external\Expr\l3Define.inc}
 
 interface
 
 uses
-  ExprDraw,
-  l3Base,
-  exprTokensList
-  ;
+ l3IntfUses
+ , ExprDraw
+ , l3Base
+ , exprTokensList
+;
 
 type
  EIncorrectExpr = class
@@ -45,22 +34,18 @@ ExprGuide.
 но исключения при неверном синтаксисе возникают. И только если первый этап пройден успешно, функция
 приступает к следующему этапу: построению дерева. Дерево, созданное в результате работы функций
 BuildExpr и SafeBuidExpr, после использования надо освободить, вызвав Free. }
- private
- // private methods
+  protected
+   Build: Boolean;
+   P: Integer;
+   S: AnsiString;
+  public
+   FuncAutoIndex: Boolean;
+   VarAutoIndex: Boolean;
+   PostSymbols: Boolean;
+  private
    procedure RaiseError(const aMessage: AnsiString;
     aPosition: Integer); virtual;
- protected
- // protected fields
-   Build : Boolean;
-   P : Integer;
-   S : AnsiString;
- public
- // public fields
-   FuncAutoIndex : Boolean;
-   VarAutoIndex : Boolean;
-   PostSymbols : Boolean;
- protected
- // protected methods
+  protected
    function Preprocess(const S: AnsiString): AnsiString; virtual;
    procedure AddMult(var Existing: Tl3Expr;
     Multiplier: Tl3Expr); virtual;
@@ -87,8 +72,7 @@ BuildExpr и SafeBuidExpr, после использования надо освободить, вызвав Free. }
    function GreekLetter(const N: AnsiString): Integer; virtual;
    function Comma: Boolean; virtual;
    procedure LookForComma; virtual;
- public
- // public methods
+  public
    function BuildExpr(const Expr: AnsiString): Tl3Expr; virtual;
    function SafeBuildExpr(const Expr: AnsiString): Tl3Expr; virtual;
    constructor Create; reintroduce; virtual;
@@ -97,17 +81,39 @@ BuildExpr и SafeBuidExpr, после использования надо освободить, вызвав Free. }
  Tl3StringEx = class(TexprTokensList)
  end;//Tl3StringEx
 
-function BuildExpr(const Expr: AnsiString): Tl3Expr; // can raise EIncorrectExpr
-   {* Разбирает формулу. Строит дерево разбора. Может возбуждать исключение. }
+function BuildExpr(const Expr: AnsiString): Tl3Expr; { can raise EIncorrectExpr }
+ {* Разбирает формулу. Строит дерево разбора. Может возбуждать исключение. }
 function SafeBuildExpr(const Expr: AnsiString): Tl3Expr;
-   {* Разбирает формулу. Строит дерево разбора. Не может возбуждать исключение. }
+ {* Разбирает формулу. Строит дерево разбора. Не может возбуждать исключение. }
 
 implementation
 
-// start class TExprBuilder
+uses
+ l3ImplUses
+;
+
+function BuildExpr(const Expr: AnsiString): Tl3Expr; { can raise EIncorrectExpr }
+ {* Разбирает формулу. Строит дерево разбора. Может возбуждать исключение. }
+//#UC START# *4739A90703E6_4739A8C90148_var*
+//#UC END# *4739A90703E6_4739A8C90148_var*
+begin
+//#UC START# *4739A90703E6_4739A8C90148_impl*
+ assert(false, 'BuildExpr not implemented');
+//#UC END# *4739A90703E6_4739A8C90148_impl*
+end;//BuildExpr
+
+function SafeBuildExpr(const Expr: AnsiString): Tl3Expr;
+ {* Разбирает формулу. Строит дерево разбора. Не может возбуждать исключение. }
+//#UC START# *4739A9530128_4739A8C90148_var*
+//#UC END# *4739A9530128_4739A8C90148_var*
+begin
+//#UC START# *4739A9530128_4739A8C90148_impl*
+ assert(false, 'SafeBuildExpr not implemented');
+//#UC END# *4739A9530128_4739A8C90148_impl*
+end;//SafeBuildExpr
 
 procedure TExprBuilder.RaiseError(const aMessage: AnsiString;
-  aPosition: Integer);
+ aPosition: Integer);
 //#UC START# *4739B7BB02D0_4739A0D8009C_var*
 //#UC END# *4739B7BB02D0_4739A0D8009C_var*
 begin
@@ -126,7 +132,7 @@ begin
 end;//TExprBuilder.Preprocess
 
 procedure TExprBuilder.AddMult(var Existing: Tl3Expr;
-  Multiplier: Tl3Expr);
+ Multiplier: Tl3Expr);
 //#UC START# *4739B83C0131_4739A0D8009C_var*
 //#UC END# *4739B83C0131_4739A0D8009C_var*
 begin
@@ -136,7 +142,7 @@ begin
 end;//TExprBuilder.AddMult
 
 function TExprBuilder.MakePower(Base: Tl3Expr;
-  Exponent: Tl3Expr): Tl3Expr;
+ Exponent: Tl3Expr): Tl3Expr;
 //#UC START# *4739B874036C_4739A0D8009C_var*
 //#UC END# *4739B874036C_4739A0D8009C_var*
 begin
@@ -146,7 +152,7 @@ begin
 end;//TExprBuilder.MakePower
 
 function TExprBuilder.MakeIndex(Base: Tl3Expr;
-  Index: Tl3Expr): Tl3Expr;
+ Index: Tl3Expr): Tl3Expr;
 //#UC START# *4739B890024A_4739A0D8009C_var*
 //#UC END# *4739B890024A_4739A0D8009C_var*
 begin
@@ -156,8 +162,8 @@ begin
 end;//TExprBuilder.MakeIndex
 
 function TExprBuilder.MakeCap(Base: Tl3Expr;
-  Style: TExprCapStyle;
-  N: Integer): Tl3Expr;
+ Style: TExprCapStyle;
+ N: Integer): Tl3Expr;
 //#UC START# *4739B8A60328_4739A0D8009C_var*
 //#UC END# *4739B8A60328_4739A0D8009C_var*
 begin
@@ -176,7 +182,7 @@ begin
 end;//TExprBuilder.Decorate
 
 function TExprBuilder.ExprString(Need: Integer;
-  AllowComma: Boolean = False): Tl3Expr;
+ AllowComma: Boolean = False): Tl3Expr;
 //#UC START# *473C36B90107_4739A0D8009C_var*
 //#UC END# *473C36B90107_4739A0D8009C_var*
 begin
@@ -231,8 +237,8 @@ begin
 end;//TExprBuilder.Func
 
 function TExprBuilder.FuncName(const N: AnsiString;
-  var Flags: Integer;
-  Brackets: Boolean): Tl3Expr;
+ var Flags: Integer;
+ Brackets: Boolean): Tl3Expr;
 //#UC START# *473C373E0311_4739A0D8009C_var*
 //#UC END# *473C373E0311_4739A0D8009C_var*
 begin
@@ -242,7 +248,7 @@ begin
 end;//TExprBuilder.FuncName
 
 function TExprBuilder.Token(N: PAnsiChar;
-  var Flags: Integer): Tl3Expr;
+ var Flags: Integer): Tl3Expr;
 //#UC START# *473C38AE03C4_4739A0D8009C_var*
 //#UC END# *473C38AE03C4_4739A0D8009C_var*
 begin
@@ -304,24 +310,5 @@ begin
  assert(false, 'TExprBuilder.Create not implemented');
 //#UC END# *473C393C00A7_4739A0D8009C_impl*
 end;//TExprBuilder.Create
-// unit methods
-
-function BuildExpr(const Expr: AnsiString): Tl3Expr; // can raise EIncorrectExpr
-//#UC START# *4739A90703E6_4739A8C90148_var*
-//#UC END# *4739A90703E6_4739A8C90148_var*
-begin
-//#UC START# *4739A90703E6_4739A8C90148_impl*
- assert(false, 'BuildExpr not implemented');
-//#UC END# *4739A90703E6_4739A8C90148_impl*
-end;//BuildExpr
-
-function SafeBuildExpr(const Expr: AnsiString): Tl3Expr;
-//#UC START# *4739A9530128_4739A8C90148_var*
-//#UC END# *4739A9530128_4739A8C90148_var*
-begin
-//#UC START# *4739A9530128_4739A8C90148_impl*
- assert(false, 'SafeBuildExpr not implemented');
-//#UC END# *4739A9530128_4739A8C90148_impl*
-end;//SafeBuildExpr
 
 end.

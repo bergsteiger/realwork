@@ -1,44 +1,35 @@
 unit NOT_FINISHED_ddSimpleHTMLReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddSimpleHTMLReader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::HTMLSupport::TddSimpleHTMLReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddSimpleHTMLReader.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddRegSeacherOwner
-  ;
+ l3IntfUses
+ , ddRegSeacherOwner
+;
 
 type
  TddSimpleHTMLReader = class(TddRegSeacherOwner)
- protected
- // overridden protected methods
+  protected
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
- public
- // overridden public methods
+    {* Функция очистки полей объекта. }
+  public
    constructor Create; override;
-     {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
+    {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
  end;//TddSimpleHTMLReader
 
 implementation
 
-// start class TddSimpleHTMLReader
+uses
+ l3ImplUses
+;
 
 constructor TddSimpleHTMLReader.Create;
+ {* конструктор объекта. Возвращает объект, со счетчиком ссылок равным 1. }
 //#UC START# *47914F960008_51F0E640000D_var*
 //#UC END# *47914F960008_51F0E640000D_var*
 begin
@@ -48,6 +39,7 @@ begin
 end;//TddSimpleHTMLReader.Create
 
 procedure TddSimpleHTMLReader.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_51F0E640000D_var*
 //#UC END# *479731C50290_51F0E640000D_var*
 begin

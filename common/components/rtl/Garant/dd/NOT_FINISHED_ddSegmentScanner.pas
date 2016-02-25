@@ -1,22 +1,15 @@
 unit NOT_FINISHED_ddSegmentScanner;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddSegmentScanner.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::NSRCReaderCore::ddSegmentScanner
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddSegmentScanner.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TddSegmentScanner = class
@@ -25,11 +18,12 @@ type
 implementation
 
 uses
-  ddNSRCSegments,
-  ddNSRCStackItemList,
-  segObjectList,
-  segHyperLinkList,
-  segSegList
-  ;
+ l3ImplUses
+ , ddNSRCSegments
+ , ddNSRCStackItemList
+ , segObjectList
+ , segHyperLinkList
+ , segSegList
+;
 
 end.

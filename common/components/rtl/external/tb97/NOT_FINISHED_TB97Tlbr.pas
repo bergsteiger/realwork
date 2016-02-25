@@ -1,61 +1,42 @@
 unit NOT_FINISHED_TB97Tlbr;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "tb97"
-// Модуль: "w:/common/components/rtl/external/tb97/NOT_FINISHED_TB97Tlbr.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::tb97::Toolbar::TB97Tlbr
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\tb97\NOT_FINISHED_TB97Tlbr.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\tb97\TB97VER.INC}
+{$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 
 interface
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  Types,
-  TB97,
-  tb97GraphicControl
-  ;
+ l3IntfUses
+ , TB97
+ , Types
+ , tb97GraphicControl
+;
 
 type
  TCustomToolbar97 = class(TCustomToolWindow97)
- private
- // private fields
-   f_Bounds : TRect;
-   f_ResizeLockedCount : Integer;
-    {* Поле для свойства ResizeLockedCount}
- protected
- // overridden protected methods
-    {$If not defined(NoVCL)}
-   procedure SetBounds(ALeft: Integer;
-     ATop: Integer;
-     AWidth: Integer;
-     AHeight: Integer); override;
-    {$IfEnd} //not NoVCL
- protected
- // protected methods
+  private
+   f_Bounds: TRect;
+   f_ResizeLockedCount: Integer;
+    {* Поле для свойства ResizeLockedCount }
+  protected
    procedure ExecuteHandler(Sender: TObject); virtual;
    procedure ExecuteDefered; virtual;
-     {* Сигнатура метода ExecuteDefered }
    function IsGToolbarSizeNeeded: Boolean; virtual;
    procedure LockResize;
-     {* Сигнатура метода LockResize }
    procedure UnlockResize;
-     {* Сигнатура метода UnlockResize }
    procedure AdjustSizeForPanels; virtual;
-     {* Сигнатура метода AdjustSizeForPanels }
- protected
- // protected properties
+   {$If NOT Defined(NoVCL)}
+   procedure SetBounds(ALeft: Integer;
+    ATop: Integer;
+    AWidth: Integer;
+    AHeight: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+  protected
    property ResizeLockedCount: Integer
-     read f_ResizeLockedCount;
+    read f_ResizeLockedCount;
  end;//TCustomToolbar97
 
  TToolbar97 = class(TCustomToolbar97)
@@ -66,21 +47,17 @@ type
 
  Ttb97MoreButton = class
  end;//Ttb97MoreButton
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 implementation
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TCustomToolbar97
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TCustomToolbar97.ExecuteHandler(Sender: TObject);
 //#UC START# *5028A00600B5_502888EA0114_var*
@@ -136,11 +113,11 @@ begin
 //#UC END# *5058B29A007C_502888EA0114_impl*
 end;//TCustomToolbar97.AdjustSizeForPanels
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TCustomToolbar97.SetBounds(ALeft: Integer;
-  ATop: Integer;
-  AWidth: Integer;
-  AHeight: Integer);
+ ATop: Integer;
+ AWidth: Integer;
+ AHeight: Integer);
 //#UC START# *4F2A599E0283_502888EA0114_var*
 //#UC END# *4F2A599E0283_502888EA0114_var*
 begin
@@ -148,25 +125,25 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4F2A599E0283_502888EA0114_impl*
 end;//TCustomToolbar97.SetBounds
-{$IfEnd} //not NoVCL
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoVCL)
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TCustomToolbar97
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomToolbar97);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TToolbar97
+ {* Регистрация TCustomToolbar97 }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TToolbar97);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TToolbarSep97
+ {* Регистрация TToolbar97 }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TToolbarSep97);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация Ttb97MoreButton
+ {* Регистрация TToolbarSep97 }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(Ttb97MoreButton);
-{$IfEnd} //not NoScripts AND not NoTB97
+ {* Регистрация Ttb97MoreButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
 end.

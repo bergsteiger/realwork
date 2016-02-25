@@ -1,33 +1,25 @@
 unit NOT_FINISHED_evCustomEditorWindowProcessor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCustomEditorWindowProcessor.pas"
-// Начат: 21.07.2005 08:46
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Processors::TevCustomEditorWindowProcessor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditorWindowProcessor.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evNotifiedProcessor
-  ;
+ l3IntfUses
+ , evNotifiedProcessor
+;
 
 type
  TevCustomEditorWindowProcessor = class(TevNotifiedProcessor)
  end;//TevCustomEditorWindowProcessor
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

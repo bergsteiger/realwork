@@ -1,24 +1,24 @@
 unit NOT_FINISHED_evChangeCodePage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evChangeCodePage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evChangeCodePage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evChangeCodePage.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
+{$If Defined(k2ForEditor)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // Defined(k2ForEditor)
 
 implementation
+
+{$If Defined(k2ForEditor)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(k2ForEditor)
 
 end.

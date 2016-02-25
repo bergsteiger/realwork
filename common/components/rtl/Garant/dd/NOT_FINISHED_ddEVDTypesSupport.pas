@@ -1,28 +1,17 @@
 unit NOT_FINISHED_ddEVDTypesSupport;
+ {* Заглушки для избегания зависимости от Everest'а }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddEVDTypesSupport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::ddCommon::ddEVDTypesSupport
-//
-// Заглушки для избегания зависимости от Everest'а
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddEVDTypesSupport.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  k2Interfaces
-  ;
+ l3IntfUses
+ , k2Interfaces
+;
 
 procedure StartBitmapPara(const Generator: Ik2TagGenerator);
 procedure StartTablePara(const Generator: Ik2TagGenerator);
@@ -30,11 +19,12 @@ procedure StartTableRow(const Generator: Ik2TagGenerator);
 procedure StartObjectSegment(const Generator: Ik2TagGenerator);
 procedure StartTextSegment(const Generator: Ik2TagGenerator);
 procedure StartFormulaPara;
-   {* Сигнатура метода StartFormulaPara }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure StartBitmapPara(const Generator: Ik2TagGenerator);
 //#UC START# *521B074D013A_521B05D60264_var*

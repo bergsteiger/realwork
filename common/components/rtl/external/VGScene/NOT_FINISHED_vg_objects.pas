@@ -1,24 +1,17 @@
 unit NOT_FINISHED_vg_objects;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/NOT_FINISHED_vg_objects.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VGScene::Impl::vg_objects
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vg_objects.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
+uses
+ l3IntfUses
+;
+
 type
  TvgText = class
  end;//TvgText
@@ -28,10 +21,14 @@ type
 
  TvgImage = class
  end;//TvgImage
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
-{$IfEnd} //not NoVGScene
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene)
+
 end.

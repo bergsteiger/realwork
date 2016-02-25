@@ -1,42 +1,30 @@
 unit NOT_FINISHED_evCustomTextFormatter;
+ {* Фильтр для форматирования текста по строкам и пребразования таблиц в псевдографику. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCustomTextFormatter.pas"
-// Начат: 14.06.1997 12:10
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevCustomTextFormatter
-//
-// Фильтр для форматирования текста по строкам и пребразования таблиц в псевдографику.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTextFormatter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomTextFormatterModelPart
-  ;
+ l3IntfUses
+ , evCustomTextFormatterModelPart
+;
 
 type
  TevCustomTextFormatter = class(TevCustomTextFormatterModelPart)
   {* Фильтр для форматирования текста по строкам и пребразования таблиц в псевдографику. }
- protected
- // protected methods
+  protected
    function NeedAddSpaces: Boolean; virtual;
  end;//TevCustomTextFormatter
 
 implementation
 
-// start class TevCustomTextFormatter
+uses
+ l3ImplUses
+;
 
 function TevCustomTextFormatter.NeedAddSpaces: Boolean;
 //#UC START# *4A116B45039B_4836BEB200A2_var*

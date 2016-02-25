@@ -1,24 +1,16 @@
 unit NOT_FINISHED_rtfListTable;
+ {* Таблица списков для чтения из RTF }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_rtfListTable.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::ddCommon::rtfListTable
-//
-// Таблица списков для чтения из RTF
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_rtfListTable.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TrtfListLevel = class
@@ -37,5 +29,9 @@ type
  end;//TrtfListOverrideTable
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

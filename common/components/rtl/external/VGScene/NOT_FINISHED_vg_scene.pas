@@ -1,74 +1,59 @@
 unit NOT_FINISHED_vg_scene;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/NOT_FINISHED_vg_scene.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VGScene::Impl::vg_scene
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vg_scene.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Classes,
-  vgVisualObject,
-  vgPersistent,
-  vgComponent,
-  vgTypes,
-  vgCustomResources,
-  vgCustomCanvas,
-  vgInterfaces,
-  vgSceneList,
-  vgGradientPoint,
-  vgGradientPoints,
-  vgScenePrim,
-  vgObjectList,
-  vgVisual,
-  vgCustomObject,
-  vgCustomBitmap
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Messages
-  ;
+ l3IntfUses
+ , vgScenePrim
+ , vgInterfaces
+ , vgObjectList
+ , vgCustomObject
+ , vgCustomCanvas
+ , Classes
+ , vgCustomResources
+ , vgTypes
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vgCustomBitmap
+ , Messages
+ , vgVisualObject
+ , vgSceneList
+ , vgComponent
+ , vgGradientPoint
+ , vgGradientPoints
+ , vgPersistent
+ , vgVisual
+;
 
 type
  TvgBrushStyle = (
-   
  );//TvgBrushStyle
 
  TvgCustomScene = class(TvgScenePrim, IvgScene)
- private
- // private fields
-   FChildren : TvgObjectList;
- protected
- // realized methods
+  private
+   FChildren: TvgObjectList;
+  protected
    procedure AddObject(AObject: TvgCustomObject);
    procedure RemoveObject(AObject: TvgCustomObject);
    procedure BeginDrag;
    procedure BeginResize;
    procedure AddUpdateRect(const R: TvgRect);
-   {$If defined(vgDesign) AND not defined(NoVGScene)}
+   {$If Defined(vgDesign)}
    procedure InsertObject(const ClassName: AnsiString);
-   {$IfEnd} //vgDesign AND not NoVGScene
+   {$IfEnd} // Defined(vgDesign)
    function GetActiveControl: TvgCustomObject;
    function GetDisableUpdate: Boolean;
    procedure SetDisableUpdate(Value: Boolean);
-   {$If defined(vgDesign) AND not defined(NoVGScene)}
+   {$If Defined(vgDesign)}
    function GetDesignTime: Boolean;
-   {$IfEnd} //vgDesign AND not NoVGScene
+   {$IfEnd} // Defined(vgDesign)
    function GetCanvas: TvgCustomCanvas;
    function GetRoot: TvgCustomObject;
    function GetOwner: TComponent;
@@ -79,28 +64,28 @@ type
    procedure UpdateResource;
    procedure Notification(AComponent: TComponent;
     Operation: TOperation);
-   {$If defined(vgDesign) AND not defined(NoVGScene)}
+   {$If Defined(vgDesign)}
    function GetSelected: TvgCustomObject;
-   {$IfEnd} //vgDesign AND not NoVGScene
-   {$If defined(vgDesign) AND not defined(NoVGScene)}
+   {$IfEnd} // Defined(vgDesign)
+   {$If Defined(vgDesign)}
    function GetDesignPlaceObject: TvgCustomObject;
-   {$IfEnd} //vgDesign AND not NoVGScene
+   {$IfEnd} // Defined(vgDesign)
    function GetUpdateRectsCount: integer;
    function GetUpdateRect(Index: integer): TvgRect;
    procedure SetCaptured(Value: TvgCustomObject);
    function GetCaptured: TvgCustomObject;
    procedure SetFocused(Value: TvgCustomObject);
    function GetFocused: TvgCustomObject;
-   {$If defined(vgDesign) AND not defined(NoVGScene)}
+   {$If Defined(vgDesign)}
    procedure SetDesignRoot(Value: TvgCustomObject);
-   {$IfEnd} //vgDesign AND not NoVGScene
+   {$IfEnd} // Defined(vgDesign)
    function GetMousePos: TvgPoint;
    function LocalToScreen(const Point: TvgPoint): TvgPoint;
    procedure BeginVCLDrag(Source: TObject;
     ABitmap: TvgCustomBitmap);
-   {$If defined(vgDesign) AND not defined(NoVGScene)}
+   {$If Defined(vgDesign)}
    procedure DoDesignSelect(AObject: TObject);
-   {$IfEnd} //vgDesign AND not NoVGScene
+   {$IfEnd} // Defined(vgDesign)
    function GetAnimatedCaret: Boolean;
    function ShowKeyboardForControl(AObject: TvgCustomObject): Boolean;
    function HideKeyboardForControl(AObject: TvgCustomObject): Boolean;
@@ -119,16 +104,10 @@ type
    function GetSceneControl: TControl;
  end;//TvgCustomScene
 
-var
-   ResourceList : TvgObjectList;
-
-type
  TvgControl = class(TvgVisualObject)
- protected
- // protected fields
-   fBindingObjects : TvgObjectList;
- protected
- // protected methods
+  protected
+   fBindingObjects: TvgObjectList;
+  protected
    procedure ApplyStyle; virtual;
  end;//TvgControl
 
@@ -136,9 +115,8 @@ type
  end;//TvgCanvas
 
  TvgResources = class(TvgCustomResources)
- private
- // private fields
-   FSceneList : TvgSceneList;
+  private
+   FSceneList: TvgSceneList;
  end;//TvgResources
 
  TvgLang = class(TvgComponent)
@@ -165,47 +143,68 @@ type
  TvgGradientPoints = vgGradientPoints.TvgGradientPoints;
 
  TvgBrush = class(TvgPersistent)
- protected
- // property methods
+  protected
    function pm_GetVisual: TvgVisual;
    procedure pm_SetVisual(aValue: TvgVisual);
- public
- // public properties
+  public
    property Visual: TvgVisual
-     read pm_GetVisual
-     write pm_SetVisual;
+    read pm_GetVisual
+    write pm_SetVisual;
  end;//TvgBrush
 
  TvgBackground = class(TvgControl)
  end;//TvgBackground
-procedure VgColorToStr;
-   {* Сигнатура метода vgColorToStr }
-procedure VgStrToColor;
-   {* Сигнатура метода vgStrToColor }
-procedure VgDoTab;
-   {* Сигнатура метода vgDoTab }
-{$IfEnd} //not NoVGScene
+
+procedure vgColorToStr;
+procedure vgStrToColor;
+procedure vgDoTab;
+
+var ResourceList: TvgObjectList;
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3ProcessMessagesManager,
-  vg_extctrls,
-  vg_services
-  ;
+ l3ImplUses
+ , vg_extctrls
+ , vg_services
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3ProcessMessagesManager
+;
 
 type
  THackComponent = class(TComponent)
  end;//THackComponent
 
-// start class TvgCustomScene
+procedure vgColorToStr;
+//#UC START# *4D555FED002F_4CFE3E000371_var*
+//#UC END# *4D555FED002F_4CFE3E000371_var*
+begin
+//#UC START# *4D555FED002F_4CFE3E000371_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4D555FED002F_4CFE3E000371_impl*
+end;//vgColorToStr
+
+procedure vgStrToColor;
+//#UC START# *4D555FFC0179_4CFE3E000371_var*
+//#UC END# *4D555FFC0179_4CFE3E000371_var*
+begin
+//#UC START# *4D555FFC0179_4CFE3E000371_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4D555FFC0179_4CFE3E000371_impl*
+end;//vgStrToColor
+
+procedure vgDoTab;
+//#UC START# *4D5D148101F9_4CFE3E000371_var*
+//#UC END# *4D5D148101F9_4CFE3E000371_var*
+begin
+//#UC START# *4D5D148101F9_4CFE3E000371_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4D5D148101F9_4CFE3E000371_impl*
+end;//vgDoTab
 
 procedure TvgCustomScene.AddObject(AObject: TvgCustomObject);
 //#UC START# *4D550CFB029F_4D54170F00D8_var*
@@ -252,7 +251,7 @@ begin
 //#UC END# *4D550D3C0043_4D54170F00D8_impl*
 end;//TvgCustomScene.AddUpdateRect
 
-{$If defined(vgDesign) AND not defined(NoVGScene)}
+{$If Defined(vgDesign)}
 procedure TvgCustomScene.InsertObject(const ClassName: AnsiString);
 //#UC START# *4D550D4B00A9_4D54170F00D8_var*
 //#UC END# *4D550D4B00A9_4D54170F00D8_var*
@@ -261,7 +260,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D550D4B00A9_4D54170F00D8_impl*
 end;//TvgCustomScene.InsertObject
-{$IfEnd} //vgDesign AND not NoVGScene
+{$IfEnd} // Defined(vgDesign)
 
 function TvgCustomScene.GetActiveControl: TvgCustomObject;
 //#UC START# *4D550D5F0167_4D54170F00D8_var*
@@ -290,7 +289,7 @@ begin
 //#UC END# *4D550D780131_4D54170F00D8_impl*
 end;//TvgCustomScene.SetDisableUpdate
 
-{$If defined(vgDesign) AND not defined(NoVGScene)}
+{$If Defined(vgDesign)}
 function TvgCustomScene.GetDesignTime: Boolean;
 //#UC START# *4D550D94001B_4D54170F00D8_var*
 //#UC END# *4D550D94001B_4D54170F00D8_var*
@@ -299,7 +298,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D550D94001B_4D54170F00D8_impl*
 end;//TvgCustomScene.GetDesignTime
-{$IfEnd} //vgDesign AND not NoVGScene
+{$IfEnd} // Defined(vgDesign)
 
 function TvgCustomScene.GetCanvas: TvgCustomCanvas;
 //#UC START# *4D550DA002A9_4D54170F00D8_var*
@@ -374,7 +373,7 @@ begin
 end;//TvgCustomScene.UpdateResource
 
 procedure TvgCustomScene.Notification(AComponent: TComponent;
-  Operation: TOperation);
+ Operation: TOperation);
 //#UC START# *4D550E1C03A3_4D54170F00D8_var*
 //#UC END# *4D550E1C03A3_4D54170F00D8_var*
 begin
@@ -383,7 +382,7 @@ begin
 //#UC END# *4D550E1C03A3_4D54170F00D8_impl*
 end;//TvgCustomScene.Notification
 
-{$If defined(vgDesign) AND not defined(NoVGScene)}
+{$If Defined(vgDesign)}
 function TvgCustomScene.GetSelected: TvgCustomObject;
 //#UC START# *4D550E2B0389_4D54170F00D8_var*
 //#UC END# *4D550E2B0389_4D54170F00D8_var*
@@ -392,9 +391,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D550E2B0389_4D54170F00D8_impl*
 end;//TvgCustomScene.GetSelected
-{$IfEnd} //vgDesign AND not NoVGScene
+{$IfEnd} // Defined(vgDesign)
 
-{$If defined(vgDesign) AND not defined(NoVGScene)}
+{$If Defined(vgDesign)}
 function TvgCustomScene.GetDesignPlaceObject: TvgCustomObject;
 //#UC START# *4D550E380297_4D54170F00D8_var*
 //#UC END# *4D550E380297_4D54170F00D8_var*
@@ -403,7 +402,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D550E380297_4D54170F00D8_impl*
 end;//TvgCustomScene.GetDesignPlaceObject
-{$IfEnd} //vgDesign AND not NoVGScene
+{$IfEnd} // Defined(vgDesign)
 
 function TvgCustomScene.GetUpdateRectsCount: integer;
 //#UC START# *4D550E470234_4D54170F00D8_var*
@@ -459,7 +458,7 @@ begin
 //#UC END# *4D550E8703BA_4D54170F00D8_impl*
 end;//TvgCustomScene.GetFocused
 
-{$If defined(vgDesign) AND not defined(NoVGScene)}
+{$If Defined(vgDesign)}
 procedure TvgCustomScene.SetDesignRoot(Value: TvgCustomObject);
 //#UC START# *4D550E990086_4D54170F00D8_var*
 //#UC END# *4D550E990086_4D54170F00D8_var*
@@ -468,7 +467,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D550E990086_4D54170F00D8_impl*
 end;//TvgCustomScene.SetDesignRoot
-{$IfEnd} //vgDesign AND not NoVGScene
+{$IfEnd} // Defined(vgDesign)
 
 function TvgCustomScene.GetMousePos: TvgPoint;
 //#UC START# *4D550EA30324_4D54170F00D8_var*
@@ -489,7 +488,7 @@ begin
 end;//TvgCustomScene.LocalToScreen
 
 procedure TvgCustomScene.BeginVCLDrag(Source: TObject;
-  ABitmap: TvgCustomBitmap);
+ ABitmap: TvgCustomBitmap);
 //#UC START# *4D550EC50042_4D54170F00D8_var*
 //#UC END# *4D550EC50042_4D54170F00D8_var*
 begin
@@ -498,7 +497,7 @@ begin
 //#UC END# *4D550EC50042_4D54170F00D8_impl*
 end;//TvgCustomScene.BeginVCLDrag
 
-{$If defined(vgDesign) AND not defined(NoVGScene)}
+{$If Defined(vgDesign)}
 procedure TvgCustomScene.DoDesignSelect(AObject: TObject);
 //#UC START# *4D550ED5014D_4D54170F00D8_var*
 //#UC END# *4D550ED5014D_4D54170F00D8_var*
@@ -507,7 +506,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D550ED5014D_4D54170F00D8_impl*
 end;//TvgCustomScene.DoDesignSelect
-{$IfEnd} //vgDesign AND not NoVGScene
+{$IfEnd} // Defined(vgDesign)
 
 function TvgCustomScene.GetAnimatedCaret: Boolean;
 //#UC START# *4D550EE303DA_4D54170F00D8_var*
@@ -537,7 +536,7 @@ begin
 end;//TvgCustomScene.HideKeyboardForControl
 
 function TvgCustomScene.DoTab(aControl: TControl;
-  aShift: Boolean): Boolean;
+ aShift: Boolean): Boolean;
 //#UC START# *4D5D02B90284_4D54170F00D8_var*
 //#UC END# *4D5D02B90284_4D54170F00D8_var*
 begin
@@ -556,8 +555,8 @@ begin
 end;//TvgCustomScene.SetFocus
 
 procedure TvgCustomScene.UnicodeKeyDown(var Key: Word;
-  var Char: WideChar;
-  Shift: TShiftState);
+ var Char: WideChar;
+ Shift: TShiftState);
 //#UC START# *4D5E7FD70051_4D54170F00D8_var*
 //#UC END# *4D5E7FD70051_4D54170F00D8_var*
 begin
@@ -576,7 +575,7 @@ begin
 end;//TvgCustomScene.IsAcceptableControlForTabNavigation
 
 procedure TvgCustomScene.FocusHook(aControl: TWinControl;
-  aGot: Boolean);
+ aGot: Boolean);
 //#UC START# *4D8B889E03D0_4D54170F00D8_var*
 //#UC END# *4D8B889E03D0_4D54170F00D8_var*
 begin
@@ -586,7 +585,7 @@ begin
 end;//TvgCustomScene.FocusHook
 
 procedure TvgCustomScene.ControlMessageHook(aControl: TWinControl;
-  const aMessage: TMessage);
+ const aMessage: TMessage);
 //#UC START# *4DA724DD0394_4D54170F00D8_var*
 //#UC END# *4DA724DD0394_4D54170F00D8_var*
 begin
@@ -612,7 +611,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *538DBFB202DE_4D54170F00D8_impl*
 end;//TvgCustomScene.GetSceneControl
-// start class TvgControl
 
 procedure TvgControl.ApplyStyle;
 //#UC START# *4F90008B02C6_4D49560D0013_var*
@@ -622,35 +620,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4F90008B02C6_4D49560D0013_impl*
 end;//TvgControl.ApplyStyle
-// unit methods
-
-procedure VgColorToStr;
-//#UC START# *4D555FED002F_4CFE3E000371_var*
-//#UC END# *4D555FED002F_4CFE3E000371_var*
-begin
-//#UC START# *4D555FED002F_4CFE3E000371_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D555FED002F_4CFE3E000371_impl*
-end;//VgColorToStr
-
-procedure VgStrToColor;
-//#UC START# *4D555FFC0179_4CFE3E000371_var*
-//#UC END# *4D555FFC0179_4CFE3E000371_var*
-begin
-//#UC START# *4D555FFC0179_4CFE3E000371_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D555FFC0179_4CFE3E000371_impl*
-end;//VgStrToColor
-
-procedure VgDoTab;
-//#UC START# *4D5D148101F9_4CFE3E000371_var*
-//#UC END# *4D5D148101F9_4CFE3E000371_var*
-begin
-//#UC START# *4D5D148101F9_4CFE3E000371_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4D5D148101F9_4CFE3E000371_impl*
-end;//VgDoTab
-// start class TvgBrush
 
 function TvgBrush.pm_GetVisual: TvgVisual;
 //#UC START# *4D5EB9AF02AE_4D5EB9810101get_var*
@@ -669,24 +638,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D5EB9AF02AE_4D5EB9810101set_impl*
 end;//TvgBrush.pm_SetVisual
-{$IfEnd} //not NoVGScene
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgCustomScene
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgCustomScene);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgControl
+ {* Регистрация TvgCustomScene }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgControl);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgScene
+ {* Регистрация TvgControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgScene);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgBackground
+ {* Регистрация TvgScene }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgBackground);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvgBackground }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

@@ -1,29 +1,28 @@
 unit NOT_FINISHED_vcmProfilersCollection;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/NOT_FINISHED_vcmProfilersCollection.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmProfilersCollection
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmProfilersCollection.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
+uses
+ l3IntfUses
+;
+
 type
  TvcmProfilersCollection = class
  end;//TvcmProfilersCollection
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

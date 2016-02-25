@@ -1,28 +1,17 @@
 unit NOT_FINISHED_dd_lcResolutionFormatter;
+ {* Форматирование заголовков постановлений судов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcResolutionFormatter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcResolutionFormatter
-//
-// Форматирование заголовков постановлений судов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcResolutionFormatter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  dd_lcTextFormatter2
-  ;
+ l3IntfUses
+ , dd_lcTextFormatter2
+;
 
 type
  Tdd_lcResolutionFormatter = class(Tdd_lcBaseFormatter)
@@ -30,5 +19,9 @@ type
  end;//Tdd_lcResolutionFormatter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -1,28 +1,17 @@
 unit NOT_FINISHED_evFontInterface;
+ {* Инструмент для работы со шрифтом }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evFontInterface.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::StyleTable::TevFontInterface
-//
-// Инструмент для работы со шрифтом
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evFontInterface.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evInterface
-  ;
+ l3IntfUses
+ , evInterface
+;
 
 type
  TevFontInterface = class(TevInterface)
@@ -30,5 +19,9 @@ type
  end;//TevFontInterface
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

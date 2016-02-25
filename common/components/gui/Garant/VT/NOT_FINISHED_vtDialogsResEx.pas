@@ -1,54 +1,42 @@
 unit NOT_FINISHED_vtDialogsResEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Core"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtDialogsResEx.pas"
-// Начат: 04.04.2011 19:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT$Core::Dialogs::vtDialogsResEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtDialogsResEx.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-procedure VtGetDlgBtnCaption;
-   {* Сигнатура метода vtGetDlgBtnCaption }
-procedure VtGetDlgBtnResult;
-   {* Сигнатура метода vtGetDlgBtnResult }
+uses
+ l3IntfUses
+;
+
+procedure vtGetDlgBtnCaption;
+procedure vtGetDlgBtnResult;
 
 implementation
 
 uses
-  vtDialogsRes
-  ;
+ l3ImplUses
+ , vtDialogsRes
+;
 
-// unit methods
-
-procedure VtGetDlgBtnCaption;
+procedure vtGetDlgBtnCaption;
 //#UC START# *4D99E1E7012A_4D99E1B401B5_var*
 //#UC END# *4D99E1E7012A_4D99E1B401B5_var*
 begin
 //#UC START# *4D99E1E7012A_4D99E1B401B5_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D99E1E7012A_4D99E1B401B5_impl*
-end;//VtGetDlgBtnCaption
+end;//vtGetDlgBtnCaption
 
-procedure VtGetDlgBtnResult;
+procedure vtGetDlgBtnResult;
 //#UC START# *4D99E2050245_4D99E1B401B5_var*
 //#UC END# *4D99E2050245_4D99E1B401B5_var*
 begin
 //#UC START# *4D99E2050245_4D99E1B401B5_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D99E2050245_4D99E1B401B5_impl*
-end;//VtGetDlgBtnResult
+end;//vtGetDlgBtnResult
 
 end.

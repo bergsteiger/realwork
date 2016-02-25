@@ -1,28 +1,17 @@
 unit NOT_FINISHED_dd_lcVASSourceCorrector;
+ {* Добавляет недостающий номер документам ВА }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcVASSourceCorrector.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcVASSourceCorrector
-//
-// Добавляет недостающий номер документам ВА
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcVASSourceCorrector.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddHeaderFilter
-  ;
+ l3IntfUses
+ , ddHeaderFilter
+;
 
 type
  Tdd_lcVASSourceCorrector = class(TddHeaderFilter)
@@ -30,5 +19,9 @@ type
  end;//Tdd_lcVASSourceCorrector
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

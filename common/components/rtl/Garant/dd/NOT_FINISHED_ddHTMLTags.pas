@@ -1,35 +1,30 @@
 unit NOT_FINISHED_ddHTMLTags;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddHTMLTags.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::HTMLSupport::ddHTMLTags
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddHTMLTags.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TddHTMLParamID = (
-   
  );//TddHTMLParamID
 
  TddHTMLParam = record
  end;//TddHTMLParam
 
  TddHTMLParamType = (
-   
  );//TddHTMLParamType
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -1,41 +1,30 @@
 unit NOT_FINISHED_evCustomTxtReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCustomTxtReader.pas"
-// Начат: 05.10.1999 17:44
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Readers::TevCustomTxtReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTxtReader.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Base,
-  k2CustomFileReader
-  ;
+ l3IntfUses
+ , k2CustomFileReader
+ , l3Base
+;
 
 type
  TevCustomTxtReader = class(Tk2CustomFileReader)
- protected
- // protected methods
+  protected
    procedure DoText(aText: Tl3String); virtual;
    function NeedOpenDefaultChild(aText: Tl3String): Boolean; virtual;
  end;//TevCustomTxtReader
 
 implementation
 
-// start class TevCustomTxtReader
+uses
+ l3ImplUses
+;
 
 procedure TevCustomTxtReader.DoText(aText: Tl3String);
 //#UC START# *4D6BB62C01C8_482D6E3B02A3_var*

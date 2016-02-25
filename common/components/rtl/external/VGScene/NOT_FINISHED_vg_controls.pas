@@ -1,33 +1,20 @@
 unit NOT_FINISHED_vg_controls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/NOT_FINISHED_vg_controls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VGScene::Impl::vg_controls
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vg_controls.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  vg_scene
-  ;
+ l3IntfUses
+ , vg_scene
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TvgPathButton = class
@@ -40,45 +27,38 @@ type
  end;//TvgRadioButton
 
  TvgTextControl = class(TvgControl)
- protected
- // protected methods
+  protected
    procedure SetText(const Value: WideString); virtual;
  end;//TvgTextControl
 
  TvgCustomButton = class(TvgTextControl)
- private
- // private fields
-   f_ModalResult : TModalResult;
-    {* Поле для свойства ModalResult}
- protected
- // property methods
+  private
+   f_ModalResult: TModalResult;
+    {* Поле для свойства ModalResult }
+  protected
    procedure pm_SetModalResult(aValue: TModalResult); virtual;
- public
- // public properties
+  public
    property ModalResult: TModalResult
-     read f_ModalResult
-     write pm_SetModalResult;
+    read f_ModalResult
+    write pm_SetModalResult;
  end;//TvgCustomButton
 
  TvgButton = class(TvgCustomButton)
- private
- // private fields
-   f_Default : Boolean;
-    {* Поле для свойства Default}
-   f_Cancel : Boolean;
-    {* Поле для свойства Cancel}
- protected
- // property methods
+  private
+   f_Default: Boolean;
+    {* Поле для свойства Default }
+   f_Cancel: Boolean;
+    {* Поле для свойства Cancel }
+  protected
    procedure pm_SetDefault(aValue: Boolean); virtual;
    procedure pm_SetCancel(aValue: Boolean); virtual;
- public
- // public properties
+  public
    property Default: Boolean
-     read f_Default
-     write pm_SetDefault;
+    read f_Default
+    write pm_SetDefault;
    property Cancel: Boolean
-     read f_Cancel
-     write pm_SetCancel;
+    read f_Cancel
+    write pm_SetCancel;
  end;//TvgButton
 
  TvgCheckBox = class
@@ -89,26 +69,20 @@ type
 
  TvgCalloutPanel = class(TvgPanel)
  end;//TvgCalloutPanel
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVGScene)}
-  ,
-  VGSceneWordsPack
-  {$IfEnd} //not NoScripts AND not NoVGScene
-  
-  ;
-
-// start class TvgTextControl
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , VGSceneWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvgTextControl.SetText(const Value: WideString);
 //#UC START# *4D5E5ACA029B_4D4955ED018F_var*
@@ -118,7 +92,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D5E5ACA029B_4D4955ED018F_impl*
 end;//TvgTextControl.SetText
-// start class TvgCustomButton
 
 procedure TvgCustomButton.pm_SetModalResult(aValue: TModalResult);
 //#UC START# *4D5E5B530342_4D4955DB0282set_var*
@@ -128,7 +101,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D5E5B530342_4D4955DB0282set_impl*
 end;//TvgCustomButton.pm_SetModalResult
-// start class TvgButton
 
 procedure TvgButton.pm_SetDefault(aValue: Boolean);
 //#UC START# *4D5E5C0A01E6_4CFF5690033Dset_var*
@@ -147,32 +119,32 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D5E5C27000E_4CFF5690033Dset_impl*
 end;//TvgButton.pm_SetCancel
-{$IfEnd} //not NoVGScene
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgRadioButton
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgRadioButton);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgTextControl
+ {* Регистрация TvgRadioButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgTextControl);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgCustomButton
+ {* Регистрация TvgTextControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgCustomButton);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgButton
+ {* Регистрация TvgCustomButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgButton);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgPanel
+ {* Регистрация TvgButton }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgPanel);
-{$IfEnd} //not NoScripts AND not NoVGScene
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgCalloutPanel
+ {* Регистрация TvgPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgCalloutPanel);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvgCalloutPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

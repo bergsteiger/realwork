@@ -1,50 +1,37 @@
 unit NOT_FINISHED_vgVisual;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/NOT_FINISHED_vgVisual.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Impl::TvgVisual
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgVisual.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgVisualObject,
-  vgPersistent
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgPersistent
+ , vgVisualObject
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgVisual = class(TvgPersistent)
- protected
- // property methods
+  protected
    function pm_GetVisualObject: TvgVisualObject;
    procedure pm_SetVisualObject(aValue: TvgVisualObject);
- public
- // public properties
+  public
    property VisualObject: TvgVisualObject
-     read pm_GetVisualObject
-     write pm_SetVisualObject;
+    read pm_GetVisualObject
+    write pm_SetVisualObject;
  end;//TvgVisual
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
-
-// start class TvgVisual
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
 
 function TvgVisual.pm_GetVisualObject: TvgVisualObject;
 //#UC START# *4D5EB94900A6_4D5EB9330192get_var*
@@ -63,7 +50,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D5EB94900A6_4D5EB9330192set_impl*
 end;//TvgVisual.pm_SetVisualObject
-
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

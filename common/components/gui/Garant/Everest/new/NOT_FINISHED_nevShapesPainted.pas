@@ -1,87 +1,70 @@
 unit NOT_FINISHED_nevShapesPainted;
+ {* Коллекция отрисованных параграфов }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/NOT_FINISHED_nevShapesPainted.pas"
-// Начат: 29.06.2005 16:51
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Views::TnevShapesPainted
-//
-// Коллекция отрисованных параграфов
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_nevShapesPainted.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3CacheableBase,
-  nevBase,
-  nevTools,
-  nevShapePrim,
-  nevShapePrimRefList,
-  afwInterfaces
-  ;
+ l3IntfUses
+ , l3CacheableBase
+ , nevTools
+ , nevBase
+ , nevShapePrim
+ , afwInterfaces
+ , nevShapePrimRefList
+;
 
 type
  TnevShape = class(TnevShapePrim, InevMap)
- protected
- // realized methods
+  protected
+   function AddShape(const aShape: InevObject;
+    const aTopLeft: TnevPoint;
+    MakeVisible: Boolean;
+    const aHacker: InevK235870994Hacker): TnevShape; virtual; abstract;
    function pm_GetBounds: TafwRect;
    function pm_GetOuter: IafwShape;
-   function RVisible: Boolean;
+   function rVisible: Boolean;
    procedure SetDrawnBottom(const aBottom: TnevPoint);
    function ReserveMap(const aShape: InevObject): InevMap;
    function IsLinked: Boolean;
    procedure AdjustTopByAnchor(const aView: InevView;
-   const anAnchor: InevBasePoint);
+    const anAnchor: InevBasePoint);
    function CheckFormatInfo(const anObject: InevObject): TInevFormatInfoRet;
    procedure ClearBounds;
-     {* Очищает прямоугольник. }
+    {* Очищает прямоугольник. }
    function Get_FI: TInevFormatInfoRet;
    function GetMaxTop: Integer;
-     {* Ищет самое нижнее значение Top у дочерних ячеек. }
-   procedure CleanupRefs; override;
-     {* Очищает ссылки на сторонние объекты }
+    {* Ищет самое нижнее значение Top у дочерних ячеек. }
    function GetChildMap(anIndex: Integer): InevMap;
    procedure SetDrawnTop(aTop: Integer);
    function GetChildenRight4Fill: Integer;
    function IsMapValid: Boolean;
- protected
- // protected methods
-   function AddShape(const aShape: InevObject;
-     const aTopLeft: TnevPoint;
-     MakeVisible: Boolean;
-     const aHacker: InevK235870994Hacker): TnevShape; virtual; abstract;
+  public
+   procedure CleanupRefs; override;
+    {* Очищает ссылки на сторонние объекты }
  end;//TnevShape
 
  TnevLeafShape = class(TnevShape)
- protected
- // realized methods
+  protected
    function AddShape(const aShape: InevObject;
-     const aTopLeft: TnevPoint;
-     MakeVisible: Boolean;
-     const aHacker: InevK235870994Hacker): TnevShape; override;
+    const aTopLeft: TnevPoint;
+    MakeVisible: Boolean;
+    const aHacker: InevK235870994Hacker): TnevShape; override;
  end;//TnevLeafShape
 
  TnevTextParaShape = class(TnevLeafShape)
  end;//TnevTextParaShape
 
  TnevBaseTopShape = class(TnevShape)
- protected
- // realized methods
+  protected
    function AddShape(const aShape: InevObject;
-     const aTopLeft: TnevPoint;
-     MakeVisible: Boolean;
-     const aHacker: InevK235870994Hacker): TnevShape; override;
+    const aTopLeft: TnevPoint;
+    MakeVisible: Boolean;
+    const aHacker: InevK235870994Hacker): TnevShape; override;
  end;//TnevBaseTopShape
 
  TnevListShape = class(TnevBaseTopShape)
@@ -97,9 +80,8 @@ type
  end;//TnevRowShape
 
  TnevDocumentShape = class(TnevListShape)
- private
- // private fields
-   f_DecorShapes : TnevShapePrimRefList;
+  private
+   f_DecorShapes: TnevShapePrimRefList;
  end;//TnevDocumentShape
 
  TnevTopShape = class(TnevDocumentShape)
@@ -110,48 +92,46 @@ type
 
  TnevShapesPainted = class(Tl3CacheableBase)
   {* Коллекция отрисованных параграфов }
- public
- // realized methods
+  public
    function Root: InevMap;
    function PointByPt(const aView: InevView;
-     const aPos: TnevPoint;
-     CheckHidden: Boolean): InevBaseLine4Anchor;
-     {* возвращает параграф самого нижнего уровня по координатам. }
+    const aPos: TnevPoint;
+    CheckHidden: Boolean): InevBaseLine4Anchor;
+    {* возвращает параграф самого нижнего уровня по координатам. }
    function MapByPoint(const aPoint: InevBasePoint): InevMap;
    function Empty: Boolean;
    function SubShapesCount: Integer;
    procedure SetSingle(aValue: Boolean);
-     {* Переводим в режим отрисовки одиночного элемента. }
+    {* Переводим в режим отрисовки одиночного элемента. }
    procedure Clear;
-     {* очищает список InevShape. }
+    {* очищает список InevShape. }
    procedure ClearEx;
-     {* очищает список InevShape. <?> Чем отличается от Clear? }
+    {* очищает список InevShape. <?> Чем отличается от Clear? }
    procedure BeginDraw(const aShape: InevObject;
-     const anAnchor: InevBasePoint;
-     const aTopLeft: TnevPoint;
-     var theMap: InevMap);
+    const anAnchor: InevBasePoint;
+    const aTopLeft: TnevPoint;
+    var theMap: InevMap);
    procedure EndDraw;
    function MaxWidth: Integer;
    function VertScroll(const aView: InevView;
-     const aFrom: InevBasePoint;
-     const aTo: InevBasePoint;
-     const anEx: TnevPoint): Integer;
-     {* изменяется координаты элементы коллекции на расстояние от aFrom до
+    const aFrom: InevBasePoint;
+    const aTo: InevBasePoint;
+    const anEx: TnevPoint): Integer;
+    {* изменяется координаты элементы коллекции на расстояние от aFrom до
              aTo и возвращает расстояние между верхними границами параграфов. }
    function HorzScroll(aFrom: Integer;
-     aTo: Integer;
-     const anEx: TnevPoint): Integer;
-     {* изменяется координаты элементы коллекции на расстояние от aFrom до
+    aTo: Integer;
+    const anEx: TnevPoint): Integer;
+    {* изменяется координаты элементы коллекции на расстояние от aFrom до
              aTo и возвращает расстояние между верхними границами параграфов. }
  end;//TnevShapesPainted
 
 implementation
 
 uses
-  nevShapesPaintedSpy
-  ;
-
-// start class TnevShape
+ l3ImplUses
+ , nevShapesPaintedSpy
+;
 
 function TnevShape.pm_GetBounds: TafwRect;
 //#UC START# *473DA7280074_4B8682720286get_var*
@@ -171,14 +151,14 @@ begin
 //#UC END# *473DA73100A9_4B8682720286get_impl*
 end;//TnevShape.pm_GetOuter
 
-function TnevShape.RVisible: Boolean;
+function TnevShape.rVisible: Boolean;
 //#UC START# *47C5B88F0025_4B8682720286_var*
 //#UC END# *47C5B88F0025_4B8682720286_var*
 begin
 //#UC START# *47C5B88F0025_4B8682720286_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47C5B88F0025_4B8682720286_impl*
-end;//TnevShape.RVisible
+end;//TnevShape.rVisible
 
 procedure TnevShape.SetDrawnBottom(const aBottom: TnevPoint);
 //#UC START# *47C5B91302DA_4B8682720286_var*
@@ -208,7 +188,7 @@ begin
 end;//TnevShape.IsLinked
 
 procedure TnevShape.AdjustTopByAnchor(const aView: InevView;
-  const anAnchor: InevBasePoint);
+ const anAnchor: InevBasePoint);
 //#UC START# *47C5B9620340_4B8682720286_var*
 //#UC END# *47C5B9620340_4B8682720286_var*
 begin
@@ -227,6 +207,7 @@ begin
 end;//TnevShape.CheckFormatInfo
 
 procedure TnevShape.ClearBounds;
+ {* Очищает прямоугольник. }
 //#UC START# *48174E4500E6_4B8682720286_var*
 //#UC END# *48174E4500E6_4B8682720286_var*
 begin
@@ -245,6 +226,7 @@ begin
 end;//TnevShape.Get_FI
 
 function TnevShape.GetMaxTop: Integer;
+ {* Ищет самое нижнее значение Top у дочерних ячеек. }
 //#UC START# *4CF78985037E_4B8682720286_var*
 //#UC END# *4CF78985037E_4B8682720286_var*
 begin
@@ -254,6 +236,7 @@ begin
 end;//TnevShape.GetMaxTop
 
 procedure TnevShape.CleanupRefs;
+ {* Очищает ссылки на сторонние объекты }
 //#UC START# *4E6E23810369_4B8682720286_var*
 //#UC END# *4E6E23810369_4B8682720286_var*
 begin
@@ -297,12 +280,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52FC8C1C00D9_4B8682720286_impl*
 end;//TnevShape.IsMapValid
-// start class TnevLeafShape
 
 function TnevLeafShape.AddShape(const aShape: InevObject;
-  const aTopLeft: TnevPoint;
-  MakeVisible: Boolean;
-  const aHacker: InevK235870994Hacker): TnevShape;
+ const aTopLeft: TnevPoint;
+ MakeVisible: Boolean;
+ const aHacker: InevK235870994Hacker): TnevShape;
 //#UC START# *4E6E1AFF0229_4B8682990059_var*
 //#UC END# *4E6E1AFF0229_4B8682990059_var*
 begin
@@ -310,12 +292,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4E6E1AFF0229_4B8682990059_impl*
 end;//TnevLeafShape.AddShape
-// start class TnevBaseTopShape
 
 function TnevBaseTopShape.AddShape(const aShape: InevObject;
-  const aTopLeft: TnevPoint;
-  MakeVisible: Boolean;
-  const aHacker: InevK235870994Hacker): TnevShape;
+ const aTopLeft: TnevPoint;
+ MakeVisible: Boolean;
+ const aHacker: InevK235870994Hacker): TnevShape;
 //#UC START# *4E6E1AFF0229_4B8682B00020_var*
 //#UC END# *4E6E1AFF0229_4B8682B00020_var*
 begin
@@ -323,7 +304,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4E6E1AFF0229_4B8682B00020_impl*
 end;//TnevBaseTopShape.AddShape
-// start class TnevShapesPainted
 
 function TnevShapesPainted.Root: InevMap;
 //#UC START# *47C7D2480162_4811DA3100E6_var*
@@ -335,8 +315,9 @@ begin
 end;//TnevShapesPainted.Root
 
 function TnevShapesPainted.PointByPt(const aView: InevView;
-  const aPos: TnevPoint;
-  CheckHidden: Boolean): InevBaseLine4Anchor;
+ const aPos: TnevPoint;
+ CheckHidden: Boolean): InevBaseLine4Anchor;
+ {* возвращает параграф самого нижнего уровня по координатам. }
 //#UC START# *47C7D34701A6_4811DA3100E6_var*
 //#UC END# *47C7D34701A6_4811DA3100E6_var*
 begin
@@ -373,6 +354,7 @@ begin
 end;//TnevShapesPainted.SubShapesCount
 
 procedure TnevShapesPainted.SetSingle(aValue: Boolean);
+ {* Переводим в режим отрисовки одиночного элемента. }
 //#UC START# *47C7D38B00E5_4811DA3100E6_var*
 //#UC END# *47C7D38B00E5_4811DA3100E6_var*
 begin
@@ -382,6 +364,7 @@ begin
 end;//TnevShapesPainted.SetSingle
 
 procedure TnevShapesPainted.Clear;
+ {* очищает список InevShape. }
 //#UC START# *47C7D3CC02CA_4811DA3100E6_var*
 //#UC END# *47C7D3CC02CA_4811DA3100E6_var*
 begin
@@ -391,6 +374,7 @@ begin
 end;//TnevShapesPainted.Clear
 
 procedure TnevShapesPainted.ClearEx;
+ {* очищает список InevShape. <?> Чем отличается от Clear? }
 //#UC START# *47C7D3DB013C_4811DA3100E6_var*
 //#UC END# *47C7D3DB013C_4811DA3100E6_var*
 begin
@@ -400,9 +384,9 @@ begin
 end;//TnevShapesPainted.ClearEx
 
 procedure TnevShapesPainted.BeginDraw(const aShape: InevObject;
-  const anAnchor: InevBasePoint;
-  const aTopLeft: TnevPoint;
-  var theMap: InevMap);
+ const anAnchor: InevBasePoint;
+ const aTopLeft: TnevPoint;
+ var theMap: InevMap);
 //#UC START# *47C7D3FC031E_4811DA3100E6_var*
 //#UC END# *47C7D3FC031E_4811DA3100E6_var*
 begin
@@ -430,9 +414,11 @@ begin
 end;//TnevShapesPainted.MaxWidth
 
 function TnevShapesPainted.VertScroll(const aView: InevView;
-  const aFrom: InevBasePoint;
-  const aTo: InevBasePoint;
-  const anEx: TnevPoint): Integer;
+ const aFrom: InevBasePoint;
+ const aTo: InevBasePoint;
+ const anEx: TnevPoint): Integer;
+ {* изменяется координаты элементы коллекции на расстояние от aFrom до
+             aTo и возвращает расстояние между верхними границами параграфов. }
 //#UC START# *47C7D87400C8_4811DA3100E6_var*
 //#UC END# *47C7D87400C8_4811DA3100E6_var*
 begin
@@ -442,8 +428,10 @@ begin
 end;//TnevShapesPainted.VertScroll
 
 function TnevShapesPainted.HorzScroll(aFrom: Integer;
-  aTo: Integer;
-  const anEx: TnevPoint): Integer;
+ aTo: Integer;
+ const anEx: TnevPoint): Integer;
+ {* изменяется координаты элементы коллекции на расстояние от aFrom до
+             aTo и возвращает расстояние между верхними границами параграфов. }
 //#UC START# *47C7D8910243_4811DA3100E6_var*
 //#UC END# *47C7D8910243_4811DA3100E6_var*
 begin

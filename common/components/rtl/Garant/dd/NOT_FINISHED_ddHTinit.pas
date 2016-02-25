@@ -1,29 +1,23 @@
 unit NOT_FINISHED_ddHTinit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddHTinit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::DataBase::ddHTinit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddHTinit.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 procedure InitBaseEngine;
-   {* Сигнатура метода InitBaseEngine }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure InitBaseEngine;
 //#UC START# *4E4B5C8E01C8_4E4B5C770387_var*

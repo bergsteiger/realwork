@@ -1,29 +1,24 @@
 unit NOT_FINISHED_evConvertTextTools;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evConvertTextTools.pas"
-// Начат: 19.07.2005 11:06
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Searchers::evConvertTextTools
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evConvertTextTools.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TevInPlaceTextConverter = class
  end;//TevInPlaceTextConverter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -1,49 +1,35 @@
 unit NOT_FINISHED_evCustomNSRCWriter;
+ {* Фильтр для записи текста в формате NSRC. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCustomNSRCWriter.pas"
-// Начат: 04.10.1999 17:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Generators::TevCustomNSRCWriter
-//
-// Фильтр для записи текста в формате NSRC.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomNSRCWriter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evCustomTextPainter
-  ;
+ l3IntfUses
+ , evCustomTextPainter
+;
 
 type
  TevCustomNSRCWriter = class(TevCustomTextPainter)
   {* Фильтр для записи текста в формате NSRC. }
- protected
- // protected methods
+  protected
    procedure CheckDigitalSeparatorAlignment; virtual;
-     {* Корректировка стиля на наличие выравнивания по разделителю. }
+    {* Корректировка стиля на наличие выравнивания по разделителю. }
  end;//TevCustomNSRCWriter
 
 implementation
 
 uses
-  evNSRWrt
-  ;
-
-// start class TevCustomNSRCWriter
+ l3ImplUses
+ , evNSRWrt
+;
 
 procedure TevCustomNSRCWriter.CheckDigitalSeparatorAlignment;
+ {* Корректировка стиля на наличие выравнивания по разделителю. }
 //#UC START# *4E3924CE03A3_4836C0A201C1_var*
 //#UC END# *4E3924CE03A3_4836C0A201C1_var*
 begin

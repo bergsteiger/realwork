@@ -1,22 +1,15 @@
 unit NOT_FINISHED_SynCommons;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SynPDF"
-// Модуль: "w:/common/components/rtl/external/SynPDF/NOT_FINISHED_SynCommons.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::SynPDF::SynPDF::SynCommons
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynCommons.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\SynPDF\Synopse.inc}
+{$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  RawUTF8 = ;
@@ -34,20 +27,18 @@ type
 
  TSortedWordArray = record
  end;//TSortedWordArray
+
 procedure IsWinAnsiU8Bit;
-   {* Сигнатура метода IsWinAnsiU8Bit }
 procedure Utf8ToWinAnsi;
-   {* Сигнатура метода Utf8ToWinAnsi }
 procedure Utf8DecodeToRawUnicodeUI;
-   {* Сигнатура метода Utf8DecodeToRawUnicodeUI }
 procedure StringToUTF8;
-   {* Сигнатура метода StringToUTF8 }
 procedure UTF8ToString;
-   {* Сигнатура метода UTF8ToString }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure IsWinAnsiU8Bit;
 //#UC START# *5549C45E014D_5549B8ED02D0_var*

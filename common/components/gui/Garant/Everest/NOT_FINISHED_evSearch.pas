@@ -1,95 +1,75 @@
 unit NOT_FINISHED_evSearch;
+ {* Инструменты для поиска/замены. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evSearch.pas"
-// Начат: 27.05.1998 14:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Searchers::evSearch
-//
-// Инструменты для поиска/замены.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSearch.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  l3CustomString,
-  nevTools,
-  l3ProtoObject,
-  l3Variant,
-  evTypes
-  ;
+ l3IntfUses
+ , l3ProtoObject
+ , nevTools
+ , evTypes
+ , l3Variant
+ , l3CustomString
+ , nevBase
+;
 
 type
  TevSearchTool = class(Tl3ProtoObject, IevSearchTool)
- protected
- // realized methods
+  protected
    procedure Start;
-     {* начало поиска. }
+    {* начало поиска. }
    procedure Finish(aCancel: Boolean;
-     const aBlock: InevRange);
-     {* конец поиска. }
+    const aBlock: InevRange);
+    {* конец поиска. }
    function pm_GetText: AnsiString;
    function pm_GetOptions: TevSearchOptionSet;
    procedure pm_SetOptions(aValue: TevSearchOptionSet);
  end;//TevSearchTool
 
  TevBaseSearcher = {abstract} class(TevSearchTool, IevSearcher)
- protected
- // realized methods
+  protected
    function Check(const aView: InevView;
-     const aBlock: InevRange;
-     out theStart: InevBasePoint;
-     out theFinish: InevBasePoint;
-     const PrevBlock: InevRange): Boolean;
-     {* определяет критерий отбора параграфа (его фрагмента). }
- public
- // public methods
+    const aBlock: InevRange;
+    out theStart: InevBasePoint;
+    out theFinish: InevBasePoint;
+    const PrevBlock: InevRange): Boolean;
+    {* определяет критерий отбора параграфа (его фрагмента). }
+  public
    function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; virtual; abstract;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; virtual; abstract;
  end;//TevBaseSearcher
 
  TevParaByIDSearcher = class(TevBaseSearcher)
- protected
- // realized methods
+  public
    function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; override;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; override;
  end;//TevParaByIDSearcher
 
  TevStyleSearcher = class(TevBaseSearcher)
- protected
- // realized methods
-   function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; override;
- protected
- // protected methods
+  protected
    function IsStyleFound(aStyle: Tl3Tag): Boolean; virtual;
+  public
+   function DoCheckText(aPara: Tl3Variant;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; override;
  end;//TevStyleSearcher
 
  TevORSearcher = class(TevBaseSearcher)
- protected
- // realized methods
+  public
    function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; override;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; override;
  end;//TevORSearcher
 
  TevStylesSearcher = class(TevORSearcher)
@@ -105,50 +85,42 @@ type
  end;//TevMorphologySearcher
 
  TevTextSearcher = {abstract} class(TevBaseSearcher)
- protected
- // realized methods
+  public
    function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; override;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; override;
  end;//TevTextSearcher
 
  TevBMTextSearcher = class(TevBaseSearcher)
   {* Класс инструментов для поиска подстроки методом Боера-Мура }
- protected
- // realized methods
+  public
    function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; override;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; override;
  end;//TevBMTextSearcher
 
  TevBaseReplacer = {abstract} class(TevSearchTool, IevReplacer)
- protected
- // realized methods
+  protected
+   function ReplaceFunc(const aView: InevView;
+    const Container: InevOp;
+    const aBlock: InevRange): Boolean; virtual; abstract;
    function Replace(const Container: InevOp;
-     const aBlock: InevRange;
-     const aConfirm: InevConfirm): Boolean;
+    const aBlock: InevRange;
+    const aConfirm: InevConfirm): Boolean;
    function NeedProgress: Boolean;
    function Get_Searcher: IevSearcher;
    procedure Set_Searcher(const aValue: IevSearcher);
    function Get_ReplaceCount: Integer;
- protected
- // protected methods
-   function ReplaceFunc(const aView: InevView;
-     const Container: InevOp;
-     const aBlock: InevRange): Boolean; virtual; abstract;
-     {* абстрактная функция для замены блока Block на что-то еще.
-             Наследники - должны перекрывать данную функцию }
  end;//TevBaseReplacer
 
  TevFakeSearcher = class(TevBaseSearcher)
- protected
- // realized methods
+  public
    function DoCheckText(aPara: Tl3Variant;
-     aText: Tl3CustomString;
-     const aSel: TevPair;
-     out theSel: TevPair): Boolean; override;
+    aText: Tl3CustomString;
+    const aSel: TevPair;
+    out theSel: TevPair): Boolean; override;
  end;//TevFakeSearcher
 
  TevAnyParagraphSearcher = class(TevFakeSearcher)
@@ -157,9 +129,12 @@ type
 
 implementation
 
-// start class TevSearchTool
+uses
+ l3ImplUses
+;
 
 procedure TevSearchTool.Start;
+ {* начало поиска. }
 //#UC START# *47C6CA6B01E9_4ADC811B0204_var*
 //#UC END# *47C6CA6B01E9_4ADC811B0204_var*
 begin
@@ -169,7 +144,8 @@ begin
 end;//TevSearchTool.Start
 
 procedure TevSearchTool.Finish(aCancel: Boolean;
-  const aBlock: InevRange);
+ const aBlock: InevRange);
+ {* конец поиска. }
 //#UC START# *47C6CA7A01CA_4ADC811B0204_var*
 //#UC END# *47C6CA7A01CA_4ADC811B0204_var*
 begin
@@ -204,13 +180,13 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47C6CB7D00C9_4ADC811B0204set_impl*
 end;//TevSearchTool.pm_SetOptions
-// start class TevBaseSearcher
 
 function TevBaseSearcher.Check(const aView: InevView;
-  const aBlock: InevRange;
-  out theStart: InevBasePoint;
-  out theFinish: InevBasePoint;
-  const PrevBlock: InevRange): Boolean;
+ const aBlock: InevRange;
+ out theStart: InevBasePoint;
+ out theFinish: InevBasePoint;
+ const PrevBlock: InevRange): Boolean;
+ {* определяет критерий отбора параграфа (его фрагмента). }
 //#UC START# *47C7C6F8035C_4ADC80FF0104_var*
 //#UC END# *47C7C6F8035C_4ADC80FF0104_var*
 begin
@@ -218,12 +194,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47C7C6F8035C_4ADC80FF0104_impl*
 end;//TevBaseSearcher.Check
-// start class TevParaByIDSearcher
 
 function TevParaByIDSearcher.DoCheckText(aPara: Tl3Variant;
-  aText: Tl3CustomString;
-  const aSel: TevPair;
-  out theSel: TevPair): Boolean;
+ aText: Tl3CustomString;
+ const aSel: TevPair;
+ out theSel: TevPair): Boolean;
 //#UC START# *50751B680376_47F1F97F0328_var*
 //#UC END# *50751B680376_47F1F97F0328_var*
 begin
@@ -231,7 +206,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50751B680376_47F1F97F0328_impl*
 end;//TevParaByIDSearcher.DoCheckText
-// start class TevStyleSearcher
 
 function TevStyleSearcher.IsStyleFound(aStyle: Tl3Tag): Boolean;
 //#UC START# *4ADC80DC013E_4ADC80C703AF_var*
@@ -243,9 +217,9 @@ begin
 end;//TevStyleSearcher.IsStyleFound
 
 function TevStyleSearcher.DoCheckText(aPara: Tl3Variant;
-  aText: Tl3CustomString;
-  const aSel: TevPair;
-  out theSel: TevPair): Boolean;
+ aText: Tl3CustomString;
+ const aSel: TevPair;
+ out theSel: TevPair): Boolean;
 //#UC START# *50751B680376_4ADC80C703AF_var*
 //#UC END# *50751B680376_4ADC80C703AF_var*
 begin
@@ -253,12 +227,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50751B680376_4ADC80C703AF_impl*
 end;//TevStyleSearcher.DoCheckText
-// start class TevORSearcher
 
 function TevORSearcher.DoCheckText(aPara: Tl3Variant;
-  aText: Tl3CustomString;
-  const aSel: TevPair;
-  out theSel: TevPair): Boolean;
+ aText: Tl3CustomString;
+ const aSel: TevPair;
+ out theSel: TevPair): Boolean;
 //#UC START# *50751B680376_4ADC8513030A_var*
 //#UC END# *50751B680376_4ADC8513030A_var*
 begin
@@ -266,12 +239,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50751B680376_4ADC8513030A_impl*
 end;//TevORSearcher.DoCheckText
-// start class TevTextSearcher
 
 function TevTextSearcher.DoCheckText(aPara: Tl3Variant;
-  aText: Tl3CustomString;
-  const aSel: TevPair;
-  out theSel: TevPair): Boolean;
+ aText: Tl3CustomString;
+ const aSel: TevPair;
+ out theSel: TevPair): Boolean;
 //#UC START# *50751B680376_4D53D9910086_var*
 //#UC END# *50751B680376_4D53D9910086_var*
 begin
@@ -279,12 +251,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50751B680376_4D53D9910086_impl*
 end;//TevTextSearcher.DoCheckText
-// start class TevBMTextSearcher
 
 function TevBMTextSearcher.DoCheckText(aPara: Tl3Variant;
-  aText: Tl3CustomString;
-  const aSel: TevPair;
-  out theSel: TevPair): Boolean;
+ aText: Tl3CustomString;
+ const aSel: TevPair;
+ out theSel: TevPair): Boolean;
 //#UC START# *50751B680376_4D53D9B70153_var*
 //#UC END# *50751B680376_4D53D9B70153_var*
 begin
@@ -292,11 +263,10 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50751B680376_4D53D9B70153_impl*
 end;//TevBMTextSearcher.DoCheckText
-// start class TevBaseReplacer
 
 function TevBaseReplacer.Replace(const Container: InevOp;
-  const aBlock: InevRange;
-  const aConfirm: InevConfirm): Boolean;
+ const aBlock: InevRange;
+ const aConfirm: InevConfirm): Boolean;
 //#UC START# *47C7C8240348_4D553A4A005D_var*
 //#UC END# *47C7C8240348_4D553A4A005D_var*
 begin
@@ -340,12 +310,11 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D3EA8AD0147_4D553A4A005Dget_impl*
 end;//TevBaseReplacer.Get_ReplaceCount
-// start class TevFakeSearcher
 
 function TevFakeSearcher.DoCheckText(aPara: Tl3Variant;
-  aText: Tl3CustomString;
-  const aSel: TevPair;
-  out theSel: TevPair): Boolean;
+ aText: Tl3CustomString;
+ const aSel: TevPair;
+ out theSel: TevPair): Boolean;
 //#UC START# *50751B680376_50751A7C01BC_var*
 //#UC END# *50751B680376_50751A7C01BC_var*
 begin
@@ -353,4 +322,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50751B680376_50751A7C01BC_impl*
 end;//TevFakeSearcher.DoCheckText
+
 end.

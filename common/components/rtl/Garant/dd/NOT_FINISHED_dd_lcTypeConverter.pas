@@ -1,29 +1,18 @@
 unit NOT_FINISHED_dd_lcTypeConverter;
+ {* Преобразование внешних типов во внутренние }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcTypeConverter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd::Filters::dd_lcTypeConverter
-//
-// Преобразование внешних типов во внутренние
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTypeConverter.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  dd_lcBaseFilter,
-  dd_lcBaseDocFilter
-  ;
+ l3IntfUses
+ , dd_lcBaseFilter
+ , dd_lcBaseDocFilter
+;
 
 type
  Tdd_lcTypeConverter = class(Tdd_lcSynoFilter)
@@ -36,5 +25,9 @@ type
  end;//Tdd_lcTypeConverter2
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

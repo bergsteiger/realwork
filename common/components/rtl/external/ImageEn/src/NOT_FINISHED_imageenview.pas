@@ -1,50 +1,38 @@
 unit NOT_FINISHED_imageenview;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ImageEn"
-// Модуль: "w:/common/components/rtl/external/ImageEn/src/NOT_FINISHED_imageenview.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::ImageEn::Source::imageenview
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenview.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoImageEn)}
+{$If NOT Defined(NoImageEn)}
+uses
+ l3IntfUses
+;
+
 type
  TImageEnView = class
  end;//TImageEnView
-{$IfEnd} //not NoImageEn
+{$IfEnd} // NOT Defined(NoImageEn)
 
 implementation
 
-{$If not defined(NoImageEn)}
+{$If NOT Defined(NoImageEn)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoImageEn) AND not defined(NoScripts)}
-  ,
-  ImageEnPack
-  {$IfEnd} //not NoImageEn AND not NoScripts
-  
-  ;
-
-{$IfEnd} //not NoImageEn
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ImageEnPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoImageEn) AND not defined(NoScripts)}
-// Регистрация TImageEnView
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TImageEnView);
-{$IfEnd} //not NoImageEn AND not NoScripts
+ {* Регистрация TImageEnView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoImageEn)
 
 end.

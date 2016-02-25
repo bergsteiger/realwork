@@ -1,43 +1,28 @@
 unit NOT_FINISHED_tb97Ctls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "tb97"
-// Модуль: "w:/common/components/rtl/external/tb97/NOT_FINISHED_tb97Ctls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::tb97::Buttons::tb97Ctls
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\tb97\NOT_FINISHED_tb97Ctls.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\tb97\TB97VER.INC}
+{$Include w:\common\components\rtl\external\tb97\TB97VER.INC}
 
 interface
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  Types
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  tb97GraphicControl
-  ;
+ l3IntfUses
+ , tb97GraphicControl
+ , Types
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TCustomToolbarButton97 = class(Ttb97GraphicTextControl)
- protected
- // protected methods
+  protected
    function IsGtbToolbarButtonSizeNeeded: Boolean; virtual;
    function GetIsAutoCenter: Boolean; virtual;
    procedure CalcSize(var aSize: TSize); virtual;
@@ -52,33 +37,26 @@ type
  end;//TCustomToolbarPanel97
 
  TSizeGripPanel = class(TCustomToolbarPanel97)
- protected
- // protected methods
+  protected
    function GetFormToResize: TCustomForm; virtual;
  end;//TSizeGripPanel
 
  TToolbarButton97ActionLink = class(TControlActionLink)
  end;//TToolbarButton97ActionLink
-{$IfEnd} //not NoTB97
+{$IfEnd} // NOT Defined(NoTB97)
 
 implementation
 
-{$If not defined(NoTB97)}
+{$If NOT Defined(NoTB97)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoTB97)}
-  ,
-  tb97WordsPack
-  {$IfEnd} //not NoScripts AND not NoTB97
-  
-  ;
-
-// start class TCustomToolbarButton97
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tb97WordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TCustomToolbarButton97.IsGtbToolbarButtonSizeNeeded: Boolean;
 //#UC START# *503DE82B0311_4F69EF8C027C_var*
@@ -124,7 +102,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52A08B2C0001_4F69EF8C027C_impl*
 end;//TCustomToolbarButton97.AutoAllUp
-// start class TSizeGripPanel
 
 function TSizeGripPanel.GetFormToResize: TCustomForm;
 //#UC START# *53CE39CD0045_5058B6600074_var*
@@ -134,24 +111,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *53CE39CD0045_5058B6600074_impl*
 end;//TSizeGripPanel.GetFormToResize
-{$IfEnd} //not NoTB97
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TCustomToolbarButton97
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomToolbarButton97);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TToolbarButton97
+ {* Регистрация TCustomToolbarButton97 }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TToolbarButton97);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TCustomToolbarPanel97
+ {* Регистрация TToolbarButton97 }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomToolbarPanel97);
-{$IfEnd} //not NoScripts AND not NoTB97
-{$If not defined(NoScripts) AND not defined(NoTB97)}
-// Регистрация TSizeGripPanel
+ {* Регистрация TCustomToolbarPanel97 }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TSizeGripPanel);
-{$IfEnd} //not NoScripts AND not NoTB97
+ {* Регистрация TSizeGripPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoTB97)
 
 end.

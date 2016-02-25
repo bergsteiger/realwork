@@ -1,44 +1,36 @@
 unit NOT_FINISHED_vtStdRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT$Core"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtStdRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT$Core::Common::vtStdRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtStdRes.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+;
 
 type
  TvtStdResources = class(TDataModule)
  end;//TvtStdResources
 
-procedure VtStdResources;
+procedure vtStdResources;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-procedure VtStdResources;
+procedure vtStdResources;
 //#UC START# *49213E3A030E_49213DFA02CB_var*
 //#UC END# *49213E3A030E_49213DFA02CB_var*
 begin
 //#UC START# *49213E3A030E_49213DFA02CB_impl*
  !!! Needs to be implemented !!!
 //#UC END# *49213E3A030E_49213DFA02CB_impl*
-end;//VtStdResources
+end;//vtStdResources
 
 end.

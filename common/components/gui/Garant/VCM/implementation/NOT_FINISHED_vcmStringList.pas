@@ -1,35 +1,29 @@
 unit NOT_FINISHED_vcmStringList;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/NOT_FINISHED_vcmStringList.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM::Implementation::TvcmStringList
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmStringList.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3VCLStrings
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , l3VCLStrings
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmStringList = class(Tl3Strings)
  end;//TvcmStringList
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

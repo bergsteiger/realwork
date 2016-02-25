@@ -1,43 +1,31 @@
 unit NOT_FINISHED_vgVisualObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/NOT_FINISHED_vgVisualObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Impl::TvgVisualObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgVisualObject.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Classes,
-  vgObject,
-  vgTypes,
-  vgObjectList,
-  vgBounds,
-  vgPosition
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgObject
+ , Classes
+ , vgObjectList
+ , vgTypes
+ , vgBounds
+ , vgPosition
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgVisualObject = class(TvgObject)
- private
- // private fields
-   f_OnClick : TNotifyEvent;
-    {* Поле для свойства OnClick}
- protected
- // property methods
+  private
+   f_OnClick: TNotifyEvent;
+    {* Поле для свойства OnClick }
+  protected
+   FTabList: TvgObjectList;
+  protected
    procedure pm_SetOnClick(aValue: TNotifyEvent); virtual;
    function pm_GetAlign: TvgAlign;
    procedure pm_SetAlign(aValue: TvgAlign);
@@ -47,53 +35,38 @@ type
    procedure pm_SetMargins(aValue: TvgBounds);
    function pm_GetPosition: TvgPosition;
    procedure pm_SetPosition(aValue: TvgPosition);
- protected
- // overridden property methods
    function pm_GetIsVisual: Boolean; override;
- protected
- // protected fields
-   FTabList : TvgObjectList;
- public
- // public properties
+  public
    property OnClick: TNotifyEvent
-     read f_OnClick
-     write pm_SetOnClick;
+    read f_OnClick
+    write pm_SetOnClick;
    property Align: TvgAlign
-     read pm_GetAlign
-     write pm_SetAlign;
+    read pm_GetAlign
+    write pm_SetAlign;
    property DragMode: TvgDragMode
-     read pm_GetDragMode
-     write pm_SetDragMode;
+    read pm_GetDragMode
+    write pm_SetDragMode;
    property Margins: TvgBounds
-     read pm_GetMargins
-     write pm_SetMargins;
+    read pm_GetMargins
+    write pm_SetMargins;
    property Position: TvgPosition
-     read pm_GetPosition
-     write pm_SetPosition;
+    read pm_GetPosition
+    write pm_SetPosition;
  end;//TvgVisualObject
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts) AND not defined(NoVGScene)}
-  ,
-  VGSceneWordsPack
-  {$IfEnd} //not NoScripts AND not NoVGScene
-  
-  ;
-{$IfEnd} //not NoVGScene
-
-{$If not defined(NoVGScene)}
-
-// start class TvgVisualObject
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , VGSceneWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvgVisualObject.pm_SetOnClick(aValue: TNotifyEvent);
 //#UC START# *4D5E5BB000A5_4D49562A01B7set_var*
@@ -185,12 +158,11 @@ begin
 //#UC END# *4D5EAD10009D_4D49562A01B7get_impl*
 end;//TvgVisualObject.pm_GetIsVisual
 
-{$IfEnd} //not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgVisualObject
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgVisualObject);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvgVisualObject }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

@@ -1,28 +1,17 @@
 unit NOT_FINISHED_dd_lcCodeCorrector;
+ {* Базовый предок для удвоителей номеров }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcCodeCorrector.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcCodeCorrector
-//
-// Базовый предок для удвоителей номеров
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcCodeCorrector.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  ddHeaderFilter
-  ;
+ l3IntfUses
+ , ddHeaderFilter
+;
 
 type
  Tdd_lcCodeCorrector = class(TddHeaderFilter)
@@ -30,5 +19,9 @@ type
  end;//Tdd_lcCodeCorrector
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

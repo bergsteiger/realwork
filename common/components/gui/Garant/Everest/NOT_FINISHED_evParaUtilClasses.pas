@@ -1,59 +1,46 @@
 unit NOT_FINISHED_evParaUtilClasses;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evParaUtilClasses.pas"
-// Начат: 02.09.2008 18:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ParaUtils::evParaUtilClasses
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evParaUtilClasses.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
+{$If Defined(k2ForEditor) AND Defined(evNeedEditableCursors)}
 uses
-  evEditorInterfaces,
-  evCustomParaListUtils,
-  nevTools,
-  evdTypes,
-  nevBase,
-  k2Interfaces
-  ;
+ l3IntfUses
+ , evCustomParaListUtils
+ , evEditorInterfaces
+ , nevTools
+ , evdTypes
+ , nevBase
+ , k2Interfaces
+;
 
 type
  TevTable = class(TevLocationProcessorTagTool, IedTable, IedCells)
   {* Реализация интерфейсов IedCell и IedCells для таблицы. }
- protected
- // realized methods
+  protected
    function Get_Frame: IedFrame;
-   function Merge(aMergeAlg: TedMergeAlgorythm = ed_maAll): Boolean;
-     {* объединить ячейки в диапазоне }
+   function Merge(aMergeAlg: TedMergeAlgorythm = All): Boolean; overload;
+    {* объединить ячейки в диапазоне }
    function pm_GetTableRange: IevTableRange;
    function pm_GetTable: IedTable;
    function pm_GetVerticalAligment: TevVerticalAligment;
    procedure pm_SetVerticalAligment(aValue: TevVerticalAligment);
    function InsertRows(NumRows: Integer): Boolean;
-     {* втавляет NumRows строк в текущее место таблицы }
+    {* втавляет NumRows строк в текущее место таблицы }
    function Split(const anIndicator: InevProgress): Boolean;
-     {* разделяет таблицу на две, в текущем месте }
-   function Merge(const anIndicator: InevProgress): Boolean;
-     {* объединяет таблицу со следующей }
+    {* разделяет таблицу на две, в текущем месте }
+   function Merge(const anIndicator: InevProgress): Boolean; overload;
+    {* объединяет таблицу со следующей }
    function FirstRowID: Integer;
-     {* возвращает номер первой выделенной строки }
+    {* возвращает номер первой выделенной строки }
    function Delete: Boolean;
-     {* удаляет таблицу }
+    {* удаляет таблицу }
    function RowCount: Integer;
-     {* возварщает количество строк в таблице }
+    {* возварщает количество строк в таблице }
    function Get_Cell: IedCell;
    function Get_Cells: IedCells;
    function Get_Column: IedColumn;
@@ -62,30 +49,26 @@ type
    function pm_GetOldNSRC: Boolean;
    procedure pm_SetOldNSRC(aValue: Boolean);
    procedure Translate2Text;
-     {* преобразуем диапазон ячеек в текст. }
+    {* преобразуем диапазон ячеек в текст. }
    function GetTagCell(aRow: Tl3Variant;
-     const aCell: InevPara;
-     aTagIndex: LongInt;
-     const aLocation: InevLocation;
-     anInitNeighbours: Boolean): IedCell;
-     {* Времянка до переноса на модель evParaUtilClasses на модель. }
+    const aCell: InevPara;
+    aTagIndex: LongInt;
+    const aLocation: InevLocation;
+    anInitNeighbours: Boolean): IedCell;
+    {* Времянка до переноса на модель evParaUtilClasses на модель. }
    function GetTag: Tl3Variant;
  end;//TevTable
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
+{$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
 
 implementation
 
-{$If defined(evNeedEditableCursors) AND defined(k2ForEditor)}
+{$If Defined(k2ForEditor) AND Defined(evNeedEditableCursors)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  IedTableWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevTable
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , IedTableWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TevTable.Get_Frame: IedFrame;
 //#UC START# *4BBC89F8009C_48E4EBC401E7get_var*
@@ -96,7 +79,8 @@ begin
 //#UC END# *4BBC89F8009C_48E4EBC401E7get_impl*
 end;//TevTable.Get_Frame
 
-function TevTable.Merge(aMergeAlg: TedMergeAlgorythm = ed_maAll): Boolean;
+function TevTable.Merge(aMergeAlg: TedMergeAlgorythm = All): Boolean;
+ {* объединить ячейки в диапазоне }
 //#UC START# *4BBC978B0203_48E4EBC401E7_var*
 //#UC END# *4BBC978B0203_48E4EBC401E7_var*
 begin
@@ -142,6 +126,7 @@ begin
 end;//TevTable.pm_SetVerticalAligment
 
 function TevTable.InsertRows(NumRows: Integer): Boolean;
+ {* втавляет NumRows строк в текущее место таблицы }
 //#UC START# *4BBCAF7B0203_48E4EBC401E7_var*
 //#UC END# *4BBCAF7B0203_48E4EBC401E7_var*
 begin
@@ -151,6 +136,7 @@ begin
 end;//TevTable.InsertRows
 
 function TevTable.Split(const anIndicator: InevProgress): Boolean;
+ {* разделяет таблицу на две, в текущем месте }
 //#UC START# *4BBCAF9600F1_48E4EBC401E7_var*
 //#UC END# *4BBCAF9600F1_48E4EBC401E7_var*
 begin
@@ -160,6 +146,7 @@ begin
 end;//TevTable.Split
 
 function TevTable.Merge(const anIndicator: InevProgress): Boolean;
+ {* объединяет таблицу со следующей }
 //#UC START# *4BBCAFA802FB_48E4EBC401E7_var*
 //#UC END# *4BBCAFA802FB_48E4EBC401E7_var*
 begin
@@ -169,6 +156,7 @@ begin
 end;//TevTable.Merge
 
 function TevTable.FirstRowID: Integer;
+ {* возвращает номер первой выделенной строки }
 //#UC START# *4BBCAFBC0333_48E4EBC401E7_var*
 //#UC END# *4BBCAFBC0333_48E4EBC401E7_var*
 begin
@@ -178,6 +166,7 @@ begin
 end;//TevTable.FirstRowID
 
 function TevTable.Delete: Boolean;
+ {* удаляет таблицу }
 //#UC START# *4BBCAFD10171_48E4EBC401E7_var*
 //#UC END# *4BBCAFD10171_48E4EBC401E7_var*
 begin
@@ -187,6 +176,7 @@ begin
 end;//TevTable.Delete
 
 function TevTable.RowCount: Integer;
+ {* возварщает количество строк в таблице }
 //#UC START# *4BBCAFFE0032_48E4EBC401E7_var*
 //#UC END# *4BBCAFFE0032_48E4EBC401E7_var*
 begin
@@ -259,6 +249,7 @@ begin
 end;//TevTable.pm_SetOldNSRC
 
 procedure TevTable.Translate2Text;
+ {* преобразуем диапазон ячеек в текст. }
 //#UC START# *4BFCC6860038_48E4EBC401E7_var*
 //#UC END# *4BFCC6860038_48E4EBC401E7_var*
 begin
@@ -268,10 +259,11 @@ begin
 end;//TevTable.Translate2Text
 
 function TevTable.GetTagCell(aRow: Tl3Variant;
-  const aCell: InevPara;
-  aTagIndex: LongInt;
-  const aLocation: InevLocation;
-  anInitNeighbours: Boolean): IedCell;
+ const aCell: InevPara;
+ aTagIndex: LongInt;
+ const aLocation: InevLocation;
+ anInitNeighbours: Boolean): IedCell;
+ {* Времянка до переноса на модель evParaUtilClasses на модель. }
 //#UC START# *4FC49AA30122_48E4EBC401E7_var*
 //#UC END# *4FC49AA30122_48E4EBC401E7_var*
 begin
@@ -288,6 +280,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *50DD7CA901AD_48E4EBC401E7_impl*
 end;//TevTable.GetTag
-{$IfEnd} //evNeedEditableCursors AND k2ForEditor
+{$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
 
 end.

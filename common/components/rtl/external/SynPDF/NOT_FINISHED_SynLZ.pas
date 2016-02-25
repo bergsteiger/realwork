@@ -1,29 +1,23 @@
 unit NOT_FINISHED_SynLZ;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "SynPDF"
-// Модуль: "w:/common/components/rtl/external/SynPDF/NOT_FINISHED_SynLZ.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::SynPDF::SynPDF::SynLZ
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\SynPDF\NOT_FINISHED_SynLZ.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\SynPDF\Synopse.inc}
+{$Include w:\common\components\rtl\external\SynPDF\Synopse.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 procedure CompressSynLZ;
-   {* Сигнатура метода CompressSynLZ }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure CompressSynLZ;
 //#UC START# *5549C7D80326_5549B8FF00EF_var*

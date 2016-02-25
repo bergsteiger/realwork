@@ -1,30 +1,17 @@
 unit NOT_FINISHED_evDocumentsCache;
+ {* Кеш документов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/new/NOT_FINISHED_evDocumentsCache.pas"
-// Начат: 28.09.2004 15:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::DocumentContainers::TevDocumentsCache
-//
-// Кеш документов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\Everest\new\NOT_FINISHED_evDocumentsCache.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evDocumentsCachePrim
-  ;
+ l3IntfUses
+ , evDocumentsCachePrim
+;
 
 type
  TevDocumentsCache = class(TevDocumentsCachePrim)
@@ -34,7 +21,8 @@ type
 implementation
 
 uses
-  nevDocumentContainerList
-  ;
+ l3ImplUses
+ , nevDocumentContainerList
+;
 
 end.

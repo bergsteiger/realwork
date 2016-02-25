@@ -1,28 +1,16 @@
 unit NOT_FINISHED_evHighLevelDocumentGenerator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evHighLevelDocumentGenerator.pas"
-// Начат: 22.06.2005 20:50
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Generators::evHighLevelDocumentGenerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evHighLevelDocumentGenerator.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  k2DocumentGenerator
-  ;
+ l3IntfUses
+ , k2DocumentGenerator
+;
 
 type
  TevHighLevelDocumentGenerator = class(Tk2DocumentGenerator)
@@ -32,5 +20,9 @@ type
  end;//TevPreAddHighLevelDocumentGenerator
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

@@ -1,28 +1,17 @@
 unit NOT_FINISHED_dd_lcPageNumberEliminator;
+ {* Удаляет псевдономера страниц из текста судебных постановлений }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcPageNumberEliminator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcPageNumberEliminator
-//
-// Удаляет псевдономера страниц из текста судебных постановлений
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcPageNumberEliminator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  evdBufferedFilter
-  ;
+ l3IntfUses
+ , evdBufferedFilter
+;
 
 type
  Tdd_lcPageNumberEliminator = class(TevdChildBufferedFilter)
@@ -30,5 +19,9 @@ type
  end;//Tdd_lcPageNumberEliminator
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

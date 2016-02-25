@@ -1,35 +1,29 @@
 unit NOT_FINISHED_vgBrushBitmap;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/NOT_FINISHED_vgBrushBitmap.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Impl::TvgBrushBitmap
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgBrushBitmap.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgPersistent
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgPersistent
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgBrushBitmap = class(TvgPersistent)
  end;//TvgBrushBitmap
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
+
+{$If NOT Defined(NoVGScene)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

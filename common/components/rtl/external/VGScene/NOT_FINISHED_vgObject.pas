@@ -1,67 +1,44 @@
 unit NOT_FINISHED_vgObject;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VGScene"
-// Модуль: "w:/common/components/rtl/external/VGScene/NOT_FINISHED_vgObject.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VGScene::Impl::TvgObject
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\VGScene\NOT_FINISHED_vgObject.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VGScene\vg_define.inc}
+{$Include w:\common\components\rtl\external\VGScene\vg_define.inc}
 
 interface
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  vgAnyObjectList,
-  vgCustomObject,
-  vgSortableObjectList,
-  vgCustomObjectList
-  ;
-{$IfEnd} //not NoVGScene
+ l3IntfUses
+ , vgCustomObject
+ , vgAnyObjectList
+ , vgSortableObjectList
+ , vgCustomObjectList
+;
 
-{$If not defined(NoVGScene)}
 type
  TvgObject = class(TvgCustomObject)
- private
- // private fields
-   FNotifyList : TvgAnyObjectList;
- protected
- // realized methods
+  private
+   FNotifyList: TvgAnyObjectList;
+  protected
+   FChildren: TvgSortableObjectList;
+  protected
    function pm_GetIsVisual: Boolean; override;
- protected
- // protected fields
-   FChildren : TvgSortableObjectList;
- public
- // public methods
+  public
    procedure AddObjectsToList(aList: TvgCustomObjectList);
    procedure AddControlsToList(aList: TvgCustomObjectList);
  end;//TvgObject
-{$IfEnd} //not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene)
 
 implementation
 
-{$If not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVGScene
-
-{$If not defined(NoVGScene)}
-
-// start class TvgObject
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TvgObject.AddObjectsToList(aList: TvgCustomObjectList);
 //#UC START# *4D5EA9B9016E_4D4956480326_var*
@@ -90,12 +67,11 @@ begin
 //#UC END# *4D5EAD10009D_4D4956480326get_impl*
 end;//TvgObject.pm_GetIsVisual
 
-{$IfEnd} //not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVGScene)}
-// Регистрация TvgObject
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgObject);
-{$IfEnd} //not NoScripts AND not NoVGScene
+ {* Регистрация TvgObject }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVGScene)
 
 end.

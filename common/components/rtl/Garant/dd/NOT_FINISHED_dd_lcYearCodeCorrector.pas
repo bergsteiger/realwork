@@ -1,28 +1,17 @@
 unit NOT_FINISHED_dd_lcYearCodeCorrector;
+ {* Укорачивает год в номере до двух знаков }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dd_lcYearCodeCorrector.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd::Filters::Tdd_lcYearCodeCorrector
-//
-// Укорачивает год в номере до двух знаков
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcYearCodeCorrector.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  dd_lcCodeCorrector
-  ;
+ l3IntfUses
+ , dd_lcCodeCorrector
+;
 
 type
  Tdd_lcYearCodeCorrector = class(Tdd_lcCodeCorrector)
@@ -30,5 +19,9 @@ type
  end;//Tdd_lcYearCodeCorrector
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

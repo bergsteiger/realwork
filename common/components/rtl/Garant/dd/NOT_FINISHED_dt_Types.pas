@@ -1,91 +1,96 @@
 unit NOT_FINISHED_dt_Types;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_dt_Types.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::dd::dt_Types
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_dt_Types.pas"
+// Стереотип: "Interfaces"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
 
 uses
-  l3Types,
-  evdDTTypes
-  ;
+ l3IntfUses
+ , evdDTTypes
+ , l3Types
+;
+
+const
+ {* Алиасы для значений evdDTTypes.TepDivideBy }
+ divNone = divNone;
+ divTopic = divTopic;
+ divAccRight = divAccRight;
+ divSize = divSize;
+ {* Алиасы для значений evdDTTypes.TepSupportFileType }
+ outEVD = outEVD;
+ outEVDtext = outEVDtext;
+ outTXT = outTXT;
+ outNSRC = outNSRC;
+ outRTF = outRTF;
+ outHTML = outHTML;
+ outXML = outXML;
 
 type
- TDictID = System.LongWord;
+ TDictID = LongWord;
 
- TDocID = System.LongInt;
+ TDocID = LongInt;
 
- TSubID = System.LongInt;
+ TSubID = LongInt;
 
  TDocType = (
   {* Внутренние типы документов }
-   dtNone
- , dtText
- , dtRelText
- , dtShortCut
- , dtObject
- , dtDictEntry
- , dtAnnotation
- , dtFlash
+  dtNone
+  , dtText
+  , dtRelText
+  , dtShortCut
+  , dtObject
+  , dtDictEntry
+  , dtAnnotation
+  , dtFlash
  );//TDocType
 
- TFamilyID = System.Word;
+ TFamilyID = Word;
 
  TDiapasonRec = record
  end;//TDiapasonRec
 
  TddPipeInputFileType = (
-   dd_itAutoDetect
- , dd_itGarant
- , dd_itEverest
- , dd_itEverestInternal
- , dd_itRTFAnnotation
- , dd_itTXTAnnotation
- , dd_itFASCaseCode
- , dd_itKT
- , dd_itUnknown
+  dd_itAutoDetect
+  , dd_itGarant
+  , dd_itEverest
+  , dd_itEverestInternal
+  , dd_itRTFAnnotation
+  , dd_itTXTAnnotation
+  , dd_itFASCaseCode
+  , dd_itKT
+  , dd_itUnknown
  );//TddPipeInputFileType
 
  TUserType = (
-   utNone
- , utDoc
- , utNoDoc
- , utCalendar
- , utBusiness
- , utUserInfo
- , utWEBReference
- , utEdition
- , utBook
- , utIzm
- , utCard
- , utDossier
- , utAAK_Cont
- , utAAK_Doc
+  utNone
+  , utDoc
+  , utNoDoc
+  , utCalendar
+  , utBusiness
+  , utUserInfo
+  , utWEBReference
+  , utEdition
+  , utBook
+  , utIzm
+  , utCard
+  , utDossier
+  , utAAK_Cont
+  , utAAK_Doc
  );//TUserType
 
  TDiapType = (
-   tdNone
- , tdSingle
- , tdGroup
- , tdAll
- , tdSearch
- , tdNumList
+  tdNone
+  , tdSingle
+  , tdGroup
+  , tdAll
+  , tdSearch
+  , tdNumList
  );//TDiapType
 
- TUserID = System.LongWord;
+ TUserID = LongWord;
 
  TepSupportFileType = evdDTTypes.TepSupportFileType;
 
@@ -94,30 +99,18 @@ type
  TPathRec = record
  end;//TPathRec
 
- TPathStr = l3Types.Tl3PathStr;
+ TPathStr = Tl3PathStr;
 
  TOpenMode = record
  end;//TOpenMode
 
  TOperActionType = (
-   
  );//TOperActionType
 
-const
-  { Алиасы для значений evdDTTypes.TepDivideBy }
- divNone = evdDTTypes.divNone;
- divTopic = evdDTTypes.divTopic;
- divAccRight = evdDTTypes.divAccRight;
- divSize = evdDTTypes.divSize;
-  { Алиасы для значений evdDTTypes.TepSupportFileType }
- outEVD = evdDTTypes.outEVD;
- outEVDtext = evdDTTypes.outEVDtext;
- outTXT = evdDTTypes.outTXT;
- outNSRC = evdDTTypes.outNSRC;
- outRTF = evdDTTypes.outRTF;
- outHTML = evdDTTypes.outHTML;
- outXML = evdDTTypes.outXML;
-
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

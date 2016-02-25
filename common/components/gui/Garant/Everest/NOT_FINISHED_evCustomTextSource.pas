@@ -1,53 +1,41 @@
 unit NOT_FINISHED_evCustomTextSource;
+ {* Реализация источника документа. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCustomTextSource.pas"
-// Начат: 09.04.1997 15:57
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::TextSources::TevCustomTextSource
-//
-// Реализация источника документа.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTextSource.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  nevBase,
-  l3InterfacedComponent,
-  nevTools,
-  l3Variant
-  ;
+ l3IntfUses
+ , l3InterfacedComponent
+ , nevTools
+ , nevBase
+ , l3Variant
+;
 
 type
- TevGetControlItemImgEvent = procedure (aSender: TObject;
+ TevGetControlItemImgEvent = procedure(aSender: TObject;
   const aControl: TnevControlInfo;
   out theImageInfo: TnevControlImageInfo) of object;
 
- TevDocumentChangedEvent = procedure (aSender: TObject;
+ TevDocumentChangedEvent = procedure(aSender: TObject;
   anOldDocument: Tl3Tag;
   aNewDocument: Tl3Tag) of object;
 
  TevCustomTextSource = class(Tl3InterfacedComponent)
   {* Реализация источника документа. }
- protected
- // protected methods
+  protected
    function DoMakeDocumentContainer: InevDocumentContainer; virtual;
  end;//TevCustomTextSource
 
 implementation
 
-// start class TevCustomTextSource
+uses
+ l3ImplUses
+;
 
 function TevCustomTextSource.DoMakeDocumentContainer: InevDocumentContainer;
 //#UC START# *482D9A030221_482BFB7C00B6_var*
