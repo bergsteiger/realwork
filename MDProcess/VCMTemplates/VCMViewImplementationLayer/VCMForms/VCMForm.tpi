@@ -262,7 +262,7 @@ p restrict form def:tribool=undefined ?
 
 	%{Word_Inst}%f_set_visibility_type(PrivateAccess)\
 	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
-	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
+//	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
 	%f_addG(%{Word_Inst},%{TtfwControlString})\
 
 	%{Word_Inst}%f_set_up(NameForScript,форма::%f_str_replace(%f_N(%S), ,_))\
@@ -338,7 +338,7 @@ f _SpellControl
 	[{"%{TtfwControlString}N"=""}%f_find_element(TtfwControlString,TtfwControlString)]\
 	%{Word_Inst}%f_set_up(ifdef,%S{ifdef})\
 	%{Word_Inst}%f_set_up(ifndef,%S{ifndef})\
-	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
+//	%{Word_Inst}%f_make_accessable(%{TtfwControlString}U)\
 	%f_addG(%{Word_Inst},%{TtfwControlString})\
 	%{Word_Inst}%f_set_up(NeedsKeywordDoc,true)\
 
@@ -393,11 +393,13 @@ f _SpellControl
 	%{Word_Inst}%f_set_up(ifdef,%S{ifdef})\
 	%{Word_Inst}%f_set_up(ifndef,%S{ifndef})\
 	[{"%{TkwControlPush}N"=""}%f_find_element(byname_control_push,TkwControlPush)]\
-	[{"%{TtfwContext}N"=""}%f_find_element(TtfwContext,TtfwContext)]\
-	%{Word_Inst}%f_make_accessable(%{TkwControlPush}U)\
+//	%{Word_Inst}%f_make_accessable(%{TkwControlPush}U)\
 	%f_addG(%{Word_Inst},%{TkwControlPush})\
-	%{Word_Inst}%f_make_accessable(%{TtfwContext}U)\
+
+//	[{"%{TtfwContext}N"=""}%f_find_element(TtfwContext,TtfwContext)]\
+//	%{Word_Inst}%f_make_accessable(%{TtfwContext}U)\
 //	%f_addCDep(%{Word_Inst},%{TtfwContext})\
+
 	%{Word_Inst}%f_set_var(SpelledFor,S)\
 
 	%{Word_Inst}%f_set_up(NameForScript,\

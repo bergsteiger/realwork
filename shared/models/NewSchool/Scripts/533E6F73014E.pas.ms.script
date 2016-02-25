@@ -5741,25 +5741,6 @@ ref; // ME_550C0B17003E TChromeLikeBaseVisualObjectList
 
 FORWARD ME_55096E56007C
 
-FORWARD ME_55097218034B
-
-: ME_5E325DBA320A
- CONST UID '5E325DBA320A'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55097218034B // TChromeLikeTabSetStyles
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_5E325DBA320A Exists
-
 : ME_55097218034B
  CONST UID '55097218034B'
  CONST Name 'TChromeLikeTabSetStyles'
@@ -5770,10 +5751,6 @@ ref; // ME_5E325DBA320A Exists
  CONST Abstraction at_regular
  : Parent ME_55096E56007C // ChromeLikeTabSetStyles
  ;
- : Operations
-   Seq: ( ME_5E325DBA320A // Exists
- )
- ; // Operations
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

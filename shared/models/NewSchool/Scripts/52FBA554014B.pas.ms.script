@@ -125,25 +125,6 @@ ref; // ME_52FBA7D00393 TArchiUserList
 
 FORWARD ME_53CD0E83039E
 
-FORWARD ME_53CD0EC701F6
-
-: ME_B6CF43CD0E1D
- CONST UID 'B6CF43CD0E1D'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_53CD0EC701F6 // TUserManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_B6CF43CD0E1D Exists
-
 : ME_53CD0EC701F6
  CONST UID '53CD0EC701F6'
  CONST Name 'TUserManager'
@@ -154,10 +135,6 @@ ref; // ME_B6CF43CD0E1D Exists
  CONST Abstraction at_regular
  : Parent ME_53CD0E83039E // dt_User
  ;
- : Operations
-   Seq: ( ME_B6CF43CD0E1D // Exists
- )
- ; // Operations
  CONST "finished" false
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'

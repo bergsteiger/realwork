@@ -158,23 +158,6 @@ ref; // ME_5587A30D0297 aControlWnd
 
 ref; // ME_55879E4401FC IsPopupControlWindow
 
-: ME_AB590EA2787E
- CONST UID 'AB590EA2787E'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55879E12008D // Tl3PopupControlService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_AB590EA2787E Exists
-
 : ME_D2E4642CC7BC_ME_55879E12008D
  CONST UID 'D2E4642CC7BC'
  CONST Name 'IsPopupControlWindow'
@@ -220,7 +203,6 @@ ref; // ME_5000565C019C_ME_55879E12008D ClearFields
  ; // Attributes
  : Operations
    Seq: ( ME_55879E4401FC // IsPopupControlWindow
- ME_AB590EA2787E // Exists
  )
  ; // Operations
  : Implemented

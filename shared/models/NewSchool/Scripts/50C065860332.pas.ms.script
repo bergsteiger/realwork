@@ -209,23 +209,6 @@ ref; // ME_50BF1ED30035 DoIt
 
 ref; // ME_50BF1E9C001F AddAndResumeThread
 
-: ME_622D329D6051
- CONST UID '622D329D6051'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_50BF049002DB // TseWorkThreadList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_622D329D6051 Exists
-
 : ME_50BF049002DB
  CONST UID '50BF049002DB'
  CONST Name 'TseWorkThreadList'
@@ -248,7 +231,6 @@ ref; // ME_622D329D6051 Exists
  : Operations
    Seq: ( ME_50BF1C6D0267 // WaitForAllThreads
  ME_50BF1E9C001F // AddAndResumeThread
- ME_622D329D6051 // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'

@@ -619,23 +619,6 @@ ref; // ME_5230072D031A TkwEntityOperationTest
 
 ref; // ME_52A73D57020D new_ini_op
 
-: ME_AC2C8594F0B0
- CONST UID 'AC2C8594F0B0'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_52A73D1701B9 // TkwOperationsRegistrar
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_AC2C8594F0B0 Exists
-
 : ME_52A73D3501DE
  CONST UID '52A73D3501DE'
  CONST Class class_Dependency
@@ -689,7 +672,6 @@ ref; // ME_52A73C7103C7_ME_52A73D1701B9 Register
  ; // Implements
  : Operations
    Seq: ( ME_52A73D57020D // new_ini_op
- ME_AC2C8594F0B0 // Exists
  )
  ; // Operations
  : Implemented

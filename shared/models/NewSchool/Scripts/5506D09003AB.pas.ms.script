@@ -125,23 +125,6 @@ ref; // ME_B6E7C8738D7E f_Alien
 
 ref; // ME_5506FEB701D1 Clear
 
-: ME_3944D7EA4F9D
- CONST UID '3944D7EA4F9D'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5506FEA6012A // Tl3DocumentsCacheService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_3944D7EA4F9D Exists
-
 : ME_0AC8DEBDD602_ME_5506FEA6012A
  CONST UID '0AC8DEBDD602'
  CONST Name 'Clear'
@@ -187,7 +170,6 @@ ref; // ME_5000565C019C_ME_5506FEA6012A ClearFields
  ; // Attributes
  : Operations
    Seq: ( ME_5506FEB701D1 // Clear
- ME_3944D7EA4F9D // Exists
  )
  ; // Operations
  : Implemented

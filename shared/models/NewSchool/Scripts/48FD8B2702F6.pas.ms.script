@@ -2305,15 +2305,15 @@ ref; // ME_56A888440320 f_SelectedIndexList
 
 FORWARD ME_56A887A200DE
 
-: ME_56A887D8022F
- CONST UID '56A887D8022F'
- CONST Name 'aSimpleTree'
+: ME_56CD4FD103B0
+ CONST UID '56CD4FD103B0'
+ CONST Name 'aSelectedIndexList'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
  ;
 
-ref; // ME_56A887D8022F aSimpleTree
+ref; // ME_56CD4FD103B0 aSelectedIndexList
 
 : ME_56A887CE028D
  CONST UID '56A887CE028D'
@@ -2324,7 +2324,7 @@ ref; // ME_56A887D8022F aSimpleTree
  : Parent ME_56A887A200DE // Create
  ;
  : Parameters
-   Seq: ( ME_56A887D8022F // aSimpleTree
+   Seq: ( ME_56CD4FD103B0 // aSelectedIndexList
  )
  ; // Parameters
 
@@ -2349,16 +2349,16 @@ ref; // ME_56A887A200DE Create
 
 FORWARD ME_56A887B701E5
 
-: ME_411D4A10F72A
- CONST UID '411D4A10F72A'
- CONST Name 'aSimpleTree'
+: ME_69EF000E46DD
+ CONST UID '69EF000E46DD'
+ CONST Name 'aSelectedIndexList'
  CONST IsSummoned true
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
  ;
 
-ref; // ME_411D4A10F72A aSimpleTree
+ref; // ME_69EF000E46DD aSelectedIndexList
 
 : ME_2D8D71712D14
  CONST UID '2D8D71712D14'
@@ -2371,7 +2371,7 @@ ref; // ME_411D4A10F72A aSimpleTree
  : Parent ME_56A887B701E5 // Make
  ;
  : Parameters
-   Seq: ( ME_411D4A10F72A // aSimpleTree
+   Seq: ( ME_69EF000E46DD // aSelectedIndexList
  )
  ; // Parameters
 
@@ -2404,15 +2404,15 @@ ref; // ME_56A887B701E5 Make
 
 FORWARD ME_56A892DC0298
 
-: ME_56A89D0D03B2
- CONST UID '56A89D0D03B2'
- CONST Name 'aSimpleTree'
+: ME_56CD6688006B
+ CONST UID '56CD6688006B'
+ CONST Name 'aSelectedIndexList'
  CONST Class class_Parameter
  : Stereotype st_in ;
- : Target WL 'ME_46825CC00249' '4682595B0268.pas.ms.script' // Il3SimpleTree
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
  ;
 
-ref; // ME_56A89D0D03B2 aSimpleTree
+ref; // ME_56CD6688006B aSelectedIndexList
 
 : ME_56A89D030139
  CONST UID '56A89D030139'
@@ -2423,7 +2423,7 @@ ref; // ME_56A89D0D03B2 aSimpleTree
  : Parent ME_56A892DC0298 // FillList
  ;
  : Parameters
-   Seq: ( ME_56A89D0D03B2 // aSimpleTree
+   Seq: ( ME_56CD6688006B // aSelectedIndexList
  )
  ; // Parameters
 
@@ -2446,15 +2446,25 @@ ref; // ME_56A89D030139 DoIt
 
 ref; // ME_56A892DC0298 FillList
 
-: ME_56A872EF012A_ME_56A8877600AB
- CONST UID '56A872EF012A'
- CONST Name 'GetIsSelected'
- : Original WL 'ME_56A872EF012A' '47ECAAF901F8.pas.ms.script' // GetIsSelected
+: ME_56CD757F012F_ME_56A8877600AB
+ CONST UID '56CD757F012F'
+ CONST Name 'GetSelectedNodeCount'
+ : Original WL 'ME_56CD757F012F' '47ECAAF901F8.pas.ms.script' // GetSelectedNodeCount
  ;
  : Implementor ME_56A8877600AB // TnsTreeStructState
  ;
  CONST OpKind opkind_Implemented
-ref; // ME_56A872EF012A_ME_56A8877600AB GetIsSelected
+ref; // ME_56CD757F012F_ME_56A8877600AB GetSelectedNodeCount
+
+: ME_56CD758B0198_ME_56A8877600AB
+ CONST UID '56CD758B0198'
+ CONST Name 'GetSelectedNodeVisibleIndex'
+ : Original WL 'ME_56CD758B0198' '47ECAAF901F8.pas.ms.script' // GetSelectedNodeVisibleIndex
+ ;
+ : Implementor ME_56A8877600AB // TnsTreeStructState
+ ;
+ CONST OpKind opkind_Implemented
+ref; // ME_56CD758B0198_ME_56A8877600AB GetSelectedNodeVisibleIndex
 
 : ME_479731C50290_ME_56A8877600AB
  CONST UID '479731C50290'
@@ -2495,7 +2505,8 @@ ref; // ME_479731C50290_ME_56A8877600AB Cleanup
  )
  ; // Operations
  : Implemented
-   Seq: ( ME_56A872EF012A_ME_56A8877600AB // GetIsSelected
+   Seq: ( ME_56CD757F012F_ME_56A8877600AB // GetSelectedNodeCount
+ ME_56CD758B0198_ME_56A8877600AB // GetSelectedNodeVisibleIndex
  )
  ; // Implemented
  : Overridden
@@ -2555,6 +2566,20 @@ ref; // ME_48FDD9F901A5 f_Root
  ;
 
 ref; // ME_48FDDA0D01D2 f_ShowRoot
+
+: ME_56CD45070390
+ CONST UID '56CD45070390'
+ CONST Name 'f_SelectedIndexList'
+ CONST Class class_Attribute
+ CONST Visibility PrivateAccess
+ CONST Abstraction at_regular
+ CONST LinkType lt_agr
+ : Parent ME_46835B4001A4 // TnsTreeStruct
+ ;
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ ;
+
+ref; // ME_56CD45070390 f_SelectedIndexList
 
 FORWARD ME_51F1503E01A9
 
@@ -3217,6 +3242,42 @@ ref; // ME_48FEFA1E02E7 DoChangeExpand
 
 ref; // ME_48FEFE040094 GetSelectCount
 
+: ME_56CD4547039B
+ CONST UID '56CD4547039B'
+ CONST Name 'anIndex'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56CD4547039B anIndex
+
+: ME_56CD454703D9
+ CONST UID '56CD454703D9'
+ CONST Name 'aSelected'
+ CONST Class class_Parameter
+ : Stereotype st_in ;
+ : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ ;
+
+ref; // ME_56CD454703D9 aSelected
+
+: ME_56CD453700A7
+ CONST UID '56CD453700A7'
+ CONST Name 'DoSelectionChanged'
+ CONST Class class_Operation
+ CONST Visibility ProtectedAccess
+ CONST Abstraction at_final
+ : Parent ME_46835B4001A4 // TnsTreeStruct
+ ;
+ : Parameters
+   Seq: ( ME_56CD4547039B // anIndex
+ ME_56CD454703D9 // aSelected
+ )
+ ; // Parameters
+
+ref; // ME_56CD453700A7 DoSelectionChanged
+
 : ME_48FDDA7001FC
  CONST UID '48FDDA7001FC'
  CONST Class class_Dependency
@@ -3354,6 +3415,17 @@ ref; // ME_4909C391017A
  ;
 
 ref; // ME_4AC4819F00C1 
+
+: ME_56C81F25020E
+ CONST UID '56C81F25020E'
+ CONST Class class_Dependency
+ : Stereotype st_uses::Dependency ;
+ : Parent ME_46835B4001A4 // TnsTreeStruct
+ ;
+ : Target WL 'ME_47BB29D40117' '47913B47006E.pas.ms.script' // Tl3LongintList
+ ;
+
+ref; // ME_56C81F25020E 
 
 : ME_46825CAA0125_ME_46835B4001A4
  CONST UID '46825CAA0125'
@@ -3849,6 +3921,7 @@ ref; // ME_48FDA30E0390_ME_46835B4001A4 ExternalVisibleCountChanged
    Seq: ( ME_48FDD9D901BB // Root
  ME_48FDD9F901A5 // f_Root
  ME_48FDDA0D01D2 // f_ShowRoot
+ ME_56CD45070390 // f_SelectedIndexList
  )
  ; // Attributes
  : Operations
@@ -3869,6 +3942,7 @@ ref; // ME_48FDA30E0390_ME_46835B4001A4 ExternalVisibleCountChanged
  ME_48FEEAB703D5 // ExternalModified
  ME_48FEFA1E02E7 // DoChangeExpand
  ME_48FEFE040094 // GetSelectCount
+ ME_56CD453700A7 // DoSelectionChanged
  )
  ; // Operations
  : Implemented
@@ -3940,6 +4014,7 @@ ref; // ME_48FDA30E0390_ME_46835B4001A4 ExternalVisibleCountChanged
  ME_4909C33C00C0 // 
  ME_4909C391017A // 
  ME_4AC4819F00C1 // 
+ ME_56C81F25020E // 
  )
  ; // Dependencies
  CONST "author" 'Ëþëèí À.Â.'

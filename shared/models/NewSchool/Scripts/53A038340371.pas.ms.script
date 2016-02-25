@@ -1335,23 +1335,6 @@ ref; // ME_549BC623037C aTask
 
 ref; // ME_549BC61B009B SyncExec
 
-: ME_2CBCCC682D65
- CONST UID '2CBCCC682D65'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_549BC58B0346 // Tl3ExecuteInMainThread
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_2CBCCC682D65 Exists
-
 : ME_549BCC6302C6
  CONST UID '549BCC6302C6'
  CONST Class class_Dependency
@@ -1435,7 +1418,6 @@ ref; // ME_47A042E100E2_ME_549BC58B0346 InitFields
  ME_549BE5C2006F // Init
  ME_549BC5F800ED // AsyncExec
  ME_549BC61B009B // SyncExec
- ME_2CBCCC682D65 // Exists
  )
  ; // Operations
  : Overridden

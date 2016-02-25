@@ -590,23 +590,6 @@ ref; // ME_4F3E432B036D
 
 ref; // ME_4F3E412801B7 MakeKW
 
-: ME_FA93B79695D6
- CONST UID 'FA93B79695D6'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F3E401D03AF // TkwIntegerFactory
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_FA93B79695D6 Exists
-
 : ME_4F3E401D03AF
  CONST UID '4F3E401D03AF'
  CONST Name 'TkwIntegerFactory'
@@ -623,7 +606,6 @@ ref; // ME_FA93B79695D6 Exists
  ; // Inherits
  : Operations
    Seq: ( ME_4F3E412801B7 // MakeKW
- ME_FA93B79695D6 // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
@@ -1086,23 +1068,6 @@ ref; // ME_4F3E5BCA016C
 
 ref; // ME_4F3E41C603BC MakeKW
 
-: ME_C4FD20055FE2
- CONST UID 'C4FD20055FE2'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F3E416701E8 // TkwStringFactory
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_C4FD20055FE2 Exists
-
 : ME_47A042E100E2_ME_4F3E416701E8
  CONST UID '47A042E100E2'
  CONST Name 'InitFields'
@@ -1129,7 +1094,6 @@ ref; // ME_47A042E100E2_ME_4F3E416701E8 InitFields
  ; // Inherits
  : Operations
    Seq: ( ME_4F3E41C603BC // MakeKW
- ME_C4FD20055FE2 // Exists
  )
  ; // Operations
  : Overridden

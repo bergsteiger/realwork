@@ -202,23 +202,6 @@ ref; // ME_559F85200064
 
 ref; // ME_559F82A60110 GetTypeInfo
 
-: ME_A7C43D0012F4
- CONST UID 'A7C43D0012F4'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_559F828102D8 // TtfwWordInfoCache
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_A7C43D0012F4 Exists
-
 : ME_559F828E0296
  CONST UID '559F828E0296'
  CONST Class class_Dependency
@@ -257,7 +240,6 @@ ref; // ME_47A042E100E2_ME_559F828102D8 InitFields
  ; // Inherits
  : Operations
    Seq: ( ME_559F82A60110 // GetTypeInfo
- ME_A7C43D0012F4 // Exists
  )
  ; // Operations
  : Overridden

@@ -2513,32 +2513,45 @@ ref; // ME_49F17AE6005F IbsUserTreeData
 
 FORWARD ME_56A872B801DB
 
-: ME_56A872F7016B
- CONST UID '56A872F7016B'
+: ME_56CD757F012F
+ CONST UID '56CD757F012F'
+ CONST Name 'GetSelectedNodeCount'
+ CONST Class class_Operation
+ CONST Visibility PublicAccess
+ CONST Abstraction at_abstract
+ : Parent ME_56A872B801DB // InsTreeStructState
+ ;
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
+ ;
+
+ref; // ME_56CD757F012F GetSelectedNodeCount
+
+: ME_56CD759A0103
+ CONST UID '56CD759A0103'
  CONST Name 'aIndex'
  CONST Class class_Parameter
  : Stereotype st_in ;
  : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
 
-ref; // ME_56A872F7016B aIndex
+ref; // ME_56CD759A0103 aIndex
 
-: ME_56A872EF012A
- CONST UID '56A872EF012A'
- CONST Name 'GetIsSelected'
+: ME_56CD758B0198
+ CONST UID '56CD758B0198'
+ CONST Name 'GetSelectedNodeVisibleIndex'
  CONST Class class_Operation
  CONST Visibility PublicAccess
  CONST Abstraction at_abstract
  : Parent ME_56A872B801DB // InsTreeStructState
  ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
+ : Target WL 'ME_46A606AC03B2' '4AB0C3C60310.pas.ms.script' // Integer
  ;
  : Parameters
-   Seq: ( ME_56A872F7016B // aIndex
+   Seq: ( ME_56CD759A0103 // aIndex
  )
  ; // Parameters
 
-ref; // ME_56A872EF012A GetIsSelected
+ref; // ME_56CD758B0198 GetSelectedNodeVisibleIndex
 
 : ME_56A872B801DB
  CONST UID '56A872B801DB'
@@ -2552,7 +2565,8 @@ ref; // ME_56A872EF012A GetIsSelected
  : Parent ME_47ECAAF901F8 // bsInterfaces
  ;
  : Operations
-   Seq: ( ME_56A872EF012A // GetIsSelected
+   Seq: ( ME_56CD757F012F // GetSelectedNodeCount
+ ME_56CD758B0198 // GetSelectedNodeVisibleIndex
  )
  ; // Operations
  CONST extprop:rc:SelfName 'TreeStructState'

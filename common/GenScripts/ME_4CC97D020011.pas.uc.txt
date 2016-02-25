@@ -9,10 +9,14 @@
 //#UC START# *4AB7881B00EA_4CC97D020011_var*
 //#UC END# *4AB7881B00EA_4CC97D020011_var*
 //#UC START# *4AB793B903E6_4CC97D020011_impl*
-  Result := TNewBaseSearchForm.MakeSingleChild(aData, CheckContainer(aContainer), aZoneType);
+  l_Params := vcmCheckAggregate(vcmMakeParams(nil, CheckContainer(aContainer)));
+  Result := TNewBaseSearchForm.MakeSingleChild(aData, l_Params.Container,
+    l_Params.Aggregate,
+    aZoneType);
 //  Result := Ten_BaseSearch.MakeSingleChild(aData, CheckContainer(aContainer));
 //#UC END# *4AB793B903E6_4CC97D020011_impl*
 //#UC START# *4AB793B903E6_4CC97D020011_var*
+ l_Params: IvcmMakeParams;
 //#UC END# *4AB793B903E6_4CC97D020011_var*
 //#UC START# *4AB797E7001F_4CC97D020011_impl*
  if Supports(CheckContainer(aContainer).NativeMainForm,

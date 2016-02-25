@@ -80,18 +80,6 @@ ref; // ME_D14B34278240 MODAL
 
 ref; // ME_180B238826B1 Ini_Reg
 
-: ME_F685B78B3192
- CONST UID 'F685B78B3192'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_05ABA7975E25 // MODAL
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_F685B78B3192 
-
 : ME_A28D3283F152
  CONST UID 'A28D3283F152'
  CONST IsSummoned true
@@ -207,8 +195,7 @@ ref; // ME_5617F4D00243_ME_05ABA7975E25 ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_F685B78B3192 // 
- ME_A28D3283F152 // 
+   Seq: ( ME_A28D3283F152 // 
  ME_CEF9AD4431F7 // 
  )
  ; // Dependencies
@@ -288,18 +275,6 @@ ref; // ME_A56425D1C72F THREAD
  ;
 
 ref; // ME_0B212FF0A16D Ini_Reg
-
-: ME_13F4AA310C42
- CONST UID '13F4AA310C42'
- CONST IsSummoned true
- CONST Class class_Dependency
- : Stereotype st_uses::Dependency ;
- : Parent ME_44C318D8896A // THREAD
- ;
- : Target WL 'ME_4DB0091E033E' '4DAF19F600C5.pas.ms.script' // TtfwContext
- ;
-
-ref; // ME_13F4AA310C42 
 
 : ME_75E2BC923346
  CONST UID '75E2BC923346'
@@ -416,8 +391,7 @@ ref; // ME_5617F4D00243_ME_44C318D8896A ParamsTypes
  )
  ; // Overridden
  : Dependencies
-   Seq: ( ME_13F4AA310C42 // 
- ME_75E2BC923346 // 
+   Seq: ( ME_75E2BC923346 // 
  ME_828E9A248D8E // 
  )
  ; // Dependencies
@@ -626,23 +600,6 @@ FORWARD ME_553F737A02D6
 
 ref; // ME_AED6715B9AC0 bind
 
-: ME_3A499AB2229E
- CONST UID '3A499AB2229E'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_553F737A02D6 // TseModalService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_3A499AB2229E Exists
-
 : ME_553F7384030B
  CONST UID '553F7384030B'
  CONST Class class_Dependency
@@ -694,7 +651,6 @@ ref; // ME_553F8EA30300_ME_553F737A02D6 ExecuteCurrentModalWorker
  ; // Implements
  : Operations
    Seq: ( ME_AED6715B9AC0 // bind
- ME_3A499AB2229E // Exists
  )
  ; // Operations
  : Implemented
@@ -1079,23 +1035,6 @@ ref; // ME_47B99D4503A2_ME_4FC7562801FE CompareExistingItems
 
 ref; // ME_4FC7562801FE TseModalWorkerListPrim
 
-: ME_CFED9B7131DB
- CONST UID 'CFED9B7131DB'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4FC756830111 // TseModalWorkerList
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_CFED9B7131DB Exists
-
 : ME_4FC756830111
  CONST UID '4FC756830111'
  CONST Name 'TseModalWorkerList'
@@ -1110,10 +1049,6 @@ ref; // ME_CFED9B7131DB Exists
    Seq: ( ME_4FC7562801FE // TseModalWorkerListPrim
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_CFED9B7131DB // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

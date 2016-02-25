@@ -22,23 +22,6 @@ FORWARD ME_5509AAAC0313
 
 ref; // ME_A4D9717C3DE6 bind
 
-: ME_4B724184970C
- CONST UID '4B724184970C'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5509AAAC0313 // Tl3BatchScriptService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_4B724184970C Exists
-
 : ME_5509AAC00331
  CONST UID '5509AAC00331'
  CONST Class class_Dependency
@@ -90,7 +73,6 @@ ref; // ME_BA3808340B4E_ME_5509AAAC0313 LeaveScript
  ; // Implements
  : Operations
    Seq: ( ME_A4D9717C3DE6 // bind
- ME_4B724184970C // Exists
  )
  ; // Operations
  : Implemented
@@ -530,23 +512,6 @@ ref; // ME_553F429502D1 CheckWasDialog
 
 ref; // ME_553F4C9802D8 ClearAnswers
 
-: ME_52ADAC28DE68
- CONST UID '52ADAC28DE68'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FDD203E1 // Tl3BatchService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_52ADAC28DE68 Exists
-
 FORWARD ME_4E03119F00B2
 
 : ME_553F33E200B6
@@ -727,7 +692,6 @@ ref; // ME_5000565C019C_ME_5507FDD203E1 ClearFields
  ME_553F428003A3 // SignalWasDialog
  ME_553F429502D1 // CheckWasDialog
  ME_553F4C9802D8 // ClearAnswers
- ME_52ADAC28DE68 // Exists
  )
  ; // Operations
  : Implemented
@@ -831,23 +795,6 @@ ref; // ME_553F4303012B f_WasDialog
  ;
 
 ref; // ME_8CA213802B1D bind
-
-: ME_68C3F96A7B1C
- CONST UID '68C3F96A7B1C'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5507FE0A0095 // TafwBatchService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_68C3F96A7B1C Exists
 
 : ME_5507FE1D0222
  CONST UID '5507FE1D0222'
@@ -965,7 +912,6 @@ ref; // ME_FE46A80B1DA3_ME_5507FE0A0095 LeaveBatchMode
  ; // Attributes
  : Operations
    Seq: ( ME_8CA213802B1D // bind
- ME_68C3F96A7B1C // Exists
  )
  ; // Operations
  : Implemented
@@ -1088,23 +1034,6 @@ ref; // ME_4E0312E70097 DoIt
 
 ref; // ME_4E0312C70245 SetAnswer
 
-: ME_CE25DF5395CA
- CONST UID 'CE25DF5395CA'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_553E013F0125 // TafwAnswers
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_CE25DF5395CA Exists
-
 : ME_553E013F0125
  CONST UID '553E013F0125'
  CONST Name 'TafwAnswers'
@@ -1122,7 +1051,6 @@ ref; // ME_CE25DF5395CA Exists
  : Operations
    Seq: ( ME_4E0321910152 // GetAnswer
  ME_4E0312C70245 // SetAnswer
- ME_CE25DF5395CA // Exists
  )
  ; // Operations
  CONST "needs InstanceR" 'undefined'
@@ -1396,23 +1324,6 @@ ref; // ME_4EF13673BB19 Alien
 
 ref; // ME_A8BA2530AC4B f_Alien
 
-: ME_248B0BA5284A
- CONST UID '248B0BA5284A'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_553F71BE03E0 // Tl3ModalService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_248B0BA5284A Exists
-
 : ME_553F7345032E_ME_553F71BE03E0
  CONST UID '553F7345032E'
  CONST Name 'HasModalWorker'
@@ -1466,10 +1377,6 @@ ref; // ME_5000565C019C_ME_553F71BE03E0 ClearFields
  ME_A8BA2530AC4B // f_Alien
  )
  ; // Attributes
- : Operations
-   Seq: ( ME_248B0BA5284A // Exists
- )
- ; // Operations
  : Implemented
    Seq: ( ME_553F7345032E_ME_553F71BE03E0 // HasModalWorker
  ME_553F8EA30300_ME_553F71BE03E0 // ExecuteCurrentModalWorker

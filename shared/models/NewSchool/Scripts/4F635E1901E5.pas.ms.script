@@ -1808,23 +1808,6 @@ ref; // ME_4F79BD9603A8 DoIt
 
 ref; // ME_4F79BD74036A Remove
 
-: ME_EC677B3293AE
- CONST UID 'EC677B3293AE'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F636139008F // Tl3ListenersManager
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_EC677B3293AE Exists
-
 : ME_4F66EA9702D4
  CONST UID '4F66EA9702D4'
  CONST Class class_Dependency
@@ -1934,7 +1917,6 @@ ref; // ME_479731C50290_ME_4F636139008F Cleanup
  ME_4F79BC860012 // RemoveMouseWheelListener
  ME_4F79BCB203AE // Add
  ME_4F79BD74036A // Remove
- ME_EC677B3293AE // Exists
  )
  ; // Operations
  : Overridden
@@ -1975,23 +1957,6 @@ FORWARD ME_4F7ACCBE02AF
  ;
 
 ref; // ME_4F7ACD2301D6 init
-
-: ME_50F64E536A50
- CONST UID '50F64E536A50'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_4F7ACCBE02AF // Tl3MouseWheelHelper
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_50F64E536A50 Exists
 
 : ME_4F7AE2A202FA
  CONST UID '4F7AE2A202FA'
@@ -2076,7 +2041,6 @@ ref; // ME_47A042E100E2_ME_4F7ACCBE02AF InitFields
  ; // Implements
  : Operations
    Seq: ( ME_4F7ACD2301D6 // init
- ME_50F64E536A50 // Exists
  )
  ; // Operations
  : Implemented

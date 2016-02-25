@@ -1328,23 +1328,6 @@ ref; // ME_55C0A40C0291 DoIt
 
 ref; // ME_55C0A4040157 CheckList
 
-: ME_6B7D51D711D8
- CONST UID '6B7D51D711D8'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55BF37AB038D // TtfwValueTypesCache
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_6B7D51D711D8 Exists
-
 : ME_47A042E100E2_ME_55BF37AB038D
  CONST UID '47A042E100E2'
  CONST Name 'InitFields'
@@ -1371,7 +1354,6 @@ ref; // ME_47A042E100E2_ME_55BF37AB038D InitFields
  ; // Inherits
  : Operations
    Seq: ( ME_55C0A4040157 // CheckList
- ME_6B7D51D711D8 // Exists
  )
  ; // Operations
  : Overridden

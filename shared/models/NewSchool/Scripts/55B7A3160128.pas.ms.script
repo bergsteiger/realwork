@@ -197,23 +197,6 @@ ref; // ME_47B99D4503A2_ME_55B7A37F010E CompareExistingItems
 
 ref; // ME_55B7A37F010E TtfwAxiomaticsResNameGetterList
 
-: ME_0F75CE939091
- CONST UID '0F75CE939091'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55B7A39F0035 // TtfwAxiomaticsResNameGetters
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_0F75CE939091 Exists
-
 : ME_55B7A39F0035
  CONST UID '55B7A39F0035'
  CONST Name 'TtfwAxiomaticsResNameGetters'
@@ -228,10 +211,6 @@ ref; // ME_0F75CE939091 Exists
    Seq: ( ME_55B7A37F010E // TtfwAxiomaticsResNameGetterList
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_0F75CE939091 // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false
@@ -243,25 +222,6 @@ ref; // ME_0F75CE939091 Exists
  CONST extprop:pas:UnitName 'tfwAxiomaticsResNameGetters'
 
 ref; // ME_55B7A39F0035 TtfwAxiomaticsResNameGetters
-
-FORWARD ME_55BA0CA0035A
-
-: ME_8614BE8B34F0
- CONST UID '8614BE8B34F0'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_55BA0CA0035A // TtfwCompiledAxiomaticsRes
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_8614BE8B34F0 Exists
 
 : ME_55BA0CA0035A
  CONST UID '55BA0CA0035A'
@@ -277,10 +237,6 @@ ref; // ME_8614BE8B34F0 Exists
    Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.pas.ms.script' // Tl3StringList
  )
  ; // Inherits
- : Operations
-   Seq: ( ME_8614BE8B34F0 // Exists
- )
- ; // Operations
  CONST "needs InstanceR" 'undefined'
  CONST "needs script" 'undefined'
  CONST "no hands" false

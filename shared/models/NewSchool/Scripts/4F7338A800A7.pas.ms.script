@@ -1442,23 +1442,6 @@ ref; // ME_5509AA71018F EnterScript
 
 ref; // ME_5509AA7D0270 LeaveScript
 
-: ME_CCCC37E2A99B
- CONST UID 'CCCC37E2A99B'
- CONST Name 'Exists'
- CONST IsSummoned true
- CONST Class class_Operation
- : Stereotype st_static::Operation ;
- %SUMMARY 'Проверяет создан экземпляр синглетона или нет' ;
- CONST Visibility PublicAccess
- CONST Abstraction at_final
- : Parent ME_5509AA5400EA // Tl3ScriptService
- ;
- : Target WL 'ME_46A603BB0391' '4AB0C3C60310.pas.ms.script' // Boolean
- ;
- CONST extprop:pas:Value false
-
-ref; // ME_CCCC37E2A99B Exists
-
 : ME_97F121633B1B_ME_5509AA5400EA
  CONST UID '97F121633B1B'
  CONST Name 'EnterScript'
@@ -1515,7 +1498,6 @@ ref; // ME_5000565C019C_ME_5509AA5400EA ClearFields
  : Operations
    Seq: ( ME_5509AA71018F // EnterScript
  ME_5509AA7D0270 // LeaveScript
- ME_CCCC37E2A99B // Exists
  )
  ; // Operations
  : Implemented
