@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , evParaInterfaceFactoryPrim
- , Para_Const
  , l3Variant
  , l3IID
  , k2ToolPrim

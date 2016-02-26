@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evLeafPara_InterfaceFactory
- , TextPara_Const
  , l3Variant
  , l3IID
  , k2ToolPrim

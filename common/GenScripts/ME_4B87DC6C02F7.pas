@@ -82,8 +82,8 @@ end;//TevSubPanelSub.Cleanup
 
 procedure TevSubPanelSub.ClearFields;
 begin
- Finalize(R);
- Finalize(DrawRect);
+ Finalize(f_R);
+ Finalize(f_DrawRect);
  f_RealSub := nil;
  inherited;
 end;//TevSubPanelSub.ClearFields

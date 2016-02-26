@@ -1141,7 +1141,7 @@ end;//TChromeLikeBaseVisualObjectPrim.Cleanup
 
 procedure TChromeLikeBaseVisualObjectPrim.ClearFields;
 begin
- Finalize(PositionRect);
+ Finalize(f_PositionRect);
  HintText := '';
  inherited;
 end;//TChromeLikeBaseVisualObjectPrim.ClearFields

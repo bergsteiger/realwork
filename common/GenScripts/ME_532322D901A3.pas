@@ -910,7 +910,7 @@ procedure TvgReminder.ClearFields;
 begin
  Caption := nil;
  Hint := nil;
- Finalize(PopupFormBounds);
+ Finalize(f_PopupFormBounds);
  inherited;
 end;//TvgReminder.ClearFields
 

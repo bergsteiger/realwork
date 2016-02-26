@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evBlock_InterfaceFactory
- , CommentPara_Const
  , l3Variant
  , l3IID
  , k2ToolPrim

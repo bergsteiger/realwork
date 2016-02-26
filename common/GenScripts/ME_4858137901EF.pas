@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , evSolidPara_InterfaceFactory
- , BitmapPara_Const
  , l3Variant
  , l3IID
  , k2ToolPrim

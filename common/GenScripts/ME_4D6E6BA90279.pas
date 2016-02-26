@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evDocument_InterfaceFactory
- , AutoreferatDocument_Const
  , l3Variant
  , l3IID
 ;

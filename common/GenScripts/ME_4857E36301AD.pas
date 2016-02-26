@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evTable_InterfaceFactory
- , SBS_Const
  , l3Variant
  , l3IID
 ;

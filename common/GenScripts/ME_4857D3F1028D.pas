@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evTableRow_InterfaceFactory
- , SBSRow_Const
  , l3Variant
  , l3IID
  , k2ToolPrim

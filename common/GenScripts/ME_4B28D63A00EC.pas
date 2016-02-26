@@ -65,7 +65,7 @@ type
    property Zoom: Integer
     read f_Zoom
     write pm_SetZoom
-    default def_Zoom;
+    default evDef.def_Zoom;
    property OnMakeExportFilters: TevMakeExportFiltersEvent
     read f_OnMakeExportFilters
     write f_OnMakeExportFilters;

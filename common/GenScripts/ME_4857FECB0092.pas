@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evTextPara_Wrap
- , ControlPara_Const
  , l3Variant
  , k2Base
 ;

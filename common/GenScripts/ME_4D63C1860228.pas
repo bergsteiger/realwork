@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , evTable_InterfaceFactory
- , ReqGroup_Const
  , l3Variant
  , l3IID
 ;

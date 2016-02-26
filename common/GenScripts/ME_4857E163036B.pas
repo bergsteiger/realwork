@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , evParaList_InterfaceFactory
- , Table_Const
  , l3Variant
  , l3IID
  , k2ToolPrim

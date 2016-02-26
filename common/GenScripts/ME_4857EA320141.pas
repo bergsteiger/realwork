@@ -11,7 +11,6 @@ interface
 uses
  l3IntfUses
  , evTableCell_InterfaceFactory
- , ReqCell_Const
  , l3Variant
  , l3IID
  , k2ToolPrim

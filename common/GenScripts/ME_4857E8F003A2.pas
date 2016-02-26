@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , evDocument_InterfaceFactory
- , QueryCard_Const
  , l3Variant
  , l3IID
  , k2ToolPrim

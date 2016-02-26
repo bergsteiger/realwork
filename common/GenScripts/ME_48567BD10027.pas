@@ -12,7 +12,6 @@ interface
 uses
  l3IntfUses
  , evPageBreak_InterfaceFactory
- , SectionBreak_Const
  , l3Variant
  , l3IID
 ;

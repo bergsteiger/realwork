@@ -2532,7 +2532,7 @@ end;//TvcmTabbedContainerFormDispatcher.Cleanup
 
 procedure TvcmTabbedContainerFormDispatcher.ClearFields;
 begin
- Finalize(TabSetParams);
+ Finalize(f_TabSetParams);
  inherited;
 end;//TvcmTabbedContainerFormDispatcher.ClearFields
 
