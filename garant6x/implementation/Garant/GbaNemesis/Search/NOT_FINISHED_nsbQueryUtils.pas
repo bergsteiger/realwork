@@ -1,32 +1,26 @@
 unit NOT_FINISHED_nsbQueryUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/NOT_FINISHED_nsbQueryUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Common For Shell And Monitoring::Search::Search::nsbQueryUtils::nsbQueryUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsbQueryUtils.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin)}
+{$If NOT Defined(Admin)}
+uses
+ l3IntfUses
+;
+
 procedure AdapterQueryToBusinessQuery;
-   {* Сигнатура метода AdapterQueryToBusinessQuery }
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
 
-{$If not defined(Admin)}
-// unit methods
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+;
 
 procedure AdapterQueryToBusinessQuery;
 //#UC START# *4C3183F90313_4C3183EA0351_var*
@@ -36,6 +30,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4C3183F90313_4C3183EA0351_impl*
 end;//AdapterQueryToBusinessQuery
-{$IfEnd} //not Admin
+{$IfEnd} // NOT Defined(Admin)
 
 end.

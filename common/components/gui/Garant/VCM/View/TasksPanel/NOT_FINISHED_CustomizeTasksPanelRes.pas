@@ -1,24 +1,24 @@
 unit NOT_FINISHED_CustomizeTasksPanelRes;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Модуль: "w:/common/components/gui/Garant/VCM/View/TasksPanel/NOT_FINISHED_CustomizeTasksPanelRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Operations::VCMCustomization::View::TasksPanel::CustomizeTasksPanelRes
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\NOT_FINISHED_CustomizeTasksPanelRes.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
+{$If NOT Defined(NoVCM)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
+
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

@@ -1,135 +1,53 @@
 unit NOT_FINISHED_CustomizeTasksPanel_Form;
+ {* Редактор панели задач }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "View"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/VCM/View/TasksPanel/Forms/NOT_FINISHED_CustomizeTasksPanel_Form.pas"
-// Начат: 13.09.2010 20:12
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<VCMFinalForm::Class>> Shared Delphi Operations::VCMCustomization::View::TasksPanel::PrimTasksPanelMenu::CustomizeTasksPanel
-//
-// Редактор панели задач
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\View\TasksPanel\Forms\NOT_FINISHED_CustomizeTasksPanel_Form.pas"
+// Стереотип: "VCMFinalForm"
 
 {$Include w:\common\components\gui\sdoDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmUserControls,
-  l3StringIDEx,
-  PrimCustomizeTasksPanel_Form
-  {$If not defined(NoScripts)}
-  ,
-  tfwInteger
-  {$IfEnd} //not NoScripts
-  ,
-  CustomizeTasksPanel_ut_CustomizeTasksPanel_UserType,
-  vtCtrls,
-  vtPanel,
-  vtLabel,
-  vtButton,
-  vtGroupBox,
-  eeTreeView,
-  eeButton
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Buttons
-  {$IfEnd} //not NoVCL
-  ,
-  eeCheckBox,
-  Classes {a},
-  l3InterfacedComponent {a},
-  vcmComponent {a},
-  vcmBaseEntities {a},
-  vcmEntities {a},
-  vcmExternalInterfaces {a},
-  vcmInterfaces {a},
-  vcmEntityForm {a}
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , PrimCustomizeTasksPanel_Form
+;
 
-{$If not defined(NoVCM)}
 type
-  TCustomizeTasksPanelForm = {final form} class(TPrimCustomizeTasksPanelForm)
-   {* Редактор панели задач }
-  Entities : TvcmEntities;
-  protected
-   procedure MakeControls; override;
-  end;//TCustomizeTasksPanelForm
-{$IfEnd} //not NoVCM
+ TCustomizeTasksPanelForm = {final} class(TPrimCustomizeTasksPanelForm)
+  {* Редактор панели задач }
+ end;//TCustomizeTasksPanelForm
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$R *.DFM}
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmCustOpsRepGroupList
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  l3MessageID
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  CustomizeTasksPanelKeywordsPack
-  {$IfEnd} //not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ , l3StringIDEx
+ , vcmCustOpsRepGroupList
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3MessageID
+ {$If NOT Defined(NoScripts)}
+ , CustomizeTasksPanelKeywordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
-{$If not defined(NoVCM)}
-
-var
-    { Локализуемые строки ut_CustomizeTasksPanelLocalConstants }
-   str_ut_CustomizeTasksPanelCaption : Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeTasksPanelCaption'; rValue : 'Редактор панели задач');
-    { Заголовок пользовательского типа "Редактор панели задач" }
-
-// start class TCustomizeTasksPanelForm
-
-procedure TCustomizeTasksPanelForm.MakeControls;
-begin
- inherited;
- with AddUsertype(ut_CustomizeTasksPanelName,
-  str_ut_CustomizeTasksPanelCaption,
-  str_ut_CustomizeTasksPanelCaption,
-  false,
-  -1,
-  -1,
-  '',
-  nil,
-  nil,
-  nil,
-  vcm_ccNone) do
- begin
- end;//with AddUsertype(ut_CustomizeTasksPanelName
-end;
-
-{$IfEnd} //not NoVCM
+const
+ {* Локализуемые строки ut_CustomizeTasksPanelLocalConstants }
+ str_ut_CustomizeTasksPanelCaption: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'ut_CustomizeTasksPanelCaption'; rValue : 'Редактор панели задач');
+  {* Заголовок пользовательского типа "Редактор панели задач" }
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация CustomizeTasksPanel
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TCustomizeTasksPanelForm);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoVCM)}
-// Инициализация str_ut_CustomizeTasksPanelCaption
+ {* Регистрация CustomizeTasksPanel }
+{$IfEnd} // NOT Defined(NoScripts)
  str_ut_CustomizeTasksPanelCaption.Init;
-{$IfEnd} //not NoVCM
+ {* Инициализация str_ut_CustomizeTasksPanelCaption }
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

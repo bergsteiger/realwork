@@ -1,24 +1,24 @@
 unit NOT_FINISHED_nsContextUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/NOT_FINISHED_nsContextUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Common For Shell And Monitoring::Search::Search::nsQueryAttributes::nsContextUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsContextUtils.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
+{$If NOT Defined(Admin)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(Admin)
 
 implementation
+
+{$If NOT Defined(Admin)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Admin)
 
 end.
