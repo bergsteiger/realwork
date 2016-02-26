@@ -1,26 +1,16 @@
 unit NOT_FINISHED_evdNSRCReader;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EverestCommon"
-// Модуль: "w:/common/components/gui/Garant/EverestCommon/NOT_FINISHED_evdNSRCReader.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EverestCommon::Readers::TevdNSRCReader
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\EverestCommon\NOT_FINISHED_evdNSRCReader.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\EverestCommon\evDefine.inc}
+{$Include w:\common\components\gui\Garant\EverestCommon\evDefine.inc}
 
 interface
 
 uses
-  k2CustomFileParser
-  ;
+ l3IntfUses
+ , k2CustomFileParser
+;
 
 type
  TevdNSRCReader = class(Tk2CustomFileParser)
@@ -29,7 +19,8 @@ type
 implementation
 
 uses
-  ddNSRC_r
-  ;
+ l3ImplUses
+ , ddNSRC_r
+;
 
 end.

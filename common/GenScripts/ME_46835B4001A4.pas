@@ -13,12 +13,12 @@ uses
  , nsRootManager
  , l3TreeInterfaces
  , bsInterfaces
+ , l3LongintList
  , nsINodeWrapBase
  , l3Interfaces
  , DynamicTreeUnit
  , l3InternalInterfaces
  , l3ProtoObject
- , l3LongintList
 ;
 
 type
@@ -26,20 +26,22 @@ type
   private
    f_SelectedIndexList: Tl3LongintList;
   private
-   procedure FillList(const aSimpleTree: Il3SimpleTree);
+   procedure FillList(aSelectedIndexList: Tl3LongintList);
   protected
-   function GetIsSelected(aIndex: Integer): Boolean;
+   function GetSelectedNodeCount: Integer;
+   function GetSelectedNodeVisibleIndex(aIndex: Integer): Integer;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   constructor Create(const aSimpleTree: Il3SimpleTree); reintroduce;
-   class function Make(const aSimpleTree: Il3SimpleTree): InsTreeStructState; reintroduce;
+   constructor Create(aSelectedIndexList: Tl3LongintList); reintroduce;
+   class function Make(aSelectedIndexList: Tl3LongintList): InsTreeStructState; reintroduce;
  end;//TnsTreeStructState
 
  TnsTreeStruct = class(TnsRootManager, Il3RootSource, Il3SimpleTree, Il3ExpandedSimpleTree, InsTreeStructStateProvider, InsTreeStructStateConsumer)
   {* Дерево. Фасад к адаптерному дереву }
   private
    f_ShowRoot: Boolean;
+   f_SelectedIndexList: Tl3LongintList;
   protected
    f_Root: Il3SimpleRootNode;
   private
@@ -85,6 +87,8 @@ type
     aMode: Tl3SetBitType;
     aForceMode: Boolean): Boolean; virtual;
    function GetSelectCount: Integer; virtual;
+   procedure DoSelectionChanged(anIndex: Integer;
+    aSelected: Boolean);
    function Get_RootNode: Il3SimpleRootNode;
    procedure Set_RootNode(const aValue: Il3SimpleRootNode);
    procedure CursorTop;
@@ -223,7 +227,7 @@ uses
  , BaseTypesUnit
 ;
 
-constructor TnsTreeStructState.Create(const aSimpleTree: Il3SimpleTree);
+constructor TnsTreeStructState.Create(aSelectedIndexList: Tl3LongintList);
 //#UC START# *56A887A200DE_56A8877600AB_var*
 //#UC END# *56A887A200DE_56A8877600AB_var*
 begin
@@ -235,11 +239,11 @@ begin
 //#UC END# *56A887A200DE_56A8877600AB_impl*
 end;//TnsTreeStructState.Create
 
-class function TnsTreeStructState.Make(const aSimpleTree: Il3SimpleTree): InsTreeStructState;
+class function TnsTreeStructState.Make(aSelectedIndexList: Tl3LongintList): InsTreeStructState;
 var
  l_Inst : TnsTreeStructState;
 begin
- l_Inst := Create(aSimpleTree);
+ l_Inst := Create(aSelectedIndexList);
  try
   Result := l_Inst;
  finally
@@ -247,7 +251,7 @@ begin
  end;//try..finally
 end;//TnsTreeStructState.Make
 
-procedure TnsTreeStructState.FillList(const aSimpleTree: Il3SimpleTree);
+procedure TnsTreeStructState.FillList(aSelectedIndexList: Tl3LongintList);
 //#UC START# *56A892DC0298_56A8877600AB_var*
 var
  l_Index: Integer;
@@ -259,14 +263,23 @@ begin
 //#UC END# *56A892DC0298_56A8877600AB_impl*
 end;//TnsTreeStructState.FillList
 
-function TnsTreeStructState.GetIsSelected(aIndex: Integer): Boolean;
-//#UC START# *56A872EF012A_56A8877600AB_var*
-//#UC END# *56A872EF012A_56A8877600AB_var*
+function TnsTreeStructState.GetSelectedNodeCount: Integer;
+//#UC START# *56CD757F012F_56A8877600AB_var*
+//#UC END# *56CD757F012F_56A8877600AB_var*
 begin
-//#UC START# *56A872EF012A_56A8877600AB_impl*
- Result := f_SelectedIndexList.IndexOf(aIndex) <> -1;
-//#UC END# *56A872EF012A_56A8877600AB_impl*
-end;//TnsTreeStructState.GetIsSelected
+//#UC START# *56CD757F012F_56A8877600AB_impl*
+ Result := f_SelectedIndexList.Count;
+//#UC END# *56CD757F012F_56A8877600AB_impl*
+end;//TnsTreeStructState.GetSelectedNodeCount
+
+function TnsTreeStructState.GetSelectedNodeVisibleIndex(aIndex: Integer): Integer;
+//#UC START# *56CD758B0198_56A8877600AB_var*
+//#UC END# *56CD758B0198_56A8877600AB_var*
+begin
+//#UC START# *56CD758B0198_56A8877600AB_impl*
+ Result := f_SelectedIndexList[aIndex];
+//#UC END# *56CD758B0198_56A8877600AB_impl*
+end;//TnsTreeStructState.GetSelectedNodeVisibleIndex
 
 procedure TnsTreeStructState.Cleanup;
  {* Функция очистки полей объекта. }
@@ -635,6 +648,19 @@ begin
   Result := RootNode.GetFlagCount(FM_SELECTION);
 //#UC END# *48FEFE040094_46835B4001A4_impl*
 end;//TnsTreeStruct.GetSelectCount
+
+procedure TnsTreeStruct.DoSelectionChanged(anIndex: Integer;
+ aSelected: Boolean);
+//#UC START# *56CD453700A7_46835B4001A4_var*
+//#UC END# *56CD453700A7_46835B4001A4_var*
+begin
+//#UC START# *56CD453700A7_46835B4001A4_impl*
+ if aSelected then
+  f_SelectedIndexList.Add(anIndex)
+ else
+  f_SelectedIndexList.Remove(anIndex);
+//#UC END# *56CD453700A7_46835B4001A4_impl*
+end;//TnsTreeStruct.DoSelectionChanged
 
 function TnsTreeStruct.Get_RootNode: Il3SimpleRootNode;
 //#UC START# *46825CAA0125_46835B4001A4get_var*

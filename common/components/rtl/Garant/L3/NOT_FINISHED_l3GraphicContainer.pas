@@ -1,38 +1,25 @@
 unit NOT_FINISHED_l3GraphicContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3GraphicContainer.pas"
-// Начат: 22.10.2007 15:11
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Canvas::l3GraphicContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3GraphicContainer.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3InternalInterfaces,
-  l3_Base,
-  l3Units,
-  l3Interfaces,
-  l3Core,
-  Classes
-  ;
+ l3IntfUses
+ , l3_Base
+ , l3InternalInterfaces
+ , l3Units
+ , l3Core
+ , l3Interfaces
+ , Classes
+;
 
 type
  Tl3PrimGraphicContainer = class(Tl3_Base, Il3Bitmap)
- protected
- // realized methods
+  protected
    procedure StretchDraw(const R: Tl3Rect;
     const aCanvas: Il3Canvas);
    procedure SaveToClipboardFormat(var AFormat: Word;
@@ -59,13 +46,12 @@ type
 implementation
 
 uses
-  l3GraphicContainerStack
-  ;
-
-// start class Tl3PrimGraphicContainer
+ l3ImplUses
+ , l3GraphicContainerStack
+;
 
 procedure Tl3PrimGraphicContainer.StretchDraw(const R: Tl3Rect;
-  const aCanvas: Il3Canvas);
+ const aCanvas: Il3Canvas);
 //#UC START# *476F70A4036F_48DD2129027C_var*
 //#UC END# *476F70A4036F_48DD2129027C_var*
 begin
@@ -75,8 +61,8 @@ begin
 end;//Tl3PrimGraphicContainer.StretchDraw
 
 procedure Tl3PrimGraphicContainer.SaveToClipboardFormat(var AFormat: Word;
-  var AData: THandle;
-  var APalette: HPALETTE);
+ var AData: THandle;
+ var APalette: HPALETTE);
 //#UC START# *476F70D70190_48DD2129027C_var*
 //#UC END# *476F70D70190_48DD2129027C_var*
 begin
@@ -147,4 +133,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *476F71670396_48DD2129027Cget_impl*
 end;//Tl3PrimGraphicContainer.pm_GetInchHeight
+
 end.

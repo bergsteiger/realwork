@@ -1,31 +1,25 @@
 unit NOT_FINISHED_evdNativeUnpackedWriter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/NOT_FINISHED_evdNativeUnpackedWriter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdNativeUnpackedWriter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdNativeUnpackedWriter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  k2CustomFileGenerator
-  ;
+ l3IntfUses
+ , k2CustomFileGenerator
+;
 
 type
  TevdNativeUnpackedWriter = class(Tk2CustomFileGenerator)
  end;//TevdNativeUnpackedWriter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

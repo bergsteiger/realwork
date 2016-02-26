@@ -1,45 +1,32 @@
 unit NOT_FINISHED_evHyperlink;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evHyperlink.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevHyperlink
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evHyperlink.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevNavigation,
-  nevTools,
-  afwNavigation,
-  l3Types,
-  evdTypes,
-  l3Variant
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , nevNavigation
+ , nevTools
+ , afwNavigation
+ , l3Types
+ , evdTypes
+ , l3Variant
+;
 
-{$If defined(evNeedHotSpot)}
 type
- TevHyperlink = class(, IevHyperlink)
- protected
- // realized methods
+ TevHyperlink = class(IevHyperlink)
+  protected
    function Exists: Boolean;
-     {* Проверяет существует ли данная ссылка }
+    {* Проверяет существует ли данная ссылка }
    procedure Insert;
-     {* Вставляет новую ссылку }
+    {* Вставляет новую ссылку }
    procedure Delete;
-     {* Удаляет гипертекстовую ссылку }
+    {* Удаляет гипертекстовую ссылку }
    function Get_ID: Integer;
    procedure Set_ID(aValue: Integer);
    function pm_GetPara: InevPara;
@@ -57,15 +44,17 @@ type
    function Get_Name: Tl3PCharLen;
    function GetHyperlink: Tl3Tag;
  end;//TevHyperlink
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
-
-// start class TevHyperlink
+{$If Defined(evNeedHotSpot)}
+uses
+ l3ImplUses
+;
 
 function TevHyperlink.Exists: Boolean;
+ {* Проверяет существует ли данная ссылка }
 //#UC START# *49E5FCF403BB_4A269BB40125_var*
 //#UC END# *49E5FCF403BB_4A269BB40125_var*
 begin
@@ -75,6 +64,7 @@ begin
 end;//TevHyperlink.Exists
 
 procedure TevHyperlink.Insert;
+ {* Вставляет новую ссылку }
 //#UC START# *49E5FD13001E_4A269BB40125_var*
 //#UC END# *49E5FD13001E_4A269BB40125_var*
 begin
@@ -84,6 +74,7 @@ begin
 end;//TevHyperlink.Insert
 
 procedure TevHyperlink.Delete;
+ {* Удаляет гипертекстовую ссылку }
 //#UC START# *49E5FD1D0339_4A269BB40125_var*
 //#UC END# *49E5FD1D0339_4A269BB40125_var*
 begin
@@ -235,7 +226,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5063FF170259_4A269BB40125_impl*
 end;//TevHyperlink.GetHyperlink
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

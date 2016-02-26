@@ -1,103 +1,78 @@
 unit NOT_FINISHED_vcmForm;
+ {* Базовая реализация формы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/NOT_FINISHED_vcmForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Visual::vcmForm
-//
-// Базовая реализация формы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmForm.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  afwInterfaces
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  vcmUserInteractiveForm,
-  vcmLayoutImplementation
-  ;
+ l3IntfUses
+ , vcmUserInteractiveForm
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , afwInterfaces
+ , vcmLayoutImplementation
+;
 
 type
- TvcmCloseQueryEvent = procedure (Sender: TObject;
+ TvcmCloseQueryEvent = procedure(Sender: TObject;
   var CanClose: Boolean;
   aCaller: TCustomForm) of object;
 
  TvcmInterfacedForm = class(TvcmUserInteractiveForm)
- protected
- // protected methods
+  protected
    procedure DoSaveInSettings; virtual;
    procedure ClearModal; virtual;
-     {* Сигнатура метода ClearModal }
    function SafeClose: Boolean; virtual; abstract;
    function CallCloseQuery(aCaller: TCustomForm): Boolean; virtual;
- public
- // public methods
+  public
    function NeedSaveInSettings: Boolean; virtual;
  end;//TvcmInterfacedForm
 
  TvcmTextForm = class(TvcmInterfacedForm, IafwTextControl)
- protected
- // realized methods
+  protected
    function pm_GetCCaption: IafwCString;
    procedure pm_SetCCaption(const aValue: IafwCString);
    function SafeClose: Boolean; override;
  end;//TvcmTextForm
 
  TvcmFormImplementation = class(TvcmLayoutImplementation)
- protected
- // overridden protected methods
+  protected
    function GetIsAcceptable(aDataUpdate: Boolean): Boolean; override;
-     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
+    {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
  end;//TvcmFormImplementation
 
  TvcmForm = class(TvcmTextForm)
- protected
- // protected methods
+  protected
    procedure DoLoadFromSettings; virtual;
    function NeedNotifyContainerOnCaptionChanged: Boolean; virtual;
    function IsAcceptable(aDataUpdate: Boolean): Boolean; virtual;
-     {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
+    {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
  end;//TvcmForm
 
- TvcmCloseQueryEvent = procedure (Sender: TObject;
+ TvcmCloseQueryEvent = procedure(Sender: TObject;
   var CanClose: Boolean;
   aCaller: TCustomForm) of object;
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoVCM) AND not defined(NoVGScene)}
-  ,
-  vcmDialogs
-  {$IfEnd} //not NoVCM AND not NoVGScene
-  ,
-  vtDialogsResEx
-  ;
-
-// start class TvcmInterfacedForm
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoVGScene)}
+ , vcmDialogs
+ {$IfEnd} // NOT Defined(NoVGScene)
+ , vtDialogsResEx
+;
 
 procedure TvcmInterfacedForm.DoSaveInSettings;
 //#UC START# *4F7B072201AA_49525AB4009E_var*
@@ -134,7 +109,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4980407F0076_49525AB4009E_impl*
 end;//TvcmInterfacedForm.CallCloseQuery
-// start class TvcmTextForm
 
 function TvcmTextForm.pm_GetCCaption: IafwCString;
 //#UC START# *473DAC05025F_49525AC30370get_var*
@@ -162,7 +136,16 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *537B402502DD_49525AC30370_impl*
 end;//TvcmTextForm.SafeClose
-// start class TvcmForm
+
+function TvcmFormImplementation.GetIsAcceptable(aDataUpdate: Boolean): Boolean;
+ {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
+//#UC START# *55127C030325_4F22CFBC016D_var*
+//#UC END# *55127C030325_4F22CFBC016D_var*
+begin
+//#UC START# *55127C030325_4F22CFBC016D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *55127C030325_4F22CFBC016D_impl*
+end;//TvcmFormImplementation.GetIsAcceptable
 
 procedure TvcmForm.DoLoadFromSettings;
 //#UC START# *4E7C2AA3037E_49525AED007D_var*
@@ -183,6 +166,7 @@ begin
 end;//TvcmForm.NeedNotifyContainerOnCaptionChanged
 
 function TvcmForm.IsAcceptable(aDataUpdate: Boolean): Boolean;
+ {* Можно ли открывать форму в текущих условиях (например, на текущей базе) }
 //#UC START# *55127A5401DE_49525AED007D_var*
 //#UC END# *55127A5401DE_49525AED007D_var*
 begin
@@ -190,30 +174,20 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *55127A5401DE_49525AED007D_impl*
 end;//TvcmForm.IsAcceptable
-// start class TvcmFormImplementation
-
-function TvcmFormImplementation.GetIsAcceptable(aDataUpdate: Boolean): Boolean;
-//#UC START# *55127C030325_4F22CFBC016D_var*
-//#UC END# *55127C030325_4F22CFBC016D_var*
-begin
-//#UC START# *55127C030325_4F22CFBC016D_impl*
- !!! Needs to be implemented !!!
-//#UC END# *55127C030325_4F22CFBC016D_impl*
-end;//TvcmFormImplementation.GetIsAcceptable
-{$IfEnd} //not NoVCM
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmInterfacedForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmInterfacedForm);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmTextForm
+ {* Регистрация TvcmInterfacedForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmTextForm);
-{$IfEnd} //not NoScripts AND not NoVCM
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmForm
+ {* Регистрация TvcmTextForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmForm);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

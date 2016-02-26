@@ -17,10 +17,10 @@ type
   protected
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3ConvertersList;
     {* Метод получения экземпляра синглетона Tl3ConvertersList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3ConvertersList
 
 implementation
@@ -40,12 +40,6 @@ begin
  l3Free(g_Tl3ConvertersList);
 end;//Tl3ConvertersListFree
 
-class function Tl3ConvertersList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ConvertersList <> nil;
-end;//Tl3ConvertersList.Exists
-
 class function Tl3ConvertersList.Instance: Tl3ConvertersList;
  {* Метод получения экземпляра синглетона Tl3ConvertersList }
 begin
@@ -56,6 +50,12 @@ begin
  end;
  Result := g_Tl3ConvertersList;
 end;//Tl3ConvertersList.Instance
+
+class function Tl3ConvertersList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ConvertersList <> nil;
+end;//Tl3ConvertersList.Exists
 
 procedure Tl3ConvertersList.InitFields;
 //#UC START# *47A042E100E2_4DD4F30E00C6_var*

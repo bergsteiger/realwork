@@ -1,69 +1,57 @@
 unit NOT_FINISHED_evSelectingHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evSelectingHotSpot.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevSelectingHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSelectingHotSpot.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  nevGUIInterfaces,
-  evHotSpot,
-  nevTools,
-  l3Variant,
-  l3Interfaces
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evHotSpot
+ , nevGUIInterfaces
+ , nevTools
+ , l3Interfaces
+ , l3Variant
+;
 
-{$If defined(evNeedHotSpot)}
 type
  _nevParaListTool_Parent_ = TevHotSpot;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
  TevSelectingHotSpot = class(_nevParaListTool_, IevAdvancedHotSpot)
- protected
- // realized methods
+  protected
    function MouseAction(const aView: InevControlView;
     aButton: Tl3MouseButton;
     anAction: Tl3MouseAction;
     const Keys: TevMouseState;
     var Effect: TevMouseEffect): Boolean;
-     {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
+    {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
    function CanDrag: Boolean;
  end;//TevSelectingHotSpot
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3ImplUses
+ , SysUtils
+;
 
-{$If defined(evNeedHotSpot)}
+{$If not Declared(_X_)}type _X_ = InevParaList;{$IfEnd}
+
+type _Instance_R_ = TevSelectingHotSpot;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas}
 
-// start class TevSelectingHotSpot
-
 function TevSelectingHotSpot.MouseAction(const aView: InevControlView;
-  aButton: Tl3MouseButton;
-  anAction: Tl3MouseAction;
-  const Keys: TevMouseState;
-  var Effect: TevMouseEffect): Boolean;
+ aButton: Tl3MouseButton;
+ anAction: Tl3MouseAction;
+ const Keys: TevMouseState;
+ var Effect: TevMouseEffect): Boolean;
+ {* обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false }
 //#UC START# *48E263CD01BD_4D6406160297_var*
 //#UC END# *48E263CD01BD_4D6406160297_var*
 begin
@@ -80,7 +68,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4ECCD6840014_4D6406160297_impl*
 end;//TevSelectingHotSpot.CanDrag
-
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 end.

@@ -1,33 +1,24 @@
 unit NOT_FINISHED_SPHTMLHelp;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "AFW"
-// Модуль: "w:/common/components/gui/Garant/AFW/NOT_FINISHED_SPHTMLHelp.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::AFW::afwFacade::SPHTMLHelp
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\AFW\NOT_FINISHED_SPHTMLHelp.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\AFW\afwDefine.inc}
+{$Include w:\common\components\gui\Garant\AFW\afwDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 procedure SPCorrectHelpFileName;
-   {* Сигнатура метода SPCorrectHelpFileName }
 
 implementation
 
 uses
-  spHelpNotifyManager
-  ;
-
-// unit methods
+ l3ImplUses
+ , spHelpNotifyManager
+;
 
 procedure SPCorrectHelpFileName;
 //#UC START# *4AA7E16800F6_4AA7E1390061_var*

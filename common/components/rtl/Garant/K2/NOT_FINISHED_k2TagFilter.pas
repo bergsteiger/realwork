@@ -1,37 +1,25 @@
 unit NOT_FINISHED_k2TagFilter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/NOT_FINISHED_k2TagFilter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::Generators::Tk2TagFilter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagFilter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Base,
-  k2TagTerminator,
-  l3Variant
-  ;
+ l3IntfUses
+ , k2TagTerminator
+ , k2Base
+ , l3Variant
+;
 
 type
  Tk2TagFilterOpenMode = (
-   
  );//Tk2TagFilterOpenMode
 
  Tk2TagFilter = class(Tk2TagTerminator)
- protected
- // protected methods
+  protected
    function NeedTranslateChildToNextPrim(anOpenMode: Tk2TagFilterOpenMode): Boolean; virtual;
    procedure DoCloseStructure(NeedUndo: Boolean); virtual;
    procedure DoStartChild(TypeID: Tk2Type); virtual;
@@ -42,7 +30,9 @@ type
 
 implementation
 
-// start class Tk2TagFilter
+uses
+ l3ImplUses
+;
 
 function Tk2TagFilter.NeedTranslateChildToNextPrim(anOpenMode: Tk2TagFilterOpenMode): Boolean;
 //#UC START# *4E15CBD5018B_49E487A70144_var*
@@ -72,7 +62,7 @@ begin
 end;//Tk2TagFilter.DoStartChild
 
 procedure Tk2TagFilter.DoAddAtomEx(AtomIndex: Integer;
-  const Value: Ik2Variant);
+ const Value: Ik2Variant);
 //#UC START# *4A2D1634025B_49E487A70144_var*
 //#UC END# *4A2D1634025B_49E487A70144_var*
 begin

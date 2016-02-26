@@ -1,32 +1,25 @@
 unit NOT_FINISHED_evRangeTools;
+ {* Вспомогательные функции для работы с блоками }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evRangeTools.pas"
-// Начат: 07.09.2001 12:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Editors::evRangeTools
-//
-// Вспомогательные функции для работы с блоками
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evRangeTools.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TevBlockCompareResult = (
-   
  );//TevBlockCompareResult
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

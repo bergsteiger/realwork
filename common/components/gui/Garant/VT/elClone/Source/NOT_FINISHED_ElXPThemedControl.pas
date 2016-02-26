@@ -1,26 +1,16 @@
 unit NOT_FINISHED_ElXPThemedControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/elClone/Source/NOT_FINISHED_ElXPThemedControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT::elClone::TElXPThemedControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElXPThemedControl.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  afwCustomCommonControl
-  ;
+ l3IntfUses
+ , afwCustomCommonControl
+;
 
 type
  TElXPThemedControl = class(TafwCustomCommonControl)
@@ -29,19 +19,16 @@ type
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TElXPThemedControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TElXPThemedControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TElXPThemedControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

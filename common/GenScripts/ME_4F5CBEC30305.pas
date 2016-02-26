@@ -15,10 +15,10 @@ uses
 type
  Tl3CEmptyString = class(Tl3CEmptyStringPrim)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3CEmptyString;
     {* Метод получения экземпляра синглетона Tl3CEmptyString }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3CEmptyString
 
 implementation
@@ -38,12 +38,6 @@ begin
  l3Free(g_Tl3CEmptyString);
 end;//Tl3CEmptyStringFree
 
-class function Tl3CEmptyString.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3CEmptyString <> nil;
-end;//Tl3CEmptyString.Exists
-
 class function Tl3CEmptyString.Instance: Tl3CEmptyString;
  {* Метод получения экземпляра синглетона Tl3CEmptyString }
 begin
@@ -54,5 +48,11 @@ begin
  end;
  Result := g_Tl3CEmptyString;
 end;//Tl3CEmptyString.Instance
+
+class function Tl3CEmptyString.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3CEmptyString <> nil;
+end;//Tl3CEmptyString.Exists
 
 end.

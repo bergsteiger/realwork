@@ -1,54 +1,30 @@
 unit NOT_FINISHED_k2TagPointer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/NOT_FINISHED_k2TagPointer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2PrimObjects::Tk2TagPointer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagPointer.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  k2ToolPrim,
-  l3Variant,
-  l3Interfaces,
-  k2BaseTypes,
-  l3Types,
-  k2Prim
-  ;
+ l3IntfUses
+ , k2ToolPrim
+ , k2Interfaces
+ , l3Variant
+ , k2Prim
+ , l3Interfaces
+ , k2BaseTypes
+ , l3Types
+;
 
 type
  _k2TagHolder_Parent_ = Tk2ToolPrim;
- {$Include ..\K2\k2TagHolder.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
  _k2TagBox_Parent_ = _k2TagHolder_;
- {$Include ..\K2\k2TagBox.imp.pas}
+ {$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
  Tk2TagPointer = {abstract} class(_k2TagBox_, Ik2TagListener, Ik2TagTool)
- protected
- // realized methods
-   procedure Fire(const anEvent: Tk2Event;
-    const anOp: Ik2Op);
-     {* сообщение о том, что c тегом что-то произошло. }
-   function ExcludeEvents: Tk2EventIDs;
-     {* События, которые не надо слушать. }
-   function pm_GetParentTool: Ik2TagTool;
-   procedure pm_SetParentTool(const aValue: Ik2TagTool);
-   procedure SetTagQT(aTag: Tl3Variant); override;
- protected
- // overridden protected methods
-   function GetAsBox: Tl3Variant; override;
- protected
- // protected methods
+  protected
    procedure ClearTagCache; virtual;
    procedure DoFire(const anEvent: Tk2Event;
     const anOp: Ik2Op); virtual;
@@ -56,31 +32,38 @@ type
    function GetParentTool: Ik2TagTool; virtual;
    function GetExcludeEvents: Tk2EventIDs; virtual;
    function NeedEvents: Boolean; virtual;
-     {* Нужно ли подписываться на события тегов }
+    {* Нужно ли подписываться на события тегов }
    procedure TagChanged(aNew: Tl3Variant); virtual;
- public
- // public methods
+   procedure Fire(const anEvent: Tk2Event;
+    const anOp: Ik2Op);
+    {* сообщение о том, что c тегом что-то произошло. }
+   function ExcludeEvents: Tk2EventIDs;
+    {* События, которые не надо слушать. }
+   function pm_GetParentTool: Ik2TagTool;
+   procedure pm_SetParentTool(const aValue: Ik2TagTool);
+   function GetAsBox: Tl3Variant; override;
+  public
    constructor Create(aTag: Tl3Variant); reintroduce; virtual;
    class function Make(aTag: Tl3Variant): Ik2TagTool; virtual;
+   procedure SetTagQT(aTag: Tl3Variant); override;
  end;//Tk2TagPointer
 
 implementation
 
 uses
-  SysUtils,
-  k2NullTagImpl,
-  k2Tags,
-  k2Base,
-  k2InterfaceFactory
-  ;
+ l3ImplUses
+ , SysUtils
+ , k2NullTagImpl
+ , k2Tags
+ , k2Base
+ , k2InterfaceFactory
+;
 
-{$Include ..\K2\k2TagHolder.imp.pas}
+{$Include w:\common\components\rtl\Garant\K2\k2TagHolder.imp.pas}
 
 type _Instance_R_ = Tk2TagPointer;
 
-{$Include ..\K2\k2TagBox.imp.pas}
-
-// start class Tk2TagPointer
+{$Include w:\common\components\rtl\Garant\K2\k2TagBox.imp.pas}
 
 procedure Tk2TagPointer.ClearTagCache;
 //#UC START# *48CE74A10014_467C185C03E7_var*
@@ -92,7 +75,7 @@ begin
 end;//Tk2TagPointer.ClearTagCache
 
 procedure Tk2TagPointer.DoFire(const anEvent: Tk2Event;
-  const anOp: Ik2Op);
+ const anOp: Ik2Op);
 //#UC START# *48CF73CE00B5_467C185C03E7_var*
 //#UC END# *48CF73CE00B5_467C185C03E7_var*
 begin
@@ -138,6 +121,7 @@ begin
 end;//Tk2TagPointer.Create
 
 function Tk2TagPointer.NeedEvents: Boolean;
+ {* Нужно ли подписываться на события тегов }
 //#UC START# *4A48AFBD001D_467C185C03E7_var*
 //#UC END# *4A48AFBD001D_467C185C03E7_var*
 begin
@@ -165,7 +149,8 @@ begin
 end;//Tk2TagPointer.Make
 
 procedure Tk2TagPointer.Fire(const anEvent: Tk2Event;
-  const anOp: Ik2Op);
+ const anOp: Ik2Op);
+ {* сообщение о том, что c тегом что-то произошло. }
 //#UC START# *4761446F0081_467C185C03E7_var*
 //#UC END# *4761446F0081_467C185C03E7_var*
 begin
@@ -175,6 +160,7 @@ begin
 end;//Tk2TagPointer.Fire
 
 function Tk2TagPointer.ExcludeEvents: Tk2EventIDs;
+ {* События, которые не надо слушать. }
 //#UC START# *476144C702AA_467C185C03E7_var*
 //#UC END# *476144C702AA_467C185C03E7_var*
 begin

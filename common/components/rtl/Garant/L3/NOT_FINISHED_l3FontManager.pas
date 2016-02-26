@@ -1,31 +1,18 @@
 unit NOT_FINISHED_l3FontManager;
+ {* Классы для работы со шрифтами. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3FontManager.pas"
-// Начат: 11.10.1999 14:27
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Canvas::l3FontManager
-//
-// Классы для работы со шрифтами.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3FontManager.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3LogFont,
-  l3FontManagerPrim
-  ;
+ l3IntfUses
+ , l3FontManagerPrim
+ , l3LogFont
+;
 
 type
  Tl3FontManager = class(Tl3FontManagerPrim)
@@ -34,5 +21,9 @@ type
  Tl3LogFont = l3LogFont.Tl3LogFont;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

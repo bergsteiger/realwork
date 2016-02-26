@@ -1,56 +1,48 @@
 unit NOT_FINISHED_ChromeLikeTabSetStyles;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/NOT_FINISHED_ChromeLikeTabSetStyles.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::ChromeLikeTabSetStyles
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeTabSetStyles.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+uses
+ l3IntfUses
+;
+
 type
  TChromeLikeTabSetStyles = class
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: TChromeLikeTabSetStyles;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TChromeLikeTabSetStyles }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TChromeLikeTabSetStyles
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  l3Base {a},
-  GDIPUTIL,
-  GDIPAPI,
-  GDIPOBJ
-  ;
+ l3ImplUses
+ , GDIPUTIL
+ , GDIPAPI
+ , GDIPOBJ
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TChromeLikeTabSetStyles
-
-var g_TChromeLikeTabSetStyles : TChromeLikeTabSetStyles = nil;
+var g_TChromeLikeTabSetStyles: TChromeLikeTabSetStyles = nil;
+ {* Экземпляр синглетона TChromeLikeTabSetStyles }
 
 procedure TChromeLikeTabSetStylesFree;
+ {* Метод освобождения экземпляра синглетона TChromeLikeTabSetStyles }
 begin
  l3Free(g_TChromeLikeTabSetStyles);
-end;
+end;//TChromeLikeTabSetStylesFree
 
 class function TChromeLikeTabSetStyles.Instance: TChromeLikeTabSetStyles;
+ {* Метод получения экземпляра синглетона TChromeLikeTabSetStyles }
 begin
  if (g_TChromeLikeTabSetStyles = nil) then
  begin
@@ -58,14 +50,13 @@ begin
   g_TChromeLikeTabSetStyles := Create;
  end;
  Result := g_TChromeLikeTabSetStyles;
-end;
-
+end;//TChromeLikeTabSetStyles.Instance
 
 class function TChromeLikeTabSetStyles.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TChromeLikeTabSetStyles <> nil;
 end;//TChromeLikeTabSetStyles.Exists
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

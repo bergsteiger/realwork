@@ -1,64 +1,50 @@
 unit NOT_FINISHED_evCustomEditorWindow;
+ {* Реализация базового оконного элемента для отображения содержимого документа }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCustomEditorWindow.pas"
-// Начат: 17.03.1997 19:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevCustomEditorWindow
-//
-// Реализация базового оконного элемента для отображения содержимого документа
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditorWindow.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  nevBase,
-  afwInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3InternalInterfaces,
-  Messages,
-  nevTools,
-  evCustomTextSource,
-  evExcept,
-  nevSelection,
-  Windows,
-  evEditorWindowHotSpot,
-  evEditorInterfaces,
-  nevGUIInterfaces,
-  afwNavigation,
-  evCustomEditorWindowPrim,
-  evCustomFont
-  ;
+ l3IntfUses
+ , evCustomEditorWindowPrim
+ , evCustomTextSource
+ , nevTools
+ , nevBase
+ , l3Interfaces
+ , Messages
+ , l3InternalInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevGUIInterfaces
+ , afwInterfaces
+ , Windows
+ , evExcept
+ , evEditorWindowHotSpot
+ , nevSelection
+ , afwNavigation
+ , evEditorInterfaces
+ , evCustomFont
+;
 
 type
- RevEditorWindowHotSpot = class of evEditorWindowHotSpot.TevEditorWindowHotSpot;
+ RevEditorWindowHotSpot = class of TevEditorWindowHotSpot;
 
- RevSelection = class of nevSelection.TnevSelection;
+ RevSelection = class of TnevSelection;
 
- TevJumpToEvent = function (Sender: TObject;
+ TevJumpToEvent = function(Sender: TObject;
   anEffects: TafwJumpToEffects;
   const aMoniker: IevMoniker): Boolean;
 
- TevParaChangeEvent = procedure (Sender: TObject;
+ TevParaChangeEvent = procedure(Sender: TObject;
   const aTextPara: IedTextParagraph) of object;
+  {* нотификация об изменении текущего параграфа }
 
- TevGetHotspotInfo = procedure (Sender: TObject;
+ TevGetHotspotInfo = procedure(Sender: TObject;
   const aHotSpot: IevHotSpot;
   const aKeys: TafwCursorState;
   var theInfo: TafwCursorInfo) of object;
@@ -68,58 +54,46 @@ type
 
  TevCustomEditorWindow = class(TevCustomEditorWindowPrim)
   {* Реализация базового оконного элемента для отображения содержимого документа }
- private
- // private methods
+  private
    procedure WMEraseBkGnd(var Msg: TWMEraseBkGnd); message WM_ERASEBKGND;
    procedure WMPaint(var Msg: TWMPaint); message WM_Paint;
    procedure WMGetDlgCode(var Msg: TWMGetDlgCode); message WM_GETDLGCODE;
    procedure WMChar(var Msg: TWMChar); message WM_CHAR;
    procedure WMKeyDown(var Msg: TWMKeyDown); message CN_KEYDOWN;
- protected
- // property methods
+  protected
    function pm_GetPlainText: Boolean; virtual;
    procedure pm_SetPlainText(aValue: Boolean); virtual;
    function pm_GetTextSource: TevCustomTextSource; virtual;
    procedure pm_SetTextSource(aValue: TevCustomTextSource); virtual;
- protected
- // realized methods
-   function GetLimitWidth: Integer; override;
- protected
- // overridden protected methods
-   procedure DoCursorChanged; override;
-   procedure WebStyleChanged; override;
-   procedure DoAfterSetZoom; override;
- protected
- // protected methods
    function IsReadOnly: Boolean; virtual;
-    {$If not defined(NoVCM)}
+   {$If NOT Defined(NoVCM)}
    function IvcmState_LoadState(const aState: IUnknown;
-     aStateType: TvcmStateType): Boolean; virtual;
-    {$IfEnd} //not NoVCM
-    {$If not defined(NoVCM)}
+    aStateType: TvcmStateType): Boolean; virtual;
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function IvcmState_SaveState(out aState: IUnknown;
-     aStateType: TvcmStateType): Boolean; virtual;
-    {$IfEnd} //not NoVCM
+    aStateType: TvcmStateType): Boolean; virtual;
+   {$IfEnd} // NOT Defined(NoVCM)
    procedure DoHitTest(const aHotSpot: IevHotSpot;
-     const aState: TafwCursorState;
-     var theInfo: TafwCursorInfo); virtual;
+    const aState: TafwCursorState;
+    var theInfo: TafwCursorInfo); virtual;
    function CheckMouseUp(const aHotSpot: IevHotSpot;
-     const aState: TevMouseState): Boolean; virtual;
+    const aState: TevMouseState): Boolean; virtual;
    procedure ScrollInfoChange(aVert: Boolean;
-     const aScrollInfo: TScrollInfo;
-     aPosChanged: Boolean); virtual;
+    const aScrollInfo: TScrollInfo;
+    aPosChanged: Boolean); virtual;
    function DoBreakPara(aDrawLines: Boolean;
-     const anOp: InevOp): Boolean; overload;  virtual;
+    const anOp: InevOp): Boolean; overload; virtual;
    function HandledReadOnly(E: EevReadOnly): Boolean; virtual;
    function VScrollWidth(const anIC: Il3InfoCanvas): Integer; virtual;
    function DoDrawDocument(const aCanvas: Il3Canvas;
-     out aMap: InevMap): Boolean; virtual;
+    out aMap: InevMap): Boolean; virtual;
    procedure ParaChange; virtual;
-     {* текущий параграф изменился. }
+    {* текущий параграф изменился. }
    procedure BlockChange; virtual;
-     {* изменилось выделение. }
+    {* изменилось выделение. }
    procedure SetEditRect; virtual;
-   procedure DoScrollEvent; overload;  virtual;
+   procedure DoScrollEvent; overload; virtual;
    procedure MakeCursor; virtual;
    function ReplaceConfirm(const aBlock: InevRange;
     AlienReplaceConfirm: TevReplaceConfirmEvent): ShortInt; virtual;
@@ -127,178 +101,71 @@ type
    function AllowDrawDocumentEdge: Boolean; virtual;
    procedure AfterOperation; virtual;
    function IsVScrollBarVisible: Boolean; virtual;
-     {* проверяет видимость вертикального скроллбара. }
+    {* проверяет видимость вертикального скроллбара. }
    function GetPaintSelection: InevRange; virtual;
    procedure DoCursorInSelectionChange; virtual;
-     {* изменилось свойство CursorInSelection. }
+    {* изменилось свойство CursorInSelection. }
    procedure DoFontChange(const Font: Il3Font); virtual;
    procedure DoBeforeRMouseClick; virtual;
    function RightIndentMul: Integer; virtual;
    function WantEnter: Boolean; virtual;
    function WantTab(aKeyPressed: Boolean = False): Boolean; virtual;
    function DoBreakPara(aDrawLines: Boolean;
-    const anOp: InevOp): Boolean; overload;  virtual;
+    const anOp: InevOp): Boolean; overload; virtual;
    procedure TextChange; virtual;
-     {* вызывается при смене текста. }
+    {* вызывается при смене текста. }
    function GetHorzDelta: Integer; virtual;
-     {* зазор, после которого начинается скроллирование вправо. }
+    {* зазор, после которого начинается скроллирование вправо. }
    procedure SetTextColor(const aCanvas: Il3Canvas); virtual;
    function GetTopMargin: Integer; virtual;
-     {* Возвращает отступ до текста сверху. }
+    {* Возвращает отступ до текста сверху. }
    function ProcessHotSpots: Boolean; virtual;
-     {* Обрабатывать ли "горячие точки" на предмет показа Hint'а и мышиного курсора или вызывать поведение по-умолчанию. [$100958718] }
+    {* Обрабатывать ли "горячие точки" на предмет показа Hint'а и мышиного курсора или вызывать поведение по-умолчанию. [$100958718] }
    function GetInfoCanvas: InevInfoCanvas; virtual;
    function ProcessCommandEx(Cmd: Integer;
     aForce: Boolean;
     aSubCmd: Cardinal;
     aCount: Integer): Boolean; virtual;
-     {* process the specified command, return true if processed }
+    {* process the specified command, return true if processed }
    function SelectionClass: RevSelection; virtual;
    function HotSpotClass: RevEditorWindowHotSpot; virtual;
-   procedure DoScrollEvent; overload;  virtual;
+   procedure DoScrollEvent; overload; virtual;
    function SelectWhenUnfocused: Boolean; virtual;
    procedure DoUnselectAfterInsertData; virtual;
- public
- // public methods
+   function GetLimitWidth: Integer; override;
+   procedure DoCursorChanged; override;
+   procedure WebStyleChanged; override;
+   procedure DoAfterSetZoom; override;
+  public
    function Tabulate: Boolean; virtual;
-     {* эквивалетно нажатию Tab. }
+    {* эквивалетно нажатию Tab. }
    function Untabulate: Boolean; virtual;
-     {* эквивалетно нажатию Shift-Tab. }
+    {* эквивалетно нажатию Shift-Tab. }
    function CloseQuery: Boolean; virtual;
    function MakeExportFilters(aSelection: Boolean;
     aForExport: Boolean): InevTagGenerator; virtual;
- public
- // public properties
+  public
    property PlainText: Boolean
-     read pm_GetPlainText
-     write pm_SetPlainText;
+    read pm_GetPlainText
+    write pm_SetPlainText;
    property TextSource: TevCustomTextSource
-     read pm_GetTextSource
-     write pm_SetTextSource;
+    read pm_GetTextSource
+    write pm_SetTextSource;
  end;//TevCustomEditorWindow
 
 implementation
 
 uses
-  nevView,
-  l3ProcessMessagesManager
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  EditorFromStackKeyWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevCustomEditorWindow
-
-function TevCustomEditorWindow.IsReadOnly: Boolean;
-//#UC START# *53F34C2A025E_4829D92A037B_var*
-//#UC END# *53F34C2A025E_4829D92A037B_var*
-begin
-//#UC START# *53F34C2A025E_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *53F34C2A025E_4829D92A037B_impl*
-end;//TevCustomEditorWindow.IsReadOnly
-
-{$If not defined(NoVCM)}
-function TevCustomEditorWindow.IvcmState_LoadState(const aState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
-//#UC START# *54084F6B01FD_4829D92A037B_var*
-//#UC END# *54084F6B01FD_4829D92A037B_var*
-begin
-//#UC START# *54084F6B01FD_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54084F6B01FD_4829D92A037B_impl*
-end;//TevCustomEditorWindow.IvcmState_LoadState
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-function TevCustomEditorWindow.IvcmState_SaveState(out aState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
-//#UC START# *54084FBC0018_4829D92A037B_var*
-//#UC END# *54084FBC0018_4829D92A037B_var*
-begin
-//#UC START# *54084FBC0018_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54084FBC0018_4829D92A037B_impl*
-end;//TevCustomEditorWindow.IvcmState_SaveState
-{$IfEnd} //not NoVCM
-
-procedure TevCustomEditorWindow.DoHitTest(const aHotSpot: IevHotSpot;
-  const aState: TafwCursorState;
-  var theInfo: TafwCursorInfo);
-//#UC START# *54C0FCF701F6_4829D92A037B_var*
-//#UC END# *54C0FCF701F6_4829D92A037B_var*
-begin
-//#UC START# *54C0FCF701F6_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54C0FCF701F6_4829D92A037B_impl*
-end;//TevCustomEditorWindow.DoHitTest
-
-function TevCustomEditorWindow.CheckMouseUp(const aHotSpot: IevHotSpot;
-  const aState: TevMouseState): Boolean;
-//#UC START# *54C1012501EA_4829D92A037B_var*
-//#UC END# *54C1012501EA_4829D92A037B_var*
-begin
-//#UC START# *54C1012501EA_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54C1012501EA_4829D92A037B_impl*
-end;//TevCustomEditorWindow.CheckMouseUp
-
-procedure TevCustomEditorWindow.ScrollInfoChange(aVert: Boolean;
-  const aScrollInfo: TScrollInfo;
-  aPosChanged: Boolean);
-//#UC START# *54C101DD01C5_4829D92A037B_var*
-//#UC END# *54C101DD01C5_4829D92A037B_var*
-begin
-//#UC START# *54C101DD01C5_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54C101DD01C5_4829D92A037B_impl*
-end;//TevCustomEditorWindow.ScrollInfoChange
-
-function TevCustomEditorWindow.DoBreakPara(aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
-//#UC START# *54C1028A038A_4829D92A037B_var*
-//#UC END# *54C1028A038A_4829D92A037B_var*
-begin
-//#UC START# *54C1028A038A_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54C1028A038A_4829D92A037B_impl*
-end;//TevCustomEditorWindow.DoBreakPara
-
-function TevCustomEditorWindow.HandledReadOnly(E: EevReadOnly): Boolean;
-//#UC START# *54C1033D03DF_4829D92A037B_var*
-//#UC END# *54C1033D03DF_4829D92A037B_var*
-begin
-//#UC START# *54C1033D03DF_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54C1033D03DF_4829D92A037B_impl*
-end;//TevCustomEditorWindow.HandledReadOnly
-
-function TevCustomEditorWindow.VScrollWidth(const anIC: Il3InfoCanvas): Integer;
-//#UC START# *54C108A40224_4829D92A037B_var*
-//#UC END# *54C108A40224_4829D92A037B_var*
-begin
-//#UC START# *54C108A40224_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *54C108A40224_4829D92A037B_impl*
-end;//TevCustomEditorWindow.VScrollWidth
-
-function TevCustomEditorWindow.DoDrawDocument(const aCanvas: Il3Canvas;
-  out aMap: InevMap): Boolean;
-//#UC START# *5538F4D60240_4829D92A037B_var*
-//#UC END# *5538F4D60240_4829D92A037B_var*
-begin
-//#UC START# *5538F4D60240_4829D92A037B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *5538F4D60240_4829D92A037B_impl*
-end;//TevCustomEditorWindow.DoDrawDocument
-// start class TevCustomEditorWindow
+ l3ImplUses
+ , nevView
+ , l3ProcessMessagesManager
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , EditorFromStackKeyWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TevCustomEditorWindow.pm_GetPlainText: Boolean;
 //#UC START# *484515B3012E_4829D92A037Bget_var*
@@ -336,7 +203,111 @@ begin
 //#UC END# *54C0FC1000D3_4829D92A037Bset_impl*
 end;//TevCustomEditorWindow.pm_SetTextSource
 
+function TevCustomEditorWindow.IsReadOnly: Boolean;
+//#UC START# *53F34C2A025E_4829D92A037B_var*
+//#UC END# *53F34C2A025E_4829D92A037B_var*
+begin
+//#UC START# *53F34C2A025E_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *53F34C2A025E_4829D92A037B_impl*
+end;//TevCustomEditorWindow.IsReadOnly
+
+{$If NOT Defined(NoVCM)}
+function TevCustomEditorWindow.IvcmState_LoadState(const aState: IUnknown;
+ aStateType: TvcmStateType): Boolean;
+//#UC START# *54084F6B01FD_4829D92A037B_var*
+//#UC END# *54084F6B01FD_4829D92A037B_var*
+begin
+//#UC START# *54084F6B01FD_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54084F6B01FD_4829D92A037B_impl*
+end;//TevCustomEditorWindow.IvcmState_LoadState
+{$IfEnd} // NOT Defined(NoVCM)
+
+{$If NOT Defined(NoVCM)}
+function TevCustomEditorWindow.IvcmState_SaveState(out aState: IUnknown;
+ aStateType: TvcmStateType): Boolean;
+//#UC START# *54084FBC0018_4829D92A037B_var*
+//#UC END# *54084FBC0018_4829D92A037B_var*
+begin
+//#UC START# *54084FBC0018_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54084FBC0018_4829D92A037B_impl*
+end;//TevCustomEditorWindow.IvcmState_SaveState
+{$IfEnd} // NOT Defined(NoVCM)
+
+procedure TevCustomEditorWindow.DoHitTest(const aHotSpot: IevHotSpot;
+ const aState: TafwCursorState;
+ var theInfo: TafwCursorInfo);
+//#UC START# *54C0FCF701F6_4829D92A037B_var*
+//#UC END# *54C0FCF701F6_4829D92A037B_var*
+begin
+//#UC START# *54C0FCF701F6_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C0FCF701F6_4829D92A037B_impl*
+end;//TevCustomEditorWindow.DoHitTest
+
+function TevCustomEditorWindow.CheckMouseUp(const aHotSpot: IevHotSpot;
+ const aState: TevMouseState): Boolean;
+//#UC START# *54C1012501EA_4829D92A037B_var*
+//#UC END# *54C1012501EA_4829D92A037B_var*
+begin
+//#UC START# *54C1012501EA_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C1012501EA_4829D92A037B_impl*
+end;//TevCustomEditorWindow.CheckMouseUp
+
+procedure TevCustomEditorWindow.ScrollInfoChange(aVert: Boolean;
+ const aScrollInfo: TScrollInfo;
+ aPosChanged: Boolean);
+//#UC START# *54C101DD01C5_4829D92A037B_var*
+//#UC END# *54C101DD01C5_4829D92A037B_var*
+begin
+//#UC START# *54C101DD01C5_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C101DD01C5_4829D92A037B_impl*
+end;//TevCustomEditorWindow.ScrollInfoChange
+
+function TevCustomEditorWindow.DoBreakPara(aDrawLines: Boolean;
+ const anOp: InevOp): Boolean;
+//#UC START# *54C1028A038A_4829D92A037B_var*
+//#UC END# *54C1028A038A_4829D92A037B_var*
+begin
+//#UC START# *54C1028A038A_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C1028A038A_4829D92A037B_impl*
+end;//TevCustomEditorWindow.DoBreakPara
+
+function TevCustomEditorWindow.HandledReadOnly(E: EevReadOnly): Boolean;
+//#UC START# *54C1033D03DF_4829D92A037B_var*
+//#UC END# *54C1033D03DF_4829D92A037B_var*
+begin
+//#UC START# *54C1033D03DF_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C1033D03DF_4829D92A037B_impl*
+end;//TevCustomEditorWindow.HandledReadOnly
+
+function TevCustomEditorWindow.VScrollWidth(const anIC: Il3InfoCanvas): Integer;
+//#UC START# *54C108A40224_4829D92A037B_var*
+//#UC END# *54C108A40224_4829D92A037B_var*
+begin
+//#UC START# *54C108A40224_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *54C108A40224_4829D92A037B_impl*
+end;//TevCustomEditorWindow.VScrollWidth
+
+function TevCustomEditorWindow.DoDrawDocument(const aCanvas: Il3Canvas;
+ out aMap: InevMap): Boolean;
+//#UC START# *5538F4D60240_4829D92A037B_var*
+//#UC END# *5538F4D60240_4829D92A037B_var*
+begin
+//#UC START# *5538F4D60240_4829D92A037B_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5538F4D60240_4829D92A037B_impl*
+end;//TevCustomEditorWindow.DoDrawDocument
+
 procedure TevCustomEditorWindow.ParaChange;
+ {* текущий параграф изменился. }
 //#UC START# *482BFA340236_4829D92A037B_var*
 //#UC END# *482BFA340236_4829D92A037B_var*
 begin
@@ -346,6 +317,7 @@ begin
 end;//TevCustomEditorWindow.ParaChange
 
 procedure TevCustomEditorWindow.BlockChange;
+ {* изменилось выделение. }
 //#UC START# *482BFA5C0286_4829D92A037B_var*
 //#UC END# *482BFA5C0286_4829D92A037B_var*
 begin
@@ -382,7 +354,7 @@ begin
 end;//TevCustomEditorWindow.MakeCursor
 
 function TevCustomEditorWindow.ReplaceConfirm(const aBlock: InevRange;
-  AlienReplaceConfirm: TevReplaceConfirmEvent): ShortInt;
+ AlienReplaceConfirm: TevReplaceConfirmEvent): ShortInt;
 //#UC START# *482BFAD20173_4829D92A037B_var*
 //#UC END# *482BFAD20173_4829D92A037B_var*
 begin
@@ -419,6 +391,7 @@ begin
 end;//TevCustomEditorWindow.AfterOperation
 
 function TevCustomEditorWindow.IsVScrollBarVisible: Boolean;
+ {* проверяет видимость вертикального скроллбара. }
 //#UC START# *482BFC0E0175_4829D92A037B_var*
 //#UC END# *482BFC0E0175_4829D92A037B_var*
 begin
@@ -437,6 +410,7 @@ begin
 end;//TevCustomEditorWindow.GetPaintSelection
 
 procedure TevCustomEditorWindow.DoCursorInSelectionChange;
+ {* изменилось свойство CursorInSelection. }
 //#UC START# *482BFC4200D0_4829D92A037B_var*
 //#UC END# *482BFC4200D0_4829D92A037B_var*
 begin
@@ -491,7 +465,7 @@ begin
 end;//TevCustomEditorWindow.WantTab
 
 function TevCustomEditorWindow.DoBreakPara(aDrawLines: Boolean;
-  const anOp: InevOp): Boolean;
+ const anOp: InevOp): Boolean;
 //#UC START# *482BFCBF01F0_4829D92A037B_var*
 //#UC END# *482BFCBF01F0_4829D92A037B_var*
 begin
@@ -501,6 +475,7 @@ begin
 end;//TevCustomEditorWindow.DoBreakPara
 
 function TevCustomEditorWindow.Tabulate: Boolean;
+ {* эквивалетно нажатию Tab. }
 //#UC START# *482BFD1802D3_4829D92A037B_var*
 //#UC END# *482BFD1802D3_4829D92A037B_var*
 begin
@@ -510,6 +485,7 @@ begin
 end;//TevCustomEditorWindow.Tabulate
 
 function TevCustomEditorWindow.Untabulate: Boolean;
+ {* эквивалетно нажатию Shift-Tab. }
 //#UC START# *482BFD2C0107_4829D92A037B_var*
 //#UC END# *482BFD2C0107_4829D92A037B_var*
 begin
@@ -528,7 +504,7 @@ begin
 end;//TevCustomEditorWindow.CloseQuery
 
 function TevCustomEditorWindow.MakeExportFilters(aSelection: Boolean;
-  aForExport: Boolean): InevTagGenerator;
+ aForExport: Boolean): InevTagGenerator;
 //#UC START# *482BFD8601F3_4829D92A037B_var*
 //#UC END# *482BFD8601F3_4829D92A037B_var*
 begin
@@ -538,6 +514,7 @@ begin
 end;//TevCustomEditorWindow.MakeExportFilters
 
 procedure TevCustomEditorWindow.TextChange;
+ {* вызывается при смене текста. }
 //#UC START# *482C26D6006A_4829D92A037B_var*
 //#UC END# *482C26D6006A_4829D92A037B_var*
 begin
@@ -592,6 +569,7 @@ begin
 end;//TevCustomEditorWindow.WMKeyDown
 
 function TevCustomEditorWindow.GetHorzDelta: Integer;
+ {* зазор, после которого начинается скроллирование вправо. }
 //#UC START# *482C706503AF_4829D92A037B_var*
 //#UC END# *482C706503AF_4829D92A037B_var*
 begin
@@ -610,6 +588,7 @@ begin
 end;//TevCustomEditorWindow.SetTextColor
 
 function TevCustomEditorWindow.GetTopMargin: Integer;
+ {* Возвращает отступ до текста сверху. }
 //#UC START# *483D718E0143_4829D92A037B_var*
 //#UC END# *483D718E0143_4829D92A037B_var*
 begin
@@ -619,6 +598,7 @@ begin
 end;//TevCustomEditorWindow.GetTopMargin
 
 function TevCustomEditorWindow.ProcessHotSpots: Boolean;
+ {* Обрабатывать ли "горячие точки" на предмет показа Hint'а и мышиного курсора или вызывать поведение по-умолчанию. [$100958718] }
 //#UC START# *4875FDAD037A_4829D92A037B_var*
 //#UC END# *4875FDAD037A_4829D92A037B_var*
 begin
@@ -637,9 +617,10 @@ begin
 end;//TevCustomEditorWindow.GetInfoCanvas
 
 function TevCustomEditorWindow.ProcessCommandEx(Cmd: Integer;
-  aForce: Boolean;
-  aSubCmd: Cardinal;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aSubCmd: Cardinal;
+ aCount: Integer): Boolean;
+ {* process the specified command, return true if processed }
 //#UC START# *48E227FA00E0_4829D92A037B_var*
 //#UC END# *48E227FA00E0_4829D92A037B_var*
 begin
@@ -730,9 +711,9 @@ begin
 end;//TevCustomEditorWindow.DoAfterSetZoom
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevCustomEditorWindow
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomEditorWindow);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevCustomEditorWindow }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

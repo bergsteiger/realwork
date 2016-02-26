@@ -15,10 +15,10 @@ uses
 type
  TUserManager = class
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TUserManager;
     {* Метод получения экземпляра синглетона TUserManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TUserManager
 
 var UserManager: TUserManager;
@@ -42,12 +42,6 @@ begin
  l3Free(g_TUserManager);
 end;//TUserManagerFree
 
-class function TUserManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TUserManager <> nil;
-end;//TUserManager.Exists
-
 class function TUserManager.Instance: TUserManager;
  {* Метод получения экземпляра синглетона TUserManager }
 begin
@@ -58,6 +52,12 @@ begin
  end;
  Result := g_TUserManager;
 end;//TUserManager.Instance
+
+class function TUserManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TUserManager <> nil;
+end;//TUserManager.Exists
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

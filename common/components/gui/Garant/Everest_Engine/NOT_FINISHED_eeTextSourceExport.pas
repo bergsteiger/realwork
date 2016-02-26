@@ -1,64 +1,51 @@
 unit NOT_FINISHED_eeTextSourceExport;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/NOT_FINISHED_eeTextSourceExport.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::eeTextSource::TeeTextSourceExport
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeTextSourceExport.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  Classes
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  nevTools
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ , nevTools
+;
 
-{$If defined(Nemesis)}
 type
- TeeMakeDocumentContainerEvent = procedure (Sender: TObject;
+ TeeMakeDocumentContainerEvent = procedure(Sender: TObject;
   var aMade: InevDocumentContainer) of object;
 
- TeeTextSourceExport = class( {$If not defined(NoVCM)}, IvcmState{$IfEnd} //not NoVCM
+ TeeTextSourceExport = class({$If NOT Defined(NoVCM)}
+ IvcmState
+ {$IfEnd} // NOT Defined(NoVCM)
  )
- protected
- // realized methods
-   {$If not defined(NoVCM)}
+  protected
+   {$If NOT Defined(NoVCM)}
    function SaveState(out theState: IUnknown;
     aStateType: TvcmStateType): Boolean;
-   {$IfEnd} //not NoVCM
-   {$If not defined(NoVCM)}
+   {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
    function LoadState(const theState: IUnknown;
     aStateType: TvcmStateType): Boolean;
-   {$IfEnd} //not NoVCM
+   {$IfEnd} // NOT Defined(NoVCM)
  end;//TeeTextSourceExport
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
-// start class TeeTextSourceExport
-
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TeeTextSourceExport.SaveState(out theState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *4683E75B01D8_47542EDE038A_var*
 //#UC END# *4683E75B01D8_47542EDE038A_var*
 begin
@@ -66,11 +53,11 @@ begin
  assert(false, 'TeeTextSourceExport.SaveState not implemented');
 //#UC END# *4683E75B01D8_47542EDE038A_impl*
 end;//TeeTextSourceExport.SaveState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 function TeeTextSourceExport.LoadState(const theState: IUnknown;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *4683E79D0331_47542EDE038A_var*
 //#UC END# *4683E79D0331_47542EDE038A_var*
 begin
@@ -78,8 +65,7 @@ begin
  assert(false, 'TeeTextSourceExport.LoadState not implemented');
 //#UC END# *4683E79D0331_47542EDE038A_impl*
 end;//TeeTextSourceExport.LoadState
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
-{$IfEnd} //Nemesis
-
+{$IfEnd} // Defined(Nemesis)
 end.

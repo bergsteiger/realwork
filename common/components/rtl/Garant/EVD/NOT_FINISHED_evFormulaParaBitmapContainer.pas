@@ -1,29 +1,24 @@
 unit NOT_FINISHED_evFormulaParaBitmapContainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/NOT_FINISHED_evFormulaParaBitmapContainer.pas"
-// Начат: 15.12.2002 17:34
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Paragraphs::TevFormulaParaBitmapContainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evFormulaParaBitmapContainer.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TevFormulaParaBitmapContainer = class
  end;//TevFormulaParaBitmapContainer
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

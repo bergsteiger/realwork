@@ -1,24 +1,16 @@
 unit NOT_FINISHED_GblAdapter;
+ {* Используется потому, что иначе никак не достучаться до EUnknownFactoryKey. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/NOT_FINISHED_GblAdapter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::GblAdapter
-//
-// Используется потому, что иначе никак не достучаться до EUnknownFactoryKey.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_GblAdapter.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  EUnknownFactoryKey = class
@@ -29,5 +21,9 @@ type
  end;//ECorbaException
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

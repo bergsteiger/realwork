@@ -1,37 +1,31 @@
 unit NOT_FINISHED_ddNSRCGenerator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Модуль: "w:/common/components/rtl/Garant/EVD/NOT_FINISHED_ddNSRCGenerator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TddNSRCGenerator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_ddNSRCGenerator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TddNSRCGenerator = {abstract} class
- protected
- // protected methods
-   {$If defined(nsTest)}
+  protected
+   {$If Defined(nsTest)}
    procedure SaveObjFileName(const aFileName: AnsiString); virtual;
-   {$IfEnd} //nsTest
+   {$IfEnd} // Defined(nsTest)
  end;//TddNSRCGenerator
 
 implementation
 
-// start class TddNSRCGenerator
+uses
+ l3ImplUses
+;
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 procedure TddNSRCGenerator.SaveObjFileName(const aFileName: AnsiString);
 //#UC START# *4D70C8250128_4B59FBCA0096_var*
 //#UC END# *4D70C8250128_4B59FBCA0096_var*
@@ -40,6 +34,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4D70C8250128_4B59FBCA0096_impl*
 end;//TddNSRCGenerator.SaveObjFileName
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 end.

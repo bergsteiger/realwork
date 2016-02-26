@@ -1,39 +1,32 @@
 unit NOT_FINISHED_k2Tags;
+ {* Описание идентификаторов стандартных тегов и типов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/NOT_FINISHED_k2Tags.pas"
-// Начат: 05.05.1998 09:54
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::K2::k2Tags
-//
-// Описание идентификаторов стандартных тегов и типов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2Tags.pas"
+// Стереотип: "Interfaces"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  { вспомогательные тэги }
+ {* вспомогательные тэги }
  k2_tiComplexBase = High(Byte) + 1;
-  { база для указания сложной сортировки. }
+  {* база для указания сложной сортировки. }
 
 type
  Tk2TagID = (
-   
  );//Tk2TagID
 
- Tk2FontParam = k2_tiName..k2_tiIndex;
+ Tk2FontParam = k2_tiName .. k2_tiIndex;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

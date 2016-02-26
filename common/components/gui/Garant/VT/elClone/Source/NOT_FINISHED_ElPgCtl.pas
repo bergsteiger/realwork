@@ -1,63 +1,42 @@
 unit NOT_FINISHED_ElPgCtl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/elClone/Source/NOT_FINISHED_ElPgCtl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT::elClone::ElPgCtl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElPgCtl.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  ElXPThemedControl
-  ;
+ l3IntfUses
+ , ElXPThemedControl
+;
 
 type
  TElTabPosition = (
-   
  );//TElTabPosition
 
  TElTabSheet = class
  end;//TElTabSheet
 
  TElCustomPageControl = class(TElXPThemedControl)
- protected
- // protected methods
+  protected
    procedure RequestTabPosition; virtual;
-     {* Сигнатура метода RequestTabPosition }
- public
- // public methods
+  public
    procedure DoActivePrevPage; virtual;
-     {* Сигнатура метода DoActivePrevPage }
  end;//TElCustomPageControl
 
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  PageControlWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TElCustomPageControl
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , PageControlWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TElCustomPageControl.RequestTabPosition;
 //#UC START# *52B9A7B2027D_4E36C0C3014B_var*
@@ -78,9 +57,9 @@ begin
 end;//TElCustomPageControl.DoActivePrevPage
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TElCustomPageControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TElCustomPageControl);
-{$IfEnd} //not NoScripts
+ {* Регистрация TElCustomPageControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

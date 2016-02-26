@@ -1,26 +1,16 @@
 unit NOT_FINISHED_l3KeyWrd;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3KeyWrd.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::Pretty Things::l3KeyWrd
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3KeyWrd.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3_String
-  ;
+ l3IntfUses
+ , l3_String
+;
 
 type
  Tl3KeyWord = class(Tl3_String)
@@ -30,5 +20,9 @@ type
  end;//Tl3KeyWords
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

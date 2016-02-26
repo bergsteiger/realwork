@@ -1,36 +1,25 @@
 unit NOT_FINISHED_eePara;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/NOT_FINISHED_eePara.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Everest Engine::Engine Core::eePara
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eePara.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeInterfaces,
-  eeTagEditorTool,
-  k2Base,
-  l3Variant,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , eeTagEditorTool
+ , eeInterfaces
+ , k2Base
+ , l3Variant
+ , l3Interfaces
+;
 
 type
  TeePara = class(TeeTagEditorTool, IeePara)
- protected
- // realized methods
+  protected
    function Get_Document: IeeDocument;
    function Get_Parent: IeePara;
    function Get_Block: IeeBlock;
@@ -53,15 +42,13 @@ type
  end;//TeeLeafPara
 
  TeeStyledLeafPara = class(TeeLeafPara, IeeStyledLeafPara)
- protected
- // realized methods
-   function IsComment: Boolean; overload; 
-   function IsComment(aType: TeeCommentType): Boolean; overload; 
+  protected
+   function IsComment: Boolean; overload;
+   function IsComment(aType: TeeCommentType): Boolean; overload;
  end;//TeeStyledLeafPara
 
  TeeTextPara = class(TeeStyledLeafPara, IeeTextPara)
- protected
- // realized methods
+  protected
    function Get_Text: Il3CString;
  end;//TeeTextPara
 
@@ -70,16 +57,15 @@ type
 
  TeeSBS = class(TeeParaList)
  end;//TeeSBS
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeSubList
-  ;
-
-// start class TeePara
+ l3ImplUses
+ , eeSubList
+;
 
 function TeePara.Get_Document: IeeDocument;
 //#UC START# *54819A560264_49523F8B0208get_var*
@@ -224,7 +210,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *54819BCF02EB_49523F8B0208_impl*
 end;//TeePara.AsObject
-// start class TeeStyledLeafPara
 
 function TeeStyledLeafPara.IsComment: Boolean;
 //#UC START# *54819C2E029C_54BE4D400054_var*
@@ -243,7 +228,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *54819C4503A8_54BE4D400054_impl*
 end;//TeeStyledLeafPara.IsComment
-// start class TeeTextPara
 
 function TeeTextPara.Get_Text: Il3CString;
 //#UC START# *54819C8702E6_54BE4D4F02D1get_var*
@@ -253,5 +237,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *54819C8702E6_54BE4D4F02D1get_impl*
 end;//TeeTextPara.Get_Text
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
+
 end.

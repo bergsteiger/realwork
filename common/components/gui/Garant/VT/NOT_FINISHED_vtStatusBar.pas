@@ -1,31 +1,18 @@
 unit NOT_FINISHED_vtStatusBar;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtStatusBar.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::StatusBar::TvtStatusBar
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtStatusBar.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  ComCtrls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TvtCustomStatusBar = class(TCustomStatusBar)
@@ -40,38 +27,31 @@ type
 implementation
 
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  StatusPanelWordsPack
-  {$IfEnd} //not NoScripts
-  ,
-  afwDrawing
-  {$If not defined(NoScripts)}
-  ,
-  StatusBarWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
+ l3ImplUses
+ , afwDrawing
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , StatusBarWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , StatusPanelWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtCustomStatusBar
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtCustomStatusBar);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtStatusPanel
+ {* Регистрация TvtCustomStatusBar }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtStatusPanel);
-{$IfEnd} //not NoScripts
-{$If not defined(NoScripts)}
-// Регистрация TvtStatusBar
+ {* Регистрация TvtStatusPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtStatusBar);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtStatusBar }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

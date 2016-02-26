@@ -1,27 +1,23 @@
 unit NOT_FINISHED_OvcConst;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Orpheus"
-// Модуль: "w:/common/components/rtl/external/Orpheus/NOT_FINISHED_OvcConst.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::Orpheus::OvcConst
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcConst.pas"
+// Стереотип: "Interfaces"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Orpheus\OVC.INC}
+{$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  { ActionCodes }
  ccActionItem = !;
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

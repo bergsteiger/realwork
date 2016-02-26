@@ -1,24 +1,24 @@
 unit NOT_FINISHED_dt_Renum;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/NOT_FINISHED_dt_Renum.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DT::Tables::dt_Renum
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Renum.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
+
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

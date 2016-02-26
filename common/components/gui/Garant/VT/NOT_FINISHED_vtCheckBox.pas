@@ -1,35 +1,29 @@
 unit NOT_FINISHED_vtCheckBox;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtCheckBox.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Buttons::TvtCheckBox
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtCheckBox.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  eeCheckBox
-  ;
+ l3IntfUses
+ , eeCheckBox
+;
 
 type
  _vtUnicodeButtonControl_Parent_ = TeeCheckBox;
- {$Include ..\VT\vtUnicodeButtonControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
  TvtCheckBox = class(_vtUnicodeButtonControl_)
  end;//TvtCheckBox
 
 implementation
 
-{$Include ..\VT\vtUnicodeButtonControl.imp.pas}
+uses
+ l3ImplUses
+;
+
+{$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
 
 end.

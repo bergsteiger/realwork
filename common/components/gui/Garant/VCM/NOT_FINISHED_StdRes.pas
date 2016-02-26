@@ -1,38 +1,32 @@
 unit NOT_FINISHED_StdRes;
+ {* Ресурсы приложения. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/NOT_FINISHED_StdRes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VCM$Visual::Application Resources::StdRes
-//
-// Ресурсы приложения.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\NOT_FINISHED_StdRes.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VCM\vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
+uses
+ l3IntfUses
+;
+
+const
+
 type
  TdmStdRes = class
   {* Ресурсы приложения. }
  end;//TdmStdRes
-
-const
-  { Messages }
- 
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
-{$IfEnd} //not NoVCM
+{$If NOT Defined(NoVCM)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVCM)
+
 end.

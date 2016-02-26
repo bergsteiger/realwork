@@ -1,31 +1,25 @@
 unit NOT_FINISHED_k2Facade;
+ {* Интерфейсы библиотеки K2, предназначенные для унифицированного общения с таблицами тегов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/NOT_FINISHED_k2Facade.pas"
-// Начат: 01.04.2005 17:36
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::K2::k2Facade::k2Facade
-//
-// Интерфейсы библиотеки K2, предназначенные для унифицированного общения с таблицами тегов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2Facade.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  Tk2 = class
  end;//Tk2
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

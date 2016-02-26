@@ -1,31 +1,18 @@
 unit NOT_FINISHED_vtCtrls;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtCtrls.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::VT::vtCommon::vtCtrls
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtCtrls.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  StdCtrls
-  {$IfEnd} //not NoVCL
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls
+ {$IfEnd} // NOT Defined(NoVCL)
+;
 
 type
  TvtSplitter = class
@@ -33,12 +20,14 @@ type
 
  TvtComboBox = class(TComboBox)
  end;//TvtComboBox
+
 procedure AdjustCtrl;
-   {* Сигнатура метода AdjustCtrl }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure AdjustCtrl;
 //#UC START# *4AC0B2B302FE_4AC0B2A102BE_var*
@@ -48,4 +37,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4AC0B2B302FE_4AC0B2A102BE_impl*
 end;//AdjustCtrl
+
 end.

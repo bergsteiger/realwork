@@ -1,51 +1,44 @@
 unit NOT_FINISHED_evMarker;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evMarker.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevMarker
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evMarker.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  l3Interfaces,
-  nevBase,
-  k2TagTool,
-  nevTools,
-  l3Variant
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , k2TagTool
+ , nevTools
+ , nevBase
+ , l3Variant
+ , l3Interfaces
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  RevMarker = class of TevMarker;
 
  _nevParaTool_Parent_ = Tk2TagTool;
  {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
  TevMarker = class(_nevParaTool_, IevMarker)
- protected
- // realized methods
+  protected
+   procedure SetClientValue(aValue: Integer;
+    const aContext: InevOp); virtual;
+   function DoGetClientValue: Integer; virtual;
+   function DoGetValue: Integer; virtual;
+   procedure DoSetValue(aValue: Integer;
+    const Context: InevOp); virtual;
    function MakeCopy(const aTagWrap: InevPara): IevMarker;
-     {* делает копию маркера для aTagWrap. }
+    {* делает копию маркера для aTagWrap. }
    procedure SetValue(Value: Integer;
     const Context: InevOp);
-     {* установить новое значение параметра. }
+    {* установить новое значение параметра. }
    function CompareLevel(aTagWrap: Tl3Variant): Integer;
-     {* сравнить уровени вложенности маркера и тега. }
+    {* сравнить уровени вложенности маркера и тега. }
    function Compare(const aMarker: IevMarker): Integer;
-     {* сравнивает маркеры. }
+    {* сравнивает маркеры. }
    function pm_GetValue: Integer;
    function pm_GetClientValue: Integer;
    function pm_GetLevel: Integer;
@@ -56,40 +49,29 @@ type
    function Get_Hint: Il3CString;
    function Get_View: InevView;
    procedure Set_View(const aValue: InevView);
- protected
- // protected methods
-   procedure SetClientValue(aValue: Integer;
-     const aContext: InevOp); virtual;
-   function DoGetClientValue: Integer; virtual;
-   function DoGetValue: Integer; virtual;
-   procedure DoSetValue(aValue: Integer;
-     const Context: InevOp); virtual;
- public
- // public methods
+  public
    constructor Create(const aView: InevView;
-     aPara: Tl3Tag;
-     aTag: LongInt;
-     aStyle: TevParaMarkerStyle;
-     const aHint: Il3CString = nil); reintroduce;
+    aPara: Tl3Tag;
+    aTag: LongInt;
+    aStyle: TevParaMarkerStyle;
+    const aHint: Il3CString = nil); reintroduce;
  end;//TevMarker
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  SysUtils
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3ImplUses
+ , SysUtils
+;
 
-{$If defined(evUseVisibleCursors)}
+type _Instance_R_ = TevMarker;
 
 {$Include w:\common\components\gui\Garant\Everest\new\nevParaTool.imp.pas}
 
-// start class TevMarker
-
 procedure TevMarker.SetClientValue(aValue: Integer;
-  const aContext: InevOp);
+ const aContext: InevOp);
 //#UC START# *4E3A3F0D0388_4A38AB2A00E2_var*
 //#UC END# *4E3A3F0D0388_4A38AB2A00E2_var*
 begin
@@ -117,7 +99,7 @@ begin
 end;//TevMarker.DoGetValue
 
 procedure TevMarker.DoSetValue(aValue: Integer;
-  const Context: InevOp);
+ const Context: InevOp);
 //#UC START# *4ED31DEA0077_4A38AB2A00E2_var*
 //#UC END# *4ED31DEA0077_4A38AB2A00E2_var*
 begin
@@ -127,10 +109,10 @@ begin
 end;//TevMarker.DoSetValue
 
 constructor TevMarker.Create(const aView: InevView;
-  aPara: Tl3Tag;
-  aTag: LongInt;
-  aStyle: TevParaMarkerStyle;
-  const aHint: Il3CString = nil);
+ aPara: Tl3Tag;
+ aTag: LongInt;
+ aStyle: TevParaMarkerStyle;
+ const aHint: Il3CString = nil);
 //#UC START# *4F3DFD670264_4A38AB2A00E2_var*
 //#UC END# *4F3DFD670264_4A38AB2A00E2_var*
 begin
@@ -140,6 +122,7 @@ begin
 end;//TevMarker.Create
 
 function TevMarker.MakeCopy(const aTagWrap: InevPara): IevMarker;
+ {* делает копию маркера для aTagWrap. }
 //#UC START# *47C688720388_4A38AB2A00E2_var*
 //#UC END# *47C688720388_4A38AB2A00E2_var*
 begin
@@ -149,7 +132,8 @@ begin
 end;//TevMarker.MakeCopy
 
 procedure TevMarker.SetValue(Value: Integer;
-  const Context: InevOp);
+ const Context: InevOp);
+ {* установить новое значение параметра. }
 //#UC START# *47C688850028_4A38AB2A00E2_var*
 //#UC END# *47C688850028_4A38AB2A00E2_var*
 begin
@@ -159,6 +143,7 @@ begin
 end;//TevMarker.SetValue
 
 function TevMarker.CompareLevel(aTagWrap: Tl3Variant): Integer;
+ {* сравнить уровени вложенности маркера и тега. }
 //#UC START# *47C68895037D_4A38AB2A00E2_var*
 //#UC END# *47C68895037D_4A38AB2A00E2_var*
 begin
@@ -168,6 +153,7 @@ begin
 end;//TevMarker.CompareLevel
 
 function TevMarker.Compare(const aMarker: IevMarker): Integer;
+ {* сравнивает маркеры. }
 //#UC START# *47C688A60250_4A38AB2A00E2_var*
 //#UC END# *47C688A60250_4A38AB2A00E2_var*
 begin
@@ -265,7 +251,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4821A3A90370_4A38AB2A00E2set_impl*
 end;//TevMarker.Set_View
-
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

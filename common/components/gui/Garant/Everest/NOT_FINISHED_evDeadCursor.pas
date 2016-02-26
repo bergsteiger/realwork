@@ -1,32 +1,21 @@
 unit NOT_FINISHED_evDeadCursor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evDeadCursor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Cursors::evDeadCursor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evDeadCursor.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseDeadCursor) AND defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors) AND Defined(evUseDeadCursor)}
 uses
-  nevTools
-  ;
+ l3IntfUses
+ , nevTools
+;
 
 type
- TevDeadCursor = class(, IevSavedCursor)
- protected
- // realized methods
+ TevDeadCursor = class(IevSavedCursor)
+  protected
    procedure Store(const Cursor: InevBasePoint);
    procedure Load(const Cursor: InevBasePoint);
    function Clone: IevSavedCursor;
@@ -37,12 +26,14 @@ type
 
  TevTextParaDeadCursor = class(TevDeadCursor)
  end;//TevTextParaDeadCursor
-{$IfEnd} //evUseDeadCursor AND evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors) AND Defined(evUseDeadCursor)
 
 implementation
 
-{$If defined(evUseDeadCursor) AND defined(evUseVisibleCursors)}
-// start class TevDeadCursor
+{$If Defined(evUseVisibleCursors) AND Defined(evUseDeadCursor)}
+uses
+ l3ImplUses
+;
 
 procedure TevDeadCursor.Store(const Cursor: InevBasePoint);
 //#UC START# *47E3DFA000D6_53D8ED0600C6_var*
@@ -70,5 +61,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *47E3DFB500DE_53D8ED0600C6_impl*
 end;//TevDeadCursor.Clone
-{$IfEnd} //evUseDeadCursor AND evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors) AND Defined(evUseDeadCursor)
+
 end.

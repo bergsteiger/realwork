@@ -1,51 +1,37 @@
 unit NOT_FINISHED_nsContentsNode;
+ {* Нода оглавления. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "f1DocumentTagsImplementation"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/f1DocumentTagsImplementation/NOT_FINISHED_nsContentsNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Базовые определения предметной области::LegalDomain::f1DocumentTagsImplementation::DocumentTagNodes::TnsContentsNode
-//
-// Нода оглавления.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_FINISHED_nsContentsNode.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  k2Interfaces,
-  l3TreeInterfaces,
-  nsINodeWrapBase
-  ;
+ l3IntfUses
+ , nsINodeWrapBase
+ , l3TreeInterfaces
+ , k2Interfaces
+;
 
 type
  TnsContentsNode = class(TnsINodeWrapBase, Il3HandleNode)
   {* Нода оглавления. }
- private
- // private fields
-   f_Document : Ik2Tag;
-    {* Документ.}
- protected
- // realized methods
+  private
+   f_Document: Ik2Tag;
+    {* Документ. }
+  protected
    function Get_Handle: Integer;
    procedure Set_Handle(aValue: Integer);
- protected
- // overridden protected methods
    procedure ClearFields; override;
-     {* Сигнатура метода ClearFields }
  end;//TnsContentsNode
 
 implementation
 
-// start class TnsContentsNode
+uses
+ l3ImplUses
+;
 
 function TnsContentsNode.Get_Handle: Integer;
 //#UC START# *46827CAF03CD_46827E69026Aget_var*
@@ -66,7 +52,6 @@ begin
 end;//TnsContentsNode.Set_Handle
 
 procedure TnsContentsNode.ClearFields;
- {-}
 begin
  f_Document := nil;
  inherited;

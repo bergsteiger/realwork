@@ -22,10 +22,10 @@ type
    procedure Register(anEn: TvcmBaseEntitiesCollectionItem;
     anOp: TvcmBaseOperationsCollectionItem);
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TkwOperationsRegistrar;
     {* Метод получения экземпляра синглетона TkwOperationsRegistrar }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TkwOperationsRegistrar
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)
 
@@ -48,12 +48,6 @@ begin
  l3Free(g_TkwOperationsRegistrar);
 end;//TkwOperationsRegistrarFree
 
-class function TkwOperationsRegistrar.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TkwOperationsRegistrar <> nil;
-end;//TkwOperationsRegistrar.Exists
-
 procedure TkwOperationsRegistrar.Register(anEn: TvcmBaseEntitiesCollectionItem;
  anOp: TvcmBaseOperationsCollectionItem);
 //#UC START# *52A73C7103C7_52A73D1701B9_var*
@@ -74,6 +68,12 @@ begin
  end;
  Result := g_TkwOperationsRegistrar;
 end;//TkwOperationsRegistrar.Instance
+
+class function TkwOperationsRegistrar.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TkwOperationsRegistrar <> nil;
+end;//TkwOperationsRegistrar.Exists
 
 initialization
 //#UC START# *52A73D57020D*

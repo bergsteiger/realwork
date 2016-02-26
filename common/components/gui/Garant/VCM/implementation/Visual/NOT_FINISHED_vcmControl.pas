@@ -1,57 +1,38 @@
 unit NOT_FINISHED_vcmControl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/NOT_FINISHED_vcmControl.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VCM$Visual::Visual$Controls::TvcmControl
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmControl.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  afwCustomCommonControl
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , afwCustomCommonControl
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmControl = class(TafwCustomCommonControl)
  end;//TvcmControl
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-
-{$IfEnd} //not NoVCM
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmControl
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmControl);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmControl }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

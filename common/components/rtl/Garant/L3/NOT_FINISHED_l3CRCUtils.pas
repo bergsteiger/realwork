@@ -1,34 +1,26 @@
 unit NOT_FINISHED_l3CRCUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3CRCUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Utils::l3CRCUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3CRCUtils.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  Classes
-  ;
+ l3IntfUses
+ , Classes
+;
 
-function L3CalcCRC32(aStream: TStream): Cardinal;
+function l3CalcCRC32(aStream: TStream): Cardinal;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-function L3CalcCRC32(aStream: TStream): Cardinal;
+function l3CalcCRC32(aStream: TStream): Cardinal;
 //#UC START# *546F0E81033E_546F0E690374_var*
 const
  c_BufLen = 32 * 1024;
@@ -57,6 +49,6 @@ begin
   l_TotalBytes := l_TotalBytes - l_BytesToRead;
  end;
 //#UC END# *546F0E81033E_546F0E690374_impl*
-end;//L3CalcCRC32
+end;//l3CalcCRC32
 
 end.

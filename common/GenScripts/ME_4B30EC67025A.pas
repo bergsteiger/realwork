@@ -1352,8 +1352,12 @@ end;//TvcmToolbarGlyphService.pm_SetAlien
 
 class function TvcmToolbarGlyphService.Exists: Boolean;
  {* Проверяет создан экземпляр синглетона или нет }
+//#UC START# *5D1E4E326FB5_552BADA90096_var*
+//#UC END# *5D1E4E326FB5_552BADA90096_var*
 begin
- Result := g_TvcmToolbarGlyphService <> nil;
+//#UC START# *5D1E4E326FB5_552BADA90096_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5D1E4E326FB5_552BADA90096_impl*
 end;//TvcmToolbarGlyphService.Exists
 
 function TvcmToolbarGlyphService.GetGlyphSize: TvcmGlyphSize;
@@ -1422,9 +1426,12 @@ begin
 end;//TvcmToolbarGlyphService.Instance
 
 procedure TvcmToolbarGlyphService.ClearFields;
+//#UC START# *5000565C019C_552BADA90096_var*
+//#UC END# *5000565C019C_552BADA90096_var*
 begin
- Alien := nil;
- inherited;
+//#UC START# *5000565C019C_552BADA90096_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *5000565C019C_552BADA90096_impl*
 end;//TvcmToolbarGlyphService.ClearFields
 
 procedure TvcmCustomMenuManager.pm_SetDockButtonsImageList(aValue: TCustomImageList);

@@ -1,28 +1,25 @@
 unit NOT_FINISHED_gtCstPDFEng;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "eDocEngine"
-// Модуль: "w:/common/components/rtl/external/eDocEngine/Source/NOT_FINISHED_gtCstPDFEng.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::eDocEngine::Source::gtCstPDFEng
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\eDocEngine\Source\NOT_FINISHED_gtCstPDFEng.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TgtTTFontEmbedding = (
-   etfNone
- , etfFull
- , etfSubset
+  etfNone
+  , etfFull
+  , etfSubset
  );//TgtTTFontEmbedding
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

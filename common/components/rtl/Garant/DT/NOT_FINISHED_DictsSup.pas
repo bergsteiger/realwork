@@ -1,35 +1,27 @@
 unit NOT_FINISHED_DictsSup;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/NOT_FINISHED_DictsSup.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DT::Dictionary::DictsSup
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_DictsSup.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  daTypes
-  ;
+ l3IntfUses
+ , daTypes
+;
 
 function GetDictName(aDictID: TdaDictionaryType): AnsiString;
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-// unit methods
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 function GetDictName(aDictID: TdaDictionaryType): AnsiString;
 //#UC START# *4E253095034C_4E25307E022D_var*
@@ -39,6 +31,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4E253095034C_4E25307E022D_impl*
 end;//GetDictName
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

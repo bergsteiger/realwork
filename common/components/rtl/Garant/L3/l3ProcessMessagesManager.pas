@@ -31,10 +31,10 @@ type
    procedure ProcessMessages(wMsgFilterMin: LongWord;
     wMsgFilterMax: LongWord;
     wRemoveMsg: LongWord);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3ProcessMessagesManager;
     {* Метод получения экземпляра синглетона Tl3ProcessMessagesManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3ProcessMessagesManager
 
 implementation
@@ -103,12 +103,6 @@ begin
 //#UC END# *5475D2D4032E_5475D1E30232_impl*
 end;//Tl3ProcessMessagesManager.ProcessMessages
 
-class function Tl3ProcessMessagesManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ProcessMessagesManager <> nil;
-end;//Tl3ProcessMessagesManager.Exists
-
 class function Tl3ProcessMessagesManager.Instance: Tl3ProcessMessagesManager;
  {* Метод получения экземпляра синглетона Tl3ProcessMessagesManager }
 begin
@@ -119,6 +113,12 @@ begin
  end;
  Result := g_Tl3ProcessMessagesManager;
 end;//Tl3ProcessMessagesManager.Instance
+
+class function Tl3ProcessMessagesManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ProcessMessagesManager <> nil;
+end;//Tl3ProcessMessagesManager.Exists
 
 procedure Tl3ProcessMessagesManager.Cleanup;
  {* Функция очистки полей объекта. }

@@ -1,27 +1,17 @@
 unit NOT_FINISHED_k2Strings;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/NOT_FINISHED_k2Strings.pas"
-// Начат: 11.04.2006 20:13
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<Interfaces::Category>> Shared Delphi::K2::k2Strings
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2Strings.pas"
+// Стереотип: "Interfaces"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 const
-  { Exception Messages }
  k2_errInterfaceNotImplemented = 'Interface %d for %s is not implemented';
  k2_errReadOnly = 'Нельзя присвоить значение ReadOnly свойству %s для %s.';
  k2_errNoChildren = 'Tag %s hasn''t children (%s)';
@@ -39,5 +29,9 @@ const
  k2_errBracketsNotClosed = 'Не закрыто %d скобок в %s';
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

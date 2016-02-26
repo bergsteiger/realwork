@@ -1,92 +1,68 @@
 unit NOT_FINISHED_vcmMainForm;
+ {* Базовый класс для главной формы приложения построенного на библиотеке vcm }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/NOT_FINISHED_vcmMainForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmMainForm
-//
-// Базовый класс для главной формы приложения построенного на библиотеке vcm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmMainForm.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  afwInterfaces,
-  vcmInterfaces,
-  vcmMainFormModelPart,
-  Messages
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmMainFormModelPart
+ , afwInterfaces
+ , vcmInterfaces
+ , Messages
+;
 
-{$If not defined(NoVCM)}
 type
  _vcmComponentDestroyer_Parent_ = TvcmMainFormModelPart;
- {$Include ..\Visual\vcmComponentDestroyer.imp.pas}
+ {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
  TvcmMainForm = class(_vcmComponentDestroyer_, IafwMainForm, IvcmContainerMaker)
   {* Базовый класс для главной формы приложения построенного на библиотеке vcm }
- protected
- // realized methods
-   function pm_GetStatusBar: IafwStatusBar;
-   procedure pm_SetStatusBar(const aValue: IafwStatusBar);
-   function pm_GetStatus: IafwStatus;
-   procedure pm_SetStatus(const aValue: IafwStatus);
-   function MakeContainer: IvcmContainer;
- protected
- // protected methods
+  protected
    function DoMakeClone(aNeedShow: Boolean): TvcmMainForm; virtual;
    procedure BecomeMainForm; virtual;
    function LimitOpenedWindowsCount: Boolean; virtual;
    procedure UpdateMainCaption; virtual;
    procedure DoExitApplication; virtual;
+   function pm_GetStatusBar: IafwStatusBar;
+   procedure pm_SetStatusBar(const aValue: IafwStatusBar);
+   function pm_GetStatus: IafwStatus;
+   procedure pm_SetStatus(const aValue: IafwStatus);
+   function MakeContainer: IvcmContainer;
  end;//TvcmMainForm
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmIEntityList,
-  vcmMainFormRes,
-  vcmDockManagerList,
-  vcmLockListenerList,
-  vcmFormDispatcherListenerList
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmMenuManager,
-  vcmFormsUtils
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  SysUtils,
-  vcmEntityForm,
-  vcmForm,
-  vcmMessages
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , vcmIEntityList
+ , vcmMainFormRes
+ , vcmDockManagerList
+ , vcmLockListenerList
+ , vcmFormDispatcherListenerList
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , vcmMenuManager
+ , vcmFormsUtils
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , SysUtils
+ , vcmEntityForm
+ , vcmForm
+ , vcmMessages
+;
 
 type _Instance_R_ = TvcmMainForm;
 
-{$Include ..\Visual\vcmComponentDestroyer.imp.pas}
-
-// start class TvcmMainForm
+{$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
 
 function TvcmMainForm.DoMakeClone(aNeedShow: Boolean): TvcmMainForm;
 //#UC START# *537DB1C100A8_49525C7A0114_var*
@@ -178,12 +154,11 @@ begin
 //#UC END# *53ABACBB02D0_49525C7A0114_impl*
 end;//TvcmMainForm.MakeContainer
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmMainForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmMainForm);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmMainForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

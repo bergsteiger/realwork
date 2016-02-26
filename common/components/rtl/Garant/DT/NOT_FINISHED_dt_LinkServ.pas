@@ -1,32 +1,26 @@
 unit NOT_FINISHED_dt_LinkServ;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/NOT_FINISHED_dt_LinkServ.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DT::Servers::dt_LinkServ
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_LinkServ.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If defined(Archi) AND not defined(Nemesis)}
+{$If Defined(Archi) AND NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
 procedure LinkServer;
-   {* Сигнатура метода LinkServer }
-{$IfEnd} //Archi AND not Nemesis
+{$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
 
 implementation
 
-{$If defined(Archi) AND not defined(Nemesis)}
-// unit methods
+{$If Defined(Archi) AND NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 procedure LinkServer;
 //#UC START# *52E8BA5101A7_519B79940228_var*
@@ -36,6 +30,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52E8BA5101A7_519B79940228_impl*
 end;//LinkServer
-{$IfEnd} //Archi AND not Nemesis
+{$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
 
 end.

@@ -1,58 +1,40 @@
 unit NOT_FINISHED_vtShockwaveFlashEx;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Автор: Морозов М.А.
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtShockwaveFlashEx.pas"
-// Начат: 2005/09/29 10:12:39
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VT::Flash::TvtShockwaveFlashEx
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtShockwaveFlashEx.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
-{$If not defined(NoFlash)}
+{$If NOT Defined(NoFlash)}
+uses
+ l3IntfUses
+;
+
 type
  TvtShockwaveFlashEx = class
  end;//TvtShockwaveFlashEx
-{$IfEnd} //not NoFlash
+{$IfEnd} // NOT Defined(NoFlash)
 
 implementation
 
-{$If not defined(NoFlash)}
+{$If NOT Defined(NoFlash)}
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  vtFlashWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoFlash
-
-{$If not defined(NoFlash)}
-
-
-{$IfEnd} //not NoFlash
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , vtFlashWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 initialization
-{$If not defined(NoFlash) AND not defined(NoScripts)}
-// Регистрация TvtShockwaveFlashEx
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtShockwaveFlashEx);
-{$IfEnd} //not NoFlash AND not NoScripts
+ {* Регистрация TvtShockwaveFlashEx }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoFlash)
 
 end.

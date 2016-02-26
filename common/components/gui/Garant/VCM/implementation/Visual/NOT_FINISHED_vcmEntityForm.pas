@@ -1,63 +1,50 @@
 unit NOT_FINISHED_vcmEntityForm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/NOT_FINISHED_vcmEntityForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmEntityForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmEntityForm.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Interfaces,
-  afwInterfaces,
-  vcmExternalInterfaces,
-  l3InternalInterfaces,
-  vcmInterfaces,
-  vcmToolbarsInterfaces,
-  vcmFormDispatcherInterfaces,
-  l3ProtoDataContainer,
-  vcmEntityFormModelPart,
-  vcmEntityFormImplementationModelPart,
-  vcmUserTypesCollectionItem,
-  l3Core
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmEntityFormModelPart
+ , l3InternalInterfaces
+ , afwInterfaces
+ , vcmToolbarsInterfaces
+ , vcmFormDispatcherInterfaces
+ , vcmInterfaces
+ , vcmExternalInterfaces
+ , l3Interfaces
+ , vcmUserTypesCollectionItem
+ , l3Core
+ , vcmEntityFormImplementationModelPart
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmEntityFormImplementation = class(TvcmEntityFormImplementationModelPart)
  end;//TvcmEntityFormImplementation
 
- TvcmGetLocalizationInfo = procedure (Sender: TObject;
+ TvcmGetLocalizationInfo = procedure(Sender: TObject;
   var theInfo: AnsiString) of object;
 
- TvcmSetLocalizationInfo = procedure (Sender: TObject;
+ TvcmSetLocalizationInfo = procedure(Sender: TObject;
   const theInfo: AnsiString) of object;
 
  RvcmEntityForm = ;
 
  IvcmFormState = interface(IvcmBase)
-   ['{BB487EA1-7432-4B8B-B634-114A5634FE7D}']
-   procedure LoadState(aForm: TvcmEntityForm;
-     aStateType: TvcmStateType);
+  ['{BB487EA1-7432-4B8B-B634-114A5634FE7D}']
+  procedure LoadState(aForm: TvcmEntityForm;
+   aStateType: TvcmStateType);
  end;//IvcmFormState
 
- IvcmStateItem = interface(IUnknown)
-   ['{89686484-2090-46E7-B98A-E464E86DC4FD}']
-   procedure LoadState(aForm: TvcmEntityForm;
-     aStateType: TvcmStateType);
+ IvcmStateItem = interface
+  ['{89686484-2090-46E7-B98A-E464E86DC4FD}']
+  procedure LoadState(aForm: TvcmEntityForm;
+   aStateType: TvcmStateType);
  end;//IvcmStateItem
 
  _afwApplicationDataUpdate_Parent_ = TvcmEntityFormModelPart;
@@ -65,42 +52,17 @@ type
  _afwSettingsReplace_Parent_ = _afwApplicationDataUpdate_;
  {$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
  TvcmEntityForm = class(_afwSettingsReplace_, Il3CommandTarget, IafwForm, IafwTabSheetControl, IvcmToolbarsCustomizeListener, IvcmFormDispatcherListener)
- protected
- // realized methods
-   procedure UpdateCaption(const aCaption: IafwCString);
-     {* установить заголовок формы. }
-   function pm_GetBoundsRect: TRect;
-   procedure PageInactive;
-     {* активная закладка стала не активной. }
-   procedure PageActive;
-     {* закладка стала активной. }
-   function pm_GetWeight: Integer;
-   function ProcessCommand(Cmd: Tl3OperationCode;
-    aForce: Boolean;
-    aCount: Integer): Boolean;
-   procedure StartNewMainForm;
-     {* вызывается перед созданием главной формы }
-   procedure BeforeCustomize;
-     {* вызывается перед вызовом окна редактирования панелей инструментов }
- public
- // overridden public methods
-   function NeedSaveInSettings: Boolean; override;
- protected
- // protected methods
+  protected
    procedure UpdateStatusInfo;
-     {* Сигнатура метода UpdateStatusInfo }
    procedure CheckFloatingVisibility; virtual;
    procedure CreateFormGUID(var theGUID: TGUID); virtual;
-     {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
+    {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
    function HasFormFloatingZoneTypeAndVisible: Boolean; virtual;
    procedure CleanDependencies; virtual;
-     {* Сигнатура метода CleanDependencies }
    procedure SetupFormLayout; virtual;
-     {* Тут можно настроить внешний вид формы }
+    {* Тут можно настроить внешний вид формы }
    procedure ReleaseResources; virtual;
-     {* Сигнатура метода ReleaseResources }
    procedure BeforeClosing; virtual;
-     {* Сигнатура метода BeforeClosing }
    function DoGetTabCaption: IvcmCString; virtual;
    function HasFormModalState: Boolean;
    procedure DoOnShowModal; virtual;
@@ -109,100 +71,104 @@ type
    function NeedTerminateApp: Boolean; virtual;
    function DoGetNeedSaveToTabHistory: Boolean; virtual;
    function NeedLoadFormStateForClone(const aState: IvcmBase;
-     aStateType: TvcmStateType): Boolean; virtual;
+    aStateType: TvcmStateType): Boolean; virtual;
    procedure DoBeforeHistoryNavigate; virtual;
-     {* Сигнатура метода DoBeforeHistoryNavigate }
    procedure DoInit(aFromHistory: Boolean); virtual;
-     {* Инициализация формы. Для перекрытия в потомках }
+    {* Инициализация формы. Для перекрытия в потомках }
    function DoSaveState(out theState: IvcmBase;
     aStateType: TvcmStateType;
     aForClone: Boolean): Boolean; virtual;
-     {* Сохраняет состояние формы. Для перекрытия в потомках }
+    {* Сохраняет состояние формы. Для перекрытия в потомках }
    function DoLoadState(const aState: IvcmBase;
     aStateType: TvcmStateType): Boolean; virtual;
-     {* Загружает состояние формы. Для перекрытия в потомках }
+    {* Загружает состояние формы. Для перекрытия в потомках }
    procedure BecomeActive; virtual;
    procedure BecomeInactive; virtual;
    function SaveOwnFormState(out theState: IvcmBase;
     aStateType: TvcmStateType;
     aForClone: Boolean): Boolean; virtual;
-   procedure PageActive; virtual;
-   procedure PageInactive; virtual;
- public
- // public methods
+   procedure PageActive; overload; virtual;
+   procedure PageInactive; overload; virtual;
+   procedure UpdateCaption(const aCaption: IafwCString);
+    {* установить заголовок формы. }
+   function pm_GetBoundsRect: TRect;
+   procedure PageInactive; overload;
+    {* активная закладка стала не активной. }
+   procedure PageActive; overload;
+    {* закладка стала активной. }
+   function pm_GetWeight: Integer;
+   function ProcessCommand(Cmd: Tl3OperationCode;
+    aForce: Boolean;
+    aCount: Integer): Boolean;
+   procedure StartNewMainForm;
+    {* вызывается перед созданием главной формы }
+   procedure BeforeCustomize;
+    {* вызывается перед вызовом окна редактирования панелей инструментов }
+  public
    procedure NotifyUserTypeSet; virtual;
-     {* Сигнатура метода NotifyUserTypeSet }
    procedure DefaultQueryClose(aSender: TObject); virtual;
    function AddUserType: TvcmUserTypesCollectionItem;
    procedure SetPositionByDS; virtual;
-     {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
+    {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
    function NeedDrawCaption: Boolean; virtual;
-     {* Нужно ли рисовать заголовок зоны }
+    {* Нужно ли рисовать заголовок зоны }
    function SettingsSuffix: AnsiString; virtual;
    procedure SetActiveControl; virtual;
-     {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
+    {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
    function DoGetTabInfo(out theCaption: Il3CString;
     out theItemIndex: Integer): Boolean; virtual;
-     {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
+    {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
+   function NeedSaveInSettings: Boolean; override;
  end;//TvcmEntityForm
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  l3Base,
-  l3MinMax,
-  RTLConsts,
-  SysUtils,
-  l3VCLFormPtrList,
-  vcmFormsUtils,
-  vcmControlList
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  afwFacade,
-  afwSettingsChangePublisher
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  VCMFormsProcessingPack
-  {$IfEnd} //not NoScripts AND not NoVCM
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
-
-{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
+ l3ImplUses
+ , l3ProtoDataContainer
+ , l3Memory
+ , l3Types
+ , l3Except
+ , Classes
+ , l3VCLFormPtrList
+ , vcmFormsUtils
+ , vcmControlList
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , VCMFormsProcessingPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , afwFacade
+ , afwSettingsChangePublisher
+ , l3Base
+ , l3MinMax
+ , RTLConsts
+ , SysUtils
+;
 
 type
-  _ItemType_ = IvcmStateItem;
-  _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
+ _ItemType_ = IvcmStateItem;
+ _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
-  TvcmFormState = class(_l3InterfaceRefList_, IvcmBase, IvcmFormState)
+ TvcmFormState = class(_l3InterfaceRefList_, IvcmBase, IvcmFormState)
   protected
-  // realized methods
    procedure LoadState(aForm: TvcmEntityForm;
-      aStateType: TvcmStateType);
+    aStateType: TvcmStateType);
   public
-  // public methods
    procedure AddState(const aName: AnsiString;
-      const aState: IUnknown);
-  end;//TvcmFormState
+    const aState: IUnknown);
+ end;//TvcmFormState
 
 type _Instance_R_ = TvcmFormState;
 
 {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
-// start class TvcmFormState
-
 procedure TvcmFormState.AddState(const aName: AnsiString;
-  const aState: IUnknown);
+ const aState: IUnknown);
 //#UC START# *55C1FE41015B_55C1F803015D_var*
 //#UC END# *55C1FE41015B_55C1F803015D_var*
 begin
@@ -212,7 +178,7 @@ begin
 end;//TvcmFormState.AddState
 
 procedure TvcmFormState.LoadState(aForm: TvcmEntityForm;
-  aStateType: TvcmStateType);
+ aStateType: TvcmStateType);
 //#UC START# *55C1F7D50220_55C1F803015D_var*
 //#UC END# *55C1F7D50220_55C1F803015D_var*
 begin
@@ -220,6 +186,10 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *55C1F7D50220_55C1F803015D_impl*
 end;//TvcmFormState.LoadState
+
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
+
+{$Include w:\common\components\gui\Garant\AFW\implementation\afwSettingsReplace.imp.pas}
 
 procedure TvcmEntityForm.UpdateStatusInfo;
 //#UC START# *4A378C0E0268_49525B34022A_var*
@@ -258,6 +228,7 @@ begin
 end;//TvcmEntityForm.CheckFloatingVisibility
 
 procedure TvcmEntityForm.CreateFormGUID(var theGUID: TGUID);
+ {* Создаёт идентификатор формы. Для того, чтобы отличать однотипные формы друг от друга. В частности для истории. }
 //#UC START# *4EBBC63E032A_49525B34022A_var*
 //#UC END# *4EBBC63E032A_49525B34022A_var*
 begin
@@ -294,6 +265,7 @@ begin
 end;//TvcmEntityForm.CleanDependencies
 
 procedure TvcmEntityForm.SetupFormLayout;
+ {* Тут можно настроить внешний вид формы }
 //#UC START# *529332B40230_49525B34022A_var*
 //#UC END# *529332B40230_49525B34022A_var*
 begin
@@ -384,7 +356,7 @@ begin
 end;//TvcmEntityForm.DoGetNeedSaveToTabHistory
 
 function TvcmEntityForm.NeedLoadFormStateForClone(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
 //#UC START# *561CB1350027_49525B34022A_var*
 //#UC END# *561CB1350027_49525B34022A_var*
 begin
@@ -401,9 +373,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *562E15F20132_49525B34022A_impl*
 end;//TvcmEntityForm.DoBeforeHistoryNavigate
-// start class TvcmEntityForm
 
 procedure TvcmEntityForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_49525B34022A_var*
 //#UC END# *49803F5503AA_49525B34022A_var*
 begin
@@ -413,8 +385,9 @@ begin
 end;//TvcmEntityForm.DoInit
 
 function TvcmEntityForm.DoSaveState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
+ {* Сохраняет состояние формы. Для перекрытия в потомках }
 //#UC START# *49806ED503D5_49525B34022A_var*
 //#UC END# *49806ED503D5_49525B34022A_var*
 begin
@@ -424,7 +397,8 @@ begin
 end;//TvcmEntityForm.DoSaveState
 
 function TvcmEntityForm.DoLoadState(const aState: IvcmBase;
-  aStateType: TvcmStateType): Boolean;
+ aStateType: TvcmStateType): Boolean;
+ {* Загружает состояние формы. Для перекрытия в потомках }
 //#UC START# *49807428008C_49525B34022A_var*
 //#UC END# *49807428008C_49525B34022A_var*
 begin
@@ -434,6 +408,7 @@ begin
 end;//TvcmEntityForm.DoLoadState
 
 procedure TvcmEntityForm.SetPositionByDS;
+ {* Вызывается когда нужно изменить позицию используя источник данных. [$136258455] }
 //#UC START# *498953170108_49525B34022A_var*
 //#UC END# *498953170108_49525B34022A_var*
 begin
@@ -443,6 +418,7 @@ begin
 end;//TvcmEntityForm.SetPositionByDS
 
 function TvcmEntityForm.NeedDrawCaption: Boolean;
+ {* Нужно ли рисовать заголовок зоны }
 //#UC START# *4A84183701B9_49525B34022A_var*
 //#UC END# *4A84183701B9_49525B34022A_var*
 begin
@@ -470,6 +446,7 @@ begin
 end;//TvcmEntityForm.SettingsSuffix
 
 procedure TvcmEntityForm.SetActiveControl;
+ {* Устанавливает текущий контрол. Какой? Сама форма решает. Для перекрытия в потомках }
 //#UC START# *4AC3803A03CD_49525B34022A_var*
 //#UC END# *4AC3803A03CD_49525B34022A_var*
 begin
@@ -479,7 +456,8 @@ begin
 end;//TvcmEntityForm.SetActiveControl
 
 function TvcmEntityForm.DoGetTabInfo(out theCaption: Il3CString;
-  out theItemIndex: Integer): Boolean;
+ out theItemIndex: Integer): Boolean;
+ {* Информация о закладке, в которую вставляется форма. Для перекрытия в потомках }
 //#UC START# *4AC497FD00A2_49525B34022A_var*
 //#UC END# *4AC497FD00A2_49525B34022A_var*
 begin
@@ -498,8 +476,8 @@ begin
 end;//TvcmEntityForm.BecomeInactive
 
 function TvcmEntityForm.SaveOwnFormState(out theState: IvcmBase;
-  aStateType: TvcmStateType;
-  aForClone: Boolean): Boolean;
+ aStateType: TvcmStateType;
+ aForClone: Boolean): Boolean;
 //#UC START# *4B4F49900003_49525B34022A_var*
 //#UC END# *4B4F49900003_49525B34022A_var*
 begin
@@ -527,6 +505,7 @@ begin
 end;//TvcmEntityForm.PageInactive
 
 procedure TvcmEntityForm.UpdateCaption(const aCaption: IafwCString);
+ {* установить заголовок формы. }
 //#UC START# *473D9692001D_49525B34022A_var*
 //#UC END# *473D9692001D_49525B34022A_var*
 begin
@@ -545,6 +524,7 @@ begin
 end;//TvcmEntityForm.pm_GetBoundsRect
 
 procedure TvcmEntityForm.PageInactive;
+ {* активная закладка стала не активной. }
 //#UC START# *473DB05D033A_49525B34022A_var*
 //#UC END# *473DB05D033A_49525B34022A_var*
 begin
@@ -554,6 +534,7 @@ begin
 end;//TvcmEntityForm.PageInactive
 
 procedure TvcmEntityForm.PageActive;
+ {* закладка стала активной. }
 //#UC START# *473DB06A01A8_49525B34022A_var*
 //#UC END# *473DB06A01A8_49525B34022A_var*
 begin
@@ -572,8 +553,8 @@ begin
 end;//TvcmEntityForm.pm_GetWeight
 
 function TvcmEntityForm.ProcessCommand(Cmd: Tl3OperationCode;
-  aForce: Boolean;
-  aCount: Integer): Boolean;
+ aForce: Boolean;
+ aCount: Integer): Boolean;
 //#UC START# *476F76A90267_49525B34022A_var*
 //#UC END# *476F76A90267_49525B34022A_var*
 begin
@@ -583,6 +564,7 @@ begin
 end;//TvcmEntityForm.ProcessCommand
 
 procedure TvcmEntityForm.StartNewMainForm;
+ {* вызывается перед созданием главной формы }
 //#UC START# *4992FBD101B2_49525B34022A_var*
 //#UC END# *4992FBD101B2_49525B34022A_var*
 begin
@@ -592,6 +574,7 @@ begin
 end;//TvcmEntityForm.StartNewMainForm
 
 procedure TvcmEntityForm.BeforeCustomize;
+ {* вызывается перед вызовом окна редактирования панелей инструментов }
 //#UC START# *4992FC5700E5_49525B34022A_var*
 //#UC END# *4992FC5700E5_49525B34022A_var*
 begin
@@ -609,12 +592,11 @@ begin
 //#UC END# *4FC38C4C0119_49525B34022A_impl*
 end;//TvcmEntityForm.NeedSaveInSettings
 
-{$IfEnd} //not NoVCM
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmEntityForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmEntityForm);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmEntityForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

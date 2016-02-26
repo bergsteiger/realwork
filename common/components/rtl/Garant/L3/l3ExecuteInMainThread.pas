@@ -37,10 +37,10 @@ type
    procedure Init;
    procedure AsyncExec(aTask: Tl3AsyncTask);
    procedure SyncExec(aTask: Tl3AsyncTask);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3ExecuteInMainThread;
     {* Метод получения экземпляра синглетона Tl3ExecuteInMainThread }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3ExecuteInMainThread
 
 implementation
@@ -219,12 +219,6 @@ begin
 //#UC END# *549BC61B009B_549BC58B0346_impl*
 end;//Tl3ExecuteInMainThread.SyncExec
 
-class function Tl3ExecuteInMainThread.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ExecuteInMainThread <> nil;
-end;//Tl3ExecuteInMainThread.Exists
-
 class function Tl3ExecuteInMainThread.Instance: Tl3ExecuteInMainThread;
  {* Метод получения экземпляра синглетона Tl3ExecuteInMainThread }
 begin
@@ -235,6 +229,12 @@ begin
  end;
  Result := g_Tl3ExecuteInMainThread;
 end;//Tl3ExecuteInMainThread.Instance
+
+class function Tl3ExecuteInMainThread.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ExecuteInMainThread <> nil;
+end;//Tl3ExecuteInMainThread.Exists
 
 procedure Tl3ExecuteInMainThread.Cleanup;
  {* Функция очистки полей объекта. }

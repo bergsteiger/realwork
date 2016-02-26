@@ -1,39 +1,29 @@
 unit NOT_FINISHED_evCommentParaHotSpotTester;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCommentParaHotSpotTester.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevCommentParaHotSpotTester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCommentParaHotSpotTester.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evDocumentPartHotSpotTester
-  ;
-{$IfEnd} //evNeedHotSpot
+ l3IntfUses
+ , evDocumentPartHotSpotTester
+;
 
-{$If defined(evNeedHotSpot)}
 type
  TevCommentParaHotSpotTester = class(TevDocumentPartHotSpotTester)
  end;//TevCommentParaHotSpotTester
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evNeedHotSpot)
 
-
-{$IfEnd} //evNeedHotSpot
 end.

@@ -1,70 +1,80 @@
 unit NOT_FINISHED_nsNodes;
+ {* Узлы деревьев проекта. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/NOT_FINISHED_nsNodes.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::OldTree::nsNodes
-//
-// Узлы деревьев проекта.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_FINISHED_nsNodes.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  Classes
-  {$If not defined(Admin)}
-  ,
-  nsWrapperNode
-  {$IfEnd} //not Admin
-  ,
-  nsBaseNode,
-  l3Tree_TLB
-  ;
+ l3IntfUses
+ , nsBaseNode
+ {$If NOT Defined(Admin)}
+ , nsWrapperNode
+ {$IfEnd} // NOT Defined(Admin)
+;
 
 type
  RnsCacheableNode = class of TnsCacheableNode;
 
  TnsCacheableNode = class(TnsBaseNode)
- protected
- // realized methods
+  protected
    function Get_IsFirst: Boolean;
    function Get_IsLast: Boolean;
  end;//TnsCacheableNode
 
- TnsRootNode = nsWrapperNode.TnsWrapperNode;
+ TnsRootNode = TnsWrapperNode;
 
-procedure NsGetCaption; overload; 
-   {* Получить название адаптерного узла. }
-procedure NsMakeTreeLevel;
-   {* Сигнатура метода nsMakeTreeLevel }
-procedure NsGetCaption; overload; 
-   {* Сигнатура метода nsGetCaption }
-procedure NsGetHint;
-   {* Сигнатура метода nsGetHint }
+procedure nsMakeTreeLevel;
+procedure nsGetCaption; overload;
+procedure nsGetHint;
+procedure nsGetCaption; overload;
+ {* Получить название адаптерного узла. }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-procedure NsMakeTreeLevel;
+procedure nsMakeTreeLevel;
 //#UC START# *4ABB8B1B031D_47F60E8E019C_var*
 //#UC END# *4ABB8B1B031D_47F60E8E019C_var*
 begin
 //#UC START# *4ABB8B1B031D_47F60E8E019C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ABB8B1B031D_47F60E8E019C_impl*
-end;//NsMakeTreeLevel
-// start class TnsCacheableNode
+end;//nsMakeTreeLevel
+
+procedure nsGetCaption;
+//#UC START# *4ADDF529018F_47F60E8E019C_var*
+//#UC END# *4ADDF529018F_47F60E8E019C_var*
+begin
+//#UC START# *4ADDF529018F_47F60E8E019C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4ADDF529018F_47F60E8E019C_impl*
+end;//nsGetCaption
+
+procedure nsGetHint;
+//#UC START# *4ADDF53403CA_47F60E8E019C_var*
+//#UC END# *4ADDF53403CA_47F60E8E019C_var*
+begin
+//#UC START# *4ADDF53403CA_47F60E8E019C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4ADDF53403CA_47F60E8E019C_impl*
+end;//nsGetHint
+
+procedure nsGetCaption;
+ {* Получить название адаптерного узла. }
+//#UC START# *47F60EC50128_47F60E8E019C_var*
+//#UC END# *47F60EC50128_47F60E8E019C_var*
+begin
+//#UC START# *47F60EC50128_47F60E8E019C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *47F60EC50128_47F60E8E019C_impl*
+end;//nsGetCaption
 
 function TnsCacheableNode.Get_IsFirst: Boolean;
 //#UC START# *5481A1DD0225_4ADDF46000A4get_var*
@@ -83,32 +93,5 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5481A1EA00F3_4ADDF46000A4get_impl*
 end;//TnsCacheableNode.Get_IsLast
-
-procedure NsGetCaption;
-//#UC START# *4ADDF529018F_47F60E8E019C_var*
-//#UC END# *4ADDF529018F_47F60E8E019C_var*
-begin
-//#UC START# *4ADDF529018F_47F60E8E019C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDF529018F_47F60E8E019C_impl*
-end;//NsGetCaption
-
-procedure NsGetHint;
-//#UC START# *4ADDF53403CA_47F60E8E019C_var*
-//#UC END# *4ADDF53403CA_47F60E8E019C_var*
-begin
-//#UC START# *4ADDF53403CA_47F60E8E019C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4ADDF53403CA_47F60E8E019C_impl*
-end;//NsGetHint
-
-procedure NsGetCaption;
-//#UC START# *47F60EC50128_47F60E8E019C_var*
-//#UC END# *47F60EC50128_47F60E8E019C_var*
-begin
-//#UC START# *47F60EC50128_47F60E8E019C_impl*
- !!! Needs to be implemented !!!
-//#UC END# *47F60EC50128_47F60E8E019C_impl*
-end;//NsGetCaption
 
 end.

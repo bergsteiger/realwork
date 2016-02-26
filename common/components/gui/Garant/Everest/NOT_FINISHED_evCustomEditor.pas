@@ -1,69 +1,46 @@
 unit NOT_FINISHED_evCustomEditor;
+ {* Базовый класс окна редактора с кучей "полезных" функций. Рекомендуется для конечного пользователя (программиста). }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCustomEditor.pas"
-// Начат: 25.11.2004 10:05
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::Everest::Editors::TevCustomEditor
-//
-// Базовый класс окна редактора с кучей "полезных" функций. Рекомендуется для конечного
-// пользователя (программиста).
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCustomEditor.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
 uses
-  evdTypes,
-  evTypes,
-  evCustomEditorModelPart
-  ;
+ l3IntfUses
+ , evCustomEditorModelPart
+ , evdTypes
+ , evTypes
+;
 
 type
  TevCustomEditor = class(TevCustomEditorModelPart)
   {* Базовый класс окна редактора с кучей "полезных" функций. Рекомендуется для конечного пользователя (программиста). }
- protected
- // protected methods
+  protected
    function InTable: Boolean; virtual;
    function DoSearchHyperLink(const anOption: TevSearchOptionSetEx): Boolean; virtual;
    function AllowAutoSelectByMouse: Boolean; virtual;
- public
- // public methods
+  public
    function InsertPageBreak(NeedNewSection: Boolean = False;
-     aPageOrientation: TevPageOrientation = ev_poPortrait): Boolean; virtual;
+    aPageOrientation: TevPageOrientation = Portrait): Boolean; virtual;
    procedure DecIndent; virtual;
-     {* Сигнатура метода DecIndent }
    procedure IncIndent; virtual;
-     {* Сигнатура метода IncIndent }
  end;//TevCustomEditor
 
 implementation
 
 uses
-  evdInterfaces
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  {$If not defined(NoScripts)}
-  ,
-  TevCustomEditorWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TevCustomEditor
+ l3ImplUses
+ , evdInterfaces
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TevCustomEditorWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TevCustomEditor.InTable: Boolean;
 //#UC START# *54C0FF7C0012_4829D89703D2_var*
@@ -75,7 +52,7 @@ begin
 end;//TevCustomEditor.InTable
 
 function TevCustomEditor.InsertPageBreak(NeedNewSection: Boolean = False;
-  aPageOrientation: TevPageOrientation = ev_poPortrait): Boolean;
+ aPageOrientation: TevPageOrientation = Portrait): Boolean;
 //#UC START# *54C10AFF0075_4829D89703D2_var*
 //#UC END# *54C10AFF0075_4829D89703D2_var*
 begin
@@ -121,9 +98,9 @@ begin
 end;//TevCustomEditor.AllowAutoSelectByMouse
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TevCustomEditor
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TevCustomEditor);
-{$IfEnd} //not NoScripts
+ {* Регистрация TevCustomEditor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

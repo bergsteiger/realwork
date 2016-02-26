@@ -1,26 +1,16 @@
 unit NOT_FINISHED_m3Exceptions;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3"
-// Модуль: "w:/common/components/rtl/Garant/m3/NOT_FINISHED_m3Exceptions.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::m3::Streams::m3Exceptions
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3Exceptions.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
 
 uses
-  l3Except
-  ;
+ l3IntfUses
+ , l3Except
+;
 
 type
  Em3Exception = class(El3Exception)
@@ -38,7 +28,8 @@ type
 implementation
 
 uses
-  SysUtils
-  ;
+ l3ImplUses
+ , SysUtils
+;
 
 end.

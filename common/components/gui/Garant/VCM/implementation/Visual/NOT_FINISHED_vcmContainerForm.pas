@@ -1,148 +1,128 @@
 unit NOT_FINISHED_vcmContainerForm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/NOT_FINISHED_vcmContainerForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::Visual::TvcmContainerForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmContainerForm.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  Classes,
-  vcmContainerFormModelPart,
-  vcmFormSetRefList,
-  vcmAggregateRefList,
-  vcmUserControls
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ , vcmContainerFormModelPart
+ , vcmInterfaces
+ , vcmFormSetRefList
+ , vcmAggregateRefList
+ , Classes
+ , vcmExternalInterfaces
+ , vcmUserControls
+;
 
-{$If not defined(NoVCM)}
 type
  TvcmInsertMode = (
   {* Режим добавления формы. }
-   vcm_imAllow // Разрешение добавления формы в текущий контейнер
- , vcm_imDisable // Запрет добавления формы в текущий контейнер
- , vcm_imToParent // Перенаправление операции добавления формы в родительскую форму
+  vcm_imAllow
+   {* Разрешение добавления формы в текущий контейнер }
+  , vcm_imDisable
+   {* Запрет добавления формы в текущий контейнер }
+  , vcm_imToParent
+   {* Перенаправление операции добавления формы в родительскую форму }
  );//TvcmInsertMode
 
- TvcmInsertFormEvent = procedure (const aForm: IvcmEntityForm;
+ TvcmInsertFormEvent = procedure(const aForm: IvcmEntityForm;
   var aMode: TvcmInsertMode) of object;
 
- TvcmAfterInsertFormEvent = procedure (const aForm: IvcmEntityForm) of object;
+ TvcmAfterInsertFormEvent = procedure(const aForm: IvcmEntityForm) of object;
 
- TvcmAfterRemoveFormEvent = 
+ TvcmAfterRemoveFormEvent = procedure of object;
 
- TvcmOnNeedUpdateTab = procedure (aSender: TObject;
+ TvcmOnNeedUpdateTab = procedure(aSender: TObject;
   const aForm: IvcmEntityForm) of object;
 
  TvcmContainerForm = class(TvcmContainerFormModelPart, IvcmContainer)
- private
- // private fields
-   f_FormSets : TvcmFormSetRefList;
-   f_Aggregates : TvcmAggregateRefList;
- protected
- // realized methods
+  private
+   f_FormSets: TvcmFormSetRefList;
+   f_Aggregates: TvcmAggregateRefList;
+  protected
+   procedure ChildDataSourceChanged(const aChild: IvcmEntityForm;
+    const anOld: IvcmFormDataSource;
+    const aNew: IvcmFormDataSource); overload; virtual;
+    {* вызывается при изменении источника данных вложенной формы. }
+   function GetNeedSetFocusToMainObjectFormOnRefresh: Boolean; virtual;
+    {* Надо ли передвигать фокус в главную форму при изменении сборки }
+   procedure SetTabCaption(const aTabCaption: IvcmCString); overload; virtual;
+   procedure DoInitFromPrevContainer(const aContainer: IvcmContainer;
+    aForClone: Boolean); virtual;
+   function InsertForm(const aForm: IvcmEntityForm): Boolean; overload; virtual;
+   procedure RestoreControlSize; virtual;
    procedure RegForm(const aForm: IvcmEntityForm);
    procedure UnregForm(const aForm: IvcmEntityForm);
-   function InsertForm(const aForm: IvcmEntityForm): Boolean;
-     {* вставляет форму в контейнер }
+   function InsertForm(const aForm: IvcmEntityForm): Boolean; overload;
+    {* вставляет форму в контейнер }
    function pm_GetEntityFormIterator: IvcmEntityFormIterator;
    function HasForm(const aName: TvcmFormID;
-    aZoneType: TvcmZoneType = vcm_ztAny;
-    aRecursive: Boolean = true;
+    aZoneType: TvcmZoneType = Any;
+    aRecursive: Boolean = True;
     theForm: PIvcmEntityForm = nil;
     aUserType: TvcmUserType = vcm_utAny;
     aGUID: PGUID = nil;
-    aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload; 
-     {* проверяет есть ли в контейнере такая форма }
-   function HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
-    aRecursive: Boolean = true;
+    aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
+    {* проверяет есть ли в контейнере такая форма }
+   function HasForm(aZoneType: TvcmZoneType = Any;
+    aRecursive: Boolean = True;
     theForm: PIvcmEntityForm = nil;
     aUserType: TvcmUserType = vcm_utAny;
     aGUID: PGUID = nil;
-    aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload; 
-     {* проверяет есть ли в контейнере такая форма }
+    aSubUserType: TvcmUserType = vcm_utAny): Boolean; overload;
+    {* проверяет есть ли в контейнере такая форма }
    function Operation(const anOp: TvcmOPID;
-    const aParams: IvcmExecuteParams): Boolean; overload; 
-     {* Выполнение операции по имени сущности }
+    const aParams: IvcmExecuteParams): Boolean; overload;
+    {* Выполнение операции по имени сущности }
    function Operation(const anOp: TvcmOPID;
-    const aParams: IvcmTestParams): Boolean; overload; 
-     {* Выполнение операции по имени сущности }
+    const aParams: IvcmTestParams): Boolean; overload;
+    {* Выполнение операции по имени сущности }
    function Operation(const anOp: TvcmOPID;
-    aMode: TvcmOperationMode = vcm_omExecute): Boolean; overload; 
-     {* Выполнение операции по имени сущности }
+    aMode: TvcmOperationMode = vcm_omExecute): Boolean; overload;
+    {* Выполнение операции по имени сущности }
    function IsNull: Boolean;
    procedure FormStyle(const aForm: IvcmEntityForm;
     const aStyle: IvcmFormStyle);
-     {* определим стиль формы }
+    {* определим стиль формы }
    procedure SetFocusToMainObjectForm;
-     {* устанавливаем фокус в самую вложенную форму указанной зоны }
+    {* устанавливаем фокус в самую вложенную форму указанной зоны }
    procedure ChildDataSourceChanged(const aChild: IvcmEntityForm;
     const anOld: IvcmFormDataSource;
-    const aNew: IvcmFormDataSource);
-     {* вызывается при изменении источника данных вложенной формы }
+    const aNew: IvcmFormDataSource); overload;
+    {* вызывается при изменении источника данных вложенной формы }
    function Get_NativeMainForm: IvcmContainer;
    function Get_AsForm: IvcmEntityForm;
    function NeedSetFocusToMainObjectFormOnRefresh: Boolean;
-     {* Надо ли передвигать фокус в главную форму при изменении сборки }
-   procedure SetTabCaption(const aTabCaption: IvcmCString);
+    {* Надо ли передвигать фокус в главную форму при изменении сборки }
+   procedure SetTabCaption(const aTabCaption: IvcmCString); overload;
    procedure InitFromPrevContainer(const aPrevContainer: IvcmContainer;
-     aClone: Boolean);
+    aClone: Boolean);
    function pm_GetFormSetIterator: IvcmFormSetIterator;
    function pm_GetAggregateIterator: IvcmAggregateIterator;
- protected
- // protected methods
-   procedure ChildDataSourceChanged(const aChild: IvcmEntityForm;
-     const anOld: IvcmFormDataSource;
-     const aNew: IvcmFormDataSource); virtual;
-     {* вызывается при изменении источника данных вложенной формы. }
-   function GetNeedSetFocusToMainObjectFormOnRefresh: Boolean; virtual;
-     {* Надо ли передвигать фокус в главную форму при изменении сборки }
-   procedure SetTabCaption(const aTabCaption: IvcmCString); virtual;
-   procedure DoInitFromPrevContainer(const aContainer: IvcmContainer;
-     aForClone: Boolean); virtual;
-   function InsertForm(const aForm: IvcmEntityForm): Boolean; virtual;
-   procedure RestoreControlSize; virtual;
- public
- // public methods
+   function IsSame(const aAnother: IvcmContainer): Boolean;
+  public
    function AcceptForm(const aForm: IvcmEntityForm;
-     aControl: TComponent): Boolean; virtual;
+    aControl: TComponent): Boolean; virtual;
  end;//TvcmContainerForm
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
-
-// start class TvcmContainerForm
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TvcmContainerForm.AcceptForm(const aForm: IvcmEntityForm;
-  aControl: TComponent): Boolean;
+ aControl: TComponent): Boolean;
 //#UC START# *52F2254D0058_49525C240170_var*
 //#UC END# *52F2254D0058_49525C240170_var*
 begin
@@ -152,8 +132,9 @@ begin
 end;//TvcmContainerForm.AcceptForm
 
 procedure TvcmContainerForm.ChildDataSourceChanged(const aChild: IvcmEntityForm;
-  const anOld: IvcmFormDataSource;
-  const aNew: IvcmFormDataSource);
+ const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+ {* вызывается при изменении источника данных вложенной формы. }
 //#UC START# *53B38B73003D_49525C240170_var*
 //#UC END# *53B38B73003D_49525C240170_var*
 begin
@@ -163,6 +144,7 @@ begin
 end;//TvcmContainerForm.ChildDataSourceChanged
 
 function TvcmContainerForm.GetNeedSetFocusToMainObjectFormOnRefresh: Boolean;
+ {* Надо ли передвигать фокус в главную форму при изменении сборки }
 //#UC START# *541011910033_49525C240170_var*
 //#UC END# *541011910033_49525C240170_var*
 begin
@@ -181,7 +163,7 @@ begin
 end;//TvcmContainerForm.SetTabCaption
 
 procedure TvcmContainerForm.DoInitFromPrevContainer(const aContainer: IvcmContainer;
-  aForClone: Boolean);
+ aForClone: Boolean);
 //#UC START# *54327E120331_49525C240170_var*
 //#UC END# *54327E120331_49525C240170_var*
 begin
@@ -227,6 +209,7 @@ begin
 end;//TvcmContainerForm.UnregForm
 
 function TvcmContainerForm.InsertForm(const aForm: IvcmEntityForm): Boolean;
+ {* вставляет форму в контейнер }
 //#UC START# *499465600298_49525C240170_var*
 //#UC END# *499465600298_49525C240170_var*
 begin
@@ -245,12 +228,13 @@ begin
 end;//TvcmContainerForm.pm_GetEntityFormIterator
 
 function TvcmContainerForm.HasForm(const aName: TvcmFormID;
-  aZoneType: TvcmZoneType = vcm_ztAny;
-  aRecursive: Boolean = true;
-  theForm: PIvcmEntityForm = nil;
-  aUserType: TvcmUserType = vcm_utAny;
-  aGUID: PGUID = nil;
-  aSubUserType: TvcmUserType = vcm_utAny): Boolean;
+ aZoneType: TvcmZoneType = Any;
+ aRecursive: Boolean = True;
+ theForm: PIvcmEntityForm = nil;
+ aUserType: TvcmUserType = vcm_utAny;
+ aGUID: PGUID = nil;
+ aSubUserType: TvcmUserType = vcm_utAny): Boolean;
+ {* проверяет есть ли в контейнере такая форма }
 //#UC START# *4995536001FF_49525C240170_var*
 //#UC END# *4995536001FF_49525C240170_var*
 begin
@@ -259,12 +243,13 @@ begin
 //#UC END# *4995536001FF_49525C240170_impl*
 end;//TvcmContainerForm.HasForm
 
-function TvcmContainerForm.HasForm(aZoneType: TvcmZoneType = vcm_ztAny;
-  aRecursive: Boolean = true;
-  theForm: PIvcmEntityForm = nil;
-  aUserType: TvcmUserType = vcm_utAny;
-  aGUID: PGUID = nil;
-  aSubUserType: TvcmUserType = vcm_utAny): Boolean;
+function TvcmContainerForm.HasForm(aZoneType: TvcmZoneType = Any;
+ aRecursive: Boolean = True;
+ theForm: PIvcmEntityForm = nil;
+ aUserType: TvcmUserType = vcm_utAny;
+ aGUID: PGUID = nil;
+ aSubUserType: TvcmUserType = vcm_utAny): Boolean;
+ {* проверяет есть ли в контейнере такая форма }
 //#UC START# *499554390363_49525C240170_var*
 //#UC END# *499554390363_49525C240170_var*
 begin
@@ -274,7 +259,8 @@ begin
 end;//TvcmContainerForm.HasForm
 
 function TvcmContainerForm.Operation(const anOp: TvcmOPID;
-  const aParams: IvcmExecuteParams): Boolean;
+ const aParams: IvcmExecuteParams): Boolean;
+ {* Выполнение операции по имени сущности }
 //#UC START# *4995546101E3_49525C240170_var*
 //#UC END# *4995546101E3_49525C240170_var*
 begin
@@ -284,7 +270,8 @@ begin
 end;//TvcmContainerForm.Operation
 
 function TvcmContainerForm.Operation(const anOp: TvcmOPID;
-  const aParams: IvcmTestParams): Boolean;
+ const aParams: IvcmTestParams): Boolean;
+ {* Выполнение операции по имени сущности }
 //#UC START# *4995547E019E_49525C240170_var*
 //#UC END# *4995547E019E_49525C240170_var*
 begin
@@ -294,7 +281,8 @@ begin
 end;//TvcmContainerForm.Operation
 
 function TvcmContainerForm.Operation(const anOp: TvcmOPID;
-  aMode: TvcmOperationMode = vcm_omExecute): Boolean;
+ aMode: TvcmOperationMode = vcm_omExecute): Boolean;
+ {* Выполнение операции по имени сущности }
 //#UC START# *49955492037E_49525C240170_var*
 //#UC END# *49955492037E_49525C240170_var*
 begin
@@ -313,7 +301,8 @@ begin
 end;//TvcmContainerForm.IsNull
 
 procedure TvcmContainerForm.FormStyle(const aForm: IvcmEntityForm;
-  const aStyle: IvcmFormStyle);
+ const aStyle: IvcmFormStyle);
+ {* определим стиль формы }
 //#UC START# *499555C701C1_49525C240170_var*
 //#UC END# *499555C701C1_49525C240170_var*
 begin
@@ -323,6 +312,7 @@ begin
 end;//TvcmContainerForm.FormStyle
 
 procedure TvcmContainerForm.SetFocusToMainObjectForm;
+ {* устанавливаем фокус в самую вложенную форму указанной зоны }
 //#UC START# *499555DC008F_49525C240170_var*
 //#UC END# *499555DC008F_49525C240170_var*
 begin
@@ -332,8 +322,9 @@ begin
 end;//TvcmContainerForm.SetFocusToMainObjectForm
 
 procedure TvcmContainerForm.ChildDataSourceChanged(const aChild: IvcmEntityForm;
-  const anOld: IvcmFormDataSource;
-  const aNew: IvcmFormDataSource);
+ const anOld: IvcmFormDataSource;
+ const aNew: IvcmFormDataSource);
+ {* вызывается при изменении источника данных вложенной формы }
 //#UC START# *49955603011A_49525C240170_var*
 //#UC END# *49955603011A_49525C240170_var*
 begin
@@ -361,6 +352,7 @@ begin
 end;//TvcmContainerForm.Get_AsForm
 
 function TvcmContainerForm.NeedSetFocusToMainObjectFormOnRefresh: Boolean;
+ {* Надо ли передвигать фокус в главную форму при изменении сборки }
 //#UC START# *54101156008B_49525C240170_var*
 //#UC END# *54101156008B_49525C240170_var*
 begin
@@ -379,7 +371,7 @@ begin
 end;//TvcmContainerForm.SetTabCaption
 
 procedure TvcmContainerForm.InitFromPrevContainer(const aPrevContainer: IvcmContainer;
-  aClone: Boolean);
+ aClone: Boolean);
 //#UC START# *54327D9E0132_49525C240170_var*
 //#UC END# *54327D9E0132_49525C240170_var*
 begin
@@ -406,12 +398,20 @@ begin
 //#UC END# *55E6B272031E_49525C240170get_impl*
 end;//TvcmContainerForm.pm_GetAggregateIterator
 
-{$IfEnd} //not NoVCM
+function TvcmContainerForm.IsSame(const aAnother: IvcmContainer): Boolean;
+//#UC START# *56792D030305_49525C240170_var*
+//#UC END# *56792D030305_49525C240170_var*
+begin
+//#UC START# *56792D030305_49525C240170_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56792D030305_49525C240170_impl*
+end;//TvcmContainerForm.IsSame
 
 initialization
-{$If not defined(NoScripts) AND not defined(NoVCM)}
-// Регистрация TvcmContainerForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmContainerForm);
-{$IfEnd} //not NoScripts AND not NoVCM
+ {* Регистрация TvcmContainerForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM)
 
 end.

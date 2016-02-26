@@ -1,41 +1,33 @@
 unit NOT_FINISHED_evReqCellHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evReqCellHotSpot.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::HotSpots::evReqCellHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evReqCellHotSpot.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evTableCellHotSpot
-  ;
+ l3IntfUses
+ , evTableCellHotSpot
+;
 
-{$If defined(evNeedHotSpot) AND not defined(evCanEditControlsAsText)}
 type
+ {$If NOT Defined(evCanEditControlsAsText)}
  TevReqCellHotSpotTester = class(TevTableCellHotSpotTester)
  end;//TevReqCellHotSpotTester
-{$IfEnd} //evNeedHotSpot AND not evCanEditControlsAsText
-{$IfEnd} //evNeedHotSpot
+ {$IfEnd} // NOT Defined(evCanEditControlsAsText)
 
+{$IfEnd} // Defined(evNeedHotSpot)
 implementation
 
-{$If defined(evNeedHotSpot)}
-{$If defined(evNeedHotSpot) AND not defined(evCanEditControlsAsText)}
+{$If Defined(evNeedHotSpot)}
+uses
+ l3ImplUses
+;
 
-
-{$IfEnd} //evNeedHotSpot AND not evCanEditControlsAsText
-{$IfEnd} //evNeedHotSpot
+{$If NOT Defined(evCanEditControlsAsText)}
+{$IfEnd} // NOT Defined(evCanEditControlsAsText)
+{$IfEnd} // Defined(evNeedHotSpot)
 end.

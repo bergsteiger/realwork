@@ -1,30 +1,17 @@
 unit NOT_FINISHED_evdNativeWriter;
+ {* Писатель тегов в формате evd. (С published свойствами). }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/NOT_FINISHED_evdNativeWriter.pas"
-// Начат: 05.10.1999 13:00
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdNativeWriter
-//
-// Писатель тегов в формате evd. (С published свойствами).
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdNativeWriter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  evdCustomNativeWriter
-  ;
+ l3IntfUses
+ , evdCustomNativeWriter
+;
 
 type
  TevdNativeWriter = class(TevdCustomNativeWriter)
@@ -32,5 +19,9 @@ type
  end;//TevdNativeWriter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

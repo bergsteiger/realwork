@@ -1,47 +1,35 @@
 unit NOT_FINISHED_vtOutlinerWithDragDrop;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtOutlinerWithDragDrop.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Outliner::TvtOutlinerWithDragDrop
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtOutlinerWithDragDrop.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  l3TreeInterfaces,
-  ActiveX,
-  vtOutlinerWithQuickSearch
-  ;
+ l3IntfUses
+ , vtOutlinerWithQuickSearch
+ , ActiveX
+ , l3TreeInterfaces
+;
 
 type
- Tl3CanBeginDrag = procedure (const aNode: Il3SimpleNode;
+ Tl3CanBeginDrag = procedure(const aNode: Il3SimpleNode;
   var aOkEffect: LongInt) of object;
 
- Tl3CanAcceptData = function (const aData: IDataObject): Boolean of object;
+ Tl3CanAcceptData = function(const aData: IDataObject): Boolean of object;
 
- Tl3DoDrop = function (const aData: Il3SimpleNode;
+ Tl3DoDrop = function(const aData: Il3SimpleNode;
   aWantMenu: Boolean;
   var dwEffect: LongInt): Boolean of object;
 
-
- {$If not defined(DesignTimeLibrary)}
+ {$If NOT Defined(DesignTimeLibrary)}
  RvtNodeDataObject = ;
- {$IfEnd} //not DesignTimeLibrary
+ {$IfEnd} // NOT Defined(DesignTimeLibrary)
 
  TvtOutlinerWithDragDrop = class(TvtOutlinerWithQuickSearch)
- protected
- // protected methods
+  protected
    function CanAcceptData(const aData: IDataObject): Boolean; virtual;
    function DataObjectClass: RvtNodeDataObject; virtual;
  end;//TvtOutlinerWithDragDrop
@@ -49,15 +37,12 @@ type
 implementation
 
 uses
-  vtOutlinerWithDragDropRes
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TvtOutlinerWithDragDrop
+ l3ImplUses
+ , vtOutlinerWithDragDropRes
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 function TvtOutlinerWithDragDrop.CanAcceptData(const aData: IDataObject): Boolean;
 //#UC START# *51EEB81F017C_4B97E8130272_var*
@@ -78,9 +63,9 @@ begin
 end;//TvtOutlinerWithDragDrop.DataObjectClass
 
 initialization
-{$If not defined(NoScripts)}
-// Регистрация TvtOutlinerWithDragDrop
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtOutlinerWithDragDrop);
-{$IfEnd} //not NoScripts
+ {* Регистрация TvtOutlinerWithDragDrop }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

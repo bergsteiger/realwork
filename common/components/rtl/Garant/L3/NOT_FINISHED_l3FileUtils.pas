@@ -1,47 +1,34 @@
 unit NOT_FINISHED_l3FileUtils;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3FileUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Utils::l3FileUtils
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3FileUtils.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 procedure FileDateTime;
-   {* Сигнатура метода FileDateTime }
 procedure CopyFile;
-   {* Сигнатура метода CopyFile }
 procedure ProcessFilesWithMask;
-   {* Сигнатура метода ProcessFilesWithMask }
 procedure PureDir;
-   {* очистить директорию. }
+ {* очистить директорию. }
 procedure ConcatDirName;
-   {* Сигнатура метода ConcatDirName }
 procedure DeleteFilesByMask;
-   {* Сигнатура метода DeleteFilesByMask }
 procedure DelDir;
-   {* Очистить и удалить директорию }
+ {* Очистить и удалить директорию }
 procedure CopyFilesByMask;
-   {* Сигнатура метода CopyFilesByMask }
 procedure RenameFileSafe;
-   {* Сигнатура метода RenameFileSafe }
-procedure L3CheckPathWritable;
-   {* Сигнатура метода l3CheckPathWritable }
+procedure l3CheckPathWritable;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure FileDateTime;
 //#UC START# *4B57005201FC_4B57004201BD_var*
@@ -71,6 +58,7 @@ begin
 end;//ProcessFilesWithMask
 
 procedure PureDir;
+ {* очистить директорию. }
 //#UC START# *4E4A3C5903E1_4B57004201BD_var*
 //#UC END# *4E4A3C5903E1_4B57004201BD_var*
 begin
@@ -98,6 +86,7 @@ begin
 end;//DeleteFilesByMask
 
 procedure DelDir;
+ {* Очистить и удалить директорию }
 //#UC START# *5199D8D90011_4B57004201BD_var*
 //#UC END# *5199D8D90011_4B57004201BD_var*
 begin
@@ -124,13 +113,13 @@ begin
 //#UC END# *5474A7DD02EF_4B57004201BD_impl*
 end;//RenameFileSafe
 
-procedure L3CheckPathWritable;
+procedure l3CheckPathWritable;
 //#UC START# *549A718B037D_4B57004201BD_var*
 //#UC END# *549A718B037D_4B57004201BD_var*
 begin
 //#UC START# *549A718B037D_4B57004201BD_impl*
  !!! Needs to be implemented !!!
 //#UC END# *549A718B037D_4B57004201BD_impl*
-end;//L3CheckPathWritable
+end;//l3CheckPathWritable
 
 end.

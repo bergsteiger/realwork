@@ -1,24 +1,16 @@
 unit NOT_FINISHED_m3StgMgr;
+ {* Классы-менеджеры для работы с IStorage }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "m3$DB"
-// Модуль: "w:/common/components/rtl/Garant/m3/NOT_FINISHED_m3StgMgr.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::m3$DB::m3DB::m3StgMgr
-//
-// Классы-менеджеры для работы с IStorage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\m3\NOT_FINISHED_m3StgMgr.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\m3\m3Define.inc}
+{$Include w:\common\components\rtl\Garant\m3\m3Define.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  Tm3StorageManager = class
@@ -33,10 +25,11 @@ type
 implementation
 
 uses
-  m3FileStream,
-  m3SplittedFileStream,
-  m3ArchiveStorage,
-  m3StorageService
-  ;
+ l3ImplUses
+ , m3ArchiveStorage
+ , m3StorageService
+ , m3FileStream
+ , m3SplittedFileStream
+;
 
 end.

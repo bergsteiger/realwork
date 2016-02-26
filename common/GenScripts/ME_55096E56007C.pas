@@ -13,10 +13,10 @@ uses
 type
  TChromeLikeTabSetStyles = class
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TChromeLikeTabSetStyles;
     {* Метод получения экземпляра синглетона TChromeLikeTabSetStyles }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TChromeLikeTabSetStyles
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
@@ -41,12 +41,6 @@ begin
  l3Free(g_TChromeLikeTabSetStyles);
 end;//TChromeLikeTabSetStylesFree
 
-class function TChromeLikeTabSetStyles.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TChromeLikeTabSetStyles <> nil;
-end;//TChromeLikeTabSetStyles.Exists
-
 class function TChromeLikeTabSetStyles.Instance: TChromeLikeTabSetStyles;
  {* Метод получения экземпляра синглетона TChromeLikeTabSetStyles }
 begin
@@ -57,6 +51,12 @@ begin
  end;
  Result := g_TChromeLikeTabSetStyles;
 end;//TChromeLikeTabSetStyles.Instance
+
+class function TChromeLikeTabSetStyles.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TChromeLikeTabSetStyles <> nil;
+end;//TChromeLikeTabSetStyles.Exists
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

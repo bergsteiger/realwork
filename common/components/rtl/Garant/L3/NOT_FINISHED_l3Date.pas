@@ -1,43 +1,36 @@
 unit NOT_FINISHED_l3Date;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3Date.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::l3Utils::l3Date
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3Date.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TStDate = ;
 
  TStDayType = (
-   
  );//TStDayType
 
  TDaysOfWeek = set of TStDayType;
 
  TStTime = ;
 
+procedure ExpandYear;
 function DefDateFormat(FourDigitYear: Boolean): AnsiString;
 function DefDateMask(BlanksChar: AnsiChar;
-  FourDigitYear: Boolean): AnsiString;
-procedure ExpandYear;
-   {* Сигнатура метода ExpandYear }
+ FourDigitYear: Boolean): AnsiString;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
 procedure ExpandYear;
 //#UC START# *4F575D8E0256_47D02918035D_var*
@@ -58,7 +51,7 @@ begin
 end;//DefDateFormat
 
 function DefDateMask(BlanksChar: AnsiChar;
-  FourDigitYear: Boolean): AnsiString;
+ FourDigitYear: Boolean): AnsiString;
 //#UC START# *47D029840351_47D02918035D_var*
 //#UC END# *47D029840351_47D02918035D_var*
 begin

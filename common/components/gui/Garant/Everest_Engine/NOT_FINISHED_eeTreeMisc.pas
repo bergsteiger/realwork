@@ -1,51 +1,45 @@
 unit NOT_FINISHED_eeTreeMisc;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/NOT_FINISHED_eeTreeMisc.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For F1::Everest Engine::Engine Core::eeTreeMisc
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeTreeMisc.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
-procedure EeL2NA; overload; 
-procedure EeL2NA; overload; 
-   {* Сигнатура метода eeL2NA }
-{$IfEnd} //Nemesis
+{$If Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
+procedure eeL2NA; overload;
+procedure eeL2NA; overload;
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-// unit methods
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
-procedure EeL2NA;
+procedure eeL2NA;
 //#UC START# *4AF819AB01B0_4912E178000B_var*
 //#UC END# *4AF819AB01B0_4912E178000B_var*
 begin
 //#UC START# *4AF819AB01B0_4912E178000B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AF819AB01B0_4912E178000B_impl*
-end;//EeL2NA
+end;//eeL2NA
 
-procedure EeL2NA;
+procedure eeL2NA;
 //#UC START# *4912E18F0204_4912E178000B_var*
 //#UC END# *4912E18F0204_4912E178000B_var*
 begin
 //#UC START# *4912E18F0204_4912E178000B_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4912E18F0204_4912E178000B_impl*
-end;//EeL2NA
-{$IfEnd} //Nemesis
+end;//eeL2NA
+{$IfEnd} // Defined(Nemesis)
 
 end.

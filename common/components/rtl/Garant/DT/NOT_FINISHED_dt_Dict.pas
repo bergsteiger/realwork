@@ -1,38 +1,31 @@
 unit NOT_FINISHED_dt_Dict;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/NOT_FINISHED_dt_Dict.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DT::Dictionary::dt_Dict
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Dict.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  daTypes
-  ;
+ l3IntfUses
+ , daTypes
+;
 
 type
  TDictionaryServer = class
  end;//TDictionaryServer
+
 function DictServer(aFamily: TdaFamilyID): TDictionaryServer;
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-// unit methods
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 function DictServer(aFamily: TdaFamilyID): TDictionaryServer;
 //#UC START# *55E6DC0802A7_55E6DBED01B3_var*
@@ -42,6 +35,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *55E6DC0802A7_55E6DBED01B3_impl*
 end;//DictServer
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

@@ -1,27 +1,19 @@
 unit NOT_FINISHED_vtFocusLabel;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtFocusLabel.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Labels::TvtFocusLabel
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtFocusLabel.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TvtFocusLabel = class
- protected
- // protected methods
+  protected
    function NeedUnderLine: Boolean; virtual;
    function AllowClickByKeyBoard: Boolean; virtual;
    function AllowTranslateReturn: Boolean; virtual;
@@ -29,7 +21,9 @@ type
 
 implementation
 
-// start class TvtFocusLabel
+uses
+ l3ImplUses
+;
 
 function TvtFocusLabel.NeedUnderLine: Boolean;
 //#UC START# *4B61371503B9_4A9B9BC00258_var*

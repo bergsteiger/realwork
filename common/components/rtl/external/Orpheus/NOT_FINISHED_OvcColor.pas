@@ -1,27 +1,24 @@
 unit NOT_FINISHED_OvcColor;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Orpheus"
-// Модуль: "w:/common/components/rtl/external/Orpheus/NOT_FINISHED_OvcColor.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Orpheus::OvcBase::OvcColor
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\external\Orpheus\NOT_FINISHED_OvcColor.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Orpheus\OVC.INC}
+{$Include w:\common\components\rtl\external\Orpheus\OVC.INC}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TOvcColors = class
  end;//TOvcColors
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

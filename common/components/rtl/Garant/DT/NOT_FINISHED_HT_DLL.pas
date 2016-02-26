@@ -1,41 +1,35 @@
 unit NOT_FINISHED_HT_DLL;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/NOT_FINISHED_HT_DLL.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DT::Core::HT_DLL
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_HT_DLL.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
-procedure HtClearResults;
-   {* Сигнатура метода htClearResults }
-{$IfEnd} //not Nemesis
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
+procedure htClearResults;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-// unit methods
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
-procedure HtClearResults;
+procedure htClearResults;
 //#UC START# *55533C9001BE_55533C7600A0_var*
 //#UC END# *55533C9001BE_55533C7600A0_var*
 begin
 //#UC START# *55533C9001BE_55533C7600A0_impl*
  !!! Needs to be implemented !!!
 //#UC END# *55533C9001BE_55533C7600A0_impl*
-end;//HtClearResults
-{$IfEnd} //not Nemesis
+end;//htClearResults
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

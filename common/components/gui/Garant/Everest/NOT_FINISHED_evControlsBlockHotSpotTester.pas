@@ -1,39 +1,29 @@
 unit NOT_FINISHED_evControlsBlockHotSpotTester;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evControlsBlockHotSpotTester.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::HotSpots::TevControlsBlockHotSpotTester
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evControlsBlockHotSpotTester.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot) AND not defined(evCanEditControlsAsText)}
+{$If Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)}
 uses
-  evControlsBlockHotSpotTesterPrim
-  ;
-{$IfEnd} //evNeedHotSpot AND not evCanEditControlsAsText
+ l3IntfUses
+ , evControlsBlockHotSpotTesterPrim
+;
 
-{$If defined(evNeedHotSpot) AND not defined(evCanEditControlsAsText)}
 type
  TevControlsBlockHotSpotTester = class(TevControlsBlockHotSpotTesterPrim)
  end;//TevControlsBlockHotSpotTester
-{$IfEnd} //evNeedHotSpot AND not evCanEditControlsAsText
+{$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
 
 implementation
 
-{$If defined(evNeedHotSpot) AND not defined(evCanEditControlsAsText)}
+{$If Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
 
-
-{$IfEnd} //evNeedHotSpot AND not evCanEditControlsAsText
 end.

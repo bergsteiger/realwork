@@ -1,41 +1,29 @@
 unit NOT_FINISHED_nsStringValueMapFactory;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/NOT_FINISHED_nsStringValueMapFactory.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::nsStringValueMapFactory
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsStringValueMapFactory.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  L10nInterfaces
-  ;
+ l3IntfUses
+ , L10nInterfaces
+;
 
 type
  TnsStringValueMapFactory = class
- private
- // private methods
+  private
    function MakeMap(const aID: TnsValueMapID): InsValueMap;
  end;//TnsStringValueMapFactory
 
 implementation
 
 uses
-  nsStringValueMapFactoryRes
-  ;
-
-// start class TnsStringValueMapFactory
+ l3ImplUses
+ , nsStringValueMapFactoryRes
+;
 
 function TnsStringValueMapFactory.MakeMap(const aID: TnsValueMapID): InsValueMap;
 //#UC START# *4AD5BA7502D5_4AD5BA6B007C_var*

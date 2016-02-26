@@ -1,91 +1,71 @@
 unit NOT_FINISHED_vcmTabbedContainerForm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/NOT_FINISHED_vcmTabbedContainerForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::TvcmTabbedContainerForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmTabbedContainerForm.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  afwInterfaces,
-  vcmExternalInterfaces,
-  vcmInterfaces,
-  Types,
-  Messages,
-  l3Bitmap,
-  Graphics
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  vcmEntityForm,
-  vcmChromeLikeTabbedContainerForm,
-  vcmChromeLikeTypes,
-  vcmMainMenuStripForChromeLike,
-  l3TabbedContainersDispatcher
-  {$If not defined(NoVCL)}
-  ,
-  Controls
-  {$IfEnd} //not NoVCL
-  ,
-  Classes,
-  ChromeLikeTabSetControlPrim,
-  ChromeLikeTabSetControl,
-  ChromeLikeInterfaces
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , vcmChromeLikeTabbedContainerForm
+ , vcmExternalInterfaces
+ , afwInterfaces
+ , vcmChromeLikeTypes
+ , vcmMainMenuStripForChromeLike
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , vcmEntityForm
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3Bitmap
+ , Messages
+ , Graphics
+ , l3TabbedContainersDispatcher
+ , Types
+ , vcmInterfaces
+ {$If NOT Defined(NoVCL)}
+ , Controls
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , ChromeLikeTabSetControlPrim
+ , ChromeLikeTabSetControl
+ , ChromeLikeInterfaces
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  _vcmComponentDestroyer_Parent_ = TvcmChromeLikeTabbedContainerForm;
  {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
- TvcmTabbedContainerForm = class(_vcmComponentDestroyer_ {$If defined(Nemesis) AND not defined(NoVCM)}, IvcmFlashingWindow{$IfEnd} //Nemesis AND not NoVCM
-  {$If not defined(NoVCL)}, IafwMainFormContainer{$IfEnd} //not NoVCL
+ TvcmTabbedContainerForm = class(_vcmComponentDestroyer_{$If Defined(Nemesis)}
+ , IvcmFlashingWindow
+ {$IfEnd} // Defined(Nemesis)
+ {$If NOT Defined(NoVCL)}
+ , IafwMainFormContainer
+ {$IfEnd} // NOT Defined(NoVCL)
  , IvcmMenuHolder)
- private
- // private fields
-   f_Flashing : Boolean;
-   f_Menu : TvcmMainMenuStripForChromeLike;
-   f_CurrentMainMenu : TMainMenu;
-   f_BackgroundBitmap : Tl3Bitmap;
-   f_ContainerIsClosing : Boolean;
-    {* Поле для свойства ContainerIsClosing}
-   f_WindowStateBeforeMinimizing : TWindowState;
-    {* Поле для свойства WindowStateBeforeMinimizing}
- private
- // private methods
+  private
+   f_Flashing: Boolean;
+   f_Menu: TvcmMainMenuStripForChromeLike;
+   f_CurrentMainMenu: TMainMenu;
+   f_BackgroundBitmap: Tl3Bitmap;
+   f_ContainerIsClosing: Boolean;
+    {* Поле для свойства ContainerIsClosing }
+   f_WindowStateBeforeMinimizing: TWindowState;
+    {* Поле для свойства WindowStateBeforeMinimizing }
+  private
    procedure DecoratorBackgroundChanged(aBitmap: TBitmap;
-     aNeedDrawBackground: Boolean);
+    aNeedDrawBackground: Boolean);
    procedure UpdateContainedFormsActions;
-     {* Сигнатура метода UpdateContainedFormsActions }
    procedure DisableOthers(aSelectedForm: TForm);
    procedure UpdateContainerCaption;
-     {* Сигнатура метода UpdateContainerCaption }
    procedure SetFocusToSelectedForm;
-     {* Сигнатура метода SetFocusToSelectedForm }
    procedure DoGiveFocusToContainedForm;
-     {* Сигнатура метода DoGiveFocusToContainedForm }
-   procedure VcmTabbedContainerCloseQuery(Sender: TObject;
-     var CanClose: Boolean);
+   procedure vcmTabbedContainerCloseQuery(Sender: TObject;
+    var CanClose: Boolean);
    procedure NotifyComponentsMainFormChanged(aForm: TvcmEntityForm);
    procedure NotifyComponentsSelectionChanged(aNewSelectedForm: TvcmEntityForm);
    procedure NotifyContainedFormsOnClosing;
@@ -95,135 +75,135 @@ type
    procedure WMWindowPosChanged(var aMessage: TWMWindowPosChanged); message WM_WINDOWPOSCHANGED;
    procedure WMSetFocus(var aMessage: TWMSetFocus); message WM_SETFOCUS;
    procedure WMSysCommand(var aMessage: TWMSysCommand); message WM_SYSCOMMAND;
- protected
- // property methods
+  protected
    function pm_GetFormCount: Integer;
    function pm_GetForms(Index: Integer): TvcmEntityForm; virtual;
- protected
- // realized methods
-    {$If defined(Nemesis) AND not defined(NoVCM)}
+   {$If Defined(Nemesis)}
    procedure StartFlashing;
-    {$IfEnd} //Nemesis AND not NoVCM
-    {$If defined(Nemesis) AND not defined(NoVCM)}
+   {$IfEnd} // Defined(Nemesis)
+   {$If Defined(Nemesis)}
    procedure StopFlashing;
-    {$IfEnd} //Nemesis AND not NoVCM
-   {$If not defined(NoVCL)}
+   {$IfEnd} // Defined(Nemesis)
+   {$If NOT Defined(NoVCL)}
    function Get_CurrentMainForm: TafwCustomForm;
-   {$IfEnd} //not NoVCL
-   {$If not defined(NoVCL)}
+   {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
    procedure UpdateFormCaption(aForm: TafwCustomForm);
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    function Get_MainMenu: TMenuItem;
    function DoGetTabSetParent: TWinControl; override;
    function DoMakeClone: Il3TabbedContainer; override;
    procedure DockToAnother(const aMousePoint: TPoint;
-     aForm: TForm); override;
- protected
- // overridden protected methods
+    aForm: TForm); override;
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
-   {$If not defined(NoVCL)}
+    {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
    procedure CreateParams(var Params: TCreateParams); override;
-   {$IfEnd} //not NoVCL
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure DoInit(aFromHistory: Boolean); override;
-     {* Инициализация формы. Для перекрытия в потомках }
+    {* Инициализация формы. Для перекрытия в потомках }
    procedure InitControls; override;
-     {* Процедура инициализации контролов. Для перекрытия в потомках }
+    {* Процедура инициализации контролов. Для перекрытия в потомках }
    procedure MakeControls; override;
    function GetClientControl: TWinControl; override;
    procedure DoOnTabDeselected(aTabSet: TChromeLikeTabSetControlPrim;
-     aTab: TChromeLikeTab); override;
+    aTab: TChromeLikeTab); override;
    procedure DoOnPaintTabSetBackground(aTabSet: TChromeLikeTabSetControlPrim;
-     const aRect: TRect;
-     aCanvas: TCanvas;
-     var aDefaultPainting: Boolean); override;
+    const aRect: TRect;
+    aCanvas: TCanvas;
+    var aDefaultPainting: Boolean); override;
    procedure DoOnCanUndockFormEvent(aTabSet: TChromeLikeTabSetControlPrim;
-     aForm: TForm;
-     var aCanUndock: Boolean); override;
+    aForm: TForm;
+    var aCanUndock: Boolean); override;
    procedure DoOnCloseTabForm(aTabSet: TChromeLikeTabSetControlPrim;
-     aTab: TChromeLikeTab;
-     var aCanClose: Boolean;
-     aNewSelectedTab: TChromeLikeTab); override;
+    aTab: TChromeLikeTab;
+    var aCanClose: Boolean;
+    aNewSelectedTab: TChromeLikeTab); override;
    procedure DoOnTabSetSelectionChanged(aTabSet: TChromeLikeTabSetControlPrim;
-     aPrevSelected: TChromeLikeTab;
-     aNewSelected: TChromeLikeTab); override;
+    aPrevSelected: TChromeLikeTab;
+    aNewSelected: TChromeLikeTab); override;
    procedure AfterInsertForm(aForm: TForm;
-     const aParams: Il3TabParams;
-     aNeedSelect: Boolean); override;
+    const aParams: Il3TabParams;
+    aNeedSelect: Boolean); override;
    procedure MakeTabSet; override;
-     {* Сигнатура метода MakeTabSet }
    function CanDockToAnother(const aPoint: TPoint): Boolean; override;
    function DoGetFormDockSite: TWinControl; override;
    function MakeTabSetParams: TChromeLikeTabSetParams; override;
- public
- // overridden public methods
-   {$If defined(l3HackedVCL) AND not defined(NoVCL)}
-   function NeedAutoScroll: Boolean; override;
-   {$IfEnd} //l3HackedVCL AND not NoVCL
-   {$If not defined(NoVCL)}
-   constructor CreateNew(AOwner: TComponent;
-    Dummy: Integer = 0); override;
-   {$IfEnd} //not NoVCL
-   function NeedShowSystemContextMenuOnPoint(const aPoint: TPoint): Boolean; override;
- public
- // public methods
+  public
    class function Make: TvcmTabbedContainerForm;
    class function MakeWithChild(aChild: TForm;
-     const aTabParams: Il3TabParams = nil): TvcmTabbedContainerForm;
+    const aTabParams: Il3TabParams = nil): TvcmTabbedContainerForm;
    procedure ResetClosing;
-     {* Сигнатура метода ResetClosing }
    procedure UpdateMenu(aFormWithMenu: TForm = nil);
    procedure EnableRemindersActivity;
-     {* Сигнатура метода EnableRemindersActivity }
    procedure DisableRemindersActivity;
-     {* Сигнатура метода DisableRemindersActivity }
    function CanBeDocked(const aPoint: TPoint;
-     aForm: TForm): Boolean;
+    aForm: TForm): Boolean;
    function GetInnerEntityForm: IvcmEntityForm;
- public
- // public properties
+   {$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
+   function NeedAutoScroll: Boolean; override;
+   {$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   constructor CreateNew(AOwner: TComponent;
+    Dummy: Integer); override;
+   {$IfEnd} // NOT Defined(NoVCL)
+   function NeedShowSystemContextMenuOnPoint(const aPoint: TPoint): Boolean; override;
+  public
    property ContainerIsClosing: Boolean
-     read f_ContainerIsClosing;
+    read f_ContainerIsClosing;
    property FormCount: Integer
-     read pm_GetFormCount;
+    read pm_GetFormCount;
    property Forms[Index: Integer]: TvcmEntityForm
-     read pm_GetForms;
+    read pm_GetForms;
    property WindowStateBeforeMinimizing: TWindowState
-     read f_WindowStateBeforeMinimizing;
+    read f_WindowStateBeforeMinimizing;
  end;//TvcmTabbedContainerForm
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  vcmTabbedContainerFormDispatcher,
-  vcmTabbedContainerRes,
-  ChromeLikeTabParams,
-  vcmFormSetHistory
-  {$If not defined(NoScripts)}
-  ,
-  TtfwClassRef_Proxy
-  {$IfEnd} //not NoScripts
-  ,
-  vcmMenuManager,
-  vcmFormsUtils,
-  SysUtils,
-  vcmForm,
-  vcmMessages
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+ l3ImplUses
+ , vcmTabbedContainerFormDispatcher
+ , vcmTabbedContainerRes
+ , ChromeLikeTabParams
+ , vcmFormSetHistory
+ , vcmMainMenuBuilder
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ , vcmMenuManager
+ , vcmFormsUtils
+ , SysUtils
+ , vcmForm
+ , vcmMessages
+;
 
 type _Instance_R_ = TvcmTabbedContainerForm;
 
 {$Include w:\common\components\gui\Garant\VCM\implementation\Visual\vcmComponentDestroyer.imp.pas}
 
-// start class TvcmTabbedContainerForm
+function TvcmTabbedContainerForm.pm_GetFormCount: Integer;
+//#UC START# *550AB87B00B3_534F69E702D9get_var*
+//#UC END# *550AB87B00B3_534F69E702D9get_var*
+begin
+//#UC START# *550AB87B00B3_534F69E702D9get_impl*
+ Result := f_TabSet.TabCount;
+//#UC END# *550AB87B00B3_534F69E702D9get_impl*
+end;//TvcmTabbedContainerForm.pm_GetFormCount
+
+function TvcmTabbedContainerForm.pm_GetForms(Index: Integer): TvcmEntityForm;
+//#UC START# *550AB8A301BA_534F69E702D9get_var*
+//#UC END# *550AB8A301BA_534F69E702D9get_var*
+begin
+//#UC START# *550AB8A301BA_534F69E702D9get_impl*
+ Result := TvcmEntityForm(f_TabSet.Tabs[Index].Form);
+//#UC END# *550AB8A301BA_534F69E702D9get_impl*
+end;//TvcmTabbedContainerForm.pm_GetForms
 
 procedure TvcmTabbedContainerForm.DecoratorBackgroundChanged(aBitmap: TBitmap;
-  aNeedDrawBackground: Boolean);
+ aNeedDrawBackground: Boolean);
 //#UC START# *550AB82400FD_534F69E702D9_var*
 //#UC END# *550AB82400FD_534F69E702D9_var*
 begin
@@ -231,6 +211,103 @@ begin
  f_BackgroundBitmap.Assign(aBitmap);
 //#UC END# *550AB82400FD_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.DecoratorBackgroundChanged
+
+class function TvcmTabbedContainerForm.Make: TvcmTabbedContainerForm;
+//#UC START# *550BB564039B_534F69E702D9_var*
+//#UC END# *550BB564039B_534F69E702D9_var*
+begin
+//#UC START# *550BB564039B_534F69E702D9_impl*
+ Result := CreateNew(Application);
+//#UC END# *550BB564039B_534F69E702D9_impl*
+end;//TvcmTabbedContainerForm.Make
+
+class function TvcmTabbedContainerForm.MakeWithChild(aChild: TForm;
+ const aTabParams: Il3TabParams = nil): TvcmTabbedContainerForm;
+//#UC START# *550BB5850337_534F69E702D9_var*
+
+//#UC END# *550BB5850337_534F69E702D9_var*
+begin
+//#UC START# *550BB5850337_534F69E702D9_impl*
+ Assert(not (aChild is TvcmTabbedContainerForm));
+ Result := Make;
+ with Result do
+ begin
+  InsertForm(aChild, aTabParams, True);
+  DisableOthers(aChild);
+ end;
+//#UC END# *550BB5850337_534F69E702D9_impl*
+end;//TvcmTabbedContainerForm.MakeWithChild
+
+procedure TvcmTabbedContainerForm.ResetClosing;
+//#UC START# *550BBECD016F_534F69E702D9_var*
+//#UC END# *550BBECD016F_534F69E702D9_var*
+begin
+//#UC START# *550BBECD016F_534F69E702D9_impl*
+ f_ContainerIsClosing := False;
+//#UC END# *550BBECD016F_534F69E702D9_impl*
+end;//TvcmTabbedContainerForm.ResetClosing
+
+procedure TvcmTabbedContainerForm.UpdateMenu(aFormWithMenu: TForm = nil);
+//#UC START# *550BBEE402D5_534F69E702D9_var*
+
+ function lp_GetFormMenu(aForm: TForm): TMainMenu;
+ var
+  l_Index: Integer;
+ begin
+  Result := nil;
+  for l_Index := 0 to Pred(aForm.ComponentCount) do
+   if (aForm.Components[l_Index] is TMainMenu) then
+   begin
+    Result := TMainMenu(aForm.Components[l_Index]);
+    Break;
+   end;
+ end;
+
+var
+ l_Form: TForm;
+//#UC END# *550BBEE402D5_534F69E702D9_var*
+begin
+//#UC START# *550BBEE402D5_534F69E702D9_impl*
+ if (aFormWithMenu = nil) then
+  l_Form := f_TabSet.SelectedForm
+ else
+  l_Form := aFormWithMenu;
+ if (l_Form <> nil) then
+ begin
+  f_CurrentMainMenu := lp_GetFormMenu(l_Form);
+  if (f_CurrentMainMenu <> nil) then
+   f_Menu.MenuItem := f_CurrentMainMenu.Items;
+ end;
+//#UC END# *550BBEE402D5_534F69E702D9_impl*
+end;//TvcmTabbedContainerForm.UpdateMenu
+
+procedure TvcmTabbedContainerForm.EnableRemindersActivity;
+//#UC START# *550BBF190077_534F69E702D9_var*
+//#UC END# *550BBF190077_534F69E702D9_var*
+begin
+//#UC START# *550BBF190077_534F69E702D9_impl*
+ Assert(False);
+//#UC END# *550BBF190077_534F69E702D9_impl*
+end;//TvcmTabbedContainerForm.EnableRemindersActivity
+
+procedure TvcmTabbedContainerForm.DisableRemindersActivity;
+//#UC START# *550BBF280023_534F69E702D9_var*
+//#UC END# *550BBF280023_534F69E702D9_var*
+begin
+//#UC START# *550BBF280023_534F69E702D9_impl*
+ Assert(False);
+//#UC END# *550BBF280023_534F69E702D9_impl*
+end;//TvcmTabbedContainerForm.DisableRemindersActivity
+
+function TvcmTabbedContainerForm.CanBeDocked(const aPoint: TPoint;
+ aForm: TForm): Boolean;
+//#UC START# *550BBF70002F_534F69E702D9_var*
+//#UC END# *550BBF70002F_534F69E702D9_var*
+begin
+//#UC START# *550BBF70002F_534F69E702D9_impl*
+ Result := TabSet.IsDockablePoint(aPoint) and IsDockOperationPossible;
+//#UC END# *550BBF70002F_534F69E702D9_impl*
+end;//TvcmTabbedContainerForm.CanBeDocked
 
 procedure TvcmTabbedContainerForm.UpdateContainedFormsActions;
 //#UC START# *550BCFD00150_534F69E702D9_var*
@@ -344,8 +421,8 @@ begin
 //#UC END# *550BD03202AF_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.DoGiveFocusToContainedForm
 
-procedure TvcmTabbedContainerForm.VcmTabbedContainerCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
+procedure TvcmTabbedContainerForm.vcmTabbedContainerCloseQuery(Sender: TObject;
+ var CanClose: Boolean);
 //#UC START# *550BD68A034F_534F69E702D9_var*
 //#UC END# *550BD68A034F_534F69E702D9_var*
 begin
@@ -354,7 +431,7 @@ begin
  if CanClose then
   NotifyContainedFormsOnClosing;
 //#UC END# *550BD68A034F_534F69E702D9_impl*
-end;//TvcmTabbedContainerForm.VcmTabbedContainerCloseQuery
+end;//TvcmTabbedContainerForm.vcmTabbedContainerCloseQuery
 
 procedure TvcmTabbedContainerForm.NotifyComponentsMainFormChanged(aForm: TvcmEntityForm);
 //#UC START# *550BD6D202AE_534F69E702D9_var*
@@ -461,103 +538,6 @@ begin
 //#UC END# *550BD7170264_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.NotifyContainedFormsOnClosing
 
-class function TvcmTabbedContainerForm.Make: TvcmTabbedContainerForm;
-//#UC START# *550BB564039B_534F69E702D9_var*
-//#UC END# *550BB564039B_534F69E702D9_var*
-begin
-//#UC START# *550BB564039B_534F69E702D9_impl*
- Result := CreateNew(Application);
-//#UC END# *550BB564039B_534F69E702D9_impl*
-end;//TvcmTabbedContainerForm.Make
-
-class function TvcmTabbedContainerForm.MakeWithChild(aChild: TForm;
-  const aTabParams: Il3TabParams = nil): TvcmTabbedContainerForm;
-//#UC START# *550BB5850337_534F69E702D9_var*
-
-//#UC END# *550BB5850337_534F69E702D9_var*
-begin
-//#UC START# *550BB5850337_534F69E702D9_impl*
- Assert(not (aChild is TvcmTabbedContainerForm));
- Result := Make;
- with Result do
- begin
-  InsertForm(aChild, aTabParams, True);
-  DisableOthers(aChild);
- end;
-//#UC END# *550BB5850337_534F69E702D9_impl*
-end;//TvcmTabbedContainerForm.MakeWithChild
-
-procedure TvcmTabbedContainerForm.ResetClosing;
-//#UC START# *550BBECD016F_534F69E702D9_var*
-//#UC END# *550BBECD016F_534F69E702D9_var*
-begin
-//#UC START# *550BBECD016F_534F69E702D9_impl*
- f_ContainerIsClosing := False;
-//#UC END# *550BBECD016F_534F69E702D9_impl*
-end;//TvcmTabbedContainerForm.ResetClosing
-
-procedure TvcmTabbedContainerForm.UpdateMenu(aFormWithMenu: TForm = nil);
-//#UC START# *550BBEE402D5_534F69E702D9_var*
-
- function lp_GetFormMenu(aForm: TForm): TMainMenu;
- var
-  l_Index: Integer;
- begin
-  Result := nil;
-  for l_Index := 0 to Pred(aForm.ComponentCount) do
-   if (aForm.Components[l_Index] is TMainMenu) then
-   begin
-    Result := TMainMenu(aForm.Components[l_Index]);
-    Break;
-   end;
- end;
-
-var
- l_Form: TForm;
-//#UC END# *550BBEE402D5_534F69E702D9_var*
-begin
-//#UC START# *550BBEE402D5_534F69E702D9_impl*
- if (aFormWithMenu = nil) then
-  l_Form := f_TabSet.SelectedForm
- else
-  l_Form := aFormWithMenu;
- if (l_Form <> nil) then
- begin
-  f_CurrentMainMenu := lp_GetFormMenu(l_Form);
-  if (f_CurrentMainMenu <> nil) then
-   f_Menu.MenuItem := f_CurrentMainMenu.Items;
- end;
-//#UC END# *550BBEE402D5_534F69E702D9_impl*
-end;//TvcmTabbedContainerForm.UpdateMenu
-
-procedure TvcmTabbedContainerForm.EnableRemindersActivity;
-//#UC START# *550BBF190077_534F69E702D9_var*
-//#UC END# *550BBF190077_534F69E702D9_var*
-begin
-//#UC START# *550BBF190077_534F69E702D9_impl*
- Assert(False);
-//#UC END# *550BBF190077_534F69E702D9_impl*
-end;//TvcmTabbedContainerForm.EnableRemindersActivity
-
-procedure TvcmTabbedContainerForm.DisableRemindersActivity;
-//#UC START# *550BBF280023_534F69E702D9_var*
-//#UC END# *550BBF280023_534F69E702D9_var*
-begin
-//#UC START# *550BBF280023_534F69E702D9_impl*
- Assert(False);
-//#UC END# *550BBF280023_534F69E702D9_impl*
-end;//TvcmTabbedContainerForm.DisableRemindersActivity
-
-function TvcmTabbedContainerForm.CanBeDocked(const aPoint: TPoint;
-  aForm: TForm): Boolean;
-//#UC START# *550BBF70002F_534F69E702D9_var*
-//#UC END# *550BBF70002F_534F69E702D9_var*
-begin
-//#UC START# *550BBF70002F_534F69E702D9_impl*
- Result := TabSet.IsDockablePoint(aPoint) and IsDockOperationPossible;
-//#UC END# *550BBF70002F_534F69E702D9_impl*
-end;//TvcmTabbedContainerForm.CanBeDocked
-
 function TvcmTabbedContainerForm.GetInnerEntityForm: IvcmEntityForm;
 //#UC START# *5511053E013B_534F69E702D9_var*
 //#UC END# *5511053E013B_534F69E702D9_var*
@@ -566,24 +546,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5511053E013B_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.GetInnerEntityForm
-
-function TvcmTabbedContainerForm.pm_GetFormCount: Integer;
-//#UC START# *550AB87B00B3_534F69E702D9get_var*
-//#UC END# *550AB87B00B3_534F69E702D9get_var*
-begin
-//#UC START# *550AB87B00B3_534F69E702D9get_impl*
- Result := f_TabSet.TabCount;
-//#UC END# *550AB87B00B3_534F69E702D9get_impl*
-end;//TvcmTabbedContainerForm.pm_GetFormCount
-
-function TvcmTabbedContainerForm.pm_GetForms(Index: Integer): TvcmEntityForm;
-//#UC START# *550AB8A301BA_534F69E702D9get_var*
-//#UC END# *550AB8A301BA_534F69E702D9get_var*
-begin
-//#UC START# *550AB8A301BA_534F69E702D9get_impl*
- Result := TvcmEntityForm(f_TabSet.Tabs[Index].Form);
-//#UC END# *550AB8A301BA_534F69E702D9get_impl*
-end;//TvcmTabbedContainerForm.pm_GetForms
 
 procedure TvcmTabbedContainerForm.WMClose(var aMessage: TWMClose);
 //#UC START# *550AB9B3002C_534F69E702D9_var*
@@ -668,7 +630,7 @@ begin
 //#UC END# *550BCDB500D7_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.WMSysCommand
 
-{$If defined(Nemesis) AND not defined(NoVCM)}
+{$If Defined(Nemesis)}
 procedure TvcmTabbedContainerForm.StartFlashing;
 //#UC START# *4F7DCF74032D_534F69E702D9_var*
 //#UC END# *4F7DCF74032D_534F69E702D9_var*
@@ -677,9 +639,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4F7DCF74032D_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.StartFlashing
-{$IfEnd} //Nemesis AND not NoVCM
+{$IfEnd} // Defined(Nemesis)
 
-{$If defined(Nemesis) AND not defined(NoVCM)}
+{$If Defined(Nemesis)}
 procedure TvcmTabbedContainerForm.StopFlashing;
 //#UC START# *4F7DCF8D03CC_534F69E702D9_var*
 //#UC END# *4F7DCF8D03CC_534F69E702D9_var*
@@ -688,9 +650,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4F7DCF8D03CC_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.StopFlashing
-{$IfEnd} //Nemesis AND not NoVCM
+{$IfEnd} // Defined(Nemesis)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 function TvcmTabbedContainerForm.Get_CurrentMainForm: TafwCustomForm;
 //#UC START# *534F88D7028A_534F69E702D9get_var*
 //#UC END# *534F88D7028A_534F69E702D9get_var*
@@ -699,9 +661,9 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *534F88D7028A_534F69E702D9get_impl*
 end;//TvcmTabbedContainerForm.Get_CurrentMainForm
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmTabbedContainerForm.UpdateFormCaption(aForm: TafwCustomForm);
 //#UC START# *537C731D00B3_534F69E702D9_var*
 //#UC END# *537C731D00B3_534F69E702D9_var*
@@ -710,7 +672,7 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *537C731D00B3_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.UpdateFormCaption
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 function TvcmTabbedContainerForm.Get_MainMenu: TMenuItem;
 //#UC START# *537D832600C0_534F69E702D9get_var*
@@ -740,7 +702,7 @@ begin
 end;//TvcmTabbedContainerForm.DoMakeClone
 
 procedure TvcmTabbedContainerForm.DockToAnother(const aMousePoint: TPoint;
-  aForm: TForm);
+ aForm: TForm);
 //#UC START# *550A879C02C9_534F69E702D9_var*
 //#UC END# *550A879C02C9_534F69E702D9_var*
 begin
@@ -751,6 +713,7 @@ begin
 end;//TvcmTabbedContainerForm.DockToAnother
 
 procedure TvcmTabbedContainerForm.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_534F69E702D9_var*
 //#UC END# *479731C50290_534F69E702D9_var*
 begin
@@ -759,7 +722,7 @@ begin
 //#UC END# *479731C50290_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.Cleanup
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 procedure TvcmTabbedContainerForm.CreateParams(var Params: TCreateParams);
 //#UC START# *48C7925A02E5_534F69E702D9_var*
 //#UC END# *48C7925A02E5_534F69E702D9_var*
@@ -769,9 +732,10 @@ begin
  aParams.ExStyle := aParams.ExStyle or WS_EX_APPWINDOW;
 //#UC END# *48C7925A02E5_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.CreateParams
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvcmTabbedContainerForm.DoInit(aFromHistory: Boolean);
+ {* Инициализация формы. Для перекрытия в потомках }
 //#UC START# *49803F5503AA_534F69E702D9_var*
 //#UC END# *49803F5503AA_534F69E702D9_var*
 begin
@@ -782,6 +746,7 @@ begin
 end;//TvcmTabbedContainerForm.DoInit
 
 procedure TvcmTabbedContainerForm.InitControls;
+ {* Процедура инициализации контролов. Для перекрытия в потомках }
 //#UC START# *4A8E8F2E0195_534F69E702D9_var*
 //#UC END# *4A8E8F2E0195_534F69E702D9_var*
 begin
@@ -790,7 +755,7 @@ begin
 //#UC END# *4A8E8F2E0195_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.InitControls
 
-{$If defined(l3HackedVCL) AND not defined(NoVCL)}
+{$If Defined(l3HackedVCL) AND NOT Defined(NoVCL)}
 function TvcmTabbedContainerForm.NeedAutoScroll: Boolean;
 //#UC START# *4B0E845502C1_534F69E702D9_var*
 //#UC END# *4B0E845502C1_534F69E702D9_var*
@@ -799,11 +764,11 @@ begin
  Result := False;
 //#UC END# *4B0E845502C1_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.NeedAutoScroll
-{$IfEnd} //l3HackedVCL AND not NoVCL
+{$IfEnd} // Defined(l3HackedVCL) AND NOT Defined(NoVCL)
 
-{$If not defined(NoVCL)}
+{$If NOT Defined(NoVCL)}
 constructor TvcmTabbedContainerForm.CreateNew(AOwner: TComponent;
-  Dummy: Integer = 0);
+ Dummy: Integer);
 //#UC START# *4F9007B20376_534F69E702D9_var*
 //#UC END# *4F9007B20376_534F69E702D9_var*
 begin
@@ -814,7 +779,7 @@ begin
  LoadSettings;
 //#UC END# *4F9007B20376_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.CreateNew
-{$IfEnd} //not NoVCL
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TvcmTabbedContainerForm.MakeControls;
 //#UC START# *500004A60200_534F69E702D9_var*
@@ -865,7 +830,7 @@ begin
 end;//TvcmTabbedContainerForm.GetClientControl
 
 procedure TvcmTabbedContainerForm.DoOnTabDeselected(aTabSet: TChromeLikeTabSetControlPrim;
-  aTab: TChromeLikeTab);
+ aTab: TChromeLikeTab);
 //#UC START# *550A7E2502F7_534F69E702D9_var*
 var
  l_Container: IvcmContainedForm;
@@ -883,9 +848,9 @@ begin
 end;//TvcmTabbedContainerForm.DoOnTabDeselected
 
 procedure TvcmTabbedContainerForm.DoOnPaintTabSetBackground(aTabSet: TChromeLikeTabSetControlPrim;
-  const aRect: TRect;
-  aCanvas: TCanvas;
-  var aDefaultPainting: Boolean);
+ const aRect: TRect;
+ aCanvas: TCanvas;
+ var aDefaultPainting: Boolean);
 //#UC START# *550A7E46032C_534F69E702D9_var*
 //#UC END# *550A7E46032C_534F69E702D9_var*
 begin
@@ -895,8 +860,8 @@ begin
 end;//TvcmTabbedContainerForm.DoOnPaintTabSetBackground
 
 procedure TvcmTabbedContainerForm.DoOnCanUndockFormEvent(aTabSet: TChromeLikeTabSetControlPrim;
-  aForm: TForm;
-  var aCanUndock: Boolean);
+ aForm: TForm;
+ var aCanUndock: Boolean);
 //#UC START# *550A7E690247_534F69E702D9_var*
 //#UC END# *550A7E690247_534F69E702D9_var*
 begin
@@ -906,9 +871,9 @@ begin
 end;//TvcmTabbedContainerForm.DoOnCanUndockFormEvent
 
 procedure TvcmTabbedContainerForm.DoOnCloseTabForm(aTabSet: TChromeLikeTabSetControlPrim;
-  aTab: TChromeLikeTab;
-  var aCanClose: Boolean;
-  aNewSelectedTab: TChromeLikeTab);
+ aTab: TChromeLikeTab;
+ var aCanClose: Boolean;
+ aNewSelectedTab: TChromeLikeTab);
 //#UC START# *550A7EAB00D2_534F69E702D9_var*
 //#UC END# *550A7EAB00D2_534F69E702D9_var*
 begin
@@ -918,8 +883,8 @@ begin
 end;//TvcmTabbedContainerForm.DoOnCloseTabForm
 
 procedure TvcmTabbedContainerForm.DoOnTabSetSelectionChanged(aTabSet: TChromeLikeTabSetControlPrim;
-  aPrevSelected: TChromeLikeTab;
-  aNewSelected: TChromeLikeTab);
+ aPrevSelected: TChromeLikeTab;
+ aNewSelected: TChromeLikeTab);
 //#UC START# *550A7EC00274_534F69E702D9_var*
 var
  l_Form: TForm;
@@ -948,8 +913,8 @@ begin
 end;//TvcmTabbedContainerForm.DoOnTabSetSelectionChanged
 
 procedure TvcmTabbedContainerForm.AfterInsertForm(aForm: TForm;
-  const aParams: Il3TabParams;
-  aNeedSelect: Boolean);
+ const aParams: Il3TabParams;
+ aNeedSelect: Boolean);
 //#UC START# *550A84C1035F_534F69E702D9_var*
 var
  l_Form: TvcmEntityForm;
@@ -1028,12 +993,11 @@ begin
 //#UC END# *5518E1700367_534F69E702D9_impl*
 end;//TvcmTabbedContainerForm.MakeTabSetParams
 
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
-
 initialization
-{$If not defined(NoScripts) AND not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-// Регистрация TvcmTabbedContainerForm
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvcmTabbedContainerForm);
-{$IfEnd} //not NoScripts AND not NoTabs AND not NoVCM AND not NoVGScene
+ {* Регистрация TvcmTabbedContainerForm }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 end.

@@ -1,36 +1,23 @@
 unit NOT_FINISHED_l3RangeManager;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Автор: Жучков А.Ю.
-// Модуль: "w:/common/components/rtl/Garant/L3/NOT_FINISHED_l3RangeManager.pas"
-// Начат: 2004/01/08 14:34:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi Low Level::L3::l3Misc::Tl3RangeManager
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\NOT_FINISHED_l3RangeManager.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\L3\l3Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\l3Define.inc}
 
 interface
 
 uses
-  l3Interfaces,
-  l3CProtoObject
-  ;
+ l3IntfUses
+ , l3CProtoObject
+ , l3Interfaces
+;
 
 type
  Tl3RangeManager = class(Tl3CProtoObject, Il3RangeManager)
- protected
- // realized methods
+  protected
    function HasPage(anIndex: Integer): Boolean;
-     {* содержит ли диапазон указанную страницу. }
+    {* содержит ли диапазон указанную страницу. }
    function Get_Count: Integer;
    function Get_Pages(anIndex: Integer): Integer;
    function Get_IndexOfPage(Page: Integer): Integer;
@@ -38,9 +25,12 @@ type
 
 implementation
 
-// start class Tl3RangeManager
+uses
+ l3ImplUses
+;
 
 function Tl3RangeManager.HasPage(anIndex: Integer): Boolean;
+ {* содержит ли диапазон указанную страницу. }
 //#UC START# *46A45DA20336_4B9FBF5A021A_var*
 //#UC END# *46A45DA20336_4B9FBF5A021A_var*
 begin

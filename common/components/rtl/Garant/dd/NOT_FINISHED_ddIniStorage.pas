@@ -1,27 +1,26 @@
 unit NOT_FINISHED_ddIniStorage;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddIniStorage.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::dd$AppConfig::ddConfigStorages::TddIniStorage
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddIniStorage.pas"
+// Стереотип: "SimpleClass"
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
 type
  TddIniStorage = class
  end;//TddIniStorage
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
+
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

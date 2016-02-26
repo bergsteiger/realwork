@@ -1,37 +1,31 @@
 unit NOT_FINISHED_nsVerifyValue;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/NOT_FINISHED_nsVerifyValue.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::nsVerifyValue
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsVerifyValue.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-procedure NsEmailVerify;
-   {* Сигнатура метода nsEmailVerify }
+uses
+ l3IntfUses
+;
+
+procedure nsEmailVerify;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-procedure NsEmailVerify;
+procedure nsEmailVerify;
 //#UC START# *4C88F33402E6_4C88F30900A7_var*
 //#UC END# *4C88F33402E6_4C88F30900A7_var*
 begin
 //#UC START# *4C88F33402E6_4C88F30900A7_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4C88F33402E6_4C88F30900A7_impl*
-end;//NsEmailVerify
+end;//nsEmailVerify
 
 end.

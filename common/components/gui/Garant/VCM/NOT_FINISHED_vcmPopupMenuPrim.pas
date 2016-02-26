@@ -1,60 +1,43 @@
 unit NOT_FINISHED_vcmPopupMenuPrim;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/NOT_FINISHED_vcmPopupMenuPrim.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::VCM$Visual::PopupMenu::TvcmPopupMenuPrim
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VCM\NOT_FINISHED_vcmPopupMenuPrim.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VCM\vcmDefine.inc}
+{$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  Classes
-  {$If not defined(NoVCL)}
-  ,
-  Menus
-  {$IfEnd} //not NoVCL
-  ,
-  l3PureMixIns
-  ;
-{$IfEnd} //not NoVCM
+ l3IntfUses
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3PureMixIns
+;
 
-{$If not defined(NoVCM)}
 type
  _l3Unknown_Parent_ = TPopupMenu;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  TvcmPopupMenuPrim = class(_l3Unknown_)
  end;//TvcmPopupMenuPrim
-{$IfEnd} //not NoVCM
+{$IfEnd} // NOT Defined(NoVCM)
 
 implementation
 
-{$If not defined(NoVCM)}
+{$If NOT Defined(NoVCM)}
 uses
-  SysUtils,
-  l3Base,
-  l3Core,
-  Windows,
-  l3MemUtils,
-  l3Interlocked
-  ;
-{$IfEnd} //not NoVCM
-
-{$If not defined(NoVCM)}
+ l3ImplUses
+ , SysUtils
+ , l3Base
+ , l3Core
+ , Windows
+ , Classes
+ , l3MemUtils
+ , l3Interlocked
+;
 
 {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
+{$IfEnd} // NOT Defined(NoVCM)
 
-
-{$IfEnd} //not NoVCM
 end.

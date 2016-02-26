@@ -1,22 +1,15 @@
 unit NOT_FINISHED_bsFrozenNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Tree/NOT_FINISHED_bsFrozenNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Tree::bsFrozenNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_FINISHED_bsFrozenNode.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TbsFrozenNode = class
@@ -26,5 +19,9 @@ type
  end;//TbsCRTypeFrozen
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

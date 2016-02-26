@@ -1,28 +1,17 @@
 unit NOT_FINISHED_k2TagTool;
+ {* Инструмент для работы с тегом. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Модуль: "w:/common/components/rtl/Garant/K2/NOT_FINISHED_k2TagTool.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::k2TagTool::Tk2TagTool
-//
-// Инструмент для работы с тегом.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2TagTool.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2TagPointer
-  ;
+ l3IntfUses
+ , k2TagPointer
+;
 
 type
  Tk2TagTool = class(Tk2TagPointer)
@@ -30,5 +19,10 @@ type
  end;//Tk2TagTool
 
 implementation
+
+uses
+ l3ImplUses
+ , k2NullTagImpl
+;
 
 end.

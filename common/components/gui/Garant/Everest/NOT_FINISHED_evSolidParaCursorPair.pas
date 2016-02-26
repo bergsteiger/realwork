@@ -1,39 +1,29 @@
 unit NOT_FINISHED_evSolidParaCursorPair;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evSolidParaCursorPair.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::Everest::Cursors::TevSolidParaCursorPair
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evSolidParaCursorPair.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
 uses
-  evLeafParaCursorPair
-  ;
-{$IfEnd} //evUseVisibleCursors
+ l3IntfUses
+ , evLeafParaCursorPair
+;
 
-{$If defined(evUseVisibleCursors)}
 type
  TevSolidParaCursorPair = class(TevLeafParaCursorPair)
  end;//TevSolidParaCursorPair
-{$IfEnd} //evUseVisibleCursors
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
 
-{$If defined(evUseVisibleCursors)}
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evUseVisibleCursors)
 
-
-{$IfEnd} //evUseVisibleCursors
 end.

@@ -1,45 +1,34 @@
 unit NOT_FINISHED_k2CustomFileGenerator;
+ {* Базовый писатель тегов в файл. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/NOT_FINISHED_k2CustomFileGenerator.pas"
-// Начат: 21.02.2005 18:55
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::Generators::Tk2CustomFileGenerator
-//
-// Базовый писатель тегов в файл.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2CustomFileGenerator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2CustomStackGeneratorEx
-  ;
+ l3IntfUses
+ , k2CustomStackGeneratorEx
+;
 
 type
  Tk2CustomFileGenerator = class(Tk2CustomStackGeneratorEx)
   {* Базовый писатель тегов в файл. }
- protected
- // protected methods
+  protected
    procedure OutEOL; virtual;
-     {* Выводит конец строки. }
+    {* Выводит конец строки. }
  end;//Tk2CustomFileGenerator
 
 implementation
 
-// start class Tk2CustomFileGenerator
+uses
+ l3ImplUses
+;
 
 procedure Tk2CustomFileGenerator.OutEOL;
+ {* Выводит конец строки. }
 //#UC START# *483A6DE30208_4836BFC9011E_var*
 //#UC END# *483A6DE30208_4836BFC9011E_var*
 begin

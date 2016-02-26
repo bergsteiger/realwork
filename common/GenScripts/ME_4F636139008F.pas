@@ -64,10 +64,10 @@ type
    class procedure RemoveMouseWheelListener(const aListener: Il3MouseWheelListener);
    class procedure Add(const aListener: Il3Listener);
    class procedure Remove(const aListener: Il3Listener);
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3ListenersManager;
     {* Метод получения экземпляра синглетона Tl3ListenersManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property WndProcListeners: Tl3WndProcListenersList
     read f_WndProcListeners;
@@ -457,12 +457,6 @@ begin
 //#UC END# *4F79BD74036A_4F636139008F_impl*
 end;//Tl3ListenersManager.Remove
 
-class function Tl3ListenersManager.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ListenersManager <> nil;
-end;//Tl3ListenersManager.Exists
-
 class function Tl3ListenersManager.Instance: Tl3ListenersManager;
  {* Метод получения экземпляра синглетона Tl3ListenersManager }
 begin
@@ -473,6 +467,12 @@ begin
  end;
  Result := g_Tl3ListenersManager;
 end;//Tl3ListenersManager.Instance
+
+class function Tl3ListenersManager.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ListenersManager <> nil;
+end;//Tl3ListenersManager.Exists
 
 procedure Tl3ListenersManager.Cleanup;
  {* Функция очистки полей объекта. }

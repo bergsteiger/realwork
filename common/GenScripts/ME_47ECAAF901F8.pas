@@ -370,7 +370,8 @@ type
 
  InsTreeStructState = interface
   ['{B5B7BD25-911C-40C5-BEA7-197F865C795A}']
-  function GetIsSelected(aIndex: Integer): Boolean;
+  function GetSelectedNodeCount: Integer;
+  function GetSelectedNodeVisibleIndex(aIndex: Integer): Integer;
  end;//InsTreeStructState
 
  InsTreeStructStateProvider = interface

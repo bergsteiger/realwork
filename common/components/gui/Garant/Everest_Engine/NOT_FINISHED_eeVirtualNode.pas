@@ -1,33 +1,22 @@
 unit NOT_FINISHED_eeVirtualNode;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/NOT_FINISHED_eeVirtualNode.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Nodes::TeeVirtualNode
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeVirtualNode.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
 uses
-  eeInterfaces,
-  l3VirtualNode,
-  l3Interfaces
-  ;
+ l3IntfUses
+ , l3VirtualNode
+ , eeInterfaces
+ , l3Interfaces
+;
 
 type
  TeeVirtualNode = class(Tl3VirtualFlagsNode, IeeNode)
- protected
- // realized methods
+  protected
    function Get_Text: Il3CString;
    procedure Set_Text(const aValue: Il3CString);
    function Get_ID: Integer;
@@ -41,48 +30,39 @@ type
    function Get_ThisChildrenCount: Integer;
    function InsertChild(const aNode: IeeNode): IeeNode;
    function InsertChildBefore(const aNextChild: IeeNode;
-     const aChild: IeeNode): IeeNode;
+    const aChild: IeeNode): IeeNode;
    procedure Changing;
-     {* Сигнатура метода Changing }
    procedure Changed;
-     {* Сигнатура метода Changed }
    procedure Remove;
-     {* Сигнатура метода Remove }
    procedure Delete;
-     {* Сигнатура метода Delete }
    procedure RemoveChildren;
-     {* Сигнатура метода RemoveChildren }
    function Move(aDirection: TeeDirection): Boolean;
    procedure RelocateChild(const aChild: IeeNode);
-     {* перемещает указанного ребенка, руководствуясь критериями сортировки относительно других детей (в пределах одного уровня) }
+    {* перемещает указанного ребенка, руководствуясь критериями сортировки относительно других детей (в пределах одного уровня) }
    procedure SortChilds;
-     {* Сигнатура метода SortChilds }
    function GetLevelForParent(const aParent: IeeNode): Integer;
-     {* Рассчитывает уровень текущей ноды относительно заданного Paretnt'а }
+    {* Рассчитывает уровень текущей ноды относительно заданного Paretnt'а }
    function Iterate(anAction: TeeNodeAction;
-     anIterMode: Integer = 0;
-     const aFromNode: IeeNode = nil): IeeNode;
-     {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
+    anIterMode: Integer = 0;
+    const aFromNode: IeeNode = nil): IeeNode;
+    {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
    function IterateF(anAction: TeeNodeAction;
-     anIterMode: Integer = 0;
-     const aFromNode: IeeNode = nil): IeeNode;
-     {* перебрать все дочерние узлы и освободить заглушку для Action }
+    anIterMode: Integer = 0;
+    const aFromNode: IeeNode = nil): IeeNode;
+    {* перебрать все дочерние узлы и освободить заглушку для Action }
    function IsSameNode(const aNode: IeeNode): Boolean;
- protected
- // overridden protected methods
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
  end;//TeeVirtualNode
 
 implementation
 
 uses
-  eeNodeUtils,
-  SysUtils,
-  eeNode
-  ;
-
-// start class TeeVirtualNode
+ l3ImplUses
+ , eeNodeUtils
+ , SysUtils
+ , eeNode
+;
 
 function TeeVirtualNode.Get_Text: Il3CString;
 //#UC START# *5481A1AD011A_4ADDF343009Cget_var*
@@ -193,7 +173,7 @@ begin
 end;//TeeVirtualNode.InsertChild
 
 function TeeVirtualNode.InsertChildBefore(const aNextChild: IeeNode;
-  const aChild: IeeNode): IeeNode;
+ const aChild: IeeNode): IeeNode;
 //#UC START# *5481A2C20167_4ADDF343009C_var*
 //#UC END# *5481A2C20167_4ADDF343009C_var*
 begin
@@ -257,6 +237,7 @@ begin
 end;//TeeVirtualNode.Move
 
 procedure TeeVirtualNode.RelocateChild(const aChild: IeeNode);
+ {* перемещает указанного ребенка, руководствуясь критериями сортировки относительно других детей (в пределах одного уровня) }
 //#UC START# *5481A3190230_4ADDF343009C_var*
 //#UC END# *5481A3190230_4ADDF343009C_var*
 begin
@@ -275,6 +256,7 @@ begin
 end;//TeeVirtualNode.SortChilds
 
 function TeeVirtualNode.GetLevelForParent(const aParent: IeeNode): Integer;
+ {* Рассчитывает уровень текущей ноды относительно заданного Paretnt'а }
 //#UC START# *5481A3590043_4ADDF343009C_var*
 //#UC END# *5481A3590043_4ADDF343009C_var*
 begin
@@ -284,8 +266,9 @@ begin
 end;//TeeVirtualNode.GetLevelForParent
 
 function TeeVirtualNode.Iterate(anAction: TeeNodeAction;
-  anIterMode: Integer = 0;
-  const aFromNode: IeeNode = nil): IeeNode;
+ anIterMode: Integer = 0;
+ const aFromNode: IeeNode = nil): IeeNode;
+ {* перебрать все дочерние узлы. IterMode см. imExpandOnly etc. }
 //#UC START# *5481A3900306_4ADDF343009C_var*
 //#UC END# *5481A3900306_4ADDF343009C_var*
 begin
@@ -295,8 +278,9 @@ begin
 end;//TeeVirtualNode.Iterate
 
 function TeeVirtualNode.IterateF(anAction: TeeNodeAction;
-  anIterMode: Integer = 0;
-  const aFromNode: IeeNode = nil): IeeNode;
+ anIterMode: Integer = 0;
+ const aFromNode: IeeNode = nil): IeeNode;
+ {* перебрать все дочерние узлы и освободить заглушку для Action }
 //#UC START# *5481A3D0039F_4ADDF343009C_var*
 //#UC END# *5481A3D0039F_4ADDF343009C_var*
 begin
@@ -315,6 +299,7 @@ begin
 end;//TeeVirtualNode.IsSameNode
 
 procedure TeeVirtualNode.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_4ADDF343009C_var*
 //#UC END# *479731C50290_4ADDF343009C_var*
 begin

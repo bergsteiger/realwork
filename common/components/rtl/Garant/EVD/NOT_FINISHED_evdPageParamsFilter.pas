@@ -1,26 +1,16 @@
 unit NOT_FINISHED_evdPageParamsFilter;
+ {* Добавляет в генератор параметры страницы. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Дудко Д.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/NOT_FINISHED_evdPageParamsFilter.pas"
-// Начат: 20.01.2005 13:20
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdPageParamsFilter
-//
-// Добавляет в генератор параметры страницы.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdPageParamsFilter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TevdPageParamsFilter = class
@@ -28,5 +18,9 @@ type
  end;//TevdPageParamsFilter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

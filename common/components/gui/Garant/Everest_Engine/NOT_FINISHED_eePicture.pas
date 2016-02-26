@@ -1,47 +1,35 @@
 unit NOT_FINISHED_eePicture;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest Engine"
-// Модуль: "w:/common/components/gui/Garant/Everest_Engine/NOT_FINISHED_eePicture.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi For F1::Everest Engine::Engine Core::TeePicture
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eePicture.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest_Engine\eeDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest_Engine\eeDefine.inc}
 
 interface
 
-{$If defined(Nemesis)}
+{$If Defined(Nemesis)}
 uses
-  eeInterfaces,
-  eePara,
-  l3Interfaces,
-  ActiveX
-  ;
-{$IfEnd} //Nemesis
+ l3IntfUses
+ , eePara
+ , eeInterfaces
+ , l3Interfaces
+ , ActiveX
+;
 
-{$If defined(Nemesis)}
 type
  TeePicture = class(TeePara, IeePicture)
- protected
- // realized methods
+  protected
    function Get_Name: Il3CString;
    procedure SaveToStream(const aStream: IStream);
  end;//TeePicture
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 implementation
 
-{$If defined(Nemesis)}
-
-// start class TeePicture
+{$If Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 function TeePicture.Get_Name: Il3CString;
 //#UC START# *54819CB60119_54BE4DB30227get_var*
@@ -60,7 +48,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *54819D1601EF_54BE4DB30227_impl*
 end;//TeePicture.SaveToStream
-
-{$IfEnd} //Nemesis
+{$IfEnd} // Defined(Nemesis)
 
 end.

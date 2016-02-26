@@ -1136,11 +1136,11 @@ type
 
  Tl3NullTag = class(Tl3ProtoObject, Il3TagRef)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function AsObject: Tl3Variant;
    class function Instance: Tl3NullTag;
     {* Метод получения экземпляра синглетона Tl3NullTag }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3NullTag
 
  Tl3TagRef = class(Tl3ProtoObject, Il3TagRef)
@@ -2850,12 +2850,6 @@ begin
 //#UC END# *5329CD1A020E_47A8693601A1_impl*
 end;//Tl3PrimString.GetAsString
 
-class function Tl3NullTag.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3NullTag <> nil;
-end;//Tl3NullTag.Exists
-
 function Tl3NullTag.AsObject: Tl3Variant;
 //#UC START# *4A42196C01CE_5347F19F0007_var*
 //#UC END# *4A42196C01CE_5347F19F0007_var*
@@ -2875,6 +2869,12 @@ begin
  end;
  Result := g_Tl3NullTag;
 end;//Tl3NullTag.Instance
+
+class function Tl3NullTag.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3NullTag <> nil;
+end;//Tl3NullTag.Exists
 
 constructor Tl3TagRef.Create(aTag: Tl3Tag);
 //#UC START# *535FD1080328_535FD0BB03C3_var*

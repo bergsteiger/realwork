@@ -1,27 +1,26 @@
 unit NOT_FINISHED_ChromeLikeFormFramePainter;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/NOT_FINISHED_ChromeLikeFormFramePainter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeFormFrameDecorator::TChromeLikeFormFramePainter
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeFormFramePainter.pas"
+// Стереотип: "SimpleClass"
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+uses
+ l3IntfUses
+;
+
 type
  TChromeLikeFormFramePainter = class
  end;//TChromeLikeFormFramePainter
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
+
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 end.

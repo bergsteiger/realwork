@@ -1,57 +1,49 @@
 unit NOT_FINISHED_dt_User;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/NOT_FINISHED_dt_User.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DT::Users::dt_User
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_User.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
 type
  TUserManager = class
- public
- // public methods
-   class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+  public
    class function Instance: TUserManager;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TUserManager }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TUserManager
 
-var UserManager : TUserManager;
-{$IfEnd} //not Nemesis
+var UserManager: TUserManager;
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
-  l3Base {a}
-  ;
+ l3ImplUses
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TUserManager
-
-var g_TUserManager : TUserManager = nil;
+var g_TUserManager: TUserManager = nil;
+ {* Экземпляр синглетона TUserManager }
 
 procedure TUserManagerFree;
+ {* Метод освобождения экземпляра синглетона TUserManager }
 begin
  l3Free(g_TUserManager);
-end;
+end;//TUserManagerFree
 
 class function TUserManager.Instance: TUserManager;
+ {* Метод получения экземпляра синглетона TUserManager }
 begin
  if (g_TUserManager = nil) then
  begin
@@ -59,14 +51,13 @@ begin
   g_TUserManager := Create;
  end;
  Result := g_TUserManager;
-end;
-
+end;//TUserManager.Instance
 
 class function TUserManager.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TUserManager <> nil;
 end;//TUserManager.Exists
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

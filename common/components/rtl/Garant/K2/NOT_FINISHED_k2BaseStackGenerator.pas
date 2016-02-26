@@ -1,30 +1,17 @@
 unit NOT_FINISHED_k2BaseStackGenerator;
+ {* Генераторы тегов со стеком текущего состояния. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "K2"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/K2/NOT_FINISHED_k2BaseStackGenerator.pas"
-// Начат: 18.09.2002 10:17
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::K2::Generators::Tk2BaseStackGenerator
-//
-// Генераторы тегов со стеком текущего состояния.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\K2\NOT_FINISHED_k2BaseStackGenerator.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\K2\k2Define.inc}
+{$Include w:\common\components\rtl\Garant\K2\k2Define.inc}
 
 interface
 
 uses
-  k2TagGen
-  ;
+ l3IntfUses
+ , k2TagGen
+;
 
 type
  Tk2BaseStackGenerator = class(Tk2TagGenerator)
@@ -34,7 +21,8 @@ type
 implementation
 
 uses
-  k2Attributes
-  ;
+ l3ImplUses
+ , k2Attributes
+;
 
 end.

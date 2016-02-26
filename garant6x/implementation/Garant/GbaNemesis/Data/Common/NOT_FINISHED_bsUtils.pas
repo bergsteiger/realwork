@@ -1,208 +1,185 @@
 unit NOT_FINISHED_bsUtils;
+ {* Утилитные функции бизнес уровня. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Data"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Data/Common/NOT_FINISHED_bsUtils.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> F1 Базовые определения предметной области::LegalDomain::Data::Common::bsUtils
-//
-// Утилитные функции бизнес уровня.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_bsUtils.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
 uses
-  DynamicDocListUnit
-  ;
+ l3IntfUses
+ , DynamicDocListUnit
+;
 
-function BsIsListSaved(const aList: IDynList): Boolean;
-   {* - определяет был ли сохранен список. }
-procedure BsComplectOwner;
-   {* Сигнатура метода bsComplectOwner }
-procedure BsComplectName;
-   {* Сигнатура метода bsComplectName }
-procedure BsBaseDate;
-   {* Сигнатура метода bsBaseDate }
-procedure BsGetConsultation;
-   {* Сигнатура метода bsGetConsultation }
-procedure BsMakeExportVisualizer;
-   {* Сигнатура метода bsMakeExportVisualizer }
-procedure BsListName;
-   {* Сигнатура метода bsListName }
-procedure BsHasFlag;
-   {* Сигнатура метода bsHasFlag }
-procedure BsGetQuery;
-   {* Сигнатура метода bsGetQuery }
-procedure BsDocPosIsSame;
-   {* Сигнатура метода bsDocPosIsSame }
-procedure BsBuildFullList;
-   {* Сигнатура метода bsBuildFullList }
-procedure BsMakeSaveVisualizer;
-   {* Сигнатура метода bsMakeSaveVisualizer }
-procedure BsFullControlStatusHint;
-   {* Сигнатура метода bsFullControlStatusHint }
-procedure BsLanguageImage;
-   {* Сигнатура метода bsLanguageImage }
-procedure BsLanguageCaption;
-   {* Сигнатура метода bsLanguageCaption }
-procedure BsEditorAddPara;
-   {* Сигнатура метода bsEditorAddPara }
+procedure bsComplectOwner;
+procedure bsComplectName;
+procedure bsBaseDate;
+procedure bsGetConsultation;
+procedure bsMakeExportVisualizer;
+procedure bsListName;
+procedure bsHasFlag;
+procedure bsGetQuery;
+procedure bsDocPosIsSame;
+procedure bsBuildFullList;
+procedure bsMakeSaveVisualizer;
+procedure bsFullControlStatusHint;
+procedure bsLanguageImage;
+procedure bsLanguageCaption;
+procedure bsEditorAddPara;
+function bsIsListSaved(const aList: IDynList): Boolean;
+ {* - определяет был ли сохранен список. }
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-procedure BsComplectOwner;
+procedure bsComplectOwner;
 //#UC START# *4ABC7F0F0323_47F21FE90379_var*
 //#UC END# *4ABC7F0F0323_47F21FE90379_var*
 begin
 //#UC START# *4ABC7F0F0323_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ABC7F0F0323_47F21FE90379_impl*
-end;//BsComplectOwner
+end;//bsComplectOwner
 
-procedure BsComplectName;
+procedure bsComplectName;
 //#UC START# *4ABC7F1F0197_47F21FE90379_var*
 //#UC END# *4ABC7F1F0197_47F21FE90379_var*
 begin
 //#UC START# *4ABC7F1F0197_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ABC7F1F0197_47F21FE90379_impl*
-end;//BsComplectName
+end;//bsComplectName
 
-procedure BsBaseDate;
+procedure bsBaseDate;
 //#UC START# *4ABC7F2D03CA_47F21FE90379_var*
 //#UC END# *4ABC7F2D03CA_47F21FE90379_var*
 begin
 //#UC START# *4ABC7F2D03CA_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ABC7F2D03CA_47F21FE90379_impl*
-end;//BsBaseDate
+end;//bsBaseDate
 
-procedure BsGetConsultation;
+procedure bsGetConsultation;
 //#UC START# *4ABCED74003A_47F21FE90379_var*
 //#UC END# *4ABCED74003A_47F21FE90379_var*
 begin
 //#UC START# *4ABCED74003A_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4ABCED74003A_47F21FE90379_impl*
-end;//BsGetConsultation
+end;//bsGetConsultation
 
-procedure BsMakeExportVisualizer;
+procedure bsMakeExportVisualizer;
 //#UC START# *4AE1B36303E5_47F21FE90379_var*
 //#UC END# *4AE1B36303E5_47F21FE90379_var*
 begin
 //#UC START# *4AE1B36303E5_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AE1B36303E5_47F21FE90379_impl*
-end;//BsMakeExportVisualizer
+end;//bsMakeExportVisualizer
 
-procedure BsListName;
+procedure bsListName;
 //#UC START# *4AE864F602AD_47F21FE90379_var*
 //#UC END# *4AE864F602AD_47F21FE90379_var*
 begin
 //#UC START# *4AE864F602AD_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AE864F602AD_47F21FE90379_impl*
-end;//BsListName
+end;//bsListName
 
-procedure BsHasFlag;
+procedure bsHasFlag;
 //#UC START# *4AF8194100DF_47F21FE90379_var*
 //#UC END# *4AF8194100DF_47F21FE90379_var*
 begin
 //#UC START# *4AF8194100DF_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4AF8194100DF_47F21FE90379_impl*
-end;//BsHasFlag
+end;//bsHasFlag
 
-procedure BsGetQuery;
+procedure bsGetQuery;
 //#UC START# *4B1E5BCF0294_47F21FE90379_var*
 //#UC END# *4B1E5BCF0294_47F21FE90379_var*
 begin
 //#UC START# *4B1E5BCF0294_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4B1E5BCF0294_47F21FE90379_impl*
-end;//BsGetQuery
+end;//bsGetQuery
 
-procedure BsDocPosIsSame;
+procedure bsDocPosIsSame;
 //#UC START# *4B1E8D5A01FE_47F21FE90379_var*
 //#UC END# *4B1E8D5A01FE_47F21FE90379_var*
 begin
 //#UC START# *4B1E8D5A01FE_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4B1E8D5A01FE_47F21FE90379_impl*
-end;//BsDocPosIsSame
+end;//bsDocPosIsSame
 
-procedure BsBuildFullList;
+procedure bsBuildFullList;
 //#UC START# *4C319BD3036E_47F21FE90379_var*
 //#UC END# *4C319BD3036E_47F21FE90379_var*
 begin
 //#UC START# *4C319BD3036E_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4C319BD3036E_47F21FE90379_impl*
-end;//BsBuildFullList
+end;//bsBuildFullList
 
-procedure BsMakeSaveVisualizer;
+procedure bsMakeSaveVisualizer;
 //#UC START# *4C5303F20277_47F21FE90379_var*
 //#UC END# *4C5303F20277_47F21FE90379_var*
 begin
 //#UC START# *4C5303F20277_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4C5303F20277_47F21FE90379_impl*
-end;//BsMakeSaveVisualizer
+end;//bsMakeSaveVisualizer
 
-procedure BsFullControlStatusHint;
+procedure bsFullControlStatusHint;
 //#UC START# *4C80D9790182_47F21FE90379_var*
 //#UC END# *4C80D9790182_47F21FE90379_var*
 begin
 //#UC START# *4C80D9790182_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4C80D9790182_47F21FE90379_impl*
-end;//BsFullControlStatusHint
+end;//bsFullControlStatusHint
 
-procedure BsLanguageImage;
+procedure bsLanguageImage;
 //#UC START# *4D7792C0018D_47F21FE90379_var*
 //#UC END# *4D7792C0018D_47F21FE90379_var*
 begin
 //#UC START# *4D7792C0018D_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D7792C0018D_47F21FE90379_impl*
-end;//BsLanguageImage
+end;//bsLanguageImage
 
-procedure BsLanguageCaption;
+procedure bsLanguageCaption;
 //#UC START# *4D7792D90132_47F21FE90379_var*
 //#UC END# *4D7792D90132_47F21FE90379_var*
 begin
 //#UC START# *4D7792D90132_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4D7792D90132_47F21FE90379_impl*
-end;//BsLanguageCaption
+end;//bsLanguageCaption
 
-procedure BsEditorAddPara;
+procedure bsEditorAddPara;
 //#UC START# *4DB988EC015B_47F21FE90379_var*
 //#UC END# *4DB988EC015B_47F21FE90379_var*
 begin
 //#UC START# *4DB988EC015B_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4DB988EC015B_47F21FE90379_impl*
-end;//BsEditorAddPara
+end;//bsEditorAddPara
 
-function BsIsListSaved(const aList: IDynList): Boolean;
+function bsIsListSaved(const aList: IDynList): Boolean;
+ {* - определяет был ли сохранен список. }
 //#UC START# *47F221340118_47F21FE90379_var*
 //#UC END# *47F221340118_47F21FE90379_var*
 begin
 //#UC START# *47F221340118_47F21FE90379_impl*
  !!! Needs to be implemented !!!
 //#UC END# *47F221340118_47F21FE90379_impl*
-end;//BsIsListSaved
+end;//bsIsListSaved
 
 end.

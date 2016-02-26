@@ -1,37 +1,27 @@
 unit NOT_FINISHED_ChromeLikeTabGlyph;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/NOT_FINISHED_ChromeLikeTabGlyph.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeTabSet::TChromeLikeTabGlyph
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeTabGlyph.pas"
+// Стереотип: "SimpleClass"
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+uses
+ l3IntfUses
+;
+
 type
  TChromeLikeTabGlyph = class
  end;//TChromeLikeTabGlyph
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  vgBitmap
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3ImplUses
+ , vgBitmap
+;
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
 end.

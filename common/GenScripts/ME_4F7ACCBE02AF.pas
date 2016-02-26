@@ -23,10 +23,10 @@ type
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3MouseWheelHelper;
     {* Метод получения экземпляра синглетона Tl3MouseWheelHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3MouseWheelHelper
 
 implementation
@@ -47,12 +47,6 @@ procedure Tl3MouseWheelHelperFree;
 begin
  l3Free(g_Tl3MouseWheelHelper);
 end;//Tl3MouseWheelHelperFree
-
-class function Tl3MouseWheelHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3MouseWheelHelper <> nil;
-end;//Tl3MouseWheelHelper.Exists
 
 procedure Tl3MouseWheelHelper.MouseWheelListenerNotify(Msg: PMsg;
  var theResult: Tl3HookProcResult);
@@ -85,6 +79,12 @@ begin
  end;
  Result := g_Tl3MouseWheelHelper;
 end;//Tl3MouseWheelHelper.Instance
+
+class function Tl3MouseWheelHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3MouseWheelHelper <> nil;
+end;//Tl3MouseWheelHelper.Exists
 
 procedure Tl3MouseWheelHelper.Cleanup;
  {* Функция очистки полей объекта. }

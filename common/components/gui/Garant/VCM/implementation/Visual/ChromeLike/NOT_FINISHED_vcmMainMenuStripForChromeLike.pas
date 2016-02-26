@@ -1,47 +1,32 @@
 unit NOT_FINISHED_vcmMainMenuStripForChromeLike;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VCM$Visual"
-// Модуль: "w:/common/components/gui/Garant/VCM/implementation/Visual/ChromeLike/NOT_FINISHED_vcmMainMenuStripForChromeLike.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VCM$Visual::Visual$ChromeLike::TvcmMainMenuStripForChromeLike
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmMainMenuStripForChromeLike.pas"
+// Стереотип: "GuiControl"
 
 {$Include w:\common\components\gui\Garant\VCM\vcmDefine.inc}
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  vcmBaseMenuForChromeLike
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3IntfUses
+ , vcmBaseMenuForChromeLike
+;
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
 type
  TvcmMainMenuStripForChromeLike = class(TvcmBaseMenuForChromeLike)
  end;//TvcmMainMenuStripForChromeLike
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)}
 uses
-  vcmMenuForChromeLikeItems,
-  vcmDropDownMenuForChromeLike,
-  vcmPopupControlWindowService
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3ImplUses
+ , vcmMenuForChromeLikeItems
+ , vcmDropDownMenuForChromeLike
+ , vcmPopupControlWindowService
+;
+{$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoVGScene) AND NOT Defined(NoTabs)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
 end.

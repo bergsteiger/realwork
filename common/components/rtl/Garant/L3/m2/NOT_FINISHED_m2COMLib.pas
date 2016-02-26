@@ -1,36 +1,31 @@
 unit NOT_FINISHED_m2COMLib;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/m2/NOT_FINISHED_m2COMLib.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::m2::m2COMLib
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2COMLib.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\m2\m2Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\m2\m2Define.inc}
 
 interface
 
-procedure M2COMGetSize;
+uses
+ l3IntfUses
+;
+
+procedure m2COMGetSize;
 
 implementation
 
-// unit methods
+uses
+ l3ImplUses
+;
 
-procedure M2COMGetSize;
+procedure m2COMGetSize;
 //#UC START# *49B952D90216_49B952CD03A6_var*
 //#UC END# *49B952D90216_49B952CD03A6_var*
 begin
 //#UC START# *49B952D90216_49B952CD03A6_impl*
  !!! Needs to be implemented !!!
 //#UC END# *49B952D90216_49B952CD03A6_impl*
-end;//M2COMGetSize
+end;//m2COMGetSize
 
 end.

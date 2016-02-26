@@ -1,36 +1,31 @@
 unit NOT_FINISHED_dt_Sab;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DT"
-// Модуль: "w:/common/components/rtl/Garant/DT/NOT_FINISHED_dt_Sab.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi For Archi::DT::DataAccess::dt_Sab
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\DT\NOT_FINISHED_dt_Sab.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\DT\DtDefine.inc}
+{$Include w:\common\components\rtl\Garant\DT\DtDefine.inc}
 
 interface
 
-{$If not defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+;
+
 type
- IValueSetFiller = interface(IUnknown)
-   ['{2312E8B1-47E7-4451-AA07-3A9E4E07812D}']
+ IValueSetFiller = interface
+  ['{2312E8B1-47E7-4451-AA07-3A9E4E07812D}']
  end;//IValueSetFiller
+
 procedure MakeSab;
-   {* Сигнатура метода MakeSab }
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If not defined(Nemesis)}
-// unit methods
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+;
 
 procedure MakeSab;
 //#UC START# *559D266C032B_519B719002F1_var*
@@ -40,6 +35,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *559D266C032B_519B719002F1_impl*
 end;//MakeSab
-{$IfEnd} //not Nemesis
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

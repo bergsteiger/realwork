@@ -1,30 +1,17 @@
 unit NOT_FINISHED_evdNativeReader;
+ {* Читатель тегов в формате evd. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/NOT_FINISHED_evdNativeReader.pas"
-// Начат: 05.10.1999 13:53
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Readers::TevdNativeReader
-//
-// Читатель тегов в формате evd.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdNativeReader.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  k2CustomFileParser
-  ;
+ l3IntfUses
+ , k2CustomFileParser
+;
 
 type
  TevdNativeReader = class(Tk2CustomFileParser)
@@ -34,7 +21,8 @@ type
 implementation
 
 uses
-  evdNativeReaderServices
-  ;
+ l3ImplUses
+ , evdNativeReaderServices
+;
 
 end.

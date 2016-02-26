@@ -1,44 +1,31 @@
 unit NOT_FINISHED_evdSchema;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evdSchema.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Schemas::evdSchema
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evdSchema.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
 
 implementation
 
 uses
-  evNative_Schema
-  {$If defined(Archi)}
-  ,
-  evArchi_Schema
-  {$IfEnd} //Archi
-  
-  {$If defined(evMyEditor)}
-  ,
-  My_Schema
-  {$IfEnd} //evMyEditor
-  ,
-  Everest_Schema
-  {$If defined(DesignTimeLibrary)}
-  ,
-  Design_Schema
-  {$IfEnd} //DesignTimeLibrary
-  
-  ;
+ l3ImplUses
+ , evNative_Schema
+ {$If Defined(Archi)}
+ , evArchi_Schema
+ {$IfEnd} // Defined(Archi)
+ {$If Defined(evMyEditor)}
+ , My_Schema
+ {$IfEnd} // Defined(evMyEditor)
+ , Everest_Schema
+ {$If Defined(DesignTimeLibrary)}
+ , Design_Schema
+ {$IfEnd} // Defined(DesignTimeLibrary)
+;
 
 end.

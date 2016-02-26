@@ -1,45 +1,35 @@
 unit NOT_FINISHED_FormFrameDecorator;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "ChromeLikeControls"
-// Модуль: "w:/common/components/gui/Garant/ChromeLikeControls/NOT_FINISHED_FormFrameDecorator.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::ChromeLikeControls::ChromeLikeFormFrameDecorator::TFormFrameDecorator
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_FormFrameDecorator.pas"
+// Стереотип: "GuiControl"
 
 interface
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
+uses
+ l3IntfUses
+;
+
 type
- TFormFrameDecoratorNeedRecreateButtonsEvent = procedure (aDecorator: TFormFrameDecorator) of object;
+ TFormFrameDecoratorNeedRecreateButtonsEvent = procedure(aDecorator: TFormFrameDecorator) of object;
 
  TFormFrameDecorator = class
  end;//TFormFrameDecorator
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
 implementation
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
+{$If NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)}
 uses
-  ChromeLikeFormFramePainter,
-  ChromeLikeWindowCaptionButtonsRes,
-  ChromeLikeFormCaptionData,
-  ChromeLikeBaseWindowCaptionButton,
-  ChromeLikeTypes,
-  ChromeLikeLegacyWindowCaptionButtons,
-  ChromeLikeThemedWindowCaptionButtons
-  ;
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
+ l3ImplUses
+ , ChromeLikeFormFramePainter
+ , ChromeLikeWindowCaptionButtonsRes
+ , ChromeLikeFormCaptionData
+ , ChromeLikeBaseWindowCaptionButton
+ , ChromeLikeTypes
+ , ChromeLikeLegacyWindowCaptionButtons
+ , ChromeLikeThemedWindowCaptionButtons
+;
+{$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoVCM) AND NOT Defined(NoTabs)
 
-{$If not defined(NoTabs) AND not defined(NoVCM) AND not defined(NoVGScene)}
-
-
-{$IfEnd} //not NoTabs AND not NoVCM AND not NoVGScene
 end.

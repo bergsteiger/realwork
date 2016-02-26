@@ -1,24 +1,24 @@
 unit NOT_FINISHED_m2XLtLib;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "L3"
-// Модуль: "w:/common/components/rtl/Garant/L3/m2/NOT_FINISHED_m2XLtLib.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Low Level::L3::m2::m2XLtLib
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2XLtLib.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\m2\m2Define.inc}
+{$Include w:\common\components\rtl\Garant\L3\m2\m2Define.inc}
 
 interface
 
+{$If Defined(l3Requires_m0)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // Defined(l3Requires_m0)
 
 implementation
+
+{$If Defined(l3Requires_m0)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(l3Requires_m0)
 
 end.

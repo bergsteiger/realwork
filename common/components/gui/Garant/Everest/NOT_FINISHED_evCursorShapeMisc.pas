@@ -1,24 +1,24 @@
 unit NOT_FINISHED_evCursorShapeMisc;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evCursorShapeMisc.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::Cursors::evCursorShapeMisc
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evCursorShapeMisc.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3IntfUses
+;
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 implementation
+
+{$If Defined(evUseVisibleCursors)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

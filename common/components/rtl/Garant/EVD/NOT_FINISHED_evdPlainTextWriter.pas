@@ -1,30 +1,17 @@
 unit NOT_FINISHED_evdPlainTextWriter;
+ {* Пользовательский класс для записи txt-файлов. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "EVD"
-// Автор: Люлин А.В.
-// Модуль: "w:/common/components/rtl/Garant/EVD/NOT_FINISHED_evdPlainTextWriter.pas"
-// Начат: 14.05.2004 19:42
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> Shared Delphi::EVD::Generators::TevdPlainTextWriter
-//
-// Пользовательский класс для записи txt-файлов.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\EVD\NOT_FINISHED_evdPlainTextWriter.pas"
+// Стереотип: "SimpleClass"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\EVD\evdDefine.inc}
+{$Include w:\common\components\rtl\Garant\EVD\evdDefine.inc}
 
 interface
 
 uses
-  evdCustomPlainTextWriter
-  ;
+ l3IntfUses
+ , evdCustomPlainTextWriter
+;
 
 type
  TevdPlainTextWriter = class(TevdCustomPlainTextWriter)
@@ -32,5 +19,9 @@ type
  end;//TevdPlainTextWriter
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.

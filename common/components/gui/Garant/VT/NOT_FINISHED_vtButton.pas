@@ -1,35 +1,29 @@
 unit NOT_FINISHED_vtButton;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "VT"
-// Модуль: "w:/common/components/gui/Garant/VT/NOT_FINISHED_vtButton.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<GuiControl::Class>> Shared Delphi::VT::Buttons::TvtButton
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\VT\NOT_FINISHED_vtButton.pas"
+// Стереотип: "GuiControl"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\VT\vtDefine.inc}
+{$Include w:\common\components\gui\Garant\VT\vtDefine.inc}
 
 interface
 
 uses
-  eeButton
-  ;
+ l3IntfUses
+ , eeButton
+;
 
 type
  _vtUnicodeButtonControl_Parent_ = TeeButton;
- {$Include ..\VT\vtUnicodeButtonControl.imp.pas}
+ {$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
  TvtButton = class(_vtUnicodeButtonControl_)
  end;//TvtButton
 
 implementation
 
-{$Include ..\VT\vtUnicodeButtonControl.imp.pas}
+uses
+ l3ImplUses
+;
+
+{$Include w:\common\components\gui\Garant\VT\vtUnicodeButtonControl.imp.pas}
 
 end.

@@ -1,35 +1,24 @@
 unit NOT_FINISHED_evExtFormat;
+ {* Модуль для обработки дополнительных форматов. Для обработки форматов достаточно подключения данного модуля в секции uses. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/ext/NOT_FINISHED_evExtFormat.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::ext::evExtFormat
-//
-// Модуль для обработки дополнительных форматов. Для обработки форматов достаточно подключения
-// данного модуля в секции uses.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\gui\Garant\Everest\ext\NOT_FINISHED_evExtFormat.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
 
 implementation
 
 uses
-  evPDFWriter,
-  evdScriptHyperlinkEliminator
-  ;
-
-// unit methods
+ l3ImplUses
+ , evdScriptHyperlinkEliminator
+ , evPDFWriter
+;
 
 procedure GetWriter;
 //#UC START# *4F35353B00EE_4D514CA600C2_var*

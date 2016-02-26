@@ -1,35 +1,29 @@
 unit NOT_FINISHED_evTableRowHotSpot;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Everest"
-// Модуль: "w:/common/components/gui/Garant/Everest/NOT_FINISHED_evTableRowHotSpot.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::Everest::HotSpots::evTableRowHotSpot
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\gui\Garant\Everest\NOT_FINISHED_evTableRowHotSpot.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\Everest\evDefine.inc}
+{$Include w:\common\components\gui\Garant\Everest\evDefine.inc}
 
 interface
 
-{$If defined(evNeedHotSpot)}
+{$If Defined(evNeedHotSpot)}
 uses
-  evParaListHotSpotTester
-  ;
+ l3IntfUses
+ , evParaListHotSpotTester
+;
 
 type
  TevTableRowHotSpotTester = class(TevParaListHotSpotTester)
  end;//TevTableRowHotSpotTester
-{$IfEnd} //evNeedHotSpot
+{$IfEnd} // Defined(evNeedHotSpot)
 
 implementation
 
-{$If defined(evNeedHotSpot)}
-{$IfEnd} //evNeedHotSpot
+{$If Defined(evNeedHotSpot)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(evNeedHotSpot)
+
 end.

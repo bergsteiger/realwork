@@ -65,13 +65,13 @@ type
   public
    procedure StartWaitingToPrint(const aCtx: TtfwContext);
    procedure EndWatingToPrint;
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetPanel: IafwPreviewPanel; override;
    procedure CheckResult; override;
    function IsWaitingPrint: Boolean; override;
    class function Instance: TkwPrintDataSaver;
     {* Метод получения экземпляра синглетона TkwPrintDataSaver }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TkwPrintDataSaver
 {$IfEnd} // Defined(InsiderTest) AND NOT Defined(NoScripts)
 
@@ -183,12 +183,6 @@ begin
   f_Context.rCaller.Check(False, 'Непарность вызовов начала и окончания печати!');
 //#UC END# *4F72D927016C_4F72AE860228_impl*
 end;//TkwPrintDataSaver.EndWatingToPrint
-
-class function TkwPrintDataSaver.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TkwPrintDataSaver <> nil;
-end;//TkwPrintDataSaver.Exists
 
 procedure TkwPrintDataSaver.SetCurrentPage(aValue: Integer);
 //#UC START# *473D86B20150_4F72AE860228_var*
@@ -426,6 +420,12 @@ begin
  end;
  Result := g_TkwPrintDataSaver;
 end;//TkwPrintDataSaver.Instance
+
+class function TkwPrintDataSaver.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TkwPrintDataSaver <> nil;
+end;//TkwPrintDataSaver.Exists
 
 procedure TkwPrintDataSaver.Cleanup;
  {* Функция очистки полей объекта. }

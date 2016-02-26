@@ -1,27 +1,24 @@
 unit NOT_FINISHED_ddAppConfigWFrame;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "dd$AppConfig"
-// Модуль: "w:/common/components/rtl/Garant/dd/NOT_FINISHED_ddAppConfigWFrame.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi::dd$AppConfig::AppConfig::ddAppConfigWFrame
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Модуль: "w:\common\components\rtl\Garant\dd\NOT_FINISHED_ddAppConfigWFrame.pas"
+// Стереотип: "UtilityPack"
 
-// ! Этот файл используется только для моделирования, а не для компиляции. !
-
-{$Include ..\dd\ddDefine.inc}
+{$Include w:\common\components\rtl\Garant\dd\ddDefine.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TWorkFrame = class
  end;//TWorkFrame
 
 implementation
+
+uses
+ l3ImplUses
+;
 
 end.
