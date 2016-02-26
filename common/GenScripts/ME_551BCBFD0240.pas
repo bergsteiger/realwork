@@ -40,13 +40,13 @@ type
    procedure pm_SetAlien(const aValue: Il3FormatObjectInfoHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function Format(anObject: TObject;
     aShortInfo: Boolean;
     anObjectPropFound: TRTTIInfoObjectPropertyFoundCallBack): AnsiString;
    class function Instance: Tl3FormatObjectInfoHelper;
     {* Метод получения экземпляра синглетона Tl3FormatObjectInfoHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3FormatObjectInfoHelper
     write pm_SetAlien;
@@ -82,12 +82,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3FormatObjectInfoHelper.pm_SetAlien
-
-class function Tl3FormatObjectInfoHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3FormatObjectInfoHelper <> nil;
-end;//Tl3FormatObjectInfoHelper.Exists
 
 function Tl3FormatObjectInfoHelper.Format(anObject: TObject;
  aShortInfo: Boolean;
@@ -164,6 +158,12 @@ begin
  end;
  Result := g_Tl3FormatObjectInfoHelper;
 end;//Tl3FormatObjectInfoHelper.Instance
+
+class function Tl3FormatObjectInfoHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3FormatObjectInfoHelper <> nil;
+end;//Tl3FormatObjectInfoHelper.Exists
 
 procedure Tl3FormatObjectInfoHelper.ClearFields;
 begin

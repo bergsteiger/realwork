@@ -65,10 +65,10 @@ Alt+Ctrl+Shift+A - контрол в фокусе. }
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3ComponentInfoHelper;
     {* Метод получения экземпляра синглетона Tl3ComponentInfoHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3ComponentInfoHelper
 
 implementation
@@ -309,12 +309,6 @@ begin
  //#UC END# *551D508901D0afteriter*
 end;//Tl3ComponentInfoHelper.FormatObjectInfo
 
-class function Tl3ComponentInfoHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ComponentInfoHelper <> nil;
-end;//Tl3ComponentInfoHelper.Exists
-
 procedure Tl3ComponentInfoHelper.GetMessageListenerNotify(Code: Integer;
  aWParam: WPARAM;
  Msg: PMsg;
@@ -375,6 +369,12 @@ begin
  end;
  Result := g_Tl3ComponentInfoHelper;
 end;//Tl3ComponentInfoHelper.Instance
+
+class function Tl3ComponentInfoHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ComponentInfoHelper <> nil;
+end;//Tl3ComponentInfoHelper.Exists
 
 procedure Tl3ComponentInfoHelper.Cleanup;
  {* Функция очистки полей объекта. }

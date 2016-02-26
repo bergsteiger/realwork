@@ -40,14 +40,14 @@ type
    procedure pm_SetAlien(const aValue: Il3PicturePathService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure SetTestName(const aName: AnsiString);
    procedure AddPicturePath(const aPath: AnsiString);
    procedure SetEnableSave(aValue: Boolean);
    procedure SetPDF4Etalon(aValue: Boolean);
    class function Instance: Tl3PicturePathService;
     {* Метод получения экземпляра синглетона Tl3PicturePathService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3PicturePathService
     write pm_SetAlien;
@@ -79,12 +79,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3PicturePathService.pm_SetAlien
-
-class function Tl3PicturePathService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3PicturePathService <> nil;
-end;//Tl3PicturePathService.Exists
 
 procedure Tl3PicturePathService.SetTestName(const aName: AnsiString);
 //#UC START# *2DCD42915D2E_552406830331_var*
@@ -136,6 +130,12 @@ begin
  end;
  Result := g_Tl3PicturePathService;
 end;//Tl3PicturePathService.Instance
+
+class function Tl3PicturePathService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3PicturePathService <> nil;
+end;//Tl3PicturePathService.Exists
 
 procedure Tl3PicturePathService.ClearFields;
 begin

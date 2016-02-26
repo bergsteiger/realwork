@@ -35,11 +35,11 @@ type
    procedure pm_SetAlien(const aValue: Il3PopupControlService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function IsPopupControlWindow(aControlWnd: HWND): Boolean;
    class function Instance: Tl3PopupControlService;
     {* Метод получения экземпляра синглетона Tl3PopupControlService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3PopupControlService
     write pm_SetAlien;
@@ -68,12 +68,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3PopupControlService.pm_SetAlien
-
-class function Tl3PopupControlService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3PopupControlService <> nil;
-end;//Tl3PopupControlService.Exists
 
 function Tl3PopupControlService.IsPopupControlWindow(aControlWnd: HWND): Boolean;
 //#UC START# *D2E4642CC7BC_55879E12008D_var*
@@ -106,6 +100,12 @@ begin
  end;
  Result := g_Tl3PopupControlService;
 end;//Tl3PopupControlService.Instance
+
+class function Tl3PopupControlService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3PopupControlService <> nil;
+end;//Tl3PopupControlService.Exists
 
 procedure Tl3PopupControlService.ClearFields;
 begin

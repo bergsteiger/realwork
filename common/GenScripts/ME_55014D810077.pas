@@ -36,11 +36,11 @@ type
    procedure pm_SetAlien(const aValue: Il3CloseFormHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function Close(aControl: TWinControl): Boolean;
    class function Instance: Tl3CloseFormHelper;
     {* Метод получения экземпляра синглетона Tl3CloseFormHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3CloseFormHelper
     write pm_SetAlien;
@@ -73,12 +73,6 @@ begin
  f_Alien := aValue;
 end;//Tl3CloseFormHelper.pm_SetAlien
 
-class function Tl3CloseFormHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3CloseFormHelper <> nil;
-end;//Tl3CloseFormHelper.Exists
-
 function Tl3CloseFormHelper.Close(aControl: TWinControl): Boolean;
 //#UC START# *A1E64DB467E3_55014D810077_var*
 //#UC END# *A1E64DB467E3_55014D810077_var*
@@ -106,6 +100,12 @@ begin
  end;
  Result := g_Tl3CloseFormHelper;
 end;//Tl3CloseFormHelper.Instance
+
+class function Tl3CloseFormHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3CloseFormHelper <> nil;
+end;//Tl3CloseFormHelper.Exists
 
 procedure Tl3CloseFormHelper.ClearFields;
 begin

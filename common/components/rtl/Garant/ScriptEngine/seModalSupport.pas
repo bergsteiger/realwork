@@ -18,12 +18,12 @@ uses
 type
  TseModalService = {final} class(Tl3ProtoObject, Il3ModalService)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function HasModalWorker: Boolean;
    function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
    class function Instance: TseModalService;
     {* Метод получения экземпляра синглетона TseModalService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TseModalService
 
 function seAddModalWorker(aWorker: TtfwWord;
@@ -111,12 +111,6 @@ begin
 //#UC END# *5193915002D8_4FC7541C02BA_impl*
 end;//seIsValidModalWorkersCount
 
-class function TseModalService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TseModalService <> nil;
-end;//TseModalService.Exists
-
 function TseModalService.HasModalWorker: Boolean;
 //#UC START# *553F7345032E_553F737A02D6_var*
 //#UC END# *553F7345032E_553F737A02D6_var*
@@ -145,6 +139,12 @@ begin
  end;
  Result := g_TseModalService;
 end;//TseModalService.Instance
+
+class function TseModalService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TseModalService <> nil;
+end;//TseModalService.Exists
 
 initialization
  Tl3ModalService.Instance.Alien := TseModalService.Instance;

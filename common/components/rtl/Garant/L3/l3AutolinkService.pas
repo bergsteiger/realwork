@@ -37,12 +37,12 @@ type
    procedure pm_SetAlien(const aValue: Il3AutolinkService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetAutolinkFilter: Ik2TagGenerator;
    procedure CleanAutolinkFilter;
    class function Instance: Tl3AutolinkService;
     {* Метод получения экземпляра синглетона Tl3AutolinkService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3AutolinkService
     write pm_SetAlien;
@@ -74,12 +74,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3AutolinkService.pm_SetAlien
-
-class function Tl3AutolinkService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3AutolinkService <> nil;
-end;//Tl3AutolinkService.Exists
 
 function Tl3AutolinkService.GetAutolinkFilter: Ik2TagGenerator;
 //#UC START# *27BE83734EFD_552BF69B039B_var*
@@ -113,6 +107,12 @@ begin
  end;
  Result := g_Tl3AutolinkService;
 end;//Tl3AutolinkService.Instance
+
+class function Tl3AutolinkService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3AutolinkService <> nil;
+end;//Tl3AutolinkService.Exists
 
 procedure Tl3AutolinkService.ClearFields;
 begin

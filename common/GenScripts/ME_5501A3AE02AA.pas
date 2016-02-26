@@ -34,11 +34,11 @@ type
    procedure pm_SetAlien(const aValue: Il3DispatcherHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure ClearHistory;
    class function Instance: Tl3DispatcherHelper;
     {* Метод получения экземпляра синглетона Tl3DispatcherHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3DispatcherHelper
     write pm_SetAlien;
@@ -68,12 +68,6 @@ begin
  f_Alien := aValue;
 end;//Tl3DispatcherHelper.pm_SetAlien
 
-class function Tl3DispatcherHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3DispatcherHelper <> nil;
-end;//Tl3DispatcherHelper.Exists
-
 procedure Tl3DispatcherHelper.ClearHistory;
 //#UC START# *CA1F3F463873_5501A3AE02AA_var*
 //#UC END# *CA1F3F463873_5501A3AE02AA_var*
@@ -94,6 +88,12 @@ begin
  end;
  Result := g_Tl3DispatcherHelper;
 end;//Tl3DispatcherHelper.Instance
+
+class function Tl3DispatcherHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3DispatcherHelper <> nil;
+end;//Tl3DispatcherHelper.Exists
 
 procedure Tl3DispatcherHelper.ClearFields;
 begin

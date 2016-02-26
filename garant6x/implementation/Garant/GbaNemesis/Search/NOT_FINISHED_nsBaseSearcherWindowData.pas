@@ -1,47 +1,30 @@
 unit NOT_FINISHED_nsBaseSearcherWindowData;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search$Lib"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/NOT_FINISHED_nsBaseSearcherWindowData.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::Search$Lib::BaseSearch::TnsBaseSearcherWindowData
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsBaseSearcherWindowData.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  l3ProtoObject,
-  BaseSearchInterfaces,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , l3ProtoObject
+ , BaseSearchInterfaces
+ , l3Interfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
  TnsBaseSearcherWindowData = class(Tl3ProtoObject, InsBaseSearcherWindowData)
- protected
- // realized methods
+  protected
    function pm_GetContextKind: TnsBaseSearchKind;
    function pm_GetAvailableClasses: InsBaseSearchClasses;
    function pm_GetClassesAnywayDisabled: Boolean;
@@ -68,25 +51,20 @@ type
    procedure pm_SetErrorWords(const aValue: IvcmStrings);
    procedure Subscribe(const aListener: InsBaseSearchWindowDataListener);
    procedure Unsubscribe(const aListener: InsBaseSearchWindowDataListener);
- public
- // realized methods
+  public
    procedure RemovePresentation(const aPresentation: InsBaseSearchPresentation);
    function ValidateBaseSearchForm(const aForm: IvcmEntityForm): Boolean;
-     {* Проверяет, что форма БП "той системы", т.е. встроена в то же главное окно, что и сам Searcher }
+    {* Проверяет, что форма БП "той системы", т.е. встроена в то же главное окно, что и сам Searcher }
  end;//TnsBaseSearcherWindowData
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsBaseSearchWindowDataListenerList
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsBaseSearcherWindowData
+ l3ImplUses
+ , nsBaseSearchWindowDataListenerList
+;
 
 function TnsBaseSearcherWindowData.pm_GetContextKind: TnsBaseSearchKind;
 //#UC START# *496B62BF00A7_5628BBF40355get_var*
@@ -333,6 +311,7 @@ begin
 end;//TnsBaseSearcherWindowData.pm_GetActiveClassForSaveState
 
 function TnsBaseSearcherWindowData.ValidateBaseSearchForm(const aForm: IvcmEntityForm): Boolean;
+ {* Проверяет, что форма БП "той системы", т.е. встроена в то же главное окно, что и сам Searcher }
 //#UC START# *4F1EA8A202D8_5628BBF40355_var*
 //#UC END# *4F1EA8A202D8_5628BBF40355_var*
 begin
@@ -406,7 +385,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *562F5D6503B6_5628BBF40355_impl*
 end;//TnsBaseSearcherWindowData.Unsubscribe
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

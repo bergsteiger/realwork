@@ -26,8 +26,6 @@ type
    f_BatchMode: Integer;
    f_WasDialog: Integer;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure PushAnswer(aValue: Integer);
    function CheckWasDialog: Boolean;
    procedure SignalWasDialog;
@@ -38,6 +36,8 @@ type
    procedure LeaveBatchMode;
    class function Instance: TafwBatchService;
     {* Метод получения экземпляра синглетона TafwBatchService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwBatchService
 
  TafwAnswers = class(Tl3ProtoIntegerList)
@@ -45,10 +45,10 @@ type
    class function GetAnswer: Integer;
    class procedure SetAnswer(anAnswer: Integer);
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TafwAnswers;
     {* Метод получения экземпляра синглетона TafwAnswers }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TafwAnswers
 
  EkwWaitBracketsBalance = class(Exception)
@@ -82,12 +82,6 @@ procedure TafwAnswersFree;
 begin
  l3Free(g_TafwAnswers);
 end;//TafwAnswersFree
-
-class function TafwBatchService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TafwBatchService <> nil;
-end;//TafwBatchService.Exists
 
 procedure TafwBatchService.PushAnswer(aValue: Integer);
 //#UC START# *194C97B8A2DF_5507FE0A0095_var*
@@ -177,6 +171,12 @@ begin
  Result := g_TafwBatchService;
 end;//TafwBatchService.Instance
 
+class function TafwBatchService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TafwBatchService <> nil;
+end;//TafwBatchService.Exists
+
 class function TafwAnswers.GetAnswer: Integer;
 //#UC START# *4E0321910152_553E013F0125_var*
 //#UC END# *4E0321910152_553E013F0125_var*
@@ -211,12 +211,6 @@ begin
 //#UC END# *4E0312C70245_553E013F0125_impl*
 end;//TafwAnswers.SetAnswer
 
-class function TafwAnswers.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TafwAnswers <> nil;
-end;//TafwAnswers.Exists
-
 class function TafwAnswers.Instance: TafwAnswers;
  {* Метод получения экземпляра синглетона TafwAnswers }
 begin
@@ -227,6 +221,12 @@ begin
  end;
  Result := g_TafwAnswers;
 end;//TafwAnswers.Instance
+
+class function TafwAnswers.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TafwAnswers <> nil;
+end;//TafwAnswers.Exists
 
 initialization
  Tl3BatchService.Instance.Alien := TafwBatchService.Instance;

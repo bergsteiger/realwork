@@ -1,49 +1,32 @@
 unit NOT_FINISHED_nsBaseSearcher;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Search$Lib"
-// Модуль: "w:/garant6x/implementation/Garant/GbaNemesis/Search/NOT_FINISHED_nsBaseSearcher.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> F1 Оболочка Без Прецедентов::F1 Without Usecases::Search$Lib::BaseSearch::TnsBaseSearcher
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\garant6x\implementation\Garant\GbaNemesis\Search\NOT_FINISHED_nsBaseSearcher.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\garant6x\implementation\Garant\nsDefine.inc}
 
 interface
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  DataAdapterInterfaces,
-  BaseSearchInterfaces,
-  PrimBaseSearchInterfaces,
-  ContextHistoryInterfaces,
-  l3Interfaces
-  {$If not defined(NoVCM)}
-  ,
-  vcmExternalInterfaces
-  {$IfEnd} //not NoVCM
-  
-  {$If not defined(NoVCM)}
-  ,
-  vcmInterfaces
-  {$IfEnd} //not NoVCM
-  ,
-  l3TreeInterfaces
-  ;
-{$IfEnd} //not Admin AND not Monitorings
+ l3IntfUses
+ , BaseSearchInterfaces
+ , PrimBaseSearchInterfaces
+ , ContextHistoryInterfaces
+ , DataAdapterInterfaces
+ , l3Interfaces
+ , l3TreeInterfaces
+ {$If NOT Defined(NoVCM)}
+ , vcmExternalInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmInterfaces
+ {$IfEnd} // NOT Defined(NoVCM)
+;
 
-{$If not defined(Admin) AND not defined(Monitorings)}
 type
- TnsBaseSearcher = class(, InsBaseSearchContextProvider, InsBaseSearchResultProcessor, InsBaseSearchDataReadyChecker, InsMistakesCorrector, InsBaseSearchQueryDataProcessor, InsContextSearchHistoryNotifier, InsBaseSearcher, InsBaseSearcherWindowData, InsDataAdapterListener)
- protected
- // realized methods
+ TnsBaseSearcher = class(InsBaseSearchContextProvider, InsBaseSearchResultProcessor, InsBaseSearchDataReadyChecker, InsMistakesCorrector, InsBaseSearchQueryDataProcessor, InsContextSearchHistoryNotifier, InsBaseSearcher, InsBaseSearcherWindowData, InsDataAdapterListener)
+  protected
    procedure RepairMistakes;
    function pm_GetContext: Il3CString;
    procedure CheckLocalDataReady;
@@ -70,7 +53,7 @@ type
    procedure pm_SetArea(aValue: TnsSearchArea);
    function pm_GetExampleText: Il3CString;
    procedure Updated;
-     {* данные адаптера были обновлен }
+    {* данные адаптера были обновлен }
    function pm_GetFindBackSupported: Boolean;
    function pm_GetFindBackEnabled: Boolean;
    function pm_GetFragmentsCountSuffix: Il3CString;
@@ -81,53 +64,45 @@ type
    procedure StoreActiveClass;
    procedure AnotherSearchCancelled;
    procedure DropActiveClass;
-     {* http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258 }
+    {* http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258 }
    function pm_GetActiveClassForSaveState: InsBaseSearchClass;
-   function MakeState: InsBaseSearcherInitialState;
-   procedure AssignState(const aState: InsBaseSearcherInitialState);
+   function MakeState: InsBaseSearcherInitialState; overload;
+   procedure AssignState(const aState: InsBaseSearcherInitialState); overload;
    procedure ForceUpdateClassForHistory;
    function MakeStateParams(aStateElements: TnsBaseSearchStateElements;
-     aForClone: Boolean): InsBaseSearcherInitialState;
+    aForClone: Boolean): InsBaseSearcherInitialState;
    procedure ContainerIsClosing;
    procedure Find;
-     {* Сигнатура метода Find }
    procedure FindBack;
-     {* Сигнатура метода FindBack }
    procedure ApplyCurrentExample;
-     {* Сигнатура метода ApplyCurrentExample }
    function pm_GetWindowData: InsBaseSearcherWindowData;
    function pm_GetSearchWindow: InsSearchWindow;
    procedure pm_SetSearchWindow(const aValue: InsSearchWindow);
    function pm_GetPromptTree: Il3SimpleTree;
-   function MakeState: InsBaseSearcherWindowDataState;
-   procedure AssignState(const aState: InsBaseSearcherWindowDataState);
+   function MakeState: InsBaseSearcherWindowDataState; overload;
+   procedure AssignState(const aState: InsBaseSearcherWindowDataState); overload;
    function pm_GetErrorWords: IvcmStrings;
    procedure pm_SetErrorWords(const aValue: IvcmStrings);
    procedure Subscribe(const aListener: InsBaseSearchWindowDataListener);
    procedure Unsubscribe(const aListener: InsBaseSearchWindowDataListener);
- public
- // realized methods
+  public
    procedure RemovePresentation(const aPresentation: InsBaseSearchPresentation);
    function ValidateBaseSearchForm(const aForm: IvcmEntityForm): Boolean;
-     {* Проверяет, что форма БП "той системы", т.е. встроена в то же главное окно, что и сам Searcher }
+    {* Проверяет, что форма БП "той системы", т.е. встроена в то же главное окно, что и сам Searcher }
  end;//TnsBaseSearcher
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 implementation
 
-{$If not defined(Admin) AND not defined(Monitorings)}
+{$If NOT Defined(Admin) AND NOT Defined(Monitorings)}
 uses
-  nsFiltersContainer,
-  Common_FormDefinitions_Controls,
-  nsBaseSearchClasses,
-  nsBaseSearchServiceImpl,
-  nsBaseSearcherWindowData
-  ;
-{$IfEnd} //not Admin AND not Monitorings
-
-{$If not defined(Admin) AND not defined(Monitorings)}
-
-// start class TnsBaseSearcher
+ l3ImplUses
+ , nsFiltersContainer
+ , Common_FormDefinitions_Controls
+ , nsBaseSearchClasses
+ , nsBaseSearchServiceImpl
+ , nsBaseSearcherWindowData
+;
 
 procedure TnsBaseSearcher.RepairMistakes;
 //#UC START# *49513746034D_4AC226030181_var*
@@ -184,7 +159,7 @@ begin
 end;//TnsBaseSearcher.AnotherSearchSuccessed
 
 procedure TnsBaseSearcher.Correct(const aCorrectedContext: Il3StringsEx;
-  const aMistakesList: Il3StringsEx);
+ const aMistakesList: Il3StringsEx);
 //#UC START# *496B513C0168_4AC226030181_var*
 //#UC END# *496B513C0168_4AC226030181_var*
 begin
@@ -347,6 +322,7 @@ begin
 end;//TnsBaseSearcher.pm_GetExampleText
 
 procedure TnsBaseSearcher.Updated;
+ {* данные адаптера были обновлен }
 //#UC START# *4991C3CD0077_4AC226030181_var*
 //#UC END# *4991C3CD0077_4AC226030181_var*
 begin
@@ -446,6 +422,7 @@ begin
 end;//TnsBaseSearcher.AnotherSearchCancelled
 
 procedure TnsBaseSearcher.DropActiveClass;
+ {* http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296624258#comment-296624258 }
 //#UC START# *4EB7BE980010_4AC226030181_var*
 //#UC END# *4EB7BE980010_4AC226030181_var*
 begin
@@ -464,6 +441,7 @@ begin
 end;//TnsBaseSearcher.pm_GetActiveClassForSaveState
 
 function TnsBaseSearcher.ValidateBaseSearchForm(const aForm: IvcmEntityForm): Boolean;
+ {* Проверяет, что форма БП "той системы", т.е. встроена в то же главное окно, что и сам Searcher }
 //#UC START# *4F1EA8A202D8_4AC226030181_var*
 //#UC END# *4F1EA8A202D8_4AC226030181_var*
 begin
@@ -500,7 +478,7 @@ begin
 end;//TnsBaseSearcher.ForceUpdateClassForHistory
 
 function TnsBaseSearcher.MakeStateParams(aStateElements: TnsBaseSearchStateElements;
-  aForClone: Boolean): InsBaseSearcherInitialState;
+ aForClone: Boolean): InsBaseSearcherInitialState;
 //#UC START# *54EC1B5C00E4_4AC226030181_var*
 //#UC END# *54EC1B5C00E4_4AC226030181_var*
 begin
@@ -634,7 +612,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *562F5D6503B6_4AC226030181_impl*
 end;//TnsBaseSearcher.Unsubscribe
-
-{$IfEnd} //not Admin AND not Monitorings
+{$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

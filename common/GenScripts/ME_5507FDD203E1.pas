@@ -22,8 +22,6 @@ type
  {$IfEnd} // NOT Defined(NoScripts)
  )
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    {$If NOT Defined(NoScripts)}
    procedure EnterScript;
    {$IfEnd} // NOT Defined(NoScripts)
@@ -32,6 +30,8 @@ type
    {$IfEnd} // NOT Defined(NoScripts)
    class function Instance: Tl3BatchScriptService;
     {* Метод получения экземпляра синглетона Tl3BatchScriptService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//Tl3BatchScriptService
 
  (*
@@ -69,8 +69,6 @@ type
    procedure pm_SetAlien(const aValue: Il3BatchService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure PushAnswer(aValue: Integer);
    function CheckWasDialog: Boolean;
    procedure SignalWasDialog;
@@ -83,6 +81,8 @@ type
    procedure LeaveBatchMode;
    class function Instance: Tl3BatchService;
     {* Метод получения экземпляра синглетона Tl3BatchService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3BatchService
     write pm_SetAlien;
@@ -120,12 +120,6 @@ begin
  l3Free(g_Tl3BatchService);
 end;//Tl3BatchServiceFree
 
-class function Tl3BatchScriptService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3BatchScriptService <> nil;
-end;//Tl3BatchScriptService.Exists
-
 {$If NOT Defined(NoScripts)}
 procedure Tl3BatchScriptService.EnterScript;
 //#UC START# *97F121633B1B_5509AAAC0313_var*
@@ -159,17 +153,17 @@ begin
  Result := g_Tl3BatchScriptService;
 end;//Tl3BatchScriptService.Instance
 
+class function Tl3BatchScriptService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3BatchScriptService <> nil;
+end;//Tl3BatchScriptService.Exists
+
 procedure Tl3BatchService.pm_SetAlien(const aValue: Il3BatchService);
 begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3BatchService.pm_SetAlien
-
-class function Tl3BatchService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3BatchService <> nil;
-end;//Tl3BatchService.Exists
 
 procedure Tl3BatchService.PushAnswer(aValue: Integer);
 //#UC START# *194C97B8A2DF_5507FDD203E1_var*
@@ -289,6 +283,12 @@ begin
  end;
  Result := g_Tl3BatchService;
 end;//Tl3BatchService.Instance
+
+class function Tl3BatchService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3BatchService <> nil;
+end;//Tl3BatchService.Exists
 
 procedure Tl3BatchService.ClearFields;
 begin

@@ -41,12 +41,12 @@ type
    procedure pm_SetAlien(const aValue: Il3IterateComponentParents);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
     aComponent: TComponent);
    class function Instance: Tl3IterateComponentParents;
     {* Метод получения экземпляра синглетона Tl3IterateComponentParents }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3IterateComponentParents
     write pm_SetAlien;
@@ -87,12 +87,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3IterateComponentParents.pm_SetAlien
-
-class function Tl3IterateComponentParents.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3IterateComponentParents <> nil;
-end;//Tl3IterateComponentParents.Exists
 
 procedure Tl3IterateComponentParents.IterateF(anAction: Ml3IterateComponentParents_IterateF_Action;
  aComponent: TComponent);
@@ -135,6 +129,12 @@ begin
  end;
  Result := g_Tl3IterateComponentParents;
 end;//Tl3IterateComponentParents.Instance
+
+class function Tl3IterateComponentParents.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3IterateComponentParents <> nil;
+end;//Tl3IterateComponentParents.Exists
 
 procedure Tl3IterateComponentParents.ClearFields;
 begin

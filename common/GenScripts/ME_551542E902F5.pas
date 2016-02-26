@@ -49,8 +49,6 @@ type
    procedure pm_SetAlien(const aValue: Il3HugeMessageDlgWithWikiHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure Say(const aText: AnsiString;
     aClickCallback: Tl3WikiLinkClicked);
    function FormatCloak(const aCaption: AnsiString;
@@ -60,6 +58,8 @@ type
    function CanUseWiki: Boolean;
    class function Instance: Tl3HugeMessageDlgWithWikiHelper;
     {* Метод получения экземпляра синглетона Tl3HugeMessageDlgWithWikiHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3HugeMessageDlgWithWikiHelper
     write pm_SetAlien;
@@ -94,12 +94,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3HugeMessageDlgWithWikiHelper.pm_SetAlien
-
-class function Tl3HugeMessageDlgWithWikiHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3HugeMessageDlgWithWikiHelper <> nil;
-end;//Tl3HugeMessageDlgWithWikiHelper.Exists
 
 procedure Tl3HugeMessageDlgWithWikiHelper.Say(const aText: AnsiString;
  aClickCallback: Tl3WikiLinkClicked);
@@ -211,6 +205,12 @@ begin
  end;
  Result := g_Tl3HugeMessageDlgWithWikiHelper;
 end;//Tl3HugeMessageDlgWithWikiHelper.Instance
+
+class function Tl3HugeMessageDlgWithWikiHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3HugeMessageDlgWithWikiHelper <> nil;
+end;//Tl3HugeMessageDlgWithWikiHelper.Exists
 
 procedure Tl3HugeMessageDlgWithWikiHelper.ClearFields;
 begin

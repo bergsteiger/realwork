@@ -44,14 +44,14 @@ type
    procedure pm_SetAlien(const aValue: Il3GetComponentFromPointHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure GetComponent(const aPoint: TPoint;
     out aComponent: TComponent;
     out aBindedControl: TControl);
     {* aBindedControl - если найденный компонент - контрол, то равен этому контролу, если нет, то его родитель }
    class function Instance: Tl3GetComponentFromPointHelper;
     {* Метод получения экземпляра синглетона Tl3GetComponentFromPointHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3GetComponentFromPointHelper
     write pm_SetAlien;
@@ -82,12 +82,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3GetComponentFromPointHelper.pm_SetAlien
-
-class function Tl3GetComponentFromPointHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3GetComponentFromPointHelper <> nil;
-end;//Tl3GetComponentFromPointHelper.Exists
 
 procedure Tl3GetComponentFromPointHelper.GetComponent(const aPoint: TPoint;
  out aComponent: TComponent;
@@ -122,6 +116,12 @@ begin
  end;
  Result := g_Tl3GetComponentFromPointHelper;
 end;//Tl3GetComponentFromPointHelper.Instance
+
+class function Tl3GetComponentFromPointHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3GetComponentFromPointHelper <> nil;
+end;//Tl3GetComponentFromPointHelper.Exists
 
 procedure Tl3GetComponentFromPointHelper.ClearFields;
 begin

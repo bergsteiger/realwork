@@ -214,8 +214,6 @@ type
    procedure pm_SetAlien(const aValue: Il3TabbedContainersDispatcher);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetTabIcon(const aTab: Il3FormTab): Integer;
    function IsInBF(aContainedForm: TForm): Boolean;
    function GetTabCaption(const aTab: Il3FormTab): AnsiString;
@@ -248,6 +246,8 @@ type
    procedure CloseAll;
    class function Instance: Tl3TabbedContainersDispatcher;
     {* Метод получения экземпляра синглетона Tl3TabbedContainersDispatcher }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3TabbedContainersDispatcher
     write pm_SetAlien;
@@ -276,12 +276,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3TabbedContainersDispatcher.pm_SetAlien
-
-class function Tl3TabbedContainersDispatcher.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3TabbedContainersDispatcher <> nil;
-end;//Tl3TabbedContainersDispatcher.Exists
 
 function Tl3TabbedContainersDispatcher.GetTabIcon(const aTab: Il3FormTab): Integer;
 //#UC START# *02157F96E465_553213D902E0_var*
@@ -556,6 +550,12 @@ begin
  end;
  Result := g_Tl3TabbedContainersDispatcher;
 end;//Tl3TabbedContainersDispatcher.Instance
+
+class function Tl3TabbedContainersDispatcher.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3TabbedContainersDispatcher <> nil;
+end;//Tl3TabbedContainersDispatcher.Exists
 
 procedure Tl3TabbedContainersDispatcher.ClearFields;
 begin

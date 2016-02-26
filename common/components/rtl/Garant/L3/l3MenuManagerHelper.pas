@@ -36,12 +36,12 @@ type
    procedure pm_SetAlien(const aValue: Il3MenuManagerHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function CreateManager: Boolean;
    procedure FreeManager;
    class function Instance: Tl3MenuManagerHelper;
     {* Метод получения экземпляра синглетона Tl3MenuManagerHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3MenuManagerHelper
     write pm_SetAlien;
@@ -70,12 +70,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3MenuManagerHelper.pm_SetAlien
-
-class function Tl3MenuManagerHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3MenuManagerHelper <> nil;
-end;//Tl3MenuManagerHelper.Exists
 
 function Tl3MenuManagerHelper.CreateManager: Boolean;
 //#UC START# *9CBAC5378D28_550199070251_var*
@@ -109,6 +103,12 @@ begin
  end;
  Result := g_Tl3MenuManagerHelper;
 end;//Tl3MenuManagerHelper.Instance
+
+class function Tl3MenuManagerHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3MenuManagerHelper <> nil;
+end;//Tl3MenuManagerHelper.Exists
 
 procedure Tl3MenuManagerHelper.ClearFields;
 begin

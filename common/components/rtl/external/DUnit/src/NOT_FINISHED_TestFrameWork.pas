@@ -1,53 +1,34 @@
 unit NOT_FINISHED_TestFrameWork;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "DUnit"
-// Модуль: "w:/common/components/rtl/external/DUnit/src/NOT_FINISHED_TestFrameWork.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> Shared Delphi Testing Framework::DUnit::Source::TestFrameWork
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\common\components\rtl\external\DUnit\src\NOT_FINISHED_TestFrameWork.pas"
+// Стереотип: "UtilityPack"
 
 interface
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  SysUtils
-  ;
+ l3IntfUses
+ , SysUtils
+;
 
 type
  TTestResult = class(TObject)
- private
- // private fields
-   FStop : Boolean;
- public
- // public methods
+  private
+   FStop: Boolean;
+  public
    function ShouldStop: Boolean;
  end;//TTestResult
 
- ITest = interface(IUnknown)
-   ['{3BA74AE0-1DCB-48A8-B8E4-410AAAD2FE44}']
-   function HasScriptChildren: Boolean;
-   procedure RunTest(aTestResult: TTestResult);
-   function GetSubFolder: AnsiString;
-   procedure ClearEtalons;
+ ITest = interface
+  ['{3BA74AE0-1DCB-48A8-B8E4-410AAAD2FE44}']
+  function HasScriptChildren: Boolean;
+  procedure RunTest(aTestResult: TTestResult);
+  function GetSubFolder: AnsiString;
+  procedure ClearEtalons;
  end;//ITest
 
  TAbstractTest = class(TInterfacedObject, ITest)
- protected
- // realized methods
-   function HasScriptChildren: Boolean;
-   procedure RunTest(aTestResult: TTestResult);
-   function GetSubFolder: AnsiString;
-   procedure ClearEtalons;
- protected
- // protected methods
+  protected
    function DoGetSubFolder: AnsiString; virtual; abstract;
    procedure DoClearEtalon; virtual; abstract;
    procedure Cleanup; virtual;
@@ -55,100 +36,96 @@ type
    function GetEnabled: Boolean; virtual;
    procedure SetEnabled(Value: Boolean); virtual;
    function GetFolder: AnsiString; virtual;
-     {* Папка в которую входит тест }
+    {* Папка в которую входит тест }
    function GetModelElementGUID: AnsiString; virtual;
-     {* Идентификатор элемента модели, который описывает тест }
+    {* Идентификатор элемента модели, который описывает тест }
    function DoHasScriptChildren: Boolean; virtual;
    procedure DoRunTest(aTestResult: TTestResult); virtual; abstract;
- public
- // public methods
+   function HasScriptChildren: Boolean;
+   procedure RunTest(aTestResult: TTestResult);
+   function GetSubFolder: AnsiString;
+   procedure ClearEtalons;
+  public
    function NotForTerminalSession: Boolean; virtual;
-     {* Не запускать тест в терминальной сессии }
+    {* Не запускать тест в терминальной сессии }
  end;//TAbstractTest
 
- ITestSuite = interface(IUnknown)
-   ['{1524FACE-9F51-4D1D-99F8-6CB79114530A}']
-   procedure AddTest(const aTest: ITest);
-   procedure ReReadAbstractTests;
+ ITestSuite = interface
+  ['{1524FACE-9F51-4D1D-99F8-6CB79114530A}']
+  procedure AddTest(const aTest: ITest);
+  procedure ReReadAbstractTests;
  end;//ITestSuite
 
  TTestFailure = class
  end;//TTestFailure
 
  TTestCase = class(TAbstractTest)
- private
- // private fields
-   f_TestResult : TTestResult;
-   f_DataSubFolder : AnsiString;
-    {* Поле для свойства DataSubFolder}
- protected
- // realized methods
+  private
+   f_TestResult: TTestResult;
+   f_DataSubFolder: AnsiString;
+    {* Поле для свойства DataSubFolder }
+  protected
+   function ShouldStop: Boolean;
+   function FolderMode: Boolean;
+    {* Тест для файлов из папки. }
+   class function IsScript: Boolean; virtual;
+    {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
    procedure DoRunTest(aTestResult: TTestResult); override;
    function DoGetSubFolder: AnsiString; override;
    procedure DoClearEtalon; override;
- protected
- // protected methods
-   function ShouldStop: Boolean;
-   function FolderMode: Boolean;
-     {* Тест для файлов из папки. }
-   class function IsScript: Boolean; virtual;
-     {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
- public
- // public methods
+  public
    class function Suite: ITestSuite; virtual;
    constructor Create(const aMethodName: AnsiString;
     const aFolder: AnsiString); reintroduce; virtual;
- public
- // public properties
+  public
    property DataSubFolder: AnsiString
-     read f_DataSubFolder;
-     {* Папка с данными тестов для режима работы с файлами из папки. }
+    read f_DataSubFolder;
+    {* Папка с данными тестов для режима работы с файлами из папки. }
  end;//TTestCase
 
  TTestCaseClass = TTestCase;
 
  TTestSuite = class(TAbstractTest, ITestSuite)
- private
- // private fields
-   f_Suffix : AnsiString;
- protected
- // realized methods
+  private
+   f_Suffix: AnsiString;
+  protected
+   procedure DoReReadAbstractTests; virtual;
+   procedure DoAddTest(const aTest: ITest); virtual;
    procedure AddTest(const aTest: ITest);
    procedure DoRunTest(aTestResult: TTestResult); override;
    function DoGetSubFolder: AnsiString; override;
    procedure ReReadAbstractTests;
    procedure DoClearEtalon; override;
- protected
- // protected methods
-   procedure DoReReadAbstractTests; virtual;
-     {* Сигнатура метода DoReReadAbstractTests }
-   procedure DoAddTest(const aTest: ITest); virtual;
- public
- // public methods
+  public
    procedure AddTests(aTestClass: TTestCaseClass); virtual;
  end;//TTestSuite
 
- TTestMethod = procedure  of object;
+ TTestMethod = procedure of object;
 
  ETestFailure = class(EAbort)
  end;//ETestFailure
+
 procedure RegisterTest;
-   {* Сигнатура метода RegisterTest }
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 implementation
 
-{$If defined(nsTest)}
+{$If Defined(nsTest)}
 uses
-  Classes
-  {$If defined(nsTest) AND not defined(NoScripts) AND not defined(NoVCL)}
-  ,
-  ITestWordsPack
-  {$IfEnd} //nsTest AND not NoScripts AND not NoVCL
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ITestWordsPack
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+;
 
-// start class TTestResult
+procedure RegisterTest;
+//#UC START# *4EA66E6C038E_4B2A0DCE03A9_var*
+//#UC END# *4EA66E6C038E_4B2A0DCE03A9_var*
+begin
+//#UC START# *4EA66E6C038E_4B2A0DCE03A9_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *4EA66E6C038E_4B2A0DCE03A9_impl*
+end;//RegisterTest
 
 function TTestResult.ShouldStop: Boolean;
 //#UC START# *4DDE1A9201A4_4B2F4252038D_var*
@@ -158,7 +135,6 @@ begin
  Result := FStop;
 //#UC END# *4DDE1A9201A4_4B2F4252038D_impl*
 end;//TTestResult.ShouldStop
-// start class TAbstractTest
 
 procedure TAbstractTest.Cleanup;
 //#UC START# *4B2F40FD0088_4B2F40E70101_var*
@@ -197,6 +173,7 @@ begin
 end;//TAbstractTest.SetEnabled
 
 function TAbstractTest.GetFolder: AnsiString;
+ {* Папка в которую входит тест }
 //#UC START# *4C937013031D_4B2F40E70101_var*
 //#UC END# *4C937013031D_4B2F40E70101_var*
 begin
@@ -206,6 +183,7 @@ begin
 end;//TAbstractTest.GetFolder
 
 function TAbstractTest.NotForTerminalSession: Boolean;
+ {* Не запускать тест в терминальной сессии }
 //#UC START# *4C988C1B0246_4B2F40E70101_var*
 //#UC END# *4C988C1B0246_4B2F40E70101_var*
 begin
@@ -215,6 +193,7 @@ begin
 end;//TAbstractTest.NotForTerminalSession
 
 function TAbstractTest.GetModelElementGUID: AnsiString;
+ {* Идентификатор элемента модели, который описывает тест }
 //#UC START# *4DAED6F60146_4B2F40E70101_var*
 //#UC END# *4DAED6F60146_4B2F40E70101_var*
 begin
@@ -267,7 +246,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *51B1DD5F0080_4B2F40E70101_impl*
 end;//TAbstractTest.ClearEtalons
-// start class TTestCase
 
 function TTestCase.ShouldStop: Boolean;
 //#UC START# *4DDE2A3D0314_4B2A0DDE028B_var*
@@ -288,6 +266,7 @@ begin
 end;//TTestCase.Suite
 
 function TTestCase.FolderMode: Boolean;
+ {* Тест для файлов из папки. }
 //#UC START# *4EA6790E0142_4B2A0DDE028B_var*
 //#UC END# *4EA6790E0142_4B2A0DDE028B_var*
 begin
@@ -297,6 +276,7 @@ begin
 end;//TTestCase.FolderMode
 
 class function TTestCase.IsScript: Boolean;
+ {* Хак для конструктора - из-за хитрой иерархии и кучи конструкторов в TTestSuite. }
 //#UC START# *4DC395670274_4B2A0DDE028B_var*
 //#UC END# *4DC395670274_4B2A0DDE028B_var*
 begin
@@ -306,7 +286,7 @@ begin
 end;//TTestCase.IsScript
 
 constructor TTestCase.Create(const aMethodName: AnsiString;
-  const aFolder: AnsiString);
+ const aFolder: AnsiString);
 //#UC START# *4DC399CA00BC_4B2A0DDE028B_var*
 //#UC END# *4DC399CA00BC_4B2A0DDE028B_var*
 begin
@@ -377,7 +357,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *51B1DD8E0018_4B2A0DDE028B_impl*
 end;//TTestCase.DoClearEtalon
-// start class TTestSuite
 
 procedure TTestSuite.DoReReadAbstractTests;
 //#UC START# *5040A3CE0118_4DC24566022C_var*
@@ -483,15 +462,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *51B1DD8E0018_4DC24566022C_impl*
 end;//TTestSuite.DoClearEtalon
-
-procedure RegisterTest;
-//#UC START# *4EA66E6C038E_4B2A0DCE03A9_var*
-//#UC END# *4EA66E6C038E_4B2A0DCE03A9_var*
-begin
-//#UC START# *4EA66E6C038E_4B2A0DCE03A9_impl*
- !!! Needs to be implemented !!!
-//#UC END# *4EA66E6C038E_4B2A0DCE03A9_impl*
-end;//RegisterTest
-{$IfEnd} //nsTest
+{$IfEnd} // Defined(nsTest)
 
 end.

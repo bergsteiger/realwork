@@ -41,12 +41,12 @@ type
    procedure pm_SetAlien(const aValue: Il3ModalService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function HasModalWorker: Boolean;
    function ExecuteCurrentModalWorker(aModalExecute: TseModalExecute = se_meUsual): Boolean;
    class function Instance: Tl3ModalService;
     {* Метод получения экземпляра синглетона Tl3ModalService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3ModalService
     write pm_SetAlien;
@@ -75,12 +75,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3ModalService.pm_SetAlien
-
-class function Tl3ModalService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ModalService <> nil;
-end;//Tl3ModalService.Exists
 
 function Tl3ModalService.HasModalWorker: Boolean;
 //#UC START# *553F7345032E_553F71BE03E0_var*
@@ -116,6 +110,12 @@ begin
  end;
  Result := g_Tl3ModalService;
 end;//Tl3ModalService.Instance
+
+class function Tl3ModalService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ModalService <> nil;
+end;//Tl3ModalService.Exists
 
 procedure Tl3ModalService.ClearFields;
 begin

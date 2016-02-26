@@ -34,11 +34,11 @@ type
    procedure pm_SetAlien(const aValue: Il3TabService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function HasTabs: Boolean;
    class function Instance: Tl3TabService;
     {* Метод получения экземпляра синглетона Tl3TabService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3TabService
     write pm_SetAlien;
@@ -68,12 +68,6 @@ begin
  f_Alien := aValue;
 end;//Tl3TabService.pm_SetAlien
 
-class function Tl3TabService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3TabService <> nil;
-end;//Tl3TabService.Exists
-
 function Tl3TabService.HasTabs: Boolean;
 //#UC START# *A8AF111E1F35_550AE937003B_var*
 //#UC END# *A8AF111E1F35_550AE937003B_var*
@@ -96,6 +90,12 @@ begin
  end;
  Result := g_Tl3TabService;
 end;//Tl3TabService.Instance
+
+class function Tl3TabService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3TabService <> nil;
+end;//Tl3TabService.Exists
 
 procedure Tl3TabService.ClearFields;
 begin

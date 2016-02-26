@@ -34,11 +34,11 @@ type
    procedure pm_SetAlien(const aValue: Il3KeyboardLayoutService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure TryActivateKeyboardLayout;
    class function Instance: Tl3KeyboardLayoutService;
     {* Метод получения экземпляра синглетона Tl3KeyboardLayoutService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3KeyboardLayoutService
     write pm_SetAlien;
@@ -68,12 +68,6 @@ begin
  f_Alien := aValue;
 end;//Tl3KeyboardLayoutService.pm_SetAlien
 
-class function Tl3KeyboardLayoutService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3KeyboardLayoutService <> nil;
-end;//Tl3KeyboardLayoutService.Exists
-
 procedure Tl3KeyboardLayoutService.TryActivateKeyboardLayout;
 //#UC START# *747558CBA739_55099A8303E1_var*
 //#UC END# *747558CBA739_55099A8303E1_var*
@@ -94,6 +88,12 @@ begin
  end;
  Result := g_Tl3KeyboardLayoutService;
 end;//Tl3KeyboardLayoutService.Instance
+
+class function Tl3KeyboardLayoutService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3KeyboardLayoutService <> nil;
+end;//Tl3KeyboardLayoutService.Exists
 
 procedure Tl3KeyboardLayoutService.ClearFields;
 begin

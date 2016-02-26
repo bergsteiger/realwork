@@ -48,8 +48,6 @@ type
    procedure pm_SetAlien(const aValue: Il3PopupMenuHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetPopupMenu(aControl: TComponent;
     const aPoint: TPoint): TMenuItem;
    procedure GetPopupMenuForComponentInfo(aControl: TComponent;
@@ -57,6 +55,8 @@ type
     aCallback: Tl3PopupMenuHelperCallback);
    class function Instance: Tl3PopupMenuHelper;
     {* Метод получения экземпляра синглетона Tl3PopupMenuHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3PopupMenuHelper
     write pm_SetAlien;
@@ -93,12 +93,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3PopupMenuHelper.pm_SetAlien
-
-class function Tl3PopupMenuHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3PopupMenuHelper <> nil;
-end;//Tl3PopupMenuHelper.Exists
 
 function Tl3PopupMenuHelper.GetPopupMenu(aControl: TComponent;
  const aPoint: TPoint): TMenuItem;
@@ -150,6 +144,12 @@ begin
  end;
  Result := g_Tl3PopupMenuHelper;
 end;//Tl3PopupMenuHelper.Instance
+
+class function Tl3PopupMenuHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3PopupMenuHelper <> nil;
+end;//Tl3PopupMenuHelper.Exists
 
 procedure Tl3PopupMenuHelper.ClearFields;
 begin

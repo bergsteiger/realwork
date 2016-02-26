@@ -34,11 +34,11 @@ type
    procedure pm_SetAlien(const aValue: Il3DocumentsCacheService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    procedure Clear;
    class function Instance: Tl3DocumentsCacheService;
     {* Метод получения экземпляра синглетона Tl3DocumentsCacheService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3DocumentsCacheService
     write pm_SetAlien;
@@ -68,12 +68,6 @@ begin
  f_Alien := aValue;
 end;//Tl3DocumentsCacheService.pm_SetAlien
 
-class function Tl3DocumentsCacheService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3DocumentsCacheService <> nil;
-end;//Tl3DocumentsCacheService.Exists
-
 procedure Tl3DocumentsCacheService.Clear;
 //#UC START# *0AC8DEBDD602_5506FEA6012A_var*
 //#UC END# *0AC8DEBDD602_5506FEA6012A_var*
@@ -94,6 +88,12 @@ begin
  end;
  Result := g_Tl3DocumentsCacheService;
 end;//Tl3DocumentsCacheService.Instance
+
+class function Tl3DocumentsCacheService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3DocumentsCacheService <> nil;
+end;//Tl3DocumentsCacheService.Exists
 
 procedure Tl3DocumentsCacheService.ClearFields;
 begin

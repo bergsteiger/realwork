@@ -42,10 +42,10 @@ type
    procedure pm_SetAlien(const aValue: Il3EtalonsService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: Tl3EtalonsService;
     {* Метод получения экземпляра синглетона Tl3EtalonsService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property EtalonNeedsComputerName: Boolean
     read f_EtalonNeedsComputerName
@@ -89,12 +89,6 @@ begin
  f_Alien := aValue;
 end;//Tl3EtalonsService.pm_SetAlien
 
-class function Tl3EtalonsService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3EtalonsService <> nil;
-end;//Tl3EtalonsService.Exists
-
 class function Tl3EtalonsService.Instance: Tl3EtalonsService;
  {* Метод получения экземпляра синглетона Tl3EtalonsService }
 begin
@@ -105,6 +99,12 @@ begin
  end;
  Result := g_Tl3EtalonsService;
 end;//Tl3EtalonsService.Instance
+
+class function Tl3EtalonsService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3EtalonsService <> nil;
+end;//Tl3EtalonsService.Exists
 
 procedure Tl3EtalonsService.ClearFields;
 begin

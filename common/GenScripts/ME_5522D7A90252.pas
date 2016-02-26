@@ -37,11 +37,11 @@ type
    procedure pm_SetAlien(const aValue: Il3GetComponentBoundsHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetBounds(aComponent: TComponent): TRect;
    class function Instance: Tl3GetComponentBoundsHelper;
     {* Метод получения экземпляра синглетона Tl3GetComponentBoundsHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3GetComponentBoundsHelper
     write pm_SetAlien;
@@ -73,12 +73,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3GetComponentBoundsHelper.pm_SetAlien
-
-class function Tl3GetComponentBoundsHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3GetComponentBoundsHelper <> nil;
-end;//Tl3GetComponentBoundsHelper.Exists
 
 function Tl3GetComponentBoundsHelper.GetBounds(aComponent: TComponent): TRect;
 //#UC START# *BB0BB5CAA29B_5522D7A90252_var*
@@ -113,6 +107,12 @@ begin
  end;
  Result := g_Tl3GetComponentBoundsHelper;
 end;//Tl3GetComponentBoundsHelper.Instance
+
+class function Tl3GetComponentBoundsHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3GetComponentBoundsHelper <> nil;
+end;//Tl3GetComponentBoundsHelper.Exists
 
 procedure Tl3GetComponentBoundsHelper.ClearFields;
 begin

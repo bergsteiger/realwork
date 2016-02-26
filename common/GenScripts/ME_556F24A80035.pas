@@ -59,11 +59,11 @@ type
    procedure pm_SetAlien(const aValue: Il3ControlFontService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetFont(aControl: TControl): Il3FontInfo;
    class function Instance: Tl3ControlFontService;
     {* Метод получения экземпляра синглетона Tl3ControlFontService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3ControlFontService
     write pm_SetAlien;
@@ -227,12 +227,6 @@ begin
  f_Alien := aValue;
 end;//Tl3ControlFontService.pm_SetAlien
 
-class function Tl3ControlFontService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3ControlFontService <> nil;
-end;//Tl3ControlFontService.Exists
-
 function Tl3ControlFontService.GetFont(aControl: TControl): Il3FontInfo;
 //#UC START# *B31F486B3A13_556F24A80035_var*
 //#UC END# *B31F486B3A13_556F24A80035_var*
@@ -256,6 +250,12 @@ begin
  end;
  Result := g_Tl3ControlFontService;
 end;//Tl3ControlFontService.Instance
+
+class function Tl3ControlFontService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3ControlFontService <> nil;
+end;//Tl3ControlFontService.Exists
 
 procedure Tl3ControlFontService.ClearFields;
 begin

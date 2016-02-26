@@ -16,10 +16,10 @@ uses
 type
  TseModalWorkerList = class(TseModalWorkerListPrim)
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TseModalWorkerList;
     {* Метод получения экземпляра синглетона TseModalWorkerList }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
  end;//TseModalWorkerList
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -41,12 +41,6 @@ begin
  l3Free(g_TseModalWorkerList);
 end;//TseModalWorkerListFree
 
-class function TseModalWorkerList.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_TseModalWorkerList <> nil;
-end;//TseModalWorkerList.Exists
-
 class function TseModalWorkerList.Instance: TseModalWorkerList;
  {* Метод получения экземпляра синглетона TseModalWorkerList }
 begin
@@ -57,6 +51,12 @@ begin
  end;
  Result := g_TseModalWorkerList;
 end;//TseModalWorkerList.Instance
+
+class function TseModalWorkerList.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TseModalWorkerList <> nil;
+end;//TseModalWorkerList.Exists
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

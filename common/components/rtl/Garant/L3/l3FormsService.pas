@@ -45,14 +45,14 @@ type
    procedure pm_SetAlien(const aValue: Il3FormsService);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetAnotherParentForm(Component: TPersistent): TCustomForm;
    function GetMainForm(Component: TPersistent): TCustomForm;
    function GetParentForm(Component: TPersistent): TCustomForm;
    function GetTopParentForm(Component: TPersistent): TCustomForm;
    class function Instance: Tl3FormsService;
     {* Метод получения экземпляра синглетона Tl3FormsService }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3FormsService
     write pm_SetAlien;
@@ -83,12 +83,6 @@ begin
  Assert((f_Alien = nil) OR (aValue = nil));
  f_Alien := aValue;
 end;//Tl3FormsService.pm_SetAlien
-
-class function Tl3FormsService.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3FormsService <> nil;
-end;//Tl3FormsService.Exists
 
 function Tl3FormsService.GetAnotherParentForm(Component: TPersistent): TCustomForm;
 //#UC START# *1077E9580F6F_5506D56601D6_var*
@@ -160,6 +154,12 @@ begin
  end;
  Result := g_Tl3FormsService;
 end;//Tl3FormsService.Instance
+
+class function Tl3FormsService.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3FormsService <> nil;
+end;//Tl3FormsService.Exists
 
 procedure Tl3FormsService.ClearFields;
 begin

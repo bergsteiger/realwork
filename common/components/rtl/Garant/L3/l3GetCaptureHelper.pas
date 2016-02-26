@@ -36,11 +36,11 @@ type
    procedure pm_SetAlien(const aValue: Il3GetCaptureHelper);
    procedure ClearFields; override;
   public
-   class function Exists: Boolean;
-    {* Проверяет создан экземпляр синглетона или нет }
    function GetCapture: TComponent;
    class function Instance: Tl3GetCaptureHelper;
     {* Метод получения экземпляра синглетона Tl3GetCaptureHelper }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
   public
    property Alien: Il3GetCaptureHelper
     write pm_SetAlien;
@@ -73,12 +73,6 @@ begin
  f_Alien := aValue;
 end;//Tl3GetCaptureHelper.pm_SetAlien
 
-class function Tl3GetCaptureHelper.Exists: Boolean;
- {* Проверяет создан экземпляр синглетона или нет }
-begin
- Result := g_Tl3GetCaptureHelper <> nil;
-end;//Tl3GetCaptureHelper.Exists
-
 function Tl3GetCaptureHelper.GetCapture: TComponent;
 //#UC START# *FC96CEF34C46_55226C5F035A_var*
 //#UC END# *FC96CEF34C46_55226C5F035A_var*
@@ -101,6 +95,12 @@ begin
  end;
  Result := g_Tl3GetCaptureHelper;
 end;//Tl3GetCaptureHelper.Instance
+
+class function Tl3GetCaptureHelper.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_Tl3GetCaptureHelper <> nil;
+end;//Tl3GetCaptureHelper.Exists
 
 procedure Tl3GetCaptureHelper.ClearFields;
 begin
