@@ -1,57 +1,43 @@
 unit NOT_FINISHED_VMailWin;
+ {* Почтовое окно. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dlg"
-// Модуль: "w:/archi/source/projects/Archi/Dlg/NOT_FINISHED_VMailWin.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi::Dlg::ChildWindow::VMailWin
-//
-// Почтовое окно.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_VMailWin.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  vtForm
-  ;
+ l3IntfUses
+ , vtForm
+;
 
 type
  TViewMailWin = class(TvtForm)
   {* Почтовое окно. }
- public
- // public methods
+  public
    procedure SetMessage(Value: LongInt;
-     Mode: Byte = 0);
-     {* 0 - This, 1 - Prev, 2 - Next }
+    Mode: Byte = 0);
+    {* 0 - This, 1 - Prev, 2 - Next }
  end;//TViewMailWin
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  evExtFormat
-  {$If not defined(NoScripts)}
-  ,
-  tfwClassRef
-  {$IfEnd} //not NoScripts
-  
-  ;
-
-// start class TViewMailWin
+ l3ImplUses
+ , evExtFormat
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 procedure TViewMailWin.SetMessage(Value: LongInt;
-  Mode: Byte = 0);
+ Mode: Byte = 0);
+ {* 0 - This, 1 - Prev, 2 - Next }
 //#UC START# *4F0C225A02DD_4F0C222F0080_var*
 //#UC END# *4F0C225A02DD_4F0C222F0080_var*
 begin
@@ -59,12 +45,12 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4F0C225A02DD_4F0C222F0080_impl*
 end;//TViewMailWin.SetMessage
-{$IfEnd} //AppClientSide
 
 initialization
-{$If defined(AppClientSide) AND not defined(NoScripts)}
-// Регистрация TViewMailWin
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TViewMailWin);
-{$IfEnd} //AppClientSide AND not NoScripts
+ {* Регистрация TViewMailWin }
+{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // Defined(AppClientSide)
 
 end.

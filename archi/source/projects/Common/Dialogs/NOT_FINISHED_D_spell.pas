@@ -1,57 +1,53 @@
 unit NOT_FINISHED_D_spell;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dialogs"
-// Модуль: "w:/archi/source/projects/Common/Dialogs/NOT_FINISHED_D_spell.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$common::Dialogs::CommonDialogs::D_spell
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Common\Dialogs\NOT_FINISHED_D_spell.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
 
+uses
+ l3IntfUses
+;
+
 type
  TSpellCheckDlg = class
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TSpellCheckDlg;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TSpellCheckDlg }
  end;//TSpellCheckDlg
 
 implementation
 
 uses
-  l3Base {a}
-  {$If not defined(NoScripts)}
-  ,
-  TSpellCheckDlgWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TSpellCheckDlgWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ , l3Base
+;
 
-
-// start class TSpellCheckDlg
-
-var g_TSpellCheckDlg : TSpellCheckDlg = nil;
+var g_TSpellCheckDlg: TSpellCheckDlg = nil;
+ {* Экземпляр синглетона TSpellCheckDlg }
 
 procedure TSpellCheckDlgFree;
+ {* Метод освобождения экземпляра синглетона TSpellCheckDlg }
 begin
  l3Free(g_TSpellCheckDlg);
-end;
+end;//TSpellCheckDlgFree
+
+class function TSpellCheckDlg.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TSpellCheckDlg <> nil;
+end;//TSpellCheckDlg.Exists
 
 class function TSpellCheckDlg.Instance: TSpellCheckDlg;
+ {* Метод получения экземпляра синглетона TSpellCheckDlg }
 begin
  if (g_TSpellCheckDlg = nil) then
  begin
@@ -59,13 +55,6 @@ begin
   g_TSpellCheckDlg := Create;
  end;
  Result := g_TSpellCheckDlg;
-end;
-
-
-class function TSpellCheckDlg.Exists: Boolean;
- {-}
-begin
- Result := g_TSpellCheckDlg <> nil;
-end;//TSpellCheckDlg.Exists
+end;//TSpellCheckDlg.Instance
 
 end.

@@ -1,35 +1,29 @@
 unit NOT_FINISHED_arHAFPainer;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/NOT_FINISHED_arHAFPainer.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Editor::Printing::TarHAFPainer
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arHAFPainer.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  evHAFPainterEx
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , evHAFPainterEx
+;
 
-{$If defined(AppClientSide)}
 type
  TarHAFPainer = class(TevHAFPainterEx)
  end;//TarHAFPainer
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
+
+{$If Defined(AppClientSide)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(AppClientSide)
 
 end.

@@ -1,35 +1,29 @@
 unit NOT_FINISHED_SrchWin;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dlg"
-// Модуль: "w:/archi/source/projects/Archi/Dlg/NOT_FINISHED_SrchWin.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi::Dlg::ChildWindow::SrchWin
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_SrchWin.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
+uses
+ l3IntfUses
+;
+
 type
  TSearchWin = class
  end;//TSearchWin
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  F_DocList
-  ;
+ l3ImplUses
+ , F_DocList
+;
+{$IfEnd} // Defined(AppClientSide)
 
-{$IfEnd} //AppClientSide
 end.

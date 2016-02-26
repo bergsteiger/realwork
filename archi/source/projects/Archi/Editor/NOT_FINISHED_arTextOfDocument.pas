@@ -1,52 +1,35 @@
 unit NOT_FINISHED_arTextOfDocument;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/NOT_FINISHED_arTextOfDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Editor::DocIntf::TarTextOfDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocument.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  evTextSource,
-  nevTools
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , evTextSource
+ , nevTools
+;
 
-{$If defined(AppClientSide)}
 type
- TarTextOfDocument = class(TevTextSource)
- protected
- // overridden protected methods
-   function DoMakeDocumentContainer: InevDocumentContainer; override;
- end;//TarTextOfDocument
  RarTextOfDocument = TarTextOfDocument;
 
-{$IfEnd} //AppClientSide
+ TarTextOfDocument = class(TevTextSource)
+  protected
+   function DoMakeDocumentContainer: InevDocumentContainer; override;
+ end;//TarTextOfDocument
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  arDocumentContainer
-  ;
-{$IfEnd} //AppClientSide
-
-{$If defined(AppClientSide)}
-
-// start class TarTextOfDocument
+ l3ImplUses
+ , arDocumentContainer
+;
 
 function TarTextOfDocument.DoMakeDocumentContainer: InevDocumentContainer;
 //#UC START# *482D9A030221_4E0072E100DB_var*
@@ -56,7 +39,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *482D9A030221_4E0072E100DB_impl*
 end;//TarTextOfDocument.DoMakeDocumentContainer
-
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

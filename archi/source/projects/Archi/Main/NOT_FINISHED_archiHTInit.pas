@@ -1,34 +1,27 @@
 unit NOT_FINISHED_archiHTInit;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Main"
-// Модуль: "w:/archi/source/projects/Archi/Main/NOT_FINISHED_archiHTInit.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi::Main::Utils::archiHTInit
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_archiHTInit.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
+uses
+ l3IntfUses
+;
+
 procedure InitArchiBaseEngine;
-   {* Сигнатура метода InitArchiBaseEngine }
 procedure DoneBaseEngine;
-   {* Сигнатура метода DoneBaseEngine }
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
-// unit methods
+{$If Defined(AppClientSide)}
+uses
+ l3ImplUses
+;
 
 procedure InitArchiBaseEngine;
 //#UC START# *5272013F001A_5272012D0254_var*
@@ -47,6 +40,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *5272014F03E1_5272012D0254_impl*
 end;//DoneBaseEngine
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

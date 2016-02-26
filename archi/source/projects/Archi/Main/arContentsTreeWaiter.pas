@@ -1,63 +1,44 @@
 unit arContentsTreeWaiter;
+ {* Ожидальщик окончания загрузки документа для подключения дерева. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Main"
-// Модуль: "w:/archi/source/projects/Archi/Main/arContentsTreeWaiter.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Main::MainWindows::TarContentsTreeWaiter
-//
-// Ожидальщик окончания загрузки документа для подключения дерева.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Main\arContentsTreeWaiter.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  nevTools,
-  l3Tool,
-  l3Variant
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , l3Tool
+ , nevTools
+ , l3Variant
+;
 
-{$If defined(AppClientSide)}
 type
  TarContentsTreeWaiter = class(Tl3Tool, InevWaiter)
   {* Ожидальщик окончания загрузки документа для подключения дерева. }
- protected
- // realized methods
+  protected
    function TrySelect(const aContainer: InevDocumentContainer): Boolean;
    function TrySelectObj(const aContainer: InevDocumentContainer;
-     aParent: Tl3Variant;
-     aChild: Tl3Variant): Boolean;
- public
- // public methods
+    aParent: Tl3Variant;
+    aChild: Tl3Variant): Boolean;
+  public
    class function Make(const aControl: InevControl): InevWaiter;
  end;//TarContentsTreeWaiter
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  Main,
-  Editwin,
-  l3Interfaces,
-  l3Base
-  ;
-{$IfEnd} //AppClientSide
-
-{$If defined(AppClientSide)}
-
-// start class TarContentsTreeWaiter
+ l3ImplUses
+ , Main
+ , Editwin
+ , l3Interfaces
+ , l3Base
+;
 
 class function TarContentsTreeWaiter.Make(const aControl: InevControl): InevWaiter;
 //#UC START# *4E008700020B_4E00671D02B5_var*
@@ -96,15 +77,14 @@ begin
 end;//TarContentsTreeWaiter.TrySelect
 
 function TarContentsTreeWaiter.TrySelectObj(const aContainer: InevDocumentContainer;
-  aParent: Tl3Variant;
-  aChild: Tl3Variant): Boolean;
+ aParent: Tl3Variant;
+ aChild: Tl3Variant): Boolean;
 //#UC START# *47C6B30F0277_4E00671D02B5_var*
 //#UC END# *47C6B30F0277_4E00671D02B5_var*
 begin
 //#UC START# *47C6B30F0277_4E00671D02B5_impl*
- //#UC END# *47C6B30F0277_4E00671D02B5_impl*
+//#UC END# *47C6B30F0277_4E00671D02B5_impl*
 end;//TarContentsTreeWaiter.TrySelectObj
-
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

@@ -1,111 +1,77 @@
 unit arEditorDebugInfo;
+ {* Класс для вывода информаци о состоянии редактора в лог. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Main"
-// Модуль: "w:/archi/source/projects/Archi/Main/arEditorDebugInfo.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Main::MainWindows::TarEditorDebugInfo
-//
-// Класс для вывода информаци о состоянии редактора в лог.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Полностью генерируется с модели. Править руками - нельзя. !
+// Модуль: "w:\archi\source\projects\Archi\Main\arEditorDebugInfo.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  l3Interfaces,
-  l3ProtoObject,
-  l3Core
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , l3ProtoObject
+ , l3Interfaces
+ , l3Core
+;
 
-{$If defined(AppClientSide)}
 type
  TarEditorDebugInfo = class(Tl3ProtoObject, Il3GetMessageListener)
   {* Класс для вывода информаци о состоянии редактора в лог. }
- protected
- // realized methods
+  protected
    procedure GetMessageListenerNotify(Code: Integer;
-     aWParam: WPARAM;
-     Msg: PMsg;
-     var theResult: Tl3HookProcResult);
- protected
- // overridden protected methods
+    aWParam: WPARAM;
+    Msg: PMsg;
+    var theResult: Tl3HookProcResult);
    procedure Cleanup; override;
-     {* Функция очистки полей объекта. }
+    {* Функция очистки полей объекта. }
    procedure InitFields; override;
- public
- // public methods
+  public
    class function Exists: Boolean;
-     {* Проверяет создан экземпляр синглетона или нет }
- public
- // singleton factory method
+    {* Проверяет создан экземпляр синглетона или нет }
    class function Instance: TarEditorDebugInfo;
-    {- возвращает экземпляр синглетона. }
+    {* Метод получения экземпляра синглетона TarEditorDebugInfo }
  end;//TarEditorDebugInfo
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  l3Base {a},
-  Main,
-  CustEditWin,
-  Windows,
-  Messages
-  {$If not defined(NoVCL)}
-  ,
-  Forms
-  {$IfEnd} //not NoVCL
-  ,
-  Classes,
-  l3ListenersManager
-  ;
-{$IfEnd} //AppClientSide
+ l3ImplUses
+ , Main
+ , CustEditWin
+ , Windows
+ , Messages
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Classes
+ , l3ListenersManager
+ , SysUtils
+ , l3Base
+;
 
-{$If defined(AppClientSide)}
-
-
-// start class TarEditorDebugInfo
-
-var g_TarEditorDebugInfo : TarEditorDebugInfo = nil;
+var g_TarEditorDebugInfo: TarEditorDebugInfo = nil;
+ {* Экземпляр синглетона TarEditorDebugInfo }
 
 procedure TarEditorDebugInfoFree;
+ {* Метод освобождения экземпляра синглетона TarEditorDebugInfo }
 begin
  l3Free(g_TarEditorDebugInfo);
-end;
-
-class function TarEditorDebugInfo.Instance: TarEditorDebugInfo;
-begin
- if (g_TarEditorDebugInfo = nil) then
- begin
-  l3System.AddExitProc(TarEditorDebugInfoFree);
-  g_TarEditorDebugInfo := Create;
- end;
- Result := g_TarEditorDebugInfo;
-end;
-
+end;//TarEditorDebugInfoFree
 
 class function TarEditorDebugInfo.Exists: Boolean;
- {-}
+ {* Проверяет создан экземпляр синглетона или нет }
 begin
  Result := g_TarEditorDebugInfo <> nil;
 end;//TarEditorDebugInfo.Exists
 
 procedure TarEditorDebugInfo.GetMessageListenerNotify(Code: Integer;
-  aWParam: WPARAM;
-  Msg: PMsg;
-  var theResult: Tl3HookProcResult);
+ aWParam: WPARAM;
+ Msg: PMsg;
+ var theResult: Tl3HookProcResult);
 //#UC START# *4F62032D0058_52A7FD0E002D_var*
 var
  l_Editor: TCustomEditorWindow;
@@ -121,7 +87,19 @@ begin
 //#UC END# *4F62032D0058_52A7FD0E002D_impl*
 end;//TarEditorDebugInfo.GetMessageListenerNotify
 
+class function TarEditorDebugInfo.Instance: TarEditorDebugInfo;
+ {* Метод получения экземпляра синглетона TarEditorDebugInfo }
+begin
+ if (g_TarEditorDebugInfo = nil) then
+ begin
+  l3System.AddExitProc(TarEditorDebugInfoFree);
+  g_TarEditorDebugInfo := Create;
+ end;
+ Result := g_TarEditorDebugInfo;
+end;//TarEditorDebugInfo.Instance
+
 procedure TarEditorDebugInfo.Cleanup;
+ {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_52A7FD0E002D_var*
 //#UC END# *479731C50290_52A7FD0E002D_var*
 begin
@@ -141,13 +119,10 @@ begin
 //#UC END# *47A042E100E2_52A7FD0E002D_impl*
 end;//TarEditorDebugInfo.InitFields
 
-{$IfEnd} //AppClientSide
-
 initialization
-{$If defined(AppClientSide)}
 //#UC START# *52A81A6E009E*
  TarEditorDebugInfo.Instance;
 //#UC END# *52A81A6E009E*
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

@@ -1,45 +1,34 @@
 unit NOT_FINISHED_F_ImageView;
+ {* Фрейм для просмотра многостраничных TIFF }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Frames"
-// Модуль: "w:/archi/source/projects/Archi/Frames/NOT_FINISHED_F_ImageView.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi::Frames::Frames::F_ImageView
-//
-// Фрейм для просмотра многостраничных TIFF
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Frames\NOT_FINISHED_F_ImageView.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  Classes
-  {$If not defined(NoImageEn)}
-  ,
-  imageenview
-  {$IfEnd} //not NoImageEn
-  
-  ;
+ l3IntfUses
+ {$If NOT Defined(NoImageEn)}
+ , imageenview
+ {$IfEnd} // NOT Defined(NoImageEn)
+;
 
 type
  TfrmImgViewer = class
- public
- // public fields
-   PageView : TImageEnView;
+  public
+   PageView: TImageEnView;
  end;//TfrmImgViewer
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
-{$IfEnd} //AppClientSide
+{$If Defined(AppClientSide)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(AppClientSide)
+
 end.

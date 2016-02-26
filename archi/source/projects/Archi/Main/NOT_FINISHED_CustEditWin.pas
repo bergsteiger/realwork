@@ -1,45 +1,33 @@
 unit NOT_FINISHED_CustEditWin;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Main"
-// Модуль: "w:/archi/source/projects/Archi/Main/NOT_FINISHED_CustEditWin.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi::Main::MainWindows::CustEditWin
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_CustEditWin.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  afwNavigation
-  ;
+ l3IntfUses
+ , afwNavigation
+;
 
 type
  TCustomEditorWindow = class
- protected
- // protected methods
+  protected
    function DocEditorJumpTo(const aMoniker: IevMoniker): Boolean;
  end;//TCustomEditorWindow
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  arHyperLinkProcessor,
-  D_spell
-  ;
-
-// start class TCustomEditorWindow
+ l3ImplUses
+ , D_spell
+ , arHyperLinkProcessor
+;
 
 function TCustomEditorWindow.DocEditorJumpTo(const aMoniker: IevMoniker): Boolean;
 //#UC START# *4E5C89E1034B_4E5C8996022B_var*
@@ -49,6 +37,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4E5C89E1034B_4E5C8996022B_impl*
 end;//TCustomEditorWindow.DocEditorJumpTo
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

@@ -1,93 +1,87 @@
 unit NOT_FINISHED_arArchiTestAdapter2;
+ {* Времянка для подключения модулей не на модели, т.к. даже при частичном переносе требуется их перемещение. А это мешает. }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Archi Insider Test Support"
-// Модуль: "w:/archi/source/projects/Archi/Archi_Insider_Test_Support/NOT_FINISHED_arArchiTestAdapter2.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$TestSupport::Archi Insider Test Support::Scripting::arArchiTestAdapter2
-//
-// Времянка для подключения модулей не на модели, т.к. даже при частичном переносе требуется их
-// перемещение. А это мешает.
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\NOT_FINISHED_arArchiTestAdapter2.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-procedure ArMakeChangeDoc;
-procedure ArInsertDocChanges;
-procedure ArIniRecSetZoom(aZoom: Integer);
-function ArIniRecGetZoom: Integer;
-procedure ArShowMailWindow(aIndex: Integer);
-procedure AcEndDragAndDrop;
-procedure AcSetExpiredStyle(anID: Integer);
-procedure AcCorrectRelatedText(const aFileName: AnsiString);
-procedure AcMakePreview;
-procedure AcSaveDocAs(const aFileName: AnsiString);
-procedure AcSaveTextAs(const aFileName: AnsiString);
-procedure ArClearTemplateStorage;
-procedure AcMainFormFormClose;
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+uses
+ l3IntfUses
+;
+
+procedure arMakeChangeDoc;
+procedure arInsertDocChanges;
+procedure arIniRecSetZoom(aZoom: Integer);
+function arIniRecGetZoom: Integer;
+procedure arShowMailWindow(aIndex: Integer);
+procedure acEndDragAndDrop;
+procedure acSetExpiredStyle(anID: Integer);
+procedure acCorrectRelatedText(const aFileName: AnsiString);
+procedure acMakePreview;
+procedure acSaveDocAs(const aFileName: AnsiString);
+procedure acSaveTextAs(const aFileName: AnsiString);
+procedure arClearTemplateStorage;
+procedure acMainFormFormClose;
+procedure acClearConfig;
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 implementation
 
-{$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-// unit methods
+{$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+uses
+ l3ImplUses
+;
 
-procedure ArMakeChangeDoc;
+procedure arMakeChangeDoc;
 //#UC START# *4E4B6340031F_4E4B5F29031C_var*
 //#UC END# *4E4B6340031F_4E4B5F29031C_var*
 begin
 //#UC START# *4E4B6340031F_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E4B6340031F_4E4B5F29031C_impl*
-end;//ArMakeChangeDoc
+end;//arMakeChangeDoc
 
-procedure ArInsertDocChanges;
+procedure arInsertDocChanges;
 //#UC START# *4E4B637A01C7_4E4B5F29031C_var*
 //#UC END# *4E4B637A01C7_4E4B5F29031C_var*
 begin
 //#UC START# *4E4B637A01C7_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E4B637A01C7_4E4B5F29031C_impl*
-end;//ArInsertDocChanges
+end;//arInsertDocChanges
 
-procedure ArIniRecSetZoom(aZoom: Integer);
+procedure arIniRecSetZoom(aZoom: Integer);
 //#UC START# *4E83092C0076_4E4B5F29031C_var*
 //#UC END# *4E83092C0076_4E4B5F29031C_var*
 begin
 //#UC START# *4E83092C0076_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E83092C0076_4E4B5F29031C_impl*
-end;//ArIniRecSetZoom
+end;//arIniRecSetZoom
 
-function ArIniRecGetZoom: Integer;
+function arIniRecGetZoom: Integer;
 //#UC START# *4E83095902EB_4E4B5F29031C_var*
 //#UC END# *4E83095902EB_4E4B5F29031C_var*
 begin
 //#UC START# *4E83095902EB_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E83095902EB_4E4B5F29031C_impl*
-end;//ArIniRecGetZoom
+end;//arIniRecGetZoom
 
-procedure ArShowMailWindow(aIndex: Integer);
+procedure arShowMailWindow(aIndex: Integer);
 //#UC START# *4F0C276F03DC_4E4B5F29031C_var*
 //#UC END# *4F0C276F03DC_4E4B5F29031C_var*
 begin
 //#UC START# *4F0C276F03DC_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4F0C276F03DC_4E4B5F29031C_impl*
-end;//ArShowMailWindow
+end;//arShowMailWindow
 
-procedure AcEndDragAndDrop;
+procedure acEndDragAndDrop;
 //#UC START# *4F0C37850322_4E4B5F29031C_var*
 var
  l_Message: TMessage;
@@ -106,70 +100,79 @@ begin
  end; // with (aControl as TCustomEditorWindow) do
 {$ENDIF InsiderTest}
 //#UC END# *4F0C37850322_4E4B5F29031C_impl*
-end;//AcEndDragAndDrop
+end;//acEndDragAndDrop
 
-procedure AcSetExpiredStyle(anID: Integer);
+procedure acSetExpiredStyle(anID: Integer);
 //#UC START# *4F22AE6C0165_4E4B5F29031C_var*
 //#UC END# *4F22AE6C0165_4E4B5F29031C_var*
 begin
 //#UC START# *4F22AE6C0165_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4F22AE6C0165_4E4B5F29031C_impl*
-end;//AcSetExpiredStyle
+end;//acSetExpiredStyle
 
-procedure AcCorrectRelatedText(const aFileName: AnsiString);
+procedure acCorrectRelatedText(const aFileName: AnsiString);
 //#UC START# *526E5BAA00E9_4E4B5F29031C_var*
 //#UC END# *526E5BAA00E9_4E4B5F29031C_var*
 begin
 //#UC START# *526E5BAA00E9_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *526E5BAA00E9_4E4B5F29031C_impl*
-end;//AcCorrectRelatedText
+end;//acCorrectRelatedText
 
-procedure AcMakePreview;
+procedure acMakePreview;
 //#UC START# *530B2FD003B4_4E4B5F29031C_var*
 //#UC END# *530B2FD003B4_4E4B5F29031C_var*
 begin
 //#UC START# *530B2FD003B4_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *530B2FD003B4_4E4B5F29031C_impl*
-end;//AcMakePreview
+end;//acMakePreview
 
-procedure AcSaveDocAs(const aFileName: AnsiString);
+procedure acSaveDocAs(const aFileName: AnsiString);
 //#UC START# *537075A70219_4E4B5F29031C_var*
 //#UC END# *537075A70219_4E4B5F29031C_var*
 begin
 //#UC START# *537075A70219_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *537075A70219_4E4B5F29031C_impl*
-end;//AcSaveDocAs
+end;//acSaveDocAs
 
-procedure AcSaveTextAs(const aFileName: AnsiString);
+procedure acSaveTextAs(const aFileName: AnsiString);
 //#UC START# *537D965101BA_4E4B5F29031C_var*
 //#UC END# *537D965101BA_4E4B5F29031C_var*
 begin
 //#UC START# *537D965101BA_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *537D965101BA_4E4B5F29031C_impl*
-end;//AcSaveTextAs
+end;//acSaveTextAs
 
-procedure ArClearTemplateStorage;
+procedure arClearTemplateStorage;
 //#UC START# *53B648700029_4E4B5F29031C_var*
 //#UC END# *53B648700029_4E4B5F29031C_var*
 begin
 //#UC START# *53B648700029_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *53B648700029_4E4B5F29031C_impl*
-end;//ArClearTemplateStorage
+end;//arClearTemplateStorage
 
-procedure AcMainFormFormClose;
+procedure acMainFormFormClose;
 //#UC START# *53EB4DC6007B_4E4B5F29031C_var*
 //#UC END# *53EB4DC6007B_4E4B5F29031C_var*
 begin
 //#UC START# *53EB4DC6007B_4E4B5F29031C_impl*
  !!! Needs to be implemented !!!
 //#UC END# *53EB4DC6007B_4E4B5F29031C_impl*
-end;//AcMainFormFormClose
-{$IfEnd} //InsiderTest AND nsTest AND not NoScripts
+end;//acMainFormFormClose
+
+procedure acClearConfig;
+//#UC START# *56A09EF601E1_4E4B5F29031C_var*
+//#UC END# *56A09EF601E1_4E4B5F29031C_var*
+begin
+//#UC START# *56A09EF601E1_4E4B5F29031C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *56A09EF601E1_4E4B5F29031C_impl*
+end;//acClearConfig
+{$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
 
 end.

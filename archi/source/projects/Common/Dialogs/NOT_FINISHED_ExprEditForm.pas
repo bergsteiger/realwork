@@ -1,22 +1,15 @@
 unit NOT_FINISHED_ExprEditForm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dialogs"
-// Модуль: "w:/archi/source/projects/Common/Dialogs/NOT_FINISHED_ExprEditForm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi$common::Dialogs::CommonDialogs::ExprEditForm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Common\Dialogs\NOT_FINISHED_ExprEditForm.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Common\arCommon.inc}
 
 interface
+
+uses
+ l3IntfUses
+;
 
 type
  TExprEditor = class
@@ -25,12 +18,10 @@ type
 implementation
 
 uses
-  Classes
-  {$If not defined(NoScripts)}
-  ,
-  TExprEditorWordsPack
-  {$IfEnd} //not NoScripts
-  
-  ;
+ l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TExprEditorWordsPack
+ {$IfEnd} // NOT Defined(NoScripts)
+;
 
 end.

@@ -1,41 +1,21 @@
 unit NOT_FINISHED_Editwin;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Main"
-// Модуль: "w:/archi/source/projects/Archi/Main/NOT_FINISHED_Editwin.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi::Main::MainWindows::Editwin
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_Editwin.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  dt_Types,
-  F_ImageView
-  ;
-
-type
- TDocEditorWindow = class
- private
- // private fields
-   f_PicImageViewer : TfrmImgViewer;
- public
- // public methods
-   procedure SubNameEdit(aSubID: TSubID);
- end;//TDocEditorWindow
+ l3IntfUses
+ , F_ImageView
+ , dt_Types
+;
 
 const
-  { Номера вкладок }
+ {* Номера вкладок }
  piName = 0;
  piAttr = 1;
  piText = 2;
@@ -50,26 +30,31 @@ const
  piVersion = 11;
  piJourn = 12;
  piMax = piJourn;
-{$IfEnd} //AppClientSide
+
+type
+ TDocEditorWindow = class
+  private
+   f_PicImageViewer: TfrmImgViewer;
+  public
+   procedure SubNameEdit(aSubID: TSubID);
+ end;//TDocEditorWindow
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  InsDWin,
-  arConst,
-  evCommonUtils,
-  evTableConverter
-  {$If defined(InsiderTest) AND defined(nsTest) AND not defined(NoScripts)}
-  ,
-  archiDocEditorWindowWordsPack
-  {$IfEnd} //InsiderTest AND nsTest AND not NoScripts
-  ,
-  arEditorDebugInfo,
-  CustEditWin
-  ;
-
-// start class TDocEditorWindow
+ l3ImplUses
+ , arEditorDebugInfo
+ , CustEditWin
+ , InsDWin
+ , arConst
+ , evCommonUtils
+ , evTableConverter
+ {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ , archiDocEditorWindowWordsPack
+ {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)
+;
 
 procedure TDocEditorWindow.SubNameEdit(aSubID: TSubID);
 //#UC START# *4DFB4B4003B5_4DFB4B01001D_var*
@@ -79,6 +64,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4DFB4B4003B5_4DFB4B01001D_impl*
 end;//TDocEditorWindow.SubNameEdit
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 end.

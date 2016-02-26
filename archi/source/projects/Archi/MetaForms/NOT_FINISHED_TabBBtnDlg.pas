@@ -1,35 +1,29 @@
 unit NOT_FINISHED_TabBBtnDlg;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "MetaForms"
-// Модуль: "w:/archi/source/projects/Archi/MetaForms/NOT_FINISHED_TabBBtnDlg.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::MetaForms::BaseForms::TTabBBtnDlg
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\MetaForms\NOT_FINISHED_TabBBtnDlg.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  BtnDlg
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , BtnDlg
+;
 
-{$If defined(AppClientSide)}
 type
  TTabBBtnDlg = class(TBtnDlg)
  end;//TTabBBtnDlg
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
+
+{$If Defined(AppClientSide)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(AppClientSide)
 
 end.

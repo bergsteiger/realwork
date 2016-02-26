@@ -1,45 +1,30 @@
 unit NOT_FINISHED_arTextOfDocumentWithContentsTree;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/NOT_FINISHED_arTextOfDocumentWithContentsTree.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Editor::DocIntf::TarTextOfDocumentWithContentsTree
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocumentWithContentsTree.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  arTextOfDocument
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , arTextOfDocument
+;
 
-{$If defined(AppClientSide)}
 type
  TarTextOfDocumentWithContentsTree = class(TarTextOfDocument)
  end;//TarTextOfDocumentWithContentsTree
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  arDocumentContainerWithContentsTree
-  ;
-{$IfEnd} //AppClientSide
+ l3ImplUses
+ , arDocumentContainerWithContentsTree
+;
+{$IfEnd} // Defined(AppClientSide)
 
-{$If defined(AppClientSide)}
-
-
-{$IfEnd} //AppClientSide
 end.

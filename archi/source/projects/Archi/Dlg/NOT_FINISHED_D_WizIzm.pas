@@ -1,35 +1,29 @@
 unit NOT_FINISHED_D_WizIzm;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Dlg"
-// Модуль: "w:/archi/source/projects/Archi/Dlg/NOT_FINISHED_D_WizIzm.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi::Dlg::Wizards::D_WizIzm
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Dlg\NOT_FINISHED_D_WizIzm.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  TabBBtnDlg
-  ;
+ l3IntfUses
+ , TabBBtnDlg
+;
 
 type
  TIzmWizardDlg = class(TTabBBtnDlg)
  end;//TIzmWizardDlg
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
-{$IfEnd} //AppClientSide
+{$If Defined(AppClientSide)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(AppClientSide)
+
 end.

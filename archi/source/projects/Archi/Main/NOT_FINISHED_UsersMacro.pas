@@ -1,63 +1,59 @@
 unit NOT_FINISHED_UsersMacro;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Main"
-// Модуль: "w:/archi/source/projects/Archi/Main/NOT_FINISHED_UsersMacro.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<UtilityPack::Class>> archi::Main::Utils::UsersMacro
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Main\NOT_FINISHED_UsersMacro.pas"
+// Стереотип: "UtilityPack"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
-procedure MacrosMakeChangeDoc;
-   {* полнотекстовая редакция }
-procedure MacrosInsertDocChanges;
-   {* Сигнатура метода Macros_InsertDocChanges }
-procedure MacrosReplaceFutureEditionToCurrent;
-   {* замена текущей редакции на будущую }
-{$IfEnd} //AppClientSide
+{$If Defined(AppClientSide)}
+uses
+ l3IntfUses
+;
+
+procedure Macros_MakeChangeDoc;
+ {* полнотекстовая редакция }
+procedure Macros_InsertDocChanges;
+procedure Macros_ReplaceFutureEditionToCurrent;
+ {* замена текущей редакции на будущую }
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
 
-{$If defined(AppClientSide)}
-// unit methods
+{$If Defined(AppClientSide)}
+uses
+ l3ImplUses
+;
 
-procedure MacrosMakeChangeDoc;
+procedure Macros_MakeChangeDoc;
+ {* полнотекстовая редакция }
 //#UC START# *4E4B60FC0037_4E4B60A30391_var*
 //#UC END# *4E4B60FC0037_4E4B60A30391_var*
 begin
 //#UC START# *4E4B60FC0037_4E4B60A30391_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E4B60FC0037_4E4B60A30391_impl*
-end;//MacrosMakeChangeDoc
+end;//Macros_MakeChangeDoc
 
-procedure MacrosInsertDocChanges;
+procedure Macros_InsertDocChanges;
 //#UC START# *4E4B61100328_4E4B60A30391_var*
 //#UC END# *4E4B61100328_4E4B60A30391_var*
 begin
 //#UC START# *4E4B61100328_4E4B60A30391_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E4B61100328_4E4B60A30391_impl*
-end;//MacrosInsertDocChanges
+end;//Macros_InsertDocChanges
 
-procedure MacrosReplaceFutureEditionToCurrent;
+procedure Macros_ReplaceFutureEditionToCurrent;
+ {* замена текущей редакции на будущую }
 //#UC START# *4E4B612A0321_4E4B60A30391_var*
 //#UC END# *4E4B612A0321_4E4B60A30391_var*
 begin
 //#UC START# *4E4B612A0321_4E4B60A30391_impl*
  !!! Needs to be implemented !!!
 //#UC END# *4E4B612A0321_4E4B60A30391_impl*
-end;//MacrosReplaceFutureEditionToCurrent
-{$IfEnd} //AppClientSide
+end;//Macros_ReplaceFutureEditionToCurrent
+{$IfEnd} // Defined(AppClientSide)
 
 end.

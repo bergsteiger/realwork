@@ -1,35 +1,29 @@
 unit NOT_FINISHED_arTextOfAnnoDocument;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-// Библиотека "Editor"
-// Модуль: "w:/archi/source/projects/Archi/Editor/NOT_FINISHED_arTextOfAnnoDocument.pas"
-// Родные Delphi интерфейсы (.pas)
-// Generated from UML model, root element: <<SimpleClass::Class>> archi::Editor::DocIntf::TarTextOfAnnoDocument
-//
-//
-// Все права принадлежат ООО НПП "Гарант-Сервис".
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// ! Этот файл используется только для моделирования, а не для компиляции. !
+// Модуль: "w:\archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfAnnoDocument.pas"
+// Стереотип: "SimpleClass"
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
 interface
 
-{$If defined(AppClientSide)}
+{$If Defined(AppClientSide)}
 uses
-  arTextOfDocument
-  ;
-{$IfEnd} //AppClientSide
+ l3IntfUses
+ , arTextOfDocument
+;
 
-{$If defined(AppClientSide)}
 type
  TarTextOfAnnoDocument = class(TarTextOfDocument)
  end;//TarTextOfAnnoDocument
-{$IfEnd} //AppClientSide
+{$IfEnd} // Defined(AppClientSide)
 
 implementation
+
+{$If Defined(AppClientSide)}
+uses
+ l3ImplUses
+;
+{$IfEnd} // Defined(AppClientSide)
 
 end.
